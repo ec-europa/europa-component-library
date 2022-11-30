@@ -21,8 +21,6 @@ $_help-text-font: null !default;
 $_invalid-border-color: null !default;
 $_invalid-border-color-hover: null !default;
 $_label-color: null !default;
-$_outline-width: null !default;
-$_outline-color: null !default;
 
 .ecl-radio {
   align-items: flex-start;
@@ -92,7 +90,7 @@ $_outline-color: null !default;
 .ecl-radio__input:focus-visible + .ecl-radio__label,
 .ecl-radio__input:active + .ecl-radio__label {
   .ecl-radio__box {
-    outline: 2px solid map.get(theme.$color, 'blue');
+    outline: 2px solid map.get(theme.$color, 'blue-100');
     outline-offset: 2px;
   }
 }
@@ -105,7 +103,7 @@ $_outline-color: null !default;
   }
 
   .ecl-radio__box-inner {
-    background: map.get(theme.$color, 'blue-80');
+    background: map.get(theme.$color, 'blue-100');
     border-radius: 50%;
     box-sizing: border-box;
     display: $_box-inner-display;
@@ -128,13 +126,24 @@ $_outline-color: null !default;
   border-color: $_invalid-border-color;
 }
 
-.ecl-radio__label:hover .ecl-radio__box--invalid {
-  border-color: $_invalid-border-color-hover;
-}
-
+// stylelint-disable no-descending-specificity
 .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
   border-color: $_invalid-border-color;
+
+  .ecl-radio__box-inner {
+    background-color: $_invalid-border-color;
+  }
 }
+
+.ecl-radio__label:hover .ecl-radio__box--invalid,
+.ecl-radio__input:checked + .ecl-radio__label:hover .ecl-radio__box--invalid {
+  border-color: $_invalid-border-color-hover;
+
+  .ecl-radio__box-inner {
+    background-color: $_invalid-border-color-hover;
+  }
+}
+// stylelint-enable no-descending-specificity
 
 // Binary radio
 .ecl-radio--binary {

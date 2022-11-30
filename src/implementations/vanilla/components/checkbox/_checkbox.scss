@@ -18,16 +18,12 @@ $_box-border-color-disabled: map.get(theme.$color, 'grey-50');
 $_box-border-color-checked: map.get(theme.$color, 'blue-100');
 $_box-border-color-hover: null !default;
 $_box-border-color-checked-hover: null !default;
-$_box-outline-color-focus: null !default;
 $_help-text-color: null !default;
 $_help-text-font: null !default;
 $_invalid-border-color: null !default;
 $_invalid-border-color-hover: null !default;
 $_label-color: null !default;
 $_label-color-disabled: map.get(theme.$color, 'grey-50');
-$_outline_checked_size: null !default;
-$_outline-offset: null !default;
-$_outline-checked-offset: null !default;
 
 .ecl-checkbox {
   align-items: flex-start;
@@ -163,16 +159,16 @@ $_outline-checked-offset: null !default;
 .ecl-checkbox__input:focus-visible {
   + .ecl-checkbox__label {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-      outline: 2px solid $_box-outline-color-focus;
-      outline-offset: $_outline-offset;
+      outline: 2px solid map.get(theme.$color, 'blue-100');
+      outline-offset: 2px;
     }
   }
 
   &:checked {
     + .ecl-checkbox__label {
       .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-        outline: $_outline_checked_size solid $_box-outline-color-focus;
-        outline-offset: $_outline-checked-offset;
+        outline: 2px solid map.get(theme.$color, 'blue-100');
+        outline-offset: 2px;
       }
     }
   }
