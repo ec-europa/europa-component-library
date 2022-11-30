@@ -170,7 +170,7 @@ export const getFormControls = (data, type) => {
   argTypes.disabled = {
     name: 'disabled',
     type: 'boolean',
-    description: `Disabled form ${type}`,
+    description: `Disabled (read only) form ${type}`,
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },

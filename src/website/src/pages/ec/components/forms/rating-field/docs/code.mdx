@@ -9,6 +9,7 @@ import {
   ratingFieldGroupInvalid,
   ratingFieldGroupRequired,
   ratingFieldGroupOptional,
+  ratingFieldGroupDisabled,
 } from '../demo';
 
 ## Default rating field
@@ -17,7 +18,6 @@ import {
   system="ec"
   selectedKind="components-forms-rating-field"
   selectedStory="default"
-  showFrame
 >
   <Html markup={ratingFieldGroupDefault} />
 </Playground>
@@ -29,7 +29,6 @@ import {
   selectedKind="components-forms-rating-field"
   selectedStory="default"
   selectedArgs="invalid:true"
-  showFrame
 >
   <Html markup={ratingFieldGroupInvalid} />
 </Playground>
@@ -41,7 +40,17 @@ import {
   selectedKind="components-forms-rating-field"
   selectedStory="default"
   selectedArgs="required:false"
-  showFrame
 >
   <Html markup={ratingFieldGroupOptional} />
+</Playground>
+
+## Read only rating-field
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-rating-field"
+  selectedStory="default"
+  selectedArgs="disabled:true"
+>
+  <Html markup={ratingFieldGroupDisabled} />
 </Playground>
