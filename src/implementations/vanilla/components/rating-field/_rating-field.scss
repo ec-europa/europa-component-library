@@ -11,9 +11,10 @@
 
 .ecl-rating-field {
   display: inline-flex;
-  flex-direction: row-reverse;
 
-  .ecl-rating-field__input:checked
+  // flex-direction: row-reverse;
+
+  /* .ecl-rating-field__input:checked
     ~ .ecl-rating-field__label
     .ecl-rating-field__icon-filled,
   &:not(.ecl-rating-field--disabled)
@@ -37,9 +38,65 @@
     ~ .ecl-rating-field__label
     .ecl-rating-field__icon-outline {
     display: none;
+  } */
+}
+
+@mixin display-filled {
+  .ecl-rating-field__icon-filled {
+    display: inline-block;
+  }
+
+  .ecl-rating-field__icon-outline {
+    display: none;
   }
 }
 
+@mixin display-outline {
+  .ecl-rating-field__icon-filled {
+    display: none;
+  }
+
+  .ecl-rating-field__icon-outline {
+    display: inline-block;
+  }
+}
+
+// Default icon display
+.ecl-rating-field__icon-filled {
+  display: inline-block;
+  fill: map.get(theme.$color, 'yellow-100');
+}
+
+.ecl-rating-field__icon-outline {
+  display: none;
+  fill: map.get(theme.$color, 'grey-75');
+}
+
+// Highlight checked star, and all previous ones
+.ecl-rating-field .ecl-rating-field__input:checked ~ .ecl-rating-field__label {
+  @include display-outline;
+}
+
+.ecl-rating-field .ecl-rating-field__input:checked + .ecl-rating-field__label {
+  @include display-filled;
+}
+
+// Highlight stars on hover / focus
+.ecl-rating-field:hover .ecl-rating-field__input + .ecl-rating-field__label {
+  @include display-filled;
+}
+
+.ecl-rating-field .ecl-rating-field__input:hover ~ .ecl-rating-field__label,
+.ecl-rating-field .ecl-rating-field__input:focus ~ .ecl-rating-field__label {
+  @include display-outline;
+}
+
+.ecl-rating-field .ecl-rating-field__input:hover + .ecl-rating-field__label,
+.ecl-rating-field .ecl-rating-field__input:focus + .ecl-rating-field__label {
+  @include display-filled;
+}
+
+// Hide html input
 .ecl-rating-field__input {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -65,13 +122,15 @@
 
 .ecl-rating-field__label {
   cursor: pointer;
-  margin-right: map.get(theme.$spacing, 'xs');
+  padding-inline-end: calc(#{map.get(theme.$spacing, 'xs')} / 2);
+  padding-inline-start: calc(#{map.get(theme.$spacing, 'xs')} / 2);
 
   .ecl-rating-field--disabled & {
     cursor: default;
   }
 }
 
+/*
 .ecl-rating-field__icon-filled {
   display: none;
   fill: map.get(theme.$color, 'yellow-100');
@@ -80,10 +139,12 @@
 .ecl-rating-field__icon-outline {
   fill: map.get(theme.$color, 'grey-75');
 }
+*/
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-rating-field__label {
-    margin-right: map.get(theme.$spacing, '2xs');
+    padding-inline-end: calc(#{map.get(theme.$spacing, '2xs')} / 2);
+    padding-inline-start: calc(#{map.get(theme.$spacing, '2xs')} / 2);
   }
 }
