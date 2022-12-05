@@ -82,17 +82,27 @@
 }
 
 // Highlight stars on hover / focus
-.ecl-rating-field:hover .ecl-rating-field__input + .ecl-rating-field__label {
+.ecl-rating-field:not(.ecl-rating-field--disabled):hover
+  .ecl-rating-field__input
+  + .ecl-rating-field__label {
   @include display-filled;
 }
 
-.ecl-rating-field .ecl-rating-field__input:hover ~ .ecl-rating-field__label,
-.ecl-rating-field .ecl-rating-field__input:focus ~ .ecl-rating-field__label {
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:hover
+  ~ .ecl-rating-field__label,
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:focus
+  ~ .ecl-rating-field__label {
   @include display-outline;
 }
 
-.ecl-rating-field .ecl-rating-field__input:hover + .ecl-rating-field__label,
-.ecl-rating-field .ecl-rating-field__input:focus + .ecl-rating-field__label {
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:hover
+  + .ecl-rating-field__label,
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:focus
+  + .ecl-rating-field__label {
   @include display-filled;
 }
 
@@ -129,17 +139,6 @@
     cursor: default;
   }
 }
-
-/*
-.ecl-rating-field__icon-filled {
-  display: none;
-  fill: map.get(theme.$color, 'yellow-100');
-}
-
-.ecl-rating-field__icon-outline {
-  fill: map.get(theme.$color, 'grey-75');
-}
-*/
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {

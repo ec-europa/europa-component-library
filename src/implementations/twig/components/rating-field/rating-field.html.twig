@@ -111,7 +111,17 @@
 
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-rating-field
-      {{- _disabled ? ' ecl-rating-field--disabled' -}}">
+    {{- _disabled ? ' ecl-rating-field--disabled' -}}">
+
+    <input
+      id="{{ _id ~ '-ecl-default' }}" 
+      name="{{ _name }}" 
+      class="ecl-rating-field__input" 
+      type="radio" 
+      value=""
+      checked
+      />
+
     {%- for _item in _items %}
       {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
       <input
