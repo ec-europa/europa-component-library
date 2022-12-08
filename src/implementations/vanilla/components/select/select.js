@@ -367,13 +367,43 @@ export class Select {
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
+        let optgroup = '';
+        let checkbox = '';
+        if (option.parentNode.tagName === 'OPTGROUP') {
+          if (
+            !this.optionsContainer.querySelector(
+              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                'label'
+              )}"]`
+            )
+          ) {
+            optgroup = document.createElement('div');
+            const title = document.createElement('h5');
+            title.classList.add('ecl-select__multiple-group__title');
+            title.innerHTML = option.parentNode.getAttribute('label');
+            optgroup.appendChild(title);
+            optgroup.setAttribute(
+              'data-ecl-multiple-group',
+              option.parentNode.getAttribute('label')
+            );
+            optgroup.classList.add('ecl-select__multiple-group');
+            this.optionsContainer.appendChild(optgroup);
+          } else {
+            optgroup = this.optionsContainer.querySelector(
+              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                'label'
+              )}"]`
+            );
+          }
+        }
+
         if (option.selected) {
           this.updateSelectionsCount(1);
           if (this.dropDownToolbar) {
             this.dropDownToolbar.style.display = 'flex';
           }
         }
-        const checkbox = Select.createCheckbox(
+        checkbox = Select.createCheckbox(
           {
             // spread operator does not work in storybook context so we map 1:1
             id: option.value,
@@ -383,12 +413,18 @@ export class Select {
           },
           this.selectMultipleId
         );
+
         checkbox.setAttribute('data-visible', true);
         if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
           checkbox.addEventListener('click', this.handleClickOption);
           checkbox.addEventListener('keydown', this.handleKeyboardOnOption);
         }
-        this.optionsContainer.appendChild(checkbox);
+        if (optgroup) {
+          optgroup.appendChild(checkbox);
+        } else {
+          this.optionsContainer.appendChild(checkbox);
+        }
+
         return checkbox;
       });
     }

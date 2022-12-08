@@ -272,6 +272,12 @@ $_multiple_counter_background: null !default;
     overflow-y: auto;
   }
 
+  .ecl-select__multiple-group__title {
+    font: map.get(theme.$font-prolonged, 'm');
+    font-weight: map.get(theme.$font-weight, 'bold');
+    margin: map.get(theme.$spacing, 'm');
+  }
+
   .ecl-select__multiple-no-results {
     align-items: center;
     color: map.get(theme.$color, 'grey-100');
