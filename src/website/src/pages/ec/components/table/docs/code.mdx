@@ -34,3 +34,26 @@ import { tableDefault, tableMulti, tableSortable, tableZebra } from '../demo';
 >
   <Html markup={tableSortable} />
 </Playground>
+
+## Enhanced mobile table
+
+Enhanced tables offers a more user friendly display on mobile.
+This is the default display of ECL tables, but you can turn this behaviour off by using the parameter `simple`.
+
+To be able to use the enhanced table without issue, your table should follow these rules:
+
+- have a table header, containing the `<th>` tags
+- have a `data-ecl-table-header` attribute filled for the other cells (a parameter is provided in the twig template)
+  You can find a working data set and markup in the example below.
+
+Note: enhanced tables works for all the table variants listed here, but without sorting.
+
+<Playground
+  showFrame
+  frameWidth="500px"
+  system="ec"
+  selectedKind="components-table"
+  selectedStory="default"
+>
+  <Html markup={tableDefault} />
+</Playground>
