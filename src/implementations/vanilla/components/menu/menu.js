@@ -101,6 +101,7 @@ export class Menu {
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
+    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
@@ -157,7 +158,7 @@ export class Menu {
       });
     }
 
-    // Bind key event on caret buttons
+    // Bind event on caret buttons
     if (this.carets) {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
@@ -183,6 +184,11 @@ export class Menu {
           subLink.addEventListener('focusout', this.handleFocusOut);
         }
       });
+    }
+
+    // Bind global keyboard events
+    if (this.attachKeyListener) {
+      document.addEventListener('keyup', this.handleKeyboardGlobal);
     }
 
     // Bind resize events
@@ -297,9 +303,14 @@ export class Menu {
       });
     }
 
+    if (this.attachKeyListener) {
+      document.removeEventListener('keyup', this.handleKeyboardGlobal);
+    }
+
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
@@ -417,8 +428,6 @@ export class Menu {
           buttonCaret.focus();
         }
         this.closeOpenDropdown();
-      } else {
-        this.handleClickOnClose();
       }
       return;
     }
@@ -524,6 +533,22 @@ export class Menu {
             caretButton.focus();
           }
         }
+      }
+    }
+  }
+
+  /**
+   * Handles global keyboard events, triggered outside of the menu.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardGlobal(e) {
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (menuExpanded === 'true') {
+        this.handleClickOnClose();
       }
     }
   }
