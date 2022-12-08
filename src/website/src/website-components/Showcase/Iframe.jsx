@@ -15,6 +15,7 @@ class Iframe extends PureComponent {
       iframeOptions,
       disableAutoResize,
       defaultHeight,
+      maxWidth,
       heightCalculation,
     } = this.props;
 
@@ -22,6 +23,7 @@ class Iframe extends PureComponent {
       const options = {
         autoResize: true,
         minHeight: defaultHeight,
+        maxWidth,
         heightCalculationMethod: heightCalculation,
         ...iframeOptions,
       };
@@ -56,6 +58,7 @@ class Iframe extends PureComponent {
 
 Iframe.propTypes = {
   defaultHeight: PropTypes.string,
+  maxWidth: PropTypes.string,
   heightCalculation: PropTypes.string,
   url: PropTypes.string,
   iframeOptions: PropTypes.shape(),
@@ -64,6 +67,7 @@ Iframe.propTypes = {
 
 Iframe.defaultProps = {
   defaultHeight: '200px',
+  maxWidth: '100%',
   heightCalculation: 'lowestElement',
   url: '',
   iframeOptions: {},
