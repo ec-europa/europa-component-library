@@ -2,9 +2,11 @@
 
 {#
   Parameters:
+  - "id" (string) (default: 'rating'): unique id for the rating field
   - "items" (array) (default: []): array of radio_button
-  - "name" (string) (default: '')
+  - "name" (string) (default: 'rating')
   - "helper_id" (string) (default: '')
+  - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object) default({})
   - "star_filled_icon" (object) default({})
@@ -24,9 +26,11 @@
 
 {# Internal properties #}
 
+{% set _id = id|default('rating') %}
 {% set _items = items|default([]) %}
-{% set _name = name|default('') %}
+{% set _name = name|default('rating') %}
 {% set _helper_id = helper_id|default('') %}
+{% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _helper_text = helper_text|default('') %}
@@ -69,7 +73,8 @@
   {%- if _label is not empty %}
     <legend
       class="ecl-form-label
-      {{- _invalid ? ' ecl-form-label--invalid' }}"
+      {{- _invalid ? ' ecl-form-label--invalid' }}
+      {{- _disabled ? ' ecl-form-label--disabled' -}}"
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
@@ -82,7 +87,8 @@
 
   {% if _helper_text is not empty %}
     <div
-      class="ecl-help-block"
+      class="ecl-help-block
+      {{- _disabled ? ' ecl-help-block--disabled' -}}"
     {% if _helper_id is not empty %}
       id="{{ _helper_id }}"
     {% endif %}
@@ -104,11 +110,13 @@
   {% endif %}
 
   {% if _items is not empty and _items is iterable %}
-  <div class="ecl-rating-field">
+  <div class="ecl-rating-field
+      {{- _disabled ? ' ecl-rating-field--disabled' -}}">
     {%- for _item in _items|reverse %}
+      {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
       <input
-      id="rating-{{ _item.value }}" 
-      name="rating" 
+      id="{{ _item_id }}" 
+      name="{{ _name }}" 
       class="ecl-rating-field__input" 
       type="radio" 
       value="{{ _item.value }}" 
@@ -118,10 +126,13 @@
       {% if _required %}
         required 
       {% endif %}
+      {% if _disabled %}
+        disabled
+      {% endif %}
       />
       <label 
       class="ecl-rating-field__label" 
-      for="rating-{{ _item.value }}">
+      for="{{ _item_id }}">
         {% if _item.label %}
           <span class="ecl-u-sr-only">{{ _item.label }}</span>
         {% endif %}

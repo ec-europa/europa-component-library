@@ -30,7 +30,7 @@ const getArgs = (data) => {
   }
   if (data.title) {
     args.title_link = true;
-    args.title = data.title.path ? data.title.label : data.title;
+    args.title = data.title.link ? data.title.link.label : data.title;
   }
   if (data.description) {
     args.show_description = true;
@@ -199,7 +199,7 @@ const prepareData = (data, args) => {
     delete clone.tags;
   }
   if (!args.title_link) {
-    delete clone.title.path;
+    delete clone.title.link;
   }
 
   // Other controls
@@ -210,8 +210,8 @@ const prepareData = (data, args) => {
     clone.description = args.description;
   }
   if (clone.title) {
-    if (clone.title.path) {
-      clone.title.label = args.title;
+    if (clone.title.link) {
+      clone.title.link.label = args.title;
     } else {
       clone.title = args.title;
     }

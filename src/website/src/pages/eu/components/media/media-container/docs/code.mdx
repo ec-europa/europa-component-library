@@ -32,10 +32,12 @@ import {
 
 ## Embedded video (using &lt;iframe&gt;)
 
-Note: for embedded videos, a ratio has to be specified in order to display the iframe in a responsive way.
-Possible ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
+Note: for embedded videos, the ratio is calculated based on the width and height provided with the video. It ensures a consistent display on all screen sizes.
+
+It is also possible to manually specify a ratio if needed. Possible manual ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
 
 <Playground
+  showFrame
   system="eu"
   selectedKind="components-media-container"
   selectedStory="embed"

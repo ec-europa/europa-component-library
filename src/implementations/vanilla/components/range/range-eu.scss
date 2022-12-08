@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+@use 'range' with (
+  $_bar-color: map.get(theme.$color, 'blue-20'),
+  $_disabled-color: map.get(theme.$color, 'grey-10'),
+  $_active-color: map.get(theme.$color, 'blue-80'),
+  $_invalid-color: map.get(theme.$color, 'red-120'),
+  $_invalid-hover-color: map.get(theme.$color, 'red-120'),
+  $_invalid-active-color: map.get(theme.$color, 'red-80'),
+  $_value-color: map.get(theme.$color, 'grey-80'),
+  $_value-font: map.get(theme.$font-prolonged, 'm'),
+  $_range-margin-top: map.get(theme.$spacing, 'm')
+);

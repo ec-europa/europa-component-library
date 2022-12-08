@@ -8,16 +8,8 @@ npm install --save @ecl/twig-component-rating-field
 
 ### Parameters:
 
-- **"items"** (array) (default: [])
-  - "id" (string) (default: '')
-  - "name" (string) (default: '')
-  - "value" (string) (default: '')
-  - "disabled" (boolean) (default: false)
-  - "checked" (boolean) (default: false)
-  - "required" (boolean) (default: false)
-  - "helper_id" (string) (default: '')
-  - "helper_text" (block) (default: '')
-  - "label" (block) (default: '')
+- **"id"** (string) (default: 'rating'): unique id for the rating field
+- **"items"** (array) (default: []): array of radio_button
 - **"name"** (string) (default: '')
 - **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
@@ -25,17 +17,16 @@ npm install --save @ecl/twig-component-rating-field
 - **"star_filled_icon"** (object) default({})
 - **"star_outline_icon"** (object) default({})
 - **"required"** (boolean) (default: false)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_classes"** (optional) (string) (default: '')
+- **"extra_attributes"** (optional) (array) (default: [])
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 
 ### Blocks:
 
 - "label"
 - "helper_text"
 - "invalid_text"
-- "label"
 - "optional_text"
 - "required_text"
 
@@ -44,6 +35,7 @@ npm install --save @ecl/twig-component-rating-field
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/rating-field/rating-field.html.twig' with { 
+  id: 'rating-id',
   label: 'Please rate', 
   helper_id: 'rating-default-helper', 
   helper_text: 'Helper text for the group', 

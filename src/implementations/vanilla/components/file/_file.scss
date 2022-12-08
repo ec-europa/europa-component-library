@@ -103,11 +103,12 @@ $_image-width: null !default;
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'm');
 
   &::before {
+    color: map.get(theme.$color, 'blue-100');
     content: '|';
-    margin-inline-end: map.get(theme.$spacing, 'xs');
+    margin-inline-end: map.get(theme.$spacing, 'm');
   }
 }
 
@@ -144,6 +145,7 @@ $_image-width: null !default;
 
 .ecl-file__label {
   display: inline-flex;
+  flex-basis: 100%;
   margin-bottom: map.get(theme.$spacing, 'm');
   margin-inline-end: map.get(theme.$spacing, 'xs');
 }
