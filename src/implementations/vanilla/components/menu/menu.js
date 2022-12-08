@@ -395,7 +395,7 @@ export class Menu {
   }
 
   /**
-   * Handles keyboard events such as Escape and navigation.
+   * Handles keyboard events specific to the menu.
    *
    * @param {Event} e
    */
@@ -557,6 +557,11 @@ export class Menu {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
+
+    // Set focus to hamburger button
+    if (this.open) {
+      this.open.focus();
+    }
 
     this.isOpen = false;
 
