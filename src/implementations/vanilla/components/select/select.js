@@ -656,7 +656,7 @@ export class Select {
           .toLocaleLowerCase()
           .includes(keyword)
       ) {
-        checkbox.setAttribute('data-visible', false);
+        checkbox.removeAttribute('data-visible');
         checkbox.style.display = 'none';
       } else {
         checkbox.setAttribute('data-visible', true);
@@ -693,6 +693,23 @@ export class Select {
     const noResultsElement = this.searchContainer.querySelector(
       '.ecl-select__multiple-no-results'
     );
+    const groupTitles = this.optionsContainer.getElementsByClassName(
+      'ecl-select__multiple-group__title'
+    );
+    // eslint-disable-next-line no-restricted-syntax
+    for (const title of groupTitles) {
+      title.style.display = 'none';
+      // eslint-disable-next-line no-restricted-syntax
+      const groupedCheckboxes =
+        title.parentNode &&
+        [...title.parentNode.children].filter((node) => node !== title);
+      groupedCheckboxes.forEach((single) => {
+        if (single.hasAttribute('data-visible')) {
+          title.style.display = 'block';
+        }
+      });
+    }
+
     if (visible.length === 0 && !noResultsElement) {
       // Create no-results element.
       const noResultsContainer = document.createElement('div');
@@ -897,11 +914,20 @@ export class Select {
    */
   moveFocus(upOrDown) {
     const activeEl = document.activeElement;
-    const options = Array.from(
-      activeEl.parentElement.parentElement.querySelectorAll(
-        '.ecl-checkbox__input'
-      )
+    const hasGroups = activeEl.parentElement.parentElement.classList.contains(
+      'ecl-select__multiple-group'
     );
+    const options = !hasGroups
+      ? Array.from(
+          activeEl.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input'
+          )
+        )
+      : Array.from(
+          activeEl.parentElement.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input'
+          )
+        );
     const activeIndex = options.indexOf(activeEl);
     if (upOrDown === 'down') {
       const nextSiblings = options
