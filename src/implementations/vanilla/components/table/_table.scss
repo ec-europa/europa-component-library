@@ -25,82 +25,47 @@ $_button_arrow_width: null !default;
   width: 100%;
 }
 
+.ecl-table-responsive {
+  overflow-x: auto;
+}
+
 .ecl-table__head,
 %ecl-table__head {
-  display: none;
+  background-color: map.get(theme.$color, 'blue-5');
+  display: table-header-group;
+}
+
+.ecl-table__header,
+%ecl-table__header {
+  font-weight: map.get(theme.$font-weight, 'bold');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  text-align: start;
+  vertical-align: bottom;
+}
+
+.ecl-table__row,
+%ecl-table__row {
+  border-bottom: 1px solid $_row-border-color;
+  border-top-width: 0;
+}
+
+.ecl-table__head .ecl-table__row:first-child {
+  border-bottom: 2px solid $_header-border-color;
+
+  .ecl-table__header {
+    padding-top: map.get(theme.$spacing, 'l');
+  }
 }
 
 .ecl-table__cell,
 %ecl-table__cell {
-  border-top: 1px solid $_row-border-color;
-  display: flex;
-  padding: map.get(theme.$spacing, 's');
+  border-width: 0;
+  display: table-cell;
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl')
+    map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &::before {
-    background-color: map.get(theme.$color, 'blue-5');
-    border-inline-end: 2px solid $_header-border-color;
-    content: attr(data-ecl-table-header);
-    display: block;
-    flex-basis: 10rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    font-weight: map.get(theme.$font-weight, 'bold');
-    margin-bottom: -#{map.get(theme.$spacing, 's')};
-    margin-inline-start: -#{map.get(theme.$spacing, 's')};
-    margin-inline-end: map.get(theme.$spacing, 's');
-    margin-top: -#{map.get(theme.$spacing, 's')};
-    padding-bottom: map.get(theme.$spacing, 's');
-    padding-inline-start: map.get(theme.$spacing, 's');
-    padding-inline-end: map.get(theme.$spacing, 'm');
-    padding-top: map.get(theme.$spacing, 's');
-  }
-
-  &:last-of-type {
-    border-bottom: 1px solid $_row-border-color;
-    margin-bottom: map.get(theme.$spacing, 'l');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-table__head,
-  %ecl-table__head {
-    background-color: map.get(theme.$color, 'blue-5');
-    display: table-header-group;
-  }
-
-  .ecl-table__header,
-  %ecl-table__header {
-    font-weight: map.get(theme.$font-weight, 'bold');
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-    text-align: start;
-    vertical-align: bottom;
-  }
-
-  .ecl-table__row,
-  %ecl-table__row {
-    border-bottom: 1px solid $_row-border-color;
-    border-top-width: 0;
-  }
-
-  .ecl-table__head .ecl-table__row:first-child {
-    border-bottom: 2px solid $_header-border-color;
-
-    .ecl-table__header {
-      padding-top: map.get(theme.$spacing, 'l');
-    }
-  }
-
-  .ecl-table__cell,
-  %ecl-table__cell {
-    border-width: 0;
-    display: table-cell;
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-
-    &::before {
-      display: none;
-    }
+    display: none;
   }
 }
 
@@ -187,7 +152,7 @@ $_button_arrow_width: null !default;
   }
 }
 
-// SortTable
+// Sort Table
 .ecl-table__header[data-ecl-table-sort-toggle] {
   cursor: pointer;
   padding-inline-start: calc(
@@ -240,5 +205,45 @@ $_button_arrow_width: null !default;
 .ecl-table__header[aria-sort='descending'] {
   .ecl-table__icon-up {
     fill: $_sort-icon-color-active;
+  }
+}
+
+// Enhanced table (mobile)
+/* stylelint-disable-next-line order/order */
+@include breakpoints.down('m') {
+  .ecl-table:not(.ecl-table--simple) {
+    .ecl-table__head {
+      display: none;
+    }
+
+    .ecl-table__cell {
+      border-top: 1px solid $_row-border-color;
+      display: flex;
+      padding: map.get(theme.$spacing, 's');
+
+      &::before {
+        background-color: map.get(theme.$color, 'blue-5');
+        border-inline-end: 2px solid $_header-border-color;
+        content: attr(data-ecl-table-header);
+        display: block;
+        flex-basis: 10rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        font-weight: map.get(theme.$font-weight, 'bold');
+        margin-bottom: -#{map.get(theme.$spacing, 's')};
+        margin-inline-start: -#{map.get(theme.$spacing, 's')};
+        margin-inline-end: map.get(theme.$spacing, 's');
+        margin-top: -#{map.get(theme.$spacing, 's')};
+        padding-bottom: map.get(theme.$spacing, 's');
+        padding-inline-start: map.get(theme.$spacing, 's');
+        padding-inline-end: map.get(theme.$spacing, 'm');
+        padding-top: map.get(theme.$spacing, 's');
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid $_row-border-color;
+        margin-bottom: map.get(theme.$spacing, 'l');
+      }
+    }
   }
 }
