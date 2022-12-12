@@ -211,8 +211,12 @@ $_search-width-xl: 31.5rem;
   padding: 0;
 }
 
-.ecl-site-header__message .ecl-message {
-  margin-bottom: map.get(theme.$spacing, 'm');
+.ecl-site-header__message {
+  display: flex;
+
+  .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'm');
+  }
 }
 
 // stylelint-disable plugin/selector-bem-pattern
