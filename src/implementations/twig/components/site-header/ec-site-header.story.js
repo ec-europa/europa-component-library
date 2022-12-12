@@ -45,6 +45,9 @@ const getArgs = (data) => {
     defaultArgs.show_site_name = true;
     defaultArgs.site_name = data.site_name;
   }
+  if (data.message) {
+    defaultArgs.show_message = true;
+  }
   if (data.banner_top) {
     defaultArgs.show_banner_top = true;
   }
@@ -87,6 +90,16 @@ const getArgTypes = (data) => {
       category: 'Optional',
     },
   };
+  if (data.message) {
+    argTypes.show_message = {
+      name: 'message',
+      type: { name: 'boolean' },
+      description: 'Show the message box',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
   if (data.banner_top) {
     argTypes.show_banner_top = {
       name: 'class name',
@@ -186,6 +199,12 @@ const prepareData = (data, args) => {
     delete data.banner_top;
   } else {
     data.banner_top = clonedDataFull.banner_top;
+  }
+
+  if (!args.show_message) {
+    delete data.message;
+  } else {
+    data.message = clonedDataFull.message;
   }
 
   correctPaths(data);

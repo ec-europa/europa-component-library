@@ -56,6 +56,7 @@
         "href_logged": (string) Link to the logout form
       }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
+    - "message" (object) (default: {}): Optional message compatible with ECL Message component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderStandardised"): format: [
         {
@@ -77,6 +78,7 @@
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
+{% set _message = message|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header' %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
@@ -346,11 +348,21 @@
         {% endif %}
         </div>
       </div>
+
     </div>
   </div>
 
+{# Message #}
+{% if _message is defined and _message is not empty %}
+  <div class="ecl-site-header__message">
+    <div class="ecl-container">
+      {% include '@ecl/message/message.html.twig' with _message only %}
+    </div>
+  </div>
+{% endif %}
+
+{# Banner top #}
 {% if banner_top is defined and banner_top is not empty %}
-  {# Banner top #}
   <div class="ecl-site-header__banner-top">
     <div class="ecl-container">
     {%- if banner_top.link is defined and banner_top.link is not empty %}

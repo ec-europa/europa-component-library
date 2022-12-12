@@ -42,6 +42,9 @@ const getArgs = (data) => {
   if (data.banner_top) {
     defaultArgs.show_banner_top = true;
   }
+  if (data.message) {
+    defaultArgs.show_message = true;
+  }
   if (data.has_menu) {
     defaultArgs.show_menu = true;
   }
@@ -81,6 +84,16 @@ const getArgTypes = (data) => {
       category: 'Optional',
     },
   };
+  if (data.message) {
+    argTypes.show_message = {
+      name: 'message',
+      type: { name: 'boolean' },
+      description: 'Show the message box',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
@@ -164,6 +177,12 @@ const prepareData = (data, args) => {
     delete data.cta_link;
   } else {
     data.cta_link = clonedDataFull.cta_link;
+  }
+
+  if (!args.show_message) {
+    delete data.message;
+  } else {
+    data.message = clonedDataFull.message;
   }
 
   correctPaths(data);
