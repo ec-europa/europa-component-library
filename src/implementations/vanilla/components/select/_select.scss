@@ -18,6 +18,7 @@ $_border-width: 1px;
 $_border-width-focus: null !default;
 $_color-input: null !default;
 $_color-placeholder: null !default;
+$_group-title-font: null !default;
 $_shadow: null !default;
 $_shadow-hover: null !default;
 $_arrow-background-invalid-focus: null !default;
@@ -273,9 +274,9 @@ $_multiple_counter_background: null !default;
   }
 
   .ecl-select__multiple-group__title {
-    font: map.get(theme.$font-prolonged, 'm');
+    font: $_group-title-font;
     font-weight: map.get(theme.$font-weight, 'bold');
-    margin: map.get(theme.$spacing, 'm');
+    margin: map.get(theme.$spacing, 's');
   }
 
   .ecl-select__multiple-no-results {
@@ -291,11 +292,11 @@ $_multiple_counter_background: null !default;
 
   .ecl-checkbox__label {
     padding-bottom: $_multiple-checkbox-label-vertical-padding;
-    padding-inline-start: map.get(theme.$spacing, 'm');
-    padding-inline-end: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get(theme.$spacing, 's');
+    padding-inline-end: map.get(theme.$spacing, 's');
     padding-top: $_multiple-checkbox-label-vertical-padding;
     width: calc(
-      100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
+      100% - #{map.get(theme.$spacing, 's')} - #{map.get(theme.$spacing, 's')}
     );
   }
 
