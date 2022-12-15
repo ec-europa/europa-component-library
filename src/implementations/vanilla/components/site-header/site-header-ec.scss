@@ -432,7 +432,7 @@ $_shadow-color: rgba(0, 0, 0, 0.2);
   margin-top: map.get(theme.$spacing, 's');
   position: absolute;
   transform: translateX(-50%);
-  z-index: map.get(theme.$z-index, 'dropdown');
+  z-index: map.get(theme.$z-index, 'overlay');
 
   // arrow with border shadow
   &::before {
@@ -451,6 +451,27 @@ $_shadow-color: rgba(0, 0, 0, 0.2);
     top: 0;
     transform: translate(0%, -50%) rotate(-45deg);
     width: $_arrow-size;
+  }
+}
+
+// Horizontal position
+.ecl-language-list2__container--push-left {
+  left: 0;
+  transform: none;
+
+  &::before {
+    left: var(--ecl-language-list2-arrow-position);
+  }
+}
+
+.ecl-language-list2__container--push-right {
+  left: auto;
+  right: 0;
+  transform: none;
+
+  &::before {
+    left: auto;
+    right: var(--ecl-language-list2-arrow-position);
   }
 }
 

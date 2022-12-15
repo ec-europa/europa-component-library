@@ -388,7 +388,7 @@
                   {% endif %}
                   <ul class="ecl-language-list2__list">
                     {% for _item in _language_selector.overlay.non_eu_items %}
-                    <li class="ecl-language-list2__item" data-ecl-language-list-item>
+                    <li class="ecl-language-list2__item">
                       {% set _link_label = '<span class="ecl-language-list2__language-code">' ~ _item.lang|default('') ~ '</span>' ~ _item.label %}
                       {% include '@ecl/link/link.html.twig' with {
                         link: _item|merge({

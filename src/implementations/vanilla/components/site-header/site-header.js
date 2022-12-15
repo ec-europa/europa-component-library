@@ -13,6 +13,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.searchFormSelector
  * @param {String} options.loginToggleSelector
  * @param {String} options.loginBoxSelector
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  */
 export class SiteHeader {
   /**
@@ -37,12 +39,13 @@ export class SiteHeader {
       languageListOverlaySelector = '[data-ecl-language-list-overlay]',
       languageListEuSelector = '[data-ecl-language-list-eu]',
       languageListNonEuSelector = '[data-ecl-language-list-non-eu]',
-      languageListItemSelector = '[data-ecl-language-list-item]',
       closeOverlaySelector = '[data-ecl-language-list-close]',
       searchToggleSelector = '[data-ecl-search-toggle]',
       searchFormSelector = '[data-ecl-search-form]',
       loginToggleSelector = '[data-ecl-login-toggle]',
       loginBoxSelector = '[data-ecl-login-box]',
+      attachClickListener = true,
+      attachKeyListener = true,
     } = {}
   ) {
     // Check element
@@ -59,16 +62,17 @@ export class SiteHeader {
     this.languageListOverlaySelector = languageListOverlaySelector;
     this.languageListEuSelector = languageListEuSelector;
     this.languageListNonEuSelector = languageListNonEuSelector;
-    this.languageListItemSelector = languageListItemSelector;
     this.closeOverlaySelector = closeOverlaySelector;
     this.searchToggleSelector = searchToggleSelector;
     this.searchFormSelector = searchFormSelector;
     this.loginToggleSelector = loginToggleSelector;
     this.loginBoxSelector = loginBoxSelector;
+    this.attachClickListener = attachClickListener;
+    this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.languageMaxColumnItems = 8;
-    this.languageSelector = null;
+    this.languageLink = null;
     this.languageListOverlay = null;
     this.languageListEu = null;
     this.languageListNonEu = null;
@@ -85,14 +89,24 @@ export class SiteHeader {
     this.toggleOverlay = this.toggleOverlay.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.toggleLogin = this.toggleLogin.bind(this);
+    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
+    this.handleClickGlobal = this.handleClickGlobal.bind(this);
   }
 
   /**
    * Initialise component.
    */
   init() {
+    // Bind global events
+    if (this.attachKeyListener) {
+      document.addEventListener('keyup', this.handleKeyboardGlobal);
+    }
+    if (this.attachClickListener) {
+      document.addEventListener('click', this.handleClickGlobal);
+    }
+
     // Language list management
-    this.languageSelector = queryOne(this.languageLinkSelector);
+    this.languageLink = queryOne(this.languageLinkSelector);
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
     this.languageListEu = queryOne(this.languageListEuSelector);
     this.languageListNonEu = queryOne(this.languageListNonEuSelector);
@@ -101,12 +115,13 @@ export class SiteHeader {
     // Create focus trap
     this.focusTrap = createFocusTrap(this.languageListOverlay, {
       onDeactivate: this.closeOverlay,
+      allowOutsideClick: true,
     });
 
-    if (this.languageSelector) {
-      this.languageSelector.addEventListener('click', this.toggleOverlay);
+    if (this.attachClickListener && this.languageLink) {
+      this.languageLink.addEventListener('click', this.toggleOverlay);
     }
-    if (this.close) {
+    if (this.attachClickListener && this.close) {
       this.close.addEventListener('click', this.toggleOverlay);
     }
 
@@ -114,7 +129,7 @@ export class SiteHeader {
     this.searchToggle = queryOne(this.searchToggleSelector);
     this.searchForm = queryOne(this.searchFormSelector);
 
-    if (this.searchToggle) {
+    if (this.attachClickListener && this.searchToggle) {
       this.searchToggle.addEventListener('click', this.toggleSearch);
     }
 
@@ -122,7 +137,7 @@ export class SiteHeader {
     this.loginToggle = queryOne(this.loginToggleSelector);
     this.loginBox = queryOne(this.loginBoxSelector);
 
-    if (this.loginToggle) {
+    if (this.attachClickListener && this.loginToggle) {
       this.loginToggle.addEventListener('click', this.toggleLogin);
     }
 
@@ -134,24 +149,33 @@ export class SiteHeader {
    * Destroy component.
    */
   destroy() {
-    if (this.languageSelector) {
-      this.languageSelector.removeEventListener('click', this.toggleOverlay);
+    if (this.attachClickListener && this.languageLink) {
+      this.languageLink.removeEventListener('click', this.toggleOverlay);
     }
     if (this.focusTrap) {
       this.focusTrap.deactivate();
     }
 
-    if (this.close) {
+    if (this.attachClickListener && this.close) {
       this.close.removeEventListener('click', this.toggleOverlay);
     }
 
-    if (this.searchToggle) {
+    if (this.attachClickListener && this.searchToggle) {
       this.searchToggle.removeEventListener('click', this.toggleSearch);
     }
 
-    if (this.loginToggle) {
+    if (this.attachClickListener && this.loginToggle) {
       this.loginToggle.removeEventListener('click', this.toggleLogin);
     }
+
+    if (this.attachKeyListener) {
+      document.removeEventListener('keyup', this.handleKeyboardGlobal);
+    }
+
+    if (this.attachClickListener) {
+      document.removeEventListener('click', this.handleClickGlobal);
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
@@ -164,7 +188,7 @@ export class SiteHeader {
     // Check number or items and adapt display
     if (this.languageListEu) {
       const itemsEu = queryAll(
-        this.languageListItemSelector,
+        '.ecl-language-list2__item',
         this.languageListEu
       );
       this.languageListEu.classList.add(
@@ -174,9 +198,47 @@ export class SiteHeader {
       );
     }
 
+    // Display language list
     this.languageListOverlay.hidden = false;
     this.languageListOverlay.setAttribute('aria-modal', 'true');
-    this.languageSelector.setAttribute('aria-expanded', 'true');
+    this.languageLink.setAttribute('aria-expanded', 'true');
+
+    // Check available space (left and right only)
+    this.languageListOverlay.classList.remove(
+      'ecl-language-list2__container--push-left'
+    );
+    this.languageListOverlay.classList.remove(
+      'ecl-language-list2__container--push-right'
+    );
+    this.languageListOverlay.style.removeProperty(
+      '--ecl-language-list2-arrow-position'
+    );
+
+    const popoverRect = this.languageListOverlay.getBoundingClientRect();
+    const linkRect = this.languageLink.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+    const arrowPosition = `${linkRect.width / 2}px`;
+    const arrowSize = '0.5rem';
+
+    if (popoverRect.left < 0) {
+      this.languageListOverlay.classList.add(
+        'ecl-language-list2__container--push-left'
+      );
+      this.languageListOverlay.style.setProperty(
+        '--ecl-language-list2-arrow-position',
+        arrowPosition
+      );
+    }
+
+    if (popoverRect.right > screenWidth) {
+      this.languageListOverlay.classList.add(
+        'ecl-language-list2__container--push-right'
+      );
+      this.languageListOverlay.style.setProperty(
+        '--ecl-language-list2-arrow-position',
+        `calc(${arrowPosition} - ${arrowSize})`
+      );
+    }
   }
 
   /**
@@ -185,7 +247,7 @@ export class SiteHeader {
   closeOverlay() {
     this.languageListOverlay.hidden = true;
     this.languageListOverlay.removeAttribute('aria-modal');
-    this.languageSelector.setAttribute('aria-expanded', 'false');
+    this.languageLink.setAttribute('aria-expanded', 'false');
   }
 
   /**
@@ -271,6 +333,44 @@ export class SiteHeader {
       this.loginBox.classList.add('ecl-site-header__login-box--active');
     } else {
       this.loginBox.classList.remove('ecl-site-header__login-box--active');
+    }
+  }
+
+  /**
+   * Handles global keyboard events, triggered outside of the site header.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardGlobal(e) {
+    if (!this.languageLink) return;
+    const listExpanded = this.languageLink.getAttribute('aria-expanded');
+
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (listExpanded === 'true') {
+        this.toggleOverlay(e);
+      }
+    }
+  }
+
+  /**
+   * Handles global click events, triggered outside of the site header.
+   *
+   * @param {Event} e
+   */
+  handleClickGlobal(e) {
+    if (!this.languageLink) return;
+    const listExpanded = this.languageLink.getAttribute('aria-expanded');
+
+    // Check if the language list is open
+    if (listExpanded === 'true') {
+      // Check if the click occured in the language popover
+      if (
+        !this.languageListOverlay.contains(e.target) &&
+        !this.languageLink.contains(e.target)
+      ) {
+        this.toggleOverlay(e);
+      }
     }
   }
 }

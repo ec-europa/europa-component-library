@@ -109,30 +109,26 @@ export class Popover {
     }
 
     // Check available space
+    this.element.classList.remove('ecl-popover--top');
+    this.element.classList.remove('ecl-popover--push-left');
+    this.element.classList.remove('ecl-popover--push-right');
+
     const toggleRect = this.toggle.getBoundingClientRect();
     const popoverRect = this.target.getBoundingClientRect();
     const popoverHeight = this.target.clientHeight;
     const screenHeight = window.innerHeight;
     const screenWidth = window.innerWidth;
 
-    if (popoverHeight > 0) {
-      if (screenHeight - toggleRect.top < popoverHeight) {
-        this.element.classList.add('ecl-popover--top');
-      } else {
-        this.element.classList.remove('ecl-popover--top');
-      }
+    if (popoverHeight > 0 && screenHeight - toggleRect.top < popoverHeight) {
+      this.element.classList.add('ecl-popover--top');
     }
 
     if (popoverRect.left < 0) {
       this.element.classList.add('ecl-popover--push-left');
-    } else {
-      this.element.classList.remove('ecl-popover--push-left');
     }
 
     if (popoverRect.right > screenWidth) {
       this.element.classList.add('ecl-popover--push-right');
-    } else {
-      this.element.classList.remove('ecl-popover--push-right');
     }
 
     return this;
