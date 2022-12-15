@@ -181,8 +181,8 @@ module.exports = {
         },
       ],
     },
-    eu_category: 'EU official languages',
-    non_eu_category: 'Non-EU languages',
+    eu_category: 'Official EU languages:',
+    non_eu_category: 'Other languages:',
   },
   search_toggle: {
     label: 'Search',

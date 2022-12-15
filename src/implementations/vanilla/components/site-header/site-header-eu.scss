@@ -434,3 +434,104 @@ $_search-width-xl: 31.5rem;
     width: $_search-width-xl;
   }
 }
+
+// Language list
+$_arrow-size: 1rem;
+$_shadow-size: 6px;
+$_shadow-color: rgba(9, 49, 142, 0.2);
+
+.ecl-language-list2 {
+  margin: 0;
+  position: relative;
+}
+
+.ecl-language-list2__container {
+  background-color: map.get(theme.$color, 'white');
+  box-shadow: 0 0 $_shadow-size $_shadow-color;
+  left: 50%;
+  margin-top: map.get(theme.$spacing, 's');
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: map.get(theme.$z-index, 'dropdown');
+
+  // arrow with border shadow
+  &::before {
+    background-color: map.get(theme.$color, 'white');
+    box-shadow: 0 0 $_shadow-size $_shadow-color;
+    clip-path: polygon(
+      -#{$_shadow-size} -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) -#{$_shadow-size},
+      calc(100% + #{$_shadow-size}) calc(100% + #{$_shadow-size})
+    );
+    content: '';
+    height: $_arrow-size;
+    left: 50%;
+    margin-left: calc(-#{$_arrow-size} / 2);
+    position: absolute;
+    top: 0;
+    transform: translate(0%, -50%) rotate(-45deg);
+    width: $_arrow-size;
+  }
+}
+
+.ecl-language-list2__content {
+  font: map.get(theme.$font-prolonged, 'm');
+  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  height: auto;
+  width: auto;
+}
+
+.ecl-language-list2__header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ecl-language-list2__languages {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-language-list2__category-title {
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+}
+
+.ecl-language-list2__list {
+  list-style: none;
+  padding: 0;
+}
+
+.ecl-language-list2__link {
+  display: block;
+  padding: map.get(theme.$spacing, 's');
+  white-space: nowrap;
+  width: calc(188px - (2 * #{map.get(theme.$spacing, 's')}));
+}
+
+.ecl-language-list2__language-code {
+  color: map.get(theme.$color, 'grey-100');
+  font: map.get(theme.$font, 'm');
+  font-weight: map.get(theme.$font-weight, 'bold');
+  display: inline-block;
+  margin-inline-end: map.get(theme.$spacing, '2xs');
+  text-transform: uppercase;
+}
+
+@include breakpoints.up('l') {
+  .ecl-language-list2__languages {
+    flex-direction: row;
+  }
+
+  .ecl-language-list2__list {
+    column-gap: 0;
+  }
+
+  .ecl-language-list2__category--3-col .ecl-language-list2__list {
+    column-count: 3;
+  }
+
+  .ecl-language-list2__category--2-col .ecl-language-list2__list {
+    column-count: 2;
+  }
+}

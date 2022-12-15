@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/dom-utils';
+import { queryOne, queryAll } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -6,6 +6,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Object} options
  * @param {String} options.languageLinkSelector
  * @param {String} options.languageListOverlaySelector
+ * @param {String} options.languageListEuSelector
+ * @param {String} options.languageListNonEuSelector
  * @param {String} options.closeOverlaySelector
  * @param {String} options.searchToggleSelector
  * @param {String} options.searchFormSelector
@@ -33,6 +35,9 @@ export class SiteHeader {
     {
       languageLinkSelector = '[data-ecl-language-selector]',
       languageListOverlaySelector = '[data-ecl-language-list-overlay]',
+      languageListEuSelector = '[data-ecl-language-list-eu]',
+      languageListNonEuSelector = '[data-ecl-language-list-non-eu]',
+      languageListItemSelector = '[data-ecl-language-list-item]',
       closeOverlaySelector = '[data-ecl-language-list-close]',
       searchToggleSelector = '[data-ecl-search-toggle]',
       searchFormSelector = '[data-ecl-search-form]',
@@ -52,6 +57,9 @@ export class SiteHeader {
     // Options
     this.languageLinkSelector = languageLinkSelector;
     this.languageListOverlaySelector = languageListOverlaySelector;
+    this.languageListEuSelector = languageListEuSelector;
+    this.languageListNonEuSelector = languageListNonEuSelector;
+    this.languageListItemSelector = languageListItemSelector;
     this.closeOverlaySelector = closeOverlaySelector;
     this.searchToggleSelector = searchToggleSelector;
     this.searchFormSelector = searchFormSelector;
@@ -59,8 +67,11 @@ export class SiteHeader {
     this.loginBoxSelector = loginBoxSelector;
 
     // Private variables
+    this.languageMaxColumnItems = 8;
     this.languageSelector = null;
     this.languageListOverlay = null;
+    this.languageListEu = null;
+    this.languageListNonEu = null;
     this.close = null;
     this.focusTrap = null;
     this.searchToggle = null;
@@ -83,6 +94,8 @@ export class SiteHeader {
     // Language list management
     this.languageSelector = queryOne(this.languageLinkSelector);
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
+    this.languageListEu = queryOne(this.languageListEuSelector);
+    this.languageListNonEu = queryOne(this.languageListNonEuSelector);
     this.close = queryOne(this.closeOverlaySelector);
 
     // Create focus trap
@@ -148,6 +161,19 @@ export class SiteHeader {
    * Shows the modal language list overlay.
    */
   openOverlay() {
+    // Check number or items and adapt display
+    if (this.languageListEu) {
+      const itemsEu = queryAll(
+        this.languageListItemSelector,
+        this.languageListEu
+      );
+      this.languageListEu.classList.add(
+        `ecl-language-list2__category--${Math.ceil(
+          itemsEu.length / this.languageMaxColumnItems
+        )}-col`
+      );
+    }
+
     this.languageListOverlay.hidden = false;
     this.languageListOverlay.setAttribute('aria-modal', 'true');
     this.languageSelector.setAttribute('aria-expanded', 'true');

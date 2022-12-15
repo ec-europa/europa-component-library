@@ -26,11 +26,12 @@ $_item-height: map.get(theme.$line-height-prolonged, 'm') +
 .ecl-popover__container {
   background-color: map.get(theme.$color, 'white');
   box-shadow: 0 0 $_shadow-size $_shadow-color;
-  left: -50%;
+  left: 50%;
   margin-top: calc(
     #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
   );
   position: absolute;
+  transform: translateX(-50%);
   z-index: map.get(theme.$z-index, 'dropdown');
 
   // arrow with border shadow
