@@ -99,7 +99,9 @@ export class Menu {
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
+    this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
+    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
@@ -148,6 +150,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.addEventListener('focusin', this.closeOpenDropdown);
+          link.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
@@ -155,9 +158,12 @@ export class Menu {
       });
     }
 
-    // Bind key event on caret buttons
+    // Bind event on caret buttons
     if (this.carets) {
       this.carets.forEach((caret) => {
+        if (this.attachFocusListener) {
+          caret.addEventListener('focusout', this.handleFocusOut);
+        }
         if (this.attachKeyListener) {
           caret.addEventListener('keyup', this.handleKeyboard);
         }
@@ -170,13 +176,19 @@ export class Menu {
     // Bind event on sub menu links
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        if (this.attachKeyListener) {
-          const subLink = queryOne('.ecl-menu__sublink', subItem);
-          if (subLink) {
-            subLink.addEventListener('keyup', this.handleKeyboard);
-          }
+        const subLink = queryOne('.ecl-menu__sublink', subItem);
+        if (this.attachKeyListener && subLink) {
+          subLink.addEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachFocusListener && subLink) {
+          subLink.addEventListener('focusout', this.handleFocusOut);
         }
       });
+    }
+
+    // Bind global keyboard events
+    if (this.attachKeyListener) {
+      document.addEventListener('keyup', this.handleKeyboardGlobal);
     }
 
     // Bind resize events
@@ -257,6 +269,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.removeEventListener('focusin', this.closeOpenDropdown);
+          link.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           link.removeEventListener('keyup', this.handleKeyboard);
@@ -266,6 +279,9 @@ export class Menu {
 
     if (this.carets) {
       this.carets.forEach((caret) => {
+        if (this.attachFocusListener) {
+          caret.removeEventListener('focusout', this.handleFocusOut);
+        }
         if (this.attachKeyListener) {
           caret.removeEventListener('keyup', this.handleKeyboard);
         }
@@ -277,18 +293,24 @@ export class Menu {
 
     if (this.subItems) {
       this.subItems.forEach((subItem) => {
-        if (this.attachKeyListener) {
-          const subLink = queryOne('.ecl-menu__sublink', subItem);
-          if (subLink) {
-            subLink.removeEventListener('keyup', this.handleKeyboard);
-          }
+        const subLink = queryOne('.ecl-menu__sublink', subItem);
+        if (this.attachKeyListener && subLink) {
+          subLink.removeEventListener('keyup', this.handleKeyboard);
+        }
+        if (this.attachFocusListener && subLink) {
+          subLink.removeEventListener('focusout', this.handleFocusOut);
         }
       });
+    }
+
+    if (this.attachKeyListener) {
+      document.removeEventListener('keyup', this.handleKeyboardGlobal);
     }
 
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
@@ -384,7 +406,7 @@ export class Menu {
   }
 
   /**
-   * Handles keyboard events such as Escape and navigation.
+   * Handles keyboard events specific to the menu.
    *
    * @param {Event} e
    */
@@ -406,8 +428,6 @@ export class Menu {
           buttonCaret.focus();
         }
         this.closeOpenDropdown();
-      } else {
-        this.handleClickOnClose();
       }
       return;
     }
@@ -518,6 +538,22 @@ export class Menu {
   }
 
   /**
+   * Handles global keyboard events, triggered outside of the menu.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardGlobal(e) {
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      if (menuExpanded === 'true') {
+        this.handleClickOnClose();
+      }
+    }
+  }
+
+  /**
    * Open menu list.
    * @param {Event} e
    */
@@ -546,6 +582,11 @@ export class Menu {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
+
+    // Set focus to hamburger button
+    if (this.open) {
+      this.open.focus();
+    }
 
     this.isOpen = false;
 
@@ -641,6 +682,35 @@ export class Menu {
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  /**
+   * Focus out of a menu link
+   * @param {Event} e
+   */
+  handleFocusOut(e) {
+    const element = e.target;
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+
+    // Specific focus action for mobile menu
+    // Loop through the items and go back to close button
+    if (menuExpanded === 'true') {
+      const nextItem = element.parentElement.nextSibling;
+
+      if (!nextItem) {
+        // There are no next menu item, but maybe there is a carret button
+        const caretButton = queryOne(
+          '.ecl-menu__button-caret',
+          element.parentElement
+        );
+        if (caretButton && element !== caretButton) {
+          return;
+        }
+
+        // This is the last item, go back to close button
+        this.close.focus();
+      }
     }
   }
 }
