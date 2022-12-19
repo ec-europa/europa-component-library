@@ -364,13 +364,20 @@
                   <ul class="ecl-language-list2__list">
                     {% for _item in _language_selector.overlay.items %}
                     <li class="ecl-language-list2__item" data-ecl-language-list-item>
-                      {% set _link_label = '<span class="ecl-language-list2__language-code">' ~ _item.lang|default('') ~ '</span>' ~ _item.label %}
+                      {% set _link_label = 
+                      '<span class="ecl-language-list2__language-code">' ~ _item.lang|default('') ~ '</span>' ~
+                      '<span class="ecl-language-list2__language-label">' ~ _item.label ~ '</span>'
+                      %}
+                      {% set _link_classes = 'ecl-language-list2__link' %}
+                      {% if _item.active %}
+                        {% set _link_classes = _link_classes ~ ' ecl-language-list2__link--active' %}
+                      {% endif %}
                       {% include '@ecl/link/link.html.twig' with {
                         link: _item|merge({
                           label: _link_label,
                           type: 'standalone'
                         }),
-                        extra_classes: 'ecl-language-list2__link',
+                        extra_classes: _link_classes,
                       } only %}
                     </li>
                     {% endfor %}
@@ -389,13 +396,20 @@
                   <ul class="ecl-language-list2__list">
                     {% for _item in _language_selector.overlay.non_eu_items %}
                     <li class="ecl-language-list2__item">
-                      {% set _link_label = '<span class="ecl-language-list2__language-code">' ~ _item.lang|default('') ~ '</span>' ~ _item.label %}
+                    {% set _link_label = 
+                      '<span class="ecl-language-list2__language-code">' ~ _item.lang|default('') ~ '</span>' ~
+                      '<span class="ecl-language-list2__language-label">' ~ _item.label ~ '</span>'
+                      %}
+                      {% set _link_classes = 'ecl-language-list2__link' %}
+                      {% if _item.active %}
+                        {% set _link_classes = _link_classes ~ ' ecl-language-list2__link--active' %}
+                      {% endif %}
                       {% include '@ecl/link/link.html.twig' with {
                         link: _item|merge({
                           label: _link_label,
                           type: 'standalone'
                         }),
-                        extra_classes: 'ecl-language-list2__link',
+                        extra_classes: _link_classes,
                       } only %}
                     </li>
                     {% endfor %}

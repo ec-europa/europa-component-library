@@ -217,16 +217,17 @@ export class SiteHeader {
     const popoverRect = this.languageListOverlay.getBoundingClientRect();
     const linkRect = this.languageLink.getBoundingClientRect();
     const screenWidth = window.innerWidth;
-    const arrowPosition = `${linkRect.width / 2}px`;
+    const arrowPositionAbsolute = `${linkRect.left + linkRect.width / 2}px`;
+    const arrowPositionRelative = `${linkRect.width / 2}px`;
     const arrowSize = '0.5rem';
 
-    if (popoverRect.left < 0) {
+    if (popoverRect.left <= 0) {
       this.languageListOverlay.classList.add(
         'ecl-language-list2__container--push-left'
       );
       this.languageListOverlay.style.setProperty(
         '--ecl-language-list2-arrow-position',
-        arrowPosition
+        arrowPositionAbsolute
       );
     }
 
@@ -236,7 +237,7 @@ export class SiteHeader {
       );
       this.languageListOverlay.style.setProperty(
         '--ecl-language-list2-arrow-position',
-        `calc(${arrowPosition} - ${arrowSize})`
+        `calc(${arrowPositionRelative} - ${arrowSize})`
       );
     }
   }
