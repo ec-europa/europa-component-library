@@ -65,6 +65,7 @@ $_title-font-weight: null !default;
 .ecl-menu__inner {
   background-color: $_mobile-background;
   bottom: 0;
+  display: none;
   overflow-y: auto;
   position: fixed;
   right: -100%;
@@ -80,6 +81,7 @@ $_title-font-weight: null !default;
 
 // Expanded
 .ecl-menu[aria-expanded='true'] .ecl-menu__inner {
+  display: block;
   right: 0;
 }
 
