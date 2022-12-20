@@ -188,11 +188,11 @@ export class SiteHeader {
     // Check number or items and adapt display
     if (this.languageListEu) {
       const itemsEu = queryAll(
-        '.ecl-language-list2__item',
+        '.ecl-site-header__language-item',
         this.languageListEu
       );
       this.languageListEu.classList.add(
-        `ecl-language-list2__category--${Math.ceil(
+        `ecl-site-header__language-category--${Math.ceil(
           itemsEu.length / this.languageMaxColumnItems
         )}-col`
       );
@@ -205,13 +205,13 @@ export class SiteHeader {
 
     // Check available space (left and right only)
     this.languageListOverlay.classList.remove(
-      'ecl-language-list2__container--push-left'
+      'ecl-site-header__language-container--push-left'
     );
     this.languageListOverlay.classList.remove(
-      'ecl-language-list2__container--push-right'
+      'ecl-site-header__language-container--push-right'
     );
     this.languageListOverlay.style.removeProperty(
-      '--ecl-language-list2-arrow-position'
+      '--ecl-language-arrow-position'
     );
 
     const popoverRect = this.languageListOverlay.getBoundingClientRect();
@@ -223,20 +223,20 @@ export class SiteHeader {
 
     if (popoverRect.left <= 0) {
       this.languageListOverlay.classList.add(
-        'ecl-language-list2__container--push-left'
+        'ecl-site-header__language-container--push-left'
       );
       this.languageListOverlay.style.setProperty(
-        '--ecl-language-list2-arrow-position',
+        '--ecl-language-arrow-position',
         arrowPositionAbsolute
       );
     }
 
     if (popoverRect.right > screenWidth) {
       this.languageListOverlay.classList.add(
-        'ecl-language-list2__container--push-right'
+        'ecl-site-header__language-container--push-right'
       );
       this.languageListOverlay.style.setProperty(
-        '--ecl-language-list2-arrow-position',
+        '--ecl-language-arrow-position',
         `calc(${arrowPositionRelative} - ${arrowSize})`
       );
     }
