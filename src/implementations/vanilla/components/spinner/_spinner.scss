@@ -29,8 +29,11 @@ $_spinner-sizes: (
 }
 
 .ecl-spinner--centered {
-  left: 50%;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
   position: absolute;
+  right: 0;
   top: map.get(theme.$spacing, '2xl');
 }
 
