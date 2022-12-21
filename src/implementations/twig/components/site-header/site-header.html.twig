@@ -123,10 +123,6 @@
   {% set _language_selector = _language_selector|merge(language_selector) %}
 {% endif %}
 
-{% if _language_selector.overlay is defined and _language_selector.overlay is not empty %}
-  {% set _has_overlay = true %}
-{% endif %}
-
 {% if search_toggle is defined and search_toggle is not empty %}
   {% set _search_toggle = _search_toggle|merge(search_toggle) %}
 {% endif %}
@@ -304,120 +300,10 @@
 
         {# Language selector #}
         {% if _language_selector is not empty %}
-        <div class="ecl-site-header__language">
-          <a
-            class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
-            href="{{ _language_selector.href }}"
-            data-ecl-language-selector
-            aria-label="{{ _language_selector.aria_label }}"
-          {% if _has_overlay is defined %}
-            aria-controls="language-list-overlay"
-          {% endif %}
-          >
-            <span class="ecl-site-header__language-icon">
-              {% include '@ecl/icon/icon.html.twig' with {
-                icon: {
-                  path: _icon_file_path,
-                  name: 'language',
-                  size: 's'
-                },
-                extra_classes: 'ecl-site-header__icon',
-              } only %}
-              <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
-            </span>
-            {{- _language_selector.label -}}
-          </a>
-
-          <div class="ecl-site-header__language-container" id="language-list-overlay" hidden data-ecl-language-list-overlay aria-labelledby="ecl-site-header__language-title" role="dialog">
-            {# language list header #}
-            <div class="ecl-site-header__language-header">
-              <div
-                class="ecl-site-header__language-title"
-                id="ecl-site-header__language-title"
-              >
-                {{- _language_selector.overlay.title -}}
-              </div>
-              {% include '@ecl/button/button.html.twig' with {
-                label: _language_selector.overlay.close_label,
-                variant: 'ghost',
-                icon: {
-                  path: _icon_file_path,
-                  name: 'close-filled',
-                  size: 's'
-                },
-                hide_label: true,
-                extra_classes: 'ecl-site-header__language-close',
-                extra_attributes: [{ name: 'data-ecl-language-list-close' }],
-              } only %}
-            </div>
-
-            <div class="ecl-site-header__language-content">
-              {# EU languages #}
-              {% if _language_selector.overlay.items is not empty and _language_selector.overlay.items is iterable %}
-              <div class="ecl-site-header__language-category" data-ecl-language-list-eu>
-                {% if _language_selector.eu_category is not empty %}
-                <div class="ecl-site-header__language-category-title">
-                  {{- _language_selector.eu_category -}}
-                </div>
-                {% endif %}
-                <ul class="ecl-site-header__language-list">
-                  {% for _item in _language_selector.overlay.items %}
-                  <li class="ecl-site-header__language-item">
-                    {% set _link_label = 
-                    '<span class="ecl-site-header__language-link-code">' ~ _item.lang|default('') ~ '</span>' ~
-                    '<span class="ecl-site-header__language-link-label">' ~ _item.label ~ '</span>'
-                    %}
-                    {% set _link_classes = 'ecl-site-header__language-link' %}
-                    {% if _item.active %}
-                      {% set _link_classes = _link_classes ~ ' ecl-site-header__language-link--active' %}
-                    {% endif %}
-                    {% include '@ecl/link/link.html.twig' with {
-                      link: _item|merge({
-                        label: _link_label,
-                        type: 'standalone'
-                      }),
-                      extra_classes: _link_classes,
-                    } only %}
-                  </li>
-                  {% endfor %}
-                </ul>
-              </div>
-              {% endif %}
-
-              {# non-EU languages #}
-              {% if _language_selector.overlay.non_eu_items is not empty and _language_selector.overlay.non_eu_items is iterable %}
-              <div class="ecl-site-header__language-category" data-ecl-language-list-non-eu>
-                {% if _language_selector.non_eu_category is not empty %}
-                <div class="ecl-site-header__language-category-title">
-                  {{- _language_selector.non_eu_category -}}
-                </div>
-                {% endif %}
-                <ul class="ecl-site-header__language-list">
-                  {% for _item in _language_selector.overlay.non_eu_items %}
-                  <li class="ecl-site-header__language-item">
-                  {% set _link_label = 
-                    '<span class="ecl-site-header__language-link-code">' ~ _item.lang|default('') ~ '</span>' ~
-                    '<span class="ecl-site-header__language-link-label">' ~ _item.label ~ '</span>'
-                    %}
-                    {% set _link_classes = 'ecl-site-header__language-link' %}
-                    {% if _item.active %}
-                      {% set _link_classes = _link_classes ~ ' ecl-site-header__language-link--active' %}
-                    {% endif %}
-                    {% include '@ecl/link/link.html.twig' with {
-                      link: _item|merge({
-                        label: _link_label,
-                        type: 'standalone'
-                      }),
-                      extra_classes: _link_classes,
-                    } only %}
-                  </li>
-                  {% endfor %}
-                </ul>
-              </div>
-              {% endif %}
-            </div>
-          </div>
-        </div>
+          {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
+            language_selector: _language_selector,
+            icon_file_path: _icon_file_path,
+          } only %}
         {% endif %}
 
         {# Search form #}

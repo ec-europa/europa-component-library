@@ -56,8 +56,7 @@ const getArgs = (data) => {
   }
   if (data.language_selector) {
     defaultArgs.languages_eu = data.language_selector.overlay.items.length;
-    defaultArgs.languages_non_eu =
-      data.language_selector.overlay.non_eu_items.length;
+    defaultArgs.languages_non_eu = 5;
   }
 
   return defaultArgs;
@@ -170,7 +169,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'number' },
         defaultValue: {
-          summary: data.language_selector.overlay.non_eu_items.length,
+          summary: 5,
         },
         category: 'Content',
       },
