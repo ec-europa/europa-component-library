@@ -46,6 +46,7 @@ $_multiple_counter_background: null !default;
   box-shadow: $_shadow;
   box-sizing: border-box;
   color: $_color-input;
+  cursor: pointer;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
@@ -242,11 +243,8 @@ $_multiple_counter_background: null !default;
 }
 
 .ecl-select__multiple {
+  cursor: pointer;
   position: relative;
-
-  .ecl-select__multiple-toggle[readonly] {
-    cursor: default;
-  }
 
   .ecl-select__multiple-dropdown {
     background-color: $_multiple-dropdown-background-color;
