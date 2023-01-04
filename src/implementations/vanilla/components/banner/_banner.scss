@@ -375,8 +375,15 @@ $_font-weight: null !default;
     .ecl-banner__description-text {
       box-decoration-break: clone;
       background: rgba(map.get(theme.$color, 'black'), 0.54);
-      line-height: map.get($_font, 'line-height');
+      line-height: 1.55;
       padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
     }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('xl') {
+  .ecl-banner--image-gradient .ecl-banner__description-text {
+    line-height: 1.5;
   }
 }
