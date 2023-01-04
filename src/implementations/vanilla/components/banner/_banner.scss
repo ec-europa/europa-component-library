@@ -98,17 +98,38 @@ $_font-weight: null !default;
   margin-top: map.get(theme.$spacing, 'xs');
 }
 
-.ecl-banner__link-cta {
+.ecl-banner__cta {
   margin-top: map.get(theme.$spacing, 'l');
+}
+
+.ecl-banner__content > *:first-child {
+  margin-top: 0;
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  // manage ratio 4:1
-  .ecl-banner::before {
+  // medium banner - ratio 4:1
+  .ecl-banner::before,
+  .ecl-banner--m::before {
     content: '';
     display: block;
     padding-top: (1 * 0.25) * 100%;
+    width: 100%;
+  }
+
+  // small banner - ratio 5:1
+  .ecl-banner--s::before {
+    content: '';
+    display: block;
+    padding-top: (1 * 0.2) * 100%;
+    width: 100%;
+  }
+
+  // large banner - ratio 3:1
+  .ecl-banner--l::before {
+    content: '';
+    display: block;
+    padding-top: (1 * 0.33) * 100%;
     width: 100%;
   }
 
@@ -354,7 +375,7 @@ $_font-weight: null !default;
     .ecl-banner__description-text {
       box-decoration-break: clone;
       background: rgba(map.get(theme.$color, 'black'), 0.54);
-      line-height: 1.55;
+      line-height: map.get($_font, 'line-height');
       padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
     }
   }

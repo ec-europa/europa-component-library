@@ -8,7 +8,8 @@ npm install --save @ecl/twig-component-banner
 
 ### Parameters
 
-- **"variant"** (string) (default: 'primary') Variant of banner (can be 'primary', 'seconary, 'white', image','image-shade','image-gradient')
+- **"variant"** (string) (default: 'primary') Variant of banner (can be 'primary', 'image','image-shade','image-gradient')
+- **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"title"** (string) (default: '') Title of banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
 - **credit** (string) (default: '') Credit for the image

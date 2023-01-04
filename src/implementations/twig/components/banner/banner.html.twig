@@ -2,7 +2,8 @@
 
 {#
   Parameters:
-  - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'secondary', 'white', 'image', 'image-shade', 'image-gradient')
+  - "variant" (string) (default: 'default') Variant of banner (can be 'primary', 'image', 'image-shade', 'image-gradient')
+  - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "title" (string) (default: '') Title of banner
   - "image" (string) (default: '') Image for banner (required for image banner variant)
   - "credit" (string) (default: '') Credit for the image
@@ -21,6 +22,7 @@
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = '' %}
 {% set _variant = variant|default('primary') %}
+{% set _size = size|default('m') %}
 {% set _centered = centered ?? true %}
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
@@ -31,7 +33,13 @@
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ecl-banner--' ~ _variant %}
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _variant %}
+{% endif %}
+
+{% if _size is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _size %}
+{% endif %}
 
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-banner--centered' %}
@@ -68,7 +76,9 @@
     <div class="ecl-banner__container">
     {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-banner__content">
-        <div class="ecl-banner__title">{{ _title }}</div>
+        {% if _title is not empty %}
+          <div class="ecl-banner__title">{{ _title }}</div>
+        {% endif %}
         {% if _description is not empty %}
           <p class="ecl-banner__description">
             <span class="ecl-banner__description-text">{{ _description }}</span>

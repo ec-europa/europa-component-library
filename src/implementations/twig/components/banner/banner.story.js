@@ -13,8 +13,10 @@ import notes from './README.md';
 const cta = { ...bannerDataPrimary.link };
 const getArgs = (data) => {
   const args = {
+    show_title: true,
     show_description: true,
     show_button: true,
+    size: 'm',
     title: data.title,
     description: data.description,
     label: data.link.link.label,
@@ -35,6 +37,14 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {
+    show_title: {
+      name: 'title',
+      type: { name: 'boolean' },
+      description: 'Show the title',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_description: {
       name: 'description',
       type: { name: 'boolean' },
@@ -52,31 +62,22 @@ const getArgTypes = (data) => {
       },
     },
 
-    title: {
-      type: { name: 'string', required: true },
-      description: 'Heading of the banner',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+    size: {
+      name: 'banner size',
+      type: 'select',
+      description: "Possible banner sizes ('small', 'medium' or 'large')",
+      options: ['s', 'm', 'l'],
+      control: {
+        labels: {
+          s: 'small',
+          m: 'medium',
+          l: 'large',
+        },
       },
-    },
-    description: {
-      type: 'string',
-      description: 'Sub-heading of the banner',
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    },
-    label: {
-      type: 'string',
-      description: 'Label of the call to action link',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
+        type: 'string',
+        defaultValue: { summary: 'm' },
+        category: 'Display',
       },
     },
     centered: {
@@ -105,6 +106,33 @@ const getArgTypes = (data) => {
         type: { summary: 'radio' },
         defaultValue: { summary: 'outside the grid container' },
         category: 'Display',
+      },
+    },
+    title: {
+      type: 'string',
+      description: 'Heading of the banner',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    description: {
+      type: 'string',
+      description: 'Sub-heading of the banner',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    },
+    label: {
+      type: 'string',
+      description: 'Label of the call to action link',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
       },
     },
     gridContent: {
@@ -154,6 +182,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  data.size = args.size;
   data.title = args.title;
   data.description = args.description;
   data.centered = args.centered;
@@ -165,6 +194,9 @@ const prepareData = (data, args) => {
   }
   if (!args.show_credit) {
     data.credit = '';
+  }
+  if (!args.show_title) {
+    data.title = '';
   }
   if (!args.show_description) {
     data.description = '';
