@@ -1,0 +1,36 @@
+/*
+ * Banner
+ * @define banner; weak
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+.ecl-banner {
+  margin: 0;
+  padding-bottom: map.get(theme.$spacing-print, 'l');
+  padding-top: map.get(theme.$spacing-print, 'l');
+}
+
+.ecl-banner__credit {
+  display: none;
+}
+
+.ecl-banner__title {
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-print, '4xl');
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ecl-banner__description {
+  color: map.get(theme.$color, 'black-100');
+  font: map.get(theme.$font-prolonged-print, 'l');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing-print, 'xs');
+}
+
+.ecl-banner__description + .ecl-link {
+  margin-top: map.get(theme.$spacing-print, 'm');
+}
