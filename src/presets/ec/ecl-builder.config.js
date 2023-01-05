@@ -69,6 +69,24 @@ module.exports = {
         sourceMap: false,
       },
     },
+    {
+      entry: path.resolve(nodeModules, '@ecl/preset-reset/src/reset.scss'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-reset.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
+      entry: path.resolve(nodeModules, '@ecl/preset-rtl/src/rtl.scss'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-rtl.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
   ],
   copy: [
     {
