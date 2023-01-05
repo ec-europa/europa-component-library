@@ -73,6 +73,10 @@ $_label-color: null !default;
   width: $_box-size;
 }
 
+.ecl-radio__box:not(.ecl-radio__box--disabled) {
+  cursor: pointer;
+}
+
 .ecl-radio__label:hover .ecl-radio__box {
   border-color: $_box-border-color-hover;
 }
