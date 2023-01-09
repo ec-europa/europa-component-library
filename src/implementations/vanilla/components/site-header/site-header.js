@@ -35,6 +35,7 @@ export class SiteHeader {
   constructor(
     element,
     {
+      containerSelector = '[data-ecl-site-header-top]',
       languageLinkSelector = '[data-ecl-language-selector]',
       languageListOverlaySelector = '[data-ecl-language-list-overlay]',
       languageListEuSelector = '[data-ecl-language-list-eu]',
@@ -58,6 +59,7 @@ export class SiteHeader {
     this.element = element;
 
     // Options
+    this.containerSelector = containerSelector;
     this.languageLinkSelector = languageLinkSelector;
     this.languageListOverlaySelector = languageListOverlaySelector;
     this.languageListEuSelector = languageListEuSelector;
@@ -104,6 +106,9 @@ export class SiteHeader {
     if (this.attachClickListener) {
       document.addEventListener('click', this.handleClickGlobal);
     }
+
+    // Site header elements
+    this.container = queryOne(this.containerSelector);
 
     // Language list management
     this.languageLink = queryOne(this.languageLinkSelector);
@@ -185,23 +190,76 @@ export class SiteHeader {
    * Shows the modal language list overlay.
    */
   openOverlay() {
-    // Check number or items and adapt display
+    // Check number of items and adapt display
+    let columnsEu = 1;
+    let columnsNonEu = 1;
     if (this.languageListEu) {
+      // Get all Eu languages
       const itemsEu = queryAll(
         '.ecl-site-header__language-item',
         this.languageListEu
       );
-      this.languageListEu.classList.add(
-        `ecl-site-header__language-category--${Math.ceil(
-          itemsEu.length / this.languageMaxColumnItems
-        )}-col`
+
+      // Calculate number of columns
+      columnsEu = Math.ceil(itemsEu.length / this.languageMaxColumnItems);
+
+      // Apply column display
+      if (columnsEu > 1) {
+        this.languageListEu.classList.add(
+          `ecl-site-header__language-category--${columnsEu}-col`
+        );
+      }
+    }
+    if (this.languageListNonEu) {
+      // Get all non-Eu languages
+      const itemsNonEu = queryAll(
+        '.ecl-site-header__language-item',
+        this.languageListNonEu
       );
+
+      // Calculate number of columns
+      columnsNonEu = Math.ceil(itemsNonEu.length / this.languageMaxColumnItems);
+
+      // Apply column display
+      if (columnsNonEu > 1) {
+        this.languageListNonEu.classList.add(
+          `ecl-site-header__language-category--${columnsNonEu}-col`
+        );
+      }
     }
 
     // Display language list
     this.languageListOverlay.hidden = false;
     this.languageListOverlay.setAttribute('aria-modal', 'true');
     this.languageLink.setAttribute('aria-expanded', 'true');
+
+    // Check total width, and change display if needed
+    let popoverRect = this.languageListOverlay.getBoundingClientRect();
+    const containerRect = this.container.getBoundingClientRect();
+
+    if (popoverRect.width > containerRect.width) {
+      // Stack elements
+      this.languageListEu.parentNode.classList.add(
+        'ecl-site-header__language-content--stack'
+      );
+
+      // Adapt column display
+      if (this.languageListNonEu) {
+        this.languageListNonEu.classList.remove(
+          `ecl-site-header__language-category--${columnsNonEu}-col`
+        );
+        this.languageListNonEu.classList.add(
+          `ecl-site-header__language-category--${Math.max(
+            columnsEu,
+            columnsNonEu
+          )}-col`
+        );
+      }
+    } else {
+      this.languageListEu.parentNode.classList.remove(
+        'ecl-site-header__language-content--stack'
+      );
+    }
 
     // Check available space (left and right only)
     this.languageListOverlay.classList.remove(
@@ -214,7 +272,7 @@ export class SiteHeader {
       '--ecl-language-arrow-position'
     );
 
-    const popoverRect = this.languageListOverlay.getBoundingClientRect();
+    popoverRect = this.languageListOverlay.getBoundingClientRect();
     const linkRect = this.languageLink.getBoundingClientRect();
     const screenWidth = window.innerWidth;
     const arrowPositionAbsolute = `${linkRect.left + linkRect.width / 2}px`;

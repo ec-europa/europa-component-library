@@ -84,9 +84,9 @@ $_active-item-background: null !default;
   padding: 0 map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 }
 
-.ecl-site-header__language-category:first-of-type {
-  border-bottom: 1px solid $_separator-color;
-  padding-bottom: map.get(theme.$spacing, 'm');
+.ecl-site-header__language-category:nth-child(2) {
+  border-top: 1px solid $_separator-color;
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .ecl-site-header__language-category-title {
@@ -121,6 +121,7 @@ $_active-item-background: null !default;
   display: inline-block;
   margin-inline-end: map.get(theme.$spacing, '2xs');
   text-transform: uppercase;
+  width: 30px;
 }
 
 .ecl-site-header__language-link:hover .ecl-site-header__language-link-label,
@@ -162,6 +163,29 @@ $_active-item-background: null !default;
     transform: none;
   }
 
+  // Horizontal sections
+  .ecl-site-header__language-content:not(
+      .ecl-site-header__language-content--stack
+    ) {
+    flex-direction: row;
+
+    .ecl-site-header__language-category {
+      margin-top: map.get(theme.$spacing, 'm');
+    }
+
+    .ecl-site-header__language-category:nth-child(2) {
+      border-top: none;
+      border-inline-start: 1px solid $_separator-color;
+      margin-inline-start: map.get(theme.$spacing, 's');
+      padding-inline-start: map.get(theme.$spacing, 's');
+    }
+
+    .ecl-site-header__language-category-title {
+      padding-top: 0;
+    }
+  }
+
+  // Columns display
   .ecl-site-header__language-list {
     column-gap: 0;
   }
@@ -176,35 +200,5 @@ $_active-item-background: null !default;
 
   .ecl-site-header__language-link {
     width: calc(188px - (2 * #{map.get(theme.$spacing, 's')}));
-  }
-}
-
-@include breakpoints.up('l') {
-  .ecl-site-header__language-toggle {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    font: map.get(theme.$font, 'm');
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-  }
-
-  .ecl-site-header__language-content {
-    flex-direction: row;
-  }
-
-  .ecl-site-header__language-category {
-    margin-top: map.get(theme.$spacing, 'm');
-  }
-
-  .ecl-site-header__language-category:first-of-type {
-    border-bottom: none;
-    border-inline-end: 1px solid $_separator-color;
-    margin-inline-end: map.get(theme.$spacing, 's');
-    padding-bottom: 0;
-    padding-inline-end: map.get(theme.$spacing, 's');
-  }
-
-  .ecl-site-header__language-category-title {
-    padding-top: 0;
   }
 }
