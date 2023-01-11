@@ -47,14 +47,14 @@ $_font-weight: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: map.get(theme.$spacing, 'xl');
-  padding-inline-end: map.get(theme.$spacing, 'xl');
+  padding-inline-start: map.get(theme.$spacing, 'l');
+  padding-inline-end: map.get(theme.$spacing, 'l');
 }
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: $_padding-vertical;
-  padding-top: $_padding-vertical;
+  padding-bottom: map.get(theme.$spacing, 'l');
+  padding-top: map.get(theme.$spacing, 'l');
   width: 100%;
 }
 
@@ -186,11 +186,6 @@ $_font-weight: null !default;
 .ecl-banner--image {
   background: map.get($_background, 'white');
 
-  .ecl-banner__container {
-    padding-bottom: $_padding-vertical;
-    padding-top: $_padding-vertical;
-  }
-
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
   }
@@ -249,11 +244,6 @@ $_font-weight: null !default;
 .ecl-banner--image-shade {
   background: map.get($_background, 'image-shade');
 
-  .ecl-banner__container {
-    padding-bottom: $_padding-vertical;
-    padding-top: $_padding-vertical;
-  }
-
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
   }
@@ -281,11 +271,6 @@ $_font-weight: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-banner--image-shade {
-    .ecl-banner__container {
-      padding-bottom: $_padding-vertical;
-      padding-top: $_padding-vertical;
-    }
-
     .ecl-banner__image {
       border-bottom-width: 0;
       height: 100%;
@@ -312,11 +297,6 @@ $_font-weight: null !default;
   */
 .ecl-banner--image-gradient {
   background: map.get($_background, 'image-gradient');
-
-  .ecl-banner__container {
-    padding-bottom: $_padding-vertical;
-    padding-top: $_padding-vertical;
-  }
 
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
