@@ -77,7 +77,9 @@
     {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-banner__content">
         {% if _title is not empty %}
-          <div class="ecl-banner__title">{{ _title }}</div>
+          <div class="ecl-banner__title">
+            <span class="ecl-banner__title-text">{{ _title }}</span>
+          </div>
         {% endif %}
         {% if _description is not empty %}
           <p class="ecl-banner__description">

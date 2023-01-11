@@ -1,6 +1,5 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-// stylelint-disable length-zero-no-unit
 @use 'banner' with (
   $_border-radius: (
     'banner': 8px,
@@ -10,9 +9,8 @@
   $_padding-horizontal: map.get(theme.$spacing, 'l'),
   $_padding-vertical: map.get(theme.$spacing, 'l'),
   $_border-width: (
-    'left': 8px,
-    'bottom': 0px,
-    // unit has to be set, to be used in calc
+    'left': 4px,
+    'bottom': 0,
   ),
   $_background: (
     'primary':

@@ -143,7 +143,7 @@ $_font-weight: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('xl') {
+@include breakpoints.up('l') {
   // stylelint-disable-next-line plugin/selector-bem-pattern
   .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
     padding-inline-start: $_padding-horizontal;
@@ -198,7 +198,7 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__image {
-    border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
+    border-bottom: 4px solid $_border-color;
   }
 
   // manage ratio 4:1
@@ -244,9 +244,7 @@ $_font-weight: null !default;
       border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
       border-inline-start: map.get($_border-width, 'left') solid $_border-color;
       border-radius: map.get($_border-radius, 'content');
-      padding: $_padding-vertical $_padding-horizontal
-        calc(#{$_padding-vertical} - #{map.get($_border-width, 'bottom')})
-        calc(#{$_padding-horizontal} - #{map.get($_border-width, 'left')});
+      padding: $_padding-vertical $_padding-horizontal;
     }
   }
 }
@@ -263,7 +261,7 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__image {
-    border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
+    border-bottom: 4px solid $_border-color;
   }
 
   // manage ratio 4:1
@@ -327,7 +325,7 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__image {
-    border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
+    border-bottom: 4px solid $_border-color;
   }
 
   // manage ratio 4:1
@@ -366,24 +364,19 @@ $_font-weight: null !default;
       padding-top: 0;
     }
 
-    .ecl-banner__title {
-      backdrop-filter: blur(8px);
-      background: rgba(map.get(theme.$color, 'black'), 0.54);
-      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
-    }
-
+    .ecl-banner__title-text,
     .ecl-banner__description-text {
       box-decoration-break: clone;
       background: rgba(map.get(theme.$color, 'black'), 0.54);
-      line-height: 1.55;
       padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
     }
-  }
-}
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('xl') {
-  .ecl-banner--image-gradient .ecl-banner__description-text {
-    line-height: 1.5;
+    .ecl-banner__title-text {
+      line-height: 1.3;
+    }
+
+    .ecl-banner__description-text {
+      line-height: 1.5;
+    }
   }
 }
