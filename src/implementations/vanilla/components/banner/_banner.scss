@@ -47,8 +47,8 @@ $_font-weight: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: $_padding-horizontal;
-  padding-inline-end: $_padding-horizontal;
+  padding-inline-start: map.get(theme.$spacing, 'xl');
+  padding-inline-end: map.get(theme.$spacing, 'xl');
 }
 
 .ecl-banner__container {
@@ -144,12 +144,6 @@ $_font-weight: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-    padding-inline-start: $_padding-horizontal;
-    padding-inline-end: $_padding-horizontal;
-  }
-
   .ecl-banner__title {
     font: map.get($_font, 'title', 'desktop');
     font-weight: map.get($_font-weight, 'title');
