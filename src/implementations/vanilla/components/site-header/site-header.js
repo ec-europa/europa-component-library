@@ -234,6 +234,9 @@ export class SiteHeader {
     this.languageLink.setAttribute('aria-expanded', 'true');
 
     // Check total width, and change display if needed
+    this.languageListEu.parentNode.classList.remove(
+      'ecl-site-header__language-content--stack'
+    );
     let popoverRect = this.languageListOverlay.getBoundingClientRect();
     const containerRect = this.container.getBoundingClientRect();
 
@@ -261,41 +264,37 @@ export class SiteHeader {
       );
     }
 
-    // Check available space (left and right only)
-    this.languageListOverlay.classList.remove(
-      'ecl-site-header__language-container--push-left'
-    );
+    // Check available space
     this.languageListOverlay.classList.remove(
       'ecl-site-header__language-container--push-right'
     );
     this.languageListOverlay.style.removeProperty(
       '--ecl-language-arrow-position'
     );
+    this.languageListOverlay.style.removeProperty('right');
 
     popoverRect = this.languageListOverlay.getBoundingClientRect();
-    const linkRect = this.languageLink.getBoundingClientRect();
     const screenWidth = window.innerWidth;
-    const arrowPositionAbsolute = `${linkRect.left + linkRect.width / 2}px`;
-    const arrowPositionRelative = `${linkRect.width / 2}px`;
-    const arrowSize = '0.5rem';
-
-    if (popoverRect.left <= 0) {
-      this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--push-left'
-      );
-      this.languageListOverlay.style.setProperty(
-        '--ecl-language-arrow-position',
-        arrowPositionAbsolute
-      );
-    }
 
     if (popoverRect.right > screenWidth) {
+      const linkRect = this.languageLink.getBoundingClientRect();
+
+      // Push the popover to the right
       this.languageListOverlay.classList.add(
         'ecl-site-header__language-container--push-right'
       );
       this.languageListOverlay.style.setProperty(
+        'right',
+        `-${containerRect.right - linkRect.right}px`
+      );
+
+      // Adapt arrow position
+      const arrowPosition =
+        containerRect.right - linkRect.right + linkRect.width / 2;
+      const arrowSize = '0.5rem';
+      this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPositionRelative} - ${arrowSize})`
+        `calc(${arrowPosition}px - ${arrowSize})`
       );
     }
   }
