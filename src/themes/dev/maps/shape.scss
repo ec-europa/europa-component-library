@@ -1,5 +1,22 @@
+@use 'sass:map';
+
 $border-radius: (
   's': 2px,
   'm': 4px,
   'l': 6px,
+) !default;
+$_shadow-color: #002f67;
+$_shadow1: 0 2px 4px rgba($_shadow-color, 0.08),
+  0 0 10px rgba($_shadow-color, 0.04), 0 4px 5px rgba($_shadow-color, 0.04),
+  0 -4px 4px rgba($_shadow-color, 0.04);
+$_shadow2: 0 3px 5px rgba($_shadow-color, 0.04),
+  0 0 18px rgba($_shadow-color, 0.04), 0 6px 10px rgba($_shadow-color, 0.04),
+  0 -4px 4px rgba($_shadow-color, 0.04);
+$_shadow3: 0 7px 8px rgba($_shadow-color, 0.08),
+  0 0 22px rgba($_shadow-color, 0.04), 0 12px 17px rgba($_shadow-color, 0.04),
+  0 -4px 4px rgba($_shadow-color, 0.04);
+$shadow: (
+  '1': $_shadow1,
+  '2': $_shadow2,
+  '3': $_shadow3,
 ) !default;
