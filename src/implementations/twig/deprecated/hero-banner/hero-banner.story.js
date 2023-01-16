@@ -195,7 +195,7 @@ const renderStory = (data, args) => {
 };
 
 export default {
-  title: 'Components/Banners/Hero Banner',
+  title: 'Deprecated/Banners/Hero Banner',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };

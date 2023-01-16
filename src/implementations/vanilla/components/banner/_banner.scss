@@ -9,8 +9,6 @@
 
 $_border-radius: null !default;
 $_content-width: 45.5rem;
-$_padding-horizontal: null !default;
-$_padding-vertical: null !default;
 $_box-shadow: null !default;
 $_border-color: map.get(theme.$color, 'yellow-100');
 $_border-width: null !default;
@@ -233,7 +231,7 @@ $_font-weight: null !default;
       border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
       border-inline-start: map.get($_border-width, 'left') solid $_border-color;
       border-radius: map.get($_border-radius, 'content');
-      padding: $_padding-vertical $_padding-horizontal;
+      padding: map.get(theme.$spacing, 'l');
     }
   }
 }
