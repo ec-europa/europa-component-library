@@ -1,0 +1,82 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "title" (string) (default: '')
+  - "meta" (string) (default: '')
+  - "lang" (string) (default: '')
+  - "download" (object) (default to the parent download property) object of type Link
+  - "description (string) (default:'')
+#}
+
+{# Internal properties #}
+
+{% set _lang = lang|default('') %}
+{% set _description = description|default('') %}
+{% set _lang_full = lang_full|default('') %}
+{% set _meta = meta|default('') %}
+{% set _download = download|default({}) %}
+{% set _variant = variant|default('default') %}
+
+{% set _title %}
+  <div
+      class="ecl-file__translation-title"
+    {% if _lang is not empty %}
+      lang="{{ _lang }}"
+    {% endif %}
+  >
+    {{- title -}}
+  </div>
+{% endset %}
+
+  <li class="ecl-file__translation-item">
+  {% if _variant == 'thumbnail' %}
+    <div class="ecl-file__translation-detail">
+      {{- _title -}}
+    {% if _description is not empty %}
+      <div 
+        class="ecl-file__translation-description"
+      {% if _lang is not empty %}
+        lang="{{ _lang }}"
+      {% endif %}
+      >
+        {{- _description -}}
+      </div>
+    {% endif %}
+    </div>
+  {% endif %}
+    <div class="ecl-file__translation-info">
+    {% if _variant != 'thumbnail' %}
+      {{- _title -}}
+    {% else %}
+      {% if _lang_full is defined and _lang_full is not empty %}
+      <div class="ecl-file__translation-language">
+        {{- _lang_full -}}
+      </div>
+      {% endif %}
+    {% endif %}
+
+    {% if _meta is not empty %}
+      <div class="ecl-file__translation-meta">
+        {{- _meta -}}
+      </div>
+    {% endif %}
+    </div>
+    {% include '@ecl/link/link.html.twig' with _download|merge({
+      link: _download.link|default(_download.link|default({}))|merge({
+        type: 'standalone',
+        icon_position: 'after'
+      }),
+      icon: _download.icon|default(_download.icon|default({}))|merge({
+        name: 'download',
+        size: 'fluid'
+      }),
+      extra_classes: 'ecl-file__translation-download',
+      extra_attributes: [
+        { name: 'download' },
+        { name: 'hreflang', value: _lang }
+      ],
+    }) only %}
+  </li>
+
+{% endapply %}
