@@ -121,6 +121,20 @@ $_negative: null !default;
 .ecl-link--standalone {
   font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+/**
+* Button link
+*/
+.ecl-link--cta,
+.ecl-link--primary,
+.ecl-link--secondary {
+  display: inline-block;
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -145,15 +159,6 @@ $_negative: null !default;
   }
 }
 // stylelint-enable plugin/selector-bem-pattern
-
-/**
-* CTA display
-*/
-.ecl-link--cta,
-.ecl-link--primary,
-.ecl-link--secondary {
-  display: inline-block;
-}
 
 /**
 * Call to action
