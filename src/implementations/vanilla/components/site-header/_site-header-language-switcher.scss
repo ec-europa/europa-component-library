@@ -84,6 +84,10 @@ $_active-item-background: null !default;
   padding: 0 map.get(theme.$spacing, 's') map.get(theme.$spacing, 's');
 }
 
+.ecl-site-header__language-category {
+  width: max-content;
+}
+
 .ecl-site-header__language-category:nth-child(2) {
   border-top: 1px solid $_separator-color;
   margin-top: map.get(theme.$spacing, 'm');
