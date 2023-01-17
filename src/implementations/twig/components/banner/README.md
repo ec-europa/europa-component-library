@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-banner
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"title"** (string) (default: '') Title of banner
 - **"image"** (string) (default: '') Image for banner (required for image banner type)
-- **credit** (string) (default: '') Credit for the image
+- **"credit"** (string) (default: '') Credit for the image
 - **"description"** (string) (default: '') Description of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
