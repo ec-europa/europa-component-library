@@ -1,0 +1,52 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "variant" (string) (default: 'default')
+    - "toggle" (object) (default: {}): object of type Button
+    - "items" (array) (default: []):
+      - "title" (string) (default: '')
+      - "meta" (string) (default: '')
+      - "lang" (string) (default: '')
+      - "download" (object) (default to the parent download property) object of type Link
+    - "description (string) (default:'')
+#}
+
+{# Internal properties #}
+
+{% set _items = items|default([]) %}
+{% set _toggle = toggle|default({}) %}
+{% set _description = description|default('') %}
+{% set _variant = variant|default('defaUlt') %}
+
+{% if _items is not empty %}
+  <div
+    class="ecl-file__translation-container"
+    data-ecl-file-translation-container
+  >
+    {% include '@ecl/button/button.html.twig' with _toggle|merge({
+      variant: 'ghost',
+      type: 'button',
+      icon: _toggle.icon|default({})|merge({
+        name: 'corner-arrow',
+        size: 'fluid',
+        transform: 'rotate-180'
+      }),
+      extra_classes: 'ecl-file__translation-toggle',
+      extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
+    }) only %}
+
+    <ul class="ecl-file__translation-list">
+    {% for _item in _items %}
+      {% include '@ecl/file/file-translation-item.html.twig' with _item|merge({
+        variant: _variant
+      }) only %}
+    {% endfor %}
+      <li class="ecl-file__translation-item ecl-file__translation-description">
+        {{- description -}}
+      </li>
+    </ul>
+  </div>
+{% endif %}
+
+{% endapply %}
