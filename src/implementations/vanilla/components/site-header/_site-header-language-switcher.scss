@@ -81,7 +81,7 @@ $_active-item-background: null !default;
 .ecl-site-header__language-content {
   display: flex;
   flex-direction: column;
-  padding: 0 map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: 0 map.get(theme.$spacing, 's') map.get(theme.$spacing, 's');
 }
 
 .ecl-site-header__language-category:nth-child(2) {
@@ -95,7 +95,7 @@ $_active-item-background: null !default;
   padding-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-end: map.get(theme.$spacing, 's');
   padding-inline-start: map.get(theme.$spacing, 's');
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'l');
 }
 
 .ecl-site-header__language-list {
@@ -170,7 +170,7 @@ $_active-item-background: null !default;
     flex-direction: row;
 
     .ecl-site-header__language-category {
-      margin-top: map.get(theme.$spacing, 'm');
+      margin-top: map.get(theme.$spacing, 'l');
     }
 
     .ecl-site-header__language-category:nth-child(2) {
