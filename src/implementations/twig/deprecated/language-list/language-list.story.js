@@ -22,7 +22,7 @@ const prepareData = (data) => {
 };
 
 export default {
-  title: 'Components/Language list',
+  title: 'Deprecated/Language list',
   decorators: [withCode, withNotes],
   parameters: {
     controls: { disable: true },
