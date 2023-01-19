@@ -53,7 +53,7 @@
   ] %}
 
   {% include '@ecl/link/link.html.twig' with _toggle|merge({
-    extra_classes: 'ecl-popover__toggle',
+    extra_classes: 'ecl-popover__toggle' ~ ' ' ~ _toggle.extra_classes|default(''),
     extra_attributes: _toggle_attributes,
   }) only %}
 

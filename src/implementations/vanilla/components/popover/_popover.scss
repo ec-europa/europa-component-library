@@ -19,10 +19,6 @@ $_item-height: map.get(theme.$line-height-prolonged, 'm') +
   position: relative;
 }
 
-.ecl-popover__toggle .ecl-link__label {
-  text-decoration: underline;
-}
-
 .ecl-popover__container {
   background-color: map.get(theme.$color, 'white');
   box-shadow: 0 0 $_shadow-size $_shadow-color;
@@ -78,7 +74,8 @@ $_item-height: map.get(theme.$line-height-prolonged, 'm') +
 }
 
 .ecl-popover__link {
-  display: block;
+  align-items: center;
+  display: flex;
   padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
   &:focus-visible {

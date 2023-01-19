@@ -9,14 +9,21 @@ import notes from './README.md';
 // Preserve original data.
 const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
-const others = specs.links.slice(-1)[0];
 
 const getArgs = (data) => ({
-  description: data.description,
   toggle_other: true,
+  description: data.description,
 });
 
 const getArgTypes = () => ({
+  toggle_other: {
+    name: 'other social networks',
+    type: { name: 'boolean' },
+    description: 'toggle the visibility of the "other social networks" link',
+    table: {
+      category: 'Optional',
+    },
+  },
   description: {
     name: 'description',
     type: { name: 'string', required: true },
@@ -27,26 +34,17 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
-  toggle_other: {
-    name: 'Show the "more" link',
-    type: { name: 'boolean' },
-    description: 'toggle the visibility of the "other social networks" link',
-    table: {
-      category: 'Content',
-    },
-  },
 });
 
 const prepareData = (data, args) => {
-  const isItThere = data.links.slice(-1)[0].label === 'Other social networks';
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
 
-  if (!args.toggle_other && isItThere) {
-    data.links.pop();
-  } else if (args.toggle_other && !isItThere) {
-    data.links.push(others);
+  if (!args.toggle_other) {
+    delete clone.popover;
   }
 
-  return Object.assign(correctPaths(data), args);
+  return clone;
 };
 
 export default {

@@ -4,25 +4,8 @@
   Parameters:
     - "variant" (string) (default: 'horizontal')
     - "description" (string) (default: ''),
-    - "links" (array) (default: []): format: [
-        {
-          "path" (string) (default: ''),
-          "label" (string) (default: ''),
-          "icon_position" (string) (default: ''),
-          "variant" (string) (default: ''),
-          "extra_classes" (string),
-          "icon" (array) : format: [
-            {
-              "name" (string),
-              "size": (string),
-              "path": (string),
-              "extra_classes": (string)
-            },
-            ...
-          ]
-        },
-        ...
-      ]
+    - "links" (array) (default: {}): Array of links for social media, following ECL Link structure
+    - "popover" (associative array) (default: {}): Popover for other social media, following ECL Popover structure
     - "extra_classes" (string) (default: ''),
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -38,6 +21,7 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
+{% set _popover = popover|default({}) %}
 {% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
@@ -67,21 +51,29 @@
   {% if _links is not empty %}
     <ul class="ecl-social-media-share__list">
     {% for link in _links %}
-    {% if link.label is defined and link.label is not empty %}
-      {% set _link_extra_classes = 'ecl-social-media-share__link' %}
-      {% if link.extra_classes is not empty %}
-        {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
-      {% endif %}
+      {# Backward compatibility provided by default(link) #}
       <li class="ecl-social-media-share__item">
         {% include '@ecl/link/link.html.twig' with link|merge({
-          link: link|default({})|merge({
+          link: link.link|default(link)|merge({
             type: 'standalone',
           }),
-          extra_classes: _link_extra_classes,
+          extra_classes: 'ecl-social-media-share__link' ~ ' ' ~ link.extra_classes|default(''),
+        }) only %}
+      </li>
+    {% endfor %}
+
+    {% if _popover is not empty %}
+      <li class="ecl-social-media-share__item">
+        {% include '@ecl/popover/popover.html.twig' with _popover|merge({
+          toggle: _popover.toggle|merge({
+            link: _popover.toggle.link|default({})|merge({
+              type: 'standalone',
+            }),
+            extra_classes: 'ecl-social-media-share__link' ~ ' ' ~ _popover.toggle.extra_classes|default(''),
+          })
         }) only %}
       </li>
     {% endif %}
-    {% endfor %}
     </ul>
   {% endif %}
 </div>

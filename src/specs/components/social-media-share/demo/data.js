@@ -5,10 +5,11 @@ module.exports = {
   description: 'Share this page',
   links: [
     {
-      path: exampleLink,
-      label: 'Twitter',
-      variant: 'standalone',
-      icon_position: 'before',
+      link: {
+        label: 'Twitter',
+        path: exampleLink,
+        icon_position: 'before',
+      },
       icon: {
         path: '/icon-social-media.svg',
         name: 'twitter-color',
@@ -17,10 +18,11 @@ module.exports = {
       },
     },
     {
-      path: exampleLink,
-      label: 'Facebook',
-      variant: 'standalone',
-      icon_position: 'before',
+      link: {
+        label: 'Facebook',
+        path: exampleLink,
+        icon_position: 'before',
+      },
       icon: {
         path: '/icon-social-media.svg',
         name: 'facebook-color',
@@ -29,22 +31,11 @@ module.exports = {
       },
     },
     {
-      path: exampleLink,
-      label: 'Instagram',
-      variant: 'standalone',
-      icon_position: 'before',
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'instagram-color',
-        size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
+      link: {
+        label: 'Linkedin',
+        path: exampleLink,
+        icon_position: 'before',
       },
-    },
-    {
-      path: exampleLink,
-      label: 'Linkedin',
-      variant: 'standalone',
-      icon_position: 'before',
       icon: {
         path: '/icon-social-media.svg',
         name: 'linkedin-color',
@@ -53,10 +44,11 @@ module.exports = {
       },
     },
     {
-      path: exampleLink,
-      label: 'Telegram',
-      variant: 'standalone',
-      icon_position: 'before',
+      link: {
+        label: 'Telegram',
+        path: exampleLink,
+        icon_position: 'before',
+      },
       icon: {
         path: '/icon-social-media.svg',
         name: 'telegram-color',
@@ -64,17 +56,75 @@ module.exports = {
         extra_classes: 'ecl-social-media-share__icon',
       },
     },
-    {
-      path: exampleLink,
-      label: 'Other social networks',
-      variant: 'standalone',
-      icon_position: 'before',
+  ],
+  popover: {
+    id: 'social-media-share-popover',
+    toggle: {
+      link: {
+        label: 'Other social networks',
+        path: exampleLink,
+        aria_label: 'See other social media networks',
+        icon_position: 'before',
+      },
       icon: {
         path: '/icons.svg',
         name: 'share',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
-  ],
+    links: [
+      {
+        link: {
+          label: 'Pinterest',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'pinterest-color',
+          size: 's',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Mastodon',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'mastodon-color',
+          size: 's',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Reddit',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'reddit-color',
+          size: 's',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Youtube',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'youtube-color',
+          size: 's',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+    ],
+  },
 };
