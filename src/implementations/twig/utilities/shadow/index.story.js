@@ -80,10 +80,10 @@ const getArgTypes = () => ({
     control: {
       labels: {
         'ecl-u-shadow-none': 'none',
-        'ecl-u-shadow-inner-1': 'elevation 1',
-        'ecl-u-shadow-inner-2': 'elevation 2',
-        'ecl-u-shadow-negative-inner-1': 'negative, elevation 1',
-        'ecl-u-shadow-negative-inner-2': 'negative, elevation 2',
+        'ecl-u-shadow-inner-1': 'depth 1',
+        'ecl-u-shadow-inner-2': 'depth 2',
+        'ecl-u-shadow-negative-inner-1': 'negative, depth 1',
+        'ecl-u-shadow-negative-inner-2': 'negative, depth 2',
       },
     },
     table: {

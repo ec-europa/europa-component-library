@@ -25,8 +25,8 @@ Available values are:
 By using classes `ecl-u-shadow-inner-*` you can manage inner shadow of an element.
 Available values are:
 
-- ecl-u-shadow-inner-1 (inner shadow 1)
-- ecl-u-shadow-inner-2 (inner shadow 2)
+- ecl-u-shadow-inner-1 (depth 1)
+- ecl-u-shadow-inner-2 (depth 2)
 
 ## Negative shadows
 
@@ -36,5 +36,5 @@ Available values are:
 - ecl-u-shadow-negative-1 (elevation 1)
 - ecl-u-shadow-negative-2 (elevation 2)
 - ecl-u-shadow-negative-3 (elevation 3)
-- ecl-u-shadow-negative-inner-1 (inner shadow 1)
-- ecl-u-shadow-negative-inner-2 (inner shadow 2)
+- ecl-u-shadow-negative-inner-1 (depth 1)
+- ecl-u-shadow-negative-inner-2 (depth 2)
