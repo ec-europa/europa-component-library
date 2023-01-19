@@ -48,6 +48,10 @@ const getArgs = (data) => {
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
   }
+  if (data.language_selector) {
+    defaultArgs.languages_eu = data.language_selector.overlay.items.length;
+    defaultArgs.languages_non_eu = 5;
+  }
 
   return defaultArgs;
 };
@@ -121,6 +125,40 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.language_selector) {
+    argTypes.languages_eu = {
+      name: 'EU languages',
+      description: 'Number of official EU languages',
+      control: {
+        type: 'range',
+        min: 1,
+        max: data.language_selector.overlay.items.length,
+        step: 1,
+      },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: { summary: data.language_selector.overlay.items.length },
+        category: 'Content',
+      },
+    };
+    argTypes.languages_non_eu = {
+      name: 'non-EU languages',
+      description: 'Number of other languages',
+      control: {
+        type: 'range',
+        min: 0,
+        max: data.language_selector.overlay.non_eu_items.length,
+        step: 1,
+      },
+      table: {
+        type: { summary: 'number' },
+        defaultValue: {
+          summary: 5,
+        },
+        category: 'Content',
+      },
+    };
+  }
 
   return argTypes;
 };
@@ -142,8 +180,21 @@ const prepareData = (data, args) => {
 
   if (!args.show_language_selector) {
     delete data.language_selector;
-  } else if (args.show_language_selector && !data.language_selector) {
-    data.language_selector = clonedDataFull.language_selector;
+  } else {
+    data.language_selector = JSON.parse(
+      JSON.stringify(clonedDataFull.language_selector)
+    );
+    data.language_selector.overlay.items.splice(
+      -(data.language_selector.overlay.items.length - args.languages_eu),
+      data.language_selector.overlay.items.length - args.languages_eu
+    );
+    data.language_selector.overlay.non_eu_items.splice(
+      -(
+        data.language_selector.overlay.non_eu_items.length -
+        args.languages_non_eu
+      ),
+      data.language_selector.overlay.non_eu_items.length - args.languages_non_eu
+    );
   }
 
   if (!args.show_site_name) {

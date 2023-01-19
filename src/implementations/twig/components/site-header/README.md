@@ -34,10 +34,17 @@ npm install --save @ecl/twig-component-site-header
   - "label" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
   - "aria_label" (string) (default: ''): Switcher language aria label
   - "code" (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
+  - "eu_category" (string) (default: ''): Label for EU languages
+  - "non_eu_category" (string) (default: ''): Label for non-EU languages
   - "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
     - "close_label" (string) (default: ''): Close button label eg. 'Close'.
     - "title" (string) (default: ''): Overlay title, eg. 'Select your language'.
     - "items" (array) (default: []): (array) (default: []): format:
+      - "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+      - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+      - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+      - "active" (boolean) (default: false) define if item is the active language.
+    - "non_eu_items" (array) (default: []): (array) (default: []): format:
       - "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
