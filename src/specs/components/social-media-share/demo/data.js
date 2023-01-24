@@ -83,7 +83,6 @@ module.exports = {
           path: '/icon-social-media.svg',
           name: 'pinterest-color',
           size: 's',
-          extra_classes: 'ecl-social-media-share__icon',
         },
       },
       {
@@ -96,7 +95,6 @@ module.exports = {
           path: '/icon-social-media.svg',
           name: 'mastodon-color',
           size: 's',
-          extra_classes: 'ecl-social-media-share__icon',
         },
       },
       {
@@ -109,7 +107,6 @@ module.exports = {
           path: '/icon-social-media.svg',
           name: 'reddit-color',
           size: 's',
-          extra_classes: 'ecl-social-media-share__icon',
         },
       },
       {
@@ -122,7 +119,42 @@ module.exports = {
           path: '/icon-social-media.svg',
           name: 'youtube-color',
           size: 's',
-          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Flickr',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'flickr-color',
+          size: 's',
+        },
+      },
+      {
+        link: {
+          label: 'Skype',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'skype-color',
+          size: 's',
+        },
+      },
+      {
+        link: {
+          label: 'Spotify',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'spotify-color',
+          size: 's',
         },
       },
     ],
