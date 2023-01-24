@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "variant" (string) (default: 'horizontal')
+    - "variant" (string) (default: ''): can be 'vertical',
     - "description" (string) (default: ''),
     - "links" (array) (default: {}): Array of links for social media, following ECL Link structure
     - "popover" (associative array) (default: {}): Popover for other social media, following ECL Popover structure
@@ -57,9 +57,16 @@
         {% if link.extra_classes is not empty %}
           {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
         {% endif %}
+        {% set _icon_extra_classes = 'ecl-social-media-share__icon' %}
+        {% if link.icon is not empty and link.icon.extra_classes is not empty %}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ link.icon.extra_classes %}
+        {% endif %}
         {% include '@ecl/link/link.html.twig' with link|merge({
           link: link.link|default(link)|merge({
             type: 'standalone',
+          }),
+          icon: link.icon|default({})|merge({
+            extra_classes: _icon_extra_classes,
           }),
           extra_classes: _link_extra_classes,
         }) only %}
@@ -72,10 +79,17 @@
         {% if _popover.toggle.extra_classes is not empty %}
           {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _popover.toggle.extra_classes %}
         {% endif %}
+        {% set _icon_extra_classes = 'ecl-social-media-share__icon' %}
+        {% if _popover.toggle.icon is not empty and _popover.toggle.icon.extra_classes is not empty %}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ _popover.toggle.icon.extra_classes %}
+        {% endif %}
         {% include '@ecl/popover/popover.html.twig' with _popover|merge({
           toggle: _popover.toggle|merge({
             link: _popover.toggle.link|default({})|merge({
               type: 'standalone',
+            }),
+            icon: _popover.toggle.icon|default({})|merge({
+              extra_classes: _icon_extra_classes,
             }),
             extra_classes: _toggle_extra_classes,
           })

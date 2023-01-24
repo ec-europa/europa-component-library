@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-social-media-share
 
 ### Parameters
 
+- **"variant"** (string) (default: '') Can be 'vertical'
 - **"description"** (string) (default: '')
 - **"links"** (array) (default: {}) Array of links for social media, following ECL Link structure
 - **"popover"** (associative array) (default: {}) Popover for other social media, following ECL Popover structure

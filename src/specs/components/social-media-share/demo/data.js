@@ -14,7 +14,6 @@ module.exports = {
         path: '/icon-social-media.svg',
         name: 'twitter-color',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
     {
@@ -27,7 +26,6 @@ module.exports = {
         path: '/icon-social-media.svg',
         name: 'facebook-color',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
     {
@@ -40,7 +38,6 @@ module.exports = {
         path: '/icon-social-media.svg',
         name: 'linkedin-color',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
     {
@@ -53,7 +50,6 @@ module.exports = {
         path: '/icon-social-media.svg',
         name: 'telegram-color',
         size: 'm',
-        extra_classes: 'ecl-social-media-share__icon',
       },
     },
   ],
