@@ -44,7 +44,7 @@ const prepareData = (data, args) => {
     delete clone.popover;
   }
 
-  return clone;
+  return Object.assign(clone, args);
 };
 
 export default {
