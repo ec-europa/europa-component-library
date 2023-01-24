@@ -53,23 +53,31 @@
     {% for link in _links %}
       {# Backward compatibility provided by default(link) #}
       <li class="ecl-social-media-share__item">
+        {% set _link_extra_classes = 'ecl-social-media-share__link' %}
+        {% if link.extra_classes is not empty %}
+          {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
+        {% endif %}
         {% include '@ecl/link/link.html.twig' with link|merge({
           link: link.link|default(link)|merge({
             type: 'standalone',
           }),
-          extra_classes: 'ecl-social-media-share__link' ~ ' ' ~ link.extra_classes|default(''),
+          extra_classes: _link_extra_classes,
         }) only %}
       </li>
     {% endfor %}
 
     {% if _popover is not empty %}
       <li class="ecl-social-media-share__item">
+        {% set _toggle_extra_classes = 'ecl-social-media-share__link' %}
+        {% if _popover.toggle.extra_classes is not empty %}
+          {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _popover.toggle.extra_classes %}
+        {% endif %}
         {% include '@ecl/popover/popover.html.twig' with _popover|merge({
           toggle: _popover.toggle|merge({
             link: _popover.toggle.link|default({})|merge({
               type: 'standalone',
             }),
-            extra_classes: 'ecl-social-media-share__link' ~ ' ' ~ _popover.toggle.extra_classes|default(''),
+            extra_classes: _toggle_extra_classes,
           })
         }) only %}
       </li>

@@ -11,12 +11,12 @@ const dataHorizontal = { ...specs };
 const dataVertical = { ...specs, variant: 'vertical' };
 
 const getArgs = (data) => ({
-  toggle_other: true,
+  show_other: true,
   description: data.description,
 });
 
 const getArgTypes = () => ({
-  toggle_other: {
+  show_other: {
     name: 'other social networks',
     type: { name: 'boolean' },
     description: 'toggle the visibility of the "other social networks" link',
@@ -40,7 +40,7 @@ const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
 
-  if (!args.toggle_other) {
+  if (!args.show_other) {
     delete clone.popover;
   }
 

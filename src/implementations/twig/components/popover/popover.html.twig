@@ -52,8 +52,12 @@
     { name: 'aria-expanded', value: 'false' }
   ] %}
 
+  {% set _toggle_extra_classes = 'ecl-popover__toggle' %}
+  {% if _toggle.extra_classes is not empty %}
+    {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _toggle.extra_classes %}
+  {% endif %}
   {% include '@ecl/link/link.html.twig' with _toggle|merge({
-    extra_classes: 'ecl-popover__toggle' ~ ' ' ~ _toggle.extra_classes|default(''),
+    extra_classes: _toggle_extra_classes,
     extra_attributes: _toggle_attributes,
   }) only %}
 
