@@ -26,11 +26,20 @@ if (system === 'eu') {
 }
 
 const getArgs = (data) => ({
+  show_close: true,
   title: data.title,
   description: data.description,
 });
 
 const getArgTypes = () => ({
+  show_close: {
+    name: 'close',
+    type: { name: 'boolean' },
+    description: 'Show the close button',
+    table: {
+      category: 'Optional',
+    },
+  },
   title: {
     name: 'title',
     type: { name: 'string', required: true },
@@ -55,7 +64,14 @@ const getArgTypes = () => ({
 
 const prepareData = (data, args) => {
   correctPaths(data);
-  return Object.assign(data, args);
+  const clone = JSON.parse(JSON.stringify(data));
+
+  // Optional elements
+  if (!args.show_close) {
+    delete clone.close;
+  }
+
+  return Object.assign(clone, args);
 };
 
 export default {
