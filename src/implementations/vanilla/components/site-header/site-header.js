@@ -258,10 +258,6 @@ export class SiteHeader {
           )}-col`
         );
       }
-    } else {
-      this.languageListEu.parentNode.classList.remove(
-        'ecl-site-header__language-content--stack'
-      );
     }
 
     // Check available space
@@ -276,6 +272,7 @@ export class SiteHeader {
     popoverRect = this.languageListOverlay.getBoundingClientRect();
     const screenWidth = window.innerWidth;
 
+    // Popover too large
     if (popoverRect.right > screenWidth) {
       const linkRect = this.languageLink.getBoundingClientRect();
 
@@ -291,6 +288,25 @@ export class SiteHeader {
       // Adapt arrow position
       const arrowPosition =
         containerRect.right - linkRect.right + linkRect.width / 2;
+      const arrowSize = '0.5rem';
+      this.languageListOverlay.style.setProperty(
+        '--ecl-language-arrow-position',
+        `calc(${arrowPosition}px - ${arrowSize})`
+      );
+    }
+
+    // Mobile popover (full width)
+    if (popoverRect.left === 0) {
+      const linkRect = this.languageLink.getBoundingClientRect();
+
+      // Push the popover to the right
+      this.languageListOverlay.classList.add(
+        'ecl-site-header__language-container--full'
+      );
+
+      // Adapt arrow position
+      const arrowPosition =
+        popoverRect.right - linkRect.right + linkRect.width / 2;
       const arrowSize = '0.5rem';
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
