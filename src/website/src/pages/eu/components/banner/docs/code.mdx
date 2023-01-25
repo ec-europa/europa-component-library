@@ -1,0 +1,77 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Html, Playground } from '@ecl/website-components';
+import {
+  bannerImageBox,
+  bannerImageShade,
+  bannerImageGradient,
+  bannerPrimary,
+} from '../demo';
+
+## Image banners
+
+### Text box image banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banner"
+  selectedStory="image"
+  showFrame
+>
+  <Html markup={bannerImageBox} />
+</Playground>
+
+### Shaded image banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banner"
+  selectedStory="image-shade"
+  showFrame
+>
+  <Html markup={bannerImageShade} />
+</Playground>
+
+### Gradient image banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banner"
+  selectedStory="image-gradient"
+  showFrame
+>
+  <Html markup={bannerImageGradient} />
+</Playground>
+
+## Primary banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banner"
+  selectedStory="primary"
+  showFrame
+>
+  <Html markup={bannerPrimary} />
+</Playground>
+
+## Other variants
+
+Note: Variants below can be applied to all kind of banners.  
+Check usage guidelines for more information.
+
+### Left aligned content
+
+Removing class `.ecl-banner--center` will put the text back on left in the banner.
+
+### Banner width
+
+Banners placed inside a grid container (`.ecl-container`) will expand to this container width.
+
+To have a full width banner, the recommanded way is to place it outside of the grid container.
+
+However, if there is a need to have a full width banner inside the grid container, the css class `.ecl-banner--fullwidth` can be used (just put it at the same level as `.ecl-page-banner`).
+
+**Caution**: if you plan to use full width banner using this fullwidth css class, we recommend to include the optional `ecl-reset.css`, as some global rules here would improve the display (`overflow-x: hidden`).
