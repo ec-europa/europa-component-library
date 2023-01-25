@@ -9,99 +9,90 @@
 
 $_border: null !default;
 $_border-radius: null !default;
-$_items-padding-horizontal-mobile: null !default;
-$_items-padding-horizontal-desktop: null !default;
-$_item-icon-margin-bottom: null !default;
-$_item-value-color: null !default;
-$_item-value-font: null !default;
-$_item-value-font-4-col: null !default;
-$_item-value-font-weight: null !default;
-$_item-title-color: null !default;
-$_item-title-margin-bottom: null !default;
-$_item-description-color: null !default;
+$_text-color: null !default;
+$_value-font-mobile: null !default;
+$_value-font-weight-mobile: null !default;
+$_value-font-desktop: null !default;
+$_value-font-weight-desktop: null !default;
 $_view-all-border-color: null !default;
-$_view-all-margin-horizontal: null !default;
-$_view-all-padding-vertical: null !default;
 
 .ecl-fact-figures {
   background-color: map.get(theme.$color, 'blue-5');
   border: $_border;
   border-radius: $_border-radius;
   margin: 0;
-}
-
-.ecl-fact-figures__items {
-  padding-bottom: map.get(theme.$spacing, 'xl');
-  padding-inline-start: $_items-padding-horizontal-mobile;
-  padding-inline-end: $_items-padding-horizontal-mobile;
-  padding-top: 0;
+  padding: map.get(theme.$spacing, 'm');
 }
 
 .ecl-fact-figures__item {
-  box-sizing: border-box;
+  color: $_text-color;
   font: map.get(theme.$font, 'm');
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-inline-end: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 'xl');
+  margin-top: map.get(theme.$spacing, 'xl');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }
 
 .ecl-fact-figures__icon {
-  color: map.get(theme.$color, 'blue');
-  margin-bottom: $_item-icon-margin-bottom;
+  color: map.get(theme.$color, 'blue-100');
+  margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-fact-figures__value {
-  color: $_item-value-color;
-  font: $_item-value-font;
-  font-weight: $_item-value-font-weight;
-}
-
-.ecl-fact-figures--col-4 .ecl-fact-figures__value {
-  font: $_item-value-font-4-col;
-  font-weight: $_item-value-font-weight;
+  font: $_value-font-mobile;
+  font-weight: $_value-font-weight-mobile;
 }
 
 .ecl-fact-figures__title {
-  color: $_item-title-color;
   font: map.get(theme.$font-prolonged, 'l');
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-top: $_item-title-margin-bottom;
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-fact-figures__description {
-  color: $_item-description-color;
   font: map.get(theme.$font-prolonged, 'm');
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-fact-figures__view-all {
   border-top: 1px solid $_view-all-border-color;
-  font: map.get(theme.$font, 'm');
-  margin-inline-start: $_view-all-margin-horizontal;
-  margin-inline-end: $_view-all-margin-horizontal;
-  padding-bottom: $_view-all-padding-vertical;
-  padding-top: $_view-all-padding-vertical;
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'xl');
+  padding-top: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-fact-figures {
+    padding: map.get(theme.$spacing, 'xl');
+  }
+
   .ecl-fact-figures__items {
-    display: flex;
-    flex-wrap: wrap;
-    padding-inline-start: $_items-padding-horizontal-desktop;
-    padding-inline-end: $_items-padding-horizontal-desktop;
+    display: grid;
+    grid-column-gap: map.get(theme.$spacing, 'xl');
+    grid-row-gap: map.get(theme.$spacing, 'xl');
+
+    .ecl-fact-figures--col-2 & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ecl-fact-figures--col-3 & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ecl-fact-figures--col-4 & {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .ecl-fact-figures__item {
-    display: inline-flex;
-    flex-direction: column;
+    margin-top: 0;
+    max-width: 80ch;
   }
 
-  .ecl-fact-figures--col-3 .ecl-fact-figures__item {
-    flex-basis: 33%;
-  }
-
-  .ecl-fact-figures--col-4 .ecl-fact-figures__item {
-    flex-basis: 25%;
+  .ecl-fact-figures__value {
+    font: $_value-font-desktop;
+    font-weight: $_value-font-weight-desktop;
   }
 }
