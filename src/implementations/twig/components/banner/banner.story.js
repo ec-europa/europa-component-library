@@ -3,20 +3,20 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import bannerDataSimplePrimary from '@ecl/specs-component-hero-banner/demo/data--simple-primary';
-import bannerDataSimpleSecondary from '@ecl/specs-component-hero-banner/demo/data--simple-secondary';
-import bannerDataSimpleWhite from '@ecl/specs-component-hero-banner/demo/data--simple-white';
-import bannerDataImage from '@ecl/specs-component-hero-banner/demo/data--image-box';
-import bannerDataImageShade from '@ecl/specs-component-hero-banner/demo/data--image-shade';
-import bannerDataImageGradient from '@ecl/specs-component-hero-banner/demo/data--image-gradient';
-import heroBanner from './hero-banner.html.twig';
+import bannerDataPrimary from '@ecl/specs-component-banner/demo/data--primary';
+import bannerDataImage from '@ecl/specs-component-banner/demo/data--image-box';
+import bannerDataImageShade from '@ecl/specs-component-banner/demo/data--image-shade';
+import bannerDataImageGradient from '@ecl/specs-component-banner/demo/data--image-gradient';
+import banner from './banner.html.twig';
 import notes from './README.md';
 
-const cta = { ...bannerDataSimplePrimary.link };
+const cta = { ...bannerDataPrimary.link };
 const getArgs = (data) => {
   const args = {
+    show_title: true,
     show_description: true,
     show_button: true,
+    size: 'm',
     title: data.title,
     description: data.description,
     label: data.link.link.label,
@@ -37,6 +37,14 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {
+    show_title: {
+      name: 'title',
+      type: { name: 'boolean' },
+      description: 'Show the title',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_description: {
       name: 'description',
       type: { name: 'boolean' },
@@ -54,8 +62,54 @@ const getArgTypes = (data) => {
       },
     },
 
+    size: {
+      name: 'banner size',
+      type: 'select',
+      description: "Possible banner sizes ('small', 'medium' or 'large')",
+      options: ['s', 'm', 'l'],
+      control: {
+        labels: {
+          s: 'small',
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'm' },
+        category: 'Display',
+      },
+    },
+    centered: {
+      type: 'boolean',
+      description: 'Whether the content of the banner is centered or not',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Display',
+      },
+    },
+    width: {
+      name: 'width',
+      type: 'radio',
+      description: `The media container extends to the whole viewport by default when outside the grid,
+        if it's inside it can still be extended by adding class .ecl-banner--full-width`,
+      options: ['outside', 'container', 'inside'],
+      control: {
+        labels: {
+          outside: 'outside the grid container',
+          container: 'inside the grid container',
+          inside: 'inside the grid container, with fullwidth class',
+        },
+      },
+      table: {
+        type: { summary: 'radio' },
+        defaultValue: { summary: 'outside the grid container' },
+        category: 'Display',
+      },
+    },
     title: {
-      type: { name: 'string', required: true },
+      type: 'string',
       description: 'Heading of the banner',
       table: {
         type: { summary: 'string' },
@@ -79,34 +133,6 @@ const getArgTypes = (data) => {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
-      },
-    },
-    centered: {
-      type: 'boolean',
-      description: 'Whether the content of the banner is centered or not',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-        category: 'Display',
-      },
-    },
-    width: {
-      name: 'width',
-      type: 'radio',
-      options: ['outside', 'container', 'inside'],
-      control: {
-        labels: {
-          outside: 'outside the grid container',
-          container: 'inside the grid container',
-          inside: 'inside the grid container, with fullwidth class',
-        },
-      },
-      description: `The media container extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended by adding class .ecl-hero-banner--full-width`,
-      table: {
-        type: { summary: 'radio' },
-        defaultValue: { summary: 'outside the grid container' },
-        category: 'Display',
       },
     },
     gridContent: {
@@ -156,6 +182,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  data.size = args.size;
   data.title = args.title;
   data.description = args.description;
   data.centered = args.centered;
@@ -167,6 +194,9 @@ const prepareData = (data, args) => {
   }
   if (!args.show_credit) {
     data.credit = '';
+  }
+  if (!args.show_title) {
+    data.title = '';
   }
   if (!args.show_description) {
     data.description = '';
@@ -182,7 +212,7 @@ const prepareData = (data, args) => {
 };
 
 const renderStory = (data, args) => {
-  let story = heroBanner(prepareData(correctPaths(data), args));
+  let story = banner(prepareData(correctPaths(data), args));
   if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }
@@ -195,36 +225,18 @@ const renderStory = (data, args) => {
 };
 
 export default {
-  title: 'Components/Banners/Hero Banner',
+  title: 'Components/Banner',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
 };
 
-export const Primary = (args) => renderStory(bannerDataSimplePrimary, args);
+export const Primary = (args) => renderStory(bannerDataPrimary, args);
 
-Primary.storyName = 'simple - primary';
-Primary.args = getArgs(bannerDataSimplePrimary);
-Primary.argTypes = getArgTypes(bannerDataSimplePrimary);
+Primary.storyName = 'primary';
+Primary.args = getArgs(bannerDataPrimary);
+Primary.argTypes = getArgTypes(bannerDataPrimary);
 Primary.parameters = {
-  notes: { markdown: notes, json: bannerDataSimplePrimary },
-};
-
-export const Secondary = (args) => renderStory(bannerDataSimpleSecondary, args);
-
-Secondary.storyName = 'simple - secondary';
-Secondary.args = getArgs(bannerDataSimpleSecondary);
-Secondary.argTypes = getArgTypes(bannerDataSimpleSecondary);
-Secondary.parameters = {
-  notes: { markdown: notes, json: bannerDataSimpleSecondary },
-};
-
-export const SimpleWhite = (args) => renderStory(bannerDataSimpleWhite, args);
-
-SimpleWhite.storyName = 'simple - white';
-SimpleWhite.args = getArgs(bannerDataSimpleWhite);
-SimpleWhite.argTypes = getArgTypes(bannerDataSimpleWhite);
-SimpleWhite.parameters = {
-  notes: { markdown: notes, json: bannerDataSimpleWhite },
+  notes: { markdown: notes, json: bannerDataPrimary },
 };
 
 export const Image = (args) => renderStory(bannerDataImage, args);

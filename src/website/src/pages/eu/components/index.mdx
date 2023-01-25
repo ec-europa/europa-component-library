@@ -35,8 +35,7 @@ import PageHeaderThumbnail from './site-wide/page-header/eu_comp_page-header.svg
 import SiteHeaderThumbnail from './site-wide/site-header/eu_comp_site-header.svg';
 import SiteFooterThumbnail from './site-wide/site-footer/eu_comp_site-footer.svg';
 
-import HeroBannerThumbnail from './banners/hero-banner/eu_comp_hero_banner.svg';
-import PageBannerThumbnail from './banners/page-banner/eu_comp_page_banner.svg';
+import BannerThumbnail from './banner/eu_comp_banner.svg';
 import CarouselThumbnail from './carousel/eu_comp_carousel.svg';
 
 import CheckboxThumbnail from './forms/checkbox/eu_comp_checkbox.svg';
@@ -228,18 +227,7 @@ Every component is coded to serve a function and designed to solve a specific us
 
 <Row spacing="pv-m">
   <Col col="12 s-6 l-4" spacing="pv-m">
-    <Thumbnail
-      image={HeroBannerThumbnail}
-      link="./banners/hero-banner/usage/"
-      title="Hero banner"
-    />
-  </Col>
-  <Col col="12 s-6 l-4" spacing="pv-m">
-    <Thumbnail
-      image={PageBannerThumbnail}
-      link="./banners/page-banner/usage/"
-      title="Page banner"
-    />
+    <Thumbnail image={BannerThumbnail} link="./banner/usage/" title="Banner" />
   </Col>
   <Col col="12 s-6 l-4" spacing="pv-m">
     <Thumbnail
