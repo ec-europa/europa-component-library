@@ -5,6 +5,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  */
 export class Popover {
   /**
@@ -27,6 +28,7 @@ export class Popover {
     {
       toggleSelector = '[data-ecl-popover-toggle]',
       attachClickListener = true,
+      attachKeyListener = true,
     } = {}
   ) {
     // Check element
@@ -41,13 +43,18 @@ export class Popover {
     // Options
     this.toggleSelector = toggleSelector;
     this.attachClickListener = attachClickListener;
+    this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
     this.target = null;
 
     // Bind `this` for use in callbacks
+    this.openPopover = this.openPopover.bind(this);
+    this.closePopover = this.closePopover.bind(this);
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
+    this.handleClickGlobal = this.handleClickGlobal.bind(this);
   }
 
   /**
@@ -55,6 +62,14 @@ export class Popover {
    */
   init() {
     this.toggle = queryOne(this.toggleSelector, this.element);
+
+    // Bind global events
+    if (this.attachKeyListener) {
+      document.addEventListener('keyup', this.handleKeyboardGlobal);
+    }
+    if (this.attachClickListener) {
+      document.addEventListener('click', this.handleClickGlobal);
+    }
 
     // Get target element
     this.target = document.querySelector(
@@ -84,6 +99,14 @@ export class Popover {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
+
+    if (this.attachKeyListener) {
+      document.removeEventListener('keyup', this.handleKeyboardGlobal);
+    }
+    if (this.attachClickListener) {
+      document.removeEventListener('click', this.handleClickGlobal);
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
@@ -101,12 +124,11 @@ export class Popover {
     const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the popover
-    this.toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
     if (isExpanded) {
-      this.target.hidden = true;
-    } else {
-      this.target.hidden = false;
+      this.closePopover();
+      return;
     }
+    this.openPopover();
 
     // Check available space
     this.element.classList.remove('ecl-popover--top');
@@ -130,8 +152,53 @@ export class Popover {
     if (popoverRect.right > screenWidth) {
       this.element.classList.add('ecl-popover--push-right');
     }
+  }
 
-    return this;
+  /**
+   * Open the popover.
+   */
+  openPopover() {
+    this.toggle.setAttribute('aria-expanded', 'true');
+    this.target.hidden = false;
+  }
+
+  /**
+   * Close the popover.
+   */
+  closePopover() {
+    this.toggle.setAttribute('aria-expanded', 'false');
+    this.target.hidden = true;
+  }
+
+  /**
+   * Handles global keyboard events, triggered outside of the popover.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardGlobal(e) {
+    if (!this.target) return;
+
+    // Detect press on Escape
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      this.closePopover();
+    }
+  }
+
+  /**
+   * Handles global click events, triggered outside of the popover.
+   *
+   * @param {Event} e
+   */
+  handleClickGlobal(e) {
+    if (!this.target) return;
+
+    // Check if the popover is open
+    if (this.toggle.getAttribute('aria-expanded') === 'true') {
+      // Check if the click occured on the popover
+      if (!this.target.contains(e.target) && !this.toggle.contains(e.target)) {
+        this.closePopover();
+      }
+    }
   }
 }
 
