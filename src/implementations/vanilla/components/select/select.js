@@ -167,6 +167,7 @@ export class Select {
     const input = document.createElement('input');
     const label = document.createElement('label');
     const box = document.createElement('span');
+    const labelText = document.createElement('span');
 
     // Respect optional input parameters.
     if (extraClass) {
@@ -197,7 +198,9 @@ export class Select {
       )
     );
     label.appendChild(box);
-    label.appendChild(document.createTextNode(text));
+    labelText.classList.add('ecl-checkbox__label-text');
+    labelText.innerHTML = text;
+    label.appendChild(labelText);
     checkbox.appendChild(label);
     return checkbox;
   }
@@ -662,22 +665,18 @@ export class Select {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
         // Highlight keyword in checkbox label.
-        const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
-        const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
-        checkboxLabel.textContent = checkboxLabel.textContent.replace(
+        const checkboxLabelText = checkbox.querySelector(
+          '.ecl-checkbox__label-text'
+        );
+        checkboxLabelText.textContent = checkboxLabelText.textContent.replace(
           '.cls-1{fill:none}',
           ''
         );
         if (keyword) {
-          checkboxLabel.innerHTML =
-            checkboxElement.outerHTML +
-            checkboxLabel.textContent.replace(
-              new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
-              '<b>$&</b>'
-            );
-        } else {
-          checkboxLabel.innerHTML =
-            checkboxElement.outerHTML + checkboxLabel.textContent;
+          checkboxLabelText.innerHTML = checkboxLabelText.textContent.replace(
+            new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+            '<b>$&</b>'
+          );
         }
         visible.push(checkbox);
       }

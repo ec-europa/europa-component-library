@@ -11,19 +11,15 @@ $_border-color: null !default;
 $_border-radius: null !default;
 $_box-size: null !default;
 $_box-margin-top: null !default;
-$_box-background-disabled: map.get(theme.$color, 'grey-5');
 $_box-background-checked: map.get(theme.$color, 'blue-100');
 $_box-background-checked-hover: null !default;
-$_box-border-color-disabled: map.get(theme.$color, 'grey-50');
 $_box-border-color-checked: map.get(theme.$color, 'blue-100');
 $_box-border-color-hover: null !default;
-$_box-border-color-checked-hover: null !default;
 $_help-text-color: null !default;
 $_help-text-font: null !default;
 $_invalid-border-color: null !default;
 $_invalid-border-color-hover: null !default;
 $_label-color: null !default;
-$_label-color-disabled: map.get(theme.$color, 'grey-50');
 
 .ecl-checkbox {
   align-items: flex-start;
@@ -48,6 +44,10 @@ $_label-color-disabled: map.get(theme.$color, 'grey-50');
   white-space: pre-wrap;
 }
 
+.ecl-checkbox--disabled .ecl-checkbox__label {
+  cursor: not-allowed;
+}
+
 .ecl-checkbox__box {
   align-items: center;
   border: $_border-width solid $_border-color;
@@ -61,6 +61,10 @@ $_label-color-disabled: map.get(theme.$color, 'grey-50');
   margin-top: $_box-margin-top;
   user-select: none;
   width: $_box-size;
+}
+
+.ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+  cursor: pointer;
 }
 
 .ecl-checkbox__help {
@@ -139,7 +143,7 @@ $_label-color-disabled: map.get(theme.$color, 'grey-50');
 .ecl-checkbox--invalid
   .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  border-color: map.get(theme.$color, 'red-130');
+  border-color: $_invalid-border-color-hover;
 }
 
 /* stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors */
