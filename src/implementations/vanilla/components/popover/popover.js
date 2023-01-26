@@ -52,6 +52,7 @@ export class Popover {
     // Bind `this` for use in callbacks
     this.openPopover = this.openPopover.bind(this);
     this.closePopover = this.closePopover.bind(this);
+    this.positionPopover = this.positionPopover.bind(this);
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
@@ -128,8 +129,31 @@ export class Popover {
       this.closePopover();
       return;
     }
-    this.openPopover();
 
+    this.openPopover();
+    this.positionPopover();
+  }
+
+  /**
+   * Open the popover.
+   */
+  openPopover() {
+    this.toggle.setAttribute('aria-expanded', 'true');
+    this.target.hidden = false;
+  }
+
+  /**
+   * Close the popover.
+   */
+  closePopover() {
+    this.toggle.setAttribute('aria-expanded', 'false');
+    this.target.hidden = true;
+  }
+
+  /**
+   * Manage popover position.
+   */
+  positionPopover() {
     // Check available space
     this.element.classList.remove('ecl-popover--top');
     this.element.classList.remove('ecl-popover--push-left');
@@ -164,22 +188,6 @@ export class Popover {
         `calc(${toggleRect.width / 2}px - 0.5rem)`
       );
     }
-  }
-
-  /**
-   * Open the popover.
-   */
-  openPopover() {
-    this.toggle.setAttribute('aria-expanded', 'true');
-    this.target.hidden = false;
-  }
-
-  /**
-   * Close the popover.
-   */
-  closePopover() {
-    this.toggle.setAttribute('aria-expanded', 'false');
-    this.target.hidden = true;
   }
 
   /**
