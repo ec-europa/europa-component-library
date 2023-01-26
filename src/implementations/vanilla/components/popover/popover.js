@@ -147,10 +147,22 @@ export class Popover {
 
     if (popoverRect.left < 0) {
       this.element.classList.add('ecl-popover--push-left');
+
+      // Adapt arrow position
+      this.target.style.setProperty(
+        '--ecl-popover-position',
+        `${toggleRect.width / 2}px`
+      );
     }
 
     if (popoverRect.right > screenWidth) {
       this.element.classList.add('ecl-popover--push-right');
+
+      // Adapt arrow position
+      this.target.style.setProperty(
+        '--ecl-popover-position',
+        `calc(${toggleRect.width / 2}px - 0.5rem)`
+      );
     }
   }
 
