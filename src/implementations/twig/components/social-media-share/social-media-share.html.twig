@@ -61,7 +61,7 @@
         {% if link.icon is not empty and link.icon.extra_classes is not empty %}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ link.icon.extra_classes %}
         {% endif %}
-        {% include '@ecl/link/link.html.twig' with link|merge({
+        {% include '@ecl/link/link.html.twig' with {
           link: link.link|default(link)|merge({
             type: 'standalone',
           }),
@@ -69,7 +69,7 @@
             extra_classes: _icon_extra_classes,
           }),
           extra_classes: _link_extra_classes,
-        }) only %}
+        } only %}
       </li>
     {% endfor %}
 
