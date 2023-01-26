@@ -314,9 +314,7 @@ $_multiple_counter_background: null !default;
     color: $_group-title-color;
     font: $_group-title-font;
     font-weight: map.get(theme.$font-weight, 'bold');
-    margin: map.get(theme.$spacing, 'xs') 0;
-    padding-inline-start: 0;
-    padding-inline-end: 0;
+    margin: 0 -#{map.get(theme.$spacing, 's')};
   }
 
   .ecl-select__multiple-no-results {
