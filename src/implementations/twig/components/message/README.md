@@ -11,7 +11,7 @@ npm install --save @ecl/twig-component-message
 - **"variant"** (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
 - **"icon"** (object of type "icon") (default: {})
 - **"title"** (string) (default: '')
-- **"close"** (object of type "button") (default: {}): close button
+- **"close"** (object of type "button") (default: {}): close button (optional)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
