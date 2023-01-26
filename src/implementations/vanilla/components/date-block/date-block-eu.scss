@@ -18,6 +18,7 @@
   $_border-color-past: transparent,
   $_background-color-cancelled: map.get(theme.$color, 'grey-20'),
   $_background-color-year: map.get(theme.$color, 'white-100'),
-  $_shadow: 0 0 6px rgba(14, 71, 203, 0.2),
+  $_shadow: map.get(theme.$shadow, '1'),
+  $_shadow-decoration: map.get(theme.$shadow-inner, '1'),
   $_border-radius: 8px
 );

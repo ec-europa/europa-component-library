@@ -3,7 +3,7 @@
 // stylelint-disable length-zero-no-unit
 @use 'card' with (
   $_border-radius: 8px,
-  $_shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_shadow: map.get(theme.$shadow, '1'),
   $_card-background: map.get(theme.$color, 'white'),
   $_card-border: 0,
   $_image-margin: 0px,

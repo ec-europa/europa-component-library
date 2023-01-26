@@ -9,7 +9,7 @@
   $_tabs-inactive-mobile-color: map.get(theme.$color, 'white'),
   $_dropdown-border: none,
   $_dropdown-border-radius: 0 0 4px 4px,
-  $_dropdown-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_dropdown-shadow: map.get(theme.$shadow, '1'),
   $_dropdown-link-active-color: map.get(theme.$color, 'blue-100'),
   $_dropdown-link-active-background: map.get(theme.$color, 'blue-5'),
   $_dropdown-link-hover-color: map.get(theme.$color, 'blue-140'),

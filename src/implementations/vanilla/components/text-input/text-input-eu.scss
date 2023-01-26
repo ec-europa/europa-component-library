@@ -8,7 +8,7 @@
   $_border-color-invalid-hover: map.get(theme.$color, 'red-100'),
   $_color-input: map.get(theme.$color, 'grey-140'),
   $_color-placeholder: map.get(theme.$color, 'grey-40'),
-  $_shadow: inset 0 0 6px rgba(9, 49, 142, 0.2),
-  $_shadow-hover: inset 0 0 6px rgba(9, 49, 142, 0.4),
+  $_shadow: map.get(theme.$shadow, '1'),
+  $_shadow-hover: map.get(theme.$shadow, '2'),
   $_padding-horizontal: map.get(theme.$spacing, 'm')
 );
