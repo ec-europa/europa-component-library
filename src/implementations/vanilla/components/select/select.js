@@ -113,6 +113,7 @@ export class Select {
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
+    this.handleClickSelectGroup = this.handleClickSelectGroup.bind(this);
     this.handleEsc = this.handleEsc.bind(this);
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -372,6 +373,7 @@ export class Select {
       this.checkboxes = Array.from(this.select.options).map((option) => {
         let optgroup = '';
         let checkbox = '';
+        let selectGroup = '';
         if (option.parentNode.tagName === 'OPTGROUP') {
           if (
             !this.optionsContainer.querySelector(
@@ -381,15 +383,27 @@ export class Select {
             )
           ) {
             optgroup = document.createElement('div');
-            const title = document.createElement('h5');
-            title.classList.add('ecl-select__multiple-group__title');
-            title.innerHTML = option.parentNode.getAttribute('label');
-            optgroup.appendChild(title);
+            optgroup.classList.add('ecl-select__multiple-group');
             optgroup.setAttribute(
               'data-ecl-multiple-group',
               option.parentNode.getAttribute('label')
             );
-            optgroup.classList.add('ecl-select__multiple-group');
+
+            selectGroup = Select.createCheckbox(
+              {
+                id: `group-${option.parentNode.getAttribute('label')}`,
+                text: option.parentNode.getAttribute('label'),
+                extraClass: 'ecl-select__multiple-group__title',
+              },
+              this.selectMultipleId
+            );
+            selectGroup.addEventListener('click', this.handleClickSelectGroup);
+            selectGroup.addEventListener(
+              'keypress',
+              this.handleClickSelectGroup
+            );
+            selectGroup.addEventListener('change', this.handleClickSelectGroup);
+            optgroup.appendChild(selectGroup);
             this.optionsContainer.appendChild(optgroup);
           } else {
             optgroup = this.optionsContainer.querySelector(
@@ -607,6 +621,40 @@ export class Select {
       this.searchContainer.querySelectorAll('[data-visible="true"]')
     ).filter((checkbox) => !checkbox.querySelector('input').disabled);
 
+    checkboxes.forEach((checkbox) => {
+      checkbox.querySelector('input').checked = checked;
+      const option = options.find(
+        (o) => o.text === checkbox.getAttribute('data-select-multiple-value')
+      );
+
+      if (option) {
+        if (checked) {
+          option.setAttribute('selected', 'selected');
+          option.selected = true;
+        } else {
+          option.removeAttribute('selected', 'selected');
+          option.selected = false;
+        }
+      }
+    });
+
+    this.updateCurrentValue();
+    this.updateSelectionsCount();
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClickSelectGroup(e) {
+    console.log(e);
+    e.preventDefault();
+
+    const checked = Select.checkCheckbox(e);
+    const group = e.target.closest('.ecl-select__multiple-group');
+    const options = Array.from(this.select.options).filter((o) => !o.disabled);
+    const checkboxes = Array.from(
+      group.querySelectorAll('[data-visible="true"]')
+    ).filter((checkbox) => !checkbox.querySelector('input').disabled);
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
       const option = options.find(

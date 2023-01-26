@@ -308,7 +308,8 @@ $_multiple_counter_background: null !default;
     margin-top: map.get(theme.$spacing, 's');
   }
 
-  .ecl-select__multiple-group__title {
+  .ecl-select__multiple-group__title .ecl-checkbox__label {
+    align-items: center;
     color: $_group-title-color;
     font: $_group-title-font;
     font-weight: map.get(theme.$font-weight, 'bold');
