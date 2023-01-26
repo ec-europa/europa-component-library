@@ -3,7 +3,7 @@
 @use 'button' with (
   $_border-radius: 4px,
   $_font-weight: map.get(theme.$font-weight, 'regular'),
-  $_shadow-hover: 0 0 4px rgba(9, 49, 142, 0.5),
+  $_shadow-hover: map.get(theme.$shadow, '1'),
   // Primary
   $_primary-background-color-hover: map.get(theme.$color, 'blue-80'),
   // Secondary
