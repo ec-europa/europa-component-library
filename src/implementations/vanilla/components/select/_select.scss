@@ -299,8 +299,9 @@ $_multiple_counter_background: null !default;
     }
 
     .ecl-checkbox__label {
-      padding-inline-start: 0;
-      padding-inline-end: 0;
+      margin-inline-start: -#{map.get(theme.$spacing, 's')};
+      margin-inline-end: -#{map.get(theme.$spacing, 's')};
+      width: 100%;
     }
   }
 
