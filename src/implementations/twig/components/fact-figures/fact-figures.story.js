@@ -104,11 +104,10 @@ const prepareData = (data, args) => {
 
   // Column display
   clone.column = args.column;
-  if (args.column < 3) {
-    clone.items = clone.items.slice(0, args.column);
-  } else {
-    clone.items = clone.items.slice(0, args.column * 2);
-  }
+  clone.items =
+    args.column < 3
+      ? clone.items.slice(0, args.column)
+      : clone.items.slice(0, args.column * 2);
 
   // Other controls
   clone.items[0].value = args.value;
@@ -126,8 +125,7 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) =>
-  factFigures(prepareData(correctPaths(demoData), args));
+export const Default = (args) => factFigures(prepareData(demoData, args));
 
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
