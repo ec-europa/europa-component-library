@@ -8,8 +8,7 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 $_arrow-size: 1rem;
-$_shadow-size: null !default;
-$_shadow-color: null !default;
+$_shadow-size: 8px;
 $_item-height: map.get(theme.$line-height, 'm') +
   (map.get(theme.$spacing, 's') * 2);
 $_item-width: 188px;
@@ -22,7 +21,7 @@ $_item-width: 188px;
 
 .ecl-popover__container {
   background-color: map.get(theme.$color, 'white');
-  box-shadow: 0 0 $_shadow-size $_shadow-color;
+  box-shadow: map.get(theme.$shadow, '3');
   left: 50%;
   margin-top: calc(
     #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
@@ -34,7 +33,7 @@ $_item-width: 188px;
   // arrow with border shadow
   &::before {
     background-color: map.get(theme.$color, 'white');
-    box-shadow: 0 0 $_shadow-size $_shadow-color;
+    box-shadow: map.get(theme.$shadow, '3');
     clip-path: polygon(
       -#{$_shadow-size} -#{$_shadow-size},
       calc(100% + #{$_shadow-size}) -#{$_shadow-size},

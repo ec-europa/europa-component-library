@@ -11,7 +11,7 @@
 
 .ecl-accordion {
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2);
+  box-shadow: map.get(theme.$shadow, '1');
   margin: 0;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .ecl-accordion__toggle:hover {
-  box-shadow: 0 0 4px rgba(map.get(theme.$color, 'blue'), 0.2);
+  box-shadow: map.get(theme.$shadow, '1');
 }
 
 .ecl-accordion__toggle:focus-visible {
