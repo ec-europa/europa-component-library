@@ -95,4 +95,8 @@ $_view-all-border-color: null !default;
     font: $_value-font-desktop;
     font-weight: $_value-font-weight-desktop;
   }
+
+  .ecl-fact-figures__view-all {
+    padding-top: map.get(theme.$spacing, 'xl');
+  }
 }
