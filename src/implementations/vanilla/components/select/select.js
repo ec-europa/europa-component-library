@@ -692,19 +692,19 @@ export class Select {
     const noResultsElement = this.searchContainer.querySelector(
       '.ecl-select__multiple-no-results'
     );
-    const groupTitles = this.optionsContainer.getElementsByClassName(
-      'ecl-select__multiple-group__title'
+    const groups = this.optionsContainer.getElementsByClassName(
+      'ecl-select__multiple-group'
     );
     // eslint-disable-next-line no-restricted-syntax
-    for (const title of groupTitles) {
-      title.style.display = 'none';
+    for (const group of groups) {
+      group.style.display = 'none';
       // eslint-disable-next-line no-restricted-syntax
-      const groupedCheckboxes =
-        title.parentNode &&
-        [...title.parentNode.children].filter((node) => node !== title);
+      const groupedCheckboxes = [...group.children].filter((node) =>
+        node.classList.contains('ecl-checkbox')
+      );
       groupedCheckboxes.forEach((single) => {
         if (single.hasAttribute('data-visible')) {
-          title.style.display = 'block';
+          single.closest('.ecl-select__multiple-group').style.display = 'block';
         }
       });
     }
