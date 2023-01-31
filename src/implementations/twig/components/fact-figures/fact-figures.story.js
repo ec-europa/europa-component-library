@@ -5,18 +5,17 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
 import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
-import data3Col from '@ecl/specs-component-fact-figures/demo/data--3-col';
+import demoData from '@ecl/specs-component-fact-figures/demo/data';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
-const viewAll = { ...data3Col.view_all };
 
 const getArgs = (data) => ({
-  viewAll: true,
-  displayIcons: true,
+  show_view_all: true,
+  show_icons: true,
   column: 3,
   icon: data.items[0].icon.name,
   value: data.items[0].value,
@@ -25,29 +24,29 @@ const getArgs = (data) => ({
 });
 
 const getArgTypes = () => ({
-  viewAll: {
+  show_view_all: {
     name: 'view all link',
     type: { name: 'boolean' },
     description: 'Link in the component footer',
     table: {
       type: { summary: 'object' },
-      defaultValue: { summary: '{}' },
+      defaultValue: { summary: '' },
       category: 'Optional',
     },
   },
-  displayIcons: {
+  show_icons: {
     name: 'icons',
     type: { name: 'boolean' },
     description: 'Toggle visibility of the icons',
     table: {
       type: { summary: 'boolean' },
-      defaultValue: { summary: true },
+      defaultValue: { summary: '' },
       category: 'Optional',
     },
   },
   column: {
     description: 'Number of columns',
-    control: { type: 'range', min: 3, max: 4, step: 1 },
+    control: { type: 'range', min: 1, max: 4, step: 1 },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
@@ -94,26 +93,31 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  data.items[0].value = args.value;
-  data.items[0].title = args.title;
-  data.items[0].description = args.description;
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
+
+  // Optional elements
+  if (!args.show_view_all) {
+    delete clone.view_all;
+  }
+  clone.display_icons = args.show_icons;
+
+  // Column display
+  clone.column = args.column;
+  clone.items =
+    args.column < 3
+      ? clone.items.slice(0, args.column)
+      : clone.items.slice(0, args.column * 2);
+
+  // Other controls
+  clone.items[0].value = args.value;
+  clone.items[0].title = args.title;
+  clone.items[0].description = args.description;
   if (args.icon) {
-    data.items[0].icon.name = args.icon;
-  }
-  data.view_all = args.viewAll ? viewAll : {};
-  data.display_icons = args.displayIcons;
-  data.column = args.column;
-
-  if (system === 'ec' && args.displayIcons) {
-    data.items.forEach((item, i) => {
-      data.items[i].icon.size = 'm';
-    });
-    if (args.viewAll) {
-      data.view_all.icon.size = 'xs';
-    }
+    clone.items[0].icon.name = args.icon;
   }
 
-  return data;
+  return clone;
 };
 
 export default {
@@ -121,9 +125,8 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) =>
-  factFigures(prepareData(correctPaths(data3Col), args));
+export const Default = (args) => factFigures(prepareData(demoData, args));
 
-Default.args = getArgs(data3Col);
+Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: data3Col } };
+Default.parameters = { notes: { markdown: notes, json: demoData } };
