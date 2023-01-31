@@ -270,6 +270,7 @@ $_multiple_counter_background: null !default;
   }
 
   .ecl-select__multiple-options {
+    box-sizing: border-box;
     max-height: $_multiple-dropdown-container-max-height;
     overflow-y: auto;
     padding: map.get(theme.$spacing, 's') 0;
