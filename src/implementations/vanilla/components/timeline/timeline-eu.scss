@@ -37,7 +37,7 @@
 
 .ecl-timeline__tooltip {
   border-radius: 8px;
-  box-shadow: 0 0 6px rgb(14 71 203 / 0.2);
+  box-shadow: map.get(theme.$shadow, '1');
   padding: map.get(theme.$spacing, 'l');
   position: relative;
 

@@ -6,7 +6,7 @@
     'banner': 8px,
     'content': 4px,
   ),
-  $_box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_box-shadow: map.get(theme.$shadow, '1'),
   $_padding-horizontal: (
     's': map.get(theme.$spacing, 'l'),
     'xl': map.get(theme.$spacing, 'l'),
