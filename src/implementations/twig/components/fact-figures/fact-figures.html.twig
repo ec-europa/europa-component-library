@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "column" (integer) (default: 3): Number of columns to divide the items with
+  - "column" (integer) (default: 3): Number of columns (1 to 4)
   - "items" (array) (default: []):
     - "icon" (associate array) (default: { size: 'm' })
     - "value" (string) (default: '')
@@ -56,9 +56,9 @@
   {% for item in items %}
     <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
-      {% set _icon_path = item.icon.path|default('') %}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: item.icon,
+        size: 'm',
         extra_classes: 'ecl-fact-figures__icon',
       } only %}
     {% endif %}
@@ -91,6 +91,7 @@
       icon: view_all.link.external ? {} : view_all.icon|default({})|merge({
         name: 'corner-arrow',
         transform: 'rotate-90',
+        size: 'xs',
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
     }) only %}
