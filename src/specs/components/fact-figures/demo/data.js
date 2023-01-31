@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  column: 4,
+  column: 3,
   display_icons: true,
   view_all: {
     link: {
@@ -18,18 +18,16 @@ module.exports = {
     {
       icon: {
         name: 'infographic',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
       description:
-        'Nunc condimentum sapien ut nibh finibus suscipit vitae at justo. Morbi quis odio faucibus, commodo tortor id, elementum libero.',
+        'Nunc eu est nec orci rhoncus venenatis. Donec rutrum lacus eget lobortis eleifend. Duis cursus sapien ac felis bibendum, in sagittis turpis porttitor. Aliquam sed mauris et orci efficitur mollis. Donec eu dolor in turpis sollicitudin malesuada.',
     },
     {
       icon: {
         name: 'spreadsheet',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -39,7 +37,6 @@ module.exports = {
     {
       icon: {
         name: 'growth',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -50,7 +47,6 @@ module.exports = {
     {
       icon: {
         name: 'digital',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -61,7 +57,6 @@ module.exports = {
     {
       icon: {
         name: 'regulation',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -72,7 +67,6 @@ module.exports = {
     {
       icon: {
         name: 'image',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -82,7 +76,6 @@ module.exports = {
     {
       icon: {
         name: 'global',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
@@ -93,7 +86,6 @@ module.exports = {
     {
       icon: {
         name: 'video',
-        size: 'l',
         path: '/icons.svg',
       },
       value: '00.0 million',
