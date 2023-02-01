@@ -32,7 +32,6 @@ const getArgTypes = () => {
         },
       },
       table: {
-        type: { summary: 'radio' },
         defaultValue: { summary: 'outside the grid container' },
         category: 'Display',
       },

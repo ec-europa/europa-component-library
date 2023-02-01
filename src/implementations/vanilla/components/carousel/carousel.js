@@ -467,14 +467,14 @@ export class Carousel {
     this.moveSlides(false);
 
     // Add class to set a left margin to banner content and avoid arrow overlapping
-    if (vw >= 996 && vw <= 1220) {
+    if (vw >= 1140 && vw <= 1260) {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
 
     // Move previous and next buttons in or out the control bar
-    if (vw <= 996) {
+    if (vw <= 1140) {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
