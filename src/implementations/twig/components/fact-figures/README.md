@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-fact-figures
 
 ### Parameters:
 
-- **"column"** (integer) (default: 3): Number of columns to divide the items with
+- **"column"** (integer) (default: 3): Number of columns (1 to 4)
 - **"items"** (array) (default: []):
   - "icon" (associate array) (default: { size: 'm' })
   - "value" (string) (default: '')
@@ -37,7 +37,6 @@ npm install --save @ecl/twig-component-fact-figures
       icon: { 
         path: "static/media/icons.1dbe9812.svg",
         name: "digital", 
-        size: "m" 
       }, 
       value: "00.0 million", 
       title: "Lorem ipsum", 
@@ -47,7 +46,6 @@ npm install --save @ecl/twig-component-fact-figures
       icon: { 
         path: "static/media/icons.1dbe9812.svg",
         name: "digital", 
-        size: "m" 
       }, 
       value: "00.0 million", 
       title: "Sed hendrerit", 
