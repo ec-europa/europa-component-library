@@ -18,6 +18,7 @@ $_text-color: null !default;
 }
 
 .ecl-ordered-list .ecl-ordered-list,
+.ecl-ordered-list .ecl-unordered-list,
 %ecl-ordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
   padding-inline-start: map.get(theme.$spacing, 'l');

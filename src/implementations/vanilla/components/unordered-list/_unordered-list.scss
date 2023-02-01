@@ -13,11 +13,13 @@ $_divider-color: null !default;
 %ecl-unordered-list {
   color: $_text-color;
   font: map.get(theme.$font-prolonged, 'm');
+  list-style-position: outside;
   margin: 0;
   padding-inline-start: map.get(theme.$spacing, 's');
 }
 
 .ecl-unordered-list .ecl-unordered-list,
+.ecl-unordered-list .ecl-ordered-list,
 %ecl-unordered-list--nested {
   margin-top: map.get(theme.$spacing, 'xs');
   padding-inline-start: map.get(theme.$spacing, 's');
