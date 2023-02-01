@@ -9,6 +9,7 @@ import notes from './README.md';
 const getArgs = () => {
   const args = {
     width: 'outside',
+    size: 'm',
     gridContent: false,
   };
 
@@ -21,7 +22,7 @@ const getArgTypes = () => {
       name: 'width',
       type: 'select',
       description: `The media container extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended by adding class .ecl-page-banner--full-width`,
+        if it's inside it can still be extended by adding class .ecl-banner--full-width`,
       options: ['outside', 'container', 'inside'],
       control: {
         labels: {
@@ -31,8 +32,25 @@ const getArgTypes = () => {
         },
       },
       table: {
-        type: { summary: 'radio' },
         defaultValue: { summary: 'outside the grid container' },
+        category: 'Display',
+      },
+    },
+    size: {
+      name: 'carousel size',
+      type: 'select',
+      description: "Possible carousel sizes ('small', 'medium' or 'large')",
+      options: ['s', 'm', 'l'],
+      control: {
+        labels: {
+          s: 'small',
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'm' },
         category: 'Display',
       },
     },
@@ -54,6 +72,7 @@ const getArgTypes = () => {
 };
 
 const prepareData = (data, args) => {
+  data.size = args.size;
   data.full_width = args.width === 'inside';
 
   return data;

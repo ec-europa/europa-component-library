@@ -2,7 +2,8 @@
 
 {#
   Parameters:
-    - "items" (array) (default: []): List of page-banner compatible with EC page-banner component structure
+    - "items" (array) (default: []): List of banner compatible with EC Banner component structure
+    - "size" (string) (default: 'm') Size of the carousel (can be 's', 'm', 'l')
     - "counter_label" (string) (default: 'of')
     - "sr_previous" (string) (default: 'Previous slides') screen reader label for previous button
     - "sr_next" (string) (default: 'Next slides') screen reader label for next button
@@ -29,6 +30,7 @@
 {% set _css_class = 'ecl-carousel' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Carousel"' %}
 {% set _items = items|default('') %}
+{% set _size = size|default('m') %}
 {% set _sr_previous = sr_previous|default('Previous slides') %}
 {% set _sr_next = sr_next|default('Next slides') %}
 {% set _sr_navigation = sr_navigation|default('Go to slide %d') %}
@@ -65,7 +67,9 @@
     <div class="ecl-carousel__slides" id="ecl-carousel-slider">
     {% for item in _items %}
       <div class="ecl-carousel__slide" role="group" aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}">
-        {% include '@ecl/page-banner/page-banner.html.twig' with item only %}
+        {% include '@ecl/banner/banner.html.twig' with item|merge({
+          size: _size,
+        }) only %}
       </div>
     {% endfor %}
     </div>

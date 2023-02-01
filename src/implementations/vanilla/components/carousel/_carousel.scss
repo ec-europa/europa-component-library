@@ -14,13 +14,13 @@ $_controls-background: null !default;
   overflow: hidden;
   position: relative;
 
-  .ecl-page-banner,
-  .ecl-page-banner__image::before {
+  .ecl-banner,
+  .ecl-banner__image::before {
     border-radius: 0;
     box-shadow: none;
   }
 
-  .ecl-page-banner {
+  .ecl-banner {
     height: 100%;
 
     .ecl-container {
@@ -59,7 +59,7 @@ $_controls-background: null !default;
   }
 }
 
-.ecl-carousel__slide .ecl-page-banner__credit {
+.ecl-carousel__slide .ecl-banner__credit {
   margin-inline-end: map.get(theme.$spacing, '2xs');
 }
 
@@ -74,7 +74,7 @@ $_controls-background: null !default;
 }
 
 .ecl-carousel__controls,
-.ecl-carousel__slides .ecl-page-banner {
+.ecl-carousel__slides .ecl-banner {
   .ecl-container {
     max-width: 1140px;
     width: 100%;
@@ -187,29 +187,10 @@ $_controls-background: null !default;
   }
 }
 
-.ecl-carousel-container--padded .ecl-page-banner {
+.ecl-carousel-container--padded .ecl-banner {
   .ecl-container {
     margin-inline-start: 100px;
-    transition: all 0.2s;
   }
-}
-
-/*
- * full width
- */
-.ecl-carousel--full-width {
-  left: 50%;
-  margin-inline-start: -50vw;
-  width: 100vw;
-}
-
-// stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors
-.ecl-container
-  .ecl-carousel--full-width
-  .ecl-page-banner:not(.ecl-page-banner--full-width)
-  .ecl-container {
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-inline-end: map.get(theme.$spacing, 'm');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -236,7 +217,7 @@ $_controls-background: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-carousel {
-    .ecl-page-banner {
+    .ecl-banner {
       height: initial;
 
       .ecl-container {
@@ -257,8 +238,18 @@ $_controls-background: null !default;
     }
   }
 
-  .ecl-carousel__slide .ecl-page-banner__credit {
+  .ecl-carousel__slide .ecl-banner__credit {
     margin-inline-end: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('xl') {
+  .ecl-container
+    .ecl-carousel:not(.ecl-carousel--full-width)
+    .ecl-banner
+    .ecl-container {
+    margin-inline-start: 100px;
   }
 
   .ecl-carousel__prev,
@@ -287,4 +278,22 @@ $_controls-background: null !default;
   .ecl-carousel__pagination {
     width: 10%;
   }
+}
+
+/*
+ * full width
+ */
+.ecl-carousel--full-width {
+  left: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+}
+
+// stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors
+.ecl-container
+  .ecl-carousel--full-width
+  .ecl-banner:not(.ecl-banner--full-width)
+  .ecl-container {
+  padding-inline-start: map.get(theme.$spacing, 'm');
+  padding-inline-end: map.get(theme.$spacing, 'm');
 }
