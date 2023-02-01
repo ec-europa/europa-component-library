@@ -474,7 +474,7 @@ export class Carousel {
     }
 
     // Move previous and next buttons in or out the control bar
-    if (vw <= 1140) {
+    if (vw < 1140) {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
