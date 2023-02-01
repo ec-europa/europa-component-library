@@ -187,6 +187,14 @@ $_search-width-xl: 31.5rem;
   display: flex;
 }
 
+.ecl-site-header__message {
+  display: flex;
+
+  .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'm');
+  }
+}
+
 .ecl-site-header__banner-top {
   background-color: map.get(theme.$color, 'blue-5');
   font: map.get(theme.$font-prolonged, 's');
@@ -395,6 +403,10 @@ $_search-width-xl: 31.5rem;
     position: relative;
     top: 0;
     width: $_search-width-l;
+  }
+
+  .ecl-site-header__message .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'l');
   }
 
   .ecl-site-header__banner-top {
