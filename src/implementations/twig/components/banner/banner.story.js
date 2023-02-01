@@ -3,14 +3,14 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import bannerDataPrimary from '@ecl/specs-component-banner/demo/data--primary';
-import bannerDataImage from '@ecl/specs-component-banner/demo/data--image-box';
-import bannerDataImageShade from '@ecl/specs-component-banner/demo/data--image-shade';
-import bannerDataImageGradient from '@ecl/specs-component-banner/demo/data--image-gradient';
+import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
+import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
+import bannerDataImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
+import bannerDataTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
-const cta = { ...bannerDataPrimary.link };
+const cta = { ...bannerDataPlainBackground.link };
 const getArgs = (data) => {
   const args = {
     show_title: true,
@@ -230,37 +230,38 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Primary = (args) => renderStory(bannerDataPrimary, args);
+export const PlainBackground = (args) =>
+  renderStory(bannerDataPlainBackground, args);
 
-Primary.storyName = 'primary';
-Primary.args = getArgs(bannerDataPrimary);
-Primary.argTypes = getArgTypes(bannerDataPrimary);
-Primary.parameters = {
-  notes: { markdown: notes, json: bannerDataPrimary },
+PlainBackground.storyName = 'plain background';
+PlainBackground.args = getArgs(bannerDataPlainBackground);
+PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
+PlainBackground.parameters = {
+  notes: { markdown: notes, json: bannerDataPlainBackground },
 };
 
-export const Image = (args) => renderStory(bannerDataImage, args);
+export const TextBox = (args) => renderStory(bannerDataTextBox, args);
 
-Image.storyName = 'image - text-block';
-Image.args = getArgs(bannerDataImage);
-Image.argTypes = getArgTypes(bannerDataImage);
-Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+TextBox.storyName = 'text box';
+TextBox.args = getArgs(bannerDataTextBox);
+TextBox.argTypes = getArgTypes(bannerDataTextBox);
+TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
 
-export const ImageGradient = (args) =>
-  renderStory(bannerDataImageGradient, args);
+export const TextHighlight = (args) =>
+  renderStory(bannerDataTextHighlight, args);
 
-ImageGradient.storyName = 'image - gradient';
-ImageGradient.args = getArgs(bannerDataImageGradient);
-ImageGradient.argTypes = getArgTypes(bannerDataImageGradient);
-ImageGradient.parameters = {
-  notes: { markdown: notes, json: bannerDataImageGradient },
+TextHighlight.storyName = 'text highlight';
+TextHighlight.args = getArgs(bannerDataTextHighlight);
+TextHighlight.argTypes = getArgTypes(bannerDataTextHighlight);
+TextHighlight.parameters = {
+  notes: { markdown: notes, json: bannerDataTextHighlight },
 };
 
-export const ImageShade = (args) => renderStory(bannerDataImageShade, args);
+export const ImageOverlay = (args) => renderStory(bannerDataImageOverlay, args);
 
-ImageShade.storyName = 'image - shade';
-ImageShade.args = getArgs(bannerDataImageShade);
-ImageShade.argTypes = getArgTypes(bannerDataImageShade);
-ImageShade.parameters = {
-  notes: { markdown: notes, json: bannerDataImageShade },
+ImageOverlay.storyName = 'image overlay';
+ImageOverlay.args = getArgs(bannerDataImageOverlay);
+ImageOverlay.argTypes = getArgTypes(bannerDataImageOverlay);
+ImageOverlay.parameters = {
+  notes: { markdown: notes, json: bannerDataImageOverlay },
 };

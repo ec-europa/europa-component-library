@@ -164,10 +164,10 @@ $_font-weight: null !default;
 }
 
 /*
-  * variant: primary
+  * variant: plain-background
   */
-.ecl-banner--primary {
-  background: map.get($_background, 'primary');
+.ecl-banner--plain-background {
+  background: map.get($_background, 'plain-background');
 
   .ecl-banner__title {
     color: map.get($_text-color, 'inverted');
@@ -179,9 +179,9 @@ $_font-weight: null !default;
 }
 
 /*
-  * variant: image box
+  * variant: text box
   */
-.ecl-banner--image {
+.ecl-banner--text-box {
   background: map.get($_background, 'white');
 
   .ecl-banner__image {
@@ -207,7 +207,7 @@ $_font-weight: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-banner--image {
+  .ecl-banner--text-box {
     .ecl-banner__container {
       padding-bottom: 0;
       padding-top: 0;
@@ -227,7 +227,7 @@ $_font-weight: null !default;
     }
 
     .ecl-banner__content {
-      background: map.get($_background, 'image-box');
+      background: map.get($_background, 'text-box');
       border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
       border-inline-start: map.get($_border-width, 'left') solid $_border-color;
       border-radius: map.get($_border-radius, 'content');
@@ -237,10 +237,10 @@ $_font-weight: null !default;
 }
 
 /*
-  * variant: image-shade
+  * variant: image-overlay
   */
-.ecl-banner--image-shade {
-  background: map.get($_background, 'image-shade');
+.ecl-banner--image-overlay {
+  background: map.get($_background, 'image-overlay');
 
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
@@ -248,7 +248,7 @@ $_font-weight: null !default;
 
   // manage ratio 4:1
   .ecl-banner__image::before {
-    background-color: map.get($_overlay, 'image-shade');
+    background-color: map.get($_overlay, 'image-overlay');
     border-radius: map.get($_border-radius, 'banner')
       map.get($_border-radius, 'banner') 0 0;
     content: '';
@@ -268,7 +268,7 @@ $_font-weight: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-banner--image-shade {
+  .ecl-banner--image-overlay {
     .ecl-banner__image {
       border-bottom-width: 0;
       height: 100%;
@@ -291,10 +291,10 @@ $_font-weight: null !default;
 }
 
 /*
-  * variant: image-gradient
+  * variant: text-highlight
   */
-.ecl-banner--image-gradient {
-  background: map.get($_background, 'image-gradient');
+.ecl-banner--text-highlight {
+  background: map.get($_background, 'text-highlight');
 
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
@@ -321,7 +321,7 @@ $_font-weight: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-banner--image-gradient {
+  .ecl-banner--text-highlight {
     .ecl-banner__image {
       border-bottom-width: 0;
       height: 100%;
