@@ -2,26 +2,10 @@
 
 {#
   Parameters:
-    - "description" (string) (default: ''),
     - "variant" (string) (default: ''): can be 'vertical',
-    - "links" (array) (default: []): format: [
-        {
-          "path" (string) (default: ''),
-          "label" (string) (default: ''),
-          "icon_position" (string) (default: ''),
-          "variant" (string) (default: ''),
-          "icon" (array) : format: [
-            {
-              "name" (string),
-              "size": (string),
-              "path": (string),
-              "extra_classes": (string)
-            },
-            ...
-          ]
-        },
-        ...
-      ]
+    - "description" (string) (default: ''),
+    - "links" (array) (default: {}): Array of links for social media, following ECL Link structure
+    - "popover" (associative array) (default: {}): Popover for other social media, following ECL Popover structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -37,12 +21,13 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
+{% set _popover = popover|default({}) %}
 {% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
 
 {% if _variant is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _variant %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -63,26 +48,56 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <p class="ecl-social-media-follow__description">{{ _description }}</p>
-{% if _links is not empty %}
-  <ul class="ecl-social-media-follow__list">
-  {% for link in _links %}
-  {% if link.label is defined and link.label is not empty %}
-    {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
-    {% if link.extra_classes is not empty %}
-      {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
+  {% if _links is not empty %}
+    <ul class="ecl-social-media-follow__list">
+    {% for link in _links %}
+      {# Backward compatibility provided by default(link) #}
+      <li class="ecl-social-media-follow__item">
+        {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
+        {% if link.extra_classes is not empty %}
+          {% set _link_extra_classes = _link_extra_classes ~ ' ' ~ link.extra_classes %}
+        {% endif %}
+        {% set _icon_extra_classes = 'ecl-social-media-follow__icon' %}
+        {% if link.icon is not empty and link.icon.extra_classes is not empty %}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ link.icon.extra_classes %}
+        {% endif %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: link.link|default(link)|merge({
+            type: 'standalone',
+          }),
+          icon: link.icon|default({})|merge({
+            extra_classes: _icon_extra_classes,
+          }),
+          extra_classes: _link_extra_classes,
+        } only %}
+      </li>
+    {% endfor %}
+
+    {% if _popover is not empty %}
+      <li class="ecl-social-media-follow__item">
+        {% set _toggle_extra_classes = 'ecl-social-media-follow__link' %}
+        {% if _popover.toggle.extra_classes is not empty %}
+          {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _popover.toggle.extra_classes %}
+        {% endif %}
+        {% set _icon_extra_classes = 'ecl-social-media-share__icon' %}
+        {% if _popover.toggle.icon is not empty and _popover.toggle.icon.extra_classes is not empty %}
+          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ _popover.toggle.icon.extra_classes %}
+        {% endif %}
+        {% include '@ecl/popover/popover.html.twig' with _popover|merge({
+          toggle: _popover.toggle|merge({
+            link: _popover.toggle.link|default({})|merge({
+              type: 'standalone',
+            }),
+            icon: _popover.toggle.icon|default({})|merge({
+              extra_classes: _icon_extra_classes,
+            }),
+            extra_classes: _toggle_extra_classes,
+          })
+        }) only %}
+      </li>
     {% endif %}
-    <li class="ecl-social-media-follow__item">
-      {% include '@ecl/link/link.html.twig' with link|merge({
-          link: link|default({})|merge({
-          type: 'standalone',
-        }),
-        extra_classes: _link_extra_classes,
-      }) only %}
-    </li>
+    </ul>
   {% endif %}
-  {% endfor %}
-  </ul>
-{% endif %}
 </div>
 
 {% endapply %}

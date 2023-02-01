@@ -9,17 +9,14 @@
 
 $_arrow-size: 1rem;
 $_shadow-size: 8px;
-$_item-height: map.get(theme.$line-height-prolonged, 'm') +
+$_item-height: map.get(theme.$line-height, 'm') +
   (map.get(theme.$spacing, 's') * 2);
+$_item-width: 188px;
 
 .ecl-popover {
   display: inline-block;
   margin: 0;
   position: relative;
-}
-
-.ecl-popover__toggle .ecl-link__label {
-  text-decoration: underline;
 }
 
 .ecl-popover__container {
@@ -54,31 +51,31 @@ $_item-height: map.get(theme.$line-height-prolonged, 'm') +
 }
 
 .ecl-popover__content {
-  font: map.get(theme.$font-prolonged, 'm');
-  max-height: calc(($_item-height * 4) - (#{map.get(theme.$spacing, 's')} * 2));
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-  width: 168px;
+  font: map.get(theme.$font, 'm');
+  max-height: #{$_item-height * 4};
+  min-width: $_item-width;
+  padding: map.get(theme.$spacing, 's');
+  width: auto;
   overflow-y: auto;
 }
 
 @include breakpoints.up('m') {
   .ecl-popover__content {
-    max-height: calc(
-      ($_item-height * 6) - (#{map.get(theme.$spacing, 's')} * 2)
-    );
-    width: 198px;
+    max-height: #{$_item-height * 6};
   }
 }
 
 .ecl-popover__list {
   list-style: none;
-  margin: -#{map.get(theme.$spacing, 's')} -#{map.get(theme.$spacing, 'm')};
+  margin: 0;
   padding: 0;
+  width: $_item-width;
 }
 
 .ecl-popover__link {
-  display: block;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  align-items: center;
+  display: flex;
+  padding: map.get(theme.$spacing, 's');
 
   &:focus-visible {
     outline-offset: -2px;
