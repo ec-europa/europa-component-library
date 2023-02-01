@@ -157,17 +157,35 @@
       {{- _extra_attributes -}}
     >
       {% for _option in _options %}
-        <option
-          value="{{ _option.value }}"
-        {% if _option.selected %}
-          selected
+        {% if _option.optgroup %}
+        <optgroup label="{{ _option.optgroup.label }}">
+        {% for _option_grouped in _option.optgroup.options %}
+          <option
+            value="{{ _option_grouped.value }}"
+            {% if _option_grouped.selected %}
+              selected
+            {% endif %}
+            {% if _option_grouped.disabled %}
+              disabled
+            {% endif %}
+          >
+            {{- _option_grouped.label -}}
+          </option>
+        {% endfor %}
+        </optgroup>
+        {% else %}
+          <option
+            value="{{ _option.value }}"
+          {% if _option.selected %}
+            selected
+          {% endif %}
+          {% if _option.disabled %}
+            disabled
+          {% endif %}
+          >
+            {{- _option.label -}}
+          </option>
         {% endif %}
-        {% if _option.disabled %}
-          disabled
-        {% endif %}
-        >
-          {{- _option.label -}}
-        </option>
       {% endfor %}
     </select>
 
