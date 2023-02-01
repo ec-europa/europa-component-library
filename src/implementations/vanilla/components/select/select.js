@@ -167,6 +167,7 @@ export class Select {
     const input = document.createElement('input');
     const label = document.createElement('label');
     const box = document.createElement('span');
+    const labelText = document.createElement('span');
 
     // Respect optional input parameters.
     if (extraClass) {
@@ -197,7 +198,9 @@ export class Select {
       )
     );
     label.appendChild(box);
-    label.appendChild(document.createTextNode(text));
+    labelText.classList.add('ecl-checkbox__label-text');
+    labelText.innerHTML = text;
+    label.appendChild(labelText);
     checkbox.appendChild(label);
     return checkbox;
   }
@@ -367,13 +370,43 @@ export class Select {
 
     if (this.select.options && this.select.options.length > 0) {
       this.checkboxes = Array.from(this.select.options).map((option) => {
+        let optgroup = '';
+        let checkbox = '';
+        if (option.parentNode.tagName === 'OPTGROUP') {
+          if (
+            !this.optionsContainer.querySelector(
+              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                'label'
+              )}"]`
+            )
+          ) {
+            optgroup = document.createElement('div');
+            const title = document.createElement('h5');
+            title.classList.add('ecl-select__multiple-group__title');
+            title.innerHTML = option.parentNode.getAttribute('label');
+            optgroup.appendChild(title);
+            optgroup.setAttribute(
+              'data-ecl-multiple-group',
+              option.parentNode.getAttribute('label')
+            );
+            optgroup.classList.add('ecl-select__multiple-group');
+            this.optionsContainer.appendChild(optgroup);
+          } else {
+            optgroup = this.optionsContainer.querySelector(
+              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+                'label'
+              )}"]`
+            );
+          }
+        }
+
         if (option.selected) {
           this.updateSelectionsCount(1);
           if (this.dropDownToolbar) {
             this.dropDownToolbar.style.display = 'flex';
           }
         }
-        const checkbox = Select.createCheckbox(
+        checkbox = Select.createCheckbox(
           {
             // spread operator does not work in storybook context so we map 1:1
             id: option.value,
@@ -383,12 +416,18 @@ export class Select {
           },
           this.selectMultipleId
         );
+
         checkbox.setAttribute('data-visible', true);
         if (!checkbox.classList.contains('ecl-checkbox--disabled')) {
           checkbox.addEventListener('click', this.handleClickOption);
           checkbox.addEventListener('keydown', this.handleKeyboardOnOption);
         }
-        this.optionsContainer.appendChild(checkbox);
+        if (optgroup) {
+          optgroup.appendChild(checkbox);
+        } else {
+          this.optionsContainer.appendChild(checkbox);
+        }
+
         return checkbox;
       });
     }
@@ -620,28 +659,24 @@ export class Select {
           .toLocaleLowerCase()
           .includes(keyword)
       ) {
-        checkbox.setAttribute('data-visible', false);
+        checkbox.removeAttribute('data-visible');
         checkbox.style.display = 'none';
       } else {
         checkbox.setAttribute('data-visible', true);
         checkbox.style.display = 'flex';
         // Highlight keyword in checkbox label.
-        const checkboxElement = checkbox.querySelector('.ecl-checkbox__box');
-        const checkboxLabel = checkbox.querySelector('.ecl-checkbox__label');
-        checkboxLabel.textContent = checkboxLabel.textContent.replace(
+        const checkboxLabelText = checkbox.querySelector(
+          '.ecl-checkbox__label-text'
+        );
+        checkboxLabelText.textContent = checkboxLabelText.textContent.replace(
           '.cls-1{fill:none}',
           ''
         );
         if (keyword) {
-          checkboxLabel.innerHTML =
-            checkboxElement.outerHTML +
-            checkboxLabel.textContent.replace(
-              new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
-              '<b>$&</b>'
-            );
-        } else {
-          checkboxLabel.innerHTML =
-            checkboxElement.outerHTML + checkboxLabel.textContent;
+          checkboxLabelText.innerHTML = checkboxLabelText.textContent.replace(
+            new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
+            '<b>$&</b>'
+          );
         }
         visible.push(checkbox);
       }
@@ -657,6 +692,23 @@ export class Select {
     const noResultsElement = this.searchContainer.querySelector(
       '.ecl-select__multiple-no-results'
     );
+    const groups = this.optionsContainer.getElementsByClassName(
+      'ecl-select__multiple-group'
+    );
+    // eslint-disable-next-line no-restricted-syntax
+    for (const group of groups) {
+      group.style.display = 'none';
+      // eslint-disable-next-line no-restricted-syntax
+      const groupedCheckboxes = [...group.children].filter((node) =>
+        node.classList.contains('ecl-checkbox')
+      );
+      groupedCheckboxes.forEach((single) => {
+        if (single.hasAttribute('data-visible')) {
+          single.closest('.ecl-select__multiple-group').style.display = 'block';
+        }
+      });
+    }
+
     if (visible.length === 0 && !noResultsElement) {
       // Create no-results element.
       const noResultsContainer = document.createElement('div');
@@ -861,11 +913,20 @@ export class Select {
    */
   moveFocus(upOrDown) {
     const activeEl = document.activeElement;
-    const options = Array.from(
-      activeEl.parentElement.parentElement.querySelectorAll(
-        '.ecl-checkbox__input'
-      )
+    const hasGroups = activeEl.parentElement.parentElement.classList.contains(
+      'ecl-select__multiple-group'
     );
+    const options = !hasGroups
+      ? Array.from(
+          activeEl.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input'
+          )
+        )
+      : Array.from(
+          activeEl.parentElement.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input'
+          )
+        );
     const activeIndex = options.indexOf(activeEl);
     if (upOrDown === 'down') {
       const nextSiblings = options

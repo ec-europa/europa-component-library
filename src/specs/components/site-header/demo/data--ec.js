@@ -178,10 +178,60 @@ module.exports = {
           path: exampleLink,
           lang: 'ar',
         },
+        {
+          label: 'Հայերէն',
+          path: exampleLink,
+          lang: 'hy',
+        },
+        {
+          label: 'Vakaviti',
+          path: exampleLink,
+          lang: 'fj',
+        },
+        {
+          label: 'Bahasa Indonesia',
+          path: exampleLink,
+          lang: 'id',
+        },
+        {
+          label: '日本語',
+          path: exampleLink,
+          lang: 'ja',
+        },
+        {
+          label: 'basa Jawa',
+          path: exampleLink,
+          lang: 'jv',
+        },
+        {
+          label: '한국어',
+          path: exampleLink,
+          lang: 'ko',
+        },
+        {
+          label: 'монгол',
+          path: exampleLink,
+          lang: 'mn',
+        },
+        {
+          label: 'فارسى',
+          path: exampleLink,
+          lang: 'fa',
+        },
+        {
+          label: 'Русский язык',
+          path: exampleLink,
+          lang: 'ru',
+        },
+        {
+          label: 'af Soomaali',
+          path: exampleLink,
+          lang: 'so',
+        },
       ],
     },
-    eu_category: 'EU official languages',
-    non_eu_category: 'Non-EU languages',
+    eu_category: 'Official EU languages:',
+    non_eu_category: 'Other languages:',
   },
   search_toggle: {
     label: 'Search',
