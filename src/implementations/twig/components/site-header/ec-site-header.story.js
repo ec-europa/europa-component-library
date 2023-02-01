@@ -36,6 +36,7 @@ const getArgs = (data) => {
   const defaultArgs = {
     show_language_selector: true,
     show_search: true,
+    show_message: false,
   };
 
   if (data.login_box) {
@@ -44,9 +45,6 @@ const getArgs = (data) => {
   if (data.site_name) {
     defaultArgs.show_site_name = true;
     defaultArgs.site_name = data.site_name;
-  }
-  if (data.message) {
-    defaultArgs.show_message = true;
   }
   if (data.banner_top) {
     defaultArgs.show_banner_top = true;
