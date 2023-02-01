@@ -8,16 +8,10 @@ npm install --save @ecl/twig-component-social-media-share
 
 ### Parameters
 
+- **"variant"** (string) (default: '') Can be 'vertical'
 - **"description"** (string) (default: '')
-- **"links"** (array) (default: []) - List of links to external social media. Each link consists of the following:
-  - "path" (string) - The "href" attribute of the link
-  - "label" (string) - Human-readable name of the link
-  - "extra_classes" (string) - Add specific CSS class for the background of the given social network, i.e. "ecl-social-media-share\_\_link--twitter" for blue background of Twitter
-  - "icon" (array) - List of icons used for normal and hover states. Each icon consists of the following:
-    - "name" (string) - Icon name
-    - "size" (string) - Size such as "xl"
-    - "path" (string) - Path in terms of an SVG icon
-    - "extra_classes" (string) - Class to toggle between normal and hover states
+- **"links"** (array) (default: {}) Array of links for social media, following ECL Link structure
+- **"popover"** (associative array) (default: {}) Popover for other social media, following ECL Popover structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -28,31 +22,78 @@ npm install --save @ecl/twig-component-social-media-share
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/social-media-share/social-media-share.html.twig' with { 
-  description: 'Share this page', 
-  links: [ 
-  { 
-      path: '/example', 
-      label: 'Twitter', 
-      extra_classes: 'ecl-social-media-share__link--twitter', 
-      variant: 'standalone', 
-      icon_position: 'before', 
-      icon: [ 
-        { 
-          name: 'twitter', 
-          size: 'xl', 
-          extra_classes: '', 
-        }, 
-        { 
-          name: 'twitter_hover', 
-          size: 'xl', 
-          extra_classes: 'ecl-social-media-share__icon-hover', 
-        }, 
-      ], 
-    }, 
-    { 
-      path: '/example', 
-      label: 'Other social networks', 
-    }, 
-  ], 
+  description: 'Share this page',
+  links: [
+    {
+      link: {
+        label: 'Twitter',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'twitter-color',
+        size: 'm',
+        extra_classes: 'ecl-social-media-share__icon',
+      },
+    },
+    {
+      link: {
+        label: 'Facebook',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'facebook-color',
+        size: 'm',
+        extra_classes: 'ecl-social-media-share__icon',
+      },
+    },
+  ],
+  popover: {
+    id: 'social-media-share-popover',
+    toggle: {
+      link: {
+        label: 'Other social networks',
+        path: exampleLink,
+        aria_label: 'See other social media networks',
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icons.svg',
+        name: 'share',
+        size: 'm',
+      },
+    },
+    links: [
+      {
+        link: {
+          label: 'Pinterest',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'pinterest-color',
+          size: 'fluid',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Mastodon',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'mastodon-color',
+          size: 'fluid',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+    ],
+  }
 } %}
 ```

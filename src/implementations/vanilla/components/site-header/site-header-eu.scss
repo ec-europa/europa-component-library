@@ -216,6 +216,14 @@ $_search-width-xl: 31.5rem;
   padding: 0;
 }
 
+.ecl-site-header__message {
+  display: flex;
+
+  .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'm');
+  }
+}
+
 // stylelint-disable plugin/selector-bem-pattern
 .ecl-search-form__button .ecl-button__label {
   display: none;
@@ -434,6 +442,10 @@ $_search-width-xl: 31.5rem;
     position: relative;
     top: 0;
     width: $_search-width-l;
+  }
+
+  .ecl-site-header__message .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'l');
   }
 }
 

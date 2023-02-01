@@ -74,13 +74,13 @@ exports[`Social Media Follow Default renders correctly with extra attributes 1`]
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#instagram-color"
+              xlink:href="/icon-social-media.svg#linkedin-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Instagram
+            Linkedin
           </span>
         </a>
       </li>
@@ -97,13 +97,13 @@ exports[`Social Media Follow Default renders correctly with extra attributes 1`]
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#linkedin-color"
+              xlink:href="/icon-social-media.svg#instagram-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Linkedin
+            Instagram
           </span>
         </a>
       </li>
@@ -133,25 +133,209 @@ exports[`Social Media Follow Default renders correctly with extra attributes 1`]
       <li
         class="ecl-social-media-follow__item"
       >
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-follow__link"
-          href="/example"
+        <div
+          class="ecl-popover"
+          data-ecl-auto-init="Popover"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon"
-            focusable="false"
+          <a
+            aria-controls="social-media-share-popover"
+            aria-expanded="false"
+            aria-label="See other social media networks"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__toggle ecl-social-media-follow__link"
+            data-ecl-popover-toggle=""
+            href="/example"
           >
-            <use
-              xlink:href="/icons.svg#share"
-            />
-          </svg>
-          <span
-            class="ecl-link__label"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#share"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Other social networks
+            </span>
+          </a>
+          <div
+            class="ecl-popover__container"
+            hidden=""
+            id="social-media-share-popover"
           >
-            Other social networks
-          </span>
-        </a>
+            <div
+              class="ecl-popover__content"
+            >
+              <ul
+                class="ecl-popover__list"
+              >
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#pinterest-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Pinterest
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#mastodon-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#reddit-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Reddit
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#youtube-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Youtube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#flickr-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Flickr
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#skype-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Skype
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#spotify-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Spotify
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -230,13 +414,13 @@ exports[`Social Media Follow Default renders correctly with extra class names 1`
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#instagram-color"
+              xlink:href="/icon-social-media.svg#linkedin-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Instagram
+            Linkedin
           </span>
         </a>
       </li>
@@ -253,13 +437,13 @@ exports[`Social Media Follow Default renders correctly with extra class names 1`
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#linkedin-color"
+              xlink:href="/icon-social-media.svg#instagram-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Linkedin
+            Instagram
           </span>
         </a>
       </li>
@@ -289,25 +473,209 @@ exports[`Social Media Follow Default renders correctly with extra class names 1`
       <li
         class="ecl-social-media-follow__item"
       >
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-follow__link"
-          href="/example"
+        <div
+          class="ecl-popover"
+          data-ecl-auto-init="Popover"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon"
-            focusable="false"
+          <a
+            aria-controls="social-media-share-popover"
+            aria-expanded="false"
+            aria-label="See other social media networks"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__toggle ecl-social-media-follow__link"
+            data-ecl-popover-toggle=""
+            href="/example"
           >
-            <use
-              xlink:href="/icons.svg#share"
-            />
-          </svg>
-          <span
-            class="ecl-link__label"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#share"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Other social networks
+            </span>
+          </a>
+          <div
+            class="ecl-popover__container"
+            hidden=""
+            id="social-media-share-popover"
           >
-            Other social networks
-          </span>
-        </a>
+            <div
+              class="ecl-popover__content"
+            >
+              <ul
+                class="ecl-popover__list"
+              >
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#pinterest-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Pinterest
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#mastodon-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#reddit-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Reddit
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#youtube-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Youtube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#flickr-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Flickr
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#skype-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Skype
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#spotify-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Spotify
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -386,13 +754,13 @@ exports[`Social Media Follow Horizontal renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#instagram-color"
+              xlink:href="/icon-social-media.svg#linkedin-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Instagram
+            Linkedin
           </span>
         </a>
       </li>
@@ -409,13 +777,13 @@ exports[`Social Media Follow Horizontal renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#linkedin-color"
+              xlink:href="/icon-social-media.svg#instagram-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Linkedin
+            Instagram
           </span>
         </a>
       </li>
@@ -445,25 +813,209 @@ exports[`Social Media Follow Horizontal renders correctly 1`] = `
       <li
         class="ecl-social-media-follow__item"
       >
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-follow__link"
-          href="/example"
+        <div
+          class="ecl-popover"
+          data-ecl-auto-init="Popover"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon"
-            focusable="false"
+          <a
+            aria-controls="social-media-share-popover"
+            aria-expanded="false"
+            aria-label="See other social media networks"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__toggle ecl-social-media-follow__link"
+            data-ecl-popover-toggle=""
+            href="/example"
           >
-            <use
-              xlink:href="/icons.svg#share"
-            />
-          </svg>
-          <span
-            class="ecl-link__label"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#share"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Other social networks
+            </span>
+          </a>
+          <div
+            class="ecl-popover__container"
+            hidden=""
+            id="social-media-share-popover"
           >
-            Other social networks
-          </span>
-        </a>
+            <div
+              class="ecl-popover__content"
+            >
+              <ul
+                class="ecl-popover__list"
+              >
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#pinterest-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Pinterest
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#mastodon-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#reddit-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Reddit
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#youtube-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Youtube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#flickr-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Flickr
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#skype-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Skype
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#spotify-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Spotify
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -542,13 +1094,13 @@ exports[`Social Media Follow Vertical renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#instagram-color"
+              xlink:href="/icon-social-media.svg#linkedin-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Instagram
+            Linkedin
           </span>
         </a>
       </li>
@@ -565,13 +1117,13 @@ exports[`Social Media Follow Vertical renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icon-social-media.svg#linkedin-color"
+              xlink:href="/icon-social-media.svg#instagram-color"
             />
           </svg>
           <span
             class="ecl-link__label"
           >
-            Linkedin
+            Instagram
           </span>
         </a>
       </li>
@@ -601,25 +1153,209 @@ exports[`Social Media Follow Vertical renders correctly 1`] = `
       <li
         class="ecl-social-media-follow__item"
       >
-        <a
-          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-social-media-follow__link"
-          href="/example"
+        <div
+          class="ecl-popover"
+          data-ecl-auto-init="Popover"
         >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-follow__icon"
-            focusable="false"
+          <a
+            aria-controls="social-media-share-popover"
+            aria-expanded="false"
+            aria-label="See other social media networks"
+            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__toggle ecl-social-media-follow__link"
+            data-ecl-popover-toggle=""
+            href="/example"
           >
-            <use
-              xlink:href="/icons.svg#share"
-            />
-          </svg>
-          <span
-            class="ecl-link__label"
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#share"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              Other social networks
+            </span>
+          </a>
+          <div
+            class="ecl-popover__container"
+            hidden=""
+            id="social-media-share-popover"
           >
-            Other social networks
-          </span>
-        </a>
+            <div
+              class="ecl-popover__content"
+            >
+              <ul
+                class="ecl-popover__list"
+              >
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#pinterest-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Pinterest
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#mastodon-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Mastodon
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#reddit-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Reddit
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#youtube-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Youtube
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#flickr-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Flickr
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#skype-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Skype
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="ecl-popover__item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-before ecl-popover__link"
+                    href="/example"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--s ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icon-social-media.svg#spotify-color"
+                      />
+                    </svg>
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Spotify
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
   </div>
