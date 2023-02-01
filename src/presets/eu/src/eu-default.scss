@@ -64,7 +64,9 @@
 }
 
 .ecl ul ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
-.ecl ul ul:is([class*='ecl-u-']) {
+.ecl ul ul:is([class*='ecl-u-']),
+.ecl ul ol:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
+.ecl ul ol:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list--nested;
 }
 
@@ -79,7 +81,9 @@
 }
 
 .ecl ol ol:not([class*='ecl-'], [class*='wt-']),
-.ecl ol ol:is([class*='ecl-u-']) {
+.ecl ol ol:is([class*='ecl-u-']),
+.ecl ol ul:not([class*='ecl-'], [class*='wt-']),
+.ecl ol ul:is([class*='ecl-u-']) {
   @extend %ecl-ordered-list--nested;
 }
 
