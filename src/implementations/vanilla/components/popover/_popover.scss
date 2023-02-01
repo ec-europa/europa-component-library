@@ -103,7 +103,7 @@ $_item-width: 188px;
   transform: none;
 
   &::before {
-    left: 25%;
+    left: var(--ecl-popover-position);
   }
 }
 
@@ -113,6 +113,7 @@ $_item-width: 188px;
   transform: none;
 
   &::before {
-    left: 75%;
+    left: auto;
+    right: var(--ecl-popover-position);
   }
 }
