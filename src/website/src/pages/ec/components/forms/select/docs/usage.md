@@ -54,4 +54,4 @@ It offers the same functionality as a [Checkbox](https://ec.europa.eu/component-
 
 ## When not to use
 
-- do not use when you have 5 or more items where you want to restrict selection to a single one - use [Select instead](##)
+- do not use when you have 5 or more items where you want to restrict selection to a single one - use [Select instead](#)
