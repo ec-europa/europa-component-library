@@ -24,7 +24,7 @@ module.exports = {
       image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       credit: '© Copyright or credit',
-      variant: 'image',
+      variant: 'text-box',
       centered: false,
     },
     {
@@ -48,7 +48,7 @@ module.exports = {
       image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       credit: '© Copyright or credit',
-      variant: 'image-gradient',
+      variant: 'text-highlight',
       centered: false,
     },
     {
@@ -72,7 +72,7 @@ module.exports = {
       image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       credit: '© Copyright or credit',
-      variant: 'image-shade',
+      variant: 'image-overlay',
       centered: false,
     },
   ],

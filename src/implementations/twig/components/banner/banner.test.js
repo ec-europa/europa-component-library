@@ -5,10 +5,10 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import bannerDataPrimary from '@ecl/specs-component-banner/demo/data--primary';
-import bannerDataImage from '@ecl/specs-component-banner/demo/data--image-box';
-import bannerDataImageShade from '@ecl/specs-component-banner/demo/data--image-shade';
-import bannerDataImageGradient from '@ecl/specs-component-banner/demo/data--image-gradient';
+import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
+import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
+import bannerDataImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
+import bannerDataTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
 
 expect.extend(toHaveNoViolations);
 
@@ -16,8 +16,8 @@ describe('Banner', () => {
   const template = '@ecl/banner/banner.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
-  describe('Primary', () => {
-    const data = bannerDataPrimary;
+  describe('Plain background', () => {
+    const data = bannerDataPlainBackground;
 
     test(`renders correctly`, () => {
       expect.assertions(1);
@@ -59,25 +59,25 @@ describe('Banner', () => {
     test(`- text-box renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataImage)).resolves.toMatchSnapshot();
+      return expect(render(bannerDataTextBox)).resolves.toMatchSnapshot();
     });
 
-    test(`- gradient renders correctly`, () => {
+    test(`- text highlight renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataImageGradient)).resolves.toMatchSnapshot();
+      return expect(render(bannerDataTextHighlight)).resolves.toMatchSnapshot();
     });
 
-    test(`- shade renders correctly`, () => {
+    test(`- image overlay renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataImageShade)).resolves.toMatchSnapshot();
+      return expect(render(bannerDataImageOverlay)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
-      const withExtraClasses = merge(bannerDataImage, {
+      const withExtraClasses = merge(bannerDataTextBox, {
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -87,7 +87,7 @@ describe('Banner', () => {
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
-      const withExtraAttributes = merge(bannerDataImage, {
+      const withExtraAttributes = merge(bannerDataTextBox, {
         extra_attributes: [
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
@@ -99,7 +99,7 @@ describe('Banner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, bannerDataImage, true))
+        await axe(renderTwigFileAsHtml(template, bannerDataTextBox, true))
       ).toHaveNoViolations();
     });
   });
