@@ -5,7 +5,7 @@
   $_image-border-color: map.get(theme.$color, 'blue-20'),
   $_content_block_padding: map.get(theme.$spacing, 'l'),
   $_border-radius: 8px,
-  $_shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  $_shadow: map.get(theme.$shadow, '1'),
   $_border: 0
 );
 

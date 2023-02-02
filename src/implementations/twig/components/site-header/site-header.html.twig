@@ -22,11 +22,21 @@
           "label": (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
           "aria_label": (string) (default: ''): Switcher language aria label
           "code": (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
+          "eu_category": (string) (default: ''): Label for EU languages
+          "non_eu_category": (string) (default: ''): Label for non-EU languages
           "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
             {
               "close_label": (string) (default: ''): Close button label eg. 'Close'.
               "title": (string) (default: ''): Overlay title, eg. 'Select your language'.
               "items": (array) (default: []): (array) (default: []): format: [
+                {
+                  "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+                  "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+                  "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+                  "active" (boolean) (default: false) define if item is the active language.
+                },
+              ],
+              "non_eu_items": (array) (default: []): (array) (default: []): format: [
                 {
                   "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
                   "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
@@ -56,6 +66,7 @@
         "href_logged": (string) Link to the logout form
       }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
+    - "message" (object) (default: {}): Optional message compatible with ECL Message component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderStandardised"): format: [
         {
@@ -77,6 +88,7 @@
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
+{% set _message = message|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header' %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
@@ -111,10 +123,6 @@
 
 {% if language_selector is defined and language_selector is not empty %}
   {% set _language_selector = _language_selector|merge(language_selector) %}
-{% endif %}
-
-{% if _language_selector.overlay is defined and _language_selector.overlay is not empty %}
-  {% set _has_overlay = true %}
 {% endif %}
 
 {% if search_toggle is defined and search_toggle is not empty %}
@@ -193,7 +201,7 @@
 <header class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-site-header__header">
     <div class="ecl-site-header__container ecl-container">
-      <div class="ecl-site-header__top">
+      <div class="ecl-site-header__top" data-ecl-site-header-top>
       {% if _logo is not empty %}
       {# Logo #}
         {% set _label %}
@@ -292,31 +300,15 @@
           </div>
         {% endif %}
 
-        {% if _language_selector is not empty %}
         {# Language selector #}
-          <a
-            class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
-            href="{{ _language_selector.href }}"
-            data-ecl-language-selector
-            aria-label="{{ _language_selector.aria_label }}"
-          {% if _has_overlay is defined %}
-            aria-controls="language-list-overlay"
-          {% endif %}
-          >
-            <span class="ecl-site-header__language-icon">
-              {% include '@ecl/icon/icon.html.twig' with {
-                icon: {
-                  path: _icon_file_path,
-                  name: 'language',
-                  size: 's'
-                },
-                extra_classes: 'ecl-site-header__icon',
-              } only %}
-              <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
-            </span>
-            {{- _language_selector.label -}}
-          </a>
+        {% if _language_selector is not empty %}
+          {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
+            language_selector: _language_selector,
+            icon_file_path: _icon_file_path,
+          } only %}
         {% endif %}
+
+        {# Search form #}
         {% if _search_form is defined %}
           <div class="ecl-site-header__search-container">
           {% if _search_toggle is not empty %}
@@ -349,8 +341,17 @@
     </div>
   </div>
 
+{# Message #}
+{% if _message is defined and _message is not empty %}
+  <div class="ecl-site-header__message">
+    <div class="ecl-container">
+      {% include '@ecl/message/message.html.twig' with _message only %}
+    </div>
+  </div>
+{% endif %}
+
+{# Banner top #}
 {% if banner_top is defined and banner_top is not empty %}
-  {# Banner top #}
   <div class="ecl-site-header__banner-top">
     <div class="ecl-container">
     {%- if banner_top.link is defined and banner_top.link is not empty %}
@@ -390,32 +391,6 @@
     site_name: _site_name,
     icon_path: _icon_file_path,
   }) only %}
-{% endif %}
-
-{% if _has_overlay is defined and _language_selector.overlay is defined and _language_selector.overlay.items is defined %}
-  {% set _non_eu_items = [] %}
-  {% set _items = _language_selector.overlay.items|default([]) %}
-  {% set _eu_category = _language_selector.eu_category|default('') %}
-  {% set _non_eu_category = _language_selector.non_eu_category|default('') %}
-  {% set _title = _language_selector.overlay.title|default('') %}
-  {% set _close_label = _language_selector.overlay.close_label|default('') %}
-  {% if _language_selector.overlay.non_eu_items is defined and _language_selector.overlay.non_eu_items is not empty %}
-    {% set _non_eu_items = _language_selector.overlay.non_eu_items %}
-  {% endif %}
-  {% include '@ecl/language-list/language-list.html.twig' with {
-    overlay: true,
-    items: _items,
-    close_label: _close_label,
-    title: _title,
-    eu_category: _eu_category,
-    non_eu_items: _non_eu_items,
-    non_eu_category: _non_eu_category,
-    icon_path: _icon_file_path,
-    extra_attributes: [
-      { name: 'hidden' },
-      { name: 'id', value: 'language-list-overlay' }
-    ],
-  } only %}
 {% endif %}
 </header>
 

@@ -1,5 +1,71 @@
 # Changelog
 
+## 3.7.0 (2023-02-02)
+
+#### :boom: Breaking Change
+
+- [#2716](https://github.com/ec-europa/europa-component-library/pull/2716) feat(site-header): use popover for language list - FRONT-3761 ([@emeryro](https://github.com/emeryro))
+
+- #### :rocket: New Feature
+
+- [#2742](https://github.com/ec-europa/europa-component-library/pull/2742) feat(carousel): add different sizes - FRONT-3842 ([@emeryro](https://github.com/emeryro))
+- [#2715](https://github.com/ec-europa/europa-component-library/pull/2715) feat(site-header): add message box - FRONT-3760 ([@emeryro](https://github.com/emeryro))
+- [#2735](https://github.com/ec-europa/europa-component-library/pull/2735) feat(social media share): add popover - FRONT-3830 ([@emeryro](https://github.com/emeryro))
+- [#2712](https://github.com/ec-europa/europa-component-library/pull/2712) feat(select): Grouping capabilities for simple and multiple select - FRONT-3542 ([@planctus](https://github.com/planctus))
+- [#2728](https://github.com/ec-europa/europa-component-library/pull/2728) feat(banner): add unified banner - FONT-3829 ([@emeryro](https://github.com/emeryro))
+- [#2716](https://github.com/ec-europa/europa-component-library/pull/2716) feat(site-header): use popover for language list - FRONT-3761 ([@emeryro](https://github.com/emeryro))
+- [#2710](https://github.com/ec-europa/europa-component-library/pull/2710) feat(icon): add basket icon - FRONT-3783 ([@emeryro](https://github.com/emeryro))
+- [#2705](https://github.com/ec-europa/europa-component-library/pull/2705) feat(icon): add laco icon - FRONT-3818 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Markup Changes
+
+- [#2715](https://github.com/ec-europa/europa-component-library/pull/2715) feat(site-header): add message box - FRONT-3760 ([@emeryro](https://github.com/emeryro))
+- [#2735](https://github.com/ec-europa/europa-component-library/pull/2735) feat(social media share): add popover - FRONT-3830 ([@emeryro](https://github.com/emeryro))
+- [#2704](https://github.com/ec-europa/europa-component-library/pull/2704) fix(select): fix multi-select with long labels - FRONT-3817 ([@emeryro](https://github.com/emeryro))
+- [#2653](https://github.com/ec-europa/europa-component-library/pull/2653) feat(table): add parameter for enhanced mobile - FRONT-3754 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2745](https://github.com/ec-europa/europa-component-library/pull/2745) fix(list): fix nested bullet position - FRONT-3847 ([@emeryro](https://github.com/emeryro))
+- [#2744](https://github.com/ec-europa/europa-component-library/pull/2744) fix(carousel): fix bullet display on ipad (safari) - FRONT-3825 ([@emeryro](https://github.com/emeryro))
+- [#2734](https://github.com/ec-europa/europa-component-library/pull/2734) fix(site-header): fix mobile display of language popover - FRONT-3839 ([@emeryro](https://github.com/emeryro))
+- [#2731](https://github.com/ec-europa/europa-component-library/pull/2731) fix(link): fix underline of standalone link - FRONT-3834 ([@emeryro](https://github.com/emeryro))
+- [#2719](https://github.com/ec-europa/europa-component-library/pull/2719) fix(presets): Adding reset and rtl css to EC and EU presets - FRONT-3822 ([@planctus](https://github.com/planctus))
+- [#2714](https://github.com/ec-europa/europa-component-library/pull/2714) feat(spinner): fix center alignment - FRONT-3821 ([@emeryro](https://github.com/emeryro))
+- [#2704](https://github.com/ec-europa/europa-component-library/pull/2704) fix(select): fix multi-select with long labels - FRONT-3817 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2746](https://github.com/ec-europa/europa-component-library/pull/2746) feat(banner): update text background - FRONT-3843 ([@emeryro](https://github.com/emeryro))
+- [#2747](https://github.com/ec-europa/europa-component-library/pull/2747) feat(banner): Rename variants - FRONT-3845 ([@planctus](https://github.com/planctus))
+- [#2739](https://github.com/ec-europa/europa-component-library/pull/2739) feat(popover): improve usability - FRONT-3841 ([@emeryro](https://github.com/emeryro))
+- [#2737](https://github.com/ec-europa/europa-component-library/pull/2737) feat(fact and figures): update component display - FRONT-3840 ([@emeryro](https://github.com/emeryro))
+- [#2732](https://github.com/ec-europa/europa-component-library/pull/2732) feat(shadow): harmonize shadows - FRONT-3828 ([@emeryro](https://github.com/emeryro))
+- [#2736](https://github.com/ec-europa/europa-component-library/pull/2736) feat(message): make close button optional - FRONT-3837 ([@emeryro](https://github.com/emeryro))
+- [#2730](https://github.com/ec-europa/europa-component-library/pull/2730) feat(icon-flag): update French flag - FRONT-3833 ([@emeryro](https://github.com/emeryro))
+- [#2720](https://github.com/ec-europa/europa-component-library/pull/2720) feat(icons): Updating 4 icons in EC - FRONT-3823 ([@planctus](https://github.com/planctus))
+- [#2727](https://github.com/ec-europa/europa-component-library/pull/2727) chore(file): Splitting in three templates, using similar approach in wc - FRONT-3815 ([@planctus](https://github.com/planctus))
+- [#2725](https://github.com/ec-europa/europa-component-library/pull/2725) feat(cursor): use hand cursor for different components - FRONT-3811 ([@emeryro](https://github.com/emeryro))
+- [#2709](https://github.com/ec-europa/europa-component-library/pull/2709) feat(menu): improve keyboard navigation - FRONT-3798 ([@emeryro](https://github.com/emeryro))
+- [#2711](https://github.com/ec-europa/europa-component-library/pull/2711) feat(icon): update file and edit icons - FRONT-3820 ([@emeryro](https://github.com/emeryro))
+- [#2653](https://github.com/ec-europa/europa-component-library/pull/2653) feat(table): add parameter for enhanced mobile - FRONT-3754 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2748](https://github.com/ec-europa/europa-component-library/pull/2748) chore(carousel): Changing default story ([@planctus](https://github.com/planctus))
+- [#2743](https://github.com/ec-europa/europa-component-library/pull/2743) chore(deps): updates 30-01-23 ([@planctus](https://github.com/planctus))
+- [#2738](https://github.com/ec-europa/europa-component-library/pull/2738) chore(deps): updates 25-01-23, audit fix ([@planctus](https://github.com/planctus))
+- [#2733](https://github.com/ec-europa/europa-component-library/pull/2733) chore(deps): Updates 16-01-23 ([@planctus](https://github.com/planctus))
+- [#2726](https://github.com/ec-europa/europa-component-library/pull/2726) chore(deps): Updates - 03-01-23 ([@planctus](https://github.com/planctus))
+- [#2707](https://github.com/ec-europa/europa-component-library/pull/2707) chore(changelog): Adding markup changes category ([@planctus](https://github.com/planctus))
+- [#2713](https://github.com/ec-europa/europa-component-library/pull/2713) chore(deps): Small updates and audit fix ([@planctus](https://github.com/planctus))
+- [#2706](https://github.com/ec-europa/europa-component-library/pull/2706) chore(deps): Updates 06-12-22 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.6.0 (2022-11-30)
 
 #### :rocket: New Feature

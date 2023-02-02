@@ -8,18 +8,10 @@ npm install --save @ecl/twig-component-social-media-follow
 
 ### Parameters
 
+- **"variant"** (string) (default: '') Can be 'vertical'
 - **"description"** (string) (default: '')
-- **"variant"** (string) (default: '') - Can be 'vertical'
-- **"links"** (array) (default: []) - List of links to external social media. Each link consists of the following:
-  - "path" (string) - Namely the same attribute
-  - "label" (string) - Human-readable name of the link
-  - "icon_position" (string) - Whether the icon is expected to be "before" or "after"
-  - "variant" (string) - Link variant, usually "standalone" is default.
-  - "icon" (array) - List of icons used for normal and hover states. Each icon consists of the following:
-    - "name" (string) - Icon name
-    - "size" (string) - Size such as "xl"
-    - "path" (string) - Path in terms of an SVG icon
-    - "extra_classes" (string) - Class to toggle between normal and hover effects
+- **"links"** (array) (default: {}) Array of links for social media, following ECL Link structure
+- **"popover"** (associative array) (default: {}) Popover for other social media, following ECL Popover structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -32,27 +24,77 @@ npm install --save @ecl/twig-component-social-media-follow
 {% include '@ecl/social-media-follow/social-media-follow.html.twig' with { 
   description:
     'Follow the latest progress and learn more about getting involved.', 
-  links: [ 
-    { 
-      path: '/example', 
-      label: 'Twitter', 
-      variant: 'standalone', 
-      icon_position: 'before', 
-      icon: [ 
-        { 
-          name: 'twitter', 
-          size: 'xl', 
-        }, 
-        { 
-          name: 'twitter_hover', 
-          size: 'xl', 
-        }, 
-      ], 
-    }, 
-    { 
-      path: '/example', 
-      label: 'Other social networks', 
-    }, 
-  ], 
+  links: [
+    {
+      link: {
+        label: 'Twitter',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'twitter-color',
+        size: 'm',
+        extra_classes: 'ecl-social-media-share__icon',
+      },
+    },
+    {
+      link: {
+        label: 'Facebook',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'facebook-color',
+        size: 'm',
+        extra_classes: 'ecl-social-media-share__icon',
+      },
+    },
+  ],
+  popover: {
+    id: 'social-media-share-popover',
+    toggle: {
+      link: {
+        label: 'Other social networks',
+        path: exampleLink,
+        aria_label: 'See other social media networks',
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icons.svg',
+        name: 'share',
+        size: 'm',
+      },
+    },
+    links: [
+      {
+        link: {
+          label: 'Pinterest',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'pinterest-color',
+          size: 'fluid',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+      {
+        link: {
+          label: 'Mastodon',
+          path: exampleLink,
+          icon_position: 'before',
+        },
+        icon: {
+          path: '/icon-social-media.svg',
+          name: 'mastodon-color',
+          size: 'fluid',
+          extra_classes: 'ecl-social-media-share__icon',
+        },
+      },
+    ],
+  }
 } %}
 ```

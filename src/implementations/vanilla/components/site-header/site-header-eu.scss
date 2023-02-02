@@ -6,6 +6,14 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use 'site-header-language-switcher' with (
+  $_arrow-size: 1rem,
+  $_shadow-size: 6px,
+  $_shadow-color: rgba(9, 49, 142, 0.2),
+  $_separator-color: map.get(theme.$color, 'blue-10'),
+  $_active-item-color: map.get(theme.$color, 'grey-140'),
+  $_active-item-background: map.get(theme.$color, 'blue-10')
+);
 
 $_logo-height-xs: 1.875rem;
 $_logo-width-xs: auto;
@@ -36,7 +44,7 @@ $_search-width-xl: 31.5rem;
   }
 
   &:not([data-ecl-has-menu='true']) {
-    box-shadow: 0 0 6px 0 rgb(9 49 142 / 0.2);
+    box-shadow: map.get(theme.$shadow, '2');
   }
 
   .ecl-site-header__cta {
@@ -56,6 +64,7 @@ $_search-width-xl: 31.5rem;
   flex-direction: column;
   padding-bottom: map.get(theme.$spacing, 'xs');
   padding-top: map.get(theme.$spacing, 'xs');
+  position: static;
 }
 
 .ecl-site-header__top {
@@ -89,26 +98,10 @@ $_search-width-xl: 31.5rem;
   display: flex;
   flex-direction: column;
   font: map.get(theme.$font, 'xs');
+  padding: map.get(theme.$spacing, 'xs');
   position: relative;
   text-align: center;
   z-index: map.get(theme.$z-index, 'modal') + 2;
-}
-
-.ecl-site-header__login-toggle {
-  .ecl-site-header__login-arrow {
-    display: none;
-  }
-}
-
-.ecl-site-header__language-selector {
-  font: map.get(theme.$font, 'xs');
-  text-align: center;
-}
-
-.ecl-site-header__login-toggle,
-.ecl-site-header__language-selector,
-.ecl-site-header__search-toggle {
-  padding: map.get(theme.$spacing, 'xs');
 
   &[aria-expanded='true'],
   &[aria-expanded='true']:focus-visible {
@@ -130,11 +123,23 @@ $_search-width-xl: 31.5rem;
   }
 }
 
+.ecl-site-header__login-toggle {
+  .ecl-site-header__login-arrow {
+    display: none;
+  }
+}
+
+.ecl-site-header__language-selector {
+  font: map.get(theme.$font, 'xs');
+  padding: map.get(theme.$spacing, 'xs');
+  text-align: center;
+}
+
 .ecl-site-header__login-box,
 .ecl-site-header__search {
   background-color: map.get(theme.$color, 'blue-5');
   border: 1px solid map.get(theme.$color, 'blue-5');
-  box-shadow: 0 0 6px 0 rgb(9 49 142 / 0.2);
+  box-shadow: map.get(theme.$shadow, '3');
   box-sizing: content-box;
   color: map.get(theme.$color, 'grey');
   display: none;
@@ -209,6 +214,14 @@ $_search-width-xl: 31.5rem;
   font-weight: map.get(theme.$font-weight, 'bold');
   margin-inline-end: map.get(theme.$spacing, '3xl');
   padding: 0;
+}
+
+.ecl-site-header__message {
+  display: flex;
+
+  .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'm');
+  }
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -379,8 +392,11 @@ $_search-width-xl: 31.5rem;
     display: none;
   }
 
+  .ecl-site-header__language-selector {
+    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  }
+
   .ecl-site-header__login-toggle,
-  .ecl-site-header__language-selector,
   .ecl-site-header__search-toggle {
     padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
@@ -426,6 +442,10 @@ $_search-width-xl: 31.5rem;
     position: relative;
     top: 0;
     width: $_search-width-l;
+  }
+
+  .ecl-site-header__message .ecl-message {
+    margin-bottom: map.get(theme.$spacing, 'l');
   }
 }
 

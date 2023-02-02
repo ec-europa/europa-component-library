@@ -11,7 +11,7 @@
 
 .ecl-accordion {
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(map.get(theme.$color, 'blue'), 0.2);
+  box-shadow: map.get(theme.$shadow, '1');
   margin: 0;
 }
 
@@ -69,6 +69,7 @@
   border: 2px solid transparent;
   border-bottom-color: map.get(theme.$color, 'blue-20');
   color: map.get(theme.$color, 'grey-140');
+  cursor: pointer;
   display: block;
   font: map.get(theme.$font-prolonged, 'l');
   padding: map.get(theme.$spacing, 'l');
@@ -78,7 +79,7 @@
 }
 
 .ecl-accordion__toggle:hover {
-  box-shadow: 0 0 4px rgba(map.get(theme.$color, 'blue'), 0.2);
+  box-shadow: map.get(theme.$shadow, '1');
 }
 
 .ecl-accordion__toggle:focus-visible {
