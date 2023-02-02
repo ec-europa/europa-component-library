@@ -11,20 +11,20 @@
     'bottom': 0,
   ),
   $_background: (
-    'primary':
+    'plain-background':
       linear-gradient(
         to right,
         map.get(theme.$color, 'blue-140') 0%,
         map.get(theme.$color, 'blue-100') 100%
       ),
-    'image-box': rgba(255, 255, 255, 0.9),
-    'image-shade':
+    'text-box': rgba(255, 255, 255, 0.9),
+    'image-overlay':
       linear-gradient(
         to right,
         map.get(theme.$color, 'blue-140') 0%,
         map.get(theme.$color, 'blue-100') 100%
       ),
-    'image-gradient':
+    'text-highlight':
       linear-gradient(
         to right,
         map.get(theme.$color, 'blue-140') 0%,
@@ -32,7 +32,7 @@
       ),
   ),
   $_overlay: (
-    'image-shade': rgba(0, 0, 0, 0.4),
+    'image-overlay': rgba(0, 0, 0, 0.4),
   ),
   $_text-color: (
     'dark': map.get(theme.$color, 'grey-140'),

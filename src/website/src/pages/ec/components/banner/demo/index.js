@@ -1,14 +1,20 @@
-import demoContentImageBox from '@ecl/specs-component-banner/demo/data--image-box';
-import demoContentImageShade from '@ecl/specs-component-banner/demo/data--image-shade';
-import demoContentImageGradient from '@ecl/specs-component-banner/demo/data--image-gradient';
-import demoContentPrimary from '@ecl/specs-component-banner/demo/data--primary';
+import demoContentTextBox from '@ecl/specs-component-banner/demo/data--text-box';
+import demoContentImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
+import demoContentTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
+import demoContentPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
 
 import template from '@ecl/twig-component-banner/banner.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
-export const bannerImageBox = template(correctSvgPath(demoContentImageBox));
-export const bannerImageShade = template(correctSvgPath(demoContentImageShade));
-export const bannerImageGradient = template(
-  correctSvgPath(demoContentImageGradient)
+export const bannerTextBox = template(
+  correctSvgPath(correctSvgPath(demoContentTextBox))
 );
-export const bannerPrimary = template(correctSvgPath(demoContentPrimary));
+export const bannerImageOverlay = template(
+  correctSvgPath(demoContentImageOverlay)
+);
+export const bannerTextHighlight = template(
+  correctSvgPath(demoContentTextHighlight)
+);
+export const bannerPlainBackground = template(
+  correctSvgPath(demoContentPlainBackground)
+);

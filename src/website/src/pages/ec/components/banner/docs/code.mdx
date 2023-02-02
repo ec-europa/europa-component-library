@@ -5,48 +5,52 @@ order: 2
 
 import { Html, Playground } from '@ecl/website-components';
 import {
-  bannerImageBox,
-  bannerImageShade,
-  bannerImageGradient,
-  bannerPrimary,
+  bannerTextBox,
+  bannerImageOverlay,
+  bannerTextHighlight,
+  bannerPlainBackground,
 } from '../demo';
 
 ## Image banners
 
-### Text box image banner
-
-<Playground system="ec" selectedKind="components-banner" selectedStory="image">
-  <Html markup={bannerImageBox} />
-</Playground>
-
-### Shaded image banner
+### Text box banner
 
 <Playground
   system="ec"
   selectedKind="components-banner"
-  selectedStory="image-shade"
+  selectedStory="text-box"
 >
-  <Html markup={bannerImageShade} />
+  <Html markup={bannerTextBox} />
 </Playground>
 
-### Gradient image banner
+### Image overlay banner
 
 <Playground
   system="ec"
   selectedKind="components-banner"
-  selectedStory="image-gradient"
+  selectedStory="image-overlay"
 >
-  <Html markup={bannerImageGradient} />
+  <Html markup={bannerImageOverlay} />
 </Playground>
 
-## Primary banner
+### Text highlight banner
 
 <Playground
   system="ec"
   selectedKind="components-banner"
-  selectedStory="primary"
+  selectedStory="text-highlight"
 >
-  <Html markup={bannerPrimary} />
+  <Html markup={bannerTextHighlight} />
+</Playground>
+
+## Plain background banner
+
+<Playground
+  system="ec"
+  selectedKind="components-banner"
+  selectedStory="plain-background"
+>
+  <Html markup={bannerPlainBackground} />
 </Playground>
 
 ## Other variants

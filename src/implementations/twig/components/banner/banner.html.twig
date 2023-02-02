@@ -2,7 +2,8 @@
 
 {#
   Parameters:
-  - "variant" (string) (default: 'primary') Variant of banner (can be 'primary', 'image', 'image-shade', 'image-gradient')
+  - "variant" (string) (default: 'primary') Variant of banner
+    (can be 'plain-background', 'text-block', 'text-highlight', 'image-overlay')
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "title" (string) (default: '') Title of banner
   - "image" (string) (default: '') Image for banner (required for image banner variant)
@@ -21,7 +22,7 @@
 
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = '' %}
-{% set _variant = variant|default('primary') %}
+{% set _variant = variant|default('plain-background') %}
 {% set _size = size|default('m') %}
 {% set _centered = centered ?? true %}
 {% set _full_width = full_width|default(false) %}
@@ -66,10 +67,10 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if _image is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
+{% if _image is not empty and _variant != 'plain-background'  %}
   <div class="ecl-banner__image" style="background-image:url({{ _image }})"></div>
 {% endif %}
-{% if _credit is not empty and _variant in ['image', 'image-shade', 'image-gradient'] %}
+{% if _credit is not empty and _variant != 'plain-background' %}
   <div class="ecl-banner__credit">{{ _credit }}</div>
 {% endif %}
   <div class="ecl-container">
