@@ -26,7 +26,7 @@ Having the same functionality as a [Radio button](https://ec.europa.eu/component
 
 ## When not to use
 
-- do not use when you have 5 or more items from which users can select more than one - use [Multi-select instead](#)
+- do not use when you have 5 or more items from which users can select more than one - use Multi-select instead
 
 # Multi-select
 
@@ -54,4 +54,4 @@ It offers the same functionality as a [Checkbox](https://ec.europa.eu/component-
 
 ## When not to use
 
-- do not use when you have 5 or more items where you want to restrict selection to a single one - use [Select instead](#)
+- do not use when you have 5 or more items where you want to restrict selection to a single one - use Select instead
