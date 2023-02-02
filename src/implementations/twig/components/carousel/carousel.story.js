@@ -8,7 +8,7 @@ import notes from './README.md';
 
 const getArgs = () => {
   const args = {
-    width: 'outside',
+    width: 'container',
     size: 'm',
     gridContent: false,
   };
@@ -32,7 +32,7 @@ const getArgTypes = () => {
         },
       },
       table: {
-        defaultValue: { summary: 'outside the grid container' },
+        defaultValue: '',
         category: 'Display',
       },
     },
