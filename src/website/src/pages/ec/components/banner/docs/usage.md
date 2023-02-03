@@ -28,4 +28,4 @@ Banners are a component that score highly in the visual hierarchy, used to conve
 
 ## When not to use it
 
-- do not use for large pieces of content - use [Featured item](https://ec.europa.eu/component-library/ec/components/media/featured-item/code/) instead
+- do not use for large pieces of content - use [Featured item](https://ec.europa.eu/component-library/eu/components/media/featured-item/code/) instead
