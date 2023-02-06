@@ -40,17 +40,20 @@ $_body-padding: null !default;
   margin-top: $_image-margin;
   object-fit: cover;
   width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
+}
 
-  // manage ratio 3:2
-
-  /*
-  &::before {
+@supports not (aspect-ratio: 3 / 2) {
+  .ecl-card__image::before {
+    float: left;
+    padding-top: 100%;
     content: '';
-    display: block;
-    padding-top: math.div(2, 3) * 100%;
-    width: 100%;
   }
-  */
+
+  .ecl-card__image::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
 }
 
 .ecl-card__body {
