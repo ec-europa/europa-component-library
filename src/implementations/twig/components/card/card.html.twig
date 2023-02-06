@@ -88,9 +88,9 @@
 {# Print the result #}
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image.src is defined and _image.src is not empty %}
-    {% set _image_aria_label = _image.alt is defined and _image.alt is not empty ? 'aria-label="' ~ _image.alt|e('html_attr') ~ '"' : '' %}
-    <div class="ecl-card__image" {{ _image_aria_label|raw }} role="img" style="background-image:url('{{ _image.src }}')"></div>
+  {% if _image.src is not empty %}
+    {% set _image_aria_label = _image.alt is not empty ? 'aria-label="' ~ _image.alt|e('html_attr') ~ '"' : '' %}
+    <img class="ecl-card__image" {{ _image_aria_label|raw }} src="{{ _image.src }}" />
   {% endif %}
 
   <div class="ecl-card__body">
