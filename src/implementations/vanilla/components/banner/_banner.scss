@@ -297,17 +297,9 @@ $_font-weight: null !default;
   background: map.get($_background, 'text-highlight');
 
   .ecl-banner__image {
+    aspect-ratio: 4/1;
     border-bottom: 4px solid $_border-color;
-  }
-
-  // manage ratio 4:1
-  .ecl-banner__image::before {
-    border-radius: map.get($_border-radius, 'banner')
-      map.get($_border-radius, 'banner') 0 0;
-    content: '';
-    display: block;
-    padding-top: (1 * 0.25) * 100%;
-    width: 100%;
+    object-fit: cover;
   }
 
   .ecl-banner__title {

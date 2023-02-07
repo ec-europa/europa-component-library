@@ -90,7 +90,14 @@
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _image.src is not empty %}
     {% set _image_aria_label = _image.alt is not empty ? 'aria-label="' ~ _image.alt|e('html_attr') ~ '"' : '' %}
-    <img class="ecl-card__image" {{ _image_aria_label|raw }} src="{{ _image.src }}" />
+    {# <div class="ecl-card__image">
+      <img class="" {{ _image_aria_label|raw }} src="{{ _image.src }}" />
+    </div> #}
+    <picture>
+      <source srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg" media="(min-width: 600px)" />
+      <img class="ecl-card__image" {{ _image_aria_label|raw }} src="{{ _image.src }}" />
+    </picture>
+    
   {% endif %}
 
   <div class="ecl-card__body">

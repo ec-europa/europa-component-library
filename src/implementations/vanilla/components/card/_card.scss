@@ -42,19 +42,29 @@ $_body-padding: null !default;
   width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
 }
 
-@supports not (aspect-ratio: 3 / 2) {
-  .ecl-card__image::before {
-    float: left;
-    padding-top: 100%;
-    content: '';
-  }
-
-  .ecl-card__image::after {
-    display: block;
-    content: '';
-    clear: both;
-  }
+/*
+.ecl-card__image {
+  position: relative;
+  aspect-ratio: 3/2;
+  border: $_image-border-width solid $_image-border-color;
+  display: block;
+  height: auto;
+  margin-inline-start: $_image-margin;
+  margin-inline-end: $_image-margin;
+  margin-top: $_image-margin;
+  width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
 }
+.ecl-card__image > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+*/
 
 .ecl-card__body {
   padding: $_body-padding;
