@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
   push:
     branches:
-      - v3-dev
+      - '*-dev'
 
 jobs:
   semantic:
