@@ -80,10 +80,10 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-  deploy-v3-branch:
-    name: deploy v3-dev branch
+  deploy-release-branch:
+    name: deploy release branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/v3-dev'
+    if: github.event_name == 'push' && github.ref.includes('-dev')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -98,7 +98,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
-          alias: v3
+          alias: github.ref.replace('refs/heads/', '')
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
