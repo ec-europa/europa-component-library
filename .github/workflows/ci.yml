@@ -98,7 +98,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.1
         with:
-          alias: github.ref.replace('refs/heads/', '')
+          alias: ${{ github.ref_name }}
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
