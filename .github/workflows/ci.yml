@@ -83,7 +83,7 @@ jobs:
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref.includes('-dev')
+    if: github.event_name == 'push' && endsWith(github.ref, '-dev')
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
