@@ -9,7 +9,7 @@ module.exports = {
             prefix: {
               toString() {
                 this.counter = this.counter || 0;
-                const id = `id-social-${(this.counter += 1)}`;
+                const id = `id-icon-eu-${(this.counter += 1)}`;
                 return id;
               },
             },
