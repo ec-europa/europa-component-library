@@ -5,11 +5,11 @@ module.exports = {
       params: {
         overrides: {
           removeViewBox: false,
-          cleanupIDs: {
+          cleanupIds: {
             prefix: {
               toString() {
                 this.counter = this.counter || 0;
-                const id = `id-${(this.counter += 1)}`;
+                const id = `id-social-${(this.counter += 1)}`;
                 return id;
               },
             },
@@ -17,5 +17,6 @@ module.exports = {
         },
       },
     },
+    'cleanupIds',
   ],
 };
