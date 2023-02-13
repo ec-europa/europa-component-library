@@ -11,7 +11,7 @@ const out = path.resolve(__dirname, '../dist/svg');
 glob.sync('**/*.svg', { cwd: src }).forEach(async (file) => {
   const filepath = path.resolve(src, file);
   const outputPath = path.resolve(out, file);
-  const config = await loadConfig('./scripts/config/svgo');
+  const config = await loadConfig('./scripts/config/svgo.js');
 
   fs.readFile(filepath, 'utf8', (err, data) => {
     if (err) {
