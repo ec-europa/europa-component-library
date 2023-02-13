@@ -5,7 +5,7 @@ module.exports = {
       params: {
         overrides: {
           removeViewBox: false,
-          cleanupIDs: {
+          cleanupIds: {
             prefix: {
               toString() {
                 this.counter = this.counter || 0;
@@ -17,5 +17,6 @@ module.exports = {
         },
       },
     },
+    'cleanupIds',
   ],
 };
