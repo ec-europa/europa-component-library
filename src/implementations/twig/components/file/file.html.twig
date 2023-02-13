@@ -57,16 +57,6 @@
 {% elseif _label[0] is defined %}
   {% set _labels = _label %}
 {% endif %}
-{% if _labels is defined %}
-  {% for _label in _labels %}
-  {% set _labelsMarkup %}
-    {{ _labelsMarkup }}
-    <div class="ecl-file__label">
-      {% include '@ecl/label/label.html.twig' with _label only %}
-    </div>
-  {% endset %}
-  {% endfor %}
-{% endif %}
 
 {% if _translation is not empty and _translation.items is not empty and _translation.items is iterable %}
   {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'data-ecl-auto-init="FileDownload"' %}
@@ -113,7 +103,11 @@
     <div class="ecl-file__detail">
       <div class="ecl-file__detail-info">
       {% if _labels is defined %}
-        {{- _labelsMarkup -}}
+      {% for _label in _labels %}
+        <div class="ecl-file__label">
+          {% include '@ecl/label/label.html.twig' with _label only %}
+        </div>
+      {% endfor %}
       {% endif %}
       {% if _meta_detail_string is not empty %}
         <div class="ecl-file__detail-meta">
@@ -146,7 +140,11 @@
     <div class="ecl-file__info">
     {% if _variant == 'default' %}
       {% if _labels is defined %}
-        {{ _labelsMarkup }}
+      {% for _label in _labels %}
+        <div class="ecl-file__label">
+          {% include '@ecl/label/label.html.twig' with _label only %}
+        </div>
+      {% endfor %}
       {% endif %}
       {% if  _meta_detail_string is not empty %}
       <div class="ecl-file__detail-meta">
