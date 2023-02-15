@@ -21,7 +21,7 @@ npm install --save @ecl/twig-component-media-container
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
 - **"alt"** (string) (default: '') The alternate text foher the image,
-- **"ratio"** (string) (default: 16-9) The ratio of the embedded media, if any,
+- **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
