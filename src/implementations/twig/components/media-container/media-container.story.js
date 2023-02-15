@@ -59,7 +59,7 @@ const getArgTypes = (data) => {
   argTypes.ratio = {
     name: 'ratio',
     type: { name: 'select' },
-    description: 'Media ratio',
+    description: 'Media ratio (if empty the ratio will be set by the js)',
     options: {
       auto: '',
       '16/9': '16-9',
@@ -69,6 +69,7 @@ const getArgTypes = (data) => {
     },
     table: {
       type: { summary: 'string' },
+      defaultValue: { summary: '' },
       category: 'Display',
     },
   };
