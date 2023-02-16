@@ -93,7 +93,7 @@ module.exports = {
             {
               link: {
                 label: 'Aid, Development cooperation, Fundamental rights',
-                path: 'https://commission.europa.eu/education_en',
+                path: 'https://commission.europa.eu/aid-development-cooperation-fundamental-rights_en',
                 aria_label:
                   'Link to Aid, Development cooperation, Fundamental rights',
               },
