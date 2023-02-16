@@ -171,7 +171,7 @@ module.exports = {
           title: {
             link: {
               label: 'European Commission',
-              path: 'https://ec.europa.eu/info/index_en',
+              path: 'https://commission.europa.eu/index_en',
             },
           },
           logo: {
@@ -189,7 +189,7 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: 'https://ec.europa.eu/info/about-european-commission/contact_en',
+                path: 'https://commission.europa.eu/about-european-commission/contact_en',
                 aria_label: 'Link to Contact the European Commission',
               },
             },
@@ -206,7 +206,7 @@ module.exports = {
             {
               link: {
                 label: 'Resources for partners',
-                path: 'https://ec.europa.eu/info/resources-partners_en',
+                path: 'https://commission.europa.eu/resources-partners_en',
               },
             },
           ],
@@ -219,28 +219,28 @@ module.exports = {
             {
               link: {
                 label: 'Languages on our websites',
-                path: 'https://ec.europa.eu/info/language-policy_en',
+                path: 'https://commission.europa.eu/language-policy_en',
                 aria_label: 'Link to Languages on our websites',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: 'https://ec.europa.eu/info/cookies_en',
+                path: 'https://commission.europa.eu/cookies_en',
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: 'https://ec.europa.eu/info/privacy-policy_en',
+                path: 'https://commission.europa.eu/privacy-policy_en',
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: 'https://ec.europa.eu/info/legal-notice_en',
+                path: 'https://commission.europa.eu/legal-notice_en',
                 aria_label: 'Link to Legal notice',
               },
             },

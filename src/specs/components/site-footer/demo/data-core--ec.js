@@ -30,70 +30,70 @@ module.exports = {
             {
               link: {
                 label: 'Strategy',
-                path: 'https://ec.europa.eu/info/strategy_en',
+                path: 'https://commission.europa.eu/strategy-and-policy_en',
                 aria_label: 'Link to Strategy',
               },
             },
             {
               link: {
                 label: 'About the European Commission',
-                path: 'https://ec.europa.eu/info/about-european-commission_en',
+                path: 'https://commission.europa.eu/about-european-commission_en',
                 aria_label: 'Link About the European Commission',
               },
             },
             {
               link: {
                 label: 'Business, Economy, Euro',
-                path: 'https://ec.europa.eu/info/business-economy-euro_en',
+                path: 'https://commission.europa.eu/business-economy-euro_en',
                 aria_label: 'Link to Business, Economy, Euro',
               },
             },
             {
               link: {
                 label: 'Live, work, travel in the EU',
-                path: 'https://ec.europa.eu/info/live-work-travel-eu_en',
+                path: 'https://commission.europa.eu/live-work-travel-eu_en',
                 aria_label: 'Link work, travel in the EU',
               },
             },
             {
               link: {
                 label: 'Law',
-                path: 'https://ec.europa.eu/info/law_en',
+                path: 'https://commission.europa.eu/live-work-travel-eu_en',
                 aria_label: 'Link to Law',
               },
             },
             {
               link: {
                 label: 'Funding, Tenders',
-                path: 'https://ec.europa.eu/info/funding-tenders_en',
+                path: 'https://commission.europa.eu/funding-tenders_en',
                 aria_label: 'Link to Funding, Tenders',
               },
             },
             {
               link: {
                 label: 'Research and innovation',
-                path: 'https://ec.europa.eu/info/research-and-innovation_en',
+                path: 'https://commission.europa.eu/research-and-innovation_en',
                 aria_label: 'Link to Research and innovation',
               },
             },
             {
               link: {
                 label: 'Energy, Climate change, Environment',
-                path: 'https://ec.europa.eu/info/energy-climate-change-environment_en',
+                path: 'https://commission.europa.eu/energy-climate-change-environment_en',
                 aria_label: 'Link to Climate change, Environment',
               },
             },
             {
               link: {
                 label: 'Education',
-                path: 'https://ec.europa.eu/info/education_en',
+                path: 'https://commission.europa.eu/education_en',
                 aria_label: 'Link to Education',
               },
             },
             {
               link: {
                 label: 'Aid, Development cooperation, Fundamental rights',
-                path: 'https://ec.europa.eu/info/aid-development-cooperation-fundamental-rights_en',
+                path: 'https://commission.europa.eu/education_en',
                 aria_label:
                   'Link to Aid, Development cooperation, Fundamental rights',
               },
@@ -101,28 +101,28 @@ module.exports = {
             {
               link: {
                 label: 'Food, Farming, Fisheries',
-                path: 'https://ec.europa.eu/info/food-farming-fisheries_en',
+                path: 'https://commission.europa.eu/food-farming-fisheries_en',
                 aria_label: 'Link to Food, Farming, Fisheries',
               },
             },
             {
               link: {
                 label: 'EU regional and urban development',
-                path: 'https://ec.europa.eu/info/eu-regional-and-urban-development_en',
+                path: 'https://commission.europa.eu/eu-regional-and-urban-development_en',
                 aria_label: 'Link to EU regionaland urban development',
               },
             },
             {
               link: {
                 label: 'Jobs at the European Commission',
-                path: 'https://ec.europa.eu/info/jobs-european-commission_en',
+                path: 'https://commission.europa.eu/jobs-european-commission_en',
                 aria_label: 'Link to Jobs at the European Commission',
               },
             },
             {
               link: {
                 label: 'Statistics',
-                path: 'https://ec.europa.eu/info/statistics_en',
+                path: 'https://commission.europa.eu/statistics_en',
                 aria_label: 'Link to Statistics',
               },
             },
@@ -136,14 +136,14 @@ module.exports = {
             {
               link: {
                 label: 'Events',
-                path: 'https://ec.europa.eu/info/events_en',
+                path: 'https://commission.europa.eu/events_en',
                 aria_label: 'Link to Events',
               },
             },
             {
               link: {
                 label: 'Publications',
-                path: 'https://ec.europa.eu/info/publications_en',
+                path: 'https://commission.europa.eu/publications_en',
                 aria_label: 'Link to Publications',
               },
             },
@@ -156,7 +156,7 @@ module.exports = {
             {
               link: {
                 label: "About the European Commission's web presence",
-                path: 'https://ec.europa.eu/info/about-european-commissions-web-presence_en',
+                path: 'https://commission.europa.eu/about-european-commissions-web-presence_en',
                 aria_label:
                   "Link to the About the European Commission's web presence",
               },
@@ -164,7 +164,7 @@ module.exports = {
             {
               link: {
                 label: 'Contact the European Commission',
-                path: 'https://ec.europa.eu/info/about-european-commission/contact_en',
+                path: 'https://commission.europa.eu/about-european-commission/contact_en',
                 aria_label: 'Link to Contact the European Commission',
               },
             },
@@ -181,7 +181,7 @@ module.exports = {
             {
               link: {
                 label: 'Resources for partners',
-                path: 'https://ec.europa.eu/info/resources-partners_en',
+                path: 'https://commission.europa.eu/resources-partners_en',
                 aria_label: 'Link to Resources for partners',
               },
             },
@@ -192,28 +192,28 @@ module.exports = {
             {
               link: {
                 label: 'Languages on our websites',
-                path: 'https://ec.europa.eu/info/languages-our-websites_en',
+                path: 'https://commission.europa.eu/languages-our-websites_en',
                 aria_label: 'Link to Languages on our websites',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: 'https://ec.europa.eu/info/cookies_en',
+                path: 'https://commission.europa.eu/cookies_en',
                 aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
-                path: 'https://ec.europa.eu/info/privacy-policy_en',
+                path: 'https://commission.europa.eu/privacy-policy_en',
                 aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
-                path: 'https://ec.europa.eu/info/legal-notice_en',
+                path: 'https://commission.europa.eu/legal-notice_en',
                 aria_label: 'Link to Legal notice',
               },
             },
