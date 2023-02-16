@@ -58,7 +58,7 @@ module.exports = {
             {
               link: {
                 label: 'Law',
-                path: 'https://commission.europa.eu/live-work-travel-eu_en',
+                path: 'https://commission.europa.eu/law_en',
                 aria_label: 'Link to Law',
               },
             },
