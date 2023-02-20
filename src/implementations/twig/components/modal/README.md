@@ -9,7 +9,8 @@ npm install --save @ecl/twig-component-modal
 ### Parameters:
 
 - **"id"** (string) (default: '')
-- **toggle** (associative array) (default: {}): Modal toggle element, following ECL Link structure
+- **"icon_path"** (string) Path to the icon sprite
+- **"close_label"** (string) Label of the close button (for screen reader only)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -17,65 +18,21 @@ npm install --save @ecl/twig-component-modal
 
 ### Blocks:
 
-- "content"
+- **"header"**: free block to put any content in the modal header
+- **"body"**: free block to put any content in the modal body
+- **"footer"**: free block to put any content in the modal footer
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/popover/popover.html.twig' with { 
-  id: 'popover-example',
-  toggle: {
-    link: {
-      label: 'Popover',
-      path: exampleLink,
-      type: 'standalone',
-      aria_label: 'Popover toggle',
-      icon_position: 'before',
-    },
-    icon: {
-      path: '/icons.svg',
-      name: 'share',
-      size: 'fluid',
-    },
-  },
-  links: [
-    {
-      link: {
-        label: 'item 1',
-        path: exampleLink,
-        aria_label: 'Link to item 1',
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 2',
-        path: exampleLink,
-        aria_label: 'Link to item 2',
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 3',
-        path: exampleLink,
-        aria_label: 'Link to item 3',
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-  ],
+{% include '@ecl/modal/modal.html.twig' with { 
+  id: 'modal-example',
+  icon_path: '/icons.svg',
+  close_label: 'Close',
+  header: 'Lorem ipsum dolor sit amet',
+  body: 'Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.',
+  footer:
+    '<button class="ecl-button ecl-button--secondary" data-ecl-modal-close>Close</button>',
 } %}
 ```
