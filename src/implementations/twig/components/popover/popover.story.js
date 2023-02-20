@@ -38,7 +38,7 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  const dataClone = structuredClone(data);
+  const dataClone = global.structuredClone(data);
 
   dataClone.toggle.link.label = args.label;
   dataClone.content = args.content;
