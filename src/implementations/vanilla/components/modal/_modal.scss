@@ -58,7 +58,19 @@ $_separator-color: null !default;
 
 .ecl-modal__footer {
   border-top: 1px solid $_separator-color;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   padding: map.get(theme.$spacing, 'm');
+}
+
+.ecl-modal__button {
+  flex-basis: 50%;
+  margin-inline-start: map.get(theme.$spacing, 'm');
+
+  &:last-of-type {
+    margin-inline-start: 0;
+  }
 }
 
 .ecl-modal__close {
@@ -81,6 +93,11 @@ $_separator-color: null !default;
   }
 
   .ecl-modal__footer {
+    justify-content: normal;
     padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
+  }
+
+  .ecl-modal__button {
+    flex-basis: auto;
   }
 }
