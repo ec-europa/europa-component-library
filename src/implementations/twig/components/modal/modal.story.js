@@ -9,7 +9,7 @@ import notes from './README.md';
 const getArgs = (data) => ({
   header: data.header,
   body: data.body,
-  footer: data.footer,
+  footer: 2,
 });
 
 const getArgTypes = () => ({
@@ -34,12 +34,11 @@ const getArgTypes = () => ({
     },
   },
   footer: {
-    name: 'footer',
-    type: { name: 'string', required: true },
-    description: 'Footer of the modal',
+    name: 'footer buttons',
+    control: { type: 'range', min: 0, max: 2, step: 1 },
+    description: 'Button examples in the footer',
     table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
+      defaultValue: { summary: 2 },
       category: 'Content',
     },
   },
@@ -50,7 +49,8 @@ const prepareData = (data, args) => {
 
   dataClone.header = args.header;
   dataClone.body = args.body;
-  dataClone.footer = args.footer;
+
+  dataClone.buttons = dataClone.buttons.slice(0, args.footer);
 
   correctPaths(dataClone);
 
