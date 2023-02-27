@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-modal
 - **"id"** (string) (default: '')
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"close_label"** (string) (default: '') Label of the close button (for screen reader only)
+- **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer. The first button is the primary action.
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -31,6 +32,12 @@ npm install --save @ecl/twig-component-modal
   id: 'modal-example',
   icon_path: '/icons.svg',
   close_label: 'Close',
+  header_icon: {
+    icon: {
+      name: 'warning',
+    },
+    extra_classes: 'ecl-u-type-color-warning',
+  },
   header: 'Lorem ipsum dolor sit amet',
   body: 'Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.',
   buttons: [

@@ -14,6 +14,7 @@ $_separator-color: null !default;
 .ecl-modal {
   background-color: $_overlay;
   border: none;
+  color: map.get(theme.$color, 'grey-100');
   height: 100%;
   left: 0;
   margin: 0;
@@ -44,12 +45,20 @@ $_separator-color: null !default;
 }
 
 .ecl-modal__header {
-  align-items: flex-start;
+  align-items: center;
   border-bottom: 1px solid $_separator-color;
   display: flex;
   font: map.get(theme.$font-prolonged, 'l');
-  justify-content: space-between;
   padding: map.get(theme.$spacing, 'm');
+}
+
+.ecl-modal__header-icon {
+  flex-shrink: 0;
+  margin-right: map.get(theme.$spacing, 's');
+}
+
+.ecl-modal__header-content {
+  flex-grow: 1;
 }
 
 .ecl-modal__body {
@@ -76,6 +85,10 @@ $_separator-color: null !default;
 .ecl-modal__close {
   padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
   margin-right: -#{map.get(theme.$spacing, 's')};
+
+  &:hover {
+    box-shadow: none;
+  }
 
   .ecl-button__icon {
     margin: 0;

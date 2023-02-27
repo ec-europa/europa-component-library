@@ -1,13 +1,26 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
+import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
+import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import dataDefault from '@ecl/specs-component-modal/demo/data';
 import modal from './modal.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
+
+// Create 'none' option.
+iconsAll.unshift('none');
+
 const getArgs = (data) => ({
   header: data.header,
+  header_icon:
+    data.header_icon && data.header_icon.icon
+      ? data.header_icon.icon.name
+      : 'none',
   body: data.body,
   footer: 2,
 });
@@ -23,9 +36,18 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
+  header_icon: {
+    name: 'header icon',
+    type: { name: 'select' },
+    description: 'Icon in the header',
+    options: [...iconsAll],
+    table: {
+      category: 'Content',
+    },
+  },
   body: {
     name: 'body',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     description: 'Body of the modal',
     table: {
       type: { summary: 'string' },
@@ -49,6 +71,17 @@ const prepareData = (data, args) => {
 
   dataClone.header = args.header;
   dataClone.body = args.body;
+
+  if (args.header_icon === 'none') {
+    delete dataClone.header_icon;
+  } else {
+    const icon = {
+      icon: {
+        name: args.header_icon,
+      },
+    };
+    dataClone.header_icon = { ...dataClone.header_icon, ...icon };
+  }
 
   dataClone.buttons = dataClone.buttons.slice(0, args.footer);
 
