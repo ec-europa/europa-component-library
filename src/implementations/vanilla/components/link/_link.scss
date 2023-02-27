@@ -62,6 +62,10 @@ $_negative: null !default;
     top: -1px;
     vertical-align: middle;
   }
+
+  &:not(.ecl-link--standalone) .ecl-link__label {
+    text-decoration: underline;
+  }
 }
 
 .ecl-link--icon-before .ecl-link__icon {

@@ -1,5 +1,40 @@
 # Changelog
 
+## 3.7.1 (2023-02-02)
+
+#### :bug: Bug Fix
+
+- [#2778](https://github.com/ec-europa/europa-component-library/pull/2778) fix(link): fix underline for link with icons - FRONT-3865 ([@emeryro](https://github.com/emeryro))
+- [#2766](https://github.com/ec-europa/europa-component-library/pull/2766) fix(print): fix logo duplicate - FRONT-3860 ([@emeryro](https://github.com/emeryro))
+- [#2761](https://github.com/ec-europa/europa-component-library/pull/2761) fix(file): Using safer approach for label markup - FRONT-3854 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#2768](https://github.com/ec-europa/europa-component-library/pull/2768) chore(flags): Reducing icon sizes ([@planctus](https://github.com/planctus))
+- [#2772](https://github.com/ec-europa/europa-component-library/pull/2772) chore(icons): Replacing instagram-color icon with a plain color one ([@planctus](https://github.com/planctus))
+- [#2775](https://github.com/ec-europa/europa-component-library/pull/2775) fix(footer): Updating links to the new commission website url - FRONT-3862 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#2769](https://github.com/ec-europa/europa-component-library/pull/2769) fix(media-container): Better describing the way to use the ratio parameter - FRONT-3864 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2777](https://github.com/ec-europa/europa-component-library/pull/2777) chore(node): Using gallium, locally and in CI (for deployments) ([@planctus](https://github.com/planctus))
+- [#2773](https://github.com/ec-europa/europa-component-library/pull/2773) chore(deps): Updates 15-02-23 ([@planctus](https://github.com/planctus))
+- [#2770](https://github.com/ec-europa/europa-component-library/pull/2770) chore(deps): Update 14-02-23 ([@planctus](https://github.com/planctus))
+- [#2762](https://github.com/ec-europa/europa-component-library/pull/2762) chore(website): Fixing some errors in the website - FRONT-3853 ([@planctus](https://github.com/planctus))
+- [#2765](https://github.com/ec-europa/europa-component-library/pull/2765) chore(svgo): Upgrading svgo and svg-sprite, minimal changes - FRONT-3855 ([@planctus](https://github.com/planctus))
+- [#2764](https://github.com/ec-europa/europa-component-library/pull/2764) chore(deps): updates 09-02-23 ([@planctus](https://github.com/planctus))
+- [#2763](https://github.com/ec-europa/europa-component-library/pull/2763) chore(deps): Upgrading stylelint, no issue ([@planctus](https://github.com/planctus))
+- [#2760](https://github.com/ec-europa/europa-component-library/pull/2760) feat(ci): Deploying every release branch, using node v16 in CI ([@planctus](https://github.com/planctus))
+- [#2758](https://github.com/ec-europa/europa-component-library/pull/2758) chore(deps): Updates 08-02-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.7.0 (2023-02-02)
 
 #### :boom: Breaking Change
