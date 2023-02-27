@@ -80,6 +80,7 @@ export class Carousel {
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
+    this.activeNav = null;
     this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
@@ -107,6 +108,7 @@ export class Carousel {
     this.dragEnd = this.dragEnd.bind(this);
     this.dragAction = this.dragAction.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
   }
 
   /**
@@ -180,6 +182,9 @@ export class Carousel {
       this.btnPlay.addEventListener('click', this.handleAutoPlay);
       this.btnPause.addEventListener('click', this.handleAutoPlay);
     }
+    if (this.btnPlay) {
+      this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
+    }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
@@ -192,6 +197,7 @@ export class Carousel {
         this.shiftSlide.bind(this, 'prev', true)
       );
     }
+
     if (this.slidesContainer) {
       // Mouse events
       this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
@@ -491,6 +497,26 @@ export class Carousel {
     // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
     if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
       this.handleAutoPlay();
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnPlay(e) {
+    switch (e.key) {
+      case 'Tab':
+      case 'ArrowRight':
+        e.preventDefault();
+        this.activeNav = queryOne(
+          '.ecl-carousel__navigation-item[aria-current="true"]'
+        );
+        if (this.activeNav) {
+          this.activeNav.focus();
+        }
+        break;
+
+      default:
     }
   }
 
