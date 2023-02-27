@@ -78,8 +78,12 @@ $_button-arrows-border-radius: none !default;
 
 .ecl-tabs__item--more {
   align-self: center;
-  flex-grow: 1;
+  flex-grow: 0;
   text-align: end;
+
+  .ecl-button__container {
+    justify-content: flex-end;
+  }
 }
 
 .ecl-tabs__item {

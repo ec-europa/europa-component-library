@@ -10,139 +10,100 @@ exports[`Tabs Default renders correctly 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-          >
-            Item 1 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 1 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 2 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 2 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 3 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 3 label
+        </a>
+        <a
+          aria-selected="true"
+          class="ecl-link ecl-tabs__link ecl-tabs__item ecl-tabs__link--active"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="true"
-            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 4 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 4 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 5 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 5 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 6 with a very long label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 6 with a very long label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 7 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
+          Item 7 label
+        </a>
+        <button
+          aria-hidden="true"
+          class="ecl-button ecl-button--secondary ecl-tabs__toggle ecl-tabs__item ecl-tabs__item--more"
+          role="tab"
+          type="button"
         >
-          <button
-            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
+          <span
+            class="ecl-button__container"
           >
             <span
-              class="ecl-button__container"
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              More (%d)
             </span>
-          </button>
-        </li>
-      </ul>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="ecl-tabs__controls"
@@ -198,139 +159,100 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-          >
-            Item 1 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 1 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 2 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 2 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 3 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 3 label
+        </a>
+        <a
+          aria-selected="true"
+          class="ecl-link ecl-tabs__link ecl-tabs__item ecl-tabs__link--active"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="true"
-            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 4 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 4 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 5 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 5 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 6 with a very long label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 6 with a very long label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 7 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
+          Item 7 label
+        </a>
+        <button
+          aria-hidden="true"
+          class="ecl-button ecl-button--secondary ecl-tabs__toggle ecl-tabs__item ecl-tabs__item--more"
+          role="tab"
+          type="button"
         >
-          <button
-            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
+          <span
+            class="ecl-button__container"
           >
             <span
-              class="ecl-button__container"
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              More (%d)
             </span>
-          </button>
-        </li>
-      </ul>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="ecl-tabs__controls"
@@ -384,139 +306,100 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-          >
-            Item 1 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 1 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 2 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 2 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 3 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 3 label
+        </a>
+        <a
+          aria-selected="true"
+          class="ecl-link ecl-tabs__link ecl-tabs__item ecl-tabs__link--active"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="true"
-            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 4 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 4 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 5 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 5 label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 6 with a very long label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
+          Item 6 with a very long label
+        </a>
+        <a
+          aria-selected="false"
+          class="ecl-link ecl-tabs__link ecl-tabs__item"
+          href="/example"
+          role="tab"
+          tabindex="-1"
         >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Item 7 label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
+          Item 7 label
+        </a>
+        <button
+          aria-hidden="true"
+          class="ecl-button ecl-button--secondary ecl-tabs__toggle ecl-tabs__item ecl-tabs__item--more"
+          role="tab"
+          type="button"
         >
-          <button
-            class="ecl-button ecl-button--secondary ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
+          <span
+            class="ecl-button__container"
           >
             <span
-              class="ecl-button__container"
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
+              More (%d)
             </span>
-          </button>
-        </li>
-      </ul>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
     <div
       class="ecl-tabs__controls"

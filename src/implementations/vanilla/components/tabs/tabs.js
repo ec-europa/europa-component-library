@@ -293,6 +293,7 @@ export class Tabs {
     let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
     const hiddenItems = [];
     const listWidth = this.list.getBoundingClientRect().width;
+
     this.moreButtonActive = false;
     this.listItems.forEach((item, i) => {
       item.setAttribute('aria-hidden', 'false');
@@ -303,7 +304,7 @@ export class Tabs {
         stopWidth += item.getBoundingClientRect().width;
       } else {
         item.setAttribute('aria-hidden', 'true');
-        if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
+        if (item.classList.contains('ecl-tabs__link--active')) {
           this.moreButtonActive = true;
         }
         hiddenItems.push(i);
@@ -346,19 +347,20 @@ export class Tabs {
     this.listItems.forEach((item, index, array) => {
       let tab = null;
       if (item.getAttribute('aria-hidden') === 'false') {
-        tab = queryOne('.ecl-tabs__link', item);
+        tab = item;
       } else {
         const dropdownItem = this.dropdownItems[index];
         tab = queryOne('.ecl-tabs__link', dropdownItem);
       }
-      tab.addEventListener('keydown', this.handleKeyboardOnTabs);
-      this.tabsKey.push(tab);
-
-      if (index === 0) {
-        this.firstTab = tab;
-      }
-      if (index === array.length - 1) {
-        this.lastTab = tab;
+      if (tab) {
+        tab.addEventListener('keydown', this.handleKeyboardOnTabs);
+        this.tabsKey.push(tab);
+        if (index === 0) {
+          this.firstTab = tab;
+        }
+        if (index === array.length - 1) {
+          this.lastTab = tab;
+        }
       }
     });
   }
