@@ -5,16 +5,30 @@
     - "citation" (string) (default: '')
     - "author" (string) (default: '')
     - "extra_classes" (string) (default: '')
-    - "image" (object) (default: {}): format: {
-        "path" (string) (default: '')
-        "alt" (string) (default: '')
-    }
+    - "picture" (associative array) (default: {}): 
+      - "img" (associative array) (default: {}):
+        - "src" (string) (default: ''): Path to the image
+        - "alt" (string) (default: ''): Alt text of the image
+      - "sources" (array) (default: []): format: [
+        {
+          "src" (string) (default: ''): Path to the source image
+          "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
+          "type" (string) (default: ''): Type of this source
+        },
+        ...
+      ]
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
           "value" (optional) (string)
         ...
       ]
+
+  Deprecated:
+    - "image" (object) (default: {}): format: {
+        "path" (string) (default: '')
+        "alt" (string) (default: '')
+    }
 #}
 
 {# Internal properties #}
@@ -23,9 +37,35 @@
 {% set _extra_attributes = '' %}
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
-{% set _image = image|default({}) %}
+{% set _image = image|default({}) %} {# DEPRECATED #}
+{% set _picture = picture|default({}) %}
+
+{# Backward compatibility #}
+
+{% if _picture is empty and _image is not empty %}
+  {% set _picture = {
+    'img': {
+      'src': _image.path|default(''),
+      'alt': _image.alt|default('')
+    }
+  } %}
+{% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _picture is not empty and _picture.sources is not empty and _picture.sources is iterable %}
+  {% for _source in _picture.sources %}
+    {% if _source.media == 's' %}
+      {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
+    {% elseif _source.media == 'm' %}
+      {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
+    {% elseif _source.media == 'l' %}
+      {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
+    {% elseif _source.media == 'xl' %}
+      {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -48,16 +88,15 @@
     <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation">{{ _citation }}</p></blockquote>
     <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
   </div>
-  {% if image is defined and image is not empty %}
-    <img
-      {% if image.path is not empty %}
-        src="{{ image.path }}"
+  {% if _picture is not empty and _picture.img is not empty %}
+    <picture class="ecl-blockquote__picture">
+      {% if _picture.sources is not empty and _picture.sources is iterable %}
+        {% for _source in _picture.sources %}
+          <source srcset="{{ _source.src|default('') }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
+        {% endfor %}
       {% endif %}
-      {% if image.alt is not empty %}
-        alt="{{ image.alt }}"
-      {% endif %}
-        class="ecl-blockquote__image"
-    />
+      <img class="ecl-blockquote__image" src="{{ _picture.img.src|default('') }}" alt="{{ _picture.img.alt|default('') }}" />
+    </picture>
   {% endif %}
 </figure>
 
