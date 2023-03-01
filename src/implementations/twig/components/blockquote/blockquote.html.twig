@@ -53,20 +53,6 @@
 
 {# Internal logic - Process properties #}
 
-{% if _picture is not empty and _picture.sources is not empty and _picture.sources is iterable %}
-  {% for _source in _picture.sources %}
-    {% if _source.media == 's' %}
-      {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
-    {% elseif _source.media == 'm' %}
-      {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
-    {% elseif _source.media == 'l' %}
-      {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
-    {% elseif _source.media == 'xl' %}
-      {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -91,12 +77,32 @@
   {% if _picture is not empty and _picture.img is not empty %}
     <picture class="ecl-blockquote__picture">
       {% if _picture.sources is not empty and _picture.sources is iterable %}
+        {% set _breakpoints = [
+          { name: "s", value: "(min-width: 480px)" },
+          { name: "m", value: "(min-width: 768px)" },
+          { name: "l", value: "(min-width: 996px)" },
+          { name: "xl", value: "(min-width: 1140px)" },
+        ] %}
         {% for _source in _picture.sources %}
+{#
+          {% if _source.media in _breakpoints|keys %}
+            Do someting.....
+          {% endif %}
+#}
+          {% if _source.media == 's' %}
+            {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
+          {% elseif _source.media == 'm' %}
+            {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
+          {% elseif _source.media == 'l' %}
+            {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
+          {% elseif _source.media == 'xl' %}
+            {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
+          {% endif %}
           <source srcset="{{ _source.src|default('') }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
         {% endfor %}
       {% endif %}
       <img class="ecl-blockquote__image" src="{{ _picture.img.src|default('') }}" alt="{{ _picture.img.alt|default('') }}" />
-    </picture>
+    </picture> 
   {% endif %}
 </figure>
 
