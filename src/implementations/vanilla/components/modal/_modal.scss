@@ -45,7 +45,7 @@ $_separator-color: null !default;
 }
 
 .ecl-modal__header {
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid $_separator-color;
   display: flex;
   font: map.get(theme.$font-prolonged, 'l');
@@ -55,6 +55,7 @@ $_separator-color: null !default;
 .ecl-modal__header-icon {
   flex-shrink: 0;
   margin-right: map.get(theme.$spacing, 's');
+  margin-top: 2px; // Fix alignment with text
 }
 
 .ecl-modal__header-content {
@@ -73,6 +74,10 @@ $_separator-color: null !default;
   padding: map.get(theme.$spacing, 'm');
 }
 
+.ecl-modal__header + .ecl-modal__footer {
+  border-top: none;
+}
+
 .ecl-modal__button {
   flex-basis: 50%;
   margin-inline-start: map.get(theme.$spacing, 'm');
@@ -83,8 +88,10 @@ $_separator-color: null !default;
 }
 
 .ecl-modal__close {
-  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 's');
+  padding: map.get(theme.$spacing, 's');
+  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
   margin-right: -#{map.get(theme.$spacing, 's')};
+  margin-top: -#{map.get(theme.$spacing, 'xs')};
 
   &:hover {
     box-shadow: none;

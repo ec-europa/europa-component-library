@@ -1,19 +1,10 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
 import dataDefault from '@ecl/specs-component-modal/demo/data';
 import modal from './modal.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
-
-// Create 'none' option.
-iconsAll.unshift('none');
 
 const getArgs = (data) => ({
   header: data.header,
@@ -40,7 +31,7 @@ const getArgTypes = () => ({
     name: 'header icon',
     type: { name: 'select' },
     description: 'Icon in the header',
-    options: [...iconsAll],
+    options: ['none', 'information', 'success', 'warning', 'error'],
     table: {
       category: 'Content',
     },
