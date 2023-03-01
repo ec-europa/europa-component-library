@@ -17,6 +17,7 @@
         },
         ...
       ]
+    - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
           "name" (string) (default: ''),
@@ -75,23 +76,11 @@
     <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
   </div>
   {% if _picture is not empty and _picture.img is not empty %}
-    <picture class="ecl-blockquote__picture">
-      {% if _picture.sources is not empty and _picture.sources is iterable %}
-        {% for _source in _picture.sources %}
-          {% if _source.media == 's' %}
-            {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
-          {% elseif _source.media == 'm' %}
-            {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
-          {% elseif _source.media == 'l' %}
-            {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
-          {% elseif _source.media == 'xl' %}
-            {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
-          {% endif %}
-          <source srcset="{{ _source.src|default('') }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
-        {% endfor %}
-      {% endif %}
-      <img class="ecl-blockquote__image" src="{{ _picture.img.src|default('') }}" alt="{{ _picture.img.alt|default('') }}" />
-    </picture> 
+    {% include '@ecl/blockquote/picture.html.twig' with {
+      picture: _picture,
+      picture_class: "ecl-blockquote__picture",
+      image_class: "ecl-blockquote__image"
+    } only %}
   {% endif %}
 </figure>
 

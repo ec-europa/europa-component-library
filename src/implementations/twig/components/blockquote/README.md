@@ -23,6 +23,7 @@ npm install --save @ecl/twig-component-blockquote
     },
     ...
     ]
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'

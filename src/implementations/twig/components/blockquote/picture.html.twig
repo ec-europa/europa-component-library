@@ -1,0 +1,48 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "picture" (associative array) (default: {}): 
+      - "img" (associative array) (default: {}):
+        - "src" (string) (default: ''): Path to the image
+        - "alt" (string) (default: ''): Alt text of the image
+      - "sources" (array) (default: []): format: [
+        {
+          "src" (string) (default: ''): Path to the source image
+          "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
+          "type" (string) (default: ''): Type of this source
+        },
+        ...
+      ]
+    - "picture_class" (optional) (string) (default: '')
+    - "image_class" (optional) (string) (default: '')
+#}
+
+{# Internal properties #}
+
+{% set _picture_class = picture_class|default('') %}
+{% set _image_class = image_class|default('') %}
+{% set _extra_attributes = '' %}
+{% set _picture = picture|default({}) %}
+
+{# Print the result #}
+
+<picture class="{{ _picture_class }}">
+  {% if _picture.sources is not empty and _picture.sources is iterable %}
+    {% for _source in _picture.sources %}
+      {% if _source.media == 's' %}
+        {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
+      {% elseif _source.media == 'm' %}
+        {% set _source = _source|merge({'media': '(min-width: 768px)'}) %}
+      {% elseif _source.media == 'l' %}
+        {% set _source = _source|merge({'media': '(min-width: 996px)'}) %}
+      {% elseif _source.media == 'xl' %}
+        {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
+      {% endif %}
+      <source srcset="{{ _source.src|default('') }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
+    {% endfor %}
+  {% endif %}
+  <img class="{{ _image_class }}" src="{{ _picture.img.src|default('') }}" alt="{{ _picture.img.alt|default('') }}" />
+</picture> 
+
+{% endapply %}
