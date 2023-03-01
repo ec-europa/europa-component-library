@@ -91,6 +91,7 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.navigation = null;
     this.controls = null;
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
@@ -109,6 +110,7 @@ export class Carousel {
     this.dragAction = this.dragAction.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
+    this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
   }
 
   /**
@@ -121,6 +123,7 @@ export class Carousel {
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
+    this.navigation = queryOne('.ecl-carousel__navigation', this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
@@ -177,6 +180,9 @@ export class Carousel {
           this.shiftSlide.bind(this, index + 1, true)
         );
       });
+    }
+    if (this.navigation) {
+      this.navigation.addEventListener('keydown', this.handleKeyboardOnBullets);
     }
     if (this.attachClickListener && this.btnPlay && this.btnPause) {
       this.btnPlay.addEventListener('click', this.handleAutoPlay);
@@ -509,10 +515,43 @@ export class Carousel {
       case 'ArrowRight':
         e.preventDefault();
         this.activeNav = queryOne(
-          '.ecl-carousel__navigation-item[aria-current="true"]'
+          `${this.navigationItemsClass}[aria-current="true"]`
         );
         if (this.activeNav) {
           this.activeNav.focus();
+        }
+        if (this.autoPlay) {
+          this.handleAutoPlay();
+        }
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnBullets(e) {
+    const focusedEl = document.activeElement;
+    switch (e.key) {
+      case 'Tab':
+      case 'ArrowRight':
+        e.preventDefault();
+        if (focusedEl.nextSibling) {
+          this.shiftSlide('next', true);
+          focusedEl.nextSibling.focus();
+        } else {
+          this.btnPrev.focus();
+        }
+        break;
+
+      case 'ArrowLeft':
+        if (focusedEl.previousSibling) {
+          this.shiftSlide('prev', true);
+          focusedEl.previousSibling.focus();
+        } else {
+          this.btnPlay.focus();
         }
         break;
 
