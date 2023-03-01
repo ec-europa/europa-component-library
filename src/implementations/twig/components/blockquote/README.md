@@ -18,7 +18,7 @@ npm install --save @ecl/twig-component-blockquote
   - "sources" (array) (default: []): format: [
     {
     "src" (string) (default: ''): Path to the source image
-    "media" (string) (default: ''): Media condition to use this source
+    "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
     "type" (string) (default: ''): Type of this source
     },
     ...
@@ -30,8 +30,8 @@ npm install --save @ecl/twig-component-blockquote
 Deprecated
 
 - **"image"** (optional) (object) (default: {}) Blockquote image
-  - "path" (string) Image src, eg. 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg'
-  - "alt" (string) Image alt, eg: 'blockquote-image'
+  - "path" (string) Image src
+  - "alt" (string) Image alt
 
 ## Example:
 
@@ -47,8 +47,20 @@ Deprecated
     },
     sources: [
       {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-        media: '(min-width: 600px)',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+        media: 'xl',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+        media: 'l',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+        media: 'm',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+        media: 's',
       },
     ],
   },
