@@ -77,18 +77,7 @@
   {% if _picture is not empty and _picture.img is not empty %}
     <picture class="ecl-blockquote__picture">
       {% if _picture.sources is not empty and _picture.sources is iterable %}
-        {% set _breakpoints = [
-          { name: "s", value: "(min-width: 480px)" },
-          { name: "m", value: "(min-width: 768px)" },
-          { name: "l", value: "(min-width: 996px)" },
-          { name: "xl", value: "(min-width: 1140px)" },
-        ] %}
         {% for _source in _picture.sources %}
-{#
-          {% if _source.media in _breakpoints|keys %}
-            Do someting.....
-          {% endif %}
-#}
           {% if _source.media == 's' %}
             {% set _source = _source|merge({'media': '(min-width: 480px)'}) %}
           {% elseif _source.media == 'm' %}
