@@ -76,7 +76,7 @@
     <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
   </div>
   {% if _picture is not empty and _picture.img is not empty %}
-    {% include '@ecl/blockquote/picture.html.twig' with {
+    {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       picture_class: "ecl-blockquote__picture",
       image_class: "ecl-blockquote__image"
