@@ -72,20 +72,6 @@ npm install --save @ecl/twig-component-card
         }, 
       }, 
     ], 
-    tags: [ 
-      { 
-        label: 'Tag 1', 
-        path: '/example-1', 
-      }, 
-      { 
-        label: 'Tag 2', 
-        path: '/example-2', 
-      }, 
-      { 
-        label: 'Tag 3', 
-        path: '/example-3', 
-      }, 
-    ], 
   } 
 } %}
 ```
