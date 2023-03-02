@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture Default renders correctly 1`] = `
+<jest>
+  <picture
+    class=""
+  >
+    <source
+      media="(min-width: 1140px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 996px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 480px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+      type=""
+    />
+    <img
+      alt="Image alternative text"
+      class=""
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+  </picture>
+</jest>
+`;
+
+exports[`Picture Default renders correctly with extra class names 1`] = `
+<jest>
+  <picture
+    class="custom-class custom-class--picture"
+  >
+    <source
+      media="(min-width: 1140px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 996px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+      type=""
+    />
+    <source
+      media="(min-width: 480px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+      type=""
+    />
+    <img
+      alt="Image alternative text"
+      class="custom-class custom-class--image"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+  </picture>
+</jest>
+`;
