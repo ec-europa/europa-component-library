@@ -52,10 +52,26 @@ $_separator-color: null !default;
   padding: map.get(theme.$spacing, 'm');
 }
 
-.ecl-modal__header-icon {
+.ecl-modal__icon {
   flex-shrink: 0;
-  margin-right: map.get(theme.$spacing, 's');
+  margin-inline-end: map.get(theme.$spacing, 's');
   margin-top: 2px; // Fix alignment with text
+
+  .ecl-modal--information & {
+    color: map.get(theme.$color, 'info');
+  }
+
+  .ecl-modal--success & {
+    color: map.get(theme.$color, 'success');
+  }
+
+  .ecl-modal--warning & {
+    color: map.get(theme.$color, 'warning');
+  }
+
+  .ecl-modal--error & {
+    color: map.get(theme.$color, 'error');
+  }
 }
 
 .ecl-modal__header-content {
@@ -90,7 +106,7 @@ $_separator-color: null !default;
 .ecl-modal__close {
   padding: map.get(theme.$spacing, 's');
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
-  margin-right: -#{map.get(theme.$spacing, 's')};
+  margin-inline-end: -#{map.get(theme.$spacing, 's')};
   margin-top: -#{map.get(theme.$spacing, 'xs')};
 
   &:hover {

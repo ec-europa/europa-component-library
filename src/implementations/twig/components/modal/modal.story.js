@@ -8,15 +8,27 @@ import notes from './README.md';
 
 const getArgs = (data) => ({
   header: data.header,
-  header_icon:
-    data.header_icon && data.header_icon.icon
-      ? data.header_icon.icon.name
-      : 'none',
+  variant: '',
   body: data.body,
   footer: 2,
 });
 
 const getArgTypes = () => ({
+  variant: {
+    name: 'variant',
+    type: { name: 'select' },
+    description: 'Variant of the modal',
+    options: {
+      default: '',
+      information: 'information',
+      success: 'success',
+      warning: 'warning',
+      error: 'error',
+    },
+    table: {
+      category: 'Display',
+    },
+  },
   header: {
     name: 'header',
     type: { name: 'string', required: true },
@@ -24,15 +36,6 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
-      category: 'Content',
-    },
-  },
-  header_icon: {
-    name: 'header icon',
-    type: { name: 'select' },
-    description: 'Icon in the header',
-    options: ['none', 'information', 'success', 'warning', 'error'],
-    table: {
       category: 'Content',
     },
   },
@@ -60,19 +63,9 @@ const getArgTypes = () => ({
 const prepareData = (data, args) => {
   const dataClone = structuredClone(data);
 
+  dataClone.variant = args.variant;
   dataClone.header = args.header;
   dataClone.body = args.body;
-
-  if (args.header_icon === 'none') {
-    delete dataClone.header_icon;
-  } else {
-    const icon = {
-      icon: {
-        name: args.header_icon,
-      },
-    };
-    dataClone.header_icon = { ...dataClone.header_icon, ...icon };
-  }
 
   dataClone.buttons = dataClone.buttons.slice(0, args.footer);
 
