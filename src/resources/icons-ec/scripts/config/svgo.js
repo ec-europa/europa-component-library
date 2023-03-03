@@ -5,7 +5,6 @@ module.exports = {
       params: {
         overrides: {
           removeViewBox: false,
-          inlineStyles: false,
         },
       },
     },
@@ -13,5 +12,6 @@ module.exports = {
     {
       name: 'prefixIds',
     },
+    'convertStyleToAttrs',
   ],
 };
