@@ -195,6 +195,13 @@ module.exports = {
             },
             {
               link: {
+                label: 'Accessibility',
+                path: 'https://commission.europa.eu/accessibility-statement_en',
+                aria_label: 'Link to the accessibility statement',
+              },
+            },
+            {
+              link: {
                 label: 'Follow the European Commission on social media',
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 aria_label:
