@@ -10,6 +10,10 @@
 @use '@ecl/vanilla-component-unordered-list/unordered-list-print';
 @use '@ecl/vanilla-utility-typography/typography-print-ec';
 
+html {
+  font-family: #{map.get(theme.$font-family, 'default')};
+}
+
 // stylelint-disable no-descending-specificity
 .ecl button:not([class*='ecl-'], [class*='wt-']),
 .ecl button:is([class*='ecl-u-']) {
