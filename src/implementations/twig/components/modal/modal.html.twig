@@ -2,7 +2,8 @@
 
 {#
   Parameters:
-    - "id" (string) (default: '')
+    - "id" (string) (default: ''): id of the modal
+    - "toggle_id" (string) (default: ''): id of the element to toggle the modal
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
     - "icon_path" (string) (default: '') Path to the icon sprite
     - "close_label" (string) (default: '') Label of the close button (for screen reader only)
@@ -24,6 +25,7 @@
 {# Internal properties #}
 
 {% set _id = id|default('') %}
+{% set _toggle_id = toggle_id|default('') %}
 {% set _variant = variant|default('') %}
 {% set _css_class = 'ecl-modal' %}
 {% set _icon_path = icon_path|default('') %}
@@ -56,7 +58,7 @@
 
 {# Print the result #}
 
-<dialog id="{{ _id }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<dialog data-ecl-auto-init="Modal" id="{{ _id }}" data-ecl-modal-toggle="{{ _toggle_id }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-modal__container ecl-container">
     <div class="ecl-modal__content ecl-col-12 ecl-col-m-8 ecl-offset-m-2 ecl-col-l-6 ecl-offset-l-3">
       <header class="ecl-modal__header">

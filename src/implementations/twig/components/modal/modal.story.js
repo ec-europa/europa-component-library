@@ -81,7 +81,7 @@ export default {
 
 export const Default = (args) => {
   const demo = `
-    <button data-ecl-auto-init="Modal" aria-controls="modal-example">Modal toggle</button>
+    <button class="ecl-button ecl-button--secondary" id="modal-toggle">Modal toggle</button>
     ${modal(prepareData(dataDefault, args))}
   `;
   return demo;

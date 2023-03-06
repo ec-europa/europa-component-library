@@ -1,6 +1,7 @@
 // Simple content for demo
 module.exports = {
   id: 'modal-example',
+  toggle_id: 'modal-toggle',
   icon_path: '/icons.svg',
   close_label: 'Close',
   header: 'Lorem ipsum dolor sit amet',

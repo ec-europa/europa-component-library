@@ -8,7 +8,8 @@ npm install --save @ecl/twig-component-modal
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: '') id of the modal
+- **"toggle_id"** (string) (default: '') id of the element to toggle the modal
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"close_label"** (string) (default: '') Label of the close button (for screen reader only)
 - **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
@@ -30,6 +31,7 @@ npm install --save @ecl/twig-component-modal
 ```twig
 {% include '@ecl/modal/modal.html.twig' with { 
   id: 'modal-example',
+  toggle_id: 'modal-toggle',
   icon_path: '/icons.svg',
   close_label: 'Close',
   header_icon: {

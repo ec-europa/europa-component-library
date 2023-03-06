@@ -4,6 +4,7 @@ import { createFocusTrap } from 'focus-trap';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.toggleSelector Selector for the modal toggle
  * @param {String} options.closeSelector Selector for closing the modal
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
@@ -27,6 +28,7 @@ export class Modal {
   constructor(
     element,
     {
+      toggleSelector = '',
       closeSelector = '[data-ecl-modal-close]',
       attachClickListener = true,
       attachKeyListener = true,
@@ -42,12 +44,13 @@ export class Modal {
     this.element = element;
 
     // Options
+    this.toggleSelector = toggleSelector;
     this.closeSelector = closeSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
-    this.target = null;
+    this.toggle = null;
     this.close = null;
     this.focusTrap = null;
 
@@ -67,27 +70,27 @@ export class Modal {
       document.addEventListener('keyup', this.handleKeyboardGlobal);
     }
 
-    // Get target element
-    this.target = document.querySelector(
-      `#${this.element.getAttribute('aria-controls')}`
-    );
+    // Get toggle element
+    if (this.toggleSelector === '') {
+      this.toggleSelector = `#${this.element.getAttribute(
+        'data-ecl-modal-toggle'
+      )}`;
+    }
+    this.toggle = document.querySelector(this.toggleSelector);
 
-    // Exit if no target found
-    if (!this.target) {
-      throw new TypeError(
-        'Target has to be provided for modal (aria-controls)'
-      );
+    // Apply aria to toggle
+    if (this.toggle) {
+      this.toggle.setAttribute('aria-controls', this.element.id);
+      if (!this.toggle.getAttribute('aria-haspopup')) {
+        this.toggle.setAttribute('aria-haspopup', 'dialog');
+      }
     }
 
-    this.close = queryAll(this.closeSelector, this.target);
-
-    // Set default aria attributes, if not present
-    if (!this.element.getAttribute('aria-haspopup')) {
-      this.element.setAttribute('aria-haspopup', 'dialog');
-    }
+    // Get other elements
+    this.close = queryAll(this.closeSelector, this.element);
 
     // Create focus trap
-    this.focusTrap = createFocusTrap(this.target);
+    this.focusTrap = createFocusTrap(this.element);
 
     // Polyfill to support <dialog>
     this.isDialogSupported = true;
@@ -96,8 +99,8 @@ export class Modal {
     }
 
     // Bind click event on toggle
-    if (this.attachClickListener) {
-      this.element.addEventListener('click', this.handleClickOnToggle);
+    if (this.toggle && this.attachClickListener) {
+      this.toggle.addEventListener('click', this.handleClickOnToggle);
     }
 
     // Bind click event on close buttons
@@ -115,8 +118,8 @@ export class Modal {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener) {
-      this.element.removeEventListener('click', this.handleClickOnToggle);
+    if (this.toggle && this.attachClickListener) {
+      this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
 
     if (this.attachKeyListener) {
@@ -141,7 +144,7 @@ export class Modal {
     e.preventDefault();
 
     // Get current status
-    const isExpanded = this.element.getAttribute('aria-expanded') === 'true';
+    const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the modal
     if (isExpanded) {
@@ -157,9 +160,9 @@ export class Modal {
    */
   openModal() {
     if (this.isDialogSupported) {
-      this.target.showModal();
+      this.element.showModal();
     } else {
-      this.target.setAttribute('open', '');
+      this.element.setAttribute('open', '');
     }
 
     // Trap focus
@@ -171,9 +174,9 @@ export class Modal {
    */
   closeModal() {
     if (this.isDialogSupported) {
-      this.target.close();
+      this.element.close();
     } else {
-      this.target.removeAttribute('open');
+      this.element.removeAttribute('open');
     }
 
     // Untrap focus
@@ -186,8 +189,6 @@ export class Modal {
    * @param {Event} e
    */
   handleKeyboardGlobal(e) {
-    if (!this.target) return;
-
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
       this.closeModal();
