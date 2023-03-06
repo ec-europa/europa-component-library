@@ -4,6 +4,8 @@ exports[`Modal Collapsed renders correctly 1`] = `
 <jest>
   <dialog
     class="ecl-modal"
+    data-ecl-auto-init="Modal"
+    data-ecl-modal-toggle="modal-toggle"
     id="modal-example"
   >
     <div
@@ -79,6 +81,8 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 <jest>
   <dialog
     class="ecl-modal"
+    data-ecl-auto-init="Modal"
+    data-ecl-modal-toggle="modal-toggle"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     id="modal-example"
@@ -157,6 +161,8 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
 <jest>
   <dialog
     class="ecl-modal custom-class custom-class--test"
+    data-ecl-auto-init="Modal"
+    data-ecl-modal-toggle="modal-toggle"
     id="modal-example"
   >
     <div
