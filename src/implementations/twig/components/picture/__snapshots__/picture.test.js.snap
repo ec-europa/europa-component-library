@@ -3,31 +3,65 @@
 exports[`Picture Default renders correctly 1`] = `
 <jest>
   <picture
-    class=""
+    class="ecl-picture"
   >
+    <source
+      media="(min-width: 90rem)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+    />
     <source
       media="(min-width: 1140px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-      type=""
     />
     <source
       media="(min-width: 996px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-      type=""
     />
     <source
       media="(min-width: 768px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-      type=""
     />
     <source
       media="(min-width: 480px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-      type=""
     />
     <img
       alt="Image alternative text"
-      class=""
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+  </picture>
+</jest>
+`;
+
+exports[`Picture Default renders correctly with extra attributes 1`] = `
+<jest>
+  <picture
+    class="ecl-picture"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <source
+      media="(min-width: 90rem)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+    />
+    <source
+      media="(min-width: 1140px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+    />
+    <source
+      media="(min-width: 996px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+    />
+    <source
+      media="(min-width: 480px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+    />
+    <img
+      alt="Image alternative text"
       src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
     />
   </picture>
@@ -37,27 +71,27 @@ exports[`Picture Default renders correctly 1`] = `
 exports[`Picture Default renders correctly with extra class names 1`] = `
 <jest>
   <picture
-    class="custom-class custom-class--picture"
+    class="ecl-picture custom-class custom-class--picture"
   >
+    <source
+      media="(min-width: 90rem)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+    />
     <source
       media="(min-width: 1140px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
-      type=""
     />
     <source
       media="(min-width: 996px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-      type=""
     />
     <source
       media="(min-width: 768px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-      type=""
     />
     <source
       media="(min-width: 480px)"
       srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-      type=""
     />
     <img
       alt="Image alternative text"
