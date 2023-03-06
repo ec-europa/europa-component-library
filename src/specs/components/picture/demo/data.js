@@ -7,6 +7,10 @@ module.exports = {
     },
     sources: [
       {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+        media: '(min-width: 90rem)',
+      },
+      {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
         media: 'xl',
       },

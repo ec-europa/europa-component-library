@@ -24,11 +24,24 @@ describe('Picture', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(data, {
-        picture_class: 'custom-class custom-class--picture',
-        image_class: 'custom-class custom-class--image',
+        extra_classes: 'custom-class custom-class--picture',
+        extra_image_classes: 'custom-class custom-class--image',
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes', () => {
+      expect.assertions(1);
+
+      const withExtraAttributes = merge(data, {
+        extra_attributes: [
+          { name: 'data-test', value: 'data-test-value' },
+          { name: 'data-test-1', value: 'data-test-value-1' },
+        ],
+      });
+
+      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {

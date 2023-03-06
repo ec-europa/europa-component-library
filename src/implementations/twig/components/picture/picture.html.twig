@@ -14,19 +14,39 @@
         },
         ...
       ]
-    - "picture_class" (optional) (string) (default: '')
-    - "image_class" (optional) (string) (default: '')
+    - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
+    - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
+    - "extra_attributes" (optional) (array) (default: [])
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
 
 {% set _picture = picture|default({}) %}
-{% set _picture_class = picture_class|default('') %}
-{% set _image_class = image_class|default('') %}
+{% set _extra_image_classes = extra_image_classes|default('') %}
+{% set _css_class = 'ecl-picture' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
 {# Print the result #}
 
-<picture class="{{ _picture_class }}">
+<picture class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _picture.sources is not empty and _picture.sources is iterable %}
     {% for _source in _picture.sources %}
       {% if _source.media == 's' %}
@@ -38,10 +58,34 @@
       {% elseif _source.media == 'xl' %}
         {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
       {% endif %}
-      <source srcset="{{ _source.src|default('') }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
+
+      <source 
+        {% if _source.src is not empty %}
+          srcset="{{ _source.src }}"
+        {% endif %}
+        {% if _source.media is not empty %}
+          media="{{ _source.media }}"
+        {% endif %}
+        {% if _source.type is not empty %}
+          type="{{ _source.type }}"
+        {% endif %}
+      >
     {% endfor %}
   {% endif %}
-  <img class="{{ _image_class }}" src="{{ _picture.img.src|default('') }}" alt="{{ _picture.img.alt|default('') }}" />
+
+  {% if _picture.img is not empty %}
+  <img 
+    {% if _extra_image_classes is not empty %}
+      class="{{ _extra_image_classes }}"
+    {% endif %}
+    {% if _picture.img.src is not empty %}
+      src="{{ _picture.img.src }}"
+    {% endif %}
+    {% if _picture.img.alt is not empty %}
+      alt="{{ _picture.img.alt }}" 
+    {% endif %}
+  />
+  {% endif %}
 </picture> 
 
 {% endapply %}
