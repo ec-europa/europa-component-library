@@ -1,5 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Blockquote Default backward compatibility 1`] = `
+<jest>
+  <figure
+    class="ecl-blockquote"
+  >
+    <div
+      class="ecl-blockquote__body"
+    >
+      <blockquote
+        class="ecl-blockquote__quote"
+      >
+        <p
+          class="ecl-blockquote__citation"
+        >
+          An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.
+        </p>
+      </blockquote>
+      <footer
+        class="ecl-blockquote__attribution"
+      >
+        <cite
+          class="ecl-blockquote__author"
+        >
+          President Juncker
+        </cite>
+      </footer>
+    </div>
+    <picture
+      class="ecl-picture ecl-blockquote__picture"
+    >
+      <img
+        alt="Image alternative text"
+        class="ecl-blockquote__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg"
+      />
+    </picture>
+  </figure>
+</jest>
+`;
+
 exports[`Blockquote Default renders correctly 1`] = `
 <jest>
   <figure
@@ -28,7 +68,7 @@ exports[`Blockquote Default renders correctly 1`] = `
       </footer>
     </div>
     <picture
-      class="ecl-blockquote__picture"
+      class="ecl-picture ecl-blockquote__picture"
     >
       <img
         alt="Image alternative text"
@@ -70,7 +110,7 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
       </footer>
     </div>
     <picture
-      class="ecl-blockquote__picture"
+      class="ecl-picture ecl-blockquote__picture"
     >
       <img
         alt="Image alternative text"
@@ -110,7 +150,7 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
       </footer>
     </div>
     <picture
-      class="ecl-blockquote__picture"
+      class="ecl-picture ecl-blockquote__picture"
     >
       <img
         alt="Image alternative text"

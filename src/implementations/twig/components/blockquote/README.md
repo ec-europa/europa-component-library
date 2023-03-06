@@ -11,18 +11,7 @@ npm install --save @ecl/twig-component-blockquote
 - **"citation"** (string) (default: '')
 - **"author"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"picture"** (associative array) (default: {}):
-  - "img" (associative array) (default: {}):
-    - "src" (string) (default: ''): Path to the image
-    - "alt" (string) (default: ''): Alt text of the image
-  - "sources" (array) (default: []): format: [
-    {
-    "src" (string) (default: ''): Path to the source image
-    "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
-    "type" (string) (default: ''): Type of this source
-    },
-    ...
-    ]
+- **"picture"** (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

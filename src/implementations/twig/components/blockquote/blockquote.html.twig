@@ -5,18 +5,7 @@
     - "citation" (string) (default: '')
     - "author" (string) (default: '')
     - "extra_classes" (string) (default: '')
-    - "picture" (associative array) (default: {}): 
-      - "img" (associative array) (default: {}):
-        - "src" (string) (default: ''): Path to the image
-        - "alt" (string) (default: ''): Alt text of the image
-      - "sources" (array) (default: []): format: [
-        {
-          "src" (string) (default: ''): Path to the source image
-          "media" (string) (default: ''): Media condition to use this source. Could be a breakpoint ('s', 'm', 'l', 'xl') or a free string.
-          "type" (string) (default: ''): Type of this source
-        },
-        ...
-      ]
+    - "picture" (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
     - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -78,8 +67,8 @@
   {% if _picture is not empty and _picture.img is not empty %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
-      picture_class: "ecl-blockquote__picture",
-      image_class: "ecl-blockquote__image"
+      extra_classes: "ecl-blockquote__picture",
+      extra_image_classes: "ecl-blockquote__image",
     } only %}
   {% endif %}
 </figure>
