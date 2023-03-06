@@ -22,7 +22,7 @@ npm install --save @ecl/twig-component-card
   },
   ...
   ]
-- **tags** (array) (default: []): Array of ECL Tags
+- **tags** (array) (default: []): Array of ECL Tags (deprecated)
 - **lists** (array) (default: []): Array of ECL Description list
 - **extra_classes** (string) (default: '')
 - **extra_attributes** (array) (default: []): format: [

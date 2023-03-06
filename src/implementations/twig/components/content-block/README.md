@@ -19,7 +19,7 @@ npm install --save @ecl/twig-component-content-block
   },
   ...
   ]
-- **tags** (array) (default: []): Array of ECL Tags
+- **tags** (array) (default: []): Array of ECL Tags (deprecated)
 - **links** (array) (default: []): Array or multi array of ECL Links
 - **lists** (array) (default: []): Array of ECL Description list
 - **"extra_classes"** (string) (default: '')
