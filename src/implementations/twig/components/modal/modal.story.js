@@ -67,7 +67,11 @@ const prepareData = (data, args) => {
   dataClone.header = args.header;
   dataClone.body = args.body;
 
-  dataClone.buttons = dataClone.buttons.slice(0, args.footer);
+  if (args.footer === 0) {
+    delete dataClone.buttons;
+  } else {
+    dataClone.buttons = dataClone.buttons.slice(-args.footer);
+  }
 
   correctPaths(dataClone);
 

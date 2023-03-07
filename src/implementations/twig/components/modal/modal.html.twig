@@ -74,7 +74,7 @@
           } only %}
         {% endif %}
 
-        {% if _header is not empty or block('header') is defined %}
+        {% if _header is not empty or block('header') is not empty %}
           <div class="ecl-modal__header-content">
             {%- block header %}{{ _header }}{% endblock -%}
           </div>
@@ -97,15 +97,15 @@
         } only -%}
       </header>
 
-      {% if _body is not empty or block('body') is defined %}
+      {% if _body is not empty or block('body') is not empty %}
       <div class="ecl-modal__body">
         {%- block body %}{{ _body }}{% endblock -%}
       </div>
       {% endif %}
 
-      {% if _buttons is not empty or _footer is not empty or block('footer') is defined %}
+      {% if _buttons is not empty or _footer is not empty or block('footer') is not empty %}
       <footer class="ecl-modal__footer">
-        {%- block footer %}
+        {%- block footer -%}
           {{- _footer -}}
 
           {% if _buttons is not empty %}
@@ -121,7 +121,7 @@
             {% endfor %}
           </div>
           {% endif %}
-        {% endblock -%}
+        {%- endblock -%}
       </footer>
       {% endif %}
     </div>
