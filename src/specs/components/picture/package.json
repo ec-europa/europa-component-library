@@ -1,22 +1,11 @@
 {
-  "name": "@ecl/resources-eu-logo",
+  "name": "@ecl/specs-component-picture",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "3.7.1",
-  "description": "Logo for EU system of ECL",
+  "description": "ECL Picture Specs",
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "dist:clean": "rimraf dist",
-    "dist:copy": "ncp src dist",
-    "dist": "run-s dist:*",
-    "prepublish": "npm run dist"
-  },
-  "dependencies": {
-    "ncp": "2.0.0",
-    "npm-run-all": "4.1.5",
-    "rimraf": "4.3.0"
   },
   "repository": {
     "type": "git",
