@@ -7,7 +7,7 @@
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
     - "icon_path" (string) (default: '') Path to the icon sprite
     - "close_label" (string) (default: '') Label of the close button (for screen reader only)
-    - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer. The first button is the primary action.
+    - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -19,7 +19,7 @@
   Blocks:
     - "header": free block to put any content in the modal header
     - "body": free block to put any content in the modal body
-    - "footer": free block to put any content in the modal footer. It would override the footer buttons
+    - "footer": free block to put any content in the modal footer
 #}
 
 {# Internal properties #}
@@ -33,6 +33,7 @@
 {% set _header = header|default('') %}
 {% set _header_icon = '' %}
 {% set _body = body|default('') %}
+{% set _footer = footer|default('') %}
 {% set _buttons = buttons|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -102,20 +103,24 @@
       </div>
       {% endif %}
 
-      {% if _buttons is not empty or block('footer') is defined %}
+      {% if _buttons is not empty or _footer is not empty or block('footer') is defined %}
       <footer class="ecl-modal__footer">
         {%- block footer %}
-          {% for _button in _buttons %}
-            {% set _button_variant = loop.index == 1 ? 'primary' : 'secondary' %}
-            {% set _button_extra_classes = 'ecl-modal__button' %}
-            {% if _button.extra_classes is not empty %}
-              {% set _button_extra_classes = _button_extra_classes ~ ' ' ~ _button.extra_classes %}
-            {% endif %}
-            {% include '@ecl/button/button.html.twig' with _button|merge({
-              variant: _button_variant,
-              extra_classes: _button_extra_classes,
-            }) only %}
-          {% endfor %}
+          {{- _footer -}}
+
+          {% if _buttons is not empty %}
+          <div class="ecl-modal__footer-content">
+            {% for _button in _buttons %}
+              {% set _button_extra_classes = 'ecl-modal__button' %}
+              {% if _button.extra_classes is not empty %}
+                {% set _button_extra_classes = _button_extra_classes ~ ' ' ~ _button.extra_classes %}
+              {% endif %}
+              {% include '@ecl/button/button.html.twig' with _button|merge({
+                extra_classes: _button_extra_classes,
+              }) only %}
+            {% endfor %}
+          </div>
+          {% endif %}
         {% endblock -%}
       </footer>
       {% endif %}
