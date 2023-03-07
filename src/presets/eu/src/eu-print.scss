@@ -1,4 +1,5 @@
-@use '@ecl/theme-eu';
+@use 'sass:map';
+@use '@ecl/theme-eu' as theme;
 
 // Icons & Images
 @use '@ecl/vanilla-component-icon/icon-print';
@@ -95,3 +96,7 @@
 @use '@ecl/vanilla-utility-spacing/spacing-print';
 @use '@ecl/vanilla-utility-typography/typography-print-eu';
 @use '@ecl/vanilla-utility-z-index/z-index';
+
+html {
+  font-family: #{map.get(theme.$font-family, 'default')};
+}
