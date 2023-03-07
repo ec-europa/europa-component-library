@@ -77,8 +77,6 @@ $_separator-color: null !default;
 
 .ecl-modal__footer {
   border-top: 1px solid $_separator-color;
-  display: flex;
-  flex-direction: row-reverse;
   padding: map.get(theme.$spacing-print, 'm') map.get(theme.$spacing-print, 'l');
 }
 
@@ -86,11 +84,16 @@ $_separator-color: null !default;
   border-top: none;
 }
 
+.ecl-modal__footer-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .ecl-modal__button {
-  margin-inline-start: map.get(theme.$spacing-print, 'm');
+  margin-inline-end: map.get(theme.$spacing-print, 'm');
 
   &:last-of-type {
-    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 }
 
