@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  icon_path: '/icons.svg',
   items: [
     {
       // Image
@@ -20,6 +21,7 @@ module.exports = {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
         alt: 'New digital strategy',
       },
+      playable: true,
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
@@ -62,6 +64,7 @@ module.exports = {
     },
     {
       // Video
+      playable: true,
       video: {
         poster:
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
@@ -120,6 +123,7 @@ module.exports = {
     },
     {
       // Embedded AV Portal video
+      playable: true,
       image: {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
         alt: 'Climate change and protect nature',
@@ -208,7 +212,7 @@ module.exports = {
       },
     },
   },
-  view_all_label: 'View all',
+  view_all_label: 'See more',
   footer: {
     link: {
       path: exampleLink,

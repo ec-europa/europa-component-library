@@ -22,6 +22,7 @@
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
+  - "icon_path": (string) (default: '')
   - "selected_item_id" (int) (default: 0)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -38,6 +39,7 @@
 {% set _view_all_label = view_all_label|default('') %}
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
+{% set _icon_path = icon_path|default('') %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
@@ -74,6 +76,7 @@
       {% endif %}
       {% include '@ecl/gallery/gallery-item.html.twig' with {
         item: _item,
+        icon_path: _icon_path,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}
@@ -81,15 +84,14 @@
   </ul>
   <div class="ecl-gallery__info">
     <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
+      {% include '@ecl/button/button.html.twig' with {
+        label: _view_all_label,
+        type: 'submit',
+        variant: 'ghost',
+        extra_attributes: [{ name: 'data-ecl-gallery-all' }],
+        extra_classes: 'ecl-gallery__view-all',
+      } only %}
   </div>
-
-  {% include '@ecl/button/button.html.twig' with {
-    label: _view_all_label,
-    type: 'submit',
-    variant: 'ghost',
-    extra_attributes: [{ name: 'data-ecl-gallery-all' }],
-    extra_classes: 'ecl-gallery__view-all',
-  } only %}
 
 {% if _footer is not empty and _footer.link is defined and _footer.link is not empty %}
   <div class="ecl-gallery__footer">
@@ -117,6 +119,7 @@
     extra_attributes: _overlay_attrs,
     extra_classes: _overlay_class,
     item: _selected_item,
+    icon_path: _icon_path,
   } only %}
 </section>
 
