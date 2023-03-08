@@ -48,6 +48,8 @@ export class Gallery {
       metaSelector = '[data-ecl-gallery-meta]',
       closeButtonSelector = '[data-ecl-gallery-close]',
       viewAllSelector = '[data-ecl-gallery-all]',
+      viewAllLabelSelector = 'data-ecl-gallery-collapsed-label',
+      viewAllExpandedLabelSelector = 'data-ecl-gallery-expanded-label',
       countSelector = '[data-ecl-gallery-count]',
       overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
@@ -97,6 +99,8 @@ export class Gallery {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.viewAllLabelSelector = viewAllLabelSelector;
+    this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -143,6 +147,12 @@ export class Gallery {
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
     this.viewAll = queryOne(this.viewAllSelector, this.element);
+    this.viewAllLabel =
+      this.viewAll.getAttribute(this.viewAllLabelSelector) ||
+      this.viewAll.innerText;
+    this.viewAllLabelExpanded =
+      this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
+      this.viewAllLabel;
     this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
@@ -536,22 +546,20 @@ export class Gallery {
    */
   handleClickOnViewAll(e) {
     e.preventDefault();
+    if (!this.viewAll) return;
 
-    // Disable scroll on body
-    document.body.classList.add('ecl-u-disablescroll');
-
-    // Display overlay
-    if (this.isDialogSupported) {
-      this.overlay.showModal();
+    if (this.viewAll.expanded) {
+      delete this.viewAll.expanded;
+      this.checkScreen();
+      this.hideItems();
+      this.viewAll.textContent = this.viewAllLabel;
     } else {
-      this.overlay.setAttribute('open', '');
+      this.galleryItems.forEach((item) => {
+        item.parentNode.classList.remove('ecl-gallery__item--hidden');
+      });
+      this.viewAll.textContent = this.viewAllLabelExpanded;
+      this.viewAll.expanded = true;
     }
-
-    // Update overlay
-    this.updateOverlay(this.galleryItems[0]);
-
-    // Trap focus
-    this.focusTrap.activate();
   }
 
   /**

@@ -213,6 +213,7 @@ module.exports = {
     },
   },
   view_all_label: 'See more',
+  view_all_expanded_label: 'Collapse all',
   footer: {
     link: {
       path: exampleLink,

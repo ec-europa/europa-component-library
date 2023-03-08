@@ -396,13 +396,17 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__share {
   color: $_overlay-links-color;
 
-  &:visited {
-    color: $_overlay-links-color;
+  &:hover {
+    color: $_overlay-links-hover-color;
   }
 
-  &:hover,
   &:focus-visible {
-    color: $_overlay-links-hover-color;
+    outline-color: map.get(theme.$color, 'white-100');
+    outline-offset: 4px;
+  }
+
+  &:visited {
+    color: $_overlay-links-color;
   }
 
   &[hidden] {
