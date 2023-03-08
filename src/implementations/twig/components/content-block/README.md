@@ -19,7 +19,7 @@ npm install --save @ecl/twig-component-content-block
   },
   ...
   ]
-- **tags** (array) (default: []): Array of ECL Tags
+- **tags** (array) (default: []): Array of ECL Tags (deprecated)
 - **links** (array) (default: []): Array or multi array of ECL Links
 - **lists** (array) (default: []): Array of ECL Description list
 - **"extra_classes"** (string) (default: '')
@@ -61,17 +61,6 @@ npm install --save @ecl/twig-component-content-block
         path: '/icons.svg',
       },
       label: 'Luxembourg',
-    },
-  ],
-  tags: [
-    {
-      tag: { label: 'tag 1', path: exampleLink },
-    },
-    {
-      tag: { label: 'tag 2', path: exampleLink },
-    },
-    {
-      tag: { label: 'tag 3', path: exampleLink },
     },
   ],
   links: [
