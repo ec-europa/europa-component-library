@@ -22,7 +22,7 @@ npm install --save @ecl/twig-component-card
   },
   ...
   ]
-- **tags** (array) (default: []): Array of ECL Tags
+- **tags** (array) (default: []): Array of ECL Tags (deprecated)
 - **lists** (array) (default: []): Array of ECL Description list
 - **extra_classes** (string) (default: '')
 - **extra_attributes** (array) (default: []): format: [
@@ -70,20 +70,6 @@ npm install --save @ecl/twig-component-card
           name: 'location', 
           path: '/path-to-the-icon-file', 
         }, 
-      }, 
-    ], 
-    tags: [ 
-      { 
-        label: 'Tag 1', 
-        path: '/example-1', 
-      }, 
-      { 
-        label: 'Tag 2', 
-        path: '/example-2', 
-      }, 
-      { 
-        label: 'Tag 3', 
-        path: '/example-3', 
       }, 
     ], 
   } 
