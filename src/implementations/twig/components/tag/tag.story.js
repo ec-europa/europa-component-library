@@ -4,7 +4,6 @@ import { correctPaths } from '@ecl/story-utils';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
-import dataDisplay from '@ecl/specs-component-tag/demo/data--display';
 
 import tag from './tag.html.twig';
 import notes from './README.md';
@@ -67,13 +66,6 @@ export default {
   title: 'Components/Tag',
   decorators: [withNotes, withCode],
 };
-
-export const Display = (args) => tag(prepareData(dataDisplay, args));
-
-Display.storyName = 'display tag';
-Display.args = getArgs(dataDisplay);
-Display.argTypes = getArgTypes(dataDisplay);
-Display.parameters = { notes: { markdown: notes, json: dataDisplay } };
 
 export const Link = (args) => tag(prepareData(dataLink, args));
 
