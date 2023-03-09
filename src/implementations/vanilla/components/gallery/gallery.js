@@ -323,7 +323,7 @@ export class Gallery {
    * - only 3 items on mobile
    */
   hideItems() {
-    if (!this.viewAll) return;
+    if (!this.viewAll || this.viewAll.expanded) return;
 
     if (this.isDesktop) {
       const galleryY = this.element.getBoundingClientRect().top;
