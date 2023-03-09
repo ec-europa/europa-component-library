@@ -21,7 +21,6 @@ module.exports = {
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
         alt: 'New digital strategy',
       },
-      playable: true,
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
