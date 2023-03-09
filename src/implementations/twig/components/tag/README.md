@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-tag
 
 - **"tag"** (associative array) (default: 'predefined structure below')
   - "path" (string) (default: '') - path/url for tag (if needed - only for type 'link')
-  - "type" (string) (default: '') - type of tag (can be 'link', 'removable', 'display', 'button' (deprecated))
+  - "type" (string) (default: '') - type of tag (can be 'link' or 'removable')
   - "label" (string) (default: '') - tag label
 - **"default_icon_path"** (string ) (default: '') - path for the icon image (need to render Icon component if tag type is 'removable')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
