@@ -5,8 +5,6 @@ import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
-const demoImage = { ...defaultData.image };
-
 const getArgs = (data) => ({
   show_image: false,
   citation: data.citation,
@@ -49,8 +47,13 @@ const getArgTypes = () => ({
 });
 
 const prepareData = (data, args) => {
-  data.image = args.show_image ? demoImage : null;
-  return Object.assign(data, args);
+  const clone = JSON.parse(JSON.stringify(data));
+
+  if (!args.show_image) {
+    delete clone.picture;
+  }
+
+  return Object.assign(clone, args);
 };
 
 export default {
