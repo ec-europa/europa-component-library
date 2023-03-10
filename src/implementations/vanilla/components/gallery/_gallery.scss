@@ -108,6 +108,9 @@ $_item-outline-offset: null !default;
   font: map.get(theme.$font, 's');
   padding: map.get(theme.$spacing, 's');
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: calc(100% - (#{map.get(theme.$spacing, 's')} * 2));
 }
 
@@ -115,6 +118,7 @@ $_item-outline-offset: null !default;
   flex-shrink: 0;
   height: $_description-icon-mobile;
   margin-inline-end: map.get(theme.$spacing, 'xs');
+  vertical-align: middle;
   width: $_description-icon-mobile;
 }
 
@@ -185,7 +189,6 @@ $_item-outline-offset: null !default;
     bottom: 0;
     display: none;
     left: 0;
-    max-height: $_image-height-mobile;
     padding: map.get(theme.$spacing, 'xs');
     position: absolute;
     width: calc(100% - (#{map.get(theme.$spacing, 'xs')} * 2));
@@ -199,7 +202,7 @@ $_item-outline-offset: null !default;
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      display: flex;
+      display: block;
     }
 
     .ecl-gallery__image-icon {
@@ -216,10 +219,6 @@ $_item-outline-offset: null !default;
 
   .ecl-gallery__image {
     min-width: $_image-height;
-  }
-
-  .ecl-gallery__description {
-    max-height: $_image-height;
   }
 }
 
