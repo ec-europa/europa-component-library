@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import modal from '../demo';
+
+<Playground
+  system="ec"
+  selectedKind="components-modal"
+  selectedStory="default"
+  showFrame
+  frameHeight="400"
+>
+  <Html markup={modal} />
+</Playground>
+
+Note: you can have any button in the modal act as a close button. To do so, simply add `data-ecl-modal-close` to it.

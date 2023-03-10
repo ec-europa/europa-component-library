@@ -4,7 +4,7 @@
   Parameters:
    - "tag" (associative array) (default: predefined structure): format:
       {
-        type: string (default: 'link') can be 'link', 'removable', 'display'
+        type: string (default: 'link') can be 'link' or 'removable'
         path: string (default: '') tag url if needed),
         label: string (default: '') tag text as string,
         external: boolean (default: false) External icon for a tag with link
@@ -40,6 +40,7 @@
 {% set _default_icon_path = default_icon_path|default('') %}
 
 {# Add extra class for removable tag #}
+
 {% if _tag.type == 'removable' %}
   {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
@@ -93,6 +94,7 @@
     </span>
   </button>
 {% else %}
+  {# DEPRECATED #}
   <span class="{{ _css_class }}">
     {{- _tag.label -}}
   </span>
