@@ -38,7 +38,13 @@ $_negative-color: null !default;
     vertical-align: middle;
   }
 
-  &:not(.ecl-link--standalone) .ecl-link__label {
+  &:not(
+      .ecl-link--standalone,
+      .ecl-link--cta,
+      .ecl-link--primary,
+      .ecl-link--secondary
+    )
+    .ecl-link__label {
     text-decoration: underline;
   }
 }
