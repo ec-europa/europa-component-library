@@ -125,7 +125,9 @@ export class Gallery {
     this.isDesktop = false;
     this.resizeTimer = null;
     this.breakpointMd = 768;
+    this.breakpointLg = 996;
     this.imageHeight = 185;
+    this.imageHeightBig = 260;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
@@ -153,6 +155,7 @@ export class Gallery {
     this.viewAllLabelExpanded =
       this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
       this.viewAllLabel;
+    this.viewAll.setAttribute('data-more', 0);
     this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
@@ -311,21 +314,27 @@ export class Gallery {
   checkScreen() {
     if (window.innerWidth > this.breakpointMd) {
       this.isDesktop = true;
-      return;
+    } else {
+      this.isDesktop = false;
     }
-
-    this.isDesktop = false;
+    if (window.innerWidth > this.breakpointLg) {
+      this.isLarge = true;
+    }
   }
 
   /**
+   * @param {Int} rows/item number
+   *
    * Hide several gallery items by default
    * - 2 "lines" of items on desktop
-   * - only 3 items on mobile
+   * - only 3 items on mobile or the desired rows or items
+   *   when using the view more button.
    */
-  hideItems() {
+  hideItems(plus = 0) {
     if (!this.viewAll || this.viewAll.expanded) return;
 
     if (this.isDesktop) {
+      const rowHeight = this.isLarge ? this.imageHeight : this.imageHeightBig;
       const galleryY = this.element.getBoundingClientRect().top;
       let hiddenItemIds = [];
       // We should browse the list first to mark the items to be hidden, and hide them later
@@ -334,7 +343,7 @@ export class Gallery {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
         if (
           galleryItem.getBoundingClientRect().top - galleryY >
-          this.imageHeight * 2
+          rowHeight * (2 + Number(plus))
         ) {
           hiddenItemIds = [...hiddenItemIds, key];
         }
@@ -348,7 +357,7 @@ export class Gallery {
     }
 
     this.galleryItems.forEach((galleryItem, key) => {
-      if (key > 2) {
+      if (key > 2 + Number(plus)) {
         galleryItem.parentNode.classList.add('ecl-gallery__item--hidden');
       } else {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
@@ -554,11 +563,20 @@ export class Gallery {
       this.hideItems();
       this.viewAll.textContent = this.viewAllLabel;
     } else {
-      this.galleryItems.forEach((item) => {
-        item.parentNode.classList.remove('ecl-gallery__item--hidden');
-      });
-      this.viewAll.textContent = this.viewAllLabelExpanded;
+      this.checkScreen();
+      // Two rows in desktop, three items in mobile.
+      const more = this.isDesktop ? 2 : 3;
+      // Get the multiplier updated value.
+      this.viewAll.setAttribute(
+        'data-more',
+        Number(this.viewAll.getAttribute('data-more')) + Number(more)
+      );
+      this.hideItems(Number(this.viewAll.getAttribute('data-more')));
+    }
+    if (!this.element.querySelector('.ecl-gallery__item--hidden')) {
       this.viewAll.expanded = true;
+      this.viewAll.setAttribute('data-more', 0);
+      this.viewAll.textContent = this.viewAllLabelExpanded;
     }
   }
 
