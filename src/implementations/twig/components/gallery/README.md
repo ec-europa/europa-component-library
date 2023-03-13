@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-gallery
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
 - **"items"** (array) (default: [])
+  - "playable" (boolean) (default: false) Activate the play icon on the thumbnail
   - "path" (string) (default: '')
   - "alt" (string) (default: '')
   - "description" (string) (default: '')
@@ -25,8 +26,10 @@ npm install --save @ecl/twig-component-gallery
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
   - "share_path" (optional) (string) (default: '')
+- **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
+- **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
 - **"selected_item_id"** (int) (default: 0)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
