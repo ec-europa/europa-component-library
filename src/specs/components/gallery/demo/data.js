@@ -221,7 +221,7 @@ module.exports = {
     },
     icon: {
       name: 'external',
-      size: 's',
+      size: 'xs',
       path: '/icons.svg',
     },
   },
