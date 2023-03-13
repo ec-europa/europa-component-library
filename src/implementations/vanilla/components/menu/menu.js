@@ -319,7 +319,6 @@ export class Menu {
   /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
-   * - enough space to display all the menu items
    */
   useDesktopDisplay() {
     if (isMobile.isMobileOnly) {
@@ -594,7 +593,7 @@ export class Menu {
   }
 
   /**
-   * Get back to previous state.
+   * Get back to previous list (on mobile)
    */
   handleClickOnBack() {
     // Remove css class from inner menu
@@ -610,7 +609,7 @@ export class Menu {
   }
 
   /**
-   * Click on a menu item
+   * Click on a menu item carret
    * @param {Event} e
    */
   handleClickOnCaret(e) {

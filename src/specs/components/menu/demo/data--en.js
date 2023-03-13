@@ -11,7 +11,7 @@ module.exports = {
   items: [
     { label: 'Home', path: exampleLink },
     {
-      label: 'Item 2 label',
+      label: 'Lorem ipsum',
       path: exampleLink,
       is_current: true,
       trigger_aria_label: "Access item's children",
@@ -26,7 +26,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 3 with a very long label',
+      label: 'Dolor sit amet',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -36,11 +36,11 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 4 label',
+      label: 'Consectetur adipiscing elit',
       path: exampleLink,
     },
     {
-      label: 'Item 5 label',
+      label: 'Quisque tincidunt pharetra',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -51,7 +51,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 6 label',
+      label: 'Suspendisse quis fermentum',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -86,7 +86,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 7 label',
+      label: 'Suspendisse cursus',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -100,6 +100,74 @@ module.exports = {
         { label: 'Item 7.8', path: exampleLink },
         { label: 'Item 7.9', path: exampleLink },
         { label: 'Item 7.10', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Aliquam',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 8.1', path: exampleLink },
+        { label: 'Item 8.2', path: exampleLink },
+        { label: 'Item 8.3', path: exampleLink },
+        { label: 'Item 8.4', path: exampleLink },
+        { label: 'Item 8.5', path: exampleLink },
+        { label: 'Item 8.6', path: exampleLink },
+        { label: 'Item 8.7', path: exampleLink },
+        { label: 'Item 8.8', path: exampleLink },
+        { label: 'Item 8.9', path: exampleLink },
+        { label: 'Item 8.10', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Aliquam tempus, purus',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 9.1', path: exampleLink },
+        { label: 'Item 9.2', path: exampleLink },
+        { label: 'Item 9.3', path: exampleLink },
+        { label: 'Item 9.4', path: exampleLink },
+        { label: 'Item 9.5', path: exampleLink },
+        { label: 'Item 9.6', path: exampleLink },
+        { label: 'Item 9.7', path: exampleLink },
+        { label: 'Item 9.8', path: exampleLink },
+        { label: 'Item 9.9', path: exampleLink },
+        { label: 'Item 9.10', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Nullam ut',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 10.1', path: exampleLink },
+        { label: 'Item 10.2', path: exampleLink },
+        { label: 'Item 10.3', path: exampleLink },
+        { label: 'Item 10.4', path: exampleLink },
+        { label: 'Item 10.5', path: exampleLink },
+        { label: 'Item 10.6', path: exampleLink },
+        { label: 'Item 10.7', path: exampleLink },
+        { label: 'Item 10.8', path: exampleLink },
+        { label: 'Item 10.9', path: exampleLink },
+        { label: 'Item 10.10', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Fusce sodales, purus',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 10.1', path: exampleLink },
+        { label: 'Item 10.2', path: exampleLink },
+        { label: 'Item 10.3', path: exampleLink },
+        { label: 'Item 10.4', path: exampleLink },
+        { label: 'Item 10.5', path: exampleLink },
+        { label: 'Item 10.6', path: exampleLink },
+        { label: 'Item 10.7', path: exampleLink },
+        { label: 'Item 10.8', path: exampleLink },
+        { label: 'Item 10.9', path: exampleLink },
+        { label: 'Item 10.10', path: exampleLink },
       ],
     },
   ],
