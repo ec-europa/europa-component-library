@@ -91,6 +91,7 @@ export class Menu {
     this.isOpen = false;
     this.resizeTimer = null;
     this.isKeyEvent = false;
+    this.isDesktop = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -123,7 +124,7 @@ export class Menu {
     this.carets = queryAll(this.caretSelector, this.element);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
-    this.useDesktopDisplay();
+    this.isDesktop = this.useDesktopDisplay();
 
     // Bind click event on open
     if (this.attachClickListener && this.open) {
@@ -197,7 +198,7 @@ export class Menu {
     }
 
     // Browse first level items
-    if (this.items && !isMobile.isMobile) {
+    if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
         // Check mega menu display (right to left, full width, ...)
         this.checkMenuItem(item);
@@ -254,7 +255,7 @@ export class Menu {
       });
     }
 
-    if (this.items && !isMobile.isMobile) {
+    if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
         if (item.hasAttribute('data-ecl-has-children')) {
           if (this.attachHoverListener) {
@@ -321,6 +322,7 @@ export class Menu {
    * - not using a phone or tablet (whatever the screen size is)
    */
   useDesktopDisplay() {
+    // Detect mobile devices
     if (isMobile.isMobileOnly) {
       return false;
     }
@@ -328,6 +330,11 @@ export class Menu {
     // Force mobile display on tablet
     if (isMobile.isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
+      return false;
+    }
+
+    // After all that, check if the hamburger button is displayed
+    if (this.open.offsetParent !== null) {
       return false;
     }
 
@@ -349,10 +356,10 @@ export class Menu {
       this.element.classList.remove('ecl-menu--forced-mobile');
 
       // Check global display
-      this.useDesktopDisplay();
+      this.isDesktop = this.useDesktopDisplay();
 
-      // Check mega menu display (right to left, full width, ...)
-      if (this.items && !isMobile.isMobile) {
+      // Update items display
+      if (this.items) {
         this.items.forEach((item) => {
           this.checkMenuItem(item);
         });
@@ -370,13 +377,19 @@ export class Menu {
    * @param {Node} menuItem
    */
   checkMenuItem(menuItem) {
+    const menuLink = queryOne(this.linkSelector, menuItem);
+
+    if (!this.isDesktop) {
+      menuLink.style.width = '100%';
+      return;
+    }
+
     // Handle menu item height and width (2 "lines" max)
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
-    const menuLink = queryOne(this.linkSelector, menuItem);
-    let linkWidth = 50; // TODO: init value
+    let linkWidth = menuLink.getBoundingClientRect().width;
     while (menuLink.getBoundingClientRect().height > 72) {
-      // TODO: calculus
+      // TODO: line height calculus
       menuLink.style.width = `${(linkWidth += 1)}px`;
 
       // Safety exit
