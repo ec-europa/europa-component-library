@@ -26,6 +26,7 @@ npm install --save @ecl/twig-component-gallery
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
   - "share_path" (optional) (string) (default: '')
+- **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button

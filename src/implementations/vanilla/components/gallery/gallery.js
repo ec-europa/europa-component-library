@@ -43,6 +43,7 @@ export class Gallery {
   constructor(
     element,
     {
+      expandableSelector = 'data-ecl-gallery-not-expandable',
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
       metaSelector = '[data-ecl-gallery-meta]',
@@ -101,6 +102,7 @@ export class Gallery {
     this.attachResizeListener = attachResizeListener;
     this.viewAllLabelSelector = viewAllLabelSelector;
     this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
+    this.expandableSelector = expandableSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -146,16 +148,19 @@ export class Gallery {
    */
   init() {
     // Query elements
+    this.expandable = !this.element.hasAttribute(this.expandableSelector);
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
-    this.viewAll = queryOne(this.viewAllSelector, this.element);
-    this.viewAllLabel =
-      this.viewAll.getAttribute(this.viewAllLabelSelector) ||
-      this.viewAll.innerText;
-    this.viewAllLabelExpanded =
-      this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
-      this.viewAllLabel;
-    this.viewAll.setAttribute('data-more', 0);
+    if (this.expandable) {
+      this.viewAll = queryOne(this.viewAllSelector, this.element);
+      this.viewAllLabel =
+        this.viewAll.getAttribute(this.viewAllLabelSelector) ||
+        this.viewAll.innerText;
+      this.viewAllLabelExpanded =
+        this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
+        this.viewAllLabel;
+      this.viewAll.setAttribute('data-more', 0);
+    }
     this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
@@ -240,8 +245,10 @@ export class Gallery {
     }
 
     // Init display of gallery items
-    this.checkScreen();
-    this.hideItems();
+    if (this.expandable) {
+      this.checkScreen();
+      this.hideItems();
+    }
 
     // Add number to gallery items
     this.galleryItems.forEach((galleryItem, key) => {

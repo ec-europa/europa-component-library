@@ -5,6 +5,7 @@
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
   - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
+  - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
     - "previous" (object) (default: {}): object of type button
@@ -42,6 +43,7 @@
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
@@ -51,6 +53,10 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if not _expandable %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-not-expandable' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -84,32 +90,35 @@
       } only %}
     {% endfor %}
   </ul>
-  <div class="ecl-gallery__info">
-    <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
-      {% include '@ecl/button/button.html.twig' with {
-        label: _view_all_label,
-        type: 'submit',
-        variant: 'ghost',
-        extra_attributes: [
-          { name: 'data-ecl-gallery-all' },
-          { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
-          { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
-        ],
-        extra_classes: 'ecl-gallery__view-all',
-      } only %}
-  </div>
-
-{% if _footer is not empty and _footer.link is defined and _footer.link is not empty %}
   <div class="ecl-gallery__footer">
-    {% include '@ecl/link/link.html.twig' with {
-      link: _footer.link|merge({
-        type: 'standalone',
-        icon_position: 'after',
-      }),
-      icon: _footer.icon
-    } only %}
+    <div class="ecl-gallery__info">
+      <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+      {%- if _expandable -%}
+        {% include '@ecl/button/button.html.twig' with {
+          label: _view_all_label,
+          type: 'submit',
+          variant: 'ghost',
+          extra_attributes: [
+            { name: 'data-ecl-gallery-all' },
+            { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
+            { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+          ],
+          extra_classes: 'ecl-gallery__view-all',
+        } only %}
+      {%- endif -%}
+    </div>
+  {% if _footer.link is defined and _footer.link is not empty %}
+    <div class="ecl-gallery__footer-link">
+      {% include '@ecl/link/link.html.twig' with {
+        link: _footer.link|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _footer.icon
+      } only %}
+    </div>
+  {% endif %}
   </div>
-{% endif %}
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
