@@ -148,20 +148,20 @@ $_item-outline-offset: null !default;
   flex-direction: column;
   align-items: flex-end;
   margin-inline-end: map.get(theme.$spacing, 'm');
-  padding-bottom: map.get(theme.$spacing, 's');
-  padding-top: map.get(theme.$spacing, 's');
+  padding-top: map.get(theme.$spacing, 'xs');
   text-align: right;
 }
 
 .ecl-gallery__view-all {
-  margin-bottom: -#{map.get(theme.$spacing, 's')};
+  margin-bottom: -#{map.get(theme.$spacing, '2xs')};
+  margin-inline-start: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-gallery__footer-link {
   border-top: 1px solid map.get(theme.$color, 'grey-15');
   text-align: right;
   margin-top: map.get(theme.$spacing, 's');
-  padding-top: map.get(theme.$spacing, 's');
+  padding-top: map.get(theme.$spacing, 'xs');
   width: 100%;
 }
 
@@ -318,7 +318,7 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__close-button {
   color: $_close-button-color;
   font-weight: map.get(theme.$font-weight, 'regular');
-  margin: map.get(theme.$spacing, '2xs');
+  margin: map.get(theme.$spacing, 'xs');
 
   &:hover,
   &:focus-visible {
@@ -367,7 +367,6 @@ $_overlay-links-hover-color: null !default;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  margin-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-gallery__slider-previous,

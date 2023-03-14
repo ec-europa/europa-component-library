@@ -217,7 +217,7 @@ module.exports = {
     link: {
       path: exampleLink,
       aria_label: 'View all link aria-label value',
-      label: 'Link to further media items',
+      label: 'Further media items',
     },
     icon: {
       name: 'external',
