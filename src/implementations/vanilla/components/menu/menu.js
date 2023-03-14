@@ -370,6 +370,20 @@ export class Menu {
    * @param {Node} menuItem
    */
   checkMenuItem(menuItem) {
+    // Handle menu item height and width (2 "lines" max)
+    // We need to temporally change item alignments to get the height
+    menuItem.style.alignItems = 'flex-start';
+    const menuLink = queryOne(this.linkSelector, menuItem);
+    let linkWidth = 50; // TODO: init value
+    while (menuLink.getBoundingClientRect().height > 72) {
+      // TODO: calculus
+      menuLink.style.width = `${(linkWidth += 1)}px`;
+
+      // Safety exit
+      if (linkWidth > 1000) break;
+    }
+    menuItem.style.alignItems = 'unset';
+
     const menuMega = queryOne(this.megaSelector, menuItem);
 
     if (menuMega) {
