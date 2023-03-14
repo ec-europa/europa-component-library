@@ -139,6 +139,10 @@ $_item-outline-offset: null !default;
   text-align: right;
 }
 
+.ecl-gallery__info-total {
+  margin-inline-end: map.get(theme.$spacing, '2xs');
+}
+
 .ecl-gallery__footer {
   display: flex;
   flex-direction: column;
