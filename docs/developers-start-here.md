@@ -2,7 +2,7 @@
 
 **Recommended versions of required software:**
 
-- Node.js = 12.20.1
+- Node.js = 16.14.0
 - yarn >= 1.10.1
 
 We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` in the root followed by `nvm use` to get the right Node.js version, the `.mvrc` file in the root of your project is selecting for you the latest available node lts release.
