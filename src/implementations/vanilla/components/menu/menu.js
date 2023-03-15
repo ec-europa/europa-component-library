@@ -11,6 +11,7 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.backSelector Selector for the back button
  * @param {String} options.overlaySelector Selector for the menu overlay
  * @param {String} options.innerSelector Selector for the menu inner
+ * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
  * @param {String} options.megaSelector Selector for the mega menu
@@ -42,6 +43,7 @@ export class Menu {
       backSelector = '[data-ecl-menu-back]',
       overlaySelector = '[data-ecl-menu-overlay]',
       innerSelector = '[data-ecl-menu-inner]',
+      listSelector = '[data-ecl-menu-list]',
       itemSelector = '[data-ecl-menu-item]',
       linkSelector = '[data-ecl-menu-link]',
       caretSelector = '[data-ecl-menu-caret]',
@@ -69,6 +71,7 @@ export class Menu {
     this.backSelector = backSelector;
     this.overlaySelector = overlaySelector;
     this.innerSelector = innerSelector;
+    this.listSelector = listSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
     this.caretSelector = caretSelector;
@@ -86,6 +89,7 @@ export class Menu {
     this.back = null;
     this.overlay = null;
     this.inner = null;
+    this.itemsList = null;
     this.items = null;
     this.links = null;
     this.isOpen = false;
@@ -105,6 +109,8 @@ export class Menu {
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
+    this.checkMenuOverflow = this.checkMenuOverflow.bind(this);
+    this.checkMenuItem = this.checkMenuItem.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
   }
 
@@ -118,6 +124,7 @@ export class Menu {
     this.back = queryOne(this.backSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
+    this.itemsList = queryOne(this.listSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
@@ -197,10 +204,13 @@ export class Menu {
       window.addEventListener('resize', this.handleResize);
     }
 
+    // Update overflow display
+    this.checkMenuOverflow();
+
     // Browse first level items
     if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
-        // Check mega menu display (right to left, full width, ...)
+        // Check menu item display (right to left, full width, ...)
         this.checkMenuItem(item);
 
         if (item.hasAttribute('data-ecl-has-children')) {
@@ -320,6 +330,7 @@ export class Menu {
   /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
+   * - not having hamburger menu on screen
    */
   useDesktopDisplay() {
     // Detect mobile devices
@@ -358,6 +369,9 @@ export class Menu {
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
 
+      // Update overflow display
+      this.checkMenuOverflow();
+
       // Update items display
       if (this.items) {
         this.items.forEach((item) => {
@@ -373,7 +387,34 @@ export class Menu {
   }
 
   /**
-   * Check for a specific menu item how to display the mega menu
+   * Check how to display menu horizontally and manage overflow
+   * @param {Node} menuItem
+   */
+  checkMenuOverflow() {
+    if (!this.isDesktop) {
+      return;
+    }
+
+    // Backward compatibility
+    if (!this.itemsList) {
+      this.itemsList = queryOne('.ecl-menu__list', this.element);
+    }
+
+    if (!this.itemsList || !this.inner) {
+      return;
+    }
+
+    // Check if the menu is too large
+    if (this.itemsList.scrollWidth > this.inner.offsetWidth) {
+      console.log('over');
+    }
+  }
+
+  /**
+   * Check for a specific menu item how to display it:
+   * - number of lines
+   * - mega menu position
+   *
    * @param {Node} menuItem
    */
   checkMenuItem(menuItem) {
@@ -387,8 +428,8 @@ export class Menu {
     // Handle menu item height and width (2 "lines" max)
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
-    let linkWidth = menuLink.getBoundingClientRect().width;
-    while (menuLink.getBoundingClientRect().height > 72) {
+    let linkWidth = menuLink.offsetWidth;
+    while (menuLink.offsetHeight > 72) {
       // TODO: line height calculus
       menuLink.style.width = `${(linkWidth += 1)}px`;
 
