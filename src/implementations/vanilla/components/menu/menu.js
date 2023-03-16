@@ -14,9 +14,14 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
+ * @param {String} options.buttonPreviousSelector Selector for the previous items button (for overflow)
+ * @param {String} options.buttonNextSelector Selector for the next items button (for overflow)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
+ * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Menu {
@@ -46,6 +51,8 @@ export class Menu {
       listSelector = '[data-ecl-menu-list]',
       itemSelector = '[data-ecl-menu-item]',
       linkSelector = '[data-ecl-menu-link]',
+      buttonPreviousSelector = '[data-ecl-menu-items-previous]',
+      buttonNextSelector = '[data-ecl-menu-items-next]',
       caretSelector = '[data-ecl-menu-caret]',
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
@@ -74,6 +81,8 @@ export class Menu {
     this.listSelector = listSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
+    this.buttonPreviousSelector = buttonPreviousSelector;
+    this.buttonNextSelector = buttonNextSelector;
     this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
@@ -92,15 +101,21 @@ export class Menu {
     this.itemsList = null;
     this.items = null;
     this.links = null;
+    this.btnPrevious = null;
+    this.btnNext = null;
     this.isOpen = false;
     this.resizeTimer = null;
     this.isKeyEvent = false;
     this.isDesktop = false;
+    this.offsetLeft = 0;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
+    this.handleClickOnNextItems = this.handleClickOnNextItems.bind(this);
+    this.handleClickOnPreviousItems =
+      this.handleClickOnPreviousItems.bind(this);
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
@@ -125,6 +140,8 @@ export class Menu {
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.itemsList = queryOne(this.listSelector, this.element);
+    this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
+    this.btnNext = queryOne(this.buttonNextSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
@@ -133,24 +150,40 @@ export class Menu {
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
 
-    // Bind click event on open
-    if (this.attachClickListener && this.open) {
-      this.open.addEventListener('click', this.handleClickOnOpen);
-    }
+    // Bind click events on buttons
+    if (this.attachClickListener) {
+      // Open
+      if (this.open) {
+        this.open.addEventListener('click', this.handleClickOnOpen);
+      }
 
-    // Bind click event on close
-    if (this.attachClickListener && this.close) {
-      this.close.addEventListener('click', this.handleClickOnClose);
-    }
+      // Close
+      if (this.close) {
+        this.close.addEventListener('click', this.handleClickOnClose);
+      }
 
-    // Bind click event on back
-    if (this.attachClickListener && this.back) {
-      this.back.addEventListener('click', this.handleClickOnBack);
-    }
+      // Back
+      if (this.back) {
+        this.back.addEventListener('click', this.handleClickOnBack);
+      }
 
-    // Bind click event on overlay
-    if (this.attachClickListener && this.overlay) {
-      this.overlay.addEventListener('click', this.handleClickOnClose);
+      // Previous items
+      if (this.btnPrevious) {
+        this.btnPrevious.addEventListener(
+          'click',
+          this.handleClickOnPreviousItems
+        );
+      }
+
+      // Next items
+      if (this.btnNext) {
+        this.btnNext.addEventListener('click', this.handleClickOnNextItems);
+      }
+
+      // Overlay
+      if (this.overlay) {
+        this.overlay.addEventListener('click', this.handleClickOnClose);
+      }
     }
 
     // Bind event on menu links
@@ -243,20 +276,33 @@ export class Menu {
       this.stickyInstance.remove();
     }
 
-    if (this.attachClickListener && this.open) {
-      this.open.removeEventListener('click', this.handleClickOnOpen);
-    }
+    if (this.attachClickListener) {
+      if (this.open) {
+        this.open.removeEventListener('click', this.handleClickOnOpen);
+      }
 
-    if (this.attachClickListener && this.close) {
-      this.close.removeEventListener('click', this.handleClickOnClose);
-    }
+      if (this.close) {
+        this.close.removeEventListener('click', this.handleClickOnClose);
+      }
 
-    if (this.attachClickListener && this.back) {
-      this.back.removeEventListener('click', this.handleClickOnBack);
-    }
+      if (this.back) {
+        this.back.removeEventListener('click', this.handleClickOnBack);
+      }
 
-    if (this.attachClickListener && this.overlay) {
-      this.overlay.removeEventListener('click', this.handleClickOnClose);
+      if (this.btnPrevious) {
+        this.btnPrevious.removeEventListener(
+          'click',
+          this.handleClickOnPreviousItems
+        );
+      }
+
+      if (this.btnNext) {
+        this.btnNext.removeEventListener('click', this.handleClickOnNextItems);
+      }
+
+      if (this.overlay) {
+        this.overlay.removeEventListener('click', this.handleClickOnClose);
+      }
     }
 
     if (this.attachKeyListener && this.carets) {
@@ -392,6 +438,17 @@ export class Menu {
    */
   checkMenuOverflow() {
     if (!this.isDesktop) {
+      // Reset values related to overflow
+      if (this.btnPrevious) {
+        this.btnPrevious.style.display = 'none';
+      }
+      if (this.btnNext) {
+        this.btnNext.style.display = 'none';
+      }
+      if (this.itemsList) {
+        this.itemsList.style.left = '0';
+      }
+      this.offsetLeft = 0;
       return;
     }
 
@@ -400,13 +457,17 @@ export class Menu {
       this.itemsList = queryOne('.ecl-menu__list', this.element);
     }
 
-    if (!this.itemsList || !this.inner) {
+    // Check if the menu is too large
+    if (
+      !this.itemsList ||
+      !this.inner ||
+      !this.btnNext ||
+      this.offsetLeft !== 0
+    ) {
       return;
     }
-
-    // Check if the menu is too large
     if (this.itemsList.scrollWidth > this.inner.offsetWidth) {
-      console.log('over');
+      this.btnNext.style.display = 'block';
     }
   }
 
@@ -677,7 +738,57 @@ export class Menu {
   }
 
   /**
-   * Click on a menu item carret
+   * Click on the previous items button
+   */
+  handleClickOnPreviousItems() {
+    if (!this.itemsList || !this.btnNext) return;
+
+    this.itemsList.style.left = '0';
+
+    // Update button display
+    this.btnPrevious.style.display = 'none';
+    this.btnNext.style.display = 'block';
+
+    // Trigger the resize event to refresh display
+    this.handleResize();
+  }
+
+  /**
+   * Click on the next items button
+   */
+  handleClickOnNextItems() {
+    if (!this.itemsList || !this.items || !this.btnPrevious) return;
+
+    // Get last visible item
+    const listRect = this.itemsList.getBoundingClientRect();
+    let lastItem = null;
+
+    this.items.every((item) => {
+      if (item.getBoundingClientRect().right > listRect.right) {
+        lastItem = item;
+        return false;
+      }
+      return true;
+    });
+    if (!lastItem) return;
+
+    // Update button display
+    this.btnPrevious.style.display = 'block';
+    this.btnNext.style.display = 'none';
+
+    // Calculate left offset
+    this.offsetLeft =
+      lastItem.getBoundingClientRect().left -
+      listRect.left -
+      this.btnPrevious.offsetWidth;
+    this.itemsList.style.left = `-${this.offsetLeft}px`;
+
+    // Trigger the resize event to refresh display
+    this.handleResize();
+  }
+
+  /**
+   * Click on a menu item caret
    * @param {Event} e
    */
   handleClickOnCaret(e) {

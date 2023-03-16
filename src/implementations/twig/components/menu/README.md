@@ -8,19 +8,37 @@ npm install --save @ecl/twig-component-menu
 
 ### Parameters
 
-- **title:** (string) (default: ''): Title
-- **close:** (string) (default: ''): Close button label
-- **back:** (string): (default: ''): Back button label
-- **menu_link:** (string): (default: ''): Href attribute of the menu toggler
+- **"title"** (string) (default: ''): Title
+- **"close"** (string) (default: ''): Close button label
+- **"back"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
-- **"items"** (associative array) (default: {}): The menu items - format:
-  "label": (string) (default: '')
-  "path": (string) (default: '')
-  "is_current": (boolean) (optional),
-  - "children": (associative array) (optional)
-    "label": (string) (default: '')
-    "path": (string) (default: '')
-    "is_current": (boolean) (optional),
+- **"items"** (associative array) (default: {}): The menu items - format: [
+  {
+  "label": "Home",
+  "path": "/example",
+  "is_current": true
+  },
+  {
+  "label": "Item 1",
+  "path": "/example",
+  "is_current": true
+  "children": [
+  {
+  "label": "Item 1.1",
+  "path": "/example"
+  },
+  {
+  "label": "Item 1.2",
+  "path": "/example"
+  },
+  ],
+  },
+  ],
+- **"site_name"** (string) (default: ''): Name of the website (used only on mobile)
+- **"cta_link"** (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
+- **"menu_link"** (string) (default: ''): Href attribute of the menu toggler
+- **"button_previous_label"** (string) (default: ''): Label for the button to display previous items, in case of overflow (for screen readers)
+- **"button_next_label"** (string) (default: ''): Label for the button to display next items, in case of overflow (for screen readers)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
@@ -47,11 +65,9 @@ npm install --save @ecl/twig-component-menu
           path: "/example"
         },
         ...
-        ]
-      }
-      ...
       ],
-    }
+    },
+    ...
   ],
   extra_classes: "ecl-menu-extra-class,
   extra_attributes: [
