@@ -241,7 +241,7 @@ module.exports = {
             ],
           },
           {
-            exclude: [/(^|\.(js|jsx|ts|tsx|html))$/],
+            exclude: [/(^|\.(js|jsx|ts|tsx|html|json))$/],
             type: 'asset/resource',
           },
         ],
