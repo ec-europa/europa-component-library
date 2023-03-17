@@ -3,18 +3,18 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const webpack = require('webpack');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const safePostCssParser = require('postcss-safe-parser');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 const unwrapImages = require('remark-unwrap-images');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -241,18 +241,8 @@ module.exports = {
             ],
           },
           {
-            // Exclude `js` files to keep "css" loader working as it injects
-            // its runtime that would otherwise processed through "file" loader.
-            // Also exclude `html` and `json` extensions so they get processed
-            // by webpacks internal loaders.
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
-            use: {
-              loader: 'file-loader',
-              options: {
-                name: 'dist/media/[name].[hash:8].[ext]',
-                esModule: false,
-              },
-            },
+            exclude: [/(^|\.(js|jsx|ts|tsx|html))$/],
+            type: 'asset/resource',
           },
         ],
       },
@@ -261,45 +251,31 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        terserOptions: {
-          parse: {
-            ecma: 8,
+      (compiler) => {
+        new TerserPlugin({
+          terserOptions: {
+            parse: {
+              ecma: 8,
+            },
+            compress: {
+              ecma: 5,
+              warnings: false,
+              comparisons: false,
+              inline: 2,
+            },
+            mangle: {
+              safari10: true,
+            },
+            output: {
+              ecma: 5,
+              comments: false,
+              ascii_only: true,
+            },
           },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            comparisons: false,
-            inline: 2,
-          },
-          mangle: {
-            safari10: true,
-          },
-          output: {
-            ecma: 5,
-            comments: false,
-            ascii_only: true,
-          },
-        },
-        parallel: true,
-        cache: true,
-        sourceMap: shouldUseSourceMap,
-      }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          parser: safePostCssParser,
-          map: shouldUseSourceMap
-            ? {
-                // `inline: false` forces the sourcemap to be output into a
-                // separate file
-                inline: false,
-                // `annotation: true` appends the sourceMappingURL to the end of
-                // the css file, helping the browser find the sourcemap
-                annotation: true,
-              }
-            : false,
-        },
-      }),
+          parallel: true,
+        }).apply(compiler);
+      },
+      new CssMinimizerPlugin(),
     ],
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
@@ -313,17 +289,25 @@ module.exports = {
     runtimeChunk: true,
   },
   plugins: [
+    new NodePolyfillPlugin(),
     new ESLintPlugin({
       files: 'src',
       extensions: ['.js', '.jsx', '.mjs'],
     }),
     new CopyPlugin({
-      patterns: [path.resolve(__dirname, 'public')],
-      options: {},
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public'),
+          globOptions: {
+            ignore: ['**/index.html'],
+          },
+        },
+      ],
     }),
     new HtmlWebPackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html'),
+      filename: 'index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -333,7 +317,7 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         keepClosingSlash: true,
         minifyJS: true,
-        minifyCSS: true,
+        minifyCSS: false,
         minifyURLs: true,
       },
     }),
@@ -384,7 +368,7 @@ module.exports = {
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
-    new ManifestPlugin({
+    new WebpackManifestPlugin({
       fileName: 'asset-manifest.json',
       publicPath,
     }),
