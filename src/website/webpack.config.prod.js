@@ -307,7 +307,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html'),
-      filename: 'index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -321,7 +320,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+    new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl,
     }),
     new webpack.DefinePlugin({

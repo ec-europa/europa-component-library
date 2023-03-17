@@ -94,7 +94,6 @@ module.exports = {
           {
             test: /\.html$/i,
             loader: 'html-loader',
-            exclude: path.resolve(__dirname, 'public/index.html'),
           },
           {
             test: /preval.*\.(js|jsx)$/,
@@ -204,7 +203,6 @@ module.exports = {
               },
             ],
           },
-
           {
             exclude: [/(^|\.(js|jsx|ts|tsx|html))$/],
             type: 'asset/resource',
