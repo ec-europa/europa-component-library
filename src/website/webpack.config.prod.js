@@ -299,7 +299,7 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'public'),
           globOptions: {
-            ignore: ['**/index.html'],
+            ignore: ['**/public/index.html'],
           },
         },
       ],
@@ -316,7 +316,7 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         keepClosingSlash: true,
         minifyJS: true,
-        minifyCSS: false,
+        minifyCSS: true,
         minifyURLs: true,
       },
     }),
