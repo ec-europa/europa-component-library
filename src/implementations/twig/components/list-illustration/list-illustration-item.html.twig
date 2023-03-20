@@ -53,7 +53,7 @@
 
 {# Backward compatibility #}
 
-{% if (_picture is not defined or _picture.img is empty) and (_image is defined and _image.src is not empty) %}
+{% if _picture.img is empty and _image.src is not empty %}
   {% set _picture = {
     'img': {
       'path': _image.src|default(''),
@@ -70,7 +70,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _picture is not empty and _picture.img is not empty %}
+  {% if _picture.img is not empty %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       extra_classes: "ecl-list-illustration__picture",
