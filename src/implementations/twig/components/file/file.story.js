@@ -32,8 +32,8 @@ const getArgs = (data) => {
   if (data.detail_meta) {
     args.show_meta = true;
   }
-  if (data.image) {
-    args.show_image = !!data.image;
+  if (data.picture) {
+    args.show_image = !!data.picture;
     args.show_taxonomy = false;
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
@@ -117,7 +117,7 @@ const getArgTypes = (data) => {
       category: 'Content',
     },
   };
-  if (data.image) {
+  if (data.picture) {
     argTypes.show_image = {
       name: 'image',
       type: 'boolean',
@@ -210,10 +210,11 @@ const prepareData = (data, args) => {
     data.description = '';
   }
 
-  if (args.show_image && data.image) {
-    data.image.src = args.image;
-  } else if (!args.show_image && data.image) {
-    data.image = {};
+  if (args.show_image && data.picture) {
+    data.picture.img = {};
+    data.picture.img.src = args.image;
+  } else if (!args.show_image && data.picture) {
+    data.picture = {};
   }
 
   if (args.show_translations) {
