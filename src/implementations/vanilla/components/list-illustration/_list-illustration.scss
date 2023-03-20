@@ -27,28 +27,15 @@ $_background-color: null !default;
 }
 
 .ecl-list-illustration__image {
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: contain;
   display: block;
-  flex-shrink: 0;
   height: auto;
   margin-bottom: map.get(theme.$spacing, 'm');
-
-  // manage ratio 3:2
-  &::before {
-    content: '';
-    display: block;
-    padding-top: math.div(2, 3) * 100%;
-    width: 100%;
-  }
+  aspect-ratio: 3/2;
 }
 
 // manage ratio 1:1
 .ecl-list-illustration__image--square {
-  background-position: center;
-  background-size: cover;
-  height: 100px;
+  aspect-ratio: 1/1;
   width: 100px;
 
   &::before {

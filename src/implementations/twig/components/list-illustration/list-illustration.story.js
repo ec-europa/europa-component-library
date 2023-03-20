@@ -14,7 +14,7 @@ import notes from './README.md';
 
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
-const imgDefault = dataListIllustrationImage.items[0].image;
+const imgDefault = dataListIllustrationImage.items[0].picture;
 const iconDefault = dataListIllustrationIcon.items[0].icon;
 const descDefault = dataListIllustrationIcon.items[0].description;
 // Create 'none' option.
@@ -34,8 +34,8 @@ const getArgs = (data, variant) => {
     args.title = data.items[0].title;
   }
   args.description = data.items[0].description;
-  if (data.items[0].image && data.items[0].image.src) {
-    args.image = data.items[0].image.src;
+  if (data.items[0].picture && data.items[0].picture.img.src) {
+    args.picture = data.items[0].picture.img.src;
     args.image_squared = false;
   }
   if (data.items[0].icon) {
@@ -128,8 +128,8 @@ const getArgTypes = (data, variant) => {
     },
   };
 
-  if (data.items[0].image && data.items[0].image.src) {
-    argTypes.image = {
+  if (data.items[0].picture && data.items[0].picture.img.src) {
+    argTypes.picture = {
       name: 'image',
       type: { name: 'string' },
       description: 'The url of the of the list item image (first item)',
@@ -187,10 +187,11 @@ const prepareDataItem = (data, args) => {
     data.description = args.description;
   }
   if (!args.show_image) {
-    data.image = {};
+    data.picture = {};
   } else {
-    data.image.src = args.image;
-    data.image.squared = args.image_squared;
+    data.picture.img = {};
+    data.picture.img.src = args.picture;
+    data.square = args.image_squared;
   }
   if (!args.show_icon) {
     delete data.icon;
@@ -220,12 +221,12 @@ const prepareDataList = (data, args) => {
   data.items[0] = prepareDataItem(data.items[0], args);
   if (args.show_image) {
     for (let i = 1; i < data.items.length; i += 1) {
-      data.items[i].image = imgDefault;
-      data.items[i].image.squared = args.image_squared;
+      data.items[i].picture = imgDefault;
+      data.items[i].square = args.image_squared;
     }
   } else {
     for (let i = 1; i < data.items.length; i += 1) {
-      data.items[i].image = {};
+      data.items[i].picture = {};
     }
   }
   if (args.show_icon) {
