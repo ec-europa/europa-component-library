@@ -208,11 +208,11 @@ const prepareData = (data, args) => {
     data.link.link.label = args.label;
   }
 
-  return data;
+  return correctPaths(data);
 };
 
 const renderStory = (data, args) => {
-  let story = banner(prepareData(correctPaths(data), args));
+  let story = banner(prepareData(data, args));
   if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }
