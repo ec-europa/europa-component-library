@@ -194,13 +194,11 @@ module.exports = {
                 options: {
                   providerImportSource: '@mdx-js/react',
                   remarkPlugins: [
-                    [
-                      remarkGfm,
-                      unwrapImages,
-                      // Removes front-matter from Markdown output
-                      frontmatter,
-                      { type: 'yaml', marker: '-', fence: '---' },
-                    ],
+                    // Removes front-matter from Markdown output
+                    frontmatter,
+                    { type: 'yaml', marker: '-', fence: '---' },
+                    remarkGfm,
+                    unwrapImages,
                   ],
                 },
               },
