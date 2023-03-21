@@ -1,13 +1,14 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 const unwrapImages = require('remark-unwrap-images');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -212,7 +213,7 @@ module.exports = {
               loader: 'file-loader',
               options: {
                 name: 'dist/media/[name].[hash:8].[ext]',
-                esModule: false,
+                esModule: true,
               },
             },
           },
@@ -221,6 +222,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new NodePolyfillPlugin(),
     new ESLintPlugin({
       files: 'src',
       extensions: ['.js', '.jsx', '.mjs'],
@@ -230,11 +232,10 @@ module.exports = {
       inject: true,
       template: './public/index.html',
     }),
-    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+    new InterpolateHtmlPlugin({
       PUBLIC_URL: publicUrl,
     }),
     // Add module names to factory functions so they appear in browser profiler.
-    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
@@ -250,7 +251,6 @@ module.exports = {
       'process.env.ECL_RESET_CSS': JSON.stringify('n/a'),
       'process.env.ECL_RTL_CSS': JSON.stringify('n/a'),
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
@@ -258,9 +258,11 @@ module.exports = {
   performance: {
     hints: false,
   },
-
+  optimization: {
+    moduleIds: 'named',
+  },
   devServer: {
-    contentBase: [path.resolve(__dirname, 'public')],
+    static: [path.resolve(__dirname, 'public')],
     historyApiFallback: true,
     open: true,
     hot: true,
