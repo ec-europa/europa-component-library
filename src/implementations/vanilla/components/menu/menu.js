@@ -798,6 +798,11 @@ export class Menu {
 
     // Refresh display
     this.checkMenuOverflow();
+    if (this.items) {
+      this.items.forEach((item) => {
+        this.checkMenuItem(item);
+      });
+    }
 
     // Focus last element
     let focusItem = null;
@@ -841,6 +846,11 @@ export class Menu {
 
     // Refresh display
     this.checkMenuOverflow();
+    if (this.items) {
+      this.items.forEach((item) => {
+        this.checkMenuItem(item);
+      });
+    }
 
     // Focus first element
     const firstLink = queryOne(this.linkSelector, this.lastVisibleItem);
