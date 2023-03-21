@@ -557,13 +557,6 @@ $_menu-max-height: null !default;
       &:hover {
         color: $_item-hover-color;
       }
-
-      &.ecl-menu__item:focus-within,
-      &.ecl-menu__item:focus-visible {
-        background-color: map.get(theme.$color, 'blue-100');
-        outline: 2px solid map.get(theme.$color, 'white-100');
-        outline-offset: -4px;
-      }
     }
 
     .ecl-menu__link-icon {

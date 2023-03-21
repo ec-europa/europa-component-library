@@ -803,22 +803,6 @@ export class Menu {
         this.checkMenuItem(item);
       });
     }
-
-    // Focus last element
-    let focusItem = null;
-    this.items.every((item) => {
-      if (item.getAttribute('data-ecl-menu-item-visible') === 'false') {
-        return false;
-      }
-      focusItem = item;
-      return true;
-    });
-    if (focusItem) {
-      const lastLink = queryOne(this.linkSelector, focusItem);
-      if (lastLink) {
-        lastLink.focus();
-      }
-    }
   }
 
   /**
@@ -850,12 +834,6 @@ export class Menu {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
       });
-    }
-
-    // Focus first element
-    const firstLink = queryOne(this.linkSelector, this.lastVisibleItem);
-    if (firstLink) {
-      firstLink.focus();
     }
   }
 
@@ -943,18 +921,14 @@ export class Menu {
     const element = e.target;
 
     // Specific focus action for desktop menu
-    // Focus previous/next buttons when needed
     if (this.isDesktop && this.hasOverflow) {
       const parentItem = element.closest('[data-ecl-menu-item]');
       if (parentItem.getAttribute('data-ecl-menu-item-visible') === 'false') {
-        // Select previous of next buttons depending on the context
-        if (this.btnNext && this.btnNext.style.display === 'block') {
-          this.btnNext.focus();
-        } else if (
-          this.btnPrevious &&
-          this.btnPrevious.style.display === 'block'
-        ) {
-          this.btnPrevious.focus();
+        // Trigger scroll button depending on the context
+        if (this.offsetLeft === 0) {
+          this.handleClickOnNextItems();
+        } else {
+          this.handleClickOnPreviousItems();
         }
       }
     }
