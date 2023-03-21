@@ -3,9 +3,7 @@
 {#
   Parameters:
     - "border" (boolean) (default: false): Is there an extra border and padding?
-    - "image" (associative array) (default: {}): 
-      - "src" (string) (default: ''): Path to the image
-      - "alt" (string) (default: '')
+    - "picture" (object) (default: {}): image for the thumbnail variant
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
     - "description" (string) (default: ''): Description of the navigation list
     - "links" (array) (default: []): Array or multi array of ECL Links
@@ -16,15 +14,20 @@
           "value" (optional) (string)
         ...
       ],
+
+Deprecated
+
+  - "image" (optional) (object) (default: {}) image
+    - "src" (string) Image src
+    - "alt" (string) Image alt
 #}
 
 {# Internal properties #}
 
 {% set _border = border|default(false) %}
-{% set _image = image|default({
-  src: ''
-}) %}
+{% set _image = image|default({}) %}
 {% set _title = title|default({}) %}
+{% set _picture = picture|default({}) %}
 {% set _description = description|default('') %}
 {% set _links = links|default([]) %}
 {% set _css_class = 'ecl-navigation-list__item' %}
@@ -37,6 +40,17 @@
   description: _description,
   links: _links,
 } %}
+
+{# Backward compatibility #}
+
+{% if _picture.img is empty and _image.src is not empty %}
+  {% set _picture = {
+    'img': {
+      'src': _image.src|default(''),
+      'alt': _image.alt|default('')
+    }
+  } %}
+{% endif %}
 
 {% if not _border %}
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}
@@ -58,9 +72,12 @@
 
 {# Print the result #}
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image.src is defined and _image.src is not empty %}
-    {% set _img_aria_label = _image.alt is defined and _image.alt is not empty ? 'aria-label="' ~ _image.alt|e('html_attr') ~ '"' : '' %}
-    <div class="ecl-navigation-list__image" {{ _img_aria_label|raw }} role="img" style="background-image:url('{{ _image.src }}')"></div>
+  {% if _picture.img is not empty %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: "ecl-navigation-list__picture",
+      extra_image_classes: 'ecl-navigation-list__image',
+    } only %}
   {% endif %}
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
     extra_classes: 'ecl-navigation-list__content-block'

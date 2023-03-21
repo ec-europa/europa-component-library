@@ -53,18 +53,9 @@ $_border: null !default;
 }
 
 .ecl-navigation-list__image {
-  background-position: center;
-  background-size: cover;
-  display: block;
-  height: auto;
-
-  // manage ratio 4:1
-  &::before {
-    content: '';
-    display: block;
-    padding-top: math.div(1, 4) * 100%;
-    width: 100%;
-  }
+  aspect-ratio: 4 / 1;
+  object-fit: cover;
+  width: 100%;
 }
 
 .ecl-navigation-list__content-block {
