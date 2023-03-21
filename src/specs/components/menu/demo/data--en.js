@@ -13,7 +13,6 @@ module.exports = {
     {
       label: 'Lorem ipsum',
       path: exampleLink,
-      is_current: true,
       trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 2.1', path: exampleLink },
@@ -139,6 +138,7 @@ module.exports = {
     {
       label: 'Nullam ut',
       path: exampleLink,
+      is_current: true,
       trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 10.1', path: exampleLink },

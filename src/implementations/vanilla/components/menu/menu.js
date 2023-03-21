@@ -110,6 +110,7 @@ export class Menu {
     this.hasOverflow = false;
     this.offsetLeft = 0;
     this.lastVisibleItem = null;
+    this.currentItem = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -515,6 +516,19 @@ export class Menu {
         }
       });
     }
+
+    // Check if the current item is hidden (one side or the other)
+    if (this.currentItem) {
+      if (
+        this.currentItem.getAttribute('data-ecl-menu-item-visible') === 'false'
+      ) {
+        this.btnNext.classList.add('ecl-menu__item--current');
+        this.btnPrevious.classList.add('ecl-menu__item--current');
+      } else {
+        this.btnNext.classList.remove('ecl-menu__item--current');
+        this.btnPrevious.classList.remove('ecl-menu__item--current');
+      }
+    }
   }
 
   /**
@@ -526,6 +540,11 @@ export class Menu {
    */
   checkMenuItem(menuItem) {
     const menuLink = queryOne(this.linkSelector, menuItem);
+
+    // Save current menu item
+    if (menuItem.classList.contains('ecl-menu__item--current')) {
+      this.currentItem = menuItem;
+    }
 
     if (!this.isDesktop) {
       menuLink.style.width = '100%';

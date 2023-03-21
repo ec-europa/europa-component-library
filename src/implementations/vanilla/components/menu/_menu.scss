@@ -557,6 +557,11 @@ $_menu-max-height: null !default;
       &:hover {
         color: $_item-hover-color;
       }
+
+      &.ecl-menu__item--current {
+        box-shadow: none;
+        color: map.get(theme.$color, 'blue-100');
+      }
     }
 
     .ecl-menu__link-icon {
