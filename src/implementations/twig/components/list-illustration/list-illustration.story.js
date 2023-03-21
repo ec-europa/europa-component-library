@@ -17,6 +17,7 @@ const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 const imgDefault = dataListIllustrationImage.items[0].picture;
 const iconDefault = dataListIllustrationIcon.items[0].icon;
 const descDefault = dataListIllustrationIcon.items[0].description;
+
 // Create 'none' option.
 iconsAll.unshift('none');
 
@@ -189,7 +190,7 @@ const prepareDataItem = (data, args) => {
   if (!args.show_image) {
     data.picture = {};
   } else {
-    data.picture.img = {};
+    data.picture = imgDefault;
     data.picture.img.src = args.picture;
     data.square = args.image_squared;
   }
