@@ -107,7 +107,9 @@ export class Menu {
     this.resizeTimer = null;
     this.isKeyEvent = false;
     this.isDesktop = false;
+    this.hasOverflow = false;
     this.offsetLeft = 0;
+    this.lastVisibleItem = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -119,6 +121,7 @@ export class Menu {
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
+    this.handleFocusIn = this.handleFocusIn.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
@@ -191,6 +194,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.addEventListener('focusin', this.closeOpenDropdown);
+          link.addEventListener('focusin', this.handleFocusIn);
           link.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -203,6 +207,7 @@ export class Menu {
     if (this.carets) {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
+          caret.addEventListener('focusin', this.handleFocusIn);
           caret.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -237,9 +242,6 @@ export class Menu {
       window.addEventListener('resize', this.handleResize);
     }
 
-    // Update overflow display
-    this.checkMenuOverflow();
-
     // Browse first level items
     if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
@@ -255,6 +257,9 @@ export class Menu {
         }
       });
     }
+
+    // Update overflow display
+    this.checkMenuOverflow();
 
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
@@ -326,6 +331,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.removeEventListener('focusin', this.closeOpenDropdown);
+          link.removeEventListener('focusin', this.handleFocusIn);
           link.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -337,6 +343,7 @@ export class Menu {
     if (this.carets) {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
+          caret.removeEventListener('focusin', this.handleFocusIn);
           caret.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -415,15 +422,15 @@ export class Menu {
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
 
-      // Update overflow display
-      this.checkMenuOverflow();
-
       // Update items display
       if (this.items) {
         this.items.forEach((item) => {
           this.checkMenuItem(item);
         });
       }
+
+      // Update overflow display
+      this.checkMenuOverflow();
 
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
@@ -449,6 +456,7 @@ export class Menu {
         this.itemsList.style.left = '0';
       }
       this.offsetLeft = 0;
+      this.lastVisibleItem = null;
       return;
     }
 
@@ -457,17 +465,55 @@ export class Menu {
       this.itemsList = queryOne('.ecl-menu__list', this.element);
     }
 
-    // Check if the menu is too large
     if (
       !this.itemsList ||
       !this.inner ||
       !this.btnNext ||
-      this.offsetLeft !== 0
+      !this.btnPrevious ||
+      !this.items
     ) {
       return;
     }
-    if (this.itemsList.scrollWidth > this.inner.offsetWidth) {
+
+    // Check if the menu is too large
+    this.hasOverflow = this.itemsList.scrollWidth > this.inner.offsetWidth;
+    if (!this.hasOverflow) return;
+
+    // Reset visibility indicator
+    if (this.items) {
+      this.items.forEach((item) => {
+        item.setAttribute('data-ecl-menu-item-visible', false);
+      });
+    }
+
+    // First case: overflow to the end
+    if (this.offsetLeft === 0) {
       this.btnNext.style.display = 'block';
+
+      // Get visible items
+      this.items.every((item) => {
+        if (
+          item.getBoundingClientRect().right >
+          this.itemsList.getBoundingClientRect().right
+        ) {
+          this.lastVisibleItem = item;
+          return false;
+        }
+        item.setAttribute('data-ecl-menu-item-visible', true);
+        return true;
+      });
+    }
+    // Second case: overflow to the begining
+    else {
+      // Get visible items
+      this.items.forEach((item) => {
+        if (
+          item.getBoundingClientRect().left >=
+          this.inner.getBoundingClientRect().left
+        ) {
+          item.setAttribute('data-ecl-menu-item-visible', true);
+        }
+      });
     }
   }
 
@@ -741,36 +787,46 @@ export class Menu {
    * Click on the previous items button
    */
   handleClickOnPreviousItems() {
-    if (!this.itemsList || !this.btnNext) return;
+    if (!this.itemsList || !this.btnNext || !this.lastVisibleItem) return;
 
+    this.offsetLeft = 0;
     this.itemsList.style.left = '0';
 
     // Update button display
     this.btnPrevious.style.display = 'none';
     this.btnNext.style.display = 'block';
 
-    // Trigger the resize event to refresh display
-    this.handleResize();
+    // Refresh display
+    this.checkMenuOverflow();
+
+    // Focus last element
+    let focusItem = null;
+    this.items.every((item) => {
+      if (item.getAttribute('data-ecl-menu-item-visible') === 'false') {
+        return false;
+      }
+      focusItem = item;
+      return true;
+    });
+    if (focusItem) {
+      const lastLink = queryOne(this.linkSelector, focusItem);
+      if (lastLink) {
+        lastLink.focus();
+      }
+    }
   }
 
   /**
    * Click on the next items button
    */
   handleClickOnNextItems() {
-    if (!this.itemsList || !this.items || !this.btnPrevious) return;
-
-    // Get last visible item
-    const listRect = this.itemsList.getBoundingClientRect();
-    let lastItem = null;
-
-    this.items.every((item) => {
-      if (item.getBoundingClientRect().right > listRect.right) {
-        lastItem = item;
-        return false;
-      }
-      return true;
-    });
-    if (!lastItem) return;
+    if (
+      !this.itemsList ||
+      !this.items ||
+      !this.btnPrevious ||
+      !this.lastVisibleItem
+    )
+      return;
 
     // Update button display
     this.btnPrevious.style.display = 'block';
@@ -778,13 +834,19 @@ export class Menu {
 
     // Calculate left offset
     this.offsetLeft =
-      lastItem.getBoundingClientRect().left -
-      listRect.left -
+      this.lastVisibleItem.getBoundingClientRect().left -
+      this.itemsList.getBoundingClientRect().left -
       this.btnPrevious.offsetWidth;
     this.itemsList.style.left = `-${this.offsetLeft}px`;
 
-    // Trigger the resize event to refresh display
-    this.handleResize();
+    // Refresh display
+    this.checkMenuOverflow();
+
+    // Focus first element
+    const firstLink = queryOne(this.linkSelector, this.lastVisibleItem);
+    if (firstLink) {
+      firstLink.focus();
+    }
   }
 
   /**
@@ -860,6 +922,31 @@ export class Menu {
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  /**
+   * Focus in a menu link
+   * @param {Event} e
+   */
+  handleFocusIn(e) {
+    const element = e.target;
+
+    // Specific focus action for desktop menu
+    // Focus previous/next buttons when needed
+    if (this.isDesktop && this.hasOverflow) {
+      const parentItem = element.closest('[data-ecl-menu-item]');
+      if (parentItem.getAttribute('data-ecl-menu-item-visible') === 'false') {
+        // Select previous of next buttons depending on the context
+        if (this.btnNext && this.btnNext.style.display === 'block') {
+          this.btnNext.focus();
+        } else if (
+          this.btnPrevious &&
+          this.btnPrevious.style.display === 'block'
+        ) {
+          this.btnPrevious.focus();
+        }
+      }
     }
   }
 

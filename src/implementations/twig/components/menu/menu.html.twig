@@ -94,44 +94,6 @@
       {{- _title -}}
     </a>
     <section class="ecl-menu__inner" data-ecl-menu-inner>
-      {% if _icon_path is not empty %}
-        {% include '@ecl/button/button.html.twig' with {
-          extra_classes: 'ecl-menu__items-previous',
-          type: 'button',
-          variant: 'ghost',
-          icon_position: 'before',
-          icon: {
-            path: _icon_path,
-            size: 's',
-            transform: 'rotate-270',
-            name: 'corner-arrow',
-          },
-          label: _button_previous_label,
-          hide_label: true,
-          extra_attributes: [
-            { name: 'data-ecl-menu-items-previous' },
-          ],
-        } only %}
-
-        {% include '@ecl/button/button.html.twig' with {
-          extra_classes: 'ecl-menu__items-next',
-          type: 'button',
-          variant: 'ghost',
-          icon_position: 'before',
-          icon: {
-            path: _icon_path,
-            size: 's',
-            transform: 'rotate-90',
-            name: 'corner-arrow',
-          },
-          label: _button_next_label,
-          hide_label: true,
-          extra_attributes: [
-            { name: 'data-ecl-menu-items-next' },
-          ],
-        } only %}
-      {% endif %}
-
       <header class="ecl-menu__inner-header">
         <button
           class="ecl-menu__close ecl-button ecl-button--text"
@@ -180,6 +142,27 @@
           </span>
         </button>
       </header>
+
+      {% if _icon_path is not empty %}
+        {% include '@ecl/button/button.html.twig' with {
+          type: 'button',
+          variant: 'ghost',
+          icon_position: 'before',
+          icon: {
+            path: _icon_path,
+            size: 's',
+            transform: 'rotate-270',
+            name: 'corner-arrow',
+          },
+          label: _button_previous_label,
+          hide_label: true,
+          extra_classes: 'ecl-menu__item ecl-menu__items-previous',
+          extra_attributes: [
+            { name: 'data-ecl-menu-items-previous' },
+          ],
+        } only %}
+      {% endif %}
+      
       <ul class="ecl-menu__list" data-ecl-menu-list>
       {% if items is defined and items is not empty and items is iterable %}
         {% for item in items %}
@@ -192,6 +175,26 @@
         {% endfor %}
       {% endif %}
       </ul>
+
+      {% if _icon_path is not empty %}
+        {% include '@ecl/button/button.html.twig' with {
+          type: 'button',
+          variant: 'ghost',
+          icon_position: 'before',
+          icon: {
+            path: _icon_path,
+            size: 's',
+            transform: 'rotate-90',
+            name: 'corner-arrow',
+          },
+          label: _button_next_label,
+          hide_label: true,
+          extra_classes: 'ecl-menu__item ecl-menu__items-next',
+          extra_attributes: [
+            { name: 'data-ecl-menu-items-next' },
+          ],
+        } only %}
+      {% endif %}
     </section>
   </div>
 </nav>

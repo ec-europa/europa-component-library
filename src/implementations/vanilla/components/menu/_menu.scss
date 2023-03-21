@@ -490,30 +490,6 @@ $_menu-max-height: null !default;
       flex-direction: row;
     }
 
-    .ecl-menu__items-previous,
-    .ecl-menu__items-next {
-      background-color: map.get(theme.$color, 'blue-100');
-      color: map.get(theme.$color, 'white');
-      display: none;
-      height: 100%;
-      padding: 0 map.get(theme.$spacing, 's');
-      position: absolute;
-      z-index: map.get(theme.$z-index, 'modal') + 2;
-    }
-
-    .ecl-menu__items-previous {
-      // TODO: rtl, print
-      border-inline-end: 4px solid $_desktop-item-border-color;
-      border-radius: $_border-radius 0 0 $_border-radius;
-      left: 0;
-    }
-
-    .ecl-menu__items-next {
-      border-inline-start: 4px solid $_desktop-item-border-color;
-      border-radius: 0 $_border-radius $_border-radius 0;
-      right: 0;
-    }
-
     .ecl-menu__item {
       border-top-width: 0;
       margin-inline-start: 1px;
@@ -545,6 +521,49 @@ $_menu-max-height: null !default;
     .ecl-menu__item:hover + .ecl-menu__item::before,
     .ecl-menu__item:last-child:hover::after {
       background-color: transparent;
+    }
+
+    // Previous / Next items
+    .ecl-menu__items-previous {
+      // TODO: rtl, print
+      border-inline-end: 4px solid $_desktop-item-border-color;
+      border-radius: $_border-radius 0 0 $_border-radius;
+      left: 0;
+    }
+
+    .ecl-menu__items-next {
+      border-inline-start: 4px solid $_desktop-item-border-color;
+      border-radius: 0 $_border-radius $_border-radius 0;
+      right: 0;
+    }
+
+    .ecl-menu__items-previous,
+    .ecl-menu__items-next {
+      background-color: map.get(theme.$color, 'blue-100');
+      color: map.get(theme.$color, 'white-100');
+      display: none;
+      height: 100%;
+      margin: 0;
+      padding: 0 map.get(theme.$spacing, 's');
+      position: absolute;
+      top: 0;
+      z-index: map.get(theme.$z-index, 'modal') + 2;
+
+      &::before,
+      &:last-child::after {
+        display: none;
+      }
+
+      &:hover {
+        color: $_item-hover-color;
+      }
+
+      &.ecl-menu__item:focus-within,
+      &.ecl-menu__item:focus-visible {
+        background-color: map.get(theme.$color, 'blue-100');
+        outline: 2px solid map.get(theme.$color, 'white-100');
+        outline-offset: -4px;
+      }
     }
 
     .ecl-menu__link-icon {
