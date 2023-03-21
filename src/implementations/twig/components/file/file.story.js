@@ -15,6 +15,7 @@ const listsClone = { ...dataThumbnailTaxonomy.lists[0] };
 const metaClone = [...dataThumbnail.detail_meta];
 const labelClone = { ...dataThumbnail.label };
 const translationsClone = { ...dataWithTranslation.translation };
+const imgClone = { ...dataThumbnail.picture };
 const system = getSystem();
 
 const getArgs = (data) => {
@@ -211,7 +212,7 @@ const prepareData = (data, args) => {
   }
 
   if (args.show_image && data.picture) {
-    data.picture.img = {};
+    data.picture = imgClone;
     data.picture.img.src = args.image;
   } else if (!args.show_image && data.picture) {
     data.picture = {};
