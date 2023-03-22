@@ -130,9 +130,24 @@ describe('File', () => {
     test('renders correctly without an image', () => {
       expect.assertions(1);
 
-      dataThumbnail.image = {};
+      dataThumbnail.picture = {};
 
       return expect(render(dataThumbnail)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with deprecated data', () => {
+      expect.assertions(1);
+
+      const oldData = {
+        ...dataThumbnail,
+        picture: {},
+        image: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alternative text',
+        },
+      };
+
+      return expect(render(oldData)).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
