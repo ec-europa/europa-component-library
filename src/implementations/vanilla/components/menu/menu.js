@@ -93,6 +93,7 @@ export class Menu {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
+    this.direction = 'ltr';
     this.open = null;
     this.close = null;
     this.back = null;
@@ -137,6 +138,9 @@ export class Menu {
    * Initialise component.
    */
   init() {
+    // Check display
+    this.direction = getComputedStyle(this.element).direction;
+
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
@@ -492,29 +496,55 @@ export class Menu {
       this.btnNext.style.display = 'block';
 
       // Get visible items
-      this.items.every((item) => {
-        if (
-          item.getBoundingClientRect().right >
-          this.itemsList.getBoundingClientRect().right
-        ) {
-          this.lastVisibleItem = item;
-          return false;
-        }
-        item.setAttribute('data-ecl-menu-item-visible', true);
-        return true;
-      });
+      if (this.direction === 'rtl') {
+        this.items.every((item) => {
+          if (
+            item.getBoundingClientRect().left <
+            this.itemsList.getBoundingClientRect().left
+          ) {
+            this.lastVisibleItem = item;
+            return false;
+          }
+          item.setAttribute('data-ecl-menu-item-visible', true);
+          return true;
+        });
+      } else {
+        this.items.every((item) => {
+          if (
+            item.getBoundingClientRect().right >
+            this.itemsList.getBoundingClientRect().right
+          ) {
+            this.lastVisibleItem = item;
+            return false;
+          }
+          item.setAttribute('data-ecl-menu-item-visible', true);
+          return true;
+        });
+      }
     }
     // Second case: overflow to the begining
     else {
       // Get visible items
-      this.items.forEach((item) => {
-        if (
-          item.getBoundingClientRect().left >=
-          this.inner.getBoundingClientRect().left
-        ) {
-          item.setAttribute('data-ecl-menu-item-visible', true);
-        }
-      });
+      // eslint-disable-next-line no-lonely-if
+      if (this.direction === 'rtl') {
+        this.items.forEach((item) => {
+          if (
+            item.getBoundingClientRect().right <=
+            this.inner.getBoundingClientRect().right
+          ) {
+            item.setAttribute('data-ecl-menu-item-visible', true);
+          }
+        });
+      } else {
+        this.items.forEach((item) => {
+          if (
+            item.getBoundingClientRect().left >=
+            this.inner.getBoundingClientRect().left
+          ) {
+            item.setAttribute('data-ecl-menu-item-visible', true);
+          }
+        });
+      }
     }
 
     // Check if the current item is hidden (one side or the other)
@@ -815,7 +845,13 @@ export class Menu {
     if (!this.itemsList || !this.btnNext || !this.lastVisibleItem) return;
 
     this.offsetLeft = 0;
-    this.itemsList.style.left = '0';
+    if (this.direction === 'rtl') {
+      this.itemsList.style.right = '0';
+      this.itemsList.style.left = 'auto';
+    } else {
+      this.itemsList.style.left = '0';
+      this.itemsList.style.right = 'auto';
+    }
 
     // Update button display
     this.btnPrevious.style.display = 'none';
@@ -847,11 +883,23 @@ export class Menu {
     this.btnNext.style.display = 'none';
 
     // Calculate left offset
-    this.offsetLeft =
-      this.lastVisibleItem.getBoundingClientRect().left -
-      this.itemsList.getBoundingClientRect().left -
-      this.btnPrevious.offsetWidth;
-    this.itemsList.style.left = `-${this.offsetLeft}px`;
+    if (this.direction === 'rtl') {
+      this.offsetLeft =
+        this.itemsList.getBoundingClientRect().right -
+        this.lastVisibleItem.getBoundingClientRect().right -
+        this.btnPrevious.offsetWidth;
+
+      this.itemsList.style.right = `-${this.offsetLeft}px`;
+      this.itemsList.style.left = 'auto';
+    } else {
+      this.offsetLeft =
+        this.lastVisibleItem.getBoundingClientRect().left -
+        this.itemsList.getBoundingClientRect().left -
+        this.btnPrevious.offsetWidth;
+
+      this.itemsList.style.left = `-${this.offsetLeft}px`;
+      this.itemsList.style.right = 'auto';
+    }
 
     // Refresh display
     this.checkMenuOverflow();
