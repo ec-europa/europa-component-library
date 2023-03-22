@@ -552,11 +552,17 @@ export class Menu {
     }
 
     // Handle menu item height and width (2 "lines" max)
+    // Max height: 2 * line-height + padding
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
     let linkWidth = menuLink.offsetWidth;
-    while (menuLink.offsetHeight > 72) {
-      // TODO: line height calculus
+    const linkStyle = window.getComputedStyle(menuLink);
+    const maxHeight =
+      parseInt(linkStyle.lineHeight, 10) * 2 +
+      parseInt(linkStyle.paddingTop, 10) +
+      parseInt(linkStyle.paddingBottom, 10);
+
+    while (menuLink.offsetHeight > maxHeight) {
       menuLink.style.width = `${(linkWidth += 1)}px`;
 
       // Safety exit
