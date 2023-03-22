@@ -25,7 +25,7 @@ module.exports = {
   language_selector: {
     href: exampleLink,
     label: 'English',
-    aria_label: 'Change language',
+    aria_label: 'Change language, current language is English',
     code: 'en',
     overlay: {
       title: 'Select your language',

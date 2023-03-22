@@ -9,7 +9,7 @@ function LogoCard({ path, name, color }) {
 
   return (
     <li className={cardClass}>
-      <img className={styles.logo} alt={name} src={path} />
+      <img className={styles.logo} alt={name} src={path.default} />
       <p className={styles.title}>{name}</p>
     </li>
   );

@@ -10,7 +10,7 @@
   - "meta" (string) (default: '')
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
-  - "image" (object) (default: {}): image for the thumbnail variant
+  - "picture" (object) (default: {}): image for the thumbnail variant
   - "label" (array) (default: {}) array of objects of type
   ** still supported as an object with a single label **
   - "lists" (array) (default: []) Array of objects of type "description list".
@@ -32,6 +32,12 @@
     },
     ...
   ],
+
+Deprecated
+
+  - **"image"** (optional) (object) (default: {}) image
+    - "src" (string) Image src
+    - "alt" (string) Image alt
 #}
 
 {# Internal properties #}
@@ -47,6 +53,7 @@
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
 {% set _image = image|default({}) %}
+{% set _picture = picture|default({}) %}
 {% set _meta_detail_string = '' %}
 {% set _variant = variant|default('default') %}
 {% set _description = description|default('') %}
@@ -90,6 +97,16 @@
   {% endfor %}
 {% endif %}
 
+{# Backward compatibility #}
+{% if _picture.img is empty and _image.src is not empty %}
+  {% set _picture = {
+    'img': {
+      'src': _image.src|default(''),
+      'alt': _image.alt|default('')
+    }
+  } %}
+{% endif %}
+
 {# Print the result #}
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
@@ -119,12 +136,12 @@
         <div class="ecl-file__description">{{ _description }}</div>
       {% endif %}
       </div>
-    {% if _image is not empty and _image.src is defined and _image.src is not empty %}
-      <img
-        class="ecl-file__image"
-        src="{{ _image.src }}"
-        alt="{{ _image.alt }}"
-      />
+      {% if _picture.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        extra_classes: "ecl-file__picture",
+        extra_image_classes: 'ecl-file__image',
+      } only %}
     {% endif %}
     </div>
     {% if _lists is not empty and _lists is iterable %}

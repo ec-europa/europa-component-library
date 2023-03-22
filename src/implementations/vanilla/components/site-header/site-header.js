@@ -91,6 +91,7 @@ export class SiteHeader {
     this.toggleOverlay = this.toggleOverlay.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.toggleLogin = this.toggleLogin.bind(this);
+    this.handleKeyboardLanguage = this.handleKeyboardLanguage.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
   }
@@ -129,6 +130,12 @@ export class SiteHeader {
     if (this.attachClickListener && this.close) {
       this.close.addEventListener('click', this.toggleOverlay);
     }
+    if (this.attachKeyListener && this.languageLink) {
+      this.languageLink.addEventListener(
+        'keydown',
+        this.handleKeyboardLanguage
+      );
+    }
 
     // Search form management
     this.searchToggle = queryOne(this.searchToggleSelector);
@@ -159,6 +166,13 @@ export class SiteHeader {
     }
     if (this.focusTrap) {
       this.focusTrap.deactivate();
+    }
+
+    if (this.attachKeyListener && this.languageLink) {
+      this.languageLink.removeEventListener(
+        'keydown',
+        this.handleKeyboardLanguage
+      );
     }
 
     if (this.attachClickListener && this.close) {
@@ -339,6 +353,18 @@ export class SiteHeader {
       this.focusTrap.activate();
     } else {
       this.focusTrap.deactivate();
+    }
+  }
+
+  /**
+   * Handles keyboard events specific to the language list.
+   *
+   * @param {Event} e
+   */
+  handleKeyboardLanguage(e) {
+    // Open the menu with space and enter
+    if (e.keyCode === 32 || e.key === 'Enter') {
+      this.toggleOverlay(e);
     }
   }
 
