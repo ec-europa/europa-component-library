@@ -32,10 +32,12 @@ npm install --save @ecl/twig-component-navigation-list
 {% include '@ecl/navigation-list/navigation-list.html.twig' with { 
   items: [ 
     { 
-      image: { 
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg', 
-        size: 'l', 
-      }, 
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alt text for the image',
+        },
+      },
       title: { 
         type: 'standalone', 
         label: 'Title 1', 
