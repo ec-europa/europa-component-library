@@ -33,6 +33,7 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__item {
   display: block;
+  height: $_image-height-mobile;
   margin-bottom: 0;
   margin-top: map.get(theme.$spacing, 'xs');
   position: relative;
@@ -65,6 +66,7 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__image-container {
   display: flex;
+  height: $_image-height-mobile;
   position: relative;
   background-color: map.get(theme.$color, 'black-100');
   flex-grow: 1;
@@ -193,13 +195,11 @@ $_item-outline-offset: null !default;
 
   .ecl-gallery__item {
     flex-grow: 1;
-    height: $_image-height-mobile;
     margin-inline-start: map.get(theme.$spacing, 'xs');
     min-width: $_image-height-mobile;
   }
 
   .ecl-gallery__image {
-    height: $_image-height-mobile;
     margin: 0 auto;
     width: auto;
   }
@@ -252,6 +252,10 @@ $_item-outline-offset: null !default;
 
   .ecl-gallery__image {
     min-width: $_image-height;
+  }
+
+  .ecl-gallery__image-container {
+    height: $_image-height;
   }
 }
 
