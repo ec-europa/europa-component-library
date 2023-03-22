@@ -891,10 +891,10 @@ $_menu-max-height: null !default;
   transition: right 375ms;
 }
 
-/* stylelint-disable-next-line order/order */
+/* stylelint-disable-next-line order/order no-descending-specificity */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
-    .ecl-menu__item,
+    .ecl-menu__item:not(.ecl-menu__items-previous, .ecl-menu__items-next),
     .ecl-menu__item:hover,
     .ecl-menu__mega,
     .ecl-menu__item:hover .ecl-menu__mega,
