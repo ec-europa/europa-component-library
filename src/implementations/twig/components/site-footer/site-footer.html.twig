@@ -70,35 +70,32 @@
           {% set _section_class_name = _section_class_name ~ ' ecl-site-footer__section--separator' %}
         {% endif %}
         <div class="{{ _section_class_name }}">
-          {# logo #}
-        {% if _sections.logo is defined and _sections.logo is not empty %}
+        {# logo #}
+        {% if _sections.logo is defined and _sections.logo is not empty and _sections.logo.src_desktop is not empty %}
           {% set _label %}
+          {% set _picture = { sources: [{ src: _sections.logo.src_desktop, media: 'l' }] } %}
           {% if _sections.logo.src_mobile is defined and _sections.logo.src_mobile is not empty %}
-            {% include '@ecl/picture/picture.html.twig' with {
-              picture: {
+            {% set _picture = _picture|merge({
                 img: {
                   src: _sections.logo.src_mobile,
-                  alt: _sections.logo.alt|default(''),
+                  alt: _sections.logo.alt,
                 },
+                sources: _picture.sources|merge([{ src: _sections.logo.src_mobile, media: 's' }]),
+              }) %}
+          {% else %}
+            {% set _picture = _picture|merge({
+              img: {
+                src: _sections.logo.src_desktop,
+                alt: _sections.logo.alt,
               },
-              extra_classes: "ecl-site-footer__picture",
-              extra_image_classes: 'ecl-site-footer__logo-image-mobile',
-              extra_attributes: [{ name: 'title', value: _sections.logo.title }],
-            } only %}
+            }) %}
           {% endif %}
-          {% if _sections.logo.src_desktop is defined and _sections.logo.src_desktop is not empty %}
-            {% include '@ecl/picture/picture.html.twig' with {
-              picture: {
-                img: {
-                  src: _sections.logo.src_desktop,
-                  alt: _sections.logo.alt|default(''),
-                },
-              },
-              extra_classes: "ecl-site-footer__picture",
-              extra_image_classes: 'ecl-site-footer__logo-image-desktop',
-              extra_attributes: [{ name: 'title', value: _sections.logo.title }],
-            } only %}
-          {% endif %}
+          {% include '@ecl/picture/picture.html.twig' with {
+            picture: _picture,
+            extra_classes: "ecl-site-footer__picture",
+            extra_image_classes: 'ecl-site-footer__logo-image',
+            extra_attributes: [{ name: 'title', value: _sections.logo.title }],
+          } only %}
           {% endset %}
           {% include '@ecl/link/link.html.twig' with {
             link: {
