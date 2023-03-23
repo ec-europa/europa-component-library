@@ -109,7 +109,7 @@ $_item-outline-offset: null !default;
   align-items: center;
   background-color: $_description-background;
   color: $_description-color;
-  font: map.get(theme.$font, 's');
+  font: map.get(theme.$font-prolonged, 's');
   padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
   text-decoration: none;
   white-space: nowrap;
@@ -138,7 +138,7 @@ $_item-outline-offset: null !default;
   flex-shrink: 0;
   height: $_description-icon-mobile;
   margin-inline-end: map.get(theme.$spacing, 'xs');
-  vertical-align: middle;
+  vertical-align: text-top;
   width: $_description-icon-mobile;
 }
 

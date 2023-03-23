@@ -112,18 +112,18 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
-      {% if _has_icon %}
-          {%- include '@ecl/icon/icon.html.twig' with {
-            icon: _item.icon,
-            extra_classes: 'ecl-gallery__description-icon',
-          } only %}
-        {% endif %}
+      {%- if _has_icon -%}
+        {%- include '@ecl/icon/icon.html.twig' with {
+          icon: _item.icon,
+          extra_classes: 'ecl-gallery__description-icon',
+        } only %}
+      {%- endif -%}
         {{- _item.description -}}
-        {% if _item.meta is defined and _item.meta is not empty %}
+      {%- if _item.meta is defined and _item.meta is not empty -%}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
           {{- _item.meta -}}
         </span>
-        {% endif %}
+      {%- endif -%}
       </figcaption>
     </figure>
   {% endif %}
