@@ -22,12 +22,16 @@ exports[`Site Footer Core EC default renders correctly 1`] = `
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -403,12 +407,16 @@ exports[`Site Footer Core EC default renders correctly with extra attributes 1`]
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -782,12 +790,16 @@ exports[`Site Footer Core EC default renders correctly with extra class names 1`
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -1161,18 +1173,26 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-mobile"
-                src="/logo-mobile-eu.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-eu.svg"
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-mobile"
+                  src="/logo-mobile-eu.svg"
+                />
+              </picture>
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-eu.svg"
+                />
+              </picture>
             </a>
             <div
               class="ecl-site-footer__description"
@@ -1197,8 +1217,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact the EU            
+              Contact the EU
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1207,7 +1226,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Call us                   
+              Call us               
                 <a
                   aria-label="Link to 00 800 6 7 8 9 10 11"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1220,7 +1239,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Use other                   
+              Use other               
                 <a
                   aria-label="Link to telephone options"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1233,7 +1252,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Write us via our                   
+              Write us via our               
                 <a
                   aria-label="Link to contact form"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1246,7 +1265,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Meet us at one of the                   
+              Meet us at one of the               
                 <a
                   aria-label="Link to EU centres"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1263,8 +1282,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Social media            
+              Social media
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1273,7 +1291,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU social media channels"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1290,8 +1308,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Legal            
+              Legal
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1363,8 +1380,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1564,8 +1580,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1574,7 +1589,7 @@ exports[`Site Footer Core EU default renders correctly 1`] = `
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU institutions"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1616,18 +1631,26 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-mobile"
-                src="/logo-mobile-eu.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-eu.svg"
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-mobile"
+                  src="/logo-mobile-eu.svg"
+                />
+              </picture>
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-eu.svg"
+                />
+              </picture>
             </a>
             <div
               class="ecl-site-footer__description"
@@ -1652,8 +1675,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact the EU            
+              Contact the EU
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1662,7 +1684,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Call us                   
+              Call us               
                 <a
                   aria-label="Link to 00 800 6 7 8 9 10 11"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1675,7 +1697,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Use other                   
+              Use other               
                 <a
                   aria-label="Link to telephone options"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1688,7 +1710,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Write us via our                   
+              Write us via our               
                 <a
                   aria-label="Link to contact form"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1701,7 +1723,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Meet us at one of the                   
+              Meet us at one of the               
                 <a
                   aria-label="Link to EU centres"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1718,8 +1740,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Social media            
+              Social media
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1728,7 +1749,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU social media channels"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -1745,8 +1766,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Legal            
+              Legal
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -1818,8 +1838,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2019,8 +2038,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2029,7 +2047,7 @@ exports[`Site Footer Core EU default renders correctly with extra attributes 1`]
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU institutions"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2069,18 +2087,26 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-mobile"
-                src="/logo-mobile-eu.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
-              <img
-                alt="European Union logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-eu.svg"
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-mobile"
+                  src="/logo-mobile-eu.svg"
+                />
+              </picture>
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Union"
-              />
+              >
+                <img
+                  alt="European Union logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-eu.svg"
+                />
+              </picture>
             </a>
             <div
               class="ecl-site-footer__description"
@@ -2105,8 +2131,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact the EU            
+              Contact the EU
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2115,7 +2140,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Call us                   
+              Call us               
                 <a
                   aria-label="Link to 00 800 6 7 8 9 10 11"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2128,7 +2153,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Use other                   
+              Use other               
                 <a
                   aria-label="Link to telephone options"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2141,7 +2166,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Write us via our                   
+              Write us via our               
                 <a
                   aria-label="Link to contact form"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2154,7 +2179,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Meet us at one of the                   
+              Meet us at one of the               
                 <a
                   aria-label="Link to EU centres"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2171,8 +2196,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Social media            
+              Social media
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2181,7 +2205,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU social media channels"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2198,8 +2222,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Legal            
+              Legal
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2271,8 +2294,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2472,8 +2494,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              EU institutions            
+              EU institutions
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2482,7 +2503,7 @@ exports[`Site Footer Core EU default renders correctly with extra class names 1`
                 class="ecl-site-footer__list-item"
               >
                 
-                  Search for                   
+              Search for               
                 <a
                   aria-label="Link to EU institutions"
                   class="ecl-link ecl-link--standalone ecl-site-footer__link"
@@ -2543,8 +2564,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2579,8 +2599,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -2669,8 +2688,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2694,8 +2712,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -2816,12 +2833,16 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -3010,8 +3031,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3046,8 +3066,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -3136,8 +3155,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3161,8 +3179,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3283,12 +3300,16 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -3475,8 +3496,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3511,8 +3531,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -3601,8 +3620,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3626,8 +3644,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3748,12 +3765,16 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -3940,8 +3961,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -3976,8 +3996,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -4066,8 +4085,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4091,8 +4109,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4213,12 +4230,16 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -4396,8 +4417,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4432,8 +4452,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -4522,8 +4541,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4547,8 +4565,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4669,12 +4686,16 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
@@ -4850,8 +4871,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Contact us            
+              Contact us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -4886,8 +4906,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Follow us on            
+              Follow us on
             </h2>
             <ul
               class="ecl-site-footer__list ecl-site-footer__list--inline"
@@ -4976,8 +4995,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              About us            
+              About us
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -5001,8 +5019,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             <h2
               class="ecl-site-footer__title ecl-site-footer__title--separator"
             >
-              
-              Related sites            
+              Related sites
             </h2>
             <ul
               class="ecl-site-footer__list"
@@ -5123,12 +5140,16 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
               href="/example"
             >
-              <img
-                alt="European Commission logo"
-                class="ecl-site-footer__logo-image-desktop"
-                src="/logo-ec.svg"
+              <picture
+                class="ecl-picture ecl-site-footer__picture"
                 title="European Commission"
-              />
+              >
+                <img
+                  alt="European Commission logo"
+                  class="ecl-site-footer__logo-image-desktop"
+                  src="/logo-ec.svg"
+                />
+              </picture>
             </a>
             <h2
               class="ecl-site-footer__title"
