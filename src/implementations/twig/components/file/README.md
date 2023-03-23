@@ -16,7 +16,7 @@ npm install --save @ecl/twig-component-file
 - **"meta"** (string) (default: '')
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
-- **"image"** (object) (default: {}): image for the thumbnail variant
+- **"picture"** (associative array) (default: {}): Image, following ECL Picture structure
 - **"label"** (array of objects of type Label) (default: []) labels
   ** also supported as an object with a single label **
 - **"lists"** (array) (default: []) Array of objects of type "description list"
@@ -33,8 +33,15 @@ npm install --save @ecl/twig-component-file
   - "description (string) (default:'')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+  Deprecated
+
+- **"image"** (optional) (object) (default: {}) image
+  - "src" (string) Image src
+  - "alt" (string) Image alt
 
 ### Example:
 
