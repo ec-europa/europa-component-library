@@ -202,46 +202,43 @@
   <div class="ecl-site-header__header">
     <div class="ecl-site-header__container ecl-container">
       <div class="ecl-site-header__top" data-ecl-site-header-top>
-      {# Logo #}
-      {% if _logo is not empty %}
-        {% set _label %}
-          {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
-            {% include '@ecl/picture/picture.html.twig' with {
-              picture: {
+        {# Logo #}
+        {% if _logo is not empty and _logo.src_desktop is not empty %}
+          {% set _label %}
+            {% set _picture = { sources: [{ src: _logo.src_desktop, media: 'l' }] } %}
+            {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+              {% set _picture = _picture|merge({
                 img: {
                   src: _logo.src_mobile,
                   alt: _logo.alt,
                 },
-              },
-              extra_classes: "ecl-site-header__picture",
-              extra_image_classes: 'ecl-site-header__logo-image ecl-site-header__logo-image-mobile',
-              extra_attributes: [{ name: 'title', value: _logo.title }],
-            } only %}
-          {% endif %}
-          {% if _logo.src_desktop is defined and _logo.src_desktop is not empty %}
-            {% include '@ecl/picture/picture.html.twig' with {
-              picture: {
+                sources: _picture.sources|merge([{ src: _logo.src_mobile, media: 's' }]),
+              }) %}
+            {% else %}
+              {% set _picture = _picture|merge({
                 img: {
                   src: _logo.src_desktop,
                   alt: _logo.alt,
                 },
-              },
-              extra_attributes: [{ name: 'title', value: _logo.title }],
+              }) %}
+            {% endif %}
+            {% include '@ecl/picture/picture.html.twig' with {
+              picture: _picture,
               extra_classes: "ecl-site-header__picture",
-              extra_image_classes: 'ecl-site-header__logo-image ecl-site-header__logo-image-desktop',
+              extra_image_classes: 'ecl-site-header__logo-image',
+              extra_attributes: [{ name: 'title', value: _logo.title }],
             } only %}
-          {% endif %}
-        {% endset %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            path: _logo.path,
-            label: _label,
-            type: 'standalone',
-            aria_label: _logo.title
-          },
-          extra_classes: 'ecl-site-header__logo-link'
-        } only %}
-      {% endif %}
+          {% endset %}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              path: _logo.path,
+              label: _label,
+              type: 'standalone',
+              aria_label: _logo.title
+            },
+            extra_classes: 'ecl-site-header__logo-link'
+          } only %}
+        {% endif %}
 
         {# Header actions #}
         <div class="ecl-site-header__action">
