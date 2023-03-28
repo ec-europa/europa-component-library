@@ -7,6 +7,8 @@ module.exports = {
   close: 'Close',
   back: 'Back',
   menu_link: exampleLink,
+  button_previous_label: 'Previous items',
+  button_next_label: 'Next items',
   icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
