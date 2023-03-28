@@ -4,11 +4,8 @@
   Parameters:
     - "title" (string) (default: '')
     - "description" (string) (default: '')
-    - "image" (associative array) (default: {}): format: {
-      "alt" (string) (default: ''): alternative text for the image
-      "src" (string) (default: ''): image url
-      "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
-    }
+    - "picture" (associative array) (default: {}): Image for item, following ECL Picture structure
+    - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -17,6 +14,13 @@
           "value" (optional) (string)
         ...
       ],
+
+  Deprecated:
+    - "image" (object) (default: {}): format: {
+        "src" (string) (default: '')
+        "alt" (string) (default: '')
+        "square" (boolean) (default: false)
+      }
 #}
 
 {# Internal properties #}
@@ -24,8 +28,11 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _image = image|default({}) %}
+{% set _picture = picture|default({}) %}
+{% set _square = square|default(false) %}
 {% set _icon = icon|default({}) %}
 {% set _css_class = 'ecl-list-illustration__item' %}
+{% set _image_class =  'ecl-list-illustration__image' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -44,12 +51,31 @@
   {% endfor %}
 {% endif %}
 
+{# Backward compatibility #}
+
+{% if _picture.img is empty and _image.src is not empty %}
+  {% set _picture = {
+    'img': {
+      'path': _image.src|default(''),
+      'alt': _image.alt|default('')
+    }
+  } %}
+  {% set _square = _image.square is defined ? _image.square : _square %}
+{% endif %}
+
+{% if _square %}
+  {% set _image_class = _image_class ~ ' ecl-list-illustration__image--square' %}
+{% endif %}
+
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _image is not empty and _image.src is defined and _image.src is not empty %}
-    {% set _image_class = _image.squared ? "ecl-list-illustration__image ecl-list-illustration__image--square" : "ecl-list-illustration__image" %}
-    <div class="{{ _image_class }}" aria-label="{{ _image.alt }}" role="img" style="background-image:url('{{ _image.src }}')"></div>
+  {% if _picture.img is not empty %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: "ecl-list-illustration__picture",
+      extra_image_classes: _image_class,
+    } only %}
   {% endif %}
   <div class="ecl-list-illustration__detail">
   {% if _title is not empty or _icon is not empty %}
