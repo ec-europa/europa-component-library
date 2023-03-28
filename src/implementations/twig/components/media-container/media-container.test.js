@@ -56,13 +56,8 @@ describe('Media Container', () => {
 
   describe('Media container video', () => {
     test('renders correctly', () => {
-      const options = merge(defaultDataStructure, {
-        tracks: demoContentVideo.tracks,
-        sources: demoContentVideo.sources,
-      });
-
       expect.assertions(1);
-      return expect(render(options)).resolves.toMatchSnapshot();
+      return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
     });
 
     test('with embedded media renders correctly', () => {

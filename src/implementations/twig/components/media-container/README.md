@@ -9,7 +9,8 @@ npm install --save @ecl/twig-component-media-container
 ### Parameters
 
 - **"description"** (string) (default: '') - A caption to be shown under the media,
-- **"image"** (string) (default: '') The path to the image,
+- **"image"** (string) (default: '') The path to the image to be used as the video preview,
+- **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
 - **"sources"** (array) (default: []) Array of Video sources with this structure:
   - "src" (string) (default: ''),
@@ -20,12 +21,16 @@ npm install --save @ecl/twig-component-media-container
   - "src_lang" (string) (default: ''),
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
-- **"alt"** (string) (default: '') The alternate text foher the image,
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'.
+
+  Deprecated:
+
+  - **"alt"** (string) (default: '') The alternate text for the image,
 
 ### Blocks:
 
@@ -38,8 +43,12 @@ npm install --save @ecl/twig-component-media-container
 {% include '@ecl/media-container/media-container.html.twig' with { 
   description: 'A description for this image', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
-  image: '/path/to/your/image', 
-  alt: 'An alternate text', 
+  picture: {
+    img: {
+      src: '/path/to/your/image',
+      alt: 'An alternate text',
+    },
+  },
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 
     { name: 'data-test-1', value: 'data-test-value-1' } 
