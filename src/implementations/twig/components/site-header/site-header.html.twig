@@ -212,7 +212,6 @@
                   src: _logo.src_mobile,
                   alt: _logo.alt,
                 },
-                sources: _picture.sources|merge([{ src: _logo.src_mobile, media: 's' }]),
               }) %}
             {% else %}
               {% set _picture = _picture|merge({

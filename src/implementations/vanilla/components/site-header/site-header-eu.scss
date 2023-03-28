@@ -1,6 +1,11 @@
 /**
  * Site Header
  * @define site-header; weak
+ *
+ *  => ECL v3.8 Deprecated selectors
+ *     .ecl-site-header__logo-image-mobile
+ *     .ecl-site-header__logo-image-desktop
+ *  Replaced by: .ecl-site-header__logo-image
  */
 
 @use 'sass:map';
@@ -78,10 +83,15 @@ $_search-width-xl: 31.5rem;
   flex-grow: 1;
 }
 
+.ecl-site-header__logo-image-mobile,
 .ecl-site-header__logo-image {
   display: block;
   max-height: $_logo-height-xs;
   max-width: 100%;
+}
+
+.ecl-site-header__logo-image-desktop {
+  display: none;
 }
 
 .ecl-site-header__action {
@@ -236,6 +246,7 @@ $_search-width-xl: 31.5rem;
     flex-grow: 0;
   }
 
+  .ecl-site-header__logo-image-mobile,
   .ecl-site-header__logo-image {
     height: $_logo-height-sm;
     max-height: 100%;
@@ -328,6 +339,11 @@ $_search-width-xl: 31.5rem;
     margin-bottom: 0;
   }
 
+  .ecl-site-header__logo-image-mobile {
+    display: none;
+  }
+
+  .ecl-site-header__logo-image-desktop,
   .ecl-site-header__logo-image {
     display: block;
     height: $_logo-height-lg;
