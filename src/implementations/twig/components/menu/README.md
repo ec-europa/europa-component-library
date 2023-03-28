@@ -12,27 +12,19 @@ npm install --save @ecl/twig-component-menu
 - **"close"** (string) (default: ''): Close button label
 - **"back"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
-- **"items"** (associative array) (default: {}): The menu items - format: [
+- **"items"**: (associative array) (default: {}): The menu items - format: [
   {
-  "label": "Home",
-  "path": "/example",
-  "is_current": true
-  },
+  "label": (string) (default: '')
+  "path": (string) (default: '')
+  "is_current": (boolean) (optional),
+  "children": (associative array) (optional): [
   {
-  "label": "Item 1",
-  "path": "/example",
-  "is_current": true
-  "children": [
-  {
-  "label": "Item 1.1",
-  "path": "/example"
-  },
-  {
-  "label": "Item 1.2",
-  "path": "/example"
-  },
-  ],
-  },
+  "label": (string) (default: '')
+  "path": (string) (default: '')
+  "is_current": (boolean) (optional),
+  }
+  ]
+  }
   ],
 - **"site_name"** (string) (default: ''): Name of the website (used only on mobile)
 - **"cta_link"** (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
