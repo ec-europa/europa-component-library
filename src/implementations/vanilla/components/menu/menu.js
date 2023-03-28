@@ -88,7 +88,7 @@ export class Menu {
     this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
-    this.maxLines = maxLines;
+    this.maxLines = maxLines > 0 ? maxLines : 1;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
@@ -605,39 +605,6 @@ export class Menu {
       if (linkWidth > 1000) break;
     }
     menuItem.style.alignItems = 'unset';
-
-    const menuMega = queryOne(this.megaSelector, menuItem);
-
-    if (menuMega) {
-      // Check number of items and put them in column
-      const subItems = queryAll(this.subItemSelector, menuMega);
-
-      if (subItems.length < 5) {
-        menuItem.classList.add('ecl-menu__item--col1');
-      } else if (subItems.length < 9) {
-        menuItem.classList.add('ecl-menu__item--col2');
-      } else if (subItems.length < 13) {
-        menuItem.classList.add('ecl-menu__item--col3');
-      } else {
-        menuItem.classList.add('ecl-menu__item--full');
-        return;
-      }
-
-      // Check if there is enough space on the right to display the menu
-      const megaBounding = menuMega.getBoundingClientRect();
-      const containerBounding = this.inner.getBoundingClientRect();
-      const menuItemBounding = menuItem.getBoundingClientRect();
-
-      const megaWidth = megaBounding.width;
-      const containerWidth = containerBounding.width;
-      const menuItemPosition = menuItemBounding.left - containerBounding.left;
-
-      if (menuItemPosition + megaWidth > containerWidth) {
-        menuMega.classList.add('ecl-menu__mega--rtl');
-      } else {
-        menuMega.classList.remove('ecl-menu__mega--rtl');
-      }
-    }
   }
 
   /**
@@ -864,12 +831,12 @@ export class Menu {
     this.btnNext.style.display = 'block';
 
     // Refresh display
-    this.checkMenuOverflow();
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
       });
     }
+    this.checkMenuOverflow();
   }
 
   /**
@@ -908,12 +875,12 @@ export class Menu {
     }
 
     // Refresh display
-    this.checkMenuOverflow();
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
       });
     }
+    this.checkMenuOverflow();
   }
 
   /**
@@ -948,8 +915,10 @@ export class Menu {
    * @param {Event} e
    */
   handleHoverOnItem(e) {
-    // Add attribute to current item, and remove it from others
     const menuItem = e.target.closest(this.itemSelector);
+    const menuMega = queryOne(this.megaSelector, menuItem);
+
+    // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.setAttribute('aria-expanded', 'true');
@@ -964,7 +933,36 @@ export class Menu {
       }
     });
 
-    return this;
+    if (menuMega && this.inner) {
+      // Check number of items and put them in column
+      const subItems = queryAll(this.subItemSelector, menuMega);
+
+      if (subItems.length < 5) {
+        menuItem.classList.add('ecl-menu__item--col1');
+      } else if (subItems.length < 9) {
+        menuItem.classList.add('ecl-menu__item--col2');
+      } else if (subItems.length < 13) {
+        menuItem.classList.add('ecl-menu__item--col3');
+      } else {
+        menuItem.classList.add('ecl-menu__item--full');
+        return;
+      }
+
+      // Check if there is enough space on the right to display the menu
+      const megaBounding = menuMega.getBoundingClientRect();
+      const containerBounding = this.inner.getBoundingClientRect();
+      const menuItemBounding = menuItem.getBoundingClientRect();
+
+      const megaWidth = megaBounding.width;
+      const containerWidth = containerBounding.width;
+      const menuItemPosition = menuItemBounding.left - containerBounding.left;
+
+      if (menuItemPosition + megaWidth > containerWidth) {
+        menuMega.classList.add('ecl-menu__mega--rtl');
+      } else {
+        menuMega.classList.remove('ecl-menu__mega--rtl');
+      }
+    }
   }
 
   /**
