@@ -135,6 +135,7 @@ export class Menu {
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
     this.checkMenuOverflow = this.checkMenuOverflow.bind(this);
     this.checkMenuItem = this.checkMenuItem.bind(this);
+    this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
   }
 
@@ -484,10 +485,17 @@ export class Menu {
       if (this.itemsList) {
         this.itemsList.style.left = '0';
       }
+      if (this.inner) {
+        this.inner.classList.remove('ecl-menu__inner--has-overflow');
+      }
       this.offsetLeft = 0;
       this.totalItemsWidth = 0;
       this.lastVisibleItem = null;
       return;
+    }
+
+    if (this.inner) {
+      this.inner.classList.add('ecl-menu__inner--has-overflow');
     }
 
     // Reset visibility indicator
@@ -608,6 +616,49 @@ export class Menu {
       if (linkWidth > 1000) break;
     }
     menuItem.style.alignItems = 'unset';
+  }
+
+  /**
+   * Handle positioning of mega menu
+   * @param {Node} menuItem
+   */
+  checkMegaMenu(menuItem) {
+    const menuMega = queryOne(this.megaSelector, menuItem);
+    if (menuMega && this.inner) {
+      // Check number of items and put them in column
+      const subItems = queryAll(this.subItemSelector, menuMega);
+
+      if (subItems.length < 5) {
+        menuItem.classList.add('ecl-menu__item--col1');
+      } else if (subItems.length < 9) {
+        menuItem.classList.add('ecl-menu__item--col2');
+      } else if (subItems.length < 13) {
+        menuItem.classList.add('ecl-menu__item--col3');
+      } else {
+        menuItem.classList.add('ecl-menu__item--full');
+        if (this.direction === 'rtl') {
+          menuMega.style.right = `${this.offsetLeft}px`;
+        } else {
+          menuMega.style.left = `${this.offsetLeft}px`;
+        }
+        return;
+      }
+
+      // Check if there is enough space on the right to display the menu
+      const megaBounding = menuMega.getBoundingClientRect();
+      const containerBounding = this.inner.getBoundingClientRect();
+      const menuItemBounding = menuItem.getBoundingClientRect();
+
+      const megaWidth = megaBounding.width;
+      const containerWidth = containerBounding.width;
+      const menuItemPosition = menuItemBounding.left - containerBounding.left;
+
+      if (menuItemPosition + megaWidth > containerWidth) {
+        menuMega.classList.add('ecl-menu__mega--rtl');
+      } else {
+        menuMega.classList.remove('ecl-menu__mega--rtl');
+      }
+    }
   }
 
   /**
@@ -911,6 +962,7 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
+    this.checkMegaMenu(menuItem);
   }
 
   /**
@@ -938,37 +990,7 @@ export class Menu {
       }
     });
 
-    const menuMega = queryOne(this.megaSelector, menuItem);
-    if (menuMega && this.inner) {
-      // Check number of items and put them in column
-      const subItems = queryAll(this.subItemSelector, menuMega);
-
-      if (subItems.length < 5) {
-        menuItem.classList.add('ecl-menu__item--col1');
-      } else if (subItems.length < 9) {
-        menuItem.classList.add('ecl-menu__item--col2');
-      } else if (subItems.length < 13) {
-        menuItem.classList.add('ecl-menu__item--col3');
-      } else {
-        menuItem.classList.add('ecl-menu__item--full');
-        return;
-      }
-
-      // Check if there is enough space on the right to display the menu
-      const megaBounding = menuMega.getBoundingClientRect();
-      const containerBounding = this.inner.getBoundingClientRect();
-      const menuItemBounding = menuItem.getBoundingClientRect();
-
-      const megaWidth = megaBounding.width;
-      const containerWidth = containerBounding.width;
-      const menuItemPosition = menuItemBounding.left - containerBounding.left;
-
-      if (menuItemPosition + megaWidth > containerWidth) {
-        menuMega.classList.add('ecl-menu__mega--rtl');
-      } else {
-        menuMega.classList.remove('ecl-menu__mega--rtl');
-      }
-    }
+    this.checkMegaMenu(menuItem);
   }
 
   /**

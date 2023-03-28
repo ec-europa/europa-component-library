@@ -120,13 +120,16 @@ $_menu-max-height: null !default;
     .ecl-menu__inner {
       background-color: transparent;
       display: block;
-      overflow-x: clip;
       overflow-y: visible;
       position: relative;
       right: 0;
       transition: none;
       width: 100%;
       z-index: map.get(theme.$z-index, 'modal');
+    }
+
+    .ecl-menu__inner--has-overflow {
+      overflow-x: clip;
     }
 
     .ecl-menu__overlay {
