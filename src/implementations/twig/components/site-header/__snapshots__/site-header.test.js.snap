@@ -21,12 +21,20 @@ exports[`Site Header EC renders correctly 1`] = `
             class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
             href="/example"
           >
-            <img
-              alt="European Commission logo"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
-              src="/logo-ec--en.svg"
+            <picture
+              class="ecl-picture ecl-site-header__picture"
               title="European Commission"
-            />
+            >
+              <source
+                media="(min-width: 996px)"
+                srcset="/logo-ec--en.svg"
+              />
+              <img
+                alt="European Commission logo"
+                class="ecl-site-header__logo-image"
+                src="/logo-ec--en.svg"
+              />
+            </picture>
           </a>
           <div
             class="ecl-site-header__action"
@@ -1188,12 +1196,20 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
             href="/example"
           >
-            <img
-              alt="European Commission logo"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
-              src="/logo-ec--en.svg"
+            <picture
+              class="ecl-picture ecl-site-header__picture"
               title="European Commission"
-            />
+            >
+              <source
+                media="(min-width: 996px)"
+                srcset="/logo-ec--en.svg"
+              />
+              <img
+                alt="European Commission logo"
+                class="ecl-site-header__logo-image"
+                src="/logo-ec--en.svg"
+              />
+            </picture>
           </a>
           <div
             class="ecl-site-header__action"
@@ -2389,12 +2405,20 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
             href="/example"
           >
-            <img
-              alt="European Commission logo"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
-              src="/logo-ec--en.svg"
+            <picture
+              class="ecl-picture ecl-site-header__picture"
               title="European Commission"
-            />
+            >
+              <source
+                media="(min-width: 996px)"
+                srcset="/logo-ec--en.svg"
+              />
+              <img
+                alt="European Commission logo"
+                class="ecl-site-header__logo-image"
+                src="/logo-ec--en.svg"
+              />
+            </picture>
           </a>
           <div
             class="ecl-site-header__action"
@@ -3556,12 +3580,20 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
             href="/example"
           >
-            <img
-              alt="European Commission logo"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
-              src="/logo-ec--en.svg"
+            <picture
+              class="ecl-picture ecl-site-header__picture"
               title="European Commission"
-            />
+            >
+              <source
+                media="(min-width: 996px)"
+                srcset="/logo-ec--en.svg"
+              />
+              <img
+                alt="European Commission logo"
+                class="ecl-site-header__logo-image"
+                src="/logo-ec--en.svg"
+              />
+            </picture>
           </a>
           <div
             class="ecl-site-header__action"
@@ -4723,18 +4755,20 @@ exports[`Site Header EU renders correctly 1`] = `
             class="ecl-link ecl-link--standalone ecl-site-header__logo-link"
             href="/example"
           >
-            <img
-              alt="European Union flag"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-mobile"
-              src="/condensed-version/positive/logo-eu--en.svg"
+            <picture
+              class="ecl-picture ecl-site-header__picture"
               title="European Union"
-            />
-            <img
-              alt="European Union flag"
-              class="ecl-site-header__logo-image ecl-site-header__logo-image-desktop"
-              src="/standard-version/positive/logo-eu--en.svg"
-              title="European Union"
-            />
+            >
+              <source
+                media="(min-width: 996px)"
+                srcset="/standard-version/positive/logo-eu--en.svg"
+              />
+              <img
+                alt="European Union flag"
+                class="ecl-site-header__logo-image"
+                src="/condensed-version/positive/logo-eu--en.svg"
+              />
+            </picture>
           </a>
           <div
             class="ecl-site-header__action"
