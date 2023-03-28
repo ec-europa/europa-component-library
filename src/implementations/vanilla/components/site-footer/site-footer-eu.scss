@@ -1,6 +1,11 @@
 /**
  * Site Footer component
  * @define site-footer
+ *
+ *  => ECL v3.8 Deprecated selectors
+ *     .ecl-site-footer__logo-image-mobile
+ *     .ecl-site-footer__logo-image-desktop
+ *  Replaced by: .ecl-site-footer__logo-image
  */
 
 @use 'sass:map';
@@ -117,6 +122,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   display: none;
 }
 
+.ecl-site-footer__logo-image-mobile,
 .ecl-site-footer__logo-image {
   display: block;
   height: 2.75rem;
@@ -165,6 +171,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
     font: map.get(theme.$font, '3xl');
   }
 
+  .ecl-site-footer__logo-image-mobile {
+    display: none;
+  }
+
+  .ecl-site-footer__logo-image-desktop,
   .ecl-site-footer__logo-image {
     display: block;
     height: 2.75rem;

@@ -80,7 +80,6 @@
                   src: _sections.logo.src_mobile,
                   alt: _sections.logo.alt,
                 },
-                sources: _picture.sources|merge([{ src: _sections.logo.src_mobile, media: 's' }]),
               }) %}
           {% else %}
             {% set _picture = _picture|merge({
