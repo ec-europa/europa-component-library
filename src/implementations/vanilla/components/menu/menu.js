@@ -18,7 +18,7 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.buttonNextSelector Selector for the next items button (for overflow)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
- * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow)
+ * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow). Set it to zero to disable automatic resize.
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
@@ -88,7 +88,7 @@ export class Menu {
     this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
-    this.maxLines = maxLines > 0 ? maxLines : 1;
+    this.maxLines = maxLines;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
@@ -587,6 +587,9 @@ export class Menu {
       return;
     }
 
+    // Check if line management has been disabled by user
+    if (this.maxLines < 1) return;
+
     // Handle menu item height and width (n "lines" max)
     // Max height: n * line-height + padding
     // We need to temporally change item alignments to get the height
@@ -916,7 +919,9 @@ export class Menu {
    */
   handleHoverOnItem(e) {
     const menuItem = e.target.closest(this.itemSelector);
-    const menuMega = queryOne(this.megaSelector, menuItem);
+
+    // Ignore hidden or partially hidden items
+    if (menuItem.getAttribute('data-ecl-menu-item-visible') === 'false') return;
 
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
@@ -933,6 +938,7 @@ export class Menu {
       }
     });
 
+    const menuMega = queryOne(this.megaSelector, menuItem);
     if (menuMega && this.inner) {
       // Check number of items and put them in column
       const subItems = queryAll(this.subItemSelector, menuMega);
