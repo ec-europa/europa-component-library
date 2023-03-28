@@ -104,29 +104,29 @@ $_label-color: null !default;
 // Checked and indeterminate
 // stylelint-disable no-descending-specificity
 .ecl-checkbox__input:checked {
-  + .ecl-checkbox__label .ecl-checkbox__box {
+  ~ .ecl-checkbox__label .ecl-checkbox__box {
     background: $_box-background-checked;
     border-color: $_box-border-color-checked;
   }
 
-  + .ecl-checkbox__label:hover .ecl-checkbox__box {
+  ~ .ecl-checkbox__label:hover .ecl-checkbox__box {
     background: $_box-background-checked-hover;
     border-color: $_box-background-checked-hover;
   }
 
-  + .ecl-checkbox__label .ecl-checkbox__box--invalid {
+  ~ .ecl-checkbox__label .ecl-checkbox__box--invalid {
     background: $_invalid-border-color;
     border-color: $_invalid-border-color;
   }
 
-  + .ecl-checkbox__label .ecl-checkbox__icon {
+  ~ .ecl-checkbox__label .ecl-checkbox__icon {
     visibility: visible;
   }
 }
 
 // Invalid
 .ecl-checkbox--invalid {
-  @at-root .ecl-form-group & + .ecl-feedback-message {
+  @at-root .ecl-form-group & ~ .ecl-feedback-message {
     margin-top: map.get(theme.$spacing, 'xs');
   }
 
@@ -149,7 +149,7 @@ $_label-color: null !default;
 /* stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors */
 .ecl-checkbox--invalid
   input:checked
-  + .ecl-checkbox__label:hover
+  ~ .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
   background: map.get(theme.$color, 'red-130');
 }
@@ -161,7 +161,7 @@ $_label-color: null !default;
 
 // Hover and default focus state
 .ecl-checkbox__input:focus-visible {
-  + .ecl-checkbox__label {
+  ~ .ecl-checkbox__label {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
       outline: 2px solid map.get(theme.$color, 'blue-100');
       outline-offset: 2px;
@@ -169,7 +169,7 @@ $_label-color: null !default;
   }
 
   &:checked {
-    + .ecl-checkbox__label {
+    ~ .ecl-checkbox__label {
       .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
         outline: 2px solid map.get(theme.$color, 'blue-100');
         outline-offset: 2px;
