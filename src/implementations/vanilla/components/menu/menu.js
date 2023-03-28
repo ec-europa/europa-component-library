@@ -18,6 +18,7 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.buttonNextSelector Selector for the next items button (for overflow)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
+ * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow)
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
@@ -56,6 +57,7 @@ export class Menu {
       caretSelector = '[data-ecl-menu-caret]',
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
+      maxLines = 2,
       attachClickListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
@@ -86,6 +88,7 @@ export class Menu {
     this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
+    this.maxLines = maxLines;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
@@ -112,6 +115,7 @@ export class Menu {
     this.offsetLeft = 0;
     this.lastVisibleItem = null;
     this.currentItem = null;
+    this.totalItemsWidth = 0;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -252,6 +256,7 @@ export class Menu {
       this.items.forEach((item) => {
         // Check menu item display (right to left, full width, ...)
         this.checkMenuItem(item);
+        this.totalItemsWidth += item.offsetWidth;
 
         if (item.hasAttribute('data-ecl-has-children')) {
           // Bind hover and focus events on menu items
@@ -428,9 +433,11 @@ export class Menu {
       this.isDesktop = this.useDesktopDisplay();
 
       // Update items display
+      this.totalItemsWidth = 0;
       if (this.items) {
         this.items.forEach((item) => {
           this.checkMenuItem(item);
+          this.totalItemsWidth += item.offsetWidth;
         });
       }
 
@@ -449,22 +456,6 @@ export class Menu {
    * @param {Node} menuItem
    */
   checkMenuOverflow() {
-    if (!this.isDesktop) {
-      // Reset values related to overflow
-      if (this.btnPrevious) {
-        this.btnPrevious.style.display = 'none';
-      }
-      if (this.btnNext) {
-        this.btnNext.style.display = 'none';
-      }
-      if (this.itemsList) {
-        this.itemsList.style.left = '0';
-      }
-      this.offsetLeft = 0;
-      this.lastVisibleItem = null;
-      return;
-    }
-
     // Backward compatibility
     if (!this.itemsList) {
       this.itemsList = queryOne('.ecl-menu__list', this.element);
@@ -481,8 +472,23 @@ export class Menu {
     }
 
     // Check if the menu is too large
-    this.hasOverflow = this.itemsList.scrollWidth > this.inner.offsetWidth;
-    if (!this.hasOverflow) return;
+    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth;
+    if (!this.hasOverflow || !this.isDesktop) {
+      // Reset values related to overflow
+      if (this.btnPrevious) {
+        this.btnPrevious.style.display = 'none';
+      }
+      if (this.btnNext) {
+        this.btnNext.style.display = 'none';
+      }
+      if (this.itemsList) {
+        this.itemsList.style.left = '0';
+      }
+      this.offsetLeft = 0;
+      this.totalItemsWidth = 0;
+      this.lastVisibleItem = null;
+      return;
+    }
 
     // Reset visibility indicator
     if (this.items) {
@@ -581,14 +587,14 @@ export class Menu {
       return;
     }
 
-    // Handle menu item height and width (2 "lines" max)
-    // Max height: 2 * line-height + padding
+    // Handle menu item height and width (n "lines" max)
+    // Max height: n * line-height + padding
     // We need to temporally change item alignments to get the height
     menuItem.style.alignItems = 'flex-start';
     let linkWidth = menuLink.offsetWidth;
     const linkStyle = window.getComputedStyle(menuLink);
     const maxHeight =
-      parseInt(linkStyle.lineHeight, 10) * 2 +
+      parseInt(linkStyle.lineHeight, 10) * this.maxLines +
       parseInt(linkStyle.paddingTop, 10) +
       parseInt(linkStyle.paddingBottom, 10);
 

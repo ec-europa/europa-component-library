@@ -488,6 +488,9 @@ $_menu-max-height: null !default;
     .ecl-menu__list {
       background-color: $_list-background;
       flex-direction: row;
+      left: 0;
+      right: 0;
+      transition: left 0.5s, right 0.5s;
     }
 
     .ecl-menu__item {
@@ -525,7 +528,6 @@ $_menu-max-height: null !default;
 
     // Previous / Next items
     .ecl-menu__items-previous {
-      // TODO: rtl, print
       border-inline-end: 4px solid $_desktop-item-border-color;
       border-radius: $_border-radius 0 0 $_border-radius;
       left: 0;
