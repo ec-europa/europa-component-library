@@ -16,7 +16,7 @@ describe('Media Container', () => {
   const render = (params) => renderTwigFileAsNode(template, params);
   const defaultDataStructure = demoContentImg;
 
-  describe('Media Container generic tests', () => {
+  describe('generic tests', () => {
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -27,7 +27,7 @@ describe('Media Container', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
-    test('Media container renders correctly with extra attributes', () => {
+    test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 
       const optionsWithExtraClasses = merge(defaultDataStructure, {
@@ -47,14 +47,26 @@ describe('Media Container', () => {
     });
   });
 
-  describe('Media container image', () => {
-    test('Media container image renders correctly', () => {
+  describe('image', () => {
+    test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with old data', () => {
+      expect.assertions(1);
+      const oldData = {
+        ...defaultDataStructure,
+        image: defaultDataStructure.picture.img.src,
+        alt: defaultDataStructure.picture.img.alt,
+        picture: {},
+      };
+
+      return expect(render(oldData)).resolves.toMatchSnapshot();
+    });
   });
 
-  describe('Media container video', () => {
+  describe('video', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
