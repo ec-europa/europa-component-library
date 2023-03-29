@@ -13,6 +13,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
+const remarkGfm = require('remark-gfm');
 const unwrapImages = require('remark-unwrap-images');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const babelConfig = require('./config/babel.config');
@@ -229,10 +230,12 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
+                  providerImportSource: '@mdx-js/react',
                   remarkPlugins: [
                     // Removes front-matter from Markdown output
                     frontmatter,
                     { type: 'yaml', marker: '-', fence: '---' },
+                    remarkGfm,
                     correctCmsImagesPath,
                     unwrapImages,
                   ],

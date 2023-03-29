@@ -3,12 +3,8 @@ title: Usage
 order: 1
 ---
 
-import { Link, Paragraph } from '@ecl/website-components';
-
-<Paragraph size="lead">
-  Float utilities let you put element as floating (left or right), or cancel
-  current floating status.
-</Paragraph>
+Float utilities let you put element as floating (left or right), or cancel
+current floating status.
 
 Available classes are:
 
