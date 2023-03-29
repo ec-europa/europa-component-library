@@ -8,6 +8,7 @@ const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 const unwrapImages = require('remark-unwrap-images');
+const remarkGfm = require('remark-gfm');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
@@ -191,13 +192,13 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
+                  providerImportSource: '@mdx-js/react',
                   remarkPlugins: [
-                    [
-                      unwrapImages,
-                      // Removes front-matter from Markdown output
-                      frontmatter,
-                      { type: 'yaml', marker: '-', fence: '---' },
-                    ],
+                    // Removes front-matter from Markdown output
+                    frontmatter,
+                    { type: 'yaml', marker: '-', fence: '---' },
+                    remarkGfm,
+                    unwrapImages,
                   ],
                 },
               },

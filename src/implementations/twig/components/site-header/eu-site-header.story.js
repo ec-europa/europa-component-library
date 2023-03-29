@@ -35,6 +35,7 @@ const getArgs = (data) => {
 
   if (data.login_box) {
     defaultArgs.show_login = true;
+    defaultArgs.logged = false;
   }
   if (data.site_name) {
     defaultArgs.show_site_name = true;
@@ -65,6 +66,14 @@ const getArgTypes = (data) => {
       name: 'login',
       type: { name: 'boolean' },
       description: 'Show the login box',
+      table: {
+        category: 'Optional',
+      },
+    };
+    argTypes.logged = {
+      name: 'logged in',
+      type: { name: 'boolean' },
+      description: 'Show the login box for a logged in user',
       table: {
         category: 'Optional',
       },
@@ -233,6 +242,8 @@ const prepareData = (data, args) => {
   } else {
     data.message = clonedDataFull.message;
   }
+
+  data.logged = args.logged;
 
   correctPaths(data);
 
