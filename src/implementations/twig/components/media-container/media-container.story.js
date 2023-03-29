@@ -60,12 +60,15 @@ const getArgTypes = (data) => {
     name: 'ratio',
     type: { name: 'select' },
     description: 'Media ratio (if empty the ratio will be set by the js)',
-    options: {
-      auto: '',
-      '16/9': '16-9',
-      '4/3': '4-3',
-      '3/2': '3-2',
-      '1/1': '1-1',
+    options: ['', '16-9', '4-3', '3-2', '1-1'],
+    control: {
+      labels: {
+        '': 'auto',
+        '16-9': '16/9',
+        '4-3': '4/3',
+        '3-2': '3/2',
+        '1-1': '1/1',
+      },
     },
     table: {
       type: { summary: 'string' },
@@ -112,7 +115,7 @@ const prepareData = (data, args) => {
 const renderStory = (data, args) => {
   let story = mediaContainer(prepareData(data, args));
   if (args.width === 'container' || args.width === 'inside') {
-    story = `<div class="ecl-container">${story}</div>`;
+    story = `<div class="ecl-container">${story}</div><div style="height: 1500px; width: 100%"></div>`;
   }
 
   return story;

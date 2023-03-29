@@ -72,3 +72,15 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   margin-inline-start: calc(-50vw + (#{$_scrollbar-width} / 2));
   width: calc(100vw - #{$_scrollbar-width});
 }
+
+.ecl-media-container.fixed-player .ecl-media-container__media {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 30vw;
+  min-width: 250px;
+  height: auto;
+  z-index: 2;
+  transition: width 1s;
+  transition-timing-function: ease-out;
+}

@@ -44,6 +44,7 @@ export class MediaContainer {
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
+    this.adjustPlayer = this.adjustPlayer.bind(this);
   }
 
   /**
@@ -59,7 +60,7 @@ export class MediaContainer {
       // Check if there is an iframe to handle
       if (this.iframe && this.useAutomaticRatio) this.calculateRatio();
     }
-
+    window.onscroll = this.adjustPlayer;
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -89,6 +90,21 @@ export class MediaContainer {
 
     // Set aspect ratio
     this.iframe.style.aspectRatio = `${iframeWidth}/${iframeHeight}`;
+  }
+
+  adjustPlayer() {
+    const currentHeight = this.element.offsetHeight;
+    const lowerEdge = this.element.offsetTop + currentHeight;
+    const switchToMinPlayerPos = lowerEdge - window.innerHeight / 3;
+    const currentScrollPos =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (currentScrollPos > switchToMinPlayerPos) {
+      this.element.style.height = `${currentHeight}px`;
+      this.element.classList.add('fixed-player');
+    } else {
+      this.element.classList.remove('fixed-player');
+    }
   }
 }
 
