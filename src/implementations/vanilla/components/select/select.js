@@ -265,6 +265,7 @@ export class Select {
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
+    this.input.setAttribute('name', this.element.getAttribute('name') || '');
     this.input.setAttribute('readonly', true);
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);

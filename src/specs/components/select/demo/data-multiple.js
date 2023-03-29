@@ -2,6 +2,7 @@ module.exports = {
   id: 'select-multiple',
   label: 'Select a country',
   helper_text: 'This is the helper text.',
+  name: 'country',
   invalid_text: 'Error message',
   invalid_icon: {
     path: '/icons.svg',

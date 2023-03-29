@@ -56,7 +56,15 @@ Single.args = getArgs(dataSingle);
 Single.argTypes = getArgTypes(dataSingle);
 Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
-export const Multiple = (args) => selectBox(prepareData(dataMultiple, args));
+export const Multiple = (args) => {
+  const demo = `
+    <form method="get" action="https://ec.europa.eu/component-library">
+      ${selectBox(prepareData(dataMultiple, args))}
+      <button type="sumbit" class="ecl-u-mt-l ecl-button ecl-button--primary">Submit</button>
+    </form>
+  `;
+  return demo;
+};
 
 Multiple.storyName = 'multiple';
 Multiple.args = getArgs(dataMultiple);
