@@ -4,13 +4,19 @@ order: 1
 ---
 
 <p>
-  ECL provides an easy way to style some default HTML tags (like links or paragraphs).<br />
-  Note that this approach comes with limitations (no possible variant for elements, limited number of HTML tags, ...), and should be considered as an edge case. The recommended way to use ECL is still to apply the corresponding CSS classes where needed.
+  ECL provides an easy way to style some default HTML tags (like links or
+  paragraphs).
+  <br />
+  Note that this approach comes with limitations (no possible variant for
+  elements, limited number of HTML tags, ...), and should be considered as an
+  edge case. The recommended way to use ECL is still to apply the corresponding
+  CSS classes where needed.
 </p>
 
 ## Styled tags
 
 Here is the list of HTML tags available for automatic styling:
+
 - &lt;a&gt;
 - &lt;button&gt;
 - &lt;h1&gt; to &lt;h5&gt;
@@ -27,5 +33,5 @@ Additionnaly, a corresponding print css called `ecl-ec-default-print` should be 
 
 ## Namespace
 
-To prevent CSS conflicts, these styles are using a namespace. 
+To prevent CSS conflicts, these styles are using a namespace.
 So the HTML code to be styled has to be put inside a container with the CSS class `.ecl`.
