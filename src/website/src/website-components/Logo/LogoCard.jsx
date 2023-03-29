@@ -17,7 +17,7 @@ function LogoCard({ path, name, color }) {
 
 LogoCard.propTypes = {
   name: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.oneOfType([PropTypes.object]).isRequired,
   color: PropTypes.string,
 };
 

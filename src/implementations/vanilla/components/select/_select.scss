@@ -165,7 +165,7 @@ $_multiple_counter_background: null !default;
   z-index: 0;
 }
 
-.ecl-select:hover + .ecl-select__icon {
+.ecl-select:hover ~ .ecl-select__icon {
   background-color: $_arrow-background-color-hover;
 }
 
@@ -181,8 +181,8 @@ $_multiple_counter_background: null !default;
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
-  .ecl-select:hover + .ecl-select__icon,
-  .ecl-select:focus + .ecl-select__icon {
+  .ecl-select:hover ~ .ecl-select__icon,
+  .ecl-select:focus ~ .ecl-select__icon {
     background-color: rgba($_arrow-background-color, 0.5);
   }
 
@@ -215,11 +215,11 @@ $_multiple_counter_background: null !default;
     background-color: $_arrow-background-color-invalid;
   }
 
-  .ecl-select:hover + .ecl-select__icon {
+  .ecl-select:hover ~ .ecl-select__icon {
     background-color: $_arrow-background-color-invalid-hover;
   }
 
-  .ecl-select:focus-visible + .ecl-select__icon {
+  .ecl-select:focus-visible ~ .ecl-select__icon {
     background-color: $_arrow-background-invalid-focus;
   }
 
@@ -241,7 +241,7 @@ $_multiple_counter_background: null !default;
    * Multiple
    */
 // stylelint-disable-next-line no-descending-specificity
-.ecl-select[multiple] + .ecl-select__icon {
+.ecl-select[multiple] ~ .ecl-select__icon {
   display: none;
 }
 
