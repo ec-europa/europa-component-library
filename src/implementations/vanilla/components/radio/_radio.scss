@@ -91,8 +91,8 @@ $_label-color: null !default;
 }
 
 // Focus
-.ecl-radio__input:focus-visible + .ecl-radio__label,
-.ecl-radio__input:active + .ecl-radio__label {
+.ecl-radio__input:focus-visible ~ .ecl-radio__label,
+.ecl-radio__input:active ~ .ecl-radio__label {
   .ecl-radio__box {
     outline: 2px solid map.get(theme.$color, 'blue-100');
     outline-offset: 2px;
@@ -100,7 +100,7 @@ $_label-color: null !default;
 }
 
 // Checked
-.ecl-radio__input:checked + .ecl-radio__label {
+.ecl-radio__input:checked ~ .ecl-radio__label {
   .ecl-radio__box {
     border-color: $_box-border-color-checked;
     border-width: $_box-border-width-checked;
@@ -131,7 +131,7 @@ $_label-color: null !default;
 }
 
 // stylelint-disable no-descending-specificity
-.ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
+.ecl-radio__input:checked ~ .ecl-radio__label .ecl-radio__box--invalid {
   border-color: $_invalid-border-color;
 
   .ecl-radio__box-inner {
@@ -140,7 +140,7 @@ $_label-color: null !default;
 }
 
 .ecl-radio__label:hover .ecl-radio__box--invalid,
-.ecl-radio__input:checked + .ecl-radio__label:hover .ecl-radio__box--invalid {
+.ecl-radio__input:checked ~ .ecl-radio__label:hover .ecl-radio__box--invalid {
   border-color: $_invalid-border-color-hover;
 
   .ecl-radio__box-inner {
