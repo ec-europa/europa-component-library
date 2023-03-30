@@ -73,9 +73,15 @@
   {% set _picture = {
     img: {
       src: _image.src,
-      alt: _image.alt,
     },
   } %}
+  {% if _image.alt is not empty %}
+    {% set _picture = _picture|merge({
+      img: _picture.img|merge(
+        { alt: _image.alt }
+      )
+    }) %}
+  {% endif %}
 {% endif %}
 
 {# Internal logic - Process properties #}
