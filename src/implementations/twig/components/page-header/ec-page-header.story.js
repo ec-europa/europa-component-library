@@ -152,9 +152,9 @@ const prepareData = (data, args) => {
     });
   }
   if (!args.show_thumbnail) {
-    delete data.thumbnail;
+    delete data.picture;
   } else if (args.show_thumbnail && !data.show_thumbnail) {
-    data.thumbnail = demoContent.thumbnail;
+    data.picture = demoContent.picture;
   }
 
   data.title = args.title;

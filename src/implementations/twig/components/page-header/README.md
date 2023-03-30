@@ -12,9 +12,7 @@ npm install --save @ecl/twig-component-page-header
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
 - **"description"** (string) (default: '') Description of header
-- **"thumbnail"** (associative array) (default: {}) Thumbnail dipslayed alongside the description
-  - "alt" (string) Alternative text
-  - "src" (string) Image path
+- **"picture"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
 - **"meta"** (array) (default: []) Meta of header
 - **"breadcrumb"** (associative array) (default: '') Predefined structure for the ECL Breadcrumb
 - **"background_image_url"** (string) (default: '') Background image url
@@ -22,6 +20,12 @@ npm install --save @ecl/twig-component-page-header
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+Deprecated
+
+- **"thumbnail"** (associative array) (default: {}) Thumbnail dipslayed alongside the description
+  - "alt" (string) Alternative text
+  - "src" (string) Image path
 
 ### Example :
 
