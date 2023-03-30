@@ -10,12 +10,26 @@ export default {
   title: 'Components/Gallery',
   decorators: [withNotes, withCode],
   parameters: {
-    controls: { disable: true },
     layout: 'fullscreen',
   },
 };
 
-export const Default = () => gallery(correctPaths(specs));
+const prepareData = (data, args) => Object.assign(correctPaths(data), args);
+
+export const Default = (args) => gallery(prepareData(specs, args));
 
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.args = {
+  expandable: true,
+};
+Default.argTypes = {
+  expandable: {
+    control: { type: 'boolean' },
+    description: 'expandable gallery',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'true' },
+    },
+  },
+};
