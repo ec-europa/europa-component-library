@@ -32,6 +32,10 @@ $_font-weight: null !default;
   position: relative;
 }
 
+.ecl-banner__picture {
+  width: 100%;
+}
+
 .ecl-banner__credit {
   background: rgba(map.get(theme.$color, 'black'), 0.54);
   color: map.get(theme.$color, 'white-100');
@@ -78,7 +82,8 @@ $_font-weight: null !default;
 }
 
 .ecl-banner__image {
-  background-size: cover;
+  display: block;
+  object-fit: cover;
   position: relative;
   width: 100%;
 }
@@ -107,28 +112,28 @@ $_font-weight: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   // medium banner - ratio 4:1
-  .ecl-banner::before,
-  .ecl-banner--m::before {
+  .ecl-banner,
+  .ecl-banner--m {
+    .ecl-banner__image {
+      aspect-ratio: 4/1;
+    }
+  }
+
+  .ecl-banner--plain-background::before {
     content: '';
     display: block;
-    padding-top: (1 * 0.25) * 100%;
+    padding-top: 25%;
     width: 100%;
   }
 
   // small banner - ratio 5:1
-  .ecl-banner--s::before {
-    content: '';
-    display: block;
-    padding-top: (1 * 0.2) * 100%;
-    width: 100%;
+  .ecl-banner--s .ecl-banner__image {
+    aspect-ratio: 5/1;
   }
 
   // large banner - ratio 3:1
-  .ecl-banner--l::before {
-    content: '';
-    display: block;
-    padding-top: (1 * 0.33) * 100%;
-    width: 100%;
+  .ecl-banner--l .ecl-banner__image {
+    aspect-ratio: 3/1;
   }
 
   .ecl-banner .ecl-container {
@@ -184,16 +189,10 @@ $_font-weight: null !default;
 .ecl-banner--text-box {
   background: map.get($_background, 'text-box');
 
-  .ecl-banner__image {
-    border-bottom: 4px solid $_border-color;
-  }
-
   // manage ratio 4:1
-  .ecl-banner__image::before {
-    content: '';
-    display: block;
-    padding-top: (1 * 0.25) * 100%;
-    width: 100%;
+  .ecl-banner__image {
+    aspect-ratio: 4/1;
+    border-bottom: 4px solid $_border-color;
   }
 
   .ecl-banner__title {
@@ -215,15 +214,6 @@ $_font-weight: null !default;
 
     .ecl-banner__image {
       border-bottom-width: 0;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-    }
-
-    .ecl-banner__image::before {
-      height: 100%;
-      padding-top: 0;
     }
 
     .ecl-banner__content {
@@ -242,19 +232,14 @@ $_font-weight: null !default;
 .ecl-banner--image-overlay {
   background: map.get($_background, 'image-overlay');
 
-  .ecl-banner__image {
+  .ecl-banner__picture {
+    background: rgba(0, 0, 0, 0.4);
     border-bottom: 4px solid $_border-color;
   }
 
-  // manage ratio 4:1
-  .ecl-banner__image::before {
-    background-color: map.get($_overlay, 'image-overlay');
-    border-radius: map.get($_border-radius, 'banner')
-      map.get($_border-radius, 'banner') 0 0;
-    content: '';
-    display: block;
-    padding-top: (1 * 0.25) * 100%;
-    width: 100%;
+  .ecl-banner__image {
+    aspect-ratio: 4/1;
+    mix-blend-mode: difference;
   }
 
   .ecl-banner__title {
@@ -269,12 +254,8 @@ $_font-weight: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-banner--image-overlay {
-    .ecl-banner__image {
+    .ecl-banner__picture {
       border-bottom-width: 0;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
     }
 
     .ecl-banner__image::before {
@@ -296,18 +277,12 @@ $_font-weight: null !default;
 .ecl-banner--text-highlight {
   background: map.get($_background, 'text-highlight');
 
+  // manage ratio 4:1
   .ecl-banner__image {
     border-bottom: 4px solid $_border-color;
-  }
-
-  // manage ratio 4:1
-  .ecl-banner__image::before {
     border-radius: map.get($_border-radius, 'banner')
       map.get($_border-radius, 'banner') 0 0;
-    content: '';
-    display: block;
-    padding-top: (1 * 0.25) * 100%;
-    width: 100%;
+    aspect-ratio: 4/1;
   }
 
   .ecl-banner__title {
@@ -324,15 +299,10 @@ $_font-weight: null !default;
   .ecl-banner--text-highlight {
     .ecl-banner__image {
       border-bottom-width: 0;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
     }
 
     .ecl-banner__image::before {
       border-radius: map.get($_border-radius, 'banner');
-      height: 100%;
       padding-top: 0;
     }
 
