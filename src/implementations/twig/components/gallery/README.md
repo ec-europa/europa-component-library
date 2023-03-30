@@ -16,7 +16,6 @@ npm install --save @ecl/twig-component-gallery
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
 - **"items"** (array) (default: [])
-  - "playable" (boolean) (default: false) Activate the play icon on the thumbnail
   - "path" (string) (default: '')
   - "alt" (string) (default: '')
   - "description" (string) (default: '')

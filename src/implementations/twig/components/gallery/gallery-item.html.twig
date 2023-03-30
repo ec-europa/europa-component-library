@@ -11,7 +11,6 @@
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
-    - "playable" (optional) (boolean) (default: false)
   - "icon_path": (string) (default '')
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -89,8 +88,7 @@
   >
   {% if _item is not empty %}
     <figure class="ecl-gallery__image-container">
-    {% if (_item.playable is not empty or _item.video is not empty or _item.embedded_video is not empty) and
-          _icon_path is not empty %}
+    {% if (_item.video is not empty or _item.embedded_video is not empty) and _icon_path is not empty %}
       <div class="ecl-gallery__item-icon-wrapper">
       {%- include '@ecl/icon/icon.html.twig' with {
         icon: {
