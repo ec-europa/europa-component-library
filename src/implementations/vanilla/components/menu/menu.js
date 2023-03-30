@@ -272,6 +272,17 @@ export class Menu {
     // Update overflow display
     this.checkMenuOverflow();
 
+    // Check if the current item is hidden (one side or the other)
+    if (this.currentItem) {
+      if (
+        this.currentItem.getAttribute('data-ecl-menu-item-visible') === 'false'
+      ) {
+        this.btnNext.classList.add('ecl-menu__item--current');
+      } else {
+        this.btnPrevious.classList.add('ecl-menu__item--current');
+      }
+    }
+
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
 
@@ -558,19 +569,6 @@ export class Menu {
             item.setAttribute('data-ecl-menu-item-visible', true);
           }
         });
-      }
-    }
-
-    // Check if the current item is hidden (one side or the other)
-    if (this.currentItem) {
-      if (
-        this.currentItem.getAttribute('data-ecl-menu-item-visible') === 'false'
-      ) {
-        this.btnNext.classList.add('ecl-menu__item--current');
-        this.btnPrevious.classList.add('ecl-menu__item--current');
-      } else {
-        this.btnNext.classList.remove('ecl-menu__item--current');
-        this.btnPrevious.classList.remove('ecl-menu__item--current');
       }
     }
   }
