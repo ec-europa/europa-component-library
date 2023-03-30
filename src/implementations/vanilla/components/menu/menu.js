@@ -166,7 +166,6 @@ export class Menu {
     // Get extra parameter from markup
     const maxLinesMarkup = this.element.getAttribute(this.maxLinesAttribute);
     if (maxLinesMarkup) {
-      console.log(maxLinesMarkup);
       this.maxLines = maxLinesMarkup;
     }
 
