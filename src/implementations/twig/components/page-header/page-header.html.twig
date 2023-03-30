@@ -5,10 +5,10 @@
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of header
-    - "picture" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
+    - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
+    - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
-    - "background_image_url (string) (default: '') Background image url
     - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
     - "negative" (boolean) (default: false) apply negative style with a darker background (only for EC)
     - "extra_classes" (string) (default: '')
@@ -20,6 +20,7 @@
       ],
 
   Deprecated:
+    - "background_image_url (string) (default: '') Background image url
     - "thumbnail" (associative array) (default: {}) Thumbnail dipslayed alongside the description:
       {
         "alt" (string) Alternative text
@@ -35,12 +36,29 @@
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
 {% set _thumbnail = thumbnail|default({}) %}
-{% set _picture = picture|default({}) %}
+{% set _picture_thumbnail = picture_thumbnail|default({}) %}
+{% set _picture_background = picture_background|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _background_image_url = background_image_url|default('') %}
 {% set _overlay = overlay|default('') %}
 {% set _extra_attributes = '' %}
+
+{# Backward compatibility #}
+
+{% if _picture_thumbnail.img is empty and _thumbnail.src is not empty %}
+  {% set _picture_thumbnail = {
+    'img': _thumbnail,
+  } %}
+{% endif %}
+
+{% if _picture_background.img is empty and _background_image_url is not empty %}
+  {% set _picture_background = {
+    'img': {
+      'src': _background_image_url,
+    },
+  } %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -48,7 +66,7 @@
   {% set _css_class = _css_class ~ ' ecl-page-header--negative' %}
 {% endif %}
 
-{% if _background_image_url and _background_image_url is not empty %}
+{% if _picture_background.img is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
 
   {% if _overlay is not empty %}
@@ -70,21 +88,18 @@
   {% endfor %}
 {% endif %}
 
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _thumbnail.src is not empty %}
-  {% set _picture = {
-    'img': _thumbnail,
-  } %}
-{% endif %}
-
 {# Print the result #}
 
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-{% if _background_image_url and _background_image_url is not empty %}
-  {% set _image_attributes = 'style="background-image: url(' ~ _background_image_url ~ ')"' %}
-  <div class="ecl-page-header__background" {{ _image_attributes|raw }} aria-hidden="true"></div>
-{% endif %}
+  {% if _picture_background.img is not empty %}
+    <div class="ecl-page-header__background-container" aria-hidden="true">
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture_background,
+        extra_classes: "ecl-page-header__picture-background",
+        extra_image_classes: "ecl-page-header__background",
+      } only %}
+    </div>
+  {% endif %}
 
   <div class="ecl-container">
   {% if _breadcrumb is not empty %}
@@ -112,12 +127,12 @@
     {% endif %}
   {% endif %}
 
-  {% if _description is not empty or _picture.img is not empty %}
+  {% if _description is not empty or _picture_thumbnail.img is not empty %}
     <div class="ecl-page-header__description-container">
-    {% if _picture.img is not empty %}
+    {% if _picture_thumbnail.img is not empty %}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _picture,
-        extra_classes: "ecl-page-header__picture",
+        picture: _picture_thumbnail,
+        extra_classes: "ecl-page-header__picture-thumbnail",
         extra_image_classes: "ecl-page-header__description-thumbnail",
       } only %}
     {% endif %}

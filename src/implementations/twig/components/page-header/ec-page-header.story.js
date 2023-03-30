@@ -35,8 +35,8 @@ const getArgs = (data) => {
   if (data.description) {
     args.description = data.description;
   }
-  if (data.background_image_url) {
-    args.background_image_url = data.background_image_url;
+  if (data.picture_background.img.src) {
+    args.background_image_url = data.picture_background.img.src;
   }
 
   return args;
@@ -112,7 +112,7 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.background_image_url) {
+  if (data.picture_background.img.src) {
     argTypes.background_image_url = {
       name: 'background image',
       type: 'string',
@@ -125,7 +125,7 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.background_image_url) {
+  if (data.picture_background.img.src) {
     argTypes.overlay = {
       name: 'image overlay',
       type: 'select',
@@ -143,35 +143,47 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  const clone = JSON.parse(JSON.stringify(data));
+
   if (!args.show_breadcrumb) {
-    delete data.breadcrumb;
+    delete clone.breadcrumb;
   } else if (args.show_breadcrumb) {
-    data.breadcrumb = { ...demoBreadcrumbLongEC };
-    data.breadcrumb.links.forEach((item) => {
-      item.negative = data.variant === 'negative';
+    clone.breadcrumb = { ...demoBreadcrumbLongEC };
+    clone.breadcrumb.links.forEach((item) => {
+      item.negative = clone.variant === 'negative';
     });
   }
   if (!args.show_thumbnail) {
-    delete data.picture;
-  } else if (args.show_thumbnail && !data.show_thumbnail) {
-    data.picture = demoContent.picture;
+    delete clone.picture_thumbnail;
+  } else if (args.show_thumbnail && !clone.show_thumbnail) {
+    clone.picture_thumbnail = demoContent.picture_thumbnail;
   }
 
-  data.title = args.title;
-  data.hide_title = args.hide_title;
-  data.description = args.description;
-  data.meta = args.meta;
-  data.background_image_url = args.background_image_url;
+  clone.title = args.title;
+  clone.hide_title = args.hide_title;
+  clone.description = args.description;
+  clone.meta = args.meta;
+
+  if (args.background_image_url) {
+    clone.picture_background = {
+      img: {
+        src: args.background_image_url,
+        alt: clone.picture_background.img.alt || '',
+      },
+    };
+  } else {
+    clone.picture_background = {};
+  }
 
   if (args.overlay === 'none') {
-    delete data.overlay;
+    delete clone.overlay;
   } else {
-    data.overlay = args.overlay;
+    clone.overlay = args.overlay;
   }
 
-  correctPaths(data);
+  correctPaths(clone);
 
-  return data;
+  return clone;
 };
 
 export default {

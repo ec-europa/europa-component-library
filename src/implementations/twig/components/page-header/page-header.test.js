@@ -70,7 +70,10 @@ describe('Page Header Standardised', () => {
         alt: 'Europe map',
         src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
       };
-      demoDefault.picture = {};
+      demoDefault.picture_thumbnail = {};
+      demoDefault.background_image_url =
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg';
+      demoDefault.picture_background = {};
 
       return expect(render(demoDefault)).resolves.toMatchSnapshot();
     });
