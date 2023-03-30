@@ -30,7 +30,7 @@ npm install --save @ecl/twig-component-media-container
 
   Deprecated:
 
-  - **"alt"** replaced by card.picture.img.alt
+  - **"alt"** replaced by picture.img.alt
 
 ### Blocks:
 
