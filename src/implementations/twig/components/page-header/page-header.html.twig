@@ -74,10 +74,7 @@
 
 {% if _picture.img is empty and _thumbnail.src is not empty %}
   {% set _picture = {
-    'img': {
-      'src': _thumbnail.src|default(''),
-      'alt': _thumbnail.alt|default('')
-    }
+    'img': _thumbnail,
   } %}
 {% endif %}
 
