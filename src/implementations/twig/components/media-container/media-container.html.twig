@@ -1,7 +1,6 @@
 {% apply spaceless %}
 {#
   Parameters:
-  - "image" (string) (default: ''),
   - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "extra_classes" (string) (default: ''),
@@ -21,6 +20,7 @@
       },
       ...
     ],
+  - "image" (string) (default: ''): Image to be used as the video placeholder 
   - "description" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
       {

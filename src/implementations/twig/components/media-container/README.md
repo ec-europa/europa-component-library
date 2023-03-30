@@ -9,7 +9,6 @@ npm install --save @ecl/twig-component-media-container
 ### Parameters
 
 - **"description"** (string) (default: '') - A caption to be shown under the media,
-- **"image"** (string) (default: '') The path to the image to be used as the video preview,
 - **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
 - **"sources"** (array) (default: []) Array of Video sources with this structure:
@@ -21,6 +20,7 @@ npm install --save @ecl/twig-component-media-container
   - "src_lang" (string) (default: ''),
   - "label" (string) (default: ''),
   - "description" (string) (default: ''),
+- **"image"**: (string) (default: '') Path or url to the image used as the video placeholder
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -30,7 +30,7 @@ npm install --save @ecl/twig-component-media-container
 
   Deprecated:
 
-  - **"alt"** (string) (default: '') The alternate text for the image,
+  - **"alt"** replaced by card.picture.img.alt
 
 ### Blocks:
 
