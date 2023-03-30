@@ -7,9 +7,18 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
   >
     <div
       aria-hidden="true"
-      class="ecl-page-header__background"
-      style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg)"
-    />
+      class="ecl-page-header__background-container"
+    >
+      <picture
+        class="ecl-picture ecl-page-header__picture-background"
+      >
+        <img
+          alt="Europe map"
+          class="ecl-page-header__background"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+        />
+      </picture>
+    </div>
     <div
       class="ecl-container"
     >
@@ -165,7 +174,7 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
         class="ecl-page-header__description-container"
       >
         <picture
-          class="ecl-picture ecl-page-header__picture"
+          class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
             alt="Europe map"
@@ -356,15 +365,6 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
       <div
         class="ecl-page-header__description-container"
       >
-        <picture
-          class="ecl-picture ecl-page-header__picture"
-        >
-          <img
-            alt="Europe map"
-            class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-          />
-        </picture>
         <p
           class="ecl-page-header__description"
         >
@@ -550,15 +550,6 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
       <div
         class="ecl-page-header__description-container"
       >
-        <picture
-          class="ecl-picture ecl-page-header__picture"
-        >
-          <img
-            alt="Europe map"
-            class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-          />
-        </picture>
         <p
           class="ecl-page-header__description"
         >
@@ -742,15 +733,6 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
       <div
         class="ecl-page-header__description-container"
       >
-        <picture
-          class="ecl-picture ecl-page-header__picture"
-        >
-          <img
-            alt="Europe map"
-            class="ecl-page-header__description-thumbnail"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-          />
-        </picture>
         <p
           class="ecl-page-header__description"
         >
@@ -782,9 +764,17 @@ exports[`Page Header Standardised with deprectated data renders correctly 1`] = 
   >
     <div
       aria-hidden="true"
-      class="ecl-page-header__background"
-      style="background-image: url(https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg)"
-    />
+      class="ecl-page-header__background-container"
+    >
+      <picture
+        class="ecl-picture ecl-page-header__picture-background"
+      >
+        <img
+          class="ecl-page-header__background"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+        />
+      </picture>
+    </div>
     <div
       class="ecl-container"
     >
@@ -940,7 +930,7 @@ exports[`Page Header Standardised with deprectated data renders correctly 1`] = 
         class="ecl-page-header__description-container"
       >
         <picture
-          class="ecl-picture ecl-page-header__picture"
+          class="ecl-picture ecl-page-header__picture-thumbnail"
         >
           <img
             alt="Europe map"

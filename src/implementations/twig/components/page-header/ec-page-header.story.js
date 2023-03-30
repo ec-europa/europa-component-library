@@ -11,8 +11,8 @@ import notes from './README.md';
 const dataCore = { ...demoContent, variant: 'negative' };
 
 const dataHarmonised = { ...demoContent };
-delete dataHarmonised.thumbnails;
-delete dataHarmonised.background_image_url;
+delete dataHarmonised.picture_thumbnail;
+delete dataHarmonised.picture_thumbnail;
 
 const dataStandardised = { ...demoContent };
 

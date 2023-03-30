@@ -12,8 +12,8 @@ expect.extend(toHaveNoViolations);
 demoDefault.breadcrumb = dataBreadcrumbSimple;
 
 const demoSimple = { ...demoDefault };
-delete demoSimple.thumbnails;
-delete demoSimple.background_image_url;
+delete demoSimple.picture_background;
+delete demoSimple.picture_thumbnail;
 
 describe('Page Header Standardised', () => {
   const template = '@ecl/page-header/page-header.html.twig';
