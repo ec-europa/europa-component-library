@@ -19,6 +19,7 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow). Set it to zero to disable automatic resize.
+ * @param {String} options.maxLinesAttribute The data attribute to set the max lines in the markup, if needed
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
@@ -58,6 +59,7 @@ export class Menu {
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
       maxLines = 2,
+      maxLinesAttribute = 'data-ecl-menu-max-lines',
       attachClickListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
@@ -89,6 +91,7 @@ export class Menu {
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.maxLines = maxLines;
+    this.maxLinesAttribute = maxLinesAttribute;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
@@ -159,6 +162,13 @@ export class Menu {
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
     this.carets = queryAll(this.caretSelector, this.element);
+
+    // Get extra parameter from markup
+    const maxLinesMarkup = this.element.getAttribute(this.maxLinesAttribute);
+    if (maxLinesMarkup) {
+      console.log(maxLinesMarkup);
+      this.maxLines = maxLinesMarkup;
+    }
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
