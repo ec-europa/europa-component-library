@@ -43,11 +43,14 @@ export class Gallery {
   constructor(
     element,
     {
+      expandableSelector = 'data-ecl-gallery-not-expandable',
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
       metaSelector = '[data-ecl-gallery-meta]',
       closeButtonSelector = '[data-ecl-gallery-close]',
       viewAllSelector = '[data-ecl-gallery-all]',
+      viewAllLabelSelector = 'data-ecl-gallery-collapsed-label',
+      viewAllExpandedLabelSelector = 'data-ecl-gallery-expanded-label',
       countSelector = '[data-ecl-gallery-count]',
       overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
@@ -97,6 +100,9 @@ export class Gallery {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.viewAllLabelSelector = viewAllLabelSelector;
+    this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
+    this.expandableSelector = expandableSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -121,7 +127,9 @@ export class Gallery {
     this.isDesktop = false;
     this.resizeTimer = null;
     this.breakpointMd = 768;
+    this.breakpointLg = 996;
     this.imageHeight = 185;
+    this.imageHeightBig = 260;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
@@ -140,9 +148,19 @@ export class Gallery {
    */
   init() {
     // Query elements
+    this.expandable = !this.element.hasAttribute(this.expandableSelector);
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
-    this.viewAll = queryOne(this.viewAllSelector, this.element);
+    if (this.expandable) {
+      this.viewAll = queryOne(this.viewAllSelector, this.element);
+      this.viewAllLabel =
+        this.viewAll.getAttribute(this.viewAllLabelSelector) ||
+        this.viewAll.innerText;
+      this.viewAllLabelExpanded =
+        this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
+        this.viewAllLabel;
+      this.viewAll.setAttribute('data-more', 0);
+    }
     this.count = queryOne(this.countSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
@@ -227,8 +245,10 @@ export class Gallery {
     }
 
     // Init display of gallery items
-    this.checkScreen();
-    this.hideItems();
+    if (this.expandable) {
+      this.checkScreen();
+      this.hideItems();
+    }
 
     // Add number to gallery items
     this.galleryItems.forEach((galleryItem, key) => {
@@ -301,21 +321,27 @@ export class Gallery {
   checkScreen() {
     if (window.innerWidth > this.breakpointMd) {
       this.isDesktop = true;
-      return;
+    } else {
+      this.isDesktop = false;
     }
-
-    this.isDesktop = false;
+    if (window.innerWidth > this.breakpointLg) {
+      this.isLarge = true;
+    }
   }
 
   /**
+   * @param {Int} rows/item number
+   *
    * Hide several gallery items by default
    * - 2 "lines" of items on desktop
-   * - only 3 items on mobile
+   * - only 3 items on mobile or the desired rows or items
+   *   when using the view more button.
    */
-  hideItems() {
-    if (!this.viewAll) return;
+  hideItems(plus = 0) {
+    if (!this.viewAll || this.viewAll.expanded) return;
 
     if (this.isDesktop) {
+      const rowHeight = this.isLarge ? this.imageHeight : this.imageHeightBig;
       const galleryY = this.element.getBoundingClientRect().top;
       let hiddenItemIds = [];
       // We should browse the list first to mark the items to be hidden, and hide them later
@@ -324,7 +350,7 @@ export class Gallery {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
         if (
           galleryItem.getBoundingClientRect().top - galleryY >
-          this.imageHeight * 2
+          rowHeight * (2 + Number(plus))
         ) {
           hiddenItemIds = [...hiddenItemIds, key];
         }
@@ -338,7 +364,7 @@ export class Gallery {
     }
 
     this.galleryItems.forEach((galleryItem, key) => {
-      if (key > 2) {
+      if (key > 2 + Number(plus)) {
         galleryItem.parentNode.classList.add('ecl-gallery__item--hidden');
       } else {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
@@ -536,22 +562,29 @@ export class Gallery {
    */
   handleClickOnViewAll(e) {
     e.preventDefault();
+    if (!this.viewAll) return;
 
-    // Disable scroll on body
-    document.body.classList.add('ecl-u-disablescroll');
-
-    // Display overlay
-    if (this.isDialogSupported) {
-      this.overlay.showModal();
+    if (this.viewAll.expanded) {
+      delete this.viewAll.expanded;
+      this.checkScreen();
+      this.hideItems();
+      this.viewAll.textContent = this.viewAllLabel;
     } else {
-      this.overlay.setAttribute('open', '');
+      this.checkScreen();
+      // Two rows in desktop, three items in mobile.
+      const more = this.isDesktop ? 2 : 3;
+      // Get the multiplier updated value.
+      this.viewAll.setAttribute(
+        'data-more',
+        Number(this.viewAll.getAttribute('data-more')) + Number(more)
+      );
+      this.hideItems(Number(this.viewAll.getAttribute('data-more')));
     }
-
-    // Update overlay
-    this.updateOverlay(this.galleryItems[0]);
-
-    // Trap focus
-    this.focusTrap.activate();
+    if (!this.element.querySelector('.ecl-gallery__item--hidden')) {
+      this.viewAll.expanded = true;
+      this.viewAll.setAttribute('data-more', 0);
+      this.viewAll.textContent = this.viewAllLabelExpanded;
+    }
   }
 
   /**
