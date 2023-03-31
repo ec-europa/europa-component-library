@@ -3,8 +3,9 @@ import { queryAll } from '@ecl/dom-utils';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.moreItemSelector Selector for more button
- * @param {String} options.listSelector Selector for list element
+ * @param {String} options.moreItemLabelSelector Selector for more button label attribute
+ * @param {String} options.listsSelector Selector for list element
+ * @param {String} options.visibleItemsSelector Selector to retrieve the number of visible items
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class DescriptionList {
