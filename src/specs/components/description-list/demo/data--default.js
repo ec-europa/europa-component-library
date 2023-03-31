@@ -2,6 +2,8 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  more_label: 'See more',
+  visible_items: 3,
   items: [
     {
       term: 'Standard text',
@@ -62,6 +64,8 @@ module.exports = {
         'Taxonomy item 1',
         { link: { label: 'Taxonomy item 2', path: exampleLink } },
         'Taxonomy item 3',
+        'Taxonomy item 4',
+        { link: { label: 'Taxonomy item 5', path: exampleLink } },
       ],
     },
   ],

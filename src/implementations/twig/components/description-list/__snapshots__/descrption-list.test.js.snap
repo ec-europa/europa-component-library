@@ -4,6 +4,10 @@ exports[`Description list Default renders correctly 1`] = `
 <jest>
   <dl
     class="ecl-description-list"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See more"
+    data-ecl-description-list-visible-items="3"
   >
     <dt
       class="ecl-description-list__term"
@@ -118,6 +122,21 @@ exports[`Description list Default renders correctly 1`] = `
       >
         Taxonomy item 3
       </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          Taxonomy item 5
+        </a>
+      </span>
     </dd>
   </dl>
 </jest>
@@ -127,6 +146,10 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
 <jest>
   <dl
     class="ecl-description-list ecl-description-list--horizontal"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See more"
+    data-ecl-description-list-visible-items="3"
   >
     <dt
       class="ecl-description-list__term"
@@ -241,6 +264,21 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
       >
         Taxonomy item 3
       </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          Taxonomy item 5
+        </a>
+      </span>
     </dd>
   </dl>
 </jest>
@@ -250,6 +288,10 @@ exports[`Description list Default renders correctly with deprecated data 1`] = `
 <jest>
   <dl
     class="ecl-description-list"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See more"
+    data-ecl-description-list-visible-items="3"
   >
     <dt
       class="ecl-description-list__term"
@@ -364,6 +406,21 @@ exports[`Description list Default renders correctly with deprecated data 1`] = `
       >
         Taxonomy item 3
       </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          Taxonomy item 5
+        </a>
+      </span>
     </dd>
   </dl>
 </jest>
@@ -373,8 +430,10 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
 <jest>
   <dl
     class="ecl-description-list"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See more"
+    data-ecl-description-list-visible-items="3"
   >
     <dt
       class="ecl-description-list__term"
@@ -488,6 +547,21 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
         class="ecl-description-list__definition-item"
       >
         Taxonomy item 3
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          Taxonomy item 5
+        </a>
       </span>
     </dd>
   </dl>
@@ -498,6 +572,10 @@ exports[`Description list Default renders correctly with extra class names 1`] =
 <jest>
   <dl
     class="ecl-description-list custom-class custom-class--test"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See more"
+    data-ecl-description-list-visible-items="3"
   >
     <dt
       class="ecl-description-list__term"
@@ -611,6 +689,21 @@ exports[`Description list Default renders correctly with extra class names 1`] =
         class="ecl-description-list__definition-item"
       >
         Taxonomy item 3
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
+        <a
+          class="ecl-link"
+          href="/example"
+        >
+          Taxonomy item 5
+        </a>
       </span>
     </dd>
   </dl>
