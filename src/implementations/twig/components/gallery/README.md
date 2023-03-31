@@ -38,9 +38,9 @@ npm install --save @ecl/twig-component-gallery
 
   Deprecated:
 
-  - "item.image" - Replaced by item.picture.src
-  - "item.path" - Replaced by item.picture.src
-  - "item.alt" - Replaced by item.picture.alt
+  - "item.image" - Replaced by item.picture.img.src
+  - "item.path" - Replaced by item.picture.img.src
+  - "item.alt" - Replaced by item.picture.img.alt
 
 ### Example :
 
