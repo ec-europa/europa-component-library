@@ -82,6 +82,11 @@ $_item-outline-offset: null !default;
   }
 }
 
+.ecl-gallery__picture {
+  display: flex;
+  flex-grow: 1;
+}
+
 @supports (object-fit: cover) {
   .ecl-gallery__image-container {
     background-color: $_description-background;
