@@ -41,9 +41,13 @@ npm install --save @ecl/twig-component-featured-item
       size: 'xs', 
     }, 
   }, 
-  media_container: { 
-    alt: 'Lorem ipsum dolor sit amet', 
-    image: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg', 
+  media_container: {
+    picture: {
+      img: {
+        alt: 'Lorem ipsum dolor sit amet', 
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+    }, 
     description: 
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', 
   } 
