@@ -446,10 +446,9 @@ export class Gallery {
     } else {
       // Media is an image
       const image = queryOne('img', selectedItem);
-
-      mediaElement = document.createElement('img');
-      mediaElement.setAttribute('src', image.getAttribute('src'));
-      mediaElement.setAttribute('alt', image.getAttribute('alt'));
+      image.classList.remove('ecl-gallery__image');
+      const picture = queryOne('picture', selectedItem);
+      mediaElement = picture.cloneNode(true);
       mediaElement.classList.add('ecl-gallery__slider-image');
 
       if (this.overlayMedia) {
