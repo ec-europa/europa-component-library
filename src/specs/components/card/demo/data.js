@@ -13,9 +13,11 @@ module.exports = {
       path: exampleLink,
     },
   },
-  image: {
-    alt: 'card image',
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+  picture: {
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'card image',
+    },
   },
   labels: [
     { label: 'highlighted', variant: 'highlight' },

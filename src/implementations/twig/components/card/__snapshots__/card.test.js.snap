@@ -5,12 +5,16 @@ exports[`Card Backward compatibility renders correctly with deprecated data 1`] 
   <article
     class="ecl-card"
   >
-    <div
+    <picture
       aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
+      class="ecl-picture ecl-card__picture"
+    >
+      <img
+        alt="card image"
+        class="ecl-card__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-card__body"
     >
@@ -119,12 +123,16 @@ exports[`Card Default renders correctly 1`] = `
   <article
     class="ecl-card"
   >
-    <div
+    <picture
       aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
+      class="ecl-picture ecl-card__picture"
+    >
+      <img
+        alt="card image"
+        class="ecl-card__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-card__body"
     >
@@ -352,12 +360,16 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <div
+    <picture
       aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
+      class="ecl-picture ecl-card__picture"
+    >
+      <img
+        alt="card image"
+        class="ecl-card__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-card__body"
     >
@@ -583,12 +595,16 @@ exports[`Card Default renders correctly with extra class names 1`] = `
   <article
     class="ecl-card custom-class custom-class--test"
   >
-    <div
+    <picture
       aria-label="card image"
-      class="ecl-card__image"
-      role="img"
-      style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-    />
+      class="ecl-picture ecl-card__picture"
+    >
+      <img
+        alt="card image"
+        class="ecl-card__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-card__body"
     >

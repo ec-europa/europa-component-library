@@ -21,8 +21,12 @@ module.exports = {
     },
   },
   media_container: {
-    alt: 'Lorem ipsum dolor sit amet',
-    image: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+    picture: {
+      img: {
+        alt: 'Lorem ipsum dolor sit amet',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      },
+    },
     description:
       'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
