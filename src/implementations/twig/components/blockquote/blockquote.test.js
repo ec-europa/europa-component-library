@@ -7,16 +7,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import data from '@ecl/specs-component-blockquote/demo/data';
 
-const dataPrevious = {
-  citation:
-    'An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.',
-  author: 'President Juncker',
-  image: {
-    path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg',
-    alt: 'Image alternative text',
-  },
-};
-
 expect.extend(toHaveNoViolations);
 
 describe('Blockquote', () => {
@@ -33,7 +23,16 @@ describe('Blockquote', () => {
     test('backward compatibility', () => {
       expect.assertions(1);
 
-      return expect(render(dataPrevious)).resolves.toMatchSnapshot();
+      const oldData = {
+        ...data,
+        image: {
+          path: data.picture.img.src,
+          alt: data.picture.img.alt,
+        },
+        picture: {},
+      };
+
+      return expect(render(oldData)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
