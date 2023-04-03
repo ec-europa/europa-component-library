@@ -138,14 +138,15 @@
  * background image variant
  */
 .ecl-page-header--image {
-  position: relative;
+  .ecl-page-header__background-container {
+    position: relative;
+  }
 
   .ecl-page-header__background {
-    background-position: 50% 0;
-    background-size: cover;
     display: block;
     height: 10.875rem;
-    position: relative;
+    object-fit: cover;
+    object-position: 50% 0;
     width: 100%;
   }
 
@@ -169,7 +170,7 @@
 }
 
 .ecl-page-header--overlay-dark {
-  .ecl-page-header__background::before {
+  .ecl-page-header__background-container::before {
     background-color: rgba(map.get(theme.$color, 'black'), 0.5);
     content: '';
     height: 100%;
@@ -179,7 +180,7 @@
 }
 
 .ecl-page-header--overlay-light {
-  .ecl-page-header__background::before {
+  .ecl-page-header__background-container::before {
     background-color: rgba(map.get(theme.$color, 'black'), 0.3);
     content: '';
     height: 100%;
