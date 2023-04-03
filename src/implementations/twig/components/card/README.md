@@ -8,9 +8,7 @@ npm install --save @ecl/twig-component-card
 
 ### Parameters
 
-- **image** (associative array) (default: {}):
-  - **src**: Url of the image
-  - **alt**: alternative text for the image
+- **picture** (associative array) (default: {}): Image for the card, following ECL Picture structure
 - **labels** (array) (default: []): Array of ECL Labels
 - **primary_meta** (array of strings) (default: []): Primary meta of the card
 - **title** (associative array OR string) (default: {}): Title of the card, following ECL Link structure
@@ -37,6 +35,7 @@ npm install --save @ecl/twig-component-card
 - **card.type**: no longer used (tile variant has been removed)
 - **card.meta**: renamed to primary_meta
 - **card.infos**: renamed to secondary_meta
+- **card.image**: replaced by card.picture
 
 ### Example
 
@@ -44,9 +43,11 @@ npm install --save @ecl/twig-component-card
 ```twig
 {% include '@ecl/card/card.html.twig' with { 
   card: { 
-    image: { 
-      src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
-      alt: 'Better regulation', 
+    picture: {
+      img: { 
+        src: 'https://v2--europa-component-library.netlify.com/example-image.jpg', 
+        alt: 'Better regulation',
+      }, 
     }, 
     primary_meta: [ 'Meta 1', 'Meta 2', 'Meta 3' ], 
     title: { 

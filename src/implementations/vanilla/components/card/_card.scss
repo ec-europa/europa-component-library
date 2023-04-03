@@ -31,24 +31,15 @@ $_body-padding: null !default;
 }
 
 .ecl-card__image {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  aspect-ratio: 3/2;
   border: $_image-border-width solid $_image-border-color;
   display: block;
   height: auto;
   margin-inline-start: $_image-margin;
   margin-inline-end: $_image-margin;
   margin-top: $_image-margin;
+  object-fit: cover;
   width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
-
-  // manage ratio 3:2
-  &::before {
-    content: '';
-    display: block;
-    padding-top: math.div(2, 3) * 100%;
-    width: 100%;
-  }
 }
 
 .ecl-card__body {
