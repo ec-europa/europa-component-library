@@ -33,6 +33,7 @@ $_font-weight: null !default;
 }
 
 .ecl-banner__picture {
+  position: relative;
   width: 100%;
 }
 
@@ -184,14 +185,18 @@ $_font-weight: null !default;
 .ecl-banner--image-overlay {
   background: map.get($_background, 'image-overlay');
 
-  .ecl-banner__picture {
-    background: rgba(0, 0, 0, 0.4);
+  .ecl-banner__picture::before {
+    background-color: rgba(0, 0, 0, 0.4);
     border-bottom: 4px solid $_border-color;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
   }
 
   .ecl-banner__image {
     aspect-ratio: 4/1;
-    mix-blend-mode: difference;
   }
 
   .ecl-banner__title {
@@ -297,6 +302,7 @@ $_font-weight: null !default;
 
   .ecl-banner .ecl-container {
     position: absolute;
+    z-index: 2;
   }
 
   .ecl-banner__content {
