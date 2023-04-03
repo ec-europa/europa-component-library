@@ -15,12 +15,10 @@
     - "share" (object) (default: {}): object of type link
   - "footer" (object) (default: {}): object 0f type link
   - "items" (array) (default: [])
-    - "path" (string) (default: '')
-    - "alt" (string) (default: '')
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "image" (optional) (object) (default: {})
+    - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
@@ -30,6 +28,12 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+
+  Deprecated:
+
+  - "item.image" (optional) (object) (default: {})
+  - "item.alt" (string) (default: '')
+  - "item.path" (string) (default: '')
 #}
 
 {# variables #}

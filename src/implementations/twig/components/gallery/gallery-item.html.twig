@@ -43,12 +43,13 @@
 
 {% if (_item.picture is not defined or _item.picture.img is empty) and 
       (_item.image is defined and _item.image.src is not empty) %}
+
   {% set _item = _item|merge({
     picture: {
       img: {
-        src: _image.src,
+        src: _item.image.src,
       },
-    }}) 
+    }})
   %}
   {% if _item.image.alt is not empty %}
     {% set _item = _item|merge({

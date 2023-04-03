@@ -84,7 +84,10 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__picture {
   display: flex;
-  flex-grow: 1;
+
+  &:not(.ecl-gallery__slider-image) {
+    flex-grow: 1;
+  }
 }
 
 @supports (object-fit: cover) {
@@ -343,7 +346,7 @@ $_overlay-links-hover-color: null !default;
   justify-content: center;
 }
 
-.ecl-gallery__slider-image,
+.ecl-gallery__slider-image *,
 .ecl-gallery__slider-video {
   display: flex;
   flex-basis: auto;

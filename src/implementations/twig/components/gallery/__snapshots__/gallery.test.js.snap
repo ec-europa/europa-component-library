@@ -843,17 +843,24 @@ exports[`Gallery Default renders correctly with deprecated data 1`] = `
         class="ecl-gallery__item"
       >
         <a
+          aria-label="Image 2"
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image2.jpg"
-          href=""
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
               class="ecl-picture ecl-gallery__picture"
-            />
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
