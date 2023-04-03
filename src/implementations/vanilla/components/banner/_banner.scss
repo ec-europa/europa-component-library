@@ -109,55 +109,6 @@ $_font-weight: null !default;
   margin-top: 0;
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  // medium banner - ratio 4:1
-  .ecl-banner,
-  .ecl-banner--m {
-    .ecl-banner__image {
-      aspect-ratio: 4/1;
-    }
-  }
-
-  .ecl-banner--plain-background::before {
-    content: '';
-    display: block;
-    padding-top: 25%;
-    width: 100%;
-  }
-
-  // small banner - ratio 5:1
-  .ecl-banner--s .ecl-banner__image {
-    aspect-ratio: 5/1;
-  }
-
-  // large banner - ratio 3:1
-  .ecl-banner--l .ecl-banner__image {
-    aspect-ratio: 3/1;
-  }
-
-  .ecl-banner .ecl-container {
-    position: absolute;
-  }
-
-  .ecl-banner__content {
-    max-width: $_content-width;
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-banner__title {
-    font: map.get($_font, 'title', 'desktop');
-    font-weight: map.get($_font-weight, 'title');
-  }
-
-  .ecl-banner__description {
-    font: map.get($_font, 'description', 'desktop');
-    font-weight: map.get($_font-weight, 'description');
-  }
-}
-
 /*
   * full width
   */
@@ -320,5 +271,61 @@ $_font-weight: null !default;
     .ecl-banner__description-text {
       line-height: 1.5;
     }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  // medium banner - ratio 4:1
+  .ecl-banner,
+  .ecl-banner--m {
+    .ecl-banner__image {
+      aspect-ratio: 4/1;
+    }
+  }
+
+  // small banner - ratio 5:1
+  .ecl-banner--s .ecl-banner__image {
+    aspect-ratio: 5/1;
+  }
+
+  // large banner - ratio 3:1
+  .ecl-banner--l .ecl-banner__image {
+    aspect-ratio: 3/1;
+  }
+
+  .ecl-banner .ecl-container {
+    position: absolute;
+  }
+
+  .ecl-banner__content {
+    max-width: $_content-width;
+  }
+
+  .ecl-banner--plain-background {
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 25%;
+      width: 100%;
+    }
+
+    &.ecl-banner--s::before {
+      padding-top: 20%;
+    }
+
+    &.ecl-banner--l::before {
+      padding-top: 33%;
+    }
+  }
+
+  .ecl-banner__title {
+    font: map.get($_font, 'title', 'desktop');
+    font-weight: map.get($_font-weight, 'title');
+  }
+
+  .ecl-banner__description {
+    font: map.get($_font, 'description', 'desktop');
+    font-weight: map.get($_font-weight, 'description');
   }
 }
