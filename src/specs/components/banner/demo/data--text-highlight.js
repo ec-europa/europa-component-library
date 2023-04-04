@@ -19,7 +19,12 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  image: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+  picture: {
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'aternative text',
+    },
+  },
   credit: '© Copyright or credit',
   variant: 'text-highlight',
   centered: true,
