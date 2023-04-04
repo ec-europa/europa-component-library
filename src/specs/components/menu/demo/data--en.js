@@ -13,7 +13,7 @@ module.exports = {
   items: [
     { label: 'Home', path: exampleLink },
     {
-      label: 'Lorem ipsum',
+      label: 'Principles, countries, history',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -27,7 +27,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Dolor sit amet',
+      label: 'Institutions, law, budget',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -37,11 +37,11 @@ module.exports = {
       ],
     },
     {
-      label: 'Consectetur adipiscing elit',
+      label: 'Priorities and actions',
       path: exampleLink,
     },
     {
-      label: 'Quisque tincidunt pharetra',
+      label: 'Live, work, study',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -52,7 +52,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Suspendisse quis fermentum',
+      label: 'News and events',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [

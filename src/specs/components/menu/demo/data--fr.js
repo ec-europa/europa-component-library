@@ -28,7 +28,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Financial markets',
+      label: 'Marchés financiers',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -38,7 +38,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Banking',
+      label: 'Bancaire',
       path: exampleLink,
     },
     {
@@ -53,7 +53,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Sustainable finance',
+      label: 'Finance durable',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -88,7 +88,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Digital finance',
+      label: 'Finance digitale',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -118,7 +118,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Financial crime',
+      label: 'Criminalité financière',
       path: exampleLink,
     },
     {
@@ -129,23 +129,6 @@ module.exports = {
         { label: 'Item 10.1', path: exampleLink },
         { label: 'Item 10.2', path: exampleLink },
         { label: 'Item 10.3', path: exampleLink },
-      ],
-    },
-    {
-      label: 'Fusce sodales, purus',
-      path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 11.1', path: exampleLink },
-        { label: 'Item 11.2', path: exampleLink },
-        { label: 'Item 11.3', path: exampleLink },
-        { label: 'Item 11.4', path: exampleLink },
-        { label: 'Item 11.5', path: exampleLink },
-        { label: 'Item 11.6', path: exampleLink },
-        { label: 'Item 11.7', path: exampleLink },
-        { label: 'Item 11.8', path: exampleLink },
-        { label: 'Item 11.9', path: exampleLink },
-        { label: 'Item 11.10', path: exampleLink },
       ],
     },
   ],
