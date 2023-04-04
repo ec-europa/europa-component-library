@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     font: map.get(theme.$font, '4xl');
     font-weight: map.get(theme.$font-weight, 'bold');
   }
@@ -22,7 +22,7 @@
   margin: 0;
   padding: 0 0 map.get(theme.$spacing, 'm') 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     font: map.get(theme.$font, '3xl');
     font-weight: map.get(theme.$font-weight, 'bold');
   }
@@ -36,7 +36,7 @@
   margin: 0;
   padding: 0 0 map.get(theme.$spacing, 'm') 0;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     font: map.get(theme.$font, '2xl');
     font-weight: map.get(theme.$font-weight, 'bold');
   }
@@ -162,7 +162,7 @@
 * + .h2 {
   margin-top: map.get(theme.$spacing, '2xl');
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     margin-top: map.get(theme.$spacing, '3xl');
   }
 }
@@ -174,7 +174,7 @@
 * + .h4 {
   margin-top: map.get(theme.$spacing, 'm');
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     margin-top: map.get(theme.$spacing, 'l');
   }
 }
