@@ -6,7 +6,7 @@
     (can be 'plain-background', 'text-block', 'text-highlight', 'image-overlay')
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "title" (string) (default: '') Title of banner
-  - "image" (string) (default: '') Image for banner (required for image banner variant)
+  - "picture" (associative array) (default: {}): Image for the banner, following ECL Picture structure
   - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
   - "centered" (bool) (default: true) Define if banner should be centered
@@ -16,12 +16,18 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
+
+  Deprecated:
+
+    - "image" (string) (default: '') Replaced by picture
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = '' %}
+{% set _picture = picture|default({}) %}
 {% set _variant = variant|default('plain-background') %}
 {% set _size = size|default('m') %}
 {% set _centered = centered ?? true %}
@@ -64,11 +70,25 @@
   {% endfor %}
 {% endif %}
 
+{# Backward compatibility #}
+
+{% if _picture.img is empty and _image is not empty %}
+  {% set _picture = {
+    img: {
+      src: _image,
+    },
+  } %}
+{% endif %}
+
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if _image is not empty and _variant != 'plain-background'  %}
-  <div class="ecl-banner__image" style="background-image:url({{ _image }})"></div>
+{% if _picture.img is not empty and _variant != 'plain-background'  %}
+  {% include '@ecl/picture/picture.html.twig' with {
+    picture: _picture,
+    extra_classes: "ecl-banner__picture",
+    extra_image_classes: "ecl-banner__image",
+  } only %}
 {% endif %}
 {% if _credit is not empty and _variant != 'plain-background' %}
   <div class="ecl-banner__credit">{{ _credit }}</div>
