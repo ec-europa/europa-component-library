@@ -48,9 +48,9 @@ Default.args = getArgs(enData);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: enData } };
 
-export const Translated = (args) => menu(prepareData(frData, args));
+export const Long = (args) => menu(prepareData(frData, args));
 
-Translated.storyName = 'translated';
-Translated.args = getArgs(frData);
-Translated.argTypes = getArgTypes();
-Translated.parameters = { notes: { markdown: notes, json: frData } };
+Long.storyName = 'long - with overlay';
+Long.args = getArgs(frData);
+Long.argTypes = getArgTypes();
+Long.parameters = { notes: { markdown: notes, json: frData } };
