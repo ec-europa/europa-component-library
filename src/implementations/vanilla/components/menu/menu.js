@@ -474,7 +474,6 @@ export class Menu {
 
   /**
    * Check how to display menu horizontally and manage overflow
-   * @param {Node} menuItem
    */
   checkMenuOverflow() {
     // Backward compatibility
@@ -521,7 +520,7 @@ export class Menu {
     // Reset visibility indicator
     if (this.items) {
       this.items.forEach((item) => {
-        item.setAttribute('data-ecl-menu-item-visible', false);
+        item.removeAttribute('data-ecl-menu-item-visible');
       });
     }
 
@@ -876,7 +875,7 @@ export class Menu {
    * Click on the previous items button
    */
   handleClickOnPreviousItems() {
-    if (!this.itemsList || !this.btnNext || !this.lastVisibleItem) return;
+    if (!this.itemsList || !this.btnNext) return;
 
     this.offsetLeft = 0;
     if (this.direction === 'rtl') {
@@ -895,9 +894,9 @@ export class Menu {
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
+        item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
-    this.checkMenuOverflow();
   }
 
   /**
@@ -939,9 +938,9 @@ export class Menu {
     if (this.items) {
       this.items.forEach((item) => {
         this.checkMenuItem(item);
+        item.toggleAttribute('data-ecl-menu-item-visible');
       });
     }
-    this.checkMenuOverflow();
   }
 
   /**
@@ -980,7 +979,7 @@ export class Menu {
     const menuItem = e.target.closest(this.itemSelector);
 
     // Ignore hidden or partially hidden items
-    if (menuItem.getAttribute('data-ecl-menu-item-visible') === 'false') return;
+    if (!menuItem.hasAttribute('data-ecl-menu-item-visible')) return;
 
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
@@ -1035,7 +1034,7 @@ export class Menu {
     // Specific focus action for desktop menu
     if (this.isDesktop && this.hasOverflow) {
       const parentItem = element.closest('[data-ecl-menu-item]');
-      if (parentItem.getAttribute('data-ecl-menu-item-visible') === 'false') {
+      if (!parentItem.hasAttribute('data-ecl-menu-item-visible')) {
         // Trigger scroll button depending on the context
         if (this.offsetLeft === 0) {
           this.handleClickOnNextItems();
