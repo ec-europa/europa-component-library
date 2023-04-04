@@ -11,7 +11,7 @@
 .splash-page-actions-row {
   margin-top: map.get(theme.$spacing, 'xl');
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     margin-top: map.get(theme.$spacing, '4xl');
   }
 }
@@ -19,7 +19,7 @@
 .splash-page-actions-row .splash-page-actions-col + .splash-page-actions-col {
   margin-top: map.get(theme.$spacing, 'm');
 
-  @media screen and (min-width: 768px) {
+  @media screen and (width >= 768px) {
     margin-top: 0;
   }
 }
