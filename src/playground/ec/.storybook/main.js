@@ -39,11 +39,13 @@ const webpackFinal = (config) => {
     },
   });
 
-  config.plugins.unshift(
-    new webpack.DefinePlugin({
-      'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
-    })
-  );
+  if (isProd) {
+    config.plugins.unshift(
+      new webpack.DefinePlugin({
+        'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
+      })
+    );
+  }
 
   config.plugins.forEach((plugin, i) => {
     if (plugin.constructor.name === 'ProgressPlugin') {
@@ -55,8 +57,9 @@ const webpackFinal = (config) => {
 };
 
 module.exports = {
+  framework: '@storybook/html-webpack5',
   core: {
-    builder: 'webpack5',
+    builder: '@storybook/builder-webpack5',
   },
   stories,
   addons,
