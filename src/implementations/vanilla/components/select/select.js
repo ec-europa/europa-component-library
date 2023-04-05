@@ -266,6 +266,7 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
+    this.input.setAttribute('name', this.element.getAttribute('name') || '');
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
