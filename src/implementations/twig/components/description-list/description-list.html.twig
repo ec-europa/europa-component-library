@@ -82,7 +82,7 @@
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-            {%- if _visible_items > 0 %}
+            {%- if _visible_items > 0 -%}
               data-ecl-description-list-collapsible
             {%- endif -%}
             >
@@ -108,7 +108,7 @@
           {% elseif _item.type is not empty and _item.type == 'link' %}   
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--link"
-            {%- if _visible_items > 0 %}
+            {%- if _visible_items > 0 -%}
               data-ecl-description-list-collapsible
             {%- endif -%}
             >
@@ -123,7 +123,7 @@
           {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--inline"
-            {%- if _visible_items > 0 %}
+            {%- if _visible_items > 0 -%}
               data-ecl-description-list-collapsible
             {%- endif -%}
             >
