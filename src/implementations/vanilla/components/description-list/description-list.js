@@ -69,6 +69,7 @@ export class DescriptionList {
           this.showHide(list.children);
           const button = document.createElement('a');
           button.classList.add('ecl-link', 'ecl-description-list__see_more');
+          button.href = '#';
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);
 
