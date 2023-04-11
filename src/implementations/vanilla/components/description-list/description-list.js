@@ -71,6 +71,7 @@ export class DescriptionList {
           button.classList.add('ecl-link', 'ecl-description-list__see_more');
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);
+          console.log(list);
           if (this.attachClickListener) {
             button.addEventListener('click', this.handleClickOnMore);
           }
