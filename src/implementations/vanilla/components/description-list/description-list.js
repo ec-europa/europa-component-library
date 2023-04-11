@@ -66,13 +66,15 @@ export class DescriptionList {
     if (this.lists[0] && this.visibleItems > 0 && this.moreItemLabel) {
       this.lists.forEach((list) => {
         if (list.children && list.children.length > this.visibleItems) {
-          this.showHide(list.children);
           const button = document.createElement('a');
           button.classList.add('ecl-link', 'ecl-description-list__see_more');
           button.href = '#';
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);
 
+          this.showHide(
+            queryAll('.ecl-description-list__definition-item', list)
+          );
           if (this.attachClickListener) {
             button.addEventListener('click', this.handleClickOnMore);
           }
@@ -90,10 +92,17 @@ export class DescriptionList {
   showHide(elements) {
     if (elements) {
       Array.from(elements).forEach((el, i) => {
-        if (i < this.visibleItems) {
+        if (i + 1 < this.visibleItems) {
           el.classList.remove('ecl-description-list__definition-item--hidden');
-        } else {
+          el.classList.remove(
+            'ecl-description-list__definition-item--last-visible'
+          );
+        } else if (i + 1 > this.visibleItems) {
           el.classList.add('ecl-description-list__definition-item--hidden');
+        } else {
+          el.classList.add(
+            'ecl-description-list__definition-item--last-visible'
+          );
         }
       });
     }
@@ -127,6 +136,9 @@ export class DescriptionList {
     if (this.element.contains(parent)) {
       [...parent.children].forEach((item) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
+        item.classList.remove(
+          'ecl-description-list__definition-item--last-visible'
+        );
       });
       // Remove the button
       e.target.remove();
