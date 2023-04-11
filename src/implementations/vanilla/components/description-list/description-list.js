@@ -27,7 +27,7 @@ export class DescriptionList {
   constructor(
     element,
     {
-      listsSelector = '.ecl-description-list__definition--taxonomy',
+      listsSelector = '[data-ecl-description-list-collapsible]',
       visibleItemsSelector = 'data-ecl-description-list-visible-items',
       moreItemLabelSelector = 'data-ecl-description-list-more-label',
       attachClickListener = true,
@@ -61,6 +61,7 @@ export class DescriptionList {
     this.moreItemLabel = this.element.getAttribute(this.moreItemLabelSelector);
     this.visibleItems = this.element.getAttribute(this.visibleItemsSelector);
     this.lists = queryAll(this.listsSelector, this.element);
+
     // Add see more button in each list and bind click event on it
     if (this.lists[0] && this.visibleItems > 0 && this.moreItemLabel) {
       this.lists.forEach((list) => {
@@ -123,6 +124,7 @@ export class DescriptionList {
       [...parent.children].forEach((item) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
       });
+      // Remove the button
       e.target.remove();
     }
   }

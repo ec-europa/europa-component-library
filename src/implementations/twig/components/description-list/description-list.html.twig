@@ -80,7 +80,12 @@
 
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
-            <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            {%- if _visible_items > 0 %}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {%- for _definition in _item.definition -%}
               <span class="ecl-description-list__definition-item">
               {%- if _definition.link is defined -%}
@@ -101,7 +106,12 @@
 
           {# links #}
           {% elseif _item.type is not empty and _item.type == 'link' %}   
-            <dd class="ecl-description-list__definition ecl-description-list__definition--link">
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
+            {%- if _visible_items > 0 %}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {% for _definition in _item.definition %}
               {% include '@ecl/link/link.html.twig' with _definition|merge({
                 extra_classes: 'ecl-description-list__definition-item',
@@ -111,7 +121,12 @@
 
           {# links inline #}
           {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
-            <dd class="ecl-description-list__definition ecl-description-list__definition--inline">     
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            {%- if _visible_items > 0 %}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {% for _definition in _item.definition %}  
               {% include '@ecl/link/link.html.twig' with _definition|merge({
                 extra_classes: 'ecl-description-list__definition-item',
@@ -122,7 +137,7 @@
           {# text #}
           {% else %}
             <dd class="ecl-description-list__definition">
-            {% for _definition in _item.definition %}  
+            {% for _definition in _item.definition %}
               {{- _definition -}}
             {% endfor %}
             </dd>

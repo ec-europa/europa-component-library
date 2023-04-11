@@ -33,6 +33,10 @@ $_taxonomy-color: null !default;
   }
 }
 
+.ecl-description-list__definition-item--hidden {
+  display: none;
+}
+
 .ecl-description-list__term + .ecl-description-list__term {
   margin-top: map.get(theme.$spacing, '2xs');
 }
@@ -78,6 +82,10 @@ $_taxonomy-color: null !default;
   margin-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-end: map.get(theme.$spacing, 'xs');
   unicode-bidi: isolate;
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
 
   &:last-child {
     border-inline-end-width: 0;

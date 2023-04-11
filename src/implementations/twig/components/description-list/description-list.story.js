@@ -17,6 +17,7 @@ const getArgs = (data) => {
   } else {
     args.label = data.items[0].definition[0].label;
   }
+  args.visibleItems = data.visible_items || 0;
 
   return args;
 };
@@ -58,6 +59,22 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.visibleItems = {
+    name: 'visible items',
+    description: 'You can limit the number of items visible in the lists',
+    control: {
+      type: 'range',
+      min: 0,
+      max: 5,
+      step: 1,
+    },
+    table: {
+      type: { summary: 'integer' },
+      defaultValue: { summary: '0' },
+      category: 'Content',
+    },
+  };
+
   return argTypes;
 };
 
@@ -68,6 +85,8 @@ const prepareData = (data, args) => {
   } else {
     data.items[0].definition[0].label = args.label;
   }
+
+  data.visible_items = args.visibleItems;
 
   correctPaths(data);
   return data;
