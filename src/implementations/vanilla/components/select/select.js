@@ -220,7 +220,7 @@ export class Select {
   }
 
   /**
-   * Manually checks an ECL-specific checkbox when previously defualt has been prevented.
+   * Manually checks an ECL-specific checkbox when previously default has been prevented.
    * @param {Event} e
    */
   static checkCheckbox(e) {
@@ -266,7 +266,6 @@ export class Select {
     this.input.setAttribute('type', 'text');
     this.input.setAttribute('placeholder', this.textDefault || '');
     this.input.setAttribute('readonly', true);
-    this.input.setAttribute('name', this.element.getAttribute('name') || '');
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
@@ -440,7 +439,7 @@ export class Select {
 
     document.addEventListener('click', this.handleClickOutside);
 
-    this.select.parentNode.classList.add('ecl-select__container--hidden');
+    // this.select.parentNode.classList.add('ecl-select__container--hidden');
 
     // Respect default selected options.
     this.updateCurrentValue();

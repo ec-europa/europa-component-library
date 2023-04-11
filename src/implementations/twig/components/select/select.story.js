@@ -56,7 +56,11 @@ Single.args = getArgs(dataSingle);
 Single.argTypes = getArgTypes(dataSingle);
 Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
-export const Multiple = (args) => selectBox(prepareData(dataMultiple, args));
+export const Multiple = (args) => `
+<form action="http://localhost" method="get">
+  ${selectBox(prepareData(dataMultiple, args))}
+  <input type="submit" />
+</form>`;
 
 Multiple.storyName = 'multiple';
 Multiple.args = getArgs(dataMultiple);
