@@ -71,12 +71,15 @@ export class DescriptionList {
           button.classList.add('ecl-link', 'ecl-description-list__see_more');
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);
-          console.log(list);
+
           if (this.attachClickListener) {
             button.addEventListener('click', this.handleClickOnMore);
           }
         }
       });
+
+      // Set ecl initialized attribute
+      this.element.setAttribute('data-ecl-auto-initialized', 'true');
     }
   }
 
@@ -106,6 +109,9 @@ export class DescriptionList {
           item.removeEventListener('click', this.handleClickOnMore);
         });
       }
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
