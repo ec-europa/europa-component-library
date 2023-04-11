@@ -3,7 +3,8 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   variant: 'horizontal',
-  more_label: 'See more',
+  more_label: 'See all items',
+  visible_items: 0,
   items: [
     {
       term: 'Standard text',

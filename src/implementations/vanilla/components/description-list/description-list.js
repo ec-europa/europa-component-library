@@ -67,12 +67,8 @@ export class DescriptionList {
       this.lists.forEach((list) => {
         if (list.children && list.children.length > this.visibleItems) {
           this.showHide(list.children);
-          const button = document.createElement('button');
-          button.classList.add(
-            'ecl-button',
-            'ecl-button--ghost',
-            'ecl-description-list__see_more'
-          );
+          const button = document.createElement('a');
+          button.classList.add('ecl-link', 'ecl-description-list__see_more');
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);
           if (this.attachClickListener) {

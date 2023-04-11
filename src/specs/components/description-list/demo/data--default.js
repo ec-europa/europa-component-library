@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  more_label: 'See more',
+  more_label: 'See all items',
   visible_items: 3,
   items: [
     {
