@@ -159,6 +159,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -248,8 +249,63 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -266,16 +322,16 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -406,7 +462,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -481,7 +537,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -496,7 +552,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -585,7 +641,7 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -921,161 +977,6 @@ exports[`EC Site Header Core Default renders correctly 1`] = `
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -1782,6 +1683,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -1871,8 +1773,63 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -1889,16 +1846,16 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -2029,7 +1986,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -2104,7 +2061,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -2119,7 +2076,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -2208,7 +2165,7 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -2544,161 +2501,6 @@ exports[`EC Site Header Core Default renders correctly when logged in 1`] = `
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -3375,6 +3177,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -3464,8 +3267,63 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -3482,16 +3340,16 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -3622,7 +3480,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -3697,7 +3555,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -3712,7 +3570,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -3801,7 +3659,7 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -4137,161 +3995,6 @@ exports[`EC Site Header Core Default renders correctly with extra attributes 1`]
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -4966,6 +4669,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -5055,8 +4759,63 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -5073,16 +4832,16 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -5213,7 +4972,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -5288,7 +5047,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -5303,7 +5062,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -5392,7 +5151,7 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -5728,161 +5487,6 @@ exports[`EC Site Header Core Default renders correctly with extra class names 1`
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -6557,6 +6161,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -6646,8 +6251,63 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -6673,7 +6333,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -6804,7 +6464,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -6871,10 +6531,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -6882,192 +6539,8 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -7081,7 +6554,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -7170,7 +6643,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -7296,7 +6769,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -7523,7 +6996,7 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -7661,6 +7134,207 @@ exports[`EC Site Header Core Translated renders correctly 1`] = `
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>
@@ -8337,6 +8011,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -8426,8 +8101,63 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -8453,7 +8183,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -8584,7 +8314,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -8651,10 +8381,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -8662,192 +8389,8 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -8861,7 +8404,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -8950,7 +8493,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -9076,7 +8619,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -9303,7 +8846,7 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -9441,6 +8984,207 @@ exports[`EC Site Header Core Translated renders correctly with extra attributes 
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>
@@ -10115,6 +9859,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -10204,8 +9949,63 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -10231,7 +10031,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -10362,7 +10162,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -10429,10 +10229,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -10440,192 +10237,8 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -10639,7 +10252,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -10728,7 +10341,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -10854,7 +10467,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -11081,7 +10694,7 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -11219,6 +10832,207 @@ exports[`EC Site Header Core Translated renders correctly with extra class names
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>
@@ -11893,6 +11707,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -11982,8 +11797,63 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -12000,16 +11870,16 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -12140,7 +12010,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -12215,7 +12085,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -12230,7 +12100,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -12319,7 +12189,7 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -12655,161 +12525,6 @@ exports[`EU Site Header Core Default renders correctly 1`] = `
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -13516,6 +13231,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -13605,8 +13321,63 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -13623,16 +13394,16 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -13763,7 +13534,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -13838,7 +13609,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -13853,7 +13624,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -13942,7 +13713,7 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -14278,161 +14049,6 @@ exports[`EU Site Header Core Default renders correctly when logged in 1`] = `
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -15109,6 +14725,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -15198,8 +14815,63 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -15216,16 +14888,16 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -15356,7 +15028,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -15431,7 +15103,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -15446,7 +15118,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -15535,7 +15207,7 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -15871,161 +15543,6 @@ exports[`EU Site Header Core Default renders correctly with extra attributes 1`]
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -16700,6 +16217,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -16789,8 +16307,63 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -16807,16 +16380,16 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
             <li
               aria-expanded="false"
               aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+              class="ecl-menu__item ecl-menu__item--has-children"
               data-ecl-has-children=""
               data-ecl-menu-item=""
             >
               <a
-                class="ecl-menu__link ecl-menu__link--current"
+                class="ecl-menu__link"
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 label
+                Principles, countries, history
               </a>
               <button
                 aria-label="Access item's children"
@@ -16947,7 +16520,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 with a very long label
+                Institutions, law, budget
               </a>
               <button
                 aria-label="Access item's children"
@@ -17022,7 +16595,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 label
+                Priorities and actions
               </a>
             </li>
             <li
@@ -17037,7 +16610,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 label
+                Live, work, study
               </a>
               <button
                 aria-label="Access item's children"
@@ -17126,7 +16699,7 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 label
+                News and events
               </a>
               <button
                 aria-label="Access item's children"
@@ -17462,161 +17035,6 @@ exports[`EU Site Header Core Default renders correctly with extra class names 1`
                       href="/example"
                     >
                       Item 6.28
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
-              data-ecl-menu-item=""
-            >
-              <a
-                class="ecl-menu__link"
-                data-ecl-menu-link=""
-                href="/example"
-              >
-                Item 7 label
-              </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.3
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 7.10
                     </a>
                   </li>
                 </ul>
@@ -18291,6 +17709,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -18380,8 +17799,63 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -18407,7 +17881,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -18538,7 +18012,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -18605,10 +18079,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -18616,192 +18087,8 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -18815,7 +18102,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -18904,7 +18191,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -19030,7 +18317,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -19257,7 +18544,7 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -19395,6 +18682,207 @@ exports[`EU Site Header Core Translated renders correctly 1`] = `
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>
@@ -20071,6 +19559,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -20160,8 +19649,63 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -20187,7 +19731,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -20318,7 +19862,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -20385,10 +19929,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -20396,192 +19937,8 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -20595,7 +19952,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -20684,7 +20041,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -20810,7 +20167,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -21037,7 +20394,7 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -21175,6 +20532,207 @@ exports[`EU Site Header Core Translated renders correctly with extra attributes 
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>
@@ -21849,6 +21407,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
       class="ecl-menu ecl-menu--group1"
       data-ecl-auto-init="Menu"
       data-ecl-menu=""
+      data-ecl-menu-max-lines="2"
     >
       <div
         class="ecl-menu__overlay"
@@ -21938,8 +21497,63 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               </span>
             </button>
           </header>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous"
+            data-ecl-menu-items-previous=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Previous items
+              </span>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next"
+            data-ecl-menu-items-next=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-u-sr-only"
+                data-ecl-label="true"
+              >
+                Next items
+              </span>
+            </span>
+          </button>
           <ul
             class="ecl-menu__list"
+            data-ecl-menu-list=""
           >
             <li
               class="ecl-menu__item"
@@ -21965,7 +21579,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 2 titre
+                Réglementation, surveillance financière
               </a>
               <button
                 aria-label="Access item's children"
@@ -22096,7 +21710,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 3 avec un très long titre
+                Marchés financiers
               </a>
               <button
                 aria-label="Access item's children"
@@ -22163,10 +21777,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
               </div>
             </li>
             <li
-              aria-expanded="false"
-              aria-haspopup=""
-              class="ecl-menu__item ecl-menu__item--has-children"
-              data-ecl-has-children=""
+              class="ecl-menu__item"
               data-ecl-menu-item=""
             >
               <a
@@ -22174,192 +21785,8 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 4 titre
+                Bancaire
               </a>
-              <button
-                aria-label="Access item's children"
-                class="ecl-button ecl-button--primary ecl-menu__button-caret"
-                data-ecl-menu-caret=""
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
-                    data-ecl-icon=""
-                    focusable="false"
-                  >
-                    <use
-                      xlink:href="/icons.svg#corner-arrow"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <div
-                class="ecl-menu__mega"
-                data-ecl-menu-mega=""
-              >
-                <ul
-                  class="ecl-menu__sublist"
-                >
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.1
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.2
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.3 avec un long titre sur plusieurs lignes
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.4
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.5
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.6
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.7
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.8
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.9
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.10
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.11
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.12
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.13
-                    </a>
-                  </li>
-                  <li
-                    class="ecl-menu__subitem"
-                    data-ecl-menu-subitem=""
-                  >
-                    <a
-                      class="ecl-menu__sublink"
-                      href="/example"
-                    >
-                      Item 4.14
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               aria-expanded="false"
@@ -22373,7 +21800,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 5 titre
+                Assurances et pensions
               </a>
               <button
                 aria-label="Access item's children"
@@ -22462,7 +21889,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 6 titre
+                Finance durable
               </a>
               <button
                 aria-label="Access item's children"
@@ -22588,7 +22015,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                       class="ecl-menu__sublink"
                       href="/example"
                     >
-                      Item 6.9 avec un long titre
+                      Item 6.9 with a very long label
                     </a>
                   </li>
                   <li
@@ -22815,7 +22242,7 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                 data-ecl-menu-link=""
                 href="/example"
               >
-                Item 7 titre
+                Finance digitale
               </a>
               <button
                 aria-label="Access item's children"
@@ -22953,6 +22380,207 @@ exports[`EU Site Header Core Translated renders correctly with extra class names
                       href="/example"
                     >
                       Item 7.10
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Paiements et services financiers pour les consommateurs
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.3
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.4
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.5
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 8.6
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="ecl-menu__item"
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Criminalité financière
+              </a>
+            </li>
+            <li
+              aria-expanded="false"
+              aria-haspopup=""
+              class="ecl-menu__item ecl-menu__item--has-children"
+              data-ecl-has-children=""
+              data-ecl-menu-item=""
+            >
+              <a
+                class="ecl-menu__link"
+                data-ecl-menu-link=""
+                href="/example"
+              >
+                Relations internationales
+              </a>
+              <button
+                aria-label="Access item's children"
+                class="ecl-button ecl-button--primary ecl-menu__button-caret"
+                data-ecl-menu-caret=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon ecl-button__icon--after"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ecl-menu__mega"
+                data-ecl-menu-mega=""
+              >
+                <ul
+                  class="ecl-menu__sublist"
+                >
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.1
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.2
+                    </a>
+                  </li>
+                  <li
+                    class="ecl-menu__subitem"
+                    data-ecl-menu-subitem=""
+                  >
+                    <a
+                      class="ecl-menu__sublink"
+                      href="/example"
+                    >
+                      Item 10.3
                     </a>
                   </li>
                 </ul>

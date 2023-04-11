@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-banner
   (can be 'plain-background', 'text-box', 'text-highlight', 'image-overlay')
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"title"** (string) (default: '') Title of banner
-- **"image"** (string) (default: '') Image for banner (required for image banner type)
+- **"picture"** (associative array) (default: {}): Image for the banner, following ECL Picture structure
 - **"credit"** (string) (default: '') Credit for the image
 - **"description"** (string) (default: '') Description of banner
 - **"centered"** (bool) (default: true) Define if banner should be centered
@@ -20,8 +20,13 @@ npm install --save @ecl/twig-component-banner
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
+
+  Deprecated:
+
+  - **"image"** (string) (default: '') Replaced by the picture object
 
 ### Example:
 
@@ -31,8 +36,13 @@ npm install --save @ecl/twig-component-banner
   title: 'EU Budget for the future',  
   description: 'Innovation, economy, environment and geopolitics',  
   centered: true,  
-  variant: 'image',  
-  image: 'url/path-to-image',  
+  variant: 'image-overlay',
+  picture: {
+    img: {
+      src: 'url/path-to-image',
+      alt: 'alternative text',
+    },
+  },
   credit: '© Copyright',
   link: {  
     link: {  

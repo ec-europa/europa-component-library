@@ -32,13 +32,19 @@
 
 {# Backward compatibility #}
 
-{% if _picture is empty and _image is not empty %}
+{% if _picture.img is empty and _image.path is not empty %}
   {% set _picture = {
-    'img': {
-      'src': _image.path|default(''),
-      'alt': _image.alt|default('')
-    }
+    img: {
+      src: _image.path,
+    },
   } %}
+  {% if _image.alt is not empty %}
+    {% set _picture = _picture|merge({
+      img: _picture.img|merge({
+        alt: _image.alt,
+      })
+    }) %}
+  {% endif %}
 {% endif %}
 
 {# Internal logic - Process properties #}
