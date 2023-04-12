@@ -33,6 +33,10 @@ $_taxonomy-color: null !default;
   }
 }
 
+.ecl-description-list__definition-item--hidden {
+  display: none;
+}
+
 .ecl-description-list__term + .ecl-description-list__term {
   margin-top: map.get(theme.$spacing, '2xs');
 }
@@ -46,10 +50,20 @@ $_taxonomy-color: null !default;
   max-width: 80ch;
 }
 
+.ecl-description-list__see_more {
+  display: inline;
+  margin-inline-start: map.get(theme.$spacing, 'm');
+}
+
 .ecl-description-list__definition--link {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
+
+  .ecl-description-list__see_more {
+    margin-inline-start: 0;
+    margin-top: map.get(theme.$spacing, 's');
+  }
 }
 
 .ecl-description-list__definition--link .ecl-description-list__definition-item {
@@ -75,7 +89,12 @@ $_taxonomy-color: null !default;
   padding-inline-end: map.get(theme.$spacing, 'xs');
   unicode-bidi: isolate;
 
-  &:last-child {
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
     border-inline-end-width: 0;
     margin-inline-end: 0;
     padding-inline-end: 0;
@@ -96,6 +115,10 @@ $_taxonomy-color: null !default;
   margin-bottom: map.get(theme.$spacing, 'xs');
   padding-inline-start: map.get(theme.$spacing, 'm');
   position: relative;
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
 
   &::before {
     background-color: map.get(theme.$color, 'blue-100');
@@ -119,6 +142,10 @@ $_taxonomy-color: null !default;
 
   &:last-child {
     margin-inline-start: 0;
+  }
+
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
   }
 }
 
