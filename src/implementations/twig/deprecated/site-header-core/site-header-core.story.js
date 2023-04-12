@@ -79,6 +79,7 @@ const prepareData = (data, demo, args) => {
     } else if (!args.menu && data.menu) {
       delete data.menu;
     }
+    correctPaths(data);
     if (system === 'ec') {
       data.logo.src_desktop = frenchBanner;
     } else {
@@ -87,7 +88,6 @@ const prepareData = (data, demo, args) => {
     }
   }
 
-  correctPaths(data);
   return data;
 };
 
