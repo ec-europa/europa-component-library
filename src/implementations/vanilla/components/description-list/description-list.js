@@ -91,20 +91,27 @@ export class DescriptionList {
    */
   showHide(elements) {
     if (elements) {
-      Array.from(elements).forEach((el, i) => {
-        if (i + 1 < this.visibleItems) {
-          el.classList.remove('ecl-description-list__definition-item--hidden');
-          el.classList.remove(
-            'ecl-description-list__definition-item--last-visible'
-          );
-        } else if (i + 1 > this.visibleItems) {
-          el.classList.add('ecl-description-list__definition-item--hidden');
-        } else {
-          el.classList.add(
-            'ecl-description-list__definition-item--last-visible'
-          );
+      const items = Array.from(elements);
+      const baseClass = 'ecl-description-list__definition-item';
+      const hiddenClass = `${baseClass}--hidden`;
+      const lastVisibleClass = `${baseClass}--last-visible`;
+
+      for (let i = 0; i < items.length; i += 1) {
+        const el = items[i];
+
+        if (i < this.visibleItems) {
+          el.classList.remove(hiddenClass);
+          el.classList.remove(lastVisibleClass);
+        } else if (i >= this.visibleItems) {
+          el.classList.add(hiddenClass);
         }
-      });
+
+        if (i === this.visibleItems - 1) {
+          el.classList.add(lastVisibleClass);
+        } else {
+          el.classList.remove(lastVisibleClass);
+        }
+      }
     }
   }
 

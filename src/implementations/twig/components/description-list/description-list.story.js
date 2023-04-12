@@ -61,7 +61,8 @@ const getArgTypes = (data) => {
 
   argTypes.visibleItems = {
     name: 'visible items',
-    description: 'You can limit the number of items visible in the lists',
+    description:
+      'You can limit the number of items visible in the lists (set 0 for no limit)',
     control: {
       type: 'range',
       min: 0,
