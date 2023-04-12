@@ -7,7 +7,6 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const stories = ['../../../implementations/twig/**/!(ec*).story.js'];
 
 const addons = [
-  '@storybook/addon-docs',
   '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',

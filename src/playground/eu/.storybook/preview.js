@@ -8,7 +8,7 @@ import './ECL';
 
 export const parameters = {
   a11y: {
-    element: '#root',
+    element: '#storybook-root',
     config: {},
     options: {
       checks: { 'color-contrast': { options: { noScroll: true } } },
