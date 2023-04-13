@@ -21,6 +21,10 @@ export const parameters = {
     current: { ...themes.light },
     dark: { ...themes.dark },
   },
+  docs: {
+    canvas: { sourceState: 'shown' },
+  },
+  viewMode: 'story',
   cssresources: [
     {
       id: 'ecl-reset',

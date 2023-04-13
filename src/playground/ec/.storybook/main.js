@@ -7,6 +7,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
 
 const addons = [
+  '@storybook/addon-docs',
   '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',
@@ -68,5 +69,8 @@ module.exports = {
   staticDirs,
   features: {
     postcss: false,
+  },
+  docs: {
+    autodocs: false,
   },
 };
