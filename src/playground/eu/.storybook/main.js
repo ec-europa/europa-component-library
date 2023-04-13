@@ -15,6 +15,7 @@ const addons = [
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
   'storybook-dark-mode',
+  '@storybook/addon-measure',
 ];
 
 let staticDirs = [
