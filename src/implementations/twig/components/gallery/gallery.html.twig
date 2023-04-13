@@ -7,6 +7,7 @@
   - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
   - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "visible_items": (integer) (default: 8)
+  - "full_width": (boolean) (default: false)
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
     - "previous" (object) (default: {}): object of type button
@@ -54,11 +55,16 @@
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
 {% set _overlay_attrs = [] %}
+{% set _full_width = full_width|default(false) %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _full_width %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--full-width' %}
 {% endif %}
 
 {% if not _expandable %}
