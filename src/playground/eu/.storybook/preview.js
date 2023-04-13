@@ -1,6 +1,7 @@
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
+import { themes } from '@storybook/theming';
 
 global.Buffer = Buffer;
 
@@ -15,6 +16,10 @@ export const parameters = {
       restoreScroll: true,
     },
     manual: false,
+  },
+  darkMode: {
+    current: { ...themes.light },
+    dark: { ...themes.dark },
   },
   cssresources: [
     {
