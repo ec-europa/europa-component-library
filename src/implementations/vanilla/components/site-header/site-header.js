@@ -264,6 +264,9 @@ export class SiteHeader {
     this.languageListOverlay.classList.remove(
       'ecl-site-header__language-container--push-right'
     );
+    this.languageListOverlay.classList.remove(
+      'ecl-site-header__language-container--full'
+    );
     this.languageListOverlay.style.removeProperty(
       '--ecl-language-arrow-position'
     );
@@ -303,6 +306,7 @@ export class SiteHeader {
       this.languageListOverlay.classList.add(
         'ecl-site-header__language-container--full'
       );
+      this.languageListOverlay.style.removeProperty('right');
 
       // Adapt arrow position
       const arrowPosition =
