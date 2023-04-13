@@ -23,6 +23,7 @@ npm install --save @ecl/twig-component-gallery
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
   - "share_path" (optional) (string) (default: '')
+- **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"footer"** (object) (default: {}) Footer link
@@ -49,6 +50,7 @@ npm install --save @ecl/twig-component-gallery
 {% include '@ecl/gallery/gallery.html.twig' with {  
   view_all_label: 'View all', 
   counter_label: 'Media files in this gallery' , 
+  visible_items: 6,
   items: [ 
     { 
       picture: {

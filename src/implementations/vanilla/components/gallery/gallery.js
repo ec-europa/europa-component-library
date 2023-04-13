@@ -47,6 +47,7 @@ export class Gallery {
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
       metaSelector = '[data-ecl-gallery-meta]',
+      itemsLimitSelector = 'data-ecl-gallery-visible-items',
       closeButtonSelector = '[data-ecl-gallery-close]',
       viewAllSelector = '[data-ecl-gallery-all]',
       viewAllLabelSelector = 'data-ecl-gallery-collapsed-label',
@@ -85,6 +86,7 @@ export class Gallery {
     this.closeButtonSelector = closeButtonSelector;
     this.viewAllSelector = viewAllSelector;
     this.countSelector = countSelector;
+    this.itemsLimitSelector = itemsLimitSelector;
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
@@ -126,6 +128,7 @@ export class Gallery {
     this.focusTrap = null;
     this.isDesktop = false;
     this.resizeTimer = null;
+    this.visibleItems = 0;
     this.breakpointMd = 768;
     this.breakpointLg = 996;
     this.imageHeight = 185;
@@ -149,6 +152,7 @@ export class Gallery {
   init() {
     // Query elements
     this.expandable = !this.element.hasAttribute(this.expandableSelector);
+    this.visibleItems = this.element.getAttribute(this.itemsLimitSelector);
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
     if (this.expandable) {
@@ -341,17 +345,12 @@ export class Gallery {
     if (!this.viewAll || this.viewAll.expanded) return;
 
     if (this.isDesktop) {
-      const rowHeight = this.isLarge ? this.imageHeight : this.imageHeightBig;
-      const galleryY = this.element.getBoundingClientRect().top;
       let hiddenItemIds = [];
       // We should browse the list first to mark the items to be hidden, and hide them later
       // otherwise, it will interfer with the calculus
       this.galleryItems.forEach((galleryItem, key) => {
         galleryItem.parentNode.classList.remove('ecl-gallery__item--hidden');
-        if (
-          galleryItem.getBoundingClientRect().top - galleryY >
-          rowHeight * (2 + Number(plus))
-        ) {
+        if (key >= Number(this.visibleItems) + Number(plus)) {
           hiddenItemIds = [...hiddenItemIds, key];
         }
       });
