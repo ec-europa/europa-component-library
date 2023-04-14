@@ -41,9 +41,9 @@ let eclVersion = lernaJson.version;
 if (
   process.env.NETLIFY === 'true' &&
   process.env.PULL_REQUEST === 'true' &&
-  process.env.REVIEW_ID
+  process.env.GITHUB_EVENT_NUMBER
 ) {
-  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+  eclVersion += ` - PR ${process.env.GITHUB_EVENT_NUMBER}`;
 }
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
