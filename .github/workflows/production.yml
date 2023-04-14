@@ -20,6 +20,8 @@ jobs:
         uses: dawidd6/action-get-tag@v1
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Build presets
+        run: yarn dist:presets
       - name: Generate sri file
         run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
       - name: Build release
