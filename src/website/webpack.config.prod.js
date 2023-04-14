@@ -39,8 +39,8 @@ process.env.NODE_ENV = 'production';
 
 let eclVersion = lernaJson.version;
 if (
-  process.env.NETLIFY === 'true' &&
-  process.env.PULL_REQUEST === 'true' &&
+  process.env.NETLIFY &&
+  process.env.PULL_REQUEST &&
   process.env.GITHUB_EVENT_NUMBER
 ) {
   eclVersion += ` - PR ${process.env.GITHUB_EVENT_NUMBER}`;
