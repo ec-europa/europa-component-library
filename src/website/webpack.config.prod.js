@@ -42,16 +42,18 @@ if (process.env.PULL_REQUEST && process.env.GITHUB_EVENT_NUMBER) {
   eclVersion += ` - PR ${process.env.GITHUB_EVENT_NUMBER}`;
 }
 
-const isDrone = 'DRONE' in process.env && 'CI' in process.env;
-
 let sri = {};
-if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
+if ('CI' in process.env && process.env.GITHUB_REF.contains('refs/tags/')) {
   try {
     sri = JSON.parse(
       fs.readFileSync(
-        `${path.resolve(__dirname, '../../dist/packages')}/${
-          process.env.DRONE_REPO_NAME
-        }-${process.env.DRONE_TAG}-sri.json`
+        `${path.resolve(
+          __dirname,
+          '../../dist/packages'
+        )}/europa-component-library-${process.env.GITHUB_REF.replace(
+          'refs/tags/',
+          ''
+        )}-sri.json`
       )
     );
   } catch (error) {
