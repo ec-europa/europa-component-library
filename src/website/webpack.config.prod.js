@@ -43,7 +43,7 @@ if (process.env.PULL_REQUEST && process.env.GITHUB_EVENT_NUMBER) {
 }
 
 let sri = {};
-if ('CI' in process.env && process.env.GITHUB_REF.contains('refs/tags/')) {
+if ('CI' in process.env && process.env.GITHUB_REF.includes('refs/tags/')) {
   try {
     sri = JSON.parse(
       fs.readFileSync(
