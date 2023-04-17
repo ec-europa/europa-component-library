@@ -46,6 +46,7 @@ export class Gallery {
       expandableSelector = 'data-ecl-gallery-not-expandable',
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
+      noOverlaySelector = 'data-ecl-gallery-no-overlay',
       metaSelector = '[data-ecl-gallery-meta]',
       itemsLimitSelector = 'data-ecl-gallery-visible-items',
       closeButtonSelector = '[data-ecl-gallery-close]',
@@ -88,6 +89,7 @@ export class Gallery {
     this.countSelector = countSelector;
     this.itemsLimitSelector = itemsLimitSelector;
     this.overlaySelector = overlaySelector;
+    this.noOverlaySelector = noOverlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
     this.overlayMediaSelector = overlayMediaSelector;
@@ -155,6 +157,7 @@ export class Gallery {
     this.visibleItems = this.element.getAttribute(this.itemsLimitSelector);
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
+    this.noOverlay = this.element.hasAttribute(this.noOverlaySelector);
     if (this.expandable) {
       this.viewAll = queryOne(this.viewAllSelector, this.element);
       this.viewAllLabel =
@@ -163,84 +166,101 @@ export class Gallery {
       this.viewAllLabelExpanded =
         this.viewAll.getAttribute(this.viewAllExpandedLabelSelector) ||
         this.viewAllLabel;
-      this.viewAll.setAttribute('data-more', 0);
     }
     this.count = queryOne(this.countSelector, this.element);
-    this.overlay = queryOne(this.overlaySelector, this.element);
-    this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
-    this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
-    this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
-    this.overlayCounterCurrent = queryOne(
-      this.overlayCounterCurrentSelector,
-      this.overlay
-    );
-    this.overlayCounterMax = queryOne(
-      this.overlayCounterMaxSelector,
-      this.overlay
-    );
-    this.overlayDownload = queryOne(this.overlayDownloadSelector, this.overlay);
-    this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
-    this.overlayDescription = queryOne(
-      this.overlayDescriptionSelector,
-      this.overlay
-    );
-    this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
-    this.overlayPrevious = queryOne(this.overlayPreviousSelector, this.overlay);
-    this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
-
-    // Create focus trap
-    this.focusTrap = createFocusTrap(this.overlay, {
-      escapeDeactivates: false,
-      returnFocusOnDeactivate: false,
-    });
-
-    // Polyfill to support <dialog>
-    this.isDialogSupported = true;
-    if (!window.HTMLDialogElement) {
-      this.isDialogSupported = false;
-    }
-
-    // Bind click event on close button
-    if (this.attachClickListener && this.closeButton) {
-      this.closeButton.addEventListener('click', this.handleClickOnCloseButton);
-    }
-
     // Bind click event on view all (open first item)
     if (this.attachClickListener && this.viewAll) {
       this.viewAll.addEventListener('click', this.handleClickOnViewAll);
     }
-
-    // Bind click event on gallery items
-    if (this.attachClickListener && this.galleryItems) {
-      this.galleryItems.forEach((galleryItem) => {
-        if (this.attachClickListener) {
-          galleryItem.addEventListener('click', this.handleClickOnItem);
-        }
-        if (this.attachKeyListener) {
-          galleryItem.addEventListener('keyup', this.handleKeyPressOnItem);
-        }
-      });
-    }
-
-    // Bind click event on previous button
-    if (this.attachClickListener && this.overlayPrevious) {
-      this.overlayPrevious.addEventListener(
-        'click',
-        this.handleClickOnPreviousButton
+    if (!this.noOverlay) {
+      this.overlay = queryOne(this.overlaySelector, this.element);
+      this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
+      this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
+      this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
+      this.overlayCounterCurrent = queryOne(
+        this.overlayCounterCurrentSelector,
+        this.overlay
       );
-    }
+      this.overlayCounterMax = queryOne(
+        this.overlayCounterMaxSelector,
+        this.overlay
+      );
+      this.overlayDownload = queryOne(
+        this.overlayDownloadSelector,
+        this.overlay
+      );
+      this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
+      this.overlayDescription = queryOne(
+        this.overlayDescriptionSelector,
+        this.overlay
+      );
+      this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
+      this.overlayPrevious = queryOne(
+        this.overlayPreviousSelector,
+        this.overlay
+      );
+      this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
-    // Bind click event on next button
-    if (this.attachClickListener && this.overlayNext) {
-      this.overlayNext.addEventListener('click', this.handleClickOnNextButton);
-    }
+      // Create focus trap
+      this.focusTrap = createFocusTrap(this.overlay, {
+        escapeDeactivates: false,
+        returnFocusOnDeactivate: false,
+      });
 
-    // Bind other close event
-    if (!this.isDialogSupported && this.attachKeyListener && this.overlay) {
-      this.overlay.addEventListener('keyup', this.handleKeyboard);
-    }
-    if (this.isDialogSupported && this.overlay) {
-      this.overlay.addEventListener('close', this.handleClickOnCloseButton);
+      // Polyfill to support <dialog>
+      this.isDialogSupported = true;
+      if (!window.HTMLDialogElement) {
+        this.isDialogSupported = false;
+      }
+
+      // Bind click event on close button
+      if (this.attachClickListener && this.closeButton) {
+        this.closeButton.addEventListener(
+          'click',
+          this.handleClickOnCloseButton
+        );
+      }
+
+      // Bind click event on gallery items
+      if (this.attachClickListener && this.galleryItems) {
+        this.galleryItems.forEach((galleryItem) => {
+          if (this.attachClickListener) {
+            galleryItem.addEventListener('click', this.handleClickOnItem);
+          }
+          if (this.attachKeyListener) {
+            galleryItem.addEventListener('keyup', this.handleKeyPressOnItem);
+          }
+        });
+      }
+
+      // Bind click event on previous button
+      if (this.attachClickListener && this.overlayPrevious) {
+        this.overlayPrevious.addEventListener(
+          'click',
+          this.handleClickOnPreviousButton
+        );
+      }
+
+      // Bind click event on next button
+      if (this.attachClickListener && this.overlayNext) {
+        this.overlayNext.addEventListener(
+          'click',
+          this.handleClickOnNextButton
+        );
+      }
+
+      // Bind other close event
+      if (!this.isDialogSupported && this.attachKeyListener && this.overlay) {
+        this.overlay.addEventListener('keyup', this.handleKeyboard);
+      }
+      if (this.isDialogSupported && this.overlay) {
+        this.overlay.addEventListener('close', this.handleClickOnCloseButton);
+      }
+    } else {
+      this.galleryItems.forEach((galleryItem) => {
+        galleryItem.classList.add('ecl-gallery__item__link--frozen');
+        galleryItem.addEventListener('click', this.preventClickOnItem);
+      });
     }
 
     // Bind resize events
@@ -568,20 +588,11 @@ export class Gallery {
       this.hideItems();
       this.viewAll.textContent = this.viewAllLabel;
     } else {
-      this.checkScreen();
-      // Two rows in desktop, three items in mobile.
-      const more = this.isDesktop ? 2 : 3;
-      // Get the multiplier updated value.
-      this.viewAll.setAttribute(
-        'data-more',
-        Number(this.viewAll.getAttribute('data-more')) + Number(more)
-      );
-      this.hideItems(Number(this.viewAll.getAttribute('data-more')));
-    }
-    if (!this.element.querySelector('.ecl-gallery__item--hidden')) {
-      this.viewAll.expanded = true;
-      this.viewAll.setAttribute('data-more', 0);
-      this.viewAll.textContent = this.viewAllLabelExpanded;
+      this.galleryItems.forEach((item) => {
+        this.viewAll.expanded = true;
+        item.parentNode.classList.remove('ecl-gallery__item--hidden');
+        this.viewAll.textContent = this.viewAllLabelExpanded;
+      });
     }
   }
 
@@ -608,6 +619,16 @@ export class Gallery {
 
     // Trap focus
     this.focusTrap.activate();
+  }
+
+  /**
+   * handle click event on gallery items when no overlay.
+   *
+   * @param {Event} e
+   */
+  static preventClickOnItem(e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
 
   /**

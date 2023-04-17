@@ -47,6 +47,10 @@ $_item-outline-offset: null !default;
   position: relative;
 }
 
+.ecl-gallery__item__link--frozen {
+  cursor: default;
+}
+
 .ecl-gallery__item--hidden {
   display: none;
 }
@@ -95,6 +99,10 @@ $_item-outline-offset: null !default;
 
   &:not(.ecl-gallery__slider-image) {
     flex-grow: 1;
+  }
+
+  * {
+    width: 100%;
   }
 }
 

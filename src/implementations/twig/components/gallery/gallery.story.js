@@ -25,6 +25,7 @@ Default.args = {
   expandable: true,
   full_width: false,
   visible_items: 8,
+  disable_overlay: false,
 };
 Default.argTypes = {
   expandable: {
@@ -39,6 +40,15 @@ Default.argTypes = {
     name: 'full width',
     control: { type: 'boolean' },
     description: 'full width gallery',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
+  },
+  disable_overlay: {
+    name: 'without overlay',
+    control: { type: 'boolean' },
+    description: 'make the gallery as just a collection of images',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },

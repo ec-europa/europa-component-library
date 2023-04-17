@@ -8,6 +8,7 @@
   - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "visible_items": (integer) (default: 8)
   - "full_width": (boolean) (default: false)
+  - "disable_overlay": (boolean) (default: false)
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
     - "previous" (object) (default: {}): object of type button
@@ -49,6 +50,7 @@
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
 {% set _visible_items = visible_items|default(8) %}
+{% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
@@ -71,6 +73,10 @@
   {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-not-expandable' %}
 {% else %}
   {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-visible-items="' ~ _visible_items ~ '"' %}
+{% endif %}
+
+{% if _disable_overlay %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-no-overlay' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -105,9 +111,9 @@
     {% endfor %}
   </ul>
   <div class="ecl-gallery__footer">
+  {%- if _expandable -%}
     <div class="ecl-gallery__info">
       <strong class="ecl-gallery__info-total" data-ecl-gallery-count>0</strong> {{- _counter_label -}}
-      {%- if _expandable -%}
         {% include '@ecl/button/button.html.twig' with {
           label: _view_all_label,
           type: 'submit',
@@ -119,8 +125,8 @@
           ],
           extra_classes: 'ecl-gallery__view-all',
         } only %}
-      {%- endif -%}
     </div>
+  {%- endif -%}
   {% if _footer.link is defined and _footer.link is not empty %}
     <div class="ecl-gallery__footer-link">
       {% include '@ecl/link/link.html.twig' with {
