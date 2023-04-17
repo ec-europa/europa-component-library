@@ -48,7 +48,7 @@ jobs:
       - name: Deploy package to github
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/website/europa-component-library-*.zip;dist/europa-component-library-*-sri.json'
+          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Build the archive
