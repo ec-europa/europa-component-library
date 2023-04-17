@@ -1,6 +1,7 @@
 module.exports = {
   id: 'select-default',
   label: 'Select a country',
+  name: 'country',
   helper_text: "This is the input's helper text.",
   invalid_text: 'This is the error message',
   invalid_icon: {
