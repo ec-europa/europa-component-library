@@ -140,6 +140,7 @@ export class Gallery {
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
     this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
+    this.preventClickOnItem = this.preventClickOnItem.bind(this);
     this.handleKeyPressOnItem = this.handleKeyPressOnItem.bind(this);
     this.handleClickOnPreviousButton =
       this.handleClickOnPreviousButton.bind(this);
@@ -626,7 +627,8 @@ export class Gallery {
    *
    * @param {Event} e
    */
-  static preventClickOnItem(e) {
+  // eslint-disable-next-line class-methods-use-this
+  preventClickOnItem(e) {
     e.preventDefault();
     e.stopPropagation();
   }
