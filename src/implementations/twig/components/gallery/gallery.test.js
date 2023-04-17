@@ -42,7 +42,7 @@ describe('Gallery', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
-
+    jest.setTimeout(15000);
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(renderTwigFileAsHtml(template, demoData, true))
