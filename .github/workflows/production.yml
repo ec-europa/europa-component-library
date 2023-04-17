@@ -25,9 +25,6 @@ jobs:
       - name: Generate sri file
         run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
       - name: Build release
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.14.0
         run: PUBLIC_URL=/component-library yarn dist
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
