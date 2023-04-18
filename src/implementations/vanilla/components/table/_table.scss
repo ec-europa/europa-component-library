@@ -233,12 +233,14 @@ $_button_arrow_width: null !default;
 
     .ecl-table__cell[data-ecl-table-header-group] {
       display: grid;
-      grid-template-columns: calc(
+      grid-template-columns:
+        calc(
           10rem + #{map.get(theme.$spacing, 'm')} + #{map.get(
               theme.$spacing,
               's'
             )} + 2px
-        ) 1fr;
+        )
+        1fr;
       grid-template-rows: auto 1fr;
 
       &::after {
