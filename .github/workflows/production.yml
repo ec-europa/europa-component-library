@@ -15,19 +15,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.14.0
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build release
-        run: PUBLIC_URL=/component-library yarn dist
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build presets
+        run: yarn dist:presets
+      - name: Generate sri file
+        run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
+      - name: Build release
+        run: PUBLIC_URL=/component-library yarn dist
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
       - name: Set commit
         run: echo ${{ github.sha }} > dist/website/.commit
-      - name: Generate sri file
-        run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
       - name: Deploy to cdn
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
