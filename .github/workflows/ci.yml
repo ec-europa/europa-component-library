@@ -69,6 +69,7 @@ jobs:
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
+          NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
   deploy-release-branch:
@@ -93,5 +94,6 @@ jobs:
           publish-dir: 'dist/website'
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
+          NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
