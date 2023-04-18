@@ -6,28 +6,14 @@ import specs from '@ecl/specs-component-gallery/demo/data';
 import gallery from './gallery.html.twig';
 import notes from './README.md';
 
-export default {
-  title: 'Components/Gallery',
-  decorators: [withNotes, withCode],
-  parameters: {
-    layout: 'fullscreen',
-  },
-};
-
-const prepareData = (data, args) => Object.assign(correctPaths(data), args);
-
-export const Default = (args) =>
-  `<div class="ecl-container">${gallery(prepareData(specs, args))}</div>`;
-
-Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
-Default.args = {
+const getArgs = () => ({
   expandable: true,
   full_width: false,
   visible_items: 8,
   disable_overlay: false,
-};
-Default.argTypes = {
+});
+
+const getArgTypes = () => ({
   expandable: {
     control: { type: 'boolean' },
     description: 'expandable gallery',
@@ -69,4 +55,22 @@ Default.argTypes = {
       defaultValue: { summary: '8' },
     },
   },
+});
+
+export default {
+  title: 'Components/Gallery',
+  decorators: [withNotes, withCode],
+  parameters: {
+    layout: 'fullscreen',
+  },
 };
+
+const prepareData = (data, args) => Object.assign(correctPaths(data), args);
+
+export const Default = (args) =>
+  `<div class="ecl-container">${gallery(prepareData(specs, args))}</div>`;
+
+Default.storyName = 'default';
+Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.args = getArgs();
+Default.argTypes = getArgTypes();
