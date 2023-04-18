@@ -38,25 +38,30 @@ process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
 let eclVersion = lernaJson.version;
-if (
-  process.env.NETLIFY === 'true' &&
-  process.env.PULL_REQUEST === 'true' &&
-  process.env.REVIEW_ID
-) {
-  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+if (process.env.PULL_REQUEST && process.env.GITHUB_EVENT_NUMBER) {
+  eclVersion += ` - PR ${process.env.GITHUB_EVENT_NUMBER}`;
 }
 
-const isDrone = 'DRONE' in process.env && 'CI' in process.env;
-
 let sri = {};
-if (isDrone && process.env.DRONE_BUILD_EVENT === 'tag') {
+if ('CI' in process.env && process.env.GITHUB_REF.includes('refs/tags/')) {
   try {
+    const sriFileName = `/europa-component-library-${process.env.GITHUB_REF.replace(
+      'refs/tags/',
+      ''
+    )}-sri.json`;
+
     sri = JSON.parse(
       fs.readFileSync(
-        `${path.resolve(__dirname, '../../dist/packages')}/${
-          process.env.DRONE_REPO_NAME
-        }-${process.env.DRONE_TAG}-sri.json`
+        `${path.resolve(__dirname, '../../scripts/')}/${sriFileName}`
       )
+    );
+
+    fs.rename(
+      `${path.resolve(__dirname, '../../scripts')}/${sriFileName}`,
+      `${path.resolve(__dirname, '../../dist/packages')}/${sriFileName}`,
+      (err) => {
+        if (err) throw err;
+      }
     );
   } catch (error) {
     // eslint-disable-next-line no-console
