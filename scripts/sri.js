@@ -34,7 +34,7 @@ files.forEach((file) => {
 fs.writeFileSync(
   `${path.resolve(
     __dirname,
-    '../dist/packages'
+    '../scripts'
   )}/europa-component-library-${version}-sri.json`,
   prettier.format(JSON.stringify(hashes), { parser: 'json' })
 );
