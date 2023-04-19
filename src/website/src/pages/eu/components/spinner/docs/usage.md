@@ -12,7 +12,7 @@ T﻿he Spinner is a loading indicator symbolised by a looped animation providing
 ## Don'ts
 
 - do not state the processing time if it cannot be reliably estimated
-- d﻿o not use it more than once a page, unless it's the small variant
+- d﻿o not use it more than once a page, unless it's part of components (small variant)
 
 ## When to use
 
