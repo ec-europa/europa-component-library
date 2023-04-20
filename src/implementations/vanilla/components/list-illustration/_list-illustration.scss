@@ -11,6 +11,11 @@
 $_title-color: null !default;
 $_description-color: null !default;
 $_background-color: null !default;
+$_value-font-mobile: null !default;
+$_value-font-weight-mobile: null !default;
+$_value-font-desktop: null !default;
+$_value-font-weight-desktop: null !default;
+$_icon_color: null !default;
 
 .ecl-list-illustration {
   margin: 0;
@@ -38,12 +43,35 @@ $_background-color: null !default;
 .ecl-list-illustration__image--square {
   aspect-ratio: 1/1;
   width: 100px;
+
+  &.ecl-list-illustration__image--s {
+    width: 48px;
+  }
+
+  &.ecl-list-illustration__image--l {
+    width: 150px;
+  }
 }
 
 .ecl-list-illustration__title-container {
-  color: $_title-color;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.ecl-list-illustration__icon {
+  color: $_icon-color;
+  margin-bottom: map.get(theme.$spacing, 'm');
+}
+
+.ecl-list-illustration__value {
+  color: $_title-color;
+  font: $_value-font-mobile;
+  font-weight: $_value-font-weight-mobile;
+  margin-bottom: map.get(theme.$spacing, 'xs');
+}
+
+.ecl-list-illustration__title {
+  color: $_title-color;
   font: map.get(theme.$font-prolonged, 'xl');
 }
 
@@ -54,20 +82,10 @@ $_background-color: null !default;
   max-width: 80ch;
 }
 
-.ecl-list-illustration__icon {
-  flex-shrink: 0;
-  margin-inline-end: map.get(theme.$spacing, 'm');
-
-  + .ecl-list-illustration__title {
-    margin-top: map.get(theme.$spacing, 'xs');
-  }
-}
-
 // Zebra
 .ecl-list-illustration--zebra {
   .ecl-list-illustration__item {
     margin-bottom: 0;
-    padding: map.get(theme.$spacing, 'm');
   }
 
   .ecl-list-illustration__item:nth-child(even) {
@@ -82,8 +100,9 @@ $_background-color: null !default;
     padding: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-list-illustration__title-container {
-    margin-top: 0;
+  .ecl-fact-figures__value {
+    font: $_value-font-desktop;
+    font-weight: $_value-font-weight-desktop;
   }
 
   .ecl-list-illustration__image {
@@ -130,5 +149,22 @@ $_background-color: null !default;
 
   .ecl-list-illustration--col-4 {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Centered items
+.ecl-list-illustration--centered {
+  &.ecl-list-illustration--col-2,
+  &.ecl-list-illustration--col-3,
+  &.ecl-list-illustration--col-4 {
+    .ecl-list-illustration__item {
+      text-align: center;
+    }
+
+    .ecl-list-illustration__picture,
+    .ecl-list-illustration__icon {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
