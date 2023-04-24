@@ -48,8 +48,7 @@ const getArgTypes = () => ({
       min: 1,
       max: 11,
     },
-    description:
-      'Only relevant when the gallery is set to be expandable (0 means no limit)',
+    description: 'Only relevant when the gallery is set to be expandable',
     table: {
       type: { summary: 'integer' },
       defaultValue: { summary: '8' },
