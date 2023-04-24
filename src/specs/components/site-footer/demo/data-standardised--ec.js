@@ -14,6 +14,16 @@ module.exports = {
           },
           description:
             'This site is managed by the Directorate-General for "DG identification"',
+          links: [
+            {
+              link: {
+                label: 'Accessibility statement',
+                path: exampleLink,
+                aria_label: 'Link to Accessibility statement',
+              },
+            },
+          ],
+          section_class_name: 'ecl-site-footer__section--site-info',
         },
       ],
       [
@@ -26,13 +36,6 @@ module.exports = {
                 label: 'Contact information of the DG',
                 path: exampleLink,
                 aria_label: 'Link to Contact information of the DG',
-              },
-            },
-            {
-              link: {
-                label: 'Accessibility',
-                path: exampleLink,
-                aria_label: 'Link to Accessibility',
               },
             },
           ],

@@ -147,6 +147,12 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
   outline: 2px solid map.get(theme.$color, 'white');
 }
 
+.ecl-site-footer__section--site-info {
+  .ecl-site-footer__list {
+    margin-top: map.get(theme.$spacing, 'l');
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-site-footer {
@@ -218,5 +224,11 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
   .ecl-site-footer__link {
     font: map.get(theme.$font-prolonged, 's');
+  }
+
+  .ecl-site-footer__section--site-info {
+    .ecl-site-footer__list {
+      margin-top: map.get(theme.$spacing, 'xl');
+    }
   }
 }
