@@ -78,63 +78,9 @@ $_icon_color: null !default;
   margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
-// Horizontal list
-.ecl-list-illustration--col-2,
-.ecl-list-illustration--col-3,
-.ecl-list-illustration--col-4 {
-  display: grid;
-  grid-auto-rows: auto;
-  grid-column-gap: map.get(theme.$grid, 'gutter');
-  grid-row-gap: map.get(theme.$spacing-print, 'xl');
-  width: 100%;
-
-  .ecl-list-illustration__item {
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .ecl-list-illustration__image {
-    margin-inline-end: 0;
-    margin-bottom: map.get(theme.$spacing-print, 'm');
-  }
-
-  .ecl-list-illustration__image:not(.ecl-list-illustration__image--square) {
-    width: 100%;
-  }
-}
-
-.ecl-list-illustration--col-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.ecl-list-illustration--col-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.ecl-list-illustration--col-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-
 // Zebra
 .ecl-list-illustration--zebra {
   .ecl-list-illustration__item:nth-child(even) {
     background-color: $_background-color;
-  }
-}
-
-// Centered items
-.ecl-list-illustration--centered {
-  &.ecl-list-illustration--col-2,
-  &.ecl-list-illustration--col-3,
-  &.ecl-list-illustration--col-4 {
-    .ecl-list-illustration__item {
-      text-align: center;
-    }
-
-    .ecl-list-illustration__picture,
-    .ecl-list-illustration__icon {
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 }
