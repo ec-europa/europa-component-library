@@ -45,7 +45,7 @@ const getArgTypes = () => ({
     control: {
       type: 'range',
       step: 1,
-      min: 0,
+      min: 1,
       max: 11,
     },
     description:

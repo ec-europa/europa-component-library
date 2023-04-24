@@ -128,6 +128,7 @@
     </div>
   {%- endif -%}
   {% if _footer.link is defined and _footer.link is not empty %}
+    <hr class="ecl-gallery__footer-divider" />
     <div class="ecl-gallery__footer-link">
       {% include '@ecl/link/link.html.twig' with {
         link: _footer.link|merge({
