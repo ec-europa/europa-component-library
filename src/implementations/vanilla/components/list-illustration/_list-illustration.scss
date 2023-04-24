@@ -24,18 +24,15 @@ $_icon_color: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: column;
-  margin-bottom: map.get(theme.$spacing, 'xl');
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  padding: map.get(theme.$spacing, 'm');
 }
 
 .ecl-list-illustration__image {
+  aspect-ratio: 3/2;
   display: block;
   height: auto;
   margin-bottom: map.get(theme.$spacing, 'm');
-  aspect-ratio: 3/2;
+  max-width: 100%;
   object-fit: cover;
 }
 
@@ -84,10 +81,6 @@ $_icon_color: null !default;
 
 // Zebra
 .ecl-list-illustration--zebra {
-  .ecl-list-illustration__item {
-    margin-bottom: 0;
-  }
-
   .ecl-list-illustration__item:nth-child(even) {
     background-color: $_background-color;
   }
@@ -97,10 +90,9 @@ $_icon_color: null !default;
   .ecl-list-illustration__item {
     flex-direction: row;
     margin-bottom: 0;
-    padding: map.get(theme.$spacing, 'm');
   }
 
-  .ecl-fact-figures__value {
+  .ecl-list-illustration__value {
     font: $_value-font-desktop;
     font-weight: $_value-font-weight-desktop;
   }
@@ -132,10 +124,6 @@ $_icon_color: null !default;
     .ecl-list-illustration__image {
       margin-inline-end: 0;
       margin-bottom: map.get(theme.$spacing, 'm');
-    }
-
-    .ecl-list-illustration__image:not(.ecl-list-illustration__image--square) {
-      width: 100%;
     }
   }
 
