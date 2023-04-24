@@ -27,6 +27,10 @@ $_icon_color: null !default;
   padding: map.get(theme.$spacing, 'm');
 }
 
+.ecl-list-illustration__picture {
+  flex-shrink: 0;
+}
+
 .ecl-list-illustration__image {
   aspect-ratio: 3/2;
   display: block;
