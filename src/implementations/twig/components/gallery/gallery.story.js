@@ -25,7 +25,7 @@ const getArgTypes = () => ({
   full_width: {
     name: 'full width',
     control: { type: 'boolean' },
-    description: 'full width gallery',
+    description: 'full width gallery (desktop & tablet)',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
