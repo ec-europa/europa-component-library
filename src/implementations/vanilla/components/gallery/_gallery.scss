@@ -191,12 +191,10 @@ $_item-outline-offset: null !default;
 .ecl-gallery__view-all {
   margin-bottom: -#{map.get(theme.$spacing, '2xs')};
   margin-inline-start: map.get(theme.$spacing, 'xs');
-  margin-inline-end: map.get(theme.$spacing, 'm');
 }
 
 .ecl-gallery__footer-link {
   text-align: right;
-  margin-inline-start: map.get(theme.$spacing, 'm');
   margin-top: map.get(theme.$spacing, 's');
   width: 100%;
 }
@@ -264,16 +262,24 @@ $_item-outline-offset: null !default;
     display: none;
   }
 
+  .ecl-gallery__view-all {
+    margin-top: -#{map.get(theme.$spacing, 's')};
+  }
+
   .ecl-gallery--full-width {
     border-radius: 0;
     left: 50%;
     margin-inline-start: -50vw;
     position: relative;
     width: 100vw;
-  }
 
-  .ecl-gallery__view-all {
-    margin-top: -#{map.get(theme.$spacing, 's')};
+    .ecl-gallery__footer-link {
+      margin-inline-start: map.get(theme.$spacing, 'm');
+    }
+
+    .ecl-gallery__view-all {
+      margin-inline-end: map.get(theme.$spacing, 'm');
+    }
   }
 }
 
