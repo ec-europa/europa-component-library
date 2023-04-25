@@ -51,7 +51,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 }
 
 .ecl-site-footer__list-item {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: map.get(theme.$spacing, 'xs');
 
   &:first-of-type {
     margin-top: 0;
@@ -61,14 +61,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 .ecl-site-footer__section--condensed {
   margin-bottom: -#{map.get(theme.$spacing, 'xs')};
   padding-top: map.get(theme.$spacing, 'm');
-
-  .ecl-site-footer__list-item {
-    margin-top: map.get(theme.$spacing, 'xs');
-  }
 }
 
 .ecl-site-footer__section--split-list {
-  padding-top: map.get(theme.$spacing, 'm');
+  padding-top: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-site-footer__title--separator {
@@ -138,7 +134,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
 .ecl-site-footer__logo-link {
   display: inline-block;
-  margin-bottom: map.get(theme.$spacing, 'm');
+  margin-bottom: map.get(theme.$spacing, 'xs');
 }
 
 .ecl-site-footer__logo-link:focus-visible,
@@ -192,6 +188,10 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
     column-gap: $_column-gap;
   }
 
+  .ecl-site-footer__list-item {
+    margin-top: map.get(theme.$spacing, 'm');
+  }
+
   .ecl-site-footer__section--condensed {
     margin-bottom: -#{map.get(theme.$spacing, 'm')};
     padding-top: map.get(theme.$spacing, 'm');
@@ -216,6 +216,7 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'm');
 
   .ecl-site-footer__content {
     font: map.get(theme.$font-prolonged, 's');
+    margin-bottom: map.get(theme.$spacing, 'm');
   }
 
   .ecl-site-footer__description {
