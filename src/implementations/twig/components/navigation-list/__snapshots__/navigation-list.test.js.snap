@@ -8,12 +8,15 @@ exports[`Navigation list Default renders correctly 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -104,12 +107,15 @@ exports[`Navigation list Default renders correctly 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -205,12 +211,331 @@ exports[`Navigation list Default renders correctly 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 3
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </div>
+</jest>
+`;
+
+exports[`Navigation list Default renders correctly with deprecated data 1`] = `
+<jest>
+  <div
+    class="ecl-navigation-list ecl-navigation-list--col-2"
+  >
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alternative text"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 1
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              A simple string
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-content-block ecl-navigation-list__content-block"
+      >
+        <h1
+          class="ecl-content-block__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Title 2
+          </a>
+        </h1>
+        <div
+          class="ecl-content-block__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus
+        </div>
+        <div
+          class="ecl-content-block__link-container"
+        >
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 2
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 3
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Primary link 4
+              </a>
+            </li>
+          </ul>
+          <ul
+            class="ecl-content-block__link-list"
+          >
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 1
+              </a>
+            </li>
+            <li
+              class="ecl-content-block__link-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Secondary link 2
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <article
+      class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+    >
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -317,12 +642,15 @@ exports[`Navigation list Default renders correctly with extra attributes 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -413,12 +741,15 @@ exports[`Navigation list Default renders correctly with extra attributes 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -514,12 +845,15 @@ exports[`Navigation list Default renders correctly with extra attributes 1`] = `
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -624,12 +958,15 @@ exports[`Navigation list Default renders correctly with extra class names 1`] = 
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -720,12 +1057,15 @@ exports[`Navigation list Default renders correctly with extra class names 1`] = 
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >
@@ -821,12 +1161,15 @@ exports[`Navigation list Default renders correctly with extra class names 1`] = 
     <article
       class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
     >
-      <div
-        aria-label="Alt text of the image"
-        class="ecl-navigation-list__image"
-        role="img"
-        style="background-image:url('https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg')"
-      />
+      <picture
+        class="ecl-picture ecl-navigation-list__picture"
+      >
+        <img
+          alt="Alt text for the image"
+          class="ecl-navigation-list__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-content-block ecl-navigation-list__content-block"
       >

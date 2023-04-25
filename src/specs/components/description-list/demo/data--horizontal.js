@@ -3,6 +3,8 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   variant: 'horizontal',
+  more_label: 'See all items',
+  visible_items: 0,
   items: [
     {
       term: 'Standard text',
@@ -63,6 +65,7 @@ module.exports = {
         { link: { label: 'Taxonomy item 1', path: exampleLink } },
         'Taxonomy item 2',
         'Taxonomy item 3',
+        { link: { label: 'Taxonomy item 4', path: exampleLink } },
       ],
     },
   ],

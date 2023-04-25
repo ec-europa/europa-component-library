@@ -7,14 +7,12 @@ import card from './card.html.twig';
 import notes from './README.md';
 
 const dataCardDefault = JSON.parse(JSON.stringify(dataCard));
-delete dataCardDefault.tags;
 delete dataCardDefault.lists;
 
 const dataCardTags = JSON.parse(JSON.stringify(dataCard));
 delete dataCardTags.lists;
 
 const dataCardLists = JSON.parse(JSON.stringify(dataCard));
-delete dataCardLists.tags;
 
 const getArgs = (data) => {
   const args = {};
@@ -38,9 +36,6 @@ const getArgs = (data) => {
   }
   if (data.secondary_meta) {
     args.show_secondary_meta = true;
-  }
-  if (data.tags) {
-    args.show_tags = !!data.tags;
   }
   if (data.lists) {
     args.show_lists = !!data.lists;
@@ -195,9 +190,6 @@ const prepareData = (data, args) => {
   if (!args.show_secondary_meta) {
     delete clone.secondary_meta;
   }
-  if (!args.show_tags) {
-    delete clone.tags;
-  }
   if (!args.title_link) {
     delete clone.title.link;
   }
@@ -231,13 +223,6 @@ Default.storyName = 'default';
 Default.args = getArgs(dataCardDefault);
 Default.argTypes = getArgTypes(dataCardDefault);
 Default.parameters = { notes: { markdown: notes, json: dataCardDefault } };
-
-export const Tags = (args) => card(prepareData(dataCardTags, args));
-
-Tags.storyName = 'tags';
-Tags.args = getArgs(dataCardTags);
-Tags.argTypes = getArgTypes(dataCardTags);
-Tags.parameters = { notes: { markdown: notes, json: dataCardTags } };
 
 export const Lists = (args) => card(prepareData(dataCardLists, args));
 

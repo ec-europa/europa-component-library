@@ -7,11 +7,13 @@ module.exports = {
   close: 'Fermer',
   back: 'Retour',
   menu_link: exampleLink,
+  button_previous_label: 'Previous items',
+  button_next_label: 'Next items',
   icon_path: '/icons.svg',
   items: [
     { label: 'Accueil', path: exampleLink },
     {
-      label: 'Item 2 titre',
+      label: 'Réglementation, surveillance financière',
       path: exampleLink,
       is_current: true,
       trigger_aria_label: "Access item's children",
@@ -26,7 +28,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 3 avec un très long titre',
+      label: 'Marchés financiers',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -36,31 +38,11 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 4 titre',
+      label: 'Bancaire',
       path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 4.1', path: exampleLink },
-        { label: 'Item 4.2', path: exampleLink },
-        {
-          label: 'Item 4.3 avec un long titre sur plusieurs lignes',
-          path: exampleLink,
-        },
-        { label: 'Item 4.4', path: exampleLink },
-        { label: 'Item 4.5', path: exampleLink },
-        { label: 'Item 4.6', path: exampleLink },
-        { label: 'Item 4.7', path: exampleLink },
-        { label: 'Item 4.8', path: exampleLink },
-        { label: 'Item 4.9', path: exampleLink },
-        { label: 'Item 4.10', path: exampleLink },
-        { label: 'Item 4.11', path: exampleLink },
-        { label: 'Item 4.12', path: exampleLink },
-        { label: 'Item 4.13', path: exampleLink },
-        { label: 'Item 4.14', path: exampleLink },
-      ],
     },
     {
-      label: 'Item 5 titre',
+      label: 'Assurances et pensions',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -71,7 +53,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 6 titre',
+      label: 'Finance durable',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -83,7 +65,7 @@ module.exports = {
         { label: 'Item 6.6', path: exampleLink },
         { label: 'Item 6.7', path: exampleLink },
         { label: 'Item 6.8', path: exampleLink },
-        { label: 'Item 6.9 avec un long titre', path: exampleLink },
+        { label: 'Item 6.9 with a very long label', path: exampleLink },
         { label: 'Item 6.10', path: exampleLink },
         { label: 'Item 6.11', path: exampleLink },
         { label: 'Item 6.12', path: exampleLink },
@@ -106,7 +88,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 7 titre',
+      label: 'Finance digitale',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -120,6 +102,33 @@ module.exports = {
         { label: 'Item 7.8', path: exampleLink },
         { label: 'Item 7.9', path: exampleLink },
         { label: 'Item 7.10', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Paiements et services financiers pour les consommateurs',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 8.1', path: exampleLink },
+        { label: 'Item 8.2', path: exampleLink },
+        { label: 'Item 8.3', path: exampleLink },
+        { label: 'Item 8.4', path: exampleLink },
+        { label: 'Item 8.5', path: exampleLink },
+        { label: 'Item 8.6', path: exampleLink },
+      ],
+    },
+    {
+      label: 'Criminalité financière',
+      path: exampleLink,
+    },
+    {
+      label: 'Relations internationales',
+      path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 10.1', path: exampleLink },
+        { label: 'Item 10.2', path: exampleLink },
+        { label: 'Item 10.3', path: exampleLink },
       ],
     },
   ],

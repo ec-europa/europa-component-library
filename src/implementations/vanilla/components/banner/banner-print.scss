@@ -8,12 +8,16 @@
 
 .ecl-banner {
   margin: 0;
-  padding-bottom: map.get(theme.$spacing-print, 'l');
-  padding-top: map.get(theme.$spacing-print, 'l');
+  padding: map.get(theme.$spacing-print, 'l') 0;
+  position: relative;
 }
 
 .ecl-banner__credit {
   display: none;
+}
+
+.ecl-banner__cta {
+  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-banner__title {
@@ -33,4 +37,35 @@
 
 .ecl-banner__description + .ecl-link {
   margin-top: map.get(theme.$spacing-print, 'm');
+}
+
+.ecl-banner:not(.ecl-banner--plain-background) {
+  padding: 0;
+
+  .ecl-banner__image {
+    aspect-ratio: 4/1;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .ecl-container {
+    position: absolute;
+    top: 25%;
+  }
+
+  .ecl-banner__container {
+    display: flex;
+    padding-bottom: map.get(theme.$spacing-print, 'l');
+    padding-top: map.get(theme.$spacing-print, 'l');
+    padding-inline-start: map.get(theme.$spacing-print, 'l');
+    width: 100%;
+  }
+
+  .ecl-banner__description,
+  .ecl-banner__title,
+  .ecl-banner__cta,
+  .ecl-banner__cta .ecl-link {
+    color: map.get(theme.$color, 'white-100');
+  }
 }

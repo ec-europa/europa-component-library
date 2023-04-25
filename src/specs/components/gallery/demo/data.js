@@ -2,12 +2,15 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  icon_path: '/icons.svg',
   items: [
     {
       // Image
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        alt: 'Image 1',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Image 1',
+        },
       },
       description:
         'The EU in brief, institutions and bodies, countries, symbols, history, facts and figures',
@@ -16,9 +19,11 @@ module.exports = {
     },
     {
       // Embedded video
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
-        alt: 'New digital strategy',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
+          alt: 'New digital strategy',
+        },
       },
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
@@ -33,9 +38,11 @@ module.exports = {
     },
     {
       // Image
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-        alt: 'Image 2',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+          alt: 'Image 2',
+        },
       },
       description:
         'Information on agriculture, business, culture, health, etc.',
@@ -43,17 +50,23 @@ module.exports = {
       share_path: '/share#example-image2.jpg',
     },
     {
-      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
-      alt: 'Image 3',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+          alt: 'Image 3',
+        },
+      },
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
     },
     {
       // Image
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-        alt: 'Image 4',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Image 4',
+        },
       },
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
@@ -102,9 +115,11 @@ module.exports = {
     },
     {
       // Image
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
-        alt: 'Image 6',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+          alt: 'Image 6',
+        },
       },
       description:
         'Find official documents, publications, statistics, open data and more resources',
@@ -112,17 +127,23 @@ module.exports = {
       share_path: '/share#example-image6.jpg',
     },
     {
-      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
-      alt: 'Image 7',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+          alt: 'Image 7',
+        },
+      },
       description: 'Teaching material about the EU, including books and maps',
       meta: 'Copyright, Author, Licence for image 7',
       share_path: '/share#example-image7.jpg',
     },
     {
       // Embedded AV Portal video
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-        alt: 'Climate change and protect nature',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+          alt: 'Climate change and protect nature',
+        },
       },
       embedded_video: {
         src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
@@ -137,17 +158,23 @@ module.exports = {
     },
     {
       // Image
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
-        alt: 'Image 9',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
+          alt: 'Image 9',
+        },
       },
       description: 'About the EU',
       meta: 'Copyright, Author, Licence for image 9',
       share_path: '/share#example-imag9e.jpg',
     },
     {
-      path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
-      alt: 'Image 10',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+          alt: 'Image 10',
+        },
+      },
       description: 'EU by topic',
       meta: 'Copyright, Author, Licence for image 10',
       share_path: '/share#example-image10.jpg',
@@ -208,16 +235,17 @@ module.exports = {
       },
     },
   },
-  view_all_label: 'View all',
+  view_all_label: 'See more',
+  view_all_expanded_label: 'Collapse all',
   footer: {
     link: {
       path: exampleLink,
       aria_label: 'View all link aria-label value',
-      label: 'Link to further media items',
+      label: 'Further media items',
     },
     icon: {
       name: 'external',
-      size: 's',
+      size: 'xs',
       path: '/icons.svg',
     },
   },

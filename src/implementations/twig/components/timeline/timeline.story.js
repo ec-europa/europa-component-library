@@ -12,11 +12,41 @@ import notes from './README.md';
 const system = getSystem();
 const demoData = system === 'eu' ? demoDataEu : demoDataEc;
 
-const getArgs = () => ({
+const getArgs = (data) => ({
+  title: data.items[0].title,
+  label: data.items[0].label,
+  content: data.items[0].content,
   showDummyContent: false,
 });
 
 const getArgTypes = () => ({
+  title: {
+    type: { name: 'string' },
+    description: 'Title of the timeline item',
+    table: {
+      category: 'First item content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+  },
+  label: {
+    type: { name: 'string' },
+    description: 'Label of the timeline item',
+    table: {
+      category: 'First item content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+  },
+  content: {
+    type: { name: 'string' },
+    description: 'Content of the timeline item',
+    table: {
+      category: 'First item content',
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+  },
   showDummyContent: {
     name: 'Add dummy content',
     type: { name: 'boolean' },
@@ -31,7 +61,11 @@ const getArgTypes = () => ({
 });
 
 // Prepare data for the navigation.
-const prepareData = (data) => {
+const prepareData = (data, args) => {
+  data.items[0].title = args.title;
+  data.items[0].label = args.label;
+  data.items[0].content = args.content;
+
   const { from, to } = data.hide;
   let hiddenCount = 0;
   if (to > 0) {
@@ -48,9 +82,9 @@ const prepareData = (data) => {
 };
 
 // Prepare dummy Html for the main content.
-const prepareHtmlContent = (state) => {
-  let story = timeline(prepareData(demoData));
-  if (state) {
+const prepareHtmlContent = (args) => {
+  let story = timeline(prepareData(demoData, args));
+  if (args.showDummyContent) {
     story += `<p class="ecl-u-type-paragraph-m">${loremIpsum({
       count: 25,
     })}</p>`;
@@ -63,10 +97,10 @@ export default {
   title: 'Components/Timeline',
 };
 
-export const Default = (arg) => prepareHtmlContent(arg.showDummyContent);
+export const Default = (args) => prepareHtmlContent(args);
 
 Default.storyName = 'default';
-Default.args = getArgs();
+Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };
 Default.decorators = [withCode, withNotes];

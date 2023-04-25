@@ -87,7 +87,7 @@ const prepareData = (data, args) => {
   for (let i = 0; i < clone.items.length; i += 1) {
     clone.items[i].border = args.show_border;
     if (!args.show_image) {
-      delete clone.items[i].image;
+      delete clone.items[i].picture;
     }
     if (!args.show_description) {
       delete clone.items[i].description;

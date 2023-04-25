@@ -80,6 +80,7 @@ export class Carousel {
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
+    this.activeNav = null;
     this.autoPlay = null;
     this.autoPlayInterval = null;
     this.hoverAutoPlay = null;
@@ -90,6 +91,7 @@ export class Carousel {
     this.posFinal = 0;
     this.threshold = 80;
     this.navigationItems = null;
+    this.navigation = null;
     this.controls = null;
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
@@ -107,6 +109,8 @@ export class Carousel {
     this.dragEnd = this.dragEnd.bind(this);
     this.dragAction = this.dragAction.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
+    this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
   }
 
   /**
@@ -119,6 +123,7 @@ export class Carousel {
     this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
+    this.navigation = queryOne('.ecl-carousel__navigation', this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
     this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
@@ -176,9 +181,15 @@ export class Carousel {
         );
       });
     }
+    if (this.navigation) {
+      this.navigation.addEventListener('keydown', this.handleKeyboardOnBullets);
+    }
     if (this.attachClickListener && this.btnPlay && this.btnPause) {
       this.btnPlay.addEventListener('click', this.handleAutoPlay);
       this.btnPause.addEventListener('click', this.handleAutoPlay);
+    }
+    if (this.btnPlay) {
+      this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
     }
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
@@ -192,6 +203,7 @@ export class Carousel {
         this.shiftSlide.bind(this, 'prev', true)
       );
     }
+
     if (this.slidesContainer) {
       // Mouse events
       this.slidesContainer.addEventListener('mouseover', this.handleMouseOver);
@@ -491,6 +503,59 @@ export class Carousel {
     // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
     if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
       this.handleAutoPlay();
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnPlay(e) {
+    switch (e.key) {
+      case 'Tab':
+      case 'ArrowRight':
+        e.preventDefault();
+        this.activeNav = queryOne(
+          `${this.navigationItemsClass}[aria-current="true"]`
+        );
+        if (this.activeNav) {
+          this.activeNav.focus();
+        }
+        if (this.autoPlay) {
+          this.handleAutoPlay();
+        }
+        break;
+
+      default:
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboardOnBullets(e) {
+    const focusedEl = document.activeElement;
+    switch (e.key) {
+      case 'Tab':
+      case 'ArrowRight':
+        e.preventDefault();
+        if (focusedEl.nextSibling) {
+          this.shiftSlide('next', true);
+          focusedEl.nextSibling.focus();
+        } else {
+          this.btnPrev.focus();
+        }
+        break;
+
+      case 'ArrowLeft':
+        if (focusedEl.previousSibling) {
+          this.shiftSlide('prev', true);
+          focusedEl.previousSibling.focus();
+        } else {
+          this.btnPlay.focus();
+        }
+        break;
+
+      default:
     }
   }
 

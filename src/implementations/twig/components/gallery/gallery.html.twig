@@ -4,6 +4,8 @@
   Parameters:
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
+  - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
+  - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
     - "previous" (object) (default: {}): object of type button
@@ -13,20 +15,25 @@
     - "share" (object) (default: {}): object of type link
   - "footer" (object) (default: {}): object 0f type link
   - "items" (array) (default: [])
-    - "path" (string) (default: '')
-    - "alt" (string) (default: '')
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "image" (optional) (object) (default: {})
+    - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
+  - "icon_path": (string) (default: '')
   - "selected_item_id" (int) (default: 0)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (string) Attribute value, eg: 'data-test-1'
+
+  Deprecated:
+
+  - "item.image" (optional) (object) (default: {})
+  - "item.alt" (string) (default: '')
+  - "item.path" (string) (default: '')
 #}
 
 {# variables #}
@@ -36,8 +43,11 @@
 {% set _overlay = overlay|default({}) %}
 {% set _counter_label = counter_label|default('') %}
 {% set _view_all_label = view_all_label|default('') %}
+{% set _view_all_expanded_label = view_all_expanded_label|default('') %}
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
+{% set _icon_path = icon_path|default('') %}
+{% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
@@ -47,6 +57,10 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if not _expandable %}
+  {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-not-expandable' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -74,34 +88,41 @@
       {% endif %}
       {% include '@ecl/gallery/gallery-item.html.twig' with {
         item: _item,
+        icon_path: _icon_path,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}
     {% endfor %}
   </ul>
-  <div class="ecl-gallery__info">
-    <strong data-ecl-gallery-count>0</strong> {{ _counter_label -}}
-  </div>
-
-  {% include '@ecl/button/button.html.twig' with {
-    label: _view_all_label,
-    type: 'submit',
-    variant: 'ghost',
-    extra_attributes: [{ name: 'data-ecl-gallery-all' }],
-    extra_classes: 'ecl-gallery__view-all',
-  } only %}
-
-{% if _footer is not empty and _footer.link is defined and _footer.link is not empty %}
   <div class="ecl-gallery__footer">
-    {% include '@ecl/link/link.html.twig' with {
-      link: _footer.link|merge({
-        type: 'standalone',
-        icon_position: 'after',
-      }),
-      icon: _footer.icon
-    } only %}
+    <div class="ecl-gallery__info">
+      <strong class="ecl-gallery__info-total" data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+      {%- if _expandable -%}
+        {% include '@ecl/button/button.html.twig' with {
+          label: _view_all_label,
+          type: 'submit',
+          variant: 'ghost',
+          extra_attributes: [
+            { name: 'data-ecl-gallery-all' },
+            { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
+            { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+          ],
+          extra_classes: 'ecl-gallery__view-all',
+        } only %}
+      {%- endif -%}
+    </div>
+  {% if _footer.link is defined and _footer.link is not empty %}
+    <div class="ecl-gallery__footer-link">
+      {% include '@ecl/link/link.html.twig' with {
+        link: _footer.link|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _footer.icon
+      } only %}
+    </div>
+  {% endif %}
   </div>
-{% endif %}
   {% set _selected_item = {} %}
   {% if _items[_selected_item_id] is defined and _items[_selected_item_id] is not empty %}
     {% set _selected_item = _items[_selected_item_id] %}
@@ -117,6 +138,7 @@
     extra_attributes: _overlay_attrs,
     extra_classes: _overlay_class,
     item: _selected_item,
+    icon_path: _icon_path,
   } only %}
 </section>
 

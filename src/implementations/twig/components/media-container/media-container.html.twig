@@ -1,8 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
-  - "alt" (string) (default: ''),
-  - "image" (string) (default: ''),
+  - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "extra_classes" (string) (default: ''),
   - "sources" (array) (default: []): format: [
@@ -21,6 +20,7 @@
       },
       ...
     ],
+  - "image" (string) (default: ''): Image to be used as the video placeholder 
   - "description" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -33,6 +33,9 @@
 
   Blocks:
     - "embedded_media"
+
+  Deprecated:
+    - "alt" (string) (default: ''),
 #}
 
 {# Internal properties #}
@@ -43,6 +46,7 @@
 {% set _description = description|default('') %}
 {% set _alt = alt|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
+{% set _picture = picture|default({}) %}
 {% set _extra_attributes = embedded_media ? [
   'data-ecl-media-container="true"',
   'data-ecl-auto-init="MediaContainer"']|join(' ') : ''
@@ -52,6 +56,22 @@
 {% set _tracks = tracks|default({}) %}
 
 {# Internal logic - Process properties #}
+
+{% if _picture.img is empty and _image is not empty %}
+  {% set _picture = {
+      img: {
+        src: _image,
+      },
+    }
+  %}
+  {% if _alt is not empty %}
+    {% set _picture = _picture|merge({
+      img: _picture.img|merge({
+        alt: _alt
+      })
+    }) %}
+  {% endif %}
+{% endif %}
 
 {% if _full_width %}
   {% set _css_class = _css_class ~ ' ecl-media-container--full-width' %}
@@ -100,11 +120,11 @@
   {% endif %}
   </video>
 {% else %}
-  <img
-    alt="{{ _alt }}"
-    class="ecl-media-container__media"
-    src="{{ _image }}"
-  />
+  {% include '@ecl/picture/picture.html.twig' with {
+    picture: _picture,
+    extra_classes: 'ecl-media-container__picture',
+    extra_image_classes: 'ecl-media-container__media',
+  } only %}
 {% endif %}
 {% if _description is not empty %}
   <figcaption class="ecl-media-container__caption">

@@ -20,6 +20,21 @@ describe('Blockquote', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
+    test('backward compatibility', () => {
+      expect.assertions(1);
+
+      const oldData = {
+        ...data,
+        image: {
+          path: data.picture.img.src,
+          alt: data.picture.img.alt,
+        },
+        picture: {},
+      };
+
+      return expect(render(oldData)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

@@ -11,11 +11,19 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.backSelector Selector for the back button
  * @param {String} options.overlaySelector Selector for the menu overlay
  * @param {String} options.innerSelector Selector for the menu inner
+ * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
+ * @param {String} options.buttonPreviousSelector Selector for the previous items button (for overflow)
+ * @param {String} options.buttonNextSelector Selector for the next items button (for overflow)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
+ * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow). Set it to zero to disable automatic resize.
+ * @param {String} options.maxLinesAttribute The data attribute to set the max lines in the markup, if needed
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
+ * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class Menu {
@@ -42,11 +50,16 @@ export class Menu {
       backSelector = '[data-ecl-menu-back]',
       overlaySelector = '[data-ecl-menu-overlay]',
       innerSelector = '[data-ecl-menu-inner]',
+      listSelector = '[data-ecl-menu-list]',
       itemSelector = '[data-ecl-menu-item]',
       linkSelector = '[data-ecl-menu-link]',
+      buttonPreviousSelector = '[data-ecl-menu-items-previous]',
+      buttonNextSelector = '[data-ecl-menu-items-next]',
       caretSelector = '[data-ecl-menu-caret]',
       megaSelector = '[data-ecl-menu-mega]',
       subItemSelector = '[data-ecl-menu-subitem]',
+      maxLines = 2,
+      maxLinesAttribute = 'data-ecl-menu-max-lines',
       attachClickListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
@@ -69,11 +82,16 @@ export class Menu {
     this.backSelector = backSelector;
     this.overlaySelector = overlaySelector;
     this.innerSelector = innerSelector;
+    this.listSelector = listSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
+    this.buttonPreviousSelector = buttonPreviousSelector;
+    this.buttonNextSelector = buttonNextSelector;
     this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
+    this.maxLines = maxLines;
+    this.maxLinesAttribute = maxLinesAttribute;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
@@ -81,29 +99,46 @@ export class Menu {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
+    this.direction = 'ltr';
     this.open = null;
     this.close = null;
     this.back = null;
     this.overlay = null;
     this.inner = null;
+    this.itemsList = null;
     this.items = null;
     this.links = null;
+    this.btnPrevious = null;
+    this.btnNext = null;
     this.isOpen = false;
     this.resizeTimer = null;
     this.isKeyEvent = false;
+    this.isDesktop = false;
+    this.hasOverflow = false;
+    this.offsetLeft = 0;
+    this.lastVisibleItem = null;
+    this.currentItem = null;
+    this.totalItemsWidth = 0;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
+    this.handleClickOnNextItems = this.handleClickOnNextItems.bind(this);
+    this.handleClickOnPreviousItems =
+      this.handleClickOnPreviousItems.bind(this);
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
+    this.handleFocusIn = this.handleFocusIn.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.useDesktopDisplay = this.useDesktopDisplay.bind(this);
+    this.checkMenuOverflow = this.checkMenuOverflow.bind(this);
+    this.checkMenuItem = this.checkMenuItem.bind(this);
+    this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
   }
 
@@ -111,38 +146,66 @@ export class Menu {
    * Initialise component.
    */
   init() {
+    // Check display
+    this.direction = getComputedStyle(this.element).direction;
+
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
     this.back = queryOne(this.backSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
+    this.itemsList = queryOne(this.listSelector, this.element);
+    this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
+    this.btnNext = queryOne(this.buttonNextSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
     this.carets = queryAll(this.caretSelector, this.element);
 
+    // Get extra parameter from markup
+    const maxLinesMarkup = this.element.getAttribute(this.maxLinesAttribute);
+    if (maxLinesMarkup) {
+      this.maxLines = maxLinesMarkup;
+    }
+
     // Check if we should use desktop display (it does not rely only on breakpoints)
-    this.useDesktopDisplay();
+    this.isDesktop = this.useDesktopDisplay();
 
-    // Bind click event on open
-    if (this.attachClickListener && this.open) {
-      this.open.addEventListener('click', this.handleClickOnOpen);
-    }
+    // Bind click events on buttons
+    if (this.attachClickListener) {
+      // Open
+      if (this.open) {
+        this.open.addEventListener('click', this.handleClickOnOpen);
+      }
 
-    // Bind click event on close
-    if (this.attachClickListener && this.close) {
-      this.close.addEventListener('click', this.handleClickOnClose);
-    }
+      // Close
+      if (this.close) {
+        this.close.addEventListener('click', this.handleClickOnClose);
+      }
 
-    // Bind click event on back
-    if (this.attachClickListener && this.back) {
-      this.back.addEventListener('click', this.handleClickOnBack);
-    }
+      // Back
+      if (this.back) {
+        this.back.addEventListener('click', this.handleClickOnBack);
+      }
 
-    // Bind click event on overlay
-    if (this.attachClickListener && this.overlay) {
-      this.overlay.addEventListener('click', this.handleClickOnClose);
+      // Previous items
+      if (this.btnPrevious) {
+        this.btnPrevious.addEventListener(
+          'click',
+          this.handleClickOnPreviousItems
+        );
+      }
+
+      // Next items
+      if (this.btnNext) {
+        this.btnNext.addEventListener('click', this.handleClickOnNextItems);
+      }
+
+      // Overlay
+      if (this.overlay) {
+        this.overlay.addEventListener('click', this.handleClickOnClose);
+      }
     }
 
     // Bind event on menu links
@@ -150,6 +213,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.addEventListener('focusin', this.closeOpenDropdown);
+          link.addEventListener('focusin', this.handleFocusIn);
           link.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -162,6 +226,7 @@ export class Menu {
     if (this.carets) {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
+          caret.addEventListener('focusin', this.handleFocusIn);
           caret.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -197,10 +262,11 @@ export class Menu {
     }
 
     // Browse first level items
-    if (this.items && !isMobile.isMobile) {
+    if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
-        // Check mega menu display (right to left, full width, ...)
+        // Check menu item display (right to left, full width, ...)
         this.checkMenuItem(item);
+        this.totalItemsWidth += item.offsetWidth;
 
         if (item.hasAttribute('data-ecl-has-children')) {
           // Bind hover and focus events on menu items
@@ -210,6 +276,20 @@ export class Menu {
           }
         }
       });
+    }
+
+    // Update overflow display
+    this.checkMenuOverflow();
+
+    // Check if the current item is hidden (one side or the other)
+    if (this.currentItem) {
+      if (
+        this.currentItem.getAttribute('data-ecl-menu-item-visible') === 'false'
+      ) {
+        this.btnNext.classList.add('ecl-menu__item--current');
+      } else {
+        this.btnPrevious.classList.add('ecl-menu__item--current');
+      }
     }
 
     // Init sticky header
@@ -232,20 +312,33 @@ export class Menu {
       this.stickyInstance.remove();
     }
 
-    if (this.attachClickListener && this.open) {
-      this.open.removeEventListener('click', this.handleClickOnOpen);
-    }
+    if (this.attachClickListener) {
+      if (this.open) {
+        this.open.removeEventListener('click', this.handleClickOnOpen);
+      }
 
-    if (this.attachClickListener && this.close) {
-      this.close.removeEventListener('click', this.handleClickOnClose);
-    }
+      if (this.close) {
+        this.close.removeEventListener('click', this.handleClickOnClose);
+      }
 
-    if (this.attachClickListener && this.back) {
-      this.back.removeEventListener('click', this.handleClickOnBack);
-    }
+      if (this.back) {
+        this.back.removeEventListener('click', this.handleClickOnBack);
+      }
 
-    if (this.attachClickListener && this.overlay) {
-      this.overlay.removeEventListener('click', this.handleClickOnClose);
+      if (this.btnPrevious) {
+        this.btnPrevious.removeEventListener(
+          'click',
+          this.handleClickOnPreviousItems
+        );
+      }
+
+      if (this.btnNext) {
+        this.btnNext.removeEventListener('click', this.handleClickOnNextItems);
+      }
+
+      if (this.overlay) {
+        this.overlay.removeEventListener('click', this.handleClickOnClose);
+      }
     }
 
     if (this.attachKeyListener && this.carets) {
@@ -254,7 +347,7 @@ export class Menu {
       });
     }
 
-    if (this.items && !isMobile.isMobile) {
+    if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
         if (item.hasAttribute('data-ecl-has-children')) {
           if (this.attachHoverListener) {
@@ -269,6 +362,7 @@ export class Menu {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
           link.removeEventListener('focusin', this.closeOpenDropdown);
+          link.removeEventListener('focusin', this.handleFocusIn);
           link.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -280,6 +374,7 @@ export class Menu {
     if (this.carets) {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
+          caret.removeEventListener('focusin', this.handleFocusIn);
           caret.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
@@ -319,9 +414,10 @@ export class Menu {
   /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
-   * - enough space to display all the menu items
+   * - not having hamburger menu on screen
    */
   useDesktopDisplay() {
+    // Detect mobile devices
     if (isMobile.isMobileOnly) {
       return false;
     }
@@ -329,6 +425,11 @@ export class Menu {
     // Force mobile display on tablet
     if (isMobile.isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
+      return false;
+    }
+
+    // After all that, check if the hamburger button is displayed
+    if (this.open.offsetParent !== null) {
       return false;
     }
 
@@ -350,14 +451,19 @@ export class Menu {
       this.element.classList.remove('ecl-menu--forced-mobile');
 
       // Check global display
-      this.useDesktopDisplay();
+      this.isDesktop = this.useDesktopDisplay();
 
-      // Check mega menu display (right to left, full width, ...)
-      if (this.items && !isMobile.isMobile) {
+      // Update items display
+      this.totalItemsWidth = 0;
+      if (this.items) {
         this.items.forEach((item) => {
           this.checkMenuItem(item);
+          this.totalItemsWidth += item.offsetWidth;
         });
       }
+
+      // Update overflow display
+      this.checkMenuOverflow();
 
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
@@ -367,13 +473,164 @@ export class Menu {
   }
 
   /**
-   * Check for a specific menu item how to display the mega menu
+   * Check how to display menu horizontally and manage overflow
+   */
+  checkMenuOverflow() {
+    // Backward compatibility
+    if (!this.itemsList) {
+      this.itemsList = queryOne('.ecl-menu__list', this.element);
+    }
+
+    if (
+      !this.itemsList ||
+      !this.inner ||
+      !this.btnNext ||
+      !this.btnPrevious ||
+      !this.items
+    ) {
+      return;
+    }
+
+    // Check if the menu is too large
+    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth;
+    if (!this.hasOverflow || !this.isDesktop) {
+      // Reset values related to overflow
+      if (this.btnPrevious) {
+        this.btnPrevious.style.display = 'none';
+      }
+      if (this.btnNext) {
+        this.btnNext.style.display = 'none';
+      }
+      if (this.itemsList) {
+        this.itemsList.style.left = '0';
+      }
+      if (this.inner) {
+        this.inner.classList.remove('ecl-menu__inner--has-overflow');
+      }
+      this.offsetLeft = 0;
+      this.totalItemsWidth = 0;
+      this.lastVisibleItem = null;
+      return;
+    }
+
+    if (this.inner) {
+      this.inner.classList.add('ecl-menu__inner--has-overflow');
+    }
+
+    // Reset visibility indicator
+    if (this.items) {
+      this.items.forEach((item) => {
+        item.removeAttribute('data-ecl-menu-item-visible');
+      });
+    }
+
+    // First case: overflow to the end
+    if (this.offsetLeft === 0) {
+      this.btnNext.style.display = 'block';
+
+      // Get visible items
+      if (this.direction === 'rtl') {
+        this.items.every((item) => {
+          if (
+            item.getBoundingClientRect().left <
+            this.itemsList.getBoundingClientRect().left
+          ) {
+            this.lastVisibleItem = item;
+            return false;
+          }
+          item.setAttribute('data-ecl-menu-item-visible', true);
+          return true;
+        });
+      } else {
+        this.items.every((item) => {
+          if (
+            item.getBoundingClientRect().right >
+            this.itemsList.getBoundingClientRect().right
+          ) {
+            this.lastVisibleItem = item;
+            return false;
+          }
+          item.setAttribute('data-ecl-menu-item-visible', true);
+          return true;
+        });
+      }
+    }
+    // Second case: overflow to the begining
+    else {
+      // Get visible items
+      // eslint-disable-next-line no-lonely-if
+      if (this.direction === 'rtl') {
+        this.items.forEach((item) => {
+          if (
+            item.getBoundingClientRect().right <=
+            this.inner.getBoundingClientRect().right
+          ) {
+            item.setAttribute('data-ecl-menu-item-visible', true);
+          }
+        });
+      } else {
+        this.items.forEach((item) => {
+          if (
+            item.getBoundingClientRect().left >=
+            this.inner.getBoundingClientRect().left
+          ) {
+            item.setAttribute('data-ecl-menu-item-visible', true);
+          }
+        });
+      }
+    }
+  }
+
+  /**
+   * Check for a specific menu item how to display it:
+   * - number of lines
+   * - mega menu position
+   *
    * @param {Node} menuItem
    */
   checkMenuItem(menuItem) {
-    const menuMega = queryOne(this.megaSelector, menuItem);
+    const menuLink = queryOne(this.linkSelector, menuItem);
 
-    if (menuMega) {
+    // Save current menu item
+    if (menuItem.classList.contains('ecl-menu__item--current')) {
+      this.currentItem = menuItem;
+    }
+
+    if (!this.isDesktop) {
+      menuLink.style.width = '100%';
+      return;
+    }
+
+    // Check if line management has been disabled by user
+    if (this.maxLines < 1) return;
+
+    // Handle menu item height and width (n "lines" max)
+    // Max height: n * line-height + padding
+    // We need to temporally change item alignments to get the height
+    menuItem.style.alignItems = 'flex-start';
+    let linkWidth = menuLink.offsetWidth;
+    const linkStyle = window.getComputedStyle(menuLink);
+    const maxHeight =
+      parseInt(linkStyle.lineHeight, 10) * this.maxLines +
+      parseInt(linkStyle.paddingTop, 10) +
+      parseInt(linkStyle.paddingBottom, 10);
+
+    while (menuLink.offsetHeight > maxHeight) {
+      menuLink.style.width = `${(linkWidth += 1)}px`;
+
+      // Safety exit
+      if (linkWidth > 1000) break;
+    }
+    menuItem.style.alignItems = 'unset';
+  }
+
+  /**
+   * Handle positioning of mega menu
+   * @param {Node} menuItem
+   */
+  checkMegaMenu(menuItem) {
+    const menuMega = queryOne(this.megaSelector, menuItem);
+    if (menuMega && this.inner) {
       // Check number of items and put them in column
       const subItems = queryAll(this.subItemSelector, menuMega);
 
@@ -385,6 +642,11 @@ export class Menu {
         menuItem.classList.add('ecl-menu__item--col3');
       } else {
         menuItem.classList.add('ecl-menu__item--full');
+        if (this.direction === 'rtl') {
+          menuMega.style.right = `${this.offsetLeft}px`;
+        } else {
+          menuMega.style.left = `${this.offsetLeft}px`;
+        }
         return;
       }
 
@@ -594,7 +856,7 @@ export class Menu {
   }
 
   /**
-   * Get back to previous state.
+   * Get back to previous list (on mobile)
    */
   handleClickOnBack() {
     // Remove css class from inner menu
@@ -610,7 +872,79 @@ export class Menu {
   }
 
   /**
-   * Click on a menu item
+   * Click on the previous items button
+   */
+  handleClickOnPreviousItems() {
+    if (!this.itemsList || !this.btnNext) return;
+
+    this.offsetLeft = 0;
+    if (this.direction === 'rtl') {
+      this.itemsList.style.right = '0';
+      this.itemsList.style.left = 'auto';
+    } else {
+      this.itemsList.style.left = '0';
+      this.itemsList.style.right = 'auto';
+    }
+
+    // Update button display
+    this.btnPrevious.style.display = 'none';
+    this.btnNext.style.display = 'block';
+
+    // Refresh display
+    if (this.items) {
+      this.items.forEach((item) => {
+        this.checkMenuItem(item);
+        item.toggleAttribute('data-ecl-menu-item-visible');
+      });
+    }
+  }
+
+  /**
+   * Click on the next items button
+   */
+  handleClickOnNextItems() {
+    if (
+      !this.itemsList ||
+      !this.items ||
+      !this.btnPrevious ||
+      !this.lastVisibleItem
+    )
+      return;
+
+    // Update button display
+    this.btnPrevious.style.display = 'block';
+    this.btnNext.style.display = 'none';
+
+    // Calculate left offset
+    if (this.direction === 'rtl') {
+      this.offsetLeft =
+        this.itemsList.getBoundingClientRect().right -
+        this.lastVisibleItem.getBoundingClientRect().right -
+        this.btnPrevious.offsetWidth;
+
+      this.itemsList.style.right = `-${this.offsetLeft}px`;
+      this.itemsList.style.left = 'auto';
+    } else {
+      this.offsetLeft =
+        this.lastVisibleItem.getBoundingClientRect().left -
+        this.itemsList.getBoundingClientRect().left -
+        this.btnPrevious.offsetWidth;
+
+      this.itemsList.style.left = `-${this.offsetLeft}px`;
+      this.itemsList.style.right = 'auto';
+    }
+
+    // Refresh display
+    if (this.items) {
+      this.items.forEach((item) => {
+        this.checkMenuItem(item);
+        item.toggleAttribute('data-ecl-menu-item-visible');
+      });
+    }
+  }
+
+  /**
+   * Click on a menu item caret
    * @param {Event} e
    */
   handleClickOnCaret(e) {
@@ -634,6 +968,7 @@ export class Menu {
         item.setAttribute('aria-expanded', 'false');
       }
     });
+    this.checkMegaMenu(menuItem);
   }
 
   /**
@@ -641,8 +976,12 @@ export class Menu {
    * @param {Event} e
    */
   handleHoverOnItem(e) {
-    // Add attribute to current item, and remove it from others
     const menuItem = e.target.closest(this.itemSelector);
+
+    // Ignore hidden or partially hidden items
+    if (!menuItem.hasAttribute('data-ecl-menu-item-visible')) return;
+
+    // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.setAttribute('aria-expanded', 'true');
@@ -657,7 +996,7 @@ export class Menu {
       }
     });
 
-    return this;
+    this.checkMegaMenu(menuItem);
   }
 
   /**
@@ -682,6 +1021,27 @@ export class Menu {
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  /**
+   * Focus in a menu link
+   * @param {Event} e
+   */
+  handleFocusIn(e) {
+    const element = e.target;
+
+    // Specific focus action for desktop menu
+    if (this.isDesktop && this.hasOverflow) {
+      const parentItem = element.closest('[data-ecl-menu-item]');
+      if (!parentItem.hasAttribute('data-ecl-menu-item-visible')) {
+        // Trigger scroll button depending on the context
+        if (this.offsetLeft === 0) {
+          this.handleClickOnNextItems();
+        } else {
+          this.handleClickOnPreviousItems();
+        }
+      }
     }
   }
 

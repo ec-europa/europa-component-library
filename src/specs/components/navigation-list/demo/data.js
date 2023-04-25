@@ -5,9 +5,11 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   items: [
     {
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        alt: 'Alt text of the image',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alt text for the image',
+        },
       },
       title: {
         link: {
@@ -57,9 +59,11 @@ module.exports = {
       ],
     },
     {
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        alt: 'Alt text of the image',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alt text for the image',
+        },
       },
       title: {
         link: {
@@ -114,9 +118,11 @@ module.exports = {
       ],
     },
     {
-      image: {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        alt: 'Alt text of the image',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alt text for the image',
+        },
       },
       title: {
         link: {

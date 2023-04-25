@@ -13,21 +13,12 @@ module.exports = {
       path: exampleLink,
     },
   },
-  image: {
-    alt: 'card image',
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+  picture: {
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: 'card image',
+    },
   },
-  tags: [
-    {
-      tag: { label: 'tag 1', path: exampleLink },
-    },
-    {
-      tag: { label: 'tag 2', path: exampleLink },
-    },
-    {
-      tag: { label: 'tag 3', path: exampleLink },
-    },
-  ],
   labels: [
     { label: 'highlighted', variant: 'highlight' },
     { label: 'call status: upcoming', variant: 'medium' },

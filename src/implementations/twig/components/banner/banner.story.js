@@ -24,8 +24,8 @@ const getArgs = (data) => {
     width: 'outside',
     gridContent: false,
   };
-  if (data.image) {
-    args.image = data.image || '';
+  if (data.picture) {
+    args.image = data.picture.img.src || '';
   }
   if (data.credit) {
     args.show_credit = true;
@@ -149,7 +149,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.image) {
+  if (data.credit) {
     argTypes.show_credit = {
       name: 'credit',
       type: { name: 'boolean' },

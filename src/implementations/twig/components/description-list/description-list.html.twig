@@ -11,6 +11,8 @@
         ...
       ]
     - "variant" (string) (default: ''): global variant of the list (horizontal, vertical)
+    - "visible_items": (integer) (default: 0) Number of visible items (0 to display all items)
+    - "more_label": (string) (default: '') Label for the more button, if requested
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -24,10 +26,21 @@
 
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-description-list' %}
+{% set _visible_items = visible_items|default(0) %}
 {% set _variant = variant|default('') %}
+{% set _more_label = more_label|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _visible_items != 0 %}
+  {% set extra_attributes = [
+    { name: 'data-ecl-description-list' },
+    { name: 'data-ecl-description-list-more-label', value: _more_label },
+    { name: 'data-ecl-description-list-visible-items', value: _visible_items },
+    { name: 'data-ecl-auto-init', value: 'DescriptionList' }
+  ] %}
+{% endif %}
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
@@ -67,7 +80,12 @@
 
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
-            <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            {%- if _visible_items > 0 -%}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {%- for _definition in _item.definition -%}
               <span class="ecl-description-list__definition-item">
               {%- if _definition.link is defined -%}
@@ -88,7 +106,12 @@
 
           {# links #}
           {% elseif _item.type is not empty and _item.type == 'link' %}   
-            <dd class="ecl-description-list__definition ecl-description-list__definition--link">
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--link"
+            {%- if _visible_items > 0 -%}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {% for _definition in _item.definition %}
               {% include '@ecl/link/link.html.twig' with _definition|merge({
                 extra_classes: 'ecl-description-list__definition-item',
@@ -98,7 +121,12 @@
 
           {# links inline #}
           {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
-            <dd class="ecl-description-list__definition ecl-description-list__definition--inline">     
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--inline"
+            {%- if _visible_items > 0 -%}
+              data-ecl-description-list-collapsible
+            {%- endif -%}
+            >
             {% for _definition in _item.definition %}  
               {% include '@ecl/link/link.html.twig' with _definition|merge({
                 extra_classes: 'ecl-description-list__definition-item',
@@ -109,7 +137,7 @@
           {# text #}
           {% else %}
             <dd class="ecl-description-list__definition">
-            {% for _definition in _item.definition %}  
+            {% for _definition in _item.definition %}
               {{- _definition -}}
             {% endfor %}
             </dd>
@@ -122,6 +150,7 @@
       {% endif %}
     {% endfor %}
   </dl>
+
 {% endif %}
 
 {% endapply %}
