@@ -128,6 +128,12 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   height: 2.75rem;
 }
 
+.ecl-site-footer__section--site-info {
+  .ecl-site-footer__list {
+    margin-top: map.get(theme.$spacing, 'm');
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-site-footer {
