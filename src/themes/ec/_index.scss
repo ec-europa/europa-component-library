@@ -105,5 +105,36 @@
 @forward '@ecl/theme-dev/maps/media';
 @forward '@ecl/theme-dev/maps/shape';
 @forward '@ecl/theme-dev/maps/spacing';
-@forward '@ecl/theme-dev/maps/typography';
+@forward '@ecl/theme-dev/maps/typography' with (
+  $font-size: (
+    'xs': 0.75rem,
+    's': 0.875rem,
+    'm': 1rem,
+    'l': 1.25rem,
+    'xl': 1.5rem,
+    '2xl': 1.75rem,
+    '3xl': 2rem,
+    '4xl': 2.5rem,
+
+    // Old font sizes, to be removed once components are updated
+    '2xs': 0.625rem,
+    '5xl': 2.25rem,
+    '6xl': 2.625rem,
+  ),
+  $line-height: (
+    'xs': 1.25rem,
+    's': 1.5rem,
+    'm': 1.75rem,
+    'l': 2rem,
+    'xl': 2.25rem,
+    '2xl': 2.5rem,
+    '3xl': 2.75rem,
+    '4xl': 3rem,
+
+    // Old line height, to be removed once components are updated
+    '2xs': 1rem,
+    '5xl': 2.75rem,
+    '6xl': 3.25rem,
+  )
+);
 @forward '@ecl/theme-dev/maps/z-index';

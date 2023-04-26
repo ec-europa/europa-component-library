@@ -13,15 +13,16 @@ const getArgTypes = () => ({
   background: {
     name: 'background colour (sample)',
     type: 'select',
+    description: 'Select different background colours',
     options: [
       'ecl-u-bg-white',
-      'ecl-u-bg-blue ecl-u-type-color-white',
-      'ecl-u-bg-yellow',
-      'ecl-u-bg-grey ecl-u-type-color-white',
-      'ecl-u-bg-grey-25',
+      'ecl-u-bg-primary ecl-u-type-color-white',
+      'ecl-u-bg-secondary',
+      'ecl-u-bg-text ecl-u-type-color-white',
+      'ecl-u-bg-success ecl-u-type-color-white',
+      'ecl-u-bg-error ecl-u-type-color-white',
       'ecl-u-bg-transparent',
     ],
-    description: 'Select different background colours',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -29,10 +30,11 @@ const getArgTypes = () => ({
     control: {
       labels: {
         'ecl-u-bg-white': 'White',
-        'ecl-u-bg-blue ecl-u-type-color-white': 'Blue',
-        'ecl-u-bg-yellow': 'Yellow',
-        'ecl-u-bg-grey ecl-u-type-color-white': 'Grey',
-        'ecl-u-bg-grey-25': 'Grey-25',
+        'ecl-u-bg-primary ecl-u-type-color-white': 'Primary',
+        'ecl-u-bg-secondary': 'Secondary',
+        'ecl-u-bg-text ecl-u-type-color-white': 'Grey',
+        'ecl-u-bg-success ecl-u-type-color-white': 'Success',
+        'ecl-u-bg-error ecl-u-type-color-white': 'Error',
         'ecl-u-bg-transparent': 'Transparent',
       },
     },

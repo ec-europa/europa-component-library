@@ -10,6 +10,7 @@ $_heading3: null !default;
 $_heading4: null !default;
 $_heading5: null !default;
 $_heading6: null !default;
+$_paragraph: null !default;
 
 /*
 * Headings
@@ -92,35 +93,35 @@ $_heading6: null !default;
 .ecl-u-type-paragraph,
 .ecl-u-type-paragraph-m {
   color: $_text-color !important;
-  font: map.get(theme.$font-prolonged, 'm') !important;
+  font: map.get($_paragraph, 'm') !important;
   max-width: 80ch !important;
 }
 
 %ecl-paragraph {
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get($_paragraph, 'm');
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-lead {
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'l') !important;
+  font: map.get($_paragraph, 'l', 'mobile') !important;
   max-width: 80ch !important;
 
   @include breakpoints.up('m') {
-    font: map.get(theme.$font-prolonged, 'xl') !important;
+    font: map.get($_paragraph, 'l', 'desktop') !important;
   }
 }
 
 .ecl-u-type-paragraph-s {
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 's') !important;
+  font: map.get($_paragraph, 's') !important;
   max-width: 80ch !important;
 }
 
 .ecl-u-type-paragraph-xs {
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'xs') !important;
+  font: map.get($_paragraph, 'xs') !important;
   max-width: 80ch !important;
 }
 
