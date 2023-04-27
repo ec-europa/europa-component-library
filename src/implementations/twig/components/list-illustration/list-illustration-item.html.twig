@@ -4,9 +4,11 @@
   Parameters:
     - "title" (string) (default: '')
     - "description" (string) (default: '')
+    - "value" (string) (default: ''): Optional metrics 
     - "picture" (associative array) (default: {}): Image for item, following ECL Picture structure
     - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
     - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "media_size" (string) (default: 'm'): size of the media (square picture or icon). Could be 's', 'm' or 'l'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,13 +29,28 @@
 
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
+{% set _value = value|default('') %}
 {% set _image = image|default({}) %}
 {% set _picture = picture|default({}) %}
 {% set _square = square|default(false) %}
 {% set _icon = icon|default({}) %}
+{% set _media_size = media_size|default('m') %}
 {% set _css_class = 'ecl-list-illustration__item' %}
 {% set _image_class =  'ecl-list-illustration__image' %}
+{% set _icon_size =  '' %}
 {% set _extra_attributes = '' %}
+
+{# Backward compatibility #}
+
+{% if _picture.img is empty and _image.src is not empty %}
+  {% set _picture = {
+    'img': {
+      'path': _image.src|default(''),
+      'alt': _image.alt|default('')
+    }
+  } %}
+  {% set _square = _image.square is defined ? _image.square : _square %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -51,20 +68,15 @@
   {% endfor %}
 {% endif %}
 
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _image.src is not empty %}
-  {% set _picture = {
-    'img': {
-      'path': _image.src|default(''),
-      'alt': _image.alt|default('')
-    }
-  } %}
-  {% set _square = _image.square is defined ? _image.square : _square %}
-{% endif %}
-
 {% if _square %}
   {% set _image_class = _image_class ~ ' ecl-list-illustration__image--square' %}
+  {% set _image_class = _image_class ~ ' ecl-list-illustration__image--' ~ _media_size %}
+{% endif %}
+
+{% if _media_size == 'l' %}
+  {% set _icon_size = '2xl' %}
+{% else %}
+  {% set _icon_size = 'l' %}
 {% endif %}
 
 {# Print the result #}
@@ -78,13 +90,16 @@
     } only %}
   {% endif %}
   <div class="ecl-list-illustration__detail">
-  {% if _title is not empty or _icon is not empty %}
+  {% if _title is not empty or _icon is not empty or _value is not empty %}
     <div class="ecl-list-illustration__title-container">
     {% if _icon is not empty and _icon.path is defined %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _icon|merge({ size: 'xl' }),
+        icon: _icon|merge({ size: _icon_size }),
         extra_classes: 'ecl-list-illustration__icon',
       } only %}
+    {% endif %}
+    {% if _value is not empty %}
+      <div class="ecl-list-illustration__value">{{ _value }}</div>
     {% endif %}
     {% if _title is not empty %}
       <div class="ecl-list-illustration__title">{{ _title }}</div>
