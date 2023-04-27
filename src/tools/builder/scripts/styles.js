@@ -24,7 +24,9 @@ const getPlugins = (options) => {
         })
       );
     }
+  }
 
+  if (process.env.NODE_ENV === 'production' || options.minify) {
     plugins.push(cssnano({ safe: true }));
   }
 
