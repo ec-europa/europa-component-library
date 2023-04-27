@@ -103,7 +103,29 @@
 @forward '@ecl/theme-dev/maps/form';
 @forward '@ecl/theme-dev/maps/layout';
 @forward '@ecl/theme-dev/maps/media';
-@forward '@ecl/theme-dev/maps/shape';
+
+// For some reasons, it does not work to redefine this color into the "with"
+$shadow-color: #26324b;
+@forward '@ecl/theme-dev/maps/shape' with (
+  $shadow: (
+    '1': #{0 0 0 rgba($shadow-color, 0.1),
+    0 0 1px rgba($shadow-color, 0.06),
+    2px 2px 2px rgba($shadow-color, 0.05),
+    4px 4px 6px rgba($shadow-color, 0.05)},
+    '2': #{0 0 0 rgba($shadow-color, 0.1),
+    0 0 6px rgba($shadow-color, 0.06),
+    12px 12px 12px rgba($shadow-color, 0.05),
+    24px 24px 36px rgba($shadow-color, 0.05)},
+    '3': #{0 0 0 rgba($shadow-color, 0.1),
+    0 0 12px rgba($shadow-color, 0.06),
+    24px 24px 24px rgba($shadow-color, 0.05),
+    48px 48px 72px rgba($shadow-color, 0.05)},
+    '4': #{0 0 0 rgba($shadow-color, 0.1),
+    0 0 16px rgba($shadow-color, 0.06),
+    32px 32px 32px rgba($shadow-color, 0.05),
+    64px 64px 96px rgba($shadow-color, 0.05)},
+  )
+);
 @forward '@ecl/theme-dev/maps/spacing';
 @forward '@ecl/theme-dev/maps/typography' with (
   $font-size: (

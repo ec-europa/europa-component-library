@@ -3,48 +3,32 @@
 
 // Drop shadow
 .ecl-u-shadow-none {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
-.ecl-u-shadow-1 {
-  box-shadow: map.get(theme.$shadow, '1');
-}
-
-.ecl-u-shadow-2 {
-  box-shadow: map.get(theme.$shadow, '2');
-}
-
-.ecl-u-shadow-3 {
-  box-shadow: map.get(theme.$shadow, '3');
+@each $key, $value in theme.$shadow {
+  .ecl-u-shadow-#{$key} {
+    box-shadow: $value !important;
+  }
 }
 
 // Inner shadow
-.ecl-u-shadow-inner-1 {
-  box-shadow: map.get(theme.$shadow-inner, '1');
-}
-
-.ecl-u-shadow-inner-2 {
-  box-shadow: map.get(theme.$shadow-inner, '2');
+@each $key, $value in theme.$shadow-inner {
+  .ecl-u-shadow-inner-#{$key} {
+    box-shadow: $value !important;
+  }
 }
 
 // Negative shadow
-.ecl-u-shadow-negative-1 {
-  box-shadow: map.get(theme.$shadow-negative, '1');
-}
-
-.ecl-u-shadow-negative-2 {
-  box-shadow: map.get(theme.$shadow-negative, '2');
-}
-
-.ecl-u-shadow-negative-3 {
-  box-shadow: map.get(theme.$shadow-negative, '3');
+@each $key, $value in theme.$shadow-negative {
+  .ecl-u-shadow-negative-#{$key} {
+    box-shadow: $value !important;
+  }
 }
 
 // Negative inner shadow
-.ecl-u-shadow-negative-inner-1 {
-  box-shadow: map.get(theme.$shadow-negative-inner, '1');
-}
-
-.ecl-u-shadow-negative-inner-2 {
-  box-shadow: map.get(theme.$shadow-negative-inner, '2');
+@each $key, $value in theme.$shadow-negative-inner {
+  .ecl-u-shadow-negative-inner-#{$key} {
+    box-shadow: $value !important;
+  }
 }

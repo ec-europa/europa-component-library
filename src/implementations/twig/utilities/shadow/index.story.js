@@ -1,6 +1,9 @@
 import withCode from '@ecl/storybook-addon-code';
 import classnames from 'classnames';
 import { styled } from '@ecl/dom-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
+
+const system = getSystem();
 
 const styleContainer = {
   alignItems: 'center',
@@ -31,67 +34,104 @@ const styleInnerNegative = {
   width: '100%',
 };
 
-const getArgs = () => ({
-  shadow: 'ecl-u-shadow-1',
-  shadowInner: 'ecl-u-shadow-none',
-});
+const getArgs = () => {
+  const args = {};
 
-const getArgTypes = () => ({
-  shadow: {
-    name: 'box shadow',
-    type: 'select',
-    description: 'Possible shadow elevation',
-    options: [
-      'ecl-u-shadow-none',
-      'ecl-u-shadow-1',
-      'ecl-u-shadow-2',
-      'ecl-u-shadow-3',
-      'ecl-u-shadow-negative-1',
-      'ecl-u-shadow-negative-2',
-      'ecl-u-shadow-negative-3',
-    ],
-    control: {
-      labels: {
-        'ecl-u-shadow-none': 'none',
-        'ecl-u-shadow-1': 'elevation 1',
-        'ecl-u-shadow-2': 'elevation 2',
-        'ecl-u-shadow-3': 'elevation 3',
-        'ecl-u-shadow-negative-1': 'negative, elevation 1',
-        'ecl-u-shadow-negative-2': 'negative, elevation 2',
-        'ecl-u-shadow-negative-3': 'negative, elevation 3',
+  args.shadow = 'ecl-u-shadow-1';
+  if (system !== 'ec') {
+    args.shadowInner = 'ecl-u-shadow-none';
+  }
+  return args;
+};
+
+const getArgTypes = () => {
+  const argTypes = {};
+
+  if (system === 'ec') {
+    argTypes.shadow = {
+      name: 'box shadow',
+      type: 'select',
+      description: 'Possible shadow elevation',
+      options: [
+        'ecl-u-shadow-none',
+        'ecl-u-shadow-1',
+        'ecl-u-shadow-2',
+        'ecl-u-shadow-3',
+        'ecl-u-shadow-4',
+      ],
+      control: {
+        labels: {
+          'ecl-u-shadow-none': 'none',
+          'ecl-u-shadow-1': 'elevation 1',
+          'ecl-u-shadow-2': 'elevation 2',
+          'ecl-u-shadow-3': 'elevation 3',
+          'ecl-u-shadow-4': 'elevation 4',
+        },
       },
-    },
-    table: {
-      type: 'string',
-      defaultValue: { summary: '' },
-    },
-  },
-  shadowInner: {
-    name: 'inner shadow',
-    type: 'select',
-    description: 'Possible inner shadow',
-    options: [
-      'ecl-u-shadow-none',
-      'ecl-u-shadow-inner-1',
-      'ecl-u-shadow-inner-2',
-      'ecl-u-shadow-negative-inner-1',
-      'ecl-u-shadow-negative-inner-2',
-    ],
-    control: {
-      labels: {
-        'ecl-u-shadow-none': 'none',
-        'ecl-u-shadow-inner-1': 'depth 1',
-        'ecl-u-shadow-inner-2': 'depth 2',
-        'ecl-u-shadow-negative-inner-1': 'negative, depth 1',
-        'ecl-u-shadow-negative-inner-2': 'negative, depth 2',
+      table: {
+        type: 'string',
+        defaultValue: { summary: '' },
       },
-    },
-    table: {
-      type: 'string',
-      defaultValue: { summary: '' },
-    },
-  },
-});
+    };
+  } else {
+    argTypes.shadow = {
+      name: 'box shadow',
+      type: 'select',
+      description: 'Possible shadow elevation',
+      options: [
+        'ecl-u-shadow-none',
+        'ecl-u-shadow-1',
+        'ecl-u-shadow-2',
+        'ecl-u-shadow-3',
+        'ecl-u-shadow-negative-1',
+        'ecl-u-shadow-negative-2',
+        'ecl-u-shadow-negative-3',
+      ],
+      control: {
+        labels: {
+          'ecl-u-shadow-none': 'none',
+          'ecl-u-shadow-1': 'elevation 1',
+          'ecl-u-shadow-2': 'elevation 2',
+          'ecl-u-shadow-3': 'elevation 3',
+          'ecl-u-shadow-negative-1': 'negative, elevation 1',
+          'ecl-u-shadow-negative-2': 'negative, elevation 2',
+          'ecl-u-shadow-negative-3': 'negative, elevation 3',
+        },
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: '' },
+      },
+    };
+    argTypes.shadowInner = {
+      name: 'inner shadow',
+      type: 'select',
+      description: 'Possible inner shadow',
+      options: [
+        'ecl-u-shadow-none',
+        'ecl-u-shadow-inner-1',
+        'ecl-u-shadow-inner-2',
+        'ecl-u-shadow-negative-inner-1',
+        'ecl-u-shadow-negative-inner-2',
+      ],
+      control: {
+        labels: {
+          'ecl-u-shadow-none': 'none',
+          'ecl-u-shadow-inner-1': 'depth 1',
+          'ecl-u-shadow-inner-2': 'depth 2',
+          'ecl-u-shadow-negative-inner-1': 'negative, depth 1',
+          'ecl-u-shadow-negative-inner-2': 'negative, depth 2',
+        },
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: '' },
+      },
+    };
+  }
+
+  return argTypes;
+};
 
 export default {
   title: 'Utilities/Shadow',
@@ -99,6 +139,19 @@ export default {
 };
 
 export const Custom = (args) => {
+  if (system === 'ec') {
+    const container = styled(styleContainer);
+    const inner = styled(styleInner);
+
+    return `
+    <div style="${container}">
+      <div style="${styled(styleBox)}" class="${classnames(args.shadow)}">
+        <div style="${inner}" />
+      </div>
+    </div>
+    `;
+  }
+
   const container = args.shadow.includes('negative')
     ? styled(styleContainerNegative)
     : styled(styleContainer);
