@@ -48,7 +48,7 @@
     'accent30': #887de8,
 
     // Other colors
-    'primary-variant': #254acb,
+    'branding': #254acb,
     'black': #000,
     'white': #fff,
 
@@ -126,7 +126,21 @@ $shadow-color: #26324b;
     64px 64px 96px rgba($shadow-color, 0.05)},
   )
 );
-@forward '@ecl/theme-dev/maps/spacing';
+@forward '@ecl/theme-dev/maps/spacing' with (
+  $spacing: (
+    '3xs': 0.25rem,
+    '2xs': 0.5rem,
+    'xs': 0.75rem,
+    's': 1rem,
+    'm': 1.25rem,
+    'l': 1.5rem,
+    'xl': 2rem,
+    '2xl': 2.5rem,
+    '3xl': 3rem,
+    '4xl': 3.5rem,
+    '5xl': 4rem,
+  )
+);
 @forward '@ecl/theme-dev/maps/typography' with (
   $font-size: (
     'xs': 0.75rem,
