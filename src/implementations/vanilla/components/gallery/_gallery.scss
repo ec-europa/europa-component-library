@@ -39,6 +39,10 @@ $_item-outline-offset: null !default;
   position: relative;
 }
 
+.ecl-gallery__item__link--frozen {
+  cursor: default;
+}
+
 .ecl-gallery__item--hidden {
   display: none;
 }
@@ -87,6 +91,11 @@ $_item-outline-offset: null !default;
 
   &:not(.ecl-gallery__slider-image) {
     flex-grow: 1;
+  }
+
+  * {
+    object-fit: cover;
+    width: 100%;
   }
 }
 
@@ -173,25 +182,30 @@ $_item-outline-offset: null !default;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin: 0 auto;
+  max-width: 1140px;
   padding-top: map.get(theme.$spacing, 'xs');
   text-align: right;
 }
 
 .ecl-gallery__view-all {
   margin-bottom: -#{map.get(theme.$spacing, '2xs')};
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get(theme.$spacing, 'm');
 }
 
 .ecl-gallery__footer-link {
-  border-top: 1px solid map.get(theme.$color, 'grey-15');
   text-align: right;
   margin-top: map.get(theme.$spacing, 's');
-  padding-top: map.get(theme.$spacing, 'xs');
+  width: 100%;
+}
+
+.ecl-gallery__footer-divider {
+  border: 1px solid map.get(theme.$color, 'grey-15');
   width: 100%;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
+@include breakpoints.up('s') {
   .ecl-gallery__list {
     display: flex;
     flex-direction: row;
@@ -208,7 +222,6 @@ $_item-outline-offset: null !default;
 
   .ecl-gallery__image {
     margin: 0 auto;
-    width: auto;
   }
 
   .ecl-gallery__image-icon {
@@ -238,7 +251,6 @@ $_item-outline-offset: null !default;
   }
 
   .ecl-gallery__footer-link {
-    border-top: none;
     order: 1;
     margin-top: 0;
     padding-top: 0;
@@ -246,8 +258,28 @@ $_item-outline-offset: null !default;
     width: auto;
   }
 
+  .ecl-gallery__footer-divider {
+    display: none;
+  }
+
   .ecl-gallery__view-all {
     margin-top: -#{map.get(theme.$spacing, 's')};
+  }
+
+  .ecl-gallery--full-width {
+    border-radius: 0;
+    left: 50%;
+    margin-inline-start: -50vw;
+    position: relative;
+    width: 100vw;
+
+    .ecl-gallery__footer-link {
+      margin-inline-start: map.get(theme.$spacing, 'm');
+    }
+
+    .ecl-gallery__view-all {
+      margin-inline-end: map.get(theme.$spacing, 'm');
+    }
   }
 }
 

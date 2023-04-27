@@ -14,6 +14,16 @@ module.exports = {
           },
           description:
             'This site is managed by the Directorate-General for "DG identification"',
+          links: [
+            {
+              link: {
+                label: 'Accessibility statement',
+                path: exampleLink,
+                aria_label: 'Link to Accessibility statement',
+              },
+            },
+          ],
+          section_class_name: 'ecl-site-footer__section--site-info',
         },
       ],
       [
@@ -26,13 +36,6 @@ module.exports = {
                 label: 'Contact information of the DG',
                 path: exampleLink,
                 aria_label: 'Link to Contact information of the DG',
-              },
-            },
-            {
-              link: {
-                label: 'Accessibility',
-                path: exampleLink,
-                aria_label: 'Link to Accessibility',
               },
             },
           ],
@@ -96,6 +99,13 @@ module.exports = {
                 aria_label: 'Link to Information about the DG',
               },
             },
+            {
+              link: {
+                label: 'Information about the DG',
+                path: exampleLink,
+                aria_label: 'Link to Information about the DG',
+              },
+            },
           ],
         },
         {
@@ -114,27 +124,6 @@ module.exports = {
                 label: 'Related link 2',
                 path: exampleLink,
                 aria_label: 'Link to Related link 2',
-              },
-            },
-            {
-              link: {
-                label: 'Related link 3',
-                path: exampleLink,
-                aria_label: 'Link to Related link 3',
-              },
-            },
-            {
-              link: {
-                label: 'Related link 4',
-                path: exampleLink,
-                aria_label: 'Link to Related link 4',
-              },
-            },
-            {
-              link: {
-                label: 'Related link 5',
-                path: exampleLink,
-                aria_label: 'Link to Related link 5',
               },
             },
           ],
@@ -168,17 +157,11 @@ module.exports = {
     [
       [
         {
-          title: {
-            link: {
-              label: 'European Commission',
-              path: 'https://commission.europa.eu/index_en',
-            },
-          },
           logo: {
             title: 'European Commission',
             alt: 'European Commission logo',
             language: 'en',
-            path: exampleLink,
+            path: 'https://commission.europa.eu/index_en',
             src_desktop: '/logo-ec.svg',
           },
         },
@@ -191,13 +174,6 @@ module.exports = {
                 label: 'Contact the European Commission',
                 path: 'https://commission.europa.eu/about-european-commission/contact_en',
                 aria_label: 'Link to Contact the European Commission',
-              },
-            },
-            {
-              link: {
-                label: 'Accessibility',
-                path: 'https://commission.europa.eu/accessibility-statement_en',
-                aria_label: 'Link to the accessibility statement',
               },
             },
             {
@@ -217,7 +193,7 @@ module.exports = {
               },
             },
           ],
-          section_class_name: 'ecl-footer-standardised__section--split-list',
+          section_class_name: 'ecl-site-footer__section--split-list',
         },
       ],
       [
@@ -252,7 +228,7 @@ module.exports = {
               },
             },
           ],
-          section_class_name: 'ecl-footer-standardised__section--split-list',
+          section_class_name: 'ecl-site-footer__section--split-list',
         },
       ],
     ],
