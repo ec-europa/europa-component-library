@@ -329,7 +329,7 @@ exports[`Site Footer Core EC default renders correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -718,7 +718,7 @@ exports[`Site Footer Core EC default renders correctly with extra attributes 1`]
             </ul>
           </div>
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -1105,7 +1105,7 @@ exports[`Site Footer Core EC default renders correctly with extra class names 1`
             </ul>
           </div>
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -2530,7 +2530,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -2547,6 +2547,21 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -2572,17 +2587,6 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -2698,6 +2702,17 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -2731,39 +2746,6 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -2825,7 +2807,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -2842,23 +2824,13 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -2872,17 +2844,6 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
                   href="https://commission.europa.eu/about-european-commission/contact_en"
                 >
                   Contact the European Commission
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to the accessibility statement"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="https://commission.europa.eu/accessibility-statement_en"
-                >
-                  Accessibility
                 </a>
               </li>
               <li
@@ -2926,7 +2887,7 @@ exports[`Site Footer Harmonised EC default renders correctly 1`] = `
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -3001,7 +2962,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -3018,6 +2979,21 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -3043,17 +3019,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -3169,6 +3134,17 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -3202,39 +3178,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -3296,7 +3239,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -3313,23 +3256,13 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -3343,17 +3276,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
                   href="https://commission.europa.eu/about-european-commission/contact_en"
                 >
                   Contact the European Commission
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to the accessibility statement"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="https://commission.europa.eu/accessibility-statement_en"
-                >
-                  Accessibility
                 </a>
               </li>
               <li
@@ -3397,7 +3319,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra attribut
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -3470,7 +3392,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -3487,6 +3409,21 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -3512,17 +3449,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -3638,6 +3564,17 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -3671,39 +3608,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -3765,7 +3669,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -3782,23 +3686,13 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -3812,17 +3706,6 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
                   href="https://commission.europa.eu/about-european-commission/contact_en"
                 >
                   Contact the European Commission
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to the accessibility statement"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="https://commission.europa.eu/accessibility-statement_en"
-                >
-                  Accessibility
                 </a>
               </li>
               <li
@@ -3866,7 +3749,7 @@ exports[`Site Footer Harmonised EC default renders correctly with extra class na
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -3939,7 +3822,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -3956,6 +3839,21 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -3981,17 +3879,6 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -4107,6 +3994,17 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -4140,39 +4038,6 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -4234,7 +4099,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -4251,23 +4116,13 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -4324,7 +4179,7 @@ exports[`Site Footer Standardised EC default renders correctly 1`] = `
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -4399,7 +4254,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -4416,6 +4271,21 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -4441,17 +4311,6 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -4567,6 +4426,17 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -4600,39 +4470,6 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -4694,7 +4531,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -4711,23 +4548,13 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -4784,7 +4611,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra attrib
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -4857,7 +4684,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section"
+            class="ecl-site-footer__section ecl-site-footer__section--site-info"
           >
             <h2
               class="ecl-site-footer__title"
@@ -4874,6 +4701,21 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             >
               This site is managed by the Directorate-General for "DG identification"
             </div>
+            <ul
+              class="ecl-site-footer__list"
+            >
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Accessibility statement"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Accessibility statement
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div
@@ -4899,17 +4741,6 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
                   href="/example"
                 >
                   Contact information of the DG
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Accessibility"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Accessibility
                 </a>
               </li>
             </ul>
@@ -5025,6 +4856,17 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
                   Information about the DG
                 </a>
               </li>
+              <li
+                class="ecl-site-footer__list-item"
+              >
+                <a
+                  aria-label="Link to Information about the DG"
+                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
+                  href="/example"
+                >
+                  Information about the DG
+                </a>
+              </li>
             </ul>
           </div>
           <div
@@ -5058,39 +4900,6 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
                   href="/example"
                 >
                   Related link 2
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 3"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 3
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 4"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 4
-                </a>
-              </li>
-              <li
-                class="ecl-site-footer__list-item"
-              >
-                <a
-                  aria-label="Link to Related link 5"
-                  class="ecl-link ecl-link--standalone ecl-site-footer__link"
-                  href="/example"
-                >
-                  Related link 5
                 </a>
               </li>
             </ul>
@@ -5152,7 +4961,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
             <a
               aria-label="European Commission"
               class="ecl-link ecl-link--standalone ecl-site-footer__logo-link"
-              href="/example"
+              href="https://commission.europa.eu/index_en"
             >
               <picture
                 class="ecl-picture ecl-site-footer__picture"
@@ -5169,23 +4978,13 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
                 />
               </picture>
             </a>
-            <h2
-              class="ecl-site-footer__title"
-            >
-              <a
-                class="ecl-link ecl-link--standalone ecl-site-footer__title-link"
-                href="https://commission.europa.eu/index_en"
-              >
-                European Commission
-              </a>
-            </h2>
           </div>
         </div>
         <div
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"
@@ -5242,7 +5041,7 @@ exports[`Site Footer Standardised EC default renders correctly with extra class 
           class="ecl-site-footer__column"
         >
           <div
-            class="ecl-site-footer__section ecl-footer-standardised__section--split-list"
+            class="ecl-site-footer__section ecl-site-footer__section--split-list"
           >
             <ul
               class="ecl-site-footer__list"

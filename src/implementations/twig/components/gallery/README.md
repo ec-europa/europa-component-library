@@ -23,12 +23,15 @@ npm install --save @ecl/twig-component-gallery
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
   - "share_path" (optional) (string) (default: '')
+- **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
+- **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
+- **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -49,6 +52,8 @@ npm install --save @ecl/twig-component-gallery
 {% include '@ecl/gallery/gallery.html.twig' with {  
   view_all_label: 'View all', 
   counter_label: 'Media files in this gallery' , 
+  visible_items: 6,
+  disable_overlay: false,
   items: [ 
     { 
       picture: {

@@ -17,6 +17,7 @@ const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 const imgDefault = dataListIllustrationImage.items[0].picture;
 const iconDefault = dataListIllustrationIcon.items[0].icon;
 const descDefault = dataListIllustrationIcon.items[0].description;
+const valueDefault = dataListIllustrationIcon.items[0].value;
 
 // Create 'none' option.
 iconsAll.unshift('none');
@@ -24,12 +25,16 @@ iconsAll.unshift('none');
 const getArgs = (data, variant) => {
   const args = {
     show_description: true,
+    show_value: true,
   };
   if (variant.includes('image')) {
     args.show_image = true;
   }
   if (variant.includes('icon')) {
     args.show_icon = true;
+  }
+  if (data.items[0].value) {
+    args.value = data.items[0].value;
   }
   if (data.items[0].title) {
     args.title = data.items[0].title;
@@ -38,13 +43,16 @@ const getArgs = (data, variant) => {
   if (data.items[0].picture && data.items[0].picture.img.src) {
     args.picture = data.items[0].picture.img.src;
     args.image_squared = false;
+    args.image_size = 'm';
   }
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
+    args.icon_size = 's';
   }
 
   if (variant.includes('horizontal')) {
     args.column = 2;
+    args.centered = false;
   } else {
     args.zebra = true;
   }
@@ -58,6 +66,14 @@ const getArgTypes = (data, variant) => {
       name: 'description',
       type: { name: 'boolean' },
       description: 'Show the description',
+      table: {
+        category: 'Optional',
+      },
+    },
+    show_value: {
+      name: 'value',
+      type: { name: 'boolean' },
+      description: 'Show the value',
       table: {
         category: 'Optional',
       },
@@ -95,6 +111,16 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
+    argTypes.centered = {
+      name: 'centered',
+      type: { name: 'boolean' },
+      description: 'Center the content of list items',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Layout',
+      },
+    };
   } else {
     argTypes.zebra = {
       name: 'zebra',
@@ -108,6 +134,16 @@ const getArgTypes = (data, variant) => {
     };
   }
 
+  argTypes.value = {
+    name: 'value',
+    type: { name: 'string' },
+    description: 'The value of the list item (first item)',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content (first-item)',
+    },
+  };
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
@@ -150,6 +186,24 @@ const getArgTypes = (data, variant) => {
         category: 'Image',
       },
     };
+    argTypes.image_size = {
+      name: 'image size',
+      type: { name: 'select' },
+      description: 'Possible image sizes (square image only)',
+      options: ['s', 'm', 'l'],
+      control: {
+        labels: {
+          s: 'small',
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Image',
+      },
+    };
   }
 
   if (data.items[0].icon) {
@@ -161,7 +215,7 @@ const getArgTypes = (data, variant) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Icon (first item)',
+        category: 'Icon',
       },
     };
     argTypes.icon_flag = {
@@ -172,7 +226,24 @@ const getArgTypes = (data, variant) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Icon (first item)',
+        category: 'Icon',
+      },
+    };
+    argTypes.icon_size = {
+      name: 'icon size',
+      type: { name: 'select' },
+      description: 'Possible icon sizes',
+      options: ['s', 'l'],
+      control: {
+        labels: {
+          s: 'small',
+          l: 'large',
+        },
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Icon',
       },
     };
   }
@@ -182,6 +253,11 @@ const getArgTypes = (data, variant) => {
 
 const prepareDataItem = (data, args) => {
   data.title = args.title;
+  if (!args.show_value) {
+    data.value = '';
+  } else {
+    data.value = args.value;
+  }
   if (!args.show_description) {
     data.description = '';
   } else {
@@ -193,14 +269,15 @@ const prepareDataItem = (data, args) => {
     data.picture = imgDefault;
     data.picture.img.src = args.picture;
     data.square = args.image_squared;
+    data.media_size = args.image_size;
   }
   if (!args.show_icon) {
     delete data.icon;
   } else {
     data.icon = {};
     data.icon.name = args.icon;
-    data.icon.size = 'xl';
     data.icon.path = 'icon.svg';
+    data.media_size = args.icon_size;
     if (args.icon_flag && args.icon_flag !== 'none') {
       data.icon.name = args.icon_flag;
       data.icon.path = 'icon-flag.svg';
@@ -208,9 +285,6 @@ const prepareDataItem = (data, args) => {
     if (args.icon === 'none') {
       delete data.icon;
     }
-  }
-  if (!args.show_description) {
-    data.description = '';
   }
 
   correctPaths(data);
@@ -224,21 +298,25 @@ const prepareDataList = (data, args) => {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].picture = imgDefault;
       data.items[i].square = args.image_squared;
+      data.items[i].media_size = args.image_size;
     }
   } else {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].picture = {};
     }
   }
+
   if (args.show_icon) {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].icon = iconDefault;
+      data.items[i].media_size = args.icon_size;
     }
   } else {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].icon = {};
     }
   }
+
   if (args.show_description) {
     for (let i = 1; i < data.items.length; i += 1) {
       data.items[i].description = descDefault;
@@ -249,7 +327,18 @@ const prepareDataList = (data, args) => {
     }
   }
 
+  if (args.show_value) {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].value = valueDefault;
+    }
+  } else {
+    for (let i = 1; i < data.items.length; i += 1) {
+      data.items[i].value = '';
+    }
+  }
+
   data.zebra = args.zebra;
+  data.centered = args.centered;
   data.column = args.column;
 
   correctPaths(data);
