@@ -1,20 +1,15 @@
-import { addParameters } from '@storybook/html';
 import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
+import { themes } from '@storybook/theming';
 
 global.Buffer = Buffer;
 
 import './ECL';
 
-addParameters({
-  previewTabs: {
-    'storybook/docs/panel': {
-      hidden: true,
-    },
-  },
+export const parameters = {
   a11y: {
-    element: '#root',
+    element: '#storybook-root',
     config: {},
     options: {
       checks: { 'color-contrast': { options: { noScroll: true } } },
@@ -22,6 +17,14 @@ addParameters({
     },
     manual: false,
   },
+  darkMode: {
+    current: { ...themes.light },
+    dark: { ...themes.dark },
+  },
+  docs: {
+    canvas: { sourceState: 'shown' },
+  },
+  viewMode: 'story',
   cssresources: [
     {
       id: 'ecl-reset',
@@ -96,6 +99,6 @@ addParameters({
       },
     },
   },
-});
+};
 
 export const decorators = [withCssResources];

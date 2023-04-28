@@ -1,0 +1,18 @@
+diff --git a/node_modules/@storybook/addon-cssresources/dist/esm/index.js b/node_modules/@storybook/addon-cssresources/dist/esm/index.js
+index 6811b2b..d8a008a 100644
+--- a/node_modules/@storybook/addon-cssresources/dist/esm/index.js
++++ b/node_modules/@storybook/addon-cssresources/dist/esm/index.js
+@@ -4,10 +4,12 @@ import "core-js/modules/es.array.for-each.js";
+ import "core-js/modules/es.regexp.exec.js";
+ import "core-js/modules/es.string.replace.js";
+ import "core-js/modules/web.dom-collections.for-each.js";
+-import { document } from 'global';
++import { global } from 'global';
+ import { addons, makeDecorator } from '@storybook/addons';
+ import { EVENTS, PARAM_KEY } from './constants';
+ 
++const { document } = global;
++
+ var changeMediaAttribute = function changeMediaAttribute(element, enabled) {
+   var current = element.getAttribute('media');
+ 
