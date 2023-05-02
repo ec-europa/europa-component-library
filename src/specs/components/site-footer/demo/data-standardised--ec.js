@@ -17,9 +17,9 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Accessibility statement',
+                label: 'Accessibility',
                 path: exampleLink,
-                aria_label: 'Link to Accessibility statement',
+                aria_label: 'Link to Accessibility',
               },
             },
           ],
