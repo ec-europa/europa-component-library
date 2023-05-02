@@ -2,6 +2,9 @@
   .sb-show-nopreview {
     display: none;
   }
+  .sbdocs-content {
+    max-width: none !important;
+  }
 </style>
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
@@ -74,10 +77,10 @@
       };
       const observer = new MutationObserver(callback);
       const config = { childList: true, subtree: false };
-      observer.observe(document.getElementById('root'), config);
+      observer.observe(document.getElementById('storybook-root'), config);
 
       // Add ecl class to body, to ensure that default css is working well
-      document.body.classList.add('ecl');
+      document.getElementById('storybook-root').classList.add('ecl');
     }
   };
 </script>

@@ -235,8 +235,9 @@ module.exports = {
       },
     },
   },
-  view_all_label: 'See more',
-  view_all_expanded_label: 'Collapse all',
+  disable_overlay: false,
+  view_all_label: 'See all',
+  view_all_expanded_label: 'Back',
   footer: {
     link: {
       path: exampleLink,

@@ -5,6 +5,7 @@
     - "items" (array) (default: []): array of list_illustration_item
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: true): use alternate background display for vertical list
+    - "centered" (bool) (default: false) Define if the items should be centered
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -18,6 +19,7 @@
 
 {% set _items = items|default([]) %}
 {% set _zebra = zebra|default(false) %}
+{% set _centered = centered|default(false) %}
 {% set _column = column|default(1) %}
 {% set _css_class = 'ecl-list-illustration' %}
 {% set _extra_attributes = '' %}
@@ -26,6 +28,10 @@
 
 {% if _zebra %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-illustration--zebra' %}
+{% endif %}
+
+{% if _centered %}
+  {% set _css_class = _css_class ~ ' ecl-list-illustration--centered' %}
 {% endif %}
 
 {% if _column and _column > 1 and _column < 5 %}
