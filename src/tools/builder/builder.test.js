@@ -153,6 +153,16 @@ describe('ECL Builder', () => {
         );
     });
 
+    it('should minify css files following the related option', () => {
+      const plugins = getPlugins({ minify: true });
+
+      expect(plugins.length).toBe(3);
+      expect(plugins[1].postcssPlugin).toBe('postcss-input-range');
+      expect(Object.values(plugins[2])[1].pop().postcssPlugin).toBe(
+        'cssnano-util-raw-cache'
+      );
+    });
+
     it('should be able to expose getSystem utility in scss source code', async () => {
       let system = getSystem();
       const options = {
