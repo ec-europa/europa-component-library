@@ -2,6 +2,8 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  more_label: 'See all items',
+  visible_items: 3,
   items: [
     {
       term: 'Standard text',
@@ -35,12 +37,60 @@ module.exports = {
             size: 's',
           },
         },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'global',
+            path: '/icons.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'file',
+            path: '/icons.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'presentation',
+            path: '/icons.svg',
+            size: 's',
+          },
+        },
       ],
     },
     {
       term: 'Links inline',
       type: 'link-inline',
       definition: [
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
         {
           link: {
             label: 'Lorem ipsum dolor sit amet',
@@ -62,6 +112,8 @@ module.exports = {
         'Taxonomy item 1',
         { link: { label: 'Taxonomy item 2', path: exampleLink } },
         'Taxonomy item 3',
+        'Taxonomy item 4',
+        { link: { label: 'Taxonomy item 5', path: exampleLink } },
       ],
     },
   ],

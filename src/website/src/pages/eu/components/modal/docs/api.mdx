@@ -1,0 +1,36 @@
+---
+title: API
+order: 3
+---
+
+import ModalJSDoc from '../../../_jsdoc/modal.md';
+
+## API
+
+<ModalJSDoc />
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Modal"` attribute to component's markup:
+
+```html
+<div class="ecl-modal" data-ecl-modal data-ecl-auto-init="Modal">...</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-modal` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-modal]');
+var modal = new ECL.Modal(elt);
+modal.init();
+```

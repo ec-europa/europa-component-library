@@ -14,6 +14,16 @@ module.exports = {
             },
           },
           description: `This site is managed by <a href="${exampleLink}" class="ecl-link ecl-link--standalone">site owner name</a> and is an official website of the European Union`,
+          links: [
+            {
+              link: {
+                label: 'Accessibility',
+                path: exampleLink,
+                aria_label: 'Link to Accessibility',
+              },
+            },
+          ],
+          section_class_name: 'ecl-site-footer__section--site-info',
         },
       ],
       [
@@ -65,8 +75,8 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Accessibility',
-                aria_label: 'Link to Accessibility',
+                label: 'Link 1',
+                aria_label: 'Link to link 1',
                 path: exampleLink,
               },
             },

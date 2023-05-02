@@ -48,5 +48,18 @@ describe('Gallery', () => {
         await axe(renderTwigFileAsHtml(template, demoData, true))
       ).toHaveNoViolations();
     });
+
+    test('renders correctly with deprecated data', () => {
+      expect.assertions(1);
+
+      const oldData = { ...demoData };
+      oldData.items[0].path = oldData.items[0].picture.img.src;
+      oldData.items[0].alt = oldData.items[0].picture.img.alt;
+      oldData.items[0].picture = {};
+      oldData.items[2].image = { ...oldData.items[2].picture.img };
+      oldData.items[2].picture = {};
+
+      return expect(render(oldData)).resolves.toMatchSnapshot();
+    });
   });
 });

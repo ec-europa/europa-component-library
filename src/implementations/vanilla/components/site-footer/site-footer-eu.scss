@@ -1,6 +1,11 @@
 /**
  * Site Footer component
  * @define site-footer
+ *
+ *  => ECL v3.8 Deprecated selectors
+ *     .ecl-site-footer__logo-image-mobile
+ *     .ecl-site-footer__logo-image-desktop
+ *  Replaced by: .ecl-site-footer__logo-image
  */
 
 @use 'sass:map';
@@ -117,9 +122,16 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
   display: none;
 }
 
-.ecl-site-footer__logo-image-mobile {
+.ecl-site-footer__logo-image-mobile,
+.ecl-site-footer__logo-image {
   display: block;
   height: 2.75rem;
+}
+
+.ecl-site-footer__section--site-info {
+  .ecl-site-footer__list {
+    margin-top: map.get(theme.$spacing, 'm');
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -169,7 +181,8 @@ $_column-gap: map.get(theme.$grid-gutter-width, 'xl');
     display: none;
   }
 
-  .ecl-site-footer__logo-image-desktop {
+  .ecl-site-footer__logo-image-desktop,
+  .ecl-site-footer__logo-image {
     display: block;
     height: 2.75rem;
   }

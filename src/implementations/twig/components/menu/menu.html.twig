@@ -5,33 +5,28 @@
   - "title": (string) (default: ''): Title
   - "close": (string) (default: ''): Close button label
   - "back": (string): (default: ''): Back button label
-  - "group": (string) (default: 'group1'): 'group1' or 'group2'
+  - "group": (string) (default: 'group1'): 'group1' or 'group2' (DEPRECATED)
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
     {
-      "label": "Home",
-      "path": "/example",
-      "is_current": true
-    },
-    {
-      "label": "Item 1",
-      "path": "/example",
-      "is_current": true
-      "children": [
+      "label": (string) (default: '')
+      "path": (string) (default: '')
+      "is_current": (boolean) (optional),
+      "children": (associative array) (optional): [
         {
-          "label": "Item 1.1",
-          "path": "/example"
-        },
-        {
-          "label": "Item 1.2",
-          "path": "/example"
-        },
-      },
-    },
-  }],
+          "label": (string) (default: '')
+          "path": (string) (default: '')
+          "is_current": (boolean) (optional),
+        }
+      ]
+    }
+  ],
+  - "max_lines": (int) (default: 2): Number of lines for each first level item label. Set it to zero to remove this behavior
   - "site_name": (string) (default: ''): Name of the website (used only on mobile)
   - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
   - "menu_link": (string) (default: ''): Href attribute of the menu toggler
+  - "button_previous_label": (string) (default: ''): Label for the button to display previous items, in case of overflow (for screen readers)
+  - "button_next_label": (string) (default: ''): Label for the button to display next items, in case of overflow (for screen readers)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
@@ -50,7 +45,10 @@
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
+{% set _button_previous_label = button_previous_label|default({}) %}
+{% set _button_next_label = button_next_label|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _max_lines = max_lines|default(2) %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -69,6 +67,7 @@
 <nav
   class="{{ _css_class }}"
   data-ecl-menu
+  data-ecl-menu-max-lines="{{ _max_lines }}"
   data-ecl-auto-init="Menu"
   aria-expanded="false"
   {{ _extra_attributes|raw }}
@@ -98,7 +97,7 @@
         ><span class="ecl-menu__close-container ecl-button__container">
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
-                path: icon_path,
+                path: _icon_path,
                 name: 'close-filled',
                 size: 's',
               },
@@ -138,7 +137,48 @@
           </span>
         </button>
       </header>
-      <ul class="ecl-menu__list">
+
+      {% if _icon_path is not empty %}
+        {% include '@ecl/button/button.html.twig' with {
+          type: 'button',
+          variant: 'ghost',
+          icon_position: 'before',
+          icon: {
+            path: _icon_path,
+            size: 's',
+            transform: 'rotate-270',
+            name: 'corner-arrow',
+          },
+          label: _button_previous_label,
+          hide_label: true,
+          extra_classes: 'ecl-menu__item ecl-menu__items-previous',
+          extra_attributes: [
+            { name: 'data-ecl-menu-items-previous' },
+            { name: 'tabindex', value: '-1'},
+          ],
+        } only %}
+
+        {% include '@ecl/button/button.html.twig' with {
+          type: 'button',
+          variant: 'ghost',
+          icon_position: 'before',
+          icon: {
+            path: _icon_path,
+            size: 's',
+            transform: 'rotate-90',
+            name: 'corner-arrow',
+          },
+          label: _button_next_label,
+          hide_label: true,
+          extra_classes: 'ecl-menu__item ecl-menu__items-next',
+          extra_attributes: [
+            { name: 'data-ecl-menu-items-next' },
+            { name: 'tabindex', value: '-1'},
+          ],
+        } only %}
+      {% endif %}
+      
+      <ul class="ecl-menu__list" data-ecl-menu-list>
       {% if items is defined and items is not empty and items is iterable %}
         {% for item in items %}
         {% if item is defined and item is not empty %}

@@ -6,7 +6,7 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 const dataImageSquare = JSON.parse(JSON.stringify(dataImage));
 dataImageSquare.items.forEach((item) => {
-  item.image.squared = true;
+  item.square = true;
 });
 
 export const listIllustrationVerticalWithImage = template(

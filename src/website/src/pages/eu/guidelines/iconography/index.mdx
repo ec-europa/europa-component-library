@@ -3,7 +3,7 @@ title: Iconography
 order: 5
 ---
 
-import { IconList } from '@ecl/website-components';
+import { Link, IconList } from '@ecl/website-components';
 
 ## ECL EU icons
 
@@ -16,3 +16,7 @@ import { IconList } from '@ecl/website-components';
 ## Flag icons
 
 <IconList set="flag" />
+
+## Icon colour
+
+Every non coloured icons (apprearing grey here) could be colorized using the <Link to="/eu/utilities/typography/usage/">text colours utilities</Link>

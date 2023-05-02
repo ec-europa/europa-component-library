@@ -44,6 +44,7 @@ $_subitem-background: null !default;
 $_subitem-border: null !default;
 $_sublink-hover-color: null !default;
 $_title-font-weight: null !default;
+$_menu-max-height: null !default;
 
 /*
  * Menu structure
@@ -125,6 +126,10 @@ $_title-font-weight: null !default;
       transition: none;
       width: 100%;
       z-index: map.get(theme.$z-index, 'modal');
+    }
+
+    .ecl-menu__inner--has-overflow {
+      overflow-x: clip;
     }
 
     .ecl-menu__overlay {
@@ -486,6 +491,9 @@ $_title-font-weight: null !default;
     .ecl-menu__list {
       background-color: $_list-background;
       flex-direction: row;
+      left: 0;
+      right: 0;
+      transition: left 0.5s, right 0.5s;
     }
 
     .ecl-menu__item {
@@ -519,6 +527,46 @@ $_title-font-weight: null !default;
     .ecl-menu__item:hover + .ecl-menu__item::before,
     .ecl-menu__item:last-child:hover::after {
       background-color: transparent;
+    }
+
+    // Previous / Next items
+    .ecl-menu__items-previous {
+      border-inline-end: 4px solid $_desktop-item-border-color;
+      border-radius: $_border-radius 0 0 $_border-radius;
+      left: 0;
+    }
+
+    .ecl-menu__items-next {
+      border-inline-start: 4px solid $_desktop-item-border-color;
+      border-radius: 0 $_border-radius $_border-radius 0;
+      right: 0;
+    }
+
+    .ecl-menu__items-previous,
+    .ecl-menu__items-next {
+      background-color: map.get(theme.$color, 'blue-100');
+      color: map.get(theme.$color, 'white-100');
+      display: none;
+      height: 100%;
+      margin: 0;
+      padding: 0 map.get(theme.$spacing, 's');
+      position: absolute;
+      top: 0;
+      z-index: map.get(theme.$z-index, 'modal') + 2;
+
+      &::before,
+      &:last-child::after {
+        display: none;
+      }
+
+      &:hover {
+        color: $_item-hover-color;
+      }
+
+      &.ecl-menu__item--current {
+        box-shadow: none;
+        color: map.get(theme.$color, 'blue-100');
+      }
     }
 
     .ecl-menu__link-icon {
@@ -848,10 +896,10 @@ $_title-font-weight: null !default;
   transition: right 375ms;
 }
 
-/* stylelint-disable-next-line order/order */
+/* stylelint-disable-next-line order/order no-descending-specificity */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
-    .ecl-menu__item,
+    .ecl-menu__item:not(.ecl-menu__items-previous, .ecl-menu__items-next),
     .ecl-menu__item:hover,
     .ecl-menu__mega,
     .ecl-menu__item:hover .ecl-menu__mega,
