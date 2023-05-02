@@ -8,7 +8,7 @@ const bannerPlugin = require('postcss-banner');
 const rangePlugin = require('postcss-input-range');
 const getSystem = require('../utils/getSystem');
 
-const getPlugins = (options) => {
+const getPlugins = (options = {}) => {
   const plugins = [];
 
   plugins.push(autoprefixer({ grid: 'no-autoplace' }));
@@ -24,7 +24,9 @@ const getPlugins = (options) => {
         })
       );
     }
+  }
 
+  if (process.env.NODE_ENV === 'production' || options.minify) {
     plugins.push(cssnano({ safe: true }));
   }
 
