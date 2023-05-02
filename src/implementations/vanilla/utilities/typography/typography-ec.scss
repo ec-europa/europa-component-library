@@ -1,8 +1,8 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use 'typography' with (
-  $_heading-color: map.get(theme.$color, 'text'),
-  $_text-color: map.get(theme.$color, 'text'),
+  $_heading-color: map.get(theme.$color, 'dark'),
+  $_text-color: map.get(theme.$color, 'dark'),
   $_heading1: (
     'mobile': map.get(theme.$font, '3xl'),
     'desktop': map.get(theme.$font, '4xl'),

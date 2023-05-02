@@ -55,17 +55,17 @@ const getArgTypes = () => {
       options: [
         'ecl-u-shadow-none',
         'ecl-u-shadow-1',
-        'ecl-u-shadow-2',
-        'ecl-u-shadow-3',
-        'ecl-u-shadow-4',
+        'ecl-u-shadow-6',
+        'ecl-u-shadow-12',
+        'ecl-u-shadow-16',
       ],
       control: {
         labels: {
           'ecl-u-shadow-none': 'none',
           'ecl-u-shadow-1': 'elevation 1',
-          'ecl-u-shadow-2': 'elevation 2',
-          'ecl-u-shadow-3': 'elevation 3',
-          'ecl-u-shadow-4': 'elevation 4',
+          'ecl-u-shadow-6': 'elevation 6',
+          'ecl-u-shadow-12': 'elevation 12',
+          'ecl-u-shadow-16': 'elevation 16',
         },
       },
       table: {
