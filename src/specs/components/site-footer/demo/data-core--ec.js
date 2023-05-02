@@ -225,6 +225,7 @@ module.exports = {
               },
             },
           ],
+          section_class_name: 'ecl-site-footer__section--split-list',
         },
       ],
     ],

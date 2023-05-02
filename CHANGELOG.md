@@ -1,5 +1,91 @@
 # Changelog
 
+## 3.8.0 (2023-05-02)
+
+#### :rocket: New Feature
+
+- [#2776](https://github.com/ec-europa/europa-component-library/pull/2776) feat(modal): add modal component - FRONT-3858 ([@emeryro](https://github.com/emeryro))
+- [#2784](https://github.com/ec-europa/europa-component-library/pull/2784) feat(blockquote): use picture tag - FRONT-3873 ([@emeryro](https://github.com/emeryro))
+- [#2789](https://github.com/ec-europa/europa-component-library/pull/2789) feat(picture): add picture component - FRONT-3868 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Markup Changes
+
+- [#2840](https://github.com/ec-europa/europa-component-library/pull/2840) feat(list with illustration): add value, image size and alignment - FRONT-3929 ([@emeryro](https://github.com/emeryro))
+- [#2831](https://github.com/ec-europa/europa-component-library/pull/2831) feat(gallery): SOTEU iteration - FRONT-3927 ([@planctus](https://github.com/planctus))
+- [#2843](https://github.com/ec-europa/europa-component-library/pull/2843) feat(footer): update accessibility links and spacing ([@emeryro](https://github.com/emeryro))
+- [#2821](https://github.com/ec-europa/europa-component-library/pull/2821) feat(description-list): Adding option and logic to hide/show items in lists - FRONT-3895 ([@planctus](https://github.com/planctus))
+- [#2798](https://github.com/ec-europa/europa-component-library/pull/2798) feat(menu): advanced overflow management - FRONT-3889 ([@emeryro](https://github.com/emeryro))
+- [#2819](https://github.com/ec-europa/europa-component-library/pull/2819) feat(banner): Using picture instead of the background image - FRONT-3872 ([@planctus](https://github.com/planctus))
+- [#2818](https://github.com/ec-europa/europa-component-library/pull/2818) feat(page header): use picture tag - FRONT-3880 ([@emeryro](https://github.com/emeryro))
+- [#2820](https://github.com/ec-europa/europa-component-library/pull/2820) feat(gallery): Using picture - FRONT-3876 ([@planctus](https://github.com/planctus))
+- [#2814](https://github.com/ec-europa/europa-component-library/pull/2814) feat(media-container): Using picture - FRONT-3878 ([@planctus](https://github.com/planctus))
+- [#2817](https://github.com/ec-europa/europa-component-library/pull/2817) feat(card): Using picture - FRONT-3874 ([@planctus](https://github.com/planctus))
+- [#2793](https://github.com/ec-europa/europa-component-library/pull/2793) feat(gallery): Component updates, new video and audio icons - FRONT-3887 ([@planctus](https://github.com/planctus))
+- [#2811](https://github.com/ec-europa/europa-component-library/pull/2811) feat(footer): Picture in footer, data unchanged - FRONT-3881 ([@planctus](https://github.com/planctus))
+- [#2810](https://github.com/ec-europa/europa-component-library/pull/2810) feat(site-header): Using picture, keeping data structure unchanged - FRONT-3882 ([@planctus](https://github.com/planctus))
+- [#2804](https://github.com/ec-europa/europa-component-library/pull/2804) feat(list-illustration): Using picture tag - FRONT-3877 ([@planctus](https://github.com/planctus))
+- [#2809](https://github.com/ec-europa/europa-component-library/pull/2809) feat(navigation-list): Using picture - FRONT-3879 ([@planctus](https://github.com/planctus))
+- [#2807](https://github.com/ec-europa/europa-component-library/pull/2807) feat(file): Using picture - FRONT-3875 ([@planctus](https://github.com/planctus))
+- [#2795](https://github.com/ec-europa/europa-component-library/pull/2795) feat(language-list): accessibility improvements - FRONT-3890 ([@emeryro](https://github.com/emeryro))
+- [#2784](https://github.com/ec-europa/europa-component-library/pull/2784) feat(blockquote): use picture tag - FRONT-3873 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2835](https://github.com/ec-europa/europa-component-library/pull/2835) fix(table): fix enhanced table mobile - FRONT-3923 ([@emeryro](https://github.com/emeryro))
+- [#2825](https://github.com/ec-europa/europa-component-library/pull/2825) fix(multi select): fix for safari - FRONT-3910 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2847](https://github.com/ec-europa/europa-component-library/pull/2847) feat(builder): Adding option to minify css - FRONT-3936 ([@planctus](https://github.com/planctus))
+- [#2850](https://github.com/ec-europa/europa-component-library/pull/2850) fix(footer): rename accessibility link - FRONT-3939 ([@emeryro](https://github.com/emeryro))
+- [#2840](https://github.com/ec-europa/europa-component-library/pull/2840) feat(list with illustration): add value, image size and alignment - FRONT-3929 ([@emeryro](https://github.com/emeryro))
+- [#2831](https://github.com/ec-europa/europa-component-library/pull/2831) feat(gallery): SOTEU iteration - FRONT-3927 ([@planctus](https://github.com/planctus))
+- [#2843](https://github.com/ec-europa/europa-component-library/pull/2843) feat(footer): update accessibility links and spacing ([@emeryro](https://github.com/emeryro))
+- [#2821](https://github.com/ec-europa/europa-component-library/pull/2821) feat(description-list): Adding option and logic to hide/show items in lists - FRONT-3895 ([@planctus](https://github.com/planctus))
+- [#2798](https://github.com/ec-europa/europa-component-library/pull/2798) feat(menu): advanced overflow management - FRONT-3889 ([@emeryro](https://github.com/emeryro))
+- [#2819](https://github.com/ec-europa/europa-component-library/pull/2819) feat(banner): Using picture instead of the background image - FRONT-3872 ([@planctus](https://github.com/planctus))
+- [#2818](https://github.com/ec-europa/europa-component-library/pull/2818) feat(page header): use picture tag - FRONT-3880 ([@emeryro](https://github.com/emeryro))
+- [#2820](https://github.com/ec-europa/europa-component-library/pull/2820) feat(gallery): Using picture - FRONT-3876 ([@planctus](https://github.com/planctus))
+- [#2814](https://github.com/ec-europa/europa-component-library/pull/2814) feat(media-container): Using picture - FRONT-3878 ([@planctus](https://github.com/planctus))
+- [#2817](https://github.com/ec-europa/europa-component-library/pull/2817) feat(card): Using picture - FRONT-3874 ([@planctus](https://github.com/planctus))
+- [#2793](https://github.com/ec-europa/europa-component-library/pull/2793) feat(gallery): Component updates, new video and audio icons - FRONT-3887 ([@planctus](https://github.com/planctus))
+- [#2812](https://github.com/ec-europa/europa-component-library/pull/2812) feat(timeline): Adding controls for the first item content - FRONT-3906 ([@planctus](https://github.com/planctus))
+- [#2811](https://github.com/ec-europa/europa-component-library/pull/2811) feat(footer): Picture in footer, data unchanged - FRONT-3881 ([@planctus](https://github.com/planctus))
+- [#2810](https://github.com/ec-europa/europa-component-library/pull/2810) feat(site-header): Using picture, keeping data structure unchanged - FRONT-3882 ([@planctus](https://github.com/planctus))
+- [#2804](https://github.com/ec-europa/europa-component-library/pull/2804) feat(list-illustration): Using picture tag - FRONT-3877 ([@planctus](https://github.com/planctus))
+- [#2809](https://github.com/ec-europa/europa-component-library/pull/2809) feat(navigation-list): Using picture - FRONT-3879 ([@planctus](https://github.com/planctus))
+- [#2807](https://github.com/ec-europa/europa-component-library/pull/2807) feat(file): Using picture - FRONT-3875 ([@planctus](https://github.com/planctus))
+- [#2795](https://github.com/ec-europa/europa-component-library/pull/2795) feat(language-list): accessibility improvements - FRONT-3890 ([@emeryro](https://github.com/emeryro))
+- [#2792](https://github.com/ec-europa/europa-component-library/pull/2792) feat(tag): deprecate display tag - FRONT-3885 ([@emeryro](https://github.com/emeryro))
+- [#2787](https://github.com/ec-europa/europa-component-library/pull/2787) chore(content-block): Removing examples with tags - FRONT-3844 ([@planctus](https://github.com/planctus))
+- [#2786](https://github.com/ec-europa/europa-component-library/pull/2786) feat(icons): Adding new icons - FRONT-3888 ([@planctus](https://github.com/planctus))
+- [#2781](https://github.com/ec-europa/europa-component-library/pull/2781) feat: Improving keyboard navigation for carousel, updating EU styles for focus in radio - FRONT-3870 ([@planctus](https://github.com/planctus))
+- [#2771](https://github.com/ec-europa/europa-component-library/pull/2771) feat(colour): update utilities and doc - FRONT-3851 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#2854](https://github.com/ec-europa/europa-component-library/pull/2854) chore(website): Adding doctype in getting started example - FRONT-3940 ([@planctus](https://github.com/planctus))
+- [#2838](https://github.com/ec-europa/europa-component-library/pull/2838) feat(EU Usage pages for components): update EU Usage pages for components “eu_spinner” ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+- [#2837](https://github.com/ec-europa/europa-component-library/pull/2837) feat(EU Usage pages for components): update EU Usage pages for components “eu_banner” ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+- [#2839](https://github.com/ec-europa/europa-component-library/pull/2839) feat(EC Usage pages for components): update EC Usage pages for components “ec_spinner” ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+- [#2836](https://github.com/ec-europa/europa-component-library/pull/2836) feat(EC Usage pages for components): update EC Usage pages for components “ec_banner” ([@HAL-Patch-INNO](https://github.com/HAL-Patch-INNO))
+
+#### :house: Internal
+
+- [#2851](https://github.com/ec-europa/europa-component-library/pull/2851) chore(deps): Updates 02-05-23 ([@planctus](https://github.com/planctus))
+- [#2848](https://github.com/ec-europa/europa-component-library/pull/2848) chore(deps): Updates 28-04-23 ([@planctus](https://github.com/planctus))
+- [#2823](https://github.com/ec-europa/europa-component-library/pull/2823) chore(storybook7): Working with all the plugins, patched cssresources ([@planctus](https://github.com/planctus))
+- [#2844](https://github.com/ec-europa/europa-component-library/pull/2844) chore: Fixing audit ([@planctus](https://github.com/planctus))
+- [#2842](https://github.com/ec-europa/europa-component-library/pull/2842) chore(deps): Updates 24-04-23 ([@planctus](https://github.com/planctus))
+- [#2832](https://github.com/ec-europa/europa-component-library/pull/2832) chore(website): Fixing getting started and typography pages - FRONT-3925 ([@planctus](https://github.com/planctus))
+- [#2834](https://github.com/ec-europa/europa-component-library/pull/2834) chore(deps): Updates 17-04-23 ([@planctus](https://github.com/planctus))
+- [#2830](https://github.com/ec-europa/europa-component-library/pull/2830) chore(actions): Upgrading netlify action ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.7.1 (2023-02-02)
 
 #### :bug: Bug Fix

@@ -7,13 +7,14 @@ module.exports = {
   close: 'Close',
   back: 'Back',
   menu_link: exampleLink,
+  button_previous_label: 'Previous items',
+  button_next_label: 'Next items',
   icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
     {
-      label: 'Item 2 label',
+      label: 'Principles, countries, history',
       path: exampleLink,
-      is_current: true,
       trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 2.1', path: exampleLink },
@@ -26,7 +27,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 3 with a very long label',
+      label: 'Institutions, law, budget',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -36,11 +37,11 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 4 label',
+      label: 'Priorities and actions',
       path: exampleLink,
     },
     {
-      label: 'Item 5 label',
+      label: 'Live, work, study',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -51,7 +52,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Item 6 label',
+      label: 'News and events',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -83,23 +84,6 @@ module.exports = {
         { label: 'Item 6.26', path: exampleLink },
         { label: 'Item 6.27', path: exampleLink },
         { label: 'Item 6.28', path: exampleLink },
-      ],
-    },
-    {
-      label: 'Item 7 label',
-      path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 7.1', path: exampleLink },
-        { label: 'Item 7.2', path: exampleLink },
-        { label: 'Item 7.3', path: exampleLink },
-        { label: 'Item 7.4', path: exampleLink },
-        { label: 'Item 7.5', path: exampleLink },
-        { label: 'Item 7.6', path: exampleLink },
-        { label: 'Item 7.7', path: exampleLink },
-        { label: 'Item 7.8', path: exampleLink },
-        { label: 'Item 7.9', path: exampleLink },
-        { label: 'Item 7.10', path: exampleLink },
       ],
     },
   ],

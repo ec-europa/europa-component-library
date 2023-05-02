@@ -102,6 +102,16 @@ html {
   transform: rotate(90deg);
 }
 
+.ecl-menu:not(.ecl-menu--forced-mobile) .ecl-menu__items-previous {
+  left: auto;
+  right: 0;
+}
+
+.ecl-menu:not(.ecl-menu--forced-mobile) .ecl-menu__items-next {
+  left: 0;
+  right: auto;
+}
+
 // Page banner
 .ecl-page-banner--full-width {
   left: auto;

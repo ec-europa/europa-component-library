@@ -17,11 +17,22 @@ $_author-color: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
-  border-left: $_border-width solid $_border-color;
-  border-radius: $_border-radius;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
   margin: 0;
   padding-bottom: map.get(theme.$spacing-print, 'm');
-  padding-left: map.get(theme.$spacing-print, 'l');
+  padding-inline-start: map.get(theme.$spacing-print, 'l');
+  padding-top: map.get(theme.$spacing-print, 'm');
+}
+
+.ecl-blockquote__body,
+%ecl-blockquote {
+  border-inline-start: $_border-width solid $_border-color;
+  border-radius: $_border-radius;
+  display: inline-block;
+  padding-bottom: map.get(theme.$spacing-print, 'm');
+  padding-inline-start: map.get(theme.$spacing-print, 'l');
   padding-top: map.get(theme.$spacing-print, 'm');
 }
 
@@ -57,4 +68,13 @@ $_author-color: null !default;
   color: $_author-color;
   font: map.get(theme.$font-prolonged-print, 'l');
   font-weight: $_author-font-weight;
+}
+
+.ecl-blockquote__image,
+%ecl-blockquote__image {
+  aspect-ratio: 1/1;
+  height: 120px;
+  margin-inline-end: map.get(theme.$spacing-print, 'l');
+  object-fit: cover;
+  width: 120px;
 }

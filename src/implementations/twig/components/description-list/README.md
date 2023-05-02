@@ -17,6 +17,8 @@ npm install --save @ecl/twig-component-description-list
   ...
   ]
 - **variant** (string) (default: ''): global variant of the list (horizontal, vertical)
+- **visible_items** (optional) (integer) (default: 0) Number of visible items
+- **more_label** (optional) (string) (default: '') Label for the more button, if requested
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -28,6 +30,8 @@ npm install --save @ecl/twig-component-description-list
 ```twig
 {% include '@ecl/description-list/description-list.html.twig' with { 
   variant: 'horizontal',
+  visible_items: 3,
+  more_label: 'view all',
   items: [
     {
       term: 'Standard text',

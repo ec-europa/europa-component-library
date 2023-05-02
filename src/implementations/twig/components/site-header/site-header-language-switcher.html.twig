@@ -53,6 +53,7 @@
     class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
     href="{{ _language_selector.href }}"
     data-ecl-language-selector
+    role="button"
     aria-label="{{ _language_selector.aria_label }}"
   {% if _has_overlay is defined %}
     aria-controls="language-list-overlay"
@@ -122,6 +123,10 @@
                 type: 'standalone'
               }),
               extra_classes: _link_classes,
+              extra_attributes: [
+                { name: 'lang', value: _item.lang|default('') },
+                { name: 'hreflang', value: _item.lang|default('') },
+              ],
             } only %}
           </li>
           {% endfor %}
@@ -154,6 +159,10 @@
                 type: 'standalone'
               }),
               extra_classes: _link_classes,
+              extra_attributes: [
+                { name: 'lang', value: _item.lang|default('') },
+                { name: 'hreflang', value: _item.lang|default('') },
+              ],
             } only %}
           </li>
           {% endfor %}

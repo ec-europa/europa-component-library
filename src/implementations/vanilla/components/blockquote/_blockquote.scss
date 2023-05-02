@@ -72,8 +72,10 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 .ecl-blockquote__image,
 %ecl-blockquote__image {
+  aspect-ratio: 1/1;
   height: 120px;
   margin-top: map.get(theme.$spacing, 's');
+  object-fit: cover;
   width: 120px;
 }
 

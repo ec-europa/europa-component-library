@@ -21,8 +21,12 @@ module.exports = {
           transform: 'rotate-90',
         },
       },
-      image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alternative text',
+        },
+      },
       credit: '© Copyright or credit',
       variant: 'text-box',
       centered: false,
@@ -45,8 +49,12 @@ module.exports = {
           transform: 'rotate-90',
         },
       },
-      image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alternative text',
+        },
+      },
       credit: '© Copyright or credit',
       variant: 'text-highlight',
       centered: false,
@@ -69,8 +77,12 @@ module.exports = {
           transform: 'rotate-90',
         },
       },
-      image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Alternative text',
+        },
+      },
       credit: '© Copyright or credit',
       variant: 'image-overlay',
       centered: false,

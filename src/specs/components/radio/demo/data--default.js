@@ -22,7 +22,6 @@ module.exports = {
       label: 'Luxembourg',
       helper_id: 'helper-1',
       helper_text: 'Help text for an option',
-      checked: true,
     },
     {
       id: 'radio-default-2',

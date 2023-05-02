@@ -6,6 +6,7 @@ exports[`Gallery Default renders correctly 1`] = `
     class="ecl-gallery"
     data-ecl-auto-init="Gallery"
     data-ecl-gallery=""
+    data-ecl-gallery-visible-items="8"
   >
     <ul
       class="ecl-gallery__list"
@@ -23,16 +24,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 1"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures                
+              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -56,25 +61,32 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="New digital strategy"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="New digital strategy"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              New digital strategy
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -84,6 +96,7 @@ exports[`Gallery Default renders correctly 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              New digital strategy
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -107,16 +120,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 2"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on agriculture, business, culture, health, etc.                
+              Information on agriculture, business, culture, health, etc.
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -140,16 +157,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 3"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 3"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Living, working, travelling in the EU                
+              Living, working, travelling in the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -173,16 +194,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 4"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 4"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on taxes, customs, importing and exporting goods, financial support for businesses                
+              Information on taxes, customs, importing and exporting goods, financial support for businesses
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -206,6 +231,19 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
             <video
               class="ecl-gallery__image"
               poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
@@ -231,20 +269,10 @@ exports[`Gallery Default renders correctly 1`] = `
                 srclang="fr"
               />
             </video>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#video"
-              />
-            </svg>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU law
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -254,6 +282,7 @@ exports[`Gallery Default renders correctly 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              EU law
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -277,16 +306,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 6"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 6"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Find official documents, publications, statistics, open data and more resources                
+              Find official documents, publications, statistics, open data and more resources
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -310,16 +343,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 7"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Teaching material about the EU, including books and maps                
+              Teaching material about the EU, including books and maps
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -343,25 +380,32 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Climate change and protect nature"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Climate change and protect nature
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -371,6 +415,7 @@ exports[`Gallery Default renders correctly 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -394,16 +439,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 9"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              About the EU                
+              About the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -427,16 +476,20 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 10"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU by topic                
+              EU by topic
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -449,45 +502,55 @@ exports[`Gallery Default renders correctly 1`] = `
       </li>
     </ul>
     <div
-      class="ecl-gallery__info"
-    >
-      <strong
-        data-ecl-gallery-count=""
-      >
-        0
-      </strong>
-       Media files in this gallery
-    </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-gallery__view-all"
-      data-ecl-gallery-all=""
-      type="submit"
-    >
-      View all
-    </button>
-    <div
       class="ecl-gallery__footer"
     >
-      <a
-        aria-label="View all link aria-label value"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-        href="/example"
+      <div
+        class="ecl-gallery__info"
       >
-        <span
-          class="ecl-link__label"
+        <strong
+          class="ecl-gallery__info-total"
+          data-ecl-gallery-count=""
         >
-          Link to further media items
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+          0
+        </strong>
+        Media files in this gallery
+        <button
+          class="ecl-button ecl-button--ghost ecl-gallery__view-all"
+          data-ecl-gallery-all=""
+          data-ecl-gallery-collapsed-label="See all"
+          data-ecl-gallery-expanded-label="Back"
+          type="submit"
         >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          See all
+        </button>
+      </div>
+      <hr
+        class="ecl-gallery__footer-divider"
+      />
+      <div
+        class="ecl-gallery__footer-link"
+      >
+        <a
+          aria-label="View all link aria-label value"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Further media items
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <dialog
       class="ecl-gallery__overlay"
@@ -531,134 +594,879 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-gallery__slider-media-container"
           data-ecl-gallery-overlay-media=""
         />
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
-          data-ecl-gallery-overlay-previous=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Previous
-            </span>
-          </span>
-        </button>
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
-          data-ecl-gallery-overlay-next=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Next
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
       </section>
       <footer
         class="ecl-gallery__detail"
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-gallery__detail-counter"
+          class="ecl-container"
         >
-          <span
-            data-ecl-gallery-overlay-counter-current=""
+          <div
+            class="ecl-gallery__pager"
           >
-            0
-          </span>
-           of 
-          <span
-            data-ecl-gallery-overlay-counter-max=""
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
           >
-            0
-          </span>
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              download=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div
-          class="ecl-gallery__detail-actions"
+      </footer>
+    </dialog>
+  </section>
+</jest>
+`;
+
+exports[`Gallery Default renders correctly with deprecated data 1`] = `
+<jest>
+  <section
+    class="ecl-gallery"
+    data-ecl-auto-init="Gallery"
+    data-ecl-gallery=""
+    data-ecl-gallery-visible-items="8"
+  >
+    <ul
+      class="ecl-gallery__list"
+    >
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 1"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-            data-ecl-gallery-overlay-download=""
-            download=""
-            href="/example"
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 1
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="New digital strategy"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-embed-src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          href="https://www.youtube.com/embed/fgi-GSCB6ho"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="New digital strategy"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#video"
+                />
+              </svg>
+              New digital strategy
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for embedded media
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 2"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image2.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              Information on agriculture, business, culture, health, etc.
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 2
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 3"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image3.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 3"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              Living, working, travelling in the EU
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 3
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 4"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image4.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 4"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              Information on taxes, customs, importing and exporting goods, financial support for businesses
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 4
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 5"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image5.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <video
+              class="ecl-gallery__image"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+            >
+              <source
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
+                type="video/mp4"
+              />
+              <source
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm"
+                type="video/webm"
+              />
+              <track
+                kind="captions"
+                label="English"
+                src="/captions/bunny-en.vtt"
+                srclang="en"
+              />
+              <track
+                kind="captions"
+                label="français"
+                src="/captions/bunny-fr.vtt"
+                srclang="fr"
+              />
+            </video>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#video"
+                />
+              </svg>
+              EU law
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 5
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 6"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image6.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 6"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              Find official documents, publications, statistics, open data and more resources
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 6
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 7"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image7.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              Teaching material about the EU, including books and maps
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 7
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Climate change and protect nature"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#video"
+                />
+              </svg>
+              Climate change and protect nature
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for embedded media
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 9"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              About the EU
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 9
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+      <li
+        class="ecl-gallery__item"
+      >
+        <a
+          aria-label="Image 10"
+          class="ecl-gallery__item-link"
+          data-ecl-gallery-item=""
+          data-ecl-gallery-item-share="/share#example-image10.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+        >
+          <figure
+            class="ecl-gallery__image-container"
+          >
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-gallery__description"
+              data-ecl-gallery-description=""
+            >
+              EU by topic
+              <span
+                class="ecl-gallery__meta"
+                data-ecl-gallery-meta=""
+              >
+                Copyright, Author, Licence for image 10
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </li>
+    </ul>
+    <div
+      class="ecl-gallery__footer"
+    >
+      <div
+        class="ecl-gallery__info"
+      >
+        <strong
+          class="ecl-gallery__info-total"
+          data-ecl-gallery-count=""
+        >
+          0
+        </strong>
+        Media files in this gallery
+        <button
+          class="ecl-button ecl-button--ghost ecl-gallery__view-all"
+          data-ecl-gallery-all=""
+          data-ecl-gallery-collapsed-label="See all"
+          data-ecl-gallery-expanded-label="Back"
+          type="submit"
+        >
+          See all
+        </button>
+      </div>
+      <hr
+        class="ecl-gallery__footer-divider"
+      />
+      <div
+        class="ecl-gallery__footer-link"
+      >
+        <a
+          aria-label="View all link aria-label value"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Further media items
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <dialog
+      class="ecl-gallery__overlay"
+      data-ecl-gallery-overlay=""
+    >
+      <header
+        class="ecl-gallery__close"
+        data-ecl-gallery-overlay-header=""
+      >
+        <button
+          class="ecl-button ecl-button--ghost ecl-gallery__close-button"
+          data-ecl-gallery-close=""
+          type="submit"
+        >
+          <span
+            class="ecl-button__container"
           >
             <span
-              class="ecl-link__label"
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              Download
+              Close
             </span>
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
+              class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after"
+              data-ecl-icon=""
               focusable="false"
             >
               <use
-                xlink:href="/icons.svg#download"
+                xlink:href="static/media/icons.3cf410f9.svg#close-filled"
               />
             </svg>
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-            data-ecl-gallery-overlay-share=""
-            href="/example"
+          </span>
+        </button>
+      </header>
+      <section
+        class="ecl-gallery__slider"
+      >
+        <div
+          class="ecl-gallery__slider-media-container"
+          data-ecl-gallery-overlay-media=""
+        />
+      </section>
+      <footer
+        class="ecl-gallery__detail"
+        data-ecl-gallery-overlay-footer=""
+      >
+        <div
+          class="ecl-container"
+        >
+          <div
+            class="ecl-gallery__pager"
           >
-            <span
-              class="ecl-link__label"
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
             >
-              Share
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
             >
-              <use
-                xlink:href="/icons.svg#share"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          class="ecl-gallery__detail-description"
-          data-ecl-gallery-overlay-description=""
-        >
-          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-        </div>
-        <div
-          class="ecl-gallery__detail-meta"
-          data-ecl-gallery-overlay-meta=""
-        >
-          Copyright, Author, Licence for image 1
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
+          >
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              download=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
     </dialog>
@@ -672,6 +1480,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
     class="ecl-gallery"
     data-ecl-auto-init="Gallery"
     data-ecl-gallery=""
+    data-ecl-gallery-visible-items="8"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -691,16 +1500,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 1"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures                
+              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -724,25 +1537,32 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="New digital strategy"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="New digital strategy"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              New digital strategy
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -752,6 +1572,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              New digital strategy
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -775,16 +1596,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 2"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on agriculture, business, culture, health, etc.                
+              Information on agriculture, business, culture, health, etc.
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -808,16 +1633,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 3"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 3"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Living, working, travelling in the EU                
+              Living, working, travelling in the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -841,16 +1670,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 4"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 4"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on taxes, customs, importing and exporting goods, financial support for businesses                
+              Information on taxes, customs, importing and exporting goods, financial support for businesses
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -874,6 +1707,19 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
             <video
               class="ecl-gallery__image"
               poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
@@ -899,20 +1745,10 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 srclang="fr"
               />
             </video>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#video"
-              />
-            </svg>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU law
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -922,6 +1758,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              EU law
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -945,16 +1782,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 6"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 6"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Find official documents, publications, statistics, open data and more resources                
+              Find official documents, publications, statistics, open data and more resources
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -978,16 +1819,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 7"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Teaching material about the EU, including books and maps                
+              Teaching material about the EU, including books and maps
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1011,25 +1856,32 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Climate change and protect nature"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Climate change and protect nature
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -1039,6 +1891,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1062,16 +1915,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 9"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              About the EU                
+              About the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1095,16 +1952,20 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 10"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU by topic                
+              EU by topic
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1117,45 +1978,55 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
       </li>
     </ul>
     <div
-      class="ecl-gallery__info"
-    >
-      <strong
-        data-ecl-gallery-count=""
-      >
-        0
-      </strong>
-       Media files in this gallery
-    </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-gallery__view-all"
-      data-ecl-gallery-all=""
-      type="submit"
-    >
-      View all
-    </button>
-    <div
       class="ecl-gallery__footer"
     >
-      <a
-        aria-label="View all link aria-label value"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-        href="/example"
+      <div
+        class="ecl-gallery__info"
       >
-        <span
-          class="ecl-link__label"
+        <strong
+          class="ecl-gallery__info-total"
+          data-ecl-gallery-count=""
         >
-          Link to further media items
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+          0
+        </strong>
+        Media files in this gallery
+        <button
+          class="ecl-button ecl-button--ghost ecl-gallery__view-all"
+          data-ecl-gallery-all=""
+          data-ecl-gallery-collapsed-label="See all"
+          data-ecl-gallery-expanded-label="Back"
+          type="submit"
         >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          See all
+        </button>
+      </div>
+      <hr
+        class="ecl-gallery__footer-divider"
+      />
+      <div
+        class="ecl-gallery__footer-link"
+      >
+        <a
+          aria-label="View all link aria-label value"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Further media items
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <dialog
       class="ecl-gallery__overlay"
@@ -1199,134 +2070,142 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-gallery__slider-media-container"
           data-ecl-gallery-overlay-media=""
         />
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
-          data-ecl-gallery-overlay-previous=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Previous
-            </span>
-          </span>
-        </button>
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
-          data-ecl-gallery-overlay-next=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Next
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
       </section>
       <footer
         class="ecl-gallery__detail"
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-gallery__detail-counter"
+          class="ecl-container"
         >
-          <span
-            data-ecl-gallery-overlay-counter-current=""
+          <div
+            class="ecl-gallery__pager"
           >
-            0
-          </span>
-           of 
-          <span
-            data-ecl-gallery-overlay-counter-max=""
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
           >
-            0
-          </span>
-        </div>
-        <div
-          class="ecl-gallery__detail-actions"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-            data-ecl-gallery-overlay-download=""
-            download=""
-            href="/example"
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
           >
-            <span
-              class="ecl-link__label"
-            >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-            data-ecl-gallery-overlay-share=""
-            href="/example"
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-actions"
           >
-            <span
-              class="ecl-link__label"
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              download=""
+              href="/example"
             >
-              Share
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
+              <span
+                class="ecl-link__label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
             >
-              <use
-                xlink:href="/icons.svg#share"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          class="ecl-gallery__detail-description"
-          data-ecl-gallery-overlay-description=""
-        >
-          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-        </div>
-        <div
-          class="ecl-gallery__detail-meta"
-          data-ecl-gallery-overlay-meta=""
-        >
-          Copyright, Author, Licence for image 1
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
     </dialog>
@@ -1340,6 +2219,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
     class="ecl-gallery custom-class custom-class--test"
     data-ecl-auto-init="Gallery"
     data-ecl-gallery=""
+    data-ecl-gallery-visible-items="8"
   >
     <ul
       class="ecl-gallery__list"
@@ -1357,16 +2237,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 1"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures                
+              The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1390,25 +2274,32 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="New digital strategy"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="New digital strategy"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              New digital strategy
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -1418,6 +2309,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              New digital strategy
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1441,16 +2333,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 2"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on agriculture, business, culture, health, etc.                
+              Information on agriculture, business, culture, health, etc.
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1474,16 +2370,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 3"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 3"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Living, working, travelling in the EU                
+              Living, working, travelling in the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1507,16 +2407,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 4"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 4"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Information on taxes, customs, importing and exporting goods, financial support for businesses                
+              Information on taxes, customs, importing and exporting goods, financial support for businesses
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1540,6 +2444,19 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <div
+              class="ecl-gallery__item-icon-wrapper"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
             <video
               class="ecl-gallery__image"
               poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
@@ -1565,20 +2482,10 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 srclang="fr"
               />
             </video>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#video"
-              />
-            </svg>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU law
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -1588,6 +2495,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              EU law
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1611,16 +2519,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 6"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 6"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Find official documents, publications, statistics, open data and more resources                
+              Find official documents, publications, statistics, open data and more resources
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1644,16 +2556,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 7"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Teaching material about the EU, including books and maps                
+              Teaching material about the EU, including books and maps
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1677,25 +2593,32 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Climate change and protect nature"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-            />
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-gallery__image-icon"
-              focusable="false"
+            <div
+              class="ecl-gallery__item-icon-wrapper"
             >
-              <use
-                xlink:href="/icons.svg#video"
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play-filled"
+                />
+              </svg>
+            </div>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
-            </svg>
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              Climate change and protect nature
               <svg
                 aria-hidden="true"
                 class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
@@ -1705,6 +2628,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                   xlink:href="/icons.svg#video"
                 />
               </svg>
+              Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1728,16 +2652,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 9"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              About the EU                
+              About the EU
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1761,16 +2689,20 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <img
-              alt="Image 10"
-              class="ecl-gallery__image"
-              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-            />
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              EU by topic                
+              EU by topic
               <span
                 class="ecl-gallery__meta"
                 data-ecl-gallery-meta=""
@@ -1783,45 +2715,55 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
       </li>
     </ul>
     <div
-      class="ecl-gallery__info"
-    >
-      <strong
-        data-ecl-gallery-count=""
-      >
-        0
-      </strong>
-       Media files in this gallery
-    </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-gallery__view-all"
-      data-ecl-gallery-all=""
-      type="submit"
-    >
-      View all
-    </button>
-    <div
       class="ecl-gallery__footer"
     >
-      <a
-        aria-label="View all link aria-label value"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
-        href="/example"
+      <div
+        class="ecl-gallery__info"
       >
-        <span
-          class="ecl-link__label"
+        <strong
+          class="ecl-gallery__info-total"
+          data-ecl-gallery-count=""
         >
-          Link to further media items
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+          0
+        </strong>
+        Media files in this gallery
+        <button
+          class="ecl-button ecl-button--ghost ecl-gallery__view-all"
+          data-ecl-gallery-all=""
+          data-ecl-gallery-collapsed-label="See all"
+          data-ecl-gallery-expanded-label="Back"
+          type="submit"
         >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          See all
+        </button>
+      </div>
+      <hr
+        class="ecl-gallery__footer-divider"
+      />
+      <div
+        class="ecl-gallery__footer-link"
+      >
+        <a
+          aria-label="View all link aria-label value"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Further media items
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <dialog
       class="ecl-gallery__overlay"
@@ -1865,134 +2807,142 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-gallery__slider-media-container"
           data-ecl-gallery-overlay-media=""
         />
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
-          data-ecl-gallery-overlay-previous=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Previous
-            </span>
-          </span>
-        </button>
-        <button
-          class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
-          data-ecl-gallery-overlay-next=""
-          type="button"
-        >
-          <span
-            class="ecl-button__container"
-          >
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true"
-            >
-              Next
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-              data-ecl-icon=""
-              focusable="false"
-            >
-              <use
-                xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-              />
-            </svg>
-          </span>
-        </button>
       </section>
       <footer
         class="ecl-gallery__detail"
         data-ecl-gallery-overlay-footer=""
       >
         <div
-          class="ecl-gallery__detail-counter"
+          class="ecl-container"
         >
-          <span
-            data-ecl-gallery-overlay-counter-current=""
+          <div
+            class="ecl-gallery__pager"
           >
-            0
-          </span>
-           of 
-          <span
-            data-ecl-gallery-overlay-counter-max=""
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--ghost ecl-gallery__slider-next"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-u-sr-only"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
           >
-            0
-          </span>
-        </div>
-        <div
-          class="ecl-gallery__detail-actions"
-        >
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-            data-ecl-gallery-overlay-download=""
-            download=""
-            href="/example"
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
           >
-            <span
-              class="ecl-link__label"
-            >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-            data-ecl-gallery-overlay-share=""
-            href="/example"
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-actions"
           >
-            <span
-              class="ecl-link__label"
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              download=""
+              href="/example"
             >
-              Share
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
+              <span
+                class="ecl-link__label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
             >
-              <use
-                xlink:href="/icons.svg#share"
-              />
-            </svg>
-          </a>
-        </div>
-        <div
-          class="ecl-gallery__detail-description"
-          data-ecl-gallery-overlay-description=""
-        >
-          The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-        </div>
-        <div
-          class="ecl-gallery__detail-meta"
-          data-ecl-gallery-overlay-meta=""
-        >
-          Copyright, Author, Licence for image 1
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </footer>
     </dialog>

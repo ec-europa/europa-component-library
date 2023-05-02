@@ -191,11 +191,8 @@ $_heading6: null !default;
 * Font colour
 */
 @each $key, $value in theme.$color {
-  // Filter out yellow colours (text should not be yellow)
-  @if not str-index($key, 'yellow-') {
-    .ecl-u-type-color-#{$key} {
-      color: $value !important;
-    }
+  .ecl-u-type-color-#{$key} {
+    color: $value !important;
   }
 }
 
