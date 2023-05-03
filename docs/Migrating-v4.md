@@ -49,4 +49,4 @@ Inner and negative shadows are also not part of EC styles anymore.
 
 ### Spacing
 
-TBD
+Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2XS to 4XL). Default value is still the same: spacing M is 1rem
