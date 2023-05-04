@@ -7,6 +7,5 @@ module.exports = {
     type: 'secondary',
     label: 'Secondary link',
     path: exampleLink,
-    aria_label: 'Read more about the secondary link component',
   },
 };

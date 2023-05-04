@@ -23,7 +23,6 @@ module.exports = {
       link: {
         label: 'item 1',
         path: exampleLink,
-        aria_label: 'Link to item 1',
       },
       icon: {
         path: '/icons.svg',
@@ -35,7 +34,6 @@ module.exports = {
       link: {
         label: 'item 2',
         path: exampleLink,
-        aria_label: 'Link to item 2',
       },
       icon: {
         path: '/icons.svg',
@@ -47,7 +45,6 @@ module.exports = {
       link: {
         label: 'item 3',
         path: exampleLink,
-        aria_label: 'Link to item 3',
       },
       icon: {
         path: '/icons.svg',
@@ -59,7 +56,6 @@ module.exports = {
       link: {
         label: 'item 4',
         path: exampleLink,
-        aria_label: 'Link to item 4',
       },
       icon: {
         path: '/icons.svg',
@@ -71,7 +67,6 @@ module.exports = {
       link: {
         label: 'item 5',
         path: exampleLink,
-        aria_label: 'Link to item 5',
       },
       icon: {
         path: '/icons.svg',
@@ -83,7 +78,6 @@ module.exports = {
       link: {
         label: 'item 6',
         path: exampleLink,
-        aria_label: 'Link to item 6',
       },
       icon: {
         path: '/icons.svg',
@@ -95,7 +89,6 @@ module.exports = {
       link: {
         label: 'item 7',
         path: exampleLink,
-        aria_label: 'Link to item 7',
       },
       icon: {
         path: '/icons.svg',
@@ -107,7 +100,6 @@ module.exports = {
       link: {
         label: 'item 8',
         path: exampleLink,
-        aria_label: 'Link to item 8',
       },
       icon: {
         path: '/icons.svg',

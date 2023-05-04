@@ -11,7 +11,6 @@ module.exports = {
         link: {
           label: 'Subscribe',
           path: exampleLink,
-          aria_label: 'Subscribe',
           icon_position: 'after',
         },
         icon: {
@@ -39,7 +38,6 @@ module.exports = {
         link: {
           label: 'Subscribe',
           path: exampleLink,
-          aria_label: 'Subscribe',
           icon_position: 'after',
         },
         icon: {
@@ -67,7 +65,6 @@ module.exports = {
         link: {
           label: 'Subscribe',
           path: exampleLink,
-          aria_label: 'Subscribe',
           icon_position: 'after',
         },
         icon: {

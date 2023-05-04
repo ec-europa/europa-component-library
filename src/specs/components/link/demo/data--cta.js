@@ -7,6 +7,5 @@ module.exports = {
     type: 'cta',
     label: 'Call to action link',
     path: exampleLink,
-    aria_label: 'Read more about the CTA link component',
   },
 };
