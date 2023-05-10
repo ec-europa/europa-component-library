@@ -31,6 +31,7 @@ module.exports = {
       dest: path.resolve(__dirname, 'dist/output.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
+        minify: true,
       },
     },
   ],

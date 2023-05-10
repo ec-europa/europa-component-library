@@ -241,7 +241,6 @@ module.exports = {
   footer: {
     link: {
       path: exampleLink,
-      aria_label: 'View all link aria-label value',
       label: 'Further media items',
     },
     icon: {

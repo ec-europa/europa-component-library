@@ -11,7 +11,6 @@ module.exports = {
       type: 'standalone',
       path: exampleLink,
       label: 'Standalone link',
-      aria_label: 'Read more about the Standalone link',
       icon_position: 'after',
     },
     icon: {
