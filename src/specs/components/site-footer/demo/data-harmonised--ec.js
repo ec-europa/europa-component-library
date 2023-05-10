@@ -19,7 +19,6 @@ module.exports = {
               link: {
                 label: 'Accessibility',
                 path: exampleLink,
-                aria_label: 'Link to Accessibility',
               },
             },
           ],
@@ -35,7 +34,6 @@ module.exports = {
               link: {
                 label: 'Contact information of the DG',
                 path: exampleLink,
-                aria_label: 'Link to Contact information of the DG',
               },
             },
           ],
@@ -48,7 +46,6 @@ module.exports = {
               link: {
                 label: 'Facebook',
                 path: exampleLink,
-                aria_label: 'Link to Facebook',
                 icon_position: 'before',
               },
               icon: {
@@ -61,7 +58,6 @@ module.exports = {
               link: {
                 label: 'Twitter',
                 path: exampleLink,
-                aria_label: 'Link to Twitter',
                 icon_position: 'before',
               },
               icon: {
@@ -74,7 +70,6 @@ module.exports = {
               link: {
                 label: 'Linkedin',
                 path: exampleLink,
-                aria_label: 'Link to Linkedin',
                 icon_position: 'before',
               },
               icon: {
@@ -96,14 +91,12 @@ module.exports = {
               link: {
                 label: 'Information about the DG',
                 path: exampleLink,
-                aria_label: 'Link to Information about the DG',
               },
             },
             {
               link: {
                 label: 'Information about the DG',
                 path: exampleLink,
-                aria_label: 'Link to Information about the DG',
               },
             },
           ],
@@ -116,14 +109,12 @@ module.exports = {
               link: {
                 label: 'Related link 1',
                 path: exampleLink,
-                aria_label: 'Link to Related link 1',
               },
             },
             {
               link: {
                 label: 'Related link 2',
                 path: exampleLink,
-                aria_label: 'Link to Related link 2',
               },
             },
           ],
@@ -138,14 +129,12 @@ module.exports = {
               link: {
                 label: 'Class name 1',
                 path: exampleLink,
-                aria_label: 'Link to Class name 1',
               },
             },
             {
               link: {
                 label: 'Class name 2',
                 path: exampleLink,
-                aria_label: 'Link to Class name 2',
               },
             },
           ],
@@ -173,15 +162,12 @@ module.exports = {
               link: {
                 label: 'Contact the European Commission',
                 path: 'https://commission.europa.eu/about-european-commission/contact_en',
-                aria_label: 'Link to Contact the European Commission',
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
-                aria_label:
-                  'Link to Follow the European Commission on social media',
                 external: true,
                 icon_path: '/icons.svg',
               },
@@ -203,28 +189,24 @@ module.exports = {
               link: {
                 label: 'Languages on our websites',
                 path: 'https://commission.europa.eu/language-policy_en',
-                aria_label: 'Link to Languages on our websites',
               },
             },
             {
               link: {
                 label: 'Cookies',
                 path: 'https://commission.europa.eu/cookies_en',
-                aria_label: 'Link to Cookies',
               },
             },
             {
               link: {
                 label: 'Privacy policy',
                 path: 'https://commission.europa.eu/privacy-policy_en',
-                aria_label: 'Link to Privacy policy',
               },
             },
             {
               link: {
                 label: 'Legal notice',
                 path: 'https://commission.europa.eu/legal-notice_en',
-                aria_label: 'Link to Legal notice',
               },
             },
           ],

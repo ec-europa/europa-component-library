@@ -10,7 +10,6 @@ module.exports = {
     link: {
       type: 'cta',
       path: exampleLink,
-      aria_label: 'Read more about the CTA',
       label: 'CTA',
       icon_position: 'after',
     },
