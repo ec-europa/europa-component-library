@@ -119,6 +119,7 @@ export class Menu {
     this.lastVisibleItem = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
+    this.breakpointL = 996;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -262,7 +263,7 @@ export class Menu {
     }
 
     // Browse first level items
-    if (this.items && this.isDesktop) {
+    if (this.items) {
       this.items.forEach((item) => {
         // Check menu item display (right to left, full width, ...)
         this.checkMenuItem(item);
@@ -429,7 +430,7 @@ export class Menu {
     }
 
     // After all that, check if the hamburger button is displayed
-    if (this.open.offsetParent !== null) {
+    if (window.innerWidth < this.breakpointL) {
       return false;
     }
 
@@ -979,7 +980,11 @@ export class Menu {
     const menuItem = e.target.closest(this.itemSelector);
 
     // Ignore hidden or partially hidden items
-    if (!menuItem.hasAttribute('data-ecl-menu-item-visible')) return;
+    if (
+      this.hasOverflow &&
+      !menuItem.hasAttribute('data-ecl-menu-item-visible')
+    )
+      return;
 
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
