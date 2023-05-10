@@ -2,17 +2,11 @@
 @use '@ecl/theme-dev/theme';
 
 .ecl-u-shadow-none {
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
-.ecl-u-shadow-1 {
-  box-shadow: map.get(theme.$shadow, '1');
-}
-
-.ecl-u-shadow-2 {
-  box-shadow: map.get(theme.$shadow, '2');
-}
-
-.ecl-u-shadow-3 {
-  box-shadow: map.get(theme.$shadow, '3');
+@each $key, $value in theme.$color {
+  .ecl-u-shadow-#{$key} {
+    box-shadow: $value !important;
+  }
 }

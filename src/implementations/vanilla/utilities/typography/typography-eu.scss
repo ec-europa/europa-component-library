@@ -32,5 +32,14 @@
     'mobile': map.get(theme.$font-prolonged, 'l'),
     'desktop': map.get(theme.$font-prolonged, 'xl'),
     'font-weight': map.get(theme.$font-weight, 'regular'),
+  ),
+  $_paragraph: (
+    'xs': map.get(theme.$font-prolonged, 'xs'),
+    's': map.get(theme.$font-prolonged, 's'),
+    'm': map.get(theme.$font-prolonged, 'm'),
+    'l': (
+      'mobile': map.get(theme.$font-prolonged, 'l'),
+      'desktop': map.get(theme.$font-prolonged, 'xl'),
+    ),
   )
 );
