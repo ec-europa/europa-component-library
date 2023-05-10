@@ -72,7 +72,6 @@ module.exports = {
       link: {
         label: 'Other social networks',
         path: exampleLink,
-        aria_label: 'See other social media networks',
         icon_position: 'before',
       },
       icon: {
