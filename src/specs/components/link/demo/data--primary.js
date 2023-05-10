@@ -7,6 +7,5 @@ module.exports = {
     type: 'primary',
     label: 'Primary link',
     path: exampleLink,
-    aria_label: 'Read more about the primary link component',
   },
 };
