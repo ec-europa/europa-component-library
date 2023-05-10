@@ -262,7 +262,10 @@ export class Menu {
     }
 
     // Browse first level items
+    console.log('init');
+    console.log(this.isDesktop);
     if (this.items && this.isDesktop) {
+      console.log('add event');
       this.items.forEach((item) => {
         // Check menu item display (right to left, full width, ...)
         this.checkMenuItem(item);
@@ -418,22 +421,32 @@ export class Menu {
    */
   useDesktopDisplay() {
     // Detect mobile devices
+    console.log('1');
     if (isMobile.isMobileOnly) {
       return false;
     }
 
     // Force mobile display on tablet
+    console.log('2');
     if (isMobile.isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
 
     // After all that, check if the hamburger button is displayed
+    console.log('3');
+    console.log(this.open);
+    console.log(this.open.offsetParent);
+    console.log(
+      window.getComputedStyle(this.open, null).getPropertyValue('display')
+    );
+
     if (this.open.offsetParent !== null) {
       return false;
     }
 
     // Everything is fine to use desktop display
+    console.log('4');
     this.element.classList.remove('ecl-menu--forced-mobile');
     return true;
   }
@@ -977,10 +990,14 @@ export class Menu {
    */
   handleHoverOnItem(e) {
     const menuItem = e.target.closest(this.itemSelector);
-
+    console.log('hover');
     // Ignore hidden or partially hidden items
-    if (!menuItem.hasAttribute('data-ecl-menu-item-visible')) return;
-
+    if (
+      this.hasOverflow &&
+      !menuItem.hasAttribute('data-ecl-menu-item-visible')
+    )
+      return;
+    console.log('ok');
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
       if (item === menuItem) {
