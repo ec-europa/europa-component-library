@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.8.1 (2023-05-11)
+
+#### :bug: Bug Fix
+
+- [#2860](https://github.com/ec-europa/europa-component-library/pull/2860) fix(select-multiple): Fixing unwanted submit on click on buttons - FRONT-3948 ([@planctus](https://github.com/planctus))
+- [#2861](https://github.com/ec-europa/europa-component-library/pull/2861) fix(menu): Sub items not displayed - FRONT-3949 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2859](https://github.com/ec-europa/europa-component-library/pull/2859) feat(accessibility): remove aria-label where they are not needed - FRONT-3937 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2862](https://github.com/ec-europa/europa-component-library/pull/2862) chore(deps): Updates 10-05-23 ([@planctus](https://github.com/planctus))
+- [#2856](https://github.com/ec-europa/europa-component-library/pull/2856) chore(webpack): Avoiding generation of bin file in media folder ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.8.0 (2023-05-02)
 
 #### :rocket: New Feature
