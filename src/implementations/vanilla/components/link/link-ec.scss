@@ -1,38 +1,40 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/variables';
+@use '@ecl/theme-ec/variables' as var;
 @use '@ecl/theme-ec/theme';
 @use 'link' with (
-  $link-color: variables.$link-color,
-  $link-color-hover: variables.$link-color-hover,
-  $link-color-visited: variables.$link-color-visited,
-  $link-color-active: variables.$link-color-active,
+  $link-color: var.$link-color,
+  $link-color-hover: var.$link-color-hover,
+  $link-color-visited: var.$link-color-visited,
+  $link-color-active: var.$link-color-active,
 
-  $link-outline-color: variables.$link-outline-color,
-  $link-outline-width: variables.$link-outline-width,
-  $link-outline-radius: variables.$link-outline-radius,
+  $link-outline-color: var.$link-outline-color,
+  $link-outline-width: var.$link-outline-width,
+  $link-outline-radius: var.$link-outline-radius,
 
-  $link-inverted-color: variables.$link-inverted-color,
-  $link-inverted-color-hover: variables.$link-inverted-color-hover,
-  $link-inverted-color-visited: variables.$link-inverted-color-visited,
-  $link-inverted-color-active: variables.$link-inverted-color-active,
-  $link-inverted-outline-color: variables.$link-inverted-outline-color,
+  $link-inverted-color: var.$link-inverted-color,
+  $link-inverted-color-hover: var.$link-inverted-color-hover,
+  $link-inverted-color-visited: var.$link-inverted-color-visited,
+  $link-inverted-color-active: var.$link-inverted-color-active,
+  $link-inverted-outline-color: var.$link-inverted-outline-color,
 
-  $_button-link: (
-    'border-radius': 0,
-    'font-weight': map.get(theme.$font-weight, 'bold'),
-    'shadow-hover': none,
-  ),
+  $link-button-radius: var.$link-button-radius,
+  $link-button-shadow: var.$link-button-shadow,
+  $link-button-outline-width: var.$link-button-outline-width,
+  $link-button-padding: var.$link-button-padding,
+
+  $link-primary-background: var.$link-primary-background,
+  $link-primary-color: var.$link-primary-color,
+  $link-primary-background-hover: var.$link-primary-background-hover,
+  $link-primary-color-hover: var.$link-primary-color-hover,
+  $link-primary-background-active: var.$link-primary-background-active,
+  $link-primary-color-active: var.$link-primary-color-active,
+  $link-primary-outline-color: var.$link-primary-outline-color,
+
   $_cta: (
     'background-color': map.get(theme.$color, 'yellow-100'),
     'background-color-hover': map.get(theme.$color, 'yellow-120'),
     'color': map.get(theme.$color, 'black-100'),
     'outline-color': map.get(theme.$color, 'black-100'),
-  ),
-  $_primary: (
-    'background-color': map.get(theme.$color, 'blue-100'),
-    'background-color-hover': map.get(theme.$color, 'blue-130'),
-    'color': map.get(theme.$color, 'white-100'),
-    'color-visited': map.get(theme.$color, 'purple-25'),
   ),
   $_secondary: (
     'background-color': map.get(theme.$color, 'white-100'),
@@ -40,11 +42,5 @@
     'border-color-hover': map.get(theme.$color, 'blue-130'),
     'border-width': 2px,
     'color': map.get(theme.$color, 'blue-100'),
-  ),
-  $_negative: (
-    'color': map.get(theme.$color, 'white-100'),
-    'color-hover': map.get(theme.$color, 'yellow-25'),
-    'color-visited': map.get(theme.$color, 'purple-25'),
-    'standalone-color-hover': map.get(theme.$color, 'white-100'),
   )
 );

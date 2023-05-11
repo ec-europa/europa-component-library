@@ -4,29 +4,37 @@
 */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/variables';
+@use '@ecl/theme-dev/variables' as var;
 @use '@ecl/theme-dev/theme';
 
 // Exposed variables
-$link-color: variables.$link-color !default;
-$link-color-hover: variables.$link-color-hover !default;
-$link-color-visited: variables.$link-color-visited !default;
-$link-color-active: variables.$link-color-active !default;
-$link-outline-color: variables.$link-outline-color !default;
-$link-outline-width: variables.$link-outline-width !default;
-$link-outline-radius: variables.$link-outline-radius !default;
-$link-inverted-color: variables.$link-inverted-color !default;
-$link-inverted-color-hover: variables.$link-inverted-color-hover !default;
-$link-inverted-color-visited: variables.$link-inverted-color-visited !default;
-$link-inverted-color-active: variables.$link-inverted-color-active !default;
-$link-inverted-outline-color: variables.$link-inverted-outline-color !default;
+$link-color: var.$link-color !default;
+$link-color-hover: var.$link-color-hover !default;
+$link-color-visited: var.$link-color-visited !default;
+$link-color-active: var.$link-color-active !default;
+$link-outline-color: var.$link-outline-color !default;
+$link-outline-width: var.$link-outline-width !default;
+$link-outline-radius: var.$link-outline-radius !default;
+$link-inverted-color: var.$link-inverted-color !default;
+$link-inverted-color-hover: var.$link-inverted-color-hover !default;
+$link-inverted-color-visited: var.$link-inverted-color-visited !default;
+$link-inverted-color-active: var.$link-inverted-color-active !default;
+$link-inverted-outline-color: var.$link-inverted-outline-color !default;
+$link-button-radius: var.$link-button-radius !default;
+$link-button-shadow: var.$link-button-shadow !default;
+$link-button-outline-width: var.$link-button-outline-width !default;
+$link-button-padding: var.$link-button-padding !default;
+$link-primary-background: var.$link-primary-background !default;
+$link-primary-color: var.$link-primary-color !default;
+$link-primary-background-hover: var.$link-primary-background-hover !default;
+$link-primary-color-hover: var.$link-primary-color-hover !default;
+$link-primary-background-active: var.$link-primary-background-active !default;
+$link-primary-color-active: var.$link-primary-color-active !default;
+$link-primary-outline-color: var.$link-primary-outline-color !default;
 
 // Internal variables
-$_button-link: null !default;
 $_cta: null !default;
-$_primary: null !default;
 $_secondary: null !default;
-$_negative: null !default;
 
 .ecl-link,
 %ecl-link {
@@ -154,22 +162,21 @@ $_negative: null !default;
 
 // stylelint-disable plugin/selector-bem-pattern
 %button-link {
-  border-radius: map.get($_button-link, 'border-radius');
+  border-radius: $link-button-radius;
   box-sizing: border-box;
   font: map.get(theme.$font, 'm');
-  font-weight: map.get($_button-link, 'font-weight');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: $link-button-padding;
   text-decoration: none;
 
   &:hover,
   &:active {
-    box-shadow: map.get($_button-link, 'shadow-hover');
+    box-shadow: $link-button-shadow;
   }
 
   &:focus-visible {
-    border-radius: map.get($_button-link, 'border-radius');
-    outline: $link-outline-width solid map.get(theme.$color, 'white');
-    outline-offset: -4px;
+    border-radius: $link-button-radius;
+    outline: $link-button-outline-width solid map.get(theme.$color, 'white');
+    outline-offset: -#{$link-button-outline-width + 2};
     text-decoration: none;
   }
 }
@@ -220,32 +227,21 @@ $_negative: null !default;
 .ecl-link--primary {
   @extend %button-link;
 
-  background-color: map.get($_primary, 'background-color');
-  color: map.get($_primary, 'color');
+  background-color: $link-primary-background;
+  color: $link-primary-color;
 
-  &:visited {
-    color: map.get($_primary, 'color-visited');
+  &:hover {
+    background-color: $link-primary-background-hover;
+    color: $link-primary-color-hover;
   }
 
-  &:hover,
   &:active {
-    background-color: map.get($_primary, 'background-color-hover');
-    color: map.get($_primary, 'color');
+    background-color: $link-primary-background-active;
+    color: $link-primary-color-active;
   }
 
   &:focus {
-    color: map.get($_primary, 'color');
-  }
-
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-link--no-visited:visited {
-    color: map.get($_primary, 'color');
-
-    // stylelint-disable-next-line
-    &:hover,
-    &:active {
-      color: map.get($_primary, 'color');
-    }
+    color: $link-primary-color;
   }
 }
 
