@@ -24,13 +24,13 @@ iconsAll.unshift('none');
 
 const withParagraph = (story) => {
   const demo = story();
-  return `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${demo} and promotes its general interest.</p>`;
+  return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
 };
 
 const withNegative = (story, controls) => {
   const demo = story();
   return controls.args.negative
-    ? `<div class="ecl-u-bg-blue ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`
+    ? `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`
     : demo;
 };
 

@@ -12,9 +12,14 @@ $link-color: variables.$link-color !default;
 $link-color-hover: variables.$link-color-hover !default;
 $link-color-visited: variables.$link-color-visited !default;
 $link-color-active: variables.$link-color-active !default;
-$link-focus-outline-color: variables.$link-focus-outline-color !default;
-$link-focus-outline-width: variables.$link-focus-outline-width !default;
-$link-focus-outline-radius: variables.$link-focus-outline-radius !default;
+$link-outline-color: variables.$link-outline-color !default;
+$link-outline-width: variables.$link-outline-width !default;
+$link-outline-radius: variables.$link-outline-radius !default;
+$link-inverted-color: variables.$link-inverted-color !default;
+$link-inverted-color-hover: variables.$link-inverted-color-hover !default;
+$link-inverted-color-visited: variables.$link-inverted-color-visited !default;
+$link-inverted-color-active: variables.$link-inverted-color-active !default;
+$link-inverted-outline-color: variables.$link-inverted-outline-color !default;
 
 // Internal variables
 $_button-link: null !default;
@@ -38,8 +43,8 @@ $_negative: null !default;
   }
 
   &:focus-visible {
-    border-radius: $link-focus-outline-radius;
-    outline: $link-focus-outline-width solid $link-focus-outline-color;
+    border-radius: $link-outline-radius;
+    outline: $link-outline-width solid $link-outline-color;
     outline-offset: 2px;
   }
 
@@ -92,44 +97,31 @@ $_negative: null !default;
 }
 
 /**
-* Negative
+* Inverted link
 */
 .ecl-link--negative,
 %ecl-link-negative {
-  color: map.get($_negative, 'color');
+  color: $link-inverted-color;
 
   &:visited {
-    color: map.get($_negative, 'color-visited');
+    color: $link-inverted-color-visited;
   }
 
-  &:hover,
-  &:focus-visible {
-    color: map.get($_negative, 'color-hover');
-
-    /* stylelint-disable-next-line max-nesting-depth */
-    &.ecl-link--standalone {
-      color: map.get($_negative, 'standalone-color-hover');
-    }
+  &:hover {
+    color: $link-inverted-color-hover;
   }
 
   &:focus-visible {
-    color: map.get($_negative, 'color');
-    outline-color: map.get($_negative, 'color');
+    outline-color: $link-inverted-outline-color;
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: map.get($_negative, 'color');
+    color: $link-inverted-color;
 
     /* stylelint-disable-next-line */
-    &:hover,
-    &:focus-visible {
-      color: map.get($_negative, 'color-hover');
-
-      /* stylelint-disable-next-line */
-      &.ecl-link--standalone {
-        color: map.get($_negative, 'standalone-color-hover');
-      }
+    &:hover {
+      color: $link-inverted-color-hover;
     }
   }
 }
@@ -176,7 +168,7 @@ $_negative: null !default;
 
   &:focus-visible {
     border-radius: map.get($_button-link, 'border-radius');
-    outline: $link-focus-outline-width solid map.get(theme.$color, 'white');
+    outline: $link-outline-width solid map.get(theme.$color, 'white');
     outline-offset: -4px;
     text-decoration: none;
   }
