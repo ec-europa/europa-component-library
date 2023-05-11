@@ -4,14 +4,19 @@
 */
 
 @use 'sass:map';
+@use '@ecl/theme-dev/variables';
 @use '@ecl/theme-dev/theme';
 
-$_border-radius: null !default;
-$_outline-color: map.get(theme.$color, 'blue-100') !default;
-$_outline-width: 2px !default;
-$_color: map.get(theme.$color, 'blue-100');
-$_color-hover: null !default;
-$_color-visited: map.get(theme.$color, 'purple-100');
+// Exposed variables
+$link-color: variables.$link-color !default;
+$link-color-hover: variables.$link-color-hover !default;
+$link-color-visited: variables.$link-color-visited !default;
+$link-color-active: variables.$link-color-active !default;
+$link-focus-outline-color: variables.$link-focus-outline-color !default;
+$link-focus-outline-width: variables.$link-focus-outline-width !default;
+$link-focus-outline-radius: variables.$link-focus-outline-radius !default;
+
+// Internal variables
 $_button-link: null !default;
 $_cta: null !default;
 $_primary: null !default;
@@ -20,31 +25,35 @@ $_negative: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: $_color;
+  color: $link-color;
   margin: 0;
   text-decoration: underline;
 
+  &:visited {
+    color: $link-color-visited;
+  }
+
   &:hover {
-    color: $_color-hover;
+    color: $link-color-hover;
   }
 
   &:focus-visible {
-    border-radius: $_border-radius;
-    outline: $_outline-width solid $_outline-color;
+    border-radius: $link-focus-outline-radius;
+    outline: $link-focus-outline-width solid $link-focus-outline-color;
     outline-offset: 2px;
   }
 
-  &:visited {
-    color: $_color-visited;
+  &:active {
+    color: $link-color-active;
   }
 }
 
 .ecl-link--no-visited:visited {
-  color: $_color;
+  color: $link-color;
 
   &:hover,
   &:focus-visible {
-    color: $_color-hover;
+    color: $link-color-hover;
   }
 }
 
@@ -89,6 +98,10 @@ $_negative: null !default;
 %ecl-link-negative {
   color: map.get($_negative, 'color');
 
+  &:visited {
+    color: map.get($_negative, 'color-visited');
+  }
+
   &:hover,
   &:focus-visible {
     color: map.get($_negative, 'color-hover');
@@ -102,10 +115,6 @@ $_negative: null !default;
   &:focus-visible {
     color: map.get($_negative, 'color');
     outline-color: map.get($_negative, 'color');
-  }
-
-  &:visited {
-    color: map.get($_negative, 'color-visited');
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
@@ -131,6 +140,10 @@ $_negative: null !default;
 .ecl-link--standalone {
   font-family: #{map.get(theme.$font-family, 'default')};
   text-decoration: none;
+
+  &:visited {
+    color: $link-color;
+  }
 
   &:hover,
   &:focus-visible {
@@ -163,7 +176,7 @@ $_negative: null !default;
 
   &:focus-visible {
     border-radius: map.get($_button-link, 'border-radius');
-    outline: $_outline-width solid map.get(theme.$color, 'white');
+    outline: $link-focus-outline-width solid map.get(theme.$color, 'white');
     outline-offset: -4px;
     text-decoration: none;
   }
@@ -179,6 +192,10 @@ $_negative: null !default;
   background-color: map.get($_cta, 'background-color');
   color: map.get($_cta, 'color');
 
+  &:visited {
+    color: $link-color-visited;
+  }
+
   &:hover,
   &:active {
     background-color: map.get($_cta, 'background-color-hover');
@@ -191,10 +208,6 @@ $_negative: null !default;
 
   &:focus-visible {
     outline-color: map.get($_cta, 'outline-color');
-  }
-
-  &:visited {
-    color: $_color-visited;
   }
 
   // stylelint-disable-next-line plugin/selector-bem-pattern
@@ -218,6 +231,10 @@ $_negative: null !default;
   background-color: map.get($_primary, 'background-color');
   color: map.get($_primary, 'color');
 
+  &:visited {
+    color: map.get($_primary, 'color-visited');
+  }
+
   &:hover,
   &:active {
     background-color: map.get($_primary, 'background-color-hover');
@@ -226,10 +243,6 @@ $_negative: null !default;
 
   &:focus {
     color: map.get($_primary, 'color');
-  }
-
-  &:visited {
-    color: map.get($_primary, 'color-visited');
   }
 
   // stylelint-disable-next-line plugin/selector-bem-pattern
@@ -261,6 +274,10 @@ $_negative: null !default;
       #{map.get(theme.$spacing, 'm')} - #{map.get($_secondary, 'border-width')}
     );
 
+  &:visited {
+    color: $link-color-visited;
+  }
+
   &:hover,
   &:active {
     border-color: map.get($_secondary, 'border-color-hover');
@@ -274,10 +291,6 @@ $_negative: null !default;
   &:focus-visible {
     box-shadow: 0 0 0 4px map.get($_secondary, 'border-color') inset;
     outline: 2px map.get($_secondary, 'background-color') solid;
-  }
-
-  &:visited {
-    color: $_color-visited;
   }
 
   // stylelint-disable-next-line plugin/selector-bem-pattern

@@ -1,8 +1,15 @@
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+@use '@ecl/theme-ec/variables';
+@use '@ecl/theme-ec/theme';
 @use 'link' with (
-  $_border-radius: 0,
-  $_color-hover: map.get(theme.$color, 'blue-130'),
+  $link-color: variables.$link-color,
+  $link-color-hover: variables.$link-color-hover,
+  $link-color-visited: variables.$link-color-visited,
+  $link-color-active: variables.$link-color-active,
+  $link-focus-outline-color: variables.$link-focus-outline-color,
+  $link-focus-outline-width: variables.$link-focus-outline-width,
+  $link-focus-outline-radius: variables.$link-focus-outline-radius,
+
   $_button-link: (
     'border-radius': 0,
     'font-weight': map.get(theme.$font-weight, 'bold'),

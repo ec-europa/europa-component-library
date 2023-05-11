@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use 'index' as *;
+
+// Link
+$link-color: map.get($color, 'blue-100');
+$link-color-hover: map.get($color, 'blue-140');
+$link-color-visited: map.get($color, 'purple-100');
+$link-color-active: map.get($color, 'blue-100');
+$link-focus-outline-color: map.get($color, 'blue-100');
+$link-focus-outline-width: 2px;
+$link-focus-outline-radius: 2px;
