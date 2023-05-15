@@ -1,9 +1,7 @@
-@forward 'maps/color';
-@forward 'maps/form';
-@forward 'maps/icon';
-@forward 'maps/layout';
-@forward 'maps/media';
-@forward 'maps/shape';
-@forward 'maps/spacing';
-@forward 'maps/typography';
-@forward 'maps/z-index';
+@use 'variables' as *;
+
+@forward 'index';
+
+.ecl-link--secondary:focus-visible {
+  box-shadow: 0 0 0 4px $link-secondary-border-color inset;
+}
