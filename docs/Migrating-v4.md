@@ -53,6 +53,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
+[WIP]
+Every component is now exposing a set of variables, managing different aspect of their display.
+
+These variables can be overriden to alter the look and feel of the component, by picking values defined in the styles.
+
 ### Links
 
 - Negative links have been renamed Inverted links, to be consistent with other components. This concern the css class, and the twig parameter.
