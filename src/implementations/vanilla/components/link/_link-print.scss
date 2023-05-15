@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/theme';
 
 $_color: map.get(theme.$color, 'blue-100');
-$_negative-color: null !default;
+$_inverted-color: null !default;
 
 .ecl-link,
 %ecl-link {
@@ -69,8 +69,8 @@ $_negative-color: null !default;
   color: map.get(theme.$color, 'white-100');
 }
 
-.ecl-link--negative {
-  color: $_negative-color;
+.ecl-link--inverted {
+  color: $_inverted-color;
 }
 
 /**
