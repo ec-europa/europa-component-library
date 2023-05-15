@@ -28,33 +28,43 @@ $link-button-padding-horizontal: var.$link-button-padding !default;
 $link-button-padding-vertical: var.$link-button-padding !default;
 $link-primary-background: var.$link-primary-background !default;
 $link-primary-color: var.$link-primary-color !default;
+$link-primary-border-color: var.$link-primary-border-color !default;
 $link-primary-background-hover: var.$link-primary-background-hover !default;
 $link-primary-color-hover: var.$link-primary-color-hover !default;
+$link-primary-border-color-hover: var.$link-primary-border-color-hover !default;
 $link-primary-background-active: var.$link-primary-background-active !default;
 $link-primary-color-active: var.$link-primary-color-active !default;
+$link-primary-border-color-active: var.$link-primary-border-color-active !default;
 $link-primary-background-focus: var.$link-primary-background-focus !default;
 $link-primary-color-focus: var.$link-primary-color-focus !default;
-$link-primary-border-color: var.$link-primary-border-color !default;
-$link-primary-border-color-hover: var.$link-primary-border-color-hover !default;
-$link-primary-border-color-active: var.$link-primary-border-color-active !default;
 $link-primary-border-color-focus: var.$link-primary-border-color-focus !default;
 $link-primary-outline-color: var.$link-primary-outline-color !default;
 $link-secondary-background: var.$link-secondary-background !default;
 $link-secondary-color: var.$link-secondary-color !default;
+$link-secondary-border-color: var.$link-secondary-border-color !default;
 $link-secondary-background-hover: var.$link-secondary-background-hover !default;
 $link-secondary-color-hover: var.$link-secondary-color-hover !default;
+$link-secondary-border-color-hover: var.$link-secondary-border-color-hover !default;
 $link-secondary-background-active: var.$link-secondary-background-active !default;
 $link-secondary-color-active: var.$link-secondary-color-active !default;
+$link-secondary-border-color-active: var.$link-secondary-border-color-active !default;
 $link-secondary-background-focus: var.$link-secondary-background-focus !default;
 $link-secondary-color-focus: var.$link-secondary-color-focus !default;
-$link-secondary-border-color: var.$link-secondary-border-color !default;
-$link-secondary-border-color-hover: var.$link-secondary-border-color-hover !default;
-$link-secondary-border-color-active: var.$link-secondary-border-color-active !default;
 $link-secondary-border-color-focus: var.$link-secondary-border-color-focus !default;
 $link-secondary-outline-color: var.$link-secondary-outline-color !default;
-
-// Internal variables
-$_cta: null !default;
+$link-cta-background: var.$link-cta-background !default;
+$link-cta-color: var.$link-cta-color !default;
+$link-cta-border-color: var.$link-cta-border-color !default;
+$link-cta-background-hover: var.$link-cta-background-hover !default;
+$link-cta-color-hover: var.$link-cta-color-hover !default;
+$link-cta-border-color-hover: var.$link-cta-border-color-hover !default;
+$link-cta-background-active: var.$link-cta-background-active !default;
+$link-cta-color-active: var.$link-cta-color-active !default;
+$link-cta-border-color-active: var.$link-cta-border-color-active !default;
+$link-cta-background-focus: var.$link-cta-background-focus !default;
+$link-cta-color-focus: var.$link-cta-color-focus !default;
+$link-cta-border-color-focus: var.$link-cta-border-color-focus !default;
+$link-cta-outline-color: var.$link-cta-outline-color !default;
 
 .ecl-link,
 %ecl-link {
@@ -208,45 +218,6 @@ $_cta: null !default;
 // stylelint-enable plugin/selector-bem-pattern
 
 /**
-* Call to action
-*/
-.ecl-link--cta {
-  @extend %button-link;
-
-  background-color: map.get($_cta, 'background-color');
-  color: map.get($_cta, 'color');
-
-  &:visited {
-    color: $link-color-visited;
-  }
-
-  &:hover,
-  &:active {
-    background-color: map.get($_cta, 'background-color-hover');
-    color: map.get($_cta, 'color');
-  }
-
-  &:focus {
-    color: map.get($_cta, 'color');
-  }
-
-  &:focus-visible {
-    outline-color: map.get($_cta, 'outline-color');
-  }
-
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-link--no-visited:visited {
-    color: map.get($_cta, 'color');
-
-    // stylelint-disable-next-line
-    &:hover,
-    &:active {
-      color: map.get($_cta, 'color');
-    }
-  }
-}
-
-/**
 * Primary
 */
 .ecl-link--primary {
@@ -303,5 +274,35 @@ $_cta: null !default;
     background-color: $link-secondary-background-active;
     border-color: $link-secondary-border-color-active;
     color: $link-secondary-color-active;
+  }
+}
+
+/**
+* Call to action
+*/
+.ecl-link--cta {
+  @extend %button-link;
+
+  background-color: $link-cta-background;
+  border-color: $link-cta-border-color;
+  color: $link-cta-color;
+
+  &:hover {
+    background-color: $link-cta-background-hover;
+    border-color: $link-cta-border-color-hover;
+    color: $link-cta-color-hover;
+  }
+
+  &:focus-visible {
+    background-color: $link-cta-background-focus;
+    border-color: $link-cta-border-color-focus;
+    color: $link-cta-color-focus;
+    outline-color: $link-cta-outline-color;
+  }
+
+  &:active {
+    background-color: $link-cta-background-active;
+    border-color: $link-cta-border-color-active;
+    color: $link-cta-color-active;
   }
 }
