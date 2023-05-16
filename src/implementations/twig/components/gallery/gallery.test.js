@@ -20,6 +20,18 @@ describe('Gallery', () => {
       return expect(render(demoData)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with old data', () => {
+      const oldData = { ...demoData };
+      oldData.download = {
+        link: {
+          label: 'View original',
+        },
+      };
+
+      expect.assertions(1);
+      return expect(render(demoData)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

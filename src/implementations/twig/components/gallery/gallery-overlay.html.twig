@@ -68,7 +68,7 @@
           link: {
             icon_position: 'after',
             type: 'standalone',
-            label: _overlay.full_screen_label,
+            label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
           },
           icon: {
             name: 'fullscreen',
