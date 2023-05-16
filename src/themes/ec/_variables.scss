@@ -10,111 +10,64 @@ $link: (
   outline-color: map.get($color, 'primary'),
   outline-width: 2px,
   outline-radius: 1px,
-  inverted-color: map.get($color, 'white'),
-  inverted-color-hover: map.get($color, 'primary-30'),
-  inverted-color-visited: map.get($color, 'secondary-10'),
-  inverted-color-active: map.get($color, 'secondary-20'),
-  inverted-outline-color: map.get($color, 'white'),
-  button-radius: 2px,
-  button-shadow: none,
-  button-border-width: 2px,
-  button-outline-width: 1px,
-  button-padding-horizontal: map.get($spacing, 'm'),
-  button-padding-vertical: map.get($spacing, 'xs'),
-  primary-background: map.get($color, 'primary'),
-  primary-color: map.get($color, 'white'),
-  primary-background-hover: map.get($color, 'primary20'),
-  primary-color-hover: map.get($color, 'white'),
-  primary-background-active: map.get($color, 'primary30'),
-  primary-color-active: map.get($color, 'white'),
-  primary-background-focus: map.get($color, 'primary'),
-  primary-color-focus: map.get($color, 'white'),
-  primary-border-color: map.get($color, 'primary'),
-  primary-border-color-hover: map.get($color, 'primary20'),
-  primary-border-color-active: map.get($color, 'primary30'),
-  primary-border-color-focus: map.get($color, 'primary'),
-  primary-outline-color: map.get($color, 'white'),
-  secondary-background: map.get($color, 'white'),
-  secondary-color: map.get($color, 'primary'),
-  secondary-background-hover: map.get($color, 'primary20'),
-  secondary-color-hover: map.get($color, 'white'),
-  secondary-background-active: map.get($color, 'primary30'),
-  secondary-color-active: map.get($color, 'white'),
-  secondary-background-focus: map.get($color, 'primary30'),
-  secondary-color-focus: map.get($color, 'white'),
-  secondary-border-color: map.get($color, 'primary'),
-  secondary-border-color-hover: map.get($color, 'primary20'),
-  secondary-border-color-active: map.get($color, 'primary30'),
-  secondary-border-color-focus: map.get($color, 'primary30'),
-  secondary-outline-color: map.get($color, 'white'),
-  cta-background: map.get($color, 'secondary-10'),
-  cta-color: map.get($color, 'dark'),
-  cta-background-hover: map.get($color, 'secondary10'),
-  cta-border-color: map.get($color, 'secondary-10'),
-  cta-color-hover: map.get($color, 'dark'),
-  cta-border-color-hover: map.get($color, 'secondary10'),
-  cta-background-active: map.get($color, 'secondary20'),
-  cta-color-active: map.get($color, 'dark'),
-  cta-border-color-active: map.get($color, 'secondary20'),
-  cta-background-focus: map.get($color, 'secondary-10'),
-  cta-color-focus: map.get($color, 'dark'),
-  cta-border-color-focus: map.get($color, 'secondary-10'),
-  cta-outline-color: map.get($color, 'dark'),
+  inverted: (
+    color: map.get($color, 'white'),
+    color-hover: map.get($color, 'primary-30'),
+    color-visited: map.get($color, 'secondary-10'),
+    color-active: map.get($color, 'secondary-20'),
+    outline-color: map.get($color, 'white'),
+  ),
+  button: (
+    radius: 2px,
+    shadow: none,
+    border-width: 2px,
+    outline-width: 1px,
+    padding-horizontal: map.get($spacing, 'm'),
+    padding-vertical: map.get($spacing, 'xs'),
+  ),
+  primary: (
+    background: map.get($color, 'primary'),
+    color: map.get($color, 'white'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    background-focus: map.get($color, 'primary'),
+    color-focus: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+    border-color-hover: map.get($color, 'primary20'),
+    border-color-active: map.get($color, 'primary30'),
+    border-color-focus: map.get($color, 'primary'),
+    outline-color: map.get($color, 'white'),
+  ),
+  secondary: (
+    background: map.get($color, 'white'),
+    color: map.get($color, 'primary'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    background-focus: map.get($color, 'primary30'),
+    color-focus: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+    border-color-hover: map.get($color, 'primary20'),
+    border-color-active: map.get($color, 'primary30'),
+    border-color-focus: map.get($color, 'primary30'),
+    outline-color: map.get($color, 'white'),
+  ),
+  cta: (
+    background: map.get($color, 'secondary-10'),
+    color: map.get($color, 'dark'),
+    background-hover: map.get($color, 'secondary10'),
+    border-color: map.get($color, 'secondary-10'),
+    color-hover: map.get($color, 'dark'),
+    border-color-hover: map.get($color, 'secondary10'),
+    background-active: map.get($color, 'secondary20'),
+    color-active: map.get($color, 'dark'),
+    border-color-active: map.get($color, 'secondary20'),
+    background-focus: map.get($color, 'secondary-10'),
+    color-focus: map.get($color, 'dark'),
+    border-color-focus: map.get($color, 'secondary-10'),
+    outline-color: map.get($color, 'dark'),
+  ),
 );
-$link-color: map.get($color, 'primary');
-$link-color-hover: map.get($color, 'primary20');
-$link-color-visited: map.get($color, 'dark');
-$link-color-active: map.get($color, 'dark');
-$link-outline-color: map.get($color, 'primary');
-$link-outline-width: 2px;
-$link-outline-radius: 1px;
-$link-inverted-color: map.get($color, 'white');
-$link-inverted-color-hover: map.get($color, 'primary-30');
-$link-inverted-color-visited: map.get($color, 'secondary-10');
-$link-inverted-color-active: map.get($color, 'secondary-20');
-$link-inverted-outline-color: map.get($color, 'white');
-$link-button-radius: 2px;
-$link-button-shadow: none;
-$link-button-border-width: 2px;
-$link-button-outline-width: 1px;
-$link-button-padding-horizontal: map.get($spacing, 'm');
-$link-button-padding-vertical: map.get($spacing, 'xs');
-$link-primary-background: map.get($color, 'primary');
-$link-primary-color: map.get($color, 'white');
-$link-primary-background-hover: map.get($color, 'primary20');
-$link-primary-color-hover: map.get($color, 'white');
-$link-primary-background-active: map.get($color, 'primary30');
-$link-primary-color-active: map.get($color, 'white');
-$link-primary-background-focus: map.get($color, 'primary');
-$link-primary-color-focus: map.get($color, 'white');
-$link-primary-border-color: map.get($color, 'primary');
-$link-primary-border-color-hover: map.get($color, 'primary20');
-$link-primary-border-color-active: map.get($color, 'primary30');
-$link-primary-border-color-focus: map.get($color, 'primary');
-$link-primary-outline-color: map.get($color, 'white');
-$link-secondary-background: map.get($color, 'white');
-$link-secondary-color: map.get($color, 'primary');
-$link-secondary-background-hover: map.get($color, 'primary20');
-$link-secondary-color-hover: map.get($color, 'white');
-$link-secondary-background-active: map.get($color, 'primary30');
-$link-secondary-color-active: map.get($color, 'white');
-$link-secondary-background-focus: map.get($color, 'primary30');
-$link-secondary-color-focus: map.get($color, 'white');
-$link-secondary-border-color: map.get($color, 'primary');
-$link-secondary-border-color-hover: map.get($color, 'primary20');
-$link-secondary-border-color-active: map.get($color, 'primary30');
-$link-secondary-border-color-focus: map.get($color, 'primary30');
-$link-secondary-outline-color: map.get($color, 'white');
-$link-cta-background: map.get($color, 'secondary-10');
-$link-cta-color: map.get($color, 'dark');
-$link-cta-background-hover: map.get($color, 'secondary10');
-$link-cta-border-color: map.get($color, 'secondary-10');
-$link-cta-color-hover: map.get($color, 'dark');
-$link-cta-border-color-hover: map.get($color, 'secondary10');
-$link-cta-background-active: map.get($color, 'secondary20');
-$link-cta-color-active: map.get($color, 'dark');
-$link-cta-border-color-active: map.get($color, 'secondary20');
-$link-cta-background-focus: map.get($color, 'secondary-10');
-$link-cta-color-focus: map.get($color, 'dark');
-$link-cta-border-color-focus: map.get($color, 'secondary-10');
-$link-cta-outline-color: map.get($color, 'dark');

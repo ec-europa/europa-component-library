@@ -142,27 +142,27 @@ $link-cta-outline-color: null !default;
 */
 .ecl-link--inverted,
 %ecl-link-inverted {
-  color: map.get($link, inverted-color);
+  color: map.get($link, inverted, color);
 
   &:visited {
-    color: map.get($link, inverted-color-visited);
+    color: map.get($link, inverted, color-visited);
   }
 
   &:hover {
-    color: map.get($link, inverted-color-hover);
+    color: map.get($link, inverted, color-hover);
   }
 
   &:focus-visible {
-    outline-color: map.get($link, inverted-outline-color);
+    outline-color: map.get($link, inverted, outline-color);
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: map.get($link, inverted-color);
+    color: map.get($link, inverted, color);
 
     /* stylelint-disable-next-line */
     &:hover {
-      color: map.get($link, inverted-color-hover);
+      color: map.get($link, inverted, color-hover);
     }
   }
 }
@@ -188,50 +188,52 @@ $link-cta-outline-color: null !default;
 * Link button
 */
 @mixin link-button($variant: null) {
-  background-color: map.get($link, #{$variant}-background);
-  border: map.get($link, button-border-width) solid
-    map.get($link, #{$variant}-border-color);
-  border-radius: map.get($link, button-radius);
+  background-color: map.get($link, #{$variant}, background);
+  border: map.get($link, button, border-width) solid
+    map.get($link, #{$variant}, border-color);
+  border-radius: map.get($link, button, radius);
   box-sizing: border-box;
-  color: map.get($link, #{$variant}-color);
+  color: map.get($link, #{$variant}, color);
   display: inline-block;
   font: map.get($theme, font, m);
   padding: calc(
-      #{map.get($link, button-padding-vertical)} - #{map.get(
+      #{map.get($link, button, padding-vertical)} - #{map.get(
           $link,
-          button-border-width
+          button,
+          border-width
         )}
     )
     calc(
-      #{map.get($link, button-padding-horizontal)} - #{map.get(
+      #{map.get($link, button, padding-horizontal)} - #{map.get(
           $link,
-          button-border-width
+          button,
+          border-width
         )}
     );
   text-decoration: none;
 
   &:hover {
-    background-color: map.get($link, #{$variant}-background-hover);
-    border-color: map.get($link, #{$variant}-border-color-hover);
-    box-shadow: map.get($link, button-shadow);
-    color: map.get($link, #{$variant}-color-hover);
+    background-color: map.get($link, #{$variant}, background-hover);
+    border-color: map.get($link, #{$variant}, border-color-hover);
+    box-shadow: map.get($link, button, shadow);
+    color: map.get($link, #{$variant}, color-hover);
   }
 
   &:focus-visible {
-    background-color: map.get($link, #{$variant}-background-focus);
-    border-color: map.get($link, #{$variant}-border-color-focus);
-    border-radius: map.get($link, button-radius);
-    color: map.get($link, #{$variant}-color-focus);
-    outline: map.get($link, button-outline-width) solid
-      map.get($link, #{$variant}-outline-color);
-    outline-offset: -#{map.get($link, button-outline-width) + 2};
+    background-color: map.get($link, #{$variant}, background-focus);
+    border-color: map.get($link, #{$variant}, border-color-focus);
+    border-radius: map.get($link, button, radius);
+    color: map.get($link, #{$variant}, color-focus);
+    outline: map.get($link, button, outline-width) solid
+      map.get($link, #{$variant}, outline-color);
+    outline-offset: -#{map.get($link, button, outline-width) + 2};
     text-decoration: none;
   }
 
   &:active {
-    background-color: map.get($link, #{$variant}-background-active);
-    border-color: map.get($link, #{$variant}-border-color-active);
-    color: map.get($link, #{$variant}-color-active);
+    background-color: map.get($link, #{$variant}, background-active);
+    border-color: map.get($link, #{$variant}, border-color-active);
+    color: map.get($link, #{$variant}, color-active);
     outline-width: 0;
   }
 }
