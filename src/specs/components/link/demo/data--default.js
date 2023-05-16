@@ -6,6 +6,5 @@ module.exports = {
   link: {
     label: 'The European Union',
     path: exampleLink,
-    aria_label: 'Read more about the European Union',
   },
 };

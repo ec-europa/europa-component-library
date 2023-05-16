@@ -7,7 +7,6 @@ module.exports = {
     type: 'default',
     label: 'The European Union',
     path: exampleLink,
-    aria_label: 'Read more about the European Union',
     icon_position: 'after',
   },
   icon: {
