@@ -4,14 +4,14 @@
 */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_color: map.get(theme.$color, 'blue-100');
-$_inverted-color: null !default;
+// Exposed variables
+$theme: null !default;
+$link: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: $_color;
+  color: map.get($link, color);
   page-break-inside: avoid;
   text-decoration: none;
 }
@@ -19,7 +19,7 @@ $_inverted-color: null !default;
 .ecl-link::after {
   content: '(' attr(href) ')';
   font-style: italic;
-  margin-inline-start: map.get(theme.$spacing-print, '2xs');
+  margin-inline-start: map.get($theme, spacing-print, '2xs');
   text-decoration: underline;
 }
 
@@ -50,27 +50,19 @@ $_inverted-color: null !default;
 }
 
 .ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($theme, spacing-print, xs);
 }
 
 .ecl-link--icon-after .ecl-link__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, spacing-print, xs);
 }
 
 .ecl-link--standalone {
-  font-family: #{map.get(theme.$font-family-print, 'default')};
-}
-
-.ecl-link--cta {
-  font-family: #{map.get(theme.$font-family-print, 'default')};
-}
-
-.ecl-link--primary {
-  color: map.get(theme.$color, 'white-100');
+  font-family: #{map.get($theme, font-family-print, default)};
 }
 
 .ecl-link--inverted {
-  color: $_inverted-color;
+  color: map.get($link, inverted-color);
 }
 
 /**
