@@ -518,7 +518,7 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
           data-ecl-gallery-collapsed-label="See all"
-          data-ecl-gallery-expanded-label="Back"
+          data-ecl-gallery-expanded-label="Collapse"
           type="submit"
         >
           See all
@@ -602,6 +602,63 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#fullscreen"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
+          >
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
             class="ecl-gallery__pager"
           >
             <button
@@ -671,63 +728,6 @@ exports[`Gallery Default renders correctly 1`] = `
                 </svg>
               </span>
             </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-meta"
-            data-ecl-gallery-overlay-meta=""
-          >
-            Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
-          >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              download=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Download
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </footer>
@@ -1254,7 +1254,7 @@ exports[`Gallery Default renders correctly with deprecated data 1`] = `
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
           data-ecl-gallery-collapsed-label="See all"
-          data-ecl-gallery-expanded-label="Back"
+          data-ecl-gallery-expanded-label="Collapse"
           type="submit"
         >
           See all
@@ -1338,6 +1338,63 @@ exports[`Gallery Default renders correctly with deprecated data 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#fullscreen"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
+          >
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
             class="ecl-gallery__pager"
           >
             <button
@@ -1407,63 +1464,6 @@ exports[`Gallery Default renders correctly with deprecated data 1`] = `
                 </svg>
               </span>
             </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-meta"
-            data-ecl-gallery-overlay-meta=""
-          >
-            Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
-          >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              download=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Download
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </footer>
@@ -1992,7 +1992,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
           data-ecl-gallery-collapsed-label="See all"
-          data-ecl-gallery-expanded-label="Back"
+          data-ecl-gallery-expanded-label="Collapse"
           type="submit"
         >
           See all
@@ -2076,6 +2076,63 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#fullscreen"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
+          >
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
             class="ecl-gallery__pager"
           >
             <button
@@ -2145,63 +2202,6 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 </svg>
               </span>
             </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-meta"
-            data-ecl-gallery-overlay-meta=""
-          >
-            Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
-          >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              download=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Download
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </footer>
@@ -2728,7 +2728,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
           data-ecl-gallery-collapsed-label="See all"
-          data-ecl-gallery-expanded-label="Back"
+          data-ecl-gallery-expanded-label="Collapse"
           type="submit"
         >
           See all
@@ -2812,6 +2812,63 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__detail-actions"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
+              data-ecl-gallery-overlay-download=""
+              href=""
+              target="_blank"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                View original
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#fullscreen"
+                />
+              </svg>
+            </a>
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
+              data-ecl-gallery-overlay-share=""
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                Share
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#share"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="ecl-gallery__detail-description"
+            data-ecl-gallery-overlay-description=""
+          >
+            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
+          </div>
+          <div
+            class="ecl-gallery__detail-meta"
+            data-ecl-gallery-overlay-meta=""
+          >
+            Copyright, Author, Licence for image 1
+          </div>
+          <div
             class="ecl-gallery__pager"
           >
             <button
@@ -2881,63 +2938,6 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 </svg>
               </span>
             </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-meta"
-            data-ecl-gallery-overlay-meta=""
-          >
-            Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__detail-description"
-            data-ecl-gallery-overlay-description=""
-          >
-            The EU in brief, institutions and bodies, countries, symbols, history, facts and figures
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              download=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Download
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-link--icon-after ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </footer>

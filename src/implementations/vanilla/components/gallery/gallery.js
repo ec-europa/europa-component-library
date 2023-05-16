@@ -508,17 +508,6 @@ export class Gallery {
     // Update description
     const description = queryOne(this.descriptionSelector, selectedItem);
     this.overlayDescription.innerHTML = description.innerHTML;
-
-    // Limit image height (fix for FF and IE)
-    const maxHeight =
-      this.overlay.clientHeight -
-      this.overlayHeader.clientHeight -
-      this.overlayFooter.clientHeight;
-    if (this.overlayMedia) {
-      Object.assign(mediaElement.style, {
-        maxHeight: `${maxHeight}px`,
-      });
-    }
   }
 
   /**
