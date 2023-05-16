@@ -7,6 +7,10 @@
 @use '@ecl/theme-dev/theme' as theme;
 
 // Exposed variables
+$theme: null !default;
+$link: null !default;
+
+/*
 $link-color: null !default;
 $link-color-hover: null !default;
 $link-color-visited: null !default;
@@ -64,38 +68,39 @@ $link-cta-background-focus: null !default;
 $link-cta-color-focus: null !default;
 $link-cta-border-color-focus: null !default;
 $link-cta-outline-color: null !default;
+*/
 
 .ecl-link,
 %ecl-link {
-  color: $link-color;
+  color: map.get($link, color);
   margin: 0;
   text-decoration: underline;
 
   &:visited {
-    color: $link-color-visited;
+    color: map.get($link, color-visited);
   }
 
   &:hover {
-    color: $link-color-hover;
+    color: map.get($link, color-hover);
   }
 
   &:focus-visible {
-    border-radius: $link-outline-radius;
-    outline: $link-outline-width solid $link-outline-color;
+    border-radius: map.get($link, outline-radius);
+    outline: map.get($link, outline-width) solid map.get($link, outline-color);
     outline-offset: 2px;
   }
 
   &:active {
-    color: $link-color-active;
+    color: map.get($link, color-active);
   }
 }
 
 .ecl-link--no-visited:visited {
-  color: $link-color;
+  color: map.get($link, color);
 
   &:hover,
   &:focus-visible {
-    color: $link-color-hover;
+    color: map.get($link, color-hover);
   }
 }
 
@@ -126,11 +131,11 @@ $link-cta-outline-color: null !default;
 }
 
 .ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($theme, spacing, xs);
 }
 
 .ecl-link--icon-after .ecl-link__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, spacing, xs);
 }
 
 /**
@@ -138,27 +143,27 @@ $link-cta-outline-color: null !default;
 */
 .ecl-link--inverted,
 %ecl-link-inverted {
-  color: $link-inverted-color;
+  color: map.get($link, inverted-color);
 
   &:visited {
-    color: $link-inverted-color-visited;
+    color: map.get($link, inverted-color-visited);
   }
 
   &:hover {
-    color: $link-inverted-color-hover;
+    color: map.get($link, inverted-color-hover);
   }
 
   &:focus-visible {
-    outline-color: $link-inverted-outline-color;
+    outline-color: map.get($link, inverted-outline-color);
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: $link-inverted-color;
+    color: map.get($link, inverted-color);
 
     /* stylelint-disable-next-line */
     &:hover {
-      color: $link-inverted-color-hover;
+      color: map.get($link, inverted-color-hover);
     }
   }
 }
@@ -167,11 +172,11 @@ $link-cta-outline-color: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: #{map.get($theme, font-family, default)};
   text-decoration: none;
 
   &:visited {
-    color: $link-color;
+    color: map.get($link, color);
   }
 
   &:hover,
@@ -191,22 +196,32 @@ $link-cta-outline-color: null !default;
 
 // stylelint-disable plugin/selector-bem-pattern
 %button-link {
-  border: $link-button-border-width solid map.get(theme.$color, 'white');
-  border-radius: $link-button-radius;
+  border: map.get($link, button-border-width) solid;
+  border-radius: map.get($link, button-radius);
   box-sizing: border-box;
-  font: map.get(theme.$font, 'm');
-  padding: calc(#{$link-button-padding-vertical} - #{$link-button-border-width})
-    calc(#{$link-button-padding-horizontal} - #{$link-button-border-width});
+  font: map.get($theme, font, m);
+  padding: calc(
+      #{map.get($link, button-padding-vertical)} - #{map.get(
+          $link,
+          button-border-width
+        )}
+    )
+    calc(
+      #{map.get($link, button-padding-horizontal)} - #{map.get(
+          $link,
+          button-border-width
+        )}
+    );
   text-decoration: none;
 
   &:hover {
-    box-shadow: $link-button-shadow;
+    box-shadow: map.get($link, button-shadow);
   }
 
   &:focus-visible {
-    border-radius: $link-button-radius;
-    outline: $link-button-outline-width solid map.get(theme.$color, 'white');
-    outline-offset: -#{$link-button-outline-width + 2};
+    border-radius: map.get($link, button-radius);
+    outline: map.get($link, button-outline-width) solid;
+    outline-offset: -#{map.get($link, button-outline-width) + 2};
     text-decoration: none;
   }
 
@@ -222,27 +237,27 @@ $link-cta-outline-color: null !default;
 .ecl-link--primary {
   @extend %button-link;
 
-  background-color: $link-primary-background;
-  border-color: $link-primary-border-color;
-  color: $link-primary-color;
+  background-color: map.get($link, 'primary-background');
+  border-color: map.get($link, primary-border-color);
+  color: map.get($link, primary-color);
 
   &:hover {
-    background-color: $link-primary-background-hover;
-    border-color: $link-primary-border-color-hover;
-    color: $link-primary-color-hover;
+    background-color: map.get($link, primary-background-hover);
+    border-color: map.get($link, primary-border-color-hover);
+    color: map.get($link, primary-color-hover);
   }
 
   &:focus-visible {
-    background-color: $link-primary-background-focus;
-    border-color: $link-primary-border-color-focus;
-    color: $link-primary-color-focus;
-    outline-color: $link-primary-outline-color;
+    background-color: map.get($link, primary-background-focus);
+    border-color: map.get($link, primary-border-color-focus);
+    color: map.get($link, primary-color-focus);
+    outline-color: map.get($link, primary-outline-color);
   }
 
   &:active {
-    background-color: $link-primary-background-active;
-    border-color: $link-secondary-border-color-active;
-    color: $link-primary-color-active;
+    background-color: map.get($link, primary-background-active);
+    border-color: map.get($link, secondary-border-color-active);
+    color: map.get($link, primary-color-active);
   }
 }
 
@@ -252,27 +267,27 @@ $link-cta-outline-color: null !default;
 .ecl-link--secondary {
   @extend %button-link;
 
-  background-color: $link-secondary-background;
-  border-color: $link-secondary-border-color;
-  color: $link-secondary-color;
+  background-color: map.get($link, secondary-background);
+  border-color: map.get($link, secondary-border-color);
+  color: map.get($link, secondary-color);
 
   &:hover {
-    background-color: $link-secondary-background-hover;
-    border-color: $link-secondary-border-color-hover;
-    color: $link-secondary-color-hover;
+    background-color: map.get($link, secondary-background-hover);
+    border-color: map.get($link, secondary-border-color-hover);
+    color: map.get($link, secondary-color-hover);
   }
 
   &:focus-visible {
-    background-color: $link-secondary-background-focus;
-    border-color: $link-secondary-border-color-focus;
-    color: $link-secondary-color-focus;
-    outline-color: $link-secondary-outline-color;
+    background-color: map.get($link, secondary-background-focus);
+    border-color: map.get($link, secondary-border-color-focus);
+    color: map.get($link, secondary-color-focus);
+    outline-color: map.get($link, secondary-outline-color);
   }
 
   &:active {
-    background-color: $link-secondary-background-active;
-    border-color: $link-secondary-border-color-active;
-    color: $link-secondary-color-active;
+    background-color: map.get($link, secondary-background-active);
+    border-color: map.get($link, secondary-border-color-active);
+    color: map.get($link, secondary-color-active);
   }
 }
 
@@ -282,26 +297,26 @@ $link-cta-outline-color: null !default;
 .ecl-link--cta {
   @extend %button-link;
 
-  background-color: $link-cta-background;
-  border-color: $link-cta-border-color;
-  color: $link-cta-color;
+  background-color: map.get($link, cta-background);
+  border-color: map.get($link, cta-border-color);
+  color: map.get($link, cta-color);
 
   &:hover {
-    background-color: $link-cta-background-hover;
-    border-color: $link-cta-border-color-hover;
-    color: $link-cta-color-hover;
+    background-color: map.get($link, cta-background-hover);
+    border-color: map.get($link, cta-border-color-hover);
+    color: map.get($link, cta-color-hover);
   }
 
   &:focus-visible {
-    background-color: $link-cta-background-focus;
-    border-color: $link-cta-border-color-focus;
-    color: $link-cta-color-focus;
-    outline-color: $link-cta-outline-color;
+    background-color: map.get($link, cta-background-focus);
+    border-color: map.get($link, cta-border-color-focus);
+    color: map.get($link, cta-color-focus);
+    outline-color: map.get($link, cta-outline-color);
   }
 
   &:active {
-    background-color: $link-cta-background-active;
-    border-color: $link-cta-border-color-active;
-    color: $link-cta-color-active;
+    background-color: map.get($link, cta-background-active);
+    border-color: map.get($link, cta-border-color-active);
+    color: map.get($link, cta-color-active);
   }
 }

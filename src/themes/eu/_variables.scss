@@ -2,60 +2,62 @@
 @use 'index' as *;
 
 // Link
-$link-color: map.get($color, 'blue-100');
-$link-color-hover: map.get($color, 'blue-140');
-$link-color-visited: map.get($color, 'purple-100');
-$link-color-active: map.get($color, 'blue-100');
-$link-outline-color: map.get($color, 'blue-100');
-$link-outline-width: 2px;
-$link-outline-radius: 2px;
-$link-inverted-color: map.get($color, 'accent-blue-100');
-$link-inverted-color-hover: map.get($color, 'accent-blue-30');
-$link-inverted-color-visited: map.get($color, 'purple-40');
-$link-inverted-color-active: map.get($color, 'accent-blue-100');
-$link-inverted-outline-color: map.get($color, 'accent-blue-100');
-$link-button-radius: 4px;
-$link-button-shadow: map.get($shadow, '1');
-$link-button-border-width: 2px;
-$link-button-outline-width: 2px;
-$link-button-padding-horizontal: map.get($spacing, 'm');
-$link-button-padding-vertical: map.get($spacing, 's');
-$link-primary-background: map.get($color, 'blue-100');
-$link-primary-color: map.get($color, 'white');
-$link-primary-background-hover: map.get($color, 'blue-80');
-$link-primary-color-hover: map.get($color, 'white');
-$link-primary-background-active: map.get($color, 'blue-100');
-$link-primary-color-active: map.get($color, 'white');
-$link-primary-background-focus: map.get($color, 'blue-100');
-$link-primary-color-focus: map.get($color, 'white');
-$link-primary-border-color: map.get($color, 'blue-100');
-$link-primary-border-color-hover: map.get($color, 'blue-80');
-$link-primary-border-color-active: map.get($color, 'blue-100');
-$link-primary-border-color-focus: map.get($color, 'blue-100');
-$link-primary-outline-color: map.get($color, 'white');
-$link-secondary-background: map.get($color, 'white');
-$link-secondary-color: map.get($color, 'blue-100');
-$link-secondary-background-hover: map.get($color, 'white');
-$link-secondary-color-hover: map.get($color, 'blue-100');
-$link-secondary-background-active: map.get($color, 'white');
-$link-secondary-color-active: map.get($color, 'blue-100');
-$link-secondary-background-focus: map.get($color, 'white');
-$link-secondary-color-focus: map.get($color, 'blue-100');
-$link-secondary-border-color: map.get($color, 'blue-100');
-$link-secondary-border-color-hover: map.get($color, 'blue-130');
-$link-secondary-border-color-active: map.get($color, 'blue-100');
-$link-secondary-border-color-focus: map.get($color, 'blue-100');
-$link-secondary-outline-color: map.get($color, 'white');
-$link-cta-background: map.get($color, 'yellow-100');
-$link-cta-color: map.get($color, 'grey-140');
-$link-cta-border-color: map.get($color, 'yellow-100');
-$link-cta-background-hover: map.get($color, 'yellow-100');
-$link-cta-color-hover: map.get($color, 'grey-140');
-$link-cta-border-color-hover: map.get($color, 'yellow-100');
-$link-cta-background-active: map.get($color, 'yellow-100');
-$link-cta-color-active: map.get($color, 'grey-140');
-$link-cta-border-color-active: map.get($color, 'yellow-100');
-$link-cta-background-focus: map.get($color, 'yellow-100');
-$link-cta-color-focus: map.get($color, 'grey-140');
-$link-cta-border-color-focus: map.get($color, 'yellow-100');
-$link-cta-outline-color: map.get($color, 'grey-140');
+$link: (
+  color: map.get($color, 'blue-100'),
+  color-hover: map.get($color, 'blue-140'),
+  color-visited: map.get($color, 'purple-100'),
+  color-active: map.get($color, 'blue-100'),
+  outline-color: map.get($color, 'blue-100'),
+  outline-width: 2px,
+  outline-radius: 2px,
+  inverted-color: map.get($color, 'accent-blue-100'),
+  inverted-color-hover: map.get($color, 'accent-blue-30'),
+  inverted-color-visited: map.get($color, 'purple-40'),
+  inverted-color-active: map.get($color, 'accent-blue-100'),
+  inverted-outline-color: map.get($color, 'accent-blue-100'),
+  button-radius: 4px,
+  button-shadow: map.get($shadow, '1'),
+  button-border-width: 2px,
+  button-outline-width: 2px,
+  button-padding-horizontal: map.get($spacing, 'm'),
+  button-padding-vertical: map.get($spacing, 's'),
+  primary-background: map.get($color, 'blue-100'),
+  primary-color: map.get($color, 'white'),
+  primary-background-hover: map.get($color, 'blue-80'),
+  primary-color-hover: map.get($color, 'white'),
+  primary-background-active: map.get($color, 'blue-100'),
+  primary-color-active: map.get($color, 'white'),
+  primary-background-focus: map.get($color, 'blue-100'),
+  primary-color-focus: map.get($color, 'white'),
+  primary-border-color: map.get($color, 'blue-100'),
+  primary-border-color-hover: map.get($color, 'blue-80'),
+  primary-border-color-active: map.get($color, 'blue-100'),
+  primary-border-color-focus: map.get($color, 'blue-100'),
+  primary-outline-color: map.get($color, 'white'),
+  secondary-background: map.get($color, 'white'),
+  secondary-color: map.get($color, 'blue-100'),
+  secondary-background-hover: map.get($color, 'white'),
+  secondary-color-hover: map.get($color, 'blue-100'),
+  secondary-background-active: map.get($color, 'white'),
+  secondary-color-active: map.get($color, 'blue-100'),
+  secondary-background-focus: map.get($color, 'white'),
+  secondary-color-focus: map.get($color, 'blue-100'),
+  secondary-border-color: map.get($color, 'blue-100'),
+  secondary-border-color-hover: map.get($color, 'blue-130'),
+  secondary-border-color-active: map.get($color, 'blue-100'),
+  secondary-border-color-focus: map.get($color, 'blue-100'),
+  secondary-outline-color: map.get($color, 'white'),
+  cta-background: map.get($color, 'yellow-100'),
+  cta-color: map.get($color, 'grey-140'),
+  cta-border-color: map.get($color, 'yellow-100'),
+  cta-background-hover: map.get($color, 'yellow-100'),
+  cta-color-hover: map.get($color, 'grey-140'),
+  cta-border-color-hover: map.get($color, 'yellow-100'),
+  cta-background-active: map.get($color, 'yellow-100'),
+  cta-color-active: map.get($color, 'grey-140'),
+  cta-border-color-active: map.get($color, 'yellow-100'),
+  cta-background-focus: map.get($color, 'yellow-100'),
+  cta-color-focus: map.get($color, 'grey-140'),
+  cta-border-color-focus: map.get($color, 'yellow-100'),
+  cta-outline-color: map.get($color, 'grey-140'),
+);
