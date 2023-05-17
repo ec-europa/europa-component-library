@@ -40,10 +40,12 @@ Elevation scale has been updated for EC, to allow more felxibility. Instead of e
 
 Corresponding list (v3 -> v4):
 
-- .ecl-u-shadow-1 -> .ecl-u-shadow-1 (not changed)
-- .ecl-u-shadow-2 -> .ecl-u-shadow-6
-- .ecl-u-shadow-3 -> .ecl-u-shadow-12
-- .ecl-u-shadow-4 -> .ecl-u-shadow-16
+```
+.ecl-u-shadow-1 -> .ecl-u-shadow-1 (not changed)
+.ecl-u-shadow-2 -> .ecl-u-shadow-6
+.ecl-u-shadow-3 -> .ecl-u-shadow-12
+.ecl-u-shadow-4 -> .ecl-u-shadow-16
+```
 
 Inner and negative shadows are also not part of EC styles anymore.
 
@@ -53,10 +55,47 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
-Every component is now exposing a set of variables, managing different aspect of their display.
-
-These variables can be overriden to alter the look and feel of the component, by picking values defined in the styles.
-
 ### Links
 
 - "Negative" links have been renamed "Inverted", to be consistent with other components. This concern the css class, and the twig parameter.
+
+## Custom theme
+
+ECL4 introduces new ways to custommize the look and feel of elements, by changing styles and component display
+
+### How to create a custom theme
+
+[To be done]
+
+### How to customize styles
+
+[To be done]
+
+### How to customize component display
+
+[WIP]
+
+Every component is now exposing a set of variables, managing different aspect of their display. These variables can be overriden to alter the look and feel of the component, by picking values defined in the styles.
+
+There are two ways to customize values related to the components:
+
+#### Using SASS variables
+
+SASS variables are defined in the theme, in a file called `_variables.scss`. There are two theme available by default (EC and EU), which could act as example.
+
+You can edit them in your custom theme, and recompile ECL css by running the command `yarn dist` at the root of the project.
+
+#### Using CSS variables
+
+Each component exposes a set of CSS variables. By default, these variables are filled by the value coming from the SASS variable.
+
+You can iverrive one or more CSS variable by calling a custom CSS anywhere after the ECL one.
+
+Example:
+
+```
+root: {
+  --ecl-link-color: red;
+  --ecl-link-color-hover: green;
+}
+```

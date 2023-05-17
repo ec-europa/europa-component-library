@@ -1,6 +1,9 @@
 @use 'sass:map';
 @use 'index' as *;
 
+// Use this file to assign default values to component variables
+// Note: if you override css variables it will take over on these values
+
 // Link
 $link: (
   color: map.get($color, 'primary'),
