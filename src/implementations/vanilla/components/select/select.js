@@ -857,6 +857,8 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClearAll(e) {
+    e.preventDefault();
+
     switch (e.key) {
       case 'Enter':
       case ' ':
@@ -880,6 +882,8 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClose(e) {
+    e.preventDefault();
+
     switch (e.key) {
       case 'ArrowLeft':
         this.closeButton.previousSibling.focus();
@@ -898,7 +902,12 @@ export class Select {
     }
   }
 
-  handleEsc() {
+  /**
+   * @param {Event} e
+   */
+  handleEsc(e) {
+    e.preventDefault();
+
     if (this.searchContainer.style.display === 'block') {
       this.searchContainer.style.display = 'none';
     }
@@ -963,9 +972,13 @@ export class Select {
   }
 
   /**
+   * @param {Event} e
+   *
    * Reset values of the Multiselect.
+   *
    */
-  handleClickOnClearAll() {
+  handleClickOnClearAll(e) {
+    e.preventDefault();
     Array.from(this.select.options).forEach((option) => {
       const checkbox = this.selectMultiple.querySelector(
         `[data-select-multiple-value="${option.text}"]`
