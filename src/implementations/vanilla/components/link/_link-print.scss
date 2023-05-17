@@ -9,9 +9,14 @@
 $theme: null !default;
 $link: null !default;
 
+:root {
+  --ecl-link-color: #{map.get($link, 'color')};
+  --ecl-link-inverted-color: map.get($link, 'inverted', 'color');
+}
+
 .ecl-link,
 %ecl-link {
-  color: map.get($link, color);
+  color: var(--ecl-link-color);
   page-break-inside: avoid;
   text-decoration: none;
 }
@@ -50,19 +55,19 @@ $link: null !default;
 }
 
 .ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get($theme, spacing-print, xs);
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-link--icon-after .ecl-link__icon {
-  margin-inline-start: map.get($theme, spacing-print, xs);
+  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-link--standalone {
-  font-family: #{map.get($theme, font-family-print, default)};
+  font-family: #{map.get($theme, 'font-family-print', 'default')};
 }
 
 .ecl-link--inverted {
-  color: map.get($link, inverted, color);
+  color: var(--ecl-link-inverted-color);
 }
 
 /**
