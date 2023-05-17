@@ -76,22 +76,19 @@ const getArgTypes = (data) => {
 
   argTypes.width = {
     name: 'width',
+    type: 'select',
     description: `The media container extends to the whole viewport by default when outside the grid,
       if it's inside it can still be extended by adding class .ecl-media-container--full-width`,
     table: {
-      type: { summary: 'radio' },
-      defaultValue: { summary: 'outside the grid container' },
+      defaultValue: { summary: 'outside the ecl-container' },
       category: 'Display',
     },
+    options: ['outside', 'container', 'inside'],
     control: {
-      type: 'radio',
-      options: ['outside', 'container', 'inside'],
-      control: {
-        labels: {
-          outside: 'large (landscape)',
-          container: 'inside the grid container',
-          inside: 'inside the grid container, with fullwidth class',
-        },
+      labels: {
+        outside: 'outside the ecl-container',
+        container: 'inside the ecl-container',
+        inside: 'inside the ecl-container, with fullwidth class',
       },
     },
   };
