@@ -185,14 +185,10 @@ $_search-width-xl: 31.5rem;
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-bottom: map.get(theme.$spacing, '2xs');
   position: relative;
-
-  .ecl-site-header__icon {
-    display: none;
-  }
 }
 
+// DEPRECATED
 .ecl-site-header__language-code {
   color: map.get(theme.$color, 'blue_100');
   font: map.get(theme.$font, 'm');
