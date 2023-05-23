@@ -11,7 +11,6 @@ const getArgs = (data) => {
   const args = {
     show_description: true,
     description: data.description,
-    ratio: '',
     width: 'outside',
   };
   if (data.image && !data.sources) {
@@ -56,42 +55,21 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.ratio = {
-    name: 'ratio',
-    type: { name: 'select' },
-    description: 'Media ratio (if empty the ratio will be set by the js)',
-    options: {
-      auto: '',
-      '16/9': '16-9',
-      '4/3': '4-3',
-      '3/2': '3-2',
-      '1/1': '1-1',
-    },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-      category: 'Display',
-    },
-  };
-
   argTypes.width = {
     name: 'width',
+    type: 'select',
     description: `The media container extends to the whole viewport by default when outside the grid,
       if it's inside it can still be extended by adding class .ecl-media-container--full-width`,
     table: {
-      type: { summary: 'radio' },
-      defaultValue: { summary: 'outside the grid container' },
+      defaultValue: { summary: 'outside the ecl-container' },
       category: 'Display',
     },
+    options: ['outside', 'container', 'inside'],
     control: {
-      type: 'radio',
-      options: ['outside', 'container', 'inside'],
-      control: {
-        labels: {
-          outside: 'large (landscape)',
-          container: 'inside the grid container',
-          inside: 'inside the grid container, with fullwidth class',
-        },
+      labels: {
+        outside: 'outside the ecl-container',
+        container: 'inside the ecl-container',
+        inside: 'inside the ecl-container, with fullwidth class',
       },
     },
   };
@@ -144,8 +122,31 @@ Video.parameters = {
 export const EmbeddedVideo = (args) => renderStory(dataEmbed, args);
 
 EmbeddedVideo.storyName = 'embedded video';
-EmbeddedVideo.args = getArgs(dataEmbed);
-EmbeddedVideo.argTypes = getArgTypes(dataEmbed);
+EmbeddedVideo.args = {
+  ...getArgs(dataEmbed),
+  ratio: '',
+};
+
+EmbeddedVideo.argTypes = {
+  ...getArgTypes(dataEmbed),
+  ratio: {
+    name: 'ratio',
+    type: { name: 'select' },
+    description: 'Media ratio (if empty the ratio will be set by the js)',
+    options: {
+      auto: '',
+      '16/9': '16-9',
+      '4/3': '4-3',
+      '3/2': '3-2',
+      '1/1': '1-1',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Display',
+    },
+  },
+};
 EmbeddedVideo.parameters = {
   notes: { markdown: notes, json: dataEmbed },
   a11y: {
