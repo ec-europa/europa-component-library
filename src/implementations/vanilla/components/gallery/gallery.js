@@ -465,10 +465,10 @@ export class Gallery {
       mediaElement.load();
     } else {
       // Media is an image
-      const image = queryOne('img', selectedItem);
-      image.classList.remove('ecl-gallery__image');
       const picture = queryOne('picture', selectedItem);
       mediaElement = picture.cloneNode(true);
+      const image = queryOne('img', mediaElement);
+      image.classList.remove('ecl-gallery__image');
       mediaElement.classList.add('ecl-gallery__slider-image');
 
       if (this.overlayMedia) {
@@ -508,17 +508,6 @@ export class Gallery {
     // Update description
     const description = queryOne(this.descriptionSelector, selectedItem);
     this.overlayDescription.innerHTML = description.innerHTML;
-
-    // Limit image height (fix for FF and IE)
-    const maxHeight =
-      this.overlay.clientHeight -
-      this.overlayHeader.clientHeight -
-      this.overlayFooter.clientHeight;
-    if (this.overlayMedia) {
-      Object.assign(mediaElement.style, {
-        maxHeight: `${maxHeight}px`,
-      });
-    }
   }
 
   /**

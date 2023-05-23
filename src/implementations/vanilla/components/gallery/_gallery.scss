@@ -88,6 +88,7 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__picture {
   display: flex;
+  height: 100%;
 
   &:not(.ecl-gallery__slider-image) {
     flex-grow: 1;
@@ -329,7 +330,7 @@ $_overlay-links-hover-color: null !default;
   height: 100%;
   left: 0;
   margin: 0;
-  max-height: 100%;
+  max-height: 100vh;
   max-width: 100%;
   padding: 0;
   position: fixed;
@@ -363,11 +364,12 @@ $_overlay-links-hover-color: null !default;
 
 .ecl-gallery__slider {
   align-items: center;
-  background: map.get(theme.$color, 'grey-15');
+  background: $_overlay-background;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   position: relative;
+  overflow: hidden;
 }
 
 .ecl-gallery__slider-media-container {
@@ -384,23 +386,24 @@ $_overlay-links-hover-color: null !default;
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
-  height: auto;
   margin: 0;
-  max-width: 100%;
   object-fit: contain;
+  height: 100%;
+  width: 100%;
 }
 
 .ecl-gallery__slider-embed {
   @include uMedia.aspect-ratio(16, 9);
 
-  width: calc(100% - map.get(theme.$spacing, 'l'));
+  width: 100%;
 }
 
 .ecl-gallery__pager {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: map.get(theme.$spacing, 'm');
 }
 
 .ecl-gallery__slider-previous,
@@ -441,7 +444,7 @@ $_overlay-links-hover-color: null !default;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  padding: map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, 'xl');
+  padding: map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, 'm');
 
   .ecl-container {
     position: static;
@@ -491,6 +494,11 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__detail-description {
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
+  max-width: 670px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .ecl-gallery__overlay .ecl-gallery__description-icon {
@@ -500,18 +508,32 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__detail-meta {
   color: $_gallery-meta-color;
   font: map.get(theme.$font, 's');
-  margin-top: map.get(theme.$spacing, '2xs');
+  margin-top: map.get(theme.$spacing, 'xs');
+}
+
+@include breakpoints.up('s') {
+  .ecl-gallery__pager {
+    justify-content: flex-end;
+    margin-top: 0;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
+  .ecl-gallery__detail {
+    padding: 0 map.get(theme.$spacing, 'l');
+  }
+
   .ecl-gallery__detail-description {
     min-height: 0;
   }
 
   .ecl-gallery__slider {
+    flex-grow: 1;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
   }
 }
 
@@ -542,6 +564,8 @@ $_overlay-links-hover-color: null !default;
   }
 
   .ecl-gallery__detail .ecl-container {
+    display: flex;
+    flex-direction: column;
     width: 1140px;
   }
 
@@ -550,7 +574,19 @@ $_overlay-links-hover-color: null !default;
       map.get(theme.$spacing, 'xl');
   }
 
+  .ecl-gallery__pager {
+    order: 1;
+  }
+
+  .ecl-gallery__detail-actions {
+    order: 2;
+  }
+
+  .ecl-gallery__detail-description {
+    order: 3;
+  }
+
   .ecl-gallery__detail-meta {
-    margin-top: map.get(theme.$spacing, 's');
+    order: 4;
   }
 }

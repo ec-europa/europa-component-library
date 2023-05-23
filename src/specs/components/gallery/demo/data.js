@@ -122,7 +122,7 @@ module.exports = {
         },
       },
       description:
-        'Find official documents, publications, statistics, open data and more resources',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',
       meta: 'Copyright, Author, Licence for image 6',
       share_path: '/share#example-image6.jpg',
     },
@@ -212,17 +212,7 @@ module.exports = {
       },
     },
     counter_separator: 'of',
-    download: {
-      link: {
-        label: 'Download',
-        path: exampleLink,
-      },
-      icon: {
-        name: 'download',
-        size: 'fluid',
-        path: '/icons.svg',
-      },
-    },
+    full_screen_label: 'View original',
     share: {
       link: {
         label: 'Share',
@@ -237,7 +227,7 @@ module.exports = {
   },
   disable_overlay: false,
   view_all_label: 'See all',
-  view_all_expanded_label: 'Back',
+  view_all_expanded_label: 'Collapse',
   footer: {
     link: {
       path: exampleLink,
