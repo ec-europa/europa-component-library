@@ -298,6 +298,10 @@ $link: null !default;
     );
   text-decoration: none;
 
+  &:visited {
+    color: var(--ecl-link-#{$variant}-color);
+  }
+
   &:hover {
     background-color: var(--ecl-link-#{$variant}-background-hover);
     border-color: var(--ecl-link-#{$variant}-border-color-hover);
@@ -312,7 +316,7 @@ $link: null !default;
     color: var(--ecl-link-#{$variant}-color-focus);
     outline: var(--ecl-link-button-outline-width) solid
       var(--ecl-link-#{$variant}-outline-color);
-    outline-offset: -calc(var(--ecl-link-button-outline-width) + 2px);
+    outline-offset: calc(0px - var(--ecl-link-button-outline-width) - 2px);
     text-decoration: none;
   }
 
