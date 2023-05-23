@@ -465,10 +465,10 @@ export class Gallery {
       mediaElement.load();
     } else {
       // Media is an image
-      const image = queryOne('img', selectedItem);
-      image.classList.remove('ecl-gallery__image');
       const picture = queryOne('picture', selectedItem);
       mediaElement = picture.cloneNode(true);
+      const image = queryOne('img', mediaElement);
+      image.classList.remove('ecl-gallery__image');
       mediaElement.classList.add('ecl-gallery__slider-image');
 
       if (this.overlayMedia) {
