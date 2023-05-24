@@ -109,10 +109,10 @@
         <ul class="ecl-site-header__language-list">
           {% for _item in _language_selector.overlay.items %}
           <li class="ecl-site-header__language-item">
-            {% set _link_label = 
-            '<span class="ecl-site-header__language-link-code">' ~ _item.lang|default('') ~ '</span>' ~
-            '<span class="ecl-site-header__language-link-label">' ~ _item.label ~ '</span>'
-            %}
+            {% set _link_label %}
+              <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
+              <span class="ecl-site-header__language-link-label">{{ _item.label }}</span>
+            {% endset %}
             {% set _link_classes = 'ecl-site-header__language-link' %}
             {% if _item.active %}
               {% set _link_classes = _link_classes ~ ' ecl-site-header__language-link--active' %}
@@ -124,8 +124,8 @@
               }),
               extra_classes: _link_classes,
               extra_attributes: [
-                { name: 'lang', value: _item.lang|default('') },
-                { name: 'hreflang', value: _item.lang|default('') },
+                { name: 'lang', value: _item.lang|default('')|e('html_attr') },
+                { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
           </li>
