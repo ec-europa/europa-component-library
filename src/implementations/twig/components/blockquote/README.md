@@ -17,12 +17,6 @@ npm install --save @ecl/twig-component-blockquote
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-Deprecated
-
-- **"image"** (optional) (object) (default: {}) Blockquote image
-  - "path" (string) Image src
-  - "alt" (string) Image alt
-
 ## Example:
 
 <!-- prettier-ignore -->

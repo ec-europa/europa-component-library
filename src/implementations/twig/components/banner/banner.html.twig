@@ -16,11 +16,6 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-
-
-  Deprecated:
-
-    - "image" (string) (default: '') Replaced by picture
 #}
 
 {# Internal properties #}
@@ -68,16 +63,6 @@
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
     {% endif %}
   {% endfor %}
-{% endif %}
-
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _image is not empty %}
-  {% set _picture = {
-    img: {
-      src: _image,
-    },
-  } %}
 {% endif %}
 
 {# Print the result #}

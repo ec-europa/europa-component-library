@@ -35,15 +35,8 @@ npm install --save @ecl/twig-component-gallery
 - **"selected_item_id"** (int) (default: 0)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
-
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-
-  Deprecated:
-
-  - "item.image" - Replaced by item.picture.img.src
-  - "item.path" - Replaced by item.picture.img.src
-  - "item.alt" - Replaced by item.picture.img.alt
 
 ### Example :
 

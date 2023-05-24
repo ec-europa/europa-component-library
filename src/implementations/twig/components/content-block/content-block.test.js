@@ -49,15 +49,6 @@ describe('Content block', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with deprecated data', () => {
-      expect.assertions(1);
-      delete dataImage.title.link;
-      dataImage.title.path = '/example';
-      dataImage.title.label = 'test title';
-
-      return expect(render(dataImage)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly with list extra classes', () => {
       expect.assertions(1);
 

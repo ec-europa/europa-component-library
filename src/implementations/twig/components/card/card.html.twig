@@ -14,7 +14,6 @@
         },
         ...
       ]
-    - "tags" (array) (default: []): Array of ECL Tags (deprecated)
     - "lists" (array) (default: []): Array of ECL Description list
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -23,66 +22,20 @@
           "value" (optional) (string)
         ...
       ],
-
-  Deprecated:
-    card.type: no longer used (tile variant has been removed)
-    card.meta: renamed to primary_meta
-    card.infos: renamed to secondary_meta
-    card.image" replaced by card.picture
 #}
-
-{# Backward compatibility #}
-
-{% set _card = {
-  description: '',
-  meta: [],
-  title: {},
-  image: {},
-  infos: [],
-  tags: [],
-  labels: [],
-  links: []
-} %}
-
-{% if card is defined %}
-  {% set _card = _card|merge(card) %}
-{% endif %}
 
 {# Internal properties #}
 
-{% set _image = image|default(_card.image) %}
-{% set _picture = picture|default(_card.picture) %}
-{% set _labels = labels|default(_card.labels) %}
-{% set _primary_meta = primary_meta|default(_card.meta) %}
-{% set _title = title|default(_card.title) %}
-{% set _description = description|default(_card.description) %}
-{% set _tags = tags|default(_card.tags) %}
-{% set _secondary_meta = secondary_meta|default(_card.infos) %}
-{% set _lists = lists|default(_card.lists) %}
+{% set _picture = picture|default({}) %}
+{% set _labels = labels|default([]) %}
+{% set _primary_meta = primary_meta|default([]) %}
+{% set _title = title|default({}) %}
+{% set _description = description|default('') %}
+{% set _secondary_meta = secondary_meta|default([]) %}
+{% set _lists = lists|default([]) %}
 
 {% set _css_class = 'ecl-card' %}
 {% set _extra_attributes = '' %}
-
-{# Backward compatibility #}
-
-{% if _card.type is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-card--' ~ _card.type %}
-{% endif %}
-
-{% if _picture.img is empty and _image.src is not empty %}
-  {% set _picture = {
-    img: {
-      src: _image.src,
-    },
-  } %}
-  {% if _image.alt is not empty %}
-    {% set _picture = _picture|merge({
-      img: _picture.img|merge(
-        { alt: _image.alt }
-      )
-    }) %}
-  {% endif %}
-{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -118,7 +71,6 @@
       primary_meta: _primary_meta,
       title: _title,
       description: _description,
-      tags: _tags,
       secondary_meta: _secondary_meta,
       lists: _lists,
     } %}

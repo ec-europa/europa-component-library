@@ -27,10 +27,6 @@
       ],
 #}
 
-{# Backward compatibility #}
-
-{% set _sr_autoplay = sr_autoplay|default('Play news ticker') %}
-
 {# Internal properties #}
 
 {% set _id = id|default('') %}
@@ -40,7 +36,7 @@
 {% set _aria_controls = _id ~ '-content' %}
 {% set _sr_previous = sr_previous|default('') %}
 {% set _sr_next = sr_next|default('') %}
-{% set _sr_play = sr_play|default(_sr_autoplay) %}
+{% set _sr_play = sr_play|default('Play news ticker') %}
 {% set _sr_pause = sr_pause|default('') %}
 {% set _css_class = 'ecl-news-ticker' %}
 {% set _extra_attributes = [

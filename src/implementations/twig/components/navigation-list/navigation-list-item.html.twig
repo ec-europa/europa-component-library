@@ -14,12 +14,6 @@
           "value" (optional) (string)
         ...
       ],
-
-Deprecated
-
-  - "image" (optional) (object) (default: {}) image
-    - "src" (string) Image src
-    - "alt" (string) Image alt
 #}
 
 {# Internal properties #}
@@ -40,17 +34,6 @@ Deprecated
   description: _description,
   links: _links,
 } %}
-
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _image.src is not empty %}
-  {% set _picture = {
-    'img': {
-      'src': _image.src|default(''),
-      'alt': _image.alt|default('')
-    }
-  } %}
-{% endif %}
 
 {% if not _border %}
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}

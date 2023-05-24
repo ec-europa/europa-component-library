@@ -17,15 +17,8 @@ npm install --save @ecl/twig-component-navigation-list
 - **"column"** (number) (default: 2): number of columns (2 or 3)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
-
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-
-    Deprecated
-
-- **"image"** (optional) (object) (default: {}) image
-  - "src" (string) Image src
-  - "alt" (string) Image alt
 
 <!-- prettier-ignore -->
 ```twig

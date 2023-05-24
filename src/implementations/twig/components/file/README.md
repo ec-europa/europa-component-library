@@ -33,15 +33,8 @@ npm install --save @ecl/twig-component-file
   - "description (string) (default:'')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
-
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
-
-  Deprecated
-
-- **"image"** (optional) (object) (default: {}) image
-  - "src" (string) Image src
-  - "alt" (string) Image alt
 
 ### Example:
 

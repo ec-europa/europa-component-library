@@ -13,7 +13,6 @@
         },
         ...
       ]
-    - "tags" (array) (default: []): Array of ECL Tags (deprecated)
     - "links" (array) (default: []): Array or multi array of ECL Links
     - "lists" (array) (default: []): Array of ECL Description list
     - "extra_classes" (string) (default: '')
@@ -32,7 +31,6 @@
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default([]) %}
-{% set _tags = tags|default([]) %}
 {% set _links = links|default([]) %}
 {% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-content-block' %}
@@ -81,13 +79,6 @@
     <h1 class="ecl-content-block__title">
     {%- if _title.link is defined -%}
       {% include '@ecl/link/link.html.twig' with _title only %}
-    {# Backward compatibility #}
-    {%- elseif _title.link is not defined and _title.path is defined -%}
-      {% include '@ecl/link/link.html.twig' with {
-        link: _title|merge({
-          type: 'standalone',
-        }),
-      } only %}
     {%- else -%}
       {{- _title -}}
     {%- endif -%}
@@ -111,16 +102,6 @@
             } only %}
           {% endif %}          
           <span class="ecl-content-block__secondary-meta-label">{{ _meta.label }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-  {% if _tags is not empty and _tags is iterable %}
-    <ul class="ecl-content-block__tag-container">
-      {% for _tag in _tags %}
-        <li class="ecl-content-block__tag-item">
-          {% include '@ecl/tag/tag.html.twig' with _tag only %}
         </li>
       {% endfor %}
     </ul>

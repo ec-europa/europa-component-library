@@ -39,15 +39,6 @@
       ],
 #}
 
-{# Backward compatibility #}
-
-{% set _meta = meta|default([]) %}
-{% set _infos = infos|default([]) %}
-{% set _image = image|default({
-  src: '',
-  size: 'large',
-}) %}
-
 {# Internal properties #}
 
 {% set _divider = divider|default(false) %}

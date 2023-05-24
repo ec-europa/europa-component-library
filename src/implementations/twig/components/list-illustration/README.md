@@ -24,13 +24,6 @@ npm install --save @ecl/twig-component-list-illustration
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-Deprecated
-
-- **"image"** (optional) (object) (default: {}) image
-  - "src" (string) Image src
-  - "alt" (string) Image alt
-  - "square" (boolean) Squared image
-
 ### Example:
 
 <!-- prettier-ignore -->
