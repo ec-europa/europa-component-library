@@ -125,6 +125,8 @@ $_image-width: null !default;
   color: $_file-description-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
+  max-width: 80ch;
+  white-space: pre-wrap;
 }
 
 .ecl-file__image {
