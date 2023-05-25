@@ -231,6 +231,14 @@ export class Select {
   }
 
   /**
+   * Generate random string
+   * @param {number} length
+   */
+  static generateRandomId(length) {
+    return Math.random().toString(36).substr(2, length);
+  }
+
+  /**
    * Initialise component.
    */
   init() {
@@ -308,7 +316,7 @@ export class Select {
 
       this.selectAll = Select.createCheckbox(
         {
-          id: 'all',
+          id: `all-${Select.generateRandomId(4)}`,
           text: `${this.textSelectAll} (${optionsCount})`,
           extraClass: 'ecl-select__multiple-all',
         },
