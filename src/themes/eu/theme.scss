@@ -1,0 +1,46 @@
+@use 'sass:map';
+@forward 'index';
+@use 'index' as index;
+@use 'variables' as *;
+
+// TODO: build this dynamically (if possible)
+$theme: (
+  color: index.$color,
+  form: index.$form,
+  icon: index.$icon,
+  icon-print: index.$icon-print,
+  breakpoint: index.$breakpoint,
+  container: index.$container,
+  grid: index.$grid,
+  grid-gutter-width: index.$grid-gutter-width,
+  media: index.$media,
+  border-radius: index.$border-radius,
+  shadow-color: index.$shadow-color,
+  shadow: index.$shadow,
+  shadow-inner: index.$shadow-inner,
+  shadow-negative-color: index.$shadow-negative-color,
+  shadow-negative: index.$shadow-negative,
+  shadow-negative-inner: index.$shadow-negative-inner,
+  spacing: index.$spacing,
+  spacing-print: index.$spacing-print,
+  font-family: index.$font-family,
+  font-size: index.$font-size,
+  line-height: index.$line-height,
+  line-height-prolonged: index.$line-height-prolonged,
+  font-weight: index.$font-weight,
+  font: index.$font,
+  font-prolonged: index.$font-prolonged,
+  font-family-print: index.$font-family-print,
+  font-size-print: index.$font-size-print,
+  line-height-print: index.$line-height-print,
+  line-height-prolonged-print: index.$line-height-prolonged-print,
+  font-weight-print: index.$font-weight-print,
+  font-print: index.$font-print,
+  font-prolonged-print: index.$font-prolonged-print,
+  z-index: index.$z-index,
+);
+
+// Specific css only for this theme
+.ecl-link--secondary:focus-visible {
+  box-shadow: 0 0 0 4px map.get($link, secondary-border-color) inset;
+}

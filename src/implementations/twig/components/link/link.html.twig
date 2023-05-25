@@ -5,7 +5,7 @@
    - "link" (associative array) (default: predefined structure): format:
       {
         type: '' (can be '', 'standalone', 'cta', 'primary', 'secondary')
-        negative: false (boolean),
+        inverted: false (boolean),
         no_visited: false (boolean),
         label: '' (string),
         path: '', (string) (Link url)
@@ -89,8 +89,8 @@
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _link.type %}
 {% endif %}
 
-{% if _link.negative is defined and _link.negative %}
-  {% set _css_class = _css_class ~ ' ecl-link--negative' %}
+{% if _link.inverted is defined and _link.inverted %}
+  {% set _css_class = _css_class ~ ' ecl-link--inverted' %}
 {% endif %}
 
 {% if _link.no_visited is defined and _link.no_visited %}
