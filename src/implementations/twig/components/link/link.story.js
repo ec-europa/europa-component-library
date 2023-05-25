@@ -27,16 +27,13 @@ const withParagraph = (story) => {
   return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
 };
 
-const withInverted = (story, controls) => {
+const withInverted = (story) => {
   const demo = story();
-  return controls.args.inverted
-    ? `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`
-    : demo;
+  return `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
 };
 
 const getArgs = (data) => ({
   label: data.link.label,
-  inverted: data.link.inverted || false,
   no_visited: data.link.no_visited || false,
   icon_name: 'none',
   icon_position: 'after',
@@ -55,19 +52,6 @@ const getArgTypes = () => ({
     },
     control: {
       type: 'text',
-    },
-  },
-  inverted: {
-    name: 'inverted',
-    type: { name: 'boolean' },
-    description: 'Inverted link (light on dark)',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Content',
-    },
-    control: {
-      type: 'boolean',
     },
   },
   external: {
@@ -136,7 +120,6 @@ const getArgTypes = () => ({
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
-  data.link.inverted = args.inverted;
   data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
@@ -170,13 +153,13 @@ const prepareDataButtonLink = (data, args) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withNotes, withCode, withInverted],
+  decorators: [withNotes, withCode],
 };
 
 export const Default = (args) => link(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.decorators = [withNotes, withCode, withParagraph, withInverted];
+Default.decorators = [withNotes, withCode, withParagraph];
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
