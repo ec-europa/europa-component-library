@@ -12,7 +12,8 @@ module.exports = {
               path: exampleLink,
             },
           },
-          description: `This site is managed by <a href="${exampleLink}" class="ecl-link ecl-link--standalone">site owner name</a> and is an official website of the European Union`,
+          description:
+            'This site is managed by: [name of the manager of the site]',
           links: [
             {
               link: {
