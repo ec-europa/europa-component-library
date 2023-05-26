@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.8.2 (2023-05-26)
+
+#### :bug: Bug Fix
+
+- [#2877](https://github.com/ec-europa/europa-component-library/pull/2877) fix(file download): fix description display - FRONT-3961 ([@emeryro](https://github.com/emeryro))
+- [#2870](https://github.com/ec-europa/europa-component-library/pull/2870) fix(language-switcher): Fixing escape issue - FRONT-3958 ([@planctus](https://github.com/planctus))
+- [#2868](https://github.com/ec-europa/europa-component-library/pull/2868) fix(media-container): Fixing control, adapting labels - FRONT-3956 ([@planctus](https://github.com/planctus))
+- [#2867](https://github.com/ec-europa/europa-component-library/pull/2867) fix(menu): Avoiding escape of html attribute - FRONT-3951 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#2878](https://github.com/ec-europa/europa-component-library/pull/2878) feat(footer): Updating content ([@planctus](https://github.com/planctus))
+- [#2876](https://github.com/ec-europa/europa-component-library/pull/2876) fix(select): Randomising generation of default id for select all checkbox - FRONT-3966 ([@planctus](https://github.com/planctus))
+- [#2871](https://github.com/ec-europa/europa-component-library/pull/2871) fix(storybook): Favicon, dev and prod - FRONT-3957 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2872](https://github.com/ec-europa/europa-component-library/pull/2872) chore(deps): Updates - 22-05-23 ([@planctus](https://github.com/planctus))
+- [#2865](https://github.com/ec-europa/europa-component-library/pull/2865) chore(deps): Updates 16-05-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.8.1 (2023-05-11)
 
 #### :bug: Bug Fix
