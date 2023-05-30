@@ -11,7 +11,7 @@ import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataPrimary from '@ecl/specs-component-link/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-link/demo/data--secondary';
 import dataStandalone from '@ecl/specs-component-link/demo/data--standalone';
-import dataNegative from '@ecl/specs-component-link/demo/data--negative';
+import dataInverted from '@ecl/specs-component-link/demo/data--inverted';
 
 import link from './link.html.twig';
 import notes from './README.md';
@@ -24,19 +24,16 @@ iconsAll.unshift('none');
 
 const withParagraph = (story) => {
   const demo = story();
-  return `<p class="ecl-u-type-paragraph ecl-u-ma-none">The European Commission is the executive of ${demo} and promotes its general interest.</p>`;
+  return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
 };
 
-const withNegative = (story, controls) => {
+const withInverted = (story) => {
   const demo = story();
-  return controls.args.negative
-    ? `<div class="ecl-u-bg-blue ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`
-    : demo;
+  return `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
 };
 
 const getArgs = (data) => ({
   label: data.link.label,
-  negative: data.link.negative || false,
   no_visited: data.link.no_visited || false,
   icon_name: 'none',
   icon_position: 'after',
@@ -55,19 +52,6 @@ const getArgTypes = () => ({
     },
     control: {
       type: 'text',
-    },
-  },
-  negative: {
-    name: 'negative',
-    type: { name: 'boolean' },
-    description: 'Negative link (light on dark)',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Content',
-    },
-    control: {
-      type: 'boolean',
     },
   },
   external: {
@@ -136,7 +120,6 @@ const getArgTypes = () => ({
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
-  data.link.negative = args.negative;
   data.link.no_visited = args.no_visited;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
@@ -170,13 +153,13 @@ const prepareDataButtonLink = (data, args) => {
 
 export default {
   title: 'Components/Navigation/Link',
-  decorators: [withNotes, withCode, withNegative],
+  decorators: [withNotes, withCode],
 };
 
 export const Default = (args) => link(prepareData(dataDefault, args));
 
 Default.storyName = 'default';
-Default.decorators = [withNotes, withCode, withParagraph, withNegative];
+Default.decorators = [withNotes, withCode, withParagraph];
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
@@ -210,10 +193,10 @@ Secondary.args = getArgs(dataSecondary);
 Secondary.argTypes = getArgTypes();
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
-export const Negative = (args) => link(prepareData(dataNegative, args));
+export const Inverted = (args) => link(prepareData(dataInverted, args));
 
-Negative.storyName = 'negative';
-Negative.decorators = [withNotes, withCode, withParagraph, withNegative];
-Negative.args = getArgs(dataNegative);
-Negative.argTypes = getArgTypes();
-Negative.parameters = { notes: { markdown: notes, json: dataNegative } };
+Inverted.storyName = 'inverted';
+Inverted.decorators = [withNotes, withCode, withParagraph, withInverted];
+Inverted.args = getArgs(dataInverted);
+Inverted.argTypes = getArgTypes();
+Inverted.parameters = { notes: { markdown: notes, json: dataInverted } };

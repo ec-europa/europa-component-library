@@ -4,47 +4,43 @@
 */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_border-radius: null !default;
-$_outline-color: map.get(theme.$color, 'blue-100') !default;
-$_outline-width: 2px !default;
-$_color: map.get(theme.$color, 'blue-100');
-$_color-hover: null !default;
-$_color-visited: map.get(theme.$color, 'purple-100');
-$_button-link: null !default;
-$_cta: null !default;
-$_primary: null !default;
-$_secondary: null !default;
-$_negative: null !default;
+// Exposed variables
+$theme: null !default;
+$link: null !default;
 
 .ecl-link,
 %ecl-link {
-  color: $_color;
+  color: map.get($link, 'color');
   margin: 0;
   text-decoration: underline;
 
+  &:visited {
+    color: map.get($link, 'color-visited');
+  }
+
   &:hover {
-    color: $_color-hover;
+    color: map.get($link, 'color-hover');
   }
 
   &:focus-visible {
-    border-radius: $_border-radius;
-    outline: $_outline-width solid $_outline-color;
+    border-radius: map.get($link, 'outline-radius');
+    outline: map.get($link, 'outline-width') solid
+      map.get($link, 'outline-color');
     outline-offset: 2px;
   }
 
-  &:visited {
-    color: $_color-visited;
+  &:active {
+    color: map.get($link, 'color-active');
   }
 }
 
 .ecl-link--no-visited:visited {
-  color: $_color;
+  color: map.get($link, 'color');
 
   &:hover,
   &:focus-visible {
-    color: $_color-hover;
+    color: map.get($link, 'color-hover');
   }
 }
 
@@ -75,52 +71,43 @@ $_negative: null !default;
 }
 
 .ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-link--icon-after .ecl-link__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
 }
 
 /**
-* Negative
+* Inverted link
 */
-.ecl-link--negative,
-%ecl-link-negative {
-  color: map.get($_negative, 'color');
-
-  &:hover,
-  &:focus-visible {
-    color: map.get($_negative, 'color-hover');
-
-    /* stylelint-disable-next-line max-nesting-depth */
-    &.ecl-link--standalone {
-      color: map.get($_negative, 'standalone-color-hover');
-    }
-  }
-
-  &:focus-visible {
-    color: map.get($_negative, 'color');
-    outline-color: map.get($_negative, 'color');
-  }
+.ecl-link--inverted,
+%ecl-link-inverted {
+  color: map.get($link, 'inverted', 'color');
 
   &:visited {
-    color: map.get($_negative, 'color-visited');
+    color: map.get($link, 'inverted', 'color-visited');
+  }
+
+  &:hover {
+    color: map.get($link, 'inverted', 'color-hover');
+  }
+
+  &:focus-visible {
+    outline-color: map.get($link, 'inverted', 'outline-color');
+  }
+
+  &:active {
+    color: map.get($link, 'inverted', 'color-active');
   }
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: map.get($_negative, 'color');
+    color: map.get($link, 'inverted', 'color');
 
     /* stylelint-disable-next-line */
-    &:hover,
-    &:focus-visible {
-      color: map.get($_negative, 'color-hover');
-
-      /* stylelint-disable-next-line */
-      &.ecl-link--standalone {
-        color: map.get($_negative, 'standalone-color-hover');
-      }
+    &:hover {
+      color: map.get($link, 'inverted', 'color-hover');
     }
   }
 }
@@ -129,8 +116,12 @@ $_negative: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: #{map.get($theme, 'font-family', 'default')};
   text-decoration: none;
+
+  &:visited {
+    color: map.get($link, 'color');
+  }
 
   &:hover,
   &:focus-visible {
@@ -139,155 +130,73 @@ $_negative: null !default;
 }
 
 /**
-* Button link
+* Link button
 */
-.ecl-link--cta,
-.ecl-link--primary,
-.ecl-link--secondary {
-  display: inline-block;
-}
-
-// stylelint-disable plugin/selector-bem-pattern
-%button-link {
-  border-radius: map.get($_button-link, 'border-radius');
+@mixin link-button($variant: null) {
+  background-color: map.get($link, #{$variant}, 'background');
+  border: map.get($link, 'button', 'border-width') solid
+    map.get($link, #{$variant}, 'border-color');
+  border-radius: map.get($link, 'button', 'radius');
   box-sizing: border-box;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get($_button-link, 'font-weight');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
-  text-decoration: none;
-
-  &:hover,
-  &:active {
-    box-shadow: map.get($_button-link, 'shadow-hover');
-  }
-
-  &:focus-visible {
-    border-radius: map.get($_button-link, 'border-radius');
-    outline: $_outline-width solid map.get(theme.$color, 'white');
-    outline-offset: -4px;
-    text-decoration: none;
-  }
-}
-// stylelint-enable plugin/selector-bem-pattern
-
-/**
-* Call to action
-*/
-.ecl-link--cta {
-  @extend %button-link;
-
-  background-color: map.get($_cta, 'background-color');
-  color: map.get($_cta, 'color');
-
-  &:hover,
-  &:active {
-    background-color: map.get($_cta, 'background-color-hover');
-    color: map.get($_cta, 'color');
-  }
-
-  &:focus {
-    color: map.get($_cta, 'color');
-  }
-
-  &:focus-visible {
-    outline-color: map.get($_cta, 'outline-color');
-  }
-
-  &:visited {
-    color: $_color-visited;
-  }
-
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-link--no-visited:visited {
-    color: map.get($_cta, 'color');
-
-    // stylelint-disable-next-line
-    &:hover,
-    &:active {
-      color: map.get($_cta, 'color');
-    }
-  }
-}
-
-/**
-* Primary
-*/
-.ecl-link--primary {
-  @extend %button-link;
-
-  background-color: map.get($_primary, 'background-color');
-  color: map.get($_primary, 'color');
-
-  &:hover,
-  &:active {
-    background-color: map.get($_primary, 'background-color-hover');
-    color: map.get($_primary, 'color');
-  }
-
-  &:focus {
-    color: map.get($_primary, 'color');
-  }
-
-  &:visited {
-    color: map.get($_primary, 'color-visited');
-  }
-
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-link--no-visited:visited {
-    color: map.get($_primary, 'color');
-
-    // stylelint-disable-next-line
-    &:hover,
-    &:active {
-      color: map.get($_primary, 'color');
-    }
-  }
-}
-
-/**
-* Secondary
-*/
-.ecl-link--secondary {
-  @extend %button-link;
-
-  background-color: map.get($_secondary, 'background-color');
-  border: map.get($_secondary, 'border-width') solid
-    map.get($_secondary, 'border-color');
-  color: map.get($_secondary, 'color');
+  color: map.get($link, #{$variant}, 'color');
+  display: inline-block;
+  font: map.get($theme, 'font', 'm');
   padding: calc(
-      #{map.get(theme.$spacing, 's')} - #{map.get($_secondary, 'border-width')}
+      #{map.get($link, 'button', 'padding-vertical')} - #{map.get(
+          $link,
+          'button',
+          'border-width'
+        )}
     )
     calc(
-      #{map.get(theme.$spacing, 'm')} - #{map.get($_secondary, 'border-width')}
+      #{map.get($link, 'button', 'padding-horizontal')} - #{map.get(
+          $link,
+          'button',
+          'border-width'
+        )}
     );
+  text-decoration: none;
 
-  &:hover,
-  &:active {
-    border-color: map.get($_secondary, 'border-color-hover');
-    color: map.get($_secondary, 'color');
+  &:visited {
+    color: map.get($link, #{$variant}, 'color');
   }
 
-  &:focus {
-    color: map.get($_secondary, 'color');
+  &:hover {
+    background-color: map.get($link, #{$variant}, 'background-hover');
+    border-color: map.get($link, #{$variant}, 'border-color-hover');
+    box-shadow: map.get($link, 'button', 'shadow');
+    color: map.get($link, #{$variant}, 'color-hover');
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 4px map.get($_secondary, 'border-color') inset;
-    outline: 2px map.get($_secondary, 'background-color') solid;
+    background-color: map.get($link, #{$variant}, 'background-focus');
+    border-color: map.get($link, #{$variant}, 'border-color-focus');
+    border-radius: map.get($link, 'button', 'radius');
+    color: map.get($link, #{$variant}, 'color-focus');
+    outline: map.get($link, 'button', 'outline-width') solid
+      map.get($link, #{$variant}, 'outline-color');
+    outline-offset: calc(
+      0px - #{map.get($link, 'button', 'outline-width')} - 2px
+    );
+    text-decoration: none;
   }
 
-  &:visited {
-    color: $_color-visited;
+  &:active {
+    background-color: map.get($link, #{$variant}, 'background-active');
+    border-color: map.get($link, #{$variant}, 'border-color-active');
+    color: map.get($link, #{$variant}, 'color-active');
+    outline-width: 0;
   }
+}
 
-  // stylelint-disable-next-line plugin/selector-bem-pattern
-  &.ecl-link--no-visited:visited {
-    color: map.get($_secondary, 'color');
+.ecl-link--primary {
+  @include link-button(primary);
+}
 
-    // stylelint-disable-next-line
-    &:hover,
-    &:active {
-      color: map.get($_secondary, 'color');
-    }
-  }
+.ecl-link--secondary {
+  @include link-button(secondary);
+}
+
+.ecl-link--cta {
+  @include link-button(cta);
 }

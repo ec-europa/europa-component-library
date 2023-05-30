@@ -6,6 +6,6 @@ module.exports = {
   link: {
     label: 'The European Union',
     path: exampleLink,
-    negative: true,
+    inverted: true,
   },
 };

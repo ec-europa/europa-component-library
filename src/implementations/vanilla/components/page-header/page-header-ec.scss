@@ -7,7 +7,7 @@
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-@use '@ecl/vanilla-component-link/link-ec';
+@use '@ecl/vanilla-component-link/link';
 
 .ecl-page-header {
   background-color: map.get(theme.$color, 'white-100');
@@ -120,9 +120,9 @@
     border-bottom: 0;
   }
 
-  // Apply negative links when page header is negative
+  // Apply inverted links when page header is inverted
   .ecl-page-header__description a {
-    @extend %ecl-link-negative;
+    @extend %ecl-link-inverted;
   }
 }
 

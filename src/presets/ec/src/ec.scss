@@ -1,4 +1,5 @@
-@use '@ecl/theme-ec';
+@use '@ecl/theme-ec/theme' as theme;
+@use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
 @use '@ecl/vanilla-component-icon/icon-ec';
@@ -22,7 +23,10 @@
 @use '@ecl/vanilla-component-button/button-ec';
 @use '@ecl/vanilla-component-date-block/date-block-ec';
 @use '@ecl/vanilla-component-label/label-ec';
-@use '@ecl/vanilla-component-link/link-ec';
+@use '@ecl/vanilla-component-link/link' with (
+  $theme: theme.$theme,
+  $link: var.$link
+);
 @use '@ecl/vanilla-component-message/message-ec';
 @use '@ecl/vanilla-component-news-ticker/news-ticker-ec';
 @use '@ecl/vanilla-component-spinner/spinner-ec';

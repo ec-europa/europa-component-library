@@ -11,7 +11,7 @@ import {
   linkPrimary,
   linkSecondary,
   linkIcon,
-  linkNegative,
+  linkInverted,
 } from '../demo';
 
 ## Default link
@@ -76,12 +76,12 @@ Note: all types of links listed on this page can have icons before or after the 
   <Html markup={linkSecondary} />
 </Playground>
 
-## Negative link
+## Inverted link
 
 <Playground
   system="ec"
   selectedKind="components-navigation-link"
-  selectedStory="negative"
+  selectedStory="inverted"
 >
-  <p className="ecl-u-type-paragraph ecl-u-bg-blue-100 ecl-u-type-color-white-100">The European Commission is the executive of <Html markup={linkNegative} /> and promotes its general interest.</p>
+  <p className="ecl-u-type-paragraph ecl-u-bg-dark ecl-u-type-color-white">The European Commission is the executive of <Html markup={linkInverted} /> and promotes its general interest.</p>
 </Playground>

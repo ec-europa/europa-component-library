@@ -1,0 +1,76 @@
+@use 'sass:map';
+@use 'index' as *;
+
+// Use this file to assign default values to component variables
+// Note: if you override css variables it will take over on these values
+
+// Link
+$link: (
+  color: map.get($color, 'primary'),
+  color-hover: map.get($color, 'primary20'),
+  color-visited: map.get($color, 'dark'),
+  color-active: map.get($color, 'dark'),
+  outline-color: map.get($color, 'primary'),
+  outline-width: 2px,
+  outline-radius: 1px,
+  inverted: (
+    color: map.get($color, 'white'),
+    color-hover: map.get($color, 'primary-30'),
+    color-visited: map.get($color, 'secondary-10'),
+    color-active: map.get($color, 'secondary-20'),
+    outline-color: map.get($color, 'white'),
+  ),
+  button: (
+    radius: 2px,
+    shadow: none,
+    border-width: 2px,
+    outline-width: 1px,
+    padding-horizontal: map.get($spacing, 'm'),
+    padding-vertical: map.get($spacing, 'xs'),
+  ),
+  primary: (
+    background: map.get($color, 'primary'),
+    color: map.get($color, 'white'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    background-focus: map.get($color, 'primary'),
+    color-focus: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+    border-color-hover: map.get($color, 'primary20'),
+    border-color-active: map.get($color, 'primary30'),
+    border-color-focus: map.get($color, 'primary'),
+    outline-color: map.get($color, 'white'),
+  ),
+  secondary: (
+    background: map.get($color, 'white'),
+    color: map.get($color, 'primary'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    background-focus: map.get($color, 'primary30'),
+    color-focus: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+    border-color-hover: map.get($color, 'primary20'),
+    border-color-active: map.get($color, 'primary30'),
+    border-color-focus: map.get($color, 'primary30'),
+    outline-color: map.get($color, 'white'),
+  ),
+  cta: (
+    background: map.get($color, 'secondary-10'),
+    color: map.get($color, 'dark'),
+    background-hover: map.get($color, 'secondary10'),
+    border-color: map.get($color, 'secondary-10'),
+    color-hover: map.get($color, 'dark'),
+    border-color-hover: map.get($color, 'secondary10'),
+    background-active: map.get($color, 'secondary20'),
+    color-active: map.get($color, 'dark'),
+    border-color-active: map.get($color, 'secondary20'),
+    background-focus: map.get($color, 'secondary-10'),
+    color-focus: map.get($color, 'dark'),
+    border-color-focus: map.get($color, 'secondary-10'),
+    outline-color: map.get($color, 'dark'),
+  ),
+);
