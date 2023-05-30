@@ -72,20 +72,4 @@ describe('List with illustration', () => {
       ).toHaveNoViolations();
     });
   });
-
-  describe('with deprectated data', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      dataListIllustrationImage.items[0].image = {
-        ...dataListIllustrationImage.items[0].picture.img,
-        square: true,
-      };
-      dataListIllustrationImage.items[0].picture = {};
-
-      return expect(
-        render(dataListIllustrationImage)
-      ).resolves.toMatchSnapshot();
-    });
-  });
 });

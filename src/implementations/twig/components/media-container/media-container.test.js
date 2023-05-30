@@ -52,18 +52,6 @@ describe('Media Container', () => {
       expect.assertions(1);
       return expect(render(defaultDataStructure)).resolves.toMatchSnapshot();
     });
-
-    test('renders correctly with old data', () => {
-      expect.assertions(1);
-      const oldData = {
-        ...defaultDataStructure,
-        image: defaultDataStructure.picture.img.src,
-        alt: defaultDataStructure.picture.img.alt,
-        picture: {},
-      };
-
-      return expect(render(oldData)).resolves.toMatchSnapshot();
-    });
   });
 
   describe('video', () => {

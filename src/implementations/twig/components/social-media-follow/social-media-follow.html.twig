@@ -51,7 +51,6 @@
   {% if _links is not empty %}
     <ul class="ecl-social-media-follow__list">
     {% for link in _links %}
-      {# Backward compatibility provided by default(link) #}
       <li class="ecl-social-media-follow__item">
         {% set _link_extra_classes = 'ecl-social-media-follow__link' %}
         {% if link.extra_classes is not empty %}
@@ -62,7 +61,7 @@
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ link.icon.extra_classes %}
         {% endif %}
         {% include '@ecl/link/link.html.twig' with {
-          link: link.link|default(link)|merge({
+          link: link.link|merge({
             type: 'standalone',
           }),
           icon: link.icon|default({})|merge({

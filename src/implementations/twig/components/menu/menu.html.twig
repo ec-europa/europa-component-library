@@ -5,7 +5,6 @@
   - "title": (string) (default: ''): Title
   - "close": (string) (default: ''): Close button label
   - "back": (string): (default: ''): Back button label
-  - "group": (string) (default: 'group1'): 'group1' or 'group2' (DEPRECATED)
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (associative array) (default: {}): The menu items - format: [
     {
@@ -41,9 +40,7 @@
 {% set _back = back|default('') %}
 {% set _close = close|default('') %}
 {% set _menu_link = menu_link|default('') %}
-{% set _group = group|default('group1') %}
 {% set _css_class = 'ecl-menu' %}
-{% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _group %}
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}

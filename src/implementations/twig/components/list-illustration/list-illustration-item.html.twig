@@ -16,13 +16,6 @@
           "value" (optional) (string)
         ...
       ],
-
-  Deprecated:
-    - "image" (object) (default: {}): format: {
-        "src" (string) (default: '')
-        "alt" (string) (default: '')
-        "square" (boolean) (default: false)
-      }
 #}
 
 {# Internal properties #}
@@ -30,7 +23,6 @@
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
 {% set _value = value|default('') %}
-{% set _image = image|default({}) %}
 {% set _picture = picture|default({}) %}
 {% set _square = square|default(false) %}
 {% set _icon = icon|default({}) %}
@@ -39,18 +31,6 @@
 {% set _image_class =  'ecl-list-illustration__image' %}
 {% set _icon_size =  '' %}
 {% set _extra_attributes = '' %}
-
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _image.src is not empty %}
-  {% set _picture = {
-    'img': {
-      'path': _image.src|default(''),
-      'alt': _image.alt|default('')
-    }
-  } %}
-  {% set _square = _image.square is defined ? _image.square : _square %}
-{% endif %}
 
 {# Internal logic - Process properties #}
 

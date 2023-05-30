@@ -6,7 +6,6 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataCard from '@ecl/specs-component-card/demo/data';
-import dataCardBc from '@ecl/specs-component-card/demo/deprecated/data';
 
 expect.extend(toHaveNoViolations);
 
@@ -47,13 +46,6 @@ describe('Card', () => {
       expect(
         await axe(renderTwigFileAsHtml(template, dataCard, true))
       ).toHaveNoViolations();
-    });
-  });
-
-  describe('Backward compatibility', () => {
-    test('renders correctly with deprecated data', () => {
-      expect.assertions(1);
-      return expect(render(dataCardBc)).resolves.toMatchSnapshot();
     });
   });
 });

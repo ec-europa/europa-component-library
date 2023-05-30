@@ -74,18 +74,6 @@ describe('Banner', () => {
       return expect(render(bannerDataImageOverlay)).resolves.toMatchSnapshot();
     });
 
-    test(`- renders correctly with old data`, () => {
-      expect.assertions(1);
-      const oldData = {
-        ...bannerDataTextBox,
-        image:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        picture: {},
-      };
-
-      return expect(render(oldData)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

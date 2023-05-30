@@ -9,10 +9,6 @@ const compositionsAbsPath = path.resolve(
   __dirname,
   '../../../implementations/twig/compositions'
 );
-const deprecatedAbsPath = path.resolve(
-  __dirname,
-  '../../../implementations/twig/deprecated'
-);
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
 
@@ -22,7 +18,6 @@ if (typeof loader.addPath === 'function') {
   // Add namespace.
   loader.addPath(componentAbsPath, 'ecl');
   loader.addPath(compositionsAbsPath, 'ecl');
-  loader.addPath(deprecatedAbsPath, 'ecl');
 }
 
 module.exports = new TwingEnvironment(loader, { autoescape: false });
