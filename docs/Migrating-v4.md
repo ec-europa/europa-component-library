@@ -57,8 +57,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ### Button
 
-- To keep consistency, CSS class for call to action button has been renamed to `ecl-button--cta` (it was `ecl-button--call`)
-- `ghost`button is now called like that everywhere (it was sometimes called `text` previously)
+- To keep consistency, CSS class for call to action button has been renamed from `ecl-button--call` to `ecl-button--cta`
+- `ghost`button is now called like that everywhere (it was sometimes called `text` previously). CSS classes haven't been modified
 
 ### Links
 
