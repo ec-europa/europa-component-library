@@ -21,13 +21,6 @@ npm install --save @ecl/twig-component-page-header
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-Deprecated
-
-- **"background_image_url"** (string) (default: '') Background image url
-- **"thumbnail"** (associative array) (default: {}) Thumbnail dipslayed alongside the description
-  - "alt" (string) Alternative text
-  - "src" (string) Image path
-
 ### Example :
 
 <!-- prettier-ignore -->

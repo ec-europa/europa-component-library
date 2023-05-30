@@ -18,14 +18,6 @@
           "value" (optional) (string)
         ...
       ],
-
-  Deprecated:
-    - "background_image_url (string) (default: '') Background image url
-    - "thumbnail" (associative array) (default: {}) Thumbnail dipslayed alongside the description:
-      {
-        "alt" (string) Alternative text
-        "src" (string) Image path
-      }
 #}
 
 {# Internal properties #}
@@ -35,30 +27,12 @@
 {% set _hide_title = hide_title|default(false) %}
 {% set _meta = meta|default([]) %}
 {% set _description = description|default('') %}
-{% set _thumbnail = thumbnail|default({}) %}
 {% set _picture_thumbnail = picture_thumbnail|default({}) %}
 {% set _picture_background = picture_background|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
-{% set _background_image_url = background_image_url|default('') %}
 {% set _overlay = overlay|default('') %}
 {% set _extra_attributes = '' %}
-
-{# Backward compatibility #}
-
-{% if _picture_thumbnail.img is empty and _thumbnail.src is not empty %}
-  {% set _picture_thumbnail = {
-    'img': _thumbnail,
-  } %}
-{% endif %}
-
-{% if _picture_background.img is empty and _background_image_url is not empty %}
-  {% set _picture_background = {
-    'img': {
-      'src': _background_image_url,
-    },
-  } %}
-{% endif %}
 
 {# Internal logic - Process properties #}
 

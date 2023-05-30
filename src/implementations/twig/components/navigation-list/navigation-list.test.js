@@ -42,19 +42,6 @@ describe('Navigation list', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with deprecated data', () => {
-      expect.assertions(1);
-
-      const oldData = { ...dataDefault };
-      oldData.items[0].picture = {};
-      oldData.items[0].image = {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-        alt: 'Alternative text',
-      };
-
-      return expect(render(oldData)).resolves.toMatchSnapshot();
-    });
-
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(renderTwigFileAsHtml(template, dataDefault, true))

@@ -98,16 +98,6 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.tags) {
-    argTypes.show_tags = {
-      name: 'tags',
-      type: 'boolean',
-      description: 'Show tags',
-      table: {
-        category: 'Optional',
-      },
-    };
-  }
   if (data.lists) {
     argTypes.show_lists = {
       name: 'description list',

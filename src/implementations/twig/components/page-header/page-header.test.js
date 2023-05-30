@@ -61,21 +61,4 @@ describe('Page Header Standardised', () => {
       return expect(render(demoDefault)).resolves.toMatchSnapshot();
     });
   });
-
-  describe('with deprectated data', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      demoDefault.thumbnail = {
-        alt: 'Europe map',
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-      };
-      demoDefault.picture_thumbnail = {};
-      demoDefault.background_image_url =
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg';
-      demoDefault.picture_background = {};
-
-      return expect(render(demoDefault)).resolves.toMatchSnapshot();
-    });
-  });
 });

@@ -32,12 +32,6 @@
     },
     ...
   ],
-
-Deprecated
-
-  - **"image"** (optional) (object) (default: {}) image
-    - "src" (string) Image src
-    - "alt" (string) Image alt
 #}
 
 {# Internal properties #}
@@ -95,16 +89,6 @@ Deprecated
       <span class="ecl-file__detail-meta-item">{{ meta_detail }}</span>
     {% endset %}
   {% endfor %}
-{% endif %}
-
-{# Backward compatibility #}
-{% if _picture.img is empty and _image.src is not empty %}
-  {% set _picture = {
-    'img': {
-      'src': _image.src|default(''),
-      'alt': _image.alt|default('')
-    }
-  } %}
 {% endif %}
 
 {# Print the result #}

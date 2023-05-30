@@ -47,7 +47,6 @@ npm install --save @ecl/twig-component-file-upload
   multiple: false, 
   button_choose_label: "Choose file", 
   button_replace_label: "Replace file", 
-  extra_classes: 'ecl-deprecated', 
   extra_attributes: [ 
     { 
         name: 'data-test', 

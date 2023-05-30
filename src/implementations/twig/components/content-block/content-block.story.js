@@ -26,9 +26,6 @@ const getArgs = (data) => {
   if (data.secondary_meta) {
     args.show_secondary_meta = true;
   }
-  if (data.tags) {
-    args.show_tags = true;
-  }
   if (data.links) {
     args.show_links = true;
   }
@@ -84,18 +81,6 @@ const getArgTypes = (data) => {
       name: 'secondary meta',
       type: 'boolean',
       description: 'Show secondary meta',
-      table: {
-        type: 'boolean',
-        defaultValue: { summary: true },
-        category: 'Optional',
-      },
-    };
-  }
-  if (data.tags) {
-    argTypes.show_tags = {
-      name: 'tags',
-      type: 'boolean',
-      description: 'Show tags',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -173,9 +158,6 @@ const prepareData = (data, args) => {
   }
   if (!args.show_secondary_meta) {
     delete clone.secondary_meta;
-  }
-  if (!args.show_tags) {
-    delete clone.tags;
   }
   if (!args.show_links) {
     delete clone.links;

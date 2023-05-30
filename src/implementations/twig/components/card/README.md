@@ -20,7 +20,6 @@ npm install --save @ecl/twig-component-card
   },
   ...
   ]
-- **tags** (array) (default: []): Array of ECL Tags (deprecated)
 - **lists** (array) (default: []): Array of ECL Description list
 - **extra_classes** (string) (default: '')
 - **extra_attributes** (array) (default: []): format: [
@@ -29,13 +28,6 @@ npm install --save @ecl/twig-component-card
   **value** (optional) (string)
   ...
   ],
-
-#### Deprecated
-
-- **card.type**: no longer used (tile variant has been removed)
-- **card.meta**: renamed to primary_meta
-- **card.infos**: renamed to secondary_meta
-- **card.image**: replaced by card.picture
 
 ### Example
 

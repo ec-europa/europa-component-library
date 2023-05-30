@@ -1,4 +1,0 @@
----
-title: Banners
-type: group
----

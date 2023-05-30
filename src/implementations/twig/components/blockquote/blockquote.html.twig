@@ -13,12 +13,6 @@
           "value" (optional) (string)
         ...
       ]
-
-  Deprecated:
-    - "image" (object) (default: {}): format: {
-        "path" (string) (default: '')
-        "alt" (string) (default: '')
-    }
 #}
 
 {# Internal properties #}
@@ -27,25 +21,7 @@
 {% set _extra_attributes = '' %}
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
-{% set _image = image|default({}) %} {# DEPRECATED #}
 {% set _picture = picture|default({}) %}
-
-{# Backward compatibility #}
-
-{% if _picture.img is empty and _image.path is not empty %}
-  {% set _picture = {
-    img: {
-      src: _image.path,
-    },
-  } %}
-  {% if _image.alt is not empty %}
-    {% set _picture = _picture|merge({
-      img: _picture.img|merge({
-        alt: _image.alt,
-      })
-    }) %}
-  {% endif %}
-{% endif %}
 
 {# Internal logic - Process properties #}
 
