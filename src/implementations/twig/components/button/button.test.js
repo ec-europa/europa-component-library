@@ -93,7 +93,7 @@ describe('Button', () => {
   describe('CTA button - icon after', () => {
     const buttonData = {
       label: 'CTA Button with icon',
-      variant: 'call',
+      variant: 'cta',
       icon: {
         path: 'static/icons.svg',
         name: 'corner-arrow',
