@@ -55,9 +55,14 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
+### Button
+
+- To keep consistency, CSS class for call to action button has been renamed to `ecl-button--cta` (it was `ecl-button--call`)
+- `ghost`button is now called like that everywhere (it was sometimes called `text` previously)
+
 ### Links
 
-- "Negative" links have been renamed "Inverted", to be consistent with other components. This concern the css class, and the twig parameter.
+- `Negative` links have been renamed `Inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 
 ## Custom theme
 

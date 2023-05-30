@@ -8,5 +8,5 @@ module.exports = {
     size: 'xs',
     transform: 'rotate-90',
   },
-  variant: 'call',
+  variant: 'cta',
 };

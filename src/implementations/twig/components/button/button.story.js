@@ -160,7 +160,7 @@ export const Ghost = (args) => button(prepareData(dataGhost, args));
 Ghost.args = {
   label: dataGhost.label,
 };
-Ghost.storyName = 'text';
+Ghost.storyName = 'ghost';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
 };

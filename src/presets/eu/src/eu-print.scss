@@ -19,7 +19,10 @@
 
 // Other atoms
 @use '@ecl/vanilla-component-blockquote/blockquote-print-eu';
-@use '@ecl/vanilla-component-button/button-print-eu';
+@use '@ecl/vanilla-component-button/button-print' with (
+  $theme: theme.$theme,
+  $button: var.$button
+);
 @use '@ecl/vanilla-component-date-block/date-block-print';
 @use '@ecl/vanilla-component-label/label-print-eu';
 @use '@ecl/vanilla-component-link/link-print' with (
