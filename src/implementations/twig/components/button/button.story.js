@@ -147,8 +147,6 @@ export const CallToAction = (args) => button(prepareData(dataCall, args));
 
 CallToAction.args = {
   label: dataCall.label,
-  icon_name: 'corner-arrow',
-  icon_transform: 'rotate-90',
 };
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = {

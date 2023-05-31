@@ -103,7 +103,7 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--before"
         data-ecl-icon=""
         focusable="false"
       >
@@ -115,7 +115,7 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        Call to action button
+        CTA Button with icon
       </span>
     </span>
   </button>
@@ -128,26 +128,7 @@ exports[`Button CTA renders correctly 1`] = `
     class="ecl-button ecl-button--cta"
     type="submit"
   >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        Call to action button
-      </span>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-        data-ecl-icon=""
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#corner-arrow"
-        />
-      </svg>
-    </span>
+    Call to action button
   </button>
 </jest>
 `;
