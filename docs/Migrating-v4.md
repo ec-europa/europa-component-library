@@ -12,7 +12,7 @@ Global note: Most of the changes here concern EC styles. EU styles remains globa
 
 Semantic colors have been introduced; they were already defined in v3 but not used.
 
-All components would rely on these semantic colors, to allow easy color swap where needed.
+All EC components would rely on these semantic colors, to allow easy color swap where needed.
 
 If there are custom styles or components, they should be updated to use one of the semantic color wherever applicable
 
@@ -26,17 +26,17 @@ Semantic colors:
 - Error
 - Background
 
-Apart from that, some static have been introduced for very specific cases
+Apart from that, some static colors have been introduced for very specific cases
 
 - Branding: used only in EC footer and page header; could be set to primary color if needed
 
 ### Typography
 
-No more categories of font for EC (normal, with standard line height, and prolonged, with bigger line height). Now all the font are using the same scale
+No more categories of font for EC (normal - with standard line height, and prolonged - with bigger line height). Now all the font are using the same scale
 
 ### Shadows
 
-Elevation scale has been updated for EC, to allow more felxibility. Instead of elevation 1 to 4, it now uses the real depth of it. It affects mostly the shadow utilites.
+Elevation scale has been updated for EC, to allow more flexibility. Instead of elevation 1 to 4, it now uses the real depth of it. It affects mostly the shadow utilites.
 
 Corresponding list (v3 -> v4):
 
@@ -69,7 +69,15 @@ ECL4 introduces new ways to custommize the look and feel of elements, by changin
 
 ### How to customize styles
 
-[To be done]
+#### Using SASS variables
+
+[to be done]
+
+#### Using CSS variables
+
+CSS variables are provided for the semantic styles (mostly colors). You can find the full list of global CSS variables at the end of the file `src/themes/[your_theme]/_variables.scss`.
+
+By default, these variables take values from the SASS variables. You can freely override them in a custom CSS file loaded after ECL one.
 
 ### How to customize component display
 
@@ -81,15 +89,17 @@ There are two ways to customize values related to the components:
 
 #### Using SASS variables
 
-SASS variables are defined in the theme, in a file called `_variables.scss`. There are two theme available by default (EC and EU), which could act as example.
+SASS variables are defined in the file `src/themes/[your_theme]/_variables.scss`. There are two theme available by default (EC and EU), which could act as example.
 
-You can edit them in your custom theme, and recompile ECL css by running the command `yarn dist` at the root of the project.
+You can edit them in your custom theme, and recompile ECL css by running the command `yarn dist` at the root of the project. The compiled files are available in `/dist/packages/[your_theme]`
 
 #### Using CSS variables
 
+[To be updated]
+
 Each component exposes a set of CSS variables. By default, these variables are filled by the value coming from the SASS variable.
 
-You can iverrive one or more CSS variable by calling a custom CSS anywhere after the ECL one.
+You can overrive one or more CSS variable by calling a custom CSS anywhere after the ECL one.
 
 Example:
 
