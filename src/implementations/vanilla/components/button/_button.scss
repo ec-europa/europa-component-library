@@ -57,18 +57,9 @@ $_shadow-hover: null !default;
   flex-shrink: 0;
 }
 
-.ecl-button__icon--before,
-.ecl-button__icon + .ecl-button__label {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
-}
-
-.ecl-button__icon--after,
-.ecl-button__label + .ecl-button__icon {
+.ecl-button__icon ~ .ecl-button__label:not(.ecl-u-sr-only),
+.ecl-button__label:not(.ecl-u-sr-only) ~ .ecl-button__icon {
   margin-inline-start: map.get(theme.$spacing, 'xs');
-}
-
-.ecl-button__icon:only-child {
-  margin: 0;
 }
 
 /**

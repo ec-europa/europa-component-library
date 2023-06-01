@@ -55,6 +55,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
+### Button
+
+- Classes `ecl-button__icon--before` and `ecl-button__icon--after` are no longer needed for the icon; position is detected using CSS.
+
 ### Links
 
 - "Negative" links have been renamed "Inverted", to be consistent with other components. This concern the css class, and the twig parameter.

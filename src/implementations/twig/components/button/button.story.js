@@ -24,6 +24,7 @@ const getArgs = () => ({
   icon_name: 'none',
   icon_position: 'after',
   disabled: false,
+  hide_label: false,
 });
 
 const getArgTypes = () => {
@@ -93,6 +94,20 @@ const getArgTypes = () => {
       type: 'boolean',
     },
   };
+  argTypes.hide_label = {
+    name: 'hide label',
+    type: { name: 'boolean' },
+    description:
+      'Hide button label, keeping it only for screen readers. This only works if an icon is used',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
 
   return argTypes;
 };
@@ -100,6 +115,7 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
+  data.hide_label = args.hide_label;
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
