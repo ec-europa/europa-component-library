@@ -3,7 +3,7 @@
 exports[`Button CTA button - icon after renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--call"
+    class="ecl-button ecl-button--cta"
     type="submit"
   >
     <span
@@ -33,7 +33,7 @@ exports[`Button CTA button - icon after renders correctly 1`] = `
 exports[`Button CTA button - icon after renders correctly with extra attributes 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--call"
+    class="ecl-button ecl-button--cta"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     type="submit"
@@ -65,7 +65,7 @@ exports[`Button CTA button - icon after renders correctly with extra attributes 
 exports[`Button CTA button - icon after renders correctly with extra class names 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--call custom-class custom-class--test"
+    class="ecl-button ecl-button--cta custom-class custom-class--test"
     type="submit"
   >
     <span
@@ -95,7 +95,7 @@ exports[`Button CTA button - icon after renders correctly with extra class names
 exports[`Button CTA button - icon before renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--call"
+    class="ecl-button ecl-button--cta"
     type="submit"
   >
     <span
@@ -103,7 +103,7 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--before"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--before"
         data-ecl-icon=""
         focusable="false"
       >
@@ -115,7 +115,7 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        Call to action button
+        CTA Button with icon
       </span>
     </span>
   </button>
@@ -125,29 +125,10 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
 exports[`Button CTA renders correctly 1`] = `
 <jest>
   <button
-    class="ecl-button ecl-button--call"
+    class="ecl-button ecl-button--cta"
     type="submit"
   >
-    <span
-      class="ecl-button__container"
-    >
-      <span
-        class="ecl-button__label"
-        data-ecl-label="true"
-      >
-        Call to action button
-      </span>
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-button__icon ecl-button__icon--after"
-        data-ecl-icon=""
-        focusable="false"
-      >
-        <use
-          xlink:href="static/icons.svg#corner-arrow"
-        />
-      </svg>
-    </span>
+    Call to action button
   </button>
 </jest>
 `;
@@ -180,7 +161,7 @@ exports[`Button Text renders correctly 1`] = `
     class="ecl-button ecl-button--ghost"
     type="button"
   >
-    Text button
+    Ghost button
   </button>
 </jest>
 `;

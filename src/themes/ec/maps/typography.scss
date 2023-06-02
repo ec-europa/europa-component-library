@@ -28,5 +28,38 @@
     '2xs': 1rem,
     '5xl': 2.75rem,
     '6xl': 3.25rem,
+  ),
+
+  // Print
+  $font-size-print:
+    (
+      'xs': 7.88pt,
+      's': 9.19pt,
+      'm': 10.5pt,
+      'l': 13.13pt,
+      'xl': 15.75pt,
+      '2xl': 18.38pt,
+      '3xl': 21pt,
+      '4xl': 26.5pt,
+
+      // TODO: Old font sizes, to be removed once components are updated
+      '2xs': 6.56pt,
+      '5xl': 23.63pt,
+      '6xl': 27.56pt,
+    ),
+  $line-height-print: (
+    'xs': 15pt,
+    's': 18pt,
+    'm': 21pt,
+    'l': 24pt,
+    'xl': 27pt,
+    '2xl': 30pt,
+    '3xl': 33pt,
+    '4xl': 36pt,
+
+    // TODO: Old line height, to be removed once components are updated
+    '2xs': 12pt,
+    '5xl': 33pt,
+    '6xl': 39pt,
   )
 );
