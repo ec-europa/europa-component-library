@@ -9,14 +9,9 @@
 $theme: null !default;
 $link: null !default;
 
-:root {
-  --ecl-link-color: #{map.get($link, 'color')};
-  --ecl-link-inverted-color: map.get($link, 'inverted', 'color');
-}
-
 .ecl-link,
 %ecl-link {
-  color: var(--ecl-link-color);
+  color: map.get($link, 'color');
   page-break-inside: avoid;
   text-decoration: none;
 }
@@ -67,7 +62,7 @@ $link: null !default;
 }
 
 .ecl-link--inverted {
-  color: var(--ecl-link-inverted-color);
+  color: map.get($link, 'inverted', 'color');
 }
 
 /**

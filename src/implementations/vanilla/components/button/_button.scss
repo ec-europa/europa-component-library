@@ -4,46 +4,53 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_border-radius: null !default;
-$_border-width: 2px !default;
-$_font-weight: null !default;
-$_outline-width: 2px !default;
-$_padding-horizontal: map.get(theme.$spacing, 'm') !default;
-$_padding-vertical: map.get(theme.$spacing, 's') !default;
-$_shadow-hover: null !default;
+// Exposed variables
+$theme: null !default;
+$button: null !default;
 
 .ecl-button,
 %ecl-button {
   appearance: none;
   background: none;
-  border-radius: $_border-radius;
+  border-radius: map.get($button, 'radius');
   border-width: 0;
-  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font: map.get(theme.$font, 'm');
-  font-weight: $_font-weight;
+  font: map.get($theme, 'font', 'm');
   margin: 0;
-  padding: $_padding-vertical $_padding-horizontal;
+  padding: calc(
+      #{map.get($button, 'padding-vertical')} - #{map.get(
+          $button,
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($button, 'padding-horizontal')} - #{map.get(
+          $button,
+          'border-width'
+        )}
+    );
   text-decoration: none;
 
-  &:hover,
-  &:active {
-    box-shadow: $_shadow-hover;
+  &:hover {
+    box-shadow: map.get($button, 'shadow');
     text-decoration: none;
   }
 
   &:focus-visible {
-    outline: $_outline-width solid map.get(theme.$color, 'white');
-    outline-offset: -4px;
+    outline-offset: calc(0px - #{map.get($button, 'outline-width')} - 2px);
     text-decoration: none;
+  }
+
+  &:active {
+    outline-width: 0;
   }
 
   &[disabled],
   &[disabled]:hover {
     cursor: not-allowed;
+    opacity: 0.5;
     text-decoration: none;
   }
 }
@@ -59,12 +66,12 @@ $_shadow-hover: null !default;
 
 .ecl-button__icon--before,
 .ecl-button__icon + .ecl-button__label {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-button__icon--after,
 .ecl-button__label + .ecl-button__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-button__icon:only-child {
@@ -72,129 +79,50 @@ $_shadow-hover: null !default;
 }
 
 /**
-* Primary
+* Button styles
 */
-$_primary-background-color: map.get(theme.$color, 'blue-100') !default;
-$_primary-background-color-hover: null !default;
-$_primary-color: map.get(theme.$color, 'white-100') !default;
+@mixin button($variant: null) {
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  color: map.get($button, #{$variant}, 'color');
 
-.ecl-button--primary {
-  background-color: $_primary-background-color;
-  color: $_primary-color;
+  &:hover {
+    background-color: map.get($button, #{$variant}, 'background-hover');
+    border-color: map.get($button, #{$variant}, 'border-color-hover');
+    color: map.get($button, #{$variant}, 'color-hover');
+  }
 
-  &:hover,
+  &:focus-visible {
+    background-color: map.get($button, #{$variant}, 'background-focus');
+    border-color: map.get($button, #{$variant}, 'border-color-focus');
+    color: map.get($button, #{$variant}, 'color-focus');
+    outline: map.get($button, 'outline-width') solid
+      map.get($button, #{$variant}, 'outline-color');
+  }
+
   &:active {
-    background-color: $_primary-background-color-hover;
-  }
-
-  &[disabled] {
-    background-color: rgba($_primary-background-color, 0.5);
-    color: rgba($_primary-color, 0.5);
-  }
-
-  &[disabled]:hover {
-    background-color: rgba($_primary-background-color-hover, 0.5);
-    color: rgba($_primary-color, 0.5);
+    background-color: map.get($button, #{$variant}, 'background-active');
+    border-color: map.get($button, #{$variant}, 'border-color-active');
+    color: map.get($button, #{$variant}, 'color-active');
   }
 }
 
-/**
-* Secondary
-*/
-$_secondary-background-color: map.get(theme.$color, 'white-100') !default;
-$_secondary-border-color: map.get(theme.$color, 'blue-100') !default;
-$_secondary-border-color-hover: null !default;
-$_secondary-color: map.get(theme.$color, 'blue-100') !default;
-$_secondary-color-hover: null !default;
+.ecl-button--primary {
+  @include button(primary);
+}
 
 // stylelint-disable plugin/selector-bem-pattern
 .ecl-button--secondary,
 %ecl-button {
-  background-color: $_secondary-background-color;
-  border: $_border-width solid $_secondary-border-color;
-  color: $_secondary-color;
-  padding: calc(#{$_padding-vertical} - #{$_border-width})
-    calc(#{$_padding-horizontal} - #{$_border-width});
-
-  &:hover,
-  &:active {
-    border-color: $_secondary-border-color-hover;
-    color: $_secondary-color-hover;
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 4px $_secondary-border-color inset;
-    outline: 2px $_secondary-background-color solid;
-  }
-
-  &[disabled] {
-    background-color: rgba($_secondary-background-color, 0.5);
-    border-color: rgba($_secondary-border-color, 0.5);
-    color: rgba($_secondary-color, 0.5);
-  }
-
-  &[disabled]:hover {
-    border-color: rgba($_secondary-border-color-hover, 0.5);
-    color: rgba($_secondary-color-hover, 0.5);
-  }
+  @include button(secondary);
 }
 // stylelint-enable plugin/selector-bem-pattern
 
-/**
-* Ghost
-*/
-$_ghost-color: map.get(theme.$color, 'blue-100') !default;
-$_ghost-color-hover: null !default;
-
-.ecl-button--ghost {
-  color: $_ghost-color;
-
-  &:hover,
-  &:active {
-    color: $_ghost-color-hover;
-  }
-
-  &:focus-visible {
-    outline: $_outline-width solid $_ghost-color;
-  }
-
-  &[disabled] {
-    color: rgba($_ghost-color, 0.5);
-  }
-
-  &[disabled]:hover {
-    color: rgba($_ghost-color-hover, 0.5);
-  }
+.ecl-button--cta {
+  @include button(cta);
 }
 
-/**
-* Call to action
-*/
-$_cta-background-color: map.get(theme.$color, 'yellow-100') !default;
-$_cta-background-color-hover: null !default;
-$_cta-color: null !default;
-$_cta-outline-color: map.get(theme.$color, 'black-100') !default;
-
-.ecl-button--call {
-  background-color: $_cta-background-color;
-  color: $_cta-color;
-
-  &:hover,
-  &:active {
-    background-color: $_cta-background-color-hover;
-    border-color: $_cta-background-color-hover;
-  }
-
-  &:focus-visible {
-    outline: $_outline-width solid $_cta-outline-color;
-  }
-
-  &[disabled] {
-    background-color: rgba($_cta-background-color, 0.5);
-    color: rgba($_cta-color, 0.5);
-  }
-
-  &[disabled]:hover {
-    background-color: rgba($_cta-background-color-hover, 0.5);
-  }
+.ecl-button--ghost {
+  @include button(ghost);
 }

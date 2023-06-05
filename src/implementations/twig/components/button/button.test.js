@@ -43,10 +43,6 @@ describe('Button', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      dataCall.icon.path = 'static/icons.svg';
-      dataCall.icon.name = 'corner-arrow';
-      dataCall.icon.size = 'fluid';
-
       return expect(render(dataCall)).resolves.toMatchSnapshot();
     });
 
@@ -72,15 +68,21 @@ describe('Button', () => {
   });
 
   describe('CTA button - icon before', () => {
+    const buttonData = {
+      label: 'CTA Button with icon',
+      variant: 'cta',
+      icon_position: 'before',
+      icon: {
+        path: 'static/icons.svg',
+        name: 'corner-arrow',
+        size: 'fluid',
+      },
+    };
+
     test('renders correctly', () => {
       expect.assertions(1);
 
-      dataCall.icon.path = 'static/icons.svg';
-      dataCall.icon.name = 'corner-arrow';
-      dataCall.icon.size = 'fluid';
-      dataCall.icon_position = 'before';
-
-      return expect(render(dataCall)).resolves.toMatchSnapshot();
+      return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
@@ -93,7 +95,7 @@ describe('Button', () => {
   describe('CTA button - icon after', () => {
     const buttonData = {
       label: 'CTA Button with icon',
-      variant: 'call',
+      variant: 'cta',
       icon: {
         path: 'static/icons.svg',
         name: 'corner-arrow',

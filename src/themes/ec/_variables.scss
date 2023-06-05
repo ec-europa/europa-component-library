@@ -4,6 +4,80 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Button
+$button: (
+  radius: 2px,
+  shadow: none,
+  border-width: 2px,
+  outline-width: 1px,
+  padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: map.get($spacing, 'xs'),
+  primary: (
+    background: map.get($color, 'primary'),
+    color: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    border-color-hover: map.get($color, 'primary20'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    border-color-active: map.get($color, 'primary30'),
+    background-focus: map.get($color, 'primary'),
+    color-focus: map.get($color, 'white'),
+    border-color-focus: map.get($color, 'primary'),
+    outline-color: map.get($color, 'white'),
+  ),
+  secondary: (
+    background: map.get($color, 'white'),
+    color: map.get($color, 'primary'),
+    border-color: map.get($color, 'primary'),
+    background-hover: map.get($color, 'primary20'),
+    color-hover: map.get($color, 'white'),
+    border-color-hover: map.get($color, 'primary20'),
+    background-active: map.get($color, 'primary30'),
+    color-active: map.get($color, 'white'),
+    border-color-active: map.get($color, 'primary30'),
+    background-focus: map.get($color, 'primary30'),
+    color-focus: map.get($color, 'white'),
+    border-color-focus: map.get($color, 'primary30'),
+    outline-color: map.get($color, 'white'),
+  ),
+  cta: (
+    background: map.get($color, 'secondary-10'),
+    color: map.get($color, 'dark'),
+    border-color: map.get($color, 'secondary-10'),
+    background-hover: map.get($color, 'secondary10'),
+    color-hover: map.get($color, 'dark'),
+    border-color-hover: map.get($color, 'secondary10'),
+    background-active: map.get($color, 'secondary20'),
+    color-active: map.get($color, 'dark'),
+    border-color-active: map.get($color, 'secondary20'),
+    background-focus: map.get($color, 'secondary-10'),
+    color-focus: map.get($color, 'dark'),
+    border-color-focus: map.get($color, 'secondary-10'),
+    outline-color: map.get($color, 'dark'),
+  ),
+  ghost: (
+    background: transparent,
+    color: map.get($color, 'primary'),
+    border-color: transparent,
+    background-hover: map.get($color, 'primary-40'),
+    color-hover: map.get($color, 'dark'),
+    border-color-hover: map.get($color, 'primary-40'),
+    background-active: map.get($color, 'primary-30'),
+    color-active: map.get($color, 'dark'),
+    border-color-active: map.get($color, 'primary-30'),
+    background-focus: transparent,
+    color-focus: map.get($color, 'primary'),
+    border-color-focus: map.get($color, 'primary'),
+    outline-color: transparent,
+  ),
+);
+$button-print: (
+  padding-horizontal: map.get($spacing-print, 'm'),
+  padding-vertical: map.get($spacing-print, 'xs'),
+);
+
 // Link
 $link: (
   color: var(--ecl-color-primary),

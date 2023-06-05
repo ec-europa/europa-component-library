@@ -41,6 +41,10 @@ $theme: (
 );
 
 // Specific css only for this theme
+.ecl-button--secondary:focus-visible {
+  box-shadow: 0 0 0 4px map.get($button, 'secondary-border-color') inset;
+}
+
 .ecl-link--secondary:focus-visible {
-  box-shadow: 0 0 0 4px map.get($link, secondary-border-color) inset;
+  box-shadow: 0 0 0 4px map.get($link, 'secondary-border-color') inset;
 }
