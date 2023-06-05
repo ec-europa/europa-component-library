@@ -13,7 +13,7 @@ module.exports = {
             },
           },
           description:
-            'This site is managed by the Directorate-General for "DG identification"',
+            'This site is managed by: [name of the manager of the site]',
           links: [
             {
               link: {

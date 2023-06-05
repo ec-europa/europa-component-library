@@ -21,7 +21,7 @@ module.exports = {
             },
           },
           description:
-            'This site is managed by the Directorate-General for Communication',
+            'This site is managed by: [name of the manager of the site]',
         },
       ],
       [
