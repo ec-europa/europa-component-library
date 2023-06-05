@@ -11,10 +11,12 @@
 }
 
 .ecl-media-container__media {
-  display: none;
+  max-height: 10cm;
+  max-width: 100%;
 }
 
 .ecl-media-container__caption {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged-print, 'm');
+  max-width: 80ch;
 }
