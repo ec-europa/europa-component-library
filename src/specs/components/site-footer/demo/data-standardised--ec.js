@@ -13,7 +13,7 @@ module.exports = {
             },
           },
           description:
-            'This site is managed by: [name of the manager of the site]',
+            'This site is managed by:<br />[name of the manager of the site]',
           links: [
             {
               link: {
@@ -28,7 +28,6 @@ module.exports = {
       [
         {
           title: 'Contact us',
-          title_with_separator: true,
           links: [
             {
               link: {
@@ -40,7 +39,6 @@ module.exports = {
         },
         {
           title: 'Follow us on',
-          title_with_separator: true,
           links: [
             {
               link: {
@@ -85,7 +83,6 @@ module.exports = {
       [
         {
           title: 'About us',
-          title_with_separator: true,
           links: [
             {
               link: {
@@ -103,7 +100,6 @@ module.exports = {
         },
         {
           title: 'Related sites',
-          title_with_separator: true,
           links: [
             {
               link: {
@@ -124,6 +120,7 @@ module.exports = {
     [
       [
         {
+          title: 'More information on',
           links: [
             {
               link: {
@@ -138,8 +135,6 @@ module.exports = {
               },
             },
           ],
-          content_before: 'More information on:',
-          section_class_name: 'ecl-site-footer__section--condensed',
         },
       ],
     ],

@@ -14,14 +14,8 @@ module.exports = {
             path: exampleLink,
             src_desktop: '/logo-ec.svg',
           },
-          title: {
-            link: {
-              label: 'European Commission website',
-              path: exampleLink,
-            },
-          },
           description:
-            'This site is managed by: [name of the manager of the site]',
+            'This site is managed by:<br />[name of the manager of the site]',
         },
       ],
       [

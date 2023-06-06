@@ -148,3 +148,12 @@ $link: (
     outline-color: map.get($color, 'grey-140'),
   ),
 );
+
+// Site footer
+$site-footer: (
+  background: map.get($color, 'blue-5'),
+  color: map.get($color, 'grey-140'),
+  shadow: map.get($shadow, '2'),
+  separator-color: map.get($color, 'blue-20'),
+  column-gap: map.get($grid-gutter-width, 'xl'),
+);

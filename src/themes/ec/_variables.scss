@@ -149,6 +149,14 @@ $link: (
   ),
 );
 
+// Site footer
+$site-footer: (
+  background: var(--ecl-color-branding),
+  color: map.get($color, 'white'),
+  separator-color: var(--ecl-color-neutral),
+  column-gap: map.get($grid-gutter-width, 'm'),
+);
+
 /**
 * Do not modify past this line
 */

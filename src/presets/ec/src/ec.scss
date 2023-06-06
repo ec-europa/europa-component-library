@@ -71,7 +71,10 @@
 @use '@ecl/vanilla-component-page-header/page-header-ec';
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-ec';
 @use '@ecl/vanilla-component-menu/menu-ec';
-@use '@ecl/vanilla-component-site-footer/site-footer-ec';
+@use '@ecl/vanilla-component-site-footer/site-footer-ec' with (
+  $theme: theme.$theme,
+  $site-footer: var.$site-footer
+);
 @use '@ecl/vanilla-component-site-header/site-header-ec';
 
 // Utilities
