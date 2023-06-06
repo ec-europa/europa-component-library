@@ -34,6 +34,7 @@ const getArgs = (data) => {
   }
   if (data.lists) {
     args.show_lists = true;
+    args.horizontal_lists = false;
   }
 
   return args;
@@ -153,6 +154,18 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.lists) {
+    argTypes.horizontal_lists = {
+      name: 'horizontal lists',
+      type: 'boolean',
+      description: 'Display lists horizontally',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+    };
+  }
 
   return argTypes;
 };
@@ -194,6 +207,11 @@ const prepareData = (data, args) => {
   }
   if (clone.description) {
     clone.description = args.description;
+  }
+  if (args.horizontal_lists && args.show_lists) {
+    clone.lists.forEach((list) => {
+      list.variant = 'horizontal';
+    });
   }
 
   return clone;
