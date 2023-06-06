@@ -10,6 +10,10 @@
   margin: 0;
 }
 
+.ecl-media-container__media iframe {
+  display: none;
+}
+
 .ecl-media-container__media {
   max-height: 10cm;
   max-width: 100%;
@@ -18,5 +22,6 @@
 .ecl-media-container__caption {
   color: map.get(theme.$color, 'grey');
   font: map.get(theme.$font-prolonged-print, 'm');
+  margin-top: map.get(theme.$spacing-print, 's');
   max-width: 80ch;
 }

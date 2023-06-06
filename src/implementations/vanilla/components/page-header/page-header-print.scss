@@ -15,6 +15,7 @@
   color: map.get(theme.$color, 'grey-100');
   font: map.get(theme.$font-print, 'm');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
+  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-page-header__meta-item {
@@ -42,6 +43,10 @@
   margin-top: map.get(theme.$spacing-print, 'm');
 }
 
+.ecl-page-header__description-container {
+  display: flex;
+}
+
 .ecl-page-header__description {
   font: map.get(theme.$font-prolonged-print, 'xl');
   margin-bottom: 0;
@@ -60,4 +65,6 @@
 
 .ecl-page-header__description-thumbnail {
   max-width: 120px;
+  margin-top: map.get(theme.$spacing-print, 's');
+  margin-inline-end: map.get(theme.$spacing-print, 'm');
 }
