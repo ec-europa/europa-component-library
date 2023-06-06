@@ -78,6 +78,38 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 'xs'),
 );
 
+// Label
+$label: (
+  radius: 2px,
+  border-width: 2px,
+  padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: map.get($spacing, '2xs'),
+  highlight: (
+    background: map.get($color, 'dark'),
+    color: map.get($color, 'white'),
+    border-color: map.get($color, 'dark'),
+  ),
+  high: (
+    background: map.get($color, 'secondary'),
+    color: map.get($color, 'dark'),
+    border-color: map.get($color, 'secondary'),
+  ),
+  medium: (
+    background: map.get($color, 'primary'),
+    color: map.get($color, 'white'),
+    border-color: map.get($color, 'primary'),
+  ),
+  low: (
+    background: map.get($color, 'white'),
+    color: map.get($color, 'primary'),
+    border-color: map.get($color, 'primary'),
+  ),
+);
+$label-print: (
+  padding-horizontal: map.get($spacing-print, 'm'),
+  padding-vertical: map.get($spacing-print, '2xs'),
+);
+
 // Link
 $link: (
   color: map.get($color, 'primary'),

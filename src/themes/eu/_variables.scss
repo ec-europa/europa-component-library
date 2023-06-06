@@ -78,6 +78,39 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Label
+// stylelint-disable length-zero-no-unit
+$label: (
+  radius: 4px,
+  border-width: 0px,
+  padding-horizontal: map.get($spacing, 's'),
+  padding-vertical: map.get($spacing, 'xs'),
+  highlight: (
+    background: map.get($color, 'blue-100'),
+    color: map.get($color, 'white'),
+    border-color: transparent,
+  ),
+  high: (
+    background: map.get($color, 'yellow-100'),
+    color: map.get($color, 'grey-140'),
+    border-color: transparent,
+  ),
+  medium: (
+    background: map.get($color, 'yellow-10'),
+    color: map.get($color, 'grey-140'),
+    border-color: transparent,
+  ),
+  low: (
+    background: map.get($color, 'blue-10'),
+    color: map.get($color, 'grey-140'),
+    border-color: map.get($color, 'primary'),
+  ),
+);
+$label-print: (
+  padding-horizontal: map.get($spacing-print, 's'),
+  padding-vertical: map.get($spacing-print, 'xs'),
+);
+
 // Link
 $link: (
   color: map.get($color, 'blue-100'),
