@@ -85,24 +85,24 @@ $label: (
   padding-horizontal: map.get($spacing, 'm'),
   padding-vertical: map.get($spacing, '2xs'),
   highlight: (
-    background: map.get($color, 'dark'),
+    background: var(--ecl-color-dark),
     color: map.get($color, 'white'),
-    border-color: map.get($color, 'dark'),
+    border-color: var(--ecl-color-dark),
   ),
   high: (
-    background: map.get($color, 'secondary'),
-    color: map.get($color, 'dark'),
-    border-color: map.get($color, 'secondary'),
+    background: var(--ecl-color-secondary),
+    color: var(--ecl-color-dark),
+    border-color: var(--ecl-color-secondary),
   ),
   medium: (
-    background: map.get($color, 'primary'),
+    background: var(--ecl-color-primary),
     color: map.get($color, 'white'),
-    border-color: map.get($color, 'primary'),
+    border-color: var(--ecl-color-primary),
   ),
   low: (
     background: map.get($color, 'white'),
-    color: map.get($color, 'primary'),
-    border-color: map.get($color, 'primary'),
+    color: var(--ecl-color-primary),
+    border-color: var(--ecl-color-primary),
   ),
 );
 $label-print: (
