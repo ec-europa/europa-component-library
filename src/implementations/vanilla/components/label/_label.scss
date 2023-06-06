@@ -6,58 +6,49 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-$_border-radius: null !default;
-$_text-color: null !default;
-$_border-width: null !default;
-$_border-color: null !default;
-$_background-color: null !default;
+// Exposed variables
+$theme: null !default;
+$label: null !default;
 
 .ecl-label {
-  border-radius: $_border-radius;
-  color: $_text-color;
+  border-radius: map.get($label, 'radius');
+  border: map.get($label, 'border-width') solid transparent;
   display: inline-block;
-  font: map.get(theme.$font, 's');
+  font: map.get($theme, 'font', 's');
   margin: 0;
+  padding: calc(
+      #{map.get($label, 'padding-vertical')} - #{map.get(
+          $label,
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($label, 'padding-horizontal')} - #{map.get(
+          $label,
+          'border-width'
+        )}
+    );
   text-transform: uppercase;
 }
 
+@mixin label($variant: null) {
+  background-color: map.get($label, #{$variant}, 'background');
+  border-color: map.get($label, #{$variant}, 'border-color');
+  color: map.get($label, #{$variant}, 'color');
+}
+
 .ecl-label--low {
-  background-color: map.get($_background-color, 'low');
-  border: map.get($_border-width, 'low') solid map.get($_border-color, 'low');
-  padding: calc(
-      #{map.get(theme.$spacing, 'xs')} - #{map.get($_border-width, 'low')}
-    )
-    calc(#{map.get(theme.$spacing, 's')} - #{map.get($_border-width, 'low')});
+  @include label(low);
 }
 
 .ecl-label--medium {
-  background-color: map.get($_background-color, 'medium');
-  border: map.get($_border-width, 'medium') solid
-    map.get($_border-color, 'medium');
-  padding: calc(
-      #{map.get(theme.$spacing, 'xs')} - #{map.get($_border-width, 'medium')}
-    )
-    calc(#{map.get(theme.$spacing, 's')} - #{map.get($_border-width, 'medium')});
+  @include label(medium);
 }
 
 .ecl-label--high {
-  background-color: map.get($_background-color, 'high');
-  border: map.get($_border-width, 'high') solid map.get($_border-color, 'high');
-  padding: calc(
-      #{map.get(theme.$spacing, 'xs')} - #{map.get($_border-width, 'high')}
-    )
-    calc(#{map.get(theme.$spacing, 's')} - #{map.get($_border-width, 'high')});
+  @include label(high);
 }
 
 .ecl-label--highlight {
-  background-color: map.get($_background-color, 'highlight');
-  border: map.get($_border-width, 'highlight') solid
-    map.get($_border-color, 'highlight');
-  color: map.get(theme.$color, 'white-100');
-  padding: calc(
-      #{map.get(theme.$spacing, 'xs')} - #{map.get($_border-width, 'highlight')}
-    )
-    calc(
-      #{map.get(theme.$spacing, 's')} - #{map.get($_border-width, 'highlight')}
-    );
+  @include label(highlight);
 }

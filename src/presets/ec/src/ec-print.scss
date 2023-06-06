@@ -25,7 +25,11 @@
   $button-print: var.$button-print
 );
 @use '@ecl/vanilla-component-date-block/date-block-print';
-@use '@ecl/vanilla-component-label/label-print-ec';
+@use '@ecl/vanilla-component-label/label-print' with (
+  $theme: theme.$theme,
+  $label: var.$label,
+  $label-print: var.$label-print
+);
 @use '@ecl/vanilla-component-link/link-print' with (
   $theme: theme.$theme,
   $link: var.$link
