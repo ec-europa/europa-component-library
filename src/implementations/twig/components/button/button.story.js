@@ -58,6 +58,7 @@ const getArgTypes = () => {
     type: { name: 'select' },
     description: 'Button icon transform',
     options: [
+      'none',
       'rotate-90',
       'rotate-180',
       'rotate-270',
@@ -121,7 +122,8 @@ const prepareData = (data, args) => {
     data.icon.name = args.icon_name;
     data.icon.size = system === 'eu' ? 's' : 'xs';
     data.icon.path = 'icon.svg';
-    data.icon.transform = args.icon_transform;
+    data.icon.transform =
+      args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;
   }
   if (args.icon_name === 'none') {
