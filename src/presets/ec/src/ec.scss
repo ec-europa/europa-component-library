@@ -20,9 +20,15 @@
 
 // Other atoms
 @use '@ecl/vanilla-component-blockquote/blockquote-ec';
-@use '@ecl/vanilla-component-button/button-ec';
+@use '@ecl/vanilla-component-button/button' with (
+  $theme: theme.$theme,
+  $button: var.$button
+);
 @use '@ecl/vanilla-component-date-block/date-block-ec';
-@use '@ecl/vanilla-component-label/label-ec';
+@use '@ecl/vanilla-component-label/label' with (
+  $theme: theme.$theme,
+  $label: var.$label
+);
 @use '@ecl/vanilla-component-link/link' with (
   $theme: theme.$theme,
   $link: var.$link
