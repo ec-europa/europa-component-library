@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: eu
-  path: /story/components-label--default
+  path: /story/components-label--medium
 ---
