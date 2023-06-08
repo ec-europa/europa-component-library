@@ -1,1 +1,25 @@
-@forward '@ecl/theme-dev/maps/form';
+@forward '@ecl/theme-dev/maps/form' with (
+  $form-width: (
+    's': (
+      'breakpoint-xs': 100%,
+      'breakpoint-s': 100%,
+      'breakpoint-m': 225px,
+      'breakpoint-l': 218px,
+      'breakpoint-xl': 252px,
+    ),
+    'm': (
+      'breakpoint-xs': 100%,
+      'breakpoint-s': 100%,
+      'breakpoint-m': 289px,
+      'breakpoint-l': 296px,
+      'breakpoint-xl': 350px,
+    ),
+    'l': (
+      'breakpoint-xs': 100%,
+      'breakpoint-s': 100%,
+      'breakpoint-m': 350px,
+      'breakpoint-l': 380px,
+      'breakpoint-xl': 443px,
+    ),
+  )
+);

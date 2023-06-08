@@ -3,19 +3,10 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_color-help: null !default;
-$_color-invalid: null !default;
-$_color-label: null !default;
-$_color-optional: null !default;
-$_color-required: null !default;
-$_first-element-margin: null !default;
-$_font-help: null !default;
-$_font-invalid: null !default;
-$_font-optional: null !default;
-$_form-element-margin: null !default;
-$_margin-invalid: null !default;
+// Exposed variables
+$theme: null !default;
+$form-group: null !default;
 
 .ecl-form-group {
   align-items: flex-start;
@@ -26,38 +17,38 @@ $_margin-invalid: null !default;
   padding: 0;
 
   > *:not(.ecl-u-sr-only) + * {
-    margin-top: $_form-element-margin;
+    margin-top: map.get($theme, 'spacing', 'xs');
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-feedback-message {
-    margin-top: $_margin-invalid;
+    margin-top: map.get($form-group, 'margin-invalid');
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-help-block {
-    margin-top: map.get(theme.$spacing, 'xs');
+    margin-top: map.get($form-group, 'margin-help');
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-checkbox,
   > *:not(.ecl-u-sr-only) + .ecl-radio {
-    margin-top: $_first-element-margin;
+    margin-top: map.get($form-group, 'margin-first-element');
     /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
     ~ .ecl-checkbox,
     ~ .ecl-radio {
-      margin-top: map.get(theme.$spacing, 'l');
+      margin-top: map.get($theme, 'spacing', 'l');
     }
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-radio--binary {
-    margin-top: map.get(theme.$spacing, 'm');
+    margin-top: map.get($theme, 'spacing', 'm');
 
     ~ .ecl-radio--binary {
-      margin-top: map.get(theme.$spacing, 'm');
+      margin-top: map.get($theme, 'spacing', 'm');
     }
   }
   /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
   > .ecl-checkbox:first-child + .ecl-checkbox,
   > .ecl-radio:first-child + .ecl-radio:not(.ecl-radio--binary) {
-    margin-top: map.get(theme.$spacing, 'l');
+    margin-top: map.get($theme, 'spacing', 'l');
   }
 
   > .ecl-radio--binary:first-child + .ecl-radio--binary {
@@ -65,7 +56,7 @@ $_margin-invalid: null !default;
   }
 
   > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
-    margin-top: map.get(theme.$spacing, 'm');
+    margin-top: map.get($theme, 'spacing', 'm');
   }
 
   > .ecl-feedback-message + .ecl-help-block {
@@ -77,47 +68,47 @@ $_margin-invalid: null !default;
 .ecl-feedback-message {
   align-items: center;
   box-sizing: border-box;
-  color: $_color-invalid;
+  color: map.get($form-group, 'color-invalid');
   display: flex;
-  font: $_font-invalid;
+  font: map.get($form-group, 'font-invalid');
   margin: 0;
   padding: 0;
 }
 
 .ecl-feedback-message__icon {
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($form-group, 'margin-icon');
 }
 
 .ecl-help-block {
   box-sizing: border-box;
-  color: $_color-help;
+  color: map.get($form-group, 'color-help');
   display: block;
-  font: $_font-help;
+  font: map.get($form-group, 'font-help');
   margin: 0;
   padding: 0;
 }
 
 .ecl-form-label {
   box-sizing: border-box;
-  color: $_color-label;
+  color: map.get($form-group, 'color-label');
   display: inline-flex;
-  font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get($form-group, 'font-label');
+  font-weight: map.get($form-group, 'font-weight-label');
   margin: 0;
   padding: 0;
   white-space: pre-wrap;
 }
 
 .ecl-form-label__required {
-  color: $_color-required;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin-inline-start: map.get(theme.$spacing, '2xs');
+  color: map.get($form-group, 'color-required');
+  font: map.get($theme, 'font', 'm');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-inline-start: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-form-label__optional {
-  color: $_color-optional;
-  font: $_font-optional;
-  font-style: italic;
-  font-weight: map.get(theme.$font-weight, 'regular');
+  align-self: center;
+  color: map.get($form-group, 'color-optional');
+  font: map.get($form-group, 'font-optional');
+  font-style: map.get($form-group, 'font-style-optional');
 }

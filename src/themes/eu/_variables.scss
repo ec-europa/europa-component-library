@@ -181,3 +181,39 @@ $link: (
     outline-color: map.get($color, 'grey-140'),
   ),
 );
+
+// Form
+$form-group: (
+  color-label: map.get($color, 'grey-140'),
+  color-help: map.get($color, 'grey-80'),
+  color-invalid: map.get($color, 'red-120'),
+  color-optional: map.get($color, 'grey-80'),
+  color-required: map.get($color, 'red-120'),
+  font-label: map.get($font-prolonged, 'm'),
+  font-weight-label: map.get($font-weight, 'bold'),
+  font-help: map.get($font-prolonged, 'm'),
+  font-invalid: map.get($font-prolonged, 'm'),
+  font-optional: map.get($font, 'm'),
+  font-style-optional: 'italic',
+  margin-first-element: map.get($spacing, 'm'),
+  margin-help: map.get($spacing, 'xs'),
+  margin-invalid: map.get($spacing, '2xs'),
+  margin-icon: map.get($spacing, 'xs'),
+);
+
+// Text input
+$text-input: (
+  radius: 4px,
+  border-color: map.get($color, 'grey-80'),
+  border-color-hover: map.get($color, 'grey-80'),
+  border-color-focus: map.get($color, 'blue-100'),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: map.get($color, 'red-100'),
+  border-color-invalid-focus: map.get($color, 'red-100'),
+  color-input: map.get($color, 'grey-140'),
+  color-placeholder: map.get($color, 'grey-40'),
+  shadow: map.get($shadow, '1'),
+  shadow-hover: map.get($shadow, '2'),
+  padding-vertical: map.get($spacing, 's'),
+  padding-horizontal: map.get($spacing, 'm'),
+);
