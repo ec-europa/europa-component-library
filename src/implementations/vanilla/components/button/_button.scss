@@ -66,7 +66,7 @@ $button: null !default;
 
 .ecl-button__icon ~ .ecl-button__label:not(.ecl-u-sr-only),
 .ecl-button__label:not(.ecl-u-sr-only) ~ .ecl-button__icon {
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
 }
 
 /**
