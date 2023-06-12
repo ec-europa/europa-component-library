@@ -19,6 +19,7 @@ module.exports = {
               link: {
                 label: 'Accessibility',
                 path: exampleLink,
+                inverted: true,
               },
             },
           ],
@@ -33,6 +34,7 @@ module.exports = {
               link: {
                 label: 'Contact information of the DG',
                 path: exampleLink,
+                inverted: true,
               },
             },
           ],
@@ -44,6 +46,7 @@ module.exports = {
               link: {
                 label: 'Facebook',
                 path: exampleLink,
+                inverted: true,
                 icon_position: 'before',
               },
               icon: {
@@ -56,6 +59,7 @@ module.exports = {
               link: {
                 label: 'Twitter',
                 path: exampleLink,
+                inverted: true,
                 icon_position: 'before',
               },
               icon: {
@@ -68,6 +72,7 @@ module.exports = {
               link: {
                 label: 'Linkedin',
                 path: exampleLink,
+                inverted: true,
                 icon_position: 'before',
               },
               icon: {
@@ -88,12 +93,14 @@ module.exports = {
               link: {
                 label: 'Information about the DG',
                 path: exampleLink,
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Information about the DG',
                 path: exampleLink,
+                inverted: true,
               },
             },
           ],
@@ -105,12 +112,14 @@ module.exports = {
               link: {
                 label: 'Related link 1',
                 path: exampleLink,
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Related link 2',
                 path: exampleLink,
+                inverted: true,
               },
             },
           ],
@@ -126,12 +135,14 @@ module.exports = {
               link: {
                 label: 'Class name 1',
                 path: exampleLink,
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Class name 2',
                 path: exampleLink,
+                inverted: true,
               },
             },
           ],
@@ -157,12 +168,14 @@ module.exports = {
               link: {
                 label: 'Contact the European Commission',
                 path: 'https://commission.europa.eu/about-european-commission/contact_en',
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Follow the European Commission on social media',
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
+                inverted: true,
                 external: true,
                 icon_path: '/icons.svg',
               },
@@ -171,6 +184,7 @@ module.exports = {
               link: {
                 label: 'Resources for partners',
                 path: 'https://commission.europa.eu/resources-partners_en',
+                inverted: true,
               },
             },
           ],
@@ -184,24 +198,28 @@ module.exports = {
               link: {
                 label: 'Languages on our websites',
                 path: 'https://commission.europa.eu/language-policy_en',
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Cookies',
                 path: 'https://commission.europa.eu/cookies_en',
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Privacy policy',
                 path: 'https://commission.europa.eu/privacy-policy_en',
+                inverted: true,
               },
             },
             {
               link: {
                 label: 'Legal notice',
                 path: 'https://commission.europa.eu/legal-notice_en',
+                inverted: true,
               },
             },
           ],

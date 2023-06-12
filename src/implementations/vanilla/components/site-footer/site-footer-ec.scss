@@ -115,14 +115,6 @@ $site-footer: null !default;
   font: map.get($theme, 'font', 'm');
 }
 
-.ecl-site-footer__link,
-.ecl-site-footer__link:hover,
-.ecl-site-footer__link:active,
-.ecl-site-footer__link:focus,
-.ecl-site-footer__link:visited {
-  color: map.get($site-footer, 'color');
-}
-
 .ecl-site-footer__logo-link {
   display: inline-block;
   margin-bottom: map.get($theme, 'spacing', 'xl');
