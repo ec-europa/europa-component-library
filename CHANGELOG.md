@@ -1,5 +1,24 @@
 # Changelog
 
+## 3.8.3 (2023-06-12)
+
+#### :bug: Bug Fix
+
+- [#2903](https://github.com/ec-europa/europa-component-library/pull/2903) fix(language-switcher): Fixing syntax in non eu list - FRONT-3958 ([@planctus](https://github.com/planctus))
+- [#2900](https://github.com/ec-europa/europa-component-library/pull/2900) chore(website): Reverting React to 17.0.2 - FRONT-3987 ([@planctus](https://github.com/planctus))
+- [#2895](https://github.com/ec-europa/europa-component-library/pull/2895) fix(website): Linking to label medium in playground - FRONT-3984 ([@planctus](https://github.com/planctus))
+- [#2892](https://github.com/ec-europa/europa-component-library/pull/2892) fix(table): Preventing event default when clicking on sort buttons - FRONT-3980 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#2890](https://github.com/ec-europa/europa-component-library/pull/2890) chore(deps): Updates 05-06-23 ([@planctus](https://github.com/planctus))
+- [#2883](https://github.com/ec-europa/europa-component-library/pull/2883) chore(deps): Updates 30-05-23 ([@planctus](https://github.com/planctus))
+- [#2882](https://github.com/ec-europa/europa-component-library/pull/2882) chore(storybook): Updating to 7.0.18 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- [@planctus](https://github.com/planctus)
+
 ## 3.8.2 (2023-05-26)
 
 #### :bug: Bug Fix
