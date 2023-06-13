@@ -60,7 +60,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - Classes `ecl-button__icon--before` and `ecl-button__icon--after` are no longer needed for the icon; position is detected using CSS.
 - To keep consistency, CSS class for call to action button has been renamed from `ecl-button--call` to `ecl-button--cta`
 - `ghost`button is now called like that everywhere (it was sometimes called `text` previously). CSS classes haven't been modified
-- Added documentation for button with icon only
+- New variant added to handle button with icon only: `ecl-button--icon-only`. By using it, it is no longer needed to add utility classes on the button label. If you are using the twig template, this variant rely on the already existing parameter `hide-label`
+  Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
 
 ### Links
 
@@ -68,7 +69,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Custom theme
 
-ECL4 introduces new ways to custommize the look and feel of elements, by changing styles and component display
+ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
 
 ### How to create a custom theme
 
