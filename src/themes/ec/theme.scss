@@ -1,5 +1,7 @@
+@use 'sass:map';
 @forward 'index';
 @use 'index' as index;
+@use 'variables' as *;
 
 // TODO: build this dynamically (if possible)
 $theme: (
@@ -37,3 +39,21 @@ $theme: (
   font-prolonged-print: index.$font-prolonged-print,
   z-index: index.$z-index,
 );
+
+// Specific css only for this theme
+
+// Square button when icon only
+.ecl-button__label.ecl-u-sr-only ~ .ecl-button__icon {
+  margin-bottom: calc(
+    #{map.get($button, 'padding-horizontal')} - #{map.get(
+        $button,
+        'padding-vertical'
+      )}
+  );
+  margin-top: calc(
+    #{map.get($button, 'padding-horizontal')} - #{map.get(
+        $button,
+        'padding-vertical'
+      )}
+  );
+}

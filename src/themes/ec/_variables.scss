@@ -11,7 +11,7 @@ $button: (
   border-width: 2px,
   outline-width: 1px,
   padding-horizontal: 14px,
-  padding-vertical: 14px,
+  padding-vertical: map.get($spacing, 'xs'),
   primary: (
     background: var(--ecl-color-primary),
     color: map.get($color, 'white'),

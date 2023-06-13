@@ -9,6 +9,7 @@ import {
   buttonSecondary,
   buttonCall,
   buttonGhost,
+  buttonIconOnly,
 } from '../demo';
 
 ## Primary
@@ -31,7 +32,7 @@ import {
   <Html markup={buttonSecondary} />
 </Playground>
 
-## Call to action with icon
+## Call to action
 
 <Playground
   system="eu"
@@ -45,4 +46,16 @@ import {
 
 <Playground system="eu" selectedKind="components-button" selectedStory="ghost">
   <Html markup={buttonGhost} />
+</Playground>
+
+## Button with icon only
+
+Button label can be hidden by adding class `ecl-u-sr-only` to it. The label has to be filled in any case, to provide context to screen readers.
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="secondary"
+>
+  <Html markup={buttonIconOnly} />
 </Playground>

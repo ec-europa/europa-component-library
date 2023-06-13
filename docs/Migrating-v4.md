@@ -60,6 +60,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - Classes `ecl-button__icon--before` and `ecl-button__icon--after` are no longer needed for the icon; position is detected using CSS.
 - To keep consistency, CSS class for call to action button has been renamed from `ecl-button--call` to `ecl-button--cta`
 - `ghost`button is now called like that everywhere (it was sometimes called `text` previously). CSS classes haven't been modified
+- Added documentation for button with icon only
 
 ### Links
 
