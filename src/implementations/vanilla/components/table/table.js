@@ -80,7 +80,7 @@ export class Table {
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
         sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
         tr.appendChild(sort);
-        tr.addEventListener('click', this.handleClickOnSort.bind(this, tr));
+        tr.addEventListener('click', (e) => this.handleClickOnSort(tr)(e));
       });
     }
 
@@ -100,7 +100,7 @@ export class Table {
   destroy() {
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
-        tr.removeEventListener('click', this.handleClickOnSort);
+        tr.removeEventListener('click', (e) => this.handleClickOnSort(tr)(e));
       });
     }
     if (this.element) {
@@ -111,7 +111,8 @@ export class Table {
   /**
    * @param {HTMLElement} toggle Target element to toggle.
    */
-  handleClickOnSort(toggle) {
+  handleClickOnSort = (toggle) => (event) => {
+    event.preventDefault();
     const table = toggle.closest('table');
     const tbody = queryOne('tbody', table);
     let order = toggle.getAttribute('aria-sort');
@@ -159,7 +160,7 @@ export class Table {
         th.removeAttribute('aria-sort');
       }
     });
-  }
+  };
 }
 
 export default Table;
