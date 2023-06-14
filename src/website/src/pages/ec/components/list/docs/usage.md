@@ -28,8 +28,6 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 - do not use it when all items have equal value or importance
 - do not use when you have one or more overarching categories that require descriptions
 
-  
-
 # Unordered list
 
 Unordered lists are used to group related content without any particular order, with bullet points placed in front of the labels. Common use cases are much broader than ordered lists. They are used for a set of items that can be arranged in any specific order. Different bullet list styles are available to unordered list items, such as disc, circle, square or hyphen when nesting (eg. 2 sub-points under point 2).
@@ -53,11 +51,9 @@ Unordered lists are used to group related content without any particular order, 
 - do not use it when items can be ranked, counted or sequenced
 - do not use when you have one or more overarching categories or terms require descriptions
 
-  
-
 # Description lists
 
-Description lists are used to display and organise content with a descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need.
+Description lists are used to display and organise content with descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need.
 
 ## Do's
 
