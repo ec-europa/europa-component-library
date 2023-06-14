@@ -13,11 +13,11 @@ exports[`Button CTA button - icon after renders correctly 1`] = `
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        CTA Button with icon
+        CTA Button with icon after
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon"
         data-ecl-icon=""
         focusable="false"
       >
@@ -45,11 +45,11 @@ exports[`Button CTA button - icon after renders correctly with extra attributes 
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        CTA Button with icon
+        CTA Button with icon after
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon"
         data-ecl-icon=""
         focusable="false"
       >
@@ -75,11 +75,11 @@ exports[`Button CTA button - icon after renders correctly with extra class names
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        CTA Button with icon
+        CTA Button with icon after
       </span>
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--after"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon"
         data-ecl-icon=""
         focusable="false"
       >
@@ -103,7 +103,7 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-button__icon ecl-button__icon--before"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon"
         data-ecl-icon=""
         focusable="false"
       >
@@ -115,8 +115,38 @@ exports[`Button CTA button - icon before renders correctly 1`] = `
         class="ecl-button__label"
         data-ecl-label="true"
       >
-        CTA Button with icon
+        CTA Button with icon before
       </span>
+    </span>
+  </button>
+</jest>
+`;
+
+exports[`Button CTA button - icon only renders correctly 1`] = `
+<jest>
+  <button
+    class="ecl-button ecl-button--cta ecl-button--icon-only"
+    type="submit"
+  >
+    <span
+      class="ecl-button__container"
+    >
+      <span
+        class="ecl-button__label"
+        data-ecl-label="true"
+      >
+        CTA Button with icon only
+      </span>
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-button__icon"
+        data-ecl-icon=""
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#corner-arrow"
+        />
+      </svg>
     </span>
   </button>
 </jest>

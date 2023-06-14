@@ -7,7 +7,7 @@
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
     - "icon" (associative array) (default: {}): predefined structure for Icon component
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
-    - "hide_label" (bool) (default: false): hide button label, for screen reader only
+    - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -50,7 +50,9 @@
   {% endfor %}
 {% endif %}
 
-{% set _label_css_class = _hide_label ? 'ecl-u-sr-only' : 'ecl-button__label' %}
+{% if _hide_label and _icon is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-button--icon-only' %}
+{% endif %}
 
 {# Add disabled option if defined #}
 
@@ -66,19 +68,19 @@
       {% if _icon_position == 'before' %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _icon,
-          extra_classes: 'ecl-button__icon ecl-button__icon--before',
+          extra_classes: 'ecl-button__icon',
           extra_attributes: [
             { name: 'data-ecl-icon' }
           ],
         } only %}
       {% endif %}
       {% if _label %}
-        <span class="{{ _label_css_class }}" data-ecl-label="true">{% block label _label %}</span>
+        <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
       {% endif %}
       {% if _icon_position == 'after' %}
         {% include '@ecl/icon/icon.html.twig' with {
           icon: _icon,
-          extra_classes: 'ecl-button__icon ecl-button__icon--after',
+          extra_classes: 'ecl-button__icon',
           extra_attributes: [
             { name: 'data-ecl-icon' }
           ],
