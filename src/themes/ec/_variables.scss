@@ -181,6 +181,42 @@ $link: (
   ),
 );
 
+// Form
+$form-group: (
+  color-label: var(--ecl-color-dark),
+  color-help: var(--ecl-color-dark),
+  color-invalid: var(--ecl-color-error),
+  color-optional: var(--ecl-color-dark),
+  color-required: var(--ecl-color-error),
+  font-label: map.get($font, 'm'),
+  font-weight-label: map.get($font-weight, 'regular'),
+  font-help: map.get($font, 's'),
+  font-invalid: map.get($font, 's'),
+  font-optional: map.get($font, 'xs'),
+  font-style-optional: 'normal',
+  margin-first-element: map.get($spacing, 's'),
+  margin-help: map.get($spacing, '2xs'),
+  margin-invalid: map.get($spacing, '2xs'),
+  margin-icon: map.get($spacing, '2xs'),
+);
+
+// Text input
+$text-input: (
+  radius: 2px,
+  border-color: var(--ecl-color-dark),
+  border-color-hover: var(--ecl-color-dark),
+  border-color-focus: var(--ecl-color-primary),
+  border-color-invalid: var(--ecl-color-error),
+  border-color-invalid-hover: var(--ecl-color-error),
+  border-color-invalid-focus: var(--ecl-color-error),
+  color-input: var(--ecl-color-dark),
+  color-placeholder: var(--ecl-color-dark-20),
+  shadow: none,
+  shadow-hover: none,
+  padding-vertical: map.get($spacing, 'xs'),
+  padding-horizontal: map.get($spacing, 'm'),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),

@@ -63,6 +63,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - New variant added to handle button with icon only: `ecl-button--icon-only`. By using it, it is no longer needed to add utility classes on the button label. If you are using the twig template, this variant relies on the already existing parameter `hide_label`
   Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
 
+### Forms
+
+- Icon for invalid form input has been reduced on EC (`s` instead of `m`)
+
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
