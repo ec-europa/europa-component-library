@@ -33,8 +33,11 @@
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-message/message-eu';
 @use '@ecl/vanilla-component-news-ticker/news-ticker-eu';
+@use '@ecl/vanilla-component-notification/notification' with (
+  $theme: theme.$theme,
+  $notification: var.$notification
+);
 @use '@ecl/vanilla-component-spinner/spinner-eu';
 @use '@ecl/vanilla-component-skip-link/skip-link';
 @use '@ecl/vanilla-component-table/table-eu';

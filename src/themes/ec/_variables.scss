@@ -181,6 +181,30 @@ $link: (
   ),
 );
 
+// Notification
+$notification: (
+  radius: 0,
+  border-width: 1px,
+  border-color: var(--ecl-color-neutral),
+  background-error: map.get($color, 'white'),
+  background-info: map.get($color, 'white'),
+  background-success: map.get($color, 'white'),
+  background-warning: map.get($color, 'white'),
+  border-radius-top-left: 0,
+  border-radius-bottom-left: 0,
+  close-color: map.get($color, 'blue-100'),
+  close-font-weight: map.get($font-weight, 'bold'),
+  description-color: map.get($color, 'grey-100'),
+  icon-error-fill: map.get($color, 'error'),
+  icon-info-fill: map.get($color, 'info'),
+  icon-success-fill: map.get($color, 'success'),
+  icon-warning-fill: map.get($color, 'warning'),
+  icon-spacing: map.get($spacing, 'm'),
+  title_color: map.get($color, 'black-100'),
+  title-font: map.get($font, 'm'),
+  title-spacing: map.get($spacing, 's'),
+);
+
 /**
 * Do not modify past this line
 */

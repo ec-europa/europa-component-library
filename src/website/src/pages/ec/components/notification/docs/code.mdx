@@ -1,0 +1,56 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  notificationInfo,
+  notificationSuccess,
+  notificationWarning,
+  notificationError,
+} from '../demo';
+
+## Information
+
+<Playground
+  system="ec"
+  selectedKind="components-notifications"
+  selectedStory="info"
+  showFrame
+>
+  <Html markup={notificationInfo} />
+</Playground>
+
+## Success
+
+<Playground
+  system="ec"
+  selectedKind="components-notifications"
+  selectedStory="success"
+  showFrame
+>
+  <Html markup={notificationSuccess} />
+</Playground>
+
+## Warning
+
+<Playground
+  system="ec"
+  selectedKind="components-notifications"
+  selectedStory="warning"
+  showFrame
+>
+  <Html markup={notificationWarning} />
+</Playground>
+
+## Error
+
+<Playground
+  system="ec"
+  selectedKind="components-notifications"
+  selectedStory="error"
+  showFrame
+>
+  <Html markup={notificationError} />
+</Playground>

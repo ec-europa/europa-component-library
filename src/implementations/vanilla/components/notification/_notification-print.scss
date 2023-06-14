@@ -1,0 +1,107 @@
+/*
+ * Notification
+ * @define notification
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+$_background-error: none !default;
+$_background-info: none !default;
+$_background-success: none !default;
+$_background-warning: none !default;
+$_border-radius-top-left: none !default;
+$_border-radius-bottom-left: none !default;
+$_border-width: none !default;
+$_description-color: none !default;
+$_icon-spacing: none !default;
+$_icon-error-fill: none !default;
+$_icon-info-fill: none !default;
+$_icon-warning-fill: none !default;
+$_icon-success-fill: none !default;
+$_title-color: none !default;
+$_title-font: none !default;
+$_title-spacing: none !default;
+
+.ecl-notification {
+  border-bottom-width: map.get($_border-width, 'bottom');
+  border-end-start-radius: $_border-radius-bottom-left;
+  border-inline-end-width: map.get($_border-width, 'right');
+  border-inline-start-width: map.get($_border-width, 'left');
+  border-start-start-radius: $_border-radius-top-left;
+  border-style: solid;
+  border-top-width: map.get($_border-width, 'top');
+  display: inline-flex;
+  margin: 0;
+  padding-bottom: map.get(theme.$spacing-print, 'l');
+  padding-inline-end: map.get(theme.$spacing-print, 'xs');
+  padding-inline-start: map.get(theme.$spacing-print, 'l');
+  padding-top: map.get(theme.$spacing-print, 'l');
+}
+
+.ecl-notification__icon {
+  display: block;
+  flex-shrink: 0;
+  margin-inline-end: $_icon-spacing;
+}
+
+.ecl-notification__close {
+  display: none;
+}
+
+.ecl-notification__title {
+  color: $_title-color;
+  font: $_title-font;
+  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font-weight: map.get(theme.$font-weight-print, 'bold');
+  margin-bottom: $_title-spacing;
+  max-width: 80ch;
+}
+
+.ecl-notification__description {
+  color: $_description-color;
+  font: map.get(theme.$font-prolonged-print, 'm');
+  margin-bottom: 0;
+  margin-top: map.get(theme.$spacing-print, 'xs');
+  max-width: 80ch;
+}
+
+// information
+.ecl-notification--info {
+  background: $_background-info;
+  border-color: map.get(theme.$color, 'info');
+
+  .ecl-notification__icon {
+    fill: $_icon-info-fill;
+  }
+}
+
+// success
+.ecl-notification--success {
+  background: $_background-success;
+  border-color: map.get(theme.$color, 'success');
+
+  .ecl-notification__icon {
+    fill: $_icon-success-fill;
+  }
+}
+
+// warning
+.ecl-notification--warning {
+  background: $_background-warning;
+  border-color: map.get(theme.$color, 'warning');
+
+  .ecl-notification__icon {
+    fill: $_icon-warning-fill;
+  }
+}
+
+// error
+.ecl-notification--error {
+  background: $_background-error;
+  border-color: map.get(theme.$color, 'error');
+
+  .ecl-notification__icon {
+    fill: $_icon-error-fill;
+  }
+}

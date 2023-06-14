@@ -64,6 +64,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - `Negative` links have been renamed `Inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 
+### Message
+
+- Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
+
 ## Custom theme
 
 ECL4 introduces new ways to custommize the look and feel of elements, by changing styles and component display
