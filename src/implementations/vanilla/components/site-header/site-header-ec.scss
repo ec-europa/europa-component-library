@@ -173,10 +173,10 @@ $_search-width-xl: 31.5rem;
   display: flex;
 }
 
-.ecl-site-header__message {
+.ecl-site-header__notification {
   display: flex;
 
-  .ecl-message {
+  .ecl-notification {
     margin-bottom: map.get(theme.$spacing, 'm');
   }
 }
@@ -391,7 +391,7 @@ $_search-width-xl: 31.5rem;
     width: $_search-width-l;
   }
 
-  .ecl-site-header__message .ecl-message {
+  .ecl-site-header__notification .ecl-notification {
     margin-bottom: map.get(theme.$spacing, 'l');
   }
 

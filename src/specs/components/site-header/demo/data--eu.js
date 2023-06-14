@@ -267,14 +267,14 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  message: {
+  notification: {
     variant: 'info',
     icon: {
       path: '/icons.svg',
       name: 'information',
       size: 'l',
     },
-    title: 'Information message',
+    title: 'Information notification',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
     close: {

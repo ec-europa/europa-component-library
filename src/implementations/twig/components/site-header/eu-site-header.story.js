@@ -30,7 +30,7 @@ const getArgs = (data) => {
   const defaultArgs = {
     show_language_selector: true,
     show_search: true,
-    show_message: false,
+    show_notification: false,
   };
 
   if (data.login_box) {
@@ -95,11 +95,11 @@ const getArgTypes = (data) => {
       category: 'Optional',
     },
   };
-  if (data.message) {
-    argTypes.show_message = {
-      name: 'message',
+  if (data.notification) {
+    argTypes.show_notification = {
+      name: 'notification',
       type: { name: 'boolean' },
-      description: 'Show the message box',
+      description: 'Show the notification box',
       table: {
         category: 'Optional',
       },
@@ -237,10 +237,10 @@ const prepareData = (data, args) => {
     data.cta_link = clonedDataFull.cta_link;
   }
 
-  if (!args.show_message) {
-    delete data.message;
+  if (!args.show_notification) {
+    delete data.notification;
   } else {
-    data.message = clonedDataFull.message;
+    data.notification = clonedDataFull.notification;
   }
 
   data.logged = args.logged;

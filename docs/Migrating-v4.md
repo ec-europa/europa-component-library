@@ -68,6 +68,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
 
+### Site header
+
+- Twig parameter `message` has been renamed to `notification`
+- CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
+
 ## Custom theme
 
 ECL4 introduces new ways to custommize the look and feel of elements, by changing styles and component display
