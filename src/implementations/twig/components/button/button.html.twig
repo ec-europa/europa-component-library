@@ -50,7 +50,7 @@
   {% endfor %}
 {% endif %}
 
-{% if _hide_label %}
+{% if _hide_label and _icon is not empty %}
   {% set _css_class = _css_class ~ ' ecl-button--icon-only' %}
 {% endif %}
 

@@ -76,16 +76,16 @@ $size-icon-only: calc(
       $theme,
       'line-height',
       'm'
-    )}
+    )} - #{map.get($button, 'border-width')} * 2
 );
 
 .ecl-button--icon-only {
-  height: $size-icon-only;
   padding: 0;
-  width: $size-icon-only;
 
   .ecl-button__container {
+    height: $size-icon-only;
     justify-content: center;
+    width: $size-icon-only;
   }
 
   .ecl-button__label {
