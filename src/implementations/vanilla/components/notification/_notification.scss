@@ -126,36 +126,40 @@ $notification: null !default;
 
 // information
 .ecl-notification--info {
-  background: map.get($notification, 'background-info');
+  background: map.get($notification, 'info', 'background');
+  border-inline-start: 4px solid map.get($notification, 'info', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'icon-info-fill');
+    fill: map.get($notification, 'info', 'color');
   }
 }
 
 // success
 .ecl-notification--success {
-  background: map.get($notification, 'background-success');
+  background: map.get($notification, 'success', 'background');
+  border-inline-start: 4px solid map.get($notification, 'success', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'icon-success-fill');
+    fill: map.get($notification, 'success', 'color');
   }
 }
 
 // warning
 .ecl-notification--warning {
-  background: map.get($notification, 'background-warning');
+  background: map.get($notification, 'warning', 'background');
+  border-inline-start: 4px solid map.get($notification, 'warning', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'icon-warning-fill');
+    fill: map.get($notification, 'warning', 'color');
   }
 }
 
 // error
 .ecl-notification--error {
-  background: map.get($notification, 'background-error');
+  background: map.get($notification, 'error', 'background');
+  border-inline-start: 4px solid map.get($notification, 'error', 'color');
 
   .ecl-notification__icon {
-    fill: map.get($notification, 'icon-error-fill');
+    fill: map.get($notification, 'error', 'color');
   }
 }

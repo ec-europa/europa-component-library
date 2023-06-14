@@ -186,6 +186,22 @@ $notification: (
   radius: 0,
   border-width: 1px,
   border-color: var(--ecl-color-neutral),
+  info: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-info),
+  ),
+  success: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-success),
+  ),
+  warning: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-warning),
+  ),
+  error: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-error),
+  ),
   background-error: map.get($color, 'white'),
   background-info: map.get($color, 'white'),
   background-success: map.get($color, 'white'),
@@ -231,6 +247,7 @@ $notification: (
   --ecl-color-dark-20: #{map.get($color, 'dark-20')};
   --ecl-color-dark-10: #{map.get($color, 'dark-10')};
   --ecl-color-dark: #{map.get($color, 'dark')};
+  --ecl-color-info: #{map.get($color, 'info')};
   --ecl-color-success: #{map.get($color, 'success')};
   --ecl-color-error: #{map.get($color, 'error')};
   --ecl-color-warning: #{map.get($color, 'warning')};

@@ -187,6 +187,22 @@ $notification: (
   radius: 4px,
   border-width: 0,
   border-color: transparent,
+  info: (
+    background: map.get($color, 'blue-5'),
+    color: map.get($color, 'info'),
+  ),
+  success: (
+    background: map.get($color, 'green-5'),
+    color: map.get($color, 'success'),
+  ),
+  warning: (
+    background: map.get($color, 'orange-5'),
+    color: map.get($color, 'warning'),
+  ),
+  error: (
+    background: map.get($color, 'red-5'),
+    color: map.get($color, 'error'),
+  ),
   background-error: map.get($color, 'red-5'),
   background-info: map.get($color, 'blue-5'),
   background-success: map.get($color, 'green-5'),
