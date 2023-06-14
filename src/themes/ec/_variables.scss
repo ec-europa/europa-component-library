@@ -121,9 +121,9 @@ $link: (
   outline-radius: 1px,
   inverted: (
     color: map.get($color, 'white'),
-    color-hover: var(--ecl-color-primary-30),
+    color-hover: var(--ecl-color-secondary-20),
     color-visited: var(--ecl-color-secondary-10),
-    color-active: var(--ecl-color-secondary-20),
+    color-active: var(--ecl-color-secondary-10),
     outline-color: map.get($color, 'white'),
   ),
   button: (
@@ -215,6 +215,14 @@ $text-input: (
   shadow-hover: none,
   padding-vertical: map.get($spacing, 'xs'),
   padding-horizontal: map.get($spacing, 'm'),
+);
+
+// Site footer
+$site-footer: (
+  background: var(--ecl-color-branding),
+  color: map.get($color, 'white'),
+  separator-color: var(--ecl-color-neutral),
+  column-gap: map.get($grid-gutter-width, 'm'),
 );
 
 /**

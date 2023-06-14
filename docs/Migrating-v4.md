@@ -66,7 +66,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ### Links
 
-- `Negative` links have been renamed `Inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+- `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+
+### Site footer
+
+- Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
 ## Custom theme
 

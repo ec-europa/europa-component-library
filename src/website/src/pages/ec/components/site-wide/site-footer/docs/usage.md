@@ -43,7 +43,7 @@ The standardised and harmonised configurations share the same structure and guid
 | --- | ----------------------------- | ------------ | ---------- | ------------------------------------------------------------------------------ |
 | 1   | Site name                     | mandatory    | mandatory  | Name of the site                                                               |
 | 2   | Content owner details         | mandatory    | mandatory  | Indicates **ownership over the site's content**                                |
-| 3   | Sitemap navigation            | optional     | optional   | Links to the **main content pages**                                            |
+| 3   | Accessibility statement       | mandatory    | mandatory  | Links to the **accessibility statement**                                       |
 | 4   | DG-related Service navigation | optional     | optional   | Links to the associated **services available** through the DG-site             |
 | 5   | DG-related navigation         | optional     | optional   | Links to the **main content pages**                                            |
 | 6   | Class names                   | mandatory    | optional   | **Parent classes** under which the DG falls in relation to the info-site       |

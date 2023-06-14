@@ -79,6 +79,22 @@ $link: null !default;
 }
 
 /**
+* Standalone
+*/
+.ecl-link--standalone {
+  font-family: #{map.get($theme, 'font-family', 'default')};
+  text-decoration: none;
+
+  &:visited {
+    color: map.get($link, 'color');
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/**
 * Inverted link
 */
 .ecl-link--inverted,
@@ -101,6 +117,13 @@ $link: null !default;
     color: map.get($link, 'inverted', 'color-active');
   }
 
+  &.ecl-link--standalone {
+    &:hover,
+    &:visited {
+      color: map.get($link, 'inverted', 'color');
+    }
+  }
+
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
     color: map.get($link, 'inverted', 'color');
@@ -109,23 +132,6 @@ $link: null !default;
     &:hover {
       color: map.get($link, 'inverted', 'color-hover');
     }
-  }
-}
-
-/**
-* Standalone
-*/
-.ecl-link--standalone {
-  font-family: #{map.get($theme, 'font-family', 'default')};
-  text-decoration: none;
-
-  &:visited {
-    color: map.get($link, 'color');
-  }
-
-  &:hover,
-  &:focus-visible {
-    text-decoration: underline;
   }
 }
 
