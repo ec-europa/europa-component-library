@@ -53,7 +53,7 @@ Unordered lists are used to group related content without any particular order, 
 
 # Description lists
 
-Description lists are used to display and organise content with descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need.
+Description lists are used to display and organise terms or content accompanied by descriptions. Common use cases include glossary, or a list of speakers with their biographies. There are 3 types of description lists depending on user's need.
 
 ## Do's
 
