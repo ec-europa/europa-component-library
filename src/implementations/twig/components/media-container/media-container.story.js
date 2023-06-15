@@ -72,6 +72,11 @@ const getArgTypes = (data) => {
         inside: 'inside the ecl-container, with fullwidth class',
       },
     },
+    mapping: {
+      outside: 'outside the ecl-container',
+      container: 'inside the ecl-container',
+      inside: 'inside the ecl-container, with fullwidth class',
+    },
   };
 
   return argTypes;
@@ -134,6 +139,13 @@ EmbeddedVideo.argTypes = {
     type: { name: 'select' },
     description: 'Media ratio (if empty the ratio will be set by the js)',
     options: {
+      auto: '',
+      '16/9': '16-9',
+      '4/3': '4-3',
+      '3/2': '3-2',
+      '1/1': '1-1',
+    },
+    mapping: {
       auto: '',
       '16/9': '16-9',
       '4/3': '4-3',

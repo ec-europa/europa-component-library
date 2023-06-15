@@ -72,6 +72,10 @@ const getArgTypes = (data) => {
     type: { name: 'select' },
     description: 'Alignment inside featured item',
     options: ['left', 'right'],
+    mapping: {
+      left: 'left',
+      right: 'right',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },

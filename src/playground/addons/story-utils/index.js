@@ -36,12 +36,13 @@ export const correctPaths = (data) => {
   return data;
 };
 
-export const getIconControls = (data, icons) => {
+export const getIconControls = (data, icons, mapping) => {
   const argTypes = {};
   argTypes.name = {
     type: { name: 'select', required: true },
     description: 'Name of the icon',
     options: icons,
+    mapping,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -71,6 +72,16 @@ export const getIconControls = (data, icons) => {
         fluid: 'fluid',
       },
     },
+    mapping: {
+      'extra small 2': '2xs',
+      'extra small': 'xs',
+      small: 's',
+      medium: 'm',
+      large: 'l',
+      'extra large': 'xl',
+      'extra large 2': '2xl',
+      fluid: 'fluid',
+    },
   };
   argTypes.color = {
     name: 'color',
@@ -82,6 +93,11 @@ export const getIconControls = (data, icons) => {
       category: 'Icon',
     },
     options: ['default', 'inverted', 'primary'],
+    mapping: {
+      default: 'default',
+      inverted: 'inverted',
+      primary: 'primary',
+    },
   };
   argTypes.transform = {
     name: 'transformation',
@@ -100,6 +116,14 @@ export const getIconControls = (data, icons) => {
       'flip-horizontal',
       'flip-vertical',
     ],
+    mapping: {
+      none: 'none',
+      '90° rotation': 'rotate-90',
+      '180° rotation': 'rotate-180',
+      '270° rotation': 'rotate-270',
+      'horizontal flip': 'flip-horizontal',
+      'vertical flip': 'flip-vertical',
+    },
     control: {
       labels: {
         none: 'none',
@@ -234,6 +258,11 @@ export const getFormControls = (data, type) => {
       control: {
         type: 'select',
         label: { s: 'small', m: 'medium', l: 'large' },
+      },
+      mapping: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
       },
     };
   }

@@ -17,6 +17,11 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
 // Create 'none' option.
 iconsAll.unshift('none');
 
@@ -46,6 +51,7 @@ const getArgTypes = () => {
     description: 'Button icon',
     type: { name: 'select' },
     options: iconsAll,
+    mapping: iconMapping,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -63,6 +69,13 @@ const getArgTypes = () => {
       'flip-horizontal',
       'flip-vertical',
     ],
+    mapping: {
+      'rotate-90': 'rotate-90',
+      'rotate-180': 'rotate-180',
+      'rotate-270': 'rotate-270',
+      'flip-horizontal': 'flip-horizontal',
+      'flip-vertical': 'flip-vertical',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -74,6 +87,10 @@ const getArgTypes = () => {
     type: { name: 'inline-radio' },
     description: 'Icon position inside the button',
     options: ['before', 'after'],
+    mapping: {
+      before: 'before',
+      after: 'after',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'after' },
