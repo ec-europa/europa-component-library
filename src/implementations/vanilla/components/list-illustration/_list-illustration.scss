@@ -185,6 +185,14 @@ $_icon_color: null !default;
   }
 }
 
+@include breakpoints.up('s') {
+  .ecl-list-illustration--zebra {
+    left: auto;
+    margin-inline-start: 0;
+    width: auto;
+  }
+}
+
 // Centered items
 .ecl-list-illustration--centered {
   &.ecl-list-illustration--col-2,
