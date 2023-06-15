@@ -25,6 +25,13 @@ const getArgTypes = () => ({
       warning: 'warning',
       error: 'error',
     },
+    mapping: {
+      default: '',
+      information: 'information',
+      success: 'success',
+      warning: 'warning',
+      error: 'error',
+    },
     table: {
       category: 'Display',
     },
