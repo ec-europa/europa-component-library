@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.8.4 (2023-06-15)
+
+#### :bug: Bug Fix
+
+- [#2909](https://github.com/ec-europa/europa-component-library/pull/2909) fix(list-illustration): fix display issue - FRONT-3997 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2908](https://github.com/ec-europa/europa-component-library/pull/2908) fix(storybook): Fixing args in url when the value is from a select or a radio control - FRONT-3996 ([@planctus](https://github.com/planctus))
+- [#2911](https://github.com/ec-europa/europa-component-library/pull/2911) feat(description-list): Safer click handler - FRONT-3990 ([@planctus](https://github.com/planctus))
+- [#2910](https://github.com/ec-europa/europa-component-library/pull/2910) fix(gallery): backward compatibility in javascript - FRONT-3988 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2905](https://github.com/ec-europa/europa-component-library/pull/2905) chore(deps): Updates 13-06-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.8.3 (2023-06-12)
 
 #### :bug: Bug Fix

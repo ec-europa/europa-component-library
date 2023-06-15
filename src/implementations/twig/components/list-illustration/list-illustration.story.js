@@ -22,6 +22,16 @@ const valueDefault = dataListIllustrationIcon.items[0].value;
 // Create 'none' option.
 iconsAll.unshift('none');
 
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
+const flagMapping = iconsFlag.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
 const getArgs = (data, variant) => {
   const args = {
     show_description: true,
@@ -198,6 +208,11 @@ const getArgTypes = (data, variant) => {
           l: 'large',
         },
       },
+      mapping: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -212,6 +227,7 @@ const getArgTypes = (data, variant) => {
       description: 'The generic icon used in the list item (first item)',
       type: { name: 'select' },
       options: iconsAll,
+      mapping: iconMapping,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -223,6 +239,7 @@ const getArgTypes = (data, variant) => {
       description: 'The flag icon used in the list item (first item)',
       type: { name: 'select' },
       options: iconsFlag,
+      mapping: flagMapping,
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -239,6 +256,11 @@ const getArgTypes = (data, variant) => {
           s: 'small',
           l: 'large',
         },
+      },
+      mapping: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
       },
       table: {
         type: { summary: 'string' },

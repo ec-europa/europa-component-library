@@ -13,6 +13,11 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
 const getArgs = (data) => ({
   show_view_all: true,
   show_icons: true,
@@ -57,6 +62,7 @@ const getArgTypes = () => ({
     description: 'Name of the icon',
     type: 'select',
     options: iconsAll,
+    mapping: iconMapping,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },

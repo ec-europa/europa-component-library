@@ -74,6 +74,11 @@ const getArgTypes = (data) => {
           l: 'large',
         },
       },
+      mapping: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
@@ -101,6 +106,11 @@ const getArgTypes = (data) => {
           container: 'inside the grid container',
           inside: 'inside the grid container, with fullwidth class',
         },
+      },
+      mapping: {
+        outside: 'outside the grid container',
+        container: 'inside the grid container',
+        inside: 'inside the grid container, with fullwidth class',
       },
       table: {
         type: { summary: 'radio' },
