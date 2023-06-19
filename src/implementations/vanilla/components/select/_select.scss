@@ -248,6 +248,7 @@ $_multiple_counter_background: null !default;
     cursor: default;
     box-shadow: $_multiple-dropdown-shadow;
     box-sizing: border-box;
+    min-width: map.get(theme.$form, 'm');
     position: absolute;
     z-index: map.get(theme.$z-index, 'dropdown');
   }
