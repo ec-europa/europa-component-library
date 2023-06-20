@@ -5,7 +5,8 @@
   $_font-weight: map.get(theme.$font-weight, 'bold'),
   $_shadow-hover: none,
   // Primary
-  $_primary-background-color-hover: map.get(theme.$color, 'blue-130'),
+  $_primary-background-color: var(--primary-40),
+  $_primary-background-color-hover: var(--primary-80),
   // Secondary
   $_secondary-border-color-hover: map.get(theme.$color, 'blue-130'),
   $_secondary-color-hover: map.get(theme.$color, 'blue-130'),
