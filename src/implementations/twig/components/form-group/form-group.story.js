@@ -11,6 +11,9 @@ import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 import dataTextarea from '@ecl/specs-component-text-area/demo/data';
 import dataDatepicker from '@ecl/specs-component-datepicker/demo/data';
 import dataCheckbox from '@ecl/specs-component-checkbox/demo/data';
+import dataRange from '@ecl/specs-component-range/demo/data';
+import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
+import dataFile from '@ecl/specs-component-file-upload/demo/data';
 
 import formGroup from './form-group.html.twig';
 import notes from './README.md';
@@ -40,6 +43,25 @@ const getArgs = (data) => {
   if (data.placeholder) {
     args.placeholder = data.placeholder;
   }
+  if (data.input === 'range') {
+    args.min = data.min;
+    args.max = data.max;
+    args.step = data.step;
+    args.value_text = data.value_text;
+  }
+  if (data.input === 'rating-field') {
+    args.star_filled_icon = data.star_filled_icon;
+    args.star_outline_icon = data.star_outline_icon;
+    args.helper_id = data.helper_id;
+  }
+  if (data.input === 'file') {
+    args.button_choose_label = data.button_choose_label;
+    args.button_replace_label = data.button_replace_label;
+    args.multiple = false;
+  }
+  if (data.input === 'datepicker') {
+    args.autoinit = true;
+  }
 
   return args;
 };
@@ -48,13 +70,26 @@ const getArgTypes = (data) => ({
   ...getFormControls(data, 'group'),
   input: {
     type: 'select',
-    options: ['text', 'textarea', 'radio', 'datepicker', 'select', 'search'],
+    options: [
+      'text',
+      'textarea',
+      'radio',
+      'datepicker',
+      'select',
+      'search',
+      'range',
+      'rating-field',
+      'file',
+    ],
     mapping: {
       text: 'text',
-      tedxtarea: 'textarea',
+      textarea: 'textarea',
       radio: 'radio',
-      dapicker: 'datepicker',
+      datepicker: 'datepicker',
       select: 'select',
+      range: 'range',
+      'rating-field': 'rating-field',
+      search: 'search',
     },
     table: {
       type: { summary: 'string' },
@@ -143,3 +178,28 @@ Datepicker.storyName = 'datepicker';
 Datepicker.args = getArgs({ ...dataDatepicker, input: 'datepicker' });
 Datepicker.argTypes = getArgTypes({ ...dataDatepicker, input: 'datepicker' });
 Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
+
+export const Range = (args) => formGroup(prepareData(dataRange, args));
+
+Range.storyName = 'range';
+Range.args = getArgs({ ...dataRange, input: 'range' });
+Range.argTypes = getArgTypes({ ...dataRange, input: 'range' });
+Range.parameters = { notes: { markdown: notes, json: dataRange } };
+
+export const RatingField = (args) =>
+  formGroup(prepareData(dataRatingField, args));
+
+RatingField.storyName = 'rating field';
+RatingField.args = getArgs({ ...dataRatingField, input: 'rating-field' });
+RatingField.argTypes = getArgTypes({
+  ...dataRatingField,
+  input: 'rating-field',
+});
+RatingField.parameters = { notes: { markdown: notes, json: dataRatingField } };
+
+export const FileUpload = (args) => formGroup(prepareData(dataFile, args));
+
+FileUpload.storyName = 'file upload';
+FileUpload.args = getArgs({ ...dataFile, input: 'file' });
+FileUpload.argTypes = getArgTypes({ ...dataFile, input: 'file' });
+FileUpload.parameters = { notes: { markdown: notes, json: dataFile } };

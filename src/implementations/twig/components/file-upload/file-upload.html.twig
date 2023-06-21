@@ -35,18 +35,10 @@
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
-{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _disabled = disabled|default(false) %}
 {% set _multiple = multiple|default(false) %}
 {% set _required = required|default(false) %}
-{% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('') %}
 {% set _extra_classes = extra_classes|default('') %}
-
-{# Blocks #}
-{% set _label = label|default('') %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_text = invalid_text|default('') %}
 
 {# Internal properties #}
 
@@ -54,10 +46,6 @@
 {% set _main_attributes = 'data-ecl-file-upload-input data-ecl-auto-init="FileUpload"' %}
 {% set _disabled_variant = '--disabled' %}
 {% set _invalid_variant = '--invalid' %}
-{% set _label_base_class = 'ecl-form-label' %}
-{% set _label_classes = _label_base_class %}
-{% set _help_classes = 'ecl-help-block' %}
-{% set _group_css_classes = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -105,47 +93,6 @@
 
 {# Print the result #}
 
-<div
-  class="{{ _group_css_classes }}"
-  data-ecl-file-upload-group
->
-{% if _label is not empty %}
-  <label class="{{ _label_classes }}"
-  {% if _id is not empty %}
-    for="{{ _id }}"
-  {% endif %}
-  >
-    {%- block label _label -%}
-    {%- if _required and _required_text is not empty -%}
-      <span class="{{ _label_base_class }}__required">
-        {{- _required_text -}}
-      </span>
-    {%- elseif not _required and _optional_text is not empty -%}
-      <span class="{{ _label_base_class }}__optional">
-        {{ _optional_text -}}
-      </span>
-    {% endif %}
-  </label>
-{% endif %}
-
-{% if _helper_text is not empty %}
-  <div class="{{ _help_classes }}">
-    {%- block helper_text _helper_text -%}
-  </div>
-{% endif %}
-
-{% if _invalid and _invalid_text is not empty %}
-  <div class="ecl-feedback-message">
-    {% if _invalid_icon is not empty %}
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: _invalid_icon,
-      extra_classes: 'ecl-feedback-message__icon',
-    } only %}
-    {% endif %}
-    {%- block invalid_text _invalid_text -%}
-  </div>
-{% endif %}
-
   <input
     type="file"
     class="{{ _component_class }}"
@@ -183,6 +130,5 @@
     data-ecl-file-upload-list
   >
   </ul>
-</div>
 
 {% endapply %}
