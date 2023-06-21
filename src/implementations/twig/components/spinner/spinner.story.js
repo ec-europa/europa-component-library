@@ -48,6 +48,11 @@ const getArgTypes = (variant) => ({
   size: {
     type: { name: 'select' },
     options: ['small', 'medium', 'large'],
+    mapping: {
+      small: 'small',
+      medium: 'medium',
+      large: 'large',
+    },
     description: 'Variant of the component',
     table: {
       type: { summary: 'string' },

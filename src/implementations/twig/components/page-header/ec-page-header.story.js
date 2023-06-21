@@ -131,6 +131,11 @@ const getArgTypes = (data) => {
       type: 'select',
       description: 'Overlay on top on background image',
       options: ['none', 'dark', 'light'],
+      mapping: {
+        none: 'none',
+        dark: 'dark',
+        light: 'light',
+      },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },

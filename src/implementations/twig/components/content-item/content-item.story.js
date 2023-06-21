@@ -157,6 +157,10 @@ const getArgTypes = (data) => {
           large: 'large (landscape)',
         },
       },
+      mapping: {
+        small: 'small (square)',
+        large: 'large (landscape)',
+      },
       table: {
         type: 'string',
         defaultValue: { summary: '' },
@@ -168,6 +172,10 @@ const getArgTypes = (data) => {
       type: 'select',
       description: "Possible image position ('left' or 'right')",
       options: ['left', 'right'],
+      mapping: {
+        left: 'left',
+        right: 'right',
+      },
       table: {
         type: 'string',
         defaultValue: { summary: '' },
