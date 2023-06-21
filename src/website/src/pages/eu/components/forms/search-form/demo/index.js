@@ -1,4 +1,4 @@
-import demoContent from '@ecl/specs-component-search-form/demo/data';
+import demoContent from '@ecl/specs-component-search-form/demo/data--eu';
 import template from '@ecl/twig-component-search-form/search-form.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
