@@ -8,7 +8,6 @@ npm install --save @ecl/twig-component-checkbox
 
 ### Parameters:
 
-- **"label_id"** (string) (default: '')
 - **"items"** (array) (default: [])
   - "id" (string) (default: '')
   - "name" (string) (default: '')
@@ -21,7 +20,6 @@ npm install --save @ecl/twig-component-checkbox
   - "label" (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
 - **"name"** (string) (default: '')
-- **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
@@ -32,11 +30,7 @@ npm install --save @ecl/twig-component-checkbox
 
 ### Blocks:
 
-- **"helper_text"**
 - **"invalid_text"**
-- **"optional_text"**
-- **"required_text"**
-- **"label"**
 
 ### Example:
 

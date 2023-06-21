@@ -35,6 +35,10 @@ $_label-color: null !default;
   opacity: 0.5;
 }
 
+.ecl-radio ~ .ecl-radio {
+  margin-top: map.get(theme.$spacing, 's');
+}
+
 .ecl-radio__input {
   border: 0;
   clip: rect(0, 0, 0, 0);
@@ -86,7 +90,6 @@ $_label-color: null !default;
   color: $_help-text-color;
   display: block;
   font: $_help-text-font;
-  margin-bottom: -#{map.get(theme.$spacing, 's')};
   margin-top: map.get(theme.$spacing, 'xs');
 }
 

@@ -243,7 +243,18 @@ export const getFormControls = (data, type) => {
       },
     };
   }
-
+  if (data.name) {
+    argTypes.name = {
+      name: 'name',
+      type: 'string',
+      description: `Name attribute`,
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
   if (data.width) {
     argTypes.width = {
       name: 'width',
@@ -260,9 +271,9 @@ export const getFormControls = (data, type) => {
         label: { s: 'small', m: 'medium', l: 'large' },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 's',
+        large: 'l',
       },
     };
   }

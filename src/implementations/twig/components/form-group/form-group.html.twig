@@ -1,0 +1,196 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "invalid_icon" (object of type "icon") (default: {})
+  - "required" (boolean) (default: false)
+  - "name" (string) (default: '')
+  - "type" (string) (default: 'text')
+  - "placeholder" (string) (default: '')
+  - "width" (string) (default: 'm')
+  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+  Blocks:
+  - "helper_text"
+  - "invalid_text"
+  - "required_text"
+  - "optional_text"
+  - "label"
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('') %}
+{% set _items = items %}
+{% set _disabled = disabled|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _required = required|default(false) %}
+{% set _required_text = required_text|default('') %}
+{% set _optional_text = optional_text|default('') %}
+{% set _invalid_icon = invalid_icon|default({}) %}
+{% set _placeholder = placeholder|default('') %}
+{% set _width = width|default('m') %}
+{% set _helper_text = helper_text|default('') %}
+{% set _invalid_text = invalid_text|default('') %}
+{% set _label = label|default('') %}
+{% set _label_class = 'ecl-form-label' %}
+{% set _label_id = label_id|default('') %}
+{% set _icon_path = icon_path|default(icons_path|default(false)) %}
+{% set _css_class = 'ecl-form-group' %}
+{% set _extra_attributes = '' %}
+{% set _input = input|default('') %}
+{% set _extra_input_classes = extra_input_classes|default('') %}
+{% set _placeholder = placeholder|default('') %}
+{% set _width = width|default('m') %}
+{% set _name = name|default('') %}
+{% set _binary = binary|default(false) %}
+{% set _rows = rows|default(4) %}
+{% set _multiple = multiple|default(false) %}
+{% set _default_value = default_value|default('') %}
+{% set _multiple_placeholder = multiple_placeholder|default('') %}
+{% set _multiple_all_text = multiple_all_text|default('') %}
+{% set _multiple_search_text = multiple_search_text|default('') %}
+{% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
+{% set _multiple_search_text = multiple_search_text|default('') %}
+{% set _multiple_close_text = multiple_close_text|default('') %}
+{% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
+{% set _options = options|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_label_classes is defined and extra_label_classes is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}">
+  {% if _label is not empty %}
+    <label
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
+      class="{{- _label_class -}}
+      {{- _invalid ? ' ecl-form-label--invalid' -}}
+      {{- _disabled ? ' ecl-form-label--disabled' -}}"
+    >
+      {%- block label _label -%}
+      {%- if _required and _required_text is not empty -%}
+        <span class="ecl-form-label__required">{{ _required_text }}</span>
+      {%- elseif not _required and _optional_text is not empty -%}
+        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+      {%- endif -%}
+    </label>
+  {% endif %}
+
+  {% if _helper_text is not empty %}
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+      {%- block helper_text _helper_text -%}
+    </div>
+  {% endif %}
+
+  {% if _invalid and _invalid_text is not empty %}
+    <div class="ecl-feedback-message">
+      {% if _invalid_icon is not empty %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+      {% endif %}
+      {%- block invalid_text _invalid_text -%}
+    </div>
+  {% endif %}
+
+  {%- if _input == 'text' or _input == 'search' -%}
+    {% include '@ecl/text-input/text-input.html.twig' with {
+      id: _id,
+      type: _input,
+      placeholder: _placeholder,
+      width: _width,
+      extra_classes: _extra_input_classes,
+    } only %}
+  {%- endif -%}
+  {%- if _input == 'select' -%}
+    <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
+    >
+      {% include '@ecl/select/select.html.twig' with {
+        id: _id,
+        options: _options,
+        multiple: _multiple,
+        multiple_placeholder: _multiple_placeholder,
+        multiple_all_text: _multiple_all_text,
+        multiple_search_text: _multiple_search_text,
+        multiple_search_no_results_text: _multiple_search_no_results_text,
+        multiple_search_text: _multiple_search_text,
+        multiple_close_text: _multiple_close_text,
+        multiple_clear_all_text: _multiple_clear_all_text,
+        icon_path: _icon_path,
+        extra_classes: _extra_input_classes,
+      } only %}
+    </div>
+  {%- endif -%}
+
+  {%- if _input == 'textarea' -%}
+    {% include '@ecl/text-area/text-area.html.twig' with {
+      id: _id,
+      rows: _rows,
+      width: _width,
+      placeholder: _placeholder,
+      extra_classes: _extra_input_classes,
+    } only %}
+  {%- endif -%}
+
+  {%- if _input == 'datepicker' -%}
+    {% include '@ecl/datepicker/datepicker.html.twig' with {
+      autoinit: _autoinit,
+      id: _id,
+      name: _name,
+      default_value: _default_value,
+      placeholder: _placeholder,
+      icons_path: _icon_path,
+      extra_classes: _extra_input_classes,
+    } only %}
+  {%- endif -%}
+
+  {%- if _input == 'radio' -%}
+    {% include '@ecl/radio/radio-group.html.twig' with {
+      id: _id,
+      items: _items,
+      name: _name,
+      binary: _binary,
+      extra_classes: _extra_input_classes,
+    } only %}
+  {%- endif -%}
+
+  {%- if _input == 'checkbox' -%}
+    {% include '@ecl/checkbox/checkbox-group.html.twig' with {
+      id: _id,
+      label_id: _label_id,
+      name: _name,
+      items: _items,
+      extra_classes: _extra_input_classes,
+    } only %}
+  {%- endif -%}
+</div>
+
+{% endapply %}

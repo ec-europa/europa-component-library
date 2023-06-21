@@ -2,855 +2,680 @@
 
 exports[`Select Default renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    id="select-default"
+    name="country"
   >
-    <label
-      class="ecl-form-label"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__optional"
+      <option
+        value="1"
       >
-          (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <select
-        class="ecl-select"
-        id="select-default"
-        name="country"
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select Default renders correctly with extra attributes 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="select-default"
+    name="country"
+    required=""
   >
-    <label
-      class="ecl-form-label"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__required"
+      <option
+        value="1"
       >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <select
-        class="ecl-select"
-        data-test="data-test-value"
-        data-test-1="data-test-value-1"
-        id="select-default"
-        name="country"
-        required=""
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select Default renders correctly with extra class names 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select custom-class custom-class--test"
+    id="select-default"
+    name="country"
+    required=""
   >
-    <label
-      class="ecl-form-label"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__required"
+      <option
+        value="1"
       >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <select
-        class="ecl-select custom-class custom-class--test"
-        id="select-default"
-        name="country"
-        required=""
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select Disabled renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    disabled=""
+    id="select-default"
+    name="country"
   >
-    <label
-      class="ecl-form-label ecl-form-label--disabled"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__optional"
+      <option
+        value="1"
       >
-          (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block ecl-help-block--disabled"
-    >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
-    >
-      <select
-        class="ecl-select"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
         disabled=""
-        id="select-default"
-        name="country"
+        value="3"
       >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
+        Luxembourg
+      </option>
+      <option
+        value="4"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
+    >
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
+    >
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select Multiple renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    data-ecl-auto-init="Select"
+    data-ecl-select-all="Select all"
+    data-ecl-select-clear-all="Clear all"
+    data-ecl-select-close="Close"
+    data-ecl-select-default="Select an item"
+    data-ecl-select-multiple=""
+    data-ecl-select-no-results="No results found"
+    data-ecl-select-search="Enter keyword"
+    id="select-multiple"
+    multiple=""
+    name="country"
+    required=""
   >
-    <label
-      class="ecl-form-label"
-      for="select-multiple"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__required"
+      <option
+        value="1"
       >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <select
-        class="ecl-select"
-        data-ecl-auto-init="Select"
-        data-ecl-select-all="Select all"
-        data-ecl-select-clear-all="Clear all"
-        data-ecl-select-close="Close"
-        data-ecl-select-default="Select an item"
-        data-ecl-select-multiple=""
-        data-ecl-select-no-results="No results found"
-        data-ecl-select-search="Enter keyword"
-        id="select-multiple"
-        multiple=""
-        name="country"
-        required=""
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select Required renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    id="select-default"
+    name="country"
+    required=""
   >
-    <label
-      class="ecl-form-label"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__required"
+      <option
+        value="1"
       >
-        *
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--m"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <select
-        class="ecl-select"
-        id="select-default"
-        name="country"
-        required=""
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
 
 exports[`Select With error renders correctly 1`] = `
 <jest>
-  <div
-    class="ecl-form-group"
+  <select
+    aria-label="country"
+    class="ecl-select"
+    id="select-default"
+    name="country"
   >
-    <label
-      class="ecl-form-label ecl-form-label--invalid"
-      for="select-default"
+    <optgroup
+      label="European countries"
     >
-      Select a country
-      <span
-        class="ecl-form-label__optional"
+      <option
+        value="1"
       >
-          (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
+        Belgium
+      </option>
+      <option
+        value="2"
+      >
+        France
+      </option>
+      <option
+        disabled=""
+        value="3"
+      >
+        Luxembourg
+      </option>
+      <option
+        value="4"
+      >
+        Germany
+      </option>
+      <option
+        selected=""
+        value="5"
+      >
+        Bulgaria
+      </option>
+      <option
+        value="6"
+      >
+        Italy
+      </option>
+      <option
+        value="7"
+      >
+        Romania
+      </option>
+      <option
+        value="8"
+      >
+        Greece
+      </option>
+      <option
+        value="9"
+      >
+        Hungary
+      </option>
+      <option
+        value="10"
+      >
+        Portugal
+      </option>
+    </optgroup>
+    <optgroup
+      label="Non European countries"
     >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-feedback-message"
+      <option
+        value="11"
+      >
+        China
+      </option>
+    </optgroup>
+    <option
+      value="12"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#error"
-        />
-      </svg>
-            This is the error message
-    </div>
-    <div
-      class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
+      standalone option
+    </option>
+  </select>
+  <div
+    class="ecl-select__icon"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+      focusable="false"
     >
-      <select
-        class="ecl-select"
-        id="select-default"
-        name="country"
-      >
-        <optgroup
-          label="European countries"
-        >
-          <option
-            value="1"
-          >
-            Belgium
-          </option>
-          <option
-            value="2"
-          >
-            France
-          </option>
-          <option
-            disabled=""
-            value="3"
-          >
-            Luxembourg
-          </option>
-          <option
-            value="4"
-          >
-            Germany
-          </option>
-          <option
-            selected=""
-            value="5"
-          >
-            Bulgaria
-          </option>
-          <option
-            value="6"
-          >
-            Italy
-          </option>
-          <option
-            value="7"
-          >
-            Romania
-          </option>
-          <option
-            value="8"
-          >
-            Greece
-          </option>
-          <option
-            value="9"
-          >
-            Hungary
-          </option>
-          <option
-            value="10"
-          >
-            Portugal
-          </option>
-        </optgroup>
-        <optgroup
-          label="Non European countries"
-        >
-          <option
-            value="11"
-          >
-            China
-          </option>
-        </optgroup>
-        <option
-          value="12"
-        >
-          standalone option
-        </option>
-      </select>
-      <div
-        class="ecl-select__icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </div>
-    </div>
+      <use
+        xlink:href="/icons.svg#corner-arrow"
+      />
+    </svg>
   </div>
 </jest>
 `;
