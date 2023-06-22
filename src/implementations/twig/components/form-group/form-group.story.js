@@ -112,7 +112,7 @@ RadioGroup.args = getArgs(dataDefault);
 RadioGroup.argTypes = getArgTypes(dataDefault);
 RadioGroup.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Textarea = (args) => formGroup(prepareData(dataDefault, args));
+export const Textarea = (args) => formGroup(prepareData(dataTextarea, args));
 
 Textarea.storyName = 'textarea';
 Textarea.args = getArgs(dataTextarea);

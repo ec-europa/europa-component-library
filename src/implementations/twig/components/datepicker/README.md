@@ -27,7 +27,7 @@ npm install --save @ecl/twig-component-datepicker
 
 <!-- prettier-ignore -->
 ```twig 
-{% include '@ecl/datepicker/datepicker.html.twig' with { , 
+{% include '@ecl/datepicker/datepicker.html.twig' with { 
   id: 'an-id-for-the-input', 
   name: 'a-name-for-the-input', 
   required: true, 
