@@ -68,3 +68,9 @@ $form-group: null !default;
   font: map.get($form-group, 'font-optional');
   font-style: map.get($form-group, 'font-style-optional');
 }
+
+.ecl-form-label + {
+  *:not(.ecl-help-block, .ecl-feedback-message) {
+    margin-top: map.get($theme, 'spacing', 'xs');
+  }
+}

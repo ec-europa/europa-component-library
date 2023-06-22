@@ -2,16 +2,11 @@
 
 {#
   Parameters:
-  - "id" (string) (default: '')
+  - "input" (object) default({}) Object of type input
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
-  - "name" (string) (default: '')
-  - "type" (string) (default: 'text')
-  - "placeholder" (string) (default: '')
-  - "width" (string) (default: 'm')
-  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-input group
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
     - "name" (string) Attribute name, eg. 'data-test'
@@ -26,9 +21,6 @@
 
 {# Common properties #}
 
-{% set _input = input|default('') %}
-{% set _id = id|default('') %}
-{% set _name = name|default('') %}
 {% set _label = label|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
@@ -41,45 +33,17 @@
 {% set _label_class = 'ecl-form-label' %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
-{% set _extra_input_classes = extra_input_classes|default('') %}
-
-{# fields specific #}
-{% set _placeholder = placeholder|default('') %}
-{% set _value = value|default('') %}
-{% set _width = width|default('m') %}
-{% set _label_id = label_id|default('') %}
-{% set _icon_path = icon_path|default(icons_path|default(false)) %}
-{% set _rows = rows|default(4) %}
-{% set _multiple = multiple|default(false) %}
-{% set _default_value = default_value|default('') %}
-{# radio #}
-{% set _binary = binary|default(false) %}
-{# select #}
-{% set _options = options|default([]) %}
-{# multiselect #}
-{% set _multiple_placeholder = multiple_placeholder|default('') %}
-{% set _multiple_all_text = multiple_all_text|default('') %}
-{% set _multiple_search_text = multiple_search_text|default('') %}
-{% set _multiple_search_no_results_text = multiple_search_no_results_text|default('') %}
-{% set _multiple_search_text = multiple_search_text|default('') %}
-{% set _multiple_close_text = multiple_close_text|default('') %}
-{% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
-{# range #}
-{% set _value_text = value_text|default('') %}
-{% set _min = min|default() %}
-{% set _max = max|default() %}
-{% set _step = step|default() %}
-{# rating #}
-{% set _star_filled_icon = star_filled_icon|default({}) %}
-{% set _star_outline_icon = star_outline_icon|default({}) %}
-{% set _helper_id = helper_id|default('') %}
-{# file #}
-{% set _button_choose_label = button_choose_label|default('') %}
-{% set _button_replace_label = button_replace_label|default('') %}
-{# datepicker #}
-{% set _autoinit = autoinit|default(false) %}
+{% set _input = input|default({}) %}
+{% set _width = _input.width|default('') %}
+{% set _id = _input.id|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% set _label_tag = 'label' %}
+
+{% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
+  {% set _label_tag = 'legend' %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -89,20 +53,20 @@
   {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
-{% if _input == 'range' %}
+{% if _input.input_type == 'range' %}
   {% set extra_attributes = [
     { name: 'data-ecl-range', value: true },
     { name: 'data-ecl-auto-init', value: 'Range' },
   ] %}
 {% endif %}
 
-{% if _input == 'rating-field' and _helper_id is not empty %}
+{% if _input.input_type == 'rating-field' and _helper_id is not empty %}
  {% set extra_attributes = [
   { name: 'aria-describedby', value: _helper_id }
  ] %}
 {% endif %}
 
-{% if _input == 'file' %}
+{% if _input.input_type == 'file' %}
   {% set extra_attributes = [
     { name: 'data-ecl-file-upload-group', value: true },
     { name: 'data-ecl-autoinit', value: 'FileUpload' },
@@ -126,7 +90,7 @@
   {{- _extra_attributes|raw -}}
 >
   {% if _label is not empty %}
-    <label
+    <{{ _label_tag }}
     {% if _id %}
       for="{{ _id }}"
     {% endif %}
@@ -140,7 +104,7 @@
       {%- elseif not _required and _optional_text is not empty -%}
         <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
       {%- endif -%}
-    </label>
+    </{{ _label_tag }}>
   {% endif %}
 
   {% if _helper_text is not empty %}
@@ -161,98 +125,44 @@
     </div>
   {% endif %}
 
-  {% set input_props = {
-    id: _id,
-    name: _name,
-    disabled: _disabled,
-    required: _required,
-    invalid: _invalid,
-    extra_classes: _extra_input_classes,
-    extra_attributes: _extra_input_attributes,
-  } %}
-
-  {%- if _input == 'text' or _input == 'search' -%}
-    {% include '@ecl/text-input/text-input.html.twig' with input_props|merge({
-      type: _input,
-      placeholder: _placeholder,
-      width: _width,
+  {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
+    {% include '@ecl/text-input/text-input.html.twig' with _input|merge({
+      type: _input.input_type,
     }) only %}
   {%- endif -%}
-  {%- if _input == 'select' -%}
+  {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
-    {% include '@ecl/select/select.html.twig' with input_props|merge({
-      options: _options,
-      multiple: _multiple,
-      multiple_placeholder: _multiple_placeholder,
-      multiple_all_text: _multiple_all_text,
-      multiple_search_text: _multiple_search_text,
-      multiple_search_no_results_text: _multiple_search_no_results_text,
-      multiple_search_text: _multiple_search_text,
-      multiple_close_text: _multiple_close_text,
-      multiple_clear_all_text: _multiple_clear_all_text,
-      icon_path: _icon_path,
-    }) only %}
+    {% include '@ecl/select/select.html.twig' with _input only %}
     </div>
   {%- endif -%}
 
-  {%- if _input == 'textarea' -%}
-    {% include '@ecl/text-area/text-area.html.twig' with input_props|merge({
-      rows: _rows,
-      width: _width,
-      placeholder: _placeholder,
-    }) only %}
+  {%- if _input.input_type == 'textarea' -%}
+    {% include '@ecl/text-area/text-area.html.twig' with input only %}
   {%- endif -%}
 
-  {%- if _input == 'datepicker' -%}
-    {% include '@ecl/datepicker/datepicker.html.twig' with input_props|merge({
-      autoinit: _autoinit,
-      default_value: _default_value,
-      placeholder: _placeholder,
-      icons_path: _icon_path,
-    }) only %}
+  {%- if _input.input_type == 'datepicker' -%}
+    {% include '@ecl/datepicker/datepicker.html.twig' with input only %}
   {%- endif -%}
 
-  {%- if _input == 'radio' -%}
-    {% include '@ecl/radio/radio-group.html.twig' with input_props|merge({
-      items: _items,
-      binary: _binary,
-    }) only %}
+  {%- if _input.input_type == 'radio' -%}
+    {% include '@ecl/radio/radio-group.html.twig' with input only %}
   {%- endif -%}
 
-  {%- if _input == 'checkbox' -%}
-    {% include '@ecl/checkbox/checkbox-group.html.twig' with input_props|merge({
-      label_id: _label_id,
-      items: _items,
-    }) only %}
+  {%- if _input.input_type == 'checkbox' -%}
+    {% include '@ecl/checkbox/checkbox-group.html.twig' with input only %}
   {%- endif -%}
 
-  {%- if _input == 'range' -%}
-    {% include '@ecl/range/range.html.twig' with input_props|merge({
-      value_text: _value_text,
-      min: _min,
-      max: _max,
-      step: _step,
-      value: _value,
-      width: _width,
-    }) only %}
+  {%- if _input.input_type == 'range' -%}
+    {% include '@ecl/range/range.html.twig' with _input only %}
   {%- endif -%}
 
-  {%- if _input == 'rating-field' -%}
-    {% include '@ecl/rating-field/rating-field.html.twig' with input_props|merge({
-      items: _items,
-      value: _value,
-      star_outline_icon: _star_outline_icon,
-      star_filled_icon: _star_filled_icon,
-    }) only %}
+  {%- if _input.input_type == 'rating-field' -%}
+    {% include '@ecl/rating-field/rating-field.html.twig' with _input only %}
   {%- endif -%}
 
-  {%- if _input == 'file' -%}
-    {% include '@ecl/file-upload/file-upload.html.twig' with input_props|merge({
-      button_choose_label: _button_choose_label,
-      button_replace_label: _button_replace_label,
-      multiple: _multiple,
-    }) only %}
+  {%- if _input.input_type == 'file' -%}
+    {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
 </div>
 

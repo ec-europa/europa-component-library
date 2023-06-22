@@ -35,7 +35,7 @@ $_label-color: null !default;
   opacity: 0.5;
 }
 
-.ecl-radio ~ .ecl-radio {
+.ecl-radio ~ .ecl-radio:not(.ecl-radio--binary) {
   margin-top: map.get(theme.$spacing, 's');
 }
 

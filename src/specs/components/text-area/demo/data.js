@@ -1,10 +1,6 @@
 // Simple content for demo
 module.exports = {
-  id: 'example-textarea-id-1',
   label: 'Label',
-  placeholder: 'Placeholder text',
-  rows: 4,
-  width: 'm',
   invalid_text: 'This is the error message',
   invalid_icon: {
     path: '/icons.svg',
@@ -15,4 +11,11 @@ module.exports = {
   required: false,
   required_text: '*',
   optional_text: '(optional)',
+  input: {
+    input_type: 'textarea',
+    id: 'example-textarea-id-1',
+    placeholder: 'Placeholder text',
+    rows: 4,
+    width: 'm',
+  },
 };

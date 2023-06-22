@@ -1,6 +1,4 @@
 module.exports = {
-  name: 'radio-group-1',
-  helper_id: 'helper-id-1',
   optional_text: '(optional)',
   required_text: '*',
   required: true,
@@ -12,18 +10,24 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
-  binary: true,
-  items: [
-    {
-      id: 'radio-binary-1',
-      value: 'yes',
-      label: 'Yes',
-      checked: true,
-    },
-    {
-      id: 'radio-binary-2',
-      value: 'no',
-      label: 'No',
-    },
-  ],
+  input: {
+    input_type: 'radio',
+    name: 'radio-group-1',
+    helper_id: 'helper-id-1',
+    binary: true,
+    required: true,
+    items: [
+      {
+        id: 'radio-binary-1',
+        value: 'yes',
+        label: 'Yes',
+        checked: true,
+      },
+      {
+        id: 'radio-binary-2',
+        value: 'no',
+        label: 'No',
+      },
+    ],
+  },
 };

@@ -5,20 +5,16 @@
   - "id" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
-  - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
   - "name" (string) (default: '')
   - "default_value" (string) (default: '')
   - "rows" (int) (default: 4)
   - "placeholder" (string) (default: '')
   - "width" (string) (default: 'm')
-  - "extra_group_classes" (optional) (string) (default: '') Extra classes (space separated) for the text-area group
   - "extra_classes" \(optional\) \(string\) \(default: ''\) Extra classes \(space separated\)
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for text area
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  Blocks:
-  - "invalid_text"
 #}
 
 {# Internal properties #}
@@ -35,11 +31,6 @@
 {% set _width = width|default('m') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('') %}
-{% set _optional_text = optional_text|default('') %}
-{% set _label = label|default('') %}
-{% set _label_class = 'ecl-form-label' %}
-{% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-text-area'] %}
 {% if _invalid %}
   {% set _css_class = _css_class|merge(['ecl-text-area--invalid']) %}
@@ -50,16 +41,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_group_classes is defined and extra_group_classes is not empty %}
-  {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
-{% endif %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_label_classes is defined and extra_label_classes is not empty %}
-  {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}

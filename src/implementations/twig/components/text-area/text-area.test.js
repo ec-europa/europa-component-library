@@ -5,7 +5,9 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import specDefault from '@ecl/specs-component-text-area/demo/data';
+import specs from '@ecl/specs-component-text-area/demo/data';
+
+const specDefault = specs.input;
 
 expect.extend(toHaveNoViolations);
 

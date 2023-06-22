@@ -238,6 +238,7 @@ module.exports = {
     href: exampleLink,
   },
   search_form: {
+    label: 'Search',
     text_input: {
       id: 'search-input-id',
       label: 'Search',

@@ -21,6 +21,7 @@
 {% set _css_class = 'ecl-search-form' %}
 {% set _button = button|default('') %}
 {% set _text_input = text_input|default('') %}
+{% set _label = label|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -43,11 +44,14 @@
 
 <form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
   {% if _text_input is not empty %}
-    {% include '@ecl/form-group/form-group.html.twig' with _text_input|merge({
-      input: 'search',
+    {% include '@ecl/form-group/form-group.html.twig' with {
+      label: _label,
+      input: _text_input|merge({
+        input_type: 'search',
+        extra_classes: 'ecl-search-form__text-input',
+      }),
       extra_label_classes: 'ecl-search-form__label',
-      extra_input_classes: 'ecl-search-form__text-input',
-    }) only %}
+    } only %}
   {% endif %}
   {% if _button is not empty %}
     {% include '@ecl/button/button.html.twig' with _button|merge({
