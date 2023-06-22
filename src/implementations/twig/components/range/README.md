@@ -15,7 +15,6 @@ npm install --save @ecl/twig-component-range
 - **"value"** (integer) (default: '') Default value of the range
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
 - **"width"** (string) (default: 'm') Input width size (s, m or l)
@@ -26,15 +25,6 @@ npm install --save @ecl/twig-component-range
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Blocks:
-
-- "helper_text"
-- "invalid_text"
-- "required_text"
-- "optional_text"
-- "value_text"
-- "label"
-
 ### Example:
 
 <!-- prettier-ignore -->
@@ -44,20 +34,9 @@ npm install --save @ecl/twig-component-range
   min: 0,
   max: 30,
   value: 15,
-  label: 'Label',
   width: 'm',
-  invalid_text: 'This is the error message',
-  invalid_icon: {
-    path: '/icons.svg',
-    name: 'error',
-    size: 'm',
-  },
-  helper_text: "This is the input's helper text.",
   value_text: 'Value: ',
-  optional_text: '(optional)',
-  required: false,
-  required_text: '*',
-  extra_group_classes: 'my-extra-group-class-1 my-extra-group-class-2', 
+  required: false, 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test-1', value: 'data-test-value-1' }, 

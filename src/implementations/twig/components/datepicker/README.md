@@ -10,10 +10,6 @@ npm install --save @ecl/twig-component-datepicker
 
 - **"autoinit"** (boolean) (default: false)
 - **"default_value"** (string) (default: '')
-- **"helper_text"** (string) ) (default: '')
-- **"invalid_text"** (string) (default: '')
-- **"optional_text"** (string) (default: '')
-- **"required_text"** (string) (default: '')
 - **"required"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
@@ -21,7 +17,6 @@ npm install --save @ecl/twig-component-datepicker
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
 - **"icons_path"**: (string) (default: '')
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -32,10 +27,7 @@ npm install --save @ecl/twig-component-datepicker
 
 <!-- prettier-ignore -->
 ```twig 
-{% include '@ecl/datepicker/datepicker.html.twig' with { 
-  helper_text: 'an helper text', 
-  invalid_text: 'an invalid text', 
-  optional_text: 'the text shown when not optional' 
+{% include '@ecl/datepicker/datepicker.html.twig' with { , 
   id: 'an-id-for-the-input', 
   name: 'a-name-for-the-input', 
   required: true, 
