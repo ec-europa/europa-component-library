@@ -1,5 +1,5 @@
 import demoContentDefault from '@ecl/specs-component-text-area/demo/data';
-import template from '@ecl/twig-component-text-area/text-area.html.twig';
+import template from '@ecl/twig-component-form-group/form-group.html.twig';
 
 export const textAreaDefault = template(demoContentDefault);
 export const textAreaDisabled = template({

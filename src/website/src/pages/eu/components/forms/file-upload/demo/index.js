@@ -1,6 +1,6 @@
 import demoDefault from '@ecl/specs-component-file-upload/demo/data';
 import demoMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
-import template from '@ecl/twig-component-file-upload/file-upload.html.twig';
+import template from '@ecl/twig-component-form-group/form-group.html.twig';
 
 export const fileUpload = template(demoDefault);
 export const fileUploadMultiple = template(demoMultiple);
