@@ -1,11 +1,6 @@
 {% apply spaceless %}
 
 {#
-  Blocks:
-  - "label" (string) (default: '')
-  - "helper_text" (string) (default: '')
-  - "invalid_text" (string) (default: '')
-  
   Parameters:
   - "id" (string) (default: '')
   - "name" (string) (default: '')
@@ -42,7 +37,7 @@
 
 {# Internal properties #}
 
-{% set _component_class = 'ecl-file-upload' %}
+{% set _css_class = 'ecl-file-upload' %}
 {% set _main_attributes = 'data-ecl-file-upload-input data-ecl-auto-init="FileUpload"' %}
 {% set _disabled_variant = '--disabled' %}
 {% set _invalid_variant = '--invalid' %}
@@ -63,13 +58,10 @@
 {% endif %}
 
 {% if _invalid %}
-  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _invalid_variant %}
-  {% set _component_class = _component_class ~ ' ' ~ _component_class ~ _invalid_variant %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ _invalid_variant %}
 {% endif %}
 
 {% if _disabled %}
-  {% set _label_classes = _label_base_class ~ ' ' ~ _label_base_class ~ _disabled_variant %}
-  {% set _help_classes = _help_classes ~ ' ' ~ _help_classes ~ _disabled_variant %}
   {% set _main_attributes = _main_attributes ~ ' ' ~ 'disabled' %}
 {% endif %}
 
@@ -78,7 +70,7 @@
 {% endif %}
 
 {% if _extra_classes is not empty %}
-  {% set _group_css_classes = _group_css_classes ~ ' ' ~ _extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -95,7 +87,7 @@
 
   <input
     type="file"
-    class="{{ _component_class }}"
+    class="{{ _css_class }}"
     {{- _main_attributes -}}
   {% if _extra_attributes is not empty %}
     {{- _extra_attributes -}}

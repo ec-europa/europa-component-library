@@ -162,3 +162,7 @@ $_label-color: null !default;
 .ecl-radio--binary:last-child {
   margin-inline-end: 0;
 }
+
+.ecl-form-label + .ecl-radio--binary + .ecl-radio--binary {
+  margin-top: map.get(theme.$spacing, 'xs');
+}

@@ -58,11 +58,6 @@
 {# Print the result #}
 
 {% if _items is not empty %}
-  {% if _items|length > 1 and
-    _invalid and
-    (_invalid_text is not empty or _invalid_icon is not empty) %}
-    {{ _invalid_block }}
-  {% endif %}
   {% if _items|length == 1 %}
     {% set _item_extra_classes = 'ecl-checkbox--single' %}
   {% endif %}

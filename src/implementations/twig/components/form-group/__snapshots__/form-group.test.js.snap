@@ -419,7 +419,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <div
-      class="ecl-checkbox"
+      class="ecl-checkbox ecl-checkbox--invalid"
     >
       <input
         checked=""
@@ -434,7 +434,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-1"
       >
         <span
-          class="ecl-checkbox__box"
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <svg
             aria-hidden="true"
@@ -460,7 +460,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </div>
     </div>
     <div
-      class="ecl-checkbox"
+      class="ecl-checkbox ecl-checkbox--invalid"
     >
       <input
         class="ecl-checkbox__input"
@@ -474,7 +474,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-2"
       >
         <span
-          class="ecl-checkbox__box"
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <svg
             aria-hidden="true"
@@ -500,7 +500,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </div>
     </div>
     <div
-      class="ecl-checkbox ecl-checkbox--disabled"
+      class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
     >
       <input
         class="ecl-checkbox__input"
@@ -515,7 +515,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-3"
       >
         <span
-          class="ecl-checkbox__box ecl-checkbox__box--disabled"
+          class="ecl-checkbox__box ecl-checkbox__box--invalid ecl-checkbox__box--disabled"
         >
           <svg
             aria-hidden="true"
@@ -541,7 +541,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       </div>
     </div>
     <div
-      class="ecl-checkbox"
+      class="ecl-checkbox ecl-checkbox--invalid"
     >
       <input
         class="ecl-checkbox__input"
@@ -555,7 +555,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         for="checkbox-default-4"
       >
         <span
-          class="ecl-checkbox__box"
+          class="ecl-checkbox__box ecl-checkbox__box--invalid"
         >
           <svg
             aria-hidden="true"
@@ -1247,6 +1247,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
         data-ecl-datepicker-toggle=""
+        disabled=""
         id="example-input-id-1"
         name="example-input-id-1"
         placeholder="DD-MM-YYYY"
@@ -1304,11 +1305,11 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <div
-      class="ecl-datepicker"
+      class="ecl-datepicker ecl-datepicker--invalid"
     >
       <input
         autocomplete="off"
-        class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
+        class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
         data-ecl-auto-init="Datepicker"
         data-ecl-datepicker-toggle=""
         id="example-input-id-1"
@@ -1556,9 +1557,12 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
 <jest>
   <div
     class="ecl-form-group"
+    data-ecl-autoinit="FileUpload"
+    data-ecl-file-upload-group="true"
   >
     <label
       class="ecl-form-label ecl-form-label--disabled"
+      for="example-input-id-1"
     >
       Label
       <span
@@ -1587,6 +1591,34 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
         Encrypted documents and those containing macros are not accepted.
       </div>
     </div>
+    <input
+      class="ecl-file-upload"
+      data-ecl-auto-init="FileUpload"
+      data-ecl-file-upload-input=""
+      disabled=""
+      id="example-input-id-1"
+      name="file-upload-name"
+      required=""
+      type="file"
+    />
+    <label
+      class="ecl-file-upload__button-container"
+      for="example-input-id-1"
+    >
+      <span
+        class="ecl-file-upload__button ecl-button ecl-button--primary"
+        data-ecl-file-upload-button=""
+        data-ecl-file-upload-label-choose="Choose file"
+        data-ecl-file-upload-label-replace="Replace file"
+        disabled=""
+      >
+        Choose file
+      </span>
+    </label>
+    <ul
+      class="ecl-file-upload__list"
+      data-ecl-file-upload-list=""
+    />
   </div>
 </jest>
 `;
@@ -1644,7 +1676,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <input
-      class="ecl-file-upload"
+      class="ecl-file-upload ecl-file-upload--invalid"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
       id="example-input-id-1"
@@ -2278,7 +2310,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         for="radio-default-1"
       >
         <span
-          class="ecl-radio__box"
+          class="ecl-radio__box ecl-radio__box--invalid"
         >
           <span
             class="ecl-radio__box-inner"
@@ -2314,7 +2346,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         for="radio-default-2"
       >
         <span
-          class="ecl-radio__box"
+          class="ecl-radio__box ecl-radio__box--invalid"
         >
           <span
             class="ecl-radio__box-inner"
@@ -2351,7 +2383,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         for="radio-default-3"
       >
         <span
-          class="ecl-radio__box ecl-radio__box--disabled"
+          class="ecl-radio__box ecl-radio__box--disabled ecl-radio__box--invalid"
         >
           <span
             class="ecl-radio__box-inner"
@@ -2387,7 +2419,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         for="radio-default-4"
       >
         <span
-          class="ecl-radio__box"
+          class="ecl-radio__box ecl-radio__box--invalid"
         >
           <span
             class="ecl-radio__box-inner"
@@ -3015,6 +3047,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
+      disabled=""
       id="example-range-id"
       max="30"
       type="range"
@@ -3072,7 +3105,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
     </div>
     <input
       aria-label="example-range-id"
-      class="ecl-range ecl-range--m"
+      class="ecl-range ecl-range--invalid ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
       max="30"
@@ -3121,6 +3154,7 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
       data-ecl-range-input=""
       id="example-range-id"
       max="30"
+      required=""
       type="range"
       value="15"
     />
@@ -3441,8 +3475,9 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
   <div
     class="ecl-form-group"
   >
-    <label
+    <legend
       class="ecl-form-label ecl-form-label--disabled"
+      for="rating-field"
     >
       Please Rate
       <span
@@ -3450,11 +3485,200 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
       >
         *
       </span>
-    </label>
+    </legend>
     <div
       class="ecl-help-block ecl-help-block--disabled"
     >
       This is the group's helper text.
+    </div>
+    <div
+      class="ecl-rating-field ecl-rating-field--disabled"
+    >
+      <input
+        class="ecl-rating-field__input"
+        disabled=""
+        id="rating-field-5"
+        name="rating-group"
+        required=""
+        type="radio"
+        value="5"
+      />
+      <label
+        class="ecl-rating-field__label"
+        for="rating-field-5"
+      >
+        <span
+          class="ecl-u-sr-only"
+        >
+          5 stars
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-filled"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-filled"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-outline"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-outline"
+          />
+        </svg>
+      </label>
+      <input
+        class="ecl-rating-field__input"
+        disabled=""
+        id="rating-field-4"
+        name="rating-group"
+        required=""
+        type="radio"
+        value="4"
+      />
+      <label
+        class="ecl-rating-field__label"
+        for="rating-field-4"
+      >
+        <span
+          class="ecl-u-sr-only"
+        >
+          4 stars
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-filled"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-filled"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-outline"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-outline"
+          />
+        </svg>
+      </label>
+      <input
+        class="ecl-rating-field__input"
+        disabled=""
+        id="rating-field-3"
+        name="rating-group"
+        required=""
+        type="radio"
+        value="3"
+      />
+      <label
+        class="ecl-rating-field__label"
+        for="rating-field-3"
+      >
+        <span
+          class="ecl-u-sr-only"
+        >
+          3 stars
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-filled"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-filled"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-outline"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-outline"
+          />
+        </svg>
+      </label>
+      <input
+        class="ecl-rating-field__input"
+        disabled=""
+        id="rating-field-2"
+        name="rating-group"
+        required=""
+        type="radio"
+        value="2"
+      />
+      <label
+        class="ecl-rating-field__label"
+        for="rating-field-2"
+      >
+        <span
+          class="ecl-u-sr-only"
+        >
+          2 stars
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-filled"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-filled"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-outline"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-outline"
+          />
+        </svg>
+      </label>
+      <input
+        class="ecl-rating-field__input"
+        disabled=""
+        id="rating-field-1"
+        name="rating-group"
+        required=""
+        type="radio"
+        value="1"
+      />
+      <label
+        class="ecl-rating-field__label"
+        for="rating-field-1"
+      >
+        <span
+          class="ecl-u-sr-only"
+        >
+          1 star
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-filled"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-filled"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-rating-field__icon-outline"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#star-outline"
+          />
+        </svg>
+      </label>
     </div>
   </div>
 </jest>
@@ -4319,6 +4543,7 @@ exports[`Form group  with Select renders correctly 1`] = `
   >
     <label
       class="ecl-form-label"
+      for="select-default"
     >
       Select a country
       <span
@@ -4331,6 +4556,101 @@ exports[`Form group  with Select renders correctly 1`] = `
       class="ecl-help-block"
     >
       This is the input's helper text.
+    </div>
+    <div
+      class="ecl-select__container ecl-select__container--m"
+    >
+      <select
+        aria-label="country"
+        class="ecl-select"
+        id="select-default"
+        name="country"
+        required=""
+      >
+        <optgroup
+          label="European countries"
+        >
+          <option
+            value="1"
+          >
+            Belgium
+          </option>
+          <option
+            value="2"
+          >
+            France
+          </option>
+          <option
+            disabled=""
+            value="3"
+          >
+            Luxembourg
+          </option>
+          <option
+            value="4"
+          >
+            Germany
+          </option>
+          <option
+            selected=""
+            value="5"
+          >
+            Bulgaria
+          </option>
+          <option
+            value="6"
+          >
+            Italy
+          </option>
+          <option
+            value="7"
+          >
+            Romania
+          </option>
+          <option
+            value="8"
+          >
+            Greece
+          </option>
+          <option
+            value="9"
+          >
+            Hungary
+          </option>
+          <option
+            value="10"
+          >
+            Portugal
+          </option>
+        </optgroup>
+        <optgroup
+          label="Non European countries"
+        >
+          <option
+            value="11"
+          >
+            China
+          </option>
+        </optgroup>
+        <option
+          value="12"
+        >
+          standalone option
+        </option>
+      </select>
+      <div
+        class="ecl-select__icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </jest>
@@ -4363,6 +4683,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        disabled=""
         id="select-default"
         name="country"
         required=""
@@ -4990,6 +5311,7 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
   >
     <label
       class="ecl-form-label ecl-form-label--disabled"
+      for="example-input-id-1"
     >
       Label
       <span
@@ -5003,6 +5325,13 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
     >
       This is the input's helper text.
     </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      disabled=""
+      id="example-input-id-1"
+      placeholder="Placeholder text"
+      type="text"
+    />
   </div>
 </jest>
 `;
@@ -5043,7 +5372,7 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <input
-      class="ecl-text-input ecl-text-input--m"
+      class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
       type="text"
@@ -5077,6 +5406,7 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
       class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
+      required=""
       type="text"
     />
   </div>
@@ -5123,6 +5453,7 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
   >
     <label
       class="ecl-form-label"
+      for="example-input-id-1"
     >
       Label
       <span
@@ -5136,6 +5467,12 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
     >
       This is the input's helper text.
     </div>
+    <input
+      class="ecl-text-input ecl-text-input--m"
+      id="example-input-id-1"
+      placeholder="Placeholder text"
+      type="text"
+    />
   </div>
 </jest>
 `;
@@ -5194,6 +5531,7 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
     </div>
     <textarea
       class="ecl-text-area ecl-text-area--m"
+      disabled=""
       id="example-textarea-id-1"
       placeholder="Placeholder text"
       rows="4"
@@ -5238,7 +5576,7 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <textarea
-      class="ecl-text-area ecl-text-area--m"
+      class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
       rows="4"
@@ -5272,6 +5610,7 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
       class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
+      required=""
       rows="4"
     />
   </div>

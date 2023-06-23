@@ -33,7 +33,6 @@ describe('Form group ', () => {
       expect.assertions(1);
 
       const withExtraClasses = merge(dataText, {
-        input: 'text',
         extra_classes: 'custom-class custom-class--test',
       });
 
@@ -64,7 +63,7 @@ describe('Form group ', () => {
 
     test('renders correctly when disabled', () => {
       expect.assertions(1);
-      const dataDisabled = merge(dataText, { disabled: true, input: 'text' });
+      const dataDisabled = merge(dataText, { disabled: true });
       return expect(render(dataDisabled)).resolves.toMatchSnapshot();
     });
 
@@ -151,9 +150,7 @@ describe('Form group ', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        render({ ...dataSingle, input: 'select' })
-      ).resolves.toMatchSnapshot();
+      return expect(render(dataSingle)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -253,7 +250,7 @@ describe('Form group ', () => {
 
     test('renders correctly when disabled', () => {
       expect.assertions(1);
-      const dataDisabled = merge(dataFile, { disabled: true, input: 'file' });
+      const dataDisabled = merge(dataFile, { disabled: true });
       return expect(render(dataDisabled)).resolves.toMatchSnapshot();
     });
 
@@ -268,9 +265,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(
-          renderTwigFileAsHtml(template, { ...dataFile, input: 'file' }, true)
-        )
+        await axe(renderTwigFileAsHtml(template, dataFile, true))
       ).toHaveNoViolations();
     });
   });
@@ -318,7 +313,6 @@ describe('Form group ', () => {
       expect.assertions(1);
       const dataDisabled = merge(dataRatingField, {
         disabled: true,
-        input: 'rating-field',
       });
       return expect(render(dataDisabled)).resolves.toMatchSnapshot();
     });
