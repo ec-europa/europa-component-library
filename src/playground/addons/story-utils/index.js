@@ -185,6 +185,10 @@ export const getFormControls = (data, type) => {
     name: 'invalid',
     type: 'boolean',
     description: `Marks the form ${type} as invalid`,
+    mapping: {
+      0: false,
+      1: true,
+    },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -195,6 +199,10 @@ export const getFormControls = (data, type) => {
     name: 'disabled',
     type: 'boolean',
     description: `Disabled (read only) form ${type}`,
+    mapping: {
+      0: false,
+      1: true,
+    },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -225,6 +233,10 @@ export const getFormControls = (data, type) => {
     name: 'required',
     type: 'boolean',
     description: `Sets the required attribute on the form ${type}`,
+    mapping: {
+      0: false,
+      1: true,
+    },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },

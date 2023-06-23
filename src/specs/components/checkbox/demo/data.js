@@ -7,6 +7,9 @@ module.exports = {
   label: 'Select your preferred destinations',
   label_id: 'checkbox-default-label',
   optional_text: '(optional)',
+  required: false,
+  disabled: false,
+  invalid: false,
   required_text: '*',
   invalid_icon: {
     path: '/icons.svg',

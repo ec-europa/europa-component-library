@@ -9,6 +9,8 @@ module.exports = {
   },
   helper_text: "This is the input's helper text.",
   required: false,
+  disabled: false,
+  invalid: false,
   required_text: '*',
   optional_text: '(optional)',
   input: {

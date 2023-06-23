@@ -12,13 +12,14 @@ module.exports = {
   required_text: '*',
   optional_text: ' (optional)',
   required: true,
+  disabled: false,
+  invalid: false,
   input: {
     input_type: 'file',
     button_choose_label: 'Choose files',
     button_replace_label: 'Replace files',
     id: 'example-file-upload-multiple',
     multiple: true,
-    required: true,
     name: 'file-upload-name',
   },
 };

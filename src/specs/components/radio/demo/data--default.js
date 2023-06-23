@@ -5,6 +5,8 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '*',
   required: true,
+  disabled: false,
+  invalid: false,
   label: 'Select your country',
   helper_text: "This is the group's helper text.",
   invalid_text: 'This is the error message',
@@ -17,7 +19,6 @@ module.exports = {
     input_type: 'radio',
     name: 'radio-group-1',
     helper_id: 'helper-id-1',
-    required: true,
     items: [
       {
         id: 'radio-default-1',
