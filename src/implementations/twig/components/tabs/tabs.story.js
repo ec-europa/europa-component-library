@@ -14,7 +14,11 @@ export default {
   },
 };
 
-export const Default = () => Tabs(correctPaths(specs));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async () => {
+  const renderedTabs = await Tabs(correctPaths(specs));
+  return renderedTabs;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

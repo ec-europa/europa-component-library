@@ -77,17 +77,26 @@ export default {
   title: 'Components/Forms/Datepicker',
 };
 
-export const Default = (args) => datepicker(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedDatePicker = await datepicker(prepareData(dataDefault, args));
+  return renderedDatePicker;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.decorators = [withNotes, withCode];
 
-export const Translated = (args) =>
-  datepicker(prepareData(dataTranslated, args));
+export const Translated = (_, { loaded: { component } }) => component;
 
+Translated.render = async (args) => {
+  const renderedDatePickerTranslated = await datepicker(
+    prepareData(dataTranslated, args)
+  );
+  return renderedDatePickerTranslated;
+};
 Translated.storyName = 'translated';
 Translated.args = getArgs(dataTranslated);
 Translated.argTypes = getArgTypes(dataTranslated);

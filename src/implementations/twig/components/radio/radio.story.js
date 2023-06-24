@@ -82,15 +82,23 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => radioGroup(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedRadio = await radioGroup(prepareData(dataDefault, args));
+  return renderedRadio;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Binary = (args) => radioGroup(prepareData(dataBinary, args));
+export const Binary = (_, { loaded: { component } }) => component;
 
+Binary.render = async (args) => {
+  const renderedRadioBinary = await radioGroup(prepareData(dataBinary, args));
+  return renderedRadioBinary;
+};
 Binary.storyName = 'binary';
 Binary.args = getArgs(dataBinary);
 Binary.argTypes = getArgTypes(dataBinary);

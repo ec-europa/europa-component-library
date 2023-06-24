@@ -32,9 +32,14 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) =>
-  orderedList(prepareData(dataOrderedList, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedNewsTicker = await orderedList(
+    prepareData(dataOrderedList, args)
+  );
+  return renderedNewsTicker;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataOrderedList);
 Default.argTypes = getArgTypes(dataOrderedList);

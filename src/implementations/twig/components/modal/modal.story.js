@@ -90,14 +90,15 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => {
-  const demo = `
-    <button class="ecl-button ecl-button--secondary" id="modal-toggle">Modal toggle</button>
-    ${modal(prepareData(dataDefault, args))}
-  `;
-  return demo;
-};
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedModal = `
+    <button class="ecl-button ecl-button--secondary" id="modal-toggle">Modal toggle</button>
+      ${await modal(prepareData(dataDefault, args))}
+   `;
+  return renderedModal;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();

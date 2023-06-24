@@ -98,16 +98,25 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => spinner(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedSpinner = await spinner(prepareData(dataDefault, args));
+  return renderedSpinner;
+};
 Default.storyName = 'primary';
 Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Negative = (args) =>
-  spinner(prepareData(dataNegative, args, 'negative'));
+export const Negative = (_, { loaded: { component } }) => component;
 
+Negative.render = async (args) => {
+  const renderedSpinnerNegative = await spinner(
+    prepareData(dataNegative, args, 'negative')
+  );
+  return renderedSpinnerNegative;
+};
 Negative.storyName = 'negative';
 Negative.args = getArgs(dataNegative, 'negative');
 Negative.argTypes = getArgTypes('negative');

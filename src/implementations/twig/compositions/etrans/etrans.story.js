@@ -26,12 +26,22 @@ export default {
   },
 };
 
-export const Default = (args) => etrans(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedEtrans = await etrans(prepareData(dataDefault, args));
+  return renderedEtrans;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const NoLanguage = (args) => etrans(prepareData(dataNoLanguage, args));
+export const NoLanguage = (_, { loaded: { component } }) => component;
 
+NoLanguage.render = async (args) => {
+  const renderedEtransNoLanguage = await etrans(
+    prepareData(dataNoLanguage, args)
+  );
+  return renderedEtransNoLanguage;
+};
 NoLanguage.storyName = 'no language list';
 NoLanguage.parameters = { notes: { markdown: notes, json: dataNoLanguage } };

@@ -240,9 +240,15 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const PlainBackground = (args) =>
-  renderStory(bannerDataPlainBackground, args);
+export const PlainBackground = (_, { loaded: { component } }) => component;
 
+PlainBackground.render = async (args) => {
+  const renderedBannerPlain = await renderStory(
+    bannerDataPlainBackground,
+    args
+  );
+  return renderedBannerPlain;
+};
 PlainBackground.storyName = 'plain background';
 PlainBackground.args = getArgs(bannerDataPlainBackground);
 PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
@@ -250,16 +256,26 @@ PlainBackground.parameters = {
   notes: { markdown: notes, json: bannerDataPlainBackground },
 };
 
-export const TextBox = (args) => renderStory(bannerDataTextBox, args);
+export const TextBox = (_, { loaded: { component } }) => component;
 
+TextBox.render = async (args) => {
+  const renderedBannerText = await renderStory(bannerDataTextBox, args);
+  return renderedBannerText;
+};
 TextBox.storyName = 'text box';
 TextBox.args = getArgs(bannerDataTextBox);
 TextBox.argTypes = getArgTypes(bannerDataTextBox);
 TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
 
-export const TextHighlight = (args) =>
-  renderStory(bannerDataTextHighlight, args);
+export const TextHighlight = (_, { loaded: { component } }) => component;
 
+TextHighlight.render = async (args) => {
+  const renderedBannerHighlight = await renderStory(
+    bannerDataTextHighlight,
+    args
+  );
+  return renderedBannerHighlight;
+};
 TextHighlight.storyName = 'text highlight';
 TextHighlight.args = getArgs(bannerDataTextHighlight);
 TextHighlight.argTypes = getArgTypes(bannerDataTextHighlight);
@@ -267,8 +283,15 @@ TextHighlight.parameters = {
   notes: { markdown: notes, json: bannerDataTextHighlight },
 };
 
-export const ImageOverlay = (args) => renderStory(bannerDataImageOverlay, args);
+export const ImageOverlay = (_, { loaded: { component } }) => component;
 
+ImageOverlay.render = async (args) => {
+  const renderedBannerImageOverlay = await renderStory(
+    bannerDataImageOverlay,
+    args
+  );
+  return renderedBannerImageOverlay;
+};
 ImageOverlay.storyName = 'image overlay';
 ImageOverlay.args = getArgs(bannerDataImageOverlay);
 ImageOverlay.argTypes = getArgTypes(bannerDataImageOverlay);

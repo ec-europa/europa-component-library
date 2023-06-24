@@ -71,8 +71,12 @@ export default {
   title: 'Components/Forms/Search Form',
 };
 
-export const Default = (args) => searchForm(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedSearchForm = await searchForm(prepareData(dataDefault, args));
+  return renderedSearchForm;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();

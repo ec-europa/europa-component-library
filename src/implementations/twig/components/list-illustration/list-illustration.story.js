@@ -373,9 +373,14 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const HorizontalImage = (args) =>
-  listIllustration(prepareDataList(dataListIllustrationImage, args));
+export const HorizontalImage = (_, { loaded: { component } }) => component;
 
+HorizontalImage.render = async (args) => {
+  const renderedList = await listIllustration(
+    prepareDataList(dataListIllustrationImage, args)
+  );
+  return renderedList;
+};
 HorizontalImage.storyName = 'horizontal (images)';
 HorizontalImage.args = getArgs(dataListIllustrationImage, 'horizontal-image');
 HorizontalImage.argTypes = getArgTypes(
@@ -386,9 +391,14 @@ HorizontalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
 };
 
-export const HorizontalIcon = (args) =>
-  listIllustration(prepareDataList(dataListIllustrationIcon, args));
+export const HorizontalIcon = (_, { loaded: { component } }) => component;
 
+HorizontalIcon.render = async (args) => {
+  const renderedListIcon = await listIllustration(
+    prepareDataList(dataListIllustrationIcon, args)
+  );
+  return renderedListIcon;
+};
 HorizontalIcon.storyName = 'horizontal (icons)';
 HorizontalIcon.args = getArgs(dataListIllustrationIcon, 'horizontal-icon');
 HorizontalIcon.argTypes = getArgTypes(
@@ -399,9 +409,14 @@ HorizontalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
 };
 
-export const VerticalImage = (args) =>
-  listIllustration(prepareDataList(dataListIllustrationImage, args));
+export const VerticalImage = (_, { loaded: { component } }) => component;
 
+VerticalImage.render = async (args) => {
+  const renderedListImageVertical = await listIllustration(
+    prepareDataList(dataListIllustrationImage, args)
+  );
+  return renderedListImageVertical;
+};
 VerticalImage.storyName = 'vertical (images)';
 VerticalImage.args = getArgs(dataListIllustrationImage, 'vertical-image');
 VerticalImage.argTypes = getArgTypes(
@@ -412,9 +427,14 @@ VerticalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
 };
 
-export const VerticalIcon = (args) =>
-  listIllustration(prepareDataList(dataListIllustrationIcon, args));
+export const VerticalIcon = (_, { loaded: { component } }) => component;
 
+VerticalIcon.render = async (args) => {
+  const renderedListIconVertical = await listIllustration(
+    prepareDataList(dataListIllustrationIcon, args)
+  );
+  return renderedListIconVertical;
+};
 VerticalIcon.storyName = 'vertical (icons)';
 VerticalIcon.args = getArgs(dataListIllustrationIcon, 'vertical-icon');
 VerticalIcon.argTypes = getArgTypes(dataListIllustrationIcon, 'vertical-icon');

@@ -104,26 +104,29 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = (args) => {
-  const navHtml = inpageNavigation(prepareData(demoData, args));
+export const Default = (_, { loaded: { component } }) => component;
+
+Default.render = async (args) => {
+  const navHtml = await inpageNavigation(prepareData(demoData, args));
   const contentHtml = prepareHtmlContent(demoData);
   const leftBlock = blockHandler('Sidebar', args.blockLeft);
   const mainBlock = blockHandler('Main', args.blockMain);
-  const demo = `<div class="ecl-container">
-                  <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
-                    <div class="ecl-col-l-3">
-                      ${leftBlock}
-                      ${navHtml}
-                    </div>
-                    <div class="ecl-col-l-9">
-                      ${mainBlock}
-                      ${contentHtml}
-                    </div>
-                  </div>
-                </div>`;
-  return demo;
-};
+  const renderedInPage = `
+    <div class="ecl-container">
+      <div class="ecl-row ecl-u-mt-l" data-ecl-inpage-navigation-container>
+        <div class="ecl-col-l-3">
+          ${leftBlock}
+          ${navHtml}
+        </div>
+        <div class="ecl-col-l-9">
+          ${mainBlock}
+          ${contentHtml}
+        </div>
+      </div>
+    </div>`;
 
+  return renderedInPage;
+};
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';

@@ -108,8 +108,14 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => navigationList(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedNavigationList = await navigationList(
+    prepareData(dataDefault, args)
+  );
+  return renderedNavigationList;
+};
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();

@@ -259,16 +259,25 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => siteHeader(prepareData(dataCore, args));
+export const Core = (_, { loaded: { component } }) => component;
 
+Core.render = async (args) => {
+  const renderedCore = await siteHeader(prepareData(dataCore, args));
+  return renderedCore;
+};
 Core.storyName = 'core';
 Core.args = getArgs(dataCore);
 Core.argTypes = getArgTypes(dataCore);
 Core.parameters = { notes: { markdown: notes, json: dataCore } };
 
-export const Harmonised = (args) =>
-  siteHeader(prepareData(dataHarmonised, args));
+export const Harmonised = (_, { loaded: { component } }) => component;
 
+Harmonised.render = async (args) => {
+  const renderedHarmonised = await siteHeader(
+    prepareData(dataHarmonised, args)
+  );
+  return renderedHarmonised;
+};
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataHarmonised);
 Harmonised.argTypes = getArgTypes(dataHarmonised);

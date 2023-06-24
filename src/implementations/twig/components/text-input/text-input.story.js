@@ -49,8 +49,12 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => textInput(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedText = await textInput(prepareData(dataDefault, args));
+  return renderedText;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);

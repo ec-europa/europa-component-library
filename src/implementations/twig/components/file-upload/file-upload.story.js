@@ -68,15 +68,23 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => fileUpload(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedFile = await fileUpload(prepareData(dataDefault, args));
+  return renderedFile;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Multiple = (args) => fileUpload(prepareData(dataMulti, args));
+export const Multiple = (_, { loaded: { component } }) => component;
 
+Multiple.render = async (args) => {
+  const renderedFileMultiple = await fileUpload(prepareData(dataMulti, args));
+  return renderedFileMultiple;
+};
 Multiple.storyName = 'multiple';
 Multiple.args = getArgs(dataMulti);
 Multiple.argTypes = getArgTypes(dataMulti);

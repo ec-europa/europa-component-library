@@ -61,8 +61,12 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => blockquote(prepareData(defaultData, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedBlockquote = await blockquote(prepareData(defaultData, args));
+  return renderedBlockquote;
+};
 Default.args = getArgs(defaultData);
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';

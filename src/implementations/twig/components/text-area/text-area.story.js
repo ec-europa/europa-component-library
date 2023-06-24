@@ -59,8 +59,12 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => textArea(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedTextarea = await textArea(prepareData(dataDefault, args));
+  return renderedTextarea;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);

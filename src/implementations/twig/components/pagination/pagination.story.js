@@ -15,7 +15,11 @@ export default {
   },
 };
 
-export const Default = () => pagination(correctPaths(specs));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async () => {
+  const renderedPagination = await pagination(correctPaths(specs));
+  return renderedPagination;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

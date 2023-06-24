@@ -67,15 +67,23 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Link = (args) => tag(prepareData(dataLink, args));
+export const Link = (_, { loaded: { component } }) => component;
 
+Link.render = async (args) => {
+  const renderedTag = await tag(prepareData(dataLink, args));
+  return renderedTag;
+};
 Link.storyName = 'link tag';
 Link.args = getArgs(dataLink);
 Link.argTypes = getArgTypes(dataLink);
 Link.parameters = { notes: { markdown: notes, json: dataLink } };
 
-export const Removable = (args) => tag(prepareData(dataRemovable, args));
+export const Removable = (_, { loaded: { component } }) => component;
 
+Removable.render = async (args) => {
+  const renderedTagRemovable = await tag(prepareData(dataRemovable, args));
+  return renderedTagRemovable;
+};
 Removable.storyName = 'removable tag';
 Removable.args = getArgs(dataRemovable);
 Removable.argTypes = getArgTypes(dataRemovable);

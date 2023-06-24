@@ -70,8 +70,12 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => checkboxGroup(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedCheckbox = await checkboxGroup(prepareData(dataDefault, args));
+  return renderedCheckbox;
+};
 Default.storyName = 'default';
 Default.argTypes = getArgTypes(dataDefault);
 Default.args = getArgs(dataDefault);

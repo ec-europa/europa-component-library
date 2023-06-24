@@ -241,16 +241,24 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => file(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedFile = await file(prepareData(dataDefault, args));
+  return renderedFile;
+};
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };
 
-export const Thumbnail = (args) => file(prepareData(dataThumbnail, args));
+export const Thumbnail = (_, { loaded: { component } }) => component;
 
+Thumbnail.render = async (args) => {
+  const renderedFileThumbnail = await file(prepareData(dataThumbnail, args));
+  return renderedFileThumbnail;
+};
 Thumbnail.storyName = 'with thumbnail';
 Thumbnail.args = getArgs(dataThumbnail);
 Thumbnail.argTypes = getArgTypes(dataThumbnail);

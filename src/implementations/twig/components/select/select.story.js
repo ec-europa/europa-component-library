@@ -49,15 +49,25 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Single = (args) => selectBox(prepareData(dataSingle, args));
+export const Single = (_, { loaded: { component } }) => component;
 
+Single.render = async (args) => {
+  const renderedSelect = await selectBox(prepareData(dataSingle, args));
+  return renderedSelect;
+};
 Single.storyName = 'default';
 Single.args = getArgs(dataSingle);
 Single.argTypes = getArgTypes(dataSingle);
 Single.parameters = { notes: { markdown: notes, json: dataSingle } };
 
-export const Multiple = (args) => selectBox(prepareData(dataMultiple, args));
+export const Multiple = (_, { loaded: { component } }) => component;
 
+Multiple.render = async (args) => {
+  const renderedSelectMultiple = await selectBox(
+    prepareData(dataMultiple, args)
+  );
+  return renderedSelectMultiple;
+};
 Multiple.storyName = 'multiple';
 Multiple.args = getArgs(dataMultiple);
 Multiple.argTypes = getArgTypes(dataMultiple);
