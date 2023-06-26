@@ -71,7 +71,7 @@ describe('File Upload ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(await renderTwigFileAsHtml(template, dataDefault, true))
       ).toHaveNoViolations();
     });
   });
@@ -85,7 +85,7 @@ describe('File Upload ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataMultiple, true))
+        await axe(await renderTwigFileAsHtml(template, dataMultiple, true))
       ).toHaveNoViolations();
     });
   });

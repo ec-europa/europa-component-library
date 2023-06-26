@@ -49,7 +49,7 @@ describe('List with illustration', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataListIllustrationImage, true)
+          await renderTwigFileAsHtml(template, dataListIllustrationImage, true)
         )
       ).toHaveNoViolations();
     });
@@ -67,7 +67,7 @@ describe('List with illustration', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataListIllustrationIcon, true)
+          await renderTwigFileAsHtml(template, dataListIllustrationIcon, true)
         )
       ).toHaveNoViolations();
     });

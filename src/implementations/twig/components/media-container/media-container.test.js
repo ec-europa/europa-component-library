@@ -42,7 +42,9 @@ describe('Media Container', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, defaultDataStructure, true))
+        await axe(
+          await renderTwigFileAsHtml(template, defaultDataStructure, true)
+        )
       ).toHaveNoViolations();
     });
   });

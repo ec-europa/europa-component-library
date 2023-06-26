@@ -54,7 +54,7 @@ describe('Select', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataSingle, true))
+        await axe(await renderTwigFileAsHtml(template, dataSingle, true))
       ).toHaveNoViolations();
     });
   });
@@ -104,7 +104,7 @@ describe('Select', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataMultiple, true))
+        await axe(await renderTwigFileAsHtml(template, dataMultiple, true))
       ).toHaveNoViolations();
     });
   });

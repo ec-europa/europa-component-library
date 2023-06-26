@@ -21,7 +21,7 @@ describe('File upload status', () => {
 
   test(`passes the accessibility tests`, async () => {
     expect(
-      await axe(renderTwigFileAsHtml(template, {}, true))
+      await axe(await renderTwigFileAsHtml(template, {}, true))
     ).toHaveNoViolations();
   });
 });

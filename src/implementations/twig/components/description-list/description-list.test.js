@@ -59,7 +59,7 @@ describe('Description list', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataDescriptionListDefault, true)
+          await renderTwigFileAsHtml(template, dataDescriptionListDefault, true)
         )
       ).toHaveNoViolations();
     });

@@ -45,7 +45,7 @@ describe('Ordered list', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataOrderedList, true))
+        await axe(await renderTwigFileAsHtml(template, dataOrderedList, true))
       ).toHaveNoViolations();
     });
   });

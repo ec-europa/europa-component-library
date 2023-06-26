@@ -63,7 +63,9 @@ describe('Unordered list', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataUnorderedListText, true))
+        await axe(
+          await renderTwigFileAsHtml(template, dataUnorderedListText, true)
+        )
       ).toHaveNoViolations();
     });
   });
