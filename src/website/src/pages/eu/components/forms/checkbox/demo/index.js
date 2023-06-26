@@ -7,5 +7,9 @@ export const checkboxInvalid = template(
   correctSvgPath({ ...demoContentDefault, invalid: true })
 );
 export const checkboxOptional = template(
-  correctSvgPath({ ...demoContentDefault, required: false })
+  correctSvgPath({
+    ...demoContentDefault,
+    required: false,
+    input: { ...demoContentDefault.input, required: false },
+  })
 );

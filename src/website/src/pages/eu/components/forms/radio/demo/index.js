@@ -10,6 +10,10 @@ export const radioGroupInvalid = template({
 export const radioGroupOptional = template({
   ...demoContentDefault,
   required: false,
+  input: {
+    ...demoContentDefault.input,
+    required: false,
+  },
 });
 export const radioGroupBinary = template(demoContentBinary);
 export const radioGroupBinaryInvalid = template({
