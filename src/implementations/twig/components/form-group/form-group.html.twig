@@ -160,7 +160,11 @@
   {%- endif -%}
 
   {%- if _input.input_type == 'datepicker' -%}
-    {% include '@ecl/datepicker/datepicker.html.twig' with _input only %}
+    {% include '@ecl/datepicker/datepicker.html.twig' with _input|merge({
+      required: _required,
+      disabled: _disabled,
+      invalid: _invalid,
+    }) only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'radio' -%}

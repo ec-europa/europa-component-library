@@ -19,6 +19,7 @@ module.exports = {
     input_type: 'radio',
     name: 'radio-group-1',
     helper_id: 'helper-id-1',
+    required: true,
     items: [
       {
         id: 'radio-default-1',

@@ -18,6 +18,7 @@ module.exports = {
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
+    required: true,
     default_value: '11-10-2021',
     icons_path: '/icons.svg',
   },

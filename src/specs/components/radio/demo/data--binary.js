@@ -17,6 +17,7 @@ module.exports = {
     name: 'radio-group-1',
     helper_id: 'helper-id-1',
     binary: true,
+    required: true,
     items: [
       {
         id: 'radio-binary-1',

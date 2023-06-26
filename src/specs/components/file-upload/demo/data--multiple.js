@@ -21,5 +21,6 @@ module.exports = {
     id: 'example-file-upload-multiple',
     multiple: true,
     name: 'file-upload-name',
+    required: true,
   },
 };

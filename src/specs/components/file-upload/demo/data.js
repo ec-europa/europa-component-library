@@ -21,5 +21,6 @@ module.exports = {
     button_choose_label: 'Choose file',
     button_replace_label: 'Replace file',
     multiple: false,
+    required: true,
   },
 };
