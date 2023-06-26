@@ -15,6 +15,7 @@ const getArgs = (data) => ({
   disabled: false,
   button_label: data.button.label || '',
   placeholder: data.text_input.placeholder,
+  width: 'm',
 });
 
 const getArgTypes = () => ({
@@ -48,11 +49,32 @@ const getArgTypes = () => ({
       category: 'States',
     },
   },
+  width: {
+    name: 'width',
+    type: { name: 'select' },
+    description: `The width of the search input {s: small, m: medium, l: large}`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'm' },
+      category: 'Size',
+    },
+    options: ['s', 'm', 'l'],
+    control: {
+      type: 'select',
+      label: { s: 'small', m: 'medium', l: 'large' },
+    },
+    mapping: {
+      s: 's',
+      m: 'm',
+      l: 'l',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
   data.text_input.disabled = args.disabled;
   data.text_input.placeholder = args.placeholder;
+  data.text_input.width = args.width;
   data.button.label = args.button_label;
   data.button.disabled = args.disabled;
 

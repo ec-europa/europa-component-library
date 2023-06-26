@@ -202,7 +202,8 @@ $form-group: (
 
 // Search
 $search-form: (
-  button-border-color: var(--ecl-color-dark),
+  button-border-color: var(--ecl-color-dark-10),
+  button-border-color-hover: var(--ecl-color-dark-10),
   button-background: map.get($color, 'white'),
   button-background-hover: var(--ecl-color-primary-40),
   button-background-active: var(--ecl-color-primary-30),
@@ -215,8 +216,8 @@ $search-form: (
 // Text input
 $text-input: (
   radius: 2px,
-  border-color: var(--ecl-color-dark),
-  border-color-hover: var(--ecl-color-dark),
+  border-color: var(--ecl-color-dark-10),
+  border-color-hover: var(--ecl-color-dark-10),
   border-color-focus: var(--ecl-color-primary),
   border-color-invalid: var(--ecl-color-error),
   border-color-invalid-hover: var(--ecl-color-error),
