@@ -9,6 +9,7 @@ import {
   buttonSecondary,
   buttonCall,
   buttonGhost,
+  buttonIconOnly,
 } from '../demo';
 
 ## Primary
@@ -31,7 +32,7 @@ import {
   <Html markup={buttonSecondary} />
 </Playground>
 
-## Call to action with icon
+## Call to action
 
 <Playground
   system="ec"
@@ -45,4 +46,21 @@ import {
 
 <Playground system="ec" selectedKind="components-button" selectedStory="ghost">
   <Html markup={buttonGhost} />
+</Playground>
+
+## Button with icon only
+
+Button label can be hidden by using button variant `ecl-button--icon-only`. The label has to be filled in any case, to provide context to screen readers.
+
+Of course, this requires to have an icon defined, otherwise the display would be suboptimal.
+
+Spacing of icon only button is adapted to make it square.
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="icon_name:logged-in;hide_label:true"
+>
+  <Html markup={buttonIconOnly} />
 </Playground>

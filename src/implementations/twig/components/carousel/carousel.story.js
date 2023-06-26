@@ -31,6 +31,11 @@ const getArgTypes = () => {
           inside: 'inside the grid container, with fullwidth class',
         },
       },
+      mapping: {
+        outside: 'outside the grid container',
+        container: 'inside the grid container',
+        inside: 'inside the grid container, with fullwidth class',
+      },
       table: {
         defaultValue: '',
         category: 'Display',

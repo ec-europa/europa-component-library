@@ -1,10 +1,13 @@
+@use 'sass:map';
 @forward 'index';
 @use 'index' as index;
+@use 'variables' as *;
 
 // TODO: build this dynamically (if possible)
 $theme: (
   color: index.$color,
   form: index.$form,
+  form-width: index.$form-width,
   icon: index.$icon,
   icon-print: index.$icon-print,
   breakpoint: index.$breakpoint,

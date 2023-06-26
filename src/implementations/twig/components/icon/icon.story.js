@@ -13,6 +13,11 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+const iconMapping = iconsAll.reduce((mapping, iconName) => {
+  mapping[iconName] = iconName;
+  return mapping;
+}, {});
+
 const getArgs = (data) => ({
   name: data.icon.name,
   size: 'm',
@@ -20,7 +25,7 @@ const getArgs = (data) => ({
   transform: 'none',
 });
 
-const getArgTypes = (data, icons) => getIconControls(data, icons);
+const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
 
 const prepareData = (data, args) => {
   if (args.color === 'default') {
@@ -47,5 +52,5 @@ export const All = (args) => icon(prepareData(dataAll, args));
 
 All.storyName = 'all icons';
 All.args = getArgs(dataAll);
-All.argTypes = getArgTypes(dataAll, iconsAll);
+All.argTypes = getArgTypes(dataAll, iconsAll, iconMapping);
 All.parameters = { notes: { markdown: notes, json: dataAll } };

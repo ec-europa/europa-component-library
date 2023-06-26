@@ -1,11 +1,15 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getFormControls, correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from '@ecl/specs-component-text-input/demo/data';
 
 import textInput from './text-input.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+dataDefault.invalid_icon.size = system === 'ec' ? 's' : 'm';
 
 const getArgs = (data) => ({
   show_label: true,

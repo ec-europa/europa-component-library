@@ -22,6 +22,11 @@ const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 // Create 'none' option.
 iconsAll.unshift('none');
 
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
 const withParagraph = (story) => {
   const demo = story();
   return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
@@ -83,6 +88,7 @@ const getArgTypes = () => ({
     name: 'icon name',
     type: { name: 'select', required: false },
     options: [...iconsAll],
+    mapping: iconMapping,
     description: 'Name of the icon',
     table: {
       type: { summary: 'string' },
@@ -100,6 +106,13 @@ const getArgTypes = () => ({
       'flip-horizontal',
       'flip-vertical',
     ],
+    mapping: {
+      'rotate-90': 'rotate-90',
+      'rotate-180': 'rotate-180',
+      'rotate-270': 'rotate-270',
+      'flip-horizontal': 'flip-horizontal',
+      'flip-vertical': 'flip-vertical',
+    },
     table: {
       type: { summary: 'string' },
       category: 'Icon',
@@ -110,6 +123,10 @@ const getArgTypes = () => ({
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
     options: ['before', 'after'],
+    mapping: {
+      before: 'before',
+      after: 'after',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'after' },

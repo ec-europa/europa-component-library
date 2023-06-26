@@ -1,5 +1,9 @@
 import demoContentDefault from '@ecl/specs-component-text-input/demo/data';
 import template from '@ecl/twig-component-text-input/text-input.html.twig';
+import { correctSvgPath } from '@ecl/website-utils';
+
+correctSvgPath(demoContentDefault);
+demoContentDefault.invalid_icon.size = 's';
 
 export const textInputDefault = template(demoContentDefault);
 export const textInputDisabled = template({

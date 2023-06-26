@@ -141,7 +141,8 @@ export class DescriptionList {
 
     const parent = e.target.parentNode;
     if (this.element.contains(parent)) {
-      [...parent.children].forEach((item) => {
+      const parentChildren = Array.from(parent.children);
+      parentChildren.forEach((item) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
         item.classList.remove(
           'ecl-description-list__definition-item--last-visible'

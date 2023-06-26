@@ -8,7 +8,10 @@
 @use '@ecl/vanilla-layout-grid/grid';
 
 // Forms
-@use '@ecl/vanilla-component-form/form-eu';
+@use '@ecl/vanilla-component-form/form' with (
+  $theme: theme.$theme,
+  $form-group: var.$form-group
+);
 @use '@ecl/vanilla-component-checkbox/checkbox-eu';
 @use '@ecl/vanilla-component-datepicker/datepicker-eu';
 @use '@ecl/vanilla-component-file-upload/file-upload-eu';
@@ -16,7 +19,10 @@
 @use '@ecl/vanilla-component-range/range-eu';
 @use '@ecl/vanilla-component-select/select-eu';
 @use '@ecl/vanilla-component-text-area/text-area-eu';
-@use '@ecl/vanilla-component-text-input/text-input-eu';
+@use '@ecl/vanilla-component-text-input/text-input' with (
+  $theme: theme.$theme,
+  $text-input: var.$text-input
+);
 
 // Other atoms
 @use '@ecl/vanilla-component-blockquote/blockquote-eu';
@@ -77,7 +83,10 @@
 @use '@ecl/vanilla-component-page-header/page-header-eu';
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-eu';
 @use '@ecl/vanilla-component-menu/menu-eu';
-@use '@ecl/vanilla-component-site-footer/site-footer-eu';
+@use '@ecl/vanilla-component-site-footer/site-footer-eu' with (
+  $theme: theme.$theme,
+  $site-footer: var.$site-footer
+);
 @use '@ecl/vanilla-component-site-header/site-header-eu';
 
 // Utilities

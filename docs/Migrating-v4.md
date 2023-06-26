@@ -57,12 +57,23 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ### Button
 
+- Classes `ecl-button__icon--before` and `ecl-button__icon--after` are no longer needed for the icon; position is detected using CSS.
 - To keep consistency, CSS class for call to action button has been renamed from `ecl-button--call` to `ecl-button--cta`
 - `ghost`button is now called like that everywhere (it was sometimes called `text` previously). CSS classes haven't been modified
+- New variant added to handle button with icon only: `ecl-button--icon-only`. By using it, it is no longer needed to add utility classes on the button label. If you are using the twig template, this variant relies on the already existing parameter `hide_label`
+  Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
+
+### Forms
+
+- Icon for invalid form input has been reduced on EC (`s` instead of `m`)
 
 ### Links
 
-- `Negative` links have been renamed `Inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+- `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+
+### Site footer
+
+- Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
 ### Message
 
@@ -75,7 +86,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Custom theme
 
-ECL4 introduces new ways to custommize the look and feel of elements, by changing styles and component display
+ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
 
 ### How to create a custom theme
 

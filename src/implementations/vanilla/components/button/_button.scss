@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -64,18 +65,36 @@ $button: null !default;
   flex-shrink: 0;
 }
 
-.ecl-button__icon--before,
-.ecl-button__icon + .ecl-button__label {
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
-}
-
-.ecl-button__icon--after,
-.ecl-button__label + .ecl-button__icon {
+.ecl-button__icon ~ .ecl-button__label,
+.ecl-button__label ~ .ecl-button__icon {
   margin-inline-start: map.get($theme, 'spacing', 'xs');
 }
 
-.ecl-button__icon:only-child {
-  margin: 0;
+// Icon only
+$size-icon-only: calc(
+  #{map.get($button, 'padding-vertical')} * 2 + #{map.get(
+      $theme,
+      'line-height',
+      'm'
+    )} - #{map.get($button, 'border-width')} * 2
+);
+
+.ecl-button--icon-only {
+  padding: 0;
+
+  .ecl-button__container {
+    height: $size-icon-only;
+    justify-content: center;
+    width: $size-icon-only;
+  }
+
+  .ecl-button__label {
+    @include screen-reader.sr-only;
+  }
+
+  .ecl-button__icon {
+    margin: 0;
+  }
 }
 
 /**

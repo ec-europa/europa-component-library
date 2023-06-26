@@ -17,6 +17,11 @@ import notes from './README.md';
 const system = getSystem();
 const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
+const iconMapping = iconsAll.reduce((mapping, icon) => {
+  mapping[icon] = icon;
+  return mapping;
+}, {});
+
 // Create 'none' option.
 iconsAll.unshift('none');
 
@@ -24,6 +29,7 @@ const getArgs = () => ({
   icon_name: 'none',
   icon_position: 'after',
   disabled: false,
+  hide_label: false,
 });
 
 const getArgTypes = () => {
@@ -46,6 +52,7 @@ const getArgTypes = () => {
     description: 'Button icon',
     type: { name: 'select' },
     options: iconsAll,
+    mapping: iconMapping,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -57,12 +64,20 @@ const getArgTypes = () => {
     type: { name: 'select' },
     description: 'Button icon transform',
     options: [
+      'none',
       'rotate-90',
       'rotate-180',
       'rotate-270',
       'flip-horizontal',
       'flip-vertical',
     ],
+    mapping: {
+      'rotate-90': 'rotate-90',
+      'rotate-180': 'rotate-180',
+      'rotate-270': 'rotate-270',
+      'flip-horizontal': 'flip-horizontal',
+      'flip-vertical': 'flip-vertical',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -74,6 +89,10 @@ const getArgTypes = () => {
     type: { name: 'inline-radio' },
     description: 'Icon position inside the button',
     options: ['before', 'after'],
+    mapping: {
+      before: 'before',
+      after: 'after',
+    },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'after' },
@@ -93,6 +112,20 @@ const getArgTypes = () => {
       type: 'boolean',
     },
   };
+  argTypes.hide_label = {
+    name: 'hide label',
+    type: { name: 'boolean' },
+    description:
+      'Hide button label, keeping it only for screen readers. This only works if an icon is used',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'States',
+    },
+    control: {
+      type: 'boolean',
+    },
+  };
 
   return argTypes;
 };
@@ -100,12 +133,14 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
+  data.hide_label = args.hide_label;
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
     data.icon.size = system === 'eu' ? 's' : 'xs';
     data.icon.path = 'icon.svg';
-    data.icon.transform = args.icon_transform;
+    data.icon.transform =
+      args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;
   }
   if (args.icon_name === 'none') {

@@ -67,9 +67,34 @@ describe('Button', () => {
     });
   });
 
+  describe('CTA button - icon only', () => {
+    const buttonData = {
+      label: 'CTA Button with icon only',
+      variant: 'cta',
+      icon: {
+        path: 'static/icons.svg',
+        name: 'corner-arrow',
+        size: 'fluid',
+      },
+      hide_label: true,
+    };
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(buttonData)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(renderTwigFileAsHtml(template, dataCall))
+      ).toHaveNoViolations();
+    });
+  });
+
   describe('CTA button - icon before', () => {
     const buttonData = {
-      label: 'CTA Button with icon',
+      label: 'CTA Button with icon before',
       variant: 'cta',
       icon_position: 'before',
       icon: {
@@ -94,7 +119,7 @@ describe('Button', () => {
 
   describe('CTA button - icon after', () => {
     const buttonData = {
-      label: 'CTA Button with icon',
+      label: 'CTA Button with icon after',
       variant: 'cta',
       icon: {
         path: 'static/icons.svg',
