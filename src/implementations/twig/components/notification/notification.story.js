@@ -20,9 +20,17 @@ if (system === 'eu') {
   dataWarning.icon.size = 'm';
   dataError.icon.size = 'm';
   dataInfo.close.icon.size = 's';
+  dataInfo.close.icon.name = 'close-filled';
+  dataInfo.close.hide_label = false;
   dataError.close.icon.size = 's';
+  dataError.close.icon.name = 'close-filled';
+  dataError.close.hide_label = false;
   dataSuccess.close.icon.size = 's';
+  dataSuccess.close.icon.name = 'close-filled';
+  dataSuccess.close.hide_label = false;
   dataWarning.close.icon.size = 's';
+  dataWarning.close.icon.name = 'close-filled';
+  dataWarning.close.hide_label = false;
 }
 
 const getArgs = (data) => ({

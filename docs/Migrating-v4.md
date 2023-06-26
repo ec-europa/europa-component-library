@@ -78,6 +78,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Message
 
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
 
 ### Site header
 
