@@ -15,7 +15,10 @@ class Playground extends Component {
     // Parameters
     this.showcaseLineHeight = 1.5;
     this.showcaseNbLines = 6;
-    this.state = { hasError: false };
+    this.state = {
+      hasError: false,
+      resolvedMarkup: null,
+    };
   }
 
   static getDerivedStateFromError() {
@@ -24,22 +27,32 @@ class Playground extends Component {
   }
 
   componentDidMount() {
-    // Calculate max height
-    this.maxHeight =
-      this.showcaseLineHeight *
-      this.showcaseNbLines *
-      parseFloat(getComputedStyle(document.documentElement).fontSize);
+    this.renderMarkup();
 
-    // Check if code area is too long
-    if (
-      this.showcaseCodeRef.current &&
-      this.showcaseCodeRef.current.clientHeight > this.maxHeight
-    ) {
-      this.showcaseCodeRef.current.parentElement.setAttribute(
-        'aria-expanded',
-        false
-      );
-      this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
+    this.calculateContainerHeight().then((containerHeight) => {
+      // Calculate max height
+      this.maxHeight =
+        this.showcaseLineHeight *
+        this.showcaseNbLines *
+        parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+      // Check if code area is too long
+      if (this.showcaseCodeRef.current && containerHeight > this.maxHeight) {
+        this.showcaseCodeRef.current.parentElement.setAttribute(
+          'aria-expanded',
+          false
+        );
+        this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { children } = this.props;
+    const { markup } = children.props;
+
+    if (markup !== prevProps.children.props.markup) {
+      this.renderMarkup();
     }
   }
 
@@ -49,9 +62,38 @@ class Playground extends Component {
       'aria-expanded',
       true
     );
-    this.showcaseCodeRef.current.style.maxHeight = `none`;
+    this.showcaseCodeRef.current.style.maxHeight = 'none';
+  }
 
-    return this;
+  calculateContainerHeight() {
+    return new Promise((resolve) => {
+      const checkContainerHeight = () => {
+        const container = this.showcaseCodeRef.current;
+
+        if (container && container.childNodes.length > 0) {
+          const containerHeight = container.offsetHeight;
+          resolve(containerHeight);
+        } else {
+          setTimeout(checkContainerHeight, 100);
+        }
+      };
+
+      checkContainerHeight();
+    });
+  }
+
+  async renderMarkup() {
+    const { children } = this.props;
+    const { markup } = children.props;
+
+    if (markup instanceof Promise) {
+      const resolvedMarkup = await markup;
+      if (typeof resolvedMarkup === 'string') {
+        this.setState({ resolvedMarkup });
+      }
+    } else if (typeof markup === 'string') {
+      this.setState({ resolvedMarkup: markup });
+    }
   }
 
   render() {
@@ -72,7 +114,7 @@ class Playground extends Component {
       children,
     } = this.props;
 
-    const { hasError } = this.state;
+    const { hasError, resolvedMarkup } = this.state;
 
     if (!children) return null;
 
@@ -105,6 +147,12 @@ class Playground extends Component {
             `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`
           )
         : '';
+
+    let markupElement = null;
+
+    if (resolvedMarkup) {
+      markupElement = <Code>{resolvedMarkup}</Code>;
+    }
 
     return (
       <div className={styles.playground}>
@@ -151,7 +199,7 @@ class Playground extends Component {
               className={`${styles['code-pre']} language-html`}
               ref={this.showcaseCodeRef}
             >
-              <Code>{children}</Code>
+              {markupElement}
             </pre>
             <button
               type="button"
@@ -225,7 +273,7 @@ Playground.defaultProps = {
   hideCode: false,
   iframeOptions: {},
   hideDemo: false,
-  heightCalculation: 'lowestElement',
+  heightCalculation: 'max',
   disableAutoResize: false,
   system: '',
   selectedKind: '',
