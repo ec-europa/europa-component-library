@@ -75,6 +75,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
+### Spinner
+
+- For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
+
 ## Custom theme
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
