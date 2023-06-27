@@ -70,6 +70,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+- Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
 
 ### Site footer
 
