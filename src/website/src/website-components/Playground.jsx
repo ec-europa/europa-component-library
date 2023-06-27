@@ -84,6 +84,11 @@ class Playground extends Component {
 
   async renderMarkup() {
     const { children } = this.props;
+
+    if (!children || !children.props) {
+      return;
+    }
+
     const { markup } = children.props;
 
     if (markup instanceof Promise) {
