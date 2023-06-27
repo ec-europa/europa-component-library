@@ -17,7 +17,6 @@ npm install --save @ecl/twig-component-form-group
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
-- **"required"** (boolean) (default: false)
 - **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -35,13 +34,14 @@ npm install --save @ecl/twig-component-form-group
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/file-upload/file-upload.html.twig' with { 
+{% include '@ecl/form-group/form-group.html.twig' with { 
   label: 'my file upload label', 
   helper_text: 'this is a helper text', 
   invalid_text: 'this is an invalid text', 
   required_text: '*', 
   optional_text: 'this is an optional text', 
   input: {
+    input_type: 'file',
     multiple: false, 
     button_choose_label: "Choose file", 
     button_replace_label: "Replace file",

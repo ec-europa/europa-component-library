@@ -10,7 +10,6 @@ npm install --save @ecl/twig-component-checkbox
 
 - **"items"** (array) (default: [])
   - "id" (string) (default: '')
-  - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
@@ -21,6 +20,7 @@ npm install --save @ecl/twig-component-checkbox
   - "icon_path" (string) (default: ''): file containing the svg icons
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
+- **"invalid_icon"** (object) (default: {}) Object of type icon
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
@@ -36,7 +36,6 @@ npm install --save @ecl/twig-component-checkbox
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/checkbox/checkbox-group.html.twig' with { 
-  helper_id: 'checkbox-default-helper', 
   invalid_text: 'Error message for the group', 
   name: 'checkbox-default', 
   invalid: false, 

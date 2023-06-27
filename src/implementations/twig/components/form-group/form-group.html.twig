@@ -160,11 +160,7 @@
   {%- endif -%}
 
   {%- if _input.input_type == 'datepicker' -%}
-    {% include '@ecl/datepicker/datepicker.html.twig' with _input|merge({
-      required: _required,
-      disabled: _disabled,
-      invalid: _invalid,
-    }) only %}
+    {% include '@ecl/datepicker/datepicker.html.twig' with _input only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'radio' -%}
@@ -172,7 +168,10 @@
   {%- endif -%}
 
   {%- if _input.input_type == 'checkbox' -%}
-    {% include '@ecl/checkbox/checkbox-group.html.twig' with _input only %}
+    {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
+      invalid_text: _invalid_text,
+      invalid_icon: _invalid_icon,
+    }) only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'range' -%}

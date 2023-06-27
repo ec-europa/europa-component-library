@@ -67,6 +67,26 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)
 
+- form-group.html.twig template has been added. Form elements can now be rendered through it by passing an input named object with the same
+  properties of the ECL v3 form elements and an additional input_type that can be `text`, `checkbox`, `radio`, `datepicker`, `select`, `file`, `textarea`, `range`, `rating-field`.
+
+EX: `{% include '@ecl/form-group/form-group.html.twig' with { 
+  label: 'my file upload label', 
+  helper_text: 'this is a helper text', 
+  invalid_text: 'this is an invalid text', 
+  required_text: '*', 
+  required: true,
+  optional_text: 'this is an optional text', 
+  input: {
+    input_type: file,
+    multiple: false, 
+    button_choose_label: "Choose file", 
+    button_replace_label: "Replace file",
+  } only %}`
+
+- It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
+  implementation to ensure that the accessibility is not compromised.
+
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
