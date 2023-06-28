@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-search-form
 
 ### Parameters
 
+- **"label"** (string) default: '' Label of the search form
 - **"text_input"** (associative array) default: Predefined structure for the text-Input component
 - **"button"** (associative array) default: Predefined structure for the Button component
 - **"extra_form_elements"** (optional) (string) (default: '') Extra elements for the form
@@ -20,7 +21,8 @@ npm install --save @ecl/twig-component-search-form
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/search-form/search-form.html.twig' with { 
+{% include '@ecl/search-form/search-form.html.twig' with {
+  label: 'Search',
   text_input: { 
     id: 'input-search', 
     name: 'search', 

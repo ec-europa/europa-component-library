@@ -15,63 +15,15 @@ $form-group: null !default;
   display: block;
   margin: 0;
   padding: 0;
-
-  > *:not(.ecl-u-sr-only) + * {
-    margin-top: map.get($theme, 'spacing', 'xs');
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-feedback-message {
-    margin-top: map.get($form-group, 'margin-invalid');
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-help-block {
-    margin-top: map.get($form-group, 'margin-help');
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-checkbox,
-  > *:not(.ecl-u-sr-only) + .ecl-radio {
-    margin-top: map.get($form-group, 'margin-first-element');
-    /* stylelint-disable max-nesting-depth, selector-max-compound-selectors */
-    ~ .ecl-checkbox,
-    ~ .ecl-radio {
-      margin-top: map.get($theme, 'spacing', 'l');
-    }
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-radio--binary {
-    margin-top: map.get($theme, 'spacing', 'm');
-
-    ~ .ecl-radio--binary {
-      margin-top: map.get($theme, 'spacing', 'm');
-    }
-  }
-  /* stylelint-enable max-nesting-depth, selector-max-compound-selectors */
-  > .ecl-checkbox:first-child + .ecl-checkbox,
-  > .ecl-radio:first-child + .ecl-radio:not(.ecl-radio--binary) {
-    margin-top: map.get($theme, 'spacing', 'l');
-  }
-
-  > .ecl-radio--binary:first-child + .ecl-radio--binary {
-    margin-top: 0;
-  }
-
-  > *:not(.ecl-u-sr-only) + .ecl-file-upload__list {
-    margin-top: map.get($theme, 'spacing', 'm');
-  }
-
-  > .ecl-feedback-message + .ecl-help-block {
-    margin-top: 0;
-  }
 }
 
-// stylelint-disable no-descending-specificity
 .ecl-feedback-message {
   align-items: center;
   box-sizing: border-box;
   color: map.get($form-group, 'color-invalid');
   display: flex;
   font: map.get($form-group, 'font-invalid');
-  margin: 0;
+  margin: map.get($theme, 'spacing', '2xs') 0 map.get($theme, 'spacing', 'xs');
   padding: 0;
 }
 
@@ -84,8 +36,12 @@ $form-group: null !default;
   color: map.get($form-group, 'color-help');
   display: block;
   font: map.get($form-group, 'font-help');
-  margin: 0;
+  margin: map.get($theme, 'spacing', '2xs') 0 map.get($theme, 'spacing', 'xs');
   padding: 0;
+}
+
+.ecl-help-block ~ .ecl-feedback-message {
+  margin-top: -#{map.get($theme, 'spacing', '2xs')};
 }
 
 .ecl-form-label {
@@ -111,4 +67,10 @@ $form-group: null !default;
   color: map.get($form-group, 'color-optional');
   font: map.get($form-group, 'font-optional');
   font-style: map.get($form-group, 'font-style-optional');
+}
+
+.ecl-form-label + {
+  *:not(.ecl-help-block, .ecl-feedback-message) {
+    margin-top: map.get($theme, 'spacing', 'xs');
+  }
 }

@@ -15,8 +15,8 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="file"
   showFrame
 >
   <Html markup={fileUpload} />
@@ -26,9 +26,10 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-forms-file-upload"
-  selectedStory="multiple"
+  selectedKind="components-forms"
+  selectedStory="file"
   showFrame
+  selectedArgs="input.multiple:true"
 >
   <Html markup={fileUploadMultiple} />
 </Playground>
@@ -37,8 +38,9 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="file"
+  selectedArgs="disabled:true"
   showFrame
 >
   <Html markup={fileUploadDisabled} />
@@ -48,8 +50,8 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-forms-file-upload"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="file"
   selectedArgs="invalid:true"
   showFrame
 >
@@ -60,9 +62,9 @@ import {
 
 <Playground
   system="eu"
-  selectedKind="components-forms-file-upload"
-  selectedStory="default"
-  selectedArgs="required:false"
+  selectedKind="components-forms"
+  selectedStory="file-upload"
+  selectedArgs="required:!false"
   showFrame
 >
   <Html markup={fileUploadOptional} />
