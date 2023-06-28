@@ -12,8 +12,6 @@ $theme: null !default;
 $search-form: null !default;
 
 // Internal variables
-$form-width-desktop: 31.25rem;
-$form-width-tablet: 25rem;
 $button-border-width: 1px;
 $button-padding-horizontal: map.get($theme, 'spacing', 'm');
 $button-padding-vertical: map.get($theme, 'spacing', 'xs');
@@ -116,22 +114,11 @@ $button-padding-vertical: map.get($theme, 'spacing', 'xs');
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-search-form {
-    max-width: $form-width-tablet;
-  }
-
   .ecl-search-form__button .ecl-button__label {
     display: block;
   }
 
   .ecl-search-form__button .ecl-button__icon {
     margin-inline-end: map.get($theme, 'spacing', 'xs');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-search-form {
-    max-width: $form-width-desktop;
   }
 }
