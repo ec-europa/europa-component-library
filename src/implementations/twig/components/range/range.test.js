@@ -7,7 +7,9 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 
-import dataDefault from '@ecl/specs-component-range/demo/data';
+import specDefault from '@ecl/specs-component-range/demo/data';
+
+const dataDefault = specDefault.input;
 
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };

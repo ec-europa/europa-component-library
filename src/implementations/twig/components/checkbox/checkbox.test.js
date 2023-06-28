@@ -6,7 +6,9 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import data from '@ecl/specs-component-checkbox/demo/data';
+import specs from '@ecl/specs-component-checkbox/demo/data';
+
+const data = specs.input;
 
 const dataSingle = { ...data, items: [data.items[0]], invalid: true };
 const dataInvalid = { ...data, invalid: true };

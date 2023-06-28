@@ -147,3 +147,7 @@ $_shadow-hover: null !default;
   background-color: map.get(theme.$color, 'grey-5');
   border-width: 0;
 }
+
+.ecl-form-label + .ecl-file-upload + .ecl-file-upload__button-container {
+  margin-top: map.get(theme.$spacing, 'xs');
+}

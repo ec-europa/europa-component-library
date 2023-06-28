@@ -1,6 +1,6 @@
 import demoContentDefault from '@ecl/specs-component-radio/demo/data--default';
 import demoContentBinary from '@ecl/specs-component-radio/demo/data--binary';
-import template from '@ecl/twig-component-radio/radio-group.html.twig';
+import template from '@ecl/twig-component-form-group/form-group.html.twig';
 
 export const radioGroupDefault = template(demoContentDefault);
 export const radioGroupInvalid = template({
@@ -10,6 +10,10 @@ export const radioGroupInvalid = template({
 export const radioGroupOptional = template({
   ...demoContentDefault,
   required: false,
+  input: {
+    ...radioGroupDefault.input,
+    required: false,
+  },
 });
 export const radioGroupBinary = template(demoContentBinary);
 export const radioGroupBinaryInvalid = template({
