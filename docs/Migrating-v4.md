@@ -78,6 +78,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Spinner
 
 - For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
+- Order of elements in the markup has been changed
 
 ## Custom theme
 
