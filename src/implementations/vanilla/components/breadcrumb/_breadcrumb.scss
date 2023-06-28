@@ -4,23 +4,13 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_container-padding: 0 0 map.get(theme.$spacing, 'm') !default;
-$_segment-margin-top: map.get(theme.$spacing, 'm') !default;
-$_link-font: null !default;
-$_link-font-weight: null !default;
-$_last-link-color: null !default;
-$_icon-color: null !default;
-$_background-color: null !default;
-$_ellipsis-color: null !default;
-$_ellipsis-background-color: null !default;
-$_ellipsis-background-color-hover: null !default;
-$_ellipsis-padding-horizontal: null !default;
-$_ellispis-outline-width: null !default;
+// Exposed variables
+$theme: null !default;
+$breadcrumb: null !default;
 
 .ecl-breadcrumb {
-  background-color: $_background-color;
+  background-color: map.get($theme, 'color', 'white');
   margin: 0;
 }
 
@@ -30,7 +20,7 @@ $_ellispis-outline-width: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: $_container-padding;
+  padding: 0 0 map.get($theme, 'spacing', 'm');
 
   &::after {
     clear: both;
@@ -42,7 +32,7 @@ $_ellispis-outline-width: null !default;
 .ecl-breadcrumb__segment {
   align-items: center;
   display: inline-flex;
-  margin-top: $_segment-margin-top;
+  margin-top: map.get($theme, 'spacing', 'm');
   max-width: 100%;
 
   &[aria-hidden='true'] {
@@ -69,66 +59,58 @@ $_ellispis-outline-width: null !default;
 }
 
 .ecl-breadcrumb__ellipsis {
-  background-color: $_ellipsis-background-color;
-  border-width: 0;
-  box-sizing: border-box;
-  color: $_ellipsis-color;
-  font: $_link-font;
-  font-weight: map.get(theme.$font-weight, 'bold');
+  background-color: map.get($breadcrumb, 'ellipsis-background-color');
+  color: map.get($breadcrumb, 'ellipsis-color');
+  font: map.get($breadcrumb, 'link-font');
   margin: 0;
-  padding: 0 $_ellipsis-padding-horizontal;
+  padding: 0 map.get($breadcrumb, 'ellipsis-padding-horizontal');
 
   &:hover {
-    background-color: $_ellipsis-background-color-hover;
-    color: $_ellipsis-color;
-  }
-
-  &:focus-visible {
-    outline-offset: 2px;
+    background-color: map.get($breadcrumb, 'ellipsis-background-color-hover');
+    color: map.get($breadcrumb, 'ellipsis-color');
   }
 }
 
 .ecl-breadcrumb__link {
-  font: $_link-font;
-  font-weight: $_link-font-weight;
+  font: map.get($breadcrumb, 'link-font');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .ecl-breadcrumb__icon {
-  fill: $_icon-color;
+  fill: map.get($breadcrumb, 'icon-color');
   flex-shrink: 0;
-  margin-inline-start: map.get(theme.$spacing, 'xs');
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($breadcrumb, 'icon-spacing');
+  margin-inline-end: map.get($breadcrumb, 'icon-spacing');
   vertical-align: text-bottom;
 }
 
 .ecl-breadcrumb__current-page {
-  color: $_last-link-color;
-  font: $_link-font;
-  font-weight: $_link-font-weight;
+  color: map.get($breadcrumb, 'last-link-color');
+  font: map.get($breadcrumb, 'link-font');
+  font-weight: map.get($breadcrumb, 'link-font-weight');
 }
 
 /*
  * Negative variant - Core EC
  */
 .ecl-breadcrumb--negative {
-  background-color: map.get(theme.$color, 'blue-100');
+  background-color: map.get($theme, 'color', 'blue-100');
 
   .ecl-breadcrumb__ellipsis {
-    color: map.get(theme.$color, 'white-100');
+    color: map.get($theme, 'color', 'white-100');
 
     &:hover {
-      background-color: map.get(theme.$color, 'blue-120');
+      background-color: map.get($theme, 'color', 'blue-120');
     }
   }
 
   .ecl-breadcrumb__icon {
-    fill: map.get(theme.$color, 'white-100');
+    fill: map.get($theme, 'color', 'white-100');
   }
 
   .ecl-breadcrumb__current-page {
-    color: map.get(theme.$color, 'blue-25');
+    color: map.get($theme, 'color', 'blue-25');
   }
 }

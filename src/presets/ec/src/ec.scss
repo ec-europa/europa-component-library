@@ -52,7 +52,10 @@
 @use '@ecl/vanilla-component-description-list/description-list-ec';
 @use '@ecl/vanilla-component-featured-item/featured-item-ec';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-ec';
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb-ec';
+@use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
+  $theme: theme.$theme,
+  $breadcrumb: var.$breadcrumb
+);
 @use '@ecl/vanilla-component-card/card-ec';
 @use '@ecl/vanilla-component-content-block/content-block-ec';
 @use '@ecl/vanilla-component-content-item/content-item-ec';
