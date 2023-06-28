@@ -159,8 +159,9 @@
   {% endif %}
 
   {% set _search_form = {
+    label: search_form.label,
     text_input: search_form.text_input|default({})|merge({
-      extra_classes: _search_input_extra_classes,
+      extra_input_classes: _search_input_extra_classes,
       extra_attributes: _search_input_extra_attributes,
     }),
     button: search_form.button|default({})|merge({

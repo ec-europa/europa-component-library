@@ -11,13 +11,9 @@ npm install --save @ecl/twig-component-file-upload
 - **"id"** (string) (default: '') - Input id
 - **"name"** (string) (default: '') - Input id
 - **"invalid"** (boolean) (default: false) - When an error is found
-- **"invalid_text"** (string) (default: '') - Error message
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"disabled"** (boolean) (default: false) - Disables the input field
 - **"multiple"** (boolean) (default: false) - Multiple uploads
 - **"required"** (boolean) (default: false) - Makes the input required
-- **"required_text"** (string) (default: '') - Text after the label when required
-- **"optional_text"** (string) (default: '') - Text after the label when not required
 - **"button_choose_label"** (string) (default: '')
 - **"button_replace_label"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -37,10 +33,7 @@ npm install --save @ecl/twig-component-file-upload
 {% include '@ecl/file-upload/file-upload.html.twig' with { 
   id: 'my-file-upload', 
   label: 'my file upload label', 
-  helper_text: 'this is a helper text', 
-  invalid_text: 'this is an invalid text', 
-  required_text: '*', 
-  optional_text: 'this is an optional text', 
+  required_text: '*',  
   disabled: false, 
   required: false, 
   invalid: false, 

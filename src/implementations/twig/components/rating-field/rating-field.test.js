@@ -1,6 +1,8 @@
 import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
 
-import data from '@ecl/specs-component-rating-field/demo/data';
+import specs from '@ecl/specs-component-rating-field/demo/data';
+
+const data = specs.input;
 
 describe('Rating field', () => {
   const template = '@ecl/rating-field/rating-field.html.twig';

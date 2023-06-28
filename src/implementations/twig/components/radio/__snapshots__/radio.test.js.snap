@@ -2,1081 +2,904 @@
 
 exports[`Radio Binary invalid renders correctly 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
+  <div
+    class="ecl-radio ecl-radio--binary"
   >
-    <legend
-      class="ecl-form-label ecl-form-label--invalid"
+    <input
+      checked=""
+      class="ecl-radio__input"
+      id="radio-binary-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="yes"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-1"
     >
-      Do you need help?
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box ecl-radio__box--invalid"
       >
-        *
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="helper-id-1"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#error"
+        <span
+          class="ecl-radio__box-inner"
         />
-      </svg>
-          Error message for the group
-    </div>
-    <div
-      class="ecl-radio ecl-radio--binary"
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Yes
+      </span>
+    </label>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--binary"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="no"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-2"
     >
-      <input
-        checked=""
-        class="ecl-radio__input"
-        id="radio-binary-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="yes"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-binary-1"
+      <span
+        class="ecl-radio__box ecl-radio__box--invalid"
       >
         <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Yes
-        </span>
-      </label>
-    </div>
-    <div
-      class="ecl-radio ecl-radio--binary"
-    >
-      <input
-        class="ecl-radio__input"
-        id="radio-binary-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="no"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-binary-2"
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
       >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          No
-        </span>
-      </label>
-    </div>
-  </fieldset>
+        No
+      </span>
+    </label>
+  </div>
 </jest>
 `;
 
 exports[`Radio Binary renders correctly 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
+  <div
+    class="ecl-radio ecl-radio--binary"
   >
-    <legend
-      class="ecl-form-label"
+    <input
+      checked=""
+      class="ecl-radio__input"
+      id="radio-binary-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="yes"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-1"
     >
-      Do you need help?
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box"
       >
-        *
+        <span
+          class="ecl-radio__box-inner"
+        />
       </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="helper-id-1"
+      <span
+        class="ecl-radio__text"
+      >
+        Yes
+      </span>
+    </label>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--binary"
+  >
+    <input
+      class="ecl-radio__input"
+      id="radio-binary-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="no"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-binary-2"
     >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-radio ecl-radio--binary"
-    >
-      <input
-        checked=""
-        class="ecl-radio__input"
-        id="radio-binary-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="yes"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-binary-1"
+      <span
+        class="ecl-radio__box"
       >
         <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Yes
-        </span>
-      </label>
-    </div>
-    <div
-      class="ecl-radio ecl-radio--binary"
-    >
-      <input
-        class="ecl-radio__input"
-        id="radio-binary-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="no"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-binary-2"
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
       >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          No
-        </span>
-      </label>
-    </div>
-  </fieldset>
+        No
+      </span>
+    </label>
+  </div>
 </jest>
 `;
 
 exports[`Radio Default renders correctly 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
+  <div
+    class="ecl-radio"
   >
-    <legend
-      class="ecl-form-label"
+    <input
+      aria-describedby="helper-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
     >
-      Select your country
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box"
       >
-        *
+        <span
+          class="ecl-radio__box-inner"
+        />
       </span>
-    </legend>
+      <span
+        class="ecl-radio__text"
+      >
+        Luxembourg
+      </span>
+    </label>
     <div
-      class="ecl-help-block"
-      id="helper-id-1"
+      class="ecl-radio__help"
+      id="helper-1"
     >
-      This is the group's helper text.
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Belgium
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-2"
     >
-      <input
-        aria-describedby="helper-1"
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label ecl-radio__label--disabled"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--disabled"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        France (disabled)
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help ecl-radio__help--disabled"
+      id="helper-3"
     >
-      <input
-        aria-describedby="helper-2"
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-4"
+      class="ecl-radio__input"
+      id="radio-default-4"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lorem"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-4"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Lorem ipsum dolor sit amet, 
+        <a
+          href="/example"
+        >
+          consectetur adipiscing elit
+        </a>
+        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+      </span>
+    </label>
     <div
-      class="ecl-radio ecl-radio--disabled"
+      class="ecl-radio__help"
+      id="helper-4"
     >
-      <input
-        aria-describedby="helper-3"
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
-    <div
-      class="ecl-radio"
-    >
-      <input
-        aria-describedby="helper-4"
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
-    </div>
-  </fieldset>
+  </div>
 </jest>
 `;
 
 exports[`Radio Default renders correctly with extra attributes 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
+  <div
+    class="ecl-radio"
   >
-    <legend
-      class="ecl-form-label"
+    <input
+      aria-describedby="helper-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
     >
-      Select your country
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box"
       >
-        *
+        <span
+          class="ecl-radio__box-inner"
+        />
       </span>
-    </legend>
+      <span
+        class="ecl-radio__text"
+      >
+        Luxembourg
+      </span>
+    </label>
     <div
-      class="ecl-help-block"
-      id="helper-id-1"
+      class="ecl-radio__help"
+      id="helper-1"
     >
-      This is the group's helper text.
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Belgium
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-2"
     >
-      <input
-        aria-describedby="helper-1"
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label ecl-radio__label--disabled"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--disabled"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        France (disabled)
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help ecl-radio__help--disabled"
+      id="helper-3"
     >
-      <input
-        aria-describedby="helper-2"
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-4"
+      class="ecl-radio__input"
+      id="radio-default-4"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lorem"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-4"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Lorem ipsum dolor sit amet, 
+        <a
+          href="/example"
+        >
+          consectetur adipiscing elit
+        </a>
+        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+      </span>
+    </label>
     <div
-      class="ecl-radio ecl-radio--disabled"
+      class="ecl-radio__help"
+      id="helper-4"
     >
-      <input
-        aria-describedby="helper-3"
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
-    <div
-      class="ecl-radio"
-    >
-      <input
-        aria-describedby="helper-4"
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
-    </div>
-  </fieldset>
+  </div>
 </jest>
 `;
 
 exports[`Radio Default renders correctly with extra class names 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group custom-class custom-class--test"
+  <div
+    class="ecl-radio"
   >
-    <legend
-      class="ecl-form-label"
+    <input
+      aria-describedby="helper-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
     >
-      Select your country
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box"
       >
-        *
+        <span
+          class="ecl-radio__box-inner"
+        />
       </span>
-    </legend>
+      <span
+        class="ecl-radio__text"
+      >
+        Luxembourg
+      </span>
+    </label>
     <div
-      class="ecl-help-block"
-      id="helper-id-1"
+      class="ecl-radio__help"
+      id="helper-1"
     >
-      This is the group's helper text.
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Belgium
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-2"
     >
-      <input
-        aria-describedby="helper-1"
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label ecl-radio__label--disabled"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--disabled"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        France (disabled)
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help ecl-radio__help--disabled"
+      id="helper-3"
     >
-      <input
-        aria-describedby="helper-2"
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-4"
+      class="ecl-radio__input"
+      id="radio-default-4"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lorem"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-4"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Lorem ipsum dolor sit amet, 
+        <a
+          href="/example"
+        >
+          consectetur adipiscing elit
+        </a>
+        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+      </span>
+    </label>
     <div
-      class="ecl-radio ecl-radio--disabled"
+      class="ecl-radio__help"
+      id="helper-4"
     >
-      <input
-        aria-describedby="helper-3"
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
-    <div
-      class="ecl-radio"
-    >
-      <input
-        aria-describedby="helper-4"
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
-    </div>
-  </fieldset>
+  </div>
 </jest>
 `;
 
 exports[`Radio Invalid renders correctly 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
+  <div
+    class="ecl-radio"
   >
-    <legend
-      class="ecl-form-label ecl-form-label--invalid"
+    <input
+      aria-describedby="helper-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
     >
-      Select your country
       <span
-        class="ecl-form-label__required"
+        class="ecl-radio__box ecl-radio__box--invalid"
       >
-        *
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block"
-      id="helper-id-1"
-    >
-      This is the group's helper text.
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#error"
+        <span
+          class="ecl-radio__box-inner"
         />
-      </svg>
-          This is the error message
-    </div>
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Luxembourg
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-1"
     >
-      <input
-        aria-describedby="helper-1"
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--invalid"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Belgium
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-2"
     >
-      <input
-        aria-describedby="helper-2"
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label ecl-radio__label--disabled"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--disabled ecl-radio__box--invalid"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        France (disabled)
+      </span>
+    </label>
     <div
-      class="ecl-radio ecl-radio--disabled"
+      class="ecl-radio__help ecl-radio__help--disabled"
+      id="helper-3"
     >
-      <input
-        aria-describedby="helper-3"
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-4"
+      class="ecl-radio__input"
+      id="radio-default-4"
+      name="radio-group-1"
+      required=""
+      type="radio"
+      value="lorem"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-4"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--invalid"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Lorem ipsum dolor sit amet, 
+        <a
+          href="/example"
+        >
+          consectetur adipiscing elit
+        </a>
+        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-4"
     >
-      <input
-        aria-describedby="helper-4"
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        required=""
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--invalid"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
-  </fieldset>
+  </div>
 </jest>
 `;
 
 exports[`Radio Optional renders correctly 1`] = `
 <jest>
-  <fieldset
-    aria-describedby="helper-id-1"
-    class="ecl-form-group"
+  <div
+    class="ecl-radio"
   >
-    <legend
-      class="ecl-form-label"
+    <input
+      aria-describedby="helper-1"
+      class="ecl-radio__input"
+      id="radio-default-1"
+      name="radio-group-1"
+      type="radio"
+      value="lu"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-1"
     >
-      Select your country
       <span
-        class="ecl-form-label__optional"
+        class="ecl-radio__box"
       >
-         (optional)
+        <span
+          class="ecl-radio__box-inner"
+        />
       </span>
-    </legend>
+      <span
+        class="ecl-radio__text"
+      >
+        Luxembourg
+      </span>
+    </label>
     <div
-      class="ecl-help-block"
-      id="helper-id-1"
+      class="ecl-radio__help"
+      id="helper-1"
     >
-      This is the group's helper text.
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-2"
+      class="ecl-radio__input"
+      id="radio-default-2"
+      name="radio-group-1"
+      type="radio"
+      value="be"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-2"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Belgium
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help"
+      id="helper-2"
     >
-      <input
-        aria-describedby="helper-1"
-        class="ecl-radio__input"
-        id="radio-default-1"
-        name="radio-group-1"
-        type="radio"
-        value="lu"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-1"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Luxembourg
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio ecl-radio--disabled"
+  >
+    <input
+      aria-describedby="helper-3"
+      class="ecl-radio__input"
+      disabled=""
+      id="radio-default-3"
+      name="radio-group-1"
+      type="radio"
+      value="fr"
+    />
+    <label
+      class="ecl-radio__label ecl-radio__label--disabled"
+      for="radio-default-3"
+    >
+      <span
+        class="ecl-radio__box ecl-radio__box--disabled"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        France (disabled)
+      </span>
+    </label>
     <div
-      class="ecl-radio"
+      class="ecl-radio__help ecl-radio__help--disabled"
+      id="helper-3"
     >
-      <input
-        aria-describedby="helper-2"
-        class="ecl-radio__input"
-        id="radio-default-2"
-        name="radio-group-1"
-        type="radio"
-        value="be"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-2"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
+  </div>
+  <div
+    class="ecl-radio"
+  >
+    <input
+      aria-describedby="helper-4"
+      class="ecl-radio__input"
+      id="radio-default-4"
+      name="radio-group-1"
+      type="radio"
+      value="lorem"
+    />
+    <label
+      class="ecl-radio__label"
+      for="radio-default-4"
+    >
+      <span
+        class="ecl-radio__box"
+      >
+        <span
+          class="ecl-radio__box-inner"
+        />
+      </span>
+      <span
+        class="ecl-radio__text"
+      >
+        Lorem ipsum dolor sit amet, 
+        <a
+          href="/example"
+        >
+          consectetur adipiscing elit
+        </a>
+        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
+      </span>
+    </label>
     <div
-      class="ecl-radio ecl-radio--disabled"
+      class="ecl-radio__help"
+      id="helper-4"
     >
-      <input
-        aria-describedby="helper-3"
-        class="ecl-radio__input"
-        disabled=""
-        id="radio-default-3"
-        name="radio-group-1"
-        type="radio"
-        value="fr"
-      />
-      <label
-        class="ecl-radio__label ecl-radio__label--disabled"
-        for="radio-default-3"
-      >
-        <span
-          class="ecl-radio__box ecl-radio__box--disabled"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
+      Help text for an option
     </div>
-    <div
-      class="ecl-radio"
-    >
-      <input
-        aria-describedby="helper-4"
-        class="ecl-radio__input"
-        id="radio-default-4"
-        name="radio-group-1"
-        type="radio"
-        value="lorem"
-      />
-      <label
-        class="ecl-radio__label"
-        for="radio-default-4"
-      >
-        <span
-          class="ecl-radio__box"
-        >
-          <span
-            class="ecl-radio__box-inner"
-          />
-        </span>
-        <span
-          class="ecl-radio__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
-    </div>
-  </fieldset>
+  </div>
 </jest>
 `;

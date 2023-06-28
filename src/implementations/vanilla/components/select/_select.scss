@@ -286,6 +286,10 @@ $_multiple_counter_background: null !default;
     );
   }
 
+  .ecl-checkbox ~ .ecl-checkbox {
+    margin: 0;
+  }
+
   .ecl-checkbox__label:hover,
   .ecl-checkbox__label:focus {
     background-color: $_multiple-checkbox-background-hover-color;
