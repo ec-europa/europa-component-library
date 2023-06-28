@@ -6,13 +6,16 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
+$_background: null !default;
+
 .ecl-banner {
+  background: $_background;
   margin: 0;
-  padding: map.get(theme.$spacing-print, 'l') 0;
+  padding: map.get(theme.$spacing-print, 'l');
   position: relative;
 }
 
-.ecl-banner__credit {
+.ecl-banner__picture {
   display: none;
 }
 
@@ -21,15 +24,14 @@
 }
 
 .ecl-banner__title {
-  color: map.get(theme.$color, 'black-100');
   font: map.get(theme.$font-print, '4xl');
+  font-weight: map.get(theme.$font-weight, 'bold');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .ecl-banner__description {
-  color: map.get(theme.$color, 'black-100');
   font: map.get(theme.$font-prolonged-print, 'l');
   margin-bottom: 0;
   margin-top: map.get(theme.$spacing-print, 'xs');
@@ -39,33 +41,30 @@
   margin-top: map.get(theme.$spacing-print, 'm');
 }
 
-.ecl-banner:not(.ecl-banner--plain-background) {
-  padding: 0;
+.ecl-banner__credit {
+  font: map.get(theme.$font-prolonged-print, 's');
+  margin: map.get(theme.$spacing-print, 'xs') map.get(theme.$spacing-print, 's')
+    0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
-  .ecl-banner__image {
-    aspect-ratio: 4/1;
-    display: block;
-    object-fit: cover;
-    width: 100%;
-  }
+.ecl-banner__description,
+.ecl-banner__title,
+.ecl-banner__cta,
+.ecl-banner__cta .ecl-link,
+.ecl-banner__credit {
+  color: map.get(theme.$color, 'white-100');
+}
 
-  .ecl-container {
-    position: absolute;
-    top: 25%;
-  }
-
+.ecl-banner--centered {
   .ecl-banner__container {
-    display: flex;
-    padding-bottom: map.get(theme.$spacing-print, 'l');
-    padding-top: map.get(theme.$spacing-print, 'l');
-    padding-inline-start: map.get(theme.$spacing-print, 'l');
-    width: 100%;
+    justify-content: center;
   }
 
-  .ecl-banner__description,
-  .ecl-banner__title,
-  .ecl-banner__cta,
-  .ecl-banner__cta .ecl-link {
-    color: map.get(theme.$color, 'white-100');
+  .ecl-banner__content {
+    align-items: center;
+    text-align: center;
   }
 }

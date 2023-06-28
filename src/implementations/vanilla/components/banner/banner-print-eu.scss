@@ -1,0 +1,16 @@
+/**
+ * banner
+ * @define banner-eu
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+@use 'banner-print' with (
+  $_background:
+    linear-gradient(
+      to right,
+      map.get(theme.$color, 'blue-140') 0%,
+      map.get(theme.$color, 'blue-100') 100%
+    )
+);

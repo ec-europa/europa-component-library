@@ -1,0 +1,11 @@
+/**
+ * banner
+ * @define banner-ec
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+@use 'banner-print' with (
+  $_background: map.get(theme.$color, 'blue-100')
+);

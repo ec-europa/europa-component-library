@@ -3,6 +3,91 @@
  * @define gallery
 */
 
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
 .ecl-gallery {
+  margin: 0;
+}
+
+.ecl-gallery__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: -#{map.get(theme.$spacing-print, 'xs')};
+  padding-inline-start: 0;
+}
+
+.ecl-gallery__item {
+  display: block;
+  flex-grow: 1;
+  height: 5cm;
+  margin-bottom: 0;
+  margin-inline-start: map.get(theme.$spacing-print, 'xs');
+  margin-top: map.get(theme.$spacing-print, 'xs');
+  min-width: 7cm;
+  position: relative;
+}
+
+.ecl-gallery__item-icon {
+  display: none;
+}
+
+.ecl-gallery__image-container {
+  display: flex;
+  height: 5cm;
+  position: relative;
+  background-color: map.get(theme.$color, 'black-100');
+  flex-grow: 1;
+  margin: 0;
+}
+
+.ecl-gallery__picture {
+  display: flex;
+  height: 100%;
+
+  &:not(.ecl-gallery__slider-image) {
+    flex-grow: 1;
+  }
+
+  * {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+@supports (object-fit: cover) {
+  .ecl-gallery__image {
+    display: block;
+    min-width: 5cm;
+    flex-grow: 1;
+    object-fit: cover;
+  }
+}
+
+.ecl-gallery__description {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: map.get(theme.$color, 'white-100');
+  font: map.get(theme.$font-prolonged, 's');
+  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing-print, 'xs');
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: text-bottom;
+  width: calc(100% - (#{map.get(theme.$spacing-print, 'xs')} * 2));
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.ecl-gallery__description-icon {
+  display: none;
+}
+
+.ecl-gallery__footer {
   display: none;
 }
