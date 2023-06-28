@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import tomorrow from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow';
 
 import beautifyHtml from 'js-beautify/js/src/html';
 
@@ -17,7 +17,7 @@ function Code({ children }) {
   }, [children]);
 
   return (
-    <SyntaxHighlighter language="html" style={xonokai}>
+    <SyntaxHighlighter language="html" style={tomorrow}>
       {formattedCode}
     </SyntaxHighlighter>
   );

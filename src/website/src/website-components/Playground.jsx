@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOMServer from 'react-dom/server';
 
 import iconSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
@@ -47,15 +48,6 @@ class Playground extends Component {
     });
   }
 
-  componentDidUpdate(prevProps) {
-    const { children } = this.props;
-    const { markup } = children.props;
-
-    if (markup !== prevProps.children.props.markup) {
-      this.renderMarkup();
-    }
-  }
-
   handleClickOnToggle() {
     // Display full code
     this.showcaseCodeRef.current.parentElement.setAttribute(
@@ -85,20 +77,33 @@ class Playground extends Component {
   async renderMarkup() {
     const { children } = this.props;
 
-    if (!children || !children.props) {
+    if (!children) {
       return;
     }
 
-    const { markup } = children.props;
-
-    if (markup instanceof Promise) {
-      const resolvedMarkup = await markup;
+    if (children instanceof Promise) {
+      const resolvedMarkup = await children;
       if (typeof resolvedMarkup === 'string') {
         this.setState({ resolvedMarkup });
       }
-    } else if (typeof markup === 'string') {
-      this.setState({ resolvedMarkup: markup });
+      return;
     }
+
+    const childrenArray = Array.isArray(children) ? children : [children];
+
+    const htmlPromises = childrenArray.map(async (child) => {
+      const { markup } = child.props;
+      const resolvedMarkup = await markup;
+      if (typeof resolvedMarkup === 'string') {
+        return resolvedMarkup;
+      }
+      return ReactDOMServer.renderToStaticMarkup(child);
+    });
+
+    const resolvedHtmlArray = await Promise.all(htmlPromises);
+    const resolvedMarkup = resolvedHtmlArray.join('');
+
+    this.setState({ resolvedMarkup });
   }
 
   render() {
