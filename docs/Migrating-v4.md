@@ -87,6 +87,9 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
   implementation to ensure that the accessibility is not compromised.
 
+- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss`
+  and `form-group-print.scss`
+
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.

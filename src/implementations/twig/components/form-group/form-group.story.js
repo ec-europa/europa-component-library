@@ -71,65 +71,57 @@ export default {
 
 export const Text = (args) => formGroup(prepareData(dataText, args));
 
-Text.storyName = 'text input';
+Text.storyName = 'Text input';
 Text.args = getArgs(dataText);
 Text.argTypes = getArgTypes(dataText, 'element');
 Text.parameters = { notes: { markdown: notes, json: dataText } };
 
-export const Select = (args) => formGroup(prepareData(dataSingle, args));
+export const Textarea = (args) => formGroup(prepareData(dataTextarea, args));
 
-Select.storyName = 'select';
-Select.args = getArgs(dataSingle);
-Select.argTypes = getArgTypes(dataSingle, 'element');
-Select.parameters = { notes: { markdown: notes, json: dataSingle } };
-
-export const SelectMultiple = (args) =>
-  formGroup(prepareData(dataMultiple, args));
-
-SelectMultiple.storyName = 'select multiple';
-SelectMultiple.args = getArgs(dataMultiple);
-SelectMultiple.argTypes = getArgTypes(dataMultiple, 'element');
-SelectMultiple.parameters = { notes: { markdown: notes, json: dataMultiple } };
+Textarea.storyName = 'Textarea';
+Textarea.args = getArgs(dataTextarea);
+Textarea.argTypes = getArgTypes(dataTextarea, 'element');
+Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
 export const Checkbox = (args) => formGroup(prepareData(dataCheckbox, args));
 
-Checkbox.storyName = 'checkbox';
+Checkbox.storyName = 'Checkbox';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
 
+export const Datepicker = (args) =>
+  formGroup(prepareData(dataDatepicker, args));
+
+Datepicker.storyName = 'Datepicker';
+Datepicker.args = getArgs(dataDatepicker);
+Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
+Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
+
+export const FileUpload = (args) => formGroup(prepareData(dataFile, args));
+
+FileUpload.storyName = 'File upload';
+FileUpload.args = getArgs(dataFile);
+FileUpload.argTypes = getArgTypes(dataFile, 'element');
+FileUpload.parameters = { notes: { markdown: notes, json: dataFile } };
+
 export const Radio = (args) => formGroup(prepareData(dataBinary, args));
 
-Radio.storyName = 'radio';
+Radio.storyName = 'Radio';
 Radio.args = getArgs(dataBinary);
 Radio.argTypes = getArgTypes(dataBinary, 'element');
 Radio.parameters = { notes: { markdown: notes, json: dataBinary } };
 
 export const RadioGroup = (args) => formGroup(prepareData(dataDefault, args));
 
-RadioGroup.storyName = 'radio group';
+RadioGroup.storyName = 'Radio group';
 RadioGroup.args = getArgs(dataDefault);
 RadioGroup.argTypes = getArgTypes(dataDefault, 'group');
 RadioGroup.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Textarea = (args) => formGroup(prepareData(dataTextarea, args));
-
-Textarea.storyName = 'textarea';
-Textarea.args = getArgs(dataTextarea);
-Textarea.argTypes = getArgTypes(dataTextarea, 'element');
-Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
-
-export const Datepicker = (args) =>
-  formGroup(prepareData(dataDatepicker, args));
-
-Datepicker.storyName = 'datepicker';
-Datepicker.args = getArgs(dataDatepicker);
-Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
-Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
-
 export const Range = (args) => formGroup(prepareData(dataRange, args));
 
-Range.storyName = 'range';
+Range.storyName = 'Range';
 Range.args = getArgs(dataRange);
 Range.argTypes = getArgTypes(dataRange, 'element');
 Range.parameters = { notes: { markdown: notes, json: dataRange } };
@@ -137,14 +129,22 @@ Range.parameters = { notes: { markdown: notes, json: dataRange } };
 export const RatingField = (args) =>
   formGroup(prepareData(dataRatingField, args));
 
-RatingField.storyName = 'rating field';
+RatingField.storyName = 'Rating field';
 RatingField.args = getArgs(dataRatingField);
 RatingField.argTypes = getArgTypes(dataRatingField, 'element');
 RatingField.parameters = { notes: { markdown: notes, json: dataRatingField } };
 
-export const FileUpload = (args) => formGroup(prepareData(dataFile, args));
+export const Select = (args) => formGroup(prepareData(dataSingle, args));
 
-FileUpload.storyName = 'file upload';
-FileUpload.args = getArgs(dataFile);
-FileUpload.argTypes = getArgTypes(dataFile, 'element');
-FileUpload.parameters = { notes: { markdown: notes, json: dataFile } };
+Select.storyName = 'Select';
+Select.args = getArgs(dataSingle);
+Select.argTypes = getArgTypes(dataSingle, 'element');
+Select.parameters = { notes: { markdown: notes, json: dataSingle } };
+
+export const SelectMultiple = (args) =>
+  formGroup(prepareData(dataMultiple, args));
+
+SelectMultiple.storyName = 'Select multiple';
+SelectMultiple.args = getArgs(dataMultiple);
+SelectMultiple.argTypes = getArgTypes(dataMultiple, 'element');
+SelectMultiple.parameters = { notes: { markdown: notes, json: dataMultiple } };
