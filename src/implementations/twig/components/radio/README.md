@@ -21,7 +21,6 @@ npm install --save @ecl/twig-component-radio
 - **"name"** (string) (default: '')
 - **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
-- **"invalid_icon"** (object of type "icon") (default: {})
 - **"binary"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -29,24 +28,12 @@ npm install --save @ecl/twig-component-radio
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Blocks:
-
-- "label"
-- "helper_text"
-- "invalid_text"
-- "label"
-- "optional_text"
-- "required_text"
-
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/radio/radio-group.html.twig' with { 
-  label: 'Select your country', 
   helper_id: 'radio-default-helper', 
-  helper_text: 'Helper text for the group', 
-  invalid_text: 'Error message for the group', 
   name: 'radio-default', 
   invalid: false, 
   binary: false, 

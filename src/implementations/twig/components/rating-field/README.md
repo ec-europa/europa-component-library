@@ -22,24 +22,13 @@ npm install --save @ecl/twig-component-rating-field
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 
-### Blocks:
-
-- "label"
-- "helper_text"
-- "invalid_text"
-- "optional_text"
-- "required_text"
-
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/rating-field/rating-field.html.twig' with { 
   id: 'rating-id',
-  label: 'Please rate', 
   helper_id: 'rating-default-helper', 
-  helper_text: 'Helper text for the group', 
-  invalid_text: 'Error message for the group', 
   name: 'rating-default', 
   invalid: false, 
   invalid_icon: { 

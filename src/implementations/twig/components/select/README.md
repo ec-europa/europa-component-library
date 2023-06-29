@@ -32,20 +32,11 @@ npm install --save @ecl/twig-component-select
   - "name" (string) Attribute name, eg. 'data-test'
   - "value" (string) Attribute value, eg: 'data-test-1'
 
-### Blocks:
-
-- "helper_text"
-- "invalid_text"
-- "required_text"
-- "optional_text"
-- "label"
-
 ### Example:
 
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/select/select.html.twig' with { 
-  label: 'Select a country', 
   options: [ 
     { 
       value: 1, 
