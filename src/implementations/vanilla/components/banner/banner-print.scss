@@ -6,45 +6,15 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 
-$_background: null !default;
-$_text-box-background: null !default;
-$_text-box-border: null !default;
-$_text-box-radius: null !default;
-$_banner-radius: null !default;
-$_border-color: map.get(theme.$color, 'yellow-100');
-$_box-shadow: null !default;
+$_cta-radius: null !default;
 
 .ecl-banner {
-  background: $_background;
-  border-radius: $_banner_radius;
-  box-shadow: $_box-shadow;
-  margin: 0;
-  padding: map.get(theme.$spacing-print, 'xl');
-  position: relative;
+  padding: map.get(theme.$spacing-print, 'm') 0;
 }
 
-.ecl-banner__picture {
+.ecl-banner__picture,
+.ecl-banner__credit {
   display: none;
-}
-
-.ecl-banner__content {
-  background: $_text-box-background;
-  border-width: $_text-box-border;
-  border-style: solid;
-  border-color: $_border-color;
-  border-radius: $_text-box-radius;
-  padding: map.get(theme.$spacing-print, 'l');
-  align-items: start;
-  box-sizing: content-box;
-  display: inline-flex;
-  flex-direction: column;
-  max-width: 20cm;
-}
-
-.ecl-banner__cta {
-  background: map.get(theme.$color, 'yellow-100');
-  padding: map.get(theme.$spacing-print, 's');
-  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-banner__title {
@@ -52,7 +22,6 @@ $_box-shadow: null !default;
   font-weight: map.get(theme.$font-weight, 'bold');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   margin-bottom: 0;
-  margin-top: 0;
 }
 
 .ecl-banner__description {
@@ -65,28 +34,14 @@ $_box-shadow: null !default;
   margin-top: map.get(theme.$spacing-print, 'm');
 }
 
-.ecl-banner__credit {
-  color: map.get(theme.$color, 'white-100');
-  font: map.get(theme.$font-prolonged-print, 's');
-  margin: map.get(theme.$spacing-print, '2xs')
-    map.get(theme.$spacing-print, 's') 0 0;
-  position: absolute;
-  top: 0;
-  right: 0;
+.ecl-banner__cta {
+  background: map.get(theme.$color, 'yellow-100');
+  border-radius: $_cta-radius;
+  display: inline-block;
+  padding: map.get(theme.$spacing-print, 's');
+  margin-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-banner__link-cta.ecl-link {
   color: map.get(theme.$color, 'black-100');
-}
-
-.ecl-banner--centered {
-  .ecl-banner__container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .ecl-banner__content {
-    align-items: center;
-    text-align: center;
-  }
 }
