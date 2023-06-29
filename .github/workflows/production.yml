@@ -24,8 +24,12 @@ jobs:
         run: yarn dist:presets
       - name: Generate sri file
         run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
-      - name: Build release
-        run: PUBLIC_URL=/component-library yarn dist
+      - name: Browserstats
+        run: npm run browserstats
+      - name: Build storybook
+        run: PUBLIC_URL=/component-library yarn dist:storybook
+      - name: Build website
+        run: PUBLIC_URL=/component-library yarn dist:website
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
       - name: Set commit
