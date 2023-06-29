@@ -1,11 +1,11 @@
 import demoContentDefault from '@ecl/specs-component-rating-field/demo/data';
-import template from '@ecl/twig-component-rating-field/rating-field.html.twig';
+import template from '@ecl/twig-component-form-group/form-group.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const demoContentSelected = JSON.parse(JSON.stringify(demoContentDefault));
 demoContentSelected.label = '';
 demoContentSelected.helper_text = '';
-demoContentSelected.items[2].checked = true;
+demoContentSelected.input.items[2].checked = true;
 
 export const ratingFieldGroupDefault = template(
   correctSvgPath({
