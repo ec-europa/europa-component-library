@@ -2,236 +2,117 @@
 
 exports[`Range Default renders correctly 1`] = `
 <jest>
+  <input
+    aria-label="example-range-id"
+    class="ecl-range ecl-range--m"
+    data-ecl-range-input=""
+    id="example-range-id"
+    max="30"
+    type="range"
+    value="15"
+  />
   <div
-    class="ecl-form-group"
-    data-ecl-auto-init="Range"
-    data-ecl-range="true"
+    class="ecl-range__value"
   >
-    <label
-      class="ecl-form-label"
-      for="example-range-id"
-    >
-      Range slider
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <input
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
+    Value: 
+    <span
+      class="ecl-range__value-current"
+      data-ecl-range-value-current=""
     />
-    <div
-      class="ecl-range__value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
-    </div>
   </div>
 </jest>
 `;
 
 exports[`Range Default renders correctly with extra attributes 1`] = `
 <jest>
+  <input
+    aria-label="example-range-id"
+    class="ecl-range ecl-range--m"
+    data-ecl-range-input=""
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+    id="example-range-id"
+    max="30"
+    type="range"
+    value="15"
+  />
   <div
-    class="ecl-form-group"
-    data-ecl-auto-init="Range"
-    data-ecl-range="true"
+    class="ecl-range__value"
   >
-    <label
-      class="ecl-form-label"
-      for="example-range-id"
-    >
-      Range slider
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <input
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      data-test="data-test-value"
-      data-test-1="data-test-value-1"
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
+    Value: 
+    <span
+      class="ecl-range__value-current"
+      data-ecl-range-value-current=""
     />
-    <div
-      class="ecl-range__value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
-    </div>
   </div>
 </jest>
 `;
 
 exports[`Range Default renders correctly with extra class names 1`] = `
 <jest>
+  <input
+    aria-label="example-range-id"
+    class="ecl-range ecl-range--m custom-class custom-class--test"
+    data-ecl-range-input=""
+    id="example-range-id"
+    max="30"
+    type="range"
+    value="15"
+  />
   <div
-    class="ecl-form-group"
-    data-ecl-auto-init="Range"
-    data-ecl-range="true"
+    class="ecl-range__value"
   >
-    <label
-      class="ecl-form-label"
-      for="example-range-id"
-    >
-      Range slider
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <input
-      class="ecl-range ecl-range--m custom-class custom-class--test"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
+    Value: 
+    <span
+      class="ecl-range__value-current"
+      data-ecl-range-value-current=""
     />
-    <div
-      class="ecl-range__value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
-    </div>
   </div>
 </jest>
 `;
 
 exports[`Range Invalid renders correctly 1`] = `
 <jest>
+  <input
+    aria-label="example-range-id"
+    class="ecl-range ecl-range--invalid ecl-range--m"
+    data-ecl-range-input=""
+    id="example-range-id"
+    max="30"
+    type="range"
+    value="15"
+  />
   <div
-    class="ecl-form-group"
-    data-ecl-auto-init="Range"
-    data-ecl-range="true"
+    class="ecl-range__value"
   >
-    <label
-      class="ecl-form-label ecl-form-label--invalid"
-      for="example-range-id"
-    >
-      Range slider
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <div
-      class="ecl-feedback-message"
-    >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#error"
-        />
-      </svg>
-            This is the error message
-    </div>
-    <input
-      class="ecl-range ecl-range--invalid ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
+    Value: 
+    <span
+      class="ecl-range__value-current"
+      data-ecl-range-value-current=""
     />
-    <div
-      class="ecl-range__value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
-    </div>
   </div>
 </jest>
 `;
 
 exports[`Range Optional renders correctly 1`] = `
 <jest>
+  <input
+    aria-label="example-range-id"
+    class="ecl-range ecl-range--m"
+    data-ecl-range-input=""
+    id="example-range-id"
+    max="30"
+    type="range"
+    value="15"
+  />
   <div
-    class="ecl-form-group"
-    data-ecl-auto-init="Range"
-    data-ecl-range="true"
+    class="ecl-range__value"
   >
-    <label
-      class="ecl-form-label"
-      for="example-range-id"
-    >
-      Range slider
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </label>
-    <div
-      class="ecl-help-block"
-    >
-      This is the input's helper text.
-    </div>
-    <input
-      class="ecl-range ecl-range--m"
-      data-ecl-range-input=""
-      id="example-range-id"
-      max="30"
-      type="range"
-      value="15"
+    Value: 
+    <span
+      class="ecl-range__value-current"
+      data-ecl-range-value-current=""
     />
-    <div
-      class="ecl-range__value"
-    >
-      Value: 
-      <span
-        class="ecl-range__value-current"
-        data-ecl-range-value-current=""
-      />
-    </div>
   </div>
 </jest>
 `;

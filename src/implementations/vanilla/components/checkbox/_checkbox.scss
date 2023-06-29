@@ -29,6 +29,10 @@ $_label-color: null !default;
   position: relative;
 }
 
+.ecl-checkbox ~ .ecl-checkbox {
+  margin-top: map.get(theme.$spacing, 's');
+}
+
 .ecl-checkbox__input {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -72,7 +76,6 @@ $_label-color: null !default;
   color: $_help-text-color;
   display: block;
   font: $_help-text-font;
-  margin-bottom: -#{map.get(theme.$spacing, 's')};
   margin-top: map.get(theme.$spacing, 'xs');
 }
 

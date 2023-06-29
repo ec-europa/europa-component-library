@@ -1,7 +1,4 @@
 module.exports = {
-  id: 'rating-field',
-  name: 'rating-group',
-  helper_id: 'helper-id',
   optional_text: '(optional)',
   required_text: '*',
   required: true,
@@ -13,36 +10,43 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
-  star_filled_icon: {
-    path: '/icons.svg',
-    name: 'star-filled',
-    size: 'm',
+  input: {
+    input_type: 'rating-field',
+    id: 'rating-field',
+    name: 'rating-group',
+    helper_id: 'helper-id',
+    required: true,
+    star_filled_icon: {
+      path: '/icons.svg',
+      name: 'star-filled',
+      size: 'm',
+    },
+    star_outline_icon: {
+      path: '/icons.svg',
+      name: 'star-outline',
+      size: 'm',
+    },
+    items: [
+      {
+        value: '1',
+        label: '1 star',
+      },
+      {
+        value: '2',
+        label: '2 stars',
+      },
+      {
+        value: '3',
+        label: '3 stars',
+      },
+      {
+        value: '4',
+        label: '4 stars',
+      },
+      {
+        value: '5',
+        label: '5 stars',
+      },
+    ],
   },
-  star_outline_icon: {
-    path: '/icons.svg',
-    name: 'star-outline',
-    size: 'm',
-  },
-  items: [
-    {
-      value: '1',
-      label: '1 star',
-    },
-    {
-      value: '2',
-      label: '2 stars',
-    },
-    {
-      value: '3',
-      label: '3 stars',
-    },
-    {
-      value: '4',
-      label: '4 stars',
-    },
-    {
-      value: '5',
-      label: '5 stars',
-    },
-  ],
 };

@@ -14,28 +14,17 @@
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
-  - "label"
-  - "helper_text"
   - "invalid_text"
-  - "optional_text"
-  - "required_text"
 #}
 
 {# Internal properties #}
 
-{% set _label_id = label_id|default('') %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
-{% set _helper_id = helper_id|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _required = required|default(false) %}
-{% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('') %}
-{% set _label = label|default('') %}
-{% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -68,63 +57,22 @@
 
 {# Print the result #}
 
-<fieldset
-  class="{{ _css_class }}"
-{% if _helper_id is not empty %}
-  aria-describedby="{{ _helper_id }}"
+{% if _items is not empty %}
+  {% if _items|length == 1 %}
+    {% set _item_extra_classes = 'ecl-checkbox--single' %}
+  {% endif %}
+  {%- for _item in _items %}
+    {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
+      name: _name,
+      invalid: _invalid,
+      extra_classes: _item_extra_classes|default('')
+    }) only %}
+  {% endfor -%}
+  {% if _items|length == 1 and
+    _invalid and
+    (_invalid_text is not empty or _invalid_icon is not empty) %}
+    {{ _invalid_block }}
+  {% endif %}
 {% endif %}
-  {{ _extra_attributes|raw }}
->
-  {%- if _label is not empty %}
-    <legend
-      class="ecl-form-label
-      {{- _invalid ? ' ecl-form-label--invalid' -}}"
-    {% if _label_id %}
-      id="{{ _label_id }}"
-    {% endif %}
-    >
-      {%- block label _label -%}
-      {%- if _required and _required_text is not empty -%}
-        <span class="ecl-form-label__required">{{ _required_text }}</span>
-      {%- elseif not _required and _optional_text is not empty -%}
-        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
-      {%- endif -%}
-    </legend>
-  {% endif %}
-
-  {% if _helper_text is not empty %}
-    <div
-      class="ecl-help-block"
-      {% if _helper_id is not empty %}
-        id="{{ _helper_id }}"
-      {% endif %}
-    >
-      {%- block helper_text _helper_text -%}
-    </div>
-  {% endif %}
-
-  {% if _items is not empty %}
-    {% if _items|length > 1 and
-      _invalid and
-      (_invalid_text is not empty or _invalid_icon is not empty) %}
-      {{ _invalid_block }}
-    {% endif %}
-    {% if _items|length == 1 %}
-      {% set _item_extra_classes = 'ecl-checkbox--single' %}
-    {% endif %}
-    {%- for _item in _items %}
-      {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
-        name: _name,
-        invalid: _invalid,
-        extra_classes: _item_extra_classes|default('')
-      }) only %}
-    {% endfor -%}
-    {% if _items|length == 1 and
-      _invalid and
-      (_invalid_text is not empty or _invalid_icon is not empty) %}
-      {{ _invalid_block }}
-    {% endif %}
-  {% endif %}
-</fieldset>
 
 {% endapply %}
