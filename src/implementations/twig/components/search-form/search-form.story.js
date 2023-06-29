@@ -63,10 +63,10 @@ export default {
   title: 'Components/Forms',
 };
 
-export const Default = (args) => searchForm(prepareData(dataDefault, args));
+export const Search = (args) => searchForm(prepareData(dataDefault, args));
 
-Default.storyName = 'Search Form';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withNotes, withCode];
+Search.storyName = 'Search Form';
+Search.args = getArgs(dataDefault);
+Search.argTypes = getArgTypes();
+Search.parameters = { notes: { markdown: notes, json: dataDefault } };
+Search.decorators = [withNotes, withCode];
