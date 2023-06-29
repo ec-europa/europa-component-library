@@ -75,20 +75,6 @@ $button-padding-vertical: map.get($theme, 'spacing', 'xs');
     color: map.get($search-form, 'button-color-active');
   }
 
-  &[disabled] {
-    background-color: rgba(map.get($search-form, 'button-background'), 0.5);
-    border-color: rgba(map.get($search-form, 'button-border-color'), 0.5);
-    color: rgba(map.get($search-form, 'button-color'), 0.5);
-  }
-
-  &[disabled]:hover {
-    background-color: rgba(
-      map.get($search-form, 'button-background-hover'),
-      0.5
-    );
-    color: rgba(map.get($search-form, 'button-color-hover'), 0.5);
-  }
-
   &::before {
     content: '';
     background-color: map.get($search-form, 'separator-color');
