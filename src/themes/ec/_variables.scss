@@ -59,16 +59,16 @@ $button: (
   ),
   ghost: (
     background: transparent,
-    color: var(--ecl-color-primary),
+    color: var(--ecl-color-dark),
     border-color: transparent,
     background-hover: var(--ecl-color-primary-40),
     color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-primary-40),
+    border-color-hover: var(--ecl-color-dark),
     background-active: var(--ecl-color-primary-30),
     color-active: var(--ecl-color-dark),
     border-color-active: var(--ecl-color-primary-30),
     background-focus: transparent,
-    color-focus: var(--ecl-color-primary),
+    color-focus: var(--ecl-color-dark),
     border-color-focus: var(--ecl-color-primary),
     outline-color: transparent,
   ),
@@ -203,14 +203,7 @@ $form-group: (
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-10),
-  button-border-color-hover: var(--ecl-color-dark-10),
-  button-background: map.get($color, 'white'),
-  button-background-hover: var(--ecl-color-primary-40),
-  button-background-active: var(--ecl-color-primary-30),
-  button-color: var(--ecl-color-dark),
-  button-color-hover: var(--ecl-color-dark),
-  button-color-active: var(--ecl-color-dark),
-  separator-color: var(--ecl-color-dark),
+  separator-color: var(--ecl-color-dark-10),
 );
 
 // Text input
