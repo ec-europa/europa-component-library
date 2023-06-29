@@ -7,11 +7,19 @@
 @use '@ecl/theme-dev/theme';
 
 $_background: null !default;
+$_text-box-background: null !default;
+$_text-box-border: null !default;
+$_text-box-radius: null !default;
+$_banner-radius: null !default;
+$_border-color: map.get(theme.$color, 'yellow-100');
+$_box-shadow: null !default;
 
 .ecl-banner {
   background: $_background;
+  border-radius: $_banner_radius;
+  box-shadow: $_box-shadow;
   margin: 0;
-  padding: map.get(theme.$spacing-print, 'l');
+  padding: map.get(theme.$spacing-print, 'xl');
   position: relative;
 }
 
@@ -19,7 +27,23 @@ $_background: null !default;
   display: none;
 }
 
+.ecl-banner__content {
+  background: $_text-box-background;
+  border-width: $_text-box-border;
+  border-style: solid;
+  border-color: $_border-color;
+  border-radius: $_text-box-radius;
+  padding: map.get(theme.$spacing-print, 'l');
+  align-items: start;
+  box-sizing: content-box;
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 20cm;
+}
+
 .ecl-banner__cta {
+  background: map.get(theme.$color, 'yellow-100');
+  padding: map.get(theme.$spacing-print, 's');
   margin-top: map.get(theme.$spacing-print, 'm');
 }
 
@@ -42,24 +66,22 @@ $_background: null !default;
 }
 
 .ecl-banner__credit {
+  color: map.get(theme.$color, 'white-100');
   font: map.get(theme.$font-prolonged-print, 's');
-  margin: map.get(theme.$spacing-print, 'xs') map.get(theme.$spacing-print, 's')
-    0 0;
+  margin: map.get(theme.$spacing-print, '2xs')
+    map.get(theme.$spacing-print, 's') 0 0;
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.ecl-banner__description,
-.ecl-banner__title,
-.ecl-banner__cta,
-.ecl-banner__cta .ecl-link,
-.ecl-banner__credit {
-  color: map.get(theme.$color, 'white-100');
+.ecl-banner__link-cta.ecl-link {
+  color: map.get(theme.$color, 'black-100');
 }
 
 .ecl-banner--centered {
   .ecl-banner__container {
+    display: flex;
     justify-content: center;
   }
 

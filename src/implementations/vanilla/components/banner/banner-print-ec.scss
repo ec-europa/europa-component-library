@@ -7,5 +7,10 @@
 @use '@ecl/theme-dev/theme';
 
 @use 'banner-print' with (
-  $_background: map.get(theme.$color, 'blue-100')
+  $_background: map.get(theme.$color, 'blue-100'),
+  $_text-box-background: map.get(theme.$color, 'white-100'),
+  $_text-box-radius: 0,
+  $_text-box-border: 0 0 4px 0,
+  $_banner-radius: 0,
+  $_box-shadow: none
 );
