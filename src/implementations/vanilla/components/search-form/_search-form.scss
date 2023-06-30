@@ -4,19 +4,20 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
-$_form-width-desktop: 31.25rem;
-$_form-width-tablet: 25rem;
-$_button-border-color: null !default;
-$_button-border-width: 1px;
-$_button-background-color: null !default;
-$_button-background-color-hover: null !default;
-$_button-color: null !default;
-$_button-outline-width: null !default;
+// Exposed variables
+$theme: null !default;
+$search-form: null !default;
+
+// Internal variables
+$button-border-width: 1px;
+$button-padding-horizontal: map.get($theme, 'spacing', 'm');
+$button-padding-vertical: map.get($theme, 'spacing', 'xs');
 
 .ecl-search-form {
+  background-color: map.get($theme, 'color', 'white');
   display: flex;
   margin: 0;
   position: relative;
@@ -30,16 +31,7 @@ $_button-outline-width: null !default;
 }
 
 .ecl-search-form__label {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  visibility: visible;
-  white-space: nowrap;
-  width: 1px;
+  @include screen-reader.sr-only;
 }
 
 .ecl-search-form__text-input {
@@ -52,40 +44,40 @@ $_button-outline-width: null !default;
 }
 
 .ecl-search-form__button {
-  background-color: $_button-background-color;
-  border-bottom: $_button-border-width solid $_button-border-color;
+  border-bottom: $button-border-width solid
+    map.get($search-form, 'button-border-color');
   border-end-start-radius: 0;
   border-inline-start-width: 0;
-  border-inline-end: $_button-border-width solid $_button-border-color;
-  border-top: $_button-border-width solid $_button-border-color;
+  border-inline-end: $button-border-width solid
+    map.get($search-form, 'button-border-color');
+  border-top: $button-border-width solid
+    map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
-  color: $_button-color;
-  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_button-border-width});
-
-  &:hover,
-  &:active {
-    background-color: $_button-background-color-hover;
-  }
+  padding: calc(#{$button-padding-vertical} - #{$button-border-width})
+    calc(#{$button-padding-horizontal} - #{$button-border-width});
+  position: relative;
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'blue');
-    outline-offset: -2px;
+    border-width: 2px;
+    padding: calc(#{$button-padding-vertical} - 2px)
+      calc(#{$button-padding-horizontal} - 2px);
   }
 
-  &[disabled] {
-    background-color: rgba($_button-background-color, 0.5);
-    border-color: rgba($_button-border-color, 0.5);
-    color: rgba($_button-color, 0.5);
-  }
-
-  &[disabled]:hover {
-    background-color: rgba($_button-background-color-hover, 0.5);
-    color: rgba($_button-color, 0.5);
+  &::before {
+    content: '';
+    background-color: map.get($search-form, 'separator-color');
+    display: block;
+    height: map.get($theme, 'line-height', 'm');
+    left: -1px;
+    position: absolute;
+    top: $button-padding-vertical;
+    width: 1px;
   }
 }
 
 .ecl-search-form__button .ecl-button__label {
   display: none;
+  margin-inline-start: 0;
 }
 
 .ecl-search-form__button .ecl-button__icon {
@@ -96,31 +88,11 @@ $_button-outline-width: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-search-form {
-    max-width: $_form-width-tablet;
-  }
-
-  .ecl-search-form__button {
-    padding-inline-start: calc(
-      #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
-    );
-    padding-inline-end: calc(
-      #{map.get(theme.$spacing, 'm')} - #{$_button-border-width}
-    );
-  }
-
   .ecl-search-form__button .ecl-button__label {
     display: block;
   }
 
   .ecl-search-form__button .ecl-button__icon {
-    display: none;
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-search-form {
-    max-width: $_form-width-desktop;
+    margin-inline-end: map.get($theme, 'spacing', 'xs');
   }
 }

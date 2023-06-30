@@ -1,13 +1,17 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-component-search-form/demo/data';
+import demoDataEc from '@ecl/specs-component-search-form/demo/data--ec';
+import demoDataEu from '@ecl/specs-component-search-form/demo/data--eu';
 import searchForm from './search-form.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+const dataSearch = system === 'eu' ? demoDataEu : demoDataEc;
+
 const getArgs = (data) => ({
-  invalid: false,
   disabled: false,
   button_label: data.button.label || '',
   placeholder: data.text_input.placeholder,
@@ -34,16 +38,6 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
-  invalid: {
-    name: 'invalid',
-    type: 'boolean',
-    description: `Marks the search form as invalid`,
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'States',
-    },
-  },
   disabled: {
     name: 'disabled',
     type: 'boolean',
@@ -58,27 +52,25 @@ const getArgTypes = () => ({
 
 const prepareData = (data, args) => {
   data.text_input.disabled = args.disabled;
-  data.text_input.invalid = args.invalid;
   data.text_input.placeholder = args.placeholder;
   data.button.label = args.button_label;
   data.button.disabled = args.disabled;
-  data.button.invalid = args.invalid;
 
   return correctPaths(data);
 };
 
 export default {
-  title: 'Components/Forms/Search Form',
+  title: 'Components/Forms',
 };
 
-export const Default = (_, { loaded: { component } }) => component;
+export const Search = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
-  const renderedSearchForm = await searchForm(prepareData(dataDefault, args));
+Search.render = async (args) => {
+  const renderedSearchForm = await searchForm(prepareData(dataSearch, args));
   return renderedSearchForm;
 };
-Default.storyName = 'default';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: dataDefault } };
-Default.decorators = [withNotes, withCode];
+Search.storyName = 'Search Form';
+Search.args = getArgs(dataSearch);
+Search.argTypes = getArgTypes();
+Search.parameters = { notes: { markdown: notes, json: dataSearch } };
+Search.decorators = [withNotes, withCode];
