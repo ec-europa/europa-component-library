@@ -6,9 +6,11 @@ module.exports = {
     placeholder: 'Placeholder text',
   },
   button: {
+    variant: 'primary',
     icon: {
       path: '/icons.svg',
     },
     label: 'Search',
+    icon_position: 'before',
   },
 };

@@ -59,16 +59,16 @@ $button: (
   ),
   ghost: (
     background: transparent,
-    color: var(--ecl-color-primary),
+    color: var(--ecl-color-dark),
     border-color: transparent,
     background-hover: var(--ecl-color-primary-40),
     color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-primary-40),
+    border-color-hover: var(--ecl-color-dark),
     background-active: var(--ecl-color-primary-30),
     color-active: var(--ecl-color-dark),
     border-color-active: var(--ecl-color-primary-30),
     background-focus: transparent,
-    color-focus: var(--ecl-color-primary),
+    color-focus: var(--ecl-color-dark),
     border-color-focus: var(--ecl-color-primary),
     outline-color: transparent,
   ),
@@ -200,11 +200,17 @@ $form-group: (
   margin-icon: map.get($spacing, '2xs'),
 );
 
+// Search
+$search-form: (
+  button-border-color: var(--ecl-color-dark-10),
+  separator-color: var(--ecl-color-dark-10),
+);
+
 // Text input
 $text-input: (
   radius: 2px,
-  border-color: var(--ecl-color-dark),
-  border-color-hover: var(--ecl-color-dark),
+  border-color: var(--ecl-color-dark-10),
+  border-color-hover: var(--ecl-color-dark-10),
   border-color-focus: var(--ecl-color-primary),
   border-color-invalid: var(--ecl-color-error),
   border-color-invalid-hover: var(--ecl-color-error),
