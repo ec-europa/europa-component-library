@@ -70,7 +70,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Breadcrumbs (site-wide)'
         name: 'ec_breadcrumbs_site_wide'
-        file: 'src/website/src/pages/ec/components/site-wide/navigation/breadcrumb/docs/usage.md'
+        file: 'src/website/src/pages/ec/components/navigation/breadcrumb/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Blockquote'
@@ -176,11 +176,6 @@ collections:
       - label: 'Label'
         name: 'ec_label'
         file: 'src/website/src/pages/ec/components/label/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Language list'
-        name: 'ec_language_list'
-        file: 'src/website/src/pages/ec/components/language-list/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Link'
@@ -482,6 +477,11 @@ collections:
         file: 'src/website/src/pages/ec/deprecated/banners/hero-banner/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
+      - label: 'Language list'
+        name: 'ec_language_list'
+        file: 'src/website/src/pages/ec/deprecated/language-list/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
   - label: 'EU Usage pages for components'
     name: 'eu_usage_pages'
     files:
@@ -497,7 +497,7 @@ collections:
           - { label: Body, name: body, widget: markdown }
       - label: 'Breadcrumbs (site-wide)'
         name: 'eu_breadcrumbs_site_wide'
-        file: 'src/website/src/pages/eu/components/site-wide/navigation/breadcrumb/docs/usage.md'
+        file: 'src/website/src/pages/eu/components/navigation/breadcrumb/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Blockquote'
@@ -603,11 +603,6 @@ collections:
       - label: 'Label'
         name: 'eu_label'
         file: 'src/website/src/pages/eu/components/label/docs/usage.md'
-        fields:
-          - { label: Body, name: body, widget: markdown }
-      - label: 'Language list'
-        name: 'eu_language_list'
-        file: 'src/website/src/pages/eu/components/language-list/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
       - label: 'Link'
@@ -853,5 +848,10 @@ collections:
       - label: 'Breadcrumbs'
         name: 'eu_breadcrumbs'
         file: 'src/website/src/pages/eu/deprecated/navigation/breadcrumb/docs/usage.md'
+        fields:
+          - { label: Body, name: body, widget: markdown }
+      - label: 'Language list'
+        name: 'eu_language_list'
+        file: 'src/website/src/pages/eu/deprecatd/language-list/docs/usage.md'
         fields:
           - { label: Body, name: body, widget: markdown }
