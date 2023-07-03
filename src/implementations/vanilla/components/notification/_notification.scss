@@ -29,58 +29,36 @@ $notification: null !default;
 }
 
 .ecl-notification__content {
+  display: grid;
+  grid-template-columns: auto max-content;
   width: 100%;
 }
 
 .ecl-notification__title {
   font: map.get($notification, 'title-font');
   font-weight: map.get($notification, 'title-font-weight');
+  grid-column-start: 1;
   margin-bottom: map.get($notification, 'title-spacing');
   max-width: 80ch;
 }
 
 .ecl-notification__description {
+  grid-column-start: 1;
   margin: 0 0 map.get($theme, 'spacing', 'xs');
   max-width: 80ch;
-  padding-bottom: map.get($theme, 'spacing', 'xl'); // Extra spacing for IE
 }
 
 .ecl-notification__close {
-  bottom: map.get($theme, 'spacing', 'm') - map.get($theme, 'spacing', 's');
+  align-self: self-start;
   color: map.get($notification, 'close-color');
   font: map.get($theme, 'font', 'm');
-  position: absolute;
-  right: 0;
+  grid-column-start: 2;
+  grid-row-end: span 2;
+  grid-row-start: 1;
+  margin-top: map.get($notification, 'close-offset');
 
   .no-js & {
     display: none;
-  }
-}
-
-@supports (display: grid) {
-  .ecl-notification__content {
-    display: grid;
-  }
-
-  .ecl-notification__title {
-    grid-column-start: 1;
-  }
-
-  .ecl-notification__description {
-    grid-column-start: 1;
-    padding-bottom: 0;
-  }
-
-  .ecl-notification__close {
-    align-self: self-end;
-    bottom: auto;
-    grid-column-start: 1;
-    grid-row-end: 4;
-    grid-row-start: 3;
-    justify-self: end;
-    margin-bottom: -(map.get($theme, 'spacing', 's'));
-    position: relative;
-    right: auto;
   }
 }
 
@@ -94,24 +72,6 @@ $notification: null !default;
   .ecl-notification__close {
     bottom: auto;
     top: map.get($theme, 'spacing', 'l') - map.get($theme, 'spacing', 's');
-  }
-
-  @supports (display: grid) {
-    .ecl-notification__content {
-      grid-template-columns: auto max-content;
-    }
-
-    .ecl-notification__close {
-      align-self: self-start;
-      grid-column-start: 2;
-      grid-row-end: span 2;
-      grid-row-start: 1;
-      margin-bottom: 0;
-      margin-top: -(map.get($theme, 'spacing', 's'));
-      position: relative;
-      right: auto;
-      top: auto;
-    }
   }
 }
 

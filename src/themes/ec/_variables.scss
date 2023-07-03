@@ -230,6 +230,7 @@ $notification: (
   title-font-weight: map.get($font-weight, 'regular'),
   title-spacing: map.get($spacing, 's'),
   close-color: var(--ecl-color-dark),
+  close-offset: calc(#{map.get($spacing, 'm')} - #{map.get($spacing, '2xl')}),
   info: (
     background: var(--ecl-color-neutral-40),
     color: var(--ecl-color-info),

@@ -231,6 +231,7 @@ $notification: (
   title-font-weight: map.get($font-weight, 'bold'),
   title-spacing: map.get($spacing, 'xs'),
   close-color: map.get($color, 'blue-100'),
+  close-offset: calc(#{map.get($spacing, 's')} - #{map.get($spacing, 'm')}),
   info: (
     background: map.get($color, 'blue-5'),
     color: map.get($color, 'info'),
