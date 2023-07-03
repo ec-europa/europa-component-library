@@ -121,7 +121,7 @@ $_spinner-sizes: (
   display: none;
   height: 100%;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -129,6 +129,10 @@ $_spinner-sizes: (
 
 .ecl-spinner__overlay--visible {
   display: block;
+
+  & ~ .ecl-spinner--visible {
+    position: fixed;
+  }
 
   & ~ .ecl-spinner--negative {
     .ecl-spinner__loader {

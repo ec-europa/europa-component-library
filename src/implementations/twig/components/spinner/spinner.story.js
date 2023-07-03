@@ -1,3 +1,4 @@
+import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -99,8 +100,12 @@ const renderStory = (data, args) => {
   if (args.overlay) {
     story = `
         ${story}
-        <p class="ecl-u-type-paragraph ecl-u-mt-none">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis scelerisque massa, tempor scelerisque neque pharetra et. Duis sed orci in tellus gravida volutpat. Aliquam volutpat efficitur turpis. Cras non tortor fermentum ipsum viverra varius. Quisque congue viverra lacus, a pellentesque sapien congue nec. Duis at vulputate ligula. Sed ac elementum erat, ac pretium mauris. Sed vehicula arcu neque, in consequat velit porta ac. Mauris ullamcorper ante a urna blandit, et ultricies lacus efficitur. Vivamus dignissim felis a nunc cursus lacinia eu sit amet diam. Etiam vestibulum libero ac ultricies molestie. Vestibulum mattis quis nulla ac pharetra. Donec at velit at orci ornare euismod. Curabitur sed malesuada sapien, ac ultrices quam. Pellentesque a tristique libero, et fringilla odio. Sed tincidunt vehicula eros nec mattis.</p>
-        <p class="ecl-u-type-paragraph">Cras feugiat eleifend sodales. Nulla in ipsum tincidunt, fermentum nisl pulvinar, iaculis nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam orci ex, accumsan vitae tincidunt quis, ornare in mi. Pellentesque ut orci mollis, eleifend erat hendrerit, iaculis magna. Nunc nulla elit, rhoncus et est id, dictum condimentum libero. Phasellus faucibus augue a ex imperdiet, sit amet tristique eros dapibus. Nam eleifend odio nunc, eget condimentum purus tempor eget. Vivamus lobortis augue nisi, in iaculis enim maximus non. Proin et nisi suscipit, rhoncus tortor at, sodales arcu. Suspendisse sed feugiat tellus, quis venenatis ante. Ut ut sapien dignissim, venenatis nunc ac, fermentum neque.</p>
+        <div class="ecl-container">
+        <p class="ecl-u-type-paragraph ecl-u-mt-none">${loremIpsum({
+          count: 25,
+        })}</p>
+        <p class="ecl-u-type-paragraph">${loremIpsum({ count: 25 })}</p>
+        </div>
       `;
   }
 
