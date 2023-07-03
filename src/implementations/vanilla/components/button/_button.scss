@@ -144,4 +144,10 @@ $size-icon-only: calc(
 
 .ecl-button--ghost {
   @include button(ghost);
+
+  &:hover {
+    border-width: 1px;
+    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
+      calc(#{map.get($button, 'padding-horizontal')} - 1px);
+  }
 }

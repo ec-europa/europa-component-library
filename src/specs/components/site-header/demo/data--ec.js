@@ -245,6 +245,7 @@ module.exports = {
       placeholder: 'Placeholder text',
     },
     button: {
+      variant: 'ghost',
       label: 'Search',
     },
     extra_attributes: [
