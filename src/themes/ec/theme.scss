@@ -40,3 +40,11 @@ $theme: (
   font-prolonged-print: index.$font-prolonged-print,
   z-index: index.$z-index,
 );
+
+// Specific css only for this theme
+.ecl-notification__close {
+  align-self: self-start;
+  grid-column-start: 2;
+  grid-row-end: span 2;
+  grid-row-start: 1;
+}

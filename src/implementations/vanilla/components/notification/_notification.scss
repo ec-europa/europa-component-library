@@ -15,18 +15,17 @@ $notification: null !default;
     map.get($notification, 'border-color');
   border-radius: map.get($notification, 'radius');
   box-sizing: border-box;
+  color: map.get($notification, 'color');
   display: flex;
+  font: map.get($notification, 'font');
   margin: 0;
-  padding-bottom: map.get($theme, 'spacing', 'l');
-  padding-inline-end: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', 'l');
-  padding-top: map.get($theme, 'spacing', 'l');
+  padding: map.get($notification, 'padding');
   position: relative;
 }
 
 .ecl-notification__icon {
   flex-shrink: 0;
-  margin-inline-end: map.get($notification, 'icon-spacing');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-notification__content {
@@ -34,16 +33,13 @@ $notification: null !default;
 }
 
 .ecl-notification__title {
-  color: map.get($notification, 'title-color');
   font: map.get($notification, 'title-font');
-  font-weight: bold;
+  font-weight: map.get($notification, 'title-font-weight');
   margin-bottom: map.get($notification, 'title-spacing');
   max-width: 80ch;
 }
 
 .ecl-notification__description {
-  color: map.get($notification, 'description-color');
-  font: map.get($theme, 'font-prolonged', 'm');
   margin: 0 0 map.get($theme, 'spacing', 'xs');
   max-width: 80ch;
   padding-bottom: map.get($theme, 'spacing', 'xl'); // Extra spacing for IE
@@ -53,7 +49,6 @@ $notification: null !default;
   bottom: map.get($theme, 'spacing', 'm') - map.get($theme, 'spacing', 's');
   color: map.get($notification, 'close-color');
   font: map.get($theme, 'font', 'm');
-  font-weight: map.get($notification, 'close-font-weight');
   position: absolute;
   right: 0;
 
@@ -91,10 +86,6 @@ $notification: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-notification__title {
-    margin-bottom: map.get($theme, 'spacing', 'xs');
-  }
-
   .ecl-notification__description {
     margin-bottom: 0;
     padding-bottom: 0;

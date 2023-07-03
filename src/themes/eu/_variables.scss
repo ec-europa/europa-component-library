@@ -221,8 +221,16 @@ $text-input: (
 // Notification
 $notification: (
   radius: 4px,
+  padding: map.get($spacing, 'l') map.get($spacing, 'xs') map.get($spacing, 'l')
+    map.get($spacing, 'l'),
   border-width: 0,
   border-color: transparent,
+  font: map.get($font-prolonged, 'm'),
+  color: map.get($color, 'grey-80'),
+  title-font: map.get($font-prolonged, 'm'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-spacing: map.get($spacing, 'xs'),
+  close-color: map.get($color, 'blue-100'),
   info: (
     background: map.get($color, 'blue-5'),
     color: map.get($color, 'info'),
@@ -239,23 +247,6 @@ $notification: (
     background: map.get($color, 'red-5'),
     color: map.get($color, 'error'),
   ),
-  background-error: map.get($color, 'red-5'),
-  background-info: map.get($color, 'blue-5'),
-  background-success: map.get($color, 'green-5'),
-  background-warning: map.get($color, 'orange-5'),
-  border-radius-top-left: 4px,
-  border-radius-bottom-left: 4px,
-  close-color: map.get($color, 'blue-100'),
-  close-font-weight: map.get($font-weight, 'normal'),
-  description-color: map.get($color, 'grey-80'),
-  icon-error-fill: map.get($color, 'error'),
-  icon-info-fill: map.get($color, 'info'),
-  icon-success-fill: map.get($color, 'success'),
-  icon-warning-fill: map.get($color, 'warning'),
-  icon-spacing: map.get($spacing, 'xs'),
-  title-color: map.get($color, 'grey-140'),
-  title-font: map.get($font-prolonged, 'm'),
-  title-spacing: map.get($spacing, 'xs'),
 );
 
 // Site footer
