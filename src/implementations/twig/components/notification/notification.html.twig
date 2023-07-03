@@ -70,7 +70,10 @@
       }) only %}
     {% endif %}
 
-    <div class="ecl-notification__title">{{ _title }}</div>
+    {% if _title is not empty %}
+      <div class="ecl-notification__title">{{ _title }}</div>
+    {% endif %}
+
     <div class="ecl-notification__description">{{ _description }}</div>
   </div>
 </div>

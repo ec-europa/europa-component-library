@@ -35,11 +35,20 @@ if (system === 'eu') {
 
 const getArgs = (data) => ({
   show_close: true,
+  show_title: true,
   title: data.title,
   description: data.description,
 });
 
 const getArgTypes = () => ({
+  show_title: {
+    name: 'title',
+    type: { name: 'boolean' },
+    description: 'Show the title',
+    table: {
+      category: 'Optional',
+    },
+  },
   show_close: {
     name: 'close',
     type: { name: 'boolean' },
@@ -50,7 +59,7 @@ const getArgTypes = () => ({
   },
   title: {
     name: 'title',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     description: 'The content of the title',
     table: {
       type: { summary: 'string' },
@@ -75,6 +84,9 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
+  if (!args.show_title) {
+    delete clone.title;
+  }
   if (!args.show_close) {
     delete clone.close;
   }
