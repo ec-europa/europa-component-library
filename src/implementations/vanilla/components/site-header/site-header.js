@@ -248,9 +248,15 @@ export class SiteHeader {
     this.languageLink.setAttribute('aria-expanded', 'true');
 
     // Check total width, and change display if needed
-    this.languageListEu.parentNode.classList.remove(
-      'ecl-site-header__language-content--stack'
-    );
+    if (this.languageListEu) {
+      this.languageListEu.parentNode.classList.remove(
+        'ecl-site-header__language-content--stack'
+      );
+    } else if (this.languageListNonEu) {
+      this.languageListNonEu.parentNode.classList.remove(
+        'ecl-site-header__language-content--stack'
+      );
+    }
     let popoverRect = this.languageListOverlay.getBoundingClientRect();
     const containerRect = this.container.getBoundingClientRect();
 
