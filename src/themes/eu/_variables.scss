@@ -5,15 +5,22 @@
 // Note: if you override css variables it will take over on these values
 
 // Breadcrumb
+// stylelint-disable length-zero-no-unit
 $breadcrumb: (
+  padding-vertical: map.get($spacing, 'm'),
   link-font: map.get($font-prolonged, 'm'),
   last-link-color: map.get($color, 'grey-80'),
   icon-color: map.get($color, 'grey-80'),
   icon-spacing: map.get($spacing, 'xs'),
-  ellipsis-color: map.get($color, 'blue-100'),
-  ellipsis-background-color: map.get($color, 'blue-5'),
-  ellipsis-background-color-hover: map.get($color, 'blue-10'),
-  ellipsis-padding-horizontal: map.get($spacing, '2xs'),
+  ellipsis: (
+    background: map.get($color, 'blue-5'),
+    background-hover: map.get($color, 'blue-10'),
+    color: map.get($color, 'blue-100'),
+    font-weight: map.get($font-weight, 'bold'),
+    padding-horizontal: map.get($spacing, '2xs'),
+    padding-vertical: 0px,
+    offset-horizontal: 0px,
+  ),
 );
 
 // Button
@@ -91,7 +98,6 @@ $button-print: (
 );
 
 // Label
-// stylelint-disable length-zero-no-unit
 $label: (
   radius: 4px,
   border-width: 0px,

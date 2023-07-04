@@ -20,7 +20,7 @@ $breadcrumb: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0 0 map.get($theme, 'spacing', 'm');
+  padding: 0 0 map.get($breadcrumb, 'padding-vertical');
 
   &::after {
     clear: both;
@@ -32,7 +32,7 @@ $breadcrumb: null !default;
 .ecl-breadcrumb__segment {
   align-items: center;
   display: inline-flex;
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: map.get($breadcrumb, 'padding-vertical');
   max-width: 100%;
 
   &[aria-hidden='true'] {
@@ -59,15 +59,23 @@ $breadcrumb: null !default;
 }
 
 .ecl-breadcrumb__ellipsis {
-  background-color: map.get($breadcrumb, 'ellipsis-background-color');
-  color: map.get($breadcrumb, 'ellipsis-color');
+  background-color: map.get($breadcrumb, 'ellipsis', 'background');
+  color: map.get($breadcrumb, 'ellipsis', 'color');
   font: map.get($breadcrumb, 'link-font');
-  margin: 0;
-  padding: 0 map.get($breadcrumb, 'ellipsis-padding-horizontal');
+  font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight');
+  margin: -#{map.get($breadcrumb, 'ellipsis', 'padding-vertical')} -#{map.get(
+      $breadcrumb,
+      'ellipsis',
+      'offset-horizontal'
+    )};
+  padding: map.get($breadcrumb, 'ellipsis', 'padding-vertical')
+    map.get($breadcrumb, 'ellipsis', 'padding-horizontal');
 
   &:hover {
-    background-color: map.get($breadcrumb, 'ellipsis-background-color-hover');
-    color: map.get($breadcrumb, 'ellipsis-color');
+    background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
+    color: map.get($breadcrumb, 'ellipsis', 'color');
+    padding: calc(#{map.get($breadcrumb, 'ellipsis', 'padding-vertical')} + 1px)
+      calc(#{map.get($breadcrumb, 'ellipsis', 'padding-horizontal')} + 1px);
   }
 }
 
