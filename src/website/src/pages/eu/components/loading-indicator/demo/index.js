@@ -9,7 +9,7 @@ const storyNegative = template({
 });
 
 const markup = `<div style="position: relative; height: 200px;">${story}</div>`;
-const negativeMarkup = `<div class="ecl-u-bg-blue" style="position: relative; height: 200px">${storyNegative}</div>`;
+const negativeMarkup = `<div class="ecl-u-bg-dark" style="position: relative; height: 200px">${storyNegative}</div>`;
 
 export const spinnerDefault = markup;
 export const spinnerNegative = negativeMarkup;

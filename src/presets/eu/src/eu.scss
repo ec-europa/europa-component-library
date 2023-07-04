@@ -41,7 +41,10 @@
 );
 @use '@ecl/vanilla-component-message/message-eu';
 @use '@ecl/vanilla-component-news-ticker/news-ticker-eu';
-@use '@ecl/vanilla-component-spinner/spinner-eu';
+@use '@ecl/vanilla-component-spinner/spinner' with (
+  $theme: theme.$theme,
+  $spinner: var.$spinner
+);
 @use '@ecl/vanilla-component-skip-link/skip-link';
 @use '@ecl/vanilla-component-table/table-eu';
 @use '@ecl/vanilla-component-tabs/tabs-eu';

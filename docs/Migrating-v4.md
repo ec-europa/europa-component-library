@@ -104,6 +104,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
+### Spinner
+
+- For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
+- Order of elements in the markup has been changed
+
 ## Custom theme
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner ECL Spinner negative renders correctly 1`] = `
+exports[`Spinner ECL Spinner centered renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-spinner ecl-spinner--negative ecl-spinner--medium ecl-spinner--centered ecl-spinner--visible"
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
   >
     <svg
       class="ecl-spinner__loader"
@@ -23,7 +23,68 @@ exports[`Spinner ECL Spinner negative renders correctly 1`] = `
     <div
       class="ecl-spinner__text"
     >
-      Loading...
+      Loading
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Spinner ECL Spinner negative renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-spinner ecl-spinner--negative ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
+  >
+    <svg
+      class="ecl-spinner__loader"
+      viewBox="25 25 50 50"
+    >
+      <circle
+        class="ecl-spinner__circle"
+        cx="50"
+        cy="50"
+        fill="none"
+        r="20"
+        stroke-miterlimit="10"
+        stroke-width="4px"
+        vector-effect="non-scaling-stroke"
+      />
+    </svg>
+    <div
+      class="ecl-spinner__text"
+    >
+      Loading
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Spinner ECL Spinner overlay renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-spinner__overlay ecl-spinner__overlay--visible"
+  />
+  <div
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
+  >
+    <svg
+      class="ecl-spinner__loader"
+      viewBox="25 25 50 50"
+    >
+      <circle
+        class="ecl-spinner__circle"
+        cx="50"
+        cy="50"
+        fill="none"
+        r="20"
+        stroke-miterlimit="10"
+        stroke-width="4px"
+        vector-effect="non-scaling-stroke"
+      />
+    </svg>
+    <div
+      class="ecl-spinner__text"
+    >
+      Loading
     </div>
   </div>
 </jest>
@@ -32,7 +93,7 @@ exports[`Spinner ECL Spinner negative renders correctly 1`] = `
 exports[`Spinner ECL Spinner primary renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-spinner ecl-spinner--primary ecl-spinner--medium ecl-spinner--centered ecl-spinner--visible"
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
   >
     <svg
       class="ecl-spinner__loader"
@@ -52,7 +113,7 @@ exports[`Spinner ECL Spinner primary renders correctly 1`] = `
     <div
       class="ecl-spinner__text"
     >
-      Loading...
+      Loading
     </div>
   </div>
 </jest>
@@ -61,7 +122,7 @@ exports[`Spinner ECL Spinner primary renders correctly 1`] = `
 exports[`Spinner ECL Spinner renders correctly with extra attributes 1`] = `
 <jest>
   <div
-    class="ecl-spinner ecl-spinner--primary ecl-spinner--medium ecl-spinner--centered ecl-spinner--visible"
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -83,7 +144,7 @@ exports[`Spinner ECL Spinner renders correctly with extra attributes 1`] = `
     <div
       class="ecl-spinner__text"
     >
-      Loading...
+      Loading
     </div>
   </div>
 </jest>
@@ -92,7 +153,7 @@ exports[`Spinner ECL Spinner renders correctly with extra attributes 1`] = `
 exports[`Spinner ECL Spinner renders correctly with extra class names 1`] = `
 <jest>
   <div
-    class="ecl-spinner ecl-spinner--primary ecl-spinner--medium ecl-spinner--centered ecl-spinner--visible"
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--m ecl-spinner--centered ecl-spinner--visible"
   >
     <svg
       class="ecl-spinner__loader"
@@ -112,7 +173,36 @@ exports[`Spinner ECL Spinner renders correctly with extra class names 1`] = `
     <div
       class="ecl-spinner__text"
     >
-      Loading...
+      Loading
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Spinner ECL Spinner size renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-spinner ecl-spinner--primary ecl-spinner--s ecl-spinner--centered ecl-spinner--visible"
+  >
+    <svg
+      class="ecl-spinner__loader"
+      viewBox="25 25 50 50"
+    >
+      <circle
+        class="ecl-spinner__circle"
+        cx="50"
+        cy="50"
+        fill="none"
+        r="20"
+        stroke-miterlimit="10"
+        stroke-width="4px"
+        vector-effect="non-scaling-stroke"
+      />
+    </svg>
+    <div
+      class="ecl-spinner__text"
+    >
+      Loading
     </div>
   </div>
 </jest>
