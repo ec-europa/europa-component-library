@@ -35,7 +35,6 @@ const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
   config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
 
-  config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
   config.module.rules.push({
     test: /\.twig$/,
     loader: 'twing-loader',
