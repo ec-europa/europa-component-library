@@ -104,27 +104,32 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
+### Spinner
+
+- For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
+- Order of elements in the markup has been changed
+
 ### Table
 
 - In order to properly support the row extra_classes and extra_attributes the data structure is now changed and it expects a `data` named object containing all the table cells belonging to that row.
   Classes and attributes for the single row can now be set inside the row object, like this:
   `rows: [
-    {
-      data: [
-        {
-          label: 'Administators in Competition Law',
-          'data-ecl-table-header': 'Job title',
-        },
-        {
-          label: 'AD7',
-          'data-ecl-table-header': 'EFSI finance approved by EIB',
-        },
-        extra_classes: 'row-extra-class',
-        extra_attributes: [{ name: 'custom-attr', value: 'custom-value'}],
-      ],
-    },
-    ...
-  ]`
+  {
+    data: [
+      {
+        label: 'Administators in Competition Law',
+        'data-ecl-table-header': 'Job title',
+      },
+      {
+        label: 'AD7',
+        'data-ecl-table-header': 'EFSI finance approved by EIB',
+      },
+      extra_classes: 'row-extra-class',
+      extra_attributes: [{ name: 'custom-attr', value: 'custom-value'}],
+    ],
+  },
+  ...
+]`
 
 ## Custom theme
 

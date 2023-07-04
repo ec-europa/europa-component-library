@@ -15,7 +15,7 @@ const markup = story.then(
 
 const negativeMarkup = storyNegative.then(
   (resolvedMarkup) =>
-    `<div class="ecl-u-bg-blue" style="position: relative; height: 200px">${resolvedMarkup}</div>`
+    `<div class="ecl-u-bg-dark" style="position: relative; height: 200px">${resolvedMarkup}</div>`
 );
 
 export const spinnerDefault = markup;
