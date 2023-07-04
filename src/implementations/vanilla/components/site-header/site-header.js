@@ -15,6 +15,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.loginBoxSelector
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
  */
 export class SiteHeader {
   /**
@@ -47,6 +48,7 @@ export class SiteHeader {
       loginBoxSelector = '[data-ecl-login-box]',
       attachClickListener = true,
       attachKeyListener = true,
+      attachResizeListener = true,
     } = {}
   ) {
     // Check element
@@ -71,6 +73,7 @@ export class SiteHeader {
     this.loginBoxSelector = loginBoxSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.languageMaxColumnItems = 8;
@@ -84,6 +87,7 @@ export class SiteHeader {
     this.searchForm = null;
     this.loginToggle = null;
     this.loginBox = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -94,6 +98,7 @@ export class SiteHeader {
     this.handleKeyboardLanguage = this.handleKeyboardLanguage.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -106,6 +111,9 @@ export class SiteHeader {
     }
     if (this.attachClickListener) {
       document.addEventListener('click', this.handleClickGlobal);
+    }
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
     }
 
     // Site header elements
@@ -195,15 +203,19 @@ export class SiteHeader {
       document.removeEventListener('click', this.handleClickGlobal);
     }
 
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
     }
   }
 
   /**
-   * Shows the modal language list overlay.
+   * Update display of the modal language list overlay.
    */
-  openOverlay() {
+  updateOverlay() {
     // Check number of items and adapt display
     let columnsEu = 1;
     let columnsNonEu = 1;
@@ -241,11 +253,6 @@ export class SiteHeader {
         );
       }
     }
-
-    // Display language list
-    this.languageListOverlay.hidden = false;
-    this.languageListOverlay.setAttribute('aria-modal', 'true');
-    this.languageLink.setAttribute('aria-expanded', 'true');
 
     // Check total width, and change display if needed
     this.languageListEu.parentNode.classList.remove(
@@ -334,6 +341,16 @@ export class SiteHeader {
   }
 
   /**
+   * Shows the modal language list overlay.
+   */
+  openOverlay() {
+    // Display language list
+    this.languageListOverlay.hidden = false;
+    this.languageListOverlay.setAttribute('aria-modal', 'true');
+    this.languageLink.setAttribute('aria-expanded', 'true');
+  }
+
+  /**
    * Hides the modal language list overlay.
    */
   closeOverlay() {
@@ -354,10 +371,24 @@ export class SiteHeader {
 
     if (this.languageListOverlay.hasAttribute('hidden')) {
       this.openOverlay();
+      this.updateOverlay();
       this.focusTrap.activate();
     } else {
       this.focusTrap.deactivate();
     }
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    if (this.languageListOverlay.hasAttribute('hidden')) return;
+
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.updateOverlay();
+    }, 200);
   }
 
   /**
