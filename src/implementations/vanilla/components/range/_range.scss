@@ -82,13 +82,9 @@ $_range-margin-top: null !default;
 
 // Width
 .ecl-range--s {
-  width: 50%;
+  width: 100%;
 
   @include breakpoints.up('m') {
-    width: 30%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 's');
   }
 }
@@ -97,10 +93,6 @@ $_range-margin-top: null !default;
   width: 100%;
 
   @include breakpoints.up('m') {
-    width: 50%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 'm');
   }
 }
@@ -108,7 +100,7 @@ $_range-margin-top: null !default;
 .ecl-range--l {
   width: 100%;
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('m') {
     width: map.get(theme.$form, 'l');
   }
 }
