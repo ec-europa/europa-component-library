@@ -30,15 +30,16 @@ The harmonised configuration shares the same structure and guidelines, and is or
 
 ## Anatomy image
 
-![](/cms-images/eu-footer-harmonised.png)
+![](/cms-images/eu-harm.png)
 
 ## Anatomy table
 
-| No. | Element/component                        | Usage | Description                                     |
-| --- | ---------------------------------------- | ----- | ----------------------------------------------- |
-| 1   | Site name                                |       | Logo & Site name and content owner details      |
-| 2   | Content owner details                    |       | Indicates **ownership over the site's content** |
-| 3   | DG-related navigation                    |       | Links to the **main content pages**             |
-| 4   | EU identity (flag)                       |       | Logo of the European Union                      |
-| 5   | Contact, Social media & Legal navigation |       | Links to the **main service pages**             |
-| 6   | EU Institutions                          |       | Links to various institutions of interest       |
+| No. | Element/component                        | Usage     | Description                                     |
+| --- | ---------------------------------------- | --------- | ----------------------------------------------- |
+| 1   | Site name                                | optional  | Logo & Site name and content owner details      |
+| 2   | Content owner details                    | optional  | Indicates **ownership over the site's content** |
+| 3   | Accessibility                            | mandatory | Links to the **accessibility statement**        |
+| 3   | DG-related navigation                    | optional  | Links to the **main content pages**             |
+| 4   | EU identity (flag)                       | mandatory | Logo of the European Union                      |
+| 5   | Contact, Social media & Legal navigation | mandatory | Links to the **main service pages**             |
+| 6   | EU Institutions                          | mandatory | Links to various institutions of interest       |
