@@ -13,18 +13,17 @@
       ...
     ]
   - "rows" (array) (default: {}): format: [
-    [
-      "extra_attributes": (string) (default: ''),
-      "extra_classes": (string) (default: ''),
       {
-        "label" (string or array of string)
-        "data-ecl-table-header" (string) (default: ''),
-        "group" (bool) (default: false),
+        data: [
+          "label" (string or array of string)
+          "data-ecl-table-header" (string) (default: ''),
+          "group" (bool) (default: false),
+        ],
+        "extra_attributes": (array of objects),
+        "extra_classes": (string),
       },
       ...
     ],
-    ...
-    ]
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
       {
