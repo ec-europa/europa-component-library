@@ -15,7 +15,7 @@ The harmonised configuration shares the same structure and guidelines, and is or
 
 ## Anatomy image
 
-![](/cms-images/eu-footer-core.png)
+![](/cms-images/eu-harm.png)
 
 ## Anatomy table
 
