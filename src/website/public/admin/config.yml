@@ -5,7 +5,6 @@ backend:
   base_url: https://v3-dev--europa-component-library.netlify.app/
   extension: md
   squash_merges: true
-  token: ${{ env.GITHUB_TOKEN }}
   commit_messages:
     create: 'feat({{collection}}): create {{collection}} “{{slug}}”'
     update: 'feat({{collection}}): update {{collection}} “{{slug}}”'
