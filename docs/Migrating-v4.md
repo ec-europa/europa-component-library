@@ -63,13 +63,42 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - New variant added to handle button with icon only: `ecl-button--icon-only`. By using it, it is no longer needed to add utility classes on the button label. If you are using the twig template, this variant relies on the already existing parameter `hide_label`
   Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
 
-### Forms
+### Form group
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)
+
+- form-group.html.twig template has been added. Form elements can now be rendered through it by passing an input named object with the same
+  properties of the ECL v3 form elements and an additional input_type that can be `text`, `checkbox`, `radio`, `datepicker`, `select`, `file`, `textarea`, `range`, `rating-field`.
+
+EX: `{% include '@ecl/form-group/form-group.html.twig' with { 
+  label: 'my file upload label', 
+  helper_text: 'this is a helper text', 
+  invalid_text: 'this is an invalid text', 
+  required_text: '*', 
+  required: true,
+  optional_text: 'this is an optional text', 
+  input: {
+    input_type: file,
+    multiple: false, 
+    button_choose_label: "Choose file", 
+    button_replace_label: "Replace file",
+  } only %}`
+
+- It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
+  implementation to ensure that the accessibility is not compromised.
+
+- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss`
+  and `form-group-print.scss`
 
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+
+### Search form
+
+- Icon in the search button is now placed before the label
+- Search button is now using existing variant of the button; it was previously using class `ecl-button--search`, which has no definition.
+  Please note that EC search form uses ghost button, while EU button uses primary button
 
 ### Site footer
 

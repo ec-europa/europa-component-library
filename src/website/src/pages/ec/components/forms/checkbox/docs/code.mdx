@@ -9,10 +9,11 @@ import { checkboxDefault, checkboxInvalid, checkboxOptional } from '../demo';
 ## Default checkbox group
 
 <Playground
-  selectedKind="components-forms-checkbox"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="checkbox"
   system="ec"
   showFrame
+  selectedArgs="required:true"
 >
   <Html markup={checkboxDefault} />
 </Playground>
@@ -20,8 +21,8 @@ import { checkboxDefault, checkboxInvalid, checkboxOptional } from '../demo';
 ## Invalid checkbox group
 
 <Playground
-  selectedKind="components-forms-checkbox"
-  selectedStory="default"
+  selectedKind="components-forms"
+  selectedStory="checkbox"
   selectedArgs="invalid:true"
   system="ec"
   showFrame
@@ -32,9 +33,8 @@ import { checkboxDefault, checkboxInvalid, checkboxOptional } from '../demo';
 ## Optional checkbox group
 
 <Playground
-  selectedKind="components-forms-checkbox"
-  selectedStory="default"
-  selectedArgs="required:false"
+  selectedKind="components-forms"
+  selectedStory="checkbox"
   system="ec"
   showFrame
 >

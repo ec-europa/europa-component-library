@@ -159,21 +159,22 @@
   {% endif %}
 
   {% set _search_form = {
+    label: search_form.label,
     text_input: search_form.text_input|default({})|merge({
-      extra_classes: _search_input_extra_classes,
+      extra_input_classes: _search_input_extra_classes,
       extra_attributes: _search_input_extra_attributes,
     }),
-    button: {
+    button: search_form.button|default({})|merge({
       label: _search_button_label,
-      variant: 'search',
       icon: {
         name: 'search',
         path: _icon_file_path,
         size: 'fluid',
       },
+      icon_position: 'before',
       extra_classes: _button_extra_classes,
       extra_attributes: _search_button_extra_attributes,
-    },
+    }),
     extra_attributes: _search_form_extra_attributes,
     extra_classes: _search_form_extra_classes
     }

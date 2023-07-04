@@ -238,12 +238,14 @@ module.exports = {
     href: exampleLink,
   },
   search_form: {
+    label: 'Search',
     text_input: {
       id: 'search-input-id',
       label: 'Search',
       placeholder: 'Placeholder text',
     },
     button: {
+      variant: 'ghost',
       label: 'Search',
     },
     extra_attributes: [

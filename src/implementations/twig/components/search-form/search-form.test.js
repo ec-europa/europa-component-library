@@ -5,7 +5,7 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import data from '@ecl/specs-component-search-form/demo/data';
+import data from '@ecl/specs-component-search-form/demo/data--ec';
 
 expect.extend(toHaveNoViolations);
 

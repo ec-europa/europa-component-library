@@ -33,14 +33,8 @@
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_icon = invalid_icon|default({}) %}
 {% set _star_filled_icon = star_filled_icon|default({}) %}
 {% set _star_outline_icon = star_outline_icon|default({}) %}
-{% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('') %}
-{% set _label = label|default('') %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
@@ -62,59 +56,12 @@
 
 {# Print the result #}
 
-<fieldset
-  class="{{ _css_class }}"
-{% if _helper_id is not empty %}
-   aria-describedby="{{ _helper_id }}"
-{% endif %}
-  {{ _extra_attributes|raw }}
->
-
-  {%- if _label is not empty %}
-    <legend
-      class="ecl-form-label
-      {{- _invalid ? ' ecl-form-label--invalid' }}
-      {{- _disabled ? ' ecl-form-label--disabled' -}}"
-    >
-      {%- block label _label -%}
-      {%- if _required and _required_text is not empty -%}
-        <span class="ecl-form-label__required">{{ _required_text }}</span>
-      {%- elseif not _required and _optional_text is not empty -%}
-        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
-      {%- endif -%}
-    </legend>
-  {% endif %}
-
-  {% if _helper_text is not empty %}
-    <div
-      class="ecl-help-block
-      {{- _disabled ? ' ecl-help-block--disabled' -}}"
-    {% if _helper_id is not empty %}
-      id="{{ _helper_id }}"
-    {% endif %}
-    >
-      {%- block helper_text _helper_text -%}
-    </div>
-  {% endif %}
-
-  {% if _invalid and _invalid_text is not empty %}
-    <div class="ecl-feedback-message">
-    {% if _invalid_icon is not empty %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: _invalid_icon,
-        extra_classes: 'ecl-feedback-message__icon',
-      } only %}
-    {% endif %}
-      {%- block invalid_text _invalid_text -%}
-    </div>
-  {% endif %}
-
-  {% if _items is not empty and _items is iterable %}
+{% if _items is not empty and _items is iterable %}
   <div class="ecl-rating-field
-      {{- _disabled ? ' ecl-rating-field--disabled' -}}">
-    {%- for _item in _items|reverse %}
-      {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
-      <input
+    {{- _disabled ? ' ecl-rating-field--disabled' -}}">
+  {%- for _item in _items|reverse %}
+    {% set _item_id = _id ~ '-' ~ _item.value|e('html_attr') %}
+    <input
       id="{{ _item_id }}" 
       name="{{ _name }}" 
       class="ecl-rating-field__input" 
@@ -129,26 +76,24 @@
       {% if _disabled %}
         disabled
       {% endif %}
-      />
-      <label 
+    />
+    <label 
       class="ecl-rating-field__label" 
       for="{{ _item_id }}">
-        {% if _item.label %}
-          <span class="ecl-u-sr-only">{{ _item.label }}</span>
-        {% endif %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: _star_filled_icon,
-          extra_classes: 'ecl-rating-field__icon-filled',
-        } only %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: _star_outline_icon,
-          extra_classes: 'ecl-rating-field__icon-outline',
-        } only %}
-      </label>
-    {% endfor -%}
+    {% if _item.label %}
+      <span class="ecl-u-sr-only">{{ _item.label }}</span>
+    {% endif %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _star_filled_icon,
+        extra_classes: 'ecl-rating-field__icon-filled',
+      } only %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _star_outline_icon,
+        extra_classes: 'ecl-rating-field__icon-outline',
+      } only %}
+    </label>
+  {% endfor -%}
   </div>
   {% endif %}
-
-</fieldset>
 
 {% endapply %}
