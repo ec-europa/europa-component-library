@@ -95,8 +95,8 @@ const prepareData = (data, args) => {
   return data;
 };
 
-const renderStory = (data, args) => {
-  let story = spinner(prepareData(data, args));
+const renderStory = async (data, args) => {
+  let story = await spinner(prepareData(data, args));
   if (args.overlay) {
     story = `
         ${story}
@@ -117,25 +117,17 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => renderStory(dataDefault, args);
+export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
-  const renderedSpinner = await spinner(prepareData(dataDefault, args));
-  return renderedSpinner;
-};
+Default.render = (args) => renderStory(dataDefault, args);
 Default.storyName = 'primary';
 Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Negative = (args) => renderStory(dataNegative, args);
+export const Negative = (_, { loaded: { component } }) => component;
 
-Negative.render = async (args) => {
-  const renderedSpinnerNegative = await spinner(
-    prepareData(dataNegative, args, 'negative')
-  );
-  return renderedSpinnerNegative;
-};
+Negative.render = async (args) => renderStory(dataNegative, args);
 Negative.storyName = 'negative';
 Negative.args = getArgs(dataNegative, 'negative');
 Negative.argTypes = getArgTypes('negative');
