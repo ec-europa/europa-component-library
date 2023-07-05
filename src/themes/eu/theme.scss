@@ -42,6 +42,12 @@ $theme: (
 );
 
 // Specific css only for this theme
+.ecl-breadcrumb .ecl-breadcrumb__ellipsis,
+.ecl-breadcrumb .ecl-breadcrumb__ellipsis:hover {
+  border-width: 2px;
+  padding: 0 map.get($theme, 'spacing', '2xs');
+}
+
 .ecl-button--secondary:focus-visible {
   box-shadow: 0 0 0 4px map.get($button, 'secondary-border-color') inset;
 }

@@ -1,22 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefaultEU from '@ecl/specs-component-breadcrumb/demo/data--eu';
-import dataDefaultEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataDefault from '@ecl/specs-component-breadcrumb/demo/data--eu';
 
 import breadcrumb from './breadcrumb.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const dataDefault =
-  system === 'eu' ? { ...dataDefaultEU } : { ...dataDefaultEC };
-
-const dataCore =
-  system === 'eu'
-    ? { ...dataDefault }
-    : { ...dataDefault, variant: 'negative' };
 
 const getArgs = (data) => {
   const args = {};
@@ -67,14 +56,16 @@ export default {
 export const Core = (_, { loaded: { component } }) => component;
 
 Core.render = async (args) => {
-  const renderedBreadcrumbCore = await breadcrumb(prepareData(dataCore, args));
+  const renderedBreadcrumbCore = await breadcrumb(
+    prepareData(dataDefault, args)
+  );
   return renderedBreadcrumbCore;
 };
 Core.storyName = 'core';
-Core.args = getArgs(dataCore);
-Core.argTypes = getArgTypes(dataCore);
+Core.args = getArgs(dataDefault);
+Core.argTypes = getArgTypes(dataDefault);
 Core.parameters = {
-  notes: { markdown: notes, json: dataCore },
+  notes: { markdown: notes, json: dataDefault },
 };
 
 export const Harmonised = (_, { loaded: { component } }) => component;

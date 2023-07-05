@@ -13,6 +13,7 @@ $breadcrumb: null !default;
 .ecl-breadcrumb {
   background-color: map.get($theme, 'color', 'white');
   font: map.get($breadcrumb, 'font-mobile');
+  line-height: map.get($theme, 'line-height', 'm');
   margin: 0;
 }
 
@@ -63,19 +64,15 @@ $breadcrumb: null !default;
   color: map.get($breadcrumb, 'ellipsis', 'color');
   font: map.get($breadcrumb, 'link-font');
   font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight');
-  margin: -#{map.get($breadcrumb, 'ellipsis', 'padding-vertical')} -#{map.get(
+  margin: -#{map.get($breadcrumb, 'ellipsis', 'offset-vertical')} -#{map.get(
       $breadcrumb,
       'ellipsis',
       'offset-horizontal'
     )};
-  padding: map.get($breadcrumb, 'ellipsis', 'padding-vertical')
-    map.get($breadcrumb, 'ellipsis', 'padding-horizontal');
 
   &:hover {
     background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
     color: map.get($breadcrumb, 'ellipsis', 'color');
-    padding: calc(#{map.get($breadcrumb, 'ellipsis', 'padding-vertical')} + 1px)
-      calc(#{map.get($breadcrumb, 'ellipsis', 'padding-horizontal')} + 1px);
   }
 }
 
@@ -104,6 +101,7 @@ $breadcrumb: null !default;
 @include breakpoints.up('l') {
   .ecl-breadcrumb {
     font: map.get($breadcrumb, 'font-desktop');
+    line-height: map.get($theme, 'line-height', 'm');
   }
 
   .ecl-breadcrumb__icon {
