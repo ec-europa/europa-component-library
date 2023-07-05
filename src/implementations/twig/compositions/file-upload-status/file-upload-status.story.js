@@ -17,7 +17,11 @@ export default {
   },
 };
 
-export const Default = () => fileUpload(correctPaths(dataFiles));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async () => {
+  const renderedFileUploadStatus = await fileUpload(correctPaths(dataFiles));
+  return renderedFileUploadStatus;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };

@@ -53,7 +53,7 @@ expect.extend(toHaveNoViolations);
 
       test(`passes the accessibility tests`, async () => {
         expect(
-          await axe(renderTwigFileAsHtml(template, dataInfo))
+          await axe(await renderTwigFileAsHtml(template, dataInfo))
         ).toHaveNoViolations();
       });
     });

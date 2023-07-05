@@ -267,22 +267,38 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => contentItem(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedContentItem = await contentItem(prepareData(dataDefault, args));
+  return renderedContentItem;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Image = (args) => contentItem(prepareData(dataImage, args));
+export const Image = (_, { loaded: { component } }) => component;
 
+Image.render = async (args) => {
+  const renderedContentItemImage = await contentItem(
+    prepareData(dataImage, args)
+  );
+  return renderedContentItemImage;
+};
 Image.storyName = 'image';
 Image.args = getArgs(dataImage);
 Image.argTypes = getArgTypes(dataImage);
 Image.parameters = { notes: { markdown: notes, json: dataImage } };
 
-export const Event = (args) => contentItem(prepareData(dataEvent, args));
+export const Event = (_, { loaded: { component } }) => component;
 
+Event.render = async (args) => {
+  const renderedContentItemEvent = await contentItem(
+    prepareData(dataEvent, args)
+  );
+  return renderedContentItemEvent;
+};
 Event.storyName = 'event';
 Event.args = getArgs(dataEvent);
 Event.argTypes = getArgTypes(dataEvent);

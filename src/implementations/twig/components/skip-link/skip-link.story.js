@@ -38,14 +38,16 @@ export default {
   title: 'Components/Navigation/Skip Link',
 };
 
-export const Default = (args) => {
+export const Default = (_, { loaded: { component } }) => component;
+
+Default.render = async (args) => {
   document.addEventListener('DOMContentLoaded', () => {
     btnTabHandler(args.focus);
   });
 
-  return skipLink(specs);
+  const renderedSkipLink = await skipLink(specs);
+  return renderedSkipLink;
 };
-
 Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';

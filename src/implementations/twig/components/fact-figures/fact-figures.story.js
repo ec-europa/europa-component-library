@@ -131,8 +131,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => factFigures(prepareData(demoData, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedFactFigures = await factFigures(prepareData(demoData, args));
+  return renderedFactFigures;
+};
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: demoData } };

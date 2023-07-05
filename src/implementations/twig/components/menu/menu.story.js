@@ -41,15 +41,23 @@ export default {
   },
 };
 
-export const Default = (args) => menu(prepareData(enData, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedMenu = await menu(prepareData(enData, args));
+  return renderedMenu;
+};
 Default.storyName = 'default';
 Default.args = getArgs(enData);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: enData } };
 
-export const Long = (args) => menu(prepareData(frData, args));
+export const Long = (_, { loaded: { component } }) => component;
 
+Long.render = async (args) => {
+  const renderedMenuLong = await menu(prepareData(frData, args));
+  return renderedMenuLong;
+};
 Long.storyName = 'long - with overlay';
 Long.args = getArgs(frData);
 Long.argTypes = getArgTypes();

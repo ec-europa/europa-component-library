@@ -48,8 +48,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const All = (args) => icon(prepareData(dataAll, args));
+export const All = (_, { loaded: { component } }) => component;
 
+All.render = async (args) => {
+  const renderedIcon = await icon(prepareData(dataAll, args));
+  return renderedIcon;
+};
 All.storyName = 'all icons';
 All.args = getArgs(dataAll);
 All.argTypes = getArgTypes(dataAll, iconsAll, iconMapping);

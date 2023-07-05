@@ -69,7 +69,12 @@ export default {
   title: 'Components/Accordion',
 };
 
-export const Default = (args) => accordion(prepareData(demoData, args));
+export const Default = (_, { loaded: { component } }) => component;
+
+Default.render = async (args) => {
+  const renderedAccordion = await accordion(prepareData(demoData, args));
+  return renderedAccordion;
+};
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.storyName = 'default';

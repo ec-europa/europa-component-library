@@ -173,45 +173,70 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => link(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedLink = await link(prepareData(dataDefault, args));
+  return renderedLink;
+};
 Default.storyName = 'default';
 Default.decorators = [withNotes, withCode, withParagraph];
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Standalone = (args) => link(prepareData(dataStandalone, args));
+export const Standalone = (_, { loaded: { component } }) => component;
 
+Standalone.render = async (args) => {
+  const renderedLinkStandalone = await link(prepareData(dataStandalone, args));
+  return renderedLinkStandalone;
+};
 Standalone.storyName = 'standalone';
 Standalone.args = getArgs(dataStandalone);
 Standalone.argTypes = getArgTypes();
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 
-export const Cta = (args) => link(prepareDataButtonLink(dataCta, args));
+export const Cta = (_, { loaded: { component } }) => component;
 
+Cta.render = async (args) => {
+  const renderedLinkCta = await link(prepareDataButtonLink(dataCta, args));
+  return renderedLinkCta;
+};
 Cta.storyName = 'call to action';
 Cta.args = getArgs(dataCta);
 Cta.argTypes = getArgTypes();
 Cta.parameters = { notes: { markdown: notes, json: dataCta } };
 
-export const Primary = (args) => link(prepareDataButtonLink(dataPrimary, args));
+export const Primary = (_, { loaded: { component } }) => component;
 
+Primary.render = async (args) => {
+  const renderedLinkCta = await link(prepareDataButtonLink(dataPrimary, args));
+  return renderedLinkCta;
+};
 Primary.storyName = 'primary';
 Primary.args = getArgs(dataPrimary);
 Primary.argTypes = getArgTypes();
 Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 
-export const Secondary = (args) =>
-  link(prepareDataButtonLink(dataSecondary, args));
+export const Secondary = (_, { loaded: { component } }) => component;
 
+Secondary.render = async (args) => {
+  const renderedLinkSecondary = await link(
+    prepareDataButtonLink(dataSecondary, args)
+  );
+  return renderedLinkSecondary;
+};
 Secondary.storyName = 'secondary';
 Secondary.args = getArgs(dataSecondary);
 Secondary.argTypes = getArgTypes();
 Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 
-export const Inverted = (args) => link(prepareData(dataInverted, args));
+export const Inverted = (_, { loaded: { component } }) => component;
 
+Inverted.render = async (args) => {
+  const renderedLinkSecondary = await link(prepareData(dataInverted, args));
+  return renderedLinkSecondary;
+};
 Inverted.storyName = 'inverted';
 Inverted.decorators = [withNotes, withCode, withParagraph, withInverted];
 Inverted.args = getArgs(dataInverted);

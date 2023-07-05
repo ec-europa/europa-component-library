@@ -9,7 +9,7 @@ import searchForm from './search-form.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const dataDefault = system === 'eu' ? demoDataEu : demoDataEc;
+const dataSearch = system === 'eu' ? demoDataEu : demoDataEc;
 
 const getArgs = (data) => ({
   disabled: false,
@@ -63,10 +63,14 @@ export default {
   title: 'Components/Forms',
 };
 
-export const Search = (args) => searchForm(prepareData(dataDefault, args));
+export const Search = (_, { loaded: { component } }) => component;
 
+Search.render = async (args) => {
+  const renderedSearchForm = await searchForm(prepareData(dataSearch, args));
+  return renderedSearchForm;
+};
 Search.storyName = 'Search Form';
-Search.args = getArgs(dataDefault);
+Search.args = getArgs(dataSearch);
 Search.argTypes = getArgTypes();
-Search.parameters = { notes: { markdown: notes, json: dataDefault } };
+Search.parameters = { notes: { markdown: notes, json: dataSearch } };
 Search.decorators = [withNotes, withCode];

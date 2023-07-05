@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactDOMServer from 'react-dom/server';
 
 import iconSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
@@ -15,7 +16,10 @@ class Playground extends Component {
     // Parameters
     this.showcaseLineHeight = 1.5;
     this.showcaseNbLines = 6;
-    this.state = { hasError: false };
+    this.state = {
+      hasError: false,
+      resolvedMarkup: null,
+    };
   }
 
   static getDerivedStateFromError() {
@@ -24,23 +28,24 @@ class Playground extends Component {
   }
 
   componentDidMount() {
-    // Calculate max height
-    this.maxHeight =
-      this.showcaseLineHeight *
-      this.showcaseNbLines *
-      parseFloat(getComputedStyle(document.documentElement).fontSize);
+    this.renderMarkup();
 
-    // Check if code area is too long
-    if (
-      this.showcaseCodeRef.current &&
-      this.showcaseCodeRef.current.clientHeight > this.maxHeight
-    ) {
-      this.showcaseCodeRef.current.parentElement.setAttribute(
-        'aria-expanded',
-        false
-      );
-      this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
-    }
+    this.calculateContainerHeight().then((containerHeight) => {
+      // Calculate max height
+      this.maxHeight =
+        this.showcaseLineHeight *
+        this.showcaseNbLines *
+        parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+      // Check if code area is too long
+      if (this.showcaseCodeRef.current && containerHeight > this.maxHeight) {
+        this.showcaseCodeRef.current.parentElement.setAttribute(
+          'aria-expanded',
+          false
+        );
+        this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
+      }
+    });
   }
 
   handleClickOnToggle() {
@@ -49,9 +54,56 @@ class Playground extends Component {
       'aria-expanded',
       true
     );
-    this.showcaseCodeRef.current.style.maxHeight = `none`;
+    this.showcaseCodeRef.current.style.maxHeight = 'none';
+  }
 
-    return this;
+  calculateContainerHeight() {
+    return new Promise((resolve) => {
+      const checkContainerHeight = () => {
+        const container = this.showcaseCodeRef.current;
+
+        if (container && container.childNodes.length > 0) {
+          const containerHeight = container.offsetHeight;
+          resolve(containerHeight);
+        } else {
+          setTimeout(checkContainerHeight, 100);
+        }
+      };
+
+      checkContainerHeight();
+    });
+  }
+
+  async renderMarkup() {
+    const { children } = this.props;
+
+    if (!children) {
+      return;
+    }
+
+    if (children instanceof Promise) {
+      const resolvedMarkup = await children;
+      if (typeof resolvedMarkup === 'string') {
+        this.setState({ resolvedMarkup });
+      }
+      return;
+    }
+
+    const childrenArray = Array.isArray(children) ? children : [children];
+
+    const htmlPromises = childrenArray.map(async (child) => {
+      const { markup } = child.props;
+      const resolvedMarkup = await markup;
+      if (typeof resolvedMarkup === 'string') {
+        return resolvedMarkup;
+      }
+      return ReactDOMServer.renderToStaticMarkup(child);
+    });
+
+    const resolvedHtmlArray = await Promise.all(htmlPromises);
+    const resolvedMarkup = resolvedHtmlArray.join('');
+
+    this.setState({ resolvedMarkup });
   }
 
   render() {
@@ -72,7 +124,7 @@ class Playground extends Component {
       children,
     } = this.props;
 
-    const { hasError } = this.state;
+    const { hasError, resolvedMarkup } = this.state;
 
     if (!children) return null;
 
@@ -105,6 +157,12 @@ class Playground extends Component {
             `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`
           )
         : '';
+
+    let markupElement = null;
+
+    if (resolvedMarkup) {
+      markupElement = <Code>{resolvedMarkup}</Code>;
+    }
 
     return (
       <div className={styles.playground}>
@@ -151,7 +209,7 @@ class Playground extends Component {
               className={`${styles['code-pre']} language-html`}
               ref={this.showcaseCodeRef}
             >
-              <Code>{children}</Code>
+              {markupElement}
             </pre>
             <button
               type="button"
@@ -225,7 +283,7 @@ Playground.defaultProps = {
   hideCode: false,
   iframeOptions: {},
   hideDemo: false,
-  heightCalculation: 'lowestElement',
+  heightCalculation: 'max',
   disableAutoResize: false,
   system: '',
   selectedKind: '',

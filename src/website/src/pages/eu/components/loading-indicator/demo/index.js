@@ -8,8 +8,15 @@ const storyNegative = template({
   variant: 'negative',
 });
 
-const markup = `<div style="position: relative; height: 200px;">${story}</div>`;
-const negativeMarkup = `<div class="ecl-u-bg-dark" style="position: relative; height: 200px">${storyNegative}</div>`;
+const markup = story.then(
+  (resolvedMarkup) =>
+    `<div style="position: relative; height: 200px;">${resolvedMarkup}</div>`
+);
+
+const negativeMarkup = storyNegative.then(
+  (resolvedMarkup) =>
+    `<div class="ecl-u-bg-dark" style="position: relative; height: 200px">${resolvedMarkup}</div>`
+);
 
 export const spinnerDefault = markup;
 export const spinnerNegative = negativeMarkup;

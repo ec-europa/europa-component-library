@@ -20,4 +20,7 @@ if (typeof loader.addPath === 'function') {
   loader.addPath(compositionsAbsPath, 'ecl');
 }
 
-module.exports = new TwingEnvironment(loader, { autoescape: false });
+module.exports = new TwingEnvironment(loader, {
+  autoescape: false,
+  debug: true,
+});

@@ -80,7 +80,7 @@ describe('Icon', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, options))
+        await axe(await renderTwigFileAsHtml(template, options))
       ).toHaveNoViolations();
     });
   });

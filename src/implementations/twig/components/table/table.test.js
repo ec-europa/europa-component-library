@@ -71,9 +71,12 @@ describe('Table', () => {
     test('renders correctly with row extra attributes', () => {
       expect.assertions(1);
 
-      const withRowExtraAttributes = dataDefault;
+      const withRowExtraAttributes = JSON.parse(JSON.stringify(dataDefault));
       withRowExtraAttributes.rows.forEach((row) => {
-        row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
+        row.extra_attributes = [
+          { name: 'data-test' },
+          { name: 'data-test-another', value: 'value' },
+        ]; // eslint-disable-line no-param-reassign
       });
 
       return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
@@ -92,7 +95,7 @@ describe('Table', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(await renderTwigFileAsHtml(template, dataDefault, true))
       ).toHaveNoViolations();
     });
   });

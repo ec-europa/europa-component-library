@@ -58,7 +58,7 @@ describe('Tag', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataLink, true))
+        await axe(await renderTwigFileAsHtml(template, dataLink, true))
       ).toHaveNoViolations();
     });
   });
@@ -94,7 +94,7 @@ describe('Tag', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataRemovable, true))
+        await axe(await renderTwigFileAsHtml(template, dataRemovable, true))
       ).toHaveNoViolations();
     });
   });

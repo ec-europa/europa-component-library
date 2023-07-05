@@ -1,8 +1,12 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import data from '@ecl/specs-component-rating-field/demo/data';
 
-import specs from '@ecl/specs-component-rating-field/demo/data';
-
-const data = specs.input;
+expect.extend(toHaveNoViolations);
 
 describe('Rating field', () => {
   const template = '@ecl/rating-field/rating-field.html.twig';
@@ -36,6 +40,12 @@ describe('Rating field', () => {
       });
 
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, data, true))
+      ).toHaveNoViolations();
     });
   });
 });
