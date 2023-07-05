@@ -8,10 +8,13 @@
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'm'),
-  link-font: map.get($font-prolonged, 'm'),
+  font-mobile: map.get($font-prolonged, 'm'),
+  font-desktop: map.get($font-prolonged, 'm'),
   last-link-color: map.get($color, 'grey-80'),
   icon-color: map.get($color, 'grey-80'),
   icon-spacing: map.get($spacing, 'xs'),
+  icon-transform-mobile: rotateZ(90deg),
+  icon-transform-desktop: rotateZ(90deg),
   ellipsis: (
     background: map.get($color, 'blue-5'),
     background-hover: map.get($color, 'blue-10'),

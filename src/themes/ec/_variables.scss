@@ -7,10 +7,13 @@
 // Breadcrumb
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'xs'),
-  link-font: map.get($font, 's'),
+  font-mobile: map.get($font, 'm'),
+  font-desktop: map.get($font, 's'),
   last-link-color: map.get($color, 'grey-75'),
   icon-color: var(--ecl-color-primary),
   icon-spacing: map.get($spacing, 'm'),
+  icon-transform-mobile: rotateZ(270deg),
+  icon-transform-desktop: rotateZ(90deg),
   ellipsis: (
     background: transparent,
     background-hover: map.get($color, 'blue-5'),

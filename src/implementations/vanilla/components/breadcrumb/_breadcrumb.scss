@@ -4,6 +4,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -11,6 +12,7 @@ $breadcrumb: null !default;
 
 .ecl-breadcrumb {
   background-color: map.get($theme, 'color', 'white');
+  font: map.get($breadcrumb, 'font-mobile');
   margin: 0;
 }
 
@@ -40,7 +42,6 @@ $breadcrumb: null !default;
     visibility: hidden;
 
     /* Force display if JS is disabled */
-    /* stylelint-disable-next-line max-nesting-depth */
     .no-js & {
       position: static;
       visibility: visible;
@@ -51,7 +52,6 @@ $breadcrumb: null !default;
 .ecl-breadcrumb__segment--ellipsis {
   &[aria-hidden='false'] {
     /* Force hide if JS is disabled */
-    /* stylelint-disable-next-line max-nesting-depth */
     .no-js & {
       display: none;
     }
@@ -80,7 +80,6 @@ $breadcrumb: null !default;
 }
 
 .ecl-breadcrumb__link {
-  font: map.get($breadcrumb, 'link-font');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -91,6 +90,7 @@ $breadcrumb: null !default;
   flex-shrink: 0;
   margin-inline-start: map.get($breadcrumb, 'icon-spacing');
   margin-inline-end: map.get($breadcrumb, 'icon-spacing');
+  transform: map.get($breadcrumb, 'icon-transform-mobile');
   vertical-align: text-bottom;
 }
 
@@ -100,25 +100,13 @@ $breadcrumb: null !default;
   font-weight: map.get($breadcrumb, 'link-font-weight');
 }
 
-/*
- * Negative variant - Core EC
- */
-.ecl-breadcrumb--negative {
-  background-color: map.get($theme, 'color', 'blue-100');
-
-  .ecl-breadcrumb__ellipsis {
-    color: map.get($theme, 'color', 'white-100');
-
-    &:hover {
-      background-color: map.get($theme, 'color', 'blue-120');
-    }
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-breadcrumb {
+    font: map.get($breadcrumb, 'font-desktop');
   }
 
   .ecl-breadcrumb__icon {
-    fill: map.get($theme, 'color', 'white-100');
-  }
-
-  .ecl-breadcrumb__current-page {
-    color: map.get($theme, 'color', 'blue-25');
+    transform: map.get($breadcrumb, 'icon-transform-desktop');
   }
 }

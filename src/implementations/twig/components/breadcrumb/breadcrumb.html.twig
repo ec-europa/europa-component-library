@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "variant" (string) options:[ negative ] (default: '') Negative style with a darker background (only for EC)
     - "links" (array) (default: []): format: [
       {
         "label" (string) (default: '') Label of link
@@ -14,7 +13,7 @@
     - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
     - "ellipsis_text" (string) (default: '...'): Text of the ellipsis
     - "icon_file_path" (string) (default: ''): URL to icons file
-    - "icon_size" (string) (default: '2xs'): Size of the icon between segments
+    - "icon_size" (string) (default: 'fluid'): Size of the icon between segments
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -26,11 +25,10 @@
 
 {# Internal properties #}
 
-{% set _variant = variant|default('') %}
 {% set _breadcrumb_size = links|length %}
 {% set _links = links|default([]) %}
 {% set _icon_file_path = icon_file_path|default('') %}
-{% set _icon_size = icon_size|default('2xs') %}
+{% set _icon_size = icon_size|default('fluid') %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _ellipsis_text = ellipsis_text|default('…') %}
@@ -56,10 +54,6 @@
 {% set _css_class = 'ecl-breadcrumb' %}
 
 {# Internal logic - Process properties #}
-
-{% if _variant is not empty and _variant == 'negative' %}
-  {% set _css_class = _css_class ~ ' ecl-breadcrumb--negative' %}
-{% endif %}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Breadcrumb' }]) %}
