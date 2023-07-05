@@ -93,6 +93,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+- Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
 
 ### Search form
 
