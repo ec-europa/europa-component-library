@@ -21,11 +21,11 @@ Banners are a component that score highly in the visual hierarchy, used to conve
 - do not use an incorrect file size
 - do not use incorrect HTML tags and attributes for the banner
 
-## When to use it
+## When to use
 
 - use on homepage or landing pages to increase the visual hierarchy of a message or page
 - use on pages that are high in the information architecture (usually parent pages) to highlight topics and link to related pages
 
-## When not to use it
+## When not to use
 
 - do not use for large pieces of content - use [Featured item](https://ec.europa.eu/component-library/eu/components/media/featured-item/code/) instead
