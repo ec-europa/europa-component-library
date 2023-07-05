@@ -368,7 +368,7 @@ export class Gallery {
         this.overlayFooter.clientHeight;
 
       if (width > height) {
-        iframe.setAttribute('height', `${height - 0.05 * height}px`);
+        iframe.setAttribute('height', `${height}px`);
 
         if ((height * 16) / 9 > width) {
           iframe.setAttribute('width', `${width - 0.05 * width}px`);
@@ -457,12 +457,13 @@ export class Gallery {
       const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', embeddedVideo);
       mediaIframe.setAttribute('frameBorder', '0');
-      this.iframeResize(mediaIframe);
+
       if (this.overlayMedia) {
         mediaElement.appendChild(mediaIframe);
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
       }
+      this.iframeResize(mediaIframe);
     } else if (video != null) {
       // Media is a video
       mediaElement = document.createElement('video');
