@@ -362,27 +362,30 @@ export class Gallery {
 
     if (iframe) {
       const width = window.innerWidth;
-      const height =
-        this.overlay.clientHeight -
-        this.overlayHeader.clientHeight -
-        this.overlayFooter.clientHeight;
 
-      if (width > height) {
-        iframe.setAttribute('height', `${height}px`);
+      setTimeout(() => {
+        const height =
+          this.overlay.clientHeight -
+          this.overlayHeader.clientHeight -
+          this.overlayFooter.clientHeight;
 
-        if ((height * 16) / 9 > width) {
-          iframe.setAttribute('width', `${width - 0.05 * width}px`);
+        if (width > height) {
+          iframe.setAttribute('height', `${height}px`);
+
+          if ((height * 16) / 9 > width) {
+            iframe.setAttribute('width', `${width - 0.05 * width}px`);
+          } else {
+            iframe.setAttribute('width', `${(height * 16) / 9}px`);
+          }
         } else {
-          iframe.setAttribute('width', `${(height * 16) / 9}px`);
+          iframe.setAttribute('width', `${width}px`);
+          if ((width * 4) / 3 > height) {
+            iframe.setAttribute('height', `${height - 0.05 * height}px`);
+          } else {
+            iframe.setAttribute('height', `${(width * 4) / 3}px`);
+          }
         }
-      } else {
-        iframe.setAttribute('width', `${width}px`);
-        if ((width * 4) / 3 > height) {
-          iframe.setAttribute('height', `${height - 0.05 * height}px`);
-        } else {
-          iframe.setAttribute('height', `${(width * 4) / 3}px`);
-        }
-      }
+      }, 0);
     }
   }
 
