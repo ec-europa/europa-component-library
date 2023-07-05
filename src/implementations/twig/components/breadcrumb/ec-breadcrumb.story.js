@@ -64,8 +64,12 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => breadcrumb(prepareData(dataCore, args));
+export const Core = (_, { loaded: { component } }) => component;
 
+Core.render = async (args) => {
+  const renderedBreadcrumbCore = await breadcrumb(prepareData(dataCore, args));
+  return renderedBreadcrumbCore;
+};
 Core.storyName = 'core';
 Core.args = getArgs(dataCore);
 Core.argTypes = getArgTypes(dataCore);
@@ -73,9 +77,14 @@ Core.parameters = {
   notes: { markdown: notes, json: dataCore },
 };
 
-export const Standardised = (args) =>
-  breadcrumb(prepareData(dataDefault, args));
+export const Standardised = (_, { loaded: { component } }) => component;
 
+Standardised.render = async (args) => {
+  const renderedBreadcrumbStandardised = await breadcrumb(
+    prepareData(dataDefault, args)
+  );
+  return renderedBreadcrumbStandardised;
+};
 Standardised.storyName = 'standardised';
 Standardised.args = getArgs(dataDefault);
 Standardised.argTypes = getArgTypes(dataDefault);
@@ -83,8 +92,14 @@ Standardised.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };
 
-export const Harmonised = (args) => breadcrumb(prepareData(dataDefault, args));
+export const Harmonised = (_, { loaded: { component } }) => component;
 
+Harmonised.render = async (args) => {
+  const renderedBreadcrumbHarmonised = await breadcrumb(
+    prepareData(dataDefault, args)
+  );
+  return renderedBreadcrumbHarmonised;
+};
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataDefault);
 Harmonised.argTypes = getArgTypes(dataDefault);

@@ -183,8 +183,12 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => pageHeader(prepareData(dataDefault, args));
+export const Core = (_, { loaded: { component } }) => component;
 
+Core.render = async (args) => {
+  const renderedCore = await pageHeader(prepareData(dataDefault, args));
+  return renderedCore;
+};
 Core.storyName = 'core';
 Core.args = getArgs(dataDefault);
 Core.argTypes = getArgTypes(dataDefault);
@@ -192,8 +196,12 @@ Core.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };
 
-export const Harmonised = (args) => pageHeader(prepareData(dataDefault, args));
+export const Harmonised = (_, { loaded: { component } }) => component;
 
+Harmonised.render = async (args) => {
+  const renderedHarmonised = await pageHeader(prepareData(dataDefault, args));
+  return renderedHarmonised;
+};
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataDefault);
 Harmonised.argTypes = getArgTypes(dataDefault);

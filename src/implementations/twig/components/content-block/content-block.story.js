@@ -186,8 +186,14 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => contentBlock(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedContentBlock = await contentBlock(
+    prepareData(dataDefault, args)
+  );
+  return renderedContentBlock;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);

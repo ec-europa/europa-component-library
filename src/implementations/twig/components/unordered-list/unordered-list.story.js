@@ -39,9 +39,14 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Text = (args) =>
-  unorderedList(prepareData(dataUnorderedListText, args));
+export const Text = (_, { loaded: { component } }) => component;
 
+Text.render = async (args) => {
+  const renderedText = await unorderedList(
+    prepareData(dataUnorderedListText, args)
+  );
+  return renderedText;
+};
 Text.storyName = 'text';
 Text.args = getArgs(dataUnorderedListText);
 Text.argTypes = getArgTypes(dataUnorderedListText);
@@ -49,9 +54,14 @@ Text.parameters = {
   notes: { markdown: notes, json: dataUnorderedListText },
 };
 
-export const Link = (args) =>
-  unorderedList(prepareData(dataUnorderedListLink, args));
+export const Link = (_, { loaded: { component } }) => component;
 
+Link.render = async (args) => {
+  const renderedLink = await unorderedList(
+    prepareData(dataUnorderedListLink, args)
+  );
+  return renderedLink;
+};
 Link.storyName = 'links';
 Link.args = getArgs(dataUnorderedListLink);
 Link.argTypes = getArgTypes(dataUnorderedListLink);
@@ -59,9 +69,14 @@ Link.parameters = {
   notes: { markdown: notes, json: dataUnorderedListLink },
 };
 
-export const Divider = (args) =>
-  unorderedList(prepareData(dataUnorderedListDivider, args));
+export const Divider = (_, { loaded: { component } }) => component;
 
+Divider.render = async (args) => {
+  const renderedDivider = await unorderedList(
+    prepareData(dataUnorderedListDivider, args)
+  );
+  return renderedDivider;
+};
 Divider.storyName = 'with divider';
 Divider.args = getArgs(dataUnorderedListDivider);
 Divider.argTypes = getArgTypes(dataUnorderedListDivider);
@@ -69,9 +84,14 @@ Divider.parameters = {
   notes: { markdown: notes, json: dataUnorderedListDivider },
 };
 
-export const NoBullet = (args) =>
-  unorderedList(prepareData(dataUnorderedListNoBullet, args));
+export const NoBullet = (_, { loaded: { component } }) => component;
 
+NoBullet.render = async (args) => {
+  const renderedDivider = await unorderedList(
+    prepareData(dataUnorderedListNoBullet, args)
+  );
+  return renderedDivider;
+};
 NoBullet.storyName = 'no bullet';
 NoBullet.args = getArgs(dataUnorderedListNoBullet);
 NoBullet.argTypes = getArgTypes(dataUnorderedListNoBullet);

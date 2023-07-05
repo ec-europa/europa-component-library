@@ -22,7 +22,11 @@ export default {
   },
 };
 
-export const Default = () => categoryFilter(prepareData(demoData));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async () => {
+  const renderedCategoryFilter = await categoryFilter(prepareData(demoData));
+  return renderedCategoryFilter;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: demoData } };

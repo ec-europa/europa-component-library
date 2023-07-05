@@ -157,9 +157,12 @@ export default {
   args: getArgs(),
   decorators: [withCode, withNotes],
 };
+export const Primary = (_, { loaded: { component } }) => component;
 
-export const Primary = (args) => button(prepareData(dataPrimary, args));
-
+Primary.render = async (args) => {
+  const renderedButton = await button(prepareData(dataPrimary, args));
+  return renderedButton;
+};
 Primary.args = {
   label: dataPrimary.label,
 };
@@ -168,8 +171,14 @@ Primary.parameters = {
   notes: { markdown: notes, json: dataPrimary },
 };
 
-export const Secondary = (args) => button(prepareData(dataSecondary, args));
+export const Secondary = (_, { loaded: { component } }) => component;
 
+Secondary.render = async (args) => {
+  const renderedButtonSecondary = await button(
+    prepareData(dataSecondary, args)
+  );
+  return renderedButtonSecondary;
+};
 Secondary.args = {
   label: dataSecondary.label,
 };
@@ -178,8 +187,12 @@ Secondary.parameters = {
   notes: { markdown: notes, json: dataSecondary },
 };
 
-export const CallToAction = (args) => button(prepareData(dataCall, args));
+export const CallToAction = (_, { loaded: { component } }) => component;
 
+CallToAction.render = async (args) => {
+  const renderedCta = await button(prepareData(dataCall, args));
+  return renderedCta;
+};
 CallToAction.args = {
   label: dataCall.label,
 };
@@ -188,8 +201,12 @@ CallToAction.parameters = {
   notes: { markdown: notes, json: dataCall },
 };
 
-export const Ghost = (args) => button(prepareData(dataGhost, args));
+export const Ghost = (_, { loaded: { component } }) => component;
 
+Ghost.render = async (args) => {
+  const renderedCta = await button(prepareData(dataGhost, args));
+  return renderedCta;
+};
 Ghost.args = {
   label: dataGhost.label,
 };

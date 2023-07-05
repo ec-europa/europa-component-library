@@ -14,7 +14,11 @@ export default {
   },
 };
 
-export const Default = () => newsTicker(correctPaths(specs));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async () => {
+  const renderedNewsTicker = await newsTicker(correctPaths(specs));
+  return renderedNewsTicker;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };

@@ -81,8 +81,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => dateBlock(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedDateBlock = await dateBlock(prepareData(dataDefault, args));
+  return renderedDateBlock;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();
@@ -93,30 +97,51 @@ Default.parameters = {
   },
 };
 
-export const Ongoing = (args) => dateBlock(prepareData(dataOngoing, args));
+export const Ongoing = (_, { loaded: { component } }) => component;
 
+Ongoing.render = async (args) => {
+  const renderedDateBlockOngoing = await dateBlock(
+    prepareData(dataOngoing, args)
+  );
+  return renderedDateBlockOngoing;
+};
 Ongoing.storyName = 'ongoing';
 Ongoing.args = getArgs(dataOngoing);
 Ongoing.argTypes = getArgTypes(dataOngoing);
 Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
 
-export const Cancelled = (args) => dateBlock(prepareData(dataCancelled, args));
+export const Cancelled = (_, { loaded: { component } }) => component;
 
+Cancelled.render = async (args) => {
+  const renderedDateBlockCancelled = await dateBlock(
+    prepareData(dataCancelled, args)
+  );
+  return renderedDateBlockCancelled;
+};
 Cancelled.storyName = 'cancelled';
 Cancelled.args = getArgs(dataCancelled);
 Cancelled.argTypes = getArgTypes();
 Cancelled.parameters = { notes: { markdown: notes, json: dataCancelled } };
 
-export const Past = (args) => dateBlock(prepareData(dataPast, args));
+export const Past = (_, { loaded: { component } }) => component;
 
+Past.render = async (args) => {
+  const renderedDateBlockPast = await dateBlock(prepareData(dataPast, args));
+  return renderedDateBlockPast;
+};
 Past.storyName = 'past';
 Past.args = getArgs(dataPast);
 Past.argTypes = getArgTypes();
 Past.parameters = { notes: { markdown: notes, json: dataPast } };
 
-export const Rescheduled = (args) =>
-  dateBlock(prepareData(dataRescheduled, args));
+export const Rescheduled = (_, { loaded: { component } }) => component;
 
+Rescheduled.render = async (args) => {
+  const renderedDateBlockRescheduled = await dateBlock(
+    prepareData(dataRescheduled, args)
+  );
+  return renderedDateBlockRescheduled;
+};
 Rescheduled.storyName = 'rescheduled';
 Rescheduled.args = getArgs(dataRescheduled);
 Rescheduled.argTypes = getArgTypes();

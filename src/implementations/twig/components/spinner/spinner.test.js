@@ -28,6 +28,30 @@ describe('Spinner', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('overlay renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataDefault, overlay: true })
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('centered renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataDefault, centered: true })
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('size renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataDefault, size: 's' })
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -53,7 +77,7 @@ describe('Spinner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(await renderTwigFileAsHtml(template, dataDefault, true))
       ).toHaveNoViolations();
     });
   });

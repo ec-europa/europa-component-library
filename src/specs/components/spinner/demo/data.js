@@ -1,5 +1,5 @@
 module.exports = {
   visible: true,
   centered: true,
-  text: 'Loading...',
+  text: 'Loading',
 };

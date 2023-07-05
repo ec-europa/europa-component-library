@@ -1,14 +1,12 @@
 {% apply spaceless %}
 {#
   Parameters:
-  - "variant" (string) options:
-    [ primary, negative ] (default: primary)
-  - "size" (string) options:
-    [ small, medium, large ]
+  - "variant" (string) (default: primary): could be 'primary' or 'negative'
+  - "size" (string) (default: m): could be 's', 'm' or 'l'
   - "text" (string) (default: '')
-    "centered" (boolean) (default: false)
+  - "centered" (boolean) (default: false)
   - "visible" (boolean) (default false)
-    "overlay" (boolean) (default: false)
+  - "overlay" (boolean) (default: false)
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -23,7 +21,7 @@
 
 {% set _css_classes = 'ecl-spinner' %}
 {% set _variant = variant|default('primary') %}
-{% set _size = size|default('medium') %}
+{% set _size = size|default('m') %}
 {% set _centered = centered|default(false) %}
 {% set _text = text|default('') %}
 {% set _overlay = overlay|default(false) %}
@@ -58,6 +56,9 @@
   {% endfor %}
 {% endif %}
 
+{% if _overlay %}
+<div class="{{ _overlay_classes }}"></div>
+{% endif %}
 <div class="{{ _css_classes }}" {{ _extra_attributes|raw }}>
   <svg class="ecl-spinner__loader" viewBox="25 25 50 50">
     <circle
@@ -77,8 +78,5 @@
   </div>
 {% endif %}
 </div>
-{% if _overlay %}
-<div class="{{ _overlay_classes }}"></div>
-{% endif %}
 
 {% endapply %}

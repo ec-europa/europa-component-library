@@ -1,38 +1,30 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import tomorrow from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow';
 
-import Prism from 'prismjs';
 import beautifyHtml from 'js-beautify/js/src/html';
 
 function Code({ children }) {
+  const [formattedCode, setFormattedCode] = useState('');
+
+  useEffect(() => {
+    const unescapedMarkup = beautifyHtml(children, {
+      indent_size: 2,
+      wrap_line_length: 120,
+    });
+    setFormattedCode(unescapedMarkup);
+  }, [children]);
+
   return (
-    <code
-      className="language-html"
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: Prism.highlight(
-          beautifyHtml(
-            // Render as string and unescape &nbsp;
-            ReactDOMServer.renderToStaticMarkup(children).replace(
-              /\u00A0/g,
-              '&nbsp;'
-            ),
-            {
-              indent_size: 2,
-              wrap_line_length: 120,
-            }
-          ),
-          Prism.languages.html,
-          'html'
-        ),
-      }}
-    />
+    <SyntaxHighlighter language="html" style={tomorrow}>
+      {formattedCode}
+    </SyntaxHighlighter>
   );
 }
 
 Code.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default Code;
