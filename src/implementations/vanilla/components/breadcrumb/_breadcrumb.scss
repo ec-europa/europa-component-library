@@ -13,7 +13,7 @@ $breadcrumb: null !default;
 .ecl-breadcrumb {
   background-color: map.get($theme, 'color', 'white');
   font: map.get($breadcrumb, 'font-mobile');
-  line-height: map.get($theme, 'line-height', 'm');
+  line-height: map.get($breadcrumb, 'line-height');
   margin: 0;
 }
 
@@ -101,7 +101,7 @@ $breadcrumb: null !default;
 @include breakpoints.up('l') {
   .ecl-breadcrumb {
     font: map.get($breadcrumb, 'font-desktop');
-    line-height: map.get($theme, 'line-height', 'm');
+    line-height: map.get($breadcrumb, 'line-height');
   }
 
   .ecl-breadcrumb__icon {
