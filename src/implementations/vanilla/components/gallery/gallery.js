@@ -137,6 +137,7 @@ export class Gallery {
     this.imageHeightBig = 260;
 
     // Bind `this` for use in callbacks
+    this.iframeResize = this.iframeResize.bind(this);
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
     this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -354,6 +355,37 @@ export class Gallery {
     }
   }
 
+  iframeResize(iframe) {
+    if (!iframe && this.overlay) {
+      iframe = queryOne('iframe', this.overlay);
+    }
+
+    if (iframe) {
+      const width = window.innerWidth;
+      const height =
+        this.overlay.clientHeight -
+        this.overlayHeader.clientHeight -
+        this.overlayFooter.clientHeight;
+
+      if (width > height) {
+        iframe.setAttribute('height', `${height - 0.05 * height}px`);
+
+        if ((height * 16) / 9 > width) {
+          iframe.setAttribute('width', `${width - 0.05 * width}px`);
+        } else {
+          iframe.setAttribute('width', `${(height * 16) / 9}px`);
+        }
+      } else {
+        iframe.setAttribute('width', `${width}px`);
+        if ((width * 4) / 3 > height) {
+          iframe.setAttribute('height', `${height - 0.05 * height}px`);
+        } else {
+          iframe.setAttribute('height', `${(width * 4) / 3}px`);
+        }
+      }
+    }
+  }
+
   /**
    * @param {Int} rows/item number
    *
@@ -401,6 +433,7 @@ export class Gallery {
     this.resizeTimer = setTimeout(() => {
       this.checkScreen();
       this.hideItems();
+      this.iframeResize();
     }, 200);
   }
 
@@ -424,7 +457,7 @@ export class Gallery {
       const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', embeddedVideo);
       mediaIframe.setAttribute('frameBorder', '0');
-
+      this.iframeResize(mediaIframe);
       if (this.overlayMedia) {
         mediaElement.appendChild(mediaIframe);
         this.overlayMedia.innerHTML = '';
