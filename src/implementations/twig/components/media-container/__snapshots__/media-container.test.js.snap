@@ -96,24 +96,28 @@ exports[`Media Container image renders correctly with old data 1`] = `
 
 exports[`Media Container infography renders correctly 1`] = `
 <jest>
-  <figure
-    aria-describedby="expandable-example-content"
-    class="ecl-media-container"
+  <div
+    class="ecl-media-container__container"
   >
-    <picture
-      class="ecl-picture ecl-media-container__picture"
+    <figure
+      aria-describedby="expandable-example-content"
+      class="ecl-media-container"
     >
-      <img
-        alt="Infography alt text"
-        class="ecl-media-container__media"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-      />
-    </picture>
-    <figcaption
-      class="ecl-media-container__caption"
-    >
-      Infography title and copyright
-    </figcaption>
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Infography alt text"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Infography title and copyright
+      </figcaption>
+    </figure>
     <div
       class="ecl-expandable ecl-media-container__expandable"
       data-ecl-auto-init="Expandable"
@@ -161,7 +165,7 @@ exports[`Media Container infography renders correctly 1`] = `
         </p>
       </div>
     </div>
-  </figure>
+  </div>
 </jest>
 `;
 

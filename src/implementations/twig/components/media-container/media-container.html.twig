@@ -99,6 +99,10 @@
 
 {# Print the result #}
 
+{% if _expandable is not empty %}
+<div class="ecl-media-container__container">
+{% endif %}
+
 <figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {% if _embedded_media is not empty %}
   {% set _embed_class = _ratio ? "ecl-media-container__media ecl-media-container__media--ratio-" ~ _ratio : "ecl-media-container__media" %}
@@ -137,11 +141,13 @@
     {{- _description -}}
   </figcaption>
 {% endif %}
+</figure>
+
 {% if _expandable is not empty %}
   {% include '@ecl/expandable/expandable.html.twig' with _expandable|merge({
     extra_classes: 'ecl-media-container__expandable',
   }) only %}
+</div>
 {% endif %}
-</figure>
 
 {% endapply %}
