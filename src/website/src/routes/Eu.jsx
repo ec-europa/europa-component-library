@@ -35,7 +35,7 @@ const pagesToRoutes = (pages) =>
         /* webpackMode: "lazy-once" */
         /* webpackPreload: true */
         `../pages/eu${page.key.slice(1)}`
-      )
+      ),
     );
 
     if (page.attributes.defaultTab) {

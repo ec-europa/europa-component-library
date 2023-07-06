@@ -35,12 +35,12 @@ export class FileUpload {
       labelChoose = 'data-ecl-file-upload-label-choose',
       labelReplace = 'data-ecl-file-upload-label-replace',
       attachChangeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -101,7 +101,7 @@ export class FileUpload {
     if (!('files' in e.target)) {
       if (this.fileUploadButton.hasAttribute(this.labelChoose)) {
         this.fileUploadButton.innerHTML = this.fileUploadButton.getAttribute(
-          this.labelChoose
+          this.labelChoose,
         );
       }
       return;
@@ -125,7 +125,7 @@ export class FileUpload {
     // Update button label
     if (this.fileUploadButton.hasAttribute(this.labelReplace)) {
       this.fileUploadButton.innerHTML = this.fileUploadButton.getAttribute(
-        this.labelReplace
+        this.labelReplace,
       );
     }
   }

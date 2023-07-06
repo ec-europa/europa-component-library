@@ -49,7 +49,7 @@ describe('Breadcrumb', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data))
+        await axe(renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
     });
   });
@@ -90,7 +90,7 @@ describe('Breadcrumb', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data))
+        await axe(renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
     });
   });

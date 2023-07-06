@@ -32,12 +32,12 @@ export class Modal {
       closeSelector = '[data-ecl-modal-close]',
       attachClickListener = true,
       attachKeyListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -73,7 +73,7 @@ export class Modal {
     // Get toggle element
     if (this.toggleSelector === '') {
       this.toggleSelector = `#${this.element.getAttribute(
-        'data-ecl-modal-toggle'
+        'data-ecl-modal-toggle',
       )}`;
     }
     this.toggle = document.querySelector(this.toggleSelector);

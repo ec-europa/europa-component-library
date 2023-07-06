@@ -49,7 +49,7 @@ describe('File', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataWithTranslation, true))
+        await axe(renderTwigFileAsHtml(template, dataWithTranslation, true)),
       ).toHaveNoViolations();
     });
   });
@@ -109,7 +109,7 @@ describe('File', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataWithoutTranslation, true))
+        await axe(renderTwigFileAsHtml(template, dataWithoutTranslation, true)),
       ).toHaveNoViolations();
     });
   });
@@ -152,7 +152,7 @@ describe('File', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataThumbnail, true))
+        await axe(renderTwigFileAsHtml(template, dataThumbnail, true)),
       ).toHaveNoViolations();
     });
   });

@@ -29,7 +29,7 @@ const renderer = {
     if (infostring === 'twig') {
       code = code.replace(
         /(<span class="token punctuation")>\.(<\/span>)/g,
-        '$1 style="visibility:hidden">.$2'
+        '$1 style="visibility:hidden">.$2',
       );
     }
 
@@ -56,7 +56,7 @@ function renderMarkdown(text, options, json) {
         }
       });
       example.items = example.items.filter(
-        (value) => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length !== 0,
       );
     }
     if (json.links) {
@@ -67,7 +67,7 @@ function renderMarkdown(text, options, json) {
         }
       });
       example.links = example.links.filter(
-        (value) => Object.keys(value).length !== 0
+        (value) => Object.keys(value).length !== 0,
       );
     }
     // Fixing the econding of ', mainly
@@ -108,13 +108,13 @@ export const withNotes = makeDecorator({
 
     if (!text && !markdown) {
       throw new Error(
-        'You must set of one of `text` or `markdown` on the `notes` parameter'
+        'You must set of one of `text` or `markdown` on the `notes` parameter',
       );
     }
 
     channel.emit(
       'ecl/notes/add_notes',
-      text || renderMarkdown(markdown, markdownOptions, json)
+      text || renderMarkdown(markdown, markdownOptions, json),
     );
 
     return story;

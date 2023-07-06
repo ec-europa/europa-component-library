@@ -47,11 +47,11 @@ outputDirs.forEach((outputDir) => {
             contentPromise.then((content) => {
               fs.writeFileSync(
                 path.resolve(outputDir, `${namespace.toLowerCase()}.md`),
-                content
+                content,
               );
             });
           }
-        })
-    )
+        }),
+    ),
   ).then(() => console.log('JSDoc created!'));
 });

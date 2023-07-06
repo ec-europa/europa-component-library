@@ -6,6 +6,6 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 export const siteFooterCore = template(correctSvgPath(dataCore));
 export const siteFooterStandardised = template(
-  correctSvgPath(dataStandardised)
+  correctSvgPath(dataStandardised),
 );
 export const siteFooterHarmonised = template(correctSvgPath(dataHarmonised));

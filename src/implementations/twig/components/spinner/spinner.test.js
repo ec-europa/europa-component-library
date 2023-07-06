@@ -24,7 +24,7 @@ describe('Spinner', () => {
       expect.assertions(1);
 
       return expect(
-        render({ ...dataDefault, variant: 'negative' })
+        render({ ...dataDefault, variant: 'negative' }),
       ).resolves.toMatchSnapshot();
     });
 
@@ -53,7 +53,7 @@ describe('Spinner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });

@@ -31,7 +31,7 @@ describe('Page Banner', () => {
       expect.assertions(1);
 
       return expect(
-        render(bannerDataSimpleSecondary)
+        render(bannerDataSimpleSecondary),
       ).resolves.toMatchSnapshot();
     });
 
@@ -66,7 +66,7 @@ describe('Page Banner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data, true))
+        await axe(renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
     });
   });
@@ -115,7 +115,7 @@ describe('Page Banner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, bannerDataImage, true))
+        await axe(renderTwigFileAsHtml(template, bannerDataImage, true)),
       ).toHaveNoViolations();
     });
   });

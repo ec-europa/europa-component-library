@@ -16,27 +16,27 @@ export const autoInit = ({ root = document, ...options } = {}) => {
   const init = () => {
     nodes
       .filter(
-        (node) => node.getAttribute('data-ecl-auto-initialized') !== 'true'
+        (node) => node.getAttribute('data-ecl-auto-initialized') !== 'true',
       )
       .forEach((node) => {
         const componentType = node.getAttribute('data-ecl-auto-init');
 
         if (!componentType) {
           throw new TypeError(
-            `(ecl-auto-init) ${componentType} data-ecl-auto-init is empty`
+            `(ecl-auto-init) ${componentType} data-ecl-auto-init is empty`,
           );
         }
 
         const ctor = ECL[componentType];
         if (typeof ctor !== 'function') {
           throw new TypeError(
-            `(ecl-auto-init) Could not find '${componentType}'`
+            `(ecl-auto-init) Could not find '${componentType}'`,
           );
         }
 
         if (typeof ctor.autoInit !== 'function') {
           throw new TypeError(
-            `(ecl-auto-init) Could not find autoInit for '${componentType}'`
+            `(ecl-auto-init) Could not find autoInit for '${componentType}'`,
           );
         }
 

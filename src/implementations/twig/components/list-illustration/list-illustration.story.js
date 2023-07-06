@@ -380,7 +380,7 @@ HorizontalImage.storyName = 'horizontal (images)';
 HorizontalImage.args = getArgs(dataListIllustrationImage, 'horizontal-image');
 HorizontalImage.argTypes = getArgTypes(
   dataListIllustrationImage,
-  'horizontal-image'
+  'horizontal-image',
 );
 HorizontalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
@@ -393,7 +393,7 @@ HorizontalIcon.storyName = 'horizontal (icons)';
 HorizontalIcon.args = getArgs(dataListIllustrationIcon, 'horizontal-icon');
 HorizontalIcon.argTypes = getArgTypes(
   dataListIllustrationIcon,
-  'horizontal-icon'
+  'horizontal-icon',
 );
 HorizontalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
@@ -406,7 +406,7 @@ VerticalImage.storyName = 'vertical (images)';
 VerticalImage.args = getArgs(dataListIllustrationImage, 'vertical-image');
 VerticalImage.argTypes = getArgTypes(
   dataListIllustrationImage,
-  'vertical-image'
+  'vertical-image',
 );
 VerticalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },

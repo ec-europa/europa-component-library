@@ -24,12 +24,12 @@ export class MediaContainer {
 
   constructor(
     element,
-    { iframeSelector = 'iframe', useAutomaticRatio = true } = {}
+    { iframeSelector = 'iframe', useAutomaticRatio = true } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 

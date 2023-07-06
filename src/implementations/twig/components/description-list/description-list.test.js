@@ -19,7 +19,7 @@ describe('Description list', () => {
       expect.assertions(1);
 
       return expect(
-        render(dataDescriptionListDefault)
+        render(dataDescriptionListDefault),
       ).resolves.toMatchSnapshot();
     });
 
@@ -64,15 +64,15 @@ describe('Description list', () => {
       dataDescriptionListDefault.items[3].definition[1].path = '/example';
 
       return expect(
-        render(dataDescriptionListDefault)
+        render(dataDescriptionListDefault),
       ).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataDescriptionListDefault, true)
-        )
+          renderTwigFileAsHtml(template, dataDescriptionListDefault, true),
+        ),
       ).toHaveNoViolations();
     });
   });

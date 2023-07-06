@@ -47,12 +47,12 @@ export class SiteHeader {
       loginBoxSelector = '[data-ecl-login-box]',
       attachClickListener = true,
       attachKeyListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -133,7 +133,7 @@ export class SiteHeader {
     if (this.attachKeyListener && this.languageLink) {
       this.languageLink.addEventListener(
         'keydown',
-        this.handleKeyboardLanguage
+        this.handleKeyboardLanguage,
       );
     }
 
@@ -171,7 +171,7 @@ export class SiteHeader {
     if (this.attachKeyListener && this.languageLink) {
       this.languageLink.removeEventListener(
         'keydown',
-        this.handleKeyboardLanguage
+        this.handleKeyboardLanguage,
       );
     }
 
@@ -211,7 +211,7 @@ export class SiteHeader {
       // Get all Eu languages
       const itemsEu = queryAll(
         '.ecl-site-header__language-item',
-        this.languageListEu
+        this.languageListEu,
       );
 
       // Calculate number of columns
@@ -220,7 +220,7 @@ export class SiteHeader {
       // Apply column display
       if (columnsEu > 1) {
         this.languageListEu.classList.add(
-          `ecl-site-header__language-category--${columnsEu}-col`
+          `ecl-site-header__language-category--${columnsEu}-col`,
         );
       }
     }
@@ -228,7 +228,7 @@ export class SiteHeader {
       // Get all non-Eu languages
       const itemsNonEu = queryAll(
         '.ecl-site-header__language-item',
-        this.languageListNonEu
+        this.languageListNonEu,
       );
 
       // Calculate number of columns
@@ -237,7 +237,7 @@ export class SiteHeader {
       // Apply column display
       if (columnsNonEu > 1) {
         this.languageListNonEu.classList.add(
-          `ecl-site-header__language-category--${columnsNonEu}-col`
+          `ecl-site-header__language-category--${columnsNonEu}-col`,
         );
       }
     }
@@ -250,11 +250,11 @@ export class SiteHeader {
     // Check total width, and change display if needed
     if (this.languageListEu) {
       this.languageListEu.parentNode.classList.remove(
-        'ecl-site-header__language-content--stack'
+        'ecl-site-header__language-content--stack',
       );
     } else if (this.languageListNonEu) {
       this.languageListNonEu.parentNode.classList.remove(
-        'ecl-site-header__language-content--stack'
+        'ecl-site-header__language-content--stack',
       );
     }
     let popoverRect = this.languageListOverlay.getBoundingClientRect();
@@ -263,32 +263,32 @@ export class SiteHeader {
     if (popoverRect.width > containerRect.width) {
       // Stack elements
       this.languageListEu.parentNode.classList.add(
-        'ecl-site-header__language-content--stack'
+        'ecl-site-header__language-content--stack',
       );
 
       // Adapt column display
       if (this.languageListNonEu) {
         this.languageListNonEu.classList.remove(
-          `ecl-site-header__language-category--${columnsNonEu}-col`
+          `ecl-site-header__language-category--${columnsNonEu}-col`,
         );
         this.languageListNonEu.classList.add(
           `ecl-site-header__language-category--${Math.max(
             columnsEu,
-            columnsNonEu
-          )}-col`
+            columnsNonEu,
+          )}-col`,
         );
       }
     }
 
     // Check available space
     this.languageListOverlay.classList.remove(
-      'ecl-site-header__language-container--push-right'
+      'ecl-site-header__language-container--push-right',
     );
     this.languageListOverlay.classList.remove(
-      'ecl-site-header__language-container--full'
+      'ecl-site-header__language-container--full',
     );
     this.languageListOverlay.style.removeProperty(
-      '--ecl-language-arrow-position'
+      '--ecl-language-arrow-position',
     );
     this.languageListOverlay.style.removeProperty('right');
 
@@ -301,11 +301,11 @@ export class SiteHeader {
 
       // Push the popover to the right
       this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--push-right'
+        'ecl-site-header__language-container--push-right',
       );
       this.languageListOverlay.style.setProperty(
         'right',
-        `-${containerRect.right - linkRect.right}px`
+        `-${containerRect.right - linkRect.right}px`,
       );
 
       // Adapt arrow position
@@ -314,7 +314,7 @@ export class SiteHeader {
       const arrowSize = '0.5rem';
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${arrowSize})`
+        `calc(${arrowPosition}px - ${arrowSize})`,
       );
     }
 
@@ -324,7 +324,7 @@ export class SiteHeader {
 
       // Push the popover to the right
       this.languageListOverlay.classList.add(
-        'ecl-site-header__language-container--full'
+        'ecl-site-header__language-container--full',
       );
       this.languageListOverlay.style.removeProperty('right');
 
@@ -334,7 +334,7 @@ export class SiteHeader {
       const arrowSize = '0.5rem';
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${arrowSize})`
+        `calc(${arrowPosition}px - ${arrowSize})`,
       );
     }
   }
@@ -403,7 +403,7 @@ export class SiteHeader {
     // Toggle the search form
     this.searchToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header__search--active');
@@ -437,7 +437,7 @@ export class SiteHeader {
     // Toggle the login box
     this.loginToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.loginBox.classList.add('ecl-site-header__login-box--active');

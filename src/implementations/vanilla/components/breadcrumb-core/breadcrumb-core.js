@@ -39,12 +39,12 @@ export class BreadcrumbCore {
       onPartialExpand = null,
       onFullExpand = null,
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -85,7 +85,7 @@ export class BreadcrumbCore {
     this.staticElements = queryAll(this.staticItemsSelector, this.element);
     this.expandableElements = queryAll(
       this.expandableItemsSelector,
-      this.element
+      this.element,
     );
 
     this.check();
@@ -101,7 +101,7 @@ export class BreadcrumbCore {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
         'click',
-        this.handleClickOnEllipsis
+        this.handleClickOnEllipsis,
       );
     }
     if (this.element) {
@@ -145,7 +145,7 @@ export class BreadcrumbCore {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
         'click',
-        this.handleClickOnEllipsis
+        this.handleClickOnEllipsis,
       );
     }
   }
@@ -155,7 +155,7 @@ export class BreadcrumbCore {
    */
   showAllItems() {
     this.expandableElements.forEach((item) =>
-      item.setAttribute('aria-hidden', 'false')
+      item.setAttribute('aria-hidden', 'false'),
     );
   }
 
@@ -174,7 +174,7 @@ export class BreadcrumbCore {
       this.expandableElements.forEach((item, index) => {
         item.setAttribute(
           'aria-hidden',
-          isItemVisible[index] ? 'false' : 'true'
+          isItemVisible[index] ? 'false' : 'true',
         );
       });
     }
@@ -207,7 +207,7 @@ export class BreadcrumbCore {
     const allItemsWidth = this.itemsElements
       .map(
         (breadcrumbCoreSegment) =>
-          breadcrumbCoreSegment.getBoundingClientRect().width
+          breadcrumbCoreSegment.getBoundingClientRect().width,
       )
       .reduce((a, b) => a + b);
 
@@ -222,7 +222,7 @@ export class BreadcrumbCore {
       ellipsisItemWidth +
       this.staticElements.reduce(
         (sum, currentItem) => sum + currentItem.getBoundingClientRect().width,
-        0
+        0,
       );
 
     if (incompressibleWidth >= wrapperWidth) {

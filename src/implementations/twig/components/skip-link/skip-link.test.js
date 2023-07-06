@@ -45,7 +45,7 @@ describe('Skip Link', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, specs, true))
+        await axe(renderTwigFileAsHtml(template, specs, true)),
       ).toHaveNoViolations();
     });
   });

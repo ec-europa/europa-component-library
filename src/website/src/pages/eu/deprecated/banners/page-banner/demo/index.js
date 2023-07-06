@@ -7,14 +7,14 @@ import template from '@ecl/twig-component-page-banner/page-banner.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const pageBannerImageBox = template(
-  correctSvgPath(correctSvgPath(demoContentImageBox))
+  correctSvgPath(correctSvgPath(demoContentImageBox)),
 );
 export const pageBannerImageShade = template(
-  correctSvgPath(demoContentImageShade)
+  correctSvgPath(demoContentImageShade),
 );
 export const pageBannerImageGradient = template(
-  correctSvgPath(demoContentImageGradient)
+  correctSvgPath(demoContentImageGradient),
 );
 export const pageBannerSimplePrimary = template(
-  correctSvgPath(demoContentSimplePrimary)
+  correctSvgPath(demoContentSimplePrimary),
 );
