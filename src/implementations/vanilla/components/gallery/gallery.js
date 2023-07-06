@@ -69,12 +69,12 @@ export class Gallery {
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -180,25 +180,25 @@ export class Gallery {
       this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
       this.overlayCounterCurrent = queryOne(
         this.overlayCounterCurrentSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayCounterMax = queryOne(
         this.overlayCounterMaxSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayDownload = queryOne(
         this.overlayDownloadSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
       this.overlayDescription = queryOne(
         this.overlayDescriptionSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
       this.overlayPrevious = queryOne(
         this.overlayPreviousSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
@@ -218,7 +218,7 @@ export class Gallery {
       if (this.attachClickListener && this.closeButton) {
         this.closeButton.addEventListener(
           'click',
-          this.handleClickOnCloseButton
+          this.handleClickOnCloseButton,
         );
       }
 
@@ -238,7 +238,7 @@ export class Gallery {
       if (this.attachClickListener && this.overlayPrevious) {
         this.overlayPrevious.addEventListener(
           'click',
-          this.handleClickOnPreviousButton
+          this.handleClickOnPreviousButton,
         );
       }
 
@@ -246,7 +246,7 @@ export class Gallery {
       if (this.attachClickListener && this.overlayNext) {
         this.overlayNext.addEventListener(
           'click',
-          this.handleClickOnNextButton
+          this.handleClickOnNextButton,
         );
       }
 
@@ -296,7 +296,7 @@ export class Gallery {
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.removeEventListener(
         'click',
-        this.handleClickOnCloseButton
+        this.handleClickOnCloseButton,
       );
     }
 
@@ -313,14 +313,14 @@ export class Gallery {
     if (this.attachClickListener && this.overlayPrevious) {
       this.overlayPrevious.removeEventListener(
         'click',
-        this.handleClickOnPreviousButton
+        this.handleClickOnPreviousButton,
       );
     }
 
     if (this.attachClickListener && this.overlayNext) {
       this.overlayNext.removeEventListener(
         'click',
-        this.handleClickOnNextButton
+        this.handleClickOnNextButton,
       );
     }
 
@@ -377,7 +377,7 @@ export class Gallery {
       });
       hiddenItemIds.forEach((id) => {
         this.galleryItems[id].parentNode.classList.add(
-          'ecl-gallery__item--hidden'
+          'ecl-gallery__item--hidden',
         );
       });
       return;
@@ -410,7 +410,7 @@ export class Gallery {
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
     const embeddedVideo = selectedItem.getAttribute(
-      'data-ecl-gallery-item-embed-src'
+      'data-ecl-gallery-item-embed-src',
     );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
@@ -491,7 +491,7 @@ export class Gallery {
 
     // Update share link
     const shareHref = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-share'
+      'data-ecl-gallery-item-share',
     );
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
@@ -635,7 +635,7 @@ export class Gallery {
   handleClickOnPreviousButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-id'
+      'data-ecl-gallery-item-id',
     );
 
     // Get previous id
@@ -659,7 +659,7 @@ export class Gallery {
   handleClickOnNextButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-id'
+      'data-ecl-gallery-item-id',
     );
 
     // Get next id

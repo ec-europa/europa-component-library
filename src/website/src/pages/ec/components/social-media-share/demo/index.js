@@ -4,5 +4,5 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 export const socialMediaHorizontal = template(correctSvgPath(demoDefault));
 export const socialMediaVertical = template(
-  correctSvgPath({ ...demoDefault, variant: 'vertical' })
+  correctSvgPath({ ...demoDefault, variant: 'vertical' }),
 );

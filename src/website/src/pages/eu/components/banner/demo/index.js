@@ -7,14 +7,14 @@ import template from '@ecl/twig-component-banner/banner.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const bannerTextBox = template(
-  correctSvgPath(correctSvgPath(demoContentTextBox))
+  correctSvgPath(correctSvgPath(demoContentTextBox)),
 );
 export const bannerImageOverlay = template(
-  correctSvgPath(demoContentImageOverlay)
+  correctSvgPath(demoContentImageOverlay),
 );
 export const bannerTextHighlight = template(
-  correctSvgPath(demoContentTextHighlight)
+  correctSvgPath(demoContentTextHighlight),
 );
 export const bannerPlainBackground = template(
-  correctSvgPath(demoContentPlainBackground)
+  correctSvgPath(demoContentPlainBackground),
 );

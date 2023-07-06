@@ -21,7 +21,7 @@ const getPlugins = (options = {}) => {
           banner: options.banner,
           important: true,
           inline: true,
-        })
+        }),
       );
     }
   }

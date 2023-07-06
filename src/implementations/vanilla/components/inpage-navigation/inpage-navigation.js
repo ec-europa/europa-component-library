@@ -48,12 +48,12 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       contentClass = 'ecl-inpage-navigation__heading--active',
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -118,7 +118,7 @@ export class InpageNavigation {
     document.addEventListener(
       'gumshoeDeactivate',
       this.deactivateScrollSpy,
-      false
+      false,
     );
 
     if ('IntersectionObserver' in window) {
@@ -160,7 +160,7 @@ export class InpageNavigation {
               previousRatio = currentRatio;
             }
           },
-          { root: null }
+          { root: null },
         );
 
         // observing a target element
@@ -202,12 +202,12 @@ export class InpageNavigation {
     document.removeEventListener(
       'gumshoeActivate',
       this.activateScrollSpy,
-      false
+      false,
     );
     document.removeEventListener(
       'gumshoeDeactivate',
       this.deactivateScrollSpy,
-      false
+      false,
     );
     this.gumshoe.destroy();
   }
@@ -229,7 +229,7 @@ export class InpageNavigation {
             mutation.target &&
             mutation.target.classList &&
             !mutation.target.classList.contains(
-              'ecl-inpage-navigation__trigger-current'
+              'ecl-inpage-navigation__trigger-current',
             )
           ) {
             // Added nodes.
@@ -238,11 +238,11 @@ export class InpageNavigation {
                 if (addedNode.tagName === 'H2' && addedNode.id) {
                   const H2s = queryAll('h2[id]', body);
                   const addedNodeIndex = H2s.findIndex(
-                    (H2) => H2.id === addedNode.id
+                    (H2) => H2.id === addedNode.id,
                   );
                   const element =
                     currentInpage.childNodes[addedNodeIndex - 1].cloneNode(
-                      true
+                      true,
                     );
                   element.childNodes[0].textContent = addedNode.textContent;
                   element.childNodes[0].href = `#${addedNode.id}`;
@@ -303,7 +303,7 @@ export class InpageNavigation {
     }
     if (this.attachClickListener && navLinks) {
       navLinks.forEach((link) =>
-        link.addEventListener('click', this.handleClickOnLink)
+        link.addEventListener('click', this.handleClickOnLink),
       );
       toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
@@ -360,12 +360,12 @@ export class InpageNavigation {
     if (this.attachClickListener && this.toggleElement) {
       this.toggleElement.removeEventListener(
         'click',
-        this.handleClickOnToggler
+        this.handleClickOnToggler,
       );
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
-        link.removeEventListener('click', this.handleClickOnLink)
+        link.removeEventListener('click', this.handleClickOnLink),
       );
     }
     this.destroyScrollSpy();

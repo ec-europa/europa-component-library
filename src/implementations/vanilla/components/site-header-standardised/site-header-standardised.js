@@ -24,7 +24,7 @@ export class SiteHeaderStandardised {
   static autoInit(root, { SITE_HEADER_CORE: defaultOptions = {} } = {}) {
     const siteHeaderStandardised = new SiteHeaderStandardised(
       root,
-      defaultOptions
+      defaultOptions,
     );
     siteHeaderStandardised.init();
     root.ECLSiteHeaderStandardised = siteHeaderStandardised;
@@ -41,12 +41,12 @@ export class SiteHeaderStandardised {
       searchFormSelector = '[data-ecl-search-form]',
       loginToggleSelector = '[data-ecl-login-toggle]',
       loginBoxSelector = '[data-ecl-login-box]',
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -209,15 +209,15 @@ export class SiteHeaderStandardised {
     // Toggle the search form
     this.searchToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.searchForm.classList.add(
-        'ecl-site-header-standardised__search--active'
+        'ecl-site-header-standardised__search--active',
       );
     } else {
       this.searchForm.classList.remove(
-        'ecl-site-header-standardised__search--active'
+        'ecl-site-header-standardised__search--active',
       );
     }
   }
@@ -247,15 +247,15 @@ export class SiteHeaderStandardised {
     // Toggle the login box
     this.loginToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.loginBox.classList.add(
-        'ecl-site-header-standardised__login-box--active'
+        'ecl-site-header-standardised__login-box--active',
       );
     } else {
       this.loginBox.classList.remove(
-        'ecl-site-header-standardised__login-box--active'
+        'ecl-site-header-standardised__login-box--active',
       );
     }
   }

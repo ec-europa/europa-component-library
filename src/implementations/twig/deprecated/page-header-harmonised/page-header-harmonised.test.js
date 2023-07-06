@@ -78,7 +78,7 @@ describe('Page Header Harmonised', () => {
     test(`- renders correctly`, () => {
       expect.assertions(1);
       return expect(
-        render(demoMetaTitleDescriptionContent)
+        render(demoMetaTitleDescriptionContent),
       ).resolves.toMatchSnapshot();
     });
 

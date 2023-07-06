@@ -8,14 +8,14 @@ export const featuredItemRightAlignement = template(
   correctSvgPath({
     ...demoContent,
     position: 'right',
-  })
+  }),
 );
 export const featuredItemExtended = template(
-  correctSvgPath(demoContentExtended)
+  correctSvgPath(demoContentExtended),
 );
 export const featuredItemExtendedRightAlignement = template(
   correctSvgPath({
     ...demoContentExtended,
     position: 'right',
-  })
+  }),
 );

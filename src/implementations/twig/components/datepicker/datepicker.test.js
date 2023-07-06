@@ -30,7 +30,7 @@ const datePickerField = (dataDefault, dataInvalid, dataDisabled) => {
       });
 
       return expect(
-        render(optionsWithExtraGroupClasses)
+        render(optionsWithExtraGroupClasses),
       ).resolves.toMatchSnapshot();
     });
 
@@ -52,7 +52,7 @@ const datePickerField = (dataDefault, dataInvalid, dataDisabled) => {
       });
 
       return expect(
-        render(optionsWithExtraLabelClasses)
+        render(optionsWithExtraLabelClasses),
       ).resolves.toMatchSnapshot();
     });
 
@@ -71,7 +71,7 @@ const datePickerField = (dataDefault, dataInvalid, dataDisabled) => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });

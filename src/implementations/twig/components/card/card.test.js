@@ -45,7 +45,7 @@ describe('Card', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataCard, true))
+        await axe(renderTwigFileAsHtml(template, dataCard, true)),
       ).toHaveNoViolations();
     });
   });

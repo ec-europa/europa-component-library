@@ -22,5 +22,5 @@ export const pageHeaderThumbnail = template(correctSvgPath(dataThumbnail));
 const dataBackgroundImage = { ...demoBackgroundImage };
 dataBackgroundImage.breadcrumb = dataBreadcrumb;
 export const pageHeaderBackgroundImage = template(
-  correctSvgPath(dataBackgroundImage)
+  correctSvgPath(dataBackgroundImage),
 );
