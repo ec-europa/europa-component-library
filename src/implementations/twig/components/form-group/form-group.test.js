@@ -78,7 +78,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataText, true))
+        await axe(await renderTwigFileAsHtml(template, dataText, true)),
       ).toHaveNoViolations();
     });
   });
@@ -141,7 +141,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });
@@ -204,7 +204,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataSingle, true))
+        await axe(await renderTwigFileAsHtml(template, dataSingle, true)),
       ).toHaveNoViolations();
     });
   });
@@ -265,7 +265,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataFile, true))
+        await axe(await renderTwigFileAsHtml(template, dataFile, true)),
       ).toHaveNoViolations();
     });
   });
@@ -328,7 +328,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataRatingField, true))
+        await axe(await renderTwigFileAsHtml(template, dataRatingField, true)),
       ).toHaveNoViolations();
     });
   });
@@ -393,7 +393,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataRange, true))
+        await axe(await renderTwigFileAsHtml(template, dataRange, true)),
       ).toHaveNoViolations();
     });
   });
@@ -459,7 +459,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataTextarea, true))
+        await axe(await renderTwigFileAsHtml(template, dataTextarea, true)),
       ).toHaveNoViolations();
     });
   });
@@ -525,7 +525,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCheckbox, true))
+        await axe(await renderTwigFileAsHtml(template, dataCheckbox, true)),
       ).toHaveNoViolations();
     });
   });
@@ -591,7 +591,7 @@ describe('Form group ', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataDatepicker, true))
+        await axe(await renderTwigFileAsHtml(template, dataDatepicker, true)),
       ).toHaveNoViolations();
     });
   });

@@ -25,7 +25,7 @@ describe('Link', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });
@@ -39,7 +39,7 @@ describe('Link', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataStandalone, true))
+        await axe(await renderTwigFileAsHtml(template, dataStandalone, true)),
       ).toHaveNoViolations();
     });
   });
@@ -178,7 +178,7 @@ describe('Link', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, options, true))
+        await axe(await renderTwigFileAsHtml(template, options, true)),
       ).toHaveNoViolations();
     });
   });

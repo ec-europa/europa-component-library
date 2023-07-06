@@ -39,7 +39,7 @@ export const NoLanguage = (_, { loaded: { component } }) => component;
 
 NoLanguage.render = async (args) => {
   const renderedEtransNoLanguage = await etrans(
-    prepareData(dataNoLanguage, args)
+    prepareData(dataNoLanguage, args),
   );
   return renderedEtransNoLanguage;
 };

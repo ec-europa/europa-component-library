@@ -102,7 +102,7 @@ export const Vertical = (_, { loaded: { component } }) => component;
 
 Vertical.render = async (args) => {
   const renderedDescriptionList = await descriptionList(
-    prepareData(dataDescriptionListDefault, args)
+    prepareData(dataDescriptionListDefault, args),
   );
   return renderedDescriptionList;
 };
@@ -117,7 +117,7 @@ export const Horizontal = (_, { loaded: { component } }) => component;
 
 Horizontal.render = async (args) => {
   const renderedDescriptionListHorizontal = await descriptionList(
-    prepareData(dataDescriptionListHorizontal, args)
+    prepareData(dataDescriptionListHorizontal, args),
   );
   return renderedDescriptionListHorizontal;
 };

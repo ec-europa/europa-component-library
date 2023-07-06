@@ -222,7 +222,7 @@ export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
   const renderedLinkSecondary = await link(
-    prepareDataButtonLink(dataSecondary, args)
+    prepareDataButtonLink(dataSecondary, args),
   );
   return renderedLinkSecondary;
 };

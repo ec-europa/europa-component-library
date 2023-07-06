@@ -101,7 +101,7 @@ export const Ongoing = (_, { loaded: { component } }) => component;
 
 Ongoing.render = async (args) => {
   const renderedDateBlockOngoing = await dateBlock(
-    prepareData(dataOngoing, args)
+    prepareData(dataOngoing, args),
   );
   return renderedDateBlockOngoing;
 };
@@ -114,7 +114,7 @@ export const Cancelled = (_, { loaded: { component } }) => component;
 
 Cancelled.render = async (args) => {
   const renderedDateBlockCancelled = await dateBlock(
-    prepareData(dataCancelled, args)
+    prepareData(dataCancelled, args),
   );
   return renderedDateBlockCancelled;
 };
@@ -138,7 +138,7 @@ export const Rescheduled = (_, { loaded: { component } }) => component;
 
 Rescheduled.render = async (args) => {
   const renderedDateBlockRescheduled = await dateBlock(
-    prepareData(dataRescheduled, args)
+    prepareData(dataRescheduled, args),
   );
   return renderedDateBlockRescheduled;
 };

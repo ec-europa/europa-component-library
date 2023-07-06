@@ -25,8 +25,8 @@ describe('Select', () => {
         render(
           merge(dataSingle, {
             required: false,
-          })
-        )
+          }),
+        ),
       ).resolves.toMatchSnapshot();
     });
 
@@ -51,13 +51,13 @@ describe('Select', () => {
       });
 
       return expect(
-        render(optionsWithExtraAttributes)
+        render(optionsWithExtraAttributes),
       ).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataSingle, true))
+        await axe(await renderTwigFileAsHtml(template, dataSingle, true)),
       ).toHaveNoViolations();
     });
   });
@@ -79,8 +79,8 @@ describe('Select', () => {
           merge(dataSingle, {
             disabled: true,
             required: false,
-          })
-        )
+          }),
+        ),
       ).resolves.toMatchSnapshot();
     });
   });
@@ -107,7 +107,7 @@ describe('Select', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataMultiple, true))
+        await axe(await renderTwigFileAsHtml(template, dataMultiple, true)),
       ).toHaveNoViolations();
     });
   });

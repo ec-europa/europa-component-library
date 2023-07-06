@@ -36,7 +36,7 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedNewsTicker = await orderedList(
-    prepareData(dataOrderedList, args)
+    prepareData(dataOrderedList, args),
   );
   return renderedNewsTicker;
 };

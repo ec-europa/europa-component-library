@@ -33,7 +33,7 @@ export const Low = (_, { loaded: { component } }) => component;
 
 Low.render = async (args) => {
   const renderedLabel = await label(
-    prepareData({ ...dataDefault, variant: 'low' }, args)
+    prepareData({ ...dataDefault, variant: 'low' }, args),
   );
   return renderedLabel;
 };
@@ -48,7 +48,7 @@ export const Medium = (_, { loaded: { component } }) => component;
 
 Medium.render = async (args) => {
   const renderedLabelMedium = await label(
-    prepareData({ ...dataDefault, variant: 'medium' }, args)
+    prepareData({ ...dataDefault, variant: 'medium' }, args),
   );
   return renderedLabelMedium;
 };
@@ -63,7 +63,7 @@ export const High = (_, { loaded: { component } }) => component;
 
 High.render = async (args) => {
   const renderedLabelHigh = await label(
-    prepareData({ ...dataDefault, variant: 'high' }, args)
+    prepareData({ ...dataDefault, variant: 'high' }, args),
   );
   return renderedLabelHigh;
 };
@@ -78,7 +78,7 @@ export const Highlight = (_, { loaded: { component } }) => component;
 
 Highlight.render = async (args) => {
   const renderedLabelHighlight = await label(
-    prepareData({ ...dataDefault, variant: 'highlight' }, args)
+    prepareData({ ...dataDefault, variant: 'highlight' }, args),
   );
   return renderedLabelHighlight;
 };

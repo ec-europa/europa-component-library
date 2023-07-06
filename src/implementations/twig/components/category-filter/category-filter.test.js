@@ -46,7 +46,7 @@ describe('Category filter', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, demoData))
+        await axe(await renderTwigFileAsHtml(template, demoData)),
       ).toHaveNoViolations();
     });
   });

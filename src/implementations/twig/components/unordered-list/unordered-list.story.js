@@ -43,7 +43,7 @@ export const Text = (_, { loaded: { component } }) => component;
 
 Text.render = async (args) => {
   const renderedText = await unorderedList(
-    prepareData(dataUnorderedListText, args)
+    prepareData(dataUnorderedListText, args),
   );
   return renderedText;
 };
@@ -58,7 +58,7 @@ export const Link = (_, { loaded: { component } }) => component;
 
 Link.render = async (args) => {
   const renderedLink = await unorderedList(
-    prepareData(dataUnorderedListLink, args)
+    prepareData(dataUnorderedListLink, args),
   );
   return renderedLink;
 };
@@ -73,7 +73,7 @@ export const Divider = (_, { loaded: { component } }) => component;
 
 Divider.render = async (args) => {
   const renderedDivider = await unorderedList(
-    prepareData(dataUnorderedListDivider, args)
+    prepareData(dataUnorderedListDivider, args),
   );
   return renderedDivider;
 };
@@ -88,7 +88,7 @@ export const NoBullet = (_, { loaded: { component } }) => component;
 
 NoBullet.render = async (args) => {
   const renderedDivider = await unorderedList(
-    prepareData(dataUnorderedListNoBullet, args)
+    prepareData(dataUnorderedListNoBullet, args),
   );
   return renderedDivider;
 };

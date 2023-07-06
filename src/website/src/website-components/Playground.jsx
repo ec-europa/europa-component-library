@@ -41,7 +41,7 @@ class Playground extends Component {
       if (this.showcaseCodeRef.current && containerHeight > this.maxHeight) {
         this.showcaseCodeRef.current.parentElement.setAttribute(
           'aria-expanded',
-          false
+          false,
         );
         this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
       }
@@ -52,7 +52,7 @@ class Playground extends Component {
     // Display full code
     this.showcaseCodeRef.current.parentElement.setAttribute(
       'aria-expanded',
-      true
+      true,
     );
     this.showcaseCodeRef.current.style.maxHeight = 'none';
   }
@@ -147,14 +147,14 @@ class Playground extends Component {
       playgroundUrl = encodeURI(
         `${process.env.PUBLIC_URL}/playground/${system}/${
           process.env.NODE_ENV === 'development' ? 'index.html' : ''
-        }?path=/story/${selectedKind}--${selectedStory}${argsUrl}`
+        }?path=/story/${selectedKind}--${selectedStory}${argsUrl}`,
       );
     }
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`
+            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}${argsUrl}`,
           )
         : '';
 

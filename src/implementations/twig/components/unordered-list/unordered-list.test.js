@@ -36,7 +36,7 @@ describe('Unordered list', () => {
       expect.assertions(1);
 
       return expect(
-        render(dataUnorderedListNoBullet)
+        render(dataUnorderedListNoBullet),
       ).resolves.toMatchSnapshot();
     });
 
@@ -44,7 +44,7 @@ describe('Unordered list', () => {
       expect.assertions(1);
 
       return expect(
-        render(dataUnorderedListDivider)
+        render(dataUnorderedListDivider),
       ).resolves.toMatchSnapshot();
     });
 
@@ -64,8 +64,8 @@ describe('Unordered list', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          await renderTwigFileAsHtml(template, dataUnorderedListText, true)
-        )
+          await renderTwigFileAsHtml(template, dataUnorderedListText, true),
+        ),
       ).toHaveNoViolations();
     });
   });

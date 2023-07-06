@@ -143,7 +143,7 @@ export const Standardised = (_, { loaded: { component } }) => component;
 
 Standardised.render = async (args) => {
   const renderedStandardised = await footer(
-    prepareData(dataStandardised, args)
+    prepareData(dataStandardised, args),
   );
   return renderedStandardised;
 };

@@ -56,7 +56,7 @@ export const Horizontal = (_, { loaded: { component } }) => component;
 
 Horizontal.render = async (args) => {
   const renderedHorizontal = await SocialMediaFollow(
-    prepareData(dataHorizontal, args)
+    prepareData(dataHorizontal, args),
   );
   return renderedHorizontal;
 };
@@ -71,7 +71,7 @@ export const Vertical = (_, { loaded: { component } }) => component;
 
 Vertical.render = async (args) => {
   const renderedVertical = await SocialMediaFollow(
-    prepareData(dataVertical, args)
+    prepareData(dataVertical, args),
   );
   return renderedVertical;
 };

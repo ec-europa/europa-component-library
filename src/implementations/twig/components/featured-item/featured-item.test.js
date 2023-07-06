@@ -30,7 +30,7 @@ describe('Featured item', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, demoContent, true))
+        await axe(await renderTwigFileAsHtml(template, demoContent, true)),
       ).toHaveNoViolations();
     });
   });
@@ -45,8 +45,8 @@ describe('Featured item', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          await renderTwigFileAsHtml(template, demoContentExtended, true)
-        )
+          await renderTwigFileAsHtml(template, demoContentExtended, true),
+        ),
       ).toHaveNoViolations();
     });
   });
