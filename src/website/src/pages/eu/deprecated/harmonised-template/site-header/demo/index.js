@@ -7,8 +7,8 @@ const demoContentLoggedIn = { ...demoContent, logged: true };
 
 export const siteHeaderHarmonised = template(correctSvgPath(demoContent));
 export const siteHeaderHarmonisedTranslated = template(
-  correctSvgPath(demoContentFr)
+  correctSvgPath(demoContentFr),
 );
 export const siteHeaderHarmonisedLoggedIn = template(
-  correctSvgPath(demoContentLoggedIn)
+  correctSvgPath(demoContentLoggedIn),
 );

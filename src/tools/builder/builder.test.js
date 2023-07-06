@@ -134,7 +134,7 @@ describe('ECL Builder', () => {
       const plugins = getPlugins();
       expect(plugins.length).toBe(2);
       expect(JSON.stringify(plugins, replacer)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]'
+        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
       );
     });
 
@@ -149,7 +149,7 @@ describe('ECL Builder', () => {
       expect(JSON.stringify(plugins, replacer))
         .toString()
         .includes(
-          '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"},"andBannerfn()","closure()"]'
+          '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"},"andBannerfn()","closure()"]',
         );
     });
 
@@ -159,7 +159,7 @@ describe('ECL Builder', () => {
       expect(plugins.length).toBe(3);
       expect(plugins[1].postcssPlugin).toBe('postcss-input-range');
       expect(Object.values(plugins[2])[1].pop().postcssPlugin).toBe(
-        'cssnano-util-raw-cache'
+        'cssnano-util-raw-cache',
       );
     });
 
@@ -186,7 +186,7 @@ describe('ECL Builder', () => {
       expect(postcssResult.css).toEqual(
         `.system-specific {
   content: ec;
-}`
+}`,
       );
 
       process.env.ECL_SYSTEM = 'eu';
@@ -196,7 +196,7 @@ describe('ECL Builder', () => {
       expect(postcssResult.css).toEqual(
         `.system-specific {
   content: eu;
-}`
+}`,
       );
     });
   });

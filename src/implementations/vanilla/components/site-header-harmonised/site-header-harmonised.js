@@ -38,12 +38,12 @@ export class SiteHeaderHarmonised {
       searchFormSelector = '[data-ecl-search-form]',
       loginToggleSelector = '[data-ecl-login-toggle]',
       loginBoxSelector = '[data-ecl-login-box]',
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -205,15 +205,15 @@ export class SiteHeaderHarmonised {
     // Toggle the search form
     this.searchToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.searchForm.classList.add(
-        'ecl-site-header-harmonised__search--active'
+        'ecl-site-header-harmonised__search--active',
       );
     } else {
       this.searchForm.classList.remove(
-        'ecl-site-header-harmonised__search--active'
+        'ecl-site-header-harmonised__search--active',
       );
     }
   }
@@ -243,15 +243,15 @@ export class SiteHeaderHarmonised {
     // Toggle the login box
     this.loginToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.loginBox.classList.add(
-        'ecl-site-header-harmonised__login-box--active'
+        'ecl-site-header-harmonised__login-box--active',
       );
     } else {
       this.loginBox.classList.remove(
-        'ecl-site-header-harmonised__login-box--active'
+        'ecl-site-header-harmonised__login-box--active',
       );
     }
   }

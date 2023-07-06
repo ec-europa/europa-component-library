@@ -15,14 +15,14 @@ import { correctSvgPath } from '@ecl/website-utils';
 export const listOrdered = templateOrdered(demoContentOrdered);
 export const listUnordered = templateUnordered(demoContentUnorderedText);
 export const listUnorderedNoBullet = templateUnordered(
-  demoContentUnorderedNoBullet
+  demoContentUnorderedNoBullet,
 );
 export const listUnorderedWithDivider = templateUnordered(
-  demoContentUnorderedWithDivider
+  demoContentUnorderedWithDivider,
 );
 export const listDescription = templateDescription(
-  correctSvgPath(demoContentDescriptionDefault)
+  correctSvgPath(demoContentDescriptionDefault),
 );
 export const listDescriptionHorizontal = templateDescription(
-  correctSvgPath(demoContentDescriptionHorizontal)
+  correctSvgPath(demoContentDescriptionHorizontal),
 );

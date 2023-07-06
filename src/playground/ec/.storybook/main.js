@@ -46,7 +46,7 @@ const webpackFinal = (config) => {
     config.plugins.unshift(
       new webpack.DefinePlugin({
         'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
-      })
+      }),
     );
   }
 

@@ -27,12 +27,12 @@ export class Message {
     {
       closeSelector = '[data-ecl-message-close]',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 

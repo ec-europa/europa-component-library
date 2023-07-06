@@ -60,7 +60,7 @@ describe('Blockquote', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data, true))
+        await axe(renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
     });
   });

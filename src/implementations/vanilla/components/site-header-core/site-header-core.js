@@ -38,12 +38,12 @@ export class SiteHeaderCore {
       searchFormSelector = '[data-ecl-search-form]',
       loginToggleSelector = '[data-ecl-login-toggle]',
       loginBoxSelector = '[data-ecl-login-box]',
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -206,7 +206,7 @@ export class SiteHeaderCore {
     // Toggle the search form
     this.searchToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header-core__search--active');
@@ -240,7 +240,7 @@ export class SiteHeaderCore {
     // Toggle the login box
     this.loginToggle.setAttribute(
       'aria-expanded',
-      isExpanded ? 'false' : 'true'
+      isExpanded ? 'false' : 'true',
     );
     if (!isExpanded) {
       this.loginBox.classList.add('ecl-site-header-core__login-box--active');

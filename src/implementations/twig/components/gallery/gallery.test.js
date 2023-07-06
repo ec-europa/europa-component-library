@@ -57,7 +57,7 @@ describe('Gallery', () => {
     jest.setTimeout(15000);
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, demoData, true))
+        await axe(renderTwigFileAsHtml(template, demoData, true)),
       ).toHaveNoViolations();
     });
 

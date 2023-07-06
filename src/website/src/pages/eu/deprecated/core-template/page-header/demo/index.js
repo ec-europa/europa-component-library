@@ -26,5 +26,5 @@ const dataBackgroundImage = { ...demoBackgroundImage };
 dataBackgroundImage.breadcrumb = dataBreadcrumb;
 dataBackgroundImage.overlay = 'dark';
 export const pageHeaderBackgroundImage = template(
-  correctSvgPath(dataBackgroundImage)
+  correctSvgPath(dataBackgroundImage),
 );

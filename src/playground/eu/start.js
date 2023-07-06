@@ -7,11 +7,11 @@ const app = apps['storybook-eu'];
 const cp = spawn(
   'sb',
   ['dev', `-p`, `${app.port}`, `-c`, `.storybook`, `--ci`],
-  { stdio: 'inherit' }
+  { stdio: 'inherit' },
 );
 
 cp.on('error', (err) =>
-  console.error('An error occured in EU storybook: ', err)
+  console.error('An error occured in EU storybook: ', err),
 );
 
 cp.on('end', () => console.log('EU storybook stopped'));

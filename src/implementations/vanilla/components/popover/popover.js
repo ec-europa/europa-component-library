@@ -29,12 +29,12 @@ export class Popover {
       toggleSelector = '[data-ecl-popover-toggle]',
       attachClickListener = true,
       attachKeyListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -74,13 +74,13 @@ export class Popover {
 
     // Get target element
     this.target = document.querySelector(
-      `#${this.toggle.getAttribute('aria-controls')}`
+      `#${this.toggle.getAttribute('aria-controls')}`,
     );
 
     // Exit if no target found
     if (!this.target) {
       throw new TypeError(
-        'Target has to be provided for popover (aria-controls)'
+        'Target has to be provided for popover (aria-controls)',
       );
     }
 
@@ -175,7 +175,7 @@ export class Popover {
       // Adapt arrow position
       this.target.style.setProperty(
         '--ecl-popover-position',
-        `${toggleRect.width / 2}px`
+        `${toggleRect.width / 2}px`,
       );
     }
 
@@ -185,7 +185,7 @@ export class Popover {
       // Adapt arrow position
       this.target.style.setProperty(
         '--ecl-popover-position',
-        `calc(${toggleRect.width / 2}px - 0.5rem)`
+        `calc(${toggleRect.width / 2}px - 0.5rem)`,
       );
     }
   }

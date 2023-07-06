@@ -22,7 +22,7 @@ const Col = React.memo(
       grid['ecl-col'],
       colClasses,
       spacingClasses,
-      { [utilities['d-flex']]: flex }
+      { [utilities['d-flex']]: flex },
     );
 
     return (
@@ -30,7 +30,7 @@ const Col = React.memo(
         {children}
       </div>
     );
-  }
+  },
 );
 
 Col.propTypes = {
