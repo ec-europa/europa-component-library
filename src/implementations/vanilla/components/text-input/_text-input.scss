@@ -60,13 +60,9 @@ $_padding-horizontal: null !default;
 }
 
 .ecl-text-input--s {
-  width: 50%;
+  width: 100%;
 
   @include breakpoints.up('m') {
-    width: 30%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 's');
   }
 }
@@ -75,10 +71,6 @@ $_padding-horizontal: null !default;
   width: 100%;
 
   @include breakpoints.up('m') {
-    width: 50%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 'm');
   }
 }
@@ -86,7 +78,7 @@ $_padding-horizontal: null !default;
 .ecl-text-input--l {
   width: 100%;
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('m') {
     width: map.get(theme.$form, 'l');
   }
 }
