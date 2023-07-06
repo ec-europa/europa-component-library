@@ -12,3 +12,6 @@ functions = ".netlify/functions/"
   from="/auth-callback"
   to="/.netlify/functions/auth-callback"
   status=200
+
+[build.environment]
+  GITHUB_TOKEN = "$GITHUB_TOKEN"
