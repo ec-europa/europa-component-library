@@ -260,9 +260,9 @@ export const getFormControls = (data, type) => {
         label: { s: 'small', m: 'medium', l: 'large' },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        s: 's',
+        m: 'm',
+        l: 'l',
       },
     };
   }

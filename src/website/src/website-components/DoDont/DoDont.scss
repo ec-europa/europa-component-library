@@ -23,7 +23,7 @@
   padding-right: 1rem;
   position: relative;
   width: 100%;
-
+  // stylelint-disable-next-line media-query-no-invalid
   @media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
     display: flex;
     flex: 0 0 50%;
@@ -108,7 +108,7 @@
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'xs');
 }
-
+// stylelint-disable-next-line media-query-no-invalid
 @media screen and (min-width: map.get(theme.$breakpoint, 's')) {
   .dont {
     margin-top: map.get(theme.$spacing, 'l');

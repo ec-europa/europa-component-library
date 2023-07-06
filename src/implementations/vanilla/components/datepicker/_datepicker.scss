@@ -26,13 +26,9 @@ $_picker-theme-color: null !default;
 .ecl-datepicker {
   margin: 0;
   position: relative;
-  width: 50%;
+  width: 100%;
 
-  @include breakpoints.up('m') {
-    width: 30%;
-  }
-
-  @include breakpoints.up('l') {
+  @include breakpoints.up('s') {
     width: map.get(theme.$form, 's');
   }
 }
