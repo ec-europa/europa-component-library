@@ -46,7 +46,7 @@ describe('Content item', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });
@@ -59,7 +59,7 @@ describe('Content item', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataImage, true))
+        await axe(renderTwigFileAsHtml(template, dataImage, true)),
       ).toHaveNoViolations();
     });
   });
@@ -72,7 +72,7 @@ describe('Content item', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataEvent, true))
+        await axe(renderTwigFileAsHtml(template, dataEvent, true)),
       ).toHaveNoViolations();
     });
   });

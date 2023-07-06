@@ -24,7 +24,7 @@ function Anatomy({
       ? encodeURI(
           `${process.env.PUBLIC_URL}/playground/${system}/${
             process.env.NODE_ENV === 'development' ? 'index.html' : ''
-          }?path=/story/${selectedKind}--${selectedStory}`
+          }?path=/story/${selectedKind}--${selectedStory}`,
         )
       : '';
 
@@ -123,7 +123,7 @@ Anatomy.propTypes = {
       PropTypes.shape({
         color: PropTypes.string,
         label: PropTypes.string,
-      })
+      }),
     ),
   }),
   system: PropTypes.string,

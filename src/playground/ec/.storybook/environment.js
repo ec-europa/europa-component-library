@@ -3,15 +3,15 @@ const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
 const componentAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/components'
+  '../../../implementations/twig/components',
 );
 const compositionsAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/compositions'
+  '../../../implementations/twig/compositions',
 );
 const deprecatedAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/deprecated'
+  '../../../implementations/twig/deprecated',
 );
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);

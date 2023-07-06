@@ -33,12 +33,12 @@ export class Expandable {
       labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -69,7 +69,7 @@ export class Expandable {
 
     // Get target element
     this.target = document.querySelector(
-      `#${this.toggle.getAttribute('aria-controls')}`
+      `#${this.toggle.getAttribute('aria-controls')}`,
     );
 
     // Get label, if any
@@ -78,7 +78,7 @@ export class Expandable {
     // Exit if no target found
     if (!this.target) {
       throw new TypeError(
-        'Target has to be provided for expandable (aria-controls)'
+        'Target has to be provided for expandable (aria-controls)',
       );
     }
 

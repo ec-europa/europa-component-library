@@ -74,6 +74,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
     $min: ecl-min($name, $breakpoints);
 
     @if $min {
+      // stylelint-disable-next-line media-query-no-invalid
       @media (min-width: $min) {
         @content;
       }
@@ -92,6 +93,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
     $max: ecl-max($name, $breakpoints);
 
     @if $max {
+      // stylelint-disable-next-line media-query-no-invalid
       @media (max-width: $max) {
         @content;
       }

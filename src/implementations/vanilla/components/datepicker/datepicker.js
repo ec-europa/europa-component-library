@@ -59,12 +59,12 @@ export class Datepicker {
       },
       showDaysInNextAndPreviousMonths = true,
       enableSelectionDaysInNextAndPreviousMonths = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -108,7 +108,7 @@ export class Datepicker {
         // Extend picker size on mobile
         const vw = Math.max(
           document.documentElement.clientWidth || 0,
-          window.innerWidth || 0
+          window.innerWidth || 0,
         );
         const elRect = this.el.getBoundingClientRect();
         const pickerMargin =

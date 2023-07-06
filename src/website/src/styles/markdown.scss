@@ -212,8 +212,8 @@ h2 + blockquote + p {
   text-align: center;
 
   &::after {
-    background: url('../../public/cms-images/anatomy_legend.png') 2rem center
-        no-repeat,
+    background:
+      url('../../public/cms-images/anatomy_legend.png') 2rem center no-repeat,
       map.get(theme.$color, 'grey-5');
     background-size: 15rem;
     content: '';

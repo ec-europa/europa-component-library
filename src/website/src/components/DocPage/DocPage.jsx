@@ -57,7 +57,7 @@ DocPage.propTypes = {
         url: PropTypes.string,
         name: PropTypes.string,
         component: PropTypes.func,
-      })
+      }),
     ),
     document: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   }),

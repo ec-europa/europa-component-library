@@ -14,7 +14,7 @@ const Container = React.memo(({ spacing, className, children, ...props }) => {
   const classNames = classnames(
     className,
     grid['ecl-container'],
-    spacingClasses
+    spacingClasses,
   );
 
   return (

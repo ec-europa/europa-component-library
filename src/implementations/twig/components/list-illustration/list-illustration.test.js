@@ -19,7 +19,7 @@ describe('List with illustration', () => {
       expect.assertions(1);
 
       return expect(
-        render(dataListIllustrationImage)
+        render(dataListIllustrationImage),
       ).resolves.toMatchSnapshot();
     });
 
@@ -49,8 +49,8 @@ describe('List with illustration', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataListIllustrationImage, true)
-        )
+          renderTwigFileAsHtml(template, dataListIllustrationImage, true),
+        ),
       ).toHaveNoViolations();
     });
   });
@@ -60,15 +60,15 @@ describe('List with illustration', () => {
       expect.assertions(1);
 
       return expect(
-        render(dataListIllustrationIcon)
+        render(dataListIllustrationIcon),
       ).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          renderTwigFileAsHtml(template, dataListIllustrationIcon, true)
-        )
+          renderTwigFileAsHtml(template, dataListIllustrationIcon, true),
+        ),
       ).toHaveNoViolations();
     });
   });
@@ -84,7 +84,7 @@ describe('List with illustration', () => {
       dataListIllustrationImage.items[0].picture = {};
 
       return expect(
-        render(dataListIllustrationImage)
+        render(dataListIllustrationImage),
       ).resolves.toMatchSnapshot();
     });
   });

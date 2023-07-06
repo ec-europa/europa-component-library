@@ -202,18 +202,19 @@ const prepareData = (data, args) => {
     delete data.language_selector;
   } else {
     data.language_selector = JSON.parse(
-      JSON.stringify(clonedDataFull.language_selector)
+      JSON.stringify(clonedDataFull.language_selector),
     );
     data.language_selector.overlay.items.splice(
       -(data.language_selector.overlay.items.length - args.languages_eu),
-      data.language_selector.overlay.items.length - args.languages_eu
+      data.language_selector.overlay.items.length - args.languages_eu,
     );
     data.language_selector.overlay.non_eu_items.splice(
       -(
         data.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu
       ),
-      data.language_selector.overlay.non_eu_items.length - args.languages_non_eu
+      data.language_selector.overlay.non_eu_items.length -
+        args.languages_non_eu,
     );
   }
 

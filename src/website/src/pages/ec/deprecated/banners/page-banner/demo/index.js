@@ -8,11 +8,11 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 export const pageBannerImageBox = template(correctSvgPath(demoContentImageBox));
 export const pageBannerImageShade = template(
-  correctSvgPath(demoContentImageShade)
+  correctSvgPath(demoContentImageShade),
 );
 export const pageBannerImageGradient = template(
-  correctSvgPath(demoContentImageGradient)
+  correctSvgPath(demoContentImageGradient),
 );
 export const pageBannerSimplePrimary = template(
-  correctSvgPath(demoContentSimplePrimary)
+  correctSvgPath(demoContentSimplePrimary),
 );

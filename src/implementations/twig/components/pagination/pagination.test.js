@@ -46,7 +46,7 @@ describe('Pagination', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data))
+        await axe(renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
     });
   });
