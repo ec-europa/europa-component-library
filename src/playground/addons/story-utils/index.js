@@ -25,7 +25,7 @@ export const correctPaths = (data) => {
     if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
       data[prop] = data[prop].replace(
         '/example',
-        `/example#${Math.random().toString(36).slice(2, 7)}`
+        `/example#${Math.random().toString(36).slice(2, 7)}`,
       );
     }
     if (data[prop] !== null && typeof data[prop] === 'object') {
@@ -260,9 +260,9 @@ export const getFormControls = (data, type) => {
         label: { s: 'small', m: 'medium', l: 'large' },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        s: 's',
+        m: 'm',
+        l: 'l',
       },
     };
   }
