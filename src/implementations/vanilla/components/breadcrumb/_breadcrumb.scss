@@ -87,7 +87,7 @@ $breadcrumb: null !default;
   flex-shrink: 0;
   margin-inline-start: map.get($breadcrumb, 'icon-spacing');
   margin-inline-end: map.get($breadcrumb, 'icon-spacing');
-  transform: map.get($breadcrumb, 'icon-transform-mobile');
+  transform: rotateZ(90deg);
   vertical-align: text-bottom;
 }
 
@@ -95,6 +95,25 @@ $breadcrumb: null !default;
   color: map.get($breadcrumb, 'last-link-color');
   font: map.get($breadcrumb, 'link-font');
   font-weight: map.get($breadcrumb, 'link-font-weight');
+}
+
+// Alter some element on mobile when collapsed
+@include breakpoints.down('m') {
+  .ecl-breadcrumb--collapsed {
+    .ecl-breadcrumb__icon {
+      transform: rotateZ(270deg);
+    }
+
+    .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__link,
+    .ecl-breadcrumb__segment:nth-last-of-type(2) .ecl-breadcrumb__icon,
+    .ecl-breadcrumb__current-page {
+      display: none;
+    }
+
+    .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__icon {
+      margin-inline-start: 0;
+    }
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -105,6 +124,10 @@ $breadcrumb: null !default;
   }
 
   .ecl-breadcrumb__icon {
-    transform: map.get($breadcrumb, 'icon-transform-desktop');
+    transform: rotateZ(90deg);
+  }
+
+  .ecl-breadcrumb__current-page {
+    display: inline-flex;
   }
 }

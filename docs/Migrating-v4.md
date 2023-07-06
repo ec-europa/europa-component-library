@@ -57,7 +57,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ### Breadcrumb
 
-- Default font size of the separator icon is now `fluid` for both EC and EU
+- Font size of the separator icon is now `fluid` for both EC and EU, so it will automatically adjust based on the font size
+- Icon rotation is now handled in CSS as it depends on the context, so no need to use icon variant anymore for that (`ecl-icon--rotate-90`)
 - All EC breadcrumb now share the same display; there is no longer a specific variant for EC Core (previously called `negative`). Corresponding parameter and css classes have been removed
 
 ### Button
