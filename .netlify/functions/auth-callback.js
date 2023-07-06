@@ -62,7 +62,8 @@
       var r = a(21),
         i = a(20).Stream,
         o = a(3),
-        n = /^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/;
+        n =
+          /^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/;
       function s(e) {
         return e.charAt(0).toUpperCase() + e.slice(1);
       }
@@ -2070,550 +2071,554 @@
           noDefaults: !1,
         },
       };
-      (e.exports = c.Any = class {
-        constructor() {
-          (s = s || a(23)),
-            (this.isJoi = !0),
-            (this._type = 'any'),
-            (this._settings = null),
-            (this._valids = new c.Set()),
-            (this._invalids = new c.Set()),
-            (this._tests = []),
-            (this._refs = []),
-            (this._flags = {}),
-            (this._description = null),
-            (this._unit = null),
-            (this._notes = []),
-            (this._tags = []),
-            (this._examples = []),
-            (this._meta = []),
-            (this._inner = {});
-        }
-        createError(e, t, a, r) {
-          return o.create(e, t, a, r, this._flags);
-        }
-        createOverrideError(e, t, a, r, i, n) {
-          return o.create(e, t, a, r, this._flags, i, n);
-        }
-        checkOptions(e) {
-          const t = a(114).options.validate(e);
-          if (t.error) throw new Error(t.error.details[0].message);
-        }
-        clone() {
-          const e = Object.create(Object.getPrototypeOf(this));
-          (e.isJoi = !0),
-            (e._type = this._type),
-            (e._settings = c.concatSettings(this._settings)),
-            (e._baseType = this._baseType),
-            (e._valids = r.clone(this._valids)),
-            (e._invalids = r.clone(this._invalids)),
-            (e._tests = this._tests.slice()),
-            (e._refs = this._refs.slice()),
-            (e._flags = r.clone(this._flags)),
-            (e._description = this._description),
-            (e._unit = this._unit),
-            (e._notes = this._notes.slice()),
-            (e._tags = this._tags.slice()),
-            (e._examples = this._examples.slice()),
-            (e._meta = this._meta.slice()),
-            (e._inner = {});
-          const t = Object.keys(this._inner);
-          for (let a = 0; a < t.length; ++a) {
-            const r = t[a];
-            e._inner[r] = this._inner[r] ? this._inner[r].slice() : null;
+      (e.exports = c.Any =
+        class {
+          constructor() {
+            (s = s || a(23)),
+              (this.isJoi = !0),
+              (this._type = 'any'),
+              (this._settings = null),
+              (this._valids = new c.Set()),
+              (this._invalids = new c.Set()),
+              (this._tests = []),
+              (this._refs = []),
+              (this._flags = {}),
+              (this._description = null),
+              (this._unit = null),
+              (this._notes = []),
+              (this._tags = []),
+              (this._examples = []),
+              (this._meta = []),
+              (this._inner = {});
           }
-          return e;
-        }
-        concat(e) {
-          r.assert(e instanceof c.Any, 'Invalid schema object'),
-            r.assert(
-              'any' === this._type ||
-                'any' === e._type ||
-                e._type === this._type,
-              'Cannot merge type',
-              this._type,
-              'with another type:',
-              e._type
-            );
-          let t = this.clone();
-          if ('any' === this._type && 'any' !== e._type) {
-            const a = e.clone(),
-              r = [
-                '_settings',
-                '_valids',
-                '_invalids',
-                '_tests',
-                '_refs',
-                '_flags',
-                '_description',
-                '_unit',
-                '_notes',
-                '_tags',
-                '_examples',
-                '_meta',
-                '_inner',
-              ];
-            for (let e = 0; e < r.length; ++e) a[r[e]] = t[r[e]];
-            t = a;
+          createError(e, t, a, r) {
+            return o.create(e, t, a, r, this._flags);
           }
-          (t._settings = t._settings
-            ? c.concatSettings(t._settings, e._settings)
-            : e._settings),
-            t._valids.merge(e._valids, e._invalids),
-            t._invalids.merge(e._invalids, e._valids),
-            (t._tests = t._tests.concat(e._tests)),
-            (t._refs = t._refs.concat(e._refs)),
-            r.merge(t._flags, e._flags),
-            (t._description = e._description || t._description),
-            (t._unit = e._unit || t._unit),
-            (t._notes = t._notes.concat(e._notes)),
-            (t._tags = t._tags.concat(e._tags)),
-            (t._examples = t._examples.concat(e._examples)),
-            (t._meta = t._meta.concat(e._meta));
-          const a = Object.keys(e._inner),
-            i = 'object' === t._type;
-          for (let r = 0; r < a.length; ++r) {
-            const o = a[r],
-              n = e._inner[o];
-            if (n) {
-              const e = t._inner[o];
-              if (e)
-                if (i && 'children' === o) {
-                  const t = {};
-                  for (let a = 0; a < e.length; ++a) t[e[a].key] = a;
-                  for (let a = 0; a < n.length; ++a) {
-                    const r = n[a].key;
-                    t[r] >= 0
-                      ? (e[t[r]] = {
-                          key: r,
-                          schema: e[t[r]].schema.concat(n[a].schema),
-                        })
-                      : e.push(n[a]);
-                  }
-                } else t._inner[o] = t._inner[o].concat(n);
-              else t._inner[o] = n.slice();
+          createOverrideError(e, t, a, r, i, n) {
+            return o.create(e, t, a, r, this._flags, i, n);
+          }
+          checkOptions(e) {
+            const t = a(114).options.validate(e);
+            if (t.error) throw new Error(t.error.details[0].message);
+          }
+          clone() {
+            const e = Object.create(Object.getPrototypeOf(this));
+            (e.isJoi = !0),
+              (e._type = this._type),
+              (e._settings = c.concatSettings(this._settings)),
+              (e._baseType = this._baseType),
+              (e._valids = r.clone(this._valids)),
+              (e._invalids = r.clone(this._invalids)),
+              (e._tests = this._tests.slice()),
+              (e._refs = this._refs.slice()),
+              (e._flags = r.clone(this._flags)),
+              (e._description = this._description),
+              (e._unit = this._unit),
+              (e._notes = this._notes.slice()),
+              (e._tags = this._tags.slice()),
+              (e._examples = this._examples.slice()),
+              (e._meta = this._meta.slice()),
+              (e._inner = {});
+            const t = Object.keys(this._inner);
+            for (let a = 0; a < t.length; ++a) {
+              const r = t[a];
+              e._inner[r] = this._inner[r] ? this._inner[r].slice() : null;
             }
+            return e;
           }
-          return t;
-        }
-        _test(e, t, a, r) {
-          const i = this.clone();
-          return i._tests.push({ func: a, name: e, arg: t, options: r }), i;
-        }
-        options(e) {
-          r.assert(!e.context, 'Cannot override context'), this.checkOptions(e);
-          const t = this.clone();
-          return (t._settings = c.concatSettings(t._settings, e)), t;
-        }
-        strict(e) {
-          const t = this.clone();
-          return (
-            (t._settings = t._settings || {}),
-            (t._settings.convert = void 0 !== e && !e),
-            t
-          );
-        }
-        raw(e) {
-          const t = void 0 === e || e;
-          if (this._flags.raw === t) return this;
-          const a = this.clone();
-          return (a._flags.raw = t), a;
-        }
-        error(e) {
-          r.assert(
-            e && (e instanceof Error || 'function' == typeof e),
-            'Must provide a valid Error object or a function'
-          );
-          const t = this.clone();
-          return (t._flags.error = e), t;
-        }
-        allow() {
-          const e = this.clone(),
-            t = r.flatten(Array.prototype.slice.call(arguments));
-          for (let a = 0; a < t.length; ++a) {
-            const i = t[a];
-            r.assert(
-              void 0 !== i,
-              'Cannot call allow/valid/invalid with undefined'
-            ),
-              e._invalids.remove(i),
-              e._valids.add(i, e._refs);
-          }
-          return e;
-        }
-        valid() {
-          const e = this.allow.apply(this, arguments);
-          return (e._flags.allowOnly = !0), e;
-        }
-        invalid(e) {
-          const t = this.clone(),
-            a = r.flatten(Array.prototype.slice.call(arguments));
-          for (let i = 0; i < a.length; ++i)
-            (e = a[i]),
+          concat(e) {
+            r.assert(e instanceof c.Any, 'Invalid schema object'),
               r.assert(
-                void 0 !== e,
+                'any' === this._type ||
+                  'any' === e._type ||
+                  e._type === this._type,
+                'Cannot merge type',
+                this._type,
+                'with another type:',
+                e._type
+              );
+            let t = this.clone();
+            if ('any' === this._type && 'any' !== e._type) {
+              const a = e.clone(),
+                r = [
+                  '_settings',
+                  '_valids',
+                  '_invalids',
+                  '_tests',
+                  '_refs',
+                  '_flags',
+                  '_description',
+                  '_unit',
+                  '_notes',
+                  '_tags',
+                  '_examples',
+                  '_meta',
+                  '_inner',
+                ];
+              for (let e = 0; e < r.length; ++e) a[r[e]] = t[r[e]];
+              t = a;
+            }
+            (t._settings = t._settings
+              ? c.concatSettings(t._settings, e._settings)
+              : e._settings),
+              t._valids.merge(e._valids, e._invalids),
+              t._invalids.merge(e._invalids, e._valids),
+              (t._tests = t._tests.concat(e._tests)),
+              (t._refs = t._refs.concat(e._refs)),
+              r.merge(t._flags, e._flags),
+              (t._description = e._description || t._description),
+              (t._unit = e._unit || t._unit),
+              (t._notes = t._notes.concat(e._notes)),
+              (t._tags = t._tags.concat(e._tags)),
+              (t._examples = t._examples.concat(e._examples)),
+              (t._meta = t._meta.concat(e._meta));
+            const a = Object.keys(e._inner),
+              i = 'object' === t._type;
+            for (let r = 0; r < a.length; ++r) {
+              const o = a[r],
+                n = e._inner[o];
+              if (n) {
+                const e = t._inner[o];
+                if (e)
+                  if (i && 'children' === o) {
+                    const t = {};
+                    for (let a = 0; a < e.length; ++a) t[e[a].key] = a;
+                    for (let a = 0; a < n.length; ++a) {
+                      const r = n[a].key;
+                      t[r] >= 0
+                        ? (e[t[r]] = {
+                            key: r,
+                            schema: e[t[r]].schema.concat(n[a].schema),
+                          })
+                        : e.push(n[a]);
+                    }
+                  } else t._inner[o] = t._inner[o].concat(n);
+                else t._inner[o] = n.slice();
+              }
+            }
+            return t;
+          }
+          _test(e, t, a, r) {
+            const i = this.clone();
+            return i._tests.push({ func: a, name: e, arg: t, options: r }), i;
+          }
+          options(e) {
+            r.assert(!e.context, 'Cannot override context'),
+              this.checkOptions(e);
+            const t = this.clone();
+            return (t._settings = c.concatSettings(t._settings, e)), t;
+          }
+          strict(e) {
+            const t = this.clone();
+            return (
+              (t._settings = t._settings || {}),
+              (t._settings.convert = void 0 !== e && !e),
+              t
+            );
+          }
+          raw(e) {
+            const t = void 0 === e || e;
+            if (this._flags.raw === t) return this;
+            const a = this.clone();
+            return (a._flags.raw = t), a;
+          }
+          error(e) {
+            r.assert(
+              e && (e instanceof Error || 'function' == typeof e),
+              'Must provide a valid Error object or a function'
+            );
+            const t = this.clone();
+            return (t._flags.error = e), t;
+          }
+          allow() {
+            const e = this.clone(),
+              t = r.flatten(Array.prototype.slice.call(arguments));
+            for (let a = 0; a < t.length; ++a) {
+              const i = t[a];
+              r.assert(
+                void 0 !== i,
                 'Cannot call allow/valid/invalid with undefined'
               ),
-              t._valids.remove(e),
-              t._invalids.add(e, this._refs);
-          return t;
-        }
-        required() {
-          if ('required' === this._flags.presence) return this;
-          const e = this.clone();
-          return (e._flags.presence = 'required'), e;
-        }
-        optional() {
-          if ('optional' === this._flags.presence) return this;
-          const e = this.clone();
-          return (e._flags.presence = 'optional'), e;
-        }
-        forbidden() {
-          if ('forbidden' === this._flags.presence) return this;
-          const e = this.clone();
-          return (e._flags.presence = 'forbidden'), e;
-        }
-        strip() {
-          if (this._flags.strip) return this;
-          const e = this.clone();
-          return (e._flags.strip = !0), e;
-        }
-        applyFunctionToChildren(e, t, a, r) {
-          if (1 !== (e = [].concat(e)).length || '' !== e[0]) {
-            r = r ? r + '.' : '';
-            const t = ('' === e[0] ? e.slice(1) : e).map((e) => r + e);
-            throw new Error('unknown key(s) ' + t.join(', '));
-          }
-          return this[t].apply(this, a);
-        }
-        default(e, t) {
-          'function' != typeof e ||
-            i.isRef(e) ||
-            (!e.description && t && (e.description = t),
-            this._flags.func ||
-              r.assert(
-                'string' == typeof e.description && e.description.length > 0,
-                'description must be provided when default value is a function'
-              ));
-          const a = this.clone();
-          return (a._flags.default = e), i.push(a._refs, e), a;
-        }
-        empty(e) {
-          const t = this.clone();
-          return (t._flags.empty = void 0 === e ? void 0 : s.schema(e)), t;
-        }
-        when(e, t) {
-          r.assert(t && 'object' == typeof t, 'Invalid options'),
-            r.assert(
-              void 0 !== t.then || void 0 !== t.otherwise,
-              'options must have at least one of "then" or "otherwise"'
-            );
-          const i = t.hasOwnProperty('then')
-              ? this.concat(s.schema(t.then))
-              : void 0,
-            o = t.hasOwnProperty('otherwise')
-              ? this.concat(s.schema(t.otherwise))
-              : void 0;
-          n = n || a(43);
-          const c = n.when(e, { is: t.is, then: i, otherwise: o });
-          return (c._flags.presence = 'ignore'), (c._baseType = this), c;
-        }
-        description(e) {
-          r.assert(
-            e && 'string' == typeof e,
-            'Description must be a non-empty string'
-          );
-          const t = this.clone();
-          return (t._description = e), t;
-        }
-        notes(e) {
-          r.assert(
-            e && ('string' == typeof e || Array.isArray(e)),
-            'Notes must be a non-empty string or array'
-          );
-          const t = this.clone();
-          return (t._notes = t._notes.concat(e)), t;
-        }
-        tags(e) {
-          r.assert(
-            e && ('string' == typeof e || Array.isArray(e)),
-            'Tags must be a non-empty string or array'
-          );
-          const t = this.clone();
-          return (t._tags = t._tags.concat(e)), t;
-        }
-        meta(e) {
-          r.assert(void 0 !== e, 'Meta cannot be undefined');
-          const t = this.clone();
-          return (t._meta = t._meta.concat(e)), t;
-        }
-        example(e) {
-          r.assert(arguments.length, 'Missing example');
-          const t = this._validate(e, null, c.defaults);
-          r.assert(
-            !t.errors,
-            'Bad example:',
-            t.errors && o.process(t.errors, e)
-          );
-          const a = this.clone();
-          return a._examples.push(e), a;
-        }
-        unit(e) {
-          r.assert(
-            e && 'string' == typeof e,
-            'Unit name must be a non-empty string'
-          );
-          const t = this.clone();
-          return (t._unit = e), t;
-        }
-        _prepareEmptyValue(e) {
-          return 'string' == typeof e && this._flags.trim ? e.trim() : e;
-        }
-        _validate(e, t, a, n) {
-          const s = e;
-          (t = t || { key: '', path: '', parent: null, reference: n }),
-            this._settings && (a = c.concatSettings(a, this._settings));
-          let u = [];
-          const p = () => {
-            let o;
-            if (void 0 !== e) o = this._flags.raw ? s : e;
-            else if (a.noDefaults) o = e;
-            else if (i.isRef(this._flags.default))
-              o = this._flags.default(t.parent, a);
-            else if (
-              'function' != typeof this._flags.default ||
-              (this._flags.func && !this._flags.default.description)
-            )
-              o = r.clone(this._flags.default);
-            else {
-              let e;
-              null !== t.parent &&
-                this._flags.default.length > 0 &&
-                (e = [r.clone(t.parent), a]);
-              const i = c._try(this._flags.default, e);
-              (o = i.value),
-                i.error &&
-                  u.push(this.createError('any.default', i.error, t, a));
+                e._invalids.remove(i),
+                e._valids.add(i, e._refs);
             }
-            if (u.length && 'function' == typeof this._flags.error) {
-              const e = this._flags.error.call(this, u);
-              u =
-                'string' == typeof e
-                  ? [
-                      this.createOverrideError(
-                        'override',
-                        { reason: u },
-                        t,
-                        a,
-                        e
-                      ),
-                    ]
-                  : []
-                      .concat(e)
-                      .map((e) =>
-                        e instanceof Error
-                          ? e
-                          : this.createOverrideError(
-                              e.type || 'override',
-                              e.context,
-                              t,
-                              a,
-                              e.message,
-                              e.template
-                            )
-                      );
-            }
-            return {
-              value: this._flags.strip ? void 0 : o,
-              finalValue: o,
-              errors: u.length ? u : null,
-            };
-          };
-          if (this._coerce) {
-            const r = this._coerce.call(this, e, t, a);
-            if (r.errors) return (e = r.value), (u = u.concat(r.errors)), p();
-            e = r.value;
+            return e;
           }
-          this._flags.empty &&
-            !this._flags.empty._validate(
-              this._prepareEmptyValue(e),
-              null,
-              c.defaults
-            ).errors &&
-            (e = void 0);
-          const l = this._flags.presence || a.presence;
-          if ('optional' === l) {
-            if (void 0 === e) {
-              if (
-                !(
-                  this._flags.hasOwnProperty('default') &&
-                  void 0 === this._flags.default
-                ) ||
-                'object' !== this._type
-              )
-                return p();
-              e = {};
-            }
-          } else {
-            if ('required' === l && void 0 === e)
-              return u.push(this.createError('any.required', null, t, a)), p();
-            if ('forbidden' === l)
-              return (
-                void 0 === e ||
-                  u.push(this.createError('any.unknown', null, t, a)),
-                p()
-              );
+          valid() {
+            const e = this.allow.apply(this, arguments);
+            return (e._flags.allowOnly = !0), e;
           }
-          if (this._valids.has(e, t, a, this._flags.insensitive)) return p();
-          if (
-            this._invalids.has(e, t, a, this._flags.insensitive) &&
-            (u.push(
-              this.createError(
-                '' === e ? 'any.empty' : 'any.invalid',
-                null,
-                t,
-                a
-              )
-            ),
-            a.abortEarly || void 0 === e)
-          )
-            return p();
-          if (this._base) {
-            const r = this._base.call(this, e, t, a);
-            if (r.errors) return (e = r.value), (u = u.concat(r.errors)), p();
-            if (r.value !== e) {
-              if (
-                ((e = r.value),
-                this._valids.has(e, t, a, this._flags.insensitive))
-              )
-                return p();
-              if (
-                this._invalids.has(e, t, a, this._flags.insensitive) &&
-                (u.push(
-                  this.createError(
-                    '' === e ? 'any.empty' : 'any.invalid',
-                    null,
-                    t,
-                    a
-                  )
+          invalid(e) {
+            const t = this.clone(),
+              a = r.flatten(Array.prototype.slice.call(arguments));
+            for (let i = 0; i < a.length; ++i)
+              (e = a[i]),
+                r.assert(
+                  void 0 !== e,
+                  'Cannot call allow/valid/invalid with undefined'
                 ),
-                a.abortEarly)
-              )
-                return p();
+                t._valids.remove(e),
+                t._invalids.add(e, this._refs);
+            return t;
+          }
+          required() {
+            if ('required' === this._flags.presence) return this;
+            const e = this.clone();
+            return (e._flags.presence = 'required'), e;
+          }
+          optional() {
+            if ('optional' === this._flags.presence) return this;
+            const e = this.clone();
+            return (e._flags.presence = 'optional'), e;
+          }
+          forbidden() {
+            if ('forbidden' === this._flags.presence) return this;
+            const e = this.clone();
+            return (e._flags.presence = 'forbidden'), e;
+          }
+          strip() {
+            if (this._flags.strip) return this;
+            const e = this.clone();
+            return (e._flags.strip = !0), e;
+          }
+          applyFunctionToChildren(e, t, a, r) {
+            if (1 !== (e = [].concat(e)).length || '' !== e[0]) {
+              r = r ? r + '.' : '';
+              const t = ('' === e[0] ? e.slice(1) : e).map((e) => r + e);
+              throw new Error('unknown key(s) ' + t.join(', '));
             }
+            return this[t].apply(this, a);
           }
-          if (
-            this._flags.allowOnly &&
-            (u.push(
-              this.createError(
-                'any.allowOnly',
-                { valids: this._valids.values({ stripUndefined: !0 }) },
-                t,
-                a
+          default(e, t) {
+            'function' != typeof e ||
+              i.isRef(e) ||
+              (!e.description && t && (e.description = t),
+              this._flags.func ||
+                r.assert(
+                  'string' == typeof e.description && e.description.length > 0,
+                  'description must be provided when default value is a function'
+                ));
+            const a = this.clone();
+            return (a._flags.default = e), i.push(a._refs, e), a;
+          }
+          empty(e) {
+            const t = this.clone();
+            return (t._flags.empty = void 0 === e ? void 0 : s.schema(e)), t;
+          }
+          when(e, t) {
+            r.assert(t && 'object' == typeof t, 'Invalid options'),
+              r.assert(
+                void 0 !== t.then || void 0 !== t.otherwise,
+                'options must have at least one of "then" or "otherwise"'
+              );
+            const i = t.hasOwnProperty('then')
+                ? this.concat(s.schema(t.then))
+                : void 0,
+              o = t.hasOwnProperty('otherwise')
+                ? this.concat(s.schema(t.otherwise))
+                : void 0;
+            n = n || a(43);
+            const c = n.when(e, { is: t.is, then: i, otherwise: o });
+            return (c._flags.presence = 'ignore'), (c._baseType = this), c;
+          }
+          description(e) {
+            r.assert(
+              e && 'string' == typeof e,
+              'Description must be a non-empty string'
+            );
+            const t = this.clone();
+            return (t._description = e), t;
+          }
+          notes(e) {
+            r.assert(
+              e && ('string' == typeof e || Array.isArray(e)),
+              'Notes must be a non-empty string or array'
+            );
+            const t = this.clone();
+            return (t._notes = t._notes.concat(e)), t;
+          }
+          tags(e) {
+            r.assert(
+              e && ('string' == typeof e || Array.isArray(e)),
+              'Tags must be a non-empty string or array'
+            );
+            const t = this.clone();
+            return (t._tags = t._tags.concat(e)), t;
+          }
+          meta(e) {
+            r.assert(void 0 !== e, 'Meta cannot be undefined');
+            const t = this.clone();
+            return (t._meta = t._meta.concat(e)), t;
+          }
+          example(e) {
+            r.assert(arguments.length, 'Missing example');
+            const t = this._validate(e, null, c.defaults);
+            r.assert(
+              !t.errors,
+              'Bad example:',
+              t.errors && o.process(t.errors, e)
+            );
+            const a = this.clone();
+            return a._examples.push(e), a;
+          }
+          unit(e) {
+            r.assert(
+              e && 'string' == typeof e,
+              'Unit name must be a non-empty string'
+            );
+            const t = this.clone();
+            return (t._unit = e), t;
+          }
+          _prepareEmptyValue(e) {
+            return 'string' == typeof e && this._flags.trim ? e.trim() : e;
+          }
+          _validate(e, t, a, n) {
+            const s = e;
+            (t = t || { key: '', path: '', parent: null, reference: n }),
+              this._settings && (a = c.concatSettings(a, this._settings));
+            let u = [];
+            const p = () => {
+              let o;
+              if (void 0 !== e) o = this._flags.raw ? s : e;
+              else if (a.noDefaults) o = e;
+              else if (i.isRef(this._flags.default))
+                o = this._flags.default(t.parent, a);
+              else if (
+                'function' != typeof this._flags.default ||
+                (this._flags.func && !this._flags.default.description)
               )
-            ),
-            a.abortEarly)
-          )
-            return p();
-          for (let r = 0; r < this._tests.length; ++r) {
-            const i = this._tests[r].func.call(this, e, t, a);
-            if (i instanceof o.Err) {
-              if ((u.push(i), a.abortEarly)) return p();
-            } else e = i;
-          }
-          return p();
-        }
-        _validateWithOptions(e, t, a) {
-          t && this.checkOptions(t);
-          const r = c.concatSettings(c.defaults, t),
-            i = this._validate(e, null, r),
-            n = o.process(i.errors, e);
-          return a ? a(n, i.value) : { error: n, value: i.value };
-        }
-        validate(e, t, a) {
-          return 'function' == typeof t
-            ? this._validateWithOptions(e, null, t)
-            : this._validateWithOptions(e, t, a);
-        }
-        describe() {
-          const e = { type: this._type },
-            t = Object.keys(this._flags);
-          if (t.length)
+                o = r.clone(this._flags.default);
+              else {
+                let e;
+                null !== t.parent &&
+                  this._flags.default.length > 0 &&
+                  (e = [r.clone(t.parent), a]);
+                const i = c._try(this._flags.default, e);
+                (o = i.value),
+                  i.error &&
+                    u.push(this.createError('any.default', i.error, t, a));
+              }
+              if (u.length && 'function' == typeof this._flags.error) {
+                const e = this._flags.error.call(this, u);
+                u =
+                  'string' == typeof e
+                    ? [
+                        this.createOverrideError(
+                          'override',
+                          { reason: u },
+                          t,
+                          a,
+                          e
+                        ),
+                      ]
+                    : []
+                        .concat(e)
+                        .map((e) =>
+                          e instanceof Error
+                            ? e
+                            : this.createOverrideError(
+                                e.type || 'override',
+                                e.context,
+                                t,
+                                a,
+                                e.message,
+                                e.template
+                              )
+                        );
+              }
+              return {
+                value: this._flags.strip ? void 0 : o,
+                finalValue: o,
+                errors: u.length ? u : null,
+              };
+            };
+            if (this._coerce) {
+              const r = this._coerce.call(this, e, t, a);
+              if (r.errors) return (e = r.value), (u = u.concat(r.errors)), p();
+              e = r.value;
+            }
+            this._flags.empty &&
+              !this._flags.empty._validate(
+                this._prepareEmptyValue(e),
+                null,
+                c.defaults
+              ).errors &&
+              (e = void 0);
+            const l = this._flags.presence || a.presence;
+            if ('optional' === l) {
+              if (void 0 === e) {
+                if (
+                  !(
+                    this._flags.hasOwnProperty('default') &&
+                    void 0 === this._flags.default
+                  ) ||
+                  'object' !== this._type
+                )
+                  return p();
+                e = {};
+              }
+            } else {
+              if ('required' === l && void 0 === e)
+                return (
+                  u.push(this.createError('any.required', null, t, a)), p()
+                );
+              if ('forbidden' === l)
+                return (
+                  void 0 === e ||
+                    u.push(this.createError('any.unknown', null, t, a)),
+                  p()
+                );
+            }
+            if (this._valids.has(e, t, a, this._flags.insensitive)) return p();
             if (
-              ['empty', 'default', 'lazy', 'label'].some((e) =>
-                this._flags.hasOwnProperty(e)
-              )
-            ) {
-              e.flags = {};
-              for (let a = 0; a < t.length; ++a) {
-                const r = t[a];
-                'empty' === r
-                  ? (e.flags[r] = this._flags[r].describe())
-                  : 'default' === r
-                  ? i.isRef(this._flags[r])
-                    ? (e.flags[r] = this._flags[r].toString())
-                    : 'function' == typeof this._flags[r]
-                    ? (e.flags[r] = this._flags[r].description)
-                    : (e.flags[r] = this._flags[r])
-                  : 'lazy' === r ||
-                    'label' === r ||
-                    (e.flags[r] = this._flags[r]);
+              this._invalids.has(e, t, a, this._flags.insensitive) &&
+              (u.push(
+                this.createError(
+                  '' === e ? 'any.empty' : 'any.invalid',
+                  null,
+                  t,
+                  a
+                )
+              ),
+              a.abortEarly || void 0 === e)
+            )
+              return p();
+            if (this._base) {
+              const r = this._base.call(this, e, t, a);
+              if (r.errors) return (e = r.value), (u = u.concat(r.errors)), p();
+              if (r.value !== e) {
+                if (
+                  ((e = r.value),
+                  this._valids.has(e, t, a, this._flags.insensitive))
+                )
+                  return p();
+                if (
+                  this._invalids.has(e, t, a, this._flags.insensitive) &&
+                  (u.push(
+                    this.createError(
+                      '' === e ? 'any.empty' : 'any.invalid',
+                      null,
+                      t,
+                      a
+                    )
+                  ),
+                  a.abortEarly)
+                )
+                  return p();
               }
-            } else e.flags = this._flags;
-          this._settings && (e.options = r.clone(this._settings)),
-            this._baseType && (e.base = this._baseType.describe()),
-            this._description && (e.description = this._description),
-            this._notes.length && (e.notes = this._notes),
-            this._tags.length && (e.tags = this._tags),
-            this._meta.length && (e.meta = this._meta),
-            this._examples.length && (e.examples = this._examples),
-            this._unit && (e.unit = this._unit);
-          const a = this._valids.values();
-          a.length &&
-            (e.valids = a.map((e) => (i.isRef(e) ? e.toString() : e)));
-          const o = this._invalids.values();
-          o.length &&
-            (e.invalids = o.map((e) => (i.isRef(e) ? e.toString() : e))),
-            (e.rules = []);
-          for (let t = 0; t < this._tests.length; ++t) {
-            const a = this._tests[t],
-              r = { name: a.name };
-            void 0 !== a.arg &&
-              (r.arg = i.isRef(a.arg) ? a.arg.toString() : a.arg);
-            const o = a.options;
-            if (o) {
-              if (o.hasRef) {
-                r.arg = {};
-                const e = Object.keys(a.arg);
-                for (let t = 0; t < e.length; ++t) {
-                  const o = e[t],
-                    n = a.arg[o];
-                  r.arg[o] = i.isRef(n) ? n.toString() : n;
-                }
-              }
-              'string' == typeof o.description
-                ? (r.description = o.description)
-                : 'function' == typeof o.description &&
-                  (r.description = o.description(r.arg));
             }
-            e.rules.push(r);
+            if (
+              this._flags.allowOnly &&
+              (u.push(
+                this.createError(
+                  'any.allowOnly',
+                  { valids: this._valids.values({ stripUndefined: !0 }) },
+                  t,
+                  a
+                )
+              ),
+              a.abortEarly)
+            )
+              return p();
+            for (let r = 0; r < this._tests.length; ++r) {
+              const i = this._tests[r].func.call(this, e, t, a);
+              if (i instanceof o.Err) {
+                if ((u.push(i), a.abortEarly)) return p();
+              } else e = i;
+            }
+            return p();
           }
-          e.rules.length || delete e.rules;
-          const n = this._getLabel();
-          return n && (e.label = n), e;
-        }
-        label(e) {
-          r.assert(
-            e && 'string' == typeof e,
-            'Label name must be a non-empty string'
-          );
-          const t = this.clone();
-          return (t._flags.label = e), t;
-        }
-        _getLabel(e) {
-          return this._flags.label || e;
-        }
-      }),
+          _validateWithOptions(e, t, a) {
+            t && this.checkOptions(t);
+            const r = c.concatSettings(c.defaults, t),
+              i = this._validate(e, null, r),
+              n = o.process(i.errors, e);
+            return a ? a(n, i.value) : { error: n, value: i.value };
+          }
+          validate(e, t, a) {
+            return 'function' == typeof t
+              ? this._validateWithOptions(e, null, t)
+              : this._validateWithOptions(e, t, a);
+          }
+          describe() {
+            const e = { type: this._type },
+              t = Object.keys(this._flags);
+            if (t.length)
+              if (
+                ['empty', 'default', 'lazy', 'label'].some((e) =>
+                  this._flags.hasOwnProperty(e)
+                )
+              ) {
+                e.flags = {};
+                for (let a = 0; a < t.length; ++a) {
+                  const r = t[a];
+                  'empty' === r
+                    ? (e.flags[r] = this._flags[r].describe())
+                    : 'default' === r
+                    ? i.isRef(this._flags[r])
+                      ? (e.flags[r] = this._flags[r].toString())
+                      : 'function' == typeof this._flags[r]
+                      ? (e.flags[r] = this._flags[r].description)
+                      : (e.flags[r] = this._flags[r])
+                    : 'lazy' === r ||
+                      'label' === r ||
+                      (e.flags[r] = this._flags[r]);
+                }
+              } else e.flags = this._flags;
+            this._settings && (e.options = r.clone(this._settings)),
+              this._baseType && (e.base = this._baseType.describe()),
+              this._description && (e.description = this._description),
+              this._notes.length && (e.notes = this._notes),
+              this._tags.length && (e.tags = this._tags),
+              this._meta.length && (e.meta = this._meta),
+              this._examples.length && (e.examples = this._examples),
+              this._unit && (e.unit = this._unit);
+            const a = this._valids.values();
+            a.length &&
+              (e.valids = a.map((e) => (i.isRef(e) ? e.toString() : e)));
+            const o = this._invalids.values();
+            o.length &&
+              (e.invalids = o.map((e) => (i.isRef(e) ? e.toString() : e))),
+              (e.rules = []);
+            for (let t = 0; t < this._tests.length; ++t) {
+              const a = this._tests[t],
+                r = { name: a.name };
+              void 0 !== a.arg &&
+                (r.arg = i.isRef(a.arg) ? a.arg.toString() : a.arg);
+              const o = a.options;
+              if (o) {
+                if (o.hasRef) {
+                  r.arg = {};
+                  const e = Object.keys(a.arg);
+                  for (let t = 0; t < e.length; ++t) {
+                    const o = e[t],
+                      n = a.arg[o];
+                    r.arg[o] = i.isRef(n) ? n.toString() : n;
+                  }
+                }
+                'string' == typeof o.description
+                  ? (r.description = o.description)
+                  : 'function' == typeof o.description &&
+                    (r.description = o.description(r.arg));
+              }
+              e.rules.push(r);
+            }
+            e.rules.length || delete e.rules;
+            const n = this._getLabel();
+            return n && (e.label = n), e;
+          }
+          label(e) {
+            r.assert(
+              e && 'string' == typeof e,
+              'Label name must be a non-empty string'
+            );
+            const t = this.clone();
+            return (t._flags.label = e), t;
+          }
+          _getLabel(e) {
+            return this._flags.label || e;
+          }
+        }),
         (c.Any.prototype.isImmutable = !0),
         (c.Any.prototype.only = c.Any.prototype.equal = c.Any.prototype.valid),
         (c.Any.prototype.disallow = c.Any.prototype.not =
@@ -3061,9 +3066,10 @@
           (i = p('RangeError', 'range error'));
       }
       for (
-        var d = 'join pop push shift unshift slice filter forEach some every map indexOf lastIndexOf reduce reduceRight sort reverse'.split(
-            ' '
-          ),
+        var d =
+            'join pop push shift unshift slice filter forEach some every map indexOf lastIndexOf reduce reduceRight sort reverse'.split(
+              ' '
+            ),
           g = 0;
         g < d.length;
         ++g
@@ -4515,174 +4521,19 @@
           _,
           E,
           S = [
-            2,
-            3,
-            5,
-            7,
-            11,
-            13,
-            17,
-            19,
-            23,
-            29,
-            31,
-            37,
-            41,
-            43,
-            47,
-            53,
-            59,
-            61,
-            67,
-            71,
-            73,
-            79,
-            83,
-            89,
-            97,
-            101,
-            103,
-            107,
-            109,
-            113,
-            127,
-            131,
-            137,
-            139,
-            149,
-            151,
-            157,
-            163,
-            167,
-            173,
-            179,
-            181,
-            191,
-            193,
-            197,
-            199,
-            211,
-            223,
-            227,
-            229,
-            233,
-            239,
-            241,
-            251,
-            257,
-            263,
-            269,
-            271,
-            277,
-            281,
-            283,
-            293,
-            307,
-            311,
-            313,
-            317,
-            331,
-            337,
-            347,
-            349,
-            353,
-            359,
-            367,
-            373,
-            379,
-            383,
-            389,
-            397,
-            401,
-            409,
-            419,
-            421,
-            431,
-            433,
-            439,
-            443,
-            449,
-            457,
-            461,
-            463,
-            467,
-            479,
-            487,
-            491,
-            499,
-            503,
-            509,
-            521,
-            523,
-            541,
-            547,
-            557,
-            563,
-            569,
-            571,
-            577,
-            587,
-            593,
-            599,
-            601,
-            607,
-            613,
-            617,
-            619,
-            631,
-            641,
-            643,
-            647,
-            653,
-            659,
-            661,
-            673,
-            677,
-            683,
-            691,
-            701,
-            709,
-            719,
-            727,
-            733,
-            739,
-            743,
-            751,
-            757,
-            761,
-            769,
-            773,
-            787,
-            797,
-            809,
-            811,
-            821,
-            823,
-            827,
-            829,
-            839,
-            853,
-            857,
-            859,
-            863,
-            877,
-            881,
-            883,
-            887,
-            907,
-            911,
-            919,
-            929,
-            937,
-            941,
-            947,
-            953,
-            967,
-            971,
-            977,
-            983,
-            991,
-            997,
+            2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,
+            67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137,
+            139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,
+            211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277,
+            281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359,
+            367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439,
+            443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521,
+            523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607,
+            613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683,
+            691, 701, 709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773,
+            787, 797, 809, 811, 821, 823, 827, 829, 839, 853, 857, 859, 863,
+            877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967,
+            971, 977, 983, 991, 997,
           ],
           F = (1 << 26) / S[S.length - 1];
         function P() {
@@ -5196,7 +5047,7 @@
           });
         var D = 256;
         (a.SecureRandom = T), (a.BigInteger = a), (e.exports = a);
-      }.call(this));
+      }).call(this);
     },
     function (e, t, a) {
       !(function (e) {
@@ -5217,94 +5068,24 @@
           s = t([1]),
           c = t([56129, 1]),
           u = t([
-            30883,
-            4953,
-            19914,
-            30187,
-            55467,
-            16705,
-            2637,
-            112,
-            59544,
-            30585,
-            16505,
-            36039,
-            65139,
-            11119,
-            27886,
-            20995,
+            30883, 4953, 19914, 30187, 55467, 16705, 2637, 112, 59544, 30585,
+            16505, 36039, 65139, 11119, 27886, 20995,
           ]),
           p = t([
-            61785,
-            9906,
-            39828,
-            60374,
-            45398,
-            33411,
-            5274,
-            224,
-            53552,
-            61171,
-            33010,
-            6542,
-            64743,
-            22239,
-            55772,
-            9222,
+            61785, 9906, 39828, 60374, 45398, 33411, 5274, 224, 53552, 61171,
+            33010, 6542, 64743, 22239, 55772, 9222,
           ]),
           l = t([
-            54554,
-            36645,
-            11616,
-            51542,
-            42930,
-            38181,
-            51040,
-            26924,
-            56412,
-            64982,
-            57905,
-            49316,
-            21502,
-            52590,
-            14035,
-            8553,
+            54554, 36645, 11616, 51542, 42930, 38181, 51040, 26924, 56412,
+            64982, 57905, 49316, 21502, 52590, 14035, 8553,
           ]),
           m = t([
-            26200,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
-            26214,
+            26200, 26214, 26214, 26214, 26214, 26214, 26214, 26214, 26214,
+            26214, 26214, 26214, 26214, 26214, 26214, 26214,
           ]),
           h = t([
-            41136,
-            18958,
-            6951,
-            50414,
-            58488,
-            44335,
-            6150,
-            12099,
-            55207,
-            15867,
-            153,
-            11085,
-            57099,
-            20417,
-            9344,
-            11139,
+            41136, 18958, 6951, 50414, 58488, 44335, 6150, 12099, 55207, 15867,
+            153, 11085, 57099, 20417, 9344, 11139,
           ]);
         function f(e, t, a, r) {
           (e[t] = (a >> 24) & 255),
@@ -5925,21 +5706,7 @@
           })(e, t, a, r);
         }
         var k = new Uint8Array([
-          101,
-          120,
-          112,
-          97,
-          110,
-          100,
-          32,
-          51,
-          50,
-          45,
-          98,
-          121,
-          116,
-          101,
-          32,
+          101, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, 101, 32,
           107,
         ]);
         function x(e, t, a, r, i, o, n) {
@@ -6852,166 +6619,34 @@
         var V = P,
           Q = A;
         var W = [
-          1116352408,
-          3609767458,
-          1899447441,
-          602891725,
-          3049323471,
-          3964484399,
-          3921009573,
-          2173295548,
-          961987163,
-          4081628472,
-          1508970993,
-          3053834265,
-          2453635748,
-          2937671579,
-          2870763221,
-          3664609560,
-          3624381080,
-          2734883394,
-          310598401,
-          1164996542,
-          607225278,
-          1323610764,
-          1426881987,
-          3590304994,
-          1925078388,
-          4068182383,
-          2162078206,
-          991336113,
-          2614888103,
-          633803317,
-          3248222580,
-          3479774868,
-          3835390401,
-          2666613458,
-          4022224774,
-          944711139,
-          264347078,
-          2341262773,
-          604807628,
-          2007800933,
-          770255983,
-          1495990901,
-          1249150122,
-          1856431235,
-          1555081692,
-          3175218132,
-          1996064986,
-          2198950837,
-          2554220882,
-          3999719339,
-          2821834349,
-          766784016,
-          2952996808,
-          2566594879,
-          3210313671,
-          3203337956,
-          3336571891,
-          1034457026,
-          3584528711,
-          2466948901,
-          113926993,
-          3758326383,
-          338241895,
-          168717936,
-          666307205,
-          1188179964,
-          773529912,
-          1546045734,
-          1294757372,
-          1522805485,
-          1396182291,
-          2643833823,
-          1695183700,
-          2343527390,
-          1986661051,
-          1014477480,
-          2177026350,
-          1206759142,
-          2456956037,
-          344077627,
-          2730485921,
-          1290863460,
-          2820302411,
-          3158454273,
-          3259730800,
-          3505952657,
-          3345764771,
-          106217008,
-          3516065817,
-          3606008344,
-          3600352804,
-          1432725776,
-          4094571909,
-          1467031594,
-          275423344,
-          851169720,
-          430227734,
-          3100823752,
-          506948616,
-          1363258195,
-          659060556,
-          3750685593,
-          883997877,
-          3785050280,
-          958139571,
-          3318307427,
-          1322822218,
-          3812723403,
-          1537002063,
-          2003034995,
-          1747873779,
-          3602036899,
-          1955562222,
-          1575990012,
-          2024104815,
-          1125592928,
-          2227730452,
-          2716904306,
-          2361852424,
-          442776044,
-          2428436474,
-          593698344,
-          2756734187,
-          3733110249,
-          3204031479,
-          2999351573,
-          3329325298,
-          3815920427,
-          3391569614,
-          3928383900,
-          3515267271,
-          566280711,
-          3940187606,
-          3454069534,
-          4118630271,
-          4000239992,
-          116418474,
-          1914138554,
-          174292421,
-          2731055270,
-          289380356,
-          3203993006,
-          460393269,
-          320620315,
-          685471733,
-          587496836,
-          852142971,
-          1086792851,
-          1017036298,
-          365543100,
-          1126000580,
-          2618297676,
-          1288033470,
-          3409855158,
-          1501505948,
-          4234509866,
-          1607167915,
-          987167468,
-          1816402316,
-          1246189591,
+          1116352408, 3609767458, 1899447441, 602891725, 3049323471, 3964484399,
+          3921009573, 2173295548, 961987163, 4081628472, 1508970993, 3053834265,
+          2453635748, 2937671579, 2870763221, 3664609560, 3624381080,
+          2734883394, 310598401, 1164996542, 607225278, 1323610764, 1426881987,
+          3590304994, 1925078388, 4068182383, 2162078206, 991336113, 2614888103,
+          633803317, 3248222580, 3479774868, 3835390401, 2666613458, 4022224774,
+          944711139, 264347078, 2341262773, 604807628, 2007800933, 770255983,
+          1495990901, 1249150122, 1856431235, 1555081692, 3175218132,
+          1996064986, 2198950837, 2554220882, 3999719339, 2821834349, 766784016,
+          2952996808, 2566594879, 3210313671, 3203337956, 3336571891,
+          1034457026, 3584528711, 2466948901, 113926993, 3758326383, 338241895,
+          168717936, 666307205, 1188179964, 773529912, 1546045734, 1294757372,
+          1522805485, 1396182291, 2643833823, 1695183700, 2343527390,
+          1986661051, 1014477480, 2177026350, 1206759142, 2456956037, 344077627,
+          2730485921, 1290863460, 2820302411, 3158454273, 3259730800,
+          3505952657, 3345764771, 106217008, 3516065817, 3606008344, 3600352804,
+          1432725776, 4094571909, 1467031594, 275423344, 851169720, 430227734,
+          3100823752, 506948616, 1363258195, 659060556, 3750685593, 883997877,
+          3785050280, 958139571, 3318307427, 1322822218, 3812723403, 1537002063,
+          2003034995, 1747873779, 3602036899, 1955562222, 1575990012,
+          2024104815, 1125592928, 2227730452, 2716904306, 2361852424, 442776044,
+          2428436474, 593698344, 2756734187, 3733110249, 3204031479, 2999351573,
+          3329325298, 3815920427, 3391569614, 3928383900, 3515267271, 566280711,
+          3940187606, 3454069534, 4118630271, 4000239992, 116418474, 1914138554,
+          174292421, 2731055270, 289380356, 3203993006, 460393269, 320620315,
+          685471733, 587496836, 852142971, 1086792851, 1017036298, 365543100,
+          1126000580, 2618297676, 1288033470, 3409855158, 1501505948,
+          4234509866, 1607167915, 987167468, 1816402316, 1246189591,
         ];
         function G(e, t, a, r) {
           for (
@@ -7432,38 +7067,8 @@
           return 0;
         }
         var re = new Float64Array([
-          237,
-          211,
-          245,
-          92,
-          26,
-          99,
-          18,
-          88,
-          214,
-          156,
-          247,
-          162,
-          222,
-          249,
-          222,
-          20,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          16,
+          237, 211, 245, 92, 26, 99, 18, 88, 214, 156, 247, 162, 222, 249, 222,
+          20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16,
         ]);
         function ie(e, t) {
           var a, r, i, o;
@@ -7644,11 +7249,15 @@
         }),
           e.util ||
             ((e.util = {}),
-            (e.util.decodeUTF8 = e.util.encodeUTF8 = e.util.encodeBase64 = e.util.decodeBase64 = function () {
-              throw new Error(
-                'nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js'
-              );
-            })),
+            (e.util.decodeUTF8 =
+              e.util.encodeUTF8 =
+              e.util.encodeBase64 =
+              e.util.decodeBase64 =
+                function () {
+                  throw new Error(
+                    'nacl.util moved into separate package: https://github.com/dchest/tweetnacl-util-js'
+                  );
+                })),
           (e.randomBytes = function (e) {
             var t = new Uint8Array(e);
             return r(t, e), t;
@@ -8672,7 +8281,8 @@
         i = (a(8), a(4), a(27), a(14), a(13), a(3), a(6)),
         o = a(15),
         n = a(2).Buffer,
-        s = /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i,
+        s =
+          /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i,
         c = {
           cn: '2.5.4.3',
           o: '2.5.4.10',
@@ -9851,7 +9461,8 @@
         i = a(12),
         o = a(9),
         n = {
-          isoDate: /^(?:[-+]\d{2})?(?:\d{4}(?!\d{2}\b))(?:(-?)(?:(?:0[1-9]|1[0-2])(?:\1(?:[12]\d|0[1-9]|3[01]))?|W(?:[0-4]\d|5[0-2])(?:-?[1-7])?|(?:00[1-9]|0[1-9]\d|[12]\d{2}|3(?:[0-5]\d|6[1-6])))(?![T]$|[T][\d]+Z$)(?:[T\s](?:(?:(?:[01]\d|2[0-3])(?:(:?)[0-5]\d)?|24\:?00)(?:[.,]\d+(?!:))?)(?:\2[0-5]\d(?:[.,]\d+)?)?(?:[Z]|(?:[+-])(?:[01]\d|2[0-3])(?::?[0-5]\d)?)?)?)?$/,
+          isoDate:
+            /^(?:[-+]\d{2})?(?:\d{4}(?!\d{2}\b))(?:(-?)(?:(?:0[1-9]|1[0-2])(?:\1(?:[12]\d|0[1-9]|3[01]))?|W(?:[0-4]\d|5[0-2])(?:-?[1-7])?|(?:00[1-9]|0[1-9]\d|[12]\d{2}|3(?:[0-5]\d|6[1-6])))(?![T]$|[T][\d]+Z$)(?:[T\s](?:(?:(?:[01]\d|2[0-3])(?:(:?)[0-5]\d)?|24\:?00)(?:[.,]\d+(?!:))?)(?:\2[0-5]\d(?:[.,]\d+)?)?(?:[Z]|(?:[+-])(?:[01]\d|2[0-3])(?::?[0-5]\d)?)?)?)?$/,
         };
       (n.invalidDate = new Date('')),
         (n.isIsoDate = (() => {
@@ -11616,11 +11227,12 @@
                   e
                 );
               }),
-              (t.alternatives = t.alt = function () {
-                return arguments.length
-                  ? u.alternatives.try.apply(u.alternatives, arguments)
-                  : u.alternatives;
-              }),
+              (t.alternatives = t.alt =
+                function () {
+                  return arguments.length
+                    ? u.alternatives.try.apply(u.alternatives, arguments)
+                    : u.alternatives;
+                }),
               (t.array = function () {
                 return (
                   r.assert(
@@ -11630,15 +11242,16 @@
                   u.array
                 );
               }),
-              (t.boolean = t.bool = function () {
-                return (
-                  r.assert(
-                    0 === arguments.length,
-                    'Joi.boolean() does not allow arguments.'
-                  ),
-                  u.boolean
-                );
-              }),
+              (t.boolean = t.bool =
+                function () {
+                  return (
+                    r.assert(
+                      0 === arguments.length,
+                      'Joi.boolean() does not allow arguments.'
+                    ),
+                    u.boolean
+                  );
+                }),
               (t.binary = function () {
                 return (
                   r.assert(
@@ -12327,7 +11940,8 @@
           });
         }
         hostname() {
-          const e = /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
+          const e =
+            /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/;
           return this._test('hostname', void 0, function (t, a, i) {
             return (t.length <= 255 && e.test(t)) || r.isIPv6(t)
               ? t
@@ -13955,1057 +13569,224 @@
         o = function () {
           (this.S = [
             new Uint32Array([
-              3509652390,
-              2564797868,
-              805139163,
-              3491422135,
-              3101798381,
-              1780907670,
-              3128725573,
-              4046225305,
-              614570311,
-              3012652279,
-              134345442,
-              2240740374,
-              1667834072,
-              1901547113,
-              2757295779,
-              4103290238,
-              227898511,
-              1921955416,
-              1904987480,
-              2182433518,
-              2069144605,
-              3260701109,
-              2620446009,
-              720527379,
-              3318853667,
-              677414384,
-              3393288472,
-              3101374703,
-              2390351024,
-              1614419982,
-              1822297739,
-              2954791486,
-              3608508353,
-              3174124327,
-              2024746970,
-              1432378464,
-              3864339955,
-              2857741204,
-              1464375394,
-              1676153920,
-              1439316330,
-              715854006,
-              3033291828,
-              289532110,
-              2706671279,
-              2087905683,
-              3018724369,
-              1668267050,
-              732546397,
-              1947742710,
-              3462151702,
-              2609353502,
-              2950085171,
-              1814351708,
-              2050118529,
-              680887927,
-              999245976,
-              1800124847,
-              3300911131,
-              1713906067,
-              1641548236,
-              4213287313,
-              1216130144,
-              1575780402,
-              4018429277,
-              3917837745,
-              3693486850,
-              3949271944,
-              596196993,
-              3549867205,
-              258830323,
-              2213823033,
-              772490370,
-              2760122372,
-              1774776394,
-              2652871518,
-              566650946,
-              4142492826,
-              1728879713,
-              2882767088,
-              1783734482,
-              3629395816,
-              2517608232,
-              2874225571,
-              1861159788,
-              326777828,
-              3124490320,
-              2130389656,
-              2716951837,
-              967770486,
-              1724537150,
-              2185432712,
-              2364442137,
-              1164943284,
-              2105845187,
-              998989502,
-              3765401048,
-              2244026483,
-              1075463327,
-              1455516326,
-              1322494562,
-              910128902,
-              469688178,
-              1117454909,
-              936433444,
-              3490320968,
-              3675253459,
-              1240580251,
-              122909385,
-              2157517691,
-              634681816,
-              4142456567,
-              3825094682,
-              3061402683,
-              2540495037,
-              79693498,
-              3249098678,
-              1084186820,
-              1583128258,
-              426386531,
-              1761308591,
-              1047286709,
-              322548459,
-              995290223,
-              1845252383,
-              2603652396,
-              3431023940,
-              2942221577,
-              3202600964,
-              3727903485,
-              1712269319,
-              422464435,
-              3234572375,
-              1170764815,
-              3523960633,
-              3117677531,
-              1434042557,
-              442511882,
-              3600875718,
-              1076654713,
-              1738483198,
-              4213154764,
-              2393238008,
-              3677496056,
-              1014306527,
-              4251020053,
-              793779912,
-              2902807211,
-              842905082,
-              4246964064,
-              1395751752,
-              1040244610,
-              2656851899,
-              3396308128,
-              445077038,
-              3742853595,
-              3577915638,
-              679411651,
-              2892444358,
-              2354009459,
-              1767581616,
-              3150600392,
-              3791627101,
-              3102740896,
-              284835224,
-              4246832056,
-              1258075500,
-              768725851,
-              2589189241,
-              3069724005,
-              3532540348,
-              1274779536,
-              3789419226,
-              2764799539,
-              1660621633,
-              3471099624,
-              4011903706,
-              913787905,
-              3497959166,
-              737222580,
-              2514213453,
-              2928710040,
-              3937242737,
-              1804850592,
-              3499020752,
-              2949064160,
-              2386320175,
-              2390070455,
-              2415321851,
-              4061277028,
-              2290661394,
-              2416832540,
-              1336762016,
-              1754252060,
-              3520065937,
-              3014181293,
-              791618072,
-              3188594551,
-              3933548030,
-              2332172193,
-              3852520463,
-              3043980520,
-              413987798,
-              3465142937,
-              3030929376,
-              4245938359,
-              2093235073,
-              3534596313,
-              375366246,
-              2157278981,
-              2479649556,
-              555357303,
-              3870105701,
-              2008414854,
-              3344188149,
-              4221384143,
-              3956125452,
-              2067696032,
-              3594591187,
-              2921233993,
-              2428461,
-              544322398,
-              577241275,
-              1471733935,
-              610547355,
-              4027169054,
-              1432588573,
-              1507829418,
-              2025931657,
-              3646575487,
-              545086370,
-              48609733,
-              2200306550,
-              1653985193,
-              298326376,
-              1316178497,
-              3007786442,
-              2064951626,
-              458293330,
-              2589141269,
-              3591329599,
-              3164325604,
-              727753846,
-              2179363840,
-              146436021,
-              1461446943,
-              4069977195,
-              705550613,
-              3059967265,
-              3887724982,
-              4281599278,
-              3313849956,
-              1404054877,
-              2845806497,
-              146425753,
-              1854211946,
+              3509652390, 2564797868, 805139163, 3491422135, 3101798381,
+              1780907670, 3128725573, 4046225305, 614570311, 3012652279,
+              134345442, 2240740374, 1667834072, 1901547113, 2757295779,
+              4103290238, 227898511, 1921955416, 1904987480, 2182433518,
+              2069144605, 3260701109, 2620446009, 720527379, 3318853667,
+              677414384, 3393288472, 3101374703, 2390351024, 1614419982,
+              1822297739, 2954791486, 3608508353, 3174124327, 2024746970,
+              1432378464, 3864339955, 2857741204, 1464375394, 1676153920,
+              1439316330, 715854006, 3033291828, 289532110, 2706671279,
+              2087905683, 3018724369, 1668267050, 732546397, 1947742710,
+              3462151702, 2609353502, 2950085171, 1814351708, 2050118529,
+              680887927, 999245976, 1800124847, 3300911131, 1713906067,
+              1641548236, 4213287313, 1216130144, 1575780402, 4018429277,
+              3917837745, 3693486850, 3949271944, 596196993, 3549867205,
+              258830323, 2213823033, 772490370, 2760122372, 1774776394,
+              2652871518, 566650946, 4142492826, 1728879713, 2882767088,
+              1783734482, 3629395816, 2517608232, 2874225571, 1861159788,
+              326777828, 3124490320, 2130389656, 2716951837, 967770486,
+              1724537150, 2185432712, 2364442137, 1164943284, 2105845187,
+              998989502, 3765401048, 2244026483, 1075463327, 1455516326,
+              1322494562, 910128902, 469688178, 1117454909, 936433444,
+              3490320968, 3675253459, 1240580251, 122909385, 2157517691,
+              634681816, 4142456567, 3825094682, 3061402683, 2540495037,
+              79693498, 3249098678, 1084186820, 1583128258, 426386531,
+              1761308591, 1047286709, 322548459, 995290223, 1845252383,
+              2603652396, 3431023940, 2942221577, 3202600964, 3727903485,
+              1712269319, 422464435, 3234572375, 1170764815, 3523960633,
+              3117677531, 1434042557, 442511882, 3600875718, 1076654713,
+              1738483198, 4213154764, 2393238008, 3677496056, 1014306527,
+              4251020053, 793779912, 2902807211, 842905082, 4246964064,
+              1395751752, 1040244610, 2656851899, 3396308128, 445077038,
+              3742853595, 3577915638, 679411651, 2892444358, 2354009459,
+              1767581616, 3150600392, 3791627101, 3102740896, 284835224,
+              4246832056, 1258075500, 768725851, 2589189241, 3069724005,
+              3532540348, 1274779536, 3789419226, 2764799539, 1660621633,
+              3471099624, 4011903706, 913787905, 3497959166, 737222580,
+              2514213453, 2928710040, 3937242737, 1804850592, 3499020752,
+              2949064160, 2386320175, 2390070455, 2415321851, 4061277028,
+              2290661394, 2416832540, 1336762016, 1754252060, 3520065937,
+              3014181293, 791618072, 3188594551, 3933548030, 2332172193,
+              3852520463, 3043980520, 413987798, 3465142937, 3030929376,
+              4245938359, 2093235073, 3534596313, 375366246, 2157278981,
+              2479649556, 555357303, 3870105701, 2008414854, 3344188149,
+              4221384143, 3956125452, 2067696032, 3594591187, 2921233993,
+              2428461, 544322398, 577241275, 1471733935, 610547355, 4027169054,
+              1432588573, 1507829418, 2025931657, 3646575487, 545086370,
+              48609733, 2200306550, 1653985193, 298326376, 1316178497,
+              3007786442, 2064951626, 458293330, 2589141269, 3591329599,
+              3164325604, 727753846, 2179363840, 146436021, 1461446943,
+              4069977195, 705550613, 3059967265, 3887724982, 4281599278,
+              3313849956, 1404054877, 2845806497, 146425753, 1854211946,
             ]),
             new Uint32Array([
-              1266315497,
-              3048417604,
-              3681880366,
-              3289982499,
-              290971e4,
-              1235738493,
-              2632868024,
-              2414719590,
-              3970600049,
-              1771706367,
-              1449415276,
-              3266420449,
-              422970021,
-              1963543593,
-              2690192192,
-              3826793022,
-              1062508698,
-              1531092325,
-              1804592342,
-              2583117782,
-              2714934279,
-              4024971509,
-              1294809318,
-              4028980673,
-              1289560198,
-              2221992742,
-              1669523910,
-              35572830,
-              157838143,
-              1052438473,
-              1016535060,
-              1802137761,
-              1753167236,
-              1386275462,
-              3080475397,
-              2857371447,
-              1040679964,
-              2145300060,
-              2390574316,
-              1461121720,
-              2956646967,
-              4031777805,
-              4028374788,
-              33600511,
-              2920084762,
-              1018524850,
-              629373528,
-              3691585981,
-              3515945977,
-              2091462646,
-              2486323059,
-              586499841,
-              988145025,
-              935516892,
-              3367335476,
-              2599673255,
-              2839830854,
-              265290510,
-              3972581182,
-              2759138881,
-              3795373465,
-              1005194799,
-              847297441,
-              406762289,
-              1314163512,
-              1332590856,
-              1866599683,
-              4127851711,
-              750260880,
-              613907577,
-              1450815602,
-              3165620655,
-              3734664991,
-              3650291728,
-              3012275730,
-              3704569646,
-              1427272223,
-              778793252,
-              1343938022,
-              2676280711,
-              2052605720,
-              1946737175,
-              3164576444,
-              3914038668,
-              3967478842,
-              3682934266,
-              1661551462,
-              3294938066,
-              4011595847,
-              840292616,
-              3712170807,
-              616741398,
-              312560963,
-              711312465,
-              1351876610,
-              322626781,
-              1910503582,
-              271666773,
-              2175563734,
-              1594956187,
-              70604529,
-              3617834859,
-              1007753275,
-              1495573769,
-              4069517037,
-              2549218298,
-              2663038764,
-              504708206,
-              2263041392,
-              3941167025,
-              2249088522,
-              1514023603,
-              1998579484,
-              1312622330,
-              694541497,
-              2582060303,
-              2151582166,
-              1382467621,
-              776784248,
-              2618340202,
-              3323268794,
-              2497899128,
-              2784771155,
-              503983604,
-              4076293799,
-              907881277,
-              423175695,
-              432175456,
-              1378068232,
-              4145222326,
-              3954048622,
-              3938656102,
-              3820766613,
-              2793130115,
-              2977904593,
-              26017576,
-              3274890735,
-              3194772133,
-              1700274565,
-              1756076034,
-              4006520079,
-              3677328699,
-              720338349,
-              1533947780,
-              354530856,
-              688349552,
-              3973924725,
-              1637815568,
-              332179504,
-              3949051286,
-              53804574,
-              2852348879,
-              3044236432,
-              1282449977,
-              3583942155,
-              3416972820,
-              4006381244,
-              1617046695,
-              2628476075,
-              3002303598,
-              1686838959,
-              431878346,
-              2686675385,
-              1700445008,
-              1080580658,
-              1009431731,
-              832498133,
-              3223435511,
-              2605976345,
-              2271191193,
-              2516031870,
-              1648197032,
-              4164389018,
-              2548247927,
-              300782431,
-              375919233,
-              238389289,
-              3353747414,
-              2531188641,
-              2019080857,
-              1475708069,
-              455242339,
-              2609103871,
-              448939670,
-              3451063019,
-              1395535956,
-              2413381860,
-              1841049896,
-              1491858159,
-              885456874,
-              4264095073,
-              4001119347,
-              1565136089,
-              3898914787,
-              1108368660,
-              540939232,
-              1173283510,
-              2745871338,
-              3681308437,
-              4207628240,
-              3343053890,
-              4016749493,
-              1699691293,
-              1103962373,
-              3625875870,
-              2256883143,
-              3830138730,
-              1031889488,
-              3479347698,
-              1535977030,
-              4236805024,
-              3251091107,
-              2132092099,
-              1774941330,
-              1199868427,
-              1452454533,
-              157007616,
-              2904115357,
-              342012276,
-              595725824,
-              1480756522,
-              206960106,
-              497939518,
-              591360097,
-              863170706,
-              2375253569,
-              3596610801,
-              1814182875,
-              2094937945,
-              3421402208,
-              1082520231,
-              3463918190,
-              2785509508,
-              435703966,
-              3908032597,
-              1641649973,
-              2842273706,
-              3305899714,
-              1510255612,
-              2148256476,
-              2655287854,
-              3276092548,
-              4258621189,
-              236887753,
-              3681803219,
-              274041037,
-              1734335097,
-              3815195456,
-              3317970021,
-              1899903192,
-              1026095262,
-              4050517792,
-              356393447,
-              2410691914,
-              3873677099,
+              1266315497, 3048417604, 3681880366, 3289982499, 290971e4,
+              1235738493, 2632868024, 2414719590, 3970600049, 1771706367,
+              1449415276, 3266420449, 422970021, 1963543593, 2690192192,
+              3826793022, 1062508698, 1531092325, 1804592342, 2583117782,
+              2714934279, 4024971509, 1294809318, 4028980673, 1289560198,
+              2221992742, 1669523910, 35572830, 157838143, 1052438473,
+              1016535060, 1802137761, 1753167236, 1386275462, 3080475397,
+              2857371447, 1040679964, 2145300060, 2390574316, 1461121720,
+              2956646967, 4031777805, 4028374788, 33600511, 2920084762,
+              1018524850, 629373528, 3691585981, 3515945977, 2091462646,
+              2486323059, 586499841, 988145025, 935516892, 3367335476,
+              2599673255, 2839830854, 265290510, 3972581182, 2759138881,
+              3795373465, 1005194799, 847297441, 406762289, 1314163512,
+              1332590856, 1866599683, 4127851711, 750260880, 613907577,
+              1450815602, 3165620655, 3734664991, 3650291728, 3012275730,
+              3704569646, 1427272223, 778793252, 1343938022, 2676280711,
+              2052605720, 1946737175, 3164576444, 3914038668, 3967478842,
+              3682934266, 1661551462, 3294938066, 4011595847, 840292616,
+              3712170807, 616741398, 312560963, 711312465, 1351876610,
+              322626781, 1910503582, 271666773, 2175563734, 1594956187,
+              70604529, 3617834859, 1007753275, 1495573769, 4069517037,
+              2549218298, 2663038764, 504708206, 2263041392, 3941167025,
+              2249088522, 1514023603, 1998579484, 1312622330, 694541497,
+              2582060303, 2151582166, 1382467621, 776784248, 2618340202,
+              3323268794, 2497899128, 2784771155, 503983604, 4076293799,
+              907881277, 423175695, 432175456, 1378068232, 4145222326,
+              3954048622, 3938656102, 3820766613, 2793130115, 2977904593,
+              26017576, 3274890735, 3194772133, 1700274565, 1756076034,
+              4006520079, 3677328699, 720338349, 1533947780, 354530856,
+              688349552, 3973924725, 1637815568, 332179504, 3949051286,
+              53804574, 2852348879, 3044236432, 1282449977, 3583942155,
+              3416972820, 4006381244, 1617046695, 2628476075, 3002303598,
+              1686838959, 431878346, 2686675385, 1700445008, 1080580658,
+              1009431731, 832498133, 3223435511, 2605976345, 2271191193,
+              2516031870, 1648197032, 4164389018, 2548247927, 300782431,
+              375919233, 238389289, 3353747414, 2531188641, 2019080857,
+              1475708069, 455242339, 2609103871, 448939670, 3451063019,
+              1395535956, 2413381860, 1841049896, 1491858159, 885456874,
+              4264095073, 4001119347, 1565136089, 3898914787, 1108368660,
+              540939232, 1173283510, 2745871338, 3681308437, 4207628240,
+              3343053890, 4016749493, 1699691293, 1103962373, 3625875870,
+              2256883143, 3830138730, 1031889488, 3479347698, 1535977030,
+              4236805024, 3251091107, 2132092099, 1774941330, 1199868427,
+              1452454533, 157007616, 2904115357, 342012276, 595725824,
+              1480756522, 206960106, 497939518, 591360097, 863170706,
+              2375253569, 3596610801, 1814182875, 2094937945, 3421402208,
+              1082520231, 3463918190, 2785509508, 435703966, 3908032597,
+              1641649973, 2842273706, 3305899714, 1510255612, 2148256476,
+              2655287854, 3276092548, 4258621189, 236887753, 3681803219,
+              274041037, 1734335097, 3815195456, 3317970021, 1899903192,
+              1026095262, 4050517792, 356393447, 2410691914, 3873677099,
               3682840055,
             ]),
             new Uint32Array([
-              3913112168,
-              2491498743,
-              4132185628,
-              2489919796,
-              1091903735,
-              1979897079,
-              3170134830,
-              3567386728,
-              3557303409,
-              857797738,
-              1136121015,
-              1342202287,
-              507115054,
-              2535736646,
-              337727348,
-              3213592640,
-              1301675037,
-              2528481711,
-              1895095763,
-              1721773893,
-              3216771564,
-              62756741,
-              2142006736,
-              835421444,
-              2531993523,
-              1442658625,
-              3659876326,
-              2882144922,
-              676362277,
-              1392781812,
-              170690266,
-              3921047035,
-              1759253602,
-              3611846912,
-              1745797284,
-              664899054,
-              1329594018,
-              3901205900,
-              3045908486,
-              2062866102,
-              2865634940,
-              3543621612,
-              3464012697,
-              1080764994,
-              553557557,
-              3656615353,
-              3996768171,
-              991055499,
-              499776247,
-              1265440854,
-              648242737,
-              3940784050,
-              980351604,
-              3713745714,
-              1749149687,
-              3396870395,
-              4211799374,
-              3640570775,
-              1161844396,
-              3125318951,
-              1431517754,
-              545492359,
-              4268468663,
-              3499529547,
-              1437099964,
-              2702547544,
-              3433638243,
-              2581715763,
-              2787789398,
-              1060185593,
-              1593081372,
-              2418618748,
-              4260947970,
-              69676912,
-              2159744348,
-              86519011,
-              2512459080,
-              3838209314,
-              1220612927,
-              3339683548,
-              133810670,
-              1090789135,
-              1078426020,
-              1569222167,
-              845107691,
-              3583754449,
-              4072456591,
-              1091646820,
-              628848692,
-              1613405280,
-              3757631651,
-              526609435,
-              236106946,
-              48312990,
-              2942717905,
-              3402727701,
-              1797494240,
-              859738849,
-              992217954,
-              4005476642,
-              2243076622,
-              3870952857,
-              3732016268,
-              765654824,
-              3490871365,
-              2511836413,
-              1685915746,
-              3888969200,
-              1414112111,
-              2273134842,
-              3281911079,
-              4080962846,
-              172450625,
-              2569994100,
-              980381355,
-              4109958455,
-              2819808352,
-              2716589560,
-              2568741196,
-              3681446669,
-              3329971472,
-              1835478071,
-              660984891,
-              3704678404,
-              4045999559,
-              3422617507,
-              3040415634,
-              1762651403,
-              1719377915,
-              3470491036,
-              2693910283,
-              3642056355,
-              3138596744,
-              1364962596,
-              2073328063,
-              1983633131,
-              926494387,
-              3423689081,
-              2150032023,
-              4096667949,
-              1749200295,
-              3328846651,
-              309677260,
-              2016342300,
-              1779581495,
-              3079819751,
-              111262694,
-              1274766160,
-              443224088,
-              298511866,
-              1025883608,
-              3806446537,
-              1145181785,
-              168956806,
-              3641502830,
-              3584813610,
-              1689216846,
-              3666258015,
-              3200248200,
-              1692713982,
-              2646376535,
-              4042768518,
-              1618508792,
-              1610833997,
-              3523052358,
-              4130873264,
-              2001055236,
-              3610705100,
-              2202168115,
-              4028541809,
-              2961195399,
-              1006657119,
-              2006996926,
-              3186142756,
-              1430667929,
-              3210227297,
-              1314452623,
-              4074634658,
-              4101304120,
-              2273951170,
-              1399257539,
-              3367210612,
-              3027628629,
-              1190975929,
-              2062231137,
-              2333990788,
-              2221543033,
-              2438960610,
-              1181637006,
-              548689776,
-              2362791313,
-              3372408396,
-              3104550113,
-              3145860560,
-              296247880,
-              1970579870,
-              3078560182,
-              3769228297,
-              1714227617,
-              3291629107,
-              3898220290,
-              166772364,
-              1251581989,
-              493813264,
-              448347421,
-              195405023,
-              2709975567,
-              677966185,
-              3703036547,
-              1463355134,
-              2715995803,
-              1338867538,
-              1343315457,
-              2802222074,
-              2684532164,
-              233230375,
-              2599980071,
-              2000651841,
-              3277868038,
-              1638401717,
-              4028070440,
-              3237316320,
-              6314154,
-              819756386,
-              300326615,
-              590932579,
-              1405279636,
-              3267499572,
-              3150704214,
-              2428286686,
-              3959192993,
-              3461946742,
-              1862657033,
-              1266418056,
-              963775037,
-              2089974820,
-              2263052895,
-              1917689273,
-              448879540,
-              3550394620,
-              3981727096,
-              150775221,
-              3627908307,
-              1303187396,
-              508620638,
-              2975983352,
-              2726630617,
-              1817252668,
-              1876281319,
-              1457606340,
-              908771278,
-              3720792119,
-              3617206836,
-              2455994898,
-              1729034894,
-              1080033504,
+              3913112168, 2491498743, 4132185628, 2489919796, 1091903735,
+              1979897079, 3170134830, 3567386728, 3557303409, 857797738,
+              1136121015, 1342202287, 507115054, 2535736646, 337727348,
+              3213592640, 1301675037, 2528481711, 1895095763, 1721773893,
+              3216771564, 62756741, 2142006736, 835421444, 2531993523,
+              1442658625, 3659876326, 2882144922, 676362277, 1392781812,
+              170690266, 3921047035, 1759253602, 3611846912, 1745797284,
+              664899054, 1329594018, 3901205900, 3045908486, 2062866102,
+              2865634940, 3543621612, 3464012697, 1080764994, 553557557,
+              3656615353, 3996768171, 991055499, 499776247, 1265440854,
+              648242737, 3940784050, 980351604, 3713745714, 1749149687,
+              3396870395, 4211799374, 3640570775, 1161844396, 3125318951,
+              1431517754, 545492359, 4268468663, 3499529547, 1437099964,
+              2702547544, 3433638243, 2581715763, 2787789398, 1060185593,
+              1593081372, 2418618748, 4260947970, 69676912, 2159744348,
+              86519011, 2512459080, 3838209314, 1220612927, 3339683548,
+              133810670, 1090789135, 1078426020, 1569222167, 845107691,
+              3583754449, 4072456591, 1091646820, 628848692, 1613405280,
+              3757631651, 526609435, 236106946, 48312990, 2942717905,
+              3402727701, 1797494240, 859738849, 992217954, 4005476642,
+              2243076622, 3870952857, 3732016268, 765654824, 3490871365,
+              2511836413, 1685915746, 3888969200, 1414112111, 2273134842,
+              3281911079, 4080962846, 172450625, 2569994100, 980381355,
+              4109958455, 2819808352, 2716589560, 2568741196, 3681446669,
+              3329971472, 1835478071, 660984891, 3704678404, 4045999559,
+              3422617507, 3040415634, 1762651403, 1719377915, 3470491036,
+              2693910283, 3642056355, 3138596744, 1364962596, 2073328063,
+              1983633131, 926494387, 3423689081, 2150032023, 4096667949,
+              1749200295, 3328846651, 309677260, 2016342300, 1779581495,
+              3079819751, 111262694, 1274766160, 443224088, 298511866,
+              1025883608, 3806446537, 1145181785, 168956806, 3641502830,
+              3584813610, 1689216846, 3666258015, 3200248200, 1692713982,
+              2646376535, 4042768518, 1618508792, 1610833997, 3523052358,
+              4130873264, 2001055236, 3610705100, 2202168115, 4028541809,
+              2961195399, 1006657119, 2006996926, 3186142756, 1430667929,
+              3210227297, 1314452623, 4074634658, 4101304120, 2273951170,
+              1399257539, 3367210612, 3027628629, 1190975929, 2062231137,
+              2333990788, 2221543033, 2438960610, 1181637006, 548689776,
+              2362791313, 3372408396, 3104550113, 3145860560, 296247880,
+              1970579870, 3078560182, 3769228297, 1714227617, 3291629107,
+              3898220290, 166772364, 1251581989, 493813264, 448347421,
+              195405023, 2709975567, 677966185, 3703036547, 1463355134,
+              2715995803, 1338867538, 1343315457, 2802222074, 2684532164,
+              233230375, 2599980071, 2000651841, 3277868038, 1638401717,
+              4028070440, 3237316320, 6314154, 819756386, 300326615, 590932579,
+              1405279636, 3267499572, 3150704214, 2428286686, 3959192993,
+              3461946742, 1862657033, 1266418056, 963775037, 2089974820,
+              2263052895, 1917689273, 448879540, 3550394620, 3981727096,
+              150775221, 3627908307, 1303187396, 508620638, 2975983352,
+              2726630617, 1817252668, 1876281319, 1457606340, 908771278,
+              3720792119, 3617206836, 2455994898, 1729034894, 1080033504,
             ]),
             new Uint32Array([
-              976866871,
-              3556439503,
-              2881648439,
-              1522871579,
-              1555064734,
-              1336096578,
-              3548522304,
-              2579274686,
-              3574697629,
-              3205460757,
-              3593280638,
-              3338716283,
-              3079412587,
-              564236357,
-              2993598910,
-              1781952180,
-              1464380207,
-              3163844217,
-              3332601554,
-              1699332808,
-              1393555694,
-              1183702653,
-              3581086237,
-              1288719814,
-              691649499,
-              2847557200,
-              2895455976,
-              3193889540,
-              2717570544,
-              1781354906,
-              1676643554,
-              2592534050,
-              3230253752,
-              1126444790,
-              2770207658,
-              2633158820,
-              2210423226,
-              2615765581,
-              2414155088,
-              3127139286,
-              673620729,
-              2805611233,
-              1269405062,
-              4015350505,
-              3341807571,
-              4149409754,
-              1057255273,
-              2012875353,
-              2162469141,
-              2276492801,
-              2601117357,
-              993977747,
-              3918593370,
-              2654263191,
-              753973209,
-              36408145,
-              2530585658,
-              25011837,
-              3520020182,
-              2088578344,
-              530523599,
-              2918365339,
-              1524020338,
-              1518925132,
-              3760827505,
-              3759777254,
-              1202760957,
-              3985898139,
-              3906192525,
-              674977740,
-              4174734889,
-              2031300136,
-              2019492241,
-              3983892565,
-              4153806404,
-              3822280332,
-              352677332,
-              2297720250,
-              60907813,
-              90501309,
-              3286998549,
-              1016092578,
-              2535922412,
-              2839152426,
-              457141659,
-              509813237,
-              4120667899,
-              652014361,
-              1966332200,
-              2975202805,
-              55981186,
-              2327461051,
-              676427537,
-              3255491064,
-              2882294119,
-              3433927263,
-              1307055953,
-              942726286,
-              933058658,
-              2468411793,
-              3933900994,
-              4215176142,
-              1361170020,
-              2001714738,
-              2830558078,
-              3274259782,
-              1222529897,
-              1679025792,
-              2729314320,
-              3714953764,
-              1770335741,
-              151462246,
-              3013232138,
-              1682292957,
-              1483529935,
-              471910574,
-              1539241949,
-              458788160,
-              3436315007,
-              1807016891,
-              3718408830,
-              978976581,
-              1043663428,
-              3165965781,
-              1927990952,
-              4200891579,
-              2372276910,
-              3208408903,
-              3533431907,
-              1412390302,
-              2931980059,
-              4132332400,
-              1947078029,
-              3881505623,
-              4168226417,
-              2941484381,
-              1077988104,
-              1320477388,
-              886195818,
-              18198404,
-              3786409e3,
-              2509781533,
-              112762804,
-              3463356488,
-              1866414978,
-              891333506,
-              18488651,
-              661792760,
-              1628790961,
-              3885187036,
-              3141171499,
-              876946877,
-              2693282273,
-              1372485963,
-              791857591,
-              2686433993,
-              3759982718,
-              3167212022,
-              3472953795,
-              2716379847,
-              445679433,
-              3561995674,
-              3504004811,
-              3574258232,
-              54117162,
-              3331405415,
-              2381918588,
-              3769707343,
-              4154350007,
-              1140177722,
-              4074052095,
-              668550556,
-              3214352940,
-              367459370,
-              261225585,
-              2610173221,
-              4209349473,
-              3468074219,
-              3265815641,
-              314222801,
-              3066103646,
-              3808782860,
-              282218597,
-              3406013506,
-              3773591054,
-              379116347,
-              1285071038,
-              846784868,
-              2669647154,
-              3771962079,
-              3550491691,
-              2305946142,
-              453669953,
-              1268987020,
-              3317592352,
-              3279303384,
-              3744833421,
-              2610507566,
-              3859509063,
-              266596637,
-              3847019092,
-              517658769,
-              3462560207,
-              3443424879,
-              370717030,
-              4247526661,
-              2224018117,
-              4143653529,
-              4112773975,
-              2788324899,
-              2477274417,
-              1456262402,
-              2901442914,
-              1517677493,
-              1846949527,
-              2295493580,
-              3734397586,
-              2176403920,
-              1280348187,
-              1908823572,
-              3871786941,
-              846861322,
-              1172426758,
-              3287448474,
-              3383383037,
-              1655181056,
-              3139813346,
-              901632758,
-              1897031941,
-              2986607138,
-              3066810236,
-              3447102507,
-              1393639104,
-              373351379,
-              950779232,
-              625454576,
-              3124240540,
-              4148612726,
-              2007998917,
-              544563296,
-              2244738638,
-              2330496472,
-              2058025392,
-              1291430526,
-              424198748,
-              50039436,
-              29584100,
-              3605783033,
-              2429876329,
-              2791104160,
-              1057563949,
-              3255363231,
-              3075367218,
-              3463963227,
-              1469046755,
-              985887462,
+              976866871, 3556439503, 2881648439, 1522871579, 1555064734,
+              1336096578, 3548522304, 2579274686, 3574697629, 3205460757,
+              3593280638, 3338716283, 3079412587, 564236357, 2993598910,
+              1781952180, 1464380207, 3163844217, 3332601554, 1699332808,
+              1393555694, 1183702653, 3581086237, 1288719814, 691649499,
+              2847557200, 2895455976, 3193889540, 2717570544, 1781354906,
+              1676643554, 2592534050, 3230253752, 1126444790, 2770207658,
+              2633158820, 2210423226, 2615765581, 2414155088, 3127139286,
+              673620729, 2805611233, 1269405062, 4015350505, 3341807571,
+              4149409754, 1057255273, 2012875353, 2162469141, 2276492801,
+              2601117357, 993977747, 3918593370, 2654263191, 753973209,
+              36408145, 2530585658, 25011837, 3520020182, 2088578344, 530523599,
+              2918365339, 1524020338, 1518925132, 3760827505, 3759777254,
+              1202760957, 3985898139, 3906192525, 674977740, 4174734889,
+              2031300136, 2019492241, 3983892565, 4153806404, 3822280332,
+              352677332, 2297720250, 60907813, 90501309, 3286998549, 1016092578,
+              2535922412, 2839152426, 457141659, 509813237, 4120667899,
+              652014361, 1966332200, 2975202805, 55981186, 2327461051,
+              676427537, 3255491064, 2882294119, 3433927263, 1307055953,
+              942726286, 933058658, 2468411793, 3933900994, 4215176142,
+              1361170020, 2001714738, 2830558078, 3274259782, 1222529897,
+              1679025792, 2729314320, 3714953764, 1770335741, 151462246,
+              3013232138, 1682292957, 1483529935, 471910574, 1539241949,
+              458788160, 3436315007, 1807016891, 3718408830, 978976581,
+              1043663428, 3165965781, 1927990952, 4200891579, 2372276910,
+              3208408903, 3533431907, 1412390302, 2931980059, 4132332400,
+              1947078029, 3881505623, 4168226417, 2941484381, 1077988104,
+              1320477388, 886195818, 18198404, 3786409e3, 2509781533, 112762804,
+              3463356488, 1866414978, 891333506, 18488651, 661792760,
+              1628790961, 3885187036, 3141171499, 876946877, 2693282273,
+              1372485963, 791857591, 2686433993, 3759982718, 3167212022,
+              3472953795, 2716379847, 445679433, 3561995674, 3504004811,
+              3574258232, 54117162, 3331405415, 2381918588, 3769707343,
+              4154350007, 1140177722, 4074052095, 668550556, 3214352940,
+              367459370, 261225585, 2610173221, 4209349473, 3468074219,
+              3265815641, 314222801, 3066103646, 3808782860, 282218597,
+              3406013506, 3773591054, 379116347, 1285071038, 846784868,
+              2669647154, 3771962079, 3550491691, 2305946142, 453669953,
+              1268987020, 3317592352, 3279303384, 3744833421, 2610507566,
+              3859509063, 266596637, 3847019092, 517658769, 3462560207,
+              3443424879, 370717030, 4247526661, 2224018117, 4143653529,
+              4112773975, 2788324899, 2477274417, 1456262402, 2901442914,
+              1517677493, 1846949527, 2295493580, 3734397586, 2176403920,
+              1280348187, 1908823572, 3871786941, 846861322, 1172426758,
+              3287448474, 3383383037, 1655181056, 3139813346, 901632758,
+              1897031941, 2986607138, 3066810236, 3447102507, 1393639104,
+              373351379, 950779232, 625454576, 3124240540, 4148612726,
+              2007998917, 544563296, 2244738638, 2330496472, 2058025392,
+              1291430526, 424198748, 50039436, 29584100, 3605783033, 2429876329,
+              2791104160, 1057563949, 3255363231, 3075367218, 3463963227,
+              1469046755, 985887462,
             ]),
           ]),
             (this.P = new Uint32Array([
-              608135816,
-              2242054355,
-              320440878,
-              57701188,
-              2752067618,
-              698298832,
-              137296536,
-              3964562569,
-              1160258022,
-              953160567,
-              3193202383,
-              887688300,
-              3232508343,
-              3380367581,
-              1065670069,
-              3041331479,
-              2450970073,
-              2306472731,
+              608135816, 2242054355, 320440878, 57701188, 2752067618, 698298832,
+              137296536, 3964562569, 1160258022, 953160567, 3193202383,
+              887688300, 3232508343, 3380367581, 1065670069, 3041331479,
+              2450970073, 2306472731,
             ]));
         };
       function n(e, t, a) {
@@ -15085,38 +13866,9 @@
           i = new o(),
           n = new Uint32Array(8),
           c = new Uint8Array([
-            79,
-            120,
-            121,
-            99,
-            104,
-            114,
-            111,
-            109,
-            97,
-            116,
-            105,
-            99,
-            66,
-            108,
-            111,
-            119,
-            102,
-            105,
-            115,
-            104,
-            83,
-            119,
-            97,
-            116,
-            68,
-            121,
-            110,
-            97,
-            109,
-            105,
-            116,
-            101,
+            79, 120, 121, 99, 104, 114, 111, 109, 97, 116, 105, 99, 66, 108,
+            111, 119, 102, 105, 115, 104, 83, 119, 97, 116, 68, 121, 110, 97,
+            109, 105, 116, 101,
           ]);
         for (i.expandstate(t, 64, e, 64), r = 0; r < 64; r++)
           i.expand0state(t, 64), i.expand0state(e, 64);
@@ -15257,7 +14009,8 @@
           (a(7),
           a(39),
           /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([ \t]+([^ \t][^\n]*[\n]*)?)?$/),
-        c = /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+\/][a-zA-Z0-9+\/ \t\n=]*)([^a-zA-Z0-9+\/ \t\n=].*)?$/;
+        c =
+          /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+\/][a-zA-Z0-9+\/ \t\n=]*)([^a-zA-Z0-9+\/ \t\n=].*)?$/;
     },
     function (e, t, a) {
       e.exports = {
@@ -15716,8 +14469,10 @@
         }
         a._offset = n;
       }
-      var E = /^([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
-      var S = /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
+      var E =
+        /^([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
+      var S =
+        /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})?Z$/;
       function F(e, t) {
         void 0 === t && (t = 2);
         for (var a = '' + e; a.length < t; ) a = '0' + a;
@@ -17720,18 +16475,14 @@
           max: 'must have less than or equal to {{limit}} children',
           length: 'must have {{limit}} children',
           allowUnknown: '!!"{{!child}}" is not allowed',
-          with:
-            '!!"{{mainWithLabel}}" missing required peer "{{peerWithLabel}}"',
+          with: '!!"{{mainWithLabel}}" missing required peer "{{peerWithLabel}}"',
           without:
             '!!"{{mainWithLabel}}" conflict with forbidden peer "{{peerWithLabel}}"',
           missing: 'must contain at least one of {{peersWithLabels}}',
-          xor:
-            'contains a conflict between exclusive peers {{peersWithLabels}}',
+          xor: 'contains a conflict between exclusive peers {{peersWithLabels}}',
           or: 'must contain at least one of {{peersWithLabels}}',
-          and:
-            'contains {{presentWithLabels}} without its required peers {{missingWithLabels}}',
-          nand:
-            '!!"{{mainWithLabel}}" must not exist simultaneously with {{peersWithLabels}}',
+          and: 'contains {{presentWithLabels}} without its required peers {{missingWithLabels}}',
+          nand: '!!"{{mainWithLabel}}" must not exist simultaneously with {{peersWithLabels}}',
           assert:
             '!!"{{ref}}" validation failed because "{{ref}}" failed to {{message}}',
           rename: {
@@ -17765,14 +16516,11 @@
           alphanum: 'must only contain alpha-numeric characters',
           token: 'must only contain alpha-numeric and underscore characters',
           regex: {
-            base:
-              'with value "{{!value}}" fails to match the required pattern: {{pattern}}',
+            base: 'with value "{{!value}}" fails to match the required pattern: {{pattern}}',
             name: 'with value "{{!value}}" fails to match the {{name}} pattern',
             invert: {
-              base:
-                'with value "{{!value}}" matches the inverted pattern: {{pattern}}',
-              name:
-                'with value "{{!value}}" matches the inverted {{name}} pattern',
+              base: 'with value "{{!value}}" matches the inverted pattern: {{pattern}}',
+              name: 'with value "{{!value}}" matches the inverted {{name}} pattern',
             },
           },
           email: 'must be a valid email',
@@ -17962,531 +16710,536 @@
             ? -1 !== i.indexOf.call(t.tldWhitelist, e)
             : i.hasOwn.call(t.tldWhitelist, e);
         }),
-        (t.validate = i.validate = function (e, t, a) {
-          if (
-            ('function' == typeof (t = t || {}) && ((a = t), (t = {})),
-            'function' != typeof a)
-          ) {
-            if (t.checkDNS)
-              throw new TypeError(
-                'expected callback function for checkDNS option'
-              );
-            a = null;
-          }
-          let o, n;
-          if (
-            ('number' == typeof t.errorLevel
-              ? ((o = !0), (n = t.errorLevel))
-              : ((o = !!t.errorLevel), (n = i.diagnoses.valid)),
-            t.tldWhitelist)
-          )
-            if ('string' == typeof t.tldWhitelist)
-              t.tldWhitelist = [t.tldWhitelist];
-            else if ('object' != typeof t.tldWhitelist)
-              throw new TypeError('expected array or object tldWhitelist');
-          if (t.tldBlacklist)
-            if ('string' == typeof t.tldBlacklist)
-              t.tldBlacklist = [t.tldBlacklist];
-            else if ('object' != typeof t.tldBlacklist)
-              throw new TypeError('expected array or object tldBlacklist');
-          if (
-            t.minDomainAtoms &&
-            (t.minDomainAtoms !== (0 | +t.minDomainAtoms) ||
-              t.minDomainAtoms < 0)
-          )
-            throw new TypeError('expected positive integer minDomainAtoms');
-          let s = i.diagnoses.valid;
-          const c = (e) => {
-              e > s && (s = e);
-            },
-            u = {
-              now: i.components.localpart,
-              prev: i.components.localpart,
-              stack: [i.components.localpart],
-            };
-          let p = '';
-          const l = { local: '', domain: '' },
-            m = { locals: [''], domains: [''] };
-          let h,
-            f = 0,
-            d = 0,
-            g = 0,
-            v = !1,
-            y = !1;
-          const b = e.length;
-          let k;
-          for (let t = 0; t < b; ++t) {
-            switch (((k = e[t]), u.now)) {
-              case i.components.localpart:
-                switch (k) {
-                  case '(':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.cfwsComment
-                            : i.diagnoses.deprecatedComment
-                        )
-                      : (c(i.diagnoses.cfwsComment), (y = !0)),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextComment);
-                    break;
-                  case '.':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.errDotStart
-                            : i.diagnoses.errConsecutiveDots
-                        )
-                      : (y && c(i.diagnoses.deprecatedLocalPart),
+        (t.validate = i.validate =
+          function (e, t, a) {
+            if (
+              ('function' == typeof (t = t || {}) && ((a = t), (t = {})),
+              'function' != typeof a)
+            ) {
+              if (t.checkDNS)
+                throw new TypeError(
+                  'expected callback function for checkDNS option'
+                );
+              a = null;
+            }
+            let o, n;
+            if (
+              ('number' == typeof t.errorLevel
+                ? ((o = !0), (n = t.errorLevel))
+                : ((o = !!t.errorLevel), (n = i.diagnoses.valid)),
+              t.tldWhitelist)
+            )
+              if ('string' == typeof t.tldWhitelist)
+                t.tldWhitelist = [t.tldWhitelist];
+              else if ('object' != typeof t.tldWhitelist)
+                throw new TypeError('expected array or object tldWhitelist');
+            if (t.tldBlacklist)
+              if ('string' == typeof t.tldBlacklist)
+                t.tldBlacklist = [t.tldBlacklist];
+              else if ('object' != typeof t.tldBlacklist)
+                throw new TypeError('expected array or object tldBlacklist');
+            if (
+              t.minDomainAtoms &&
+              (t.minDomainAtoms !== (0 | +t.minDomainAtoms) ||
+                t.minDomainAtoms < 0)
+            )
+              throw new TypeError('expected positive integer minDomainAtoms');
+            let s = i.diagnoses.valid;
+            const c = (e) => {
+                e > s && (s = e);
+              },
+              u = {
+                now: i.components.localpart,
+                prev: i.components.localpart,
+                stack: [i.components.localpart],
+              };
+            let p = '';
+            const l = { local: '', domain: '' },
+              m = { locals: [''], domains: [''] };
+            let h,
+              f = 0,
+              d = 0,
+              g = 0,
+              v = !1,
+              y = !1;
+            const b = e.length;
+            let k;
+            for (let t = 0; t < b; ++t) {
+              switch (((k = e[t]), u.now)) {
+                case i.components.localpart:
+                  switch (k) {
+                    case '(':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.cfwsComment
+                              : i.diagnoses.deprecatedComment
+                          )
+                        : (c(i.diagnoses.cfwsComment), (y = !0)),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextComment);
+                      break;
+                    case '.':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.errDotStart
+                              : i.diagnoses.errConsecutiveDots
+                          )
+                        : (y && c(i.diagnoses.deprecatedLocalPart),
+                          (y = !1),
+                          (d = 0),
+                          ++f,
+                          (l.local += k),
+                          (m.locals[f] = ''));
+                      break;
+                    case '"':
+                      0 === d
+                        ? (c(
+                            0 === f
+                              ? i.diagnoses.rfc5321QuotedString
+                              : i.diagnoses.deprecatedLocalPart
+                          ),
+                          (l.local += k),
+                          (m.locals[f] += k),
+                          ++d,
+                          (y = !0),
+                          u.stack.push(u.now),
+                          (u.now = i.components.contextQuotedString))
+                        : c(i.diagnoses.errExpectingATEXT);
+                      break;
+                    case '\r':
+                      if (b === ++t || '\n' !== e[t]) {
+                        c(i.diagnoses.errCRNoLF);
+                        break;
+                      }
+                    case ' ':
+                    case '\t':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.cfwsFWS
+                              : i.diagnoses.deprecatedFWS
+                          )
+                        : (y = !0),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextFWS),
+                        (p = k);
+                      break;
+                    case '@':
+                      if (1 !== u.stack.length)
+                        throw new Error('unexpected item on context stack');
+                      0 === l.local.length
+                        ? c(i.diagnoses.errNoLocalPart)
+                        : 0 === d
+                        ? c(i.diagnoses.errDotEnd)
+                        : l.local.length > 64
+                        ? c(i.diagnoses.rfc5322LocalTooLong)
+                        : (u.prev !== i.components.contextComment &&
+                            u.prev !== i.components.contextFWS) ||
+                          c(i.diagnoses.deprecatedCFWSNearAt),
+                        (u.now = i.components.domain),
+                        (u.stack[0] = i.components.domain),
+                        (f = 0),
+                        (d = 0),
+                        (y = !1);
+                      break;
+                    default:
+                      if (y)
+                        switch (u.prev) {
+                          case i.components.contextComment:
+                          case i.components.contextFWS:
+                            c(i.diagnoses.errATEXTAfterCFWS);
+                            break;
+                          case i.components.contextQuotedString:
+                            c(i.diagnoses.errATEXTAfterQS);
+                            break;
+                          default:
+                            throw new Error(
+                              'more atext found where none is allowed, but unrecognized prev context: ' +
+                                u.prev
+                            );
+                        }
+                      else
+                        (u.prev = u.now),
+                          (h = k.charCodeAt(0)),
+                          (h < 33 || h > 126 || i.specials(h)) &&
+                            c(i.diagnoses.errExpectingATEXT),
+                          (l.local += k),
+                          (m.locals[f] += k),
+                          ++d;
+                  }
+                  break;
+                case i.components.domain:
+                  switch (k) {
+                    case '(':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.deprecatedCFWSNearAt
+                              : i.diagnoses.deprecatedComment
+                          )
+                        : ((y = !0), c(i.diagnoses.cfwsComment)),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextComment);
+                      break;
+                    case '.':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.errDotStart
+                              : i.diagnoses.errConsecutiveDots
+                          )
+                        : v
+                        ? c(i.diagnoses.errDomainHyphenEnd)
+                        : d > 63 && c(i.diagnoses.rfc5322LabelTooLong),
                         (y = !1),
                         (d = 0),
                         ++f,
-                        (l.local += k),
-                        (m.locals[f] = ''));
-                    break;
-                  case '"':
-                    0 === d
-                      ? (c(
-                          0 === f
-                            ? i.diagnoses.rfc5321QuotedString
-                            : i.diagnoses.deprecatedLocalPart
-                        ),
-                        (l.local += k),
+                        (m.domains[f] = ''),
+                        (l.domain += k);
+                      break;
+                    case '[':
+                      0 === l.domain.length
+                        ? ((y = !0),
+                          ++d,
+                          u.stack.push(u.now),
+                          (u.now = i.components.literal),
+                          (l.domain += k),
+                          (m.domains[f] += k),
+                          (l.literal = ''))
+                        : c(i.diagnoses.errExpectingATEXT);
+                      break;
+                    case '\r':
+                      if (b === ++t || '\n' !== e[t]) {
+                        c(i.diagnoses.errCRNoLF);
+                        break;
+                      }
+                    case ' ':
+                    case '\t':
+                      0 === d
+                        ? c(
+                            0 === f
+                              ? i.diagnoses.deprecatedCFWSNearAt
+                              : i.diagnoses.deprecatedFWS
+                          )
+                        : (c(i.diagnoses.cfwsFWS), (y = !0)),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextFWS),
+                        (p = k);
+                      break;
+                    default:
+                      if (y)
+                        switch (u.prev) {
+                          case i.components.contextComment:
+                          case i.components.contextFWS:
+                            c(i.diagnoses.errATEXTAfterCFWS);
+                            break;
+                          case i.components.literal:
+                            c(i.diagnoses.errATEXTAfterDomainLiteral);
+                            break;
+                          default:
+                            throw new Error(
+                              'more atext found where none is allowed, but unrecognized prev context: ' +
+                                u.prev
+                            );
+                        }
+                      (h = k.charCodeAt(0)),
+                        (v = !1),
+                        h < 33 || h > 126 || i.specials(h)
+                          ? c(i.diagnoses.errExpectingATEXT)
+                          : '-' === k
+                          ? (0 === d && c(i.diagnoses.errDomainHyphenStart),
+                            (v = !0))
+                          : (h < 48 ||
+                              h > 122 ||
+                              (h > 57 && h < 65) ||
+                              (h > 90 && h < 97)) &&
+                            c(i.diagnoses.rfc5322Domain),
+                        (l.domain += k),
+                        (m.domains[f] += k),
+                        ++d;
+                  }
+                  break;
+                case i.components.literal:
+                  switch (k) {
+                    case ']':
+                      if (s < i.categories.deprecated) {
+                        let e = -1,
+                          t = l.literal;
+                        const a = i.regex.ipV4.exec(t);
+                        if (
+                          (a &&
+                            ((e = a.index),
+                            0 !== e && (t = t.slice(0, e) + '0:0')),
+                          0 === e)
+                        )
+                          c(i.diagnoses.rfc5321AddressLiteral);
+                        else if ('ipv6:' !== t.slice(0, 5).toLowerCase())
+                          c(i.diagnoses.rfc5322DomainLiteral);
+                        else {
+                          const a = t.slice(5);
+                          let r = i.maxIPv6Groups;
+                          const o = a.split(':');
+                          (e = a.indexOf('::')),
+                            ~e
+                              ? e !== a.lastIndexOf('::')
+                                ? c(i.diagnoses.rfc5322IPv62x2xColon)
+                                : ((0 !== e && e !== a.length - 2) || ++r,
+                                  o.length > r
+                                    ? c(i.diagnoses.rfc5322IPv6MaxGroups)
+                                    : o.length === r &&
+                                      c(i.diagnoses.deprecatedIPv6))
+                              : o.length !== r &&
+                                c(i.diagnoses.rfc5322IPv6GroupCount),
+                            ':' === a[0] && ':' !== a[1]
+                              ? c(i.diagnoses.rfc5322IPv6ColonStart)
+                              : ':' === a[a.length - 1] &&
+                                ':' !== a[a.length - 2]
+                              ? c(i.diagnoses.rfc5322IPv6ColonEnd)
+                              : i.checkIpV6(o)
+                              ? c(i.diagnoses.rfc5321AddressLiteral)
+                              : c(i.diagnoses.rfc5322IPv6BadCharacter);
+                        }
+                      } else c(i.diagnoses.rfc5322DomainLiteral);
+                      (l.domain += k),
+                        (m.domains[f] += k),
+                        ++d,
+                        (u.prev = u.now),
+                        (u.now = u.stack.pop());
+                      break;
+                    case '\\':
+                      c(i.diagnoses.rfc5322DomainLiteralOBSDText),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextQuotedPair);
+                      break;
+                    case '\r':
+                      if (b === ++t || '\n' !== e[t]) {
+                        c(i.diagnoses.errCRNoLF);
+                        break;
+                      }
+                    case ' ':
+                    case '\t':
+                      c(i.diagnoses.cfwsFWS),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextFWS),
+                        (p = k);
+                      break;
+                    default:
+                      if (
+                        ((h = k.charCodeAt(0)), h > 127 || 0 === h || '[' === k)
+                      ) {
+                        c(i.diagnoses.errExpectingDTEXT);
+                        break;
+                      }
+                      (h < 33 || 127 === h) &&
+                        c(i.diagnoses.rfc5322DomainLiteralOBSDText),
+                        (l.literal += k),
+                        (l.domain += k),
+                        (m.domains[f] += k),
+                        ++d;
+                  }
+                  break;
+                case i.components.contextQuotedString:
+                  switch (k) {
+                    case '\\':
+                      u.stack.push(u.now),
+                        (u.now = i.components.contextQuotedPair);
+                      break;
+                    case '\r':
+                      if (b === ++t || '\n' !== e[t]) {
+                        c(i.diagnoses.errCRNoLF);
+                        break;
+                      }
+                    case '\t':
+                      (l.local += ' '),
+                        (m.locals[f] += ' '),
+                        ++d,
+                        c(i.diagnoses.cfwsFWS),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextFWS),
+                        (p = k);
+                      break;
+                    case '"':
+                      (l.local += k),
                         (m.locals[f] += k),
                         ++d,
-                        (y = !0),
-                        u.stack.push(u.now),
-                        (u.now = i.components.contextQuotedString))
-                      : c(i.diagnoses.errExpectingATEXT);
-                    break;
-                  case '\r':
-                    if (b === ++t || '\n' !== e[t]) {
-                      c(i.diagnoses.errCRNoLF);
+                        (u.prev = u.now),
+                        (u.now = u.stack.pop());
                       break;
-                    }
-                  case ' ':
-                  case '\t':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.cfwsFWS
-                            : i.diagnoses.deprecatedFWS
-                        )
-                      : (y = !0),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextFWS),
-                      (p = k);
-                    break;
-                  case '@':
-                    if (1 !== u.stack.length)
-                      throw new Error('unexpected item on context stack');
-                    0 === l.local.length
-                      ? c(i.diagnoses.errNoLocalPart)
-                      : 0 === d
-                      ? c(i.diagnoses.errDotEnd)
-                      : l.local.length > 64
-                      ? c(i.diagnoses.rfc5322LocalTooLong)
-                      : (u.prev !== i.components.contextComment &&
-                          u.prev !== i.components.contextFWS) ||
-                        c(i.diagnoses.deprecatedCFWSNearAt),
-                      (u.now = i.components.domain),
-                      (u.stack[0] = i.components.domain),
-                      (f = 0),
-                      (d = 0),
-                      (y = !1);
-                    break;
-                  default:
-                    if (y)
-                      switch (u.prev) {
-                        case i.components.contextComment:
-                        case i.components.contextFWS:
-                          c(i.diagnoses.errATEXTAfterCFWS);
-                          break;
-                        case i.components.contextQuotedString:
-                          c(i.diagnoses.errATEXTAfterQS);
-                          break;
-                        default:
-                          throw new Error(
-                            'more atext found where none is allowed, but unrecognized prev context: ' +
-                              u.prev
-                          );
-                      }
-                    else
-                      (u.prev = u.now),
-                        (h = k.charCodeAt(0)),
-                        (h < 33 || h > 126 || i.specials(h)) &&
-                          c(i.diagnoses.errExpectingATEXT),
+                    default:
+                      (h = k.charCodeAt(0)),
+                        h > 127 || 0 === h || 10 === h
+                          ? c(i.diagnoses.errExpectingQTEXT)
+                          : (h < 32 || 127 === h) &&
+                            c(i.diagnoses.deprecatedQTEXT),
                         (l.local += k),
                         (m.locals[f] += k),
                         ++d;
-                }
-                break;
-              case i.components.domain:
-                switch (k) {
-                  case '(':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.deprecatedCFWSNearAt
-                            : i.diagnoses.deprecatedComment
-                        )
-                      : ((y = !0), c(i.diagnoses.cfwsComment)),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextComment);
-                    break;
-                  case '.':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.errDotStart
-                            : i.diagnoses.errConsecutiveDots
-                        )
-                      : v
-                      ? c(i.diagnoses.errDomainHyphenEnd)
-                      : d > 63 && c(i.diagnoses.rfc5322LabelTooLong),
-                      (y = !1),
-                      (d = 0),
-                      ++f,
-                      (m.domains[f] = ''),
-                      (l.domain += k);
-                    break;
-                  case '[':
-                    0 === l.domain.length
-                      ? ((y = !0),
-                        ++d,
-                        u.stack.push(u.now),
-                        (u.now = i.components.literal),
-                        (l.domain += k),
-                        (m.domains[f] += k),
-                        (l.literal = ''))
-                      : c(i.diagnoses.errExpectingATEXT);
-                    break;
-                  case '\r':
-                    if (b === ++t || '\n' !== e[t]) {
-                      c(i.diagnoses.errCRNoLF);
-                      break;
-                    }
-                  case ' ':
-                  case '\t':
-                    0 === d
-                      ? c(
-                          0 === f
-                            ? i.diagnoses.deprecatedCFWSNearAt
-                            : i.diagnoses.deprecatedFWS
-                        )
-                      : (c(i.diagnoses.cfwsFWS), (y = !0)),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextFWS),
-                      (p = k);
-                    break;
-                  default:
-                    if (y)
-                      switch (u.prev) {
-                        case i.components.contextComment:
-                        case i.components.contextFWS:
-                          c(i.diagnoses.errATEXTAfterCFWS);
-                          break;
-                        case i.components.literal:
-                          c(i.diagnoses.errATEXTAfterDomainLiteral);
-                          break;
-                        default:
-                          throw new Error(
-                            'more atext found where none is allowed, but unrecognized prev context: ' +
-                              u.prev
-                          );
-                      }
-                    (h = k.charCodeAt(0)),
-                      (v = !1),
-                      h < 33 || h > 126 || i.specials(h)
-                        ? c(i.diagnoses.errExpectingATEXT)
-                        : '-' === k
-                        ? (0 === d && c(i.diagnoses.errDomainHyphenStart),
-                          (v = !0))
-                        : (h < 48 ||
-                            h > 122 ||
-                            (h > 57 && h < 65) ||
-                            (h > 90 && h < 97)) &&
-                          c(i.diagnoses.rfc5322Domain),
-                      (l.domain += k),
-                      (m.domains[f] += k),
-                      ++d;
-                }
-                break;
-              case i.components.literal:
-                switch (k) {
-                  case ']':
-                    if (s < i.categories.deprecated) {
-                      let e = -1,
-                        t = l.literal;
-                      const a = i.regex.ipV4.exec(t);
-                      if (
-                        (a &&
-                          ((e = a.index),
-                          0 !== e && (t = t.slice(0, e) + '0:0')),
-                        0 === e)
-                      )
-                        c(i.diagnoses.rfc5321AddressLiteral);
-                      else if ('ipv6:' !== t.slice(0, 5).toLowerCase())
-                        c(i.diagnoses.rfc5322DomainLiteral);
-                      else {
-                        const a = t.slice(5);
-                        let r = i.maxIPv6Groups;
-                        const o = a.split(':');
-                        (e = a.indexOf('::')),
-                          ~e
-                            ? e !== a.lastIndexOf('::')
-                              ? c(i.diagnoses.rfc5322IPv62x2xColon)
-                              : ((0 !== e && e !== a.length - 2) || ++r,
-                                o.length > r
-                                  ? c(i.diagnoses.rfc5322IPv6MaxGroups)
-                                  : o.length === r &&
-                                    c(i.diagnoses.deprecatedIPv6))
-                            : o.length !== r &&
-                              c(i.diagnoses.rfc5322IPv6GroupCount),
-                          ':' === a[0] && ':' !== a[1]
-                            ? c(i.diagnoses.rfc5322IPv6ColonStart)
-                            : ':' === a[a.length - 1] && ':' !== a[a.length - 2]
-                            ? c(i.diagnoses.rfc5322IPv6ColonEnd)
-                            : i.checkIpV6(o)
-                            ? c(i.diagnoses.rfc5321AddressLiteral)
-                            : c(i.diagnoses.rfc5322IPv6BadCharacter);
-                      }
-                    } else c(i.diagnoses.rfc5322DomainLiteral);
-                    (l.domain += k),
-                      (m.domains[f] += k),
-                      ++d,
-                      (u.prev = u.now),
-                      (u.now = u.stack.pop());
-                    break;
-                  case '\\':
-                    c(i.diagnoses.rfc5322DomainLiteralOBSDText),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextQuotedPair);
-                    break;
-                  case '\r':
-                    if (b === ++t || '\n' !== e[t]) {
-                      c(i.diagnoses.errCRNoLF);
-                      break;
-                    }
-                  case ' ':
-                  case '\t':
-                    c(i.diagnoses.cfwsFWS),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextFWS),
-                      (p = k);
-                    break;
-                  default:
-                    if (
-                      ((h = k.charCodeAt(0)), h > 127 || 0 === h || '[' === k)
-                    ) {
-                      c(i.diagnoses.errExpectingDTEXT);
-                      break;
-                    }
-                    (h < 33 || 127 === h) &&
-                      c(i.diagnoses.rfc5322DomainLiteralOBSDText),
-                      (l.literal += k),
-                      (l.domain += k),
-                      (m.domains[f] += k),
-                      ++d;
-                }
-                break;
-              case i.components.contextQuotedString:
-                switch (k) {
-                  case '\\':
-                    u.stack.push(u.now),
-                      (u.now = i.components.contextQuotedPair);
-                    break;
-                  case '\r':
-                    if (b === ++t || '\n' !== e[t]) {
-                      c(i.diagnoses.errCRNoLF);
-                      break;
-                    }
-                  case '\t':
-                    (l.local += ' '),
-                      (m.locals[f] += ' '),
-                      ++d,
-                      c(i.diagnoses.cfwsFWS),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextFWS),
-                      (p = k);
-                    break;
-                  case '"':
-                    (l.local += k),
-                      (m.locals[f] += k),
-                      ++d,
-                      (u.prev = u.now),
-                      (u.now = u.stack.pop());
-                    break;
-                  default:
-                    (h = k.charCodeAt(0)),
-                      h > 127 || 0 === h || 10 === h
-                        ? c(i.diagnoses.errExpectingQTEXT)
-                        : (h < 32 || 127 === h) &&
-                          c(i.diagnoses.deprecatedQTEXT),
-                      (l.local += k),
-                      (m.locals[f] += k),
-                      ++d;
-                }
-                break;
-              case i.components.contextQuotedPair:
-                switch (
-                  ((h = k.charCodeAt(0)),
-                  h > 127
-                    ? c(i.diagnoses.errExpectingQPair)
-                    : ((h < 31 && 9 !== h) || 127 === h) &&
-                      c(i.diagnoses.deprecatedQP),
-                  (u.prev = u.now),
-                  (u.now = u.stack.pop()),
-                  (k = '\\' + k),
-                  u.now)
-                ) {
-                  case i.components.contextComment:
-                    break;
-                  case i.components.contextQuotedString:
-                    (l.local += k), (m.locals[f] += k), (d += 2);
-                    break;
-                  case i.components.literal:
-                    (l.domain += k), (m.domains[f] += k), (d += 2);
-                    break;
-                  default:
-                    throw new Error(
-                      'quoted pair logic invoked in an invalid context: ' +
-                        u.now
-                    );
-                }
-                break;
-              case i.components.contextComment:
-                switch (k) {
-                  case '(':
-                    u.stack.push(u.now), (u.now = i.components.contextComment);
-                    break;
-                  case ')':
-                    (u.prev = u.now), (u.now = u.stack.pop());
-                    break;
-                  case '\\':
-                    u.stack.push(u.now),
-                      (u.now = i.components.contextQuotedPair);
-                    break;
-                  case '\r':
-                    if (b === ++t || '\n' !== e[t]) {
-                      c(i.diagnoses.errCRNoLF);
-                      break;
-                    }
-                  case ' ':
-                  case '\t':
-                    c(i.diagnoses.cfwsFWS),
-                      u.stack.push(u.now),
-                      (u.now = i.components.contextFWS),
-                      (p = k);
-                    break;
-                  default:
-                    if (
-                      ((h = k.charCodeAt(0)), h > 127 || 0 === h || 10 === h)
-                    ) {
-                      c(i.diagnoses.errExpectingCTEXT);
-                      break;
-                    }
-                    (h < 32 || 127 === h) && c(i.diagnoses.deprecatedCTEXT);
-                }
-                break;
-              case i.components.contextFWS:
-                if ('\r' === p) {
-                  if ('\r' === k) {
-                    c(i.diagnoses.errFWSCRLFx2);
-                    break;
                   }
-                  ++g > 1 ? c(i.diagnoses.deprecatedFWS) : (g = 1);
-                }
-                switch (k) {
-                  case '\r':
-                    (b !== ++t && '\n' === e[t]) || c(i.diagnoses.errCRNoLF);
-                    break;
-                  case ' ':
-                  case '\t':
-                    break;
-                  default:
-                    '\r' === p && c(i.diagnoses.errFWSCRLFEnd),
-                      (g = 0),
-                      (u.prev = u.now),
-                      (u.now = u.stack.pop()),
-                      --t;
-                }
-                p = k;
-                break;
-              default:
-                throw new Error('unknown context: ' + u.now);
+                  break;
+                case i.components.contextQuotedPair:
+                  switch (
+                    ((h = k.charCodeAt(0)),
+                    h > 127
+                      ? c(i.diagnoses.errExpectingQPair)
+                      : ((h < 31 && 9 !== h) || 127 === h) &&
+                        c(i.diagnoses.deprecatedQP),
+                    (u.prev = u.now),
+                    (u.now = u.stack.pop()),
+                    (k = '\\' + k),
+                    u.now)
+                  ) {
+                    case i.components.contextComment:
+                      break;
+                    case i.components.contextQuotedString:
+                      (l.local += k), (m.locals[f] += k), (d += 2);
+                      break;
+                    case i.components.literal:
+                      (l.domain += k), (m.domains[f] += k), (d += 2);
+                      break;
+                    default:
+                      throw new Error(
+                        'quoted pair logic invoked in an invalid context: ' +
+                          u.now
+                      );
+                  }
+                  break;
+                case i.components.contextComment:
+                  switch (k) {
+                    case '(':
+                      u.stack.push(u.now),
+                        (u.now = i.components.contextComment);
+                      break;
+                    case ')':
+                      (u.prev = u.now), (u.now = u.stack.pop());
+                      break;
+                    case '\\':
+                      u.stack.push(u.now),
+                        (u.now = i.components.contextQuotedPair);
+                      break;
+                    case '\r':
+                      if (b === ++t || '\n' !== e[t]) {
+                        c(i.diagnoses.errCRNoLF);
+                        break;
+                      }
+                    case ' ':
+                    case '\t':
+                      c(i.diagnoses.cfwsFWS),
+                        u.stack.push(u.now),
+                        (u.now = i.components.contextFWS),
+                        (p = k);
+                      break;
+                    default:
+                      if (
+                        ((h = k.charCodeAt(0)), h > 127 || 0 === h || 10 === h)
+                      ) {
+                        c(i.diagnoses.errExpectingCTEXT);
+                        break;
+                      }
+                      (h < 32 || 127 === h) && c(i.diagnoses.deprecatedCTEXT);
+                  }
+                  break;
+                case i.components.contextFWS:
+                  if ('\r' === p) {
+                    if ('\r' === k) {
+                      c(i.diagnoses.errFWSCRLFx2);
+                      break;
+                    }
+                    ++g > 1 ? c(i.diagnoses.deprecatedFWS) : (g = 1);
+                  }
+                  switch (k) {
+                    case '\r':
+                      (b !== ++t && '\n' === e[t]) || c(i.diagnoses.errCRNoLF);
+                      break;
+                    case ' ':
+                    case '\t':
+                      break;
+                    default:
+                      '\r' === p && c(i.diagnoses.errFWSCRLFEnd),
+                        (g = 0),
+                        (u.prev = u.now),
+                        (u.now = u.stack.pop()),
+                        --t;
+                  }
+                  p = k;
+                  break;
+                default:
+                  throw new Error('unknown context: ' + u.now);
+              }
+              if (s > i.categories.rfc5322) break;
             }
-            if (s > i.categories.rfc5322) break;
-          }
-          if (s < i.categories.rfc5322)
-            if (u.now === i.components.contextQuotedString)
-              c(i.diagnoses.errUnclosedQuotedString);
-            else if (u.now === i.components.contextQuotedPair)
-              c(i.diagnoses.errBackslashEnd);
-            else if (u.now === i.components.contextComment)
-              c(i.diagnoses.errUnclosedComment);
-            else if (u.now === i.components.literal)
-              c(i.diagnoses.errUnclosedDomainLiteral);
-            else if ('\r' === k) c(i.diagnoses.errFWSCRLFEnd);
-            else if (0 === l.domain.length) c(i.diagnoses.errNoDomain);
-            else if (0 === d) c(i.diagnoses.errDotEnd);
-            else if (v) c(i.diagnoses.errDomainHyphenEnd);
-            else if (l.domain.length > 255) c(i.diagnoses.rfc5322DomainTooLong);
-            else if (l.local.length + l.domain.length + 1 > 254)
-              c(i.diagnoses.rfc5322TooLong);
-            else if (d > 63) c(i.diagnoses.rfc5322LabelTooLong);
-            else if (t.minDomainAtoms && m.domains.length < t.minDomainAtoms)
-              c(i.diagnoses.errDomainTooShort);
-            else if (t.tldWhitelist || t.tldBlacklist) {
-              const e = m.domains[f];
-              i.validDomain(e, t) || c(i.diagnoses.errUnknownTLD);
+            if (s < i.categories.rfc5322)
+              if (u.now === i.components.contextQuotedString)
+                c(i.diagnoses.errUnclosedQuotedString);
+              else if (u.now === i.components.contextQuotedPair)
+                c(i.diagnoses.errBackslashEnd);
+              else if (u.now === i.components.contextComment)
+                c(i.diagnoses.errUnclosedComment);
+              else if (u.now === i.components.literal)
+                c(i.diagnoses.errUnclosedDomainLiteral);
+              else if ('\r' === k) c(i.diagnoses.errFWSCRLFEnd);
+              else if (0 === l.domain.length) c(i.diagnoses.errNoDomain);
+              else if (0 === d) c(i.diagnoses.errDotEnd);
+              else if (v) c(i.diagnoses.errDomainHyphenEnd);
+              else if (l.domain.length > 255)
+                c(i.diagnoses.rfc5322DomainTooLong);
+              else if (l.local.length + l.domain.length + 1 > 254)
+                c(i.diagnoses.rfc5322TooLong);
+              else if (d > 63) c(i.diagnoses.rfc5322LabelTooLong);
+              else if (t.minDomainAtoms && m.domains.length < t.minDomainAtoms)
+                c(i.diagnoses.errDomainTooShort);
+              else if (t.tldWhitelist || t.tldBlacklist) {
+                const e = m.domains[f];
+                i.validDomain(e, t) || c(i.diagnoses.errUnknownTLD);
+              }
+            let x = !1,
+              w = !1;
+            const j = () => {
+              if (!x && s < i.categories.dnsWarn) {
+                m.domains[f].charCodeAt(0) <= 57
+                  ? c(i.diagnoses.rfc5321TLDNumeric)
+                  : 0 === f && c(i.diagnoses.rfc5321TLD);
+              }
+              s < n && (s = i.diagnoses.valid);
+              const e = o ? s : s < i.defaultThreshold;
+              return a && (w ? a(e) : i.defer(a.bind(null, e))), e;
+            };
+            if (!(t.checkDNS && s < i.categories.dnsWarn)) {
+              const e = j();
+              return (w = !0), e;
             }
-          let x = !1,
-            w = !1;
-          const j = () => {
-            if (!x && s < i.categories.dnsWarn) {
-              m.domains[f].charCodeAt(0) <= 57
-                ? c(i.diagnoses.rfc5321TLDNumeric)
-                : 0 === f && c(i.diagnoses.rfc5321TLD);
+            {
+              0 === f && (l.domain += '.');
+              const e = l.domain;
+              r.resolveMx(e, (t, a) => {
+                if (t && t.code !== r.NODATA)
+                  return c(i.diagnoses.dnsWarnNoRecord), j();
+                if (a && a.length) return (x = !0), j();
+                let o = 3,
+                  n = !1;
+                c(i.diagnoses.dnsWarnNoMXRecord);
+                const s = (e, t) => {
+                  if (!n) {
+                    if ((--o, t && t.length)) return (n = !0), j();
+                    0 === o && (c(i.diagnoses.dnsWarnNoRecord), (n = !0), j());
+                  }
+                };
+                r.resolveCname(e, s), r.resolve4(e, s), r.resolve6(e, s);
+              }),
+                (w = !0);
             }
-            s < n && (s = i.diagnoses.valid);
-            const e = o ? s : s < i.defaultThreshold;
-            return a && (w ? a(e) : i.defer(a.bind(null, e))), e;
-          };
-          if (!(t.checkDNS && s < i.categories.dnsWarn)) {
-            const e = j();
-            return (w = !0), e;
-          }
-          {
-            0 === f && (l.domain += '.');
-            const e = l.domain;
-            r.resolveMx(e, (t, a) => {
-              if (t && t.code !== r.NODATA)
-                return c(i.diagnoses.dnsWarnNoRecord), j();
-              if (a && a.length) return (x = !0), j();
-              let o = 3,
-                n = !1;
-              c(i.diagnoses.dnsWarnNoMXRecord);
-              const s = (e, t) => {
-                if (!n) {
-                  if ((--o, t && t.length)) return (n = !0), j();
-                  0 === o && (c(i.diagnoses.dnsWarnNoRecord), (n = !0), j());
-                }
-              };
-              r.resolveCname(e, s), r.resolve4(e, s), r.resolve6(e, s);
-            }),
-              (w = !0);
-          }
-        }),
-        (t.diagnoses = i.validate.diagnoses = (function () {
-          const e = {},
-            t = Object.keys(i.diagnoses);
-          for (let a = 0; a < t.length; ++a) {
-            const r = t[a];
-            e[r] = i.diagnoses[r];
-          }
-          return e;
-        })());
+          }),
+        (t.diagnoses = i.validate.diagnoses =
+          (function () {
+            const e = {},
+              t = Object.keys(i.diagnoses);
+            for (let a = 0; a < t.length; ++a) {
+              const r = t[a];
+              e[r] = i.diagnoses[r];
+            }
+            return e;
+          })());
     },
     function (e, t) {
       e.exports = require('dns');
@@ -18495,9 +17248,10 @@
       'use strict';
       const r = a(9),
         i = {};
-      (e.exports = i.Topo = function () {
-        (this._items = []), (this.nodes = []);
-      }),
+      (e.exports = i.Topo =
+        function () {
+          (this._items = []), (this.nodes = []);
+        }),
         (i.Topo.prototype.add = function (e, t) {
           const a = [].concat((t = t || {}).before || []),
             i = [].concat(t.after || []),
@@ -19440,30 +18194,31 @@
           (O.prototype.toString = function () {
             return '[object Promise]';
           }),
-          (O.prototype.caught = O.prototype.catch = function (e) {
-            var t = arguments.length;
-            if (t > 1) {
-              var a,
-                r = new Array(t - 1),
-                o = 0;
-              for (a = 0; a < t - 1; ++a) {
-                var n = arguments[a];
-                if (!s.isObject(n))
-                  return i(
-                    'Catch statement predicate: expecting an object but got ' +
-                      s.classString(n)
+          (O.prototype.caught = O.prototype.catch =
+            function (e) {
+              var t = arguments.length;
+              if (t > 1) {
+                var a,
+                  r = new Array(t - 1),
+                  o = 0;
+                for (a = 0; a < t - 1; ++a) {
+                  var n = arguments[a];
+                  if (!s.isObject(n))
+                    return i(
+                      'Catch statement predicate: expecting an object but got ' +
+                        s.classString(n)
+                    );
+                  r[o++] = n;
+                }
+                if (((r.length = o), 'function' != typeof (e = arguments[a])))
+                  throw new v(
+                    'The last argument to .catch() must be a function, got ' +
+                      s.toString(e)
                   );
-                r[o++] = n;
+                return this.then(void 0, P(r, e, this));
               }
-              if (((r.length = o), 'function' != typeof (e = arguments[a])))
-                throw new v(
-                  'The last argument to .catch() must be a function, got ' +
-                    s.toString(e)
-                );
-              return this.then(void 0, P(r, e, this));
-            }
-            return this.then(void 0, e);
-          }),
+              return this.then(void 0, e);
+            }),
           (O.prototype.reflect = function () {
             return this._then(r, r, void 0, this, void 0);
           }),
@@ -19521,17 +18276,18 @@
           (O.is = function (e) {
             return e instanceof O;
           }),
-          (O.fromNode = O.fromCallback = function (e) {
-            var t = new O(b);
-            t._captureStackTrace();
-            var a = arguments.length > 1 && !!Object(arguments[1]).multiArgs,
-              r = C(e)(A(t, a));
-            return (
-              r === z && t._rejectCallback(r.e, !0),
-              t._isFateSealed() || t._setAsyncGuaranteed(),
-              t
-            );
-          }),
+          (O.fromNode = O.fromCallback =
+            function (e) {
+              var t = new O(b);
+              t._captureStackTrace();
+              var a = arguments.length > 1 && !!Object(arguments[1]).multiArgs,
+                r = C(e)(A(t, a));
+              return (
+                r === z && t._rejectCallback(r.e, !0),
+                t._isFateSealed() || t._setAsyncGuaranteed(),
+                t
+              );
+            }),
           (O.all = function (e) {
             return new j(e).promise();
           }),
@@ -19546,10 +18302,11 @@
             );
           }),
           (O.resolve = O.fulfilled = O.cast),
-          (O.reject = O.rejected = function (e) {
-            var t = new O(b);
-            return t._captureStackTrace(), t._rejectCallback(e, !0), t;
-          }),
+          (O.reject = O.rejected =
+            function (e) {
+              var t = new O(b);
+              return t._captureStackTrace(), t._rejectCallback(e, !0), t;
+            }),
           (O.setScheduler = function (e) {
             if ('function' != typeof e)
               throw new v('expecting a function but got ' + s.classString(e));
@@ -19917,12 +18674,13 @@
                 return 'Object';
               },
             }),
-          (O.defer = O.pending = function () {
-            return (
-              S.deprecated('Promise.defer', 'new Promise'),
-              { promise: new O(b), resolve: T, reject: q }
-            );
-          }),
+          (O.defer = O.pending =
+            function () {
+              return (
+                S.deprecated('Promise.defer', 'new Promise'),
+                { promise: new O(b), resolve: T, reject: q }
+              );
+            }),
           s.notEnumerableProp(O, '_makeSelfResolutionError', t),
           a(130)(O, b, w, i, S),
           a(131)(O, b, w, S),
@@ -21315,9 +20073,10 @@
               ? this.then()
               : this._then(a, r, void 0, new c(this, t, e), void 0);
           }),
-          (e.prototype.lastly = e.prototype.finally = function (e) {
-            return this._passThrough(e, 0, h, h);
-          }),
+          (e.prototype.lastly = e.prototype.finally =
+            function (e) {
+              return this._passThrough(e, 0, h, h);
+            }),
           (e.prototype.tap = function (e) {
             return this._passThrough(e, 1, h);
           }),
@@ -21368,26 +20127,27 @@
             );
           };
         }),
-          (e.attempt = e.try = function (a) {
-            if ('function' != typeof a)
-              return i('expecting a function but got ' + n.classString(a));
-            var r,
-              c = new e(t);
-            if (
-              (c._captureStackTrace(), c._pushContext(), arguments.length > 1)
-            ) {
-              o.deprecated('calling Promise.try with more than 1 argument');
-              var u = arguments[1],
-                p = arguments[2];
-              r = n.isArray(u) ? s(a).apply(p, u) : s(a).call(p, u);
-            } else r = s(a)();
-            var l = c._popContext();
-            return (
-              o.checkForgottenReturns(r, l, 'Promise.try', c),
-              c._resolveFromSyncValue(r),
-              c
-            );
-          }),
+          (e.attempt = e.try =
+            function (a) {
+              if ('function' != typeof a)
+                return i('expecting a function but got ' + n.classString(a));
+              var r,
+                c = new e(t);
+              if (
+                (c._captureStackTrace(), c._pushContext(), arguments.length > 1)
+              ) {
+                o.deprecated('calling Promise.try with more than 1 argument');
+                var u = arguments[1],
+                  p = arguments[2];
+                r = n.isArray(u) ? s(a).apply(p, u) : s(a).call(p, u);
+              } else r = s(a)();
+              var l = c._popContext();
+              return (
+                o.checkForgottenReturns(r, l, 'Promise.try', c),
+                c._resolveFromSyncValue(r),
+                c
+              );
+            }),
           (e.prototype._resolveFromSyncValue = function (e) {
             e === n.errorObj
               ? this._rejectCallback(e.e, !1)
@@ -21455,24 +20215,26 @@
           n = o.tryCatch,
           s = o.errorObj,
           c = e._async;
-        (e.prototype.break = e.prototype.cancel = function () {
-          if (!i.cancellation()) return this._warn('cancellation is disabled');
-          for (var e = this, t = e; e._isCancellable(); ) {
-            if (!e._cancelBy(t)) {
-              t._isFollowing() ? t._followee().cancel() : t._cancelBranched();
-              break;
+        (e.prototype.break = e.prototype.cancel =
+          function () {
+            if (!i.cancellation())
+              return this._warn('cancellation is disabled');
+            for (var e = this, t = e; e._isCancellable(); ) {
+              if (!e._cancelBy(t)) {
+                t._isFollowing() ? t._followee().cancel() : t._cancelBranched();
+                break;
+              }
+              var a = e._cancellationParent;
+              if (null == a || !a._isCancellable()) {
+                e._isFollowing() ? e._followee().cancel() : e._cancelBranched();
+                break;
+              }
+              e._isFollowing() && e._followee().cancel(),
+                e._setWillBeCancelled(),
+                (t = e),
+                (e = a);
             }
-            var a = e._cancellationParent;
-            if (null == a || !a._isCancellable()) {
-              e._isFollowing() ? e._followee().cancel() : e._cancelBranched();
-              break;
-            }
-            e._isFollowing() && e._followee().cancel(),
-              e._setWillBeCancelled(),
-              (t = e),
-              (e = a);
-          }
-        }),
+          }),
           (e.prototype._branchHasCancelled = function () {
             this._branchesRemainingToCancel--;
           }),
@@ -21546,15 +20308,17 @@
         function a() {
           throw this.reason;
         }
-        (e.prototype.return = e.prototype.thenReturn = function (a) {
-          return (
-            a instanceof e && a.suppressUnhandledRejections(),
-            this._then(t, void 0, void 0, { value: a }, void 0)
-          );
-        }),
-          (e.prototype.throw = e.prototype.thenThrow = function (e) {
-            return this._then(a, void 0, void 0, { reason: e }, void 0);
+        (e.prototype.return = e.prototype.thenReturn =
+          function (a) {
+            return (
+              a instanceof e && a.suppressUnhandledRejections(),
+              this._then(t, void 0, void 0, { value: a }, void 0)
+            );
           }),
+          (e.prototype.throw = e.prototype.thenThrow =
+            function (e) {
+              return this._then(a, void 0, void 0, { reason: e }, void 0);
+            }),
           (e.prototype.catchThrow = function (e) {
             if (arguments.length <= 1)
               return this._then(void 0, a, void 0, { reason: e }, void 0);
@@ -21601,13 +20365,16 @@
               );
             return this._settledValue();
           }),
-          r = (t.prototype.error = t.prototype.reason = function () {
-            if (!this.isRejected())
-              throw new TypeError(
-                'cannot get rejection reason of a non-rejected promise\n\n    See http://goo.gl/MqrFmX\n'
-              );
-            return this._settledValue();
-          }),
+          r =
+            (t.prototype.error =
+            t.prototype.reason =
+              function () {
+                if (!this.isRejected())
+                  throw new TypeError(
+                    'cannot get rejection reason of a non-rejected promise\n\n    See http://goo.gl/MqrFmX\n'
+                  );
+                return this._settledValue();
+              }),
           i = (t.prototype.isFulfilled = function () {
             return 0 != (33554432 & this._bitField);
           }),
@@ -22325,11 +21092,12 @@
                 var t,
                   a = ((t = e), i.filledRange(t, '_arg', '')).join(', '),
                   r = e > 0 ? ', ' : '';
-                return (d
-                  ? 'ret = callback.call(this, {{args}}, nodeback); break;\n'
-                  : void 0 === c
-                  ? 'ret = callback({{args}}, nodeback); break;\n'
-                  : 'ret = callback.call(receiver, {{args}}, nodeback); break;\n'
+                return (
+                  d
+                    ? 'ret = callback.call(this, {{args}}, nodeback); break;\n'
+                    : void 0 === c
+                    ? 'ret = callback({{args}}, nodeback); break;\n'
+                    : 'ret = callback.call(receiver, {{args}}, nodeback); break;\n'
                 )
                   .replace('{{args}}', a)
                   .replace(', ', r);
@@ -22347,12 +21115,13 @@
                       (function () {
                         for (var e = '', t = 0; t < f.length; ++t)
                           e += 'case ' + f[t] + ':' + g(f[t]);
-                        return (e += '                                                             \n        default:                                                             \n            var args = new Array(len + 1);                                   \n            var i = 0;                                                       \n            for (var i = 0; i < len; ++i) {                                  \n               args[i] = arguments[i];                                       \n            }                                                                \n            args[i] = nodeback;                                              \n            [CodeForCall]                                                    \n            break;                                                           \n        '.replace(
-                          '[CodeForCall]',
-                          d
-                            ? 'ret = callback.apply(this, args);\n'
-                            : 'ret = callback.apply(receiver, args);\n'
-                        ));
+                        return (e +=
+                          '                                                             \n        default:                                                             \n            var args = new Array(len + 1);                                   \n            var i = 0;                                                       \n            for (var i = 0; i < len; ++i) {                                  \n               args[i] = arguments[i];                                       \n            }                                                                \n            args[i] = nodeback;                                              \n            [CodeForCall]                                                    \n            break;                                                           \n        '.replace(
+                            '[CodeForCall]',
+                            d
+                              ? 'ret = callback.apply(this, args);\n'
+                              : 'ret = callback.apply(receiver, args);\n'
+                          ));
                       })()
                     )
                     .replace('[GetFunctionCode]', v);
@@ -23306,9 +22075,10 @@
         if ('string' === c && e.length > 0)
           return (function (e) {
             if ((e = String(e)).length > 100) return;
-            var t = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
-              e
-            );
+            var t =
+              /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+                e
+              );
             if (!t) return;
             var n = parseFloat(t[1]);
             switch ((t[2] || 'ms').toLowerCase()) {
@@ -24160,9 +22930,10 @@
         (q.prototype.isPersistent = function () {
           return null != this.maxAge || this.expires != 1 / 0;
         }),
-        (q.prototype.cdomain = q.prototype.canonicalizedDomain = function () {
-          return null == this.domain ? null : E(this.domain);
-        }),
+        (q.prototype.cdomain = q.prototype.canonicalizedDomain =
+          function () {
+            return null == this.domain ? null : E(this.domain);
+          }),
         (D.prototype.store = null),
         (D.prototype.rejectPublicSuffixes = !0),
         (D.prototype.enableLooseMode = !1);
@@ -25733,7 +24504,8 @@
             (clearTimeout(this.timeoutTimer), (this.timeoutTimer = null));
         }),
         (H.defaultProxyHeaderWhiteList = A.defaultProxyHeaderWhiteList.slice()),
-        (H.defaultProxyHeaderExclusiveList = A.defaultProxyHeaderExclusiveList.slice()),
+        (H.defaultProxyHeaderExclusiveList =
+          A.defaultProxyHeaderExclusiveList.slice()),
         (H.prototype.toJSON = L),
         (e.exports = H);
     },
@@ -30861,7 +29633,8 @@
           }
           return e;
         }
-        var O = /^(?:([^:\/?#]+):)?(?:\/\/((?:([^\/?#@]*)@)?(\[[^\/?#\]]+\]|[^\/?#:]*)(?:\:(\d*))?))?([^?#]*)(?:\?([^#]*))?(?:#((?:.|\n|\r)*))?/i,
+        var O =
+            /^(?:([^:\/?#]+):)?(?:\/\/((?:([^\/?#@]*)@)?(\[[^\/?#\]]+\]|[^\/?#:]*)(?:\:(\d*))?))?([^?#]*)(?:\?([^#]*))?(?:#((?:.|\n|\r)*))?/i,
           T = void 0 === ''.match(/(){0}/)[1];
         function q(e) {
           var t =
@@ -31499,10 +30272,14 @@
         i = /^(\d\d\d\d)-(\d\d)-(\d\d)$/,
         o = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         n = /^(\d\d):(\d\d):(\d\d)(\.\d+)?(z|[+-]\d\d(?::?\d\d)?)?$/i,
-        s = /^(?=.{1,253}\.?$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[-0-9a-z]{0,61}[0-9a-z])?)*\.?$/i,
-        c = /^(?:[a-z][a-z0-9+\-.]*:)(?:\/?\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:]|%[0-9a-f]{2})*@)?(?:\[(?:(?:(?:(?:[0-9a-f]{1,4}:){6}|::(?:[0-9a-f]{1,4}:){5}|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}|(?:(?:[0-9a-f]{1,4}:){0,1}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::)(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?))|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|[Vv][0-9a-f]+\.[a-z0-9\-._~!$&'()*+,;=:]+)\]|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-z0-9\-._~!$&'()*+,;=]|%[0-9a-f]{2})*)(?::\d*)?(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*|\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\?(?:[a-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9a-f]{2})*)?(?:#(?:[a-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9a-f]{2})*)?$/i,
-        u = /^(?:(?:[^\x00-\x20"'<>%\\^`{|}]|%[0-9a-f]{2})|\{[+#./;?&=,!@|]?(?:[a-z0-9_]|%[0-9a-f]{2})+(?::[1-9][0-9]{0,3}|\*)?(?:,(?:[a-z0-9_]|%[0-9a-f]{2})+(?::[1-9][0-9]{0,3}|\*)?)*\})*$/i,
-        p = /^(?:(?:http[s\u017F]?|ftp):\/\/)(?:(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+(?::(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)?@)?(?:(?!10(?:\.[0-9]{1,3}){3})(?!127(?:\.[0-9]{1,3}){3})(?!169\.254(?:\.[0-9]{1,3}){2})(?!192\.168(?:\.[0-9]{1,3}){2})(?!172\.(?:1[6-9]|2[0-9]|3[01])(?:\.[0-9]{1,3}){2})(?:[1-9][0-9]?|1[0-9][0-9]|2[01][0-9]|22[0-3])(?:\.(?:1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])){2}(?:\.(?:[1-9][0-9]?|1[0-9][0-9]|2[0-4][0-9]|25[0-4]))|(?:(?:(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+-)*(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)(?:\.(?:(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+-)*(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)*(?:\.(?:(?:[a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]){2,})))(?::[0-9]{2,5})?(?:\/(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)?$/i,
+        s =
+          /^(?=.{1,253}\.?$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[-0-9a-z]{0,61}[0-9a-z])?)*\.?$/i,
+        c =
+          /^(?:[a-z][a-z0-9+\-.]*:)(?:\/?\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:]|%[0-9a-f]{2})*@)?(?:\[(?:(?:(?:(?:[0-9a-f]{1,4}:){6}|::(?:[0-9a-f]{1,4}:){5}|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}|(?:(?:[0-9a-f]{1,4}:){0,1}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::)(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?))|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|[Vv][0-9a-f]+\.[a-z0-9\-._~!$&'()*+,;=:]+)\]|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-z0-9\-._~!$&'()*+,;=]|%[0-9a-f]{2})*)(?::\d*)?(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*|\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\?(?:[a-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9a-f]{2})*)?(?:#(?:[a-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9a-f]{2})*)?$/i,
+        u =
+          /^(?:(?:[^\x00-\x20"'<>%\\^`{|}]|%[0-9a-f]{2})|\{[+#./;?&=,!@|]?(?:[a-z0-9_]|%[0-9a-f]{2})+(?::[1-9][0-9]{0,3}|\*)?(?:,(?:[a-z0-9_]|%[0-9a-f]{2})+(?::[1-9][0-9]{0,3}|\*)?)*\})*$/i,
+        p =
+          /^(?:(?:http[s\u017F]?|ftp):\/\/)(?:(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+(?::(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)?@)?(?:(?!10(?:\.[0-9]{1,3}){3})(?!127(?:\.[0-9]{1,3}){3})(?!169\.254(?:\.[0-9]{1,3}){2})(?!192\.168(?:\.[0-9]{1,3}){2})(?!172\.(?:1[6-9]|2[0-9]|3[01])(?:\.[0-9]{1,3}){2})(?:[1-9][0-9]?|1[0-9][0-9]|2[01][0-9]|22[0-3])(?:\.(?:1?[0-9]{1,2}|2[0-4][0-9]|25[0-5])){2}(?:\.(?:[1-9][0-9]?|1[0-9][0-9]|2[0-4][0-9]|25[0-4]))|(?:(?:(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+-)*(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)(?:\.(?:(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+-)*(?:[0-9a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])+)*(?:\.(?:(?:[a-z\xA1-\uD7FF\uE000-\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]){2,})))(?::[0-9]{2,5})?(?:\/(?:[\0-\x08\x0E-\x1F!-\x9F\xA1-\u167F\u1681-\u1FFF\u200B-\u2027\u202A-\u202E\u2030-\u205E\u2060-\u2FFF\u3001-\uD7FF\uE000-\uFEFE\uFF00-\uFFFF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF])*)?$/i,
         l = /^(?:urn:uuid:)?[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i,
         m = /^(?:\/(?:[^~/]|~0|~1)*)*$/,
         h = /^#(?:\/(?:[a-z0-9_\-.!$&'()*+,;:=@]|%[0-9a-f]{2}|~0|~1)*)*$/i,
@@ -31546,12 +30323,15 @@
         (d.fast = {
           date: /^\d\d\d\d-[0-1]\d-[0-3]\d$/,
           time: /^(?:[0-2]\d:[0-5]\d:[0-5]\d|23:59:60)(?:\.\d+)?(?:z|[+-]\d\d(?::?\d\d)?)?$/i,
-          'date-time': /^\d\d\d\d-[0-1]\d-[0-3]\d[t\s](?:[0-2]\d:[0-5]\d:[0-5]\d|23:59:60)(?:\.\d+)?(?:z|[+-]\d\d(?::?\d\d)?)$/i,
+          'date-time':
+            /^\d\d\d\d-[0-1]\d-[0-3]\d[t\s](?:[0-2]\d:[0-5]\d:[0-5]\d|23:59:60)(?:\.\d+)?(?:z|[+-]\d\d(?::?\d\d)?)$/i,
           uri: /^(?:[a-z][a-z0-9+\-.]*:)(?:\/?\/)?[^\s]*$/i,
-          'uri-reference': /^(?:(?:[a-z][a-z0-9+\-.]*:)?\/?\/)?(?:[^\\\s#][^\s#]*)?(?:#[^\\\s]*)?$/i,
+          'uri-reference':
+            /^(?:(?:[a-z][a-z0-9+\-.]*:)?\/?\/)?(?:[^\\\s#][^\s#]*)?(?:#[^\\\s]*)?$/i,
           'uri-template': u,
           url: p,
-          email: /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/i,
+          email:
+            /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/i,
           hostname: s,
           ipv4: /^(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)$/,
           ipv6: /^\s*(?:(?:(?:[0-9a-f]{1,4}:){7}(?:[0-9a-f]{1,4}|:))|(?:(?:[0-9a-f]{1,4}:){6}(?::[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(?:(?:[0-9a-f]{1,4}:){5}(?:(?:(?::[0-9a-f]{1,4}){1,2})|:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(?:(?:[0-9a-f]{1,4}:){4}(?:(?:(?::[0-9a-f]{1,4}){1,3})|(?:(?::[0-9a-f]{1,4})?:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){3}(?:(?:(?::[0-9a-f]{1,4}){1,4})|(?:(?::[0-9a-f]{1,4}){0,2}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){2}(?:(?:(?::[0-9a-f]{1,4}){1,5})|(?:(?::[0-9a-f]{1,4}){0,3}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){1}(?:(?:(?::[0-9a-f]{1,4}){1,6})|(?:(?::[0-9a-f]{1,4}){0,4}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?::(?:(?:(?::[0-9a-f]{1,4}){1,7})|(?:(?::[0-9a-f]{1,4}){0,5}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(?:%.+)?\s*$/i,
@@ -31571,10 +30351,12 @@
           uri: function (e) {
             return b.test(e) && c.test(e);
           },
-          'uri-reference': /^(?:[a-z][a-z0-9+\-.]*:)?(?:\/?\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:]|%[0-9a-f]{2})*@)?(?:\[(?:(?:(?:(?:[0-9a-f]{1,4}:){6}|::(?:[0-9a-f]{1,4}:){5}|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}|(?:(?:[0-9a-f]{1,4}:){0,1}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::)(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?))|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|[Vv][0-9a-f]+\.[a-z0-9\-._~!$&'()*+,;=:]+)\]|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-z0-9\-._~!$&'"()*+,;=]|%[0-9a-f]{2})*)(?::\d*)?(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*|\/(?:(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*)?(?:\?(?:[a-z0-9\-._~!$&'"()*+,;=:@/?]|%[0-9a-f]{2})*)?(?:#(?:[a-z0-9\-._~!$&'"()*+,;=:@/?]|%[0-9a-f]{2})*)?$/i,
+          'uri-reference':
+            /^(?:[a-z][a-z0-9+\-.]*:)?(?:\/?\/(?:(?:[a-z0-9\-._~!$&'()*+,;=:]|%[0-9a-f]{2})*@)?(?:\[(?:(?:(?:(?:[0-9a-f]{1,4}:){6}|::(?:[0-9a-f]{1,4}:){5}|(?:[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){4}|(?:(?:[0-9a-f]{1,4}:){0,1}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){3}|(?:(?:[0-9a-f]{1,4}:){0,2}[0-9a-f]{1,4})?::(?:[0-9a-f]{1,4}:){2}|(?:(?:[0-9a-f]{1,4}:){0,3}[0-9a-f]{1,4})?::[0-9a-f]{1,4}:|(?:(?:[0-9a-f]{1,4}:){0,4}[0-9a-f]{1,4})?::)(?:[0-9a-f]{1,4}:[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?))|(?:(?:[0-9a-f]{1,4}:){0,5}[0-9a-f]{1,4})?::[0-9a-f]{1,4}|(?:(?:[0-9a-f]{1,4}:){0,6}[0-9a-f]{1,4})?::)|[Vv][0-9a-f]+\.[a-z0-9\-._~!$&'()*+,;=:]+)\]|(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-z0-9\-._~!$&'"()*+,;=]|%[0-9a-f]{2})*)(?::\d*)?(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*|\/(?:(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})+(?:\/(?:[a-z0-9\-._~!$&'"()*+,;=:@]|%[0-9a-f]{2})*)*)?(?:\?(?:[a-z0-9\-._~!$&'"()*+,;=:@/?]|%[0-9a-f]{2})*)?(?:#(?:[a-z0-9\-._~!$&'"()*+,;=:@/?]|%[0-9a-f]{2})*)?$/i,
           'uri-template': u,
           url: p,
-          email: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i,
+          email:
+            /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i,
           hostname: s,
           ipv4: /^(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)$/,
           ipv6: /^\s*(?:(?:(?:[0-9a-f]{1,4}:){7}(?:[0-9a-f]{1,4}|:))|(?:(?:[0-9a-f]{1,4}:){6}(?::[0-9a-f]{1,4}|(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(?:(?:[0-9a-f]{1,4}:){5}(?:(?:(?::[0-9a-f]{1,4}){1,2})|:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(?:(?:[0-9a-f]{1,4}:){4}(?:(?:(?::[0-9a-f]{1,4}){1,3})|(?:(?::[0-9a-f]{1,4})?:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){3}(?:(?:(?::[0-9a-f]{1,4}){1,4})|(?:(?::[0-9a-f]{1,4}){0,2}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){2}(?:(?:(?::[0-9a-f]{1,4}){1,5})|(?:(?::[0-9a-f]{1,4}){0,3}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?:(?:[0-9a-f]{1,4}:){1}(?:(?:(?::[0-9a-f]{1,4}){1,6})|(?:(?::[0-9a-f]{1,4}){0,4}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(?::(?:(?:(?::[0-9a-f]{1,4}){1,7})|(?:(?::[0-9a-f]{1,4}){0,5}:(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(?:%.+)?\s*$/i,
@@ -34384,8 +33166,7 @@
                 anyOf: [
                   c,
                   {
-                    $ref:
-                      'https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#',
+                    $ref: 'https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#',
                   },
                 ],
               });
@@ -34490,8 +33271,7 @@
                   anyOf: [
                     s,
                     {
-                      $ref:
-                        'https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#',
+                      $ref: 'https://raw.githubusercontent.com/ajv-validator/ajv/master/lib/refs/data.json#',
                     },
                   ],
                 }),
@@ -34910,8 +33690,7 @@
       'use strict';
       var r = a(103);
       e.exports = {
-        $id:
-          'https://github.com/ajv-validator/ajv/blob/master/lib/definition_schema.js',
+        $id: 'https://github.com/ajv-validator/ajv/blob/master/lib/definition_schema.js',
         definitions: { simpleTypes: r.definitions.simpleTypes },
         type: 'object',
         dependencies: {
@@ -36050,7 +34829,7 @@
               return new Date().getTime() - r;
             }),
             (r = new Date().getTime()));
-      }.call(this));
+      }).call(this);
     },
     function (e, t, a) {
       'use strict';
