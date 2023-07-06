@@ -48,6 +48,10 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   position: relative;
 }
 
+.ecl-media-container__expandable {
+  margin-top: map.get(theme.$spacing, 'xs');
+}
+
 // Manual ratio
 .ecl-media-container__media--ratio-16-9 {
   @include uMedia.aspect-ratio(16, 9);

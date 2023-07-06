@@ -1,9 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataImg from '@ecl/specs-component-media-container/demo/data--image';
 import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
+import dataInfography from '@ecl/specs-component-media-container/demo/data--infography';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
@@ -83,7 +85,9 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.full_width = args.width === 'inside';
+  correctPaths(data);
+  data.full_width =
+    args.width === 'inside the ecl-container, with fullwidth class';
 
   if (!args.show_description) {
     args.description = '';
@@ -94,7 +98,10 @@ const prepareData = (data, args) => {
 
 const renderStory = (data, args) => {
   let story = mediaContainer(prepareData(data, args));
-  if (args.width === 'container' || args.width === 'inside') {
+  if (
+    args.width === 'inside the ecl-container' ||
+    args.width === 'inside the ecl-container, with fullwidth class'
+  ) {
     story = `<div class="ecl-container">${story}</div>`;
   }
 
@@ -166,4 +173,13 @@ EmbeddedVideo.parameters = {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
   },
+};
+
+export const Infography = (args) => renderStory(dataInfography, args);
+
+Infography.storyName = 'infography';
+Infography.args = getArgs(dataInfography);
+Infography.argTypes = getArgTypes(dataInfography);
+Infography.parameters = {
+  notes: { markdown: notes, json: dataInfography },
 };

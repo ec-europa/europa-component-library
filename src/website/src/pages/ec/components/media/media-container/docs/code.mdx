@@ -8,6 +8,7 @@ import {
   mediaContainerImg,
   mediaContainerVideo,
   mediaContainerEmbed,
+  mediaContainerInfography,
 } from '../demo';
 
 ## Image
@@ -43,6 +44,17 @@ It is also possible to manually specify a ratio if needed. Possible manual ratio
   selectedStory="embed"
 >
   <Html markup={mediaContainerEmbed} />
+</Playground>
+
+## Infography
+
+<Playground
+  system="ec"
+  selectedKind="components-media-container"
+  selectedStory="infography"
+  showFrame
+>
+  <Html markup={mediaContainerInfography} />
 </Playground>
 
 ### Media container width
