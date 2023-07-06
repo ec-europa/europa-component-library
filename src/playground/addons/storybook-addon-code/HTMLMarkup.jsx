@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
+import { decode } from 'html-entities';
 import {
   SyntaxHighlighter,
   Button,
@@ -38,6 +38,8 @@ function HTMLMarkup({ active, channel }) {
     indent_scripts: 'normal',
   });
 
+  const unescapedCode = decode(beautifiedCode);
+
   return active ? (
     <DocumentWrapper>
       <TitleBar>
@@ -68,7 +70,7 @@ function HTMLMarkup({ active, channel }) {
         </Button>
       </TitleBar>
       <StyledSyntaxHighlighter bordered copyable format={false} language="html">
-        {beautifiedCode}
+        {unescapedCode}
       </StyledSyntaxHighlighter>
     </DocumentWrapper>
   ) : null;
