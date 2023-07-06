@@ -3,11 +3,11 @@ const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
 const componentAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/components'
+  '../../../implementations/twig/components',
 );
 const compositionsAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/compositions'
+  '../../../implementations/twig/compositions',
 );
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
@@ -20,7 +20,4 @@ if (typeof loader.addPath === 'function') {
   loader.addPath(compositionsAbsPath, 'ecl');
 }
 
-module.exports = new TwingEnvironment(loader, {
-  autoescape: false,
-  debug: true,
-});
+module.exports = new TwingEnvironment(loader, { autoescape: false });

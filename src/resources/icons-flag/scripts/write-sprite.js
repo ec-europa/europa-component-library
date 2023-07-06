@@ -30,7 +30,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
     spriter.add(
       filePath,
       file,
-      fs.readFileSync(filePath, { encoding: 'utf-8' })
+      fs.readFileSync(filePath, { encoding: 'utf-8' }),
     );
   });
 
@@ -40,7 +40,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
         mkdirp.sync(path.dirname(result[mode][resource].path));
         fs.writeFileSync(
           result[mode][resource].path,
-          result[mode][resource].contents
+          result[mode][resource].contents,
         );
       });
     });

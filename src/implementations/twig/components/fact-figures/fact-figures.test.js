@@ -54,7 +54,7 @@ describe('Fact and figures', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, demo1Col, true))
+        await axe(await renderTwigFileAsHtml(template, demo1Col, true)),
       ).toHaveNoViolations();
     });
   });

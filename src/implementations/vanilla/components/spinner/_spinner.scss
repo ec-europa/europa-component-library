@@ -45,7 +45,9 @@ $_spinner-sizes: (
 }
 
 .ecl-spinner__circle {
-  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  animation:
+    dash 1.5s ease-in-out infinite,
+    color 6s ease-in-out infinite;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
 }

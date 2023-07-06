@@ -72,7 +72,7 @@ export const Standardised = (_, { loaded: { component } }) => component;
 
 Standardised.render = async (args) => {
   const renderedBreadcrumbStandardised = await breadcrumb(
-    prepareData(dataDefault, args)
+    prepareData(dataDefault, args),
   );
   return renderedBreadcrumbStandardised;
 };
@@ -87,7 +87,7 @@ export const Harmonised = (_, { loaded: { component } }) => component;
 
 Harmonised.render = async (args) => {
   const renderedBreadcrumbHarmonised = await breadcrumb(
-    prepareData(dataDefault, args)
+    prepareData(dataDefault, args),
   );
   return renderedBreadcrumbHarmonised;
 };

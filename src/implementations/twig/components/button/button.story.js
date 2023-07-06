@@ -175,7 +175,7 @@ export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
   const renderedButtonSecondary = await button(
-    prepareData(dataSecondary, args)
+    prepareData(dataSecondary, args),
   );
   return renderedButtonSecondary;
 };

@@ -190,7 +190,7 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedContentBlock = await contentBlock(
-    prepareData(dataDefault, args)
+    prepareData(dataDefault, args),
   );
   return renderedContentBlock;
 };

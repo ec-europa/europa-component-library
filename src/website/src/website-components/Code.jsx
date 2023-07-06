@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import tomorrow from 'react-syntax-highlighter/dist/esm/styles/hljs/tomorrow';
-
+import { decode } from 'html-entities';
 import beautifyHtml from 'js-beautify/js/src/html';
 
 function Code({ children }) {
@@ -13,7 +13,8 @@ function Code({ children }) {
       indent_size: 2,
       wrap_line_length: 120,
     });
-    setFormattedCode(unescapedMarkup);
+    const decodedMarkup = decode(unescapedMarkup);
+    setFormattedCode(decodedMarkup);
   }, [children]);
 
   return (

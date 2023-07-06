@@ -161,7 +161,7 @@ export const RatingField = (_, { loaded: { component } }) => component;
 
 RatingField.render = async (args) => {
   const renderedRatingField = await formGroup(
-    prepareData(dataRatingField, args)
+    prepareData(dataRatingField, args),
   );
   return renderedRatingField;
 };
@@ -185,7 +185,7 @@ export const SelectMultiple = (_, { loaded: { component } }) => component;
 
 SelectMultiple.render = async (args) => {
   const renderedSelectMultiple = await formGroup(
-    prepareData(dataMultiple, args)
+    prepareData(dataMultiple, args),
   );
   return renderedSelectMultiple;
 };

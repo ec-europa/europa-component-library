@@ -3,11 +3,11 @@ const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
 const componentAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/components'
+  '../../../implementations/twig/components',
 );
 const compositionsAbsPath = path.resolve(
   __dirname,
-  '../../../implementations/twig/compositions'
+  '../../../implementations/twig/compositions',
 );
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);

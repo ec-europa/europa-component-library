@@ -4,7 +4,7 @@ module.exports = (
   options = {
     search: /^/,
     replace: '/uploads',
-  }
+  },
 ) =>
   function image() {
     return function transformer(tree) {

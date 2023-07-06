@@ -245,7 +245,7 @@ export const PlainBackground = (_, { loaded: { component } }) => component;
 PlainBackground.render = async (args) => {
   const renderedBannerPlain = await renderStory(
     bannerDataPlainBackground,
-    args
+    args,
   );
   return renderedBannerPlain;
 };
@@ -272,7 +272,7 @@ export const TextHighlight = (_, { loaded: { component } }) => component;
 TextHighlight.render = async (args) => {
   const renderedBannerHighlight = await renderStory(
     bannerDataTextHighlight,
-    args
+    args,
   );
   return renderedBannerHighlight;
 };
@@ -288,7 +288,7 @@ export const ImageOverlay = (_, { loaded: { component } }) => component;
 ImageOverlay.render = async (args) => {
   const renderedBannerImageOverlay = await renderStory(
     bannerDataImageOverlay,
-    args
+    args,
   );
   return renderedBannerImageOverlay;
 };

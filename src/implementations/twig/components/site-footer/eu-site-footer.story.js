@@ -136,7 +136,7 @@ export const Harmonised = (_, { loaded: { component } }) => component;
 
 Harmonised.render = async (args) => {
   const renderedHarmonised = await footer(
-    prepareHarmonisedData(dataHarmonised, args)
+    prepareHarmonisedData(dataHarmonised, args),
   );
   return renderedHarmonised;
 };

@@ -27,12 +27,12 @@ export class CategoryFilter {
     {
       itemSelector = '.ecl-category-filter__item--has-children',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -59,7 +59,7 @@ export class CategoryFilter {
     // Bind click event on open
     if (this.attachClickListener && this.items) {
       this.items.forEach((item) =>
-        item.addEventListener('click', this.handleClickExpand)
+        item.addEventListener('click', this.handleClickExpand),
       );
     }
 
@@ -115,7 +115,7 @@ export class CategoryFilter {
     const ariaExpanded = treeItem.parentElement.getAttribute('aria-expanded');
     treeItem.parentElement.setAttribute(
       'aria-expanded',
-      ariaExpanded === 'false' ? 'true' : 'false'
+      ariaExpanded === 'false' ? 'true' : 'false',
     );
   }
 }

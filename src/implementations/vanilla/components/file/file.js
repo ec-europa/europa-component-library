@@ -29,12 +29,12 @@ export class FileDownload {
       translationToggleSelector = '[data-ecl-file-translation-toggle]',
       translationContainerSelector = '[data-ecl-file-translation-container]',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -59,18 +59,18 @@ export class FileDownload {
   init() {
     this.translationToggle = queryOne(
       this.translationToggleSelector,
-      this.element
+      this.element,
     );
     this.translationContainer = queryOne(
       this.translationContainerSelector,
-      this.element
+      this.element,
     );
 
     // Bind click event on toggle
     if (this.attachClickListener && this.translationToggle) {
       this.translationToggle.addEventListener(
         'click',
-        this.handleClickOnToggle
+        this.handleClickOnToggle,
       );
     }
 
@@ -85,7 +85,7 @@ export class FileDownload {
     if (this.attachClickListener && this.translationToggle) {
       this.translationToggle.removeEventListener(
         'click',
-        this.handleClickOnToggle
+        this.handleClickOnToggle,
       );
     }
     if (this.element) {

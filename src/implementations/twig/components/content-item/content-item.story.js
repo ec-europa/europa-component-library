@@ -282,7 +282,7 @@ export const Image = (_, { loaded: { component } }) => component;
 
 Image.render = async (args) => {
   const renderedContentItemImage = await contentItem(
-    prepareData(dataImage, args)
+    prepareData(dataImage, args),
   );
   return renderedContentItemImage;
 };
@@ -295,7 +295,7 @@ export const Event = (_, { loaded: { component } }) => component;
 
 Event.render = async (args) => {
   const renderedContentItemEvent = await contentItem(
-    prepareData(dataEvent, args)
+    prepareData(dataEvent, args),
   );
   return renderedContentItemEvent;
 };

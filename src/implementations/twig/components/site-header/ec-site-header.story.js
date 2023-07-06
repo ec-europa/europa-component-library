@@ -220,18 +220,19 @@ const prepareData = (data, args) => {
     delete data.language_selector;
   } else {
     data.language_selector = JSON.parse(
-      JSON.stringify(clonedDataFull.language_selector)
+      JSON.stringify(clonedDataFull.language_selector),
     );
     data.language_selector.overlay.items.splice(
       -(data.language_selector.overlay.items.length - args.languages_eu),
-      data.language_selector.overlay.items.length - args.languages_eu
+      data.language_selector.overlay.items.length - args.languages_eu,
     );
     data.language_selector.overlay.non_eu_items.splice(
       -(
         data.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu
       ),
-      data.language_selector.overlay.non_eu_items.length - args.languages_non_eu
+      data.language_selector.overlay.non_eu_items.length -
+        args.languages_non_eu,
     );
   }
 
@@ -295,7 +296,7 @@ export const Standardised = (_, { loaded: { component } }) => component;
 
 Standardised.render = async (args) => {
   const renderedStandardised = await siteHeader(
-    prepareData(dataStandardised, args)
+    prepareData(dataStandardised, args),
   );
   return renderedStandardised;
 };
@@ -310,7 +311,7 @@ export const Harmonised = (_, { loaded: { component } }) => component;
 
 Harmonised.render = async (args) => {
   const renderedHarmonised = await siteHeader(
-    prepareData(dataHarmonised, args)
+    prepareData(dataHarmonised, args),
   );
   return renderedHarmonised;
 };

@@ -12,7 +12,7 @@ export const ratingFieldGroupDefault = template(
     ...demoContentDefault,
     id: 'rating-default',
     name: 'rating-default',
-  })
+  }),
 );
 export const ratingFieldGroupInvalid = template(
   correctSvgPath({
@@ -20,7 +20,7 @@ export const ratingFieldGroupInvalid = template(
     id: 'rating-invalid',
     name: 'rating-invalid',
     invalid: true,
-  })
+  }),
 );
 export const ratingFieldGroupOptional = template(
   correctSvgPath({
@@ -28,7 +28,7 @@ export const ratingFieldGroupOptional = template(
     id: 'rating-optional',
     name: 'rating-optional',
     required: false,
-  })
+  }),
 );
 export const ratingFieldGroupDisabled = template(
   correctSvgPath({
@@ -36,5 +36,5 @@ export const ratingFieldGroupDisabled = template(
     id: 'rating-disabled',
     name: 'rating-disabled',
     disabled: true,
-  })
+  }),
 );

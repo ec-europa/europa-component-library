@@ -121,7 +121,7 @@ export const Extended = (_, { loaded: { component } }) => component;
 
 Extended.render = async (args) => {
   const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataExtended, args)
+    prepareData(demoDataExtended, args),
   );
   return renderedFeaturedItem;
 };

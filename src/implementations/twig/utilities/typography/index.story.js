@@ -188,7 +188,7 @@ export const TextStyle = (args) => `
           args.alignment,
           {
             [`ecl-u-type-bold`]: args.bold,
-          }
+          },
         )}"
       >
         ${args.content}

@@ -44,12 +44,8 @@ $link: null !default;
   }
 }
 
-.ecl-link--icon-before,
-.ecl-link--icon-after {
-  display: inline;
-}
-
 .ecl-link--icon {
+  display: inline;
   text-decoration: none;
 
   .ecl-link__icon {
@@ -68,14 +64,11 @@ $link: null !default;
     .ecl-link__label {
     text-decoration: underline;
   }
-}
 
-.ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
-}
-
-.ecl-link--icon-after .ecl-link__icon {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  .ecl-link__icon ~ .ecl-link__label,
+  .ecl-link__label ~ .ecl-link__icon {
+    margin-inline-start: map.get($theme, 'spacing', 'xs');
+  }
 }
 
 /**

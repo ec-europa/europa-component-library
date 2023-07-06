@@ -112,7 +112,7 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedNavigationList = await navigationList(
-    prepareData(dataDefault, args)
+    prepareData(dataDefault, args),
   );
   return renderedNavigationList;
 };

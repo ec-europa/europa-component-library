@@ -49,7 +49,7 @@ describe('Site Footer Core EC', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCoreEC, true))
+        await axe(await renderTwigFileAsHtml(template, dataCoreEC, true)),
       ).toHaveNoViolations();
     });
   });
@@ -93,8 +93,8 @@ describe('Site Footer Standardised EC', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          await renderTwigFileAsHtml(template, dataStandardisedEC, true)
-        )
+          await renderTwigFileAsHtml(template, dataStandardisedEC, true),
+        ),
       ).toHaveNoViolations();
     });
   });
@@ -137,7 +137,7 @@ describe('Site Footer Harmonised EC', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataHarmonisedEC, true))
+        await axe(await renderTwigFileAsHtml(template, dataHarmonisedEC, true)),
       ).toHaveNoViolations();
     });
   });
@@ -180,7 +180,7 @@ describe('Site Footer Core EU', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCoreEU, true))
+        await axe(await renderTwigFileAsHtml(template, dataCoreEU, true)),
       ).toHaveNoViolations();
     });
   });

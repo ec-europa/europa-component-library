@@ -70,7 +70,7 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedGallery = `<div class="ecl-container">${await gallery(
-    prepareData(specs, args)
+    prepareData(specs, args),
   )}</div>`;
   return renderedGallery;
 };
