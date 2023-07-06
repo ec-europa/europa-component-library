@@ -108,7 +108,7 @@
   outline: 3px solid map.get(theme.$color, 'yellow-100');
   outline-offset: 2px;
 }
-
+// stylelint-disable-next-line media-query-no-invalid
 @media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
   * + .anatomy {
     margin-top: map.get(theme.$spacing, 'l');

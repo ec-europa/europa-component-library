@@ -493,7 +493,9 @@ $_menu-max-height: null !default;
       flex-direction: row;
       left: 0;
       right: 0;
-      transition: left 0.5s, right 0.5s;
+      transition:
+        left 0.5s,
+        right 0.5s;
     }
 
     .ecl-menu__item {
@@ -622,7 +624,8 @@ $_menu-max-height: null !default;
 
     .ecl-menu__item--current {
       background-color: $_desktop-link-active-background;
-      box-shadow: inset 2px 0 0 map.get(theme.$color, 'blue-100'),
+      box-shadow:
+        inset 2px 0 0 map.get(theme.$color, 'blue-100'),
         inset -2px 0 0 map.get(theme.$color, 'blue-100');
     }
 

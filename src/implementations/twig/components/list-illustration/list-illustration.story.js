@@ -377,7 +377,7 @@ export const HorizontalImage = (_, { loaded: { component } }) => component;
 
 HorizontalImage.render = async (args) => {
   const renderedList = await listIllustration(
-    prepareDataList(dataListIllustrationImage, args)
+    prepareDataList(dataListIllustrationImage, args),
   );
   return renderedList;
 };
@@ -385,7 +385,7 @@ HorizontalImage.storyName = 'horizontal (images)';
 HorizontalImage.args = getArgs(dataListIllustrationImage, 'horizontal-image');
 HorizontalImage.argTypes = getArgTypes(
   dataListIllustrationImage,
-  'horizontal-image'
+  'horizontal-image',
 );
 HorizontalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
@@ -395,7 +395,7 @@ export const HorizontalIcon = (_, { loaded: { component } }) => component;
 
 HorizontalIcon.render = async (args) => {
   const renderedListIcon = await listIllustration(
-    prepareDataList(dataListIllustrationIcon, args)
+    prepareDataList(dataListIllustrationIcon, args),
   );
   return renderedListIcon;
 };
@@ -403,7 +403,7 @@ HorizontalIcon.storyName = 'horizontal (icons)';
 HorizontalIcon.args = getArgs(dataListIllustrationIcon, 'horizontal-icon');
 HorizontalIcon.argTypes = getArgTypes(
   dataListIllustrationIcon,
-  'horizontal-icon'
+  'horizontal-icon',
 );
 HorizontalIcon.parameters = {
   notes: { markdown: notes, json: dataListIllustrationIcon },
@@ -413,7 +413,7 @@ export const VerticalImage = (_, { loaded: { component } }) => component;
 
 VerticalImage.render = async (args) => {
   const renderedListImageVertical = await listIllustration(
-    prepareDataList(dataListIllustrationImage, args)
+    prepareDataList(dataListIllustrationImage, args),
   );
   return renderedListImageVertical;
 };
@@ -421,7 +421,7 @@ VerticalImage.storyName = 'vertical (images)';
 VerticalImage.args = getArgs(dataListIllustrationImage, 'vertical-image');
 VerticalImage.argTypes = getArgTypes(
   dataListIllustrationImage,
-  'vertical-image'
+  'vertical-image',
 );
 VerticalImage.parameters = {
   notes: { markdown: notes, json: dataListIllustrationImage },
@@ -431,7 +431,7 @@ export const VerticalIcon = (_, { loaded: { component } }) => component;
 
 VerticalIcon.render = async (args) => {
   const renderedListIconVertical = await listIllustration(
-    prepareDataList(dataListIllustrationIcon, args)
+    prepareDataList(dataListIllustrationIcon, args),
   );
   return renderedListIconVertical;
 };

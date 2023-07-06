@@ -38,11 +38,11 @@ function GetLanguageId(path) {
 function GetOfficialLogos(logos, isOfficial) {
   if (isOfficial) {
     return logos.filter(
-      (logo) => officialLanguages.indexOf(GetLanguageId(logo)) >= 0
+      (logo) => officialLanguages.indexOf(GetLanguageId(logo)) >= 0,
     );
   }
   return logos.filter(
-    (logo) => officialLanguages.indexOf(GetLanguageId(logo)) < 0
+    (logo) => officialLanguages.indexOf(GetLanguageId(logo)) < 0,
   );
 }
 
@@ -55,27 +55,27 @@ function LogoList({ system, set, color, language }) {
     const logosEUMuted = require.context(
       '@ecl/preset-eu/dist/images/logo/',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosEUStandardPositive = require.context(
       '@ecl/preset-eu/dist/images/logo/standard-version/positive',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosEUCondensedPositive = require.context(
       '@ecl/preset-eu/dist/images/logo/condensed-version/positive',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosEUStandardNegative = require.context(
       '@ecl/preset-eu/dist/images/logo/standard-version/negative',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosEUCondensedNegative = require.context(
       '@ecl/preset-eu/dist/images/logo/condensed-version/negative',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
 
     // Check logo set
@@ -90,7 +90,7 @@ function LogoList({ system, set, color, language }) {
             ? logosEUStandardPositive
             : logosEUStandardNegative,
         muted: logosEUMuted,
-      }[s]);
+      })[s];
     logosSet = mapSet(set);
   }
   // EC logos
@@ -99,17 +99,17 @@ function LogoList({ system, set, color, language }) {
     const logosECMuted = require.context(
       '@ecl/preset-ec/dist/images/logo/',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosECStandardPositive = require.context(
       '@ecl/preset-ec/dist/images/logo/positive',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
     const logosECStandardNegative = require.context(
       '@ecl/preset-ec/dist/images/logo/negative',
       false,
-      /\.svg$/
+      /\.svg$/,
     );
 
     // Check logo set
@@ -120,7 +120,7 @@ function LogoList({ system, set, color, language }) {
             ? logosECStandardPositive
             : logosECStandardNegative,
         muted: logosECMuted,
-      }[s]);
+      })[s];
     logosSet = mapSet(set);
   }
 
@@ -130,7 +130,7 @@ function LogoList({ system, set, color, language }) {
       official: GetOfficialLogos(logosSet.keys(), true),
       other: GetOfficialLogos(logosSet.keys(), false),
       muted: logosSet.keys(),
-    }[l]);
+    })[l];
   const logoFinal = mapLanguage(language);
 
   return (

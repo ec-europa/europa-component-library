@@ -42,12 +42,12 @@ export class NewsTicker {
       controlsClass = '.ecl-news-ticker__controls',
       attachClickListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -145,13 +145,13 @@ export class NewsTicker {
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
-        this.shiftSlide.bind(this, 1, true)
+        this.shiftSlide.bind(this, 1, true),
       );
     }
     if (this.attachClickListener && this.btnPrev) {
       this.btnPrev.addEventListener(
         'click',
-        this.shiftSlide.bind(this, -1, true)
+        this.shiftSlide.bind(this, -1, true),
       );
     }
     if (this.slidesContainer) {
@@ -194,11 +194,11 @@ export class NewsTicker {
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
         'transitionend',
-        this.checkIndex
+        this.checkIndex,
       );
       this.slidesContainer.removeEventListener(
         'mouseover',
-        this.handleMouseOver
+        this.handleMouseOver,
       );
       this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
     }

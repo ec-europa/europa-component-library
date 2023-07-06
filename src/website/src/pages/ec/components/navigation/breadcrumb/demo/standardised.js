@@ -4,6 +4,6 @@ import template from '@ecl/twig-component-breadcrumb/breadcrumb.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const breadcrumbSimpleStandardised = template(
-  correctSvgPath(dataSimple)
+  correctSvgPath(dataSimple),
 );
 export const breadcrumbLongStandardised = template(correctSvgPath(dataLong));

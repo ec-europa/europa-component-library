@@ -193,7 +193,7 @@ const Media = (type, token) => `
 
     <div style="${styled(styleContainerRight)}">
       <div style="${styled(
-        styleContent
+        styleContent,
       )}" class="${`ecl-u-media-${type}-${token}`}">
       </div>
       ecl-u-media-${type}-${token}
@@ -235,7 +235,7 @@ const MediaBg = (bgPosition, bgOrigin, bgRepeat, bgSize) => `
       bgPosition,
       bgOrigin,
       bgRepeat,
-      bgSize
+      bgSize,
     )}"
   />
 `;

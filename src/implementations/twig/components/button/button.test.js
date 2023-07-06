@@ -26,7 +26,7 @@ describe('Button', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataPrimary))
+        await axe(await renderTwigFileAsHtml(template, dataPrimary)),
       ).toHaveNoViolations();
     });
   });
@@ -48,7 +48,7 @@ describe('Button', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall, true))
+        await axe(await renderTwigFileAsHtml(template, dataCall, true)),
       ).toHaveNoViolations();
     });
   });
@@ -62,7 +62,7 @@ describe('Button', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataGhost))
+        await axe(await renderTwigFileAsHtml(template, dataGhost)),
       ).toHaveNoViolations();
     });
   });
@@ -87,7 +87,7 @@ describe('Button', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall))
+        await axe(await renderTwigFileAsHtml(template, dataCall)),
       ).toHaveNoViolations();
     });
   });
@@ -112,7 +112,7 @@ describe('Button', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(await renderTwigFileAsHtml(template, dataCall))
+        await axe(await renderTwigFileAsHtml(template, dataCall)),
       ).toHaveNoViolations();
     });
   });
