@@ -57,7 +57,7 @@ export const Core = (_, { loaded: { component } }) => component;
 
 Core.render = async (args) => {
   const renderedBreadcrumbCore = await breadcrumb(
-    prepareData(dataDefault, args)
+    prepareData(dataDefault, args),
   );
   return renderedBreadcrumbCore;
 };
