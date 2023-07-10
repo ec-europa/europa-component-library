@@ -95,6 +95,12 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 - Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
 
+### Lists
+
+#### Unordered list
+
+- the `no-bullets` variant is renamed in `no-marker` since the symbol used is not anymore a bullet.
+
 ### Search form
 
 - Icon in the search button is now placed before the label
