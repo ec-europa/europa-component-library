@@ -2,7 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import dataDefault from '@ecl/specs-component-breadcrumb/demo/data--eu';
+import dataDefault from '@ecl/specs-component-breadcrumb/demo/data--long';
 
 import breadcrumb from './breadcrumb.html.twig';
 import notes from './README.md';
