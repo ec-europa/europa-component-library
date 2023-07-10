@@ -7,7 +7,7 @@ const dataDefault = correctSvgPath(demoContentAudio);
 export const iconDefault = template(dataDefault);
 
 export const iconPrimary = template(
-  merge(dataDefault, { icon: { color: 'primary' } })
+  merge(dataDefault, { icon: { color: 'primary' } }),
 );
 export const icon2XS = template(merge(dataDefault, { icon: { size: '2xs' } }));
 export const iconXS = template(merge(dataDefault, { icon: { size: 'xs' } }));
@@ -17,25 +17,25 @@ export const iconL = template(merge(dataDefault, { icon: { size: 'l' } }));
 export const iconXL = template(merge(dataDefault, { icon: { size: 'xl' } }));
 export const icon2XL = template(merge(dataDefault, { icon: { size: '2xl' } }));
 export const iconFluid = template(
-  merge(dataDefault, { icon: { size: 'fluid' } })
+  merge(dataDefault, { icon: { size: 'fluid' } }),
 );
 export const iconRotate0 = template(
-  merge(dataDefault, { icon: { transform: 'rotate-0' } })
+  merge(dataDefault, { icon: { transform: 'rotate-0' } }),
 );
 export const iconRotate90 = template(
-  merge(dataDefault, { icon: { transform: 'rotate-90' } })
+  merge(dataDefault, { icon: { transform: 'rotate-90' } }),
 );
 export const iconRotate180 = template(
-  merge(dataDefault, { icon: { transform: 'rotate-180' } })
+  merge(dataDefault, { icon: { transform: 'rotate-180' } }),
 );
 export const iconRotate270 = template(
-  merge(dataDefault, { icon: { transform: 'rotate-270' } })
+  merge(dataDefault, { icon: { transform: 'rotate-270' } }),
 );
 export const iconFlipVertical = template(
-  merge(dataDefault, { icon: { transform: 'flip-vertical' } })
+  merge(dataDefault, { icon: { transform: 'flip-vertical' } }),
 );
 export const iconFlipHorizontal = template(
-  merge(dataDefault, { icon: { transform: 'flip-horizontal' } })
+  merge(dataDefault, { icon: { transform: 'flip-horizontal' } }),
 );
 export const iconImage = template(
   merge(dataDefault, {
@@ -46,5 +46,5 @@ export const iconImage = template(
       description: 'Description',
       description_id: 'example-desc',
     },
-  })
+  }),
 );

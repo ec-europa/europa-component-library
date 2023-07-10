@@ -52,7 +52,7 @@ describe('Radio', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataDefault, true))
+        await axe(renderTwigFileAsHtml(template, dataDefault, true)),
       ).toHaveNoViolations();
     });
   });

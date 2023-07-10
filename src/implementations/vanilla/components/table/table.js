@@ -33,7 +33,7 @@ export class Table {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -62,7 +62,7 @@ export class Table {
     // The following element is <path> which does not support classList API as others.
     svg.setAttribute(
       'class',
-      `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`
+      `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
     );
     return svg;
   }
@@ -134,7 +134,7 @@ export class Table {
           ? v1 - v2
           : v1.toString().localeCompare(v2))(
         (asc ? a : b).children[idx].textContent,
-        (asc ? b : a).children[idx].textContent
+        (asc ? b : a).children[idx].textContent,
       );
 
     if (order === 'descending') {

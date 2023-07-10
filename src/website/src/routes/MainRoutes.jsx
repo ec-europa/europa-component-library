@@ -12,10 +12,10 @@ import HomePageEU from '../pages/eu/index.md';
 import Skeleton from './Skeleton';
 
 const ECRoutes = lazy(() =>
-  import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec')
+  import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec'),
 );
 const EURoutes = lazy(() =>
-  import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu')
+  import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu'),
 );
 
 function WaitingEC(props) {

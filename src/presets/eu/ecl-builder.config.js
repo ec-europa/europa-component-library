@@ -61,7 +61,7 @@ module.exports = {
       entry: path.resolve(__dirname, 'src/eu-default-print.scss'),
       dest: path.resolve(
         outputFolder,
-        'styles/optional/ecl-eu-default-print.css'
+        'styles/optional/ecl-eu-default-print.css',
       ),
       options: {
         banner,
@@ -118,7 +118,7 @@ module.exports = {
       {
         pattern: `${path.resolve(
           __dirname,
-          '..'
+          '..',
         )}/(dev|eu|reset|rtl)/src/*.scss`,
         events: [
           {
@@ -145,7 +145,7 @@ module.exports = {
       {
         pattern: `${path.resolve(
           __dirname,
-          '../..'
+          '../..',
         )}/implementations/vanilla/**/*.scss`,
         events: [
           {
@@ -160,7 +160,7 @@ module.exports = {
       {
         pattern: `${path.resolve(
           __dirname,
-          '../..'
+          '../..',
         )}/implementations/vanilla/**/*.js`,
         events: [
           {
@@ -175,7 +175,7 @@ module.exports = {
       {
         pattern: `${path.resolve(
           __dirname,
-          '../..'
+          '../..',
         )}/themes/(dev|eu)/**/*.scss`,
         events: [
           {

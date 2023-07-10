@@ -50,7 +50,7 @@ describe('Banner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data, true))
+        await axe(renderTwigFileAsHtml(template, data, true)),
       ).toHaveNoViolations();
     });
   });
@@ -111,7 +111,7 @@ describe('Banner', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, bannerDataTextBox, true))
+        await axe(renderTwigFileAsHtml(template, bannerDataTextBox, true)),
       ).toHaveNoViolations();
     });
   });

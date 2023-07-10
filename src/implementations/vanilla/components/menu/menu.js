@@ -65,12 +65,12 @@ export class Menu {
       attachFocusListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -194,7 +194,7 @@ export class Menu {
       if (this.btnPrevious) {
         this.btnPrevious.addEventListener(
           'click',
-          this.handleClickOnPreviousItems
+          this.handleClickOnPreviousItems,
         );
       }
 
@@ -329,7 +329,7 @@ export class Menu {
       if (this.btnPrevious) {
         this.btnPrevious.removeEventListener(
           'click',
-          this.handleClickOnPreviousItems
+          this.handleClickOnPreviousItems,
         );
       }
 
@@ -708,7 +708,7 @@ export class Menu {
       if (e.key === 'ArrowDown') {
         const firstItem = queryOne(
           '.ecl-menu__sublink:first-of-type',
-          menuItem
+          menuItem,
         );
         if (firstItem) {
           firstItem.focus();
@@ -733,7 +733,7 @@ export class Menu {
         prevItem = element.parentElement.previousSibling;
         if (prevItem) {
           const prevClass = prevItem.classList.contains(
-            'ecl-menu__item--has-children'
+            'ecl-menu__item--has-children',
           )
             ? '.ecl-menu__button-caret'
             : '.ecl-menu__link';
@@ -789,7 +789,7 @@ export class Menu {
         } else {
           const caretButton = queryOne(
             `${this.itemSelector}[aria-expanded="true"] ${this.caretSelector}`,
-            this.element
+            this.element,
           );
 
           if (caretButton) {
@@ -1022,7 +1022,7 @@ export class Menu {
   closeOpenDropdown() {
     const currentItem = queryOne(
       `${this.itemSelector}[aria-expanded='true']`,
-      this.element
+      this.element,
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
@@ -1067,7 +1067,7 @@ export class Menu {
         // There are no next menu item, but maybe there is a carret button
         const caretButton = queryOne(
           '.ecl-menu__button-caret',
-          element.parentElement
+          element.parentElement,
         );
         if (caretButton && element !== caretButton) {
           return;

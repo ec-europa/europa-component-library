@@ -33,12 +33,12 @@ export class Timeline {
       labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 

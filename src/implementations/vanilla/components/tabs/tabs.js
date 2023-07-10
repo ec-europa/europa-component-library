@@ -41,12 +41,12 @@ export class Tabs {
       nextSelector = '.ecl-tabs__next',
       attachClickListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -118,7 +118,7 @@ export class Tabs {
       this.moreItem.appendChild(this.dropdown);
       this.dropdownItems = queryAll(
         '.ecl-tabs__dropdown .ecl-tabs__item',
-        this.element
+        this.element,
       );
     }
 
@@ -138,13 +138,13 @@ export class Tabs {
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
-        this.shiftTabs.bind(this, 'next', true)
+        this.shiftTabs.bind(this, 'next', true),
       );
     }
     if (this.attachClickListener && this.btnPrev) {
       this.btnPrev.addEventListener(
         'click',
-        this.shiftTabs.bind(this, 'prev', true)
+        this.shiftTabs.bind(this, 'prev', true),
       );
     }
     if (this.attachResizeListener) {
@@ -210,7 +210,7 @@ export class Tabs {
         this.list.offsetWidth -
           this.listItems[this.index].offsetLeft -
           this.listItems[this.index].offsetWidth -
-          leftMargin
+          leftMargin,
       );
     } else {
       newOffset = Math.ceil(this.listItems[this.index].offsetLeft - leftMargin);
@@ -218,7 +218,7 @@ export class Tabs {
 
     const maxScroll = Math.ceil(
       this.list.getBoundingClientRect().width -
-        this.element.getBoundingClientRect().width
+        this.element.getBoundingClientRect().width,
     );
 
     if (newOffset > maxScroll) {
@@ -242,7 +242,7 @@ export class Tabs {
     this.dropdown.classList.toggle('ecl-tabs__dropdown--show');
     this.moreButton.setAttribute(
       'aria-expanded',
-      this.dropdown.classList.contains('ecl-tabs__dropdown--show')
+      this.dropdown.classList.contains('ecl-tabs__dropdown--show'),
     );
   }
 
@@ -260,7 +260,7 @@ export class Tabs {
     // Behaviors for mobile format
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
-      window.innerWidth || 0
+      window.innerWidth || 0,
     );
 
     if (vw <= 480) {
@@ -324,7 +324,7 @@ export class Tabs {
       this.moreItem.setAttribute('aria-hidden', 'false');
       this.moreLabel.textContent = this.moreLabelValue.replace(
         '%d',
-        hiddenItems.length
+        hiddenItems.length,
       );
       this.dropdownItems.forEach((item, i) => {
         if (!hiddenItems.includes(i)) {

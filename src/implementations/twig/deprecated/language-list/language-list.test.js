@@ -46,7 +46,7 @@ describe('Language List', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataSplash, true))
+        await axe(renderTwigFileAsHtml(template, dataSplash, true)),
       ).toHaveNoViolations();
     });
   });
@@ -85,7 +85,7 @@ describe('Language List', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataOverlay, true))
+        await axe(renderTwigFileAsHtml(template, dataOverlay, true)),
       ).toHaveNoViolations();
     });
   });

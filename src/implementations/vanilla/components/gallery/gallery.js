@@ -69,12 +69,12 @@ export class Gallery {
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -137,6 +137,7 @@ export class Gallery {
     this.imageHeightBig = 260;
 
     // Bind `this` for use in callbacks
+    this.iframeResize = this.iframeResize.bind(this);
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
     this.handleClickOnViewAll = this.handleClickOnViewAll.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
@@ -180,25 +181,25 @@ export class Gallery {
       this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
       this.overlayCounterCurrent = queryOne(
         this.overlayCounterCurrentSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayCounterMax = queryOne(
         this.overlayCounterMaxSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayDownload = queryOne(
         this.overlayDownloadSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
       this.overlayDescription = queryOne(
         this.overlayDescriptionSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
       this.overlayPrevious = queryOne(
         this.overlayPreviousSelector,
-        this.overlay
+        this.overlay,
       );
       this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
@@ -218,7 +219,7 @@ export class Gallery {
       if (this.attachClickListener && this.closeButton) {
         this.closeButton.addEventListener(
           'click',
-          this.handleClickOnCloseButton
+          this.handleClickOnCloseButton,
         );
       }
 
@@ -238,7 +239,7 @@ export class Gallery {
       if (this.attachClickListener && this.overlayPrevious) {
         this.overlayPrevious.addEventListener(
           'click',
-          this.handleClickOnPreviousButton
+          this.handleClickOnPreviousButton,
         );
       }
 
@@ -246,7 +247,7 @@ export class Gallery {
       if (this.attachClickListener && this.overlayNext) {
         this.overlayNext.addEventListener(
           'click',
-          this.handleClickOnNextButton
+          this.handleClickOnNextButton,
         );
       }
 
@@ -296,7 +297,7 @@ export class Gallery {
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.removeEventListener(
         'click',
-        this.handleClickOnCloseButton
+        this.handleClickOnCloseButton,
       );
     }
 
@@ -313,14 +314,14 @@ export class Gallery {
     if (this.attachClickListener && this.overlayPrevious) {
       this.overlayPrevious.removeEventListener(
         'click',
-        this.handleClickOnPreviousButton
+        this.handleClickOnPreviousButton,
       );
     }
 
     if (this.attachClickListener && this.overlayNext) {
       this.overlayNext.removeEventListener(
         'click',
-        this.handleClickOnNextButton
+        this.handleClickOnNextButton,
       );
     }
 
@@ -354,6 +355,40 @@ export class Gallery {
     }
   }
 
+  iframeResize(iframe) {
+    if (!iframe && this.overlay) {
+      iframe = queryOne('iframe', this.overlay);
+    }
+
+    if (iframe) {
+      const width = window.innerWidth;
+
+      setTimeout(() => {
+        const height =
+          this.overlay.clientHeight -
+          this.overlayHeader.clientHeight -
+          this.overlayFooter.clientHeight;
+
+        if (width > height) {
+          iframe.setAttribute('height', `${height}px`);
+
+          if ((height * 16) / 9 > width) {
+            iframe.setAttribute('width', `${width - 0.05 * width}px`);
+          } else {
+            iframe.setAttribute('width', `${(height * 16) / 9}px`);
+          }
+        } else {
+          iframe.setAttribute('width', `${width}px`);
+          if ((width * 4) / 3 > height) {
+            iframe.setAttribute('height', `${height - 0.05 * height}px`);
+          } else {
+            iframe.setAttribute('height', `${(width * 4) / 3}px`);
+          }
+        }
+      }, 0);
+    }
+  }
+
   /**
    * @param {Int} rows/item number
    *
@@ -377,7 +412,7 @@ export class Gallery {
       });
       hiddenItemIds.forEach((id) => {
         this.galleryItems[id].parentNode.classList.add(
-          'ecl-gallery__item--hidden'
+          'ecl-gallery__item--hidden',
         );
       });
       return;
@@ -401,6 +436,7 @@ export class Gallery {
     this.resizeTimer = setTimeout(() => {
       this.checkScreen();
       this.hideItems();
+      this.iframeResize();
     }, 200);
   }
 
@@ -410,7 +446,7 @@ export class Gallery {
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
     const embeddedVideo = selectedItem.getAttribute(
-      'data-ecl-gallery-item-embed-src'
+      'data-ecl-gallery-item-embed-src',
     );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
@@ -430,6 +466,7 @@ export class Gallery {
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
       }
+      this.iframeResize(mediaIframe);
     } else if (video != null) {
       // Media is a video
       mediaElement = document.createElement('video');
@@ -491,7 +528,7 @@ export class Gallery {
 
     // Update share link
     const shareHref = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-share'
+      'data-ecl-gallery-item-share',
     );
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
@@ -635,7 +672,7 @@ export class Gallery {
   handleClickOnPreviousButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-id'
+      'data-ecl-gallery-item-id',
     );
 
     // Get previous id
@@ -659,7 +696,7 @@ export class Gallery {
   handleClickOnNextButton() {
     // Get current id
     const currentId = this.selectedItem.getAttribute(
-      'data-ecl-gallery-item-id'
+      'data-ecl-gallery-item-id',
     );
 
     // Get next id

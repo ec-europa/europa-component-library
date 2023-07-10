@@ -10,21 +10,21 @@ dataImageSquare.items.forEach((item) => {
 });
 
 export const listIllustrationVerticalWithImage = template(
-  correctSvgPath(dataImage)
+  correctSvgPath(dataImage),
 );
 export const listIllustrationVerticalWithImageSquare = template(
-  correctSvgPath(dataImageSquare)
+  correctSvgPath(dataImageSquare),
 );
 export const listIllustrationVerticalWithIcon = template(
-  correctSvgPath(dataIcon)
+  correctSvgPath(dataIcon),
 );
 
 export const listIllustrationHorizontalWithImage = template(
-  correctSvgPath({ ...dataImage, column: 3, zebra: false })
+  correctSvgPath({ ...dataImage, column: 3, zebra: false }),
 );
 export const listIllustrationHorizontalWithImageSquare = template(
-  correctSvgPath({ ...dataImageSquare, column: 3, zebra: false })
+  correctSvgPath({ ...dataImageSquare, column: 3, zebra: false }),
 );
 export const listIllustrationHorizontalWithIcon = template(
-  correctSvgPath({ ...dataIcon, column: 3, zebra: false })
+  correctSvgPath({ ...dataIcon, column: 3, zebra: false }),
 );

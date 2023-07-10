@@ -6,10 +6,10 @@ import template from '@ecl/twig-component-file/file.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const fileWithTranslation = template(
-  correctSvgPath(demoWithTranslation)
+  correctSvgPath(demoWithTranslation),
 );
 export const fileWithoutTranslation = template(
-  correctSvgPath(demoWithoutTranslation)
+  correctSvgPath(demoWithoutTranslation),
 );
 export const fileThumbnail = template(correctSvgPath(demoThumbnail));
 export const fileTaxonomy = template(correctSvgPath(demoTaxonomy));

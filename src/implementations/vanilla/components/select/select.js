@@ -61,12 +61,12 @@ export class Select {
       selectMultiplesSelectionCountSelector = 'ecl-select-multiple-selections-counter',
       closeButtonLabel = '',
       clearAllButtonLabel = '',
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -194,8 +194,8 @@ export class Select {
     box.appendChild(
       Select.createSvgIcon(
         iconSvgAllCheck,
-        'ecl-icon ecl-icon--s ecl-checkbox__icon'
-      )
+        'ecl-icon ecl-icon--s ecl-checkbox__icon',
+      ),
     );
     label.appendChild(box);
     labelText.classList.add('ecl-checkbox__label-text');
@@ -213,7 +213,7 @@ export class Select {
     wrapper.classList.add('ecl-select__icon');
     const icon = Select.createSvgIcon(
       iconSvgAllCornerArrow,
-      'ecl-icon ecl-icon--s ecl-select__icon-shape ecl-icon--rotate-180'
+      'ecl-icon ecl-icon--s ecl-select__icon-shape ecl-icon--rotate-180',
     );
     wrapper.appendChild(icon);
     return wrapper;
@@ -283,7 +283,7 @@ export class Select {
 
     this.selectionCount = document.createElement('div');
     this.selectionCount.classList.add(
-      this.selectMultiplesSelectionCountSelector
+      this.selectMultiplesSelectionCountSelector,
     );
     this.selectionCountText = document.createElement('span');
     this.selectionCount.appendChild(this.selectionCountText);
@@ -296,7 +296,7 @@ export class Select {
     this.searchContainer.style.display = 'none';
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
-      ...containerClasses
+      ...containerClasses,
     );
 
     this.selectMultiple.appendChild(this.searchContainer);
@@ -311,7 +311,7 @@ export class Select {
 
     if (this.textSelectAll) {
       const optionsCount = Array.from(this.select.options).filter(
-        (option) => !option.disabled
+        (option) => !option.disabled,
       ).length;
 
       this.selectAll = Select.createCheckbox(
@@ -320,7 +320,7 @@ export class Select {
           text: `${this.textSelectAll} (${optionsCount})`,
           extraClass: 'ecl-select__multiple-all',
         },
-        this.selectMultipleId
+        this.selectMultipleId,
       );
       this.selectAll.addEventListener('click', this.handleClickSelectAll);
       this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
@@ -343,11 +343,11 @@ export class Select {
         this.clearAllButton.classList.add('ecl-button', 'ecl-button--ghost');
         this.clearAllButton.addEventListener(
           'click',
-          this.handleClickOnClearAll
+          this.handleClickOnClearAll,
         );
         this.clearAllButton.addEventListener(
           'keydown',
-          this.handleKeyboardOnClearAll
+          this.handleKeyboardOnClearAll,
         );
         this.dropDownToolbar.appendChild(this.clearAllButton);
       }
@@ -359,7 +359,7 @@ export class Select {
         this.closeButton.addEventListener('click', this.handleEsc);
         this.closeButton.addEventListener(
           'keydown',
-          this.handleKeyboardOnClose
+          this.handleKeyboardOnClose,
         );
 
         if (this.dropDownToolbar) {
@@ -373,7 +373,7 @@ export class Select {
     this.selectAll.addEventListener('keydown', this.handleKeyboardOnSelectAll);
     this.optionsContainer.addEventListener(
       'keydown',
-      this.handleKeyboardOnOptions
+      this.handleKeyboardOnOptions,
     );
 
     if (this.select.options && this.select.options.length > 0) {
@@ -384,8 +384,8 @@ export class Select {
           if (
             !this.optionsContainer.querySelector(
               `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
-                'label'
-              )}"]`
+                'label',
+              )}"]`,
             )
           ) {
             optgroup = document.createElement('div');
@@ -395,15 +395,15 @@ export class Select {
             optgroup.appendChild(title);
             optgroup.setAttribute(
               'data-ecl-multiple-group',
-              option.parentNode.getAttribute('label')
+              option.parentNode.getAttribute('label'),
             );
             optgroup.classList.add('ecl-select__multiple-group');
             this.optionsContainer.appendChild(optgroup);
           } else {
             optgroup = this.optionsContainer.querySelector(
               `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
-                'label'
-              )}"]`
+                'label',
+              )}"]`,
             );
           }
         }
@@ -422,7 +422,7 @@ export class Select {
             disabled: option.disabled,
             selected: option.selected,
           },
-          this.selectMultipleId
+          this.selectMultipleId,
         );
 
         checkbox.setAttribute('data-visible', true);
@@ -442,7 +442,7 @@ export class Select {
 
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
-      this.select.parentNode.nextSibling
+      this.select.parentNode.nextSibling,
     );
 
     document.addEventListener('click', this.handleClickOutside);
@@ -474,11 +474,11 @@ export class Select {
     this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
     this.selectAll.removeEventListener(
       'keydown',
-      this.handleKeyboardOnSelectAll
+      this.handleKeyboardOnSelectAll,
     );
     this.optionsContainer.removeEventListener(
       'keydown',
-      this.handleKeyboardOnOptions
+      this.handleKeyboardOnOptions,
     );
     this.checkboxes.forEach((checkbox) => {
       checkbox.removeEventListener('click', this.handleClickSelectAll);
@@ -490,17 +490,17 @@ export class Select {
       this.closeButton.removeEventListener('click', this.handleEsc);
       this.closeButton.removeEventListener(
         'keydown',
-        this.handleKeyboardOnClose
+        this.handleKeyboardOnClose,
       );
     }
     if (this.clearAllButton) {
       this.clearAllButton.removeEventListener(
         'click',
-        this.handleClickOnClearAll
+        this.handleClickOnClearAll,
       );
       this.clearAllButton.removeEventListener(
         'keydown',
-        this.handleKeyboardOnClearAll
+        this.handleKeyboardOnClearAll,
       );
     }
     if (this.selectMultiple) {
@@ -524,21 +524,21 @@ export class Select {
       this.selectionCount.querySelector('span').innerHTML += i;
     } else {
       selectedOptionsCount = Array.from(this.select.options).filter(
-        (option) => option.selected
+        (option) => option.selected,
       ).length;
     }
     if (selectedOptionsCount > 0) {
       this.selectionCount.querySelector('span').innerHTML =
         selectedOptionsCount;
       this.selectionCount.classList.add(
-        'ecl-select-multiple-selections-counter--visible'
+        'ecl-select-multiple-selections-counter--visible',
       );
       if (this.dropDownToolbar) {
         this.dropDownToolbar.style.display = 'flex';
       }
     } else {
       this.selectionCount.classList.remove(
-        'ecl-select-multiple-selections-counter--visible'
+        'ecl-select-multiple-selections-counter--visible',
       );
       if (this.dropDownToolbar) {
         this.dropDownToolbar.style.display = 'none';
@@ -547,7 +547,7 @@ export class Select {
 
     if (selectedOptionsCount >= 100) {
       this.selectionCount.classList.add(
-        'ecl-select-multiple-selections-counter--xxl'
+        'ecl-select-multiple-selections-counter--xxl',
       );
     }
   }
@@ -610,13 +610,13 @@ export class Select {
     const checked = Select.checkCheckbox(e);
     const options = Array.from(this.select.options).filter((o) => !o.disabled);
     const checkboxes = Array.from(
-      this.searchContainer.querySelectorAll('[data-visible="true"]')
+      this.searchContainer.querySelectorAll('[data-visible="true"]'),
     ).filter((checkbox) => !checkbox.querySelector('input').disabled);
 
     checkboxes.forEach((checkbox) => {
       checkbox.querySelector('input').checked = checked;
       const option = options.find(
-        (o) => o.text === checkbox.getAttribute('data-select-multiple-value')
+        (o) => o.text === checkbox.getAttribute('data-select-multiple-value'),
       );
 
       if (option) {
@@ -670,16 +670,16 @@ export class Select {
         checkbox.style.display = 'flex';
         // Highlight keyword in checkbox label.
         const checkboxLabelText = checkbox.querySelector(
-          '.ecl-checkbox__label-text'
+          '.ecl-checkbox__label-text',
         );
         checkboxLabelText.textContent = checkboxLabelText.textContent.replace(
           '.cls-1{fill:none}',
-          ''
+          '',
         );
         if (keyword) {
           checkboxLabelText.innerHTML = checkboxLabelText.textContent.replace(
             new RegExp(`${keyword}(?!([^<]+)?<)`, 'gi'),
-            '<b>$&</b>'
+            '<b>$&</b>',
           );
         }
         visible.push(checkbox);
@@ -694,17 +694,17 @@ export class Select {
     }
     // Display no-results message.
     const noResultsElement = this.searchContainer.querySelector(
-      '.ecl-select__multiple-no-results'
+      '.ecl-select__multiple-no-results',
     );
     const groups = this.optionsContainer.getElementsByClassName(
-      'ecl-select__multiple-group'
+      'ecl-select__multiple-group',
     );
     // eslint-disable-next-line no-restricted-syntax
     for (const group of groups) {
       group.style.display = 'none';
       // eslint-disable-next-line no-restricted-syntax
       const groupedCheckboxes = [...group.children].filter((node) =>
-        node.classList.contains('ecl-checkbox')
+        node.classList.contains('ecl-checkbox'),
       );
       groupedCheckboxes.forEach((single) => {
         if (single.hasAttribute('data-visible')) {
@@ -833,7 +833,7 @@ export class Select {
       case 'ArrowDown':
         if (this.selectAll.querySelector('input').disabled) {
           const firstAvailable = Array.from(
-            this.optionsContainer.querySelectorAll('.ecl-checkbox')
+            this.optionsContainer.querySelectorAll('.ecl-checkbox'),
           ).filter((el) => el.style.display !== 'none');
           if (firstAvailable[0]) {
             firstAvailable[0].querySelector('input').focus();
@@ -927,25 +927,25 @@ export class Select {
   moveFocus(upOrDown) {
     const activeEl = document.activeElement;
     const hasGroups = activeEl.parentElement.parentElement.classList.contains(
-      'ecl-select__multiple-group'
+      'ecl-select__multiple-group',
     );
     const options = !hasGroups
       ? Array.from(
           activeEl.parentElement.parentElement.querySelectorAll(
-            '.ecl-checkbox__input'
-          )
+            '.ecl-checkbox__input',
+          ),
         )
       : Array.from(
           activeEl.parentElement.parentElement.parentElement.querySelectorAll(
-            '.ecl-checkbox__input'
-          )
+            '.ecl-checkbox__input',
+          ),
         );
     const activeIndex = options.indexOf(activeEl);
     if (upOrDown === 'down') {
       const nextSiblings = options
         .splice(activeIndex + 1, options.length)
         .filter(
-          (el) => !el.disabled && el.parentElement.style.display !== 'none'
+          (el) => !el.disabled && el.parentElement.style.display !== 'none',
         );
       if (nextSiblings.length > 0) {
         nextSiblings[0].focus();
@@ -964,7 +964,7 @@ export class Select {
       const previousSiblings = options
         .splice(0, activeIndex)
         .filter(
-          (el) => !el.disabled && el.parentElement.style.display !== 'none'
+          (el) => !el.disabled && el.parentElement.style.display !== 'none',
         );
       if (previousSiblings.length > 0) {
         previousSiblings.pop().focus();
@@ -989,7 +989,7 @@ export class Select {
     e.preventDefault();
     Array.from(this.select.options).forEach((option) => {
       const checkbox = this.selectMultiple.querySelector(
-        `[data-select-multiple-value="${option.text}"]`
+        `[data-select-multiple-value="${option.text}"]`,
       );
       const input = checkbox.querySelector('.ecl-checkbox__input');
       input.checked = false;
@@ -1009,7 +1009,7 @@ export class Select {
     setTimeout(() => {
       Array.from(this.select.options).forEach((option) => {
         const checkbox = this.selectMultiple.querySelector(
-          `[data-select-multiple-value="${option.text}"]`
+          `[data-select-multiple-value="${option.text}"]`,
         );
         const input = checkbox.querySelector('.ecl-checkbox__input');
         if (input.checked) {

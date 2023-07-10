@@ -18,7 +18,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
 
 const environmentModulePath = require.resolve(
-  '@ecl/twig-ec-storybook/.storybook/environment.js'
+  '@ecl/twig-ec-storybook/.storybook/environment.js',
 );
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
@@ -73,7 +73,7 @@ module.exports = {
       'react-dom': '@hot-loader/react-dom',
       '@ecl/website-components': path.resolve(
         __dirname,
-        'src/website-components/'
+        'src/website-components/',
       ),
       '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
     },
