@@ -16,7 +16,7 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 
 ## Don'ts
 
-- **do not nest lists deeper than 3 levels**
+- do not nest lists deeper than 3 levels
 
 ## When to use
 
@@ -27,8 +27,6 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 - do not use it for navigation purpose
 - do not use it when all items have equal value or importance
 - do not use when you have one or more overarching categories that require descriptions
-
-  
 
 # Unordered list
 
@@ -52,8 +50,6 @@ Unordered lists are used to group related content without any particular order, 
 - do not use it for navigation purpose
 - do not use it when items can be ranked, counted or sequenced
 - do not use when you have one or more overarching categories or terms require descriptions
-
-  
 
 # Description lists
 
