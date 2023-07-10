@@ -5,8 +5,8 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   links: [
     { label: 'Home', path: exampleLink },
-    { label: 'About the European Commission', path: exampleLink },
-    { label: 'News' },
+    { label: 'Parent Page label', path: exampleLink },
+    { label: 'Current Page Label' },
   ],
   navigation_text: 'You are here:',
   icon_file_path: '/icons.svg',
