@@ -4,6 +4,25 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Breadcrumb
+$breadcrumb: (
+  padding-vertical: map.get($spacing, 'xs'),
+  font-mobile: map.get($font, 'm'),
+  font-desktop: map.get($font, 's'),
+  line-height: map.get($line-height, 'm'),
+  last-link-color: var(--ecl-color-dark),
+  icon-color: var(--ecl-color-primary),
+  icon-spacing: map.get($spacing, 'm'),
+  ellipsis: (
+    background: transparent,
+    background-hover: var(--ecl-color-primary-40),
+    color: var(--ecl-color-primary),
+    font-weight: map.get($font-weight, 'regular'),
+    offset-vertical: map.get($spacing, 'xs'),
+    offset-horizontal: map.get($spacing, 'm'),
+  ),
+);
+
 // Button
 $button: (
   radius: 2px,
