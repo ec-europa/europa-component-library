@@ -56,6 +56,9 @@ module.exports = {
           alt: 'Image 3',
         },
       },
+      embedded_video: {
+        src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
+      },
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
@@ -67,6 +70,9 @@ module.exports = {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
         },
+      },
+      embedded_video: {
+        src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
@@ -120,6 +126,9 @@ module.exports = {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
           alt: 'Image 6',
         },
+      },
+      embedded_video: {
+        src: 'https://player.vimeo.com/video/813227141?h=077b905b65',
       },
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',

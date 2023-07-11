@@ -14,7 +14,7 @@ class DisplayTokens extends PureComponent {
             (key) =>
               (!category && !name) ||
               (category && tokens.props[key].category === category) ||
-              (name && tokens.props[key].name === name)
+              (name && tokens.props[key].name === name),
           )
           .map((key) => (
             <li key={key}>

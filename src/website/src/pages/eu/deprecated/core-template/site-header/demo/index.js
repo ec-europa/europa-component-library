@@ -8,5 +8,5 @@ const demoContentLoggedIn = { ...demoContent, logged: true };
 export const siteHeaderCore = template(correctSvgPath(demoContent));
 export const siteHeaderCoreTranslated = template(correctSvgPath(demoContentFr));
 export const siteHeaderCoreLoggedIn = template(
-  correctSvgPath(demoContentLoggedIn)
+  correctSvgPath(demoContentLoggedIn),
 );

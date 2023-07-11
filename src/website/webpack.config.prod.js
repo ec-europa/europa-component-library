@@ -30,7 +30,7 @@ const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 const environmentModulePath = require.resolve(
-  '@ecl/twig-ec-storybook/.storybook/environment.js'
+  '@ecl/twig-ec-storybook/.storybook/environment.js',
 );
 
 // Do this as the first thing so that any code reading it knows the right env.
@@ -47,13 +47,13 @@ if ('CI' in process.env && process.env.GITHUB_REF.includes('refs/tags/')) {
   try {
     const sriFileName = `/europa-component-library-${process.env.GITHUB_REF.replace(
       'refs/tags/',
-      ''
+      '',
     )}-sri.json`;
 
     sri = JSON.parse(
       fs.readFileSync(
-        `${path.resolve(__dirname, '../../scripts/')}/${sriFileName}`
-      )
+        `${path.resolve(__dirname, '../../scripts/')}/${sriFileName}`,
+      ),
     );
 
     fs.rename(
@@ -61,7 +61,7 @@ if ('CI' in process.env && process.env.GITHUB_REF.includes('refs/tags/')) {
       `${path.resolve(__dirname, '../../dist/packages')}/${sriFileName}`,
       (err) => {
         if (err) throw err;
-      }
+      },
     );
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -133,7 +133,7 @@ module.exports = {
     alias: {
       '@ecl/website-components': path.resolve(
         __dirname,
-        'src/website-components/'
+        'src/website-components/',
       ),
       '@ecl/website-utils': path.resolve(__dirname, 'src/utils/'),
     },
@@ -346,34 +346,34 @@ module.exports = {
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
       'process.env.ECL_VERSION': JSON.stringify(eclVersion),
       'process.env.ECL_EC_CSS': JSON.stringify(
-        (sri['ecl-ec.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EC_PRINT_CSS': JSON.stringify(
-        (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EC_DEFAULT_CSS': JSON.stringify(
-        (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec-default.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EC_JS': JSON.stringify(
-        (sri['ecl-ec.js'] || []).join(' ') || 'n/a'
+        (sri['ecl-ec.js'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EU_CSS': JSON.stringify(
-        (sri['ecl-eu.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EU_PRINT_CSS': JSON.stringify(
-        (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EU_DEFAULT_CSS': JSON.stringify(
-        (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu-default.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EU_JS': JSON.stringify(
-        (sri['ecl-eu.js'] || []).join(' ') || 'n/a'
+        (sri['ecl-eu.js'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_RESET_CSS': JSON.stringify(
-        (sri['ecl-reset.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-reset.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_RTL_CSS': JSON.stringify(
-        (sri['ecl-rtl.css'] || []).join(' ') || 'n/a'
+        (sri['ecl-rtl.css'] || []).join(' ') || 'n/a',
       ),
     }),
     new MiniCssExtractPlugin({

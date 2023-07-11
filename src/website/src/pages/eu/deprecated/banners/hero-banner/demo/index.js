@@ -6,14 +6,14 @@ import template from '@ecl/twig-component-hero-banner/hero-banner.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const heroBannerImageBox = template(
-  correctSvgPath(correctSvgPath(demoContentImageBox))
+  correctSvgPath(correctSvgPath(demoContentImageBox)),
 );
 export const heroBannerImageShade = template(
-  correctSvgPath(demoContentImageShade)
+  correctSvgPath(demoContentImageShade),
 );
 export const heroBannerImageGradient = template(
-  correctSvgPath(demoContentImageGradient)
+  correctSvgPath(demoContentImageGradient),
 );
 export const heroBannerSimplePrimary = template(
-  correctSvgPath(demoContentSimplePrimary)
+  correctSvgPath(demoContentSimplePrimary),
 );

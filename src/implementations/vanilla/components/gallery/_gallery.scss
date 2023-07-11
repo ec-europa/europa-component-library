@@ -6,7 +6,6 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
-@use '@ecl/vanilla-utility-media/media' as uMedia;
 
 $_description-background: null !default;
 $_description-color: map.get(theme.$color, 'white-100');
@@ -393,8 +392,10 @@ $_overlay-links-hover-color: null !default;
 }
 
 .ecl-gallery__slider-embed {
-  @include uMedia.aspect-ratio(16, 9);
-
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
   width: 100%;
 }
 
@@ -465,8 +466,8 @@ $_overlay-links-hover-color: null !default;
   margin-top: $_actions-margin;
 }
 
-.ecl-gallery__share {
-  margin-inline-start: map.get(theme.$spacing, 's');
+.ecl-gallery__download {
+  margin-inline-end: map.get(theme.$spacing, 's') !important;
 }
 
 .ecl-gallery__download,

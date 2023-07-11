@@ -51,7 +51,7 @@ describe('Icon', () => {
       });
 
       return expect(
-        render(optionsWithAccessibility)
+        render(optionsWithAccessibility),
       ).resolves.toMatchSnapshot();
     });
 
@@ -80,7 +80,7 @@ describe('Icon', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, options))
+        await axe(renderTwigFileAsHtml(template, options)),
       ).toHaveNoViolations();
     });
   });

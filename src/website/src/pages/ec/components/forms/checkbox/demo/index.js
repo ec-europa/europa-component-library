@@ -4,8 +4,8 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 export const checkboxDefault = template(correctSvgPath(demoContentDefault));
 export const checkboxInvalid = template(
-  correctSvgPath({ ...demoContentDefault, invalid: true })
+  correctSvgPath({ ...demoContentDefault, invalid: true }),
 );
 export const checkboxOptional = template(
-  correctSvgPath({ ...demoContentDefault, required: false })
+  correctSvgPath({ ...demoContentDefault, required: false }),
 );

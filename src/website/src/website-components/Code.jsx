@@ -16,15 +16,15 @@ function Code({ children }) {
             // Render as string and unescape &nbsp;
             ReactDOMServer.renderToStaticMarkup(children).replace(
               /\u00A0/g,
-              '&nbsp;'
+              '&nbsp;',
             ),
             {
               indent_size: 2,
               wrap_line_length: 120,
-            }
+            },
           ),
           Prism.languages.html,
-          'html'
+          'html',
         ),
       }}
     />

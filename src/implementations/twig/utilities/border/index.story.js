@@ -138,7 +138,7 @@ export const Custom = (args) => {
     args.colour,
     args.width,
     args.radius,
-    direction
+    direction,
   )}" />`;
 };
 
