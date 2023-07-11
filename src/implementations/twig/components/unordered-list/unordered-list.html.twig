@@ -17,11 +17,11 @@
           "value" (optional) (string)
         ...
       ]
-    - "variant" (string) Component variants (no-bullet, divider),
+    - "variant" (string) Component variants (no-marker, divider),
 #}
 
 {# Define main macro #}
-{% macro unordered_list(items, extra_classes, extra_attributes, variant) %}{% apply spaceless %}
+{% macro unordered_list(items, extra_classes, extra_attributes, variant, nested) %}{% apply spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -55,11 +55,19 @@
   {% if _items is not empty %}
     <ul class="{{ _css_class }}"{{ _extra_attributes|raw }}>
       {% for _item in _items %}
+        {% set _item_class = 'ecl-unordered-list__item' %}
+        {% if not nested and loop.first %}
+          {% set _item_class = _item_class ~ ' ecl-unordered-list__item--first' %}
+        {% endif %}
+        {% if not nested and loop.last %}
+          {% set _item_class = _item_class ~ ' ecl-unordered-list__item--last' %}
+        {% endif %}
+
         {% if _item is not empty %}
-          <li class="ecl-unordered-list__item">
+          <li class="{{ _item_class }}">
             {{- _item.label -}}
             {% if _item.nested is not empty and _item.nested is iterable %}
-              {{- list.unordered_list(_item.nested) -}}
+              {{- list.unordered_list(_item.nested, '', [], '', true) -}}
             {% endif -%}
           </li>
         {% endif %}

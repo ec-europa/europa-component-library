@@ -181,9 +181,17 @@ $link: (
     outline-color: map.get($color, 'grey-140'),
   ),
 );
+
+// Lists
 $list: (
-  marker: disc,
-  sublist-marker: circle,
+  unordered: (
+    marker: disc,
+    sublist-marker: circle,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
   text-color: map.get($color, 'grey-80'),
   divider-color: map.get($color, 'blue-20'),
 );

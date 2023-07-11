@@ -13,9 +13,15 @@
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-ordered-list/ordered-list-print';
+@use '@ecl/vanilla-component-ordered-list/ordered-list-print' with (
+  $theme: theme.$theme,
+  $list: var.$list
+);
 @use '@ecl/vanilla-component-table/table-print';
-@use '@ecl/vanilla-component-unordered-list/unordered-list-print';
+@use '@ecl/vanilla-component-unordered-list/unordered-list-print' with (
+  $theme: theme.$theme,
+  $list: var.$list
+);
 @use '@ecl/vanilla-utility-typography/typography-print-ec';
 
 html {

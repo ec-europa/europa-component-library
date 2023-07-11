@@ -17,18 +17,24 @@
           "value" (optional) (string)
         ...
       ],
+     - "variant" (string) Component variants (no-marker, divider),
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes) %}{% apply spaceless %}
+{% macro ordered_list(items, extra_classes, extra_attributes, variant, nested) %}{% apply spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
   {% set _items = items|default([]) %}
   {% set _css_class = 'ecl-ordered-list' %}
+  {% set _variant = variant|default('') %}
   {% set _extra_attributes = '' %}
 
   {# Internal logic - Process properties #}
+
+  {% if _variant is not empty %}
+    {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+  {% endif %}
 
   {% if extra_classes is defined and extra_classes is not empty %}
     {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -48,14 +54,21 @@
   {% if _items is not empty %}
     <ol class="{{ _css_class }}" {{ _extra_attributes|raw }}>
       {% for _item in _items %}
-        {% if _item is not empty %}
-          <li class="ecl-ordered-list__item">
-            {{- _item.label -}}
-            {% if _item.nested is not empty and _item.nested is iterable %}
-              {{- list.ordered_list(_item.nested) -}}
-            {% endif -%}
-          </li>
+        {% set _item_class = 'ecl-ordered-list__item' %}
+        
+        {% if not nested and loop.first %}
+          {% set _item_class = _item_class ~ ' ecl-ordered-list__item--first' %}
         {% endif %}
+        {% if not nested and loop.last %}
+          {% set _item_class = _item_class ~ ' ecl-ordered-list__item--last' %}
+        {% endif %}
+
+        <li class="{{ _item_class }}">
+          {{- _item.label -}}
+          {% if _item.nested is not empty and _item.nested is iterable %}
+            {{- list.ordered_list(_item.nested, '', [], '', true) -}}
+          {% endif -%}
+        </li>
       {% endfor %}
     </ol>
   {% endif %}
@@ -63,6 +76,6 @@
 {% endapply %}{% endmacro %}
 
 {# Render macro #}
-{{ list.ordered_list(items, extra_classes, extra_attributes) }}
+{{ list.ordered_list(items, extra_classes, extra_attributes, variant) }}
 
 {% endapply %}

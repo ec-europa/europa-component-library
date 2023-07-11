@@ -4,32 +4,89 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_text-color: null !default;
+// Exposed variables
+$theme: null !default;
+$list: null !default;
 
 .ecl-ordered-list,
 %ecl-ordered-list {
-  color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  color: map.get($list, 'text-color');
+  font: map.get($theme, 'font-prolonged', 'm');
   list-style-position: inside;
+  list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
   padding: 0;
 }
 
 .ecl-ordered-list .ecl-ordered-list,
-.ecl-ordered-list .ecl-unordered-list,
 %ecl-ordered-list--nested {
-  margin-top: map.get(theme.$spacing, 'xs');
-  padding-inline-start: map.get(theme.$spacing, 'l');
+  list-style-type: map.get($list, 'ordered', 'sublist-marker');
+  margin-top: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: map.get($theme, 'spacing', 'l');
 }
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
-  margin-top: map.get(theme.$spacing, 'xs');
+  margin-top: map.get($theme, 'spacing', 'xs');
   max-width: 80ch;
 
-  &:first-child {
-    margin-top: 0;
+  .ecl-link {
+    display: inline-block;
+    padding-top: map.get($theme, 'spacing', 'xs');
+  }
+}
+
+.ecl-ordered-list__item--first {
+  margin-top: map.get($theme, 'spacing', '2xs');
+
+  > .ecl-link {
+    padding-top: map.get($theme, 'spacing', '2xs');
+  }
+}
+
+.ecl-ordered-list__item--last {
+  margin-bottom: map.get($theme, 'spacing', '2xs');
+}
+
+// No marker
+.ecl-ordered-list--no-marker {
+  list-style-type: none;
+  padding-inline-start: 0;
+
+  .ecl-ordered-list {
+    list-style-type: none;
+    padding-inline-start: map.get($theme, 'spacing', 'xl');
+  }
+
+  > .ecl-ordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+  }
+}
+
+// Dividers
+.ecl-ordered-list--divider {
+  list-style: none;
+  padding-inline-start: 0;
+
+  > .ecl-ordered-list__item {
+    border-bottom: 1px solid map.get($list, 'divider-color');
+    margin-bottom: map.get($theme, 'spacing', 's');
+    margin-inline-start: 0;
+    padding-bottom: map.get($theme, 'spacing', 's');
+    padding-inline-start: 0;
+
+    .ecl-link {
+      padding: 0;
+    }
+  }
+
+  .ecl-ordered-list {
+    padding-inline-start: map.get($theme, 'spacing', 'xl');
+
+    .ecl-ordered-list__item {
+      list-style-type: none;
+    }
   }
 }

@@ -66,7 +66,10 @@
 @use '@ecl/vanilla-component-media-container/media-container-eu';
 @use '@ecl/vanilla-component-modal/modal-eu';
 @use '@ecl/vanilla-component-navigation-list/navigation-list-eu';
-@use '@ecl/vanilla-component-ordered-list/ordered-list-eu';
+@use '@ecl/vanilla-component-ordered-list/ordered-list' with (
+  $theme: theme.$theme,
+  $list: var.$list
+);
 @use '@ecl/vanilla-component-unordered-list/unordered-list' with (
   $theme: theme.$theme,
   $list: var.$list

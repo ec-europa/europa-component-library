@@ -97,9 +97,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Lists
 
-#### Unordered list
+#### Unordered list and Ordered list
 
-- the `no-bullets` variant is renamed in `no-marker` since the symbol used is not anymore a bullet.
+- the same variants are now available in both components `no-marker, divider`
+- the `no-bullets` variant is renamed in `no-marker` since it deals now with different symbols.
 
 ### Search form
 

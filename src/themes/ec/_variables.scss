@@ -180,9 +180,17 @@ $link: (
     outline-color: var(--ecl-color-dark),
   ),
 );
+
+// Lists
 $list: (
-  marker: '—',
-  sublist-marker: square,
+  unordered: (
+    marker: '—',
+    sublist-marker: square,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
   text-color: var(--ecl-color-dark),
   divider-color: var(--ecl-color-neutral),
 );

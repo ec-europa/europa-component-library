@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-ordered-list
 - **"items"** (array) (default: [])
   - "label" (string)
   - "nested" (optional) Object of type Ordered List
+- **"variant"** (optional) (string) (default: '') - Name of the variant
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
