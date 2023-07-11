@@ -69,81 +69,126 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Text = (args) => formGroup(prepareData(dataText, args));
+export const Text = (_, { loaded: { component } }) => component;
 
+Text.render = async (args) => {
+  const renderedText = await formGroup(prepareData(dataText, args));
+  return renderedText;
+};
 Text.storyName = 'Text input';
 Text.args = getArgs(dataText);
 Text.argTypes = getArgTypes(dataText, 'element');
 Text.parameters = { notes: { markdown: notes, json: dataText } };
 
-export const Textarea = (args) => formGroup(prepareData(dataTextarea, args));
+export const Textarea = (_, { loaded: { component } }) => component;
 
+Textarea.render = async (args) => {
+  const renderedTextArea = await formGroup(prepareData(dataTextarea, args));
+  return renderedTextArea;
+};
 Textarea.storyName = 'Textarea';
 Textarea.args = getArgs(dataTextarea);
 Textarea.argTypes = getArgTypes(dataTextarea, 'element');
 Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
-export const Checkbox = (args) => formGroup(prepareData(dataCheckbox, args));
+export const Checkbox = (_, { loaded: { component } }) => component;
 
+Checkbox.render = async (args) => {
+  const renderedCheckbox = await formGroup(prepareData(dataCheckbox, args));
+  return renderedCheckbox;
+};
 Checkbox.storyName = 'Checkbox';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
 
-export const Datepicker = (args) =>
-  formGroup(prepareData(dataDatepicker, args));
+export const Datepicker = (_, { loaded: { component } }) => component;
 
+Datepicker.render = async (args) => {
+  const renderedDatepicker = await formGroup(prepareData(dataDatepicker, args));
+  return renderedDatepicker;
+};
 Datepicker.storyName = 'Datepicker';
 Datepicker.args = getArgs(dataDatepicker);
 Datepicker.argTypes = getArgTypes(dataDatepicker, 'element');
 Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
 
-export const FileUpload = (args) => formGroup(prepareData(dataFile, args));
+export const FileUpload = (_, { loaded: { component } }) => component;
 
+FileUpload.render = async (args) => {
+  const renderedFileUpload = await formGroup(prepareData(dataFile, args));
+  return renderedFileUpload;
+};
 FileUpload.storyName = 'File upload';
 FileUpload.args = getArgs(dataFile);
 FileUpload.argTypes = getArgTypes(dataFile, 'element');
 FileUpload.parameters = { notes: { markdown: notes, json: dataFile } };
 
-export const Radio = (args) => formGroup(prepareData(dataBinary, args));
+export const Radio = (_, { loaded: { component } }) => component;
 
+Radio.render = async (args) => {
+  const renderedRadio = await formGroup(prepareData(dataBinary, args));
+  return renderedRadio;
+};
 Radio.storyName = 'Radio';
 Radio.args = getArgs(dataBinary);
 Radio.argTypes = getArgTypes(dataBinary, 'element');
 Radio.parameters = { notes: { markdown: notes, json: dataBinary } };
 
-export const RadioGroup = (args) => formGroup(prepareData(dataDefault, args));
+export const RadioGroup = (_, { loaded: { component } }) => component;
 
+RadioGroup.render = async (args) => {
+  const renderedRadioGroup = await formGroup(prepareData(dataDefault, args));
+  return renderedRadioGroup;
+};
 RadioGroup.storyName = 'Radio group';
 RadioGroup.args = getArgs(dataDefault);
 RadioGroup.argTypes = getArgTypes(dataDefault, 'group');
 RadioGroup.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Range = (args) => formGroup(prepareData(dataRange, args));
+export const Range = (_, { loaded: { component } }) => component;
 
+Range.render = async (args) => {
+  const renderedRange = await formGroup(prepareData(dataRange, args));
+  return renderedRange;
+};
 Range.storyName = 'Range';
 Range.args = getArgs(dataRange);
 Range.argTypes = getArgTypes(dataRange, 'element');
 Range.parameters = { notes: { markdown: notes, json: dataRange } };
 
-export const RatingField = (args) =>
-  formGroup(prepareData(dataRatingField, args));
+export const RatingField = (_, { loaded: { component } }) => component;
 
+RatingField.render = async (args) => {
+  const renderedRatingField = await formGroup(
+    prepareData(dataRatingField, args),
+  );
+  return renderedRatingField;
+};
 RatingField.storyName = 'Rating field';
 RatingField.args = getArgs(dataRatingField);
 RatingField.argTypes = getArgTypes(dataRatingField, 'element');
 RatingField.parameters = { notes: { markdown: notes, json: dataRatingField } };
 
-export const Select = (args) => formGroup(prepareData(dataSingle, args));
+export const Select = (_, { loaded: { component } }) => component;
 
+Select.render = async (args) => {
+  const renderedSelect = await formGroup(prepareData(dataSingle, args));
+  return renderedSelect;
+};
 Select.storyName = 'Select';
 Select.args = getArgs(dataSingle);
 Select.argTypes = getArgTypes(dataSingle, 'element');
 Select.parameters = { notes: { markdown: notes, json: dataSingle } };
 
-export const SelectMultiple = (args) =>
-  formGroup(prepareData(dataMultiple, args));
+export const SelectMultiple = (_, { loaded: { component } }) => component;
 
+SelectMultiple.render = async (args) => {
+  const renderedSelectMultiple = await formGroup(
+    prepareData(dataMultiple, args),
+  );
+  return renderedSelectMultiple;
+};
 SelectMultiple.storyName = 'Select multiple';
 SelectMultiple.args = getArgs(dataMultiple);
 SelectMultiple.argTypes = getArgTypes(dataMultiple, 'element');

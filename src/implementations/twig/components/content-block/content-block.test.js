@@ -61,7 +61,7 @@ describe('Content block', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, dataImage, true))
+        await axe(await renderTwigFileAsHtml(template, dataImage, true)),
       ).toHaveNoViolations();
     });
   });

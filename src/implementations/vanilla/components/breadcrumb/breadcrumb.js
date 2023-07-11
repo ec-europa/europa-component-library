@@ -39,12 +39,12 @@ export class Breadcrumb {
       onPartialExpand = null,
       onFullExpand = null,
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -85,7 +85,7 @@ export class Breadcrumb {
     this.staticElements = queryAll(this.staticItemsSelector, this.element);
     this.expandableElements = queryAll(
       this.expandableItemsSelector,
-      this.element
+      this.element,
     );
 
     this.check();
@@ -98,7 +98,7 @@ export class Breadcrumb {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
         'click',
-        this.handleClickOnEllipsis
+        this.handleClickOnEllipsis,
       );
     }
   }
@@ -139,7 +139,7 @@ export class Breadcrumb {
     if (this.attachClickListener && this.ellipsisButton) {
       this.ellipsisButton.removeEventListener(
         'click',
-        this.handleClickOnEllipsis
+        this.handleClickOnEllipsis,
       );
     }
   }
@@ -149,7 +149,7 @@ export class Breadcrumb {
    */
   showAllItems() {
     this.expandableElements.forEach((item) =>
-      item.setAttribute('aria-hidden', 'false')
+      item.setAttribute('aria-hidden', 'false'),
     );
   }
 
@@ -158,6 +158,8 @@ export class Breadcrumb {
    */
   handlePartialExpand(visibilityMap) {
     if (!visibilityMap) return;
+
+    this.element.classList.add('ecl-breadcrumb--collapsed');
 
     const { isItemVisible } = visibilityMap;
     if (!isItemVisible || !Array.isArray(isItemVisible)) return;
@@ -168,7 +170,7 @@ export class Breadcrumb {
       this.expandableElements.forEach((item, index) => {
         item.setAttribute(
           'aria-hidden',
-          isItemVisible[index] ? 'false' : 'true'
+          isItemVisible[index] ? 'false' : 'true',
         );
       });
     }
@@ -178,6 +180,8 @@ export class Breadcrumb {
    * Display all elements.
    */
   handleFullExpand() {
+    this.element.classList.remove('ecl-breadcrumb--collapsed');
+
     if (this.onFullExpand) {
       this.onFullExpand();
     } else {
@@ -200,7 +204,7 @@ export class Breadcrumb {
     // Get the sum of all items' width
     const allItemsWidth = this.itemsElements
       .map(
-        (breadcrumbSegment) => breadcrumbSegment.getBoundingClientRect().width
+        (breadcrumbSegment) => breadcrumbSegment.getBoundingClientRect().width,
       )
       .reduce((a, b) => a + b);
 
@@ -215,7 +219,7 @@ export class Breadcrumb {
       ellipsisItemWidth +
       this.staticElements.reduce(
         (sum, currentItem) => sum + currentItem.getBoundingClientRect().width,
-        0
+        0,
       );
 
     if (incompressibleWidth >= wrapperWidth) {

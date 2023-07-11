@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoDefault from '@ecl/specs-component-page-header/demo/data';
-import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataBreadcrumbSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
 
 expect.extend(toHaveNoViolations);
 demoDefault.breadcrumb = dataBreadcrumbSimple;
@@ -50,7 +50,7 @@ describe('Page Header Standardised', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, demoSimple, true))
+        await axe(await renderTwigFileAsHtml(template, demoSimple, true)),
       ).toHaveNoViolations();
     });
   });

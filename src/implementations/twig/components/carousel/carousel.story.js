@@ -101,8 +101,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => renderStory(dataDefault, args);
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedCarousel = await renderStory(dataDefault, args);
+  return renderedCarousel;
+};
 Default.storyName = 'default';
 Default.args = getArgs();
 Default.argTypes = getArgTypes();

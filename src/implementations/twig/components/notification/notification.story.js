@@ -99,29 +99,51 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Info = (args) => notification(prepareData(dataInfo, args));
+export const Info = (_, { loaded: { component } }) => component;
 
+Info.render = async (args) => {
+  const renderedNotification = await notification(prepareData(dataInfo, args));
+  return renderedNotification;
+};
 Info.storyName = 'Info';
 Info.args = getArgs(dataInfo);
 Info.argTypes = getArgTypes();
 Info.parameters = { notes: { markdown: notes, json: dataInfo } };
 
-export const Success = (args) => notification(prepareData(dataSuccess, args));
+export const Success = (_, { loaded: { component } }) => component;
 
+Success.render = async (args) => {
+  const renderedNotificationSuccess = await notification(
+    prepareData(dataSuccess, args),
+  );
+  return renderedNotificationSuccess;
+};
 Success.storyName = 'Success';
 Success.args = getArgs(dataSuccess);
 Success.argTypes = getArgTypes();
 Success.parameters = { notes: { markdown: notes, json: dataSuccess } };
 
-export const Error = (args) => notification(prepareData(dataError, args));
+export const Error = (_, { loaded: { component } }) => component;
 
+Error.render = async (args) => {
+  const renderedNotificationError = await notification(
+    prepareData(dataError, args),
+  );
+  return renderedNotificationError;
+};
 Error.storyName = 'Error';
 Error.args = getArgs(dataError);
 Error.argTypes = getArgTypes();
 Error.parameters = { notes: { markdown: notes, json: dataError } };
 
-export const Warning = (args) => notification(prepareData(dataWarning, args));
+export const Warning = (_, { loaded: { component } }) => component;
 
+Warning.render = async (args) => {
+  const renderedNotificationWarning = await notification(
+    prepareData(dataWarning, args),
+  );
+  return renderedNotificationWarning;
+};
 Warning.storyName = 'Warning';
 Warning.args = getArgs(dataWarning);
 Warning.argTypes = getArgTypes();

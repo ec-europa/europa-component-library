@@ -55,6 +55,12 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
+### Breadcrumb
+
+- Font size of the separator icon is now `fluid` for both EC and EU, so it will automatically adjust based on the font size
+- Icon rotation is now handled in CSS as it depends on the context, so no need to use icon variant anymore for that (`ecl-icon--rotate-90`)
+- All EC breadcrumb now share the same display; there is no longer a specific variant for EC Core (previously called `negative`). Corresponding parameter and css classes have been removed
+
 ### Button
 
 - Classes `ecl-button__icon--before` and `ecl-button__icon--after` are no longer needed for the icon; position is detected using CSS.
@@ -93,6 +99,12 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
+- Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
+
+### Message
+
+- Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
 
 ### Search form
 
@@ -104,15 +116,37 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.
 
-### Message
+### Spinner
 
-- Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
-- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
+- For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
+- Order of elements in the markup has been changed
 
 ### Site header
 
 - Twig parameter `message` has been renamed to `notification`
 - CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
+
+### Table
+
+- In order to properly support the row extra_classes and extra_attributes the data structure is now changed and it expects a `data` named object containing all the table cells belonging to that row.
+  Classes and attributes for the single row can now be set inside the row object, like this:
+  `rows: [
+  {
+    data: [
+      {
+        label: 'Administators in Competition Law',
+        'data-ecl-table-header': 'Job title',
+      },
+      {
+        label: 'AD7',
+        'data-ecl-table-header': 'EFSI finance approved by EIB',
+      },
+      extra_classes: 'row-extra-class',
+      extra_attributes: [{ name: 'custom-attr', value: 'custom-value'}],
+    ],
+  },
+  ...
+]`
 
 ## Custom theme
 

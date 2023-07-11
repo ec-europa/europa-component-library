@@ -207,15 +207,23 @@ export default {
   decorators: [withCode, withNotes],
 };
 
-export const Default = (args) => card(prepareData(dataCardDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedCard = await card(prepareData(dataCardDefault, args));
+  return renderedCard;
+};
 Default.storyName = 'default';
 Default.args = getArgs(dataCardDefault);
 Default.argTypes = getArgTypes(dataCardDefault);
 Default.parameters = { notes: { markdown: notes, json: dataCardDefault } };
 
-export const Lists = (args) => card(prepareData(dataCardLists, args));
+export const Lists = (_, { loaded: { component } }) => component;
 
+Lists.render = async (args) => {
+  const renderedCardList = await card(prepareData(dataCardLists, args));
+  return renderedCardList;
+};
 Lists.storyName = 'lists';
 Lists.args = getArgs(dataCardLists);
 Lists.argTypes = getArgTypes(dataCardLists);

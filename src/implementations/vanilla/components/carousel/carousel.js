@@ -44,12 +44,12 @@ export class Carousel {
       paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -177,7 +177,7 @@ export class Carousel {
       this.navigationItems.forEach((nav, index) => {
         nav.addEventListener(
           'click',
-          this.shiftSlide.bind(this, index + 1, true)
+          this.shiftSlide.bind(this, index + 1, true),
         );
       });
     }
@@ -194,13 +194,13 @@ export class Carousel {
     if (this.attachClickListener && this.btnNext) {
       this.btnNext.addEventListener(
         'click',
-        this.shiftSlide.bind(this, 'next', true)
+        this.shiftSlide.bind(this, 'next', true),
       );
     }
     if (this.attachClickListener && this.btnPrev) {
       this.btnPrev.addEventListener(
         'click',
-        this.shiftSlide.bind(this, 'prev', true)
+        this.shiftSlide.bind(this, 'prev', true),
       );
     }
 
@@ -250,7 +250,7 @@ export class Carousel {
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
         'mouseover',
-        this.handleMouseOver
+        this.handleMouseOver,
       );
       this.slidesContainer.removeEventListener('mouseout', this.handleMouseOut);
       this.slidesContainer.removeEventListener('touchstart', this.dragStart);
@@ -258,7 +258,7 @@ export class Carousel {
       this.slidesContainer.removeEventListener('touchmove', this.dragAction);
       this.slidesContainer.removeEventListener(
         'transitionend',
-        this.checkIndex
+        this.checkIndex,
       );
     }
     if (this.container) {
@@ -468,7 +468,7 @@ export class Carousel {
   handleResize() {
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
-      window.innerWidth || 0
+      window.innerWidth || 0,
     );
 
     const containerWidth = this.container.offsetWidth;
@@ -490,12 +490,12 @@ export class Carousel {
       this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
       this.pagination.parentNode.insertBefore(
         this.btnNext,
-        this.pagination.nextSibling
+        this.pagination.nextSibling,
       );
     } else {
       this.container.insertBefore(
         this.btnPrev,
-        this.slidesContainer.nextSibling
+        this.slidesContainer.nextSibling,
       );
       this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
     }
@@ -515,7 +515,7 @@ export class Carousel {
       case 'ArrowRight':
         e.preventDefault();
         this.activeNav = queryOne(
-          `${this.navigationItemsClass}[aria-current="true"]`
+          `${this.navigationItemsClass}[aria-current="true"]`,
         );
         if (this.activeNav) {
           this.activeNav.focus();

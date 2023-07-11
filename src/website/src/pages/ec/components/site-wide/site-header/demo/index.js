@@ -22,6 +22,6 @@ dataHarmonised.has_menu = true;
 
 export const siteHeaderCore = template(correctSvgPath(dataCore));
 export const siteHeaderStandardised = template(
-  correctSvgPath(dataStandardised)
+  correctSvgPath(dataStandardised),
 );
 export const siteHeaderHarmonised = template(correctSvgPath(dataHarmonised));

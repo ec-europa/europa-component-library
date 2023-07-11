@@ -5,8 +5,8 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataSimple from '@ecl/specs-component-breadcrumb/demo/data-simple--ec';
-import dataLong from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
+import dataLong from '@ecl/specs-component-breadcrumb/demo/data--long';
 
 expect.extend(toHaveNoViolations);
 
@@ -49,7 +49,7 @@ describe('Breadcrumb', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data))
+        await axe(await renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
     });
   });
@@ -90,7 +90,7 @@ describe('Breadcrumb', () => {
 
     test(`passes the accessibility tests`, async () => {
       expect(
-        await axe(renderTwigFileAsHtml(template, data))
+        await axe(await renderTwigFileAsHtml(template, data)),
       ).toHaveNoViolations();
     });
   });

@@ -52,9 +52,14 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Horizontal = (args) =>
-  SocialMediaShare(prepareData(dataHorizontal, args));
+export const Horizontal = (_, { loaded: { component } }) => component;
 
+Horizontal.render = async (args) => {
+  const renderedHorizontal = await SocialMediaShare(
+    prepareData(dataHorizontal, args),
+  );
+  return renderedHorizontal;
+};
 Horizontal.storyName = 'horizontal';
 Horizontal.args = getArgs(dataHorizontal);
 Horizontal.argTypes = getArgTypes();
@@ -62,9 +67,14 @@ Horizontal.parameters = {
   notes: { markdown: notes, json: dataHorizontal },
 };
 
-export const Vertical = (args) =>
-  SocialMediaShare(prepareData(dataVertical, args));
+export const Vertical = (_, { loaded: { component } }) => component;
 
+Vertical.render = async (args) => {
+  const renderedVertical = await SocialMediaShare(
+    prepareData(dataVertical, args),
+  );
+  return renderedVertical;
+};
 Vertical.storyName = 'vertical';
 Vertical.args = getArgs(dataVertical);
 Vertical.argTypes = getArgTypes();

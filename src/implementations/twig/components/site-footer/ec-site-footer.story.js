@@ -127,17 +127,26 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => footer(prepareData(dataCore, args));
+export const Core = (_, { loaded: { component } }) => component;
 
+Core.render = async (args) => {
+  const renderedCore = await footer(prepareData(dataCore, args));
+  return renderedCore;
+};
 Core.storyName = 'core';
 Core.parameters = {
   controls: { disable: true },
   notes: { markdown: notes, json: dataCore },
 };
 
-export const Standardised = (args) =>
-  footer(prepareData(dataStandardised, args));
+export const Standardised = (_, { loaded: { component } }) => component;
 
+Standardised.render = async (args) => {
+  const renderedStandardised = await footer(
+    prepareData(dataStandardised, args),
+  );
+  return renderedStandardised;
+};
 Standardised.storyName = 'standardised';
 Standardised.args = getArgs();
 Standardised.argTypes = getArgTypes();
@@ -145,8 +154,12 @@ Standardised.parameters = {
   notes: { markdown: notes, json: dataStandardised },
 };
 
-export const Harmonised = (args) => footer(prepareData(dataHarmonised, args));
+export const Harmonised = (_, { loaded: { component } }) => component;
 
+Harmonised.render = async (args) => {
+  const renderedHarmonised = await footer(prepareData(dataHarmonised, args));
+  return renderedHarmonised;
+};
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs();
 Harmonised.argTypes = getArgTypes();

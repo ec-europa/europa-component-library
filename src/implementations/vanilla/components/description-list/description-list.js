@@ -31,12 +31,12 @@ export class DescriptionList {
       visibleItemsSelector = 'data-ecl-description-list-visible-items',
       moreItemLabelSelector = 'data-ecl-description-list-more-label',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -73,7 +73,7 @@ export class DescriptionList {
           list.appendChild(button);
 
           this.showHide(
-            queryAll('.ecl-description-list__definition-item', list)
+            queryAll('.ecl-description-list__definition-item', list),
           );
           if (this.attachClickListener) {
             button.addEventListener('click', this.handleClickOnMore);
@@ -145,7 +145,7 @@ export class DescriptionList {
       parentChildren.forEach((item) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
         item.classList.remove(
-          'ecl-description-list__definition-item--last-visible'
+          'ecl-description-list__definition-item--last-visible',
         );
       });
       // Remove the button

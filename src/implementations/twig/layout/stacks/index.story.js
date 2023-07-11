@@ -166,46 +166,47 @@ export default {
   },
 };
 
-export const Custom = (args) => {
+export const Custom = (_, { loaded: { component } }) => component;
+
+Custom.render = async (args) => {
   const { shrink } = args;
   const { grow } = args;
 
-  return `
-    <div
-      class="${classnames('ecl-u-d-flex', {
-        [`ecl-u-flex-${args.direction}`]: true,
-        [`ecl-u-flex-${args.wrap}`]: true,
-        [`ecl-u-align-items-${args.alignItems}`]: true,
-        [`ecl-u-align-content-${args.alignContent}`]: true,
-        [`ecl-u-justify-content-${args.justifyContent}`]: true,
-      })}"
-      style="${styled({
-        ...(args.fixedContainer && {
-          width: `${args.containerWidth}rem`,
-          height: `${args.containerHeight}rem`,
-        }),
+  const renderedStacks = `<div
+    class="${classnames('ecl-u-d-flex', {
+      [`ecl-u-flex-${args.direction}`]: true,
+      [`ecl-u-flex-${args.wrap}`]: true,
+      [`ecl-u-align-items-${args.alignItems}`]: true,
+      [`ecl-u-align-content-${args.alignContent}`]: true,
+      [`ecl-u-justify-content-${args.justifyContent}`]: true,
+    })}"
+    style="${styled({
+      ...(args.fixedContainer && {
+        width: `${args.containerWidth}rem`,
+        height: `${args.containerHeight}rem`,
+      }),
 
-        backgroundColor: '#F2F5F9',
-        border: '2px solid #404040',
-        boxSizing: 'border-box',
-      })}"
-    >
-      ${Box({ width: '5rem', shrink, grow, contents: '1' })}
-      ${Box({ width: '3rem', shrink, grow, contents: '2' })}
-      ${Box({ width: '3rem', shrink, grow, contents: '3' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '4' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '5' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '6' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '7' })}
-      ${Box({ width: '5rem', shrink, grow, contents: '8' })}
-      ${Box({ width: '6rem', shrink, grow, contents: '9' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '10' })}
-      ${Box({ width: '17rem', shrink, grow, contents: '11' })}
-      ${Box({ width: '4rem', shrink, grow, contents: '12' })}
-    </div>
-  `;
+      backgroundColor: '#F2F5F9',
+      border: '2px solid #404040',
+      boxSizing: 'border-box',
+    })}"
+  >
+    ${await Box({ width: '5rem', shrink, grow, contents: '1' })}
+    ${await Box({ width: '3rem', shrink, grow, contents: '2' })}
+    ${await Box({ width: '3rem', shrink, grow, contents: '3' })}
+    ${await Box({ width: '5rem', shrink, grow, contents: '4' })}
+    ${await Box({ width: '4rem', shrink, grow, contents: '5' })}
+    ${await Box({ width: '5rem', shrink, grow, contents: '6' })}
+    ${await Box({ width: '4rem', shrink, grow, contents: '7' })}
+    ${await Box({ width: '5rem', shrink, grow, contents: '8' })}
+    ${await Box({ width: '6rem', shrink, grow, contents: '9' })}
+    ${await Box({ width: '4rem', shrink, grow, contents: '10' })}
+    ${await Box({ width: '17rem', shrink, grow, contents: '11' })}
+    ${await Box({ width: '4rem', shrink, grow, contents: '12' })}
+  </div>`;
+
+  return renderedStacks;
 };
-
 Custom.storyName = 'custom';
 Custom.args = getArgs();
 Custom.argTypes = getArgTypes();

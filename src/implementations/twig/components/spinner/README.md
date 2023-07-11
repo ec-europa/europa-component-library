@@ -8,14 +8,12 @@ npm install --save @ecl/twig-component-spinner
 
 ### Parameters:
 
-- **"variant"** (string) (default: 'primary')
-  options: [ primary, negative ]
-- **"size"** (string) (default: 'medium')
-  options: [ small, medium, large ]
+- **"variant"** (string) (default: primary): could be 'primary' or 'negative'
+- **"size"** (string) (default: m): could be 's', 'm' or 'l'
 - **"text"** (string) (default: '')
-- **"visible"** (boolean) (default: false)
-- **"centered"** (boolean) (default: true))
-- **"overlay"** (boolean) (default: false))
+- **"centered"** (boolean) (default: false)
+- **"visible"** (boolean) (default false)
+- **"overlay"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

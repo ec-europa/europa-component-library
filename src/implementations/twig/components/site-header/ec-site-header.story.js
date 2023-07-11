@@ -220,18 +220,19 @@ const prepareData = (data, args) => {
     delete data.language_selector;
   } else {
     data.language_selector = JSON.parse(
-      JSON.stringify(clonedDataFull.language_selector)
+      JSON.stringify(clonedDataFull.language_selector),
     );
     data.language_selector.overlay.items.splice(
       -(data.language_selector.overlay.items.length - args.languages_eu),
-      data.language_selector.overlay.items.length - args.languages_eu
+      data.language_selector.overlay.items.length - args.languages_eu,
     );
     data.language_selector.overlay.non_eu_items.splice(
       -(
         data.language_selector.overlay.non_eu_items.length -
         args.languages_non_eu
       ),
-      data.language_selector.overlay.non_eu_items.length - args.languages_non_eu
+      data.language_selector.overlay.non_eu_items.length -
+        args.languages_non_eu,
     );
   }
 
@@ -280,16 +281,25 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (args) => siteHeader(prepareData(dataCore, args));
+export const Core = (_, { loaded: { component } }) => component;
 
+Core.render = async (args) => {
+  const renderedCore = await siteHeader(prepareData(dataCore, args));
+  return renderedCore;
+};
 Core.storyName = 'core';
 Core.args = getArgs(dataCore);
 Core.argTypes = getArgTypes(dataCore);
 Core.parameters = { notes: { markdown: notes, json: dataCore } };
 
-export const Standardised = (args) =>
-  siteHeader(prepareData(dataStandardised, args));
+export const Standardised = (_, { loaded: { component } }) => component;
 
+Standardised.render = async (args) => {
+  const renderedStandardised = await siteHeader(
+    prepareData(dataStandardised, args),
+  );
+  return renderedStandardised;
+};
 Standardised.storyName = 'standardised';
 Standardised.args = getArgs(dataStandardised);
 Standardised.argTypes = getArgTypes(dataStandardised);
@@ -297,9 +307,14 @@ Standardised.parameters = {
   notes: { markdown: notes, json: dataStandardised },
 };
 
-export const Harmonised = (args) =>
-  siteHeader(prepareData(dataHarmonised, args));
+export const Harmonised = (_, { loaded: { component } }) => component;
 
+Harmonised.render = async (args) => {
+  const renderedHarmonised = await siteHeader(
+    prepareData(dataHarmonised, args),
+  );
+  return renderedHarmonised;
+};
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataHarmonised);
 Harmonised.argTypes = getArgTypes(dataHarmonised);

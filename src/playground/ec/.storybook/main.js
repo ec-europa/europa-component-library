@@ -34,6 +34,7 @@ if (isProd) {
 const webpackFinal = (config) => {
   // Trick "babel-loader", force it to transpile @ecl addons
   config.module.rules[0].exclude = /node_modules\/(?!@ecl\/).*/;
+
   config.module.rules.push({
     test: /\.twig$/,
     loader: 'twing-loader',
@@ -46,7 +47,7 @@ const webpackFinal = (config) => {
     config.plugins.unshift(
       new webpack.DefinePlugin({
         'process.env.PUBLIC_URL': JSON.stringify(`${publicUrl}`),
-      })
+      }),
     );
   }
 

@@ -44,7 +44,10 @@
   $theme: theme.$theme,
   $notification: var.$notification
 );
-@use '@ecl/vanilla-component-spinner/spinner-ec';
+@use '@ecl/vanilla-component-spinner/spinner' with (
+  $theme: theme.$theme,
+  $spinner: var.$spinner
+);
 @use '@ecl/vanilla-component-skip-link/skip-link';
 @use '@ecl/vanilla-component-table/table-ec';
 @use '@ecl/vanilla-component-tabs/tabs-ec';
@@ -55,7 +58,10 @@
 @use '@ecl/vanilla-component-description-list/description-list-ec';
 @use '@ecl/vanilla-component-featured-item/featured-item-ec';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-ec';
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb-ec';
+@use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
+  $theme: theme.$theme,
+  $breadcrumb: var.$breadcrumb
+);
 @use '@ecl/vanilla-component-card/card-ec';
 @use '@ecl/vanilla-component-content-block/content-block-ec';
 @use '@ecl/vanilla-component-content-item/content-item-ec';

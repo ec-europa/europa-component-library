@@ -104,8 +104,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => featuredItem(prepareData(demoData, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedFeaturedItem = await featuredItem(prepareData(demoData, args));
+  return renderedFeaturedItem;
+};
 Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
@@ -113,9 +117,14 @@ Default.parameters = {
   notes: { markdown: notes, json: demoData },
 };
 
-export const Extended = (args) =>
-  featuredItem(prepareData(demoDataExtended, args));
+export const Extended = (_, { loaded: { component } }) => component;
 
+Extended.render = async (args) => {
+  const renderedFeaturedItem = await featuredItem(
+    prepareData(demoDataExtended, args),
+  );
+  return renderedFeaturedItem;
+};
 Extended.storyName = 'extended';
 Extended.args = getArgs(demoDataExtended);
 Extended.argTypes = getArgTypes(demoDataExtended);

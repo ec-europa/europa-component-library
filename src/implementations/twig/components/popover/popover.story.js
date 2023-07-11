@@ -56,22 +56,25 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => {
-  const demo = `
+export const Default = (_, { loaded: { component } }) => component;
+
+Default.render = async (args) => {
+  const renderedPopover = `
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
-    ${popover(prepareData(dataDefault, args))}
+    ${await popover(prepareData(dataDefault, args))}
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
     <div class="ecl-u-d-inline-flex">
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      ${popover(prepareData({ ...dataDefault, id: 'popover-example2' }, args))}
+      ${await popover(
+        prepareData({ ...dataDefault, id: 'popover-example2' }, args),
+      )}
     </div>
   `;
-  return demo;
+  return renderedPopover;
 };
-
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes();

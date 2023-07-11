@@ -107,13 +107,9 @@ $_multiple_counter_background: null !default;
 }
 
 .ecl-select__container--s {
-  width: 50%;
+  width: 100%;
 
   @include breakpoints.up('m') {
-    width: 30%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 's');
   }
 }
@@ -122,10 +118,6 @@ $_multiple_counter_background: null !default;
   width: 100%;
 
   @include breakpoints.up('m') {
-    width: 50%;
-  }
-
-  @include breakpoints.up('l') {
     width: map.get(theme.$form, 'm');
   }
 }
@@ -133,7 +125,7 @@ $_multiple_counter_background: null !default;
 .ecl-select__container--l {
   width: 100%;
 
-  @include breakpoints.up('l') {
+  @include breakpoints.up('m') {
     width: map.get(theme.$form, 'l');
   }
 }
@@ -256,6 +248,7 @@ $_multiple_counter_background: null !default;
     cursor: default;
     box-shadow: $_multiple-dropdown-shadow;
     box-sizing: border-box;
+    min-width: map.get(theme.$form, 'm');
     position: absolute;
     z-index: map.get(theme.$z-index, 'dropdown');
   }

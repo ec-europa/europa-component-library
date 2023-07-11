@@ -66,9 +66,14 @@ export default {
 
 const prepareData = (data, args) => Object.assign(correctPaths(data), args);
 
-export const Default = (args) =>
-  `<div class="ecl-container">${gallery(prepareData(specs, args))}</div>`;
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedGallery = `<div class="ecl-container">${await gallery(
+    prepareData(specs, args),
+  )}</div>`;
+  return renderedGallery;
+};
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };
 Default.args = getArgs();

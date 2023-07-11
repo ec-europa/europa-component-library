@@ -31,12 +31,12 @@ export class Accordion {
       labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
-    } = {}
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
-        'DOM element should be given to initialize this widget.'
+        'DOM element should be given to initialize this widget.',
       );
     }
 
@@ -73,7 +73,7 @@ export class Accordion {
       this.toggles.forEach((toggle) => {
         toggle.addEventListener(
           'click',
-          this.handleClickOnToggle.bind(this, toggle)
+          this.handleClickOnToggle.bind(this, toggle),
         );
       });
     }
@@ -103,13 +103,13 @@ export class Accordion {
     // Get target element
     const target = queryOne(
       `#${toggle.getAttribute('aria-controls')}`,
-      this.element
+      this.element,
     );
 
     // Exit if no target found
     if (!target) {
       throw new TypeError(
-        'Target has to be provided for accordion (aria-controls)'
+        'Target has to be provided for accordion (aria-controls)',
       );
     }
 

@@ -1,6 +1,12 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import demoData from '@ecl/specs-component-popover/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Popover', () => {
   const template = '@ecl/popover/popover.html.twig';
@@ -33,6 +39,12 @@ describe('Popover', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demoData, true)),
+      ).toHaveNoViolations();
     });
   });
 });

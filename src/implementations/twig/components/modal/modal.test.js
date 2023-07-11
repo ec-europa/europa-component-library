@@ -1,6 +1,12 @@
-import { merge, renderTwigFileAsNode } from '@ecl/test-utils';
-
+import {
+  merge,
+  renderTwigFileAsNode,
+  renderTwigFileAsHtml,
+} from '@ecl/test-utils';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import demoData from '@ecl/specs-component-modal/demo/data';
+
+expect.extend(toHaveNoViolations);
 
 describe('Modal', () => {
   const template = '@ecl/modal/modal.html.twig';
@@ -33,6 +39,12 @@ describe('Modal', () => {
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demoData)),
+      ).toHaveNoViolations();
     });
   });
 });

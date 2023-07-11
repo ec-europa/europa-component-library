@@ -1,3 +1,4 @@
+import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
@@ -10,12 +11,12 @@ const dataNegative = { ...dataDefault, variant: 'negative' };
 const getArgs = (data) => ({
   show_text: true,
   text: data.text,
-  size: data.size || 'medium',
+  size: data.size || 'm',
   centered: true,
   overlay: false,
 });
 
-const getArgTypes = (variant) => ({
+const getArgTypes = () => ({
   show_text: {
     name: 'text',
     type: { name: 'boolean' },
@@ -30,7 +31,6 @@ const getArgTypes = (variant) => ({
     type: { name: 'boolean' },
     description: 'Show in an overlay',
     table: {
-      disable: variant === 'primary',
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
       category: 'Optional',
@@ -46,18 +46,26 @@ const getArgTypes = (variant) => ({
     },
   },
   size: {
-    type: { name: 'select' },
-    options: ['small', 'medium', 'large'],
-    mapping: {
-      small: 'small',
-      medium: 'medium',
-      large: 'large',
+    name: 'size',
+    type: 'select',
+    description: "Possible sizes ('small', 'medium' or 'large')",
+    options: ['s', 'm', 'l'],
+    control: {
+      labels: {
+        s: 'small',
+        m: 'medium',
+        l: 'large',
+      },
     },
-    description: 'Variant of the component',
+    mapping: {
+      s: 's',
+      m: 'm',
+      l: 'l',
+    },
     table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'medium' },
-      category: 'Style',
+      type: 'string',
+      defaultValue: { summary: 'm' },
+      category: 'Display',
     },
   },
   centered: {
@@ -74,16 +82,10 @@ const getArgTypes = (variant) => ({
 const withNegative = (story) => {
   const demo = story();
 
-  return `<div class="ecl-u-bg-blue ecl-u-pa-xs ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
+  return `<div class="ecl-u-bg-dark ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
 };
 
-const prepareData = (data, args, story) => {
-  if (args.overlay) {
-    data.variant = 'primary';
-  } else if (!args.overlay && story === 'negative') {
-    data.variant = 'negative';
-  }
-
+const prepareData = (data, args) => {
   Object.assign(data, args);
 
   if (!args.show_text) {
@@ -93,21 +95,39 @@ const prepareData = (data, args, story) => {
   return data;
 };
 
+const renderStory = async (data, args) => {
+  let story = await spinner(prepareData(data, args));
+  if (args.overlay) {
+    story = `
+        ${story}
+        <div class="ecl-container">
+        <p class="ecl-u-type-paragraph ecl-u-mt-none">${loremIpsum({
+          count: 25,
+        })}</p>
+        <p class="ecl-u-type-paragraph">${loremIpsum({ count: 25 })}</p>
+        </div>
+      `;
+  }
+
+  return story;
+};
+
 export default {
-  title: 'Components/Spinner',
+  title: 'Components/Loading indicator',
   decorators: [withNotes, withCode],
 };
 
-export const Default = (args) => spinner(prepareData(dataDefault, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = (args) => renderStory(dataDefault, args);
 Default.storyName = 'primary';
 Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Negative = (args) =>
-  spinner(prepareData(dataNegative, args, 'negative'));
+export const Negative = (_, { loaded: { component } }) => component;
 
+Negative.render = async (args) => renderStory(dataNegative, args);
 Negative.storyName = 'negative';
 Negative.args = getArgs(dataNegative, 'negative');
 Negative.argTypes = getArgTypes('negative');

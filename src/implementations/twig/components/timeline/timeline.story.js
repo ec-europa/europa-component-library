@@ -97,8 +97,12 @@ export default {
   title: 'Components/Timeline',
 };
 
-export const Default = (args) => prepareHtmlContent(args);
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedTimeline = await prepareHtmlContent(args);
+  return renderedTimeline;
+};
 Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();

@@ -98,9 +98,14 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Vertical = (args) =>
-  descriptionList(prepareData(dataDescriptionListDefault, args));
+export const Vertical = (_, { loaded: { component } }) => component;
 
+Vertical.render = async (args) => {
+  const renderedDescriptionList = await descriptionList(
+    prepareData(dataDescriptionListDefault, args),
+  );
+  return renderedDescriptionList;
+};
 Vertical.storyName = 'description';
 Vertical.args = getArgs(dataDescriptionListDefault);
 Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
@@ -108,9 +113,14 @@ Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
 };
 
-export const Horizontal = (args) =>
-  descriptionList(prepareData(dataDescriptionListHorizontal, args));
+export const Horizontal = (_, { loaded: { component } }) => component;
 
+Horizontal.render = async (args) => {
+  const renderedDescriptionListHorizontal = await descriptionList(
+    prepareData(dataDescriptionListHorizontal, args),
+  );
+  return renderedDescriptionListHorizontal;
+};
 Horizontal.storyName = 'description (horizontal)';
 Horizontal.args = getArgs(dataDescriptionListHorizontal);
 Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);

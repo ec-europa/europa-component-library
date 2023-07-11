@@ -18,7 +18,7 @@ const LinkList = React.memo(
             p.children &&
             p.children.length > 0 &&
             p.children.filter(
-              (childPage) => childPage.attributes.isTab !== true
+              (childPage) => childPage.attributes.isTab !== true,
             ).length > 0;
           return (
             <li key={p.key}>
@@ -52,7 +52,7 @@ const LinkList = React.memo(
           );
         })}
     </ul>
-  )
+  ),
 );
 
 LinkList.propTypes = {

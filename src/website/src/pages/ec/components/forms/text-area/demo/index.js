@@ -7,17 +7,17 @@ export const textAreaDisabled = template(
   correctSvgPath({
     ...demoContentDefault,
     disabled: true,
-  })
+  }),
 );
 export const textAreaInvalid = template(
   correctSvgPath({
     ...demoContentDefault,
     invalid: true,
-  })
+  }),
 );
 export const textAreaRequired = template(
   correctSvgPath({
     ...demoContentDefault,
     required: true,
-  })
+  }),
 );

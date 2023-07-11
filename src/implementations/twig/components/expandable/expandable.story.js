@@ -50,8 +50,12 @@ export default {
   title: 'Components/Expandables',
 };
 
-export const Default = (args) => expandable(prepareData(demoData, args));
+export const Default = (_, { loaded: { component } }) => component;
 
+Default.render = async (args) => {
+  const renderedExpandable = await expandable(prepareData(demoData, args));
+  return renderedExpandable;
+};
 Default.storyName = 'default';
 Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes();

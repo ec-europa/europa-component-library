@@ -106,8 +106,12 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Image = (args) => renderStory(dataImg, args);
+export const Image = (_, { loaded: { component } }) => component;
 
+Image.render = async (args) => {
+  const renderedImage = await renderStory(dataImg, args);
+  return renderedImage;
+};
 Image.storyName = 'image';
 Image.args = getArgs(dataImg);
 Image.argTypes = getArgTypes(dataImg);
@@ -115,8 +119,12 @@ Image.parameters = {
   notes: { markdown: notes, json: dataImg },
 };
 
-export const Video = (args) => renderStory(dataVideo, args);
+export const Video = (_, { loaded: { component } }) => component;
 
+Video.render = async (args) => {
+  const renderedVideo = await renderStory(dataVideo, args);
+  return renderedVideo;
+};
 Video.storyName = 'video';
 Video.args = getArgs(dataVideo);
 Video.argTypes = getArgTypes(dataVideo);
@@ -124,8 +132,12 @@ Video.parameters = {
   notes: { markdown: notes, json: dataVideo },
 };
 
-export const EmbeddedVideo = (args) => renderStory(dataEmbed, args);
+export const EmbeddedVideo = (_, { loaded: { component } }) => component;
 
+EmbeddedVideo.render = async (args) => {
+  const renderedEmbeddedVideo = await renderStory(dataEmbed, args);
+  return renderedEmbeddedVideo;
+};
 EmbeddedVideo.storyName = 'embedded video';
 EmbeddedVideo.args = {
   ...getArgs(dataEmbed),

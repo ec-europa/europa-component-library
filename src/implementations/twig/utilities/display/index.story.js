@@ -115,21 +115,21 @@ export default {
 export const Custom = (args) => `
     <div style="${styled(styleContainer)}" class="${args.displayContainer}">
       <div style="${styled(styleBox)}" class="${classnames(
-  args.displayInner,
-  args.boxSizing
-)}">
+        args.displayInner,
+        args.boxSizing,
+      )}">
         Box
       </div>
       <div style="${styled(styleBox)}" class="${classnames(
-  args.displayInner,
-  args.boxSizing
-)}">
+        args.displayInner,
+        args.boxSizing,
+      )}">
         Box
       </div>
       <div style="${styled(styleBox)}" class="${classnames(
-  args.displayInner,
-  args.boxSizing
-)}">
+        args.displayInner,
+        args.boxSizing,
+      )}">
         Box
       </div>
     </div>

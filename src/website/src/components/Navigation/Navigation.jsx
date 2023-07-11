@@ -80,7 +80,7 @@ const Navigation = React.memo(
         <LinkList pages={pages} level={0} parentSection={prefix} />
       )}
     </nav>
-  )
+  ),
 );
 
 Navigation.propTypes = {
