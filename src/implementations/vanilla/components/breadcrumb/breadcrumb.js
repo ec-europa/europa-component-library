@@ -159,6 +159,8 @@ export class Breadcrumb {
   handlePartialExpand(visibilityMap) {
     if (!visibilityMap) return;
 
+    this.element.classList.add('ecl-breadcrumb--collapsed');
+
     const { isItemVisible } = visibilityMap;
     if (!isItemVisible || !Array.isArray(isItemVisible)) return;
 
@@ -178,6 +180,8 @@ export class Breadcrumb {
    * Display all elements.
    */
   handleFullExpand() {
+    this.element.classList.remove('ecl-breadcrumb--collapsed');
+
     if (this.onFullExpand) {
       this.onFullExpand();
     } else {

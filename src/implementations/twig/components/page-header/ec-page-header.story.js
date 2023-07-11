@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import demoContent from '@ecl/specs-component-page-header/demo/data';
-import demoBreadcrumbLongEC from '@ecl/specs-component-breadcrumb/demo/data--ec';
+import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
@@ -153,7 +153,7 @@ const prepareData = (data, args) => {
   if (!args.show_breadcrumb) {
     delete clone.breadcrumb;
   } else if (args.show_breadcrumb) {
-    clone.breadcrumb = { ...demoBreadcrumbLongEC };
+    clone.breadcrumb = { ...demoBreadcrumbLong };
     clone.breadcrumb.links.forEach((item) => {
       item.negative = clone.variant === 'negative';
     });
