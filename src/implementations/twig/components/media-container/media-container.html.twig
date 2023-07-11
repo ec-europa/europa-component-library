@@ -43,6 +43,8 @@
 
 {% set _css_class = 'ecl-media-container' %}
 {% set _expandable_class = 'ecl-media-container__expandable' %}
+{% set _embed_class = 'ecl-media-container__media' %}
+{% set _figure_class = 'ecl-media-container__figure' %}
 {% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
@@ -57,7 +59,6 @@
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
 {% set _expandable = expandable|default({}) %}
-{% set _embed_class = 'ecl-media-container__media' %}
 
 {# Internal logic - Process properties #}
 
@@ -78,7 +79,7 @@
 {% endif %}
 
 {% if _full_width %}
-  {% set _css_class = _css_class ~ ' ecl-media-container--full-width' %}
+  {% set _figure_class = _figure_class ~ ' ecl-media-container--full-width' %}
 {% endif %}
 
 {% if _ratio %}
@@ -106,7 +107,7 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <figure class="ecl-media-container__figure">
+  <figure class="{{ _figure_class }}">
   {% if _embedded_media is not empty %}
     <div class="{{_embed_class}}">
       {%- block embedded_media _embedded_media -%}

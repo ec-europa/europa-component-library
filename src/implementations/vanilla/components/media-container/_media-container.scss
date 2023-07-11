@@ -17,8 +17,6 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 
 .ecl-media-container {
   margin: 0;
-  overflow: hidden;
-  position: relative;
 }
 
 .ecl-media-container__figure {
@@ -27,6 +25,8 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   display: flex;
   flex-direction: column;
   margin: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .ecl-media-container__media {
