@@ -75,9 +75,9 @@ const getArgTypes = (data) => {
       },
     },
     mapping: {
-      outside: 'outside the ecl-container',
-      container: 'inside the ecl-container',
-      inside: 'inside the ecl-container, with fullwidth class',
+      'outside the ecl-container': 'outside',
+      'inside the ecl-container': 'container',
+      'inside the ecl-container, with fullwidth class': 'inside',
     },
   };
 
@@ -86,8 +86,7 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctPaths(data);
-  data.full_width =
-    args.width === 'inside the ecl-container, with fullwidth class';
+  data.full_width = args.width === 'inside';
 
   if (!args.show_description) {
     args.description = '';
@@ -98,10 +97,7 @@ const prepareData = (data, args) => {
 
 const renderStory = (data, args) => {
   let story = mediaContainer(prepareData(data, args));
-  if (
-    args.width === 'inside the ecl-container' ||
-    args.width === 'inside the ecl-container, with fullwidth class'
-  ) {
+  if (args.width === 'container' || args.width === 'inside') {
     story = `<div class="ecl-container">${story}</div>`;
   }
 

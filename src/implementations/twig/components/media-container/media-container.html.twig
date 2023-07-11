@@ -91,7 +91,12 @@
 {% endif %}
 
 {% if _expandable is not empty and _expandable.id is defined %}
-  {% set _extra_attributes = _extra_attributes ~ ' aria-describedby="' ~ _expandable.id ~ '-content"' %}
+  {% if _expandable.id is defined %}
+    {% set _extra_attributes = _extra_attributes ~ ' aria-describedby="' ~ _expandable.id ~ '-content"' %}
+  {% endif %}
+  {% if _expandable.extra_classes is not empty %}
+    {% set _expandable_class = _expandable_class ~ ' ' ~ _expandable.extra_classes %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
