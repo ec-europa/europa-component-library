@@ -2,10 +2,10 @@ module.exports = {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-      alt: 'Infography alt text',
+      alt: 'Infographic alt text',
     },
   },
-  description: 'Infography title and copyright',
+  description: 'Infographic title and copyright',
   expandable: {
     id: 'expandable-example',
     button: {

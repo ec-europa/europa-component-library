@@ -42,6 +42,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-media-container' %}
+{% set _expandable_class = 'ecl-media-container__expandable' %}
 {% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
@@ -56,6 +57,7 @@
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
 {% set _expandable = expandable|default({}) %}
+{% set _embed_class = 'ecl-media-container__media' %}
 
 {# Internal logic - Process properties #}
 
@@ -79,6 +81,10 @@
   {% set _css_class = _css_class ~ ' ecl-media-container--full-width' %}
 {% endif %}
 
+{% if _ratio %}
+  {% set _embed_class = _embed_class ~ ' ecl-media-container__media--ratio-' ~ _ratio %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -99,55 +105,51 @@
 
 {# Print the result #}
 
-{% if _expandable is not empty %}
-<div class="ecl-media-container__container">
-{% endif %}
-
-<figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if _embedded_media is not empty %}
-  {% set _embed_class = _ratio ? "ecl-media-container__media ecl-media-container__media--ratio-" ~ _ratio : "ecl-media-container__media" %}
-  <div class="{{_embed_class}}">
-    {%- block embedded_media _embedded_media -%}
-  </div>
-{% elseif _sources is not empty and _sources is iterable %}
-  <video
-    class="ecl-media-container__media"
-    controls
-    poster="{{ _image }}"
-  >
-{% for source in _sources %}
-  <source type="{{ source.type }}" src="{{ source.src }}" />
-{% endfor %}
-  {% if _tracks is not empty and _tracks is iterable %}
-  {% for track in _tracks %}
-    <track
-      kind="{{ track.kind }}"
-      label="{{ track.label }}"
-      src="{{ track.src }}"
-      srclang="{{ track.src_lang }}"
-    />
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <figure class="ecl-media-container__figure">
+  {% if _embedded_media is not empty %}
+    <div class="{{_embed_class}}">
+      {%- block embedded_media _embedded_media -%}
+    </div>
+  {% elseif _sources is not empty and _sources is iterable %}
+    <video
+      class="ecl-media-container__media"
+      controls
+      poster="{{ _image }}"
+    >
+  {% for source in _sources %}
+    <source type="{{ source.type }}" src="{{ source.src }}" />
   {% endfor %}
+    {% if _tracks is not empty and _tracks is iterable %}
+    {% for track in _tracks %}
+      <track
+        kind="{{ track.kind }}"
+        label="{{ track.label }}"
+        src="{{ track.src }}"
+        srclang="{{ track.src_lang }}"
+      />
+    {% endfor %}
+    {% endif %}
+    </video>
+  {% else %}
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: 'ecl-media-container__picture',
+      extra_image_classes: 'ecl-media-container__media',
+    } only %}
   {% endif %}
-  </video>
-{% else %}
-  {% include '@ecl/picture/picture.html.twig' with {
-    picture: _picture,
-    extra_classes: 'ecl-media-container__picture',
-    extra_image_classes: 'ecl-media-container__media',
-  } only %}
-{% endif %}
-{% if _description is not empty %}
-  <figcaption class="ecl-media-container__caption">
-    {{- _description -}}
-  </figcaption>
-{% endif %}
-</figure>
+  {% if _description is not empty %}
+    <figcaption class="ecl-media-container__caption">
+      {{- _description -}}
+    </figcaption>
+  {% endif %}
+  </figure>
 
-{% if _expandable is not empty %}
-  {% include '@ecl/expandable/expandable.html.twig' with _expandable|merge({
-    extra_classes: 'ecl-media-container__expandable',
-  }) only %}
+  {% if _expandable is not empty %}
+    {% include '@ecl/expandable/expandable.html.twig' with _expandable|merge({
+      extra_classes: _expandable_class,
+    }) only %}
+  {% endif %}
 </div>
-{% endif %}
 
 {% endapply %}

@@ -5,7 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 import dataImg from '@ecl/specs-component-media-container/demo/data--image';
 import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
-import dataInfography from '@ecl/specs-component-media-container/demo/data--infography';
+import dataInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
@@ -175,11 +175,11 @@ EmbeddedVideo.parameters = {
   },
 };
 
-export const Infography = (args) => renderStory(dataInfography, args);
+export const Infographic = (args) => renderStory(dataInfographic, args);
 
-Infography.storyName = 'infography';
-Infography.args = getArgs(dataInfography);
-Infography.argTypes = getArgTypes(dataInfography);
-Infography.parameters = {
-  notes: { markdown: notes, json: dataInfography },
+Infographic.storyName = 'infographic';
+Infographic.args = getArgs(dataInfographic);
+Infographic.argTypes = getArgTypes(dataInfographic);
+Infographic.parameters = {
+  notes: { markdown: notes, json: dataInfographic },
 };
