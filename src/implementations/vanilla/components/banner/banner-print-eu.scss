@@ -1,0 +1,11 @@
+/**
+ * banner
+ * @define banner-eu
+ */
+
+@use 'sass:map';
+@use '@ecl/theme-dev/theme';
+
+@use 'banner-print' with (
+  $_cta-radius: 4px
+);
