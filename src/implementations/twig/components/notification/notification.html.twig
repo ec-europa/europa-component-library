@@ -55,14 +55,9 @@
   
   <div class="ecl-notification__content">
     {% if _close is not empty %}
-      {% set _close_icon = { name: 'close-filled' } %}
-      {% if _close.icon is not empty and _close.icon.path is not empty %}
-        {% set _close_icon = _close.icon %}
-      {% endif %}
       {% include '@ecl/button/button.html.twig' with _close|merge({
         type: 'button',
         variant: 'ghost',
-        icon: _close_icon,
         extra_classes: 'ecl-notification__close',
         extra_attributes: [{
           name: 'data-ecl-notification-close',
