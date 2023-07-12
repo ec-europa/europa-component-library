@@ -274,6 +274,13 @@ $notification: (
     color: map.get($color, 'error'),
   ),
 );
+$notification-print: (
+  padding: map.get($spacing-print, 'l') map.get($spacing-print, 'xs')
+    map.get($spacing-print, 'l') map.get($spacing-print, 'l'),
+  font: map.get($font-prolonged-print, 'm'),
+  title-font: map.get($font-prolonged-print, 'm'),
+  title-spacing: map.get($spacing-print, 'xs'),
+);
 
 // Site footer
 $site-footer: (

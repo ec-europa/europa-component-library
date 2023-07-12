@@ -4,104 +4,91 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_background-error: none !default;
-$_background-info: none !default;
-$_background-success: none !default;
-$_background-warning: none !default;
-$_border-radius-top-left: none !default;
-$_border-radius-bottom-left: none !default;
-$_border-width: none !default;
-$_description-color: none !default;
-$_icon-spacing: none !default;
-$_icon-error-fill: none !default;
-$_icon-info-fill: none !default;
-$_icon-warning-fill: none !default;
-$_icon-success-fill: none !default;
-$_title-color: none !default;
-$_title-font: none !default;
-$_title-spacing: none !default;
+// Exposed variables
+$theme: null !default;
+$notification: null !default;
+$notification-print: null !default;
 
 .ecl-notification {
-  border-bottom-width: map.get($_border-width, 'bottom');
-  border-end-start-radius: $_border-radius-bottom-left;
-  border-inline-end-width: map.get($_border-width, 'right');
-  border-inline-start-width: map.get($_border-width, 'left');
-  border-start-start-radius: $_border-radius-top-left;
-  border-style: solid;
-  border-top-width: map.get($_border-width, 'top');
+  border: map.get($notification, 'border-width') solid
+    map.get($notification, 'border-color');
+  border-radius: map.get($notification, 'radius');
+  box-sizing: border-box;
+  color: map.get($notification, 'color');
   display: inline-flex;
+  font: map.get($notification-print, 'font');
   margin: 0;
-  padding-bottom: map.get(theme.$spacing-print, 'l');
-  padding-inline-end: map.get(theme.$spacing-print, 'xs');
-  padding-inline-start: map.get(theme.$spacing-print, 'l');
-  padding-top: map.get(theme.$spacing-print, 'l');
+  padding: map.get($notification-print, 'padding');
+  position: relative;
 }
 
 .ecl-notification__icon {
-  display: block;
   flex-shrink: 0;
-  margin-inline-end: $_icon-spacing;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-notification__content {
+  display: grid;
+  grid-template-columns: auto max-content;
+  width: 100%;
+}
+
+.ecl-notification__title {
+  font: map.get($notification-print, 'title-font');
+  font-weight: map.get($notification, 'title-font-weight');
+  grid-column-start: 1;
+  margin-bottom: map.get($notification-print, 'title-spacing');
+  max-width: 80ch;
+}
+
+.ecl-notification__description {
+  grid-column-start: 1;
+  margin: 0;
+  max-width: 80ch;
+  padding-bottom: 0;
 }
 
 .ecl-notification__close {
   display: none;
 }
 
-.ecl-notification__title {
-  color: $_title-color;
-  font: $_title-font;
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-bottom: $_title-spacing;
-  max-width: 80ch;
-}
-
-.ecl-notification__description {
-  color: $_description-color;
-  font: map.get(theme.$font-prolonged-print, 'm');
-  margin-bottom: 0;
-  margin-top: map.get(theme.$spacing-print, 'xs');
-  max-width: 80ch;
-}
-
 // information
 .ecl-notification--info {
-  background: $_background-info;
-  border-color: map.get(theme.$color, 'info');
+  background: map.get($notification, 'info', 'background');
+  border-inline-start: 4px solid map.get($notification, 'info', 'color');
 
   .ecl-notification__icon {
-    fill: $_icon-info-fill;
+    fill: map.get($notification, 'info', 'color');
   }
 }
 
 // success
 .ecl-notification--success {
-  background: $_background-success;
-  border-color: map.get(theme.$color, 'success');
+  background: map.get($notification, 'success', 'background');
+  border-inline-start: 4px solid map.get($notification, 'success', 'color');
 
   .ecl-notification__icon {
-    fill: $_icon-success-fill;
+    fill: map.get($notification, 'success', 'color');
   }
 }
 
 // warning
 .ecl-notification--warning {
-  background: $_background-warning;
-  border-color: map.get(theme.$color, 'warning');
+  background: map.get($notification, 'warning', 'background');
+  border-inline-start: 4px solid map.get($notification, 'warning', 'color');
 
   .ecl-notification__icon {
-    fill: $_icon-warning-fill;
+    fill: map.get($notification, 'warning', 'color');
   }
 }
 
 // error
 .ecl-notification--error {
-  background: $_background-error;
-  border-color: map.get(theme.$color, 'error');
+  background: map.get($notification, 'error', 'background');
+  border-inline-start: 4px solid map.get($notification, 'error', 'color');
 
   .ecl-notification__icon {
-    fill: $_icon-error-fill;
+    fill: map.get($notification, 'error', 'color');
   }
 }

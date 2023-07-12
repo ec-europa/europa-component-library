@@ -4,34 +4,23 @@ import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import dataInfo from '@ecl/specs-component-notification/demo/data--info';
-import dataSuccess from '@ecl/specs-component-notification/demo/data--success';
-import dataError from '@ecl/specs-component-notification/demo/data--error';
-import dataWarning from '@ecl/specs-component-notification/demo/data--warning';
+import dataInfoEc from '@ecl/specs-component-notification/demo/data--info-ec';
+import dataSuccessEc from '@ecl/specs-component-notification/demo/data--success-ec';
+import dataErrorEc from '@ecl/specs-component-notification/demo/data--error-ec';
+import dataWarningEc from '@ecl/specs-component-notification/demo/data--warning-ec';
+import dataInfoEu from '@ecl/specs-component-notification/demo/data--info-eu';
+import dataSuccessEu from '@ecl/specs-component-notification/demo/data--success-eu';
+import dataErrorEu from '@ecl/specs-component-notification/demo/data--error-eu';
+import dataWarningEu from '@ecl/specs-component-notification/demo/data--warning-eu';
 
 import notification from './notification.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-
-if (system === 'eu') {
-  dataInfo.icon.size = 'm';
-  dataSuccess.icon.size = 'm';
-  dataWarning.icon.size = 'm';
-  dataError.icon.size = 'm';
-  dataInfo.close.icon.size = 's';
-  dataInfo.close.icon.name = 'close-filled';
-  dataInfo.close.hide_label = false;
-  dataError.close.icon.size = 's';
-  dataError.close.icon.name = 'close-filled';
-  dataError.close.hide_label = false;
-  dataSuccess.close.icon.size = 's';
-  dataSuccess.close.icon.name = 'close-filled';
-  dataSuccess.close.hide_label = false;
-  dataWarning.close.icon.size = 's';
-  dataWarning.close.icon.name = 'close-filled';
-  dataWarning.close.hide_label = false;
-}
+const dataInfo = system === 'eu' ? dataInfoEu : dataInfoEc;
+const dataSuccess = system === 'eu' ? dataSuccessEu : dataSuccessEc;
+const dataError = system === 'eu' ? dataErrorEu : dataErrorEc;
+const dataWarning = system === 'eu' ? dataWarningEu : dataWarningEc;
 
 const getArgs = (data) => ({
   show_close: true,
@@ -91,7 +80,15 @@ const prepareData = (data, args) => {
     delete clone.close;
   }
 
-  return Object.assign(clone, args);
+  // Other controls
+  if (clone.title) {
+    clone.title = args.title;
+  }
+  if (clone.description) {
+    clone.description = args.description;
+  }
+
+  return clone;
 };
 
 export default {

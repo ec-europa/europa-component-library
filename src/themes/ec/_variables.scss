@@ -244,9 +244,9 @@ $text-input: (
 
 // Notification
 $notification: (
-  radius: 0,
-  padding: map.get($spacing, '2xl') map.get($spacing, 'xl')
-    map.get($spacing, '2xl') map.get($spacing, '2xl'),
+  radius: 2px 0 0 2px,
+  padding: map.get($spacing, '3xl') map.get($spacing, 'xl')
+    map.get($spacing, '3xl') map.get($spacing, '3xl'),
   border-width: 1px,
   border-color: var(--ecl-color-neutral),
   font: map.get($font, 'm'),
@@ -272,6 +272,13 @@ $notification: (
     background: var(--ecl-color-neutral-40),
     color: var(--ecl-color-error),
   ),
+);
+$notification-print: (
+  padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'xl')
+    map.get($spacing-print, '3xl') map.get($spacing-print, '3xl'),
+  font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, 'l'),
+  title-spacing: map.get($spacing-print, 's'),
 );
 
 // Site footer
