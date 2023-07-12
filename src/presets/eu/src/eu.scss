@@ -52,7 +52,10 @@
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-eu';
-@use '@ecl/vanilla-component-description-list/description-list-eu';
+@use '@ecl/vanilla-component-description-list/description-list' with (
+  $theme: theme.$theme,
+  $description-list: var.$description-list
+);
 @use '@ecl/vanilla-component-featured-item/featured-item-eu';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-eu';
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (

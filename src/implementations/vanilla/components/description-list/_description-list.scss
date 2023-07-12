@@ -4,15 +4,11 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-// Vertical description list
-
-$_term-color: null !default;
-$_term-font: null !default;
-$_definition-color: null !default;
-$_taxonomy-color: null !default;
+// Exposed variables
+$theme: null !default;
+$description-list: null !default;
 
 .ecl-description-list,
 %ecl-description-list {
@@ -21,11 +17,11 @@ $_taxonomy-color: null !default;
 
 .ecl-description-list__term,
 %ecl-description-list__term {
-  color: $_term-color;
-  font: $_term-font;
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin-top: map.get(theme.$spacing, 'm');
-  max-width: 80ch;
+  color: map.get($description-list, 'term-color');
+  font: map.get($description-list, 'term-font');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-top: map.get($theme, 'spacing', 'xl');
+  max-width: 60ch;
   overflow-wrap: break-word;
 
   &:first-child {
@@ -38,21 +34,21 @@ $_taxonomy-color: null !default;
 }
 
 .ecl-description-list__term + .ecl-description-list__term {
-  margin-top: map.get(theme.$spacing, '2xs');
+  margin-top: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-description-list__definition,
 %ecl-description-list__definition {
-  color: $_definition-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  color: map.get($description-list, 'definition-color');
+  font: map.get($theme, 'font', 'm');
   margin-inline-start: 0;
-  margin-top: map.get(theme.$spacing, 'xs');
-  max-width: 80ch;
+  margin-top: map.get($theme, 'spacing', '2xs');
+  max-width: 60ch;
 }
 
 .ecl-description-list__see_more {
   display: inline;
-  margin-inline-start: map.get(theme.$spacing, 'm');
+  margin-inline-start: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-description-list__definition--link {
@@ -62,12 +58,12 @@ $_taxonomy-color: null !default;
 
   .ecl-description-list__see_more {
     margin-inline-start: 0;
-    margin-top: map.get(theme.$spacing, 's');
+    margin-top: map.get($theme, 'spacing', 's');
   }
 }
 
 .ecl-description-list__definition--link .ecl-description-list__definition-item {
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: map.get($theme, 'spacing', 's');
 
   &:first-child {
     margin-top: 0;
@@ -76,17 +72,17 @@ $_taxonomy-color: null !default;
 
 .ecl-description-list__definition--inline {
   display: inline-block;
-  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
+  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--inline
   .ecl-description-list__definition-item {
-  border-inline-end: 1px solid $_definition-color;
+  border-inline-end: 1px solid map.get($description-list, 'definition-color');
   display: inline;
-  margin-inline-end: map.get(theme.$spacing, 'xs');
-  margin-bottom: map.get(theme.$spacing, 'xs');
-  padding-inline-end: map.get(theme.$spacing, 'xs');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-bottom: map.get($theme, 'spacing', 'xs');
+  padding-inline-end: map.get($theme, 'spacing', 'xs');
   unicode-bidi: isolate;
 
   &.ecl-description-list__definition-item--hidden {
@@ -102,18 +98,18 @@ $_taxonomy-color: null !default;
 }
 
 .ecl-description-list__definition--taxonomy {
-  color: $_taxonomy-color;
+  color: map.get($description-list, 'taxonomy-color');
   display: inline-block;
-  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
+  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
-  margin-inline-end: map.get(theme.$spacing, 'm');
-  margin-bottom: map.get(theme.$spacing, 'xs');
-  padding-inline-start: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get($theme, 'spacing', 'm');
+  margin-bottom: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: map.get($theme, 'spacing', 'm');
   position: relative;
 
   &.ecl-description-list__definition-item--hidden {
@@ -121,7 +117,7 @@ $_taxonomy-color: null !default;
   }
 
   &::before {
-    background-color: map.get(theme.$color, 'blue-100');
+    background-color: map.get($theme, 'color', 'blue-100');
     border-radius: 50%;
     content: '';
     display: block;
@@ -151,17 +147,17 @@ $_taxonomy-color: null !default;
 
 // Horizontal description lists
 
-$_term-width: 210px;
-
 @include breakpoints.up('l') {
   .ecl-description-list--horizontal,
   %ecl-description-list {
     display: grid;
-    grid-template-columns: $_term-width fit-content(80ch);
+    grid-template-columns: map.get($description-list, 'term-width') fit-content(
+        80ch
+      );
 
     .ecl-description-list__term,
     %ecl-description-list__term {
-      margin-top: map.get(theme.$spacing, 'm');
+      margin-top: map.get($theme, 'spacing', 'xl');
     }
 
     .ecl-description-list__term:first-of-type {
@@ -171,8 +167,8 @@ $_term-width: 210px;
     .ecl-description-list__definition,
     %ecl-description-list__definition {
       align-items: flex-start;
-      margin-inline-start: map.get(theme.$spacing, 'xl');
-      margin-top: map.get(theme.$spacing, 'm');
+      margin-inline-start: map.get($theme, 'spacing', '2xl');
+      margin-top: map.get($theme, 'spacing', 'xl');
       overflow-wrap: break-word;
     }
 
