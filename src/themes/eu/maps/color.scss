@@ -1,19 +1,45 @@
 @forward '@ecl/theme-dev/maps/color' with (
   $color: (
-    // semantic colours
+    // Semantic colours
+    'primary-50': #f3f6fc,
+    'primary-45': #e7edfa,
+    'primary-40': #cfdaf5,
+    // 'primary-30': #9fb5ea,
+    // 'primary-20': #6e91e0,
+    'primary-10': #3e6cd5,
     'primary': #0e47cb,
+    // 'primary10': #0b39a2,
+    'primary15': #0a328e,
+    'primary20': #082b7a,
+    'secondary-45': #fffae6,
+    // 'secondary-40': #fff5cc,
+    // 'secondary-30': #ffeb99,
+    // 'secondary-20': #ffe066,
+    // 'secondary-10': #ffd633,
     'secondary': #fc0,
-    'tertiary': #262b38,
-    'error': #bf0036,
-    // red-120
-    'info': #0e47cb,
-    // blue-100
-    'success': #008d66,
-    // green-130
-    'warning': #cc4e00,
-    // orange-120
-    'text': #262b38,
+    'dark-30': #a8aaaf,
+    'dark-20': #7d8088,
+    'dark-10': #515560,
     'dark': #262b38,
+    // 'dark10': #1e222d,
+    'dark20': #171a22,
+    'info': #0e47cb,
+    'success': #008d66,
+    'warning': #cc4e00,
+    'error-10': #ef0044,
+    'error': #bf0036,
+
+    // Accent colors
+    'accent': #00e9ff,
+
+    // Other colors
+    'branding': #0e47cb,
+    'black': #000,
+    'white': #fff,
+
+    // TODO: Old EC colors; to be removed once components are updated
+    'tertiary': #262b38,
+    'text': #262b38,
 
     // main colours
     'black': #000,
