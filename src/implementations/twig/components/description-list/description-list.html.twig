@@ -107,6 +107,7 @@
             >
             {% for _definition in _item.definition %}
               {% include '@ecl/link/link.html.twig' with _definition|merge({
+                link: _definition.icon is defined ? _definition.link : _definition.link|merge({ type: 'standalone' }),
                 extra_classes: 'ecl-description-list__definition-item',
               }) only %}
             {% endfor %}
@@ -122,6 +123,7 @@
             >
             {% for _definition in _item.definition %}  
               {% include '@ecl/link/link.html.twig' with _definition|merge({
+                link: _definition.link|merge({ type: 'standalone' }),
                 extra_classes: 'ecl-description-list__definition-item',
               })  only %}
             {% endfor %}
