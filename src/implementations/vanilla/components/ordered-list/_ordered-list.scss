@@ -12,11 +12,11 @@ $list: null !default;
 .ecl-ordered-list,
 %ecl-ordered-list {
   color: map.get($list, 'text-color');
-  font: map.get($theme, 'font-prolonged', 'm');
-  list-style-position: inside;
+  font: map.get($theme, 'font', 'm');
+  list-style-position: outside;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
-  padding: 0;
+  padding-inline-start: map.get($theme, 'spacing', 's');
 }
 
 .ecl-ordered-list .ecl-ordered-list,
@@ -28,8 +28,10 @@ $list: null !default;
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
+  margin-inline-start: map.get($theme, 'spacing', 's');
   margin-top: map.get($theme, 'spacing', 'xs');
   max-width: 80ch;
+  padding-inline-start: map.get($theme, 'spacing', '2xs');
 
   .ecl-link {
     display: inline-block;
