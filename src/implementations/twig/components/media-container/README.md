@@ -22,6 +22,7 @@ npm install --save @ecl/twig-component-media-container
   - "description" (string) (default: ''),
 - **"image"**: (string) (default: '') Path or url to the image used as the video placeholder
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
+- **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
 

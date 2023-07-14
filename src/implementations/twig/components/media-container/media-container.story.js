@@ -1,9 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { correctPaths } from '@ecl/story-utils';
 
 import dataImg from '@ecl/specs-component-media-container/demo/data--image';
 import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
+import dataInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
@@ -73,9 +75,9 @@ const getArgTypes = (data) => {
       },
     },
     mapping: {
-      outside: 'outside the ecl-container',
-      container: 'inside the ecl-container',
-      inside: 'inside the ecl-container, with fullwidth class',
+      'outside the ecl-container': 'outside',
+      'inside the ecl-container': 'container',
+      'inside the ecl-container, with fullwidth class': 'inside',
     },
   };
 
@@ -83,6 +85,7 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  correctPaths(data);
   data.full_width = args.width === 'inside';
 
   if (!args.show_description) {
@@ -166,4 +169,13 @@ EmbeddedVideo.parameters = {
       rules: [{ id: 'frame-tested', enabled: false }],
     },
   },
+};
+
+export const Infographic = (args) => renderStory(dataInfographic, args);
+
+Infographic.storyName = 'infographic';
+Infographic.args = getArgs(dataInfographic);
+Infographic.argTypes = getArgTypes(dataInfographic);
+Infographic.parameters = {
+  notes: { markdown: notes, json: dataInfographic },
 };

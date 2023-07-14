@@ -196,7 +196,8 @@ const prepareData = (data, args) => {
   data.title = args.title;
   data.description = args.description;
   data.centered = args.centered;
-  data.full_width = args.width === 'inside';
+  data.full_width =
+    args.width === 'inside the grid container, with fullwidth class';
 
   if (data.image) {
     data.image = args.image;
@@ -223,7 +224,10 @@ const prepareData = (data, args) => {
 
 const renderStory = (data, args) => {
   let story = banner(prepareData(data, args));
-  if (args.width === 'container' || args.width === 'inside') {
+  if (
+    args.width === 'inside the grid container' ||
+    args.width === 'inside the grid container, with fullwidth class'
+  ) {
     story = `<div class="ecl-container">${story}</div>`;
   }
   if (args.gridContent) {
