@@ -38,12 +38,13 @@ $_icon_color: null !default;
   height: auto;
   margin-bottom: map.get(theme.$spacing, 'm');
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 // manage ratio 1:1
 .ecl-list-illustration__image--square {
   aspect-ratio: 1/1;
+  object-fit: cover;
   width: 100px;
 
   &.ecl-list-illustration__image--s {
