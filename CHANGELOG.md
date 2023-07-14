@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.9.1 (2023-07-14)
+
+#### :nail_care: Enhancement
+
+- [#2956](https://github.com/ec-europa/europa-component-library/pull/2956) feat(list-illustration): Image fit - FRONT-4027 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 3.9.0 (2023-07-14)
 
 #### :rocket: New Feature
