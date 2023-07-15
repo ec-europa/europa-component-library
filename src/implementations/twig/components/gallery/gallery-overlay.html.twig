@@ -7,7 +7,7 @@
     - "previous (object) (default: {}): object of type button
     - "next" (object) (default: {}): object of type button
     - "counter_separator" (string) (default: '')
-    - "download" (object) (default: {}): object of type link
+    - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
   - "item" (object) (default: {}): object of type gallery-item
   - "extra_classes" (optional) (string) (default: '')
@@ -62,6 +62,57 @@
 
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
     <div class="ecl-container">
+      <div class="ecl-gallery__detail-actions">
+      {% if _overlay.full_screen_label is not empty %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            icon_position: 'after',
+            type: 'standalone',
+            label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
+          },
+          icon: {
+            name: 'fullscreen',
+            size: 'fluid',
+            path: icon_path|default('')
+          },
+          extra_classes: 'ecl-gallery__download',
+          extra_attributes: [
+            { name: 'target', value: '_blank' },
+            { name: 'data-ecl-gallery-overlay-download' },
+          ],
+        } only %}
+      {% endif %}
+      {% if (_overlay.share is defined and _overlay.share is not empty) and
+        (_overlay.share.link is defined and _overlay.share.link is not empty) %}
+        {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
+          link: _overlay.share.link|merge({
+            icon_position: 'after',
+            type: 'standalone',
+          }),
+          icon: _overlay.share.icon|merge({
+            name: 'share',
+            size: 'fluid',
+          }),
+          extra_classes: 'ecl-gallery__share',
+          extra_attributes: [
+            { name: 'data-ecl-gallery-overlay-share' },
+          ],
+        }) only %}
+      {% endif %}
+      </div>
+    {% if _item.description is defined and _item.description is not empty %}
+      <div
+        class="ecl-gallery__detail-description"
+        data-ecl-gallery-overlay-description
+      >
+        {{- _item.description -}}
+      </div>
+    {% endif %}
+    {% if _item.meta is defined and _item.meta is not empty %}
+      <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
+        {{- _item.meta -}}
+      </div>
+    {% endif %}
       <div class="ecl-gallery__pager">
       {% if _overlay.previous is defined and _overlay.previous is not empty %}
         {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
@@ -101,56 +152,6 @@
           }),
           extra_attributes: [
             { name: 'data-ecl-gallery-overlay-next' },
-          ],
-        }) only %}
-      {% endif %}
-      </div>
-    {% if _item.meta is defined and _item.meta is not empty %}
-      <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
-        {{- _item.meta -}}
-      </div>
-    {% endif %}
-    {% if _item.description is defined and _item.description is not empty %}
-      <div
-        class="ecl-gallery__detail-description"
-        data-ecl-gallery-overlay-description
-      >
-        {{- _item.description -}}
-      </div>
-    {% endif %}
-      <div class="ecl-gallery__detail-actions">
-      {% if (_overlay.download is defined and _overlay.download is not empty) and
-        (_overlay.download.link is defined and _overlay.download.link is not empty) %}
-        {% include '@ecl/link/link.html.twig' with _overlay.download|merge({
-          link: _overlay.download.link|merge({
-            icon_position: 'after',
-            type: 'standalone',
-          }),
-          icon: _overlay.download.icon|merge({
-            name: 'download',
-            size: 'fluid',
-          }),
-          extra_classes: 'ecl-gallery__download',
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-download' },
-            { name: 'download' },
-          ],
-        }) only %}
-      {% endif %}
-      {% if (_overlay.share is defined and _overlay.share is not empty) and
-        (_overlay.share.link is defined and _overlay.share.link is not empty) %}
-        {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
-          link: _overlay.share.link|merge({
-            icon_position: 'after',
-            type: 'standalone',
-          }),
-          icon: _overlay.share.icon|merge({
-            name: 'share',
-            size: 'fluid',
-          }),
-          extra_classes: 'ecl-gallery__share',
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-share' },
           ],
         }) only %}
       {% endif %}
