@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.8.5 (2023-07-17)
+
+#### :bug: Bug Fix
+
+- [#2959](https://github.com/ec-europa/europa-component-library/pull/2959) feat(fixes): apply fixes from 3.9 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 3.8.4 (2023-06-15)
 
 #### :bug: Bug Fix
