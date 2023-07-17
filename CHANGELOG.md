@@ -1,5 +1,68 @@
 # Changelog
 
+## 3.9.1 (2023-07-14)
+
+#### :nail_care: Enhancement
+
+- [#2956](https://github.com/ec-europa/europa-component-library/pull/2956) feat(list-illustration): Image fit - FRONT-4027 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+## 3.9.0 (2023-07-14)
+
+#### :rocket: New Feature
+
+- [#2943](https://github.com/ec-europa/europa-component-library/pull/2943) feat(media-container): add expandable - FRONT-4017 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Markup Changes
+
+- [#2943](https://github.com/ec-europa/europa-component-library/pull/2943) feat(media-container): add expandable - FRONT-4017 ([@emeryro](https://github.com/emeryro))
+- [#2866](https://github.com/ec-europa/europa-component-library/pull/2866) feat(gallery): Overlay iteration - FRONT-3918 ([@planctus](https://github.com/planctus))
+- [#2869](https://github.com/ec-europa/europa-component-library/pull/2869) feat(site-header): change icon - FRONT-3950 ([@emeryro](https://github.com/emeryro))
+- [#2858](https://github.com/ec-europa/europa-component-library/pull/2858) feat(accessibility): add landmark and aria-label - FRONT-3947 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#2954](https://github.com/ec-europa/europa-component-library/pull/2954) fix(banner): reducing z-index on the container - FRONT-4025 ([@planctus](https://github.com/planctus))
+- [#2914](https://github.com/ec-europa/europa-component-library/pull/2914) fix(forms): fix form elements width - FRONT-3993 ([@emeryro](https://github.com/emeryro))
+- [#2932](https://github.com/ec-europa/europa-component-library/pull/2932) fix(language switcher): js issue when no EU languages are defined - FRONT-4018 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#2927](https://github.com/ec-europa/europa-component-library/pull/2927) feat(print): Iteration on banner, card, featured item, gallery, modal - FRONT-4006 ([@planctus](https://github.com/planctus))
+- [#2944](https://github.com/ec-europa/europa-component-library/pull/2944) feat(icons): Removing ids from all the distributed svgs - FRONT-4005 ([@planctus](https://github.com/planctus))
+- [#2936](https://github.com/ec-europa/europa-component-library/pull/2936) feat(gallery): Handling iframes size via js - FRONT-4016 ([@planctus](https://github.com/planctus))
+- [#2933](https://github.com/ec-europa/europa-component-library/pull/2933) feat(language switcher): add resize event - FRONT-4013 ([@emeryro](https://github.com/emeryro))
+- [#2893](https://github.com/ec-europa/europa-component-library/pull/2893) feat(print): Improvements on media container, category filter, page header - FRONT-3977 ([@planctus](https://github.com/planctus))
+- [#2891](https://github.com/ec-europa/europa-component-library/pull/2891) feat(content-item): add control for horizontal list - FRONT-3969 ([@emeryro](https://github.com/emeryro))
+- [#2866](https://github.com/ec-europa/europa-component-library/pull/2866) feat(gallery): Overlay iteration - FRONT-3918 ([@planctus](https://github.com/planctus))
+- [#2869](https://github.com/ec-europa/europa-component-library/pull/2869) feat(site-header): change icon - FRONT-3950 ([@emeryro](https://github.com/emeryro))
+- [#2858](https://github.com/ec-europa/europa-component-library/pull/2858) feat(accessibility): add landmark and aria-label - FRONT-3947 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#2923](https://github.com/ec-europa/europa-component-library/pull/2923) docs(website): update typography page - FRONT-3967 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#2952](https://github.com/ec-europa/europa-component-library/pull/2952) chore(deps): Prettier 3, svg linted ([@planctus](https://github.com/planctus))
+- [#2945](https://github.com/ec-europa/europa-component-library/pull/2945) chore(deps): Updates 07-07-23 ([@planctus](https://github.com/planctus))
+- [#2942](https://github.com/ec-europa/europa-component-library/pull/2942) chore(deps): Updates 05-07-23 ([@planctus](https://github.com/planctus))
+- [#2939](https://github.com/ec-europa/europa-component-library/pull/2939) chore(docs): Adding modal usage page in the cms - FRONT-4022 ([@planctus](https://github.com/planctus))
+- [#2930](https://github.com/ec-europa/europa-component-library/pull/2930) chore(cms): Fixing base url, fixing path to deprecated pages - FRONT-4020 ([@planctus](https://github.com/planctus))
+- [#2929](https://github.com/ec-europa/europa-component-library/pull/2929) chore(build): Fixing issue with wrong sri published ([@planctus](https://github.com/planctus))
+- [#2928](https://github.com/ec-europa/europa-component-library/pull/2928) chore(deps): green updates and audit fix ([@planctus](https://github.com/planctus))
+- [#2925](https://github.com/ec-europa/europa-component-library/pull/2925) chore(deps): Updates 27-06-23 ([@planctus](https://github.com/planctus))
+- [#2920](https://github.com/ec-europa/europa-component-library/pull/2920) chore(deps): Fixing audit issue ([@planctus](https://github.com/planctus))
+- [#2913](https://github.com/ec-europa/europa-component-library/pull/2913) chore(deps): Updates 19-06-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.8.4 (2023-06-15)
 
 #### :bug: Bug Fix

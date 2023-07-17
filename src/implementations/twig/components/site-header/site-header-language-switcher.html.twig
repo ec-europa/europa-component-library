@@ -63,12 +63,11 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
           path: _icon_file_path,
-          name: 'language',
+          name: 'global',
           size: 's'
         },
         extra_classes: 'ecl-site-header__icon',
       } only %}
-      <span class="ecl-site-header__language-code">{{ _language_selector.code }}</span>
     </span>
     {{- _language_selector.label -}}
   </a>

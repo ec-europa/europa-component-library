@@ -16,6 +16,10 @@ $_caption-padding: null !default;
 $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
 
 .ecl-media-container {
+  margin: 0;
+}
+
+.ecl-media-container__figure {
   border-radius: $_border-radius;
   box-shadow: $_shadow;
   display: flex;
@@ -45,6 +49,11 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   color: $_caption-color;
   font: map.get(theme.$font-prolonged, 'm');
   padding: $_caption-padding;
+  position: relative;
+}
+
+.ecl-media-container__expandable {
+  margin-top: map.get(theme.$spacing, 'xs');
   position: relative;
 }
 
