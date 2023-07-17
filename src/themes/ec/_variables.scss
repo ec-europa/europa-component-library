@@ -242,6 +242,45 @@ $text-input: (
   padding-horizontal: map.get($spacing, 'm'),
 );
 
+// Notification
+$notification: (
+  radius: 0,
+  padding: map.get($spacing, '3xl') map.get($spacing, 'xl')
+    map.get($spacing, '3xl') map.get($spacing, '3xl'),
+  border-width: 1px,
+  border-color: var(--ecl-color-neutral),
+  font: map.get($font, 'm'),
+  color: var(--ecl-color-dark),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-spacing: map.get($spacing, 's'),
+  close-color: var(--ecl-color-dark),
+  close-offset: calc(#{map.get($spacing, 'm')} - #{map.get($spacing, '2xl')}),
+  info: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-info),
+  ),
+  success: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-success),
+  ),
+  warning: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-warning),
+  ),
+  error: (
+    background: var(--ecl-color-neutral-40),
+    color: var(--ecl-color-error),
+  ),
+);
+$notification-print: (
+  padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'xl')
+    map.get($spacing-print, '3xl') map.get($spacing-print, '3xl'),
+  font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, 'l'),
+  title-spacing: map.get($spacing-print, 's'),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),
@@ -283,6 +322,7 @@ $spinner: (
   --ecl-color-dark-20: #{map.get($color, 'dark-20')};
   --ecl-color-dark-10: #{map.get($color, 'dark-10')};
   --ecl-color-dark: #{map.get($color, 'dark')};
+  --ecl-color-info: #{map.get($color, 'info')};
   --ecl-color-success: #{map.get($color, 'success')};
   --ecl-color-error: #{map.get($color, 'error')};
   --ecl-color-warning: #{map.get($color, 'warning')};

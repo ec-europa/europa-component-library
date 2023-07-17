@@ -12,29 +12,48 @@ if (!version) {
 }
 // Get all CSS and JS files
 const files = glob.sync(
-  `${path.resolve(__dirname, '../dist/packages')}/**/*.@(css|js)`
+  `${path.resolve(__dirname, '../dist/packages')}/**/*.@(css|js)`,
 );
 
 // Compute SRI hashes
-const hashes = {};
-files.forEach((file) => {
-  const data = fs.readFileSync(file);
-  const integrityObj = ssri.fromData(data, {
-    algorithms: ['sha256', 'sha384', 'sha512'],
-  });
-  const filename = path.basename(file);
-  hashes[filename] = [
-    integrityObj.sha256[0].source,
-    integrityObj.sha384[0].source,
-    integrityObj.sha512[0].source,
-  ];
-});
+async function computeHashes() {
+  const filePromises = files.map((file) =>
+    fs.promises.readFile(file).then((data) => {
+      const integrityObj = ssri.fromData(data, {
+        algorithms: ['sha256', 'sha384', 'sha512'],
+      });
+      const filename = path.basename(file);
+      return {
+        filename,
+        hashes: [
+          integrityObj.sha256[0].source,
+          integrityObj.sha384[0].source,
+          integrityObj.sha512[0].source,
+        ],
+      };
+    }),
+  );
 
-// Export to JSON
-fs.writeFileSync(
-  `${path.resolve(
-    __dirname,
-    '../scripts'
-  )}/europa-component-library-${version}-sri.json`,
-  prettier.format(JSON.stringify(hashes), { parser: 'json' })
-);
+  const fileResults = await Promise.allSettled(filePromises);
+
+  const hashes = {};
+  fileResults.forEach((result) => {
+    if (result.status === 'fulfilled') {
+      const { filename, hashes: fileHashes } = result.value;
+      hashes[filename] = fileHashes;
+    }
+  });
+
+  // Export to JSON
+  const jsonString = JSON.stringify(hashes);
+  const formattedJson = await prettier.format(jsonString, { parser: 'json' });
+  await fs.promises.writeFile(
+    `${path.resolve(
+      __dirname,
+      '../scripts',
+    )}/europa-component-library-${version}-sri.json`,
+    formattedJson,
+  );
+}
+
+computeHashes();

@@ -78,14 +78,9 @@ exports[`Site Header EC renders correctly 1`] = `
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#language"
+                      xlink:href="/icons.svg#global"
                     />
                   </svg>
-                  <span
-                    class="ecl-site-header__language-code"
-                  >
-                    en
-                  </span>
                 </span>
                 English
               </a>
@@ -988,6 +983,7 @@ exports[`Site Header EC renders correctly 1`] = `
             </div>
             <div
               class="ecl-site-header__search-container"
+              role="search"
             >
               <a
                 aria-controls="search-form-id"
@@ -1062,20 +1058,20 @@ exports[`Site Header EC renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="ecl-site-header__message"
+      class="ecl-site-header__notification"
     >
       <div
         class="ecl-container"
       >
         <div
-          class="ecl-message ecl-message--info"
-          data-ecl-auto-init="Message"
-          data-ecl-message=""
+          class="ecl-notification ecl-notification--info"
+          data-ecl-auto-init="Notification"
+          data-ecl-notification=""
           role="alert"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-message__icon"
+            class="ecl-icon ecl-icon--l ecl-notification__icon"
             focusable="false"
           >
             <use
@@ -1083,11 +1079,11 @@ exports[`Site Header EC renders correctly 1`] = `
             />
           </svg>
           <div
-            class="ecl-message__content"
+            class="ecl-notification__content"
           >
             <button
-              class="ecl-button ecl-button--ghost ecl-message__close"
-              data-ecl-message-close=""
+              class="ecl-button ecl-button--ghost ecl-notification__close"
+              data-ecl-notification-close=""
               type="button"
             >
               <span
@@ -1112,12 +1108,12 @@ exports[`Site Header EC renders correctly 1`] = `
               </span>
             </button>
             <div
-              class="ecl-message__title"
+              class="ecl-notification__title"
             >
-              Information message
+              Information notification
             </div>
             <div
-              class="ecl-message__description"
+              class="ecl-notification__description"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
             </div>
@@ -1285,14 +1281,9 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#language"
+                      xlink:href="/icons.svg#global"
                     />
                   </svg>
-                  <span
-                    class="ecl-site-header__language-code"
-                  >
-                    en
-                  </span>
                 </span>
                 English
               </a>
@@ -2195,6 +2186,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             </div>
             <div
               class="ecl-site-header__search-container"
+              role="search"
             >
               <a
                 aria-controls="search-form-id"
@@ -2269,20 +2261,20 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
       </div>
     </div>
     <div
-      class="ecl-site-header__message"
+      class="ecl-site-header__notification"
     >
       <div
         class="ecl-container"
       >
         <div
-          class="ecl-message ecl-message--info"
-          data-ecl-auto-init="Message"
-          data-ecl-message=""
+          class="ecl-notification ecl-notification--info"
+          data-ecl-auto-init="Notification"
+          data-ecl-notification=""
           role="alert"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-message__icon"
+            class="ecl-icon ecl-icon--l ecl-notification__icon"
             focusable="false"
           >
             <use
@@ -2290,11 +2282,11 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             />
           </svg>
           <div
-            class="ecl-message__content"
+            class="ecl-notification__content"
           >
             <button
-              class="ecl-button ecl-button--ghost ecl-message__close"
-              data-ecl-message-close=""
+              class="ecl-button ecl-button--ghost ecl-notification__close"
+              data-ecl-notification-close=""
               type="button"
             >
               <span
@@ -2319,12 +2311,12 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
               </span>
             </button>
             <div
-              class="ecl-message__title"
+              class="ecl-notification__title"
             >
-              Information message
+              Information notification
             </div>
             <div
-              class="ecl-message__description"
+              class="ecl-notification__description"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
             </div>
@@ -2462,14 +2454,9 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#language"
+                      xlink:href="/icons.svg#global"
                     />
                   </svg>
-                  <span
-                    class="ecl-site-header__language-code"
-                  >
-                    en
-                  </span>
                 </span>
                 English
               </a>
@@ -3372,6 +3359,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             </div>
             <div
               class="ecl-site-header__search-container"
+              role="search"
             >
               <a
                 aria-controls="search-form-id"
@@ -3446,20 +3434,20 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
       </div>
     </div>
     <div
-      class="ecl-site-header__message"
+      class="ecl-site-header__notification"
     >
       <div
         class="ecl-container"
       >
         <div
-          class="ecl-message ecl-message--info"
-          data-ecl-auto-init="Message"
-          data-ecl-message=""
+          class="ecl-notification ecl-notification--info"
+          data-ecl-auto-init="Notification"
+          data-ecl-notification=""
           role="alert"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-message__icon"
+            class="ecl-icon ecl-icon--l ecl-notification__icon"
             focusable="false"
           >
             <use
@@ -3467,11 +3455,11 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             />
           </svg>
           <div
-            class="ecl-message__content"
+            class="ecl-notification__content"
           >
             <button
-              class="ecl-button ecl-button--ghost ecl-message__close"
-              data-ecl-message-close=""
+              class="ecl-button ecl-button--ghost ecl-notification__close"
+              data-ecl-notification-close=""
               type="button"
             >
               <span
@@ -3496,12 +3484,12 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
               </span>
             </button>
             <div
-              class="ecl-message__title"
+              class="ecl-notification__title"
             >
-              Information message
+              Information notification
             </div>
             <div
-              class="ecl-message__description"
+              class="ecl-notification__description"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
             </div>
@@ -3637,14 +3625,9 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#language"
+                      xlink:href="/icons.svg#global"
                     />
                   </svg>
-                  <span
-                    class="ecl-site-header__language-code"
-                  >
-                    en
-                  </span>
                 </span>
                 English
               </a>
@@ -4547,6 +4530,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             </div>
             <div
               class="ecl-site-header__search-container"
+              role="search"
             >
               <a
                 aria-controls="search-form-id"
@@ -4621,20 +4605,20 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
       </div>
     </div>
     <div
-      class="ecl-site-header__message"
+      class="ecl-site-header__notification"
     >
       <div
         class="ecl-container"
       >
         <div
-          class="ecl-message ecl-message--info"
-          data-ecl-auto-init="Message"
-          data-ecl-message=""
+          class="ecl-notification ecl-notification--info"
+          data-ecl-auto-init="Notification"
+          data-ecl-notification=""
           role="alert"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-message__icon"
+            class="ecl-icon ecl-icon--l ecl-notification__icon"
             focusable="false"
           >
             <use
@@ -4642,11 +4626,11 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             />
           </svg>
           <div
-            class="ecl-message__content"
+            class="ecl-notification__content"
           >
             <button
-              class="ecl-button ecl-button--ghost ecl-message__close"
-              data-ecl-message-close=""
+              class="ecl-button ecl-button--ghost ecl-notification__close"
+              data-ecl-notification-close=""
               type="button"
             >
               <span
@@ -4671,12 +4655,12 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
               </span>
             </button>
             <div
-              class="ecl-message__title"
+              class="ecl-notification__title"
             >
-              Information message
+              Information notification
             </div>
             <div
-              class="ecl-message__description"
+              class="ecl-notification__description"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
             </div>
@@ -4812,14 +4796,9 @@ exports[`Site Header EU renders correctly 1`] = `
                     focusable="false"
                   >
                     <use
-                      xlink:href="/icons.svg#language"
+                      xlink:href="/icons.svg#global"
                     />
                   </svg>
-                  <span
-                    class="ecl-site-header__language-code"
-                  >
-                    en
-                  </span>
                 </span>
                 English
               </a>
@@ -5722,6 +5701,7 @@ exports[`Site Header EU renders correctly 1`] = `
             </div>
             <div
               class="ecl-site-header__search-container"
+              role="search"
             >
               <a
                 aria-controls="search-form-id"
@@ -5796,20 +5776,20 @@ exports[`Site Header EU renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="ecl-site-header__message"
+      class="ecl-site-header__notification"
     >
       <div
         class="ecl-container"
       >
         <div
-          class="ecl-message ecl-message--info"
-          data-ecl-auto-init="Message"
-          data-ecl-message=""
+          class="ecl-notification ecl-notification--info"
+          data-ecl-auto-init="Notification"
+          data-ecl-notification=""
           role="alert"
         >
           <svg
             aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-message__icon"
+            class="ecl-icon ecl-icon--l ecl-notification__icon"
             focusable="false"
           >
             <use
@@ -5817,11 +5797,11 @@ exports[`Site Header EU renders correctly 1`] = `
             />
           </svg>
           <div
-            class="ecl-message__content"
+            class="ecl-notification__content"
           >
             <button
-              class="ecl-button ecl-button--ghost ecl-message__close"
-              data-ecl-message-close=""
+              class="ecl-button ecl-button--ghost ecl-notification__close"
+              data-ecl-notification-close=""
               type="button"
             >
               <span
@@ -5846,12 +5826,12 @@ exports[`Site Header EU renders correctly 1`] = `
               </span>
             </button>
             <div
-              class="ecl-message__title"
+              class="ecl-notification__title"
             >
-              Information message
+              Information notification
             </div>
             <div
-              class="ecl-message__description"
+              class="ecl-notification__description"
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
             </div>

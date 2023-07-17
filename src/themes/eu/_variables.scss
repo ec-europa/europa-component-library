@@ -243,6 +243,45 @@ $text-input: (
   padding-horizontal: map.get($spacing, 'm'),
 );
 
+// Notification
+$notification: (
+  radius: 4px,
+  padding: map.get($spacing, 'l') map.get($spacing, 'xs') map.get($spacing, 'l')
+    map.get($spacing, 'l'),
+  border-width: 0,
+  border-color: transparent,
+  font: map.get($font-prolonged, 'm'),
+  color: map.get($color, 'grey-80'),
+  title-font: map.get($font-prolonged, 'm'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-spacing: map.get($spacing, 'xs'),
+  close-color: map.get($color, 'blue-100'),
+  close-offset: calc(#{map.get($spacing, 's')} - #{map.get($spacing, 'm')}),
+  info: (
+    background: map.get($color, 'blue-5'),
+    color: map.get($color, 'info'),
+  ),
+  success: (
+    background: map.get($color, 'green-5'),
+    color: map.get($color, 'success'),
+  ),
+  warning: (
+    background: map.get($color, 'orange-5'),
+    color: map.get($color, 'warning'),
+  ),
+  error: (
+    background: map.get($color, 'red-5'),
+    color: map.get($color, 'error'),
+  ),
+);
+$notification-print: (
+  padding: map.get($spacing-print, 'l') map.get($spacing-print, 'xs')
+    map.get($spacing-print, 'l') map.get($spacing-print, 'l'),
+  font: map.get($font-prolonged-print, 'm'),
+  title-font: map.get($font-prolonged-print, 'm'),
+  title-spacing: map.get($spacing-print, 'xs'),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-primary-50),

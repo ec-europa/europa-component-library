@@ -56,6 +56,9 @@ module.exports = {
           alt: 'Image 3',
         },
       },
+      embedded_video: {
+        src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
+      },
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
@@ -67,6 +70,9 @@ module.exports = {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
         },
+      },
+      embedded_video: {
+        src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
@@ -121,8 +127,11 @@ module.exports = {
           alt: 'Image 6',
         },
       },
+      embedded_video: {
+        src: 'https://player.vimeo.com/video/813227141?h=077b905b65',
+      },
       description:
-        'Find official documents, publications, statistics, open data and more resources',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',
       meta: 'Copyright, Author, Licence for image 6',
       share_path: '/share#example-image6.jpg',
     },
@@ -212,17 +221,7 @@ module.exports = {
       },
     },
     counter_separator: 'of',
-    download: {
-      link: {
-        label: 'Download',
-        path: exampleLink,
-      },
-      icon: {
-        name: 'download',
-        size: 'fluid',
-        path: '/icons.svg',
-      },
-    },
+    full_screen_label: 'View original',
     share: {
       link: {
         label: 'Share',
@@ -237,7 +236,7 @@ module.exports = {
   },
   disable_overlay: false,
   view_all_label: 'See all',
-  view_all_expanded_label: 'Back',
+  view_all_expanded_label: 'Collapse',
   footer: {
     link: {
       path: exampleLink,

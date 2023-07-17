@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  message: {
+  notification: {
     variant: 'warning',
     icon: {
       path: '/icons.svg',

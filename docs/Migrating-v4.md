@@ -102,6 +102,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 - Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
 
+### Message
+
+- Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
+
 ### Search form
 
 - Icon in the search button is now placed before the label
@@ -116,6 +121,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
 - Order of elements in the markup has been changed
+
+### Site header
+
+- Twig parameter `message` has been renamed to `notification`
+- CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
 
 ### Table
 

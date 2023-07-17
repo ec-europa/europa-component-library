@@ -1,5 +1,5 @@
 {
-  "version": "4-dev",
+  "version": "3.9.1",
   "npmClient": "yarn",
   "changelog": {
     "repo": "ec-europa/europa-component-library",
@@ -16,10 +16,10 @@
   },
   "command": {
     "version": {
-      "allowBranch": "chore/release-*"
+      "allowBranch": "v4-dev"
     },
     "publish": {
-      "allowBranch": "v4-dev"
+      "allowBranch": "chore/release*"
     },
     "ignoreChanges": ["**/test/**", "**/*.md"]
   }
