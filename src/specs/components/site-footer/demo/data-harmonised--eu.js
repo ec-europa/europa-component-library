@@ -183,7 +183,7 @@ module.exports = {
             {
               link: {
                 label: 'Cookies',
-                path: 'https://european-union.europa.eu/web-accessibility-policy_en',
+                path: 'https://european-union.europa.eu/cookies_en',
               },
             },
           ],
