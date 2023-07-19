@@ -292,6 +292,11 @@ $page-header: (
   description-color: map.get($color, 'grey-80'),
   description-font: map.get($font-prolonged, 'l'),
 );
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '5xl'),
+  description-font: map.get($font-prolonged-print, 'l'),
+);
 
 // Site footer
 $site-footer: (

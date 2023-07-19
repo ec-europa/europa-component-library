@@ -291,6 +291,11 @@ $page-header: (
   description-color: var(--ecl-color-dark),
   description-font: map.get($font, 'l'),
 );
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '4xl'),
+  description-font: map.get($font-print, 'l'),
+);
 
 // Site footer
 $site-footer: (
