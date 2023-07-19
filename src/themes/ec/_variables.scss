@@ -281,6 +281,17 @@ $notification-print: (
   title-spacing: map.get($spacing-print, 's'),
 );
 
+// Page header
+$page-header: (
+  meta-color: var(--ecl-color-dark),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: var(--ecl-color-primary),
+  title-color: var(--ecl-color-dark),
+  title-font: map.get($font, '4xl'),
+  description-color: var(--ecl-color-dark),
+  description-font: map.get($font, 'l'),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),

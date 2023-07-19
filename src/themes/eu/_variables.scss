@@ -282,6 +282,17 @@ $notification-print: (
   title-spacing: map.get($spacing-print, 'xs'),
 );
 
+// Page header
+$page-header: (
+  meta-color: map.get($color, 'grey-80'),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: map.get($color, 'grey-80'),
+  title-color: map.get($color, 'grey-140'),
+  title-font: map.get($font, '5xl'),
+  description-color: map.get($color, 'grey-80'),
+  description-font: map.get($font-prolonged, 'l'),
+);
+
 // Site footer
 $site-footer: (
   background: map.get($color, 'blue-5'),

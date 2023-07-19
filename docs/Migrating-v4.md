@@ -106,6 +106,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
 
+### Page header
+
+- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header
+- Wrapper `ecl-page-header__title-container` has been removed
+
 ### Search form
 
 - Icon in the search button is now placed before the label

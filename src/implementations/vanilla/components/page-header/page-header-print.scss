@@ -4,24 +4,27 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
+$page-header: null !default;
 
 .ecl-page-header {
-  padding-bottom: map.get(theme.$spacing-print, 'xl');
-  padding-top: map.get(theme.$spacing-print, 'xl');
+  padding-bottom: map.get($theme, 'spacing-print', 'xl');
+  padding-top: map.get($theme, 'spacing-print', 'xl');
 }
 
 .ecl-page-header__meta {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font-print, 'm');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  margin-top: map.get(theme.$spacing-print, 'm');
+  color: map.get($theme, 'color', 'grey-100');
+  font: map.get($theme, 'font-print', 'm');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  margin-top: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-page-header__meta-item {
-  border-inline-end: 1px solid map.get(theme.$color, 'grey-100');
-  margin-inline-end: map.get(theme.$spacing-print, 'm');
-  padding-inline-end: map.get(theme.$spacing-print, 'm');
+  border-inline-end: 1px solid map.get($theme, 'color', 'grey-100');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
+  padding-inline-end: map.get($theme, 'spacing-print', 'm');
 
   &:first-of-type {
     text-transform: uppercase;
@@ -35,12 +38,12 @@
 }
 
 .ecl-page-header__title {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font-print, '4xl');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
+  color: map.get($theme, 'color', 'grey-100');
+  font: map.get($theme, 'font-print', '4xl');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing-print, 'm');
+  margin-top: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-page-header__description-container {
@@ -48,9 +51,9 @@
 }
 
 .ecl-page-header__description {
-  font: map.get(theme.$font-prolonged-print, 'xl');
+  font: map.get($theme, 'font-prolonged-print', 'xl');
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing-print, 'm');
+  margin-top: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-page-header--image {
@@ -65,6 +68,6 @@
 
 .ecl-page-header__description-thumbnail {
   max-width: 120px;
-  margin-top: map.get(theme.$spacing-print, 's');
-  margin-inline-end: map.get(theme.$spacing-print, 'm');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
 }

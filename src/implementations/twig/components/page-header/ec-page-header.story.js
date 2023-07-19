@@ -8,7 +8,7 @@ import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long'
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataCore = { ...demoContent, variant: 'negative' };
+const dataCore = { ...demoContent };
 
 const dataHarmonised = { ...demoContent };
 delete dataHarmonised.picture_thumbnail;
@@ -154,9 +154,6 @@ const prepareData = (data, args) => {
     delete clone.breadcrumb;
   } else if (args.show_breadcrumb) {
     clone.breadcrumb = { ...demoBreadcrumbLong };
-    clone.breadcrumb.links.forEach((item) => {
-      item.negative = clone.variant === 'negative';
-    });
   }
   if (!args.show_thumbnail) {
     delete clone.picture_thumbnail;
