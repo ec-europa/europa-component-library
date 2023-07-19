@@ -34,8 +34,12 @@
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-message/message-print-eu';
 @use '@ecl/vanilla-component-news-ticker/news-ticker-print';
+@use '@ecl/vanilla-component-notification/notification-print' with (
+  $theme: theme.$theme,
+  $notification: var.$notification,
+  $notification-print: var.$notification-print
+);
 @use '@ecl/vanilla-component-skip-link/skip-link-print';
 @use '@ecl/vanilla-component-spinner/spinner-print';
 @use '@ecl/vanilla-component-table/table-print';
@@ -43,7 +47,7 @@
 @use '@ecl/vanilla-component-tag/tag-print';
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-print';
+@use '@ecl/vanilla-component-banner/banner-print-eu';
 @use '@ecl/vanilla-component-description-list/description-list-print-eu';
 @use '@ecl/vanilla-component-featured-item/featured-item-print-eu';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-print-eu';
@@ -56,7 +60,7 @@
 @use '@ecl/vanilla-component-file/file-print';
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
 @use '@ecl/vanilla-component-media-container/media-container-print';
-@use '@ecl/vanilla-component-modal/modal-print-eu';
+@use '@ecl/vanilla-component-modal/modal-print';
 @use '@ecl/vanilla-component-navigation-list/navigation-list-print';
 @use '@ecl/vanilla-component-ordered-list/ordered-list-print' with (
   $theme: theme.$theme,

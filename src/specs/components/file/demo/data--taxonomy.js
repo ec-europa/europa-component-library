@@ -5,7 +5,6 @@ module.exports = {
   detail_meta: ['Resource type', 'Publication date'],
   variant: 'thumbnail',
   title: 'State of the Union 2018 brochure',
-  aria_label: 'Download file State of the Union 2018 brochure',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
   image: {
@@ -23,6 +22,7 @@ module.exports = {
     link: {
       label: 'Download',
       path: exampleLink,
+      aria_label: 'Download file State of the Union 2018 brochure',
     },
     icon: {
       path: '/icons.svg',

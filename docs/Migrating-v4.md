@@ -108,6 +108,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - the same variants are now available in both components `no-marker, divider`
 - the `no-bullets` variant is renamed in `no-marker` since it deals now with different symbols.
 
+### Message
+
+- Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
+
 ### Search form
 
 - Icon in the search button is now placed before the label
@@ -122,6 +127,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
 - Order of elements in the markup has been changed
+
+### Site header
+
+- Twig parameter `message` has been renamed to `notification`
+- CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
 
 ### Table
 

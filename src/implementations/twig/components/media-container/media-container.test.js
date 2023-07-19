@@ -8,6 +8,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import demoContentImg from '@ecl/specs-component-media-container/demo/data--image';
 import demoContentVideo from '@ecl/specs-component-media-container/demo/data--video';
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
+import demoContentInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
 
 expect.extend(toHaveNoViolations);
 
@@ -65,6 +66,13 @@ describe('Media Container', () => {
     test('with embedded media renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoContentEmbed)).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('infographic', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoContentInfographic)).resolves.toMatchSnapshot();
     });
   });
 });

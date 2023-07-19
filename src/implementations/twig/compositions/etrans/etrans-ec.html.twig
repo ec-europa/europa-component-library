@@ -1,6 +1,6 @@
 {% apply spaceless %}
 
-{% set _message = message|default({}) %}
+{% set _notification = notification|default({}) %}
 {% set _expandable = expandable|default({}) %}
 {% set _languages = languages|default([]) %}
 
@@ -8,7 +8,7 @@
 
 <div class="ecl-u-bg-grey-5 ecl-u-pv-m">
   <div class="ecl-container">
-    {% include '@ecl/message/message.html.twig' with _message|merge({
+    {% include '@ecl/notification/notification.html.twig' with _notification|merge({
       extra_classes: 'ecl-u-bg-transparent ecl-u-mb-m',
     }) only %}
     
