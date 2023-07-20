@@ -813,6 +813,9 @@ export class Menu {
       if (menuExpanded === 'true') {
         this.handleClickOnClose();
       }
+      this.items.forEach((item) => {
+        item.setAttribute('aria-expanded', 'false');
+      });
     }
   }
 
