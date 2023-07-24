@@ -84,7 +84,6 @@
       </div>
       {% if _language_selector.overlay.close is not empty %}
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
-          type: 'button',
           variant: 'ghost',
           extra_classes: 'ecl-site-header__language-close',
           extra_attributes: [{
