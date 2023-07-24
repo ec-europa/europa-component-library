@@ -21,7 +21,7 @@ module.exports = {
       label: `<a class="ecl-link" href="${exampleLink}">Energy union and climate</a>`,
       nested: [
         {
-          label: `<a class="ecl-link" href="${exampleLink}">Security, solidarity and trust</a>`,
+          label: `Security, solidarity and trust`,
         },
         {
           label: `<a class="ecl-link" href="${exampleLink}">A fully-integrated internal energy market</a>`,

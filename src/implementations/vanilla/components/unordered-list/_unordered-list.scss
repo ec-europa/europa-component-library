@@ -30,26 +30,17 @@ $list: null !default;
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
   margin-inline-start: map.get($theme, 'spacing', 's');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: map.get($theme, 'spacing', 'm');
   max-width: calc(80ch - #{map.get($theme, 'spacing', '2xl')});
   padding-inline-start: map.get($theme, 'spacing', 'xs');
 
-  .ecl-link {
-    display: inline-block;
-    padding-top: map.get($theme, 'spacing', 'xs');
+  &:first-of-type {
+    margin-top: map.get($theme, 'spacing', '2xs');
   }
-}
 
-.ecl-unordered-list__item--first {
-  margin-top: map.get($theme, 'spacing', '2xs');
-
-  > .ecl-link {
-    padding-top: map.get($theme, 'spacing', '2xs');
+  &:last-of-type {
+    margin-bottom: map.get($theme, 'spacing', '2xs');
   }
-}
-
-.ecl-unordered-list__item--last {
-  margin-bottom: map.get($theme, 'spacing', '2xs');
 }
 
 // No marker
@@ -97,4 +88,14 @@ $list: null !default;
 .ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item {
   margin-inline-start: map.get($theme, 'spacing', 'xs');
   padding-inline-start: 0;
+}
+
+.ecl-unordered-list
+  .ecl-unordered-list
+  .ecl-unordered-list__item:first-of-type {
+  margin-top: map.get($theme, 'spacing', 'm');
+}
+
+.ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item:last-of-type {
+  margin-bottom: 0;
 }

@@ -21,7 +21,7 @@
 #}
 
 {# Define main macro #}
-{% macro ordered_list(items, extra_classes, extra_attributes, variant, nested) %}{% apply spaceless %}
+{% macro ordered_list(items, extra_classes, extra_attributes, variant) %}{% apply spaceless %}
   {% import _self as list %}
 
   {# Internal properties #}
@@ -55,18 +55,11 @@
     <ol class="{{ _css_class }}" {{ _extra_attributes|raw }}>
       {% for _item in _items %}
         {% set _item_class = 'ecl-ordered-list__item' %}
-        
-        {% if not nested and loop.first %}
-          {% set _item_class = _item_class ~ ' ecl-ordered-list__item--first' %}
-        {% endif %}
-        {% if not nested and loop.last %}
-          {% set _item_class = _item_class ~ ' ecl-ordered-list__item--last' %}
-        {% endif %}
 
         <li class="{{ _item_class }}">
           {{- _item.label -}}
           {% if _item.nested is not empty and _item.nested is iterable %}
-            {{- list.ordered_list(_item.nested, '', [], '', true) -}}
+            {{- list.ordered_list(_item.nested, '', [], '') -}}
           {% endif -%}
         </li>
       {% endfor %}

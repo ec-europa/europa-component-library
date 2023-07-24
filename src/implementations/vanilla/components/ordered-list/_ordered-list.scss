@@ -23,32 +23,23 @@ $list: null !default;
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
   margin-top: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', 'l');
+  padding-inline-start: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
   margin-inline-start: map.get($theme, 'spacing', 's');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: map.get($theme, 'spacing', 'm');
   max-width: 80ch;
   padding-inline-start: map.get($theme, 'spacing', '2xs');
 
-  .ecl-link {
-    display: inline-block;
-    padding-top: map.get($theme, 'spacing', 'xs');
+  &:first-of-type {
+    margin-top: map.get($theme, 'spacing', '2xs');
   }
-}
 
-.ecl-ordered-list__item--first {
-  margin-top: map.get($theme, 'spacing', '2xs');
-
-  > .ecl-link {
-    padding-top: map.get($theme, 'spacing', '2xs');
+  &:last-of-type {
+    margin-bottom: map.get($theme, 'spacing', '2xs');
   }
-}
-
-.ecl-ordered-list__item--last {
-  margin-bottom: map.get($theme, 'spacing', '2xs');
 }
 
 // No marker
@@ -58,7 +49,7 @@ $list: null !default;
 
   .ecl-ordered-list {
     list-style-type: none;
-    padding-inline-start: map.get($theme, 'spacing', 'xl');
+    padding-inline-start: map.get($theme, 'spacing', 's');
   }
 
   > .ecl-ordered-list__item {
@@ -74,9 +65,9 @@ $list: null !default;
 
   > .ecl-ordered-list__item {
     border-bottom: 1px solid map.get($list, 'divider-color');
-    margin-bottom: map.get($theme, 'spacing', 's');
+    margin-bottom: map.get($theme, 'spacing', 'm');
     margin-inline-start: 0;
-    padding-bottom: map.get($theme, 'spacing', 's');
+    padding-bottom: map.get($theme, 'spacing', 'm');
     padding-inline-start: 0;
 
     .ecl-link {
@@ -85,10 +76,18 @@ $list: null !default;
   }
 
   .ecl-ordered-list {
-    padding-inline-start: map.get($theme, 'spacing', 'xl');
+    padding-inline-start: map.get($theme, 'spacing', 's');
 
     .ecl-ordered-list__item {
       list-style-type: none;
     }
   }
+}
+
+.ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:first-of-type {
+  margin-top: map.get($theme, 'spacing', 'm');
+}
+
+.ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:last-of-type {
+  margin-bottom: 0;
 }
