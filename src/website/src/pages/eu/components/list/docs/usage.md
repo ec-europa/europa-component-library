@@ -16,7 +16,7 @@ Ordered lists display a set of items in a sequential and logical order, indicate
 
 ## Don'ts
 
-- **do not nest lists deeper than 3 levels**
+- do not nest lists deeper than 3 levels
 
 ## When to use
 

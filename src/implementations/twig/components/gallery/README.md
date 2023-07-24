@@ -13,6 +13,7 @@ npm install --save @ecl/twig-component-gallery
   - "previous" (object) (default: {}): object of type button
   - "next" (object) (default: {}): object of type button
   - "counter_separator" (string) (default: '')
+  - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
 - **"items"** (array) (default: [])
@@ -121,14 +122,7 @@ npm install --save @ecl/twig-component-gallery
       }, 
     }, 
     counter_separator: 'of', 
-    download: { 
-      label: 'Download', 
-      icon: { 
-        path: 'path/to/icons.svg', 
-        name: 'download', 
-        size: 'fluid', 
-      }, 
-    }, 
+    full_screen_label: 'View original',
     share: { 
       label: 'Share', 
       icon: { 

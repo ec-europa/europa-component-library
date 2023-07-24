@@ -8,9 +8,11 @@ module.exports = {
         },
       },
     },
-    'cleanupIds',
     {
-      name: 'prefixIds',
+      name: 'removeAttrs',
+      params: {
+        attrs: 'id',
+      },
     },
     'convertStyleToAttrs',
   ],

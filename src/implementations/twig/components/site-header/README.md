@@ -53,7 +53,7 @@ npm install --save @ecl/twig-component-site-header
   - "label" (string) Label of the element
   - "href" (string) Link of the element
 - **"search_form"** (associative array) (default: predefined structure): ECL Search Form component structure
-- **"message"** (object) (default: {}): Optional message compatible with ECL Message component structure
+- **"notification"** (object) (default: {}): Optional notification compatible with ECL Notification component structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

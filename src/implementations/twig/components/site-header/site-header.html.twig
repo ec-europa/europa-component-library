@@ -66,7 +66,7 @@
         "href_logged": (string) Link to the logout form
       }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
-    - "message" (object) (default: {}): Optional message compatible with ECL Message component structure
+    - "notification" (object) (default: {}): Optional notification compatible with ECL Notification component structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: data-ecl-auto-init="SiteHeaderStandardised"): format: [
         {
@@ -88,7 +88,7 @@
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
-{% set _message = message|default({}) %}
+{% set _notification = notification|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header' %}
 {% set _search_form_extra_attributes = [{ name: 'data-ecl-search-form' }] %}
@@ -317,7 +317,7 @@
 
         {# Search form #}
         {% if _search_form is defined %}
-          <div class="ecl-site-header__search-container">
+          <div class="ecl-site-header__search-container" role="search">
           {% if _search_toggle is not empty %}
             <a
               class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
@@ -348,11 +348,11 @@
     </div>
   </div>
 
-{# Message #}
-{% if _message is defined and _message is not empty %}
-  <div class="ecl-site-header__message">
+{# Notification #}
+{% if _notification is defined and _notification is not empty %}
+  <div class="ecl-site-header__notification">
     <div class="ecl-container">
-      {% include '@ecl/message/message.html.twig' with _message only %}
+      {% include '@ecl/notification/notification.html.twig' with _notification only %}
     </div>
   </div>
 {% endif %}

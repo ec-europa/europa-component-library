@@ -150,4 +150,8 @@ $size-icon-only: calc(
     padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
       calc(#{map.get($button, 'padding-horizontal')} - 1px);
   }
+
+  &.ecl-button--icon-only:hover {
+    padding: 1px;
+  }
 }
