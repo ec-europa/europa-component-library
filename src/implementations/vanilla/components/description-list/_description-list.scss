@@ -106,25 +106,25 @@ $description-list: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
-  display: inline;
+  display: inline-block;
   margin-inline-end: map.get($theme, 'spacing', 'm');
   margin-bottom: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', 'm');
+  padding-inline-end: map.get($theme, 'spacing', 'm');
   position: relative;
 
   &.ecl-description-list__definition-item--hidden {
     display: none;
   }
 
-  &::before {
+  &::after {
     background-color: map.get($theme, 'color', 'blue-100');
     border-radius: 50%;
     content: '';
     display: block;
     height: 4px;
-    left: -2px;
+    right: -2px;
     position: absolute;
-    top: 8px;
+    top: map.get($theme, 'spacing', 's');
     width: 4px;
   }
 
@@ -132,7 +132,7 @@ $description-list: null !default;
     padding-inline-start: 0;
   }
 
-  &:first-child::before {
+  &:last-child::after {
     display: none;
   }
 
