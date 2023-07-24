@@ -34,6 +34,13 @@ module.exports = {
         'no-console': 'off',
       },
     },
+    // The rule would trigger a warning about React 18, website uses 17
+    {
+      files: 'src/Index.jsx',
+      rules: {
+        'react/no-deprecated': 'off',
+      },
+    },
     // @ecl/website-utils alias is not handled properly by eslint-loader
     {
       files: '**/demo/*.js',
