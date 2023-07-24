@@ -28,6 +28,16 @@ module.exports = {
     code: 'en',
     overlay: {
       title: 'Select your language',
+      close: {
+        variant: 'ghost',
+        label: 'Close',
+        icon: {
+          path: '/icons.svg',
+          name: 'close',
+          size: 'm',
+        },
+        hide_label: true,
+      },
       items: [
         {
           label: 'български',
@@ -151,7 +161,6 @@ module.exports = {
           lang: 'sv',
         },
       ],
-      close_label: 'Close',
       non_eu_items: [
         {
           label: '中文',

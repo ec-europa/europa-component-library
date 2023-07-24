@@ -125,6 +125,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Twig parameter `message` has been renamed to `notification`
 - CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU
+- Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 
 ### Table
 

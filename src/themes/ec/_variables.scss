@@ -289,6 +289,37 @@ $site-footer: (
   column-gap: map.get($grid-gutter-width, 'm'),
 );
 
+// Site header
+$site-header: (
+  language-switcher: (
+    color: var(--ecl-color-dark),
+    shadow: map.get($shadow, '12'),
+    shadow-size: 12px,
+    arrow-size: 1.25rem,
+    header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
+    header-font: map.get($font, 'xl'),
+    header-separator: none,
+    close-right: map.get($spacing, 'xl'),
+    close-top: map.get($spacing, 'm'),
+    content-padding: 0 map.get($spacing, '3xl') map.get($spacing, '3xl'),
+    category-title-padding: map.get($spacing, 's') 0 map.get($spacing, 'xs'),
+    category-stack-title-padding: map.get($spacing, 'l') 0
+      map.get($spacing, 'xs'),
+    category-stack-margin: map.get($spacing, 's'),
+    category-separator: 1px solid var(--ecl-color-neutral),
+    column-spacing: map.get($spacing, 'm'),
+    code-color: var(--ecl-color-dark),
+    code-width: 26px,
+    code-font-weight: map.get($font-weight, 'regular'),
+    code-active-font-weight: map.get($font-weight, 'bold'),
+    item-width: 172px,
+    item-padding: map.get($spacing, 'xs') map.get($spacing, 's'),
+    item-active-background: var(--ecl-color-neutral-20),
+    item-active-color: var(--ecl-color-dark),
+    item-active-shadow: none,
+  ),
+);
+
 // Spinner
 $spinner: (
   stroke-color: var(--ecl-color-primary),
