@@ -164,40 +164,49 @@ describe('ECL Builder', () => {
     });
 
     it('should be able to expose getSystem utility in scss source code', async () => {
-      let system = getSystem();
-      const options = {
-        data: `
-            $system: getsystem();
-            .system-specific { content: $system; };
-        `,
-        functions: {
-          'getsystem()': () => new sass.types.String(system || ''),
-        },
-      };
+      async function runTest() {
+        let system = getSystem();
+        function customSassFunctionAsync() {
+          return Promise.resolve(new sass.types.String(system || ''));
+        }
 
-      let sassResult = sass.renderSync(options);
-      let postcssResult = await postcss(getPlugins()).process(sassResult.css);
-      expect(postcssResult.css).toBe('');
+        const string = `
+          $system: getsystem();
+          .system-specific { content: $system; };
+        `;
 
-      process.env.ECL_SYSTEM = 'ec';
-      system = getSystem();
-      sassResult = sass.renderSync(options);
-      postcssResult = await postcss(getPlugins()).process(sassResult.css);
-      expect(postcssResult.css).toEqual(
-        `.system-specific {
-  content: ec;
-}`,
-      );
+        const options = {
+          functions: {
+            'getsystem()': customSassFunctionAsync,
+          },
+        };
 
-      process.env.ECL_SYSTEM = 'eu';
-      system = getSystem();
-      sassResult = sass.renderSync(options);
-      postcssResult = await postcss(getPlugins()).process(sassResult.css);
-      expect(postcssResult.css).toEqual(
-        `.system-specific {
-  content: eu;
-}`,
-      );
+        let sassResult = await sass.compileStringAsync(string, options);
+        let postcssResult = await postcss(getPlugins()).process(sassResult.css);
+        expect(postcssResult.css).toBe('');
+
+        process.env.ECL_SYSTEM = 'ec';
+        system = getSystem();
+        sassResult = await sass.compileStringAsync(string, options);
+        postcssResult = await postcss(getPlugins()).process(sassResult.css);
+        expect(postcssResult.css).toEqual(
+          `.system-specific {
+        content: ec;
+      }`,
+        );
+
+        process.env.ECL_SYSTEM = 'eu';
+        system = getSystem();
+        sassResult = await sass.compileStringAsync(string, options);
+        postcssResult = await postcss(getPlugins()).process(sassResult.css);
+        expect(postcssResult.css).toEqual(
+          `.system-specific {
+        content: eu;
+      }`,
+        );
+      }
+
+      runTest();
     });
   });
 });
