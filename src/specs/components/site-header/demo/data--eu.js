@@ -30,7 +30,6 @@ module.exports = {
     overlay: {
       title: 'Select your language',
       close: {
-        variant: 'ghost',
         label: 'Close',
         icon: {
           path: '/icons.svg',
