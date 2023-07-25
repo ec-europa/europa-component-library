@@ -107,9 +107,9 @@ $description-list: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline-block;
-  margin-inline-end: map.get($theme, 'spacing', 'm');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  margin-inline-end: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
+  margin-bottom: map.get($theme, 'spacing', '2xs');
+  padding-inline-end: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
   position: relative;
 
   &.ecl-description-list__definition-item--hidden {
