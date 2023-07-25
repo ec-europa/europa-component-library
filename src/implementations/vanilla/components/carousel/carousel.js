@@ -537,12 +537,10 @@ export class Carousel {
     switch (e.key) {
       case 'Tab':
       case 'ArrowRight':
-        e.preventDefault();
         if (focusedEl.nextSibling) {
+          e.preventDefault();
           this.shiftSlide('next', true);
           focusedEl.nextSibling.focus();
-        } else {
-          this.btnPrev.focus();
         }
         break;
 
