@@ -164,19 +164,9 @@ module.exports = {
       ],
       non_eu_items: [
         {
-          label: '中文',
+          label: 'عَرَبِيّ',
           path: exampleLink,
-          lang: 'zh',
-        },
-        {
-          label: 'Türk',
-          path: exampleLink,
-          lang: 'tr',
-        },
-        {
-          label: 'pусский',
-          path: exampleLink,
-          lang: 'ru',
+          lang: 'ar',
         },
         {
           label: 'Català',
@@ -184,24 +174,14 @@ module.exports = {
           lang: 'ca',
         },
         {
-          label: 'عَرَبِيّ',
+          label: 'Íslenska',
           path: exampleLink,
-          lang: 'ar',
+          lang: 'is',
         },
         {
-          label: 'Հայերէն',
+          label: 'Lëtzebuergesch',
           path: exampleLink,
-          lang: 'hy',
-        },
-        {
-          label: 'Vakaviti',
-          path: exampleLink,
-          lang: 'fj',
-        },
-        {
-          label: 'Bahasa Indonesia',
-          path: exampleLink,
-          lang: 'id',
+          lang: 'lb',
         },
         {
           label: '日本語',
@@ -209,34 +189,29 @@ module.exports = {
           lang: 'ja',
         },
         {
-          label: 'basa Jawa',
+          label: 'Norsk bokmål',
           path: exampleLink,
-          lang: 'jv',
+          lang: 'nb',
         },
         {
-          label: '한국어',
-          path: exampleLink,
-          lang: 'ko',
-        },
-        {
-          label: 'монгол',
-          path: exampleLink,
-          lang: 'mn',
-        },
-        {
-          label: 'فارسى',
-          path: exampleLink,
-          lang: 'fa',
-        },
-        {
-          label: 'Русский язык',
+          label: 'русский язык',
           path: exampleLink,
           lang: 'ru',
         },
         {
-          label: 'af Soomaali',
+          label: 'Türkçe',
           path: exampleLink,
-          lang: 'so',
+          lang: 'tr',
+        },
+        {
+          label: 'українська мова',
+          path: exampleLink,
+          lang: 'uk',
+        },
+        {
+          label: '中文',
+          path: exampleLink,
+          lang: 'zh',
         },
       ],
     },
