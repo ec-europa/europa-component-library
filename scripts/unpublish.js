@@ -1,3 +1,11 @@
+/*
+ For some reasons the query on nom doesn't return some packages:
+  @ecl/vanilla-component-site-header
+  @ecl/vanilla-component-modal
+  @ecl/vanilla-component-page-header
+  @ecl/vanilla-component-breadcrumb
+*/
+
 const { execSync } = require('child_process');
 const minimist = require('minimist');
 const axios = require('axios');
@@ -9,12 +17,20 @@ const excludedPackages = [
   'snomed-ecl-builder',
   '@eui/ecl',
   '@eui/ecl-core',
+  '@ecl/ecl-webcomponents-react',
+  '@ecl-twig/ec-component-menu-harmonised',
+  '@ecl/eu-component-carousel',
+  '@ecl/ec-component-carousel',
+  '@ecl/ec-component-dialog',
+  '@ecl/ecl-webcomponents',
+  '@ecl/ckeditor5-ecl-webcomponents',
+  '@ecl/eu-component-dialog',
 ];
 
 async function fetchPackageNames(scope) {
   try {
     const response = await axios.get(
-      `https://registry.npmjs.org/-/v1/search?text=${scope}/&size=250`,
+      `https://registry.npmjs.org/-/v1/search?text=${scope}/&size=1000`,
     );
     return response.data.objects
       .filter((pkg) => !excludedPackages.includes(pkg.package.name))
