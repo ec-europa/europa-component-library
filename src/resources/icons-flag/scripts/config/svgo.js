@@ -14,6 +14,12 @@ module.exports = {
         attrs: 'id',
       },
     },
+    {
+      name: 'inlineStyles',
+      params: {
+        onlyMatchedOnce: false,
+      },
+    },
     'convertStyleToAttrs',
   ],
 };
