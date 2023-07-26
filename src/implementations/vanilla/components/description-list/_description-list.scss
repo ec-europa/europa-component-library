@@ -100,31 +100,29 @@ $description-list: null !default;
 .ecl-description-list__definition--taxonomy {
   color: map.get($description-list, 'taxonomy-color');
   display: inline-block;
-  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
 }
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
-  display: inline-block;
+  display: inline;
   margin-inline-end: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
-  margin-bottom: map.get($theme, 'spacing', 'xs');
-  padding-inline-end: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
+  padding-inline-start: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
   position: relative;
 
   &.ecl-description-list__definition-item--hidden {
     display: none;
   }
 
-  &::after {
+  &::before {
     background-color: map.get($theme, 'color', 'blue-100');
     border-radius: 50%;
     content: '';
     display: block;
     height: 4px;
-    right: -2px;
+    left: -2px;
     position: absolute;
-    top: map.get($theme, 'spacing', 's');
+    top: 7px;
     width: 4px;
   }
 
@@ -132,7 +130,7 @@ $description-list: null !default;
     padding-inline-start: 0;
   }
 
-  &:last-child::after {
+  &:first-child::before {
     display: none;
   }
 
@@ -152,7 +150,7 @@ $description-list: null !default;
   %ecl-description-list {
     display: grid;
     grid-template-columns: map.get($description-list, 'term-width') fit-content(
-        80ch
+        60ch
       );
 
     .ecl-description-list__term,
