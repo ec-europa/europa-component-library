@@ -536,24 +536,40 @@ export class Carousel {
     const focusedEl = document.activeElement;
     switch (e.key) {
       case 'Tab':
+        if (e.shiftKey) {
+          e.preventDefault();
+          if (focusedEl.previousSibling) {
+            this.shiftSlide('prev', true);
+            setTimeout(() => focusedEl.previousSibling.focus(), 400);
+          } else {
+            this.btnPlay.focus();
+          }
+        } else if (focusedEl.nextSibling) {
+          e.preventDefault();
+          this.shiftSlide('next', true);
+          setTimeout(() => focusedEl.nextSibling.focus(), 400);
+        }
+        break;
+
       case 'ArrowRight':
         if (focusedEl.nextSibling) {
           e.preventDefault();
           this.shiftSlide('next', true);
-          focusedEl.nextSibling.focus();
+          setTimeout(() => focusedEl.nextSibling.focus(), 400);
         }
         break;
 
       case 'ArrowLeft':
         if (focusedEl.previousSibling) {
           this.shiftSlide('prev', true);
-          focusedEl.previousSibling.focus();
+          setTimeout(() => focusedEl.previousSibling.focus(), 400);
         } else {
           this.btnPlay.focus();
         }
         break;
 
       default:
+      // Handle other key events here
     }
   }
 
