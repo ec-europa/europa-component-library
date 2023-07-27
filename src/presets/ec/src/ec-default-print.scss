@@ -2,7 +2,11 @@
 @use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/theme-ec/variables' as var;
 
-@use '@ecl/vanilla-component-blockquote/blockquote-print-ec';
+@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote,
+  $blockquote-print: var.$blockquote-print
+);
 @use '@ecl/vanilla-component-button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button,

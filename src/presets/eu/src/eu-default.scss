@@ -2,7 +2,10 @@
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/variables' as var;
 
-@use '@ecl/vanilla-component-blockquote/blockquote-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote
+);
 @use '@ecl/vanilla-component-button/button' with (
   $theme: theme.$theme,
   $button: var.$button
