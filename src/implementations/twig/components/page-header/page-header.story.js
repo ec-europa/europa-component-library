@@ -8,8 +8,6 @@ import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long'
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataDefault = { ...demoContent };
-
 const getArgs = (data) => {
   const args = {
     show_breadcrumb: true,
@@ -125,6 +123,11 @@ const getArgTypes = (data) => {
       type: 'select',
       description: 'Overlay on top on background image',
       options: ['none', 'dark', 'light'],
+      mapping: {
+        none: 'none',
+        dark: 'dark',
+        light: 'light',
+      },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -183,28 +186,15 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (_, { loaded: { component } }) => component;
+export const Default = (_, { loaded: { component } }) => component;
 
-Core.render = async (args) => {
-  const renderedCore = await pageHeader(prepareData(dataDefault, args));
+Default.render = async (args) => {
+  const renderedCore = await pageHeader(prepareData(demoContent, args));
   return renderedCore;
 };
-Core.storyName = 'core';
-Core.args = getArgs(dataDefault);
-Core.argTypes = getArgTypes(dataDefault);
-Core.parameters = {
-  notes: { markdown: notes, json: dataDefault },
-};
-
-export const Harmonised = (_, { loaded: { component } }) => component;
-
-Harmonised.render = async (args) => {
-  const renderedHarmonised = await pageHeader(prepareData(dataDefault, args));
-  return renderedHarmonised;
-};
-Harmonised.storyName = 'harmonised';
-Harmonised.args = getArgs(dataDefault);
-Harmonised.argTypes = getArgTypes(dataDefault);
-Harmonised.parameters = {
-  notes: { markdown: notes, json: dataDefault },
+Default.storyName = 'default';
+Default.args = getArgs(demoContent);
+Default.argTypes = getArgTypes(demoContent);
+Default.parameters = {
+  notes: { markdown: notes, json: demoContent },
 };

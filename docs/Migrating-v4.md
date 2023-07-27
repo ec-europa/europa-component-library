@@ -108,7 +108,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Page header
 
-- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header
+- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
 - Wrapper `ecl-page-header__title-container` has been removed
 
 ### Search form

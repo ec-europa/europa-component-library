@@ -11,50 +11,37 @@ import {
   pageHeaderBackground,
 } from '../demo';
 
-## Core page header
+## Default page header
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
+  selectedStory="default"
   selectedArgs="show_thumbnail:false;background_image_url:"
 >
   <Html markup={pageHeaderDefault} />
 </Playground>
 
-## Core page header with thumbnail
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
-  selectedArgs="background_image_url:"
->
-  <Html markup={pageHeaderThumbnail} />
-</Playground>
-
-## Core page header with background image
+## Page header with background image
 
 Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
+  selectedStory="default"
   selectedArgs="show_thumbnail:false"
 >
   <Html markup={pageHeaderBackground} />
 </Playground>
 
-## Standardised and Harmonised page headers
-
-Options for standardised and harmonised are the same as the core page header (thumbnail, background image and overlay)
+## Page header with thumbnail
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="harmonised"
-  selectedArgs="show_thumbnail:false"
+  selectedStory="default"
+  selectedArgs="background_image_url:"
 >
-  <Html markup={pageHeaderBackground} />
+  <Html markup={pageHeaderThumbnail} />
 </Playground>
