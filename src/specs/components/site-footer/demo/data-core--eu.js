@@ -85,19 +85,19 @@ module.exports = {
             {
               link: {
                 label: 'Legal notice',
-                path: 'https://european-union.europa.eu/privacy-policy_en',
+                path: 'https://european-union.europa.eu/legal-notice_en',
               },
             },
             {
               link: {
                 label: 'Cookies',
-                path: 'https://european-union.europa.eu/web-accessibility-policy_en',
+                path: 'https://european-union.europa.eu/cookies_en',
               },
             },
             {
               link: {
                 label: 'Accessibility',
-                path: 'https://european-union.europa.eu/cookies_en',
+                path: 'https://european-union.europa.eu/web-accessibility-policy_en',
               },
             },
           ],
@@ -129,7 +129,7 @@ module.exports = {
             {
               link: {
                 label: 'European Commission',
-                path: 'https://ec.europa.eu/commission/index_en',
+                path: 'https://commission.europa.eu/index_en',
               },
             },
             {
