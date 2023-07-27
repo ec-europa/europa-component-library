@@ -200,6 +200,20 @@ $link: (
   ),
 );
 
+// Lists
+$list: (
+  unordered: (
+    marker: '—',
+    sublist-marker: square,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
+  text-color: var(--ecl-color-dark),
+  divider-color: var(--ecl-color-neutral),
+);
+
 // Form
 $form-group: (
   color-label: var(--ecl-color-dark),

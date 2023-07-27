@@ -201,6 +201,20 @@ $link: (
   ),
 );
 
+// Lists
+$list: (
+  unordered: (
+    marker: disc,
+    sublist-marker: circle,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
+  text-color: map.get($color, 'grey-80'),
+  divider-color: map.get($color, 'blue-20'),
+);
+
 // Form
 $form-group: (
   color-label: map.get($color, 'grey-140'),
