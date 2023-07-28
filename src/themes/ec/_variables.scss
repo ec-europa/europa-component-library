@@ -4,6 +4,19 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Accordion
+$accordion: (
+  item-background: var(--ecl-color-background),
+  item-background-hover: var(--ecl-color-neutral-20),
+  item-shadow-hover: none,
+  border-color: var(--ecl-color-neutral-20),
+  item-padding: map.get($spacing, 'xl'),
+  text-color: var(--ecl-color-dark-0),
+  title-text-color: var(--ecl-color-dark-0),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'm'),
+);
+
 // Breadcrumb
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'xs'),

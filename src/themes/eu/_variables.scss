@@ -4,8 +4,23 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
-// Breadcrumb
 // stylelint-disable length-zero-no-unit
+
+// Accordion
+$accordion: (
+  item-background: map.get($color, 'white-100'),
+  item-shadow-hover: map.get($shadow, '1'),
+  border-color: none,
+  item-padding: map.get($spacing, 'xl'),
+  text-color: map.get($color, 'grey-80'),
+  title-text-color: map.get($color, 'grey-140'),
+  icon-color: currentcolor,
+  icon-margin: map.get($spacing, 's'),
+  radius: map.get($spacing, 'xs'),
+  shadow: map.get($shadow, '1'),
+);
+
+// Breadcrumb
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'm'),
   font-mobile: map.get($font-prolonged, 'm'),

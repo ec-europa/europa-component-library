@@ -6,45 +6,49 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+// Exposed variables
+$theme: null !default;
+$accordion: null !default;
+
 .ecl-accordion {
-  border-radius: 8px;
-  box-shadow: map.get(theme.$shadow, '1');
+  border-radius: map.get($accordion, 'radius');
+  box-shadow: map.get($accordion, 'shadow');
   margin: 0;
 }
 
 .ecl-accordion__item {
+  background-color: map.get($accordion, 'item-background');
   position: relative;
 
   &:first-child {
     &::before {
-      background-color: map.get(theme.$color, 'yellow-100');
+      background-color: map.get($theme, 'color', 'yellow-100');
       border-end-start-radius: 2px;
       border-end-end-radius: 2px;
       content: '';
       height: 4px;
-      left: map.get(theme.$spacing, 'l');
+      left: map.get($theme, 'spacing', 'l');
       position: absolute;
       top: 0;
       width: 32px;
     }
 
     .ecl-accordion__toggle {
-      border-start-start-radius: 8px;
-      border-start-end-radius: 8px;
+      border-start-start-radius: map.get($accordion, 'radius');
+      border-start-end-radius: map.get($accordion, 'radius');
     }
   }
 
   &:last-child {
     .ecl-accordion__toggle {
       border-bottom-color: transparent;
-      border-end-start-radius: 8px;
-      border-end-end-radius: 8px;
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
 
       &[aria-expanded='true'] {
-        border-bottom-color: map.get(theme.$color, 'blue-20');
+        border-bottom-color: map.get($theme, 'color' 'blue-20');
         border-end-start-radius: 0;
         border-end-end-radius: 0;
       }
@@ -52,8 +56,8 @@
 
     .ecl-accordion__content {
       border-bottom: 0;
-      border-end-start-radius: 8px;
-      border-end-end-radius: 8px;
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
       overflow: hidden;
     }
   }
@@ -67,24 +71,24 @@
 .ecl-accordion__toggle {
   background-color: transparent;
   border: 2px solid transparent;
-  border-bottom-color: map.get(theme.$color, 'blue-20');
-  color: map.get(theme.$color, 'grey-140');
+  border-bottom-color: map.get($theme, 'color', 'blue-20');
+  color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: map.get(theme.$font-prolonged, 'l');
-  padding: map.get(theme.$spacing, 'l');
+  font: map.get($theme, 'font-prolonged', 'l');
+  padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
   width: 100%;
 }
 
 .ecl-accordion__toggle:hover {
-  box-shadow: map.get(theme.$shadow, '1');
+  box-shadow: map.get($accordion, 'item-shadow-hover');
 }
 
 .ecl-accordion__toggle:focus-visible {
-  border: 2px solid map.get(theme.$color, 'blue-100');
-  border-bottom-color: map.get(theme.$color, 'blue-100') !important;
+  border: 2px solid map.get($theme, 'color' 'blue-100');
+  border-bottom-color: map.get($theme, 'color' 'blue-100') !important;
   outline: 0;
 }
 
@@ -102,15 +106,17 @@
 }
 
 .ecl-accordion__toggle-indicator {
-  color: map.get(theme.$color, 'blue');
+  align-items: center;
+  color: map.get($theme, 'color', 'blue');
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-inline-start: map.get(theme.$spacing, 's');
+  margin-inline-start: map.get($accordion, 'icon-margin');
   order: 2;
   padding: 2px 0;
 
   .ecl-accordion__toggle-icon {
+    fill: map.get($accordion, 'icon-color');
     transform: rotate(180deg);
     transition-duration: 0s;
   }
@@ -118,8 +124,8 @@
 
 .ecl-accordion__toggle-label {
   display: none;
-  font: map.get(theme.$font-prolonged, 'm');
-  margin: 0 map.get(theme.$spacing, 'xs') 0 map.get(theme.$spacing, 's');
+  font: map.get($theme, 'font-prolonged', 'm');
+  margin: 0 map.get($theme, 'spacing', 'xs') 0 map.get($theme, 'spacing', 's');
 }
 
 .ecl-accordion__toggle-title {
@@ -128,12 +134,12 @@
 }
 
 .ecl-accordion__content {
-  border-bottom: 2px solid map.get(theme.$color, 'blue-20');
-  border-inline-start: 4px solid map.get(theme.$color, 'blue');
-  color: map.get(theme.$color, 'grey-80');
-  font: map.get(theme.$font-prolonged, 'm');
+  border-bottom: 2px solid map.get($theme, 'color', 'blue-20');
+  border-inline-start: 4px solid map.get($theme, 'color', 'blue');
+  color: map.get($accordion, 'text-color');
+  font: map.get($theme, 'font-prolonged', 'm');
   margin-inline-start: 0;
-  padding: map.get(theme.$spacing, 'l');
+  padding: map.get($theme, 'spacing', 'l');
 }
 
 .no-js .ecl-accordion__content {
@@ -143,7 +149,7 @@
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-accordion__toggle {
-    font: map.get(theme.$font-prolonged, 'xl');
+    font: map.get($theme, 'font-prolonged', 'xl');
   }
 
   .ecl-accordion__toggle-label {
