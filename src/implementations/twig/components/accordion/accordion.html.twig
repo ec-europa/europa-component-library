@@ -72,12 +72,12 @@
                 <span class="ecl-accordion__toggle-label">{{ _label_collapsed }}</span>
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
-                    path: icon.path,
-                    name: icon.name,
-                    size: "s"
+                    path: icon.path|default(''),
+                    name: icon.name|default(''),
+                    size: icon.size|default('s'),
                   },
-                  extra_classes: 'ecl-accordion__toggle-icon',
-                  extra_attributes: [{ name: "data-ecl-accordion-icon" }],
+                  extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
+                  extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
                 } only %}
               </span>
               <span class="ecl-accordion__toggle-title">
