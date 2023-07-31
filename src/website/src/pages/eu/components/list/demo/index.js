@@ -2,7 +2,7 @@ import demoContentUnorderedNoBullet from '@ecl/specs-component-unordered-list/de
 import demoContentUnorderedText from '@ecl/specs-component-unordered-list/demo/data--text';
 import demoContentUnorderedWithDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
 
-import demoContentOrdered from '@ecl/specs-component-ordered-list/demo/data';
+import demoContentOrdered from '@ecl/specs-component-ordered-list/demo/data--text';
 
 import demoContentDescriptionDefault from '@ecl/specs-component-description-list/demo/data--default';
 import demoContentDescriptionHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
