@@ -4,14 +4,15 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_text-color: map.get(theme.$color, 'grey-100');
+// Exposed variables
+$theme: null !default;
+$list: null !default;
 
 .ecl-ordered-list,
 %ecl-ordered-list {
-  color: $_text-color;
-  font: map.get(theme.$font-prolonged-print, 'm');
+  color: map.get($list, 'text-color');
+  font-family: map.get($theme, 'font-family-print', 'default');
   list-style-position: inside;
   margin: 0;
   padding: 0;
@@ -19,15 +20,42 @@ $_text-color: map.get(theme.$color, 'grey-100');
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
-  margin-top: map.get(theme.$spacing-print, 's');
+  margin-top: map.get($theme, 'spacing-print', 's');
 
-  &:first-of-type {
-    margin-top: 0;
+  .ecl-link {
+    display: inline-block;
+    padding-top: map.get($theme, 'spacing-print', 's');
+  }
+}
+
+.ecl-ordered-list__item--first {
+  margin-top: 0;
+}
+
+.ecl-ordered-list--divider {
+  > .ecl-ordered-list__item {
+    border-bottom: 1px solid map.get($list, 'divider-color');
+    padding-bottom: map.get($theme, 'spacing-print', 's');
+  }
+
+  .ecl-link {
+    padding-top: 0;
+  }
+}
+
+.ecl-ordered-list--no-marker,
+.ecl-ordered-list--divider {
+  list-style-type: none;
+  padding-inline-start: 0;
+
+  .ecl-ordered-list {
+    list-style-type: none;
   }
 }
 
 .ecl-ordered-list .ecl-ordered-list,
 %ecl-ordered-list--nested {
-  margin-top: map.get(theme.$spacing-print, 's');
-  padding-inline-start: map.get(theme.$spacing-print, 'l');
+  list-style-type: map.get($list, 'ordered', 'sublist-marker');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  padding-inline-start: map.get($theme, 'spacing-print', 'l');
 }

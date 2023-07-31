@@ -52,6 +52,6 @@ npm install --save @ecl/twig-component-unordered-list
       ] 
     } 
   ],
-  variant: 'no-bullet' 
+  variant: 'no-marker' 
 } %}
 ```

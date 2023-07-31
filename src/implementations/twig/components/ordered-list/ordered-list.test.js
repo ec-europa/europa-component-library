@@ -5,7 +5,9 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data';
+import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
+import dataOrderedListNoMarker from '@ecl/specs-component-ordered-list/demo/data--no-marker';
+import dataOrderedListDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
 
 expect.extend(toHaveNoViolations);
 
@@ -18,6 +20,18 @@ describe('Ordered list', () => {
       expect.assertions(1);
 
       return expect(render(dataOrderedList)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with no-marker variant', () => {
+      expect.assertions(1);
+
+      return expect(render(dataOrderedListNoMarker)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with divider variant', () => {
+      expect.assertions(1);
+
+      return expect(render(dataOrderedListDivider)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
