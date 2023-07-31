@@ -16,6 +16,13 @@ $accordion: (
   icon-color: var(--ecl-color-primary),
   icon-margin: map.get($spacing, 'm'),
 );
+$accordion-print: (
+  toggle-background: transparent,
+  toggle-color: var(--ecl-color-dark-0),
+  toggle-font: map.get($font-print, 'l'),
+  content-color: var(--ecl-color-dark-0),
+  content-font: map.get($font-print, 'm'),
+);
 
 // Breadcrumb
 $breadcrumb: (

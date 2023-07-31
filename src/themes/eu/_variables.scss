@@ -19,6 +19,13 @@ $accordion: (
   radius: map.get($spacing, 'xs'),
   shadow: map.get($shadow, '1'),
 );
+$accordion-print: (
+  toggle-background: transparent,
+  toggle-color: var(--ecl-color-dark-0),
+  toggle-font: map.get($font-print, 'l'),
+  content-color: var(--ecl-color-dark-0),
+  content-font: map.get($font-print, 'm'),
+);
 
 // Breadcrumb
 $breadcrumb: (
