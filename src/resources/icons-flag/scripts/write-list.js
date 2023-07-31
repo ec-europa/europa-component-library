@@ -1,6 +1,6 @@
 const fs = require('fs');
-const mkdirp = require('mkdirp');
 const path = require('path');
+const mkdirp = require('mkdirp');
 
 const sanitizeFilenames = (files) =>
   files.map((icon) => icon.replace('.svg', ''));

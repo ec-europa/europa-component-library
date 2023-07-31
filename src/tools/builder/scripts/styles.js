@@ -1,6 +1,6 @@
-const sass = require('sass');
 const path = require('path');
 const fs = require('fs');
+const sass = require('sass');
 const postcss = require('postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('autoprefixer');
