@@ -23,6 +23,7 @@ $blockquote-print: null !default;
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
   border-radius: map.get($blockquote, 'border-radius');
+  box-shadow: map.get($blockquote, 'shadow');
   display: inline-block;
   padding: map.get($blockquote-print, 'padding');
 }
