@@ -20,7 +20,7 @@ $description-list-print: null !default;
 .ecl-description-list__term,
 %ecl-description-list__term {
   color: map.get($description-list, 'term-color');
-  font: map.get($description-list, 'term-font');
+  font-family: map.get($description-list-print, 'term-font-family');
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-top: map.get($theme, 'spacing-print', 'm');
   max-width: 80ch;
