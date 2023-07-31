@@ -72,9 +72,8 @@ export class Accordion {
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
-        toggle.addEventListener(
-          'click',
-          this.handleClickOnToggle.bind(this, toggle),
+        toggle.addEventListener('click', (event) =>
+          this.handleClickOnToggle(event, toggle),
         );
       });
     }
@@ -112,7 +111,7 @@ export class Accordion {
   /**
    * @param {HTMLElement} toggle Target element to toggle.
    */
-  handleClickOnToggle(toggle) {
+  handleClickOnToggle(event, toggle) {
     // Get target element
     const target = queryOne(
       `#${toggle.getAttribute('aria-controls')}`,
@@ -168,7 +167,10 @@ export class Accordion {
     this.toggles.forEach((item) =>
       item.classList.remove('ecl-accordion__toggle--active'),
     );
-    toggle.classList.add('ecl-accordion__toggle--active');
+    // This is the way we distinguish the click from a press on Enter
+    if (event.detail > 0) {
+      toggle.classList.add('ecl-accordion__toggle--active');
+    }
   }
 }
 
