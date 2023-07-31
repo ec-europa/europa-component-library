@@ -40,7 +40,8 @@ $accordion: null !default;
   }
 }
 
-.ecl-accordion__toggle:focus-visible {
+.ecl-accordion__toggle:focus-visible,
+.ecl-accordion__toggle--active {
   outline: 2px solid map.get($theme, 'color', 'primary');
   outline-offset: -2px;
 }

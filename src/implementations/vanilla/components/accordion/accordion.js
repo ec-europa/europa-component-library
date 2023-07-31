@@ -56,6 +56,7 @@ export class Accordion {
     this.label = null;
 
     // Bind `this` for use in callbacks
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
@@ -63,11 +64,11 @@ export class Accordion {
    * Initialise component.
    */
   init() {
+    document.addEventListener('click', this.handleClickOutside);
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
     this.label = queryOne(this.labelSelector, this.element);
-
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
@@ -86,6 +87,7 @@ export class Accordion {
    * Destroy component.
    */
   destroy() {
+    document.removeEventListener('click', this.handleClickOutside);
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
         toggle.replaceWith(toggle.cloneNode(true));
@@ -93,6 +95,17 @@ export class Accordion {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+    }
+  }
+
+  /**
+   * @param {e} Event
+   */
+  handleClickOutside(e) {
+    if (e.target && this.toggles && !this.element.contains(e.target)) {
+      this.toggles.forEach((item) =>
+        item.classList.remove('ecl-accordion__toggle--active'),
+      );
     }
   }
 
@@ -152,7 +165,10 @@ export class Accordion {
       }
     }
 
-    return this;
+    this.toggles.forEach((item) =>
+      item.classList.remove('ecl-accordion__toggle--active'),
+    );
+    toggle.classList.add('ecl-accordion__toggle--active');
   }
 }
 
