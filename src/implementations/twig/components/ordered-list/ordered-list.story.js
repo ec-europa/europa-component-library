@@ -1,7 +1,11 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data';
+import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
+import dataLink from '@ecl/specs-component-ordered-list/demo/data--link';
+import dataNoMarker from '@ecl/specs-component-ordered-list/demo/data--no-marker';
+import dataDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
+
 import orderedList from './ordered-list.html.twig';
 import notes from './README.md';
 
@@ -35,14 +39,53 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedNewsTicker = await orderedList(
-    prepareData(dataOrderedList, args),
-  );
-  return renderedNewsTicker;
+  const renderedList = await orderedList(prepareData(dataOrderedList, args));
+  return renderedList;
 };
-Default.storyName = 'default';
+Default.storyName = 'text';
 Default.args = getArgs(dataOrderedList);
 Default.argTypes = getArgTypes(dataOrderedList);
 Default.parameters = {
   notes: { markdown: notes, json: dataOrderedList },
+};
+
+export const Links = (_, { loaded: { component } }) => component;
+
+Links.render = async (args) => {
+  const renderedListLinks = await orderedList(prepareData(dataLink, args));
+  return renderedListLinks;
+};
+Links.storyName = 'links';
+Links.args = getArgs(dataLink);
+Links.argTypes = getArgTypes(dataLink);
+Links.parameters = {
+  notes: { markdown: notes, json: dataLink },
+};
+
+export const Divider = (_, { loaded: { component } }) => component;
+
+Divider.render = async (args) => {
+  const renderedListDivider = await orderedList(prepareData(dataDivider, args));
+  return renderedListDivider;
+};
+Divider.storyName = 'with divider';
+Divider.args = getArgs(dataDivider);
+Divider.argTypes = getArgTypes(dataDivider);
+Divider.parameters = {
+  notes: { markdown: notes, json: dataDivider },
+};
+
+export const NoMarker = (_, { loaded: { component } }) => component;
+
+NoMarker.render = async (args) => {
+  const renderedListNoMarker = await orderedList(
+    prepareData(dataNoMarker, args),
+  );
+  return renderedListNoMarker;
+};
+NoMarker.storyName = 'no marker';
+NoMarker.args = getArgs(dataNoMarker);
+NoMarker.argTypes = getArgTypes(dataNoMarker);
+NoMarker.parameters = {
+  notes: { markdown: notes, json: dataNoMarker },
 };

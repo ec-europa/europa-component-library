@@ -6,13 +6,11 @@ The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 ## Style modifications
 
-Global note: Most of the changes here concern EC styles. EU styles remains globally the same.
-
 ### Colors
 
 Semantic colors have been introduced; they were already defined in v3 but not used.
 
-All EC components would rely on these semantic colors, to allow easy color swap where needed.
+All EC and EU components would rely on these semantic colors, to allow easy color swap where needed.
 
 If there are custom styles or components, they should be updated to use one of the semantic color wherever applicable
 
@@ -25,10 +23,13 @@ Semantic colors:
 - Warning
 - Error
 - Background
-
-Apart from that, some static colors have been introduced for very specific cases
-
 - Branding: used only in EC footer and page header; could be set to primary color if needed
+
+Most of these semantic colors are also defined in different tint, to cover extra needs (mouse hover, focus, ...).
+The naming convention is as follow:
+
+- lighter tint uses `color-X`. Ex: primary-10, dark-20
+- darker tint uses `colorX`. Ex: primary10, dark20
 
 ### Typography
 
@@ -100,6 +101,13 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 - Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
+
+### Lists
+
+#### Unordered list and Ordered list
+
+- the same variants are now available in both components `no-marker, divider`
+- the `no-bullets` variant is renamed in `no-marker` since it deals now with different symbols.
 
 ### Message
 
