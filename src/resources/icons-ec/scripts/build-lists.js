@@ -1,5 +1,5 @@
-const glob = require('glob');
 const path = require('path');
+const glob = require('glob');
 
 const writeList = require('./write-list');
 
