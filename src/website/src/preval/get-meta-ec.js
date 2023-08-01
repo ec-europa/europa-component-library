@@ -1,7 +1,7 @@
 // @preval
 
-const matter = require('gray-matter');
 const { resolve } = require('path');
+const matter = require('gray-matter');
 const glob = require('glob');
 
 const dir = '../pages/ec';
