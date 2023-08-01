@@ -8,7 +8,6 @@ npm install --save @ecl/twig-component-page-header
 
 ### Parameters
 
-- **"variant"** (string) (default: '') options: [ negative ] Negative style with a darker background (only for EC)
 - **"title"** (string) (default: '') Title of header
 - **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
 - **"description"** (string) (default: '') Description of header

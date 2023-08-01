@@ -17,7 +17,6 @@ $breadcrumb: (
   ellipsis: (
     background: var(--ecl-color-primary-50),
     background-hover: var(--ecl-color-primary-45),
-    color: var(--ecl-color-primary),
     font-weight: map.get($font-weight, 'bold'),
     offset-vertical: 0px,
     offset-horizontal: 0px,
@@ -307,6 +306,22 @@ $notification-print: (
   font: map.get($font-prolonged-print, 'm'),
   title-font: map.get($font-prolonged-print, 'm'),
   title-spacing: map.get($spacing-print, 'xs'),
+);
+
+// Page header
+$page-header: (
+  meta-color: map.get($color, 'grey-80'),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: map.get($color, 'grey-80'),
+  title-color: map.get($color, 'grey-140'),
+  title-font: map.get($font, '5xl'),
+  description-color: map.get($color, 'grey-80'),
+  description-font: map.get($font-prolonged, 'l'),
+);
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '5xl'),
+  description-font: map.get($font-prolonged-print, 'l'),
 );
 
 // Site footer

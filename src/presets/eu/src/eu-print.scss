@@ -86,7 +86,11 @@
 @use '@ecl/vanilla-component-carousel/carousel-print';
 @use '@ecl/vanilla-component-category-filter/category-filter-print';
 @use '@ecl/vanilla-component-gallery/gallery-print';
-@use '@ecl/vanilla-component-page-header/page-header-print';
+@use '@ecl/vanilla-component-page-header/page-header-print-eu' with (
+  $theme: theme.$theme,
+  $page-header: var.$page-header,
+  $page-header-print: var.$page-header-print
+);
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-print';
 @use '@ecl/vanilla-component-menu/menu-print';
 @use '@ecl/vanilla-component-site-footer/site-footer-print';

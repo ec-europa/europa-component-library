@@ -98,7 +98,10 @@
 @use '@ecl/vanilla-component-carousel/carousel-ec';
 @use '@ecl/vanilla-component-category-filter/category-filter-ec';
 @use '@ecl/vanilla-component-gallery/gallery-ec';
-@use '@ecl/vanilla-component-page-header/page-header-ec';
+@use '@ecl/vanilla-component-page-header/page-header-ec' with (
+  $theme: theme.$theme,
+  $page-header: var.$page-header
+);
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-ec';
 @use '@ecl/vanilla-component-menu/menu-ec';
 @use '@ecl/vanilla-component-site-footer/site-footer-ec' with (

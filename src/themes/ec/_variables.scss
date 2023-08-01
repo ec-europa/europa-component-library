@@ -16,7 +16,6 @@ $breadcrumb: (
   ellipsis: (
     background: transparent,
     background-hover: var(--ecl-color-primary-40),
-    color: var(--ecl-color-primary),
     font-weight: map.get($font-weight, 'regular'),
     offset-vertical: map.get($spacing, 'xs'),
     offset-horizontal: map.get($spacing, 'm'),
@@ -78,16 +77,16 @@ $button: (
   ),
   ghost: (
     background: transparent,
-    color: var(--ecl-color-dark),
+    color: var(--ecl-color-primary),
     border-color: transparent,
     background-hover: var(--ecl-color-primary-40),
     color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-dark),
+    border-color-hover: var(--ecl-color-dark-10),
     background-active: var(--ecl-color-primary-30),
     color-active: var(--ecl-color-dark),
     border-color-active: var(--ecl-color-primary-30),
     background-focus: transparent,
-    color-focus: var(--ecl-color-dark),
+    color-focus: var(--ecl-color-primary),
     border-color-focus: var(--ecl-color-primary),
     outline-color: transparent,
   ),
@@ -308,6 +307,22 @@ $notification-print: (
   font: map.get($font-print, 'm'),
   title-font: map.get($font-print, 'l'),
   title-spacing: map.get($spacing-print, 's'),
+);
+
+// Page header
+$page-header: (
+  meta-color: var(--ecl-color-dark),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: var(--ecl-color-primary),
+  title-color: var(--ecl-color-dark),
+  title-font: map.get($font, '4xl'),
+  description-color: var(--ecl-color-dark),
+  description-font: map.get($font, 'l'),
+);
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '4xl'),
+  description-font: map.get($font-print, 'l'),
 );
 
 // Site footer
