@@ -67,7 +67,11 @@ export class DescriptionList {
       this.lists.forEach((list) => {
         if (list.children && list.children.length > this.visibleItems) {
           const button = document.createElement('a');
-          button.classList.add('ecl-link', 'ecl-description-list__see_more');
+          button.classList.add(
+            'ecl-link',
+            'ecl-link--standalone',
+            'ecl-description-list__see_more',
+          );
           button.href = '#';
           button.innerHTML = this.moreItemLabel;
           list.appendChild(button);

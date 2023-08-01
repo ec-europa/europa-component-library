@@ -4,46 +4,53 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_text-color: null !default;
-$_divider-color: null !default;
+// Exposed variables
+$theme: null !default;
+$list: null !default;
 
 .ecl-unordered-list,
 %ecl-unordered-list {
-  color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  color: map.get($list, 'text-color');
+  font: map.get($theme, 'font', 'm');
   list-style-position: outside;
+  list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-  padding-inline-start: map.get(theme.$spacing, 's');
+  padding-inline-start: map.get($theme, 'spacing', 's');
 }
 
 .ecl-unordered-list .ecl-unordered-list,
 .ecl-unordered-list .ecl-ordered-list,
 %ecl-unordered-list--nested {
-  margin-top: map.get(theme.$spacing, 'xs');
-  padding-inline-start: map.get(theme.$spacing, 's');
+  list-style-type: map.get($list, 'unordered', 'sublist-marker');
+  margin-top: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
-  margin-inline-start: map.get(theme.$spacing, 'm');
-  margin-top: map.get(theme.$spacing, 'xs');
-  max-width: calc(80ch - #{map.get(theme.$spacing, '2xl')});
-  padding-inline-start: map.get(theme.$spacing, '2xs');
+  margin-inline-start: map.get($theme, 'spacing', 's');
+  margin-top: map.get($theme, 'spacing', 'm');
+  max-width: calc(80ch - #{map.get($theme, 'spacing', '2xl')});
+  padding-inline-start: map.get($theme, 'spacing', 'xs');
 
-  &:first-child {
-    margin-top: 0;
+  &:first-of-type {
+    margin-top: map.get($theme, 'spacing', 'xs');
+  }
+
+  &:last-of-type {
+    margin-bottom: map.get($theme, 'spacing', 'xs');
   }
 }
 
-// No bullet
-.ecl-unordered-list--no-bullet {
+// No marker
+.ecl-unordered-list--no-marker {
   list-style: none;
   padding-inline-start: 0;
 
   .ecl-unordered-list {
-    padding-inline-start: map.get(theme.$spacing, 'm');
+    list-style-type: none;
+    padding-inline-start: map.get($theme, 'spacing', 'm');
   }
 
   > .ecl-unordered-list__item {
@@ -58,18 +65,37 @@ $_divider-color: null !default;
   padding-inline-start: 0;
 
   > .ecl-unordered-list__item {
-    border-bottom: 1px solid $_divider-color;
-    margin-bottom: map.get(theme.$spacing, 'm');
+    border-bottom: 1px solid map.get($list, 'divider-color');
+    margin-bottom: map.get($theme, 'spacing', 'm');
     margin-inline-start: 0;
-    padding-bottom: map.get(theme.$spacing, 'm');
+    padding-bottom: map.get($theme, 'spacing', 'm');
     padding-inline-start: 0;
-  }
 
-  > .ecl-unordered-list__item:last-child {
-    margin-bottom: 0;
+    .ecl-link {
+      padding: 0;
+    }
   }
 
   .ecl-unordered-list {
-    padding-inline-start: map.get(theme.$spacing, 'm');
+    padding-inline-start: map.get($theme, 'spacing', 'm');
+
+    .ecl-unordered-list__item {
+      list-style-type: none;
+    }
   }
+}
+
+.ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item {
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: 0;
+}
+
+.ecl-unordered-list
+  .ecl-unordered-list
+  .ecl-unordered-list__item:first-of-type {
+  margin-top: map.get($theme, 'spacing', 'm');
+}
+
+.ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item:last-of-type {
+  margin-bottom: 0;
 }

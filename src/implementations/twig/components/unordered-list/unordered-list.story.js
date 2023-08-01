@@ -92,7 +92,7 @@ NoBullet.render = async (args) => {
   );
   return renderedDivider;
 };
-NoBullet.storyName = 'no bullet';
+NoBullet.storyName = 'no marker';
 NoBullet.args = getArgs(dataUnorderedListNoBullet);
 NoBullet.argTypes = getArgTypes(dataUnorderedListNoBullet);
 NoBullet.parameters = {

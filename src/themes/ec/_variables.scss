@@ -97,6 +97,21 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 'xs'),
 );
 
+// Description list
+$description-list: (
+  term-color: var(--ecl-color-dark),
+  term-font: map.get($font, 'm'),
+  definition-color: var(--ecl-color-dark),
+  taxonomy-color: var(--ecl-color-dark),
+  term-width: 210px,
+);
+$description-list-print: (
+  definition-font: map.get($font-print, 'm'),
+  term-font-family: map.get($font-family-print, 'default'),
+  term-width: 32%,
+  definition-width: 68%,
+);
+
 // Label
 $label: (
   radius: 2px,
@@ -198,6 +213,20 @@ $link: (
     border-color-focus: var(--ecl-color-secondary-10),
     outline-color: var(--ecl-color-dark),
   ),
+);
+
+// Lists
+$list: (
+  unordered: (
+    marker: '—',
+    sublist-marker: square,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
+  text-color: var(--ecl-color-dark),
+  divider-color: var(--ecl-color-neutral),
 );
 
 // Form

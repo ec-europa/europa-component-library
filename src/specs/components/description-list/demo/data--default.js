@@ -3,74 +3,22 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   more_label: 'See all items',
-  visible_items: 3,
+  visible_items: 2,
   items: [
     {
       term: 'Standard text',
       definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis`,
     },
     {
-      term: 'Standalone links',
+      term: 'External standalone link',
       type: 'link',
       definition: [
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link',
             path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'copy',
-            path: '/icons.svg',
-            size: 's',
-          },
-        },
-        {
-          link: {
-            label: 'Lorem ipsum dolor sit amet',
-            path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'download',
-            path: '/icons.svg',
-            size: 's',
-          },
-        },
-        {
-          link: {
-            label: 'Lorem ipsum dolor sit amet',
-            path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'global',
-            path: '/icons.svg',
-            size: 's',
-          },
-        },
-        {
-          link: {
-            label: 'Lorem ipsum dolor sit amet',
-            path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'file',
-            path: '/icons.svg',
-            size: 's',
-          },
-        },
-        {
-          link: {
-            label: 'Lorem ipsum dolor sit amet',
-            path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'presentation',
-            path: '/icons.svg',
-            size: 's',
+            external: true,
+            icon_path: '/icons.svg',
           },
         },
       ],
@@ -101,6 +49,48 @@ module.exports = {
           link: {
             label: 'Lorem ipsum dolor sit amet',
             path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      term: 'Socials',
+      type: 'link',
+      definition: [
+        {
+          link: {
+            label: 'facebook',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'facebook-color',
+            path: '/icons-social-media.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'twitter',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'twitter-color',
+            path: '/icons-social-media.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'mastodon',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'mastodon-color',
+            path: '/icons-social-media.svg',
+            size: 's',
           },
         },
       ],
