@@ -18,7 +18,11 @@
 @use '@ecl/vanilla-component-text-input/text-input-print';
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-print-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote,
+  $blockquote-print: var.$blockquote-print
+);
 @use '@ecl/vanilla-component-button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button,

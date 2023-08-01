@@ -25,7 +25,10 @@
 );
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote
+);
 @use '@ecl/vanilla-component-button/button' with (
   $theme: theme.$theme,
   $button: var.$button

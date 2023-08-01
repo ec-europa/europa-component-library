@@ -4,6 +4,38 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Blockquote
+$blockquote: (
+  border-width: 4px,
+  border-color: var(--ecl-color-primary),
+  border-radius: 2px,
+  shadow: map.get($shadow, '1'),
+  padding: map.get($spacing, '3xl'),
+  quote: (
+    font: map.get($font, 'l'),
+    color: var(--ecl-color-dark),
+  ),
+  author: (
+    margin: map.get($spacing, 'm'),
+    padding: map.get($spacing, '2xl'),
+    font-mobile: map.get($font, 'l'),
+    font-desktop: map.get($font, 'l'),
+    font-weight: map.get($font-weight, 'bold'),
+    color: var(--ecl-color-dark),
+  ),
+  image: (
+    margin-mobile: map.get($spacing, '2xl'),
+    margin-desktop: map.get($spacing, 'xl'),
+  ),
+);
+$blockquote-print: (
+  padding: map.get($spacing-print, '3xl'),
+  quote-font: map.get($font-print, 'l'),
+  author-margin: map.get($spacing-print, 'm'),
+  author-font: map.get($font-print, 'l'),
+  image-margin: map.get($spacing-print, 'xl'),
+);
+
 // Breadcrumb
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'xs'),
