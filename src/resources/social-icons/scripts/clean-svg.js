@@ -1,7 +1,7 @@
 const fs = require('fs');
+const path = require('path');
 const mkdirp = require('mkdirp');
 const glob = require('glob');
-const path = require('path');
 const { loadConfig, optimize } = require('svgo');
 
 const src = path.resolve(__dirname, '../src');

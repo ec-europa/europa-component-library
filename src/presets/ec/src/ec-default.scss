@@ -10,7 +10,10 @@
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-description-list/description-list-ec';
+@use '@ecl/vanilla-component-description-list/description-list' with (
+  $theme: theme.$theme,
+  $description-list: var.$description-list
+);
 @use '@ecl/vanilla-component-link/link' with (
   $theme: theme.$theme,
   $link: var.$link

@@ -129,6 +129,21 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 'xs'),
 );
 
+// Description list
+$description-list: (
+  term-color: var(--ecl-color-dark),
+  term-font: map.get($font, 'm'),
+  definition-color: var(--ecl-color-dark),
+  taxonomy-color: var(--ecl-color-dark),
+  term-width: 210px,
+);
+$description-list-print: (
+  definition-font: map.get($font-print, 'm'),
+  term-font-family: map.get($font-family-print, 'default'),
+  term-width: 32%,
+  definition-width: 68%,
+);
+
 // Label
 $label: (
   radius: 2px,
