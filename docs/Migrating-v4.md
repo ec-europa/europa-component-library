@@ -109,6 +109,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - the same variants are now available in both components `no-marker, divider`
 - the `no-bullets` variant is renamed in `no-marker` since it deals now with different symbols.
 
+#### Description list
+
+- Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+
 ### Message
 
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
