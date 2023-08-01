@@ -315,6 +315,7 @@ $site-header: (
     color: map.get($color, 'grey-140'),
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     shadow-size: 6px,
+    border: none,
     arrow-size: 1rem,
     header-padding: map.get($spacing, 'm') map.get($spacing, 's')
       map.get($spacing, 'm') map.get($spacing, 'l'),
@@ -323,6 +324,7 @@ $site-header: (
     close-right: map.get($spacing, 's'),
     close-top: map.get($spacing, 'xs'),
     content-padding: 0 map.get($spacing, 's') map.get($spacing, 's'),
+    category-margin: map.get($spacing, 'l'),
     category-title-padding: map.get($spacing, 'l') map.get($spacing, 's')
       map.get($spacing, 'xs'),
     category-stack-title-padding: map.get($spacing, 'l') map.get($spacing, 's')

@@ -324,6 +324,7 @@ $site-header: (
     color: var(--ecl-color-dark),
     shadow: map.get($shadow, '12'),
     shadow-size: 12px,
+    border: 1px solid var(--ecl-color-neutral-20),
     arrow-size: 1rem,
     header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
     header-font: map.get($font, 'xl'),
@@ -331,6 +332,7 @@ $site-header: (
     close-right: map.get($spacing, 'xl'),
     close-top: map.get($spacing, 'm'),
     content-padding: 0 map.get($spacing, '3xl') map.get($spacing, '3xl'),
+    category-margin: map.get($spacing, 's'),
     category-title-padding: map.get($spacing, 's') 0 map.get($spacing, 'xs'),
     category-stack-title-padding: map.get($spacing, 'l') 0
       map.get($spacing, 'xs'),
