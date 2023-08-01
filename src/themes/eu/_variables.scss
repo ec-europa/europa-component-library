@@ -4,6 +4,40 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Blockquote
+$blockquote: (
+  border-width: 8px,
+  border-color: map.get($color, 'blue-100'),
+  border-radius: 4px 0 0 4px,
+  shadow: none,
+  padding: map.get($spacing, 'm') 0 map.get($spacing, 'm')
+    map.get($spacing, 'l'),
+  quote: (
+    font: map.get($font, '2xl'),
+    color: map.get($color, 'grey-80'),
+  ),
+  author: (
+    margin: map.get($spacing, 'l'),
+    padding: map.get($spacing, 'xl'),
+    font-mobile: map.get($font-prolonged, 'm'),
+    font-desktop: map.get($font-prolonged, 'l'),
+    font-weight: map.get($font-weight, 'regular'),
+    color: map.get($color, 'grey-80'),
+  ),
+  image: (
+    margin-mobile: map.get($spacing, 's'),
+    margin-desktop: map.get($spacing, 'l'),
+  ),
+);
+$blockquote-print: (
+  padding: map.get($spacing-print, 'm') 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'l'),
+  quote-font: map.get($font-print, '2xl'),
+  author-margin: map.get($spacing-print, 'l'),
+  author-font: map.get($font-print, 'l'),
+  image-margin: map.get($spacing-print, 'l'),
+);
+
 // Breadcrumb
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
@@ -17,7 +51,6 @@ $breadcrumb: (
   ellipsis: (
     background: var(--ecl-color-primary-50),
     background-hover: var(--ecl-color-primary-45),
-    color: var(--ecl-color-primary),
     font-weight: map.get($font-weight, 'bold'),
     offset-vertical: 0px,
     offset-horizontal: 0px,
@@ -342,6 +375,22 @@ $site-header: (
     item-active-color: map.get($color, 'grey-140'),
     item-active-shadow: inset 4px 0 0 0 map.get($color, 'blue-100'),
   ),
+);
+
+// Page header
+$page-header: (
+  meta-color: map.get($color, 'grey-80'),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: map.get($color, 'grey-80'),
+  title-color: map.get($color, 'grey-140'),
+  title-font: map.get($font, '5xl'),
+  description-color: map.get($color, 'grey-80'),
+  description-font: map.get($font-prolonged, 'l'),
+);
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '5xl'),
+  description-font: map.get($font-prolonged-print, 'l'),
 );
 
 // Site footer

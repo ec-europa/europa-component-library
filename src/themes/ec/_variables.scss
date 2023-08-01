@@ -4,6 +4,38 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Blockquote
+$blockquote: (
+  border-width: 4px,
+  border-color: var(--ecl-color-primary),
+  border-radius: 2px,
+  shadow: map.get($shadow, '1'),
+  padding: map.get($spacing, '3xl'),
+  quote: (
+    font: map.get($font, 'l'),
+    color: var(--ecl-color-dark),
+  ),
+  author: (
+    margin: map.get($spacing, 'm'),
+    padding: map.get($spacing, '2xl'),
+    font-mobile: map.get($font, 'l'),
+    font-desktop: map.get($font, 'l'),
+    font-weight: map.get($font-weight, 'bold'),
+    color: var(--ecl-color-dark),
+  ),
+  image: (
+    margin-mobile: map.get($spacing, '2xl'),
+    margin-desktop: map.get($spacing, 'xl'),
+  ),
+);
+$blockquote-print: (
+  padding: map.get($spacing-print, '3xl'),
+  quote-font: map.get($font-print, 'l'),
+  author-margin: map.get($spacing-print, 'm'),
+  author-font: map.get($font-print, 'l'),
+  image-margin: map.get($spacing-print, 'xl'),
+);
+
 // Breadcrumb
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'xs'),
@@ -16,7 +48,6 @@ $breadcrumb: (
   ellipsis: (
     background: transparent,
     background-hover: var(--ecl-color-primary-40),
-    color: var(--ecl-color-primary),
     font-weight: map.get($font-weight, 'regular'),
     offset-vertical: map.get($spacing, 'xs'),
     offset-horizontal: map.get($spacing, 'm'),
@@ -78,16 +109,16 @@ $button: (
   ),
   ghost: (
     background: transparent,
-    color: var(--ecl-color-dark),
+    color: var(--ecl-color-primary),
     border-color: transparent,
     background-hover: var(--ecl-color-primary-40),
     color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-dark),
+    border-color-hover: var(--ecl-color-dark-10),
     background-active: var(--ecl-color-primary-30),
     color-active: var(--ecl-color-dark),
     border-color-active: var(--ecl-color-primary-30),
     background-focus: transparent,
-    color-focus: var(--ecl-color-dark),
+    color-focus: var(--ecl-color-primary),
     border-color-focus: var(--ecl-color-primary),
     outline-color: transparent,
   ),
@@ -308,6 +339,22 @@ $notification-print: (
   font: map.get($font-print, 'm'),
   title-font: map.get($font-print, 'l'),
   title-spacing: map.get($spacing-print, 's'),
+);
+
+// Page header
+$page-header: (
+  meta-color: var(--ecl-color-dark),
+  meta-font: map.get($font, 'm'),
+  meta-separator-color: var(--ecl-color-primary),
+  title-color: var(--ecl-color-dark),
+  title-font: map.get($font, '4xl'),
+  description-color: var(--ecl-color-dark),
+  description-font: map.get($font, 'l'),
+);
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '4xl'),
+  description-font: map.get($font-print, 'l'),
 );
 
 // Site footer

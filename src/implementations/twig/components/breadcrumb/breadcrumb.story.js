@@ -18,7 +18,7 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {};
-  data.links.forEach((item, i) => {
+  data.links.forEach((i) => {
     argTypes[`item${i + 1}`] = {
       name: `Item ${i + 1}`,
       type: { name: 'string' },
@@ -53,32 +53,15 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (_, { loaded: { component } }) => component;
+export const Default = (_, { loaded: { component } }) => component;
 
-Core.render = async (args) => {
-  const renderedBreadcrumbCore = await breadcrumb(
-    prepareData(dataDefault, args),
-  );
-  return renderedBreadcrumbCore;
+Default.render = async (args) => {
+  const renderedBreadcrumb = await breadcrumb(prepareData(dataDefault, args));
+  return renderedBreadcrumb;
 };
-Core.storyName = 'core';
-Core.args = getArgs(dataDefault);
-Core.argTypes = getArgTypes(dataDefault);
-Core.parameters = {
-  notes: { markdown: notes, json: dataDefault },
-};
-
-export const Harmonised = (_, { loaded: { component } }) => component;
-
-Harmonised.render = async (args) => {
-  const renderedBreadcrumbHarmonised = await breadcrumb(
-    prepareData(dataDefault, args),
-  );
-  return renderedBreadcrumbHarmonised;
-};
-Harmonised.storyName = 'harmonised';
-Harmonised.args = getArgs(dataDefault);
-Harmonised.argTypes = getArgTypes(dataDefault);
-Harmonised.parameters = {
+Default.storyName = 'default';
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
+Default.parameters = {
   notes: { markdown: notes, json: dataDefault },
 };

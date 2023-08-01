@@ -5,90 +5,46 @@ order: 2
 
 import { Playground, Html } from '@ecl/website-components';
 
-import { pageHeaderDefault, pageHeaderCoreDefault } from '../demo';
+import {
+  pageHeaderDefault,
+  pageHeaderThumbnail,
+  pageHeaderBackground,
+} from '../demo';
 
-## Core page header
+## Default page header
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
+  selectedStory="default"
   selectedArgs="show_thumbnail:false;background_image_url:"
   showFrame
 >
-  <Html markup={pageHeaderCoreDefault} />
+  <Html markup={pageHeaderDefault} />
 </Playground>
 
-## Core page header with thumbnail
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
-  selectedArgs="show_thumbnail:true;background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderCoreDefault} />
-</Playground>
-
-## Core page header with background image
+## Page header with background image
 
 Overlay can be configured (dark, light or none)
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
-  showFrame
->
-  <Html markup={pageHeaderCoreDefault} />
-</Playground>
-
-## Harmonised page header
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="harmonised"
+  selectedStory="default"
   selectedArgs="show_thumbnail:false"
   showFrame
 >
-  <Html markup={pageHeaderDefault} />
+  <Html markup={pageHeaderBackground} />
 </Playground>
 
-## Standardised page header
+## Page header with thumbnail
 
 <Playground
   system="ec"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="standardised"
-  selectedArgs="show_thumbnail:false;background_image_url:"
+  selectedStory="default"
+  selectedArgs="background_image_url:"
   showFrame
 >
-  <Html markup={pageHeaderDefault} />
-</Playground>
-
-## Standardised page header with thumbnail
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="standardised"
-  selectedArgs="show_thumbnail:true;background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
-</Playground>
-
-## Standardised page header with background image
-
-Overlay can be configured (dark, light or none)
-
-<Playground
-  system="ec"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="standardised"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
+  <Html markup={pageHeaderThumbnail} />
 </Playground>

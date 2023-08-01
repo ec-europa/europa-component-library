@@ -5,20 +5,18 @@ import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long'
 
 import template from '@ecl/twig-component-page-header/page-header.html.twig';
 
-// Default
-const dataDefault = { ...demoDefault };
-const dataBreadcrumb = { ...demoBreadcrumbLong };
-dataDefault.breadcrumb = dataBreadcrumb;
+demoDefault.breadcrumb = demoBreadcrumbLong;
 
-// Core
-const dataCore = { ...demoDefault, variant: 'negative' };
-const dataBreadcrumbCore = { ...demoBreadcrumbLong };
-dataBreadcrumbCore.links.forEach((item) => {
-  item.negative = true;
-});
-dataCore.breadcrumb = dataBreadcrumbCore;
+const dataDefault = JSON.parse(JSON.stringify(demoDefault));
+delete dataDefault.picture_thumbnail;
+delete dataDefault.picture_background;
 
-export const pageHeaderCoreDefault = template(correctSvgPath(dataCore));
+const dataThumbnail = JSON.parse(JSON.stringify(demoDefault));
+delete dataThumbnail.picture_background;
 
-// Standardised & Harmonised
+const dataBackground = JSON.parse(JSON.stringify(demoDefault));
+delete dataBackground.picture_thumbnail;
+
 export const pageHeaderDefault = template(correctSvgPath(dataDefault));
+export const pageHeaderThumbnail = template(correctSvgPath(dataThumbnail));
+export const pageHeaderBackground = template(correctSvgPath(dataBackground));

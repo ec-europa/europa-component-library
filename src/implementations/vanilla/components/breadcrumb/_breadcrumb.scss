@@ -61,7 +61,6 @@ $breadcrumb: null !default;
 
 .ecl-breadcrumb__ellipsis {
   background-color: map.get($breadcrumb, 'ellipsis', 'background');
-  color: map.get($breadcrumb, 'ellipsis', 'color');
   font: map.get($breadcrumb, 'link-font');
   font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight');
   margin: -#{map.get($breadcrumb, 'ellipsis', 'offset-vertical')} -#{map.get(
@@ -72,7 +71,6 @@ $breadcrumb: null !default;
 
   &:hover {
     background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
-    color: map.get($breadcrumb, 'ellipsis', 'color');
   }
 }
 

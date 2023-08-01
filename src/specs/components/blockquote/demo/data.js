@@ -1,8 +1,8 @@
 // Simple content for demo
 module.exports = {
   citation:
-    'An interconnected grid will help deliver the ultimate goal of the Energy Union, to make sure affordable, secure and sustainable energy, and also growth across the EU.',
-  author: 'President Juncker',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales, nisl tincidunt hendrerit elementum, purus risus tempus dui, sit amet cursus massa odio non lacus.',
+  author: 'Someone',
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
