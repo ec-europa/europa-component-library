@@ -11,8 +11,8 @@ class PaletteItem extends PureComponent {
     this.element = React.createRef();
     this.clipboard = null;
 
-    const { name, value, ui } = props;
-    this.color = { name, value, ui };
+    const { name, value, ui, main } = props;
+    this.color = { name, value, ui, main };
   }
 
   componentDidMount() {
@@ -25,14 +25,18 @@ class PaletteItem extends PureComponent {
   }
 
   render() {
-    const { name, value, ui } = this.color;
+    const { name, value, ui, main } = this.color;
 
     return (
       <li
-        className={classnames(styles.item, {
-          [styles[`item--${ui}`]]: true,
-        })}
-        style={{ backgroundColor: value }}
+        className={classnames(
+          styles.item,
+          {
+            [styles[`item--${ui}`]]: true,
+          },
+          { [styles['item--main']]: main },
+        )}
+        style={{ backgroundColor: value, color: value }}
       >
         <h3 className={styles.title}>{name}</h3>
         <button
@@ -55,11 +59,13 @@ PaletteItem.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   ui: PropTypes.string,
+  main: PropTypes.bool,
 };
 
 PaletteItem.defaultProps = {
   value: '',
   ui: 'light',
+  main: false,
 };
 
 export default PaletteItem;
