@@ -2,13 +2,21 @@
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/variables' as var;
 
-@use '@ecl/vanilla-component-blockquote/blockquote-print-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote,
+  $blockquote-print: var.$blockquote-print
+);
 @use '@ecl/vanilla-component-button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button,
   $button-print: var.$button-print
 );
-@use '@ecl/vanilla-component-description-list/description-list-print-eu';
+@use '@ecl/vanilla-component-description-list/description-list-print' with (
+  $theme: theme.$theme,
+  $description-list: var.$description-list,
+  $description-list-print: var.$description-list-print
+);
 @use '@ecl/vanilla-component-link/link-print' with (
   $theme: theme.$theme,
   $link: var.$link

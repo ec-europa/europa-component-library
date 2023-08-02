@@ -8,14 +8,6 @@ import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long'
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';
 
-const dataCore = { ...demoContent, variant: 'negative' };
-
-const dataHarmonised = { ...demoContent };
-delete dataHarmonised.picture_thumbnail;
-delete dataHarmonised.picture_thumbnail;
-
-const dataStandardised = { ...demoContent };
-
 const getArgs = (data) => {
   const args = {
     show_breadcrumb: true,
@@ -154,9 +146,6 @@ const prepareData = (data, args) => {
     delete clone.breadcrumb;
   } else if (args.show_breadcrumb) {
     clone.breadcrumb = { ...demoBreadcrumbLong };
-    clone.breadcrumb.links.forEach((item) => {
-      item.negative = clone.variant === 'negative';
-    });
   }
   if (!args.show_thumbnail) {
     delete clone.picture_thumbnail;
@@ -197,41 +186,15 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Core = (_, { loaded: { component } }) => component;
+export const Default = (_, { loaded: { component } }) => component;
 
-Core.render = async (args) => {
-  const renderedCore = await pageHeader(prepareData(dataCore, args));
+Default.render = async (args) => {
+  const renderedCore = await pageHeader(prepareData(demoContent, args));
   return renderedCore;
 };
-Core.storyName = 'core';
-Core.args = getArgs(dataCore);
-Core.argTypes = getArgTypes(dataCore);
-Core.parameters = {
-  notes: { markdown: notes, json: dataCore },
-};
-
-export const Harmonised = (_, { loaded: { component } }) => component;
-
-Harmonised.render = async (args) => {
-  const renderedCore = await pageHeader(prepareData(dataHarmonised, args));
-  return renderedCore;
-};
-Harmonised.storyName = 'harmonised';
-Harmonised.args = getArgs(dataHarmonised);
-Harmonised.argTypes = getArgTypes(dataHarmonised);
-Harmonised.parameters = {
-  notes: { markdown: notes, json: dataHarmonised },
-};
-
-export const Standardised = (_, { loaded: { component } }) => component;
-
-Standardised.render = async (args) => {
-  const renderedCore = await pageHeader(prepareData(dataStandardised, args));
-  return renderedCore;
-};
-Standardised.storyName = 'standardised';
-Standardised.args = getArgs(dataStandardised);
-Standardised.argTypes = getArgTypes(dataStandardised);
-Standardised.parameters = {
-  notes: { markdown: notes, json: dataStandardised },
+Default.storyName = 'default';
+Default.args = getArgs(demoContent);
+Default.argTypes = getArgTypes(demoContent);
+Default.parameters = {
+  notes: { markdown: notes, json: demoContent },
 };

@@ -89,7 +89,9 @@
             {%- for _definition in _item.definition -%}
               <span class="ecl-description-list__definition-item">
               {%- if _definition.link is defined -%}
-                {% include '@ecl/link/link.html.twig' with _definition only %}
+                {% include '@ecl/link/link.html.twig' with {
+                  link: _definition.link|merge({ type: 'standalone' }),
+                } only %}
               {%- else -%}
                 {{- _definition -}}
               {%- endif -%}
@@ -107,6 +109,7 @@
             >
             {% for _definition in _item.definition %}
               {% include '@ecl/link/link.html.twig' with _definition|merge({
+                link: _definition.link|merge({ type: 'standalone' }),
                 extra_classes: 'ecl-description-list__definition-item',
               }) only %}
             {% endfor %}
@@ -122,6 +125,7 @@
             >
             {% for _definition in _item.definition %}  
               {% include '@ecl/link/link.html.twig' with _definition|merge({
+                link: _definition.link|merge({ type: 'standalone' }),
                 extra_classes: 'ecl-description-list__definition-item',
               })  only %}
             {% endfor %}

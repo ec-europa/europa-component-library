@@ -4,16 +4,11 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_border-width: null !default;
-$_border-radius: null !default;
-$_border-color: null !default;
-$_body-font: null !default;
-$_body-color: null !default;
-$_author-margin-top: null !default;
-$_author-font-weight: null !default;
-$_author-color: null !default;
+// Exposed variables
+$theme: null !default;
+$blockquote: null !default;
+$blockquote-print: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
@@ -21,25 +16,22 @@ $_author-color: null !default;
   flex-direction: row-reverse;
   justify-content: start;
   margin: 0;
-  padding-bottom: map.get(theme.$spacing-print, 'm');
-  padding-inline-start: map.get(theme.$spacing-print, 'l');
-  padding-top: map.get(theme.$spacing-print, 'm');
 }
 
 .ecl-blockquote__body,
 %ecl-blockquote {
-  border-inline-start: $_border-width solid $_border-color;
-  border-radius: $_border-radius;
+  border-inline-start: map.get($blockquote, 'border-width') solid
+    map.get($blockquote, 'border-color');
+  border-radius: map.get($blockquote, 'border-radius');
+  box-shadow: map.get($blockquote, 'shadow');
   display: inline-block;
-  padding-bottom: map.get(theme.$spacing-print, 'm');
-  padding-inline-start: map.get(theme.$spacing-print, 'l');
-  padding-top: map.get(theme.$spacing-print, 'm');
+  padding: map.get($blockquote-print, 'padding');
 }
 
 .ecl-blockquote__citation,
 %ecl-blockquote {
-  color: $_body-color;
-  font: $_body-font;
+  color: map.get($blockquote, 'quote', 'color');
+  font: map.get($blockquote-print, 'quote-font');
   font-style: italic;
   margin: 0;
   quotes: '\201C' '\201D';
@@ -59,22 +51,21 @@ $_author-color: null !default;
 
 .ecl-blockquote__attribution,
 %ecl-blockquote__author {
-  font: map.get(theme.$font-prolonged-print, 'l');
-  margin-top: $_author-margin-top;
+  margin-top: map.get($blockquote-print, 'author-margin');
 }
 
 .ecl-blockquote__author,
 %ecl-blockquote__author {
-  color: $_author-color;
-  font: map.get(theme.$font-prolonged-print, 'l');
-  font-weight: $_author-font-weight;
+  color: map.get($blockquote, 'author', 'color');
+  font: map.get($blockquote-print, 'author-font');
+  font-weight: map.get($blockquote, 'author', 'font-weight');
 }
 
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
   height: 120px;
-  margin-inline-end: map.get(theme.$spacing-print, 'l');
+  margin-inline-end: map.get($blockquote-print, 'image-margin');
   object-fit: cover;
   width: 120px;
 }

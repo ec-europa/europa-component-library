@@ -2,7 +2,10 @@
 
 // Screen
 $font-family: (
-  'default': 'arial, sans-serif',
+  'default': (
+    arial,
+    sans-serif,
+  ),
 ) !default;
 $font-size: (
   '2xs': 0.625rem,
@@ -115,8 +118,14 @@ $font-prolonged: (
 
 // Print
 $font-family-print: (
-  'default': 'verdana, sans-serif',
-  'alt': 'arial, sans-serif',
+  'default': (
+    verdana,
+    sans-serif,
+  ),
+  'alt': (
+    arial,
+    sans-serif,
+  ),
 ) !default;
 $font-size-print: (
   '2xs': 6pt,

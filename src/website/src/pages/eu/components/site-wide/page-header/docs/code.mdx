@@ -5,78 +5,46 @@ order: 2
 
 import { Playground, Html } from '@ecl/website-components';
 
-import { pageHeaderDefault } from '../demo';
+import {
+  pageHeaderDefault,
+  pageHeaderThumbnail,
+  pageHeaderBackground,
+} from '../demo';
 
-## Core page header
+## Default page header
 
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
+  selectedStory="default"
   selectedArgs="show_thumbnail:false;background_image_url:"
   showFrame
 >
   <Html markup={pageHeaderDefault} />
 </Playground>
 
-## Core page header with thumbnail
-
-<Playground
-  system="eu"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
-  selectedArgs="show_thumbnail:true;background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
-</Playground>
-
-## Core page header with background image
+## Page header with background image
 
 Overlay can be configured (dark, light or none)
 
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="core"
+  selectedStory="default"
+  selectedArgs="show_thumbnail:false"
   showFrame
 >
-  <Html markup={pageHeaderDefault} />
+  <Html markup={pageHeaderBackground} />
 </Playground>
 
-## Harmonised page header
+## Page header with thumbnail
 
 <Playground
   system="eu"
   selectedKind="components-site-wide-page-headers"
-  selectedStory="harmonised"
-  selectedArgs="show_thumbnail:false;background_image_url:"
+  selectedStory="default"
+  selectedArgs="background_image_url:"
   showFrame
 >
-  <Html markup={pageHeaderDefault} />
-</Playground>
-
-## Harmonised page header with thumbnail
-
-<Playground
-  system="eu"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="harmonised"
-  selectedArgs="show_thumbnail:true;background_image_url:"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
-</Playground>
-
-## Harmonised page header with background image
-
-Overlay can be configured (dark, light or none)
-
-<Playground
-  system="eu"
-  selectedKind="components-site-wide-page-headers"
-  selectedStory="harmonised"
-  showFrame
->
-  <Html markup={pageHeaderDefault} />
+  <Html markup={pageHeaderThumbnail} />
 </Playground>

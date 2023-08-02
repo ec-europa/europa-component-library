@@ -116,10 +116,19 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - the same variants are now available in both components `no-marker, divider`
 - the `no-bullets` variant is renamed in `no-marker` since it deals now with different symbols.
 
+#### Description list
+
+- Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+
 ### Message
 
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
+
+### Page header
+
+- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
+- Wrapper `ecl-page-header__title-container` has been removed
 
 ### Search form
 

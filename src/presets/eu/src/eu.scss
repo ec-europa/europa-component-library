@@ -25,7 +25,10 @@
 );
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote
+);
 @use '@ecl/vanilla-component-button/button' with (
   $theme: theme.$theme,
   $button: var.$button
@@ -55,7 +58,10 @@
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-eu';
-@use '@ecl/vanilla-component-description-list/description-list-eu';
+@use '@ecl/vanilla-component-description-list/description-list' with (
+  $theme: theme.$theme,
+  $description-list: var.$description-list
+);
 @use '@ecl/vanilla-component-featured-item/featured-item-eu';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-eu';
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
@@ -98,7 +104,10 @@
 @use '@ecl/vanilla-component-carousel/carousel-eu';
 @use '@ecl/vanilla-component-category-filter/category-filter-eu';
 @use '@ecl/vanilla-component-gallery/gallery-eu';
-@use '@ecl/vanilla-component-page-header/page-header-eu';
+@use '@ecl/vanilla-component-page-header/page-header-eu' with (
+  $theme: theme.$theme,
+  $page-header: var.$page-header
+);
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-eu';
 @use '@ecl/vanilla-component-menu/menu-eu';
 @use '@ecl/vanilla-component-site-footer/site-footer-eu' with (

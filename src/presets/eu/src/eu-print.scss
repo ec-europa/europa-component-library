@@ -18,7 +18,11 @@
 @use '@ecl/vanilla-component-text-input/text-input-print';
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-print-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote,
+  $blockquote-print: var.$blockquote-print
+);
 @use '@ecl/vanilla-component-button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button,
@@ -48,7 +52,11 @@
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-print-eu';
-@use '@ecl/vanilla-component-description-list/description-list-print-eu';
+@use '@ecl/vanilla-component-description-list/description-list-print' with (
+  $theme: theme.$theme,
+  $description-list: var.$description-list,
+  $description-list-print: var.$description-list-print
+);
 @use '@ecl/vanilla-component-featured-item/featured-item-print-eu';
 @use '@ecl/vanilla-component-list-illustration/list-illustration-print-eu';
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
@@ -85,7 +93,11 @@
 @use '@ecl/vanilla-component-carousel/carousel-print';
 @use '@ecl/vanilla-component-category-filter/category-filter-print';
 @use '@ecl/vanilla-component-gallery/gallery-print';
-@use '@ecl/vanilla-component-page-header/page-header-print';
+@use '@ecl/vanilla-component-page-header/page-header-print-eu' with (
+  $theme: theme.$theme,
+  $page-header: var.$page-header,
+  $page-header-print: var.$page-header-print
+);
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-print';
 @use '@ecl/vanilla-component-menu/menu-print';
 @use '@ecl/vanilla-component-site-footer/site-footer-print';

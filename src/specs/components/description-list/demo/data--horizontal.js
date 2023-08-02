@@ -11,31 +11,15 @@ module.exports = {
       definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis`,
     },
     {
-      term: 'Standalone links',
+      term: 'External standalone link',
       type: 'link',
       definition: [
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link',
             path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'copy',
-            path: '/icons.svg',
-            size: 's',
-          },
-        },
-        {
-          link: {
-            label: 'Lorem ipsum dolor sit amet',
-            path: exampleLink,
-            icon_position: 'before',
-          },
-          icon: {
-            name: 'download',
-            path: '/icons.svg',
-            size: 's',
+            external: true,
+            icon_path: '/icons.svg',
           },
         },
       ],
@@ -56,16 +40,71 @@ module.exports = {
             path: exampleLink,
           },
         },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
+        {
+          link: {
+            label: 'Lorem ipsum dolor sit amet',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      term: 'Socials',
+      type: 'link',
+      definition: [
+        {
+          link: {
+            label: 'facebook',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'facebook-color',
+            path: '/icons-social-media.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'twitter',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'twitter-color',
+            path: '/icons-social-media.svg',
+            size: 's',
+          },
+        },
+        {
+          link: {
+            label: 'mastodon',
+            path: exampleLink,
+            icon_position: 'before',
+          },
+          icon: {
+            name: 'mastodon-color',
+            path: '/icons-social-media.svg',
+            size: 's',
+          },
+        },
       ],
     },
     {
       term: 'Taxonomy list',
       type: 'taxonomy',
       definition: [
-        { link: { label: 'Taxonomy item 1', path: exampleLink } },
-        'Taxonomy item 2',
+        'Taxonomy item 1',
+        { link: { label: 'Taxonomy item 2', path: exampleLink } },
         'Taxonomy item 3',
-        { link: { label: 'Taxonomy item 4', path: exampleLink } },
+        'Taxonomy item 4',
+        { link: { label: 'Taxonomy item 5', path: exampleLink } },
       ],
     },
   ],
