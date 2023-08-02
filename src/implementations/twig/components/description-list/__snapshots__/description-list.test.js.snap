@@ -7,7 +7,7 @@ exports[`Description list Default renders correctly 1`] = `
     data-ecl-auto-init="DescriptionList"
     data-ecl-description-list=""
     data-ecl-description-list-more-label="See all items"
-    data-ecl-description-list-visible-items="3"
+    data-ecl-description-list-visible-items="2"
   >
     <dt
       class="ecl-description-list__term"
@@ -29,106 +29,30 @@ exports[`Description list Default renders correctly 1`] = `
     <dt
       class="ecl-description-list__term"
     >
-      Standalone links
+      External standalone link
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
         href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#copy"
-          />
-        </svg>
         <span
           class="ecl-link__label"
         >
-          Lorem ipsum dolor sit amet
+          Standalone link
         </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
+          class="ecl-icon ecl-icon--2xs ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#download"
+            xlink:href="/icons.svg#external"
           />
         </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#global"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#file"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#presentation"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
       </a>
     </dd>
     <dt
@@ -141,28 +65,95 @@ exports[`Description list Default renders correctly 1`] = `
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Socials
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+      data-ecl-description-list-collapsible=""
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#facebook-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          facebook
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#twitter-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          twitter
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#mastodon-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          mastodon
+        </span>
       </a>
     </dd>
     <dt
@@ -183,7 +174,7 @@ exports[`Description list Default renders correctly 1`] = `
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 2
@@ -203,7 +194,7 @@ exports[`Description list Default renders correctly 1`] = `
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 5
@@ -239,48 +230,29 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
     <dt
       class="ecl-description-list__term"
     >
-      Standalone links
+      External standalone link
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
     >
       <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
         href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#copy"
-          />
-        </svg>
         <span
           class="ecl-link__label"
         >
-          Lorem ipsum dolor sit amet
+          Standalone link
         </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
+          class="ecl-icon ecl-icon--2xs ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#download"
+            xlink:href="/icons.svg#external"
           />
         </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
       </a>
     </dd>
     <dt
@@ -292,16 +264,94 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
       class="ecl-description-list__definition ecl-description-list__definition--inline"
     >
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
+        href="/example"
+      >
+        Lorem ipsum dolor sit amet
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
+        href="/example"
+      >
+        Lorem ipsum dolor sit amet
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Socials
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#facebook-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          facebook
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#twitter-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          twitter
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#mastodon-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          mastodon
+        </span>
       </a>
     </dd>
     <dt
@@ -315,17 +365,17 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
       <span
         class="ecl-description-list__definition-item"
       >
-        <a
-          class="ecl-link"
-          href="/example"
-        >
-          Taxonomy item 1
-        </a>
+        Taxonomy item 1
       </span>
       <span
         class="ecl-description-list__definition-item"
       >
-        Taxonomy item 2
+        <a
+          class="ecl-link ecl-link--standalone"
+          href="/example"
+        >
+          Taxonomy item 2
+        </a>
       </span>
       <span
         class="ecl-description-list__definition-item"
@@ -335,11 +385,16 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
       <span
         class="ecl-description-list__definition-item"
       >
+        Taxonomy item 4
+      </span>
+      <span
+        class="ecl-description-list__definition-item"
+      >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
-          Taxonomy item 4
+          Taxonomy item 5
         </a>
       </span>
     </dd>
@@ -354,7 +409,7 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
     data-ecl-auto-init="DescriptionList"
     data-ecl-description-list=""
     data-ecl-description-list-more-label="See all items"
-    data-ecl-description-list-visible-items="3"
+    data-ecl-description-list-visible-items="2"
   >
     <dt
       class="ecl-description-list__term"
@@ -376,106 +431,30 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
     <dt
       class="ecl-description-list__term"
     >
-      Standalone links
+      External standalone link
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
         href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#copy"
-          />
-        </svg>
         <span
           class="ecl-link__label"
         >
-          Lorem ipsum dolor sit amet
+          Standalone link
         </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
+          class="ecl-icon ecl-icon--2xs ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#download"
+            xlink:href="/icons.svg#external"
           />
         </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#global"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#file"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#presentation"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
       </a>
     </dd>
     <dt
@@ -488,28 +467,95 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Socials
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+      data-ecl-description-list-collapsible=""
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#facebook-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          facebook
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#twitter-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          twitter
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#mastodon-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          mastodon
+        </span>
       </a>
     </dd>
     <dt
@@ -530,7 +576,7 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 2
@@ -550,7 +596,7 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 5
@@ -568,7 +614,7 @@ exports[`Description list Default renders correctly with extra class names 1`] =
     data-ecl-auto-init="DescriptionList"
     data-ecl-description-list=""
     data-ecl-description-list-more-label="See all items"
-    data-ecl-description-list-visible-items="3"
+    data-ecl-description-list-visible-items="2"
   >
     <dt
       class="ecl-description-list__term"
@@ -590,106 +636,30 @@ exports[`Description list Default renders correctly with extra class names 1`] =
     <dt
       class="ecl-description-list__term"
     >
-      Standalone links
+      External standalone link
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
         href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#copy"
-          />
-        </svg>
         <span
           class="ecl-link__label"
         >
-          Lorem ipsum dolor sit amet
+          Standalone link
         </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
         <svg
           aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
+          class="ecl-icon ecl-icon--2xs ecl-link__icon"
           focusable="false"
         >
           <use
-            xlink:href="/icons.svg#download"
+            xlink:href="/icons.svg#external"
           />
         </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#global"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#file"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#presentation"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          Lorem ipsum dolor sit amet
-        </span>
       </a>
     </dd>
     <dt
@@ -702,28 +672,95 @@ exports[`Description list Default renders correctly with extra class names 1`] =
       data-ecl-description-list-collapsible=""
     >
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
       </a>
       <a
-        class="ecl-link ecl-description-list__definition-item"
+        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
         href="/example"
       >
         Lorem ipsum dolor sit amet
+      </a>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Socials
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+      data-ecl-description-list-collapsible=""
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#facebook-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          facebook
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#twitter-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          twitter
+        </span>
+      </a>
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--s ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons-social-media.svg#mastodon-color"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          mastodon
+        </span>
       </a>
     </dd>
     <dt
@@ -744,7 +781,7 @@ exports[`Description list Default renders correctly with extra class names 1`] =
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 2
@@ -764,7 +801,7 @@ exports[`Description list Default renders correctly with extra class names 1`] =
         class="ecl-description-list__definition-item"
       >
         <a
-          class="ecl-link"
+          class="ecl-link ecl-link--standalone"
           href="/example"
         >
           Taxonomy item 5

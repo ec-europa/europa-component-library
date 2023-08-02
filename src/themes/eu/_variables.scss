@@ -98,6 +98,19 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Description list
+$description-list: (
+  term-color: map.get($color, 'grey-140'),
+  term-font: map.get($font, 'l'),
+  definition-color: map.get($color, 'grey-140'),
+  taxonomy-color: map.get($color, 'grey-80'),
+  term-width: 210px,
+);
+$description-list-print: (
+  term-width: 32%,
+  definition-width: 68%,
+);
+
 // Label
 $label: (
   radius: 4px,
