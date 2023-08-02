@@ -510,6 +510,10 @@ export class Carousel {
    * @param {Event} e
    */
   handleKeyboardOnPlay(e) {
+    if (e.key === 'Tab' && e.shiftKey) {
+      return;
+    }
+
     switch (e.key) {
       case 'Tab':
       case 'ArrowRight':
