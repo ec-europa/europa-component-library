@@ -7,14 +7,14 @@
 // Blockquote
 $blockquote: (
   border-width: 8px,
-  border-color: map.get($color, 'blue-100'),
+  border-color: var(--ecl-color-primary),
   border-radius: 4px 0 0 4px,
   shadow: none,
   padding: map.get($spacing, 'm') 0 map.get($spacing, 'm')
     map.get($spacing, 'l'),
   quote: (
     font: map.get($font, '2xl'),
-    color: map.get($color, 'grey-80'),
+    color: var(--ecl-color-dark-80),
   ),
   author: (
     margin: map.get($spacing, 'l'),
@@ -22,7 +22,7 @@ $blockquote: (
     font-mobile: map.get($font-prolonged, 'm'),
     font-desktop: map.get($font-prolonged, 'l'),
     font-weight: map.get($font-weight, 'regular'),
-    color: map.get($color, 'grey-80'),
+    color: var(--ecl-color-dark-80),
   ),
   image: (
     margin-mobile: map.get($spacing, 's'),
@@ -45,12 +45,12 @@ $breadcrumb: (
   font-mobile: map.get($font-prolonged, 'm'),
   font-desktop: map.get($font-prolonged, 'm'),
   line-height: map.get($line-height-prolonged, 'm'),
-  last-link-color: var(--ecl-color-dark-10),
-  icon-color: var(--ecl-color-dark-10),
+  last-link-color: var(--ecl-color-dark-80),
+  icon-color: var(--ecl-color-dark-80),
   icon-spacing: map.get($spacing, 'xs'),
   ellipsis: (
-    background: var(--ecl-color-primary-50),
-    background-hover: var(--ecl-color-primary-45),
+    background: var(--ecl-color-primary-5),
+    background-hover: var(--ecl-color-primary-10),
     font-weight: map.get($font-weight, 'bold'),
     offset-vertical: 0px,
     offset-horizontal: 0px,
@@ -69,9 +69,9 @@ $button: (
     background: var(--ecl-color-primary),
     color: map.get($color, 'white'),
     border-color: var(--ecl-color-primary),
-    background-hover: var(--ecl-color-primary-10),
+    background-hover: var(--ecl-color-primary-80),
     color-hover: map.get($color, 'white'),
-    border-color-hover: var(--ecl-color-primary-10),
+    border-color-hover: var(--ecl-color-primary-80),
     background-active: var(--ecl-color-primary),
     color-active: map.get($color, 'white'),
     border-color-active: var(--ecl-color-primary),
@@ -97,18 +97,18 @@ $button: (
   ),
   cta: (
     background: var(--ecl-color-secondary),
-    color: var(--ecl-color-dark20),
+    color: var(--ecl-color-dark-140),
     border-color: var(--ecl-color-secondary),
     background-hover: var(--ecl-color-secondary),
-    color-hover: var(--ecl-color-dark20),
+    color-hover: var(--ecl-color-dark-140),
     border-color-hover: var(--ecl-color-secondary),
     background-active: var(--ecl-color-secondary),
-    color-active: var(--ecl-color-dark20),
+    color-active: var(--ecl-color-dark-140),
     border-color-active: var(--ecl-color-secondary),
     background-focus: var(--ecl-color-secondary),
-    color-focus: var(--ecl-color-dark20),
+    color-focus: var(--ecl-color-dark-140),
     border-color-focus: var(--ecl-color-secondary),
-    outline-color: var(--ecl-color-dark20),
+    outline-color: var(--ecl-color-dark-140),
   ),
   ghost: (
     background: transparent,
@@ -133,10 +133,10 @@ $button-print: (
 
 // Description list
 $description-list: (
-  term-color: map.get($color, 'grey-140'),
+  term-color: var(--ecl-color-dark-140),
   term-font: map.get($font, 'l'),
-  definition-color: map.get($color, 'grey-140'),
-  taxonomy-color: map.get($color, 'grey-80'),
+  definition-color: var(--ecl-color-dark-140),
+  taxonomy-color: var(--ecl-color-dark-80),
   term-width: 210px,
 );
 $description-list-print: (
@@ -157,17 +157,17 @@ $label: (
   ),
   high: (
     background: var(--ecl-color-secondary),
-    color: var(--ecl-color-dark20),
+    color: var(--ecl-color-dark-140),
     border-color: transparent,
   ),
   medium: (
-    background: var(--ecl-color-secondary-45),
-    color: var(--ecl-color-dark20),
+    background: var(--ecl-color-secondary-10),
+    color: var(--ecl-color-dark-140),
     border-color: transparent,
   ),
   low: (
-    background: var(--ecl-color-primary-45),
-    color: var(--ecl-color-dark20),
+    background: var(--ecl-color-primary-10),
+    color: var(--ecl-color-dark-140),
     border-color: var(--ecl-color-primary),
   ),
 );
@@ -179,16 +179,16 @@ $label-print: (
 // Link
 $link: (
   color: var(--ecl-color-primary),
-  color-hover: var(--ecl-color-primary20),
-  color-visited: map.get($color, 'purple-100'),
+  color-hover: var(--ecl-color-primary-140),
+  color-visited: var(--ecl-color-visited),
   color-active: var(--ecl-color-primary),
   outline-color: var(--ecl-color-primary),
   outline-width: 2px,
   outline-radius: 2px,
   inverted: (
     color: var(--ecl-color-accent),
-    color-hover: var(--ecl-color-accent-10),
-    color-visited: map.get($color, 'purple-40'),
+    color-hover: var(--ecl-color-accent-30),
+    color-visited: var(--ecl-color-visited-40),
     color-active: var(--ecl-color-accent),
     outline-color: var(--ecl-color-accent),
   ),
@@ -204,9 +204,9 @@ $link: (
     background: var(--ecl-color-primary),
     color: map.get($color, 'white'),
     border-color: var(--ecl-color-primary),
-    background-hover: var(--ecl-color-primary-10),
+    background-hover: var(--ecl-color-primary-80),
     color-hover: map.get($color, 'white'),
-    border-color-hover: var(--ecl-color-primary-10),
+    border-color-hover: var(--ecl-color-primary-80),
     background-active: var(--ecl-color-primary),
     color-active: map.get($color, 'white'),
     border-color-active: var(--ecl-color-primary),
@@ -221,7 +221,7 @@ $link: (
     border-color: var(--ecl-color-primary),
     background-hover: map.get($color, 'white'),
     color-hover: var(--ecl-color-primary),
-    border-color-hover: var(--ecl-color-primary15),
+    border-color-hover: var(--ecl-color-primary-130),
     background-active: map.get($color, 'white'),
     color-active: var(--ecl-color-primary),
     border-color-active: var(--ecl-color-primary),
@@ -232,18 +232,18 @@ $link: (
   ),
   cta: (
     background: var(--ecl-color-secondary),
-    color: var(--ecl-color-dark20),
+    color: var(--ecl-color-dark-140),
     border-color: var(--ecl-color-secondary),
     background-hover: var(--ecl-color-secondary),
-    color-hover: var(--ecl-color-dark20),
+    color-hover: var(--ecl-color-dark-140),
     border-color-hover: var(--ecl-color-secondary),
     background-active: var(--ecl-color-secondary),
-    color-active: var(--ecl-color-dark20),
+    color-active: var(--ecl-color-dark-140),
     border-color-active: var(--ecl-color-secondary),
     background-focus: var(--ecl-color-secondary),
-    color-focus: var(--ecl-color-dark20),
+    color-focus: var(--ecl-color-dark-140),
     border-color-focus: var(--ecl-color-secondary),
-    outline-color: var(--ecl-color-dark20),
+    outline-color: var(--ecl-color-dark-140),
   ),
 );
 
@@ -257,16 +257,16 @@ $list: (
     marker: decimal,
     sublist-marker: lower-latin,
   ),
-  text-color: map.get($color, 'grey-80'),
-  divider-color: map.get($color, 'blue-20'),
+  text-color: var(--ecl-color-dark-80),
+  divider-color: var(--ecl-color-primary-140),
 );
 
 // Form
 $form-group: (
-  color-label: var(--ecl-color-dark20),
-  color-help: var(--ecl-color-dark-10),
+  color-label: var(--ecl-color-dark-140),
+  color-help: var(--ecl-color-dark-80),
   color-invalid: var(--ecl-color-error),
-  color-optional: var(--ecl-color-dark-10),
+  color-optional: var(--ecl-color-dark-80),
   color-required: var(--ecl-color-error),
   font-label: map.get($font-prolonged, 'm'),
   font-weight-label: map.get($font-weight, 'bold'),
@@ -282,21 +282,21 @@ $form-group: (
 
 // Search
 $search-form: (
-  button-border-color: var(--ecl-color-dark-10),
+  button-border-color: var(--ecl-color-dark-80),
   separator-color: transparent,
 );
 
 // Text input
 $text-input: (
   radius: 4px,
-  border-color: var(--ecl-color-dark-10),
-  border-color-hover: var(--ecl-color-dark-10),
+  border-color: var(--ecl-color-dark-80),
+  border-color-hover: var(--ecl-color-dark-80),
   border-color-focus: var(--ecl-color-primary),
   border-color-invalid: var(--ecl-color-error),
-  border-color-invalid-hover: var(--ecl-color-error-10),
-  border-color-invalid-focus: var(--ecl-color-error-10),
-  color-input: var(--ecl-color-dark20),
-  color-placeholder: var(--ecl-color-dark-30),
+  border-color-invalid-hover: var(--ecl-color-error-80),
+  border-color-invalid-focus: var(--ecl-color-error-80),
+  color-input: var(--ecl-color-dark-140),
+  color-placeholder: var(--ecl-color-dark-40),
   shadow: map.get($shadow, '1'),
   shadow-hover: map.get($shadow, '2'),
   padding-vertical: map.get($spacing, 's'),
@@ -311,27 +311,27 @@ $notification: (
   border-width: 0,
   border-color: transparent,
   font: map.get($font-prolonged, 'm'),
-  color: map.get($color, 'grey-80'),
+  color: var(--ecl-color-dark-80),
   title-font: map.get($font-prolonged, 'm'),
   title-font-weight: map.get($font-weight, 'bold'),
   title-spacing: map.get($spacing, 'xs'),
-  close-color: map.get($color, 'blue-100'),
+  close-color: var(--ecl-color-primary),
   close-offset: calc(#{map.get($spacing, 's')} - #{map.get($spacing, 'm')}),
   info: (
-    background: map.get($color, 'blue-5'),
-    color: map.get($color, 'info'),
+    background: var(--ecl-color-primary-5),
+    color: var(--ecl-color-info),
   ),
   success: (
-    background: map.get($color, 'green-5'),
-    color: map.get($color, 'success'),
+    background: var(--ecl-color-success-5),
+    color: var(--ecl-color-success),
   ),
   warning: (
-    background: map.get($color, 'orange-5'),
-    color: map.get($color, 'warning'),
+    background: var(--ecl-color-warning-5),
+    color: var(--ecl-color-warning),
   ),
   error: (
-    background: map.get($color, 'red-5'),
-    color: map.get($color, 'error'),
+    background: var(--ecl-color-error-5),
+    color: var(--ecl-color-error),
   ),
 );
 $notification-print: (
@@ -345,7 +345,7 @@ $notification-print: (
 // Site header
 $site-header: (
   language-switcher: (
-    color: map.get($color, 'grey-140'),
+    color: var(--ecl-color-dark-140),
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     shadow-size: 6px,
     border: none,
@@ -353,7 +353,7 @@ $site-header: (
     header-padding: map.get($spacing, 'm') map.get($spacing, 's')
       map.get($spacing, 'm') map.get($spacing, 'l'),
     header-font: map.get($font-prolonged, 'l'),
-    header-separator: 1px solid map.get($color, 'blue-10'),
+    header-separator: 1px solid var(--ecl-color-primary-10),
     close-right: map.get($spacing, 's'),
     close-top: map.get($spacing, 'xs'),
     content-padding: 0 map.get($spacing, 's') map.get($spacing, 's'),
@@ -363,28 +363,28 @@ $site-header: (
     category-stack-title-padding: map.get($spacing, 'l') map.get($spacing, 's')
       map.get($spacing, 'xs'),
     category-stack-margin: map.get($spacing, 'm'),
-    category-separator: 1px solid map.get($color, 'blue-10'),
+    category-separator: 1px solid var(--ecl-color-primary-10),
     column-spacing: map.get($spacing, 's'),
-    code-color: map.get($color, 'grey-140'),
+    code-color: var(--ecl-color-dark-140),
     code-width: 30px,
     code-font-weight: map.get($font-weight, 'bold'),
     code-active-font-weight: map.get($font-weight, 'bold'),
     item-width: 188px,
     item-padding: map.get($spacing, 's'),
-    item-active-background: map.get($color, 'blue-10'),
-    item-active-color: map.get($color, 'grey-140'),
-    item-active-shadow: inset 4px 0 0 0 map.get($color, 'blue-100'),
+    item-active-background: var(--ecl-color-primary-10),
+    item-active-color: var(--ecl-color-dark-140),
+    item-active-shadow: inset 4px 0 0 0 var(--ecl-color-primary),
   ),
 );
 
 // Page header
 $page-header: (
-  meta-color: map.get($color, 'grey-80'),
+  meta-color: var(--ecl-color-dark-80),
   meta-font: map.get($font, 'm'),
-  meta-separator-color: map.get($color, 'grey-80'),
-  title-color: map.get($color, 'grey-140'),
+  meta-separator-color: var(--ecl-color-dark-80),
+  title-color: var(--ecl-color-dark-140),
   title-font: map.get($font, '5xl'),
-  description-color: map.get($color, 'grey-80'),
+  description-color: var(--ecl-color-dark-80),
   description-font: map.get($font-prolonged, 'l'),
 );
 $page-header-print: (
@@ -395,16 +395,16 @@ $page-header-print: (
 
 // Site footer
 $site-footer: (
-  background: var(--ecl-color-primary-50),
-  color: var(--ecl-color-dark20),
+  background: var(--ecl-color-primary-5),
+  color: var(--ecl-color-dark-140),
   shadow: map.get($shadow, '2'),
-  separator-color: var(--ecl-color-primary-40),
+  separator-color: var(--ecl-color-primary-20),
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
 
 // Spinner
 $spinner: (
-  stroke-color: var(--ecl-color-primary-10),
+  stroke-color: var(--ecl-color-primary-80),
   stroke-linecap: round,
   text-color: var(--ecl-color-dark),
 );
@@ -414,36 +414,51 @@ $spinner: (
 */
 
 :root {
-  --ecl-color-primary-50: #{map.get($color, 'primary-50')};
-  --ecl-color-primary-45: #{map.get($color, 'primary-45')};
+  --ecl-color-primary: #{map.get($color, 'primary')};
+  --ecl-color-primary-140: #{map.get($color, 'primary-140')};
+  --ecl-color-primary-130: #{map.get($color, 'primary-130')};
+  --ecl-color-primary-120: #{map.get($color, 'primary-120')};
+  --ecl-color-primary-100: #{map.get($color, 'primary-100')};
+  --ecl-color-primary-80: #{map.get($color, 'primary-80')};
+  --ecl-color-primary-60: #{map.get($color, 'primary-60')};
   --ecl-color-primary-40: #{map.get($color, 'primary-40')};
-  --ecl-color-primary-30: #{map.get($color, 'primary-30')};
   --ecl-color-primary-20: #{map.get($color, 'primary-20')};
   --ecl-color-primary-10: #{map.get($color, 'primary-10')};
-  --ecl-color-primary: #{map.get($color, 'primary')};
-  --ecl-color-primary10: #{map.get($color, 'primary10')};
-  --ecl-color-primary15: #{map.get($color, 'primary15')};
-  --ecl-color-primary20: #{map.get($color, 'primary20')};
-  --ecl-color-secondary-45: #{map.get($color, 'secondary-45')};
+  --ecl-color-primary-5: #{map.get($color, 'primary-5')};
+  --ecl-color-secondary: #{map.get($color, 'secondary')};
+  --ecl-color-secondary-140: #{map.get($color, 'secondary-140')};
+  --ecl-color-secondary-120: #{map.get($color, 'secondary-120')};
+  --ecl-color-secondary-100: #{map.get($color, 'secondary-100')};
+  --ecl-color-secondary-80: #{map.get($color, 'secondary-80')};
+  --ecl-color-secondary-60: #{map.get($color, 'secondary-60')};
   --ecl-color-secondary-40: #{map.get($color, 'secondary-40')};
-  --ecl-color-secondary-30: #{map.get($color, 'secondary-30')};
   --ecl-color-secondary-20: #{map.get($color, 'secondary-20')};
   --ecl-color-secondary-10: #{map.get($color, 'secondary-10')};
-  --ecl-color-secondary: #{map.get($color, 'secondary')};
-  --ecl-color-secondary10: #{map.get($color, 'secondary10')};
-  --ecl-color-secondary20: #{map.get($color, 'secondary20')};
-  --ecl-color-dark-30: #{map.get($color, 'dark-30')};
-  --ecl-color-dark-20: #{map.get($color, 'dark-20')};
-  --ecl-color-dark-10: #{map.get($color, 'dark-10')};
   --ecl-color-dark: #{map.get($color, 'dark')};
-  --ecl-color-dark10: #{map.get($color, 'dark10')};
-  --ecl-color-dark20: #{map.get($color, 'dark20')};
+  --ecl-color-dark-140: #{map.get($color, 'dark-140')};
+  --ecl-color-dark-120: #{map.get($color, 'dark-120')};
+  --ecl-color-dark-100: #{map.get($color, 'dark-100')};
+  --ecl-color-dark-80: #{map.get($color, 'dark-80')};
+  --ecl-color-dark-60: #{map.get($color, 'dark-60')};
+  --ecl-color-dark-40: #{map.get($color, 'dark-40')};
   --ecl-color-info: #{map.get($color, 'info')};
+  --ecl-color-info-100: #{map.get($color, 'info-100')};
+  --ecl-color-info-5: #{map.get($color, 'info-5')};
   --ecl-color-success: #{map.get($color, 'success')};
+  --ecl-color-success-100: #{map.get($color, 'success-100')};
+  --ecl-color-success-5: #{map.get($color, 'success-5')};
   --ecl-color-warning: #{map.get($color, 'warning')};
-  --ecl-color-error-10: #{map.get($color, 'error-10')};
+  --ecl-color-warning-100: #{map.get($color, 'warning-100')};
+  --ecl-color-warning-5: #{map.get($color, 'warning-5')};
   --ecl-color-error: #{map.get($color, 'error')};
+  --ecl-color-error-100: #{map.get($color, 'error-100')};
+  --ecl-color-error-80: #{map.get($color, 'error-80')};
+  --ecl-color-error-5: #{map.get($color, 'error-5')};
   --ecl-color-branding: #{map.get($color, 'branding')};
   --ecl-color-accent: #{map.get($color, 'accent')};
-  --ecl-color-accent-10: #{map.get($color, 'accent-10')};
+  --ecl-color-accent-100: #{map.get($color, 'accent-100')};
+  --ecl-color-accent-30: #{map.get($color, 'accent-30')};
+  --ecl-color-visited: #{map.get($color, 'visited')};
+  --ecl-color-visited-100: #{map.get($color, 'visited-100')};
+  --ecl-color-visited-40: #{map.get($color, 'visited-40')};
 }
