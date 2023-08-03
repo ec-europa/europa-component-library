@@ -259,6 +259,10 @@ export class SiteHeader {
       this.languageListEu.parentNode.classList.remove(
         'ecl-site-header__language-content--stack',
       );
+    } else if (this.languageListNonEu) {
+      this.languageListNonEu.parentNode.classList.remove(
+        'ecl-site-header__language-content--stack',
+      );
     }
     let popoverRect = this.languageListOverlay.getBoundingClientRect();
     const containerRect = this.container.getBoundingClientRect();
@@ -267,6 +271,10 @@ export class SiteHeader {
       // Stack elements
       if (this.languageListEu) {
         this.languageListEu.parentNode.classList.add(
+          'ecl-site-header__language-content--stack',
+        );
+      } else if (this.languageListNonEu) {
+        this.languageListNonEu.parentNode.classList.add(
           'ecl-site-header__language-content--stack',
         );
       }
