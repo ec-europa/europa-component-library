@@ -70,8 +70,10 @@
 {% if extra_accessibility is defined and extra_accessibility is not empty %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'role', value: _extra_accessibility.role },
-    { name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id },
   ]) %}
+  {% if extra_accessibility.title_id is not empty or extra_accessibility.description_id is not empty %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
