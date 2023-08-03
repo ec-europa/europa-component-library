@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: 16.14.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Build icons
         run: yarn build:icons
       - name: Build presets
@@ -66,7 +66,7 @@ jobs:
         with:
           node-version: 16.14.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Build icons
         run: yarn build:icons
       - name: Package application
@@ -91,7 +91,7 @@ jobs:
         with:
           node-version: 16.14.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Build icons
         run: yarn build:icons
       - name: Package application
