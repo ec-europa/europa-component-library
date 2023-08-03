@@ -37,7 +37,7 @@ npm install --save @ecl/twig-component-site-header
   - "eu_category" (string) (default: ''): Label for EU languages
   - "non_eu_category" (string) (default: ''): Label for non-EU languages
   - "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
-    - "close_label" (string) (default: ''): Close button label eg. 'Close'.
+    - "close": (associative array) (default: {}): Close button, following ECL Button structure
     - "title" (string) (default: ''): Overlay title, eg. 'Select your language'.
     - "items" (array) (default: []): (array) (default: []): format:
       - "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
