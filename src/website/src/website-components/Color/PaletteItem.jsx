@@ -11,13 +11,13 @@ class PaletteItem extends PureComponent {
     this.element = React.createRef();
     this.clipboard = null;
 
-    const { name, value, ui, main } = props;
-    this.color = { name, value, ui, main };
+    const { name, id, value, ui, main } = props;
+    this.color = { name, id, value, ui, main };
   }
 
   componentDidMount() {
-    const { name } = this.color;
-    this.clipboard = new ClipboardJS(`#${name}`);
+    const { name, id } = this.color;
+    this.clipboard = new ClipboardJS(`#${id || name.toLowerCase()}`);
   }
 
   componentWillUnmount() {
@@ -25,7 +25,7 @@ class PaletteItem extends PureComponent {
   }
 
   render() {
-    const { name, value, ui, main } = this.color;
+    const { name, id, value, ui, main } = this.color;
 
     return (
       <li
@@ -41,7 +41,7 @@ class PaletteItem extends PureComponent {
         <h3 className={styles.title}>{name}</h3>
         <button
           type="button"
-          id={name}
+          id={id || name.toLowerCase()}
           data-clipboard-text={value.toUpperCase()}
           className={styles.button}
         >
@@ -57,12 +57,14 @@ class PaletteItem extends PureComponent {
 
 PaletteItem.propTypes = {
   name: PropTypes.string.isRequired,
+  id: PropTypes.string,
   value: PropTypes.string,
   ui: PropTypes.string,
   main: PropTypes.bool,
 };
 
 PaletteItem.defaultProps = {
+  id: '',
   value: '',
   ui: 'light',
   main: false,
