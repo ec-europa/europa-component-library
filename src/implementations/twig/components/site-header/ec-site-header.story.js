@@ -168,7 +168,7 @@ const getArgTypes = (data) => {
       description: 'Number of official EU languages',
       control: {
         type: 'range',
-        min: 1,
+        min: 0,
         max: data.language_selector.overlay.items.length,
         step: 1,
       },
