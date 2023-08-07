@@ -6,13 +6,14 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$site-header: null !default;
+
 @use 'site-header-language-switcher' with (
-  $_arrow-size: 1rem,
-  $_shadow-size: 8px,
-  $_shadow-color: rgba(0, 0, 0, 0.2),
-  $_separator-color: map.get(theme.$color, 'grey-25'),
-  $_active-item-color: map.get(theme.$color, 'grey-100'),
-  $_active-item-background: map.get(theme.$color, 'grey-10')
+  $theme: $theme,
+  $language-switcher: map.get($site-header, 'language-switcher')
 );
 
 $_logo-height-xs: 1.75rem;
@@ -122,7 +123,6 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header__language-selector {
   font: map.get(theme.$font, 'xs');
-  padding: map.get(theme.$spacing, 'xs');
   text-align: center;
 }
 
@@ -326,10 +326,6 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header__search-toggle {
     display: none;
-  }
-
-  .ecl-site-header__language-selector {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
   }
 
   .ecl-site-header__login-toggle,

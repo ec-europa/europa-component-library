@@ -114,7 +114,10 @@
   $theme: theme.$theme,
   $site-footer: var.$site-footer
 );
-@use '@ecl/vanilla-component-site-header/site-header-eu';
+@use '@ecl/vanilla-component-site-header/site-header-eu' with (
+  $theme: theme.$theme,
+  $site-header: var.$site-header
+);
 
 // Utilities
 @use '@ecl/vanilla-utility-background/background';

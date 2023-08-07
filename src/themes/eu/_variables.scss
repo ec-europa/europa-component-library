@@ -363,6 +363,41 @@ $notification-print: (
   title-spacing: map.get($spacing-print, 'xs'),
 );
 
+// Site header
+$site-header: (
+  language-switcher: (
+    color: map.get($color, 'grey-140'),
+    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    shadow-size: 6px,
+    border: none,
+    arrow-size: 1rem,
+    header-padding: map.get($spacing, 'm') map.get($spacing, 's')
+      map.get($spacing, 'm') map.get($spacing, 'l'),
+    header-font: map.get($font-prolonged, 'l'),
+    header-separator: 1px solid map.get($color, 'blue-10'),
+    close-right: map.get($spacing, 's'),
+    close-top: map.get($spacing, 'xs'),
+    content-padding: 0 map.get($spacing, 's') map.get($spacing, 's'),
+    category-margin: map.get($spacing, 'l'),
+    category-title-padding: map.get($spacing, 'l') map.get($spacing, 's')
+      map.get($spacing, 'xs'),
+    category-stack-title-padding: map.get($spacing, 'l') map.get($spacing, 's')
+      map.get($spacing, 'xs'),
+    category-stack-margin: map.get($spacing, 'm'),
+    category-separator: 1px solid map.get($color, 'blue-10'),
+    column-spacing: map.get($spacing, 's'),
+    code-color: map.get($color, 'grey-140'),
+    code-width: 30px,
+    code-font-weight: map.get($font-weight, 'bold'),
+    code-active-font-weight: map.get($font-weight, 'bold'),
+    item-width: 188px,
+    item-padding: map.get($spacing, 's'),
+    item-active-background: map.get($color, 'blue-10'),
+    item-active-color: map.get($color, 'grey-140'),
+    item-active-shadow: inset 4px 0 0 0 map.get($color, 'blue-100'),
+  ),
+);
+
 // Page header
 $page-header: (
   meta-color: map.get($color, 'grey-80'),

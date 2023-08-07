@@ -14,4 +14,8 @@ module.exports = {
     name: 'external',
     size: 'fluid',
   },
+  as_image: true,
+  extra_accessibility: {
+    title: 'Links to an external domain',
+  },
 };
