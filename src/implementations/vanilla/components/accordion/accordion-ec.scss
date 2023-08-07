@@ -4,19 +4,18 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
+$accordion: null !default;
 
 .ecl-accordion {
   margin: 0;
 }
 
 .ecl-accordion__item {
-  background-color: map.get(theme.$color, 'grey-5');
-  border: 1px solid map.get(theme.$color, 'grey-25');
-}
-
-.ecl-accordion__item + .ecl-accordion__item {
-  margin-top: map.get(theme.$spacing, 'xs');
+  background-color: map.get($accordion, 'item-background');
+  border-bottom: 1px solid map.get($accordion, 'border-color');
 }
 
 .ecl-accordion__title {
@@ -27,32 +26,28 @@
 .ecl-accordion__toggle {
   background-color: transparent;
   border-width: 0;
-  color: map.get(theme.$color, 'grey-100');
+  color: map.get($theme, 'color', 'grey-100');
   cursor: pointer;
   display: block;
-  font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  padding: 0 map.get(theme.$spacing, 'm');
+  font: map.get($theme, 'font', 'm');
+  padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
   width: 100%;
+
+  &:hover {
+    background-color: map.get($accordion, 'item-background-hover');
+  }
 }
 
-.ecl-accordion__toggle:hover {
-  background-color: map.get(theme.$color, 'grey-25');
-}
-
-.ecl-accordion__toggle:focus-visible {
-  outline: 2px solid map.get(theme.$color, 'blue-100');
+.ecl-accordion__toggle:focus-visible,
+.ecl-accordion__toggle--active {
+  outline: 2px solid map.get($theme, 'color', 'primary');
   outline-offset: -2px;
 }
 
-.ecl-accordion__toggle[aria-expanded='true'] {
-  padding-bottom: 0;
-}
-
 .ecl-accordion__toggle-flex {
-  align-items: start;
+  align-items: center;
   display: flex;
   flex-direction: row;
 }
@@ -61,10 +56,8 @@
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-bottom: map.get(theme.$spacing, 's');
   margin-inline-start: 0;
-  margin-inline-end: map.get(theme.$spacing, 'm');
-  margin-top: map.get(theme.$spacing, 's');
+  margin-inline-end: map.get($accordion, 'icon-margin');
 }
 
 .ecl-accordion__toggle-label {
@@ -73,21 +66,23 @@
 
 .ecl-accordion__toggle-title {
   flex-grow: 1;
-  padding: map.get(theme.$spacing, 's') 0;
+}
 
-  .ecl-accordion__toggle[aria-expanded='true'] & {
-    border-bottom: 1px solid map.get(theme.$color, 'grey');
-  }
+.ecl-accordion__toggle-icon {
+  fill: map.get($accordion, 'icon-color');
 }
 
 .ecl-accordion__content {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged, 'm');
+  color: map.get($theme, 'color', 'grey');
+  font: map.get($theme, 'font', 'm');
   margin-inline-start: 0;
-  padding-bottom: map.get(theme.$spacing, 's');
-  padding-inline-end: map.get(theme.$spacing, 'm');
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-top: map.get(theme.$spacing, 's');
+  max-width: 60ch;
+  padding-inline-end: map.get($theme, 'spacing', 'm');
+  padding-inline-start: calc(
+    map.get($accordion, 'item-padding') + map.get($accordion, 'icon-margin') +
+      1rem + 0.25rem
+  );
+  padding-bottom: map.get($theme, 'spacing', 'xl');
 }
 
 .no-js .ecl-accordion__content {

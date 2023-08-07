@@ -56,6 +56,13 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ## Component modifications
 
+### Accordion
+
+- The icon size is now different in the two systems, the twig template sets it by default to `xs` which is the value for EC, it needs to be
+  overridden by the data provided when working with the EU theme to `m`.
+
+- A selector `ecl-accordion__item--active` is now added via our vanilla js to mark the latest item the user interacted with.
+
 ### Breadcrumb
 
 - Font size of the separator icon is now `fluid` for both EC and EU, so it will automatically adjust based on the font size

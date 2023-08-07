@@ -86,7 +86,10 @@
 @use '@ecl/vanilla-component-timeline/timeline-print-ec';
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion-print';
+@use '@ecl/vanilla-component-accordion/accordion-print' with (
+  $theme: theme.$theme,
+  $accordion-print: var.$accordion-print
+);
 @use '@ecl/vanilla-component-carousel/carousel-print';
 @use '@ecl/vanilla-component-category-filter/category-filter-print';
 @use '@ecl/vanilla-component-gallery/gallery-print';

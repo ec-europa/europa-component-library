@@ -4,6 +4,27 @@
 // Use this file to assign default values to component variables
 // Note: if you override css variables it will take over on these values
 
+// Accordion
+$accordion: (
+  item-background: transparent,
+  item-shadow-hover: map.get($shadow, '1'),
+  border-color: none,
+  item-padding: map.get($spacing, 'xl'),
+  text-color: map.get($color, 'grey-80'),
+  title-text-color: map.get($color, 'grey-140'),
+  icon-color: currentcolor,
+  icon-margin: map.get($spacing, 's'),
+  radius: map.get($spacing, 'xs'),
+  shadow: map.get($shadow, '1'),
+);
+$accordion-print: (
+  toggle-background: transparent,
+  toggle-color: var(--ecl-color-dark-0),
+  toggle-font: map.get($font-print, 'l'),
+  content-color: var(--ecl-color-dark-0),
+  content-font: map.get($font-print, 'm'),
+);
+
 // Blockquote
 $blockquote: (
   border-width: 8px,

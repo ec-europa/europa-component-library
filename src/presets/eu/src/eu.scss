@@ -97,7 +97,10 @@
 @use '@ecl/vanilla-component-timeline/timeline-eu';
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion-eu';
+@use '@ecl/vanilla-component-accordion/accordion-eu' with (
+  $theme: theme.$theme,
+  $accordion: var.$accordion
+);
 @use '@ecl/vanilla-component-carousel/carousel-eu';
 @use '@ecl/vanilla-component-category-filter/category-filter-eu';
 @use '@ecl/vanilla-component-gallery/gallery-eu';
