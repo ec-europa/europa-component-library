@@ -173,8 +173,6 @@ const getArgTypes = (data) => {
         step: 1,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: data.language_selector.overlay.items.length },
         category: 'Content',
       },
     };
@@ -188,10 +186,6 @@ const getArgTypes = (data) => {
         step: 1,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: {
-          summary: data.language_selector.overlay.non_eu_items.length,
-        },
         category: 'Content',
       },
     };
