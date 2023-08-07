@@ -58,7 +58,8 @@ const getArgs = (data) => {
   }
   if (data.language_selector) {
     defaultArgs.languages_eu = data.language_selector.overlay.items.length;
-    defaultArgs.languages_non_eu = 5;
+    defaultArgs.languages_non_eu =
+      data.language_selector.overlay.non_eu_items.length;
   }
 
   return defaultArgs;
@@ -172,8 +173,6 @@ const getArgTypes = (data) => {
         step: 1,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: data.language_selector.overlay.items.length },
         category: 'Content',
       },
     };
@@ -187,10 +186,6 @@ const getArgTypes = (data) => {
         step: 1,
       },
       table: {
-        type: { summary: 'number' },
-        defaultValue: {
-          summary: 5,
-        },
         category: 'Content',
       },
     };
