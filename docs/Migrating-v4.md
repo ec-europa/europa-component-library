@@ -19,6 +19,7 @@ Semantic colors:
 - Primary
 - Secondary
 - Dark
+- Info
 - Success
 - Warning
 - Error
@@ -28,8 +29,9 @@ Semantic colors:
 Most of these semantic colors are also defined in different tint, to cover extra needs (mouse hover, focus, ...).
 The naming convention is as follow:
 
-- lighter tint uses `color-X`. Ex: primary-10, dark-20
-- darker tint uses `colorX`. Ex: primary10, dark20
+- main color uses `color-100`, or just `color`. Ex: primary-100, dark
+- lighter colors use smaller numbers. Ex: primary-80, dark-20
+- darker colors use larger numbers. Ex: primary-120, dark-140
 
 ### Typography
 
