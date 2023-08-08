@@ -109,7 +109,10 @@
   $page-header: var.$page-header
 );
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-eu';
-@use '@ecl/vanilla-component-menu/menu-eu';
+@use '@ecl/vanilla-component-menu/menu' with (
+  $theme: theme.$theme,
+  $menu: var.$menu
+);
 @use '@ecl/vanilla-component-site-footer/site-footer-eu' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer

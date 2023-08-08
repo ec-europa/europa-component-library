@@ -282,6 +282,69 @@ $list: (
   divider-color: map.get($color, 'blue-20'),
 );
 
+// Menu
+$menu: (
+  background-mobile:
+    linear-gradient(
+      90deg,
+      var(--ecl-color-primary-140),
+      var(--ecl-color-primary)
+    ),
+  background-desktop:
+    linear-gradient(
+      90deg,
+      var(--ecl-color-primary-140),
+      var(--ecl-color-primary)
+    ),
+  border-radius: 4px,
+  caret-active-background: map.get($color, 'blue-40'),
+  caret-active-hover-background: map.get($color, 'blue-60'),
+  caret-background: map.get($color, 'blue-10'),
+  caret-color: map.get($color, 'blue'),
+  caret-hover-background: map.get($color, 'blue-40'),
+  caret-icon-scale: 1,
+  desktop-item-border-color: map.get($color, 'blue-60'),
+  desktop-link-active-background: map.get($color, 'blue-20'),
+  desktop-link-active-color: map.get($color, 'blue-140'),
+  drowpdown-border-radius: 0 0 4px 4px,
+  dropdown-item-hover-color: map.get($color, 'blue-140'),
+  dropdown-shadow: map.get($shadow, '2'),
+  expanded-background: map.get($color, 'white'),
+  item-active-border: 1px solid map.get($color, 'blue-20'),
+  item-border: 1px solid map.get($color, 'blue-20'),
+  item-hover-color: map.get($color, 'blue-140'),
+  item-icon-margin: map.get($spacing, '2xs'),
+  link-active-background: map.get($color, 'blue-10'),
+  link-focus-color: map.get($color, 'blue'),
+  list-background: transparent,
+  main-nav-background:
+    linear-gradient(
+      90deg,
+      map.get($color, 'blue-140'),
+      map.get($color, 'blue-100')
+    ),
+  main-nav-shadow: map.get($shadow, '2'),
+  mobile-background: map.get($color, 'white'),
+  mobile-header-background:
+    linear-gradient(
+      90deg,
+      map.get($color, 'blue-140'),
+      map.get($color, 'blue-100')
+    ),
+  mobile-header-shadow: map.get($shadow, '1'),
+  mobile-item-color: map.get($color, 'blue-100'),
+  mobile-shadow: map.get($shadow, '2'),
+  open-button-shadow: map.get($shadow, '1'),
+  open-vertical-margin: -2px,
+  overlay-background: rgba(38, 43, 56, 0.7),
+  subitem-active-background: map.get($color, 'blue-10'),
+  subitem-active-border: 1px solid transparent,
+  subitem-background: map.get($color, 'white'),
+  subitem-border: 1px solid map.get($color, 'blue-20'),
+  sublink-hover-color: map.get($color, 'blue-140'),
+  title-font-weight: map.get($font-weight, 'normal'),
+);
+
 // Form
 $form-group: (
   color-label: var(--ecl-color-dark20),
