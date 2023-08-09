@@ -14,8 +14,9 @@ $menu: null !default;
  * Menu structure
  */
 .ecl-menu {
-  background: map.get($menu, 'main-nav-background');
-  box-shadow: map.get($menu, 'main-nav-shadow');
+  background: map.get($menu, 'background-mobile');
+  box-shadow: map.get($menu, 'shadow');
+  color: map.get($menu, 'color');
   margin: 0;
   padding-bottom: map.get($theme, 'spacing', 'xs');
   padding-top: map.get($theme, 'spacing', 'xs');
@@ -27,57 +28,10 @@ $menu: null !default;
   position: initial; // Needed for full screen overlay
 }
 
-.ecl-menu__inner {
-  background-color: map.get($menu, 'mobile-background');
-  bottom: 0;
-  display: none;
-  overflow-y: auto;
-  position: fixed;
-  right: -100%;
-  top: 0;
-  width: 100%;
-  z-index: map.get($theme, 'z-index', 'modal') + 3;
-
-  /* Force display if JS is disabled */
-  .no-js & {
-    display: flex;
-  }
-}
-
-// Expanded
-.ecl-menu[aria-expanded='true'] .ecl-menu__inner {
-  display: block;
-  right: 0;
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-menu__inner {
-    right: -25rem;
-    width: 25rem;
-  }
-
-  .ecl-menu__overlay {
-    background-color: map.get($menu, 'overlay-background');
-    content: '';
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: map.get($theme, 'z-index', 'modal') + 2;
-  }
-
-  .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
-    display: block;
-  }
-}
-
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
+    background: map.get($menu, 'background-desktop');
     padding-bottom: 0;
     padding-top: 0;
 
@@ -112,58 +66,33 @@ $menu: null !default;
   order: 1;
 }
 
-.ecl-menu__close-container {
-  flex-direction: column;
-}
-
-.ecl-menu__open,
-.ecl-menu__close {
+.ecl-menu__open {
   align-items: center;
   align-self: flex-end;
-  border: 0;
   border-radius: map.get($menu, 'border-radius');
   cursor: pointer;
-  color: map.get($theme, 'color', 'white');
+  color: currentcolor;
   display: flex;
   flex-direction: column;
   font: map.get($theme, 'font', 'xs');
-  margin-bottom: map.get($menu, 'open-vertical-margin');
   margin-inline-start: auto;
-  margin-top: map.get($menu, 'open-vertical-margin');
   order: 2;
-  padding: map.get($theme, 'spacing', '2xs');
   text-decoration: none;
 
-  .ecl-icon {
-    margin-bottom: 1px;
-  }
-
   &:hover,
-  &:focus,
+  &:focus-visible,
   &:active,
   &:visited {
-    color: map.get($theme, 'color', 'white');
+    color: currentcolor;
   }
 
   &:hover {
-    box-shadow: map.get($menu, 'open-button-shadow');
     text-decoration: underline;
   }
 
-  &:focus {
-    border: 0;
-    outline: 0;
-  }
-
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white');
-    padding: map.get($theme, 'spacing', '2xs');
+    outline: 2px solid map.get($menu, 'color-focus');
   }
-}
-
-/* force remove underline on ecl-link for the open button link */
-.ecl-menu__open.ecl-link--standalone:not(.ecl-link--icon):focus-visible {
-  text-decoration: none;
 }
 
 .ecl-menu__cta {
@@ -195,63 +124,103 @@ $menu: null !default;
 /*
  * Inner menu
  */
+.ecl-menu__inner {
+  background: map.get($menu, 'overlay', 'background');
+  bottom: 0;
+  display: none;
+  overflow-y: auto;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  width: 100%;
+  z-index: map.get($theme, 'z-index', 'modal') + 3;
+
+  /* Force display if JS is disabled */
+  .no-js & {
+    display: flex;
+  }
+}
+
+// Expanded
+.ecl-menu[aria-expanded='true'] .ecl-menu__inner {
+  display: block;
+  right: 0;
+}
+
 .ecl-menu__inner-header {
   align-items: center;
-  background: map.get($menu, 'mobile-header-background');
-  box-shadow: map.get($menu, 'mobile-header-shadow');
+  background: map.get($menu, 'overlay', 'header-background');
+  box-shadow: map.get($menu, 'overlay', 'header-shadow');
+  color: map.get($menu, 'overlay', 'header-color');
   display: flex;
   flex-flow: row-reverse;
-  padding: map.get($theme, 'spacing', 'm');
+  padding: map.get($theme, 'spacing', 'xs') 0;
   position: sticky;
   top: 0;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
 }
 
 .ecl-menu__title {
-  color: map.get($theme, 'color', 'white');
-  font: map.get($theme, 'font', 'xl');
-  font-weight: map.get($menu, 'title-font-weight');
+  font: map.get($menu, 'overlay', 'header-font');
+  padding-inline-start: map.get($theme, 'spacing', 'm');
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .ecl-menu__close {
-  color: map.get($theme, 'color', 'white');
+  align-items: center;
+  align-self: flex-end;
+  border-radius: map.get($menu, 'border-radius');
+  cursor: pointer;
+  color: currentcolor;
+  display: flex;
+  flex-direction: column;
+  font: map.get($theme, 'font', 'xs');
+  margin-inline-start: auto;
   order: 0;
+  text-decoration: none;
 
-  // Would be better to have a variant of button here
-  .ecl-button__icon,
-  .ecl-button__label {
-    margin-inline-end: 0;
+  .ecl-button__container {
+    flex-direction: column-reverse;
+  }
+
+  .ecl-button__icon {
+    margin-inline-start: 0;
   }
 
   .ecl-button__label {
     margin-top: map.get($theme, 'spacing', '2xs');
   }
-}
-
-.ecl-menu__back {
-  border: 0;
-  color: map.get($theme, 'color', 'white');
-  cursor: pointer;
-  display: none;
-  font: map.get($theme, 'font', 'xl');
-  font-weight: map.get($menu, 'title-font-weight');
-  margin: -#{map.get($theme, 'spacing', 'm')};
-  padding: map.get($theme, 'spacing', 'm');
 
   &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: currentcolor;
     text-decoration: underline;
   }
 
-  &:focus {
-    border: 0;
-    outline: 0;
-    padding: map.get($theme, 'spacing', 'm');
+  &:focus-visible {
+    color: currentcolor;
+    border-color: currentcolor;
+  }
+}
+
+.ecl-menu__back {
+  border-radius: map.get($menu, 'border-radius');
+  cursor: pointer;
+  color: currentcolor;
+  display: none;
+  font: map.get($menu, 'overlay', 'header-font');
+  text-decoration: none;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: currentcolor;
+    text-decoration: underline;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white');
-    outline-offset: -2px;
+    color: currentcolor;
+    border-color: currentcolor;
   }
 }
 
@@ -262,6 +231,31 @@ $menu: null !default;
 
 .ecl-menu__inner--expanded .ecl-menu__back {
   display: block;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-menu__inner {
+    right: -25rem;
+    width: 25rem;
+  }
+
+  .ecl-menu__overlay {
+    background-color: map.get($menu, 'overlay-background');
+    content: '';
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: map.get($theme, 'z-index', 'modal') + 2;
+  }
+
+  .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
+    display: block;
+  }
 }
 
 /*
@@ -284,82 +278,44 @@ $menu: null !default;
 }
 
 .ecl-menu__item {
-  border-top: map.get($menu, 'item-border');
-  box-sizing: content-box;
+  border-top: map.get($menu, 'overlay', 'item-border');
   display: flex;
   position: relative;
-}
-
-.ecl-menu__item--current,
-.ecl-menu__item--current + .ecl-menu__item {
-  border-top: map.get($menu, 'item-active-border');
 }
 
 .ecl-menu__link {
   align-items: center;
   box-sizing: content-box;
-  color: map.get($menu, 'mobile-item-color');
+  color: map.get($menu, 'overlay', 'item-color');
   display: inline-flex;
-  font: map.get($theme, 'font', 'l');
-  font-weight: map.get($theme, 'font-weight', 'regular');
+  flex-grow: 1;
+  font: map.get($menu, 'overlay', 'item-font');
   justify-content: space-between;
-  padding: map.get($theme, 'spacing', 'm');
+  padding: map.get($menu, 'overlay', 'item-padding');
   position: relative;
-  text-decoration: none;
-  width: 100%;
 
   &:hover {
-    text-decoration: underline;
+    color: map.get($menu, 'overlay', 'item-color-hover');
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($menu, 'link-focus-color');
-    outline-offset: -2px;
-    text-decoration: underline;
-  }
-}
-
-.ecl-menu__item--current .ecl-menu__link,
-.ecl-menu__link:active {
-  background-color: map.get($menu, 'link-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($theme, 'color', 'blue-100');
-  color: map.get($theme, 'color', 'blue-100');
-
-  &:hover {
-    color: map.get($menu, 'item-hover-color');
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'blue');
     outline-offset: -2px;
   }
 }
 
-.ecl-menu__item--expanded {
-  border-top-width: 0;
-  flex-direction: column;
-
-  /* stylelint-disable-next-line no-descending-specificity */
-  .ecl-menu__link {
-    background-color: map.get($menu, 'subitem-background');
-    border-bottom: 3px solid map.get($menu, 'subitem-active-background');
-    box-shadow: none;
-    font: map.get($theme, 'font', 'xl');
-  }
-
-  .ecl-menu__link--current:not(:first-of-type),
-  .ecl-menu__link:active {
-    background-color: map.get($theme, 'color', 'blue-5');
-  }
+.ecl-menu__item--current .ecl-menu__link {
+  background-color: map.get($menu, 'overlay', 'item-active-background');
+  box-shadow: inset 4px 0 0 0 map.get($menu, 'overlay', 'item-active-border');
 }
 
 .ecl-menu__button-caret {
   align-self: stretch;
-  background-color: map.get($menu, 'caret-background');
+  background-color: map.get($menu, 'overlay', 'caret-background');
   border-radius: 0;
-  display: inline-flex;
+  color: map.get($menu, 'overlay', 'caret-color');
   cursor: pointer;
-  padding: map.get($theme, 'spacing', 'm');
+  display: inline-flex;
+  margin-inline-start: 2px;
   z-index: 0;
 
   .ecl-button__container {
@@ -367,7 +323,7 @@ $menu: null !default;
   }
 
   .ecl-button__icon {
-    fill: map.get($menu, 'caret-color');
+    fill: currentcolor;
     flex-shrink: 0;
     transition: none;
     transition-property: transform, fill;
@@ -375,78 +331,13 @@ $menu: null !default;
   }
 
   &:hover {
-    background-color: map.get($menu, 'caret-hover-background');
-    box-shadow: none;
-
-    .ecl-button__icon {
-      fill: map.get($theme, 'color', 'blue');
-    }
-  }
-
-  &:focus {
-    border: 0;
-    outline: none;
-    padding: map.get($theme, 'spacing', 'm');
+    background-color: map.get($menu, 'overlay', 'caret-background-hover');
   }
 
   &:focus-visible {
-    border: none;
-    outline: 2px solid map.get($menu, 'link-focus-color');
-    outline-offset: -2px;
+    background-color: map.get($menu, 'overlay', 'caret-background-focus');
+    color: map.get($menu, 'overlay', 'caret-color');
   }
-}
-
-.ecl-menu__item--expanded .ecl-menu__button-caret {
-  display: none;
-}
-
-.ecl-menu__item--current .ecl-menu__button-caret {
-  background-color: map.get($menu, 'caret-active-background');
-
-  .ecl-button__icon {
-    fill: map.get($theme, 'color', 'blue-100');
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'blue');
-    outline-offset: -2px;
-  }
-}
-
-.ecl-menu__item--current .ecl-menu__button-caret:hover {
-  background-color: map.get($menu, 'caret-active-hover-background');
-
-  .ecl-button__icon {
-    fill: map.get($menu, 'caret-color');
-  }
-}
-
-// Expanded
-.ecl-menu__inner--expanded {
-  background-color: map.get($menu, 'expanded-background');
-  box-shadow: map.get($menu, 'mobile-shadow');
-}
-
-.ecl-menu__inner--expanded .ecl-menu__item:not(.ecl-menu__item--expanded) {
-  display: none;
-}
-
-/* stylelint-disable no-descending-specificity */
-.ecl-menu__inner--expanded .ecl-menu__link {
-  color: map.get($theme, 'color', 'blue');
-  width: auto;
-
-  &:hover,
-  &:focus {
-    background-color: transparent;
-    color: map.get($menu, 'sublink-hover-color');
-    text-decoration: underline;
-  }
-}
-
-/* stylelint-enable no-descending-specificity */
-.ecl-menu__inner--expanded .ecl-menu__link-icon {
-  display: none;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -697,17 +588,38 @@ $menu: null !default;
 /*
  * Second level
  */
+.ecl-menu__item--expanded {
+  border-top-width: 0;
+  flex-direction: column;
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-menu__link {
+    background-color: transparent;
+    border-bottom: map.get($menu, 'overlay', 'subtitle-border');
+    box-shadow: none;
+    font: map.get($menu, 'overlay', 'subtitle-font');
+    font-weight: map.get($menu, 'overlay', 'subtitle-font-weight');
+  }
+}
+
+.ecl-menu__item--expanded .ecl-menu__button-caret {
+  display: none;
+}
+
+.ecl-menu__inner--expanded .ecl-menu__item:not(.ecl-menu__item--expanded) {
+  display: none;
+}
+
+.ecl-menu__inner--expanded .ecl-menu__link-icon {
+  display: none;
+}
+
 .ecl-menu__mega {
   box-sizing: border-box;
   display: none;
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-
-  /* Force display if JS is disabled */
-  .no-js & {
-    display: flex;
-  }
 }
 
 .ecl-menu__item--expanded .ecl-menu__mega {
@@ -722,39 +634,32 @@ $menu: null !default;
 }
 
 .ecl-menu__subitem {
-  border-top: map.get($menu, 'subitem-border');
-  box-sizing: border-box;
-}
-
-.ecl-menu__subitem--current,
-.ecl-menu__subitem--current + .ecl-menu__subitem {
-  border-top: map.get($menu, 'subitem-active-border');
+  border-top: map.get($menu, 'overlay', 'item-border');
 }
 
 .ecl-menu__sublink {
-  background-color: map.get($menu, 'subitem-background');
-  color: map.get($theme, 'color', 'blue');
+  color: map.get($menu, 'overlay', 'item-color');
   display: block;
-  font: map.get($theme, 'font', 'l');
-  padding: map.get($theme, 'spacing', 'm');
+  font: map.get($menu, 'overlay', 'item-font');
+  padding: map.get($menu, 'overlay', 'subitem-padding');
   position: relative;
-  text-decoration: none;
 
   &:hover {
-    color: map.get($menu, 'item-hover-color');
-    text-decoration: underline;
+    color: map.get($menu, 'overlay', 'item-color-hover');
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'blue');
     outline-offset: -2px;
-    text-decoration: underline;
   }
 }
 
 .ecl-menu__subitem--current .ecl-menu__sublink {
-  background-color: map.get($menu, 'subitem-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($theme, 'color', 'blue-100');
+  background-color: map.get($menu, 'overlay', 'item-active-background');
+  box-shadow: inset 4px 0 0 0 map.get($menu, 'overlay', 'item-active-border');
+}
+
+.ecl-menu__see-all {
+  margin-top: map.get($theme, 'spacing', '3xl');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -870,6 +775,10 @@ $menu: null !default;
       font-weight: map.get($theme, 'font-weight', 'regular');
     }
   }
+
+  .ecl-menu__see-all {
+    display: none;
+  }
 }
 
 // Hack to prevent transition issue on page load on chrome
@@ -900,19 +809,5 @@ $menu: null !default;
     .ecl-button__icon {
       transition-delay: 0.25s;
     }
-  }
-}
-
-/*
- * Group 2
- */
-.ecl-menu--group2 {
-  min-height: map.get($theme, 'line-height', '2xl');
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-menu--group2:not(.ecl-menu--forced-mobile) {
-    padding-top: 0;
   }
 }

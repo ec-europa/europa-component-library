@@ -2,10 +2,12 @@
 
 {#
   Parameters:
+  - "icon_path" (string) Path to the icon sprite
+  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
-    - "icon_path" (string) Path to the icon sprite
+    - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
@@ -20,7 +22,7 @@
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _external = external|default(false) %}
+{% set _see_all_label = see_all_label|default('') %}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
@@ -33,20 +35,21 @@
 {% endif %}
 
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }}>
-  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
-    {{- item.label -}}
-    {%- if item.external -%}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: icon_path,
-          name: 'external',
-          size: 'xs',
-          transform: 'rotate-90',
-        },
-        extra_classes: 'ecl-menu__link-icon--external ecl-menu__link-icon',
-      } %}
-    {%- endif -%}
-  </a>
+  {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+  {% include '@ecl/link/link.html.twig' with {
+    link: {
+      type: 'standalone',
+      no_visited: true,
+      label: _item.label,
+      path: _item.path,
+      icon_path: _icon_path,
+    },
+    extra_classes: _menu_item_class,
+    extra_attributes: [{
+      name: _menu_item_attributes,
+    }],
+  } %}
+
 {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
   {% set _button_extra_attributes = [{name: 'data-ecl-menu-caret' }] %}
   {% if item.trigger_aria_label is not empty %}
@@ -55,16 +58,15 @@
     }]) %}
   {% endif %}
   {% include '@ecl/button/button.html.twig' with {
-    variant: 'primary',
+    variant: 'ghost',
     type: 'button',
-    disabled: false,
+    hide_label: true,
     icon: {
       name: 'corner-arrow',
       size: 'xs',
       path: icon_path,
       transform: 'rotate-180',
     },
-    icon_position: 'after',
     extra_classes: 'ecl-menu__button-caret',
     extra_attributes: _button_extra_attributes,
   } %}
@@ -83,27 +85,40 @@
         data-ecl-menu-subitem
       >
         {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
-          {% if child.external %}
-            {% set _sublink_class = _sublink_class ~ ' ecl-link--icon-after' %}
-          {% endif %}
-        <a
-          href="{{ child.path }}"
-          class="{{ _sublink_class }}"
-        >
-          {{- child.label -}}
-          {%- if child.external -%}
-            {% include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                path: icon_path,
-                name: 'external',
-                size: '2xs',
-              },
-              extra_classes: 'ecl-menu__sublink-icon ecl-link__icon',
-            } %}
-          {%- endif -%}
-        </a>
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            type: 'standalone',
+            no_visited: true,
+            label: child.label,
+            path: child.path,
+            icon_path: _icon_path,
+            external: child.external,
+          },
+          extra_classes: _sublink_class,
+        } %}
       </li>
     {% endfor %}
+
+    {% if _see_all_label is not empty %}
+      <li class="ecl-menu__subitem ecl-menu__see-all">
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            type: 'standalone',
+            no_visited: true,
+            label: _see_all_label,
+            path: _item.path,
+            icon_path: _icon_path,
+          },
+          icon: {
+            name: 'back',
+            size: 'xs',
+            path: icon_path,
+            transform: 'rotate-180',
+          },
+          extra_classes: 'ecl-menu__sublink',
+        } %}
+      </li>
+    {% endif %}
     </ul>
   </div>
 {% endif %}

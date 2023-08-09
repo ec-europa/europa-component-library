@@ -4,9 +4,18 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   title: 'Menu',
-  close: 'Close',
-  back: 'Back',
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close',
+      size: 'm',
+    },
+    hide_label: true,
+  },
+  back_label: 'Back',
   menu_link: exampleLink,
+  see_all_label: 'See all pages',
   button_previous_label: 'Previous items',
   button_next_label: 'Next items',
   icon_path: '/icons.svg',
@@ -14,6 +23,7 @@ module.exports = {
     { label: 'Home', path: exampleLink },
     {
       label: 'Principles, countries, history',
+      is_current: true,
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [

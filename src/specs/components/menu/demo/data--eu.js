@@ -4,18 +4,26 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   title: 'Menu',
-  close: 'Fermer',
-  back: 'Retour',
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close-filled',
+      size: 's',
+    },
+  },
+  back_label: 'Back',
   menu_link: exampleLink,
+  see_all_label: 'See all pages',
   button_previous_label: 'Previous items',
   button_next_label: 'Next items',
   icon_path: '/icons.svg',
   items: [
-    { label: 'Accueil', path: exampleLink },
+    { label: 'Home', path: exampleLink },
     {
-      label: 'Réglementation, surveillance financière',
-      path: exampleLink,
+      label: 'Principles, countries, history',
       is_current: true,
+      path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
         { label: 'Item 2.1', path: exampleLink },
@@ -28,7 +36,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Marchés financiers',
+      label: 'Institutions, law, budget',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -38,11 +46,11 @@ module.exports = {
       ],
     },
     {
-      label: 'Bancaire',
+      label: 'Priorities and actions',
       path: exampleLink,
     },
     {
-      label: 'Assurances et pensions',
+      label: 'Live, work, study',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -53,7 +61,7 @@ module.exports = {
       ],
     },
     {
-      label: 'Finance durable',
+      label: 'News and events',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
@@ -85,50 +93,6 @@ module.exports = {
         { label: 'Item 6.26', path: exampleLink },
         { label: 'Item 6.27', path: exampleLink },
         { label: 'Item 6.28', path: exampleLink },
-      ],
-    },
-    {
-      label: 'Finance digitale',
-      path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 7.1', path: exampleLink },
-        { label: 'Item 7.2', path: exampleLink },
-        { label: 'Item 7.3', path: exampleLink },
-        { label: 'Item 7.4', path: exampleLink },
-        { label: 'Item 7.5', path: exampleLink },
-        { label: 'Item 7.6', path: exampleLink },
-        { label: 'Item 7.7', path: exampleLink },
-        { label: 'Item 7.8', path: exampleLink },
-        { label: 'Item 7.9', path: exampleLink },
-        { label: 'Item 7.10', path: exampleLink },
-      ],
-    },
-    {
-      label: 'Paiements et services financiers pour les consommateurs',
-      path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 8.1', path: exampleLink },
-        { label: 'Item 8.2', path: exampleLink },
-        { label: 'Item 8.3', path: exampleLink },
-        { label: 'Item 8.4', path: exampleLink },
-        { label: 'Item 8.5', path: exampleLink },
-        { label: 'Item 8.6', path: exampleLink },
-      ],
-    },
-    {
-      label: 'Criminalité financière',
-      path: exampleLink,
-    },
-    {
-      label: 'Relations internationales',
-      path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 10.1', path: exampleLink },
-        { label: 'Item 10.2', path: exampleLink },
-        { label: 'Item 10.3', path: exampleLink },
       ],
     },
   ],

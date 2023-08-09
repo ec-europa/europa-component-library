@@ -62,7 +62,6 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - The icon size is now different in the two systems, the twig template sets it by default to `xs` which is the value for EC, it needs to be
   overridden by the data provided when working with the EU theme to `m`.
-
 - A selector `ecl-accordion__item--active` is now added via our vanilla js to mark the latest item the user interacted with.
 
 ### Breadcrumb
@@ -82,7 +81,6 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Form group
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)
-
 - form-group.html.twig template has been added. Form elements can now be rendered through it by passing an input named object with the same
   properties of the ECL v3 form elements and an additional input_type that can be `text`, `checkbox`, `radio`, `datepicker`, `select`, `file`, `textarea`, `range`, `rating-field`.
 
@@ -102,7 +100,6 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
   implementation to ensure that the accessibility is not compromised.
-
 - The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss`
   and `form-group-print.scss`
 
@@ -121,6 +118,14 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 #### Description list
 
 - Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+
+### Menu
+
+- `close` twig parameter now expect an ECL Button structure, instead of a string
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
+- Close button label is hidden on EC
+- `back` twig paramter has been renamed to `back_label`, to avoid confusion
+- new link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
 
 ### Message
 
