@@ -4,35 +4,34 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
+$accordion-print: null !default;
 
 .ecl-accordion__item {
-  margin-top: map.get(theme.$spacing-print, 'l');
+  margin-top: map.get($theme, 'spacing-print', 'l');
 
   &:first-of-type {
     margin-top: 0;
   }
 }
 
-.ecl-accordion__toggle-icon {
+.ecl-accordion__toggle-icon,
+.ecl-accordion__toggle-label {
   display: none;
 }
 
 .ecl-accordion__title {
-  font: map.get(theme.$font-prolonged-print, 'm');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
+  font: map.get($accordion-print, 'toggle-font');
   margin: 0;
 }
 
 .ecl-accordion__toggle {
-  background-color: transparent;
+  background-color: map.get($accordion-print, 'toggle-background');
   border-width: 0;
-  color: map.get(theme.$color, 'grey');
+  color: map.get($accordion-print, 'toggle-color');
   display: block;
-  font: map.get(theme.$font-prolonged-print, 'm');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
   padding: 0;
   text-align: start;
   width: 100%;
@@ -40,9 +39,9 @@
 
 .ecl-accordion__content,
 .ecl-accordion__content[hidden] {
-  color: map.get(theme.$color, 'grey');
+  color: map.get($accordion-print, 'content-color');
   display: block;
-  font: map.get(theme.$font-prolonged-print, 'm');
-  margin-top: map.get(theme.$spacing-print, 'm');
+  font: map.get($accordion-print, 'content-font');
+  margin-top: map.get($theme, 'spacing-print', 'm');
   page-break-inside: avoid;
 }

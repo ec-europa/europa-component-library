@@ -47,10 +47,14 @@ exports[`Link External renders correctly 1`] = `
       Standalone link
     </span>
     <svg
-      aria-hidden="true"
+      aria-hidden="false"
       class="ecl-icon ecl-icon--2xs ecl-link__icon"
       focusable="false"
+      role="img"
     >
+      <title>
+        Links to an external url
+      </title>
       <use
         xlink:href="static/icons.svg#external"
       />

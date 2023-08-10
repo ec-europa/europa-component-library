@@ -1,0 +1,87 @@
+/**
+ * Page header
+ * @define page-header
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$page-header: null !default;
+$page-header-print: null !default;
+
+.ecl-page-header {
+  padding-bottom: map.get($theme, 'spacing-print', 'xl');
+}
+
+.ecl-page-header__meta {
+  color: map.get($page-header, 'meta-color');
+  font: map.get($page-header, 'meta-font');
+  margin-top: map.get($theme, 'spacing-print', 'm');
+}
+
+.ecl-page-header__meta-item {
+  display: inline;
+  margin-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
+  padding-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
+  position: relative;
+
+  &::before {
+    background-color: map.get($page-header, 'meta-separator-color');
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    left: -2px;
+    position: absolute;
+    top: 8px;
+    width: 4px;
+  }
+
+  &:first-of-type {
+    margin-inline-start: 0;
+    text-transform: uppercase;
+    padding-inline-start: 0;
+  }
+
+  &:first-of-type::before {
+    display: none;
+  }
+}
+
+.ecl-page-header__title {
+  color: map.get($page-header, 'title-color');
+  font: map.get($page-header, 'title-font');
+  margin-bottom: 0;
+  margin-top: map.get($theme, 'spacing-print', '2xs');
+}
+
+.ecl-page-header__description-container {
+  align-items: flex-start;
+  display: flex;
+  margin-top: map.get($theme, 'spacing-print', 's');
+}
+
+.ecl-page-header__description-thumbnail {
+  border: 1px solid var(--ecl-color-neutral-20);
+  margin-inline-end: map.get($theme, 'spacing', 's');
+  max-width: 120px;
+}
+
+.ecl-page-header__description {
+  color: map.get($page-header, 'description-color');
+  font: map.get($page-header, 'description-font');
+  margin-bottom: 0;
+  margin-top: 0;
+  max-width: 80ch;
+}
+
+.ecl-page-header--image {
+  .ecl-page-header__background {
+    display: block;
+    height: 10.875rem;
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 100%;
+  }
+}

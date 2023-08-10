@@ -4,44 +4,32 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-width: null !default;
-$_border-radius-top-left: null !default;
-$_border-radius-bottom-left: null !default;
-$_border-color: null !default;
-$_body-font-mobile: null !default;
-$_body-font-tablet: null !default;
-$_body-font-desktop: null !default;
-$_body-color: null !default;
-$_author-margin-top-desktop: null !default;
-$_author-font-mobile: null !default;
-$_author-font-tablet: null !default;
-$_author-font-desktop: null !default;
-$_author-font-weight: null !default;
-$_author-color: null !default;
-$_padding-left-mobile: null !default;
-$_text-max-width: 65ch; // Approximately 80 characters with the current font
+// Exposed variables
+$theme: null !default;
+$blockquote: null !default;
+
+// Internal variables
+$text-max-width: 65ch; // Approximately 80 characters with the current font
 
 .ecl-blockquote,
 %ecl-blockquote {
-  border-inline-start: $_border-width solid $_border-color;
-  border-start-start-radius: $_border-radius-top-left;
-  border-end-start-radius: $_border-radius-bottom-left;
+  border-inline-start: map.get($blockquote, 'border-width') solid
+    map.get($blockquote, 'border-color');
+  border-radius: map.get($blockquote, 'border-radius');
+  box-shadow: map.get($blockquote, 'shadow');
   margin: 0;
-  padding-bottom: map.get(theme.$spacing, 's');
-  padding-inline-start: $_padding-left-mobile;
-  padding-top: map.get(theme.$spacing, 's');
+  padding: map.get($blockquote, 'padding');
 }
 
 .ecl-blockquote__citation,
 %ecl-blockquote {
-  color: $_body-color;
-  font: $_body-font-mobile;
+  color: map.get($blockquote, 'quote', 'color');
+  font: map.get($blockquote, 'quote', 'font');
   font-style: italic;
   margin: 0;
-  max-width: $_text-max-width;
+  max-width: $text-max-width;
   quotes: '\201C' '\201D';
 
   &::before {
@@ -59,95 +47,69 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
 
 .ecl-blockquote__attribution,
 %ecl-blockquote__author {
-  margin-top: map.get(theme.$spacing, 'm');
-  max-width: $_text-max-width;
+  margin-top: map.get($blockquote, 'author', 'margin');
+  max-width: map.get($blockquote, 'text-max-width');
 }
 
 .ecl-blockquote__author,
 %ecl-blockquote__author {
-  color: $_author-color;
-  font: $_author-font-mobile;
-  font-weight: $_author-font-weight;
+  color: map.get($blockquote, 'author', 'color');
+  font: map.get($blockquote, 'author', 'font-mobile');
+  font-weight: map.get($blockquote, 'author', 'font-weight');
+  position: relative;
+  padding-inline-start: map.get($blockquote, 'author', 'padding');
+
+  &::before {
+    align-items: center;
+    color: map.get($blockquote, 'author', 'color');
+    content: '—';
+    display: inline-flex;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: -1px;
+  }
 }
 
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
   height: 120px;
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: map.get($blockquote, 'image', 'margin-mobile');
   object-fit: cover;
   width: 120px;
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-blockquote,
-  %ecl-blockquote {
-    padding-bottom: map.get(theme.$spacing, 'm');
-    padding-inline-start: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'm');
-  }
-
-  .ecl-blockquote__citation,
-  %ecl-blockquote {
-    font: $_body-font-tablet;
-    font-style: italic;
-  }
-
-  .ecl-blockquote__attribution,
-  %ecl-blockquote__author {
-    margin-top: map.get(theme.$spacing, 'l');
-  }
-
-  .ecl-blockquote__author,
-  %ecl-blockquote__author {
-    font: $_author-font-tablet;
-    font-weight: $_author-font-weight;
-  }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-blockquote,
   %ecl-blockquote {
-    border-inline-start: 0;
+    border-inline-start-width: 0;
+    border-radius: 0;
+    box-shadow: none;
     display: flex;
     flex-direction: row-reverse;
     justify-content: start;
     padding: 0;
   }
 
-  .ecl-blockquote__body,
-  %ecl-blockquote {
-    border-inline-start: $_border-width solid $_border-color;
-    border-start-start-radius: $_border-radius-top-left;
-    border-end-start-radius: $_border-radius-bottom-left;
-    display: inline-block;
-    padding-bottom: map.get(theme.$spacing, 'm');
-    padding-inline-start: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'm');
-  }
-
-  .ecl-blockquote__citation,
-  %ecl-blockquote {
-    font: $_body-font-desktop;
-    font-style: italic;
-  }
-
-  .ecl-blockquote__attribution,
-  %ecl-blockquote__author {
-    margin-top: $_author-margin-top-desktop;
+  .ecl-blockquote__body {
+    border-inline-start: map.get($blockquote, 'border-width') solid
+      map.get($blockquote, 'border-color');
+    border-radius: map.get($blockquote, 'border-radius');
+    box-shadow: map.get($blockquote, 'shadow');
+    padding: map.get($blockquote, 'padding');
   }
 
   .ecl-blockquote__author,
   %ecl-blockquote__author {
-    font: $_author-font-desktop;
-    font-weight: $_author-font-weight;
+    font: map.get($blockquote, 'author', 'font-desktop');
+    font-weight: map.get($blockquote, 'author', 'font-weight');
   }
 
   .ecl-blockquote__image,
   %ecl-blockquote__image {
-    margin-inline-end: map.get(theme.$spacing, 'l');
+    margin-inline-end: map.get($blockquote, 'image', 'margin-desktop');
     margin-top: 0;
   }
 }

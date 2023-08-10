@@ -19,6 +19,7 @@ Semantic colors:
 - Primary
 - Secondary
 - Dark
+- Info
 - Success
 - Warning
 - Error
@@ -28,8 +29,9 @@ Semantic colors:
 Most of these semantic colors are also defined in different tint, to cover extra needs (mouse hover, focus, ...).
 The naming convention is as follow:
 
-- lighter tint uses `color-X`. Ex: primary-10, dark-20
-- darker tint uses `colorX`. Ex: primary10, dark20
+- main color uses `color-100`, or just `color`. Ex: primary-100, dark
+- lighter colors use smaller numbers. Ex: primary-80, dark-20
+- darker colors use larger numbers. Ex: primary-120, dark-140
 
 ### Typography
 
@@ -55,6 +57,13 @@ Inner and negative shadows are also not part of EC styles anymore.
 Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2XS to 4XL). Default value is still the same: spacing M is 1rem
 
 ## Component modifications
+
+### Accordion
+
+- The icon size is now different in the two systems, the twig template sets it by default to `xs` which is the value for EC, it needs to be
+  overridden by the data provided when working with the EU theme to `m`.
+
+- A selector `ecl-accordion__item--active` is now added via our vanilla js to mark the latest item the user interacted with.
 
 ### Breadcrumb
 
@@ -116,7 +125,13 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Message
 
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
-- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Button label is also hidden on EC.
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
+- Close button label is hidden on EC
+
+### Page header
+
+- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
+- Wrapper `ecl-page-header__title-container` has been removed
 
 ### Search form
 
@@ -137,6 +152,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Twig parameter `message` has been renamed to `notification`
 - CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
+- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
+- Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 
 ### Table
 

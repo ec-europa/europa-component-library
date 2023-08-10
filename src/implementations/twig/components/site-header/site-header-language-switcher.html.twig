@@ -13,7 +13,7 @@
           "non_eu_category": (string) (default: ''): Label for non-EU languages
           "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
             {
-              "close_label": (string) (default: ''): Close button label eg. 'Close'.
+              "close": (associative array) (default: {}): Close button, following ECL Button structure
               "title": (string) (default: ''): Overlay title, eg. 'Select your language'.
               "items": (array) (default: []): (array) (default: []): format: [
                 {
@@ -82,18 +82,15 @@
       >
         {{- _language_selector.overlay.title -}}
       </div>
-      {% include '@ecl/button/button.html.twig' with {
-        label: _language_selector.overlay.close_label,
-        variant: 'ghost',
-        icon: {
-          path: _icon_file_path,
-          name: 'close-filled',
-          size: 's'
-        },
-        hide_label: true,
-        extra_classes: 'ecl-site-header__language-close',
-        extra_attributes: [{ name: 'data-ecl-language-list-close' }],
-      } only %}
+      {% if _language_selector.overlay.close is not empty %}
+        {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
+          variant: 'ghost',
+          extra_classes: 'ecl-site-header__language-close',
+          extra_attributes: [{
+            name: 'data-ecl-language-list-close',
+          }],
+        }) only %}
+      {% endif %}
     </div>
 
     <div class="ecl-site-header__language-content">

@@ -56,6 +56,7 @@ export class Accordion {
     this.label = null;
 
     // Bind `this` for use in callbacks
+    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
@@ -63,17 +64,16 @@ export class Accordion {
    * Initialise component.
    */
   init() {
+    document.addEventListener('click', this.handleClickOutside);
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
     this.label = queryOne(this.labelSelector, this.element);
-
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
-        toggle.addEventListener(
-          'click',
-          this.handleClickOnToggle.bind(this, toggle),
+        toggle.addEventListener('click', (event) =>
+          this.handleClickOnToggle(event, toggle),
         );
       });
     }
@@ -86,6 +86,7 @@ export class Accordion {
    * Destroy component.
    */
   destroy() {
+    document.removeEventListener('click', this.handleClickOutside);
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
         toggle.replaceWith(toggle.cloneNode(true));
@@ -97,9 +98,20 @@ export class Accordion {
   }
 
   /**
+   * @param {e} Event
+   */
+  handleClickOutside(e) {
+    if (e.target && this.toggles && !this.element.contains(e.target)) {
+      this.toggles.forEach((item) =>
+        item.classList.remove('ecl-accordion__toggle--active'),
+      );
+    }
+  }
+
+  /**
    * @param {HTMLElement} toggle Target element to toggle.
    */
-  handleClickOnToggle(toggle) {
+  handleClickOnToggle(event, toggle) {
     // Get target element
     const target = queryOne(
       `#${toggle.getAttribute('aria-controls')}`,
@@ -152,7 +164,13 @@ export class Accordion {
       }
     }
 
-    return this;
+    this.toggles.forEach((item) =>
+      item.classList.remove('ecl-accordion__toggle--active'),
+    );
+    // This is the way we distinguish the click from a press on Enter
+    if (event.detail > 0) {
+      toggle.classList.add('ecl-accordion__toggle--active');
+    }
   }
 }
 

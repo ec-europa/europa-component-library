@@ -25,7 +25,10 @@
 );
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-eu';
+@use '@ecl/vanilla-component-blockquote/blockquote' with (
+  $theme: theme.$theme,
+  $blockquote: var.$blockquote
+);
 @use '@ecl/vanilla-component-button/button' with (
   $theme: theme.$theme,
   $button: var.$button
@@ -94,18 +97,27 @@
 @use '@ecl/vanilla-component-timeline/timeline-eu';
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion-eu';
+@use '@ecl/vanilla-component-accordion/accordion-eu' with (
+  $theme: theme.$theme,
+  $accordion: var.$accordion
+);
 @use '@ecl/vanilla-component-carousel/carousel-eu';
 @use '@ecl/vanilla-component-category-filter/category-filter-eu';
 @use '@ecl/vanilla-component-gallery/gallery-eu';
-@use '@ecl/vanilla-component-page-header/page-header-eu';
+@use '@ecl/vanilla-component-page-header/page-header-eu' with (
+  $theme: theme.$theme,
+  $page-header: var.$page-header
+);
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-eu';
 @use '@ecl/vanilla-component-menu/menu-eu';
 @use '@ecl/vanilla-component-site-footer/site-footer-eu' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer
 );
-@use '@ecl/vanilla-component-site-header/site-header-eu';
+@use '@ecl/vanilla-component-site-header/site-header-eu' with (
+  $theme: theme.$theme,
+  $site-header: var.$site-header
+);
 
 // Utilities
 @use '@ecl/vanilla-utility-background/background';

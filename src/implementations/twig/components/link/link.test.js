@@ -74,6 +74,10 @@ describe('Link', () => {
         path: defaultIconPath,
         name: 'test',
       },
+      as_image: true,
+      extra_accessibility: {
+        title: 'Links to an external url',
+      },
     });
 
     test('renders correctly', () => {
