@@ -6,6 +6,7 @@
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -16,22 +17,22 @@ $site-header: null !default;
   $language-switcher: map.get($site-header, 'language-switcher')
 );
 
-$_logo-height-xs: 1.75rem;
-$_logo-width-xs: 7rem;
-$_logo-height-sm: 3rem;
-$_logo-width-sm: 12.1rem;
-$_logo-height-lg: 3.75rem;
-$_logo-width-lg: 15.1rem;
-$_logo-height-xl: 4.5rem;
-$_logo-width-xl: 18.1rem;
-$_search-width-l: 25rem;
-$_search-width-xl: 31.5rem;
-
 .ecl-site-header {
-  background-color: map.get(theme.$color, 'white-100');
+  box-shadow: map.get($theme, 'shadow', '6');
   margin: 0;
   position: relative;
-  z-index: map.get(theme.$z-index, 'modal');
+  z-index: map.get($theme, 'z-index', 'modal');
+
+  .ecl-site-header__background {
+    background-color: map.get($site-header, 'background-color');
+    background-image: url('data:image/svg+xml;base64,' + map.get(
+        $site-header,
+        'background-image'
+      ));
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+  }
 
   .ecl-menu {
     background: transparent;
@@ -47,7 +48,7 @@ $_search-width-xl: 31.5rem;
   }
 
   .ecl-site-header__cta {
-    margin-top: map.get(theme.$spacing, 's');
+    margin-top: map.get($theme, 'spacing', 's');
     position: relative;
     width: max-content;
     z-index: 1;
@@ -61,8 +62,8 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
-  padding-bottom: map.get(theme.$spacing, 'xs');
-  padding-top: map.get(theme.$spacing, 'xs');
+  padding-bottom: map.get($theme, 'spacing', 'xs');
+  padding-top: map.get($theme, 'spacing', 'xs');
   position: static;
 }
 
@@ -73,14 +74,13 @@ $_search-width-xl: 31.5rem;
   justify-content: space-between;
 }
 
-.ecl-site-header__logo-link {
-  flex-grow: 1;
-}
-
 .ecl-site-header__logo-image {
   display: block;
-  max-height: $_logo-height-xs;
-  max-width: $_logo-width-xs; // hack to allow logo to be resized dynamically
+  max-height: map.get($site-header, 'logo-height-xs');
+  max-width: map.get(
+    $site-header,
+    'logo-width-xs'
+  ); // hack to allow logo to be resized dynamically
 }
 
 .ecl-site-header__action {
@@ -90,63 +90,84 @@ $_search-width-xl: 31.5rem;
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle {
   align-items: center;
+  color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
-  font: map.get(theme.$font, 'xs');
-  padding: map.get(theme.$spacing, 'xs');
+  margin-inline-start: map.get($theme, 'spacing', 'm');
   position: relative;
   text-align: center;
-  z-index: map.get(theme.$z-index, 'modal') + 2;
+  z-index: map.get($theme, 'z-index', 'modal') + 2;
 
-  &[aria-expanded='true'],
-  &[aria-expanded='true']:focus-visible {
-    background-color: map.get(theme.$color, 'blue-5');
-    border-color: map.get(theme.$color, 'blue-25');
-    border-style: solid;
-    /* stylelint-disable-next-line shorthand-property-no-redundant-values */
-    border-width: 1px 1px 0 1px;
-    margin-bottom: 0;
-    margin-bottom: -#{map.get(theme.$spacing, 'xs')};
-    padding: calc(#{map.get(theme.$spacing, 'xs')} - 1px)
-      calc(#{map.get(theme.$spacing, 'xs')} - 1px);
-    padding-bottom: calc(
-      #{map.get(theme.$spacing, 's')} + #{map.get(theme.$spacing, 'xs')} - 4px
-    );
-  }
-}
-
-.ecl-site-header__login-toggle {
   .ecl-site-header__login-arrow {
     display: none;
+  }
+
+  &:focus-visible {
+    color: map.get($site-header, 'toggle-color');
+  }
+
+  &:active,
+  &.ecl-site-header__login-toggle--active,
+  &.ecl-site-header__search-toggle--active {
+    background-color: var(--ecl-color-neutral);
   }
 }
 
 .ecl-site-header__language-selector {
-  font: map.get(theme.$font, 'xs');
+  color: map.get($site-header, 'toggle-color');
+  margin-inline-start: map.get($theme, 'spacing', 'm');
   text-align: center;
+  text-transform: uppercase;
+
+  &:focus-visible {
+    color: map.get($site-header, 'toggle-color');
+  }
+
+  &:active,
+  &.ecl-site-header__language-selector--active {
+    background-color: var(--ecl-color-neutral);
+  }
 }
 
 .ecl-site-header__login-box,
 .ecl-site-header__search {
-  background-color: map.get(theme.$color, 'blue-5');
-  border: 1px solid map.get(theme.$color, 'blue-25');
-  box-shadow: map.get(theme.$shadow, '3');
+  background-color: map.get($theme, 'color', 'white');
+  border-top: 1px solid map.get($site-header, 'login-box-border-color');
+  box-shadow: map.get($theme, 'shadow', '1');
   box-sizing: content-box;
-  color: map.get(theme.$color, 'grey');
+  color: map.get($theme, 'color', 'grey');
   display: none;
-  font: map.get(theme.$font-prolonged, 's');
+  font: map.get($theme, 'font', 's');
   left: 0;
-  margin-top: calc(#{map.get(theme.$spacing, 'xs')} - 1px);
-  padding: calc(#{map.get(theme.$spacing, 'm')} - 1px);
+  margin-top: calc(#{map.get($theme, 'spacing', 'm')} - 1px);
+  padding: map.get($theme, 'spacing', '3xl') map.get($theme, 'spacing', 'm');
   position: absolute;
   width: calc(
-    100% - #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, 'm')}
+    100% - #{map.get($theme, 'spacing', 'm')} - #{map.get(
+        $theme,
+        'spacing',
+        'm'
+      )}
   );
-  z-index: map.get(theme.$z-index, 'modal') + 1;
+  z-index: map.get($theme, 'z-index', 'modal') + 1;
 }
 
-.ecl-site-header__login-box--active {
-  display: block;
+.ecl-site-header__login-box {
+  border-radius: map.get($theme, 'border-radius', 's');
+  box-sizing: border-box;
+  left: 0;
+  width: 100%;
+
+  &::before {
+    @include site-header-language-switcher.arrow-up;
+
+    left: auto;
+    right: var(--ecl-login-arrow-position);
+  }
+
+  &.ecl-site-header__login-box--active {
+    display: block;
+  }
 }
 
 .ecl-site-header__login-description {
@@ -155,11 +176,11 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header__login-separator {
-  background-color: map.get(theme.$color, 'blue-25');
+  background-color: map.get($theme, 'color', 'blue-25');
   border-width: 0;
   height: 1px;
-  margin-bottom: map.get(theme.$spacing, 'm');
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-bottom: map.get($theme, 'spacing', 'm');
+  margin-top: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-site-header__language-icon {
@@ -171,29 +192,37 @@ $_search-width-xl: 31.5rem;
 
 .ecl-site-header__search--active {
   display: flex;
+
+  &::before {
+    @include site-header-language-switcher.arrow-up;
+
+    left: auto;
+    right: var(--ecl-search-arrow-position);
+  }
 }
 
 .ecl-site-header__notification {
   display: flex;
 
   .ecl-notification {
-    margin-bottom: map.get(theme.$spacing, 'm');
+    margin-bottom: map.get($theme, 'spacing', 'm');
   }
 }
 
 .ecl-site-header__banner-top {
-  background-color: map.get(theme.$color, 'blue-5');
-  font: map.get(theme.$font-prolonged, 's');
-  padding: map.get(theme.$spacing, 'xs') 0;
+  background: map.get($site-header, 'background-color');
+  border-top: 1px solid map.get($theme, 'color', 'neutral-40');
+  font: map.get($theme, 'font', 's');
+  padding: map.get($theme, 'spacing', 'xs') 0;
 }
 
 .ecl-site-header__banner {
-  background-color: map.get(theme.$color, 'blue-100');
-  color: map.get(theme.$color, 'white-100');
+  background-color: map.get($site-header, 'banner-background');
+  color: map.get($site-header, 'banner-text-color');
   display: block;
-  font: map.get(theme.$font, '2xl');
+  font: map.get($theme, 'font', 'l');
   min-height: 1.75rem;
-  padding: map.get(theme.$spacing, 'm') 0;
+  padding: map.get($theme, 'spacing', 's') 0;
 
   .ecl-container {
     display: flex;
@@ -202,7 +231,27 @@ $_search-width-xl: 31.5rem;
 }
 
 .ecl-site-header__site-name {
-  margin-inline-end: map.get(theme.$spacing, '3xl');
+  margin-inline-end: map.get($theme, 'spacing', '3xl');
+}
+
+@include breakpoints.down('m') {
+  .ecl-site-header__login-toggle,
+  .ecl-site-header__search-toggle,
+  .ecl-site-header__language-selector {
+    background: map.get($theme, 'color', 'white');
+    font-size: 0;
+    line-height: 0;
+    padding: calc(map.get($theme, 'spacing', 'xs') - 1px);
+
+    &:hover {
+      padding: map.get($theme, 'spacing', 'xs');
+    }
+
+    .ecl-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -212,15 +261,14 @@ $_search-width-xl: 31.5rem;
   }
 
   .ecl-site-header__container {
-    padding-bottom: map.get(theme.$spacing, 's');
-    padding-top: map.get(theme.$spacing, 's');
+    padding-bottom: map.get($theme, 'spacing', 's');
+    padding-top: map.get($theme, 'spacing', 's');
   }
 
   .ecl-site-header__logo-image {
-    height: $_logo-height-sm;
+    height: map.get($site-header, 'logo-height-sm');
     max-height: 100%;
     max-width: 100%;
-    width: $_logo-width-sm;
   }
 }
 
@@ -240,15 +288,15 @@ $_search-width-xl: 31.5rem;
 
     .ecl-site-header__cta {
       align-self: start;
-      margin: map.get(theme.$spacing, 'm') 0;
+      margin: map.get($theme, 'spacing', 'm') 0;
 
       &:only-child {
-        margin-top: map.get(theme.$spacing, 'm');
+        margin-top: map.get($theme, 'spacing', 'm');
       }
     }
 
     .ecl-menu {
-      background-color: map.get(theme.$color, 'blue-100');
+      background-color: map.get($theme, 'color', 'blue-100');
       position: static;
       width: 100%;
     }
@@ -257,15 +305,15 @@ $_search-width-xl: 31.5rem;
   .ecl-site-header__container {
     align-items: flex-end;
     flex-direction: row;
-    padding-bottom: map.get(theme.$spacing, 'l');
-    padding-top: map.get(theme.$spacing, 'l');
+    padding-bottom: map.get($theme, 'spacing', 'xl');
+    padding-top: map.get($theme, 'spacing', 'xl');
   }
 
   .ecl-site-header__site-name {
     align-self: center;
     flex-grow: 1;
     margin-inline-end: 0;
-    padding: map.get(theme.$spacing, 'l') 0;
+    padding: map.get($theme, 'spacing', 's') 0;
   }
 
   .ecl-site-header__top {
@@ -280,15 +328,30 @@ $_search-width-xl: 31.5rem;
     margin-bottom: 0;
   }
 
+  .ecl-site-header__search--active::before {
+    display: none;
+  }
+
   .ecl-site-header__logo-image {
-    height: $_logo-height-lg;
-    width: $_logo-width-lg;
+    height: map.get($site-header, 'logo-height-lg');
+    width: map.get($site-header, 'logo-width-lg');
+  }
+
+  .ecl-site-header__login-container {
+    position: relative;
   }
 
   .ecl-site-header__login-box {
-    left: auto;
-    margin-top: calc(#{map.get(theme.$spacing, 'l')} - 1px);
+    left: 50%;
+    margin-top: calc(#{map.get($theme, 'spacing', 'l')} - 1px);
+    min-width: 15rem;
+    padding: map.get($theme, 'spacing', '3xl');
+    transform: translateX(-50%);
     width: auto;
+
+    &::before {
+      left: 50%;
+    }
   }
 
   .ecl-site-header__login-toggle,
@@ -296,25 +359,25 @@ $_search-width-xl: 31.5rem;
     align-items: center;
     display: flex;
     flex-direction: row;
-    font: map.get(theme.$font, 'm');
+    font: map.get($theme, 'font', 'm');
   }
 
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-icon {
     .ecl-site-header__icon {
-      height: map.get(theme.$icon, 'm');
-      margin-inline-end: map.get(theme.$spacing, 'xs');
-      width: map.get(theme.$icon, 'm');
+      height: 1rem;
+      margin-inline-end: map.get($theme, 'spacing', 'xs');
+      width: 1rem;
     }
   }
 
   .ecl-site-header__login-toggle {
     .ecl-site-header__login-arrow {
       display: block;
-      height: map.get(theme.$icon, 'xs');
-      margin-inline-start: map.get(theme.$spacing, 'xs');
+      height: map.get($theme, 'icon', 'xs');
+      margin-inline-start: map.get($theme, 'spacing', 'xs');
       transform: rotate(0);
-      width: map.get(theme.$icon, 'xs');
+      width: map.get($theme, 'icon', 'xs');
     }
 
     &[aria-expanded='false'] {
@@ -326,37 +389,36 @@ $_search-width-xl: 31.5rem;
 
   .ecl-site-header__search-toggle {
     display: none;
-  }
-
-  .ecl-site-header__login-toggle,
-  .ecl-site-header__search-toggle {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
 
     &[aria-expanded='true'],
     &[aria-expanded='true']:focus-visible {
-      margin-bottom: -#{map.get(theme.$spacing, 'l')};
-      padding: calc(#{map.get(theme.$spacing, 's')} - 1px)
-        calc(#{map.get(theme.$spacing, 'm')} - 1px);
+      margin-bottom: -#{map.get($theme, 'spacing', 'l')};
+      padding: calc(#{map.get($theme, 'spacing', 's')} - 1px)
+        calc(#{map.get($theme, 'spacing', 'm')} - 1px);
       padding-bottom: calc(
-        #{map.get(theme.$spacing, 's')} + #{map.get(theme.$spacing, 'l')}
+        #{map.get($theme, 'spacing', 's')} + #{map.get($theme, 'spacing', 'l')}
       );
     }
   }
 
   .ecl-site-header__language-code {
-    font: map.get(theme.$font, 'xs');
-    margin-inline-end: map.get(theme.$spacing, 'xs');
+    font: map.get($theme, 'font', 'xs');
+    margin-inline-end: map.get($theme, 'spacing', 'xs');
     transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
       translateY(-0.08rem);
   }
 
   .ecl-site-header__search-container {
     flex-grow: 1;
-    margin-inline-start: map.get(theme.$spacing, 's');
+    margin-inline-start: map.get($theme, 'spacing', '3xl');
+
+    .ecl-search-form__button {
+      color: map.get($site-header, 'toggle-color');
+    }
   }
 
   .ecl-site-header__search {
-    background-color: map.get(theme.$color, 'white');
+    background-color: map.get($theme, 'color', 'white');
     border-width: 0;
     box-shadow: none;
     display: flex;
@@ -364,19 +426,15 @@ $_search-width-xl: 31.5rem;
     padding: 0;
     position: relative;
     top: 0;
-    width: $_search-width-l;
+    width: map.get($site-header, 'search-width-l');
   }
 
   .ecl-site-header__notification .ecl-notification {
-    margin-bottom: map.get(theme.$spacing, 'l');
-  }
-
-  .ecl-site-header__banner-top {
-    font: map.get(theme.$font-prolonged, 'm');
+    margin-bottom: map.get($theme, 'spacing', 'xl');
   }
 
   .ecl-site-header__banner {
-    font: map.get(theme.$font, '3xl');
+    font: map.get($theme, 'font', 'l');
     min-height: 0;
     padding: 0;
 
@@ -388,11 +446,11 @@ $_search-width-xl: 31.5rem;
 
 @include breakpoints.up('xl') {
   .ecl-site-header__logo-image {
-    height: $_logo-height-xl;
-    width: $_logo-width-xl;
+    height: map.get($site-header, 'logo-height-xl');
+    width: map.get($site-header, 'logo-width-xl');
   }
 
   .ecl-site-header__search {
-    width: $_search-width-xl;
+    width: map.get($site-header, 'search-width-xl');
   }
 }

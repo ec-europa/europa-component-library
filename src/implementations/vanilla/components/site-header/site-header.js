@@ -95,6 +95,8 @@ export class SiteHeader {
     this.toggleOverlay = this.toggleOverlay.bind(this);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.toggleLogin = this.toggleLogin.bind(this);
+    this.setLoginArrow = this.setLoginArrow.bind(this);
+    this.setSearchArrow = this.setSearchArrow.bind(this);
     this.handleKeyboardLanguage = this.handleKeyboardLanguage.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
@@ -105,6 +107,7 @@ export class SiteHeader {
    * Initialise component.
    */
   init() {
+    this.arrowSize = '0.5rem';
     // Bind global events
     if (this.attachKeyListener) {
       document.addEventListener('keyup', this.handleKeyboardGlobal);
@@ -324,10 +327,9 @@ export class SiteHeader {
       // Adapt arrow position
       const arrowPosition =
         containerRect.right - linkRect.right + linkRect.width / 2;
-      const arrowSize = '0.5rem';
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${arrowSize})`,
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
       );
     }
 
@@ -344,11 +346,24 @@ export class SiteHeader {
       // Adapt arrow position
       const arrowPosition =
         popoverRect.right - linkRect.right + linkRect.width / 2;
-      const arrowSize = '0.5rem';
+
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px - ${arrowSize})`,
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
       );
+    }
+
+    if (
+      this.loginBox &&
+      this.loginBox.classList.contains('ecl-site-header__login-box--active')
+    ) {
+      this.setLoginArrow();
+    }
+    if (
+      this.searchForm &&
+      this.searchForm.classList.contains('ecl-site-header__search--active')
+    ) {
+      this.setSearchArrow();
     }
   }
 
@@ -382,10 +397,16 @@ export class SiteHeader {
     e.preventDefault();
 
     if (this.languageListOverlay.hasAttribute('hidden')) {
+      this.languageLink.classList.add(
+        'ecl-site-header__language-selector--active',
+      );
       this.openOverlay();
       this.updateOverlay();
       this.focusTrap.activate();
     } else {
+      this.languageLink.classList.remove(
+        'ecl-site-header__language-selector--active',
+      );
       this.focusTrap.deactivate();
     }
   }
@@ -395,12 +416,21 @@ export class SiteHeader {
    * Uses a debounce, for performance
    */
   handleResize() {
-    if (this.languageListOverlay.hasAttribute('hidden')) return;
-
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(() => {
-      this.updateOverlay();
-    }, 200);
+    if (
+      (this.languageListOverlay &&
+        !this.languageListOverlay.hasAttribute('hidden')) ||
+      (this.loginBox &&
+        this.loginBox.classList.contains(
+          'ecl-site-header__login-box--active',
+        )) ||
+      (this.searchForm &&
+        this.searchForm.classList.contains('ecl-site-header__search--active'))
+    ) {
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => {
+        this.updateOverlay();
+      }, 200);
+    }
   }
 
   /**
@@ -442,10 +472,44 @@ export class SiteHeader {
       'aria-expanded',
       isExpanded ? 'false' : 'true',
     );
+
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header__search--active');
+      this.searchToggle.classList.add('ecl-site-header__search-toggle--active');
+      this.setSearchArrow();
     } else {
       this.searchForm.classList.remove('ecl-site-header__search--active');
+      this.searchToggle.classList.remove(
+        'ecl-site-header__search-toggle--active',
+      );
+    }
+  }
+
+  setLoginArrow() {
+    const loginRect = this.loginBox.getBoundingClientRect();
+    if (loginRect.x === 0) {
+      const loginToggleRect = this.loginToggle.getBoundingClientRect();
+      const arrowPosition =
+        window.innerWidth - loginToggleRect.right + loginToggleRect.width / 2;
+
+      this.loginBox.style.setProperty(
+        '--ecl-login-arrow-position',
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
+      );
+    }
+  }
+
+  setSearchArrow() {
+    const searchRect = this.searchForm.getBoundingClientRect();
+    if (searchRect.x === 0) {
+      const searchToggleRect = this.searchToggle.getBoundingClientRect();
+      const arrowPosition =
+        window.innerWidth - searchToggleRect.right + searchToggleRect.width / 2;
+
+      this.searchForm.style.setProperty(
+        '--ecl-search-arrow-position',
+        `calc(${arrowPosition}px - ${this.arrowSize})`,
+      );
     }
   }
 
@@ -478,8 +542,13 @@ export class SiteHeader {
     );
     if (!isExpanded) {
       this.loginBox.classList.add('ecl-site-header__login-box--active');
+      this.loginToggle.classList.add('ecl-site-header__login-toggle--active');
+      this.setLoginArrow();
     } else {
       this.loginBox.classList.remove('ecl-site-header__login-box--active');
+      this.loginToggle.classList.remove(
+        'ecl-site-header__login-toggle--active',
+      );
     }
   }
 
