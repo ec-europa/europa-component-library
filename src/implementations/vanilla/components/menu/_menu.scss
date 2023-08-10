@@ -14,7 +14,7 @@ $menu: null !default;
  * Menu structure
  */
 .ecl-menu {
-  background: map.get($menu, 'background-mobile');
+  background: map.get($menu, 'mobile', 'menu-background');
   box-shadow: map.get($menu, 'shadow');
   color: map.get($menu, 'color');
   margin: 0;
@@ -28,37 +28,6 @@ $menu: null !default;
   position: initial; // Needed for full screen overlay
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-menu:not(.ecl-menu--forced-mobile) {
-    background: map.get($menu, 'background-desktop');
-    padding-bottom: 0;
-    padding-top: 0;
-
-    .ecl-menu__inner {
-      background-color: transparent;
-      display: block;
-      overflow-y: visible;
-      position: relative;
-      right: 0;
-      transition: none;
-      width: 100%;
-      z-index: map.get($theme, 'z-index', 'modal');
-    }
-
-    .ecl-menu__inner--has-overflow {
-      overflow-x: clip;
-    }
-
-    .ecl-menu__overlay {
-      display: none;
-    }
-  }
-}
-
-/*
- * Menu header
- */
 .ecl-menu__banner {
   display: flex;
   flex-direction: column;
@@ -102,19 +71,17 @@ $menu: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
+    background: map.get($menu, 'desktop', 'menu-background');
+    padding-bottom: 0;
+    padding-top: 0;
+
     .ecl-menu__container {
       display: block;
     }
 
-    .ecl-menu__site-name {
-      display: none;
-    }
-
+    .ecl-menu__site-name,
     .ecl-menu__inner-header,
-    .ecl-menu__open {
-      display: none;
-    }
-
+    .ecl-menu__open,
     .ecl-menu__cta {
       display: none;
     }
@@ -125,7 +92,7 @@ $menu: null !default;
  * Inner menu
  */
 .ecl-menu__inner {
-  background: map.get($menu, 'overlay', 'background');
+  background: map.get($menu, 'mobile', 'content-background');
   bottom: 0;
   display: none;
   overflow-y: auto;
@@ -149,9 +116,9 @@ $menu: null !default;
 
 .ecl-menu__inner-header {
   align-items: center;
-  background: map.get($menu, 'overlay', 'header-background');
-  box-shadow: map.get($menu, 'overlay', 'header-shadow');
-  color: map.get($menu, 'overlay', 'header-color');
+  background: map.get($menu, 'mobile', 'header-background');
+  box-shadow: map.get($menu, 'mobile', 'header-shadow');
+  color: map.get($menu, 'mobile', 'header-color');
   display: flex;
   flex-flow: row-reverse;
   padding: map.get($theme, 'spacing', 'xs') 0;
@@ -161,7 +128,7 @@ $menu: null !default;
 }
 
 .ecl-menu__title {
-  font: map.get($menu, 'overlay', 'header-font');
+  font: map.get($menu, 'mobile', 'header-font');
   padding-inline-start: map.get($theme, 'spacing', 'm');
 }
 
@@ -208,7 +175,7 @@ $menu: null !default;
   cursor: pointer;
   color: currentcolor;
   display: none;
-  font: map.get($menu, 'overlay', 'header-font');
+  font: map.get($menu, 'mobile', 'header-font');
   text-decoration: none;
 
   &:hover {
@@ -241,7 +208,7 @@ $menu: null !default;
   }
 
   .ecl-menu__overlay {
-    background-color: map.get($menu, 'overlay-background');
+    background-color: map.get($menu, 'mobile', 'overlay-background');
     content: '';
     display: none;
     height: 100%;
@@ -255,6 +222,30 @@ $menu: null !default;
 
   .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
     display: block;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-menu:not(.ecl-menu--forced-mobile) {
+    .ecl-menu__inner {
+      background-color: transparent;
+      display: block;
+      overflow-y: visible;
+      position: relative;
+      right: 0;
+      transition: none;
+      width: 100%;
+      z-index: map.get($theme, 'z-index', 'modal');
+    }
+
+    .ecl-menu__inner--has-overflow {
+      overflow-x: clip;
+    }
+
+    .ecl-menu__overlay {
+      display: none;
+    }
   }
 }
 
@@ -278,7 +269,7 @@ $menu: null !default;
 }
 
 .ecl-menu__item {
-  border-top: map.get($menu, 'overlay', 'item-border');
+  border-top: map.get($menu, 'mobile', 'item-border');
   display: flex;
   position: relative;
 }
@@ -286,16 +277,16 @@ $menu: null !default;
 .ecl-menu__link {
   align-items: center;
   box-sizing: content-box;
-  color: map.get($menu, 'overlay', 'item-color');
+  color: map.get($menu, 'mobile', 'item-color');
   display: inline-flex;
   flex-grow: 1;
-  font: map.get($menu, 'overlay', 'item-font');
+  font: map.get($menu, 'mobile', 'item-font');
   justify-content: space-between;
-  padding: map.get($menu, 'overlay', 'item-padding');
+  padding: map.get($menu, 'mobile', 'item-padding');
   position: relative;
 
   &:hover {
-    color: map.get($menu, 'overlay', 'item-color-hover');
+    color: map.get($menu, 'mobile', 'item-color-hover');
   }
 
   &:focus-visible {
@@ -304,15 +295,15 @@ $menu: null !default;
 }
 
 .ecl-menu__item--current .ecl-menu__link {
-  background-color: map.get($menu, 'overlay', 'item-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($menu, 'overlay', 'item-active-border');
+  background-color: map.get($menu, 'mobile', 'item-active-background');
+  box-shadow: inset 4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
 }
 
 .ecl-menu__button-caret {
   align-self: stretch;
-  background-color: map.get($menu, 'overlay', 'caret-background');
+  background-color: map.get($menu, 'mobile', 'caret-background');
   border-radius: 0;
-  color: map.get($menu, 'overlay', 'caret-color');
+  color: map.get($menu, 'mobile', 'caret-color');
   cursor: pointer;
   display: inline-flex;
   margin-inline-start: 2px;
@@ -331,20 +322,21 @@ $menu: null !default;
   }
 
   &:hover {
-    background-color: map.get($menu, 'overlay', 'caret-background-hover');
+    background-color: map.get($menu, 'mobile', 'caret-background-hover');
   }
 
   &:focus-visible {
-    background-color: map.get($menu, 'overlay', 'caret-background-focus');
-    color: map.get($menu, 'overlay', 'caret-color');
+    background-color: map.get($menu, 'mobile', 'caret-background-focus');
+    color: map.get($menu, 'mobile', 'caret-color');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile) {
+    border-top: map.get($menu, 'desktop', 'menu-border');
+
     .ecl-menu__list {
-      background-color: map.get($menu, 'list-background');
       flex-direction: row;
       left: 0;
       right: 0;
@@ -355,26 +347,29 @@ $menu: null !default;
 
     .ecl-menu__item {
       border-top-width: 0;
-      margin-inline-start: 1px;
+      color: map.get($menu, 'desktop', 'item-color');
+      margin-inline-start: -1px;
+      padding-inline-end: 1px;
+
+      &:first-of-type {
+        margin-inline-start: 0;
+      }
+
+      &:hover {
+        box-shadow: map.get($menu, 'desktop', 'item-shadow-hover');
+      }
     }
 
     // Separator
     .ecl-menu__item::before,
     .ecl-menu__item:last-child::after {
       content: '';
-      background-color: map.get($menu, 'desktop-item-border-color');
+      background-color: map.get($menu, 'desktop', 'separator-color');
       display: block;
-      margin-bottom: map.get($theme, 'spacing', 's');
-      margin-top: map.get($theme, 'spacing', 's');
+      flex-shrink: 0;
+      margin-bottom: map.get($theme, 'spacing', 'xs');
+      margin-top: map.get($theme, 'spacing', 'xs');
       width: 1px;
-    }
-
-    .ecl-menu__item::before {
-      margin-inline-start: -1px;
-    }
-
-    .ecl-menu__item:last-child::after {
-      margin-inline-end: -1px;
     }
 
     // Hide separators in some cases
@@ -386,117 +381,33 @@ $menu: null !default;
       background-color: transparent;
     }
 
-    // Previous / Next items
-    .ecl-menu__items-previous {
-      border-inline-end: 4px solid map.get($menu, 'desktop-item-border-color');
-      border-radius: map.get($menu, 'border-radius') 0 0
-        map.get($menu, 'border-radius');
-      left: 0;
-    }
-
-    .ecl-menu__items-next {
-      border-inline-start: 4px solid map.get($menu, 'desktop-item-border-color');
-      border-radius: 0 map.get($menu, 'border-radius')
-        map.get($menu, 'border-radius') 0;
-      right: 0;
-    }
-
-    .ecl-menu__items-previous,
-    .ecl-menu__items-next {
-      background-color: map.get($theme, 'color', 'blue-100');
-      color: map.get($theme, 'color', 'white-100');
-      display: none;
-      height: 100%;
-      margin: 0;
-      padding: 0 map.get($theme, 'spacing', 's');
-      position: absolute;
-      top: 0;
-      z-index: map.get($theme, 'z-index', 'modal') + 2;
-
-      &::before,
-      &:last-child::after {
-        display: none;
-      }
-
-      &:hover {
-        color: map.get($menu, 'item-hover-color');
-      }
-
-      &.ecl-menu__item--current {
-        box-shadow: none;
-        color: map.get($theme, 'color', 'blue-100');
-      }
-    }
-
-    .ecl-menu__link-icon {
-      flex-shrink: 0;
-      height: map.get($theme, 'icon', '2xs');
-      margin-inline-start: map.get($menu, 'item-icon-margin');
-      width: map.get($theme, 'icon', '2xs');
-    }
-
-    /* stylelint-disable no-descending-specificity */
-    .ecl-menu__inner--expanded .ecl-menu__item,
-    .ecl-menu__inner--expanded .ecl-menu__link-icon {
-      display: block;
-    }
-    /* stylelint-enable no-descending-specificity */
-
     .ecl-menu__item--full {
       position: static;
     }
 
-    // Special hack for IE
-    @media all and (-ms-high-contrast: none) {
-      .ecl-menu__item {
-        position: static;
-      }
-    }
-
     .ecl-menu__link {
-      background-color: transparent;
       box-sizing: border-box;
       box-shadow: none;
-      color: map.get($theme, 'color', 'white');
+      color: currentcolor;
       display: inline-flex;
       font: map.get($theme, 'font', 'm');
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      padding: calc(
-          #{map.get($theme, 'spacing', '2xs')} + #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )}
-        )
-        map.get($theme, 'spacing', '2xs')
-        calc(
-          #{map.get($theme, 'spacing', '2xs')} + #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )}
-        )
-        map.get($theme, 'spacing', 'xs');
+      line-height: map.get($menu, 'desktop', 'link-line-height');
+      padding: map.get($menu, 'desktop', 'link-padding');
       width: auto;
       z-index: 0;
     }
 
-    .ecl-menu__link:hover,
-    .ecl-menu__link:focus {
-      text-decoration: underline;
-    }
-
     .ecl-menu__item--current {
-      background-color: map.get($menu, 'desktop-link-active-background');
-      box-shadow:
-        inset 2px 0 0 map.get($theme, 'color', 'blue-100'),
-        inset -2px 0 0 map.get($theme, 'color', 'blue-100');
+      background-color: map.get($menu, 'desktop', 'item-current-background');
+      box-shadow: map.get($menu, 'desktop', 'item-current-shadow');
+      color: map.get($menu, 'desktop-link-active-color');
+      margin-top: map.get($menu, 'desktop', 'item-current-margin');
     }
 
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__link:active {
-      color: map.get($menu, 'desktop-link-active-color');
+      background-color: transparent;
+      color: currentcolor;
     }
 
     .ecl-menu__link:focus-visible {
@@ -512,18 +423,22 @@ $menu: null !default;
 
     .ecl-menu__button-caret {
       background: transparent;
-      padding: calc(
-          #{map.get($theme, 'spacing', '2xs')} + #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )}
-        )
-        map.get($theme, 'spacing', 's');
+      border-width: 0;
+      color: currentcolor;
+      margin-inline-start: 0;
+      padding: map.get($menu, 'desktop', 'caret-padding');
+
+      .ecl-button__container {
+        width: auto;
+      }
 
       .ecl-button__icon {
-        fill: map.get($theme, 'color', 'white');
+        fill: currentcolor;
         transform: scale(map.get($menu, 'caret-icon-scale')) rotate(180deg);
+      }
+
+      &:hover {
+        box-shadow: none;
       }
 
       &:focus-visible {
@@ -547,11 +462,76 @@ $menu: null !default;
         outline-offset: -4px;
       }
     }
+
+    // Previous / Next items
+    .ecl-menu__items-previous {
+      border-inline-end: map.get($menu, 'desktop', 'overflow-border');
+      border-radius: map.get($menu, 'border-radius') 0 0
+        map.get($menu, 'border-radius');
+      left: 0;
+
+      &:hover {
+        border-inline-end: map.get($menu, 'desktop', 'overflow-border-hover');
+      }
+    }
+
+    .ecl-menu__items-next {
+      border-inline-start: map.get($menu, 'desktop', 'overflow-border');
+      border-radius: 0 map.get($menu, 'border-radius')
+        map.get($menu, 'border-radius') 0;
+      right: 0;
+
+      &:hover {
+        border-inline-start: map.get($menu, 'desktop', 'overflow-border-hover');
+      }
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .ecl-menu__items-previous,
+    .ecl-menu__items-next {
+      display: none;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      z-index: map.get($theme, 'z-index', 'modal') + 2;
+
+      &::before,
+      &:last-child::after {
+        display: none;
+      }
+
+      &:hover {
+        color: map.get($menu, 'desktop', 'overflow-color-hover');
+        background-color: map.get(
+          $menu,
+          'desktop',
+          'overflow-background-hover'
+        );
+      }
+
+      &.ecl-menu__item--current {
+        box-shadow: none;
+      }
+    }
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__item[aria-expanded='true'] .ecl-button__icon {
       transform: scale(map.get($menu, 'caret-icon-scale')) rotate(0);
+    }
+
+    .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
+      margin-bottom: -1px;
+      padding: map.get($menu, 'desktop', 'link-expanded-padding');
+      z-index: map.get($theme, 'z-index', 'dropdown');
+    }
+
+    .ecl-menu__item[aria-expanded='true'] .ecl-menu__button-caret {
+      margin-bottom: -1px;
+      padding-bottom: 1px;
+      z-index: map.get($theme, 'z-index', 'dropdown');
     }
 
     .ecl-menu__item[aria-expanded='true'],
@@ -595,10 +575,10 @@ $menu: null !default;
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu__link {
     background-color: transparent;
-    border-bottom: map.get($menu, 'overlay', 'subtitle-border');
+    border-bottom: map.get($menu, 'mobile', 'subtitle-border');
     box-shadow: none;
-    font: map.get($menu, 'overlay', 'subtitle-font');
-    font-weight: map.get($menu, 'overlay', 'subtitle-font-weight');
+    font: map.get($menu, 'mobile', 'subtitle-font');
+    font-weight: map.get($menu, 'mobile', 'subtitle-font-weight');
   }
 }
 
@@ -634,18 +614,18 @@ $menu: null !default;
 }
 
 .ecl-menu__subitem {
-  border-top: map.get($menu, 'overlay', 'item-border');
+  border-top: map.get($menu, 'mobile', 'item-border');
 }
 
 .ecl-menu__sublink {
-  color: map.get($menu, 'overlay', 'item-color');
+  color: map.get($menu, 'mobile', 'item-color');
   display: block;
-  font: map.get($menu, 'overlay', 'item-font');
-  padding: map.get($menu, 'overlay', 'subitem-padding');
+  font: map.get($menu, 'mobile', 'item-font');
+  padding: map.get($menu, 'mobile', 'subitem-padding');
   position: relative;
 
   &:hover {
-    color: map.get($menu, 'overlay', 'item-color-hover');
+    color: map.get($menu, 'mobile', 'item-color-hover');
   }
 
   &:focus-visible {
@@ -654,8 +634,8 @@ $menu: null !default;
 }
 
 .ecl-menu__subitem--current .ecl-menu__sublink {
-  background-color: map.get($menu, 'overlay', 'item-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($menu, 'overlay', 'item-active-border');
+  background-color: map.get($menu, 'mobile', 'item-active-background');
+  box-shadow: inset 4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
 }
 
 .ecl-menu__see-all {
@@ -667,6 +647,7 @@ $menu: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
     .ecl-menu__mega {
       background-color: map.get($theme, 'color', 'white-100');
+      border: map.get($menu, 'desktop', 'mega-border');
       border-radius: map.get($menu, 'drowpdown-border-radius');
       box-shadow: map.get($menu, 'dropdown-shadow');
       display: flex;
@@ -734,20 +715,6 @@ $menu: null !default;
       column-count: 4;
     }
 
-    // Special hack for IE
-    @media all and (-ms-high-contrast: none) {
-      .ecl-menu__mega {
-        left: 0;
-        right: 0;
-      }
-
-      .ecl-menu__sublist {
-        break-inside: avoid;
-        column-count: 4;
-        display: block;
-      }
-    }
-
     .ecl-menu__subitem {
       align-items: center;
       border-top-width: 0;
@@ -774,10 +741,10 @@ $menu: null !default;
       box-shadow: inset 4px 0 0 0 map.get($theme, 'color', 'blue-100');
       font-weight: map.get($theme, 'font-weight', 'regular');
     }
-  }
 
-  .ecl-menu__see-all {
-    display: none;
+    .ecl-menu__see-all {
+      display: none;
+    }
   }
 }
 

@@ -281,14 +281,15 @@ $list: (
 );
 
 // Menu
+// stylelint-disable scss/operator-no-unspaced
 $menu: (
-  background-mobile: var(--ecl-color-neutral-40),
-  background-desktop: map.get($color, 'white'),
   color: var(--ecl-color-dark),
   color-focus: var(--ecl-color-primary),
   shadow: none,
-  overlay: (
-    background: var(--ecl-color-background),
+  mobile: (
+    menu-background: var(--ecl-color-neutral-40),
+    content-background: var(--ecl-color-background),
+    overlay-background: rgba(0, 0, 0, 0.5),
     header-background: var(--ecl-color-primary),
     header-font: map.get($font, 'l'),
     header-color: map.get($color, 'white'),
@@ -309,6 +310,35 @@ $menu: (
     subtitle-font-weight: map.get($font-weight, 'bold'),
     subitem-padding: map.get($spacing, 'xs') map.get($spacing, 'm')
       map.get($spacing, 'xs') map.get($spacing, '2xl'),
+  ),
+  desktop: (
+    menu-background: map.get($color, 'white'),
+    menu-border: 1px solid var(--ecl-color-primary),
+    item-color: var(--ecl-color-dark),
+    item-shadow-hover: #{inset 1px 0 0 var(--ecl-color-dark),
+    inset -1px 0 0 var(--ecl-color-dark)},
+    item-current-background: var(--ecl-color-neutral-40),
+    item-current-shadow: #{inset 1px 0 0 var(--ecl-color-primary),
+    inset -1px 0 0 var(--ecl-color-primary),
+    inset 0 -4px 0 var(--ecl-color-primary)},
+    item-current-margin: -1px,
+    separator-color: var(--ecl-color-dark-80),
+    link-padding: calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
+      map.get($spacing, '2xs')
+      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
+      map.get($spacing, 'xs'),
+    link-expanded-padding:
+      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
+      map.get($spacing, '2xs')
+      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')} + 1px)
+      map.get($spacing, 'xs'),
+    link-line-height: map.get($line-height, 'xs'),
+    caret-padding: 0 map.get($spacing, 'xs'),
+    overflow-border: 2px solid var(--ecl-color-primary),
+    overflow-border-hover: 2px solid var(--ecl-color-primary-140),
+    overflow-background-hover: var(--ecl-color-primary-140),
+    overflow-color-hover: map.get($color, 'white'),
+    mega-border: 1px solid var(--ecl-color-dark),
   ),
 
   border-radius: 0,

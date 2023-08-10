@@ -129,16 +129,16 @@ module.exports = {
     {
       label: 'Participate, interact, vote',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      children: [
+        { label: 'Item 9.1', path: exampleLink },
+        { label: 'Item 9.2', path: exampleLink },
+        { label: 'Item 9.3', path: exampleLink },
+      ],
     },
     {
       label: 'Jobs & traineeships in EU institutions',
       path: exampleLink,
-      trigger_aria_label: "Access item's children",
-      children: [
-        { label: 'Item 10.1', path: exampleLink },
-        { label: 'Item 10.2', path: exampleLink },
-        { label: 'Item 10.3', path: exampleLink },
-      ],
     },
   ],
 };

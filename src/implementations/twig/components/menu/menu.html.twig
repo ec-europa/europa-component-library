@@ -128,7 +128,7 @@
       {% if _icon_path is not empty %}
         {% include '@ecl/button/button.html.twig' with {
           type: 'button',
-          variant: 'ghost',
+          variant: 'primary',
           icon_position: 'before',
           icon: {
             path: _icon_path,
@@ -138,7 +138,7 @@
           },
           label: _button_previous_label,
           hide_label: true,
-          extra_classes: 'ecl-menu__item ecl-menu__items-previous',
+          extra_classes: 'ecl-menu__items-previous',
           extra_attributes: [
             { name: 'data-ecl-menu-items-previous' },
             { name: 'tabindex', value: '-1'},
@@ -147,7 +147,7 @@
 
         {% include '@ecl/button/button.html.twig' with {
           type: 'button',
-          variant: 'ghost',
+          variant: 'primary',
           icon_position: 'before',
           icon: {
             path: _icon_path,
@@ -157,7 +157,7 @@
           },
           label: _button_next_label,
           hide_label: true,
-          extra_classes: 'ecl-menu__item ecl-menu__items-next',
+          extra_classes: 'ecl-menu__items-next',
           extra_attributes: [
             { name: 'data-ecl-menu-items-next' },
             { name: 'tabindex', value: '-1'},

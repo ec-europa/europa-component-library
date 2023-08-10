@@ -125,7 +125,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Close button label is hidden on EC
 - `back` twig paramter has been renamed to `back_label`, to avoid confusion
-- new link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
+- New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
+- Buttons for menu overlay no longer uses the class `ecl-menu__item`
 
 ### Message
 
