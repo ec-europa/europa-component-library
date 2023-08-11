@@ -76,11 +76,7 @@ $site-header: null !default;
 
 .ecl-site-header__logo-image {
   display: block;
-  max-height: map.get($site-header, 'logo-height-xs');
-  max-width: map.get(
-    $site-header,
-    'logo-width-xs'
-  ); // hack to allow logo to be resized dynamically
+  height: map.get($site-header, 'logo-height-xs');
 }
 
 .ecl-site-header__action {
@@ -107,8 +103,7 @@ $site-header: null !default;
   }
 
   &:active,
-  &.ecl-site-header__login-toggle--active,
-  &.ecl-site-header__search-toggle--active {
+  &[aria-expanded='true'] {
     background-color: var(--ecl-color-neutral);
   }
 }
@@ -124,7 +119,7 @@ $site-header: null !default;
   }
 
   &:active,
-  &.ecl-site-header__language-selector--active {
+  &[aria-expanded='true'] {
     background-color: var(--ecl-color-neutral);
   }
 }
@@ -133,7 +128,7 @@ $site-header: null !default;
 .ecl-site-header__search {
   background-color: map.get($theme, 'color', 'white');
   border-top: 1px solid map.get($site-header, 'login-box-border-color');
-  box-shadow: map.get($theme, 'shadow', '1');
+  box-shadow: map.get($theme, 'shadow', '12');
   box-sizing: content-box;
   color: map.get($theme, 'color', 'grey');
   display: none;
@@ -205,14 +200,14 @@ $site-header: null !default;
   display: flex;
 
   .ecl-notification {
-    margin-bottom: map.get($theme, 'spacing', 'm');
+    margin-bottom: map.get($theme, 'spacing', 'xs');
   }
 }
 
 .ecl-site-header__banner-top {
   background: map.get($site-header, 'background-color');
   border-top: 1px solid map.get($theme, 'color', 'neutral-40');
-  font: map.get($theme, 'font', 's');
+  font: map.get($theme, 'font', 'm');
   padding: map.get($theme, 'spacing', 'xs') 0;
 }
 
@@ -254,24 +249,6 @@ $site-header: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-site-header__logo-link {
-    flex-grow: 0;
-  }
-
-  .ecl-site-header__container {
-    padding-bottom: map.get($theme, 'spacing', 's');
-    padding-top: map.get($theme, 'spacing', 's');
-  }
-
-  .ecl-site-header__logo-image {
-    height: map.get($site-header, 'logo-height-sm');
-    max-height: 100%;
-    max-width: 100%;
-  }
-}
-
 @include breakpoints.up('m') {
   .ecl-site-header__logo-link {
     margin-top: 0;
@@ -287,8 +264,8 @@ $site-header: null !default;
     z-index: 2;
 
     .ecl-site-header__cta {
-      align-self: start;
-      margin: map.get($theme, 'spacing', 'm') 0;
+      align-self: center;
+      margin: 0;
 
       &:only-child {
         margin-top: map.get($theme, 'spacing', 'm');
@@ -334,7 +311,6 @@ $site-header: null !default;
 
   .ecl-site-header__logo-image {
     height: map.get($site-header, 'logo-height-lg');
-    width: map.get($site-header, 'logo-width-lg');
   }
 
   .ecl-site-header__login-container {
@@ -344,7 +320,7 @@ $site-header: null !default;
   .ecl-site-header__login-box {
     left: 50%;
     margin-top: calc(#{map.get($theme, 'spacing', 'l')} - 1px);
-    min-width: 15rem;
+    min-width: 20rem;
     padding: map.get($theme, 'spacing', '3xl');
     transform: translateX(-50%);
     width: auto;
@@ -368,22 +344,6 @@ $site-header: null !default;
       height: 1rem;
       margin-inline-end: map.get($theme, 'spacing', 'xs');
       width: 1rem;
-    }
-  }
-
-  .ecl-site-header__login-toggle {
-    .ecl-site-header__login-arrow {
-      display: block;
-      height: map.get($theme, 'icon', 'xs');
-      margin-inline-start: map.get($theme, 'spacing', 'xs');
-      transform: rotate(0);
-      width: map.get($theme, 'icon', 'xs');
-    }
-
-    &[aria-expanded='false'] {
-      .ecl-site-header__login-arrow {
-        transform: rotate(180deg);
-      }
     }
   }
 
@@ -445,11 +405,6 @@ $site-header: null !default;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-site-header__logo-image {
-    height: map.get($site-header, 'logo-height-xl');
-    width: map.get($site-header, 'logo-width-xl');
-  }
-
   .ecl-site-header__search {
     width: map.get($site-header, 'search-width-xl');
   }

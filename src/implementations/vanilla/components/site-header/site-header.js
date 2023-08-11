@@ -397,16 +397,10 @@ export class SiteHeader {
     e.preventDefault();
 
     if (this.languageListOverlay.hasAttribute('hidden')) {
-      this.languageLink.classList.add(
-        'ecl-site-header__language-selector--active',
-      );
       this.openOverlay();
       this.updateOverlay();
       this.focusTrap.activate();
     } else {
-      this.languageLink.classList.remove(
-        'ecl-site-header__language-selector--active',
-      );
       this.focusTrap.deactivate();
     }
   }
@@ -475,13 +469,9 @@ export class SiteHeader {
 
     if (!isExpanded) {
       this.searchForm.classList.add('ecl-site-header__search--active');
-      this.searchToggle.classList.add('ecl-site-header__search-toggle--active');
       this.setSearchArrow();
     } else {
       this.searchForm.classList.remove('ecl-site-header__search--active');
-      this.searchToggle.classList.remove(
-        'ecl-site-header__search-toggle--active',
-      );
     }
   }
 
@@ -542,13 +532,9 @@ export class SiteHeader {
     );
     if (!isExpanded) {
       this.loginBox.classList.add('ecl-site-header__login-box--active');
-      this.loginToggle.classList.add('ecl-site-header__login-toggle--active');
       this.setLoginArrow();
     } else {
       this.loginBox.classList.remove('ecl-site-header__login-box--active');
-      this.loginToggle.classList.remove(
-        'ecl-site-header__login-toggle--active',
-      );
     }
   }
 
@@ -580,14 +566,10 @@ export class SiteHeader {
       this.languageLink && this.languageLink.getAttribute('aria-expanded');
     const loginExpanded =
       this.loginToggle &&
-      this.loginToggle.classList.contains(
-        'ecl-site-header__login-toggle--active',
-      );
+      this.loginToggle.getAttribute('aria-expanded') === 'true';
     const searchExpanded =
       this.searchToggle &&
-      this.searchToggle.classList.contains(
-        'ecl-site-header__search-toggle--active',
-      );
+      this.searchToggle.getAttribute('aria-expanded') === 'true';
     // Check if the language list is open
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
