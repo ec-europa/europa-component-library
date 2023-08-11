@@ -576,13 +576,18 @@ export class SiteHeader {
    */
   handleClickGlobal(e) {
     if (!this.languageLink && !this.searchToggle && !this.loginToggle) return;
-    const listExpanded = this.languageLink.getAttribute('aria-expanded');
-    const loginExpanded = this.loginToggle.classList.contains(
-      'ecl-site-header__login-toggle--active',
-    );
-    const searchExpanded = this.searchToggle.classList.contains(
-      'ecl-site-header__search-toggle--active',
-    );
+    const listExpanded =
+      this.languageLink && this.languageLink.getAttribute('aria-expanded');
+    const loginExpanded =
+      this.loginToggle &&
+      this.loginToggle.classList.contains(
+        'ecl-site-header__login-toggle--active',
+      );
+    const searchExpanded =
+      this.searchToggle &&
+      this.searchToggle.classList.contains(
+        'ecl-site-header__search-toggle--active',
+      );
     // Check if the language list is open
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
