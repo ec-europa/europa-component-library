@@ -575,9 +575,14 @@ export class SiteHeader {
    * @param {Event} e
    */
   handleClickGlobal(e) {
-    if (!this.languageLink) return;
+    if (!this.languageLink && !this.searchToggle && !this.loginToggle) return;
     const listExpanded = this.languageLink.getAttribute('aria-expanded');
-
+    const loginExpanded = this.loginToggle.classList.contains(
+      'ecl-site-header__login-toggle--active',
+    );
+    const searchExpanded = this.searchToggle.classList.contains(
+      'ecl-site-header__search-toggle--active',
+    );
     // Check if the language list is open
     if (listExpanded === 'true') {
       // Check if the click occured in the language popover
@@ -586,6 +591,22 @@ export class SiteHeader {
         !this.languageLink.contains(e.target)
       ) {
         this.toggleOverlay(e);
+      }
+    }
+    if (loginExpanded) {
+      if (
+        !this.loginBox.contains(e.target) &&
+        !this.loginToggle.contains(e.target)
+      ) {
+        this.toggleLogin(e);
+      }
+    }
+    if (searchExpanded) {
+      if (
+        !this.searchForm.contains(e.target) &&
+        !this.searchToggle.contains(e.target)
+      ) {
+        this.toggleSearch(e);
       }
     }
   }

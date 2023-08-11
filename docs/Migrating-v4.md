@@ -154,6 +154,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
+- A container is added as first child of the root element of the component, with this class: `ecl-site-header__background`, it is needed in EC to handle the background image.
+- An active style is now associated to the usage of the buttons, log-in, search (mobile), language switcher, this is achieved with an additional class added (by our js):
+  - `ecl-site-header__login-toggle--active`
+  - `ecl-site-header__language-selector--active`
+  - `ecl-site-header__search-toggle--active`
 
 ### Table
 
