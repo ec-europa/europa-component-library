@@ -46,12 +46,6 @@ jobs:
           flags: --recursive
       - name: Install zip
         uses: montudor/action-zip@v1
-      - name: List contents before zipping
-        run: |
-          ls -R dist/website
-          ls -R dist/packages/ec
-          ls -R dist/packages/eu
-
       - name: Create the package
         run: |
           zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}.zip .
@@ -71,7 +65,7 @@ jobs:
       - name: Deploy packages to github
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json;dist/packages/ec/*.zip'
+          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json;dist/packages/ec/*.zip;dist/packages/eu/*.zip'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Build the archive
