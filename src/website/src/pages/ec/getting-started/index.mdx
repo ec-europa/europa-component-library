@@ -5,9 +5,9 @@ title: Getting started
 
 import { Link } from '@ecl/website-components';
 
-The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
+The Europa Component Library is a design system defining the visual identity of the European Commission on the web.
 
-We provide design guidelines and code to help users create consistent and accessible government web presence.
+It provides design guidelines and code to help users create consistent and accessible web presence.
 
 All library elements are accompanied by:
 
@@ -19,7 +19,46 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use ECL
 
-Here is an example of default HTML file using ECL:
+ECL distributes its resources in different way, depending on the implementation approach, things might change, but generally speaking, given the HTML markup defined by ECL, using the distrbuted css and javascript on top of it it would ensure the desired look and feel.
+
+### Where to get it?
+
+**ECL is distributed mainly as npm packages providing the needed resources, this is the recommended way of getting it**, when used in a node project it is surely the easiest and more reliable way, the new versions can be automatically detected and fetched and the ECL resources could be even rebuilt on the client side by fetching all the needed packages one by one.
+
+In every release, starting from 3.9.1, a file containing a list of all the available packages on npm is deployed on the github release page, this list is quite long and you don't surely need, in a normal situation, to know all the available packages as you don't need to fetch them all.
+
+#### Main package
+
+The main ECL package that is absolutely needed is:
+
+- preset-ec
+
+In this package all the css, js and resources like icons and logos are present, there is no need, then, to look for other packages holding part of these resources.
+
+### Alternative approaches:
+
+ECL is also distributing its resources on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach the ecl resources:
+`https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
+
+Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/ec/styles/optional/ecl-ec-default.css
+
+These resources can be used loading them directly from the CDN, knowing that it's not possible to serve svgs from an external domain, though, for this to happen check the "additional information" section below.
+
+For css and js files, if loaded from the CDN, it is recommended to add an integrity attribute for each of the files loaded using the sri codes you find in every release page.
+
+Ex: `<link
+  rel="stylesheet"
+  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/ec/styles/optional/ecl-ec-default.css"
+  integrity="sha256-XlVWuOrSIX13Qh+TIFD6TEdWkd3Ke94QZi552iwvbUk= sha384-nHJLW2KyTiXPnjHGmc7bWbV61vKnB2q1Uz6A3xKtgz6oSV8l4Wn5kUA2qIOdJzDG sha512-E7CQ1HqyVZGFKLOi/eEAuptkMJ7uc6CFYK+J9hI8DiRpUf6v66tW0Tf3ccSprlBN3OnvmEojqaCwidvl8TGxKw=="
+  crossorigin="anonymous"
+  media="screen"
+/>`
+
+For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them "locally"**.
+
+In order to ease the access to the package containing them, the main package mentioned before: `preset-ec` is also deployed in the github release page and can be downloaded from there.
+
+Here is an example of a default HTML file using ECL:
 
 ```html
 <!doctype html>
@@ -36,33 +75,27 @@ Here is an example of default HTML file using ECL:
     </script>
     <link
       rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec.css"
-      integrity="[sri hash of ecl-ec.css]"
-      crossorigin="anonymous"
+      href="/styles/optional/ecl-reset.css"
       media="screen"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/styles/ecl-ec-print.css"
-      integrity="[sri hash of ecl-ec-print.css]"
-      crossorigin="anonymous"
-      media="print"
-    />
+    <link rel="stylesheet" href="/styles/ecl-ec.css" media="screen" />
+    <link rel="stylesheet" href="/styles/ecl-ec-print.css" media="print" />
   </head>
   <body>
     <!-- content of your page here -->
 
-    <script
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/[ECL_VERSION]/ec/scripts/ecl-ec.js"
-      integrity="[sri hash of ecl-ec.js]"
-      crossorigin="anonymous"
-    ></script>
+    <script src="/scripts/ecl-ec.js"></script>
     <script>
       ECL.autoInit();
     </script>
   </body>
 </html>
 ```
+
+This assumes your `preset-ec` filesystems is directly accessible in the root of your project, change the path according to your environment.
+
+In this example the main ECL css and js are defined and in addition a css for print and the reset css are added.
+There are also other optional css files distributed that can be used, for further information about them check below.
 
 ### moment.js
 
