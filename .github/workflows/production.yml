@@ -46,15 +46,27 @@ jobs:
           flags: --recursive
       - name: Install zip
         uses: montudor/action-zip@v1
+      - name: List contents before zipping
+        run: |
+          ls -R dist/website
+          ls -R dist/packages/ec
+          ls -R dist/packages/eu
+
       - name: Create the package
         run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/website
+
       - name: Create the EC preset package
         run: zip -r -qq ec-preset-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/packages/ec
+
       - name: Create the EU preset package
         run: zip -r -qq eu-preset-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/packages/eu
+
+      - name: List contents after zipping
+        run: |
+          ls -R
       - name: Deploy packages to github
         uses: AButler/upload-release-assets@v2.0
         with:
