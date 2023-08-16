@@ -196,6 +196,21 @@ $site-header: null !default;
   }
 }
 
+.ecl-search-form__button {
+  &:hover {
+    border-left: none;
+    color: var(--ecl-color-dark);
+  }
+
+  &:focus-visible {
+    color: var(--ecl-color-dark);
+  }
+
+  &:active {
+    background-color: var(--ecl-color-neutral);
+  }
+}
+
 .ecl-site-header__notification {
   display: flex;
 
