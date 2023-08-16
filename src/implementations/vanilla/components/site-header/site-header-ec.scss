@@ -197,6 +197,8 @@ $site-header: null !default;
 }
 
 .ecl-search-form__button {
+  color: map.get($site-header, 'toggle-color');
+
   &:hover {
     border-left: none;
     color: var(--ecl-color-dark);
