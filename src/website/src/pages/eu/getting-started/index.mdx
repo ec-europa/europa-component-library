@@ -47,6 +47,10 @@ The main ECL package that is usually needed in any environment where ECL is goin
 
 In this package all the css, js and resources like icons and logos are present, there is no need, then, to look for other packages holding part of these resources.
 
+`npm install @ecl/preset-eu`
+OR
+`yarn add @ecl/preset-eu`
+
 ### Alternative approaches:
 
 ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach them:
@@ -55,16 +59,6 @@ ECL is also distributing its presets on a CDN, all the files distributed in the 
 Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/eu/styles/optional/ecl-eu-default.css
 
 These resources can be used loading them directly from the CDN, with the limitation that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
-
-For css and js files, if loaded from the CDN, it is recommended to add an integrity attribute for each of the files loaded using the `sri` codes you find in every release page in the `Assets`.
-
-Ex: `<link
-  rel="stylesheet"
-  href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/eu/styles/optional/ecl-eu-default.css"
-  integrity="sha256-XlVWuOrSIX13Qh+TIFD6TEdWkd3Ke94QZi552iwvbUk= sha384-nHJLW2KyTiXPnjHGmc7bWbV61vKnB2q1Uz6A3xKtgz6oSV8l4Wn5kUA2qIOdJzDG sha512-E7CQ1HqyVZGFKLOi/eEAuptkMJ7uc6CFYK+J9hI8DiRpUf6v66tW0Tf3ccSprlBN3OnvmEojqaCwidvl8TGxKw=="
-  crossorigin="anonymous"
-  media="screen"
-/>`
 
 For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them in the same domain where they are going to be used**.
 
