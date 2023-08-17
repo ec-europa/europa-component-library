@@ -152,24 +152,23 @@ $button-print: (
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
   label-spacing: map.get($spacing, 'xl'),
-  primary-meta-color: map.get($color, 'grey-75'),
-  title-font: (
-    'mobile': map.get($font, 'l'),
-    'desktop': map.get($font, 'xl'),
-  ),
-  title-font-weight: map.get($font-weight, 'bold'),
-  text-color: map.get($color, 'grey-100'),
-  secondary-meta-color: map.get($color, 'grey-75'),
-  secondary-meta-icon-color: map.get($color, 'grey-75'),
+  primary-meta-color: var(--ecl-color-text-primary),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'normal'),
+  text-color: var(--ecl-color-dark),
+  secondary-meta-color: var(--ecl-color-dark),
   secondary-meta-margin: map.get($spacing, 'm') 0 map.get($spacing, 'xl'),
   link-separator-color: map.get($color, 'grey-15'),
   title-margin: map.get($spacing, '2xs') 0 map.get($spacing, 's'),
+  list-margin: map.get($spacing, 'l') 0 0,
 );
 
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),
   term-font: map.get($font, 'm'),
+  term-margin-bottom: 0,
+  term-margin-top: map.get($spacing, 'xl'),
   definition-color: var(--ecl-color-dark),
   taxonomy-color: var(--ecl-color-dark),
   term-width: 210px,
@@ -478,6 +477,7 @@ $spinner: (
   --ecl-color-warning: #{map.get($color, 'warning')};
   --ecl-color-background: #{map.get($color, 'background')};
   --ecl-color-branding: #{map.get($color, 'branding')};
+  --ecl-color-text-primary: #{map.get($color, 'text-primary')};
   --ecl-color-neutral: #{map.get($color, 'neutral-100')};
   --ecl-color-neutral-180: #{map.get($color, 'neutral-180')};
   --ecl-color-neutral-160: #{map.get($color, 'neutral-160')};

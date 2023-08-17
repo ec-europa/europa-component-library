@@ -49,10 +49,11 @@ $content-block: null !default;
 
 .ecl-content-block__primary-meta-item {
   border-inline-end: 1px solid map.get($theme, 'color', 'blue-100');
+  color: map.get($content-block, 'primary-meta-color');
   display: inline;
   margin-bottom: map.get($theme, 'spacing', 'xs');
-  margin-inline-end: map.get($theme, 'spacing', 'm');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  padding-inline-end: map.get($theme, 'spacing', 'xs');
   unicode-bidi: isolate;
 
   &:last-child {
@@ -64,7 +65,7 @@ $content-block: null !default;
 
 .ecl-content-block__title {
   color: map.get($content-block, 'text-color');
-  font: map.get($content-block, 'title-font', 'mobile');
+  font: map.get($content-block, 'title-font');
   font-weight: map.get($content-block, 'title-font-weight');
   margin: map.get($content-block, 'title-margin');
   max-width: 65ch;
@@ -115,14 +116,14 @@ $content-block: null !default;
 }
 
 .ecl-content-block__link-container {
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-top: map.get($theme, 'spacing', 'xl');
 }
 
 .ecl-content-block__link-list {
   border-top: 1px solid map.get($content-block, 'link-separator-color');
   list-style: none;
-  margin: map.get($theme, 'spacing', 'l') 0 0;
-  padding: map.get($theme, 'spacing', 'l') 0 0;
+  margin: map.get($content-block, 'list-margin');
+  padding: map.get($content-block, 'list-margin');
 
   &:first-child {
     border-top-width: 0;
@@ -163,11 +164,4 @@ $content-block: null !default;
 
 .ecl-content-block > *:first-child {
   margin-top: 0;
-}
-
-@include breakpoints.up('l') {
-  .ecl-content-block__title {
-    font: map.get($content-block, 'title-font', 'desktop');
-    font-weight: map.get($content-block, 'title-font-weight');
-  }
 }
