@@ -152,6 +152,30 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Date block
+$date-block: (
+  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
+    map.get($spacing, 'xs'),
+  padding-day-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
+    map.get($spacing, '2xs'),
+  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, '2xs')
+    map.get($spacing, '2xs'),
+  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
+    map.get($spacing, '2xs'),
+  padding-year-mobile: map.get($spacing, '2xs'),
+  padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
+  text-color: var(--ecl-color-dark-140),
+  circle-width: 10px,
+  separator-color: transparent,
+  separator-color-past: var(--ecl-color-blue-20),
+  border-color-past: transparent,
+  background-color-cancelled: var(--ecl-color-dark-20),
+  background-color-year: map.get($color, 'white-100'),
+  shadow: map.get($shadow, '1'),
+  shadow-decoration: map.get($shadow-inner, '1'),
+  border-radius: 8px,
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark-140),

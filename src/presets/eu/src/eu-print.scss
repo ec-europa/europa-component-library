@@ -28,7 +28,10 @@
   $button: var.$button,
   $button-print: var.$button-print
 );
-@use '@ecl/vanilla-component-date-block/date-block-print';
+@use '@ecl/vanilla-component-date-block/date-block-print' with (
+  $theme: theme.$theme,
+  $date-block: var.$date-block
+);
 @use '@ecl/vanilla-component-label/label-print' with (
   $theme: theme.$theme,
   $label: var.$label,

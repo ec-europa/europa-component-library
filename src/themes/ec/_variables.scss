@@ -148,6 +148,40 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 'xs'),
 );
 
+// Date Block
+$date-block: (
+  max-height: 5.75rem,
+  padding-top: map.get($spacing, 'xs'),
+  padding-day-mobile: map.get($spacing, 's') map.get($spacing, 'xs')
+    map.get($spacing, '2xs'),
+  padding-day-desktop: map.get($spacing, 's') map.get($spacing, 'xs')
+    map.get($spacing, '2xs'),
+  padding-month-mobile: 0 map.get($spacing, 'xs') map.get($spacing, 's'),
+  padding-month-desktop: 0 map.get($spacing, 'xs') map.get($spacing, 's'),
+  padding-year-mobile: 0,
+  padding-year-desktop: 0,
+  circle-width: 10px,
+  width-mobile: auto,
+  width-desktop: auto,
+  text-color: map.get($color, 'grey-100'),
+  text-color-inverted: var(--ecl-color-dark),
+  separator-color: transparent,
+  separator-color-past: transparent,
+  border-color-past: map.get($color, 'grey-10'),
+  background-color-default: var(--ecl-color-accent),
+  background-color-ongoing: var(--ecl-color-accent),
+  background-color-cancelled: map.get($color, 'neutral-80'),
+  background-color-past: map.get($color, 'neutral-80'),
+  background-color-year: var(--ecl-color-dark),
+  text-color-year: map.get($color, 'white'),
+  shadow: none,
+  shadow-decoration: none,
+  border-radius: 0,
+  year-weight: map.get($font-weight, 'bold'),
+  past-border: none,
+  year-border: none,
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),
