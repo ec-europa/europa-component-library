@@ -163,7 +163,8 @@ $content-block: (
   secondary-meta-color: map.get($color, 'grey-80'),
   secondary-meta-margin: map.get($spacing, 'm') 0 map.get($spacing, 'xl'),
   secondary-meta-icon-color: map.get($color, 'blue-60'),
-  link-separator-color: map.get($color, 'blue-20'),
+  primary-meta-margin: map.get($spacing, 'xs') 0 -#{map.get($spacing, 'xs')}; link-separator-color:
+    map.get($color, 'blue-20'),
   list-margin: map.get($spacing, 'l') 0 0,
   title-margin: map.get($spacing, 'xs') 0 map.get($spacing, 's'),
 );
