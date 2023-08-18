@@ -137,15 +137,6 @@ $date-block: null !default;
 // past
 .ecl-date-block--past {
   background-color: map.get($date-block, 'background-color-past');
-  outline: 1px solid map.get($date-block, 'border-color-past');
-  outline-offset: -1px;
-
-  &::before,
-  &::after {
-    border: map.get($date-block, 'past-border');
-
-    // border: 1px solid map.get($date-block, 'border-color-past');
-  }
 
   .ecl-date-block__day,
   .ecl-date-block__month {
@@ -153,6 +144,6 @@ $date-block: null !default;
   }
 
   .ecl-date-block__year {
-    border-top-color: map.get($date-block, 'separator-color-past');
+    border-top: map.get($date-block, 'past-border');
   }
 }

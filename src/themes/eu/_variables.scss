@@ -154,36 +154,41 @@ $button-print: (
 
 // Date block
 $date-block: (
-  day-text-size: map.get($font-size, 'xl'),
-  month-text-size: map.get($font-size, 'm'),
-  day-line-height: map.get($line-height, '2xl'),
-  month-line-height: map.get($line-height, 'm'),
-  text-white-space: normal,
-  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
-    map.get($spacing, 'xs'),
-  padding-day-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
-    map.get($spacing, '2xs'),
-  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, '2xs')
-    map.get($spacing, '2xs'),
-  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
-    map.get($spacing, '2xs'),
-  padding-year-mobile: map.get($spacing, '2xs'),
-  padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
-  text-color: var(--ecl-color-dark-140),
-  text-color-inverted: map.get($color, 'white'),
-  circle-width: 10px,
-  separator-color: transparent,
-  separator-color-past: var(--ecl-color-primary-20),
-  border-color-past: transparent,
+  background-color-cancelled: map.get($color, 'grey-20'),
   background-color-default: var(--ecl-color-primary-100),
   background-color-ongoing: map.get($color, 'yellow-100'),
-  background-color-cancelled: map.get($color, 'grey-20'),
   background-color-past: map.get($color, 'white'),
   background-color-rescheduled: var(--ecl-color-primary-100),
   background-color-year: map.get($color, 'white'),
+  border-color-past: var(--ecl-primary-color-20),
+  border-radius: map.get($border-radius, 'xl'),
+  circle-width: 10px,
+  day-line-height: map.get($line-height, '2xl'),
+  day-text-size: map.get($font-size, '2xl'),
+  height-desktop: auto,
+  height-mobile: auto,
+  month-line-height: map.get($line-height, 'm'),
+  month-text-size: map.get($font-size, 'm'),
+  padding-day-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
+    map.get($spacing, '2xs'),
+  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
+    map.get($spacing, 'xs'),
+  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
+    map.get($spacing, '2xs'),
+  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, '2xs')
+    map.get($spacing, '2xs'),
+  padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
+  padding-year-mobile: map.get($spacing, '2xs'),
+  past-border: 1px solid var(--ecl-color-primary-20),
+  separator-color: transparent,
+  separator-color-past: var(--ecl-color-primary-20),
   shadow: map.get($shadow, '1'),
   shadow-decoration: map.get($shadow-inner, '1'),
-  border-radius: map.get($border-radius, 'xl'),
+  text-color: var(--ecl-color-dark-140),
+  text-color-inverted: map.get($color, 'white'),
+  text-white-space: normal,
+  width-desktop: 6.3rem,
+  width-mobile: 5rem,
 );
 
 // Description list
