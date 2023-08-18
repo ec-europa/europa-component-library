@@ -58,22 +58,22 @@ $date-block: null !default;
 .ecl-date-block__day {
   color: map.get($date-block, 'text-color-inverted');
   font-family: map.get($theme, 'font-family', 'default');
-  font-size: calc(#{map.get($theme, 'font-size', 'xl')} - 2px);
+  font-size: map.get($date-block, 'day-text-size');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  line-height: 90%;
+  line-height: map.get($date-block, 'day-line-height');
   padding: map.get($date-block, 'padding-day-mobile');
-  white-space: nowrap;
+  white-space: map.get($date-block, 'text-white-space');
 }
 
 .ecl-date-block__month {
   color: map.get($date-block, 'text-color-inverted');
   font-family: map.get($theme, 'font-family', 'default');
-  font-size: calc(#{map.get($theme, 'font-size', 's')} - 2px);
-  line-height: 100%;
+  font-size: map.get($date-block, 'month-text-size');
+  line-height: map.get($date-block, 'month-line-height');
   padding: map.get($date-block, 'padding-month-mobile');
   text-decoration: none !important;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: map.get($date-block, 'text-white-space');
 }
 
 .ecl-date-block__year {

@@ -154,6 +154,11 @@ $button-print: (
 
 // Date block
 $date-block: (
+  day-text-size: map.get($font-size, 'xl'),
+  month-text-size: map.get($font-size, 'm'),
+  day-line-height: map.get($line-height, '2xl'),
+  month-line-height: map.get($line-height, 'm'),
+  text-white-space: normal,
   padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
     map.get($spacing, 'xs'),
   padding-day-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
@@ -165,15 +170,20 @@ $date-block: (
   padding-year-mobile: map.get($spacing, '2xs'),
   padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
   text-color: var(--ecl-color-dark-140),
+  text-color-inverted: map.get($color, 'white'),
   circle-width: 10px,
   separator-color: transparent,
-  separator-color-past: var(--ecl-color-blue-20),
+  separator-color-past: var(--ecl-color-primary-20),
   border-color-past: transparent,
-  background-color-cancelled: var(--ecl-color-dark-20),
-  background-color-year: map.get($color, 'white-100'),
+  background-color-default: var(--ecl-color-primary-100),
+  background-color-ongoing: map.get($color, 'yellow-100'),
+  background-color-cancelled: map.get($color, 'grey-20'),
+  background-color-past: map.get($color, 'white'),
+  background-color-rescheduled: var(--ecl-color-primary-100),
+  background-color-year: map.get($color, 'white'),
   shadow: map.get($shadow, '1'),
   shadow-decoration: map.get($shadow-inner, '1'),
-  border-radius: 8px,
+  border-radius: map.get($border-radius, 'xl'),
 );
 
 // Description list
