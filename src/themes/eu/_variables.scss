@@ -155,7 +155,8 @@ $button-print: (
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
-  label-spacing: map.get($spacing, 'xs'),
+  label-spacing: map.get($pacing, 'm'),
+  label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($pacing, 'xs')} 0,
   primary-meta-color: var(--ecl-color-secondary-140),
   title-font: map.get($font, 'xl'),
   title-font-weight: map.get($font-weight, 'normal'),

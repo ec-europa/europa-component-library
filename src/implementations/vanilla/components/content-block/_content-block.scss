@@ -19,14 +19,13 @@ $content-block: null !default;
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 0 0 -#{map.get($theme, 'spacing', 'xs')};
+  margin: map.get($content-block, 'label-spacing');
   padding: 0;
   width: 100%;
 }
 
 .ecl-content-block__label-item {
-  margin-bottom: map.get($content-block, 'label-spacing');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin: map.get($content-block, 'label-item-spacing');
 
   &:last-child {
     margin-inline-end: 0;
@@ -47,7 +46,6 @@ $content-block: null !default;
   border-inline-end: 1px solid map.get($theme, 'color', 'blue-100');
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
-  margin-bottom: map.get($theme, 'spacing', 'xs');
   margin-inline-end: map.get($theme, 'spacing', 'xs');
   padding-inline-end: map.get($theme, 'spacing', 'xs');
   unicode-bidi: isolate;
@@ -155,5 +153,9 @@ $content-block: null !default;
 }
 
 .ecl-content-block > *:first-child {
+  margin-top: 0;
+}
+
+.ecl-content-block__title + .ecl-content-block__link-container {
   margin-top: 0;
 }
