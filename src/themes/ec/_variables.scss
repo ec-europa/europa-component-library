@@ -164,7 +164,7 @@ $date-block: (
   height-desktop: auto,
   max-height: 5.75rem,
   month-line-height: calc(#{map.get($line-height, '2xs')} - 4px),
-  month-text-size: calc(#{map.get($font-size, 's')} - 2px),
+  month-text-size: map.get($font-size, 'xs'),
   padding-day-desktop: map.get($spacing, 's') map.get($spacing, 'xs')
     map.get($spacing, '2xs'),
   padding-day-mobile: map.get($spacing, 's') map.get($spacing, 'xs')
