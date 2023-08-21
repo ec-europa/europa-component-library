@@ -154,10 +154,10 @@ $button-print: (
 
 // Date block
 $date-block: (
-  background-color-cancelled: map.get($color, 'grey-20'),
+  background-color-cancelled: var(--ecl-color-dark-20),
   background-color-default: var(--ecl-color-primary-100),
-  background-color-ongoing: map.get($color, 'yellow-100'),
-  background-color-past: map.get($color, 'white'),
+  background-color-ongoing: var(--ecl-color-primary-100),
+  background-color-past: var(--ecl-color-dark-20),
   background-color-rescheduled: var(--ecl-color-primary-100),
   background-color-year: map.get($color, 'white'),
   border-radius: map.get($border-radius, 'xl'),
@@ -168,25 +168,22 @@ $date-block: (
   height-mobile: auto,
   month-line-height: map.get($line-height, 'm'),
   month-text-size: map.get($font-size, 'm'),
-  padding-day-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
+  padding-day-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
+    map.get($spacing, 'xs') map.get($spacing, '2xs'),
+  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs'),
+  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's')
     map.get($spacing, '2xs'),
-  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs') 0
-    map.get($spacing, 'xs'),
-  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
-    map.get($spacing, '2xs'),
-  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, '2xs')
+  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
     map.get($spacing, '2xs'),
   padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
   padding-year-mobile: map.get($spacing, '2xs'),
   past-border: 1px solid var(--ecl-color-primary-20),
-  separator-color: transparent,
-  separator-color-past: var(--ecl-color-primary-20),
   shadow: map.get($shadow, '1'),
   shadow-decoration: map.get($shadow-inner, '1'),
-  text-color: var(--ecl-color-dark-140),
-  text-color-inverted: map.get($color, 'white'),
+  text-color: map.get($color, 'white'),
+  text-color-inverted: var(--ecl-color-dark-140),
   text-white-space: normal,
-  width-desktop: 6.3rem,
+  width-desktop: 6rem,
   width-mobile: 5rem,
 );
 
@@ -500,6 +497,7 @@ $spinner: (
   --ecl-color-dark-80: #{map.get($color, 'dark-80')};
   --ecl-color-dark-60: #{map.get($color, 'dark-60')};
   --ecl-color-dark-40: #{map.get($color, 'dark-40')};
+  --ecl-color-dark-20: #{map.get($color, 'dark-20')};
   --ecl-color-info: #{map.get($color, 'info')};
   --ecl-color-info-100: #{map.get($color, 'info-100')};
   --ecl-color-info-5: #{map.get($color, 'info-5')};

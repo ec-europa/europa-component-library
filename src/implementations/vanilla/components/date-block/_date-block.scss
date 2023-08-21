@@ -24,7 +24,7 @@ $date-block: null !default;
   padding-top: map.get($date-block, 'padding-top');
   position: relative;
   text-align: center;
-  width: map.get($date-block, 'width-mobile');
+  min-width: map.get($date-block, 'width-mobile');
 
   &::before {
     background-color: map.get($theme, 'color', 'white-100');
@@ -78,9 +78,6 @@ $date-block: null !default;
 
 .ecl-date-block__year {
   background-color: map.get($date-block, 'background-color-year');
-  border-top: map.get($date-block, 'year-color');
-
-  // border-top: 1px solid map.get($date-block, 'separator-color');
   color: map.get($date-block, 'text-color-year');
   font: map.get($theme, 'font', 's');
   font-weight: map.get($date-block, 'year-weight');
@@ -90,7 +87,7 @@ $date-block: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-date-block {
-    width: map.get($date-block, 'width-desktop');
+    min-width: map.get($date-block, 'width-desktop');
   }
 
   .ecl-date-block__day {
@@ -130,7 +127,7 @@ $date-block: null !default;
 
   .ecl-date-block__day,
   .ecl-date-block__month {
-    color: map.get($date-block, 'text-color');
+    color: map.get($date-block, 'text-color-inverted');
   }
 }
 
@@ -140,10 +137,6 @@ $date-block: null !default;
 
   .ecl-date-block__day,
   .ecl-date-block__month {
-    color: map.get($date-block, 'text-color');
-  }
-
-  .ecl-date-block__year {
-    border-top: map.get($date-block, 'past-border');
+    color: map.get($date-block, 'text-color-inverted');
   }
 }
