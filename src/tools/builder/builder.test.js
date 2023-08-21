@@ -134,7 +134,7 @@ describe('ECL Builder', () => {
       const plugins = getPlugins();
       expect(plugins.length).toBe(2);
       expect(JSON.stringify(plugins, replacer)).toEqual(
-        '[{"postcssPlugin":"autoprefixer","prepare":"preparefn()","info":"infofn()","options":{"grid":"no-autoplace"}},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
+        '[{"info":"infofn()","options":{"grid":"no-autoplace"},"postcssPlugin":"autoprefixer","prepare":"preparefn()"},{"postcssPlugin":"postcss-input-range","Rule":"Rulefn()"}]',
       );
     });
 
