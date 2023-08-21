@@ -67,18 +67,18 @@ $_counter-color: none !default;
   padding-inline-end: map.get(theme.$spacing, 's');
   padding-inline-start: map.get(theme.$spacing, 's');
 }
-
+// stylelint-disable value-no-vendor-prefix
 .ecl-news-ticker__slide,
 .ecl-news-ticker__slide-text {
-  // stylelint-disable-next-line value-no-vendor-prefix
   display: -webkit-box;
   text-overflow: ellipsis;
   overflow: hidden;
   -webkit-line-clamp: 2;
+  // stylelint-disable-next-line property-no-unknown
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
+// stylelint-enable value-no-vendor-prefix
 .ecl-news-ticker__controls {
   align-items: center;
   align-self: stretch;
