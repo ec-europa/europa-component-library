@@ -281,7 +281,7 @@ $list: (
 );
 
 // Menu
-// stylelint-disable scss/operator-no-unspaced
+// sstylelint-disable scss/operator-no-unspaced
 $menu: (
   global: (
     border-radius: 0,
@@ -323,13 +323,13 @@ $menu: (
     item-color-hover: var(--ecl-color-dark),
     item-color-focus: var(--ecl-color-primary),
     item-shadow-hover: #{inset 1px 0 0 var(--ecl-color-dark),
-    inset -1px 0 0 var(--ecl-color-dark)},
+    inset #{-1px} 0 0 var(--ecl-color-dark)},
     item-current-background: var(--ecl-color-neutral-40),
     item-current-background-focus: var(--ecl-color-neutral-40),
     item-current-color: var(--ecl-color-primary),
     item-current-shadow: #{inset 1px 0 0 var(--ecl-color-primary),
-    inset -1px 0 0 var(--ecl-color-primary),
-    inset 0 -4px 0 var(--ecl-color-primary)},
+    inset #{-1px} 0 0 var(--ecl-color-primary),
+    inset 0 #{-4px} 0 var(--ecl-color-primary)},
     item-current-margin: -1px,
     separator-color: var(--ecl-color-dark-80),
     link-padding: calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})

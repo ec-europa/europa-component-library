@@ -283,7 +283,7 @@ $list: (
 );
 
 // Menu
-// stylelint-disable scss/operator-no-unspaced
+// sstylelint-disable scss/operator-no-unspaced
 $menu: (
   global: (
     border-radius: 4px,
@@ -343,7 +343,7 @@ $menu: (
     item-current-background-focus: map.get($color, 'white'),
     item-current-color: var(--ecl-color-primary-140),
     item-current-shadow: #{inset 2px 0 0 var(--ecl-color-primary),
-    inset -2px 0 0 var(--ecl-color-primary)},
+    inset #{-2px} 0 0 var(--ecl-color-primary)},
     item-current-margin: 0,
     separator-color: var(--ecl-color-primary-60),
     link-padding: calc(#{map.get($spacing, 's')} + #{map.get($spacing, '2xs')})
