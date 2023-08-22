@@ -26,12 +26,12 @@ dataCore.has_menu = false;
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
 delete dataStandardised.login_box;
-dataStandardised.has_menu = false;
+dataStandardised.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
 delete dataHarmonised.banner_top;
-dataHarmonised.has_menu = false;
+dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {
