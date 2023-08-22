@@ -12,7 +12,7 @@ $textarea: null !default;
 
 .ecl-text-area {
   appearance: none;
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($textarea, 'background');
   border: map.get($textarea, 'border-width') solid
     map.get($textarea, 'border-color');
   border-radius: map.get($textarea, 'border-radius');
@@ -45,6 +45,7 @@ $textarea: null !default;
   &:hover {
     border-color: map.get($textarea, 'border-color-hover');
     box-shadow: map.get($textarea, 'shadow-hover');
+    cursor: pointer;
   }
 
   &:focus-visible,
@@ -90,6 +91,11 @@ $textarea: null !default;
   @include breakpoints.up('m') {
     width: map.get($theme, 'form', 'l');
   }
+}
+
+.ecl-text-area[disabled],
+.ecl-text-area--disabled {
+  opacity: 0.5;
 }
 
 .ecl-text-area[disabled],

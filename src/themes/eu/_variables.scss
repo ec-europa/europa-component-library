@@ -434,16 +434,19 @@ $spinner: (
 $textarea: (
   background: map.get($color, 'white-100'),
   border-radius: 4px,
-  border-color: map.get($color, 'grey-80'),
-  border-color-hover: map.get($color, 'grey-80'),
+  border-color: var(--ecl-color-dark-80),
+  border-color-hover: var(--ecl-color-dark-80),
+  border-color-focus: var(--ecl-color-primary),
   border-color-invalid: map.get($color, 'red-120'),
-  border-color-invalid-hover: map.get($color, 'red-100'),
+  border-color-invalid-hover: var(--ecl-color-error),
+  border-width: 1px,
   border-width-focus: 2px,
-  color-input: map.get($color, 'grey-140'),
-  color-placeholder: map.get($color, 'grey-40'),
+  color-input: var(--ecl-color-dark-140),
+  color-placeholder: var(--ecl-color-dark-40),
   shadow: map.get($shadow-inner, '1'),
   shadow-hover: map.get($shadow-inner, '2'),
   padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: map.get($spacing, 's'),
 );
 
 /**

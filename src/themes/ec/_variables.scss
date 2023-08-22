@@ -291,7 +291,7 @@ $form-group: (
   font-weight-label: map.get($font-weight, 'regular'),
   font-help: map.get($font, 's'),
   font-invalid: map.get($font, 's'),
-  font-optional: map.get($font, 'xs'),
+  font-optional: map.get($font, 's'),
   font-style-optional: 'normal',
   margin-first-element: map.get($spacing, 's'),
   margin-help: map.get($spacing, '2xs'),
@@ -428,17 +428,20 @@ $spinner: (
 // Textarea
 $textarea: (
   background: var(--ecl-color-background),
-  border-radius: 0,
-  border-color: map.get($color, 'grey-75'),
-  border-color-hover: var(--ecl-color-primary),
+  border-radius: map.get($border-radius, 's'),
+  border-color: var(--ecl-color-dark-80),
+  border-color-hover: var(--ecl-color-dark-80),
+  border-color-focus: var(--ecl-color-primary),
   border-color-invalid: var(--ecl-color-error),
   border-color-invalid-hover: map.get($color, 'red-130'),
-  border-width-focus: 3px,
-  color-input: map.get($color, 'grey-100'),
-  color-placeholder: map.get($color, 'grey-50'),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--ecl-color-dark),
+  color-placeholder: var(--ecl-color-dark-60),
   shadow: none,
   shadow-hover: none,
-  padding-horizontal: map.get($spacing, 's'),
+  padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: map.get($spacing, 'm'),
 );
 
 /**

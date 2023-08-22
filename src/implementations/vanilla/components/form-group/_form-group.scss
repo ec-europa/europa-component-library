@@ -36,7 +36,7 @@ $form-group: null !default;
   color: map.get($form-group, 'color-help');
   display: block;
   font: map.get($form-group, 'font-help');
-  margin: map.get($theme, 'spacing', '2xs') 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 0 map.get($theme, 'spacing', 'xs');
   padding: 0;
 }
 
@@ -67,10 +67,15 @@ $form-group: null !default;
   color: map.get($form-group, 'color-optional');
   font: map.get($form-group, 'font-optional');
   font-style: map.get($form-group, 'font-style-optional');
+  margin-left: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-form-label + {
   *:not(.ecl-help-block, .ecl-feedback-message) {
-    margin-top: map.get($theme, 'spacing', 'xs');
+    margin-top: map.get($theme, 'spacing', '2xs');
+  }
+
+  .ecl-feedback-message {
+    margin-top: 0;
   }
 }
