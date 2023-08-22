@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/theme-dev/mixins/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -70,27 +71,15 @@ $textarea: null !default;
 }
 
 .ecl-text-area--s {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 's');
-  }
+  @include mixins.form-width('s');
 }
 
 .ecl-text-area--m {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'm');
-  }
+  @include mixins.form-width('m');
 }
 
 .ecl-text-area--l {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'l');
-  }
+  @include mixins.form-width('l');
 }
 
 .ecl-text-area[disabled],
