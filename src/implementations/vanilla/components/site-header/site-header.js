@@ -164,8 +164,6 @@ export class SiteHeader {
       this.loginToggle.addEventListener('click', this.toggleLogin);
     }
 
-    this.improveAccessibility();
-
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
@@ -214,30 +212,6 @@ export class SiteHeader {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
-    }
-  }
-
-  /**
-   * Add title tag in svgs.
-   */
-  improveAccessibility() {
-    const elements = [
-      this.loginToggle ? this.loginToggle : null,
-      this.searchToggle ? this.searchToggle : null,
-      this.languageLink ? this.languageLink : null,
-    ].filter((element) => element !== null);
-
-    if (elements.length > 0) {
-      elements.forEach((el) => {
-        const svgElement = el.querySelector('svg');
-        svgElement.setAttribute('aria-hidden', 'false');
-        const titleElement = document.createElementNS(
-          'http://www.w3.org/2000/svg',
-          'title',
-        );
-        titleElement.textContent = el.textContent;
-        svgElement.appendChild(titleElement);
-      });
     }
   }
 

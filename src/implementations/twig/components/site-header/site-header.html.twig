@@ -260,7 +260,11 @@
                     name: 'logged-in',
                     size: 's'
                   },
+                  as_image: true,
                   extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: login_toggle.label_logged,
+                  },
                 } only %}
                 {{- login_toggle.label_logged -}}
               </a>
@@ -293,7 +297,11 @@
                     name: 'log-in',
                     size: 's'
                   },
+                  as_image: true,
                   extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: login_toggle.label_not_logged,
+                  },
                 } only %}
                 {{- login_toggle.label_not_logged -}}
               </a>
@@ -325,11 +333,12 @@
                   name: 'search',
                   path: _icon_file_path,
                   size: 's',
-                  extra_attributes: [
-                  { name: 'aria-hidden', value: true }
-                  ],
                 },
+                as_image: true,
                 extra_classes: 'ecl-site-header__icon',
+                extra_accessibility: {
+                  title: _search_toggle.label,
+                },
               } only -%}
               {{- _search_toggle.label -}}
               </a>
