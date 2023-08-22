@@ -5,6 +5,7 @@ import withCode from '@ecl/storybook-addon-code';
 // Get data
 import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
+import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--ec';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
@@ -25,12 +26,12 @@ dataCore.has_menu = false;
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
 delete dataStandardised.login_box;
-dataStandardised.has_menu = true;
+dataStandardised.has_menu = false;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
 delete dataHarmonised.banner_top;
-dataHarmonised.has_menu = true;
+dataHarmonised.has_menu = false;
 
 const getArgs = (data) => {
   const defaultArgs = {
@@ -266,6 +267,7 @@ const prepareData = (data, args) => {
   correctPaths(data);
 
   data.logo.src_desktop = enLogoEC;
+  data.logo.src_mobile = enLogoMobileEC;
 
   return data;
 };

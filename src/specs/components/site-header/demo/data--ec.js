@@ -8,6 +8,7 @@ module.exports = {
     path: exampleLink,
     language: 'en',
     src_desktop: '/logo-ec--en.svg',
+    src_mobile: '/logo-ec--mute.svg',
   },
   login_toggle: {
     label_not_logged: 'Log in',
@@ -23,7 +24,7 @@ module.exports = {
   },
   language_selector: {
     href: exampleLink,
-    label: 'English',
+    label: 'EN',
     aria_label: 'Change language, current language is English',
     code: 'en',
     overlay: {

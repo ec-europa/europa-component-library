@@ -81,10 +81,6 @@ module.exports = {
     {
       items: [
         {
-          term: 'Standard text',
-          definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis`,
-        },
-        {
           term: 'Standalone links',
           type: 'link',
           definition: [
@@ -94,11 +90,6 @@ module.exports = {
                 path: exampleLink,
                 icon_position: 'before',
               },
-              icon: {
-                name: 'copy',
-                path: '/icons.svg',
-                size: 's',
-              },
             },
             {
               link: {
@@ -106,13 +97,12 @@ module.exports = {
                 path: exampleLink,
                 icon_position: 'before',
               },
-              icon: {
-                name: 'download',
-                path: '/icons.svg',
-                size: 's',
-              },
             },
           ],
+        },
+        {
+          term: 'Standard text',
+          definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>.`,
         },
         {
           term: 'Links inline',
