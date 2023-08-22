@@ -72,7 +72,10 @@
   $breadcrumb: var.$breadcrumb
 );
 @use '@ecl/vanilla-component-card/card-ec';
-@use '@ecl/vanilla-component-content-block/content-block-ec';
+@use '@ecl/vanilla-component-content-block/content-block' with (
+  $theme: theme.$theme,
+  $content-block: var.$content-block
+);
 @use '@ecl/vanilla-component-content-item/content-item-ec';
 @use '@ecl/vanilla-component-expandable/expandable-ec';
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';

@@ -20,7 +20,8 @@ $description-list: null !default;
   color: map.get($description-list, 'term-color');
   font: map.get($description-list, 'term-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-bottom: map.get($description-list, 'term-margin-bottom');
+  margin-top: map.get($description-list, 'term-margin-top');
   max-width: 60ch;
   overflow-wrap: break-word;
 
