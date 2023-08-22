@@ -430,6 +430,22 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Textarea
+$textarea: (
+  background: map.get($color, 'white-100'),
+  border-radius: 4px,
+  border-color: map.get($color, 'grey-80'),
+  border-color-hover: map.get($color, 'grey-80'),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: map.get($color, 'red-100'),
+  border-width-focus: 2px,
+  color-input: map.get($color, 'grey-140'),
+  color-placeholder: map.get($color, 'grey-40'),
+  shadow: map.get($shadow-inner, '1'),
+  shadow-hover: map.get($shadow-inner, '2'),
+  padding-horizontal: map.get($spacing, 'm'),
+);
+
 /**
 * Do not modify past this line
 */
