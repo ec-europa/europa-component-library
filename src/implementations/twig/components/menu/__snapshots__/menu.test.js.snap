@@ -41,29 +41,29 @@ exports[`Menu Default renders correctly 1`] = `
           class="ecl-menu__inner-header"
         >
           <button
-            class="ecl-menu__close ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
             data-ecl-menu-close=""
             type="submit"
           >
             <span
-              class="ecl-menu__close-container ecl-button__container"
+              class="ecl-button__container"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--before"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#close-filled"
-                />
-              </svg>
               <span
                 class="ecl-button__label"
                 data-ecl-label="true"
               >
                 Close
               </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close"
+                />
+              </svg>
             </span>
           </button>
           <div
@@ -72,7 +72,7 @@ exports[`Menu Default renders correctly 1`] = `
             Menu
           </div>
           <button
-            class="ecl-menu__back ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__back"
             data-ecl-menu-back=""
             type="submit"
           >
@@ -81,7 +81,7 @@ exports[`Menu Default renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon"
                 data-ecl-icon=""
                 focusable="false"
               >
@@ -91,7 +91,7 @@ exports[`Menu Default renders correctly 1`] = `
               </svg>
               <span
                 class="ecl-button__label"
-                data-ecl-label=""
+                data-ecl-label="true"
               >
                 Back
               </span>
@@ -161,7 +161,7 @@ exports[`Menu Default renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -171,12 +171,12 @@ exports[`Menu Default renders correctly 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
+            class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -184,7 +184,7 @@ exports[`Menu Default renders correctly 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -215,7 +215,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.1
@@ -226,7 +226,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.2
@@ -237,7 +237,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-menu__sublink--current"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink ecl-menu__sublink--current"
                     href="/example"
                   >
                     Item 2.3
@@ -248,7 +248,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.4
@@ -259,7 +259,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.5
@@ -270,7 +270,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.6
@@ -281,17 +281,44 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-link--icon-after"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
                     <svg
                       aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
                       focusable="false"
                     >
                       <use
                         xlink:href="/icons.svg#external"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
                       />
                     </svg>
                   </a>
@@ -307,7 +334,7 @@ exports[`Menu Default renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -315,7 +342,7 @@ exports[`Menu Default renders correctly 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -346,7 +373,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.1
@@ -357,7 +384,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.2
@@ -368,10 +395,33 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -382,7 +432,7 @@ exports[`Menu Default renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -397,7 +447,7 @@ exports[`Menu Default renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -405,7 +455,7 @@ exports[`Menu Default renders correctly 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -436,7 +486,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.1
@@ -447,7 +497,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.2
@@ -458,7 +508,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.3
@@ -469,10 +519,33 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -486,7 +559,7 @@ exports[`Menu Default renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -494,7 +567,7 @@ exports[`Menu Default renders correctly 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -525,7 +598,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.1
@@ -536,7 +609,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.2
@@ -547,7 +620,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.3
@@ -558,7 +631,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.4
@@ -569,7 +642,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.5
@@ -580,7 +653,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.6
@@ -591,7 +664,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.7
@@ -602,7 +675,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.8
@@ -613,7 +686,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.9 with a very long label
@@ -624,7 +697,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.10
@@ -635,7 +708,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.11
@@ -646,7 +719,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.12
@@ -657,7 +730,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.13
@@ -668,7 +741,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.14
@@ -679,7 +752,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.15
@@ -690,7 +763,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.16
@@ -701,7 +774,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.17
@@ -712,7 +785,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.18
@@ -723,7 +796,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.19
@@ -734,7 +807,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.20
@@ -745,7 +818,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.21
@@ -756,7 +829,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.22
@@ -767,7 +840,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.23
@@ -778,7 +851,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.24
@@ -789,7 +862,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.25
@@ -800,7 +873,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.26
@@ -811,7 +884,7 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.27
@@ -822,10 +895,33 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.28
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -881,29 +977,29 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           class="ecl-menu__inner-header"
         >
           <button
-            class="ecl-menu__close ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
             data-ecl-menu-close=""
             type="submit"
           >
             <span
-              class="ecl-menu__close-container ecl-button__container"
+              class="ecl-button__container"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--before"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#close-filled"
-                />
-              </svg>
               <span
                 class="ecl-button__label"
                 data-ecl-label="true"
               >
                 Close
               </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close"
+                />
+              </svg>
             </span>
           </button>
           <div
@@ -912,7 +1008,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             Menu
           </div>
           <button
-            class="ecl-menu__back ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__back"
             data-ecl-menu-back=""
             type="submit"
           >
@@ -921,7 +1017,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon"
                 data-ecl-icon=""
                 focusable="false"
               >
@@ -931,7 +1027,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
               </svg>
               <span
                 class="ecl-button__label"
-                data-ecl-label=""
+                data-ecl-label="true"
               >
                 Back
               </span>
@@ -1001,7 +1097,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1011,12 +1107,12 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
+            class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1024,7 +1120,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -1055,7 +1151,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.1
@@ -1066,7 +1162,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.2
@@ -1077,7 +1173,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-menu__sublink--current"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink ecl-menu__sublink--current"
                     href="/example"
                   >
                     Item 2.3
@@ -1088,7 +1184,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.4
@@ -1099,7 +1195,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.5
@@ -1110,7 +1206,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.6
@@ -1121,17 +1217,44 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-link--icon-after"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
                     <svg
                       aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
                       focusable="false"
                     >
                       <use
                         xlink:href="/icons.svg#external"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
                       />
                     </svg>
                   </a>
@@ -1147,7 +1270,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1155,7 +1278,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -1186,7 +1309,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.1
@@ -1197,7 +1320,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.2
@@ -1208,10 +1331,33 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -1222,7 +1368,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1237,7 +1383,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1245,7 +1391,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -1276,7 +1422,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.1
@@ -1287,7 +1433,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.2
@@ -1298,7 +1444,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.3
@@ -1309,10 +1455,33 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -1326,7 +1495,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1334,7 +1503,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -1365,7 +1534,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.1
@@ -1376,7 +1545,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.2
@@ -1387,7 +1556,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.3
@@ -1398,7 +1567,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.4
@@ -1409,7 +1578,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.5
@@ -1420,7 +1589,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.6
@@ -1431,7 +1600,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.7
@@ -1442,7 +1611,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.8
@@ -1453,7 +1622,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.9 with a very long label
@@ -1464,7 +1633,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.10
@@ -1475,7 +1644,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.11
@@ -1486,7 +1655,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.12
@@ -1497,7 +1666,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.13
@@ -1508,7 +1677,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.14
@@ -1519,7 +1688,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.15
@@ -1530,7 +1699,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.16
@@ -1541,7 +1710,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.17
@@ -1552,7 +1721,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.18
@@ -1563,7 +1732,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.19
@@ -1574,7 +1743,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.20
@@ -1585,7 +1754,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.21
@@ -1596,7 +1765,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.22
@@ -1607,7 +1776,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.23
@@ -1618,7 +1787,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.24
@@ -1629,7 +1798,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.25
@@ -1640,7 +1809,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.26
@@ -1651,7 +1820,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.27
@@ -1662,10 +1831,33 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.28
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -1719,29 +1911,29 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           class="ecl-menu__inner-header"
         >
           <button
-            class="ecl-menu__close ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
             data-ecl-menu-close=""
             type="submit"
           >
             <span
-              class="ecl-menu__close-container ecl-button__container"
+              class="ecl-button__container"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--before"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#close-filled"
-                />
-              </svg>
               <span
                 class="ecl-button__label"
                 data-ecl-label="true"
               >
                 Close
               </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close"
+                />
+              </svg>
             </span>
           </button>
           <div
@@ -1750,7 +1942,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             Menu
           </div>
           <button
-            class="ecl-menu__back ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__back"
             data-ecl-menu-back=""
             type="submit"
           >
@@ -1759,7 +1951,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon"
                 data-ecl-icon=""
                 focusable="false"
               >
@@ -1769,7 +1961,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
               </svg>
               <span
                 class="ecl-button__label"
-                data-ecl-label=""
+                data-ecl-label="true"
               >
                 Back
               </span>
@@ -1839,7 +2031,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1849,12 +2041,12 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
-            class="ecl-menu__item ecl-menu__item--has-children"
+            class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1862,7 +2054,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -1893,7 +2085,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.1
@@ -1904,7 +2096,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.2
@@ -1915,7 +2107,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-menu__sublink--current"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink ecl-menu__sublink--current"
                     href="/example"
                   >
                     Item 2.3
@@ -1926,7 +2118,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.4
@@ -1937,7 +2129,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.5
@@ -1948,7 +2140,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.6
@@ -1959,17 +2151,44 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-link--icon-after"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
                     <svg
                       aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
                       focusable="false"
                     >
                       <use
                         xlink:href="/icons.svg#external"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
                       />
                     </svg>
                   </a>
@@ -1985,7 +2204,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -1993,7 +2212,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2024,7 +2243,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.1
@@ -2035,7 +2254,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.2
@@ -2046,10 +2265,33 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -2060,7 +2302,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -2075,7 +2317,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -2083,7 +2325,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2114,7 +2356,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.1
@@ -2125,7 +2367,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.2
@@ -2136,7 +2378,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.3
@@ -2147,10 +2389,33 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -2164,7 +2429,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
@@ -2172,7 +2437,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2203,7 +2468,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.1
@@ -2214,7 +2479,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.2
@@ -2225,7 +2490,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.3
@@ -2236,7 +2501,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.4
@@ -2247,7 +2512,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.5
@@ -2258,7 +2523,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.6
@@ -2269,7 +2534,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.7
@@ -2280,7 +2545,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.8
@@ -2291,7 +2556,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.9 with a very long label
@@ -2302,7 +2567,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.10
@@ -2313,7 +2578,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.11
@@ -2324,7 +2589,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.12
@@ -2335,7 +2600,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.13
@@ -2346,7 +2611,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.14
@@ -2357,7 +2622,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.15
@@ -2368,7 +2633,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.16
@@ -2379,7 +2644,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.17
@@ -2390,7 +2655,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.18
@@ -2401,7 +2666,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.19
@@ -2412,7 +2677,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.20
@@ -2423,7 +2688,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.21
@@ -2434,7 +2699,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.22
@@ -2445,7 +2710,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.23
@@ -2456,7 +2721,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.24
@@ -2467,7 +2732,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.25
@@ -2478,7 +2743,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.26
@@ -2489,7 +2754,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.27
@@ -2500,10 +2765,33 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.28
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -2516,7 +2804,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
 </jest>
 `;
 
-exports[`Menu Translated renders correctly 1`] = `
+exports[`Menu Long renders correctly 1`] = `
 <jest>
   <nav
     aria-expanded="false"
@@ -2557,29 +2845,29 @@ exports[`Menu Translated renders correctly 1`] = `
           class="ecl-menu__inner-header"
         >
           <button
-            class="ecl-menu__close ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
             data-ecl-menu-close=""
             type="submit"
           >
             <span
-              class="ecl-menu__close-container ecl-button__container"
+              class="ecl-button__container"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--before"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#close-filled"
-                />
-              </svg>
               <span
                 class="ecl-button__label"
                 data-ecl-label="true"
               >
-                Fermer
+                Close
               </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close"
+                />
+              </svg>
             </span>
           </button>
           <div
@@ -2588,7 +2876,7 @@ exports[`Menu Translated renders correctly 1`] = `
             Menu
           </div>
           <button
-            class="ecl-menu__back ecl-button ecl-button--text"
+            class="ecl-button ecl-button--ghost ecl-menu__back"
             data-ecl-menu-back=""
             type="submit"
           >
@@ -2597,7 +2885,7 @@ exports[`Menu Translated renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon ecl-button__icon--before"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon"
                 data-ecl-icon=""
                 focusable="false"
               >
@@ -2607,9 +2895,9 @@ exports[`Menu Translated renders correctly 1`] = `
               </svg>
               <span
                 class="ecl-button__label"
-                data-ecl-label=""
+                data-ecl-label="true"
               >
-                Retour
+                Back
               </span>
             </span>
           </button>
@@ -2677,11 +2965,11 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Accueil
+              Home
             </a>
           </li>
           <li
@@ -2692,15 +2980,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link ecl-menu__link--current"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
             >
-              Réglementation, surveillance financière
+              Principles, countries, history
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2731,7 +3019,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.1
@@ -2742,7 +3030,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.2
@@ -2753,7 +3041,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-menu__sublink--current"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink ecl-menu__sublink--current"
                     href="/example"
                   >
                     Item 2.3
@@ -2764,7 +3052,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.4
@@ -2775,7 +3063,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.5
@@ -2786,7 +3074,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 2.6
@@ -2797,17 +3085,44 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink ecl-link--icon-after"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
                     <svg
                       aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-menu__sublink-icon ecl-link__icon"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
                       focusable="false"
                     >
                       <use
                         xlink:href="/icons.svg#external"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
                       />
                     </svg>
                   </a>
@@ -2823,15 +3138,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Marchés financiers
+              Institutions, law, budget
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2862,7 +3177,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.1
@@ -2873,7 +3188,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.2
@@ -2884,10 +3199,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 3.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -2898,11 +3236,11 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Bancaire
+              Priorities and actions
             </a>
           </li>
           <li
@@ -2913,15 +3251,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Assurances et pensions
+              Live, work, study
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -2952,7 +3290,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.1
@@ -2963,7 +3301,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.2
@@ -2974,7 +3312,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.3
@@ -2985,10 +3323,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 5.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -3002,15 +3363,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Finance durable
+              News and events
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -3041,7 +3402,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.1
@@ -3052,7 +3413,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.2
@@ -3063,7 +3424,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.3
@@ -3074,7 +3435,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.4
@@ -3085,7 +3446,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.5
@@ -3096,7 +3457,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.6
@@ -3107,7 +3468,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.7
@@ -3118,7 +3479,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.8
@@ -3129,7 +3490,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.9 with a very long label
@@ -3140,7 +3501,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.10
@@ -3151,7 +3512,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.11
@@ -3162,7 +3523,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.12
@@ -3173,7 +3534,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.13
@@ -3184,7 +3545,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.14
@@ -3195,7 +3556,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.15
@@ -3206,7 +3567,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.16
@@ -3217,7 +3578,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.17
@@ -3228,7 +3589,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.18
@@ -3239,7 +3600,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.19
@@ -3250,7 +3611,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.20
@@ -3261,7 +3622,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.21
@@ -3272,7 +3633,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.22
@@ -3283,7 +3644,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.23
@@ -3294,7 +3655,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.24
@@ -3305,7 +3666,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.25
@@ -3316,7 +3677,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.26
@@ -3327,7 +3688,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.27
@@ -3338,10 +3699,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 6.28
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -3355,15 +3739,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Finance digitale
+              European years
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -3394,7 +3778,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.1
@@ -3405,7 +3789,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.2
@@ -3416,7 +3800,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.3
@@ -3427,7 +3811,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.4
@@ -3438,7 +3822,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.5
@@ -3449,7 +3833,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.6
@@ -3460,7 +3844,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.7
@@ -3471,7 +3855,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.8
@@ -3482,7 +3866,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.9
@@ -3493,10 +3877,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 7.10
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -3510,15 +3917,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Paiements et services financiers pour les consommateurs
+              Visit a European Union institution
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -3549,7 +3956,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.1
@@ -3560,7 +3967,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.2
@@ -3571,7 +3978,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.3
@@ -3582,7 +3989,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.4
@@ -3593,7 +4000,7 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.5
@@ -3604,10 +4011,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
                     Item 8.6
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -3618,11 +4048,11 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Criminalité financière
+              Jobs & traineeships in EU institutions
             </a>
           </li>
           <li
@@ -3633,15 +4063,15 @@ exports[`Menu Translated renders correctly 1`] = `
             data-ecl-menu-item=""
           >
             <a
-              class="ecl-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__link"
               data-ecl-menu-link=""
               href="/example"
             >
-              Relations internationales
+              Participate, interact, vote
             </a>
             <button
               aria-label="Access item's children"
-              class="ecl-button ecl-button--primary ecl-menu__button-caret"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
               data-ecl-menu-caret=""
               type="button"
             >
@@ -3672,10 +4102,10 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 10.1
+                    Item 9.1
                   </a>
                 </li>
                 <li
@@ -3683,10 +4113,10 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 10.2
+                    Item 9.2
                   </a>
                 </li>
                 <li
@@ -3694,10 +4124,33 @@ exports[`Menu Translated renders correctly 1`] = `
                   data-ecl-menu-subitem=""
                 >
                   <a
-                    class="ecl-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-menu__sublink"
                     href="/example"
                   >
-                    Item 10.3
+                    Item 9.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
