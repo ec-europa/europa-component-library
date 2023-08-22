@@ -152,10 +152,30 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Content block
+$content-block: (
+  description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
+  label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($spacing, 'xs')} 0,
+  label-spacing: 0 0 map.get($spacing, 'xs'),
+  link-separator-color: var(--ecl-color-primary-20),
+  list-margin: map.get($spacing, 'l') 0 0,
+  primary-meta-color: var(--ecl-color-dark-140),
+  primary-meta-margin: map.get($spacing, 'xs') 0 -#{map.get($spacing, 'xs')},
+  secondary-meta-color: var(--ecl-color-dark-80),
+  secondary-meta-icon-color: var(--ecl-color-primary-60),
+  secondary-meta-margin: map.get($spacing, 'm') 0 map.get($spacing, 'xl'),
+  text-color: var(--ecl-color-dark-140),
+  title-font: map.get($font, 'xl'),
+  title-font-weight: map.get($font-weight, 'normal'),
+  title-margin: map.get($spacing, 'xs') 0 map.get($spacing, 's'),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark-140),
   term-font: map.get($font, 'l'),
+  term-margin-bottom: map.get($spacing, 'xs'),
+  term-margin-top: map.get($spacing, 'm'),
   definition-color: var(--ecl-color-dark-140),
   taxonomy-color: var(--ecl-color-dark-80),
   term-width: 210px,
@@ -365,6 +385,23 @@ $notification-print: (
 
 // Site header
 $site-header: (
+  background-color: map.get($color, 'white-100'),
+  logo-height-xs: 1.875rem,
+  logo-width-xs: auto,
+  logo-height-sm: 2.5rem,
+  logo-width-sm: auto,
+  logo-height-lg: 2.75rem,
+  logo-width-lg: auto,
+  search-width-l: 25rem,
+  search-width-xl: 31.5rem,
+  gradient-background:
+    linear-gradient(
+      90deg,
+      var(--ecl-color-primary-140),
+      var(--ecl-color-branding)
+    ),
+  site-name-mobile-color: map.get($color, 'white'),
+  site-name-desktop-color: map.get($color, 'dark-80'),
   language-switcher: (
     color: var(--ecl-color-dark-140),
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
