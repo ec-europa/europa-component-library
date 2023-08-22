@@ -164,12 +164,12 @@ $date-block: (
   max-height: 5.75rem,
   month-line-height: calc(#{map.get($line-height, '2xs')} - 4px),
   month-text-size: map.get($font-size, 'xs'),
-  padding-day-desktop: map.get($spacing, 's') map.get($spacing, 'xs')
+  padding-day-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
     map.get($spacing, '2xs'),
-  padding-day-mobile: map.get($spacing, 's') map.get($spacing, 'xs')
+  padding-day-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
     map.get($spacing, '2xs'),
-  padding-month-desktop: 0 map.get($spacing, 'xs') map.get($spacing, 's'),
-  padding-month-mobile: 0 map.get($spacing, 'xs') map.get($spacing, 's'),
+  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
   padding-top: map.get($spacing, 'xs'),
   padding-year-desktop: 0,
   padding-year-mobile: 0,
@@ -182,8 +182,8 @@ $date-block: (
   text-color-inverted: var(--ecl-color-dark),
   text-color-year: map.get($color, 'white'),
   text-white-space: nowrap,
-  width-desktop: auto,
-  width-mobile: auto,
+  width-desktop: 5rem,
+  width-mobile: 5rem,
   year-border: none,
   year-weight: map.get($font-weight, 'bold'),
 );
