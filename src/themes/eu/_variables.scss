@@ -285,9 +285,11 @@ $list: (
 // Menu
 // stylelint-disable scss/operator-no-unspaced
 $menu: (
-  color: map.get($color, 'white'),
-  color-focus: map.get($color, 'white'),
-  shadow: map.get($shadow, '2'),
+  global: (
+    border-radius: 4px,
+    shadow: map.get($shadow, '2'),
+    color-outline: map.get($color, 'white'),
+  ),
   mobile: (
     menu-background:
       linear-gradient(
@@ -295,6 +297,7 @@ $menu: (
         var(--ecl-color-primary-140),
         var(--ecl-color-primary)
       ),
+    color: map.get($color, 'white'),
     content-background: map.get($color, 'white'),
     overlay-background: rgba(38, 43, 56, 0.7),
     header-background:
@@ -330,9 +333,15 @@ $menu: (
         var(--ecl-color-primary)
       ),
     menu-border: none,
+    item-background-hover: map.get($color, 'white'),
+    item-background-focus: map.get($color, 'white'),
     item-color: map.get($color, 'white'),
+    item-color-hover: var(--ecl-color-primary-140),
+    item-color-focus: var(--ecl-color-primary-140),
     item-shadow-hover: none,
     item-current-background: var(--ecl-color-primary-20),
+    item-current-background-focus: map.get($color, 'white'),
+    item-current-color: var(--ecl-color-primary-140),
     item-current-shadow: #{inset 2px 0 0 var(--ecl-color-primary),
     inset -2px 0 0 var(--ecl-color-primary)},
     item-current-margin: 0,
@@ -348,60 +357,24 @@ $menu: (
       map.get($spacing, 'xs'),
     link-line-height: map.get($line-height, 'm'),
     caret-padding: 0 map.get($spacing, 's'),
+    caret-focus-outline: var(--ecl-color-primary),
     overflow-border: 4px solid var(--ecl-color-primary-60),
     overflow-border-hover: 4px solid var(--ecl-color-primary-60),
+    overflow-background: var(--ecl-color-primary),
     overflow-background-hover: map.get($color, 'white'),
+    overflow-color: map.get($color, 'white'),
     overflow-color-hover: var(--ecl-color-primary-140),
+    overflow-current-background-hover: map.get($color, 'white'),
+    overflow-current-color-hover: var(--ecl-color-primary),
     mega-border: none,
+    mega-shadow: map.get($shadow, '2'),
+    mega-padding: 0,
+    mega-column-gap: 0,
+    mega-column-border: none,
+    sublink-padding: map.get($spacing, 's') map.get($spacing, 'xs'),
+    sublink-current-background: var(--ecl-color-primary-10),
+    sublink-current-shadow: inset 4px 0 0 0 var(--ecl-color-primary),
   ),
-
-  border-radius: 4px,
-  caret-active-background: map.get($color, 'blue-40'),
-  caret-active-hover-background: map.get($color, 'blue-60'),
-  caret-background: map.get($color, 'blue-10'),
-  caret-color: map.get($color, 'blue'),
-  caret-hover-background: map.get($color, 'blue-40'),
-  caret-icon-scale: 1,
-  desktop-item-border-color: map.get($color, 'blue-60'),
-  desktop-link-active-background: map.get($color, 'blue-20'),
-  desktop-link-active-color: map.get($color, 'blue-140'),
-  drowpdown-border-radius: 0 0 4px 4px,
-  dropdown-item-hover-color: map.get($color, 'blue-140'),
-  dropdown-shadow: map.get($shadow, '2'),
-  expanded-background: map.get($color, 'white'),
-  item-active-border: 1px solid map.get($color, 'blue-20'),
-  item-border: 1px solid map.get($color, 'blue-20'),
-  item-hover-color: map.get($color, 'blue-140'),
-  item-icon-margin: map.get($spacing, '2xs'),
-  link-active-background: map.get($color, 'blue-10'),
-  link-focus-color: map.get($color, 'blue'),
-  list-background: transparent,
-  main-nav-background:
-    linear-gradient(
-      90deg,
-      map.get($color, 'blue-140'),
-      map.get($color, 'blue-100')
-    ),
-  main-nav-shadow: map.get($shadow, '2'),
-  mobile-background: map.get($color, 'white'),
-  mobile-header-background:
-    linear-gradient(
-      90deg,
-      map.get($color, 'blue-140'),
-      map.get($color, 'blue-100')
-    ),
-  mobile-header-shadow: map.get($shadow, '1'),
-  mobile-item-color: map.get($color, 'blue-100'),
-  mobile-shadow: map.get($shadow, '2'),
-  open-button-shadow: map.get($shadow, '1'),
-  open-vertical-margin: -2px,
-  overlay-background: rgba(38, 43, 56, 0.7),
-  subitem-active-background: map.get($color, 'blue-10'),
-  subitem-active-border: 1px solid transparent,
-  subitem-background: map.get($color, 'white'),
-  subitem-border: 1px solid map.get($color, 'blue-20'),
-  sublink-hover-color: map.get($color, 'blue-140'),
-  title-font-weight: map.get($font-weight, 'normal'),
 );
 
 // Form
