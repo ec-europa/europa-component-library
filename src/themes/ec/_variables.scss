@@ -166,6 +166,13 @@ $content-block: (
   title-margin: map.get($spacing, '2xs') 0 map.get($spacing, 's'),
 );
 
+// Content item
+$content-item: (
+  divider-color: var(--ecl-color-neutral),
+  padding: map.get($spacing, 'xl'),
+  image-border-color: var(--ecl-color-neutral),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),

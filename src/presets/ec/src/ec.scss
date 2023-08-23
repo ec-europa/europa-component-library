@@ -73,7 +73,10 @@
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item-ec';
+@use '@ecl/vanilla-component-content-item/content-item' with (
+  $theme: theme.$theme,
+  $content-item: var.$content-item
+);
 @use '@ecl/vanilla-component-expandable/expandable-ec';
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
 @use '@ecl/vanilla-component-file/file-ec';

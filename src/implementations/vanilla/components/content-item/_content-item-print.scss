@@ -4,10 +4,10 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_divider-color: null !default;
-$_image-border-color: null !default;
+// Exposed variables
+$theme: null !default;
+$content-item: null !default;
 
 .ecl-content-item {
   align-items: flex-start;
@@ -17,8 +17,8 @@ $_image-border-color: null !default;
 }
 
 .ecl-content-item--divider {
-  border-bottom: 1px solid $_divider-color;
-  padding-bottom: map.get(theme.$spacing-print, 'l');
+  border-bottom: 1px solid map.get($content-item, 'divider-color');
+  padding-bottom: map.get($theme, 'spacing-print', 'l');
 }
 
 .ecl-content-item__content-block {
@@ -28,12 +28,12 @@ $_image-border-color: null !default;
 
 .ecl-content-item__date {
   flex-shrink: 0;
-  margin-inline-end: map.get(theme.$spacing-print, 'm');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-content-item__picture {
   flex-shrink: 0;
-  margin-inline-end: map.get(theme.$spacing-print, 'm');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
   max-width: 210px;
 }
 
@@ -43,12 +43,12 @@ $_image-border-color: null !default;
 }
 
 .ecl-content-item__image {
-  border: 1px solid $_image-border-color;
+  border: 1px solid map.get($content-item, 'image-border-color');
   width: 100%;
 }
 
 .ecl-content-item__picture--right {
   margin-inline-end: 0;
-  margin-inline-start: map.get(theme.$spacing-print, 'm');
+  margin-inline-start: map.get($theme, 'spacing-print', 'm');
   order: 1;
 }
