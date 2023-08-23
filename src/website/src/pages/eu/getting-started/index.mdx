@@ -21,50 +21,23 @@ New components are continuously being added to the library. The team is also con
 
 ECL distributes its resources in different ways and depending on the implementation approach, things might change a bit: generally speaking, given the HTML markup defined by ECL, applying the distrbuted css and javascript on top of it would ensure the expected look and feel.
 
-### Where to get the ECL resources?
+ECL resources are represented by:
 
-**ECL is distributed primarily as npm packages and this is the recommended way of getting it**.
-When used in a node project this is surely the easiest and more reliable way, the new versions can be automatically detected and fetched and the ECL resources could be even rebuilt on the client side by fetching all the needed packages one by one.
+- css
+- javascript
+- icons (svgs and sprite)
+- logos (svgs)
 
-In every release, starting from 3.9.1, a file containing a list of all the available packages on npm is deployed on the github release page, this list is quite long and you don't surely need, in a normal situation, to know all the available packages as you don't need to fetch them all.
+### Presets
 
-#### Identifying the packages
+All these resources are distributed in a single "package", called `preset-eu`, this package can be retrieved on npm or alternatively from the github release page as a zip file.
 
-ECL releases npm packages for:
-
-- builder (used to compile css and js) `@ecl/builder`
-- presets (EC and EU) `@ecl/preset-eu`
-- vanilla components (css and js) `@ecl/vanilla-component-{name}`
-- twig components (twig template) `@ecl/twig-component-{name}`
-- spec packages (data used in the demos) `@ecl/specs-component-{name}`
-- resources packages `@ecl/resources-eu-{name}`
-
-#### Presets
-
-The main ECL package that is usually needed in any environment where ECL is going to be used:
-
-- `preset-eu`
-
-In this package all the css, js and resources like icons and logos are present, there is no need, then, to look for other packages holding part of these resources.
-
+Using npm:
 `npm install @ecl/preset-eu`
 OR
 `yarn add @ecl/preset-eu`
 
-### Alternative approaches:
-
-ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach them:
-`https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
-
-Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/eu/styles/optional/ecl-eu-default.css
-
-These resources can be used loading them directly from the CDN, with the limitation that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
-
-For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them in the same domain where they are going to be used**.
-
-In order to ease the access to the package containing those resources, **the `preset-eu` package is also deployed in the github release page and can be downloaded from there.**
-
-Here is an example of a default HTML file using ECL:
+Once you have the `preset-eu` you're ready to setup the ECL integration in your application or website like this:
 
 ```html
 <!doctype html>
@@ -79,6 +52,10 @@ Here is an example of a default HTML file using ECL:
       cl.remove('no-js');
       cl.add('has-js');
     </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="/styles/optional/ecl-reset.css"
@@ -101,19 +78,24 @@ Here is an example of a default HTML file using ECL:
 This assumes your `preset-eu` package is directly accessible in the root of your project, change the path according to your environment.
 
 In this example the main ECL css and js are defined and in addition a css for print and the reset css are added.
-There are also other optional css files distributed that can be used, see below for further information.
 
-### moment.js
+There are also other optional css files distributed that can be used, moment.js is added because it's needed for the ECL datepicker, see below for further information.
 
-As explained in a more technical language in the [datepicker api page](/eu/components/forms/datepicker/api/) ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
-Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
+### Using the CDN
 
-### Update file path and name
+ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach them:
+`https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
 
-- If you wish to use ECL EC instead of ECL EU, you can find information here <Link to="/ec/getting-started/" label="Getting started EC" />
-- Replace <code>[ECL_VERSION]</code> by <code>v{process.env.ECL_VERSION}</code> to use the latest version
-- For more security, use the SRI hashes corresponding to the files when using them from the CDN.
-  They all can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/eu/styles/optional/ecl-eu-default.css
+
+Download a `preset-eu` package to see all the files available to know how to reach them in the CDN, the file system is the same.
+
+These resources can be used loading them directly from the CDN, with the limitation that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
+
+For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them in the same domain where they are going to be used**.
+
+For more security, use the SRI hashes corresponding to the files when using them from the CDN.
+They can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
 
 <details>
   <summary>SRI hashes (click to expand)</summary>
@@ -139,27 +121,6 @@ There are several optional CSS files, located in `eu/styles/optional`, which can
 
 - `ecl-reset.css`: contains some css reset rules, mostly based on normalize.css, with a few custom additions
 - `ecl-eu-default.css`: apply ECL styling to some default HTML tags (links, buttons, table, ...). Note that this file is meant to be used in specific cases, the recommanded way to use ECL is still to add corresponding classes to HTML elements. A corresponding print css `ecl-eu-default-print` is also provided.
-
-<details>
-  <summary>SRI hashes for optional files (click to expand)</summary>
-
-  <ul>
-    <li>
-      for `ecl-reset.css`: <code>{process.env.ECL_RESET_CSS}</code>
-    </li>
-    <li>
-      for `ecl-eu-default.css`: <code>{process.env.ECL_EU_DEFAULT_CSS}</code>
-    </li>
-  </ul>
-</details>
-
-### Additional information
-
-- to integrate ECL components, copy the markup from the component you want and paste it in the `<body>`. This markup can be found on this website and on <Link to="/playground/eu/" label="the playground" />.
-  TWIG templates are also [provided on npm](https://www.npmjs.com/org/ecl) for easy integration.
-- make sure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and itinitialize it with: `svg4everybody({ polyfill: true });`.
-- before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie+Consent+Kit+Banner).
-- all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
 
 ## JavaScript
 
@@ -191,6 +152,39 @@ Then, in the footer of the document (or whenever the document is ready), call `E
   </body>
 </html>
 ```
+
+### moment.js
+
+As explained in a more technical language in the [datepicker api page](/eu/components/forms/datepicker/api/) ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
+Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
+
+## Additional information
+
+- to integrate ECL components, copy the markup from the component you want and paste it in the `<body>`. This markup can be found on this website and on <Link to="/playground/eu/" label="the playground" />.
+  TWIG templates are also [provided on npm](https://www.npmjs.com/org/ecl) for easy integration.
+- make sure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and initialize it with: `svg4everybody({ polyfill: true });`.
+- before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie+Consent+Kit+Banner).
+- all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
+
+### More on the available packages
+
+**ECL is distributed primarily as npm packages and this is the recommended way of getting it**.
+When used in a node project this is surely the easiest and more reliable way, the new versions can be automatically detected and fetched and the ECL resources could be even rebuilt on the client side by fetching all the needed packages one by one.
+
+<details>
+  <summary>Identifying the packages (click to expand)</summary>
+
+In every release, starting from 3.9.1, a file containing a list of all the available packages on npm is deployed on the github release page, this list is quite long and you don't surely need, in a normal situation, to know all the available packages as you don't need to fetch them all.
+
+ECL releases npm packages for:
+
+- builder (used to compile css and js) `@ecl/builder`
+- presets (EC and EU) `@ecl/preset-eu`
+- vanilla components (css and js) `@ecl/vanilla-component-{name}`
+- twig components (twig template) `@ecl/twig-component-{name}`
+- spec packages (data used in the demos) `@ecl/specs-component-{name}`
+- resources packages `@ecl/resources-eu-{name}`
+  </details>
 
 ## Guidelines
 
