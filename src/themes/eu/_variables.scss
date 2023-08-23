@@ -152,6 +152,26 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Checkbox
+$checkbox: (
+  border-color: var(--ecl-color-dark-80),
+  border-radius: 2px,
+  box-background-checked-hover: var(--ecl-color-primary-80),
+  box-border-color-hover: var(--ecl-color-primary-80),
+  box-size: 1.5rem,
+  box-margin-top: 0,
+  help-text-color: var(--ecl-color-dark-80),
+  help-text-font: map.get($font-prolonged, 'm'),
+  invalid-border-color: var(--ecl-color-error-100),
+  invalid-border-color-hover: var(--ecl-color-error-80),
+  label-color: var(--ecl-color-dark-140),
+  box-border-color-checked: var(--ecl-color-primary),
+  box-background-checked: var(--ecl-color-primary),
+  border-width: 2px,
+  checkbox-fill: map.get($color, 'white'),
+  max-width: none,
+);
+
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),

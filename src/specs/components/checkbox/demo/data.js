@@ -56,7 +56,7 @@ module.exports = {
       {
         helper_id: 'helper-default-4',
         id: 'checkbox-default-4',
-        label: `Lorem ipsum dolor sit amet, <a href="${exampleLink}">consectetur adipiscing elit</a>. Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.`,
+        label: `Lorem ipsum dolor sit amet, <a href="${exampleLink}">consectetur adipiscing elit</a>`,
         value: 'lorem',
         helper_text: 'Helper text for an option',
         icon_path: '/icons.svg',
