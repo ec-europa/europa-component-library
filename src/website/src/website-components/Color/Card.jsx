@@ -11,9 +11,8 @@ class Card extends PureComponent {
     this.element = React.createRef();
     this.clipboard = null;
 
-    // Extract color
-    const { tokens, name } = props;
-    this.color = tokens.props[name];
+    const { name, value, ui } = props;
+    this.color = { name, value, ui };
   }
 
   componentDidMount() {
@@ -26,27 +25,16 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { name, value } = this.color;
-    const docs = {
-      title: '',
-      ui: 'light',
-      border: false,
-      ...this.color.docs,
-    };
+    const { name, value, ui } = this.color;
 
     return (
       <div
         className={classnames(styles.card, {
-          [styles[`card--${docs.ui}`]]: true,
+          [styles[`card--${ui}`]]: true,
         })}
       >
-        <div
-          className={classnames(styles.header, {
-            [styles['header--bordered']]: docs.border,
-          })}
-          style={{ backgroundColor: value }}
-        >
-          <h3 className={styles.title}>{docs.title || name}</h3>
+        <div className={styles.header} style={{ backgroundColor: value }}>
+          <h3 className={styles.title}>{name}</h3>
           <button
             type="button"
             id={name}
@@ -59,9 +47,6 @@ class Card extends PureComponent {
             <span className={styles['button-hover-only']}>COPY</span>
           </button>
         </div>
-        {/* docs.description && (
-          <div className={styles.body}>{docs.description}</div>
-        ) */}
       </div>
     );
   }
@@ -69,9 +54,13 @@ class Card extends PureComponent {
 
 Card.propTypes = {
   name: PropTypes.string.isRequired,
-  tokens: PropTypes.shape({
-    props: PropTypes.shape({}),
-  }).isRequired,
+  value: PropTypes.string,
+  ui: PropTypes.string,
+};
+
+Card.defaultProps = {
+  value: '',
+  ui: 'light',
 };
 
 export default Card;

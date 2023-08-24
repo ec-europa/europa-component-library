@@ -4,6 +4,7 @@
 .item {
   align-items: center;
   box-sizing: border-box;
+  box-shadow: 0 0 2px rgba(#000, 0.3) inset;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -11,6 +12,33 @@
   justify-content: space-between;
   margin: 0;
   padding: map.get(theme.$spacing, 'm');
+}
+
+.item--main {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  margin: 0 -0.5rem;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: currentcolor transparent transparent;
+    bottom: -0.5rem;
+    filter: brightness(85%);
+  }
+
+  &::before {
+    left: 0;
+    border-width: 0.5rem 0 0 0.5rem;
+  }
+
+  &::after {
+    right: 0;
+    border-width: 0.5rem 0.5rem 0 0;
+  }
 }
 
 .title {
