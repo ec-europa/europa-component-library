@@ -1,25 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import PaletteItem from './PaletteItem';
 import styles from './Palette.scss';
 
 class Palette extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    // Extract colors
-    const { tokens, category } = props;
-    this.colors = Object.keys(tokens.props)
-      .filter((key) => tokens.props[key].category === category)
-      .map((key) => tokens.props[key]);
-  }
-
   render() {
+    const { children } = this.props;
+
     return (
       <ol className={styles.palette}>
-        {this.colors.map((color) => (
-          <PaletteItem color={color} key={color.name} />
+        {React.Children.map(children, (child) => (
+          <>{child}</>
         ))}
       </ol>
     );
@@ -27,10 +18,7 @@ class Palette extends PureComponent {
 }
 
 Palette.propTypes = {
-  category: PropTypes.string.isRequired,
-  tokens: PropTypes.shape({
-    props: PropTypes.shape({}),
-  }).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Palette;
