@@ -13,9 +13,13 @@ $checkbox: null !default;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: map.get($theme, 'spacing', 'xs') 0;
   max-width: map.get($checkbox, 'max-width');
   position: relative;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .ecl-checkbox__input {
