@@ -126,7 +126,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Close button label is hidden on EC
 - `back` twig paramter has been renamed to `back_label`, to avoid confusion
 - New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
-- Menu link are now using the Link twig template directly, with `standalone` and `no-visited` variants
+- Menu link are now using the Link twig template directly, with `standalone` variant
 - Menu buttons are now using the Button twig template directly, with the `ghost` variant
 
 ### Message

@@ -121,7 +121,8 @@ $menu: null !default;
   color: map.get($menu, 'mobile', 'header-color');
   display: flex;
   flex-flow: row-reverse;
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  height: map.get($menu, 'mobile', 'header-height');
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -134,7 +135,6 @@ $menu: null !default;
 
 .ecl-menu__close {
   align-items: center;
-  align-self: flex-end;
   border-radius: map.get($menu, 'global', 'border-radius');
   cursor: pointer;
   color: currentcolor;
@@ -287,6 +287,10 @@ $menu: null !default;
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
+  }
+
+  &:visited {
+    color: map.get($menu, 'mobile', 'item-color');
   }
 
   &:focus-visible {
@@ -647,6 +651,10 @@ $menu: null !default;
 
   &:hover {
     color: map.get($menu, 'mobile', 'item-color-hover');
+  }
+
+  &:visited {
+    color: map.get($menu, 'mobile', 'item-color');
   }
 
   &:focus-visible {

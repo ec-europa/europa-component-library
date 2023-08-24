@@ -39,7 +39,6 @@
   {% include '@ecl/link/link.html.twig' with {
     link: {
       type: 'standalone',
-      no_visited: true,
       label: _item.label,
       path: _item.path,
       icon_path: _icon_path,
@@ -88,7 +87,6 @@
         {% include '@ecl/link/link.html.twig' with {
           link: {
             type: 'standalone',
-            no_visited: true,
             label: child.label,
             path: child.path,
             icon_path: _icon_path,
@@ -104,7 +102,6 @@
         {% include '@ecl/link/link.html.twig' with {
           link: {
             type: 'standalone',
-            no_visited: true,
             label: _see_all_label,
             path: _item.path,
             icon_path: _icon_path,
