@@ -24,18 +24,8 @@ $textarea: null !default;
   font: map.get($theme, 'font', 'm');
   margin: 0;
   max-width: 100%;
-  padding: calc(
-      #{map.get($textarea, 'padding-vertical')} - #{map.get(
-          $textarea,
-          'border-width'
-        )}
-    )
-    calc(
-      #{map.get($textarea, 'padding-horizontal')} - #{map.get(
-          $textarea,
-          'border-width'
-        )}
-    );
+  padding: map.get($textarea, 'padding-vertical')
+    map.get($textarea, 'padding-horizontal');
 
   &::placeholder {
     color: map.get($textarea, 'color-placeholder');
@@ -56,16 +46,16 @@ $textarea: null !default;
     box-shadow: map.get($textarea, 'shadow-hover');
     outline: none;
     padding: calc(
-        #{map.get($textarea, 'padding-vertical')} - #{map.get(
-            $textarea,
-            'border-width-focus'
-          )}
+        #{map.get($textarea, 'padding-vertical')} - (#{map.get(
+                $textarea,
+                'border-width-focus'
+              )} - #{map.get($textarea, 'border-width')})
       )
       calc(
-        #{map.get($textarea, 'padding-horizontal')} - #{map.get(
-            $textarea,
-            'border-width-focus'
-          )}
+        #{map.get($textarea, 'padding-horizontal')} - (#{map.get(
+                $textarea,
+                'border-width-focus'
+              )} - #{map.get($textarea, 'border-width')})
       );
   }
 }
@@ -109,29 +99,17 @@ $textarea: null !default;
   &:active {
     border-color: rgba(map.get($textarea, 'border-color'), 0.5);
     border-width: map.get($textarea, 'border-width');
-    padding: calc(
-        #{map.get($textarea, 'padding-vertical')} - #{map.get(
-            $textarea,
-            'border-width'
-          )}
-      )
-      calc(
-        #{map.get($textarea, 'padding-horizontal')} - #{map.get(
-            $textarea,
-            'border-width'
-          )}
-      );
   }
 }
 
 .ecl-text-area--invalid {
   border-color: map.get($textarea, 'border-color-invalid');
 
+  &:active,
   &:hover {
     border-color: map.get($textarea, 'border-color-invalid-hover');
   }
 
-  &:active,
   &:focus-visible {
     border-color: map.get($textarea, 'border-color-focus');
   }
