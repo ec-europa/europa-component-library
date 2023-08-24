@@ -49,10 +49,18 @@ jobs:
       - name: Create the package
         run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/website
-      - name: Deploy package to github
+      - name: Create the EC preset package
+        run: zip -r -qq ec-preset-${{ steps.tag.outputs.tag }}.zip .
+        working-directory: dist/packages/ec
+      - name: Create the EU preset package
+        run: zip -r -qq eu-preset-${{ steps.tag.outputs.tag }}.zip .
+        working-directory: dist/packages/eu
+      - name: Create the list of packages
+        run: sh ./scripts/packagesList.sh
+      - name: Deploy packages to github
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json'
+          files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json;dist/packages/ec/*.zip;dist/packages/eu/*.zip;ECL-npm-packages'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Build the archive
