@@ -13,17 +13,8 @@ $checkbox: null !default;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: map.get($theme, 'spacing', 'xs') 0;
-  max-width: map.get($checkbox, 'max-width');
+  margin: 0;
   position: relative;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .ecl-checkbox__input {
@@ -38,6 +29,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');
+  max-width: map.get($checkbox, 'max-width');
   padding: map.get($theme, 'spacing', 'xs') 0;
   white-space: pre-wrap;
 }
@@ -73,7 +65,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'help-text-color');
   display: block;
   font: map.get($checkbox, 'help-text-font');
-  margin: 0;
+  margin: 0 0 map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-checkbox--single,

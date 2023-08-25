@@ -19,6 +19,7 @@ import formGroup from './form-group.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
+const itemHelper = dataCheckbox.input.items[0].helper_text;
 
 dataText.invalid_icon.size = system === 'ec' ? 's' : 'm';
 
@@ -59,6 +60,16 @@ const prepareData = (data, args) => {
   }
   if (!args.show_helper) {
     data.helper_text = '';
+
+    if (data.input.items) {
+      data.input.items.forEach((input) => {
+        input.helper_text = '';
+      });
+    }
+  } else if (args.show_helper && data.input.items) {
+    data.input.items.forEach((input) => {
+      input.helper_text = itemHelper;
+    });
   }
 
   return data;
