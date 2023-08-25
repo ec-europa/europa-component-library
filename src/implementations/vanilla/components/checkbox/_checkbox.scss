@@ -33,6 +33,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');
+  line-height: map.get($theme, 'line-height', 's');
   max-width: map.get($checkbox, 'max-width');
   padding: map.get($theme, 'spacing', 'xs') 0;
   white-space: pre-wrap;
