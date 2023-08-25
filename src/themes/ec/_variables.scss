@@ -397,6 +397,39 @@ $page-header-print: (
   description-font: map.get($font-print, 'l'),
 );
 
+// Radio
+$radio: (
+  box-background: map.get($color, 'white'),
+  box-border-color-checked: var(--ecl-color-primary),
+  box-border-color: var(--ecl-color-dark-80),
+  box-border-color-hover: var(--ecl-color-primary),
+  box-border-color-checked-hover: var(--ecl-color-primary),
+  box-border-width: 1px,
+  box-border-width-checked: 1px,
+  box-inner-display: inline-block,
+  box-margin-top: 0,
+  box-size: 1.5rem,
+  help-text-color: var(--ecl-color-dark),
+  help-text-font: map.get($font, 's'),
+  invalid-border-color: var(--ecl-color-error),
+  invalid-border-color-hover: var(--ecl-color-error),
+  label-color: var(--ecl-color-dark),
+  max-width: 65ch,
+  hover-circle: (
+    height: 2.5rem,
+    width: 2.5rem,
+    content: '',
+    display: block,
+    border-radius: 50%,
+    position: absolute,
+    top: 50%,
+    left: 50%,
+    transform: translate(-50%, -50%),
+    background-color: map.get($color, 'primary-20'),
+    z-index: -1,
+  ),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),
