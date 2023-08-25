@@ -13,8 +13,12 @@ $checkbox: null !default;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin: 0 0 map.get($theme, 'spacing', 'xs');
   position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .ecl-checkbox__input {
@@ -65,7 +69,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'help-text-color');
   display: block;
   font: map.get($checkbox, 'help-text-font');
-  margin: 0 0 map.get($theme, 'spacing', 'xs');
+  margin: 0;
 }
 
 .ecl-checkbox--single,
