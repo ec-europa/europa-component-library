@@ -2,7 +2,8 @@
 
 {#
   Parameters:
-  - "title": (string) (default: ''): Title
+  - "title": (string) (default: ''): Title of the menu (displayed on mobile)
+  - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "icon_path": (string) (default: ''): Path to the icon sprite
@@ -25,7 +26,6 @@
   - "max_lines": (int) (default: 2): Number of lines for each first level item label. Set it to zero to remove this behavior
   - "site_name": (string) (default: ''): Name of the website (used only on mobile)
   - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
-  - "menu_link": (string) (default: ''): Href attribute of the menu toggler
   - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "button_previous_label": (string) (default: ''): Label for the button to display previous items, in case of overflow (for screen readers)
   - "button_next_label": (string) (default: ''): Label for the button to display next items, in case of overflow (for screen readers)
@@ -39,8 +39,8 @@
 
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
+{% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
-{% set _menu_link = menu_link|default('') %}
 {% set _css_class = 'ecl-menu' %}
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
@@ -76,20 +76,20 @@
 >
   <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
   <div class="ecl-container ecl-menu__container">
-    <a
-      class="ecl-link ecl-link--standalone ecl-menu__open"
-      href="{{ _menu_link }}"
-      data-ecl-menu-open
-    >
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          size: 's',
-          name: 'hamburger',
-          path: _icon_path
-        },
-      } only %}
-      {{- _title -}}
-    </a>
+    {% if _toggle is not empty %}
+      {% include '@ecl/link/link.html.twig' with _toggle|merge({
+        link: _toggle.link|merge({
+          type: 'standalone',
+          icon_path: _icon_path,
+          icon_position: 'before',
+        }),
+        extra_classes: 'ecl-menu__open',
+        extra_attributes: [{
+          name: 'data-ecl-menu-open',
+        }],
+      }) only %}
+    {% endif %}
+
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
         {% if _close is not empty %}

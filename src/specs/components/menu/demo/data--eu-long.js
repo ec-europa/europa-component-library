@@ -4,6 +4,17 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   title: 'Menu',
+  toggle: {
+    link: {
+      label: 'Menu',
+      path: exampleLink,
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'hamburger',
+      size: 's',
+    },
+  },
   close: {
     label: 'Close',
     icon: {
@@ -13,7 +24,6 @@ module.exports = {
     },
   },
   back_label: 'Back',
-  menu_link: exampleLink,
   see_all_label: 'See all pages',
   button_previous_label: 'Previous items',
   button_next_label: 'Next items',

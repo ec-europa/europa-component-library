@@ -13,6 +13,7 @@
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         icon_path: (string) (default: '')
         external: (boolean) (default: false)
+        hide_label: (boolean) (default: false): hide link label, for screen reader only. Note: requires to have an icon defined
       }
     - "icon" (associative array) OR (array) of associative arrays : format
       {
@@ -51,6 +52,7 @@
   path: '',
   icon_position: 'after',
   external: false,
+  hide_label: false,
   icon_path: '',
 } %}
 
@@ -103,6 +105,10 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _link.hide_label and _icon is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-link--icon-only' %}
 {% endif %}
 
 {% if _link.aria_label is defined and _link.aria_label is not empty %}

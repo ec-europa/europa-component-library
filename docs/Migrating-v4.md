@@ -107,6 +107,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
 - Classes `ecl-link--icon-before` and `ecl-link--icon-after` are no longer needed for the icon; position is detected using CSS. Class `ecl-link--icon` is still needed.
+- New variant added to handle link with icon only: `ecl-link--icon-only`. By using it, it is no longer needed to add utility classes on the link label. If you are using the twig template, this variant relies on the parameter `hide_label`
+  Note: even with this variant, it is still mandatory to provide a label for the link, for screen readers. It is just not displayed.
 
 ### Lists
 
@@ -121,9 +123,15 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Menu
 
-- `close` twig parameter now expect an ECL Button structure, instead of a string
-- Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
-- Close button label is hidden on EC
+- Close button updated:
+  - `close` twig parameter now expect an ECL Button structure, instead of a string
+  - Icon is now different between EC and EU: `close` for EC, `close-filled` for EU.
+  - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
+  - Button label is hidden on EC
+- Toggle link updated (mobile):
+  - New twig parameter `toggle` added. It expects an ECL Link structure
+  - Twig parameter `menu_link` removed, as it is now part of this structure
+  - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
 - `back` twig paramter has been renamed to `back_label`, to avoid confusion
 - New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
 - Menu link are now using the Link twig template directly, with `standalone` variant
