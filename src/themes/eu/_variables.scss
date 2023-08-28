@@ -152,6 +152,15 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Card
+$card: (
+  border-radius: map.get($border-radius, 'xl'),
+  shadow: map.get($shadow, '1'),
+  border: none,
+  border-bottom: none,
+  body-padding: map.get($spacing, 'l'),
+);
+
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
