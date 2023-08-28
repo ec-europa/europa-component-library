@@ -43,7 +43,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__primary-meta-item {
-  border-inline-end: 1px solid map.get($theme, 'color', 'blue-100');
+  border-inline-end: 1px solid var(--ecl-color-primary);
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
   margin-inline-end: map.get($theme, 'spacing', 'xs');

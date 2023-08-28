@@ -39,7 +39,7 @@ $content-item: null !default;
 
 .ecl-content-item__picture {
   flex-shrink: 0;
-  margin-bottom: map.get($theme, 'spacing', 'm');
+  margin-bottom: map.get($content-item, 'image-spacing-mobile');
   max-width: 100%;
 }
 
@@ -50,6 +50,7 @@ $content-item: null !default;
 
 .ecl-content-item__image {
   border: 1px solid map.get($content-item, 'image-border-color');
+  display: block;
   width: 100%;
 }
 
