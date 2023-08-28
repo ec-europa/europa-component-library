@@ -33,7 +33,10 @@
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-date-block/date-block-ec';
+@use '@ecl/vanilla-component-date-block/date-block' with (
+  $theme: theme.$theme,
+  $date-block: var.$date-block
+);
 @use '@ecl/vanilla-component-label/label' with (
   $theme: theme.$theme,
   $label: var.$label

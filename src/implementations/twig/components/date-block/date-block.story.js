@@ -6,11 +6,8 @@ import dateBlock from './date-block.html.twig';
 import notes from './README.md';
 
 // Preserve original data.
-const dataDefault = { ...specs };
 const dataOngoing = { ...specs, variant: 'ongoing' };
-const dataCancelled = { ...specs, variant: 'cancelled' };
 const dataPast = { ...specs, variant: 'past' };
-const dataRescheduled = { ...specs, variant: 'rescheduled' };
 
 const getArgs = (data) => ({
   day: data.day,
@@ -81,22 +78,6 @@ export default {
   decorators: [withNotes, withCode],
 };
 
-export const Default = (_, { loaded: { component } }) => component;
-
-Default.render = async (args) => {
-  const renderedDateBlock = await dateBlock(prepareData(dataDefault, args));
-  return renderedDateBlock;
-};
-Default.storyName = 'default';
-Default.args = getArgs(dataDefault);
-Default.argTypes = getArgTypes();
-Default.parameters = {
-  notes: {
-    markdown: notes,
-    json: dataDefault,
-  },
-};
-
 export const Ongoing = (_, { loaded: { component } }) => component;
 
 Ongoing.render = async (args) => {
@@ -105,23 +86,10 @@ Ongoing.render = async (args) => {
   );
   return renderedDateBlockOngoing;
 };
-Ongoing.storyName = 'ongoing';
+Ongoing.storyName = 'upcoming & ongoing';
 Ongoing.args = getArgs(dataOngoing);
 Ongoing.argTypes = getArgTypes(dataOngoing);
 Ongoing.parameters = { notes: { markdown: notes, json: dataOngoing } };
-
-export const Cancelled = (_, { loaded: { component } }) => component;
-
-Cancelled.render = async (args) => {
-  const renderedDateBlockCancelled = await dateBlock(
-    prepareData(dataCancelled, args),
-  );
-  return renderedDateBlockCancelled;
-};
-Cancelled.storyName = 'cancelled';
-Cancelled.args = getArgs(dataCancelled);
-Cancelled.argTypes = getArgTypes();
-Cancelled.parameters = { notes: { markdown: notes, json: dataCancelled } };
 
 export const Past = (_, { loaded: { component } }) => component;
 
@@ -129,20 +97,7 @@ Past.render = async (args) => {
   const renderedDateBlockPast = await dateBlock(prepareData(dataPast, args));
   return renderedDateBlockPast;
 };
-Past.storyName = 'past';
+Past.storyName = 'past and cancelled';
 Past.args = getArgs(dataPast);
 Past.argTypes = getArgTypes();
 Past.parameters = { notes: { markdown: notes, json: dataPast } };
-
-export const Rescheduled = (_, { loaded: { component } }) => component;
-
-Rescheduled.render = async (args) => {
-  const renderedDateBlockRescheduled = await dateBlock(
-    prepareData(dataRescheduled, args),
-  );
-  return renderedDateBlockRescheduled;
-};
-Rescheduled.storyName = 'rescheduled';
-Rescheduled.args = getArgs(dataRescheduled);
-Rescheduled.argTypes = getArgTypes();
-Rescheduled.parameters = { notes: { markdown: notes, json: dataRescheduled } };
