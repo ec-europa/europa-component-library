@@ -252,10 +252,10 @@ $site-header: null !default;
     background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
-    padding: calc(map.get($theme, 'spacing', 'xs') - 1px);
+    padding: map.get($theme, 'spacing', 'xs');
 
     &:hover {
-      padding: map.get($theme, 'spacing', 'xs');
+      padding: calc(map.get($theme, 'spacing', 'xs') + 1px);
     }
 
     .ecl-icon {
