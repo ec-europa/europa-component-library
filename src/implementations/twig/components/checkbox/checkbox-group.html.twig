@@ -26,22 +26,12 @@
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _required = required|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = extra_attributes|default([{}]) %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% if attr.value is defined %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
-    {% else %}
-      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
-    {% endif %}
-  {% endfor %}
 {% endif %}
 
 {% set _invalid_block  %}
@@ -66,11 +56,11 @@
   {%- for _item in _items %}
     {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
       name: _name,
-      invalid: _invalid,
-      required: _required,
+      invalid: _item.invalid|default(_invalid),
+      required: _item.required|default(_required),
       required_text: _item_required_text,
-      extra_classes: _item_extra_classes|default(''),
-      disabled: _disabled,
+      extra_classes: _item.extra_classes|default(_item_extra_classes|default('')),
+      extra_attributes: _item.extra_attributes|default(_extra_attributes),
     }) only %}
   {% endfor -%}
   {% if _items|length == 1 and
