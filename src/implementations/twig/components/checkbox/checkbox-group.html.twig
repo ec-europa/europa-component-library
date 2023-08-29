@@ -8,6 +8,7 @@
   - "helper_id" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
+  - "item_required_text" (string) (default: *)
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -45,7 +46,7 @@
 
 {% set _invalid_block  %}
   <div class="ecl-feedback-message">
-  {% if _invalid_icon is not empty %}
+  {% if _invalid_icon is not empty and _invalid_text is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: _invalid_icon,
       extra_classes: 'ecl-feedback-message__icon',
@@ -60,12 +61,16 @@
 {% if _items is not empty %}
   {% if _items|length == 1 %}
     {% set _item_extra_classes = 'ecl-checkbox--single' %}
+    {% set _item_required_text = item_required_text|default('*') %}
   {% endif %}
   {%- for _item in _items %}
     {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
       name: _name,
       invalid: _invalid,
-      extra_classes: _item_extra_classes|default('')
+      required: _required,
+      required_text: _item_required_text,
+      extra_classes: _item_extra_classes|default(''),
+      disabled: _disabled,
     }) only %}
   {% endfor -%}
   {% if _items|length == 1 and

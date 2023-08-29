@@ -20,7 +20,13 @@ import notes from './README.md';
 
 const system = getSystem();
 const itemHelper = dataCheckbox.input.items[0].helper_text;
-
+const dataSingleCheckbox = {
+  ...dataCheckbox,
+  input: {
+    ...dataCheckbox.input,
+    items: [dataCheckbox.input.items[0]],
+  },
+};
 dataText.invalid_icon.size = system === 'ec' ? 's' : 'm';
 
 const getArgs = (data) => {
@@ -112,6 +118,26 @@ Checkbox.storyName = 'Checkbox';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
+
+export const SingleCheckbox = (_, { loaded: { component } }) => component;
+
+SingleCheckbox.render = async (args) => {
+  const renderedSingleCheckbox = await formGroup(
+    prepareData(dataSingleCheckbox, args),
+  );
+  return renderedSingleCheckbox;
+};
+SingleCheckbox.storyName = 'Single Checkbox';
+SingleCheckbox.args = {
+  ...getArgs(dataSingleCheckbox),
+  required: true,
+  show_helper: false,
+  show_label: false,
+};
+SingleCheckbox.argTypes = getArgTypes(dataSingleCheckbox, 'group');
+SingleCheckbox.parameters = {
+  notes: { markdown: notes, json: dataSingleCheckbox },
+};
 
 export const Datepicker = (_, { loaded: { component } }) => component;
 
