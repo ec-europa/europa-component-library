@@ -4,8 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
+// Exposed variables
+$theme: null !default;
 $_circle-width: 0.6rem;
 
 .ecl-date-block {
@@ -19,67 +20,67 @@ $_circle-width: 0.6rem;
   width: 6.3rem;
 
   &::before {
-    background-color: map.get(theme.$color, 'white');
-    border: 1px solid map.get(theme.$color, 'black');
+    background-color: map.get($theme, 'color', 'white');
+    border: 1px solid map.get($theme, 'color', 'black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
-    left: map.get(theme.$spacing, 's');
+    left: map.get($theme, 'spacing', 's');
     position: absolute;
     top: -#{$_circle-width * 0.5};
     width: $_circle-width;
   }
 
   &::after {
-    background-color: map.get(theme.$color, 'white');
-    border: 1px solid map.get(theme.$color, 'black');
+    background-color: map.get($theme, 'color', 'white');
+    border: 1px solid map.get($theme, 'color', 'black');
     border-radius: 50%;
     box-sizing: content-box;
     content: '';
     display: block;
     height: $_circle-width;
     position: absolute;
-    right: map.get(theme.$spacing, 's');
+    right: map.get($theme, 'spacing', 's');
     top: -#{$_circle-width * 0.5};
     width: $_circle-width;
   }
 }
 
 .ecl-date-block__day {
-  border-left: 1px solid map.get(theme.$color, 'black');
-  border-right: 1px solid map.get(theme.$color, 'black');
-  border-top: 1px solid map.get(theme.$color, 'black');
-  color: map.get(theme.$color, 'black');
+  border-left: 1px solid map.get($theme, 'color', 'black');
+  border-right: 1px solid map.get($theme, 'color', 'black');
+  border-top: 1px solid map.get($theme, 'color', 'black');
+  color: map.get($theme, 'color', 'black');
   display: block;
-  font: map.get(theme.$font-print, '2xl');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  padding-left: map.get(theme.$spacing-print, '2xs');
-  padding-right: map.get(theme.$spacing-print, '2xs');
-  padding-top: map.get(theme.$spacing-print, 'xs');
+  font: map.get($theme, 'font-print', '2xl');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  padding-left: map.get($theme, 'spacing-print', '2xs');
+  padding-right: map.get($theme, 'spacing-print', '2xs');
+  padding-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-date-block__month {
-  border-left: 1px solid map.get(theme.$color, 'black');
-  border-right: 1px solid map.get(theme.$color, 'black');
-  color: map.get(theme.$color, 'black');
+  border-left: 1px solid map.get($theme, 'color', 'black');
+  border-right: 1px solid map.get($theme, 'color', 'black');
+  color: map.get($theme, 'color', 'black');
   display: block;
-  font: map.get(theme.$font-print, 'm');
-  padding-bottom: map.get(theme.$spacing-print, 'xs');
-  padding-left: map.get(theme.$spacing-print, '2xs');
-  padding-right: map.get(theme.$spacing-print, '2xs');
+  font: map.get($theme, 'font-print', 'm');
+  padding-bottom: map.get($theme, 'spacing-print', 'xs');
+  padding-left: map.get($theme, 'spacing-print', '2xs');
+  padding-right: map.get($theme, 'spacing-print', '2xs');
   text-decoration: none !important;
   text-transform: uppercase;
 }
 
 .ecl-date-block__year {
-  border: 1px solid map.get(theme.$color, 'black');
-  color: map.get(theme.$color, 'black');
+  border: 1px solid map.get($theme, 'color', 'black');
+  color: map.get($theme, 'color', 'black');
   display: block;
-  font: map.get(theme.$font-print, 's');
-  padding: map.get(theme.$spacing-print, 'xs')
-    map.get(theme.$spacing-print, '2xs');
+  font: map.get($theme, 'font-print', 's');
+  padding: map.get($theme, 'spacing-print', 'xs')
+    map.get($theme, 'spacing-print', '2xs');
 }
 
 .ecl-date-block__daytime {
