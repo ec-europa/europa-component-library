@@ -4,12 +4,12 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   description:
-    'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
-  primary_meta: ['META1', 'Meta2'],
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus, quis tincidunt sem viverra. Nunc vestibulum, mauris quis porta venenatis, justo odio commodo tellus',
+  primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     link: {
       type: 'standalone',
-      label: 'Better regulation',
+      label: 'Title',
       path: exampleLink,
     },
   },
@@ -20,8 +20,8 @@ module.exports = {
     },
   },
   labels: [
-    { label: 'highlighted', variant: 'highlight' },
-    { label: 'call status: upcoming', variant: 'medium' },
+    { label: 'highlight', variant: 'highlight' },
+    { label: 'high importance', variant: 'high' },
   ],
   secondary_meta: [
     {
@@ -45,10 +45,6 @@ module.exports = {
     {
       items: [
         {
-          term: 'Standard text',
-          definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis`,
-        },
-        {
           term: 'Standalone links',
           type: 'link',
           definition: [
@@ -58,11 +54,6 @@ module.exports = {
                 path: exampleLink,
                 icon_position: 'before',
               },
-              icon: {
-                name: 'copy',
-                path: '/icons.svg',
-                size: 's',
-              },
             },
             {
               link: {
@@ -70,13 +61,12 @@ module.exports = {
                 path: exampleLink,
                 icon_position: 'before',
               },
-              icon: {
-                name: 'download',
-                path: '/icons.svg',
-                size: 's',
-              },
             },
           ],
+        },
+        {
+          term: 'Standard text',
+          definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>.`,
         },
         {
           term: 'Links inline',
