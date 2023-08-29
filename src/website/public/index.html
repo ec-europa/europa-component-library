@@ -18,8 +18,9 @@
 
         var head = document.head || document.getElementsByTagName('head')[0];
         var cck = document.createElement('script');
-        cck.src = 'https://ec.europa.eu/wel/cookie-consent/consent.js';
+        cck.src = 'https://europa.eu/webtools/load.js';
         cck.type = 'text/javascript';
+        cck.defer = true;
         head.appendChild(cck);
       }
     </script>
@@ -42,6 +43,12 @@
     </script>
   </head>
   <body>
+    <script type="application/json">
+      {
+        "utility": "cck",
+        "url": "https://commission.europa.eu/cookies-policy_en."
+      }
+    </script>
     <div id="root"></div>
   </body>
 </html>
