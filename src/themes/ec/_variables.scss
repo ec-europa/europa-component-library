@@ -166,6 +166,46 @@ $content-block: (
   title-margin: map.get($spacing, '2xs') 0 map.get($spacing, 's'),
 );
 
+// Date Block
+$date-block: (
+  background-color-cancelled: var(--ecl-color-neutral-80),
+  background-color-default: var(--ecl-color-accent),
+  background-color-ongoing: var(--ecl-color-accent),
+  background-color-past: var(--ecl-color-neutral-80),
+  background-color-year: var(--ecl-color-dark),
+  border-radius: 0,
+  circle-width: 10px,
+  day-line-height: 90%,
+  day-text-size: calc(#{map.get($font-size, 'xl')} - 2px),
+  height-mobile: auto,
+  height-desktop: auto,
+  max-height: 5.75rem,
+  month-line-height: calc(#{map.get($line-height, '2xs')} - 4px),
+  month-text-size: map.get($font-size, 'xs'),
+  padding-day-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
+    map.get($spacing, '2xs'),
+  padding-day-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
+    map.get($spacing, '2xs'),
+  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+  padding-top: map.get($spacing, 'xs'),
+  padding-year-desktop: 0,
+  padding-year-mobile: 0,
+  past-border: none,
+  separator-color: transparent,
+  separator-color-past: transparent,
+  shadow: none,
+  shadow-decoration: none,
+  text-color: var(--ecl-color-dark),
+  text-color-inverted: var(--ecl-color-dark),
+  text-color-year: map.get($color, 'white'),
+  text-white-space: nowrap,
+  width-desktop: 5rem,
+  width-mobile: 5rem,
+  year-border: none,
+  year-weight: map.get($font-weight, 'bold'),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),
