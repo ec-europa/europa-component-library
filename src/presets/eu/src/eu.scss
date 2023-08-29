@@ -16,7 +16,10 @@
 @use '@ecl/vanilla-component-datepicker/datepicker-eu';
 @use '@ecl/vanilla-component-file-upload/file-upload-eu';
 @use '@ecl/vanilla-component-radio/radio-eu';
-@use '@ecl/vanilla-component-range/range-eu';
+@use '@ecl/vanilla-component-range/range' with (
+  $theme: theme.$theme,
+  $range: var.$range
+);
 @use '@ecl/vanilla-component-select/select-eu';
 @use '@ecl/vanilla-component-text-area/text-area-eu';
 @use '@ecl/vanilla-component-text-input/text-input' with (

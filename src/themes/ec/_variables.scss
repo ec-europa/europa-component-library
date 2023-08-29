@@ -437,6 +437,23 @@ $page-header-print: (
   description-font: map.get($font-print, 'l'),
 );
 
+// Range
+$range: (
+  bar-color: var(--ecl-color-neutral-100),
+  disabled-color: var(--ecl-color-neutral-60),
+  active-color: var(--ecl-color-primary-160),
+  invalid-color: var(--ecl-color-error),
+  invalid-hover-color: var(--ecl-color-error),
+  invalid-active-color: var(--ecl-color-error),
+  value-color: var(--ecl-color-dark-100),
+  value-font: map.get($font, 's'),
+  range-margin-top: map.get($spacing, 'xs'),
+  range-size: 0.25rem,
+  slider-size: 1rem,
+  focus-circle: true,
+  touch-area: 1.25rem,
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),
