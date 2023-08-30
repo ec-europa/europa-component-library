@@ -6,8 +6,10 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-rating-field {
   display: inline-flex;
@@ -59,13 +61,13 @@
 .ecl-rating-field:not(.ecl-rating-field--disabled)
   .ecl-rating-field__input:active {
   ~ .ecl-rating-field__label {
-    outline: 2px solid map.get(theme.$color, 'blue-100');
+    outline: 2px solid var(--ecl-color-primary);
   }
 }
 
 .ecl-rating-field__label {
   cursor: pointer;
-  margin-right: map.get(theme.$spacing, 'xs');
+  margin-right: map.get($theme, 'spacing', 'xs');
 
   .ecl-rating-field--disabled & {
     cursor: default;
@@ -74,16 +76,16 @@
 
 .ecl-rating-field__icon-filled {
   display: none;
-  fill: map.get(theme.$color, 'yellow-100');
+  fill: map.get($theme, 'color', 'yellow-100');
 }
 
 .ecl-rating-field__icon-outline {
-  fill: map.get(theme.$color, 'grey-75');
+  fill: var(--ecl-color-dark-80);
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-rating-field__label {
-    margin-right: map.get(theme.$spacing, '2xs');
+    margin-right: map.get($theme, 'spacing', '2xs');
   }
 }
