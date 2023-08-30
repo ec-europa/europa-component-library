@@ -169,7 +169,7 @@ $checkbox: null !default;
           }
         }
       } @else {
-        outline: 2px solid map.get($theme, 'color' 'blue-100');
+        outline: 2px solid var(--ecl-color-primary);
         outline-offset: 2px;
       }
     }
@@ -179,7 +179,7 @@ $checkbox: null !default;
     ~ .ecl-checkbox__label {
       .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
         @if not map-has-key($checkbox, 'hover-circle') {
-          outline: 2px solid map.get($theme, 'color' 'blue-100');
+          outline: 2px solid var(--ecl-color-primary);
           outline-offset: 2px;
         }
       }

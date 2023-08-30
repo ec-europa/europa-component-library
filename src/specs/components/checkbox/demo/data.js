@@ -35,6 +35,7 @@ module.exports = {
         label: 'Spain',
         value: 'es',
         icon_path: '/icons.svg',
+        required_text: '*',
       },
       {
         helper_id: 'helper-default-2',

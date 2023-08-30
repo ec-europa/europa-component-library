@@ -51,7 +51,7 @@
 {% if _items is not empty %}
   {% if _items|length == 1 %}
     {% set _item_extra_classes = 'ecl-checkbox--single' %}
-    {% set _item_required_text = item_required_text|default('*') %}
+    {% set _item_required_text = _items[0].required_text|default('') %}
   {% endif %}
   {%- for _item in _items %}
     {% include '@ecl/checkbox/checkbox-item.html.twig' with _item|merge({
