@@ -181,6 +181,14 @@ $content-block: (
   title-margin: map.get($spacing, 'xs') 0 map.get($spacing, 's'),
 );
 
+// Content item
+$content-item: (
+  divider-color: var(--ecl-color-primary-20),
+  padding: map.get($spacing, 'l'),
+  image-border-color: var(--ecl-color-primary-20),
+  image-spacing-mobile: map.get($spacing, 'm'),
+);
+
 // Date block
 $date-block: (
   background-color-cancelled: var(--ecl-color-dark-20),
@@ -223,6 +231,7 @@ $description-list: (
   term-margin-bottom: map.get($spacing, 'xs'),
   term-margin-top: map.get($spacing, 'm'),
   definition-color: var(--ecl-color-dark-140),
+  separator-color: var(--ecl-color-primary),
   taxonomy-color: var(--ecl-color-dark-80),
   term-width: 210px,
 );

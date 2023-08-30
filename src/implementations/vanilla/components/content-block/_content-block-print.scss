@@ -47,7 +47,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__primary-meta-item {
-  border-inline-end: 1px solid map.get($theme, 'color', 'blue-100');
+  border-inline-end: 1px solid var(--ecl-color-primary);
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
   margin-inline-end: map.get($theme, 'spacing-print', 'm');
   padding-inline-end: map.get($theme, 'spacing-print', 'm');
