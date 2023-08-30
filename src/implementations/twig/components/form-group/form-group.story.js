@@ -39,7 +39,6 @@ const getArgs = (data) => {
   };
 
   Object.assign(args.input, data.input);
-
   return args;
 };
 
@@ -59,6 +58,9 @@ const prepareData = (data, args) => {
   }
   if (!args.show_helper) {
     data.helper_text = '';
+  }
+  if (args.width) {
+    data.input.width = args.width;
   }
 
   return data;
@@ -153,7 +155,7 @@ Range.render = async (args) => {
   return renderedRange;
 };
 Range.storyName = 'Range';
-Range.args = getArgs(dataRange);
+Range.args = { ...getArgs(dataRange), width: 'm' };
 Range.argTypes = getArgTypes(dataRange, 'element');
 Range.parameters = { notes: { markdown: notes, json: dataRange } };
 

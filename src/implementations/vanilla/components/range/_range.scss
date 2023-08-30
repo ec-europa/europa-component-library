@@ -4,8 +4,8 @@
  */
 
 @use 'sass:map';
-@use 'sass:math';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/theme-dev/mixins/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -113,27 +113,15 @@ $range: null !default;
 
 // Width
 .ecl-range--s {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 's');
-  }
+  @include mixins.form-width('s');
 }
 
 .ecl-range--m {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'm');
-  }
+  @include mixins.form-width('m');
 }
 
 .ecl-range--l {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'l');
-  }
+  @include mixins.form-width('l');
 }
 
 // Disabled
