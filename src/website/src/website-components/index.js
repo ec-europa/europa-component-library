@@ -3,6 +3,7 @@ export Caution from './DoDont/Caution';
 export ColorCard from './Color/Card';
 export ColorLayout from './Color/Layout';
 export ColorPalette from './Color/Palette';
+export ColorPaletteItem from './Color/PaletteItem';
 export DisplayTokens from './DisplayTokens';
 export Html from './Html';
 export Do from './DoDont/Do';

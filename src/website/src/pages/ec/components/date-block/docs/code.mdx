@@ -4,25 +4,9 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import {
-  dateBlockDefault,
-  dateBlockCancelled,
-  dateBlockOngoing,
-  dateBlockPast,
-  dateBlockRescheduled,
-} from '../demo';
+import { dateBlockOngoing, dateBlockPast } from '../demo';
 
-## Default
-
-<Playground
-  system="ec"
-  selectedKind="components-date-block"
-  selectedStory="default"
->
-  <Html markup={dateBlockDefault} />
-</Playground>
-
-## Ongoing
+## Upcoming and ongoing
 
 <Playground
   system="ec"
@@ -32,17 +16,7 @@ import {
   <Html markup={dateBlockOngoing} />
 </Playground>
 
-## Cancelled
-
-<Playground
-  system="ec"
-  selectedKind="components-date-block"
-  selectedStory="cancelled"
->
-  <Html markup={dateBlockCancelled} />
-</Playground>
-
-## Past
+## Past and cancelled
 
 <Playground
   system="ec"
@@ -50,14 +24,4 @@ import {
   selectedStory="past"
 >
   <Html markup={dateBlockPast} />
-</Playground>
-
-## Rescheduled
-
-<Playground
-  system="ec"
-  selectedKind="components-date-block"
-  selectedStory="rescheduled"
->
-  <Html markup={dateBlockRescheduled} />
 </Playground>
