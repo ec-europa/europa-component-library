@@ -13,3 +13,16 @@ export const checkboxOptional = template(
     input: { ...demoContentDefault.input, required: false },
   }),
 );
+export const checkboxSingle = template(
+  correctSvgPath({
+    ...demoContentDefault,
+    input: {
+      ...demoContentDefault.input,
+      items: [demoContentDefault.input.items[0]],
+    },
+    required: true,
+    show_helper: false,
+    show_label: false,
+    required_text: '',
+  }),
+);

@@ -31,6 +31,7 @@ $checkbox: null !default;
 }
 
 .ecl-checkbox__label {
+  align-items: center;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');

@@ -20,7 +20,7 @@ import notes from './README.md';
 
 const system = getSystem();
 const itemHelper = dataCheckbox.input.items[0].helper_text;
-const dataSingleCheckbox = {
+const dataStandaloneCheckbox = {
   ...dataCheckbox,
   input: {
     ...dataCheckbox.input,
@@ -119,24 +119,25 @@ Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
 
-export const SingleCheckbox = (_, { loaded: { component } }) => component;
+export const StandaloneCheckbox = (_, { loaded: { component } }) => component;
 
-SingleCheckbox.render = async (args) => {
-  const renderedSingleCheckbox = await formGroup(
-    prepareData(dataSingleCheckbox, args),
+StandaloneCheckbox.render = async (args) => {
+  const renderedStandaloneCheckbox = await formGroup(
+    prepareData(dataStandaloneCheckbox, args),
   );
-  return renderedSingleCheckbox;
+  return renderedStandaloneCheckbox;
 };
-SingleCheckbox.storyName = 'Single Checkbox';
-SingleCheckbox.args = {
-  ...getArgs(dataSingleCheckbox),
+StandaloneCheckbox.storyName = 'Standalone checkbox';
+StandaloneCheckbox.args = {
+  ...getArgs(dataStandaloneCheckbox),
   required: true,
   show_helper: false,
   show_label: false,
+  required_text: '',
 };
-SingleCheckbox.argTypes = getArgTypes(dataSingleCheckbox, 'group');
-SingleCheckbox.parameters = {
-  notes: { markdown: notes, json: dataSingleCheckbox },
+StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
+StandaloneCheckbox.parameters = {
+  notes: { markdown: notes, json: dataStandaloneCheckbox },
 };
 
 export const Datepicker = (_, { loaded: { component } }) => component;
