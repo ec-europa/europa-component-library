@@ -6,14 +6,6 @@ import dataCard from '@ecl/specs-component-card/demo/data';
 import card from './card.html.twig';
 import notes from './README.md';
 
-const dataCardDefault = JSON.parse(JSON.stringify(dataCard));
-delete dataCardDefault.lists;
-
-const dataCardTags = JSON.parse(JSON.stringify(dataCard));
-delete dataCardTags.lists;
-
-const dataCardLists = JSON.parse(JSON.stringify(dataCard));
-
 const getArgs = (data) => {
   const args = {};
   if (data.image) {
@@ -37,9 +29,7 @@ const getArgs = (data) => {
   if (data.secondary_meta) {
     args.show_secondary_meta = true;
   }
-  if (data.lists) {
-    args.show_lists = !!data.lists;
-  }
+  args.show_lists = false;
 
   return args;
 };
@@ -210,21 +200,15 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedCard = await card(prepareData(dataCardDefault, args));
+  const renderedCard = await card(prepareData(dataCard, args));
   return renderedCard;
 };
 Default.storyName = 'default';
-Default.args = getArgs(dataCardDefault);
-Default.argTypes = getArgTypes(dataCardDefault);
-Default.parameters = { notes: { markdown: notes, json: dataCardDefault } };
-
-export const Lists = (_, { loaded: { component } }) => component;
-
-Lists.render = async (args) => {
-  const renderedCardList = await card(prepareData(dataCardLists, args));
-  return renderedCardList;
+Default.args = getArgs(dataCard);
+Default.argTypes = getArgTypes(dataCard);
+Default.parameters = {
+  notes: { markdown: notes, json: dataCard },
+  viewport: {
+    defaultViewport: 'pixel',
+  },
 };
-Lists.storyName = 'lists';
-Lists.args = getArgs(dataCardLists);
-Lists.argTypes = getArgTypes(dataCardLists);
-Lists.parameters = { notes: { markdown: notes, json: dataCardLists } };
