@@ -46,6 +46,7 @@ $menu: null !default;
   font: map.get($theme, 'font', 'xs');
   margin-inline-start: auto;
   order: 2;
+  padding: map.get($menu, 'mobile', 'open-padding');
   text-decoration: none;
 
   &:hover,
@@ -57,10 +58,11 @@ $menu: null !default;
 
   &:hover {
     text-decoration: underline;
+    padding: calc(#{map.get($menu, 'mobile', 'open-padding')} + 1px);
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($menu, 'mobile', 'color-outline');
+    outline: 2px solid map.get($menu, 'global', 'color-outline');
   }
 
   .ecl-link__label {
@@ -162,10 +164,9 @@ $menu: null !default;
   }
 
   &:hover {
-    background-color: transparent;
+    background-color: map.get($menu, 'mobile', 'header-background-hover');
     border-color: transparent;
     color: currentcolor;
-    text-decoration: underline;
   }
 
   &:focus-visible {
@@ -183,10 +184,9 @@ $menu: null !default;
   text-decoration: none;
 
   &:hover {
-    background-color: transparent;
+    background-color: map.get($menu, 'mobile', 'header-background-hover');
     border-color: transparent;
     color: currentcolor;
-    text-decoration: underline;
   }
 
   &:focus-visible {

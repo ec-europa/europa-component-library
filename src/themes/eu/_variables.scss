@@ -365,12 +365,14 @@ $menu: (
     color: map.get($color, 'white'),
     content-background: map.get($color, 'white'),
     overlay-background: rgba(38, 43, 56, 0.7),
+    open-padding: 0,
     header-background:
       linear-gradient(
         90deg,
         var(--ecl-color-primary-140),
         var(--ecl-color-primary)
       ),
+    header-background-hover: transparent,
     header-font: map.get($font, 'xl'),
     header-color: map.get($color, 'white'),
     header-shadow: map.get($shadow, '1'),
