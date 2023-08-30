@@ -5,23 +5,18 @@
 
 @use 'sass:math';
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-radius: null !default;
-$_shadow: null !default;
-$_card-background: null !default;
-$_card-border: null !default;
-$_image-margin: null !default;
-$_image-border-color: null !default;
-$_image-border-width: null !default;
-$_body-padding: null !default;
+// Exposed variables
+$theme: null !default;
+$card: null !default;
 
 .ecl-card {
-  background-color: $_card-background;
-  border: $_card-border;
-  border-radius: $_border-radius;
-  box-shadow: $_shadow;
+  background-color: map.get($theme, 'color', 'white');
+  border: map.get($card, 'border');
+  border-bottom: map.get($card, 'border-bottom');
+  border-radius: map.get($card, 'border-radius');
+  box-shadow: map.get($card, 'shadow');
   box-sizing: border-box;
   height: 100%;
   margin: 0;
@@ -32,17 +27,13 @@ $_body-padding: null !default;
 
 .ecl-card__image {
   aspect-ratio: 3/2;
-  border: $_image-border-width solid $_image-border-color;
   display: block;
   height: auto;
-  margin-inline-start: $_image-margin;
-  margin-inline-end: $_image-margin;
-  margin-top: $_image-margin;
   object-fit: cover;
-  width: calc(100% - (2 * #{$_image-margin}) - (2 * #{$_image-border-width}));
+  width: 100%;
 }
 
 .ecl-card__body {
-  padding: $_body-padding;
+  padding: map.get($card, 'body-padding');
   position: relative;
 }
