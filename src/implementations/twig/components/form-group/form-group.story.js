@@ -108,17 +108,6 @@ Textarea.args = getArgs(dataTextarea);
 Textarea.argTypes = getArgTypes(dataTextarea, 'element');
 Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
-export const Checkbox = (_, { loaded: { component } }) => component;
-
-Checkbox.render = async (args) => {
-  const renderedCheckbox = await formGroup(prepareData(dataCheckbox, args));
-  return renderedCheckbox;
-};
-Checkbox.storyName = 'Checkbox';
-Checkbox.args = getArgs(dataCheckbox);
-Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
-Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
-
 export const StandaloneCheckbox = (_, { loaded: { component } }) => component;
 
 StandaloneCheckbox.render = async (args) => {
@@ -127,7 +116,7 @@ StandaloneCheckbox.render = async (args) => {
   );
   return renderedStandaloneCheckbox;
 };
-StandaloneCheckbox.storyName = 'Standalone checkbox';
+StandaloneCheckbox.storyName = 'Checkbox';
 StandaloneCheckbox.args = {
   ...getArgs(dataStandaloneCheckbox),
   required: true,
@@ -139,6 +128,17 @@ StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
 StandaloneCheckbox.parameters = {
   notes: { markdown: notes, json: dataStandaloneCheckbox },
 };
+
+export const Checkbox = (_, { loaded: { component } }) => component;
+
+Checkbox.render = async (args) => {
+  const renderedCheckbox = await formGroup(prepareData(dataCheckbox, args));
+  return renderedCheckbox;
+};
+Checkbox.storyName = 'Checkbox group';
+Checkbox.args = getArgs(dataCheckbox);
+Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
+Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
 
 export const Datepicker = (_, { loaded: { component } }) => component;
 
