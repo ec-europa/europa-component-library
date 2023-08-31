@@ -357,6 +357,105 @@ $list: (
   divider-color: var(--ecl-color-primary-140),
 );
 
+// Menu
+$menu: (
+  global: (
+    border-radius: 4px,
+    shadow: map.get($shadow, '2'),
+    color-outline: map.get($color, 'white'),
+  ),
+  mobile: (
+    menu-background:
+      linear-gradient(
+        90deg,
+        var(--ecl-color-primary-140),
+        var(--ecl-color-primary)
+      ),
+    color: map.get($color, 'white'),
+    content-background: map.get($color, 'white'),
+    overlay-background: rgba(38, 43, 56, 0.7),
+    open-padding: 0,
+    open-outline-color: var(--ecl-color-primary),
+    header-background:
+      linear-gradient(
+        90deg,
+        var(--ecl-color-primary-140),
+        var(--ecl-color-primary)
+      ),
+    header-background-hover: transparent,
+    header-font: map.get($font, 'xl'),
+    header-color: map.get($color, 'white'),
+    header-shadow: map.get($shadow, '1'),
+    header-height: 77px,
+    item-color: var(--ecl-color-primary),
+    item-color-hover: var(--ecl-color-primary-140),
+    item-border: 1px solid var(--ecl-color-primary-20),
+    item-font: map.get($font, 'l'),
+    item-padding: map.get($spacing, 'm'),
+    item-active-background: var(--ecl-color-primary-10),
+    item-active-border: var(--ecl-color-primary),
+    caret-background: var(--ecl-color-primary-10),
+    caret-background-hover: var(--ecl-color-primary-40),
+    caret-active-background: var(--ecl-color-primary-10),
+    caret-active-background-hover: var(--ecl-color-primary-10),
+    caret-color: var(--ecl-color-primary),
+    subtitle-border: 3px solid var(--ecl-color-primary-10),
+    subtitle-font: map.get($font, 'xl'),
+    subtitle-font-weight: map.get($font-weight, 'regular'),
+    subitem-padding: map.get($spacing, 'm'),
+  ),
+  desktop: (
+    menu-background:
+      linear-gradient(
+        90deg,
+        var(--ecl-color-primary-140),
+        var(--ecl-color-primary)
+      ),
+    menu-border: none,
+    item-background-hover: map.get($color, 'white'),
+    item-background-focus: map.get($color, 'white'),
+    item-color: map.get($color, 'white'),
+    item-color-hover: var(--ecl-color-primary-140),
+    item-color-focus: var(--ecl-color-primary-140),
+    item-shadow-hover: none,
+    item-current-background: var(--ecl-color-primary-20),
+    item-current-background-focus: map.get($color, 'white'),
+    item-current-color: var(--ecl-color-primary-140),
+    item-current-shadow: #{inset 2px 0 0 var(--ecl-color-primary),
+    inset #{-2px} 0 0 var(--ecl-color-primary)},
+    item-current-margin: 0,
+    separator-color: var(--ecl-color-primary-60),
+    link-padding: calc(#{map.get($spacing, 's')} + #{map.get($spacing, '2xs')})
+      map.get($spacing, '2xs')
+      calc(#{map.get($spacing, 's')} + #{map.get($spacing, '2xs')})
+      map.get($spacing, 'xs'),
+    link-expanded-padding:
+      calc(#{map.get($spacing, 's')} + #{map.get($spacing, '2xs')})
+      map.get($spacing, '2xs')
+      calc(#{map.get($spacing, 's')} + #{map.get($spacing, '2xs')} + 1px)
+      map.get($spacing, 'xs'),
+    link-line-height: map.get($line-height, 'm'),
+    caret-padding: 0 map.get($spacing, 's'),
+    caret-focus-outline: var(--ecl-color-primary),
+    overflow-border: 4px solid var(--ecl-color-primary-60),
+    overflow-border-hover: 4px solid var(--ecl-color-primary-60),
+    overflow-background: var(--ecl-color-primary),
+    overflow-background-hover: map.get($color, 'white'),
+    overflow-color: map.get($color, 'white'),
+    overflow-color-hover: var(--ecl-color-primary-140),
+    overflow-current-background-hover: map.get($color, 'white'),
+    overflow-current-color-hover: var(--ecl-color-primary),
+    mega-border: none,
+    mega-shadow: map.get($shadow, '2'),
+    mega-padding: 0,
+    mega-column-gap: 0,
+    mega-column-border: none,
+    sublink-padding: map.get($spacing, 's') map.get($spacing, 'xs'),
+    sublink-current-background: var(--ecl-color-primary-10),
+    sublink-current-shadow: inset 4px 0 0 0 var(--ecl-color-primary),
+  ),
+);
+
 // Form
 $form-group: (
   color-label: var(--ecl-color-dark-140),

@@ -6,7 +6,7 @@ import withCode from '@ecl/storybook-addon-code';
 import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
-import enDataMenu from '@ecl/specs-component-menu/demo/data--en';
+import enDataMenu from '@ecl/specs-component-menu/demo/data--ec';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
@@ -26,12 +26,12 @@ dataCore.has_menu = false;
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
 delete dataStandardised.login_box;
-dataStandardised.has_menu = false;
+dataStandardised.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
 delete dataHarmonised.banner_top;
-dataHarmonised.has_menu = false;
+dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {

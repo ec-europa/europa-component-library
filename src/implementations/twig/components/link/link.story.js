@@ -43,6 +43,7 @@ const getArgs = (data) => ({
   icon_name: 'none',
   icon_position: 'after',
   external: false,
+  hide_label: false,
 });
 
 const getArgTypes = () => ({
@@ -133,11 +134,26 @@ const getArgTypes = () => ({
       category: 'Icon',
     },
   },
+  hide_label: {
+    name: 'hide label',
+    type: { name: 'boolean' },
+    description:
+      'Hide link label, keeping it only for screen readers. This only works if an icon is used',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Content',
+    },
+    control: {
+      type: 'boolean',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
   data.link.no_visited = args.no_visited;
+  data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
   if (args.icon_name && args.icon_name !== 'none') {
