@@ -43,7 +43,7 @@ $site-header: null !default;
   }
 
   .ecl-menu__open {
-    margin-bottom: 7px;
+    margin-bottom: 5px;
   }
 
   .ecl-site-header__cta {
@@ -252,10 +252,10 @@ $site-header: null !default;
     background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
-    padding: calc(map.get($theme, 'spacing', 'xs') - 1px);
+    padding: map.get($theme, 'spacing', 'xs');
 
     &:hover {
-      padding: map.get($theme, 'spacing', 'xs');
+      padding: calc(map.get($theme, 'spacing', 'xs') + 1px);
     }
 
     .ecl-icon {
@@ -289,7 +289,6 @@ $site-header: null !default;
     }
 
     .ecl-menu {
-      background-color: map.get($theme, 'color', 'blue-100');
       position: static;
       width: 100%;
     }

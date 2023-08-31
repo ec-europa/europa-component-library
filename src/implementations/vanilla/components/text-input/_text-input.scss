@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/theme-dev/mixins/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -77,35 +78,14 @@ $border-width-focus: 2px;
   }
 }
 
-// Form width
-@mixin form-width($variant: null) {
-  width: map.get($theme, 'form-width', #{$variant}, 'breakpoint-xs');
-
-  @include breakpoints.up('s') {
-    width: map.get($theme, 'form-width', #{$variant}, 'breakpoint-s');
-  }
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form-width', #{$variant}, 'breakpoint-m');
-  }
-
-  @include breakpoints.up('l') {
-    width: map.get($theme, 'form-width', #{$variant}, 'breakpoint-l');
-  }
-
-  @include breakpoints.up('xl') {
-    width: map.get($theme, 'form-width', #{$variant}, 'breakpoint-xl');
-  }
-}
-
 .ecl-text-input--s {
-  @include form-width(s);
+  @include mixins.form-width(s);
 }
 
 .ecl-text-input--m {
-  @include form-width(m);
+  @include mixins.form-width(m);
 }
 
 .ecl-text-input--l {
-  @include form-width(l);
+  @include mixins.form-width(l);
 }
