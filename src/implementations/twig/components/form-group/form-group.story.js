@@ -19,7 +19,6 @@ import formGroup from './form-group.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-const itemHelper = dataCheckbox.input.items[0].helper_text;
 const dataStandaloneCheckbox = {
   ...dataCheckbox,
   input: {
@@ -66,20 +65,6 @@ const prepareData = (data, args) => {
   }
   if (!args.show_helper) {
     data.helper_text = '';
-
-    if (data.input.items) {
-      data.input.items.forEach((input) => {
-        input.helper_text = '';
-      });
-    }
-  } else if (
-    args.show_helper &&
-    data.input.items &&
-    data.input.items.length > 2
-  ) {
-    data.input.items.forEach((input) => {
-      input.helper_text = itemHelper;
-    });
   }
 
   return data;
