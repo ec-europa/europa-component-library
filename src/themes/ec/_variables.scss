@@ -438,13 +438,14 @@ $page-header-print: (
 );
 
 // Range
+/* stylelint-disable scss/no-global-function-names */
 $range: (
   bar-color: var(--ecl-color-neutral-100),
   disabled-color: var(--ecl-color-neutral-60),
   active-color: var(--ecl-color-primary-160),
   invalid-color: var(--ecl-color-error),
-  invalid-hover-color: color.mix(#da1e28, #26324b, 50%),
-  invalid-active-color: color.mix(#da1e28, #26324b, 50%),
+  invalid-hover-color: mix(#da1e28, #26324b, 50%),
+  invalid-active-color: mix(#da1e28, #26324b, 50%),
   value-color: var(--ecl-color-dark-100),
   value-font: map.get($font, 's'),
   range-margin-top: map.get($spacing, 'xs'),
@@ -455,6 +456,7 @@ $range: (
   outline-color: var(--ecl-color-primary-20),
   outline-offset: 0,
 );
+/* stylelint-enable scss/no-global-function-names */
 
 // Site footer
 $site-footer: (
