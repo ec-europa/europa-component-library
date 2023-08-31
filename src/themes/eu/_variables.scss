@@ -366,6 +366,7 @@ $menu: (
     content-background: map.get($color, 'white'),
     overlay-background: rgba(38, 43, 56, 0.7),
     open-padding: 0,
+    open-outline-color: var(--ecl-color-primary),
     header-background:
       linear-gradient(
         90deg,
@@ -387,6 +388,7 @@ $menu: (
     caret-background: var(--ecl-color-primary-10),
     caret-background-hover: var(--ecl-color-primary-40),
     caret-active-background: var(--ecl-color-primary-10),
+    caret-active-background-hover: var(--ecl-color-primary-10),
     caret-color: var(--ecl-color-primary),
     subtitle-border: 3px solid var(--ecl-color-primary-10),
     subtitle-font: map.get($font, 'xl'),

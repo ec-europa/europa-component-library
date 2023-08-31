@@ -62,7 +62,7 @@ $menu: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($menu, 'global', 'color-outline');
+    outline: 2px solid map.get($menu, 'mobile', 'open-outline-color');
   }
 
   .ecl-link__label {
@@ -312,6 +312,10 @@ $menu: null !default;
 
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-active-background');
+  }
+
+  &:hover {
+    background-color: map.get($menu, 'mobile', 'caret-active-background-hover');
   }
 }
 
