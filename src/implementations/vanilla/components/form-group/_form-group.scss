@@ -63,7 +63,7 @@ $form-group: null !default;
   color: map.get($form-group, 'color-optional');
   font: map.get($form-group, 'font-optional');
   font-style: map.get($form-group, 'font-style-optional');
-  margin-left: map.get($theme, 'spacing', '2xs');
+  margin-inline-start: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-form-label + {
