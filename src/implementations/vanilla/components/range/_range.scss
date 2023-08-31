@@ -103,12 +103,8 @@ $range: null !default;
 }
 
 .ecl-range:focus-visible::range-thumb {
-  @if map-has-key($range, 'focus-circle') {
-    outline: 8px solid var(--ecl-color-primary-20);
-  } @else {
-    outline: 2px solid var(--ecl-color-primary-100);
-    outline-offset: 2px;
-  }
+  outline: map.get($range, 'outline') solid map.get($range, 'outline-color');
+  outline-offset: map.get($range, 'outline-offset');
 }
 
 // Width
