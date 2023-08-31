@@ -60,6 +60,9 @@ const prepareData = (data, args) => {
   if (!args.show_helper) {
     data.helper_text = '';
   }
+  if (args.width) {
+    data.input.width = args.width;
+  }
 
   return data;
 };
@@ -87,8 +90,18 @@ Textarea.render = async (args) => {
   return renderedTextArea;
 };
 Textarea.storyName = 'Textarea';
-Textarea.args = getArgs(dataTextarea);
-Textarea.argTypes = getArgTypes(dataTextarea, 'element');
+Textarea.args = { ...getArgs(dataTextarea), width: 'm' };
+Textarea.argTypes = getArgTypes(
+  {
+    ...dataTextarea,
+    width: {
+      type: 'select',
+      options: ['s', 'm', 'l'],
+      description: 'Width of the element',
+    },
+  },
+  'element',
+);
 Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
 export const Checkbox = (_, { loaded: { component } }) => component;
