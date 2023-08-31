@@ -72,7 +72,11 @@ const prepareData = (data, args) => {
         input.helper_text = '';
       });
     }
-  } else if (args.show_helper && data.input.items) {
+  } else if (
+    args.show_helper &&
+    data.input.items &&
+    data.input.items.length > 2
+  ) {
     data.input.items.forEach((input) => {
       input.helper_text = itemHelper;
     });
