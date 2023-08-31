@@ -77,11 +77,7 @@ $radio: null !default;
   border-color: map.get($radio, 'box-border-color-hover');
 
   @if map-has-key($radio, 'hover-circle') {
-    &::before {
-      @each $property, $value in map.get($radio, 'hover-circle') {
-        #{$property}: $value;
-      }
-    }
+    outline: map.get($radio, 'outline') solid map.get($radio, 'outline-color');
   }
 }
 
@@ -96,16 +92,8 @@ $radio: null !default;
 .ecl-radio__input:focus-visible ~ .ecl-radio__label,
 .ecl-radio__input:active ~ .ecl-radio__label {
   .ecl-radio__box {
-    @if map-has-key($radio, 'hover-circle') {
-      &::before {
-        @each $property, $value in map.get($radio, 'hover-circle') {
-          #{$property}: $value;
-        }
-      }
-    } @else {
-      outline: 2px solid var(--ecl-color-primary);
-      outline-offset: 2px;
-    }
+    outline: map.get($radio, 'outline') solid map.get($radio, 'outline-color');
+    outline-offset: map.get($radio, 'outline-offset');
   }
 }
 

@@ -476,19 +476,10 @@ $radio: (
   invalid-border-color-hover: var(--ecl-color-error),
   label-color: var(--ecl-color-dark),
   max-width: 65ch,
-  hover-circle: (
-    height: 2.5rem,
-    width: 2.5rem,
-    content: '',
-    display: block,
-    border-radius: 50%,
-    position: absolute,
-    top: 50%,
-    left: 50%,
-    transform: translate(-50%, -50%),
-    background-color: map.get($color, 'primary-20'),
-    z-index: -1,
-  ),
+  hover-circle: true,
+  outline: 8px,
+  outline-color: var(--ecl-color-primary-20),
+  outline-offset: 0,
 );
 
 // Site footer
