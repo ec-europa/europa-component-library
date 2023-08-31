@@ -152,12 +152,23 @@ $button-print: (
   padding-vertical: map.get($spacing-print, 's'),
 );
 
+// Card
+$card: (
+  border-radius: map.get($border-radius, 'xl'),
+  shadow: map.get($shadow, '1'),
+  border: none,
+  border-bottom: none,
+  body-padding: map.get($spacing, 'l'),
+);
+
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
+  description-font: map.get($font-prolonged, 'm'),
   label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($spacing, 'xs')} 0,
   label-spacing: 0 0 map.get($spacing, 'xs'),
   link-separator-color: var(--ecl-color-primary-20),
+  link-font: map.get($font-prolonged, 'm'),
   list-margin: map.get($spacing, 'l') 0 0,
   primary-meta-color: var(--ecl-color-dark-140),
   primary-meta-margin: map.get($spacing, 'xs') 0 -#{map.get($spacing, 'xs')},
@@ -168,6 +179,14 @@ $content-block: (
   title-font: map.get($font, 'xl'),
   title-font-weight: map.get($font-weight, 'normal'),
   title-margin: map.get($spacing, 'xs') 0 map.get($spacing, 's'),
+);
+
+// Content item
+$content-item: (
+  divider-color: var(--ecl-color-primary-20),
+  padding: map.get($spacing, 'l'),
+  image-border-color: var(--ecl-color-primary-20),
+  image-spacing-mobile: map.get($spacing, 'm'),
 );
 
 // Date block
@@ -212,6 +231,7 @@ $description-list: (
   term-margin-bottom: map.get($spacing, 'xs'),
   term-margin-top: map.get($spacing, 'm'),
   definition-color: var(--ecl-color-dark-140),
+  separator-color: var(--ecl-color-primary),
   taxonomy-color: var(--ecl-color-dark-80),
   term-width: 210px,
 );

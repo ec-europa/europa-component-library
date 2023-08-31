@@ -74,12 +74,18 @@
   $theme: theme.$theme,
   $breadcrumb: var.$breadcrumb
 );
-@use '@ecl/vanilla-component-card/card-eu';
+@use '@ecl/vanilla-component-card/card' with (
+  $theme: theme.$theme,
+  $card: var.$card
+);
 @use '@ecl/vanilla-component-content-block/content-block' with (
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item-eu';
+@use '@ecl/vanilla-component-content-item/content-item' with (
+  $theme: theme.$theme,
+  $content-item: var.$content-item
+);
 @use '@ecl/vanilla-component-expandable/expandable-eu';
 @use '@ecl/vanilla-component-fact-figures/fact-figures-eu';
 @use '@ecl/vanilla-component-file/file-eu';
