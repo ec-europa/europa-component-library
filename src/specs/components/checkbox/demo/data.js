@@ -9,6 +9,7 @@ module.exports = {
   label_id: 'checkbox-default-label',
   optional_text: '(optional)',
   required_text: '*',
+  required: true,
   name: 'checkbox-default',
   invalid_icon: {
     path: '/icons.svg',
