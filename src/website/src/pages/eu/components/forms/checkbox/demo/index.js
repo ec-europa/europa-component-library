@@ -21,8 +21,8 @@ export const checkboxSingle = template(
       items: [demoContentDefault.input.items[0]],
     },
     required: true,
-    show_helper: false,
-    show_label: false,
+    helper_text: '',
+    label: '',
     required_text: '',
   }),
 );
