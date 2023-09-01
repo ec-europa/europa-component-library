@@ -84,7 +84,8 @@
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
 @use '@ecl/vanilla-component-file/file-ec';
 @use '@ecl/vanilla-component-rating-field/rating-field' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $rating-field: var.$rating-field
 );
 @use '@ecl/vanilla-component-modal/modal-ec';
 @use '@ecl/vanilla-component-media-container/media-container-ec';

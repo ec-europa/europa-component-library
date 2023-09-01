@@ -10,6 +10,7 @@
 
 // Exposed variables
 $theme: null !default;
+$rating-field: null !default;
 
 .ecl-rating-field {
   display: inline-flex;
@@ -55,19 +56,10 @@ $theme: null !default;
   width: 1px;
 }
 
-// Focus, active state
-.ecl-rating-field:not(.ecl-rating-field--disabled)
-  .ecl-rating-field__input:focus,
-.ecl-rating-field:not(.ecl-rating-field--disabled)
-  .ecl-rating-field__input:active {
-  ~ .ecl-rating-field__label {
-    outline: 2px solid var(--ecl-color-primary);
-  }
-}
-
 .ecl-rating-field__label {
   cursor: pointer;
-  margin-right: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  position: relative;
 
   .ecl-rating-field--disabled & {
     cursor: default;
@@ -83,9 +75,27 @@ $theme: null !default;
   fill: var(--ecl-color-dark-80);
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-rating-field__label {
-    margin-right: map.get($theme, 'spacing', '2xs');
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:focus,
+.ecl-rating-field:not(.ecl-rating-field--disabled)
+  .ecl-rating-field__input:active {
+  + .ecl-rating-field__label {
+    @if map-has-key($rating-field, 'focus-circle') {
+      outline: none;
+
+      &::before {
+        @each $property, $value in map.get($rating-field, 'focus-circle') {
+          #{$property}: $value;
+        }
+      }
+    } @else {
+      outline: 2px solid var(--ecl-color-primary-100);
+    }
+  }
+
+  &:checked + .ecl-rating-field__label .ecl-rating-field__icon-filled {
+    stroke: var(--ecl-color-dark-100);
+    stroke-width: 2px;
+    vector-effect: non-scaling-size;
   }
 }

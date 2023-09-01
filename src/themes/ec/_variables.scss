@@ -449,6 +449,23 @@ $page-header-print: (
   description-font: map.get($font-print, 'l'),
 );
 
+// Rating field
+$rating-field: (
+  focus-circle: (
+    height: 2.5rem,
+    width: 2.5rem,
+    content: '',
+    display: block,
+    border-radius: 50%,
+    position: absolute,
+    top: 50%,
+    left: 50%,
+    transform: translate(-50%, -50%),
+    background-color: map.get($color, 'primary-20'),
+    z-index: -1,
+  ),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),
