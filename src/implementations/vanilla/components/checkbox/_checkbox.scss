@@ -31,7 +31,6 @@ $checkbox: null !default;
 }
 
 .ecl-checkbox__label {
-  align-items: center;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');
@@ -65,6 +64,10 @@ $checkbox: null !default;
 
 .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
   cursor: pointer;
+}
+
+.ecl-checkbox__text {
+  margin-top: 1px;
 }
 
 .ecl-checkbox__help {
