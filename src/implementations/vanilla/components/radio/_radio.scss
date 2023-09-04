@@ -43,7 +43,7 @@ $radio: null !default;
   color: map.get($radio, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');
-  line-height: map.get($theme, 'line-height', 's');
+  line-height: map.get($radio, 'label-line-height');
   padding: map.get($theme, 'spacing', 'xs') 0;
   position: relative;
   max-width: map.get($radio, 'max-width');
