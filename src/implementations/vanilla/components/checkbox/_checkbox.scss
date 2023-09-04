@@ -34,7 +34,7 @@ $checkbox: null !default;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: map.get($theme, 'font', 'm');
-  line-height: map.get($theme, 'line-height', 's');
+  line-height: map.get($checkbox, 'label-line-height');
   max-width: map.get($checkbox, 'max-width');
   padding: map.get($theme, 'spacing', 'xs') 0;
   white-space: pre-wrap;
@@ -64,10 +64,6 @@ $checkbox: null !default;
 
 .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
   cursor: pointer;
-}
-
-.ecl-checkbox__text {
-  margin-top: 1px;
 }
 
 .ecl-checkbox__help {

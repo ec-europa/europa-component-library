@@ -174,11 +174,12 @@ $checkbox: (
   invalid-border-color: var(--ecl-color-error-100),
   invalid-border-color-hover: var(--ecl-color-error-80),
   label-color: var(--ecl-color-dark-140),
+  label-line-height: map.get($line-height, 'l'),
   box-border-color-checked: var(--ecl-color-primary),
   box-background-checked: var(--ecl-color-primary),
   border-width: 2px,
   checkbox-fill: map.get($color, 'white'),
-  max-width: none,
+  max-width: 65ch,
 );
 
 // Content block
