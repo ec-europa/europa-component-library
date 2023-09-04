@@ -598,7 +598,7 @@ export class Menu {
     }
 
     if (!this.isDesktop) {
-      menuLink.style.width = '100%';
+      menuLink.style.width = 'auto';
       return;
     }
 
