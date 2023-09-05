@@ -98,6 +98,10 @@ const getArgTypes = (data) => {
       name: 'full width',
       type: 'boolean',
       description: `Take the full width of the viewport when in a container`,
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: 'false' },

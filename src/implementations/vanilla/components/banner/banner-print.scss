@@ -26,7 +26,7 @@ $banner-print: null !default;
 }
 
 .ecl-banner__description {
-  font: map.get($theme, 'font-prolonged-print', 'l');
+  font: map.get($theme, 'font-print', 'l');
   margin-bottom: 0;
   margin-top: map.get($theme, 'spacing-print', 'xs');
 }
@@ -44,5 +44,5 @@ $banner-print: null !default;
 }
 
 .ecl-banner__link-cta.ecl-link {
-  color: map.get($theme, 'color', 'black-100');
+  color: map.get($theme, 'color', 'black');
 }
