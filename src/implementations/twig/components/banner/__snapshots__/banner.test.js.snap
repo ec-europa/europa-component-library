@@ -6,6 +6,9 @@ exports[`Banner Plain background renders correctly 1`] = `
     class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--centered"
   >
     <div
+      class="ecl-banner__picture-container"
+    />
+    <div
       class="ecl-container"
     >
       <div
@@ -70,6 +73,9 @@ exports[`Banner Plain background renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
   >
     <div
+      class="ecl-banner__picture-container"
+    />
+    <div
       class="ecl-container"
     >
       <div
@@ -132,6 +138,9 @@ exports[`Banner Plain background renders correctly with extra class names 1`] = 
     class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--centered custom-class custom-class--test"
   >
     <div
+      class="ecl-banner__picture-container"
+    />
+    <div
       class="ecl-container"
     >
       <div
@@ -193,19 +202,23 @@ exports[`Banner image - image overlay renders correctly 1`] = `
   <section
     class="ecl-banner ecl-banner--image-overlay ecl-banner--m ecl-banner--centered"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright or credit
+      </div>
     </div>
     <div
       class="ecl-container"
@@ -269,19 +282,23 @@ exports[`Banner image - text highlight renders correctly 1`] = `
   <section
     class="ecl-banner ecl-banner--text-highlight ecl-banner--m ecl-banner--centered"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="aternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+      >
+        <img
+          alt="aternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright or credit
+      </div>
     </div>
     <div
       class="ecl-container"
@@ -345,19 +362,23 @@ exports[`Banner image - text-box renders correctly 1`] = `
   <section
     class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--centered"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright or credit
+      </div>
     </div>
     <div
       class="ecl-container"
@@ -423,19 +444,23 @@ exports[`Banner image renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright or credit
+      </div>
     </div>
     <div
       class="ecl-container"
@@ -499,19 +524,23 @@ exports[`Banner image renders correctly with extra class names 1`] = `
   <section
     class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--centered custom-class custom-class--test"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright or credit
+      </div>
     </div>
     <div
       class="ecl-container"

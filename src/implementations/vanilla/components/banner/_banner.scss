@@ -12,6 +12,7 @@ $banner: null !default;
 
 .ecl-banner {
   align-items: center;
+  background: var(--ecl-color-branding);
   border-radius: map.get($banner, 'border-radius', 'banner');
   box-shadow: map.get($banner, 'box-shadow');
   display: flex;
@@ -24,19 +25,21 @@ $banner: null !default;
   position: relative;
 }
 
-.ecl-banner__picture {
+.ecl-banner__picture-container {
   position: relative;
   width: 100%;
 }
 
 .ecl-banner__credit {
-  background: rgba(0, 0, 0, 0.54);
+  background: rgba(38, 50, 75, 0.7);
+  backdrop-filter: blur(4px);
   color: map.get($theme, 'color', 'white-100');
   font: map.get($theme, 'font', 's');
+  line-height: map.get($theme, 'line-height', '2xs');
   padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'xs');
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 0;
   z-index: 1;
 }
 
@@ -48,8 +51,8 @@ $banner: null !default;
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get($theme, 'spacing', 'l');
-  padding-top: map.get($theme, 'spacing', 'l');
+  padding-bottom: map.get($theme, 'spacing', 'm');
+  padding-top: map.get($theme, 'spacing', 'm');
   width: 100%;
 }
 
@@ -96,7 +99,7 @@ $banner: null !default;
 }
 
 .ecl-banner__cta {
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-top: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-banner__content > *:first-child {
@@ -132,20 +135,18 @@ $banner: null !default;
   * variant: text box
   */
 .ecl-banner--text-box {
-  background: map.get($banner, 'background', 'text-box');
+  background: map.get($banner, 'background', 'text-box-mobile');
 
   // manage ratio 4:1
   .ecl-banner__image {
-    aspect-ratio: 4/1;
-    border-bottom: 4px solid map.get($banner, 'border-color');
+    aspect-ratio: 3/1;
+    border-bottom: map.get($banner, 'border-width', 'bottom') solid
+      map.get($banner, 'border-color');
   }
 
-  .ecl-banner__title {
-    color: map.get($banner, 'text-color', 'dark');
-  }
-
+  .ecl-banner__title,
   .ecl-banner__description {
-    color: map.get($banner, 'text-color', 'light');
+    color: map.get($theme, 'color', 'dark');
   }
 }
 
@@ -161,14 +162,23 @@ $banner: null !default;
       border-bottom-width: 0;
     }
 
+    .ecl-banner__description {
+      color: map.get($banner, 'text-color', 'light');
+    }
+
+    .ecl-banner__title {
+      color: map.get($banner, 'text-color', 'dark');
+    }
+
     .ecl-banner__content {
-      background: map.get($banner, 'background', 'text-box');
+      background: map.get($banner, 'background', 'text-box-desktop');
       border-bottom: map.get($banner, 'border-width', 'bottom') solid
         map.get($banner, 'border-color');
       border-inline-start: map.get($banner, 'border-width', 'left') solid
         map.get($banner, 'border-color');
       border-radius: map.get($banner, 'border-radius', 'content');
-      padding: map.get($theme, 'spacing', 'l');
+      padding: map.get($theme, 'spacing', 'l') map.get($theme, 'spacing', 'xl')
+        map.get($theme, 'spacing', 'xl');
     }
   }
 }
@@ -181,7 +191,8 @@ $banner: null !default;
 
   .ecl-banner__picture::before {
     background-color: rgba(0, 0, 0, 0.4);
-    border-bottom: 4px solid map.get($banner, 'border-color');
+    border-bottom: map.get($banner, 'border-width', 'bottom') solid
+      map.get($banner, 'border-color');
     content: '';
     height: 100%;
     position: absolute;
@@ -230,7 +241,8 @@ $banner: null !default;
 
   // manage ratio 4:1
   .ecl-banner__image {
-    border-bottom: 4px solid map.get($banner, 'border-color');
+    border-bottom: map.get($banner, 'border-width', 'bottom') solid
+      map.get($banner, 'border-color');
     border-radius: map.get($banner, 'border-radius', 'banner')
       map.get($banner, 'border-radius', 'banner') 0 0;
     aspect-ratio: 4/1;
@@ -257,20 +269,16 @@ $banner: null !default;
       padding-top: 0;
     }
 
-    .ecl-banner__title-text,
-    .ecl-banner__description-text {
+    .ecl-banner__title,
+    .ecl-banner__description {
       box-decoration-break: clone;
-      background: rgba(0, 0, 0, 0.72);
-      padding: map.get($theme, 'spacing', '2xs')
+      background: rgba(38, 50, 75, 0.7);
+      backdrop-filter: blur(2px);
+      box-sizing: border-box;
+      margin: 0;
+      padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'm')
         map.get($theme, 'spacing', 'xs');
-    }
-
-    .ecl-banner__title-text {
-      line-height: 1.3;
-    }
-
-    .ecl-banner__description-text {
-      line-height: 1.5;
+      width: 100%;
     }
   }
 }

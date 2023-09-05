@@ -45,7 +45,8 @@ $banner: (
         #{map.get($color, 'blue-140')} 0%,
         #{map.get($color, 'blue-100')} 100%
       ),
-    'text-box': rgba(255, 255, 255, 0.9),
+    'text-box-mobile': map.get($color, 'white'),
+    'text-box-desktop': rgba(255, 255, 255, 0.9),
     'image-overlay':
       linear-gradient(
         to right,

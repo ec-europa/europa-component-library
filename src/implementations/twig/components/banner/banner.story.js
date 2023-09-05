@@ -21,7 +21,7 @@ const getArgs = (data) => {
     description: data.description,
     label: data.link.link.label,
     centered: data.centered,
-    width: 'outside',
+    full_width: false,
     gridContent: false,
   };
   if (data.picture) {
@@ -75,9 +75,9 @@ const getArgTypes = (data) => {
         },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 'm',
+        large: 'l',
       },
       table: {
         type: 'string',
@@ -94,27 +94,13 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    width: {
-      name: 'width',
-      type: 'radio',
-      description: `The media container extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended by adding class .ecl-banner--full-width`,
-      options: ['outside', 'container', 'inside'],
-      control: {
-        labels: {
-          outside: 'outside the grid container',
-          container: 'inside the grid container',
-          inside: 'inside the grid container, with fullwidth class',
-        },
-      },
-      mapping: {
-        outside: 'outside the grid container',
-        container: 'inside the grid container',
-        inside: 'inside the grid container, with fullwidth class',
-      },
+    full_width: {
+      name: 'full width',
+      type: 'boolean',
+      description: `Take the full width of the viewport when in a container`,
       table: {
-        type: { summary: 'radio' },
-        defaultValue: { summary: 'outside the grid container' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Display',
       },
     },
@@ -196,8 +182,7 @@ const prepareData = (data, args) => {
   data.title = args.title;
   data.description = args.description;
   data.centered = args.centered;
-  data.full_width =
-    args.width === 'inside the grid container, with fullwidth class';
+  data.full_width = args.full_width;
 
   if (data.image) {
     data.image = args.image;
@@ -222,14 +207,10 @@ const prepareData = (data, args) => {
   return correctPaths(data);
 };
 
-const renderStory = (data, args) => {
-  let story = banner(prepareData(data, args));
-  if (
-    args.width === 'inside the grid container' ||
-    args.width === 'inside the grid container, with fullwidth class'
-  ) {
-    story = `<div class="ecl-container">${story}</div>`;
-  }
+const renderStory = async (data, args) => {
+  let story = await banner(prepareData(data, args));
+  story = `<div class="ecl-container">${story}</div>`;
+
   if (args.gridContent) {
     story +=
       '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';

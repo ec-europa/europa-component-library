@@ -68,6 +68,7 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-banner__picture-container">
 {% if _picture.img is not empty and _variant != 'plain-background'  %}
   {% include '@ecl/picture/picture.html.twig' with {
     picture: _picture,
@@ -78,6 +79,7 @@
 {% if _credit is not empty and _variant != 'plain-background' %}
   <div class="ecl-banner__credit">{{ _credit }}</div>
 {% endif %}
+  </div>
   <div class="ecl-container">
     <div class="ecl-banner__container">
     {% if _title is not empty or _description is not empty or _link is not empty %}

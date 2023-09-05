@@ -27,7 +27,7 @@ $accordion-print: (
 // Banner
 $banner: (
   content-width: 45.5rem,
-  border-color: map.get($color, 'yellow-100'),
+  border-color: transparent,
   border-radius: (
     'banner': 0,
     'content': 0,
@@ -35,20 +35,21 @@ $banner: (
   box-shadow: none,
   border-width: (
     'left': 0,
-    'bottom': 4px,
+    'bottom': 0,
   ),
   background: (
-    'plain-background': map.get($color, 'blue-100'),
-    'text-box': map.get($color, 'white-100'),
-    'image-overlay': map.get($color, 'blue-120'),
-    'text-highlight': map.get($color, 'blue-120'),
+    'plain-background': var(--ecl-color-branding),
+    'text-box-mobile': var(--ecl-color-neutral-40),
+    'text-box-desktop': var(--ecl-color-background),
+    'image-overlay': var(--ecl-color-primary-120),
+    'text-highlight': var(--ecl-color-branding),
   ),
   overlay: (
     'image-overlay': rgba(0, 0, 0, 0.4),
   ),
   text-color: (
-    'dark': map.get($color, 'grey-100'),
-    'light': map.get($color, 'grey-100'),
+    'dark': var(--ecl-color-dark),
+    'light': var(--ecl-color-dark),
     'inverted': map.get($color, 'white-100'),
   ),
   font: (
@@ -58,11 +59,11 @@ $banner: (
     ),
     'description': (
       'mobile': map.get($font, 'l'),
-      'desktop': map.get($font-prolonged, 'xl'),
+      'desktop': map.get($font, 'xl'),
     ),
   ),
   font-weight: (
-    'title': map.get($font-weight, 'bold'),
+    'title': map.get($font-weight, 'regular'),
     'description': map.get($font-weight, 'regular'),
   ),
 );
