@@ -4,24 +4,16 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-radius: null !default;
-$_content-width: 45.5rem;
-$_box-shadow: null !default;
-$_border-color: map.get(theme.$color, 'yellow-100');
-$_border-width: null !default;
-$_background: null !default;
-$_overlay: null !default;
-$_text-color: null !default;
-$_font: null !default;
-$_font-weight: null !default;
+// Exposed variables
+$theme: null !default;
+$banner: null !default;
 
 .ecl-banner {
   align-items: center;
-  border-radius: map.get($_border-radius, 'banner');
-  box-shadow: $_box-shadow;
+  border-radius: map.get($banner, 'border-radius', 'banner');
+  box-shadow: map.get($banner, 'box-shadow');
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,10 +30,10 @@ $_font-weight: null !default;
 }
 
 .ecl-banner__credit {
-  background: rgba(map.get(theme.$color, 'black'), 0.54);
-  color: map.get(theme.$color, 'white-100');
-  font: map.get(theme.$font, 's');
-  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
+  background: rgba(0, 0, 0, 0.54);
+  color: map.get($theme, 'color', 'white-100');
+  font: map.get($theme, 'font', 's');
+  padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'xs');
   position: absolute;
   right: 0;
   top: 0;
@@ -50,14 +42,14 @@ $_font-weight: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: map.get(theme.$spacing, 'l');
-  padding-inline-end: map.get(theme.$spacing, 'l');
+  padding-inline-start: map.get($theme, 'spacing', 'l');
+  padding-inline-end: map.get($theme, 'spacing', 'l');
 }
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get(theme.$spacing, 'l');
-  padding-top: map.get(theme.$spacing, 'l');
+  padding-bottom: map.get($theme, 'spacing', 'l');
+  padding-top: map.get($theme, 'spacing', 'l');
   width: 100%;
 }
 
@@ -91,20 +83,20 @@ $_font-weight: null !default;
 }
 
 .ecl-banner__title {
-  font: map.get($_font, 'title', 'mobile');
-  font-weight: map.get($_font-weight, 'title');
+  font: map.get($banner, 'font', 'title', 'mobile');
+  font-weight: map.get($banner, 'font-weight', 'title');
   margin: 0;
 }
 
 .ecl-banner__description {
-  font: map.get($_font, 'description', 'mobile');
-  font-weight: map.get($_font-weight, 'description');
+  font: map.get($banner, 'font', 'description', 'mobile');
+  font-weight: map.get($banner, 'font-weight', 'description');
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing, 'xs');
+  margin-top: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-banner__cta {
-  margin-top: map.get(theme.$spacing, 'l');
+  margin-top: map.get($theme, 'spacing', 'l');
 }
 
 .ecl-banner__content > *:first-child {
@@ -125,14 +117,14 @@ $_font-weight: null !default;
   * variant: plain background
   */
 .ecl-banner--plain-background {
-  background: map.get($_background, 'plain-background');
+  background: map.get($banner, 'background', 'plain-background');
 
   .ecl-banner__title {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 
   .ecl-banner__description {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 }
 
@@ -140,20 +132,20 @@ $_font-weight: null !default;
   * variant: text box
   */
 .ecl-banner--text-box {
-  background: map.get($_background, 'text-box');
+  background: map.get($banner, 'background', 'text-box');
 
   // manage ratio 4:1
   .ecl-banner__image {
     aspect-ratio: 4/1;
-    border-bottom: 4px solid $_border-color;
+    border-bottom: 4px solid map.get($banner, 'border-color');
   }
 
   .ecl-banner__title {
-    color: map.get($_text-color, 'dark');
+    color: map.get($banner, 'text-color', 'dark');
   }
 
   .ecl-banner__description {
-    color: map.get($_text-color, 'light');
+    color: map.get($banner, 'text-color', 'light');
   }
 }
 
@@ -170,11 +162,13 @@ $_font-weight: null !default;
     }
 
     .ecl-banner__content {
-      background: map.get($_background, 'text-box');
-      border-bottom: map.get($_border-width, 'bottom') solid $_border-color;
-      border-inline-start: map.get($_border-width, 'left') solid $_border-color;
-      border-radius: map.get($_border-radius, 'content');
-      padding: map.get(theme.$spacing, 'l');
+      background: map.get($banner, 'background', 'text-box');
+      border-bottom: map.get($banner, 'border-width', 'bottom') solid
+        map.get($banner, 'border-color');
+      border-inline-start: map.get($banner, 'border-width', 'left') solid
+        map.get($banner, 'border-color');
+      border-radius: map.get($banner, 'border-radius', 'content');
+      padding: map.get($theme, 'spacing', 'l');
     }
   }
 }
@@ -183,11 +177,11 @@ $_font-weight: null !default;
   * variant: image-overlay
   */
 .ecl-banner--image-overlay {
-  background: map.get($_background, 'image-overlay');
+  background: map.get($banner, 'background', 'image-overlay');
 
   .ecl-banner__picture::before {
     background-color: rgba(0, 0, 0, 0.4);
-    border-bottom: 4px solid $_border-color;
+    border-bottom: 4px solid map.get($banner, 'border-color');
     content: '';
     height: 100%;
     position: absolute;
@@ -200,11 +194,11 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__title {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 
   .ecl-banner__description {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 }
 
@@ -216,14 +210,14 @@ $_font-weight: null !default;
     }
 
     .ecl-banner__image::before {
-      border-radius: map.get($_border-radius, 'banner');
+      border-radius: map.get($banner, 'border-radius', 'banner');
       height: 100%;
       padding-top: 0;
     }
 
     .ecl-banner__title,
     .ecl-banner__description {
-      text-shadow: 0 0 4px map.get(theme.$color, 'black-100');
+      text-shadow: 0 0 4px map.get($theme, 'color', 'black-100');
     }
   }
 }
@@ -232,22 +226,22 @@ $_font-weight: null !default;
   * variant: text-highlight
   */
 .ecl-banner--text-highlight {
-  background: map.get($_background, 'text-highlight');
+  background: map.get($banner, 'background', 'text-highlight');
 
   // manage ratio 4:1
   .ecl-banner__image {
-    border-bottom: 4px solid $_border-color;
-    border-radius: map.get($_border-radius, 'banner')
-      map.get($_border-radius, 'banner') 0 0;
+    border-bottom: 4px solid map.get($banner, 'border-color');
+    border-radius: map.get($banner, 'border-radius', 'banner')
+      map.get($banner, 'border-radius', 'banner') 0 0;
     aspect-ratio: 4/1;
   }
 
   .ecl-banner__title {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 
   .ecl-banner__description {
-    color: map.get($_text-color, 'inverted');
+    color: map.get($banner, 'text-color', 'inverted');
   }
 }
 
@@ -259,15 +253,16 @@ $_font-weight: null !default;
     }
 
     .ecl-banner__image::before {
-      border-radius: map.get($_border-radius, 'banner');
+      border-radius: map.get($banner, 'border-radius', 'banner');
       padding-top: 0;
     }
 
     .ecl-banner__title-text,
     .ecl-banner__description-text {
       box-decoration-break: clone;
-      background: rgba(map.get(theme.$color, 'black'), 0.72);
-      padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
+      background: rgba(0, 0, 0, 0.72);
+      padding: map.get($theme, 'spacing', '2xs')
+        map.get($theme, 'spacing', 'xs');
     }
 
     .ecl-banner__title-text {
@@ -306,7 +301,7 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__content {
-    max-width: $_content-width;
+    max-width: map.get($banner, 'content-width');
   }
 
   .ecl-banner--plain-background {
@@ -327,12 +322,12 @@ $_font-weight: null !default;
   }
 
   .ecl-banner__title {
-    font: map.get($_font, 'title', 'desktop');
-    font-weight: map.get($_font-weight, 'title');
+    font: map.get($banner, 'font', 'title', 'desktop');
+    font-weight: map.get($banner, 'font-weight', 'title');
   }
 
   .ecl-banner__description {
-    font: map.get($_font, 'description', 'desktop');
-    font-weight: map.get($_font-weight, 'description');
+    font: map.get($banner, 'font', 'description', 'desktop');
+    font-weight: map.get($banner, 'font-weight', 'description');
   }
 }

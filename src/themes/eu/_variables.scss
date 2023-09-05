@@ -25,6 +25,67 @@ $accordion-print: (
   content-font: map.get($font-print, 'm'),
 );
 
+// Banner
+$banner: (
+  content-width: 45.5rem,
+  border-color: map.get($color, 'yellow-100'),
+  border-radius: (
+    'banner': 8px,
+    'content': 4px,
+  ),
+  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  border-width: (
+    'left': 4px,
+    'bottom': 0,
+  ),
+  background: (
+    'plain-background':
+      linear-gradient(
+        to right,
+        #{map.get($color, 'blue-140')} 0%,
+        #{map.get($color, 'blue-100')} 100%
+      ),
+    'text-box': rgba(255, 255, 255, 0.9),
+    'image-overlay':
+      linear-gradient(
+        to right,
+        #{map.get($color, 'blue-140')} 0%,
+        #{map.get($color, 'blue-100')} 100%
+      ),
+    'text-highlight':
+      linear-gradient(
+        to right,
+        #{map.get($color, 'blue-140')} 0%,
+        #{map.get($color, 'blue-100')} 100%
+      ),
+  ),
+  overlay: (
+    'image-overlay': rgba(0, 0, 0, 0.4),
+  ),
+  text-color: (
+    'dark': map.get($color, 'grey-140'),
+    'light': map.get($color, 'grey-80'),
+    'inverted': map.get($color, 'white-100'),
+  ),
+  font: (
+    'title': (
+      'mobile': map.get($font, '3xl'),
+      'desktop': map.get($font, '6xl'),
+    ),
+    'description': (
+      'mobile': map.get($font, 'l'),
+      'desktop': map.get($font-prolonged, 'l'),
+    ),
+  ),
+  font-weight: (
+    'title': map.get($font-weight, 'regular'),
+    'description': map.get($font-weight, 'regular'),
+  ),
+);
+$banner-print: (
+  cta-radius: 4px,
+);
+
 // Blockquote
 $blockquote: (
   border-width: 8px,

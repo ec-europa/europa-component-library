@@ -63,7 +63,10 @@
 @use '@ecl/vanilla-component-tag/tag-eu';
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-eu';
+@use '@ecl/vanilla-component-banner/banner' with (
+  $theme: theme.$theme,
+  $banner: var.$banner
+);
 @use '@ecl/vanilla-component-description-list/description-list' with (
   $theme: theme.$theme,
   $description-list: var.$description-list

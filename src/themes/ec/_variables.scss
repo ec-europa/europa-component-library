@@ -24,6 +24,52 @@ $accordion-print: (
   content-font: map.get($font-print, 'm'),
 );
 
+// Banner
+$banner: (
+  content-width: 45.5rem,
+  border-color: map.get($color, 'yellow-100'),
+  border-radius: (
+    'banner': 0,
+    'content': 0,
+  ),
+  box-shadow: none,
+  border-width: (
+    'left': 0,
+    'bottom': 4px,
+  ),
+  background: (
+    'plain-background': map.get($color, 'blue-100'),
+    'text-box': map.get($color, 'white-100'),
+    'image-overlay': map.get($color, 'blue-120'),
+    'text-highlight': map.get($color, 'blue-120'),
+  ),
+  overlay: (
+    'image-overlay': rgba(0, 0, 0, 0.4),
+  ),
+  text-color: (
+    'dark': map.get($color, 'grey-100'),
+    'light': map.get($color, 'grey-100'),
+    'inverted': map.get($color, 'white-100'),
+  ),
+  font: (
+    'title': (
+      'mobile': map.get($font, '3xl'),
+      'desktop': map.get($font, '4xl'),
+    ),
+    'description': (
+      'mobile': map.get($font, 'l'),
+      'desktop': map.get($font-prolonged, 'xl'),
+    ),
+  ),
+  font-weight: (
+    'title': map.get($font-weight, 'bold'),
+    'description': map.get($font-weight, 'regular'),
+  ),
+);
+$banner-print: (
+  cta-radius: 0,
+);
+
 // Blockquote
 $blockquote: (
   border-width: 4px,

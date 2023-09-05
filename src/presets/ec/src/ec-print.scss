@@ -53,7 +53,10 @@
 @use '@ecl/vanilla-component-tag/tag-print';
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-print-ec';
+@use '@ecl/vanilla-component-banner/banner-print' with (
+  $theme: theme.$theme,
+  $banner-print: var.$banner-print
+);
 @use '@ecl/vanilla-component-description-list/description-list-print' with (
   $theme: theme.$theme,
   $description-list: var.$description-list,

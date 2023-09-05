@@ -4,12 +4,13 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_cta-radius: null !default;
+// Exposed variables
+$theme: null !default;
+$banner-print: null !default;
 
 .ecl-banner {
-  padding: map.get(theme.$spacing-print, 'm') 0;
+  padding: map.get($theme, 'spacing-print', 'm') 0;
 }
 
 .ecl-banner__picture,
@@ -18,30 +19,30 @@ $_cta-radius: null !default;
 }
 
 .ecl-banner__title {
-  font: map.get(theme.$font-print, '4xl');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
+  font: map.get($theme, 'font-print', '4xl');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
   margin-bottom: 0;
 }
 
 .ecl-banner__description {
-  font: map.get(theme.$font-prolonged-print, 'l');
+  font: map.get($theme, 'font-prolonged-print', 'l');
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-banner__description + .ecl-link {
-  margin-top: map.get(theme.$spacing-print, 'm');
+  margin-top: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-banner__cta {
-  background: map.get(theme.$color, 'yellow-100');
-  border-radius: $_cta-radius;
+  background: map.get($theme, 'color', 'yellow-100');
+  border-radius: map.get($banner-print, 'cta-radius');
   display: inline-block;
-  padding: map.get(theme.$spacing-print, 's');
-  margin-top: map.get(theme.$spacing-print, 'm');
+  padding: map.get($theme, 'spacing-print', 's');
+  margin-top: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-banner__link-cta.ecl-link {
-  color: map.get(theme.$color, 'black-100');
+  color: map.get($theme, 'color', 'black-100');
 }
