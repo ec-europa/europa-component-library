@@ -12,7 +12,10 @@
   $theme: theme.$theme,
   $form-group: var.$form-group
 );
-@use '@ecl/vanilla-component-checkbox/checkbox-eu';
+@use '@ecl/vanilla-component-checkbox/checkbox' with (
+  $theme: theme.$theme,
+  $checkbox: var.$checkbox
+);
 @use '@ecl/vanilla-component-datepicker/datepicker-eu';
 @use '@ecl/vanilla-component-file-upload/file-upload-eu';
 @use '@ecl/vanilla-component-radio/radio-eu';

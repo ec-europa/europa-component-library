@@ -18,6 +18,7 @@ npm install --save @ecl/twig-component-checkbox
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object) (default: {}) Object of type icon
