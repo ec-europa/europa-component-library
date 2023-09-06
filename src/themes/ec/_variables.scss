@@ -158,6 +158,41 @@ $card: (
   body-padding: map.get($spacing, 'xl'),
 );
 
+// Checkbox
+$checkbox: (
+  border-color: var(--ecl-color-dark-80),
+  background: map.get($color, 'white'),
+  box-background-checked-hover: var(--ecl-color-primary),
+  box-border-color-hover: var(--ecl-color-dark-80),
+  box-size: 1.5rem,
+  box-margin-top: 0,
+  help-text-font: map.get($font, 's'),
+  help-text-color: var(--ecl-color-dark),
+  invalid-border-color: map.get($color, 'error'),
+  invalid-border-color-hover: map.get($color, 'error'),
+  label-color: var(--ecl-color-dark),
+  label-line-height: 1.75rem,
+  box-border-color-checked: var(--ecl-color-primary),
+  box-background-checked: var(--ecl-color-primary),
+  border-width: 1px,
+  border-radius: map.get($border-radius, 's'),
+  checkbox-fill: map.get($color, 'white'),
+  max-width: 65ch,
+  hover-circle: (
+    height: 2.5rem,
+    width: 2.5rem,
+    content: '',
+    display: block,
+    border-radius: 50%,
+    position: absolute,
+    top: 50%,
+    left: 50%,
+    transform: translate(-50%, -50%),
+    background-color: map.get($color, 'primary-20'),
+    z-index: -1,
+  ),
+);
+
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
@@ -552,6 +587,27 @@ $page-header-print: (
   title-font: map.get($font-print, '4xl'),
   description-font: map.get($font-print, 'l'),
 );
+
+// Range
+/* stylelint-disable scss/no-global-function-names */
+$range: (
+  bar-color: var(--ecl-color-neutral-100),
+  disabled-color: var(--ecl-color-neutral-60),
+  active-color: var(--ecl-color-primary-160),
+  invalid-color: var(--ecl-color-error),
+  invalid-hover-color: var(--ecl-color-error),
+  invalid-active-color: mix(#da1e28, #26324b, 50%),
+  value-color: var(--ecl-color-dark-100),
+  value-font: map.get($font, 's'),
+  range-margin-top: map.get($spacing, 'xs'),
+  range-size: 0.25rem,
+  slider-size: 1rem,
+  touch-area: 1.25rem,
+  outline: 8px,
+  outline-color: var(--ecl-color-primary-20),
+  outline-offset: 0,
+);
+/* stylelint-enable scss/no-global-function-names */
 
 // Site footer
 $site-footer: (
