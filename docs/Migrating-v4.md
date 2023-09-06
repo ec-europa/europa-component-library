@@ -82,6 +82,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
 
+### Expandable
+
+- Button is now using variant `ghost`, instead of `secondary`
+
 ### Form group
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)
