@@ -497,7 +497,8 @@ $navigation-list: (
   content_block_padding: map.get($spacing, 'xl'),
   border-radius: map.get($border-radius, 's'),
   shadow: map.get($shadow, '1'),
-  border: 1px solid rgba(56, 96, 237, 0.5),
+  border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
 );
 
 // Notification
