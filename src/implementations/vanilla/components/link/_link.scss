@@ -4,6 +4,7 @@
 */
 
 @use 'sass:map';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -64,10 +65,23 @@ $link: null !default;
     .ecl-link__label {
     text-decoration: underline;
   }
+}
 
-  .ecl-link__icon ~ .ecl-link__label,
-  .ecl-link__label ~ .ecl-link__icon {
-    margin-inline-start: map.get($theme, 'spacing', 'xs');
+// stylelint-disable-next-line no-descending-specificity
+.ecl-link__icon ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon {
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
+}
+
+// Icon only
+.ecl-link--icon-only {
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-link__label {
+    @include screen-reader.sr-only;
+  }
+
+  .ecl-link__icon {
+    margin: 0;
   }
 }
 

@@ -2,11 +2,12 @@
 
 {#
   Parameters:
-  - "title": (string) (default: ''): Title
-  - "close": (string) (default: ''): Close button label
-  - "back": (string): (default: ''): Back button label
+  - "title": (string) (default: ''): Title of the menu (displayed on mobile)
+  - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
+  - "close": (associative array) (default: {}): Close button, using ECL Button structure
+  - "back_label": (string): (default: ''): Back button label
   - "icon_path": (string) (default: ''): Path to the icon sprite
-  - "items": (associative array) (default: {}): The menu items - format: [
+  - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
       "path": (string) (default: '')
@@ -25,7 +26,7 @@
   - "max_lines": (int) (default: 2): Number of lines for each first level item label. Set it to zero to remove this behavior
   - "site_name": (string) (default: ''): Name of the website (used only on mobile)
   - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
-  - "menu_link": (string) (default: ''): Href attribute of the menu toggler
+  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "button_previous_label": (string) (default: ''): Label for the button to display previous items, in case of overflow (for screen readers)
   - "button_next_label": (string) (default: ''): Label for the button to display next items, in case of overflow (for screen readers)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
@@ -37,15 +38,16 @@
 {# Internal properties #}
 
 {% set _title = title|default('') %}
-{% set _back = back|default('') %}
-{% set _close = close|default('') %}
-{% set _menu_link = menu_link|default('') %}
+{% set _back_label = back_label|default('') %}
+{% set _toggle = toggle|default({}) %}
+{% set _close = close|default({}) %}
 {% set _css_class = 'ecl-menu' %}
 {% set _extra_attributes = '' %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
-{% set _button_previous_label = button_previous_label|default({}) %}
-{% set _button_next_label = button_next_label|default({}) %}
+{% set _see_all_label = see_all_label|default('') %}
+{% set _button_previous_label = button_previous_label|default('') %}
+{% set _button_next_label = button_next_label|default('') %}
 {% set _icon_path = icon_path|default('') %}
 {% set _max_lines = max_lines|default(2) %}
 
@@ -74,68 +76,53 @@
 >
   <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
   <div class="ecl-container ecl-menu__container">
-    <a
-      class="ecl-link ecl-link--standalone ecl-menu__open"
-      href="{{ _menu_link }}"
-      data-ecl-menu-open
-    >
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          size: 's',
-          name: 'hamburger',
-          path: _icon_path
-        },
-      } only %}
-      {{- _title -}}
-    </a>
+    {% if _toggle is not empty %}
+      {% include '@ecl/link/link.html.twig' with _toggle|merge({
+        link: _toggle.link|merge({
+          type: 'standalone',
+          icon_path: _icon_path,
+          icon_position: 'before',
+        }),
+        extra_classes: 'ecl-button ecl-button--ghost ecl-menu__open',
+        extra_attributes: [{
+          name: 'data-ecl-menu-open',
+        }],
+      }) only %}
+    {% endif %}
+
     <section class="ecl-menu__inner" data-ecl-menu-inner>
       <header class="ecl-menu__inner-header">
-        <button
-          class="ecl-menu__close ecl-button ecl-button--text"
-          type="submit"
-          data-ecl-menu-close
-        ><span class="ecl-menu__close-container ecl-button__container">
-            {% include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                path: _icon_path,
-                name: 'close-filled',
-                size: 's',
-              },
-              extra_classes: 'ecl-button__icon ecl-button__icon--before',
-              extra_attributes: [{ name: 'data-ecl-icon' }],
-            } only %}
-            <span
-              class="ecl-button__label"
-              data-ecl-label="true">
-                {{- _close -}}
-            </span>
-          </span>
-        </button>
+        {% if _close is not empty %}
+          {% include '@ecl/button/button.html.twig' with _close|merge({
+            type: 'submit',
+            variant: 'ghost',
+            extra_classes: 'ecl-menu__close',
+            extra_attributes: [{
+              name: 'data-ecl-menu-close',
+            }],
+          }) only %}
+        {% endif %}
+
         <div class="ecl-menu__title">{{- _title -}}</div>
-        <button
-          data-ecl-menu-back
-          type="submit"
-          class="ecl-menu__back ecl-button ecl-button--text"
-        >
-          <span class="ecl-button__container">
-            {% include '@ecl/icon/icon.html.twig' with {
-              icon: {
-                path: _icon_path,
-                name: 'corner-arrow',
-                size: 'xs',
-                transform: 'rotate-270',
-              },
-              extra_classes: 'ecl-button__icon ecl-button__icon--before',
-              extra_attributes: [{ name: 'data-ecl-icon' }],
-            } only %}
-            <span
-              class="ecl-button__label"
-              data-ecl-label
-            >
-              {{- _back -}}
-            </span>
-          </span>
-        </button>
+
+        {% if _back_label is not empty %}
+          {% include '@ecl/button/button.html.twig' with ({
+            type: 'submit',
+            variant: 'ghost',
+            label: _back_label,
+            icon: {
+              path: _icon_path,
+              name: 'corner-arrow',
+              size: 'xs',
+              transform: 'rotate-270',
+            },
+            icon_position: 'before',
+            extra_classes: 'ecl-menu__back',
+            extra_attributes: [{
+              name: 'data-ecl-menu-back',
+            }],
+          }) only %}
+        {% endif %}
       </header>
 
       {% if _icon_path is not empty %}
@@ -185,6 +172,7 @@
           {% include '@ecl/menu/menu-item.html.twig' with {
             item: item,
             icon_path: _icon_path,
+            see_all_label: _see_all_label,
           } only %}
         {% endif %}
         {% endfor %}
