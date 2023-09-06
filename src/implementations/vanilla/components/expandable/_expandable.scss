@@ -28,6 +28,11 @@ $expandable: null !default;
 .ecl-expandable__content {
   color: map.get($expandable, 'content-color');
   font-family: #{map.get($theme, 'font-family', 'default')};
+  margin-top: map.get($theme, 'spacing', 'm');
+
+  > *:first-child {
+    margin-top: 0;
+  }
 }
 
 .no-js .ecl-expandable__content {
