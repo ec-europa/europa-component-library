@@ -77,3 +77,21 @@ $navigation-list: null !default;
     padding-inline-end: 0;
   }
 }
+
+@if map-has-key($navigation-list, 'yellow-bar') {
+  .ecl-navigation-list__item:not(.ecl-navigation-list__item--no-border) {
+    .ecl-navigation-list__content-block {
+      &::before {
+        background-color: map.get($theme, 'color', 'yellow-100');
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        content: '';
+        height: 4px;
+        left: map.get($theme, 'spacing', 'l');
+        position: absolute;
+        top: 0;
+        width: 32px;
+      }
+    }
+  }
+}
