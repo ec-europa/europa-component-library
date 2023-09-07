@@ -11,22 +11,6 @@ The standardised and harmonised configurations share the same structure and guid
 - The local section: with information and links related to the current site. Its content is defined by the site owner, following the guidelines of DG COMM
 - The corporate part: with information applicable to the Commission as a whole. Its content is defined by DG COMM
 
-# Core config.
-
-## Anatomy image
-
-![](/cms-images/ec-footer-core.png)
-
-## Anatomy table
-
-| No. | Element/component     | Usage     | Description                                                                    |
-| --- | --------------------- | --------- | ------------------------------------------------------------------------------ |
-| 1   | Site name             | mandatory | Name of the site                                                               |
-| 2   | Content owner details | mandatory | Indicates **ownership over the site's content**                                |
-| 3   | Sitemap navigation    | mandatory | Links to the **main content pages**                                            |
-| 4   | Service navigation    | mandatory | Contains legal information links **\- consistent throughout the family sites** |
-| 5   | Legal navigation      | mandatory | Contains legal information links **\- consistent throughout the family sites** |
-
 # Standardised & Harmonised config.
 
 ## Anatomy image(s)
