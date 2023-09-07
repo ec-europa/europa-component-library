@@ -700,7 +700,7 @@ $timeline: (
   content-big-font: map.get($font-prolonged, 'm'),
   content-font: map.get($font-prolonged, 'm'),
   first-item-offset: 2rem,
-  first-item-height: calc(100% - #{map.get($theme, 'spacing', 'xs')}),
+  first-item-height: calc(100% - #{map.get($spacing, 'xs')}),
   item-padding-top: 0,
   label-alignment: left,
   label-color: map.get($color, 'grey-140'),
@@ -712,7 +712,7 @@ $timeline: (
   last-item-height: 1.5rem,
   left-spacing: 0,
   timeline-margin-left:
-    calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 's')}/ 2),
+    calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 's')} / 2),
   title-color: map.get($color, 'grey-140'),
   title-font: map.get($font-prolonged, 'm'),
   title-font-weight: map.get($font-weight, 'bold'),
