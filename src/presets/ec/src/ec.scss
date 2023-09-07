@@ -95,7 +95,10 @@
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable-ec';
+@use '@ecl/vanilla-component-expandable/expandable' with (
+  $theme: theme.$theme,
+  $expandable: var.$expandable
+);
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
 @use '@ecl/vanilla-component-file/file-ec';
 @use '@ecl/vanilla-component-rating-field/rating-field';
