@@ -1,14 +1,18 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import enSpecs from '@ecl/specs-component-menu/demo/data--en';
-import frSpecs from '@ecl/specs-component-menu/demo/data--fr';
+import dataEc from '@ecl/specs-component-menu/demo/data--ec';
+import dataEcLong from '@ecl/specs-component-menu/demo/data--ec-long';
+import dataEu from '@ecl/specs-component-menu/demo/data--eu';
+import dataEuLong from '@ecl/specs-component-menu/demo/data--eu-long';
 import menu from './menu.html.twig';
 import notes from './README.md';
 
-const enData = { ...enSpecs };
-const frData = { ...frSpecs };
+const system = getSystem();
+const dataShort = system === 'eu' ? dataEu : dataEc;
+const dataLong = system === 'eu' ? dataEuLong : dataEcLong;
 
 const getArgs = (data) => ({
   max_lines: data.max_lines || 2,
@@ -44,21 +48,21 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedMenu = await menu(prepareData(enData, args));
+  const renderedMenu = await menu(prepareData(dataShort, args));
   return renderedMenu;
 };
 Default.storyName = 'default';
-Default.args = getArgs(enData);
+Default.args = getArgs(dataShort);
 Default.argTypes = getArgTypes();
-Default.parameters = { notes: { markdown: notes, json: enData } };
+Default.parameters = { notes: { markdown: notes, json: dataShort } };
 
 export const Long = (_, { loaded: { component } }) => component;
 
 Long.render = async (args) => {
-  const renderedMenuLong = await menu(prepareData(frData, args));
+  const renderedMenuLong = await menu(prepareData(dataLong, args));
   return renderedMenuLong;
 };
 Long.storyName = 'long - with overlay';
-Long.args = getArgs(frData);
+Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes();
-Long.parameters = { notes: { markdown: notes, json: frData } };
+Long.parameters = { notes: { markdown: notes, json: dataLong } };

@@ -8,12 +8,25 @@ import { card, cardTags, cardLists } from '../demo';
 
 ## Default card
 
-<Playground system="ec" selectedKind="components-card" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-card"
+  selectedStory="default"
+  showFrame
+  frameWidth="540px"
+>
   <Html markup={card} />
 </Playground>
 
 ## Card with lists
 
-<Playground system="ec" selectedKind="components-card" selectedStory="lists">
+<Playground
+  system="ec"
+  selectedKind="components-card"
+  selectedStory="default"
+  showFrame
+  frameWidth="540px"
+  selectedArgs="show_lists:true"
+>
   <Html markup={cardLists} />
 </Playground>

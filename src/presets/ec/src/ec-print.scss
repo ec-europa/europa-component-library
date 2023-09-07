@@ -67,8 +67,13 @@
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item-print-ec';
-@use '@ecl/vanilla-component-expandable/expandable-print';
+@use '@ecl/vanilla-component-content-item/content-item-print' with (
+  $theme: theme.$theme,
+  $content-item: var.$content-item
+);
+@use '@ecl/vanilla-component-expandable/expandable-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-fact-figures/fact-figures-print';
 @use '@ecl/vanilla-component-file/file-print';
 @use '@ecl/vanilla-component-rating-field/rating-field-print';

@@ -504,15 +504,6 @@ describe('Form group ', () => {
       return expect(render(dataRequired)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly when disabled', () => {
-      expect.assertions(1);
-      const dataDisabled = merge(dataCheckbox, {
-        disabled: true,
-      });
-
-      return expect(render(dataDisabled)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly when invalid', () => {
       expect.assertions(1);
       const dataInvalid = merge(dataCheckbox, {

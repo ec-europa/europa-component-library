@@ -267,14 +267,14 @@ export const getFormControls = (data, type) => {
       },
     };
   }
-  if (data.width) {
+  if (data.width || data.input.width) {
     argTypes.width = {
       name: 'width',
       type: { name: 'select' },
       description: `The width of the form ${type} {s: small, m: medium, l: large}`,
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: data.width },
+        defaultValue: { summary: data.width || data.input.width },
         category: 'Size',
       },
       options: ['s', 'm', 'l'],

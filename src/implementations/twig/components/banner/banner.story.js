@@ -75,9 +75,9 @@ const getArgTypes = (data) => {
         },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 'm',
+        large: 'l',
       },
       table: {
         type: 'string',
