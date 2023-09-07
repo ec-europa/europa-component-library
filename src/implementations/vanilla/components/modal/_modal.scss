@@ -24,6 +24,7 @@ $_separator-color: null !default;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: map.get(theme.$z-index, 'modal');
 }
 
 .ecl-modal[open] {
@@ -40,8 +41,17 @@ $_separator-color: null !default;
   background-color: map.get(theme.$color, 'white-100');
   border-radius: $_border-radius;
   box-shadow: map.get(theme.$shadow, '4');
+  display: flex;
+  flex-direction: column;
   font: map.get(theme.$font-prolonged, 'm');
+  overflow: hidden;
+  left: 50%;
+  margin: 0;
+  max-height: min(100vh, 501px);
   padding: 0;
+  position: relative;
+  transform: translateX(-50%);
+  z-index: map.get(theme.$z-index, 'modal');
 }
 
 .ecl-modal__header {
@@ -79,7 +89,18 @@ $_separator-color: null !default;
 }
 
 .ecl-modal__body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: map.get(theme.$spacing, 'm');
+}
+
+.ecl-modal__body-scroll {
+  overflow-y: auto;
+}
+
+.ecl-modal__body-scroll + .ecl-modal__body-fixed {
+  margin-top: map.get(theme.$spacing, 'l');
 }
 
 .ecl-modal__footer {
@@ -117,6 +138,19 @@ $_separator-color: null !default;
 
   .ecl-button__icon {
     margin: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-modal__content {
+    .ecl-modal--s & {
+      max-height: min(100vh, 475px);
+    }
+
+    .ecl-modal--l & {
+      max-height: min(100vh, 508px);
+    }
   }
 }
 

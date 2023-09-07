@@ -1,4 +1,4 @@
-import { queryAll } from '@ecl/dom-utils';
+import { queryAll, queryOne } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -30,6 +30,8 @@ export class Modal {
     {
       toggleSelector = '',
       closeSelector = '[data-ecl-modal-close]',
+      contentSelector = '[data-ecl-modal-content]',
+      closeOnClickOutside = false,
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -46,12 +48,15 @@ export class Modal {
     // Options
     this.toggleSelector = toggleSelector;
     this.closeSelector = closeSelector;
+    this.contentSelector = contentSelector;
+    this.closeOnClickOutside = closeOnClickOutside;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
     this.close = null;
+    this.content = null;
     this.focusTrap = null;
 
     // Bind `this` for use in callbacks
@@ -87,10 +92,15 @@ export class Modal {
     }
 
     // Get other elements
+    this.content = queryOne(this.contentSelector, this.element);
+    if (!this.content) this.content = this.element;
     this.close = queryAll(this.closeSelector, this.element);
 
     // Create focus trap
-    this.focusTrap = createFocusTrap(this.element);
+    this.focusTrap = createFocusTrap(this.content, {
+      clickOutsideDeactivates: this.closeOnClickOutside,
+      onDeactivate: () => this.closeModal(),
+    });
 
     // Polyfill to support <dialog>
     this.isDialogSupported = true;
