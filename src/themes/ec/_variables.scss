@@ -687,6 +687,48 @@ $textarea: (
   padding-vertical: map.get($spacing, 'xs'),
 );
 
+// Timeline
+$timeline: (
+  border-color: var(--ecl-color-dark),
+  border-width: 0.25rem,
+  bullet-border-color: map.get($color, 'yellow-100'),
+  bullet-border-width: 0.25rem,
+  bullet-shadow: none,
+  bullet-top-position: map.get($spacing, 'xs'),
+  content-big-font: map.get($font, 'm'),
+  content-font: map.get($font, 'm'),
+  content-color: map.get($color, 'grey-75'),
+  first-item-offset: map.get($spacing, 'xs'),
+  item-padding-top: map.get($spacing, 'xs'),
+  label-alignment: right,
+  label-color: var(--ecl-color-dark),
+  label-big-font: map.get($font, 'm'),
+  label-font: map.get($font, 'm'),
+  label-font-weight: map.get($font-weight, 'bold'),
+  label-layout: absolute,
+  label-margin: 0,
+  left-spacing: 11rem,
+  last-item-height: map.get($spacing, 'xs'),
+  timeline-margin-left: map.get($spacing, 'xs') + 11rem + map.get($spacing, 'm'),
+  title-big-font: map.get($font, 'm'),
+  title-color: map.get($color, 'black-100'),
+  title-font: map.get($font, 'm'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-margin: map.get($spacing, 'xs'),
+  toggle-bullet-border-color: map.get($color, 'grey-25'),
+  bullet-fill-color: map.get($color, 'white-100'),
+  bullet-size: map.get($spacing, 's'),
+  toggle-bullet-border-width: 0.125rem,
+);
+$timeline-print: (
+  content-color: map.get($color, 'grey-75'),
+  content-font: map.get($font-print, 'm'),
+  label-color: map.get($color, 'grey'),
+  label-font: map.get($font-print, 'm'),
+  title-color: map.get($color, 'black'),
+  title-font: map.get($font-print, 'm'),
+);
+
 /**
 * Do not modify past this line
 */
