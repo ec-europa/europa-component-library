@@ -4,7 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-expandable {
   margin: 0;
@@ -16,5 +18,5 @@
 
 .ecl-expandable__content {
   display: block;
-  font-family: #{map.get(theme.$font-family-print, 'default')};
+  font-family: #{map.get($theme, 'font-family-print', 'default')};
 }
