@@ -22,12 +22,12 @@ $timeline: null !default;
       map.get($timeline, 'bullet-border-width')
   );
   margin-top: 0;
-  max-width: 633px;
   padding-inline-start: 0;
 }
 
 .ecl-timeline__item {
-  padding-bottom: map.get($theme, 'spacing', 'l');
+  max-width: 607px;
+  padding-bottom: map.get($theme, 'spacing', 'xl');
   padding-inline-start: map.get($theme, 'spacing', 'm') +
     (map.get($timeline, 'bullet-size') * 0.5) +
     map.get($timeline, 'bullet-border-width');
@@ -67,7 +67,7 @@ $timeline: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
+@include breakpoints.up('l') {
   .ecl-timeline {
     margin-inline-start: map.get($timeline, 'timeline-margin-left');
     margin-inline-end: map.get($theme, 'spacing', 'xs');
@@ -76,10 +76,11 @@ $timeline: null !default;
 
 // Toggle button
 .ecl-timeline__item--toggle {
-  padding-top: map.get($theme, 'spacing', 'xs');
+  padding-top: 0;
 
   &::before {
     border-inline-start-style: dashed;
+    top: -#{map.get($theme, 'spacing', '2xs')};
   }
 
   &::after {
@@ -88,7 +89,7 @@ $timeline: null !default;
     box-sizing: border-box;
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    top: map.get($theme, 'spacing', 'xs') + map.get($theme, 'spacing', 's');
+    top: map.get($theme, 'spacing', '2xs') + map.get($theme, 'spacing', 'xs');
     width: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
   }
@@ -113,8 +114,8 @@ $timeline: null !default;
 
 // Border adjustment
 .ecl-timeline__item:first-child::before {
-  height: calc(100% - #{map.get($theme, 'spacing', 'xs')});
-  top: map.get($timeline, 'first_item_offset');
+  height: map.get($timeline, 'first-item-height');
+  top: map.get($timeline, 'first-item-offset');
 }
 
 .ecl-timeline__item:last-child::before {
@@ -132,7 +133,8 @@ $timeline: null !default;
 .ecl-timeline__label {
   color: map.get($timeline, 'label-color');
   font: map.get($timeline, 'label-font');
-  margin-bottom: map.get($theme, 'spacing', 's');
+  font-weight: map.get($timeline, 'label-font-weight');
+  margin-bottom: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-timeline__content {
@@ -141,7 +143,7 @@ $timeline: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
+@include breakpoints.up('l') {
   .ecl-timeline__label {
     font: map.get($timeline, 'label-big-font');
     font-weight: map.get($timeline, 'label-font-weight');
@@ -153,7 +155,7 @@ $timeline: null !default;
     margin-bottom: map.get($timeline, 'label-margin');
     position: map.get($timeline, 'label-layout');
     text-align: map.get($timeline, 'label-alignment');
-    top: map.get($theme, 'spacing', 'xs');
+    top: map.get($theme, 'spacing', '2xs');
     width: map.get($timeline, 'left-spacing');
   }
 
@@ -192,7 +194,7 @@ $timeline: null !default;
     position: relative;
 
     &::before {
-      background: map.get($theme, 'color', 'yellow-100');
+      background: map.get($theme, 'color', 'secondary');
       border-radius: 0 0 2px 2px;
       content: '';
       display: block;

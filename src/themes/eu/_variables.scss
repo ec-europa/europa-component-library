@@ -700,6 +700,7 @@ $timeline: (
   content-big-font: map.get($font-prolonged, 'm'),
   content-font: map.get($font-prolonged, 'm'),
   first-item-offset: 2rem,
+  first-item-height: calc(100% - #{map.get($theme, 'spacing', 'xs')}),
   item-padding-top: 0,
   label-alignment: left,
   label-color: map.get($color, 'grey-140'),
