@@ -81,3 +81,8 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
   margin-inline-start: calc(-50vw + (#{$_scrollbar-width} / 2));
   width: calc(100vw - #{$_scrollbar-width});
 }
+
+.ecl-media-container__expandable .ecl-expandable__content {
+  padding-bottom: map.get(theme.$spacing, 'l');
+  border-bottom: 1px solid map.get(theme.$color, 'grey-25');
+}
