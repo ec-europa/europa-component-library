@@ -17,7 +17,11 @@ $_expandable-content-color: null !default;
 }
 
 .ecl-expandable__divider {
+  background-color: map.get(theme.$color, 'grey-25');
+  border: none;
   display: none;
+  height: 1px;
+  margin: 0;
 }
 
 .ecl-expandable__content {
@@ -29,14 +33,13 @@ $_expandable-content-color: null !default;
   padding-bottom: map.get(theme.$spacing, 'l');
 }
 
-.ecl-expandable__toggle[aria-expanded='true'] ~ .ecl-expandable__divider {
-  background-color: map.get(theme.$color, 'grey-25');
-  border: none;
-  display: block;
-  height: 1px;
-  margin: 0;
+.no-js {
+  .ecl-expandable__content,
+  .ecl-expandable__divider {
+    display: block;
+  }
 }
 
-.no-js .ecl-expandable__content {
+.ecl-expandable__toggle[aria-expanded='true'] ~ .ecl-expandable__divider {
   display: block;
 }
