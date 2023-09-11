@@ -78,14 +78,18 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   data.size = args.size;
-  data.full_width = args.width === 'inside';
+  data.full_width =
+    args.width === 'inside the grid container, with fullwidth class';
 
   return data;
 };
 
 const renderStory = (data, args) => {
   let story = carousel(prepareData(correctPaths(data), args));
-  if (args.width === 'container' || args.width === 'inside') {
+  if (
+    args.width === 'inside the grid container' ||
+    args.width === 'inside the grid container, with fullwidth class'
+  ) {
     story = `<div class="ecl-container">${story}</div>`;
   }
   if (args.gridContent) {
