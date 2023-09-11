@@ -21,6 +21,6 @@ module.exports = {
     label_expanded: 'Expanded',
     label_collapsed: 'Collapsed',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et varius est. Sed elementum rutrum libero, at vulputate nisl posuere et. Morbi dui sem, rhoncus non fermentum eget, finibus non purus.',
+      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et varius est. Sed elementum rutrum libero, at vulputate nisl posuere et. Morbi dui sem, rhoncus non fermentum eget, finibus non purus.</p>',
   },
 };

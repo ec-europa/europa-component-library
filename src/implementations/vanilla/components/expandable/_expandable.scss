@@ -16,30 +16,25 @@ $_expandable-content-color: null !default;
   transform: rotate(0deg);
 }
 
-.ecl-expandable__divider {
-  background-color: map.get(theme.$color, 'grey-25');
-  border: none;
-  display: none;
-  height: 1px;
-  margin: 0;
-}
-
 .ecl-expandable__content {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-25');
   color: $_expandable-content-color;
   font: map.get(theme.$font-prolonged, 'm');
   margin-top: map.get(theme.$spacing, 'm');
-  max-width: 80ch;
   padding-inline-start: map.get(theme.$spacing, 'm');
   padding-bottom: map.get(theme.$spacing, 'l');
-}
 
-.no-js {
-  .ecl-expandable__content,
-  .ecl-expandable__divider {
-    display: block;
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
 
-.ecl-expandable__toggle[aria-expanded='true'] ~ .ecl-expandable__divider {
-  display: block;
+.no-js {
+  .ecl-expandable__content {
+    display: block;
+  }
 }
