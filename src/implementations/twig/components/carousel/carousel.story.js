@@ -10,7 +10,7 @@ const getArgs = () => {
   const args = {
     width: 'container',
     size: 'm',
-    gridContent: false,
+    grid_content: false,
   };
 
   return args;
@@ -53,22 +53,28 @@ const getArgTypes = () => {
           l: 'large',
         },
       },
+      mapping: {
+        small: 's',
+        medium: 'm',
+        large: 'l',
+      },
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
         category: 'Display',
       },
     },
-    gridContent: {
+    grid_content: {
       name: 'demo grid content',
-      type: { name: 'boolean' },
+      type: 'boolean',
       description:
         'Inject a test content block displayed on the grid, to see the alignment',
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         category: 'Test content',
-      },
-      control: {
-        type: 'boolean',
       },
     },
   };
@@ -78,17 +84,21 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   data.size = args.size;
-  data.full_width = args.width === 'inside';
+  data.full_width =
+    args.width === 'inside the grid container, with fullwidth class';
 
   return data;
 };
 
 const renderStory = (data, args) => {
   let story = carousel(prepareData(correctPaths(data), args));
-  if (args.width === 'container' || args.width === 'inside') {
+  if (
+    args.width === 'inside the grid container' ||
+    args.width === 'inside the grid container, with fullwidth class'
+  ) {
     story = `<div class="ecl-container">${story}</div>`;
   }
-  if (args.gridContent) {
+  if (args.grid_content) {
     story +=
       '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
   }
