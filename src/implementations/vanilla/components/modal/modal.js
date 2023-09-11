@@ -31,7 +31,7 @@ export class Modal {
       toggleSelector = '',
       closeSelector = '[data-ecl-modal-close]',
       contentSelector = '[data-ecl-modal-content]',
-      closeOnClickOutside = false,
+      closeOnClickOutside = true,
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -190,7 +190,9 @@ export class Modal {
     }
 
     // Untrap focus
-    this.focusTrap.deactivate();
+    if (this.focusTrap.active) {
+      this.focusTrap.deactivate();
+    }
   }
 
   /**
