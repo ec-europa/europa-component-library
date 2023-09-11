@@ -10,11 +10,15 @@
   margin: 0;
 }
 
-.ecl-expandable__toggle {
+.ecl-button.ecl-expandable__toggle {
   display: none;
 }
 
 .ecl-expandable__content {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-25');
   display: block;
   font-family: #{map.get(theme.$font-family-print, 'default')};
+  max-width: 80ch;
+  padding: map.get(theme.$spacing-print, 'm') 0
+    map.get(theme.$spacing-print, 'l') map.get(theme.$spacing-print, 'm');
 }
