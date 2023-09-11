@@ -10,7 +10,7 @@ const getArgs = () => {
   const args = {
     width: 'container',
     size: 'm',
-    gridContent: false,
+    grid_content: false,
   };
 
   return args;
@@ -53,22 +53,24 @@ const getArgTypes = () => {
           l: 'large',
         },
       },
+      mapping: {
+        small: 's',
+        medium: 'm',
+        large: 'l',
+      },
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
         category: 'Display',
       },
     },
-    gridContent: {
+    grid_content: {
       name: 'demo grid content',
-      type: { name: 'boolean' },
+      type: 'boolean',
       description:
         'Inject a test content block displayed on the grid, to see the alignment',
       table: {
         category: 'Test content',
-      },
-      control: {
-        type: 'boolean',
       },
     },
   };
@@ -92,7 +94,7 @@ const renderStory = (data, args) => {
   ) {
     story = `<div class="ecl-container">${story}</div>`;
   }
-  if (args.gridContent) {
+  if (args.grid_content) {
     story +=
       '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
   }
