@@ -18,7 +18,10 @@
 );
 @use '@ecl/vanilla-component-datepicker/datepicker-ec';
 @use '@ecl/vanilla-component-file-upload/file-upload-ec';
-@use '@ecl/vanilla-component-radio/radio-ec';
+@use '@ecl/vanilla-component-radio/radio' with (
+  $theme: theme.$theme,
+  $radio: var.$radio
+);
 @use '@ecl/vanilla-component-range/range' with (
   $theme: theme.$theme,
   $range: var.$range
