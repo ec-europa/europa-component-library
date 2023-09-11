@@ -69,6 +69,10 @@ const getArgTypes = () => {
       type: 'boolean',
       description:
         'Inject a test content block displayed on the grid, to see the alignment',
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         category: 'Test content',
       },
