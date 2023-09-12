@@ -18,6 +18,7 @@
 {% set _items = items|default([]) %}
 {% set _column = column|default(2) %}
 {% set _css_class = 'ecl-navigation-list' %}
+{% set _border = border ?? true %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -45,7 +46,7 @@
 {% if _items is not empty and _items is iterable %}
   <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
     {%- for _item in _items %}
-      {% include '@ecl/navigation-list/navigation-list-item.html.twig' with _item only %}
+      {% include '@ecl/navigation-list/navigation-list-item.html.twig' with _item|merge({ border: _border }) only %}
     {% endfor -%}
   </div>
 {% endif %}
