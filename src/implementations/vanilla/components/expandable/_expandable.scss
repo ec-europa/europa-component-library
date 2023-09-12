@@ -17,10 +17,24 @@ $_expandable-content-color: null !default;
 }
 
 .ecl-expandable__content {
+  border-bottom: 1px solid map.get(theme.$color, 'grey-25');
   color: $_expandable-content-color;
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font: map.get(theme.$font-prolonged, 'm');
+  margin-top: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get(theme.$spacing, 'm');
+  padding-bottom: map.get(theme.$spacing, 'l');
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
-.no-js .ecl-expandable__content {
-  display: block;
+.no-js {
+  .ecl-expandable__content {
+    display: block;
+  }
 }
