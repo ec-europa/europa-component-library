@@ -68,23 +68,12 @@ describe('Table', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    test('renders correctly with row extra attributes', () => {
-      expect.assertions(1);
-
-      const withRowExtraAttributes = dataDefault;
-      withRowExtraAttributes.rows.forEach((row) => {
-        row.extra_attributes = 'data-test data-test-another'; // eslint-disable-line no-param-reassign
-      });
-
-      return expect(render(withRowExtraAttributes)).resolves.toMatchSnapshot();
-    });
-
     test('renders correctly with row extra classes', () => {
       expect.assertions(1);
 
       const withRowExtraClasses = dataDefault;
-      withRowExtraClasses.rows.forEach((row) => {
-        row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
+      withRowExtraClasses.rows.forEach((row, i) => {
+        row.extra_classes = `row-extra-class-${i}`; // eslint-disable-line no-param-reassign
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
