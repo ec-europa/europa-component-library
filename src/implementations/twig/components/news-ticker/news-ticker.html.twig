@@ -110,9 +110,7 @@
   {% endif %}
   <div class="ecl-news-ticker__controls">
     {% set _button_attributes = 'data-ecl-news-ticker-prev' %}
-    {% if _sr_previous is not empty %}
-      {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _sr_previous ~ '"' %}
-    {% endif %}
+
     <button class="ecl-news-ticker__prev" {{ _button_attributes|raw }}>
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
@@ -124,12 +122,10 @@
         },
         extra_classes: 'ecl-news-ticker__icon-default',
       } only %}
-      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
+      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
     </button>
     {% set _button_attributes = 'data-ecl-news-ticker-next' %}
-    {% if _sr_next is not empty %}
-      {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _sr_next ~ '"' %}
-    {% endif %}
+
     <button class="ecl-news-ticker__next" {{ _button_attributes|raw }}>
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
@@ -141,7 +137,7 @@
         },
         extra_classes: 'ecl-news-ticker__icon-default',
       } only %}
-      <span class="ecl-u-sr-only">{{ _sr_prev }}</span>
+      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
     </button>
     <button class="ecl-news-ticker__play" data-ecl-news-ticker-play>
       {% include '@ecl/icon/icon.html.twig' with {
