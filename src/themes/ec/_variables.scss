@@ -692,9 +692,19 @@ $spinner: (
 
 // Tag
 $tag: (
-  background-color: map.get($color, 'grey-75'),
-  background-color-hover: map.get($color, 'grey-100'),
-  border-color-focus: map.get($color, 'primary'),
+  padding: map.get($spacing, '2xs') map.get($spacing, 's'),
+  border-radius: 12px,
+  color: var(--ecl-color-dark),
+  background-color: var(--ecl-color-primary-20),
+  color-hover: var(--ecl-color-dark),
+  background-color-hover: var(--ecl-color-primary-40),
+  color-focus: var(--ecl-color-dark),
+  background-color-focus: map.get($color, 'white'),
+  outline-color-focus: var(--ecl-color-primary),
+  outline-offset-focus: -2px,
+  color-active: var(--ecl-color-dark),
+  background-color-active: map.get($color, 'white'),
+  outline-color-active: var(--ecl-color-dark),
 );
 
 // Textarea
