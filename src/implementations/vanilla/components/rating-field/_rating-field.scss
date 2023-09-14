@@ -16,30 +16,56 @@ $rating-field: null !default;
   display: inline-flex;
   flex-direction: row-reverse;
 
-  .ecl-rating-field__input:checked
-    ~ .ecl-rating-field__label
-    .ecl-rating-field__icon-filled,
-  &:not(.ecl-rating-field--disabled)
-    > .ecl-rating-field__label:hover
-    .ecl-rating-field__icon-filled,
-  &:not(.ecl-rating-field--disabled)
-    > .ecl-rating-field__label:hover
-    ~ .ecl-rating-field__label
-    .ecl-rating-field__icon-filled {
-    display: inline-block;
+  .ecl-rating-field__input {
+    &:checked,
+    &:active {
+      ~ .ecl-rating-field__label {
+        .ecl-rating-field__icon-outline {
+          display: none;
+        }
+
+        .ecl-rating-field__icon-filled {
+          display: inline-block;
+        }
+
+        &:hover .ecl-rating-field__icon-filled {
+          fill: map.get($rating-field, 'checked-hover-color');
+        }
+      }
+    }
   }
 
-  .ecl-rating-field__input:checked
-    ~ .ecl-rating-field__label
-    .ecl-rating-field__icon-outline,
-  &:not(.ecl-rating-field--disabled)
-    > .ecl-rating-field__label:hover
-    .ecl-rating-field__icon-outline,
-  &:not(.ecl-rating-field--disabled)
-    > .ecl-rating-field__label:hover
-    ~ .ecl-rating-field__label
-    .ecl-rating-field__icon-outline {
-    display: none;
+  &:not(.ecl-rating-field--disabled) {
+    .ecl-rating-field__input
+      + .ecl-rating-field__label:hover
+      .ecl-rating-field__icon-outline {
+      fill: map.get($rating-field, 'hover-stroke-color');
+    }
+
+    .ecl-rating-field__input:focus {
+      + .ecl-rating-field__label {
+        @if map-has-key($rating-field, 'focus-circle') {
+          outline: none;
+
+          &::before {
+            @each $property, $value in map.get($rating-field, 'focus-circle') {
+              #{$property}: $value;
+            }
+          }
+        } @else {
+          outline: 2px solid var(--ecl-color-primary-100);
+        }
+      }
+
+      &:checked + .ecl-rating-field__label .ecl-rating-field__icon-filled {
+        stroke: map.get($rating-field, 'checked-focus-stroke');
+      }
+    }
+  }
+
+  &--disabled .ecl-rating-field__input + .ecl-rating-field__label {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
 
@@ -60,42 +86,38 @@ $rating-field: null !default;
   cursor: pointer;
   margin-inline-end: map.get($theme, 'spacing', 'xs');
   position: relative;
-
-  .ecl-rating-field--disabled & {
-    cursor: default;
-  }
 }
 
 .ecl-rating-field__icon-filled {
   display: none;
-  fill: map.get($theme, 'color', 'yellow-100');
+  fill: map.get($rating-field, 'checked-color');
 }
 
 .ecl-rating-field__icon-outline {
-  fill: var(--ecl-color-dark-80);
+  fill: map.get($rating-field, 'stroke-color');
 }
 
-.ecl-rating-field:not(.ecl-rating-field--disabled)
-  .ecl-rating-field__input:focus,
-.ecl-rating-field:not(.ecl-rating-field--disabled)
-  .ecl-rating-field__input:active {
-  + .ecl-rating-field__label {
-    @if map-has-key($rating-field, 'focus-circle') {
-      outline: none;
+@include breakpoints.up('m') {
+  .ecl-rating-field {
+    .ecl-rating-field__input + .ecl-rating-field__label {
+      margin-inline-end: map.get($theme, 'spacing', '2xs');
+    }
 
-      &::before {
-        @each $property, $value in map.get($rating-field, 'focus-circle') {
-          #{$property}: $value;
+    .ecl-rating-field__icon-filled,
+    .ecl-rating-field__icon-outline {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    &:not(.ecl-rating-field--disabled)
+      .ecl-rating-field__input:focus
+      + .ecl-rating-field__label {
+      @if map-has-key($rating-field, 'focus-circle') {
+        &::before {
+          height: 1.875rem;
+          width: 1.875rem;
         }
       }
-    } @else {
-      outline: 2px solid var(--ecl-color-primary-100);
     }
-  }
-
-  &:checked + .ecl-rating-field__label .ecl-rating-field__icon-filled {
-    stroke: var(--ecl-color-dark-100);
-    stroke-width: 2px;
-    vector-effect: non-scaling-size;
   }
 }

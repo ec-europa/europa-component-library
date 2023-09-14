@@ -633,9 +633,14 @@ $range: (
 
 // Rating field
 $rating-field: (
+  checked-color: var(--ecl-color-secondary-100),
+  stroke-color: var(--ecl-color-dark-100),
+  hover-stroke-color: var(--ecl-color-primary-80),
+  checked-hover-color: var(--ecl-color-secondary-140),
+  checked-focus-stroke: var(--ecl-color-dark-100),
   focus-circle: (
-    height: 2.5rem,
-    width: 2.5rem,
+    height: 2.25rem,
+    width: 2.25rem,
     content: '',
     display: block,
     border-radius: 50%,

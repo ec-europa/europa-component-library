@@ -19,17 +19,12 @@ module.exports = {
     star_filled_icon: {
       path: '/icons.svg',
       name: 'star-filled',
-      size: 'm',
+      size: 'l',
     },
     star_outline_icon: {
       path: '/icons.svg',
       name: 'star-outline',
-      size: 'm',
-    },
-    star_filled_focus_icon: {
-      path: '/icons.svg',
-      name: 'star-stroked-check',
-      size: 'm',
+      size: 'l',
     },
     items: [
       {

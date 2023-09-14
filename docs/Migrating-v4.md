@@ -156,6 +156,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
 - Wrapper `ecl-page-header__title-container` has been removed
 
+### Rating field
+
+- Size of the icon is now `l` instead of `m`, it is resized in desktop viewports via css.
+
 ### Search form
 
 - Icon in the search button is now placed before the label

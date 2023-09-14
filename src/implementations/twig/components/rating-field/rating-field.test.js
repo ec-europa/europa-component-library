@@ -4,7 +4,9 @@ import {
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import data from '@ecl/specs-component-rating-field/demo/data';
+import specs from '@ecl/specs-component-rating-field/demo/data';
+
+const data = specs.input;
 
 expect.extend(toHaveNoViolations);
 
