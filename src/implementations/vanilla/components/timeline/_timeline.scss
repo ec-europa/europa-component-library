@@ -31,7 +31,6 @@ $timeline: null !default;
   padding-inline-start: map.get($theme, 'spacing', 'm') +
     (map.get($timeline, 'bullet-size') * 0.5) +
     map.get($timeline, 'bullet-border-width');
-  padding-top: map.get($timeline, 'item-padding-top');
   position: relative;
 
   // Border
@@ -99,15 +98,6 @@ $timeline: null !default;
   }
 }
 
-.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--toggle {
-  padding-bottom: map.get($theme, 'spacing', 'xs');
-  padding-top: map.get($theme, 'spacing', 'l');
-
-  &::after {
-    top: map.get($theme, 'spacing', 'l') + map.get($theme, 'spacing', 's');
-  }
-}
-
 .ecl-timeline__toggle[aria-expanded='true'] .ecl-icon {
   transform: rotate(0deg);
 }
@@ -155,7 +145,6 @@ $timeline: null !default;
     margin-bottom: map.get($timeline, 'label-margin');
     position: map.get($timeline, 'label-layout');
     text-align: map.get($timeline, 'label-alignment');
-    top: map.get($theme, 'spacing', '2xs');
     width: map.get($timeline, 'left-spacing');
   }
 
