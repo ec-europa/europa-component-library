@@ -69,7 +69,10 @@
 @use '@ecl/vanilla-component-skip-link/skip-link';
 @use '@ecl/vanilla-component-table/table-eu';
 @use '@ecl/vanilla-component-tabs/tabs-eu';
-@use '@ecl/vanilla-component-tag/tag-eu';
+@use '@ecl/vanilla-component-tag/tag' with (
+  $theme: theme.$theme,
+  $tag: var.$tag
+);
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-eu';

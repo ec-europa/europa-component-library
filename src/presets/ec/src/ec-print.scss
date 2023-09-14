@@ -50,7 +50,9 @@
 @use '@ecl/vanilla-component-spinner/spinner-print';
 @use '@ecl/vanilla-component-table/table-print';
 @use '@ecl/vanilla-component-tabs/tabs-print';
-@use '@ecl/vanilla-component-tag/tag-print';
+@use '@ecl/vanilla-component-tag/tag-print' with (
+  $theme: theme.$theme
+);
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-print-ec';

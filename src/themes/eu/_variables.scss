@@ -692,6 +692,13 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Tag
+$tag: (
+  background-color: map.get($color, 'blue-100'),
+  background-color-hover: map.get($color, 'blue-80'),
+  border-color-focus: map.get($color, 'primary'),
+);
+
 // Textarea
 $textarea: (
   background: map.get($color, 'white-100'),

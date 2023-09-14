@@ -4,36 +4,34 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_background-color: null !default;
-$_background-color-hover: null !default;
-$_border-color-focus: null !default;
-$_border-size-focus: null !default;
+// Exposed variables
+$theme: null !default;
+$tag: null !default;
 
 .ecl-tag {
   align-items: center;
-  background-color: $_background-color;
+  background-color: map.get($tag, 'background-color');
   border-radius: (
-      2 * map.get(theme.$spacing, 'xs') + map.get(theme.$line-height, 's')
+      2 * map.get($theme, 'spacing', 'xs') + map.get($theme, 'line-height', 's')
     ) * 0.5;
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'white');
+  color: map.get($theme, 'color', 'white');
   display: inline-flex;
-  font: map.get(theme.$font, 's');
-  padding: map.get(theme.$spacing, 'xs') map.get(theme.$spacing, 's');
+  font: map.get($theme, 'font', 's');
+  padding: map.get($theme, 'spacing', 'xs') map.get($theme, 'spacing', 's');
   text-decoration: underline;
   white-space: nowrap;
 
   &:hover {
-    background-color: $_background-color-hover;
-    color: map.get(theme.$color, 'white');
+    background-color: map.get($tag, 'background-color-hover');
+    color: map.get($theme, 'color', 'white');
   }
 
   &:focus-visible {
-    background-color: $_background-color;
-    outline: 2px solid map.get(theme.$color, 'blue');
+    background-color: map.get($tag, 'background-color');
+    outline: 2px solid map.get($theme, 'color', 'blue');
     outline-offset: 2px;
   }
 }
@@ -43,7 +41,7 @@ $_border-size-focus: null !default;
 
   &:hover,
   &:focus {
-    color: map.get(theme.$color, 'white');
+    color: map.get($theme, 'color', 'white');
     text-decoration: none;
   }
 }
@@ -53,28 +51,28 @@ $_border-size-focus: null !default;
   background: none;
   border-width: 0;
   color: transparent;
-  height: map.get(theme.$icon, 'xs');
-  margin-inline-start: map.get(theme.$spacing, 'xs');
+  height: map.get($theme, 'icon', 'xs');
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
   padding: 0;
   pointer-events: auto;
   position: relative;
-  width: map.get(theme.$icon, 'xs');
+  width: map.get($theme, 'icon', 'xs');
 
   &:focus-visible {
-    outline: 2px solid $_border-color-focus;
+    outline: 2px solid map.get($tag, 'border-color-focus');
     outline-offset: 2px;
   }
 
   &.ecl-tag__icon--external {
-    color: map.get(theme.$color, 'white');
-    height: map.get(theme.$icon, '2xs');
-    width: map.get(theme.$icon, '2xs');
+    color: map.get($theme, 'color', 'white');
+    height: map.get($theme, 'icon', '2xs');
+    width: map.get($theme, 'icon', '2xs');
     top: 1px;
   }
 }
 
 .ecl-tag__icon-close {
-  fill: map.get(theme.$color, 'white');
+  fill: map.get($theme, 'color', 'white');
   left: 0;
   opacity: 1;
   position: absolute;
@@ -82,7 +80,7 @@ $_border-size-focus: null !default;
 }
 
 .ecl-tag__icon-close-filled {
-  fill: map.get(theme.$color, 'white');
+  fill: map.get($theme, 'color', 'white');
   left: 0;
   opacity: 0;
   position: absolute;
