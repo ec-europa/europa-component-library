@@ -10,9 +10,9 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
     >
       Select your preferred destinations
       <span
-        class="ecl-form-label__optional"
+        class="ecl-form-label__required"
       >
-         (optional)
+        *
       </span>
     </legend>
     <div
@@ -28,6 +28,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-1"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="es"
       />
@@ -54,12 +55,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           Spain
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -68,6 +63,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-2"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="be"
       />
@@ -94,12 +90,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--disabled"
@@ -109,6 +99,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
         disabled=""
         id="checkbox-default-3"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="fr"
       />
@@ -135,12 +126,6 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -149,6 +134,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-4"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="lorem"
       />
@@ -178,207 +164,8 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
           >
             consectetur adipiscing elit
           </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
-    </div>
-  </div>
-</jest>
-`;
-
-exports[`Form group  with Checkbox renders correctly when disabled 1`] = `
-<jest>
-  <div
-    class="ecl-form-group"
-  >
-    <legend
-      class="ecl-form-label ecl-form-label--disabled"
-    >
-      Select your preferred destinations
-      <span
-        class="ecl-form-label__optional"
-      >
-         (optional)
-      </span>
-    </legend>
-    <div
-      class="ecl-help-block ecl-help-block--disabled"
-    >
-      Helper text for the group
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        checked=""
-        class="ecl-checkbox__input"
-        id="checkbox-default-1"
-        name="checkbox-default"
-        type="checkbox"
-        value="es"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-1"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Spain
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-2"
-        name="checkbox-default"
-        type="checkbox"
-        value="be"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-2"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Belgium
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox ecl-checkbox--disabled"
-    >
-      <input
-        class="ecl-checkbox__input"
-        disabled=""
-        id="checkbox-default-3"
-        name="checkbox-default"
-        type="checkbox"
-        value="fr"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-3"
-      >
-        <span
-          class="ecl-checkbox__box ecl-checkbox__box--disabled"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          France (disabled)
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
-    </div>
-    <div
-      class="ecl-checkbox"
-    >
-      <input
-        class="ecl-checkbox__input"
-        id="checkbox-default-4"
-        name="checkbox-default"
-        type="checkbox"
-        value="lorem"
-      />
-      <label
-        class="ecl-checkbox__label"
-        for="checkbox-default-4"
-      >
-        <span
-          class="ecl-checkbox__box"
-        >
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--m ecl-checkbox__icon"
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#check"
-            />
-          </svg>
-        </span>
-        <span
-          class="ecl-checkbox__text"
-        >
-          Lorem ipsum dolor sit amet, 
-          <a
-            href="/example"
-          >
-            consectetur adipiscing elit
-          </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
-        </span>
-      </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -394,9 +181,9 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
     >
       Select your preferred destinations
       <span
-        class="ecl-form-label__optional"
+        class="ecl-form-label__required"
       >
-         (optional)
+        *
       </span>
     </legend>
     <div
@@ -426,6 +213,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-1"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="es"
       />
@@ -452,12 +240,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           Spain
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--invalid"
@@ -466,6 +248,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-2"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="be"
       />
@@ -492,12 +275,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
@@ -507,6 +284,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         disabled=""
         id="checkbox-default-3"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="fr"
       />
@@ -533,12 +311,6 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--invalid"
@@ -547,6 +319,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-4"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="lorem"
       />
@@ -576,15 +349,8 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           >
             consectetur adipiscing elit
           </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -618,6 +384,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-1"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="es"
       />
@@ -644,12 +411,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           Spain
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -658,6 +419,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-2"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="be"
       />
@@ -684,12 +446,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--disabled"
@@ -699,6 +455,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
         disabled=""
         id="checkbox-default-3"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="fr"
       />
@@ -725,12 +482,6 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -739,6 +490,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
         class="ecl-checkbox__input"
         id="checkbox-default-4"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="lorem"
       />
@@ -768,15 +520,8 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
           >
             consectetur adipiscing elit
           </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -794,9 +539,9 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
     >
       Select your preferred destinations
       <span
-        class="ecl-form-label__optional"
+        class="ecl-form-label__required"
       >
-         (optional)
+        *
       </span>
     </legend>
     <div
@@ -812,6 +557,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
         class="ecl-checkbox__input"
         id="checkbox-default-1"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="es"
       />
@@ -838,12 +584,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           Spain
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -852,6 +592,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
         class="ecl-checkbox__input"
         id="checkbox-default-2"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="be"
       />
@@ -878,12 +619,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--disabled"
@@ -893,6 +628,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
         disabled=""
         id="checkbox-default-3"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="fr"
       />
@@ -919,12 +655,6 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -933,6 +663,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
         class="ecl-checkbox__input"
         id="checkbox-default-4"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="lorem"
       />
@@ -962,15 +693,8 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
           >
             consectetur adipiscing elit
           </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -986,9 +710,9 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
     >
       Select your preferred destinations
       <span
-        class="ecl-form-label__optional"
+        class="ecl-form-label__required"
       >
-         (optional)
+        *
       </span>
     </legend>
     <div
@@ -1004,6 +728,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
         class="ecl-checkbox__input"
         id="checkbox-default-1"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="es"
       />
@@ -1030,12 +755,6 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           Spain
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-1"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -1044,6 +763,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
         class="ecl-checkbox__input"
         id="checkbox-default-2"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="be"
       />
@@ -1070,12 +790,6 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-2"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--disabled"
@@ -1085,6 +799,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
         disabled=""
         id="checkbox-default-3"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="fr"
       />
@@ -1111,12 +826,6 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help ecl-checkbox__help--disabled"
-        id="helper-default-3"
-      >
-        Helper text for an option
-      </div>
     </div>
     <div
       class="ecl-checkbox"
@@ -1125,6 +834,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
         class="ecl-checkbox__input"
         id="checkbox-default-4"
         name="checkbox-default"
+        required=""
         type="checkbox"
         value="lorem"
       />
@@ -1154,15 +864,8 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
           >
             consectetur adipiscing elit
           </a>
-          . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-checkbox__help"
-        id="helper-default-4"
-      >
-        Helper text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -1958,12 +1661,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -1994,12 +1691,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2031,12 +1722,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2073,12 +1758,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2133,12 +1812,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2169,12 +1842,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2206,12 +1873,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2248,12 +1909,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2322,12 +1977,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2358,12 +2007,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2395,12 +2038,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2437,12 +2074,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2497,12 +2128,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2533,12 +2158,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2570,12 +2189,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2612,12 +2225,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2674,12 +2281,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2710,12 +2311,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2747,12 +2342,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2789,12 +2378,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2849,12 +2432,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
           Luxembourg
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-1"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2885,12 +2462,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
           Belgium
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-2"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio ecl-radio--disabled"
@@ -2922,12 +2493,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
           France (disabled)
         </span>
       </label>
-      <div
-        class="ecl-radio__help ecl-radio__help--disabled"
-        id="helper-3"
-      >
-        Help text for an option
-      </div>
     </div>
     <div
       class="ecl-radio"
@@ -2964,12 +2529,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
           . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
         </span>
       </label>
-      <div
-        class="ecl-radio__help"
-        id="helper-4"
-      >
-        Help text for an option
-      </div>
     </div>
   </div>
 </jest>
@@ -2990,7 +2549,7 @@ exports[`Form group  with Range field renders correctly 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -3035,7 +2594,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -3081,7 +2640,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -3186,7 +2745,7 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -3231,7 +2790,7 @@ exports[`Form group  with Range field renders correctly with extra class names 1
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5286,7 +4845,7 @@ exports[`Form group  with Text field renders correctly 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5317,7 +4876,7 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5349,7 +4908,7 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5428,7 +4987,7 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5459,7 +5018,7 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5490,7 +5049,7 @@ exports[`Form group  with Textarea renders correctly 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5521,7 +5080,7 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5553,7 +5112,7 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5632,7 +5191,7 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div
@@ -5663,7 +5222,7 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
       <span
         class="ecl-form-label__optional"
       >
-         (optional)
+        (optional)
       </span>
     </label>
     <div

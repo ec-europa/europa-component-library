@@ -118,7 +118,7 @@
       {%- if _required and _required_text is not empty -%}
         <span class="ecl-form-label__required">{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
-        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+        <span class="ecl-form-label__optional">{{ _optional_text }}</span>
       {%- endif -%}
     </{{ _label_tag }}>
   {% endif %}

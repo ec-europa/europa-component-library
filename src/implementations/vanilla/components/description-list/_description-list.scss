@@ -79,7 +79,7 @@ $description-list: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-description-list__definition--inline
   .ecl-description-list__definition-item {
-  border-inline-end: 1px solid map.get($description-list, 'definition-color');
+  border-inline-end: 1px solid map.get($description-list, 'separator-color');
   display: inline;
   margin-inline-end: map.get($theme, 'spacing', 'xs');
   margin-bottom: map.get($theme, 'spacing', 'xs');
@@ -116,7 +116,7 @@ $description-list: null !default;
   }
 
   &::before {
-    background-color: map.get($theme, 'color', 'blue-100');
+    background-color: map.get($description-list, 'separator-color');
     border-radius: 50%;
     content: '';
     display: block;

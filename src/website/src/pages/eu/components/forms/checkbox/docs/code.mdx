@@ -4,7 +4,12 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { checkboxDefault, checkboxInvalid, checkboxOptional } from '../demo';
+import {
+  checkboxDefault,
+  checkboxInvalid,
+  checkboxOptional,
+  checkboxSingle,
+} from '../demo';
 
 ## Default checkbox group
 
@@ -39,4 +44,15 @@ import { checkboxDefault, checkboxInvalid, checkboxOptional } from '../demo';
   showFrame
 >
   <Html markup={checkboxOptional} />
+</Playground>
+
+## Standalone checkbox
+
+<Playground
+  selectedKind="components-forms"
+  selectedStory="standalone-checkbox"
+  system="eu"
+  showFrame
+>
+  <Html markup={checkboxSingle} />
 </Playground>

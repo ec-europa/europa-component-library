@@ -75,9 +75,9 @@ const getArgTypes = (data) => {
         },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 'm',
+        large: 'l',
       },
       table: {
         type: 'string',
@@ -222,8 +222,8 @@ const prepareData = (data, args) => {
   return correctPaths(data);
 };
 
-const renderStory = (data, args) => {
-  let story = banner(prepareData(data, args));
+const renderStory = async (data, args) => {
+  let story = await banner(prepareData(data, args));
   if (
     args.width === 'inside the grid container' ||
     args.width === 'inside the grid container, with fullwidth class'

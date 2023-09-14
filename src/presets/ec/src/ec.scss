@@ -12,13 +12,25 @@
   $theme: theme.$theme,
   $form-group: var.$form-group
 );
-@use '@ecl/vanilla-component-checkbox/checkbox-ec';
+@use '@ecl/vanilla-component-checkbox/checkbox' with (
+  $theme: theme.$theme,
+  $checkbox: var.$checkbox
+);
 @use '@ecl/vanilla-component-datepicker/datepicker-ec';
 @use '@ecl/vanilla-component-file-upload/file-upload-ec';
-@use '@ecl/vanilla-component-radio/radio-ec';
-@use '@ecl/vanilla-component-range/range-ec';
+@use '@ecl/vanilla-component-radio/radio' with (
+  $theme: theme.$theme,
+  $radio: var.$radio
+);
+@use '@ecl/vanilla-component-range/range' with (
+  $theme: theme.$theme,
+  $range: var.$range
+);
 @use '@ecl/vanilla-component-select/select-ec';
-@use '@ecl/vanilla-component-text-area/text-area-ec';
+@use '@ecl/vanilla-component-text-area/text-area' with (
+  $theme: theme.$theme,
+  $textarea: var.$textarea
+);
 @use '@ecl/vanilla-component-text-input/text-input' with (
   $theme: theme.$theme,
   $text-input: var.$text-input
@@ -79,8 +91,14 @@
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item-ec';
-@use '@ecl/vanilla-component-expandable/expandable-ec';
+@use '@ecl/vanilla-component-content-item/content-item' with (
+  $theme: theme.$theme,
+  $content-item: var.$content-item
+);
+@use '@ecl/vanilla-component-expandable/expandable' with (
+  $theme: theme.$theme,
+  $expandable: var.$expandable
+);
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
 @use '@ecl/vanilla-component-file/file-ec';
 @use '@ecl/vanilla-component-rating-field/rating-field' with (
@@ -121,7 +139,10 @@
   $page-header: var.$page-header
 );
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-ec';
-@use '@ecl/vanilla-component-menu/menu-ec';
+@use '@ecl/vanilla-component-menu/menu' with (
+  $theme: theme.$theme,
+  $menu: var.$menu
+);
 @use '@ecl/vanilla-component-site-footer/site-footer-ec' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer
