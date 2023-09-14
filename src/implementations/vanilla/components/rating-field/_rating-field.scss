@@ -91,10 +91,12 @@ $rating-field: null !default;
 .ecl-rating-field__icon-filled {
   display: none;
   fill: map.get($rating-field, 'checked-color');
+  position: relative;
 }
 
 .ecl-rating-field__icon-outline {
   fill: map.get($rating-field, 'stroke-color');
+  position: relative;
 }
 
 @include breakpoints.up('m') {
