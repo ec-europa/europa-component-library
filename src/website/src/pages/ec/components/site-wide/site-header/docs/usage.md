@@ -6,20 +6,6 @@ The Site header offers easily recognisable elements (such as the logo) and the m
 
 The elements required in the site header are different depending wether it is the corporate, standardised or an harmonised website.
 
-# Core config.
-
-## Anatomy image
-
-![](/cms-images/ec-site-header-core.png)
-
-## Anatomy table
-
-| No. | Element/component  | Usage     | Description                                                                                                                                                                |
-| --- | ------------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.  | EC Identity (logo) | mandatory | Logo of the European Commission                                                                                                                                            |
-| 2.  | Language switcher  | mandatory | Language select component through which users can select their desired language, on the left of the search form (\*only use if your website supports multilingual content) |
-| 3.  | Search form        | mandatory | Enables the user to search and retrieve related information from using keywords                                                                                            |
-
 # Standardised & harmonised config.
 
 ## Anatomy image

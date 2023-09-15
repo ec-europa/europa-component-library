@@ -16,7 +16,6 @@ npm install --save @ecl/twig-component-table
   - "colspan" (string) (default: ''),
 - **"rows"** (array) (default: [])
   [
-  - "extra_attributes": (string) (default: '') Extra attributes for the row (space separated)
   - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
     { - "label" (string or array of string) - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') - "group" (bool) (default: false),
     }
@@ -49,7 +48,6 @@ npm install --save @ecl/twig-component-table
   rows: [ 
   [ 
     extra_classes: 'an-extra-class', 
-    extra_attributes: 'an-extra-attribute="with_a_value", another-attribute', 
     { label: 'John', 'data-ecl-table-header': 'Name' }, 
     { 
       label: 'September 14, 2013', 
