@@ -12,11 +12,20 @@
   $theme: theme.$theme,
   $form-group: var.$form-group
 );
-@use '@ecl/vanilla-component-checkbox/checkbox-eu';
+@use '@ecl/vanilla-component-checkbox/checkbox' with (
+  $theme: theme.$theme,
+  $checkbox: var.$checkbox
+);
 @use '@ecl/vanilla-component-datepicker/datepicker-eu';
 @use '@ecl/vanilla-component-file-upload/file-upload-eu';
-@use '@ecl/vanilla-component-radio/radio-eu';
-@use '@ecl/vanilla-component-range/range-eu';
+@use '@ecl/vanilla-component-radio/radio' with (
+  $theme: theme.$theme,
+  $radio: var.$radio
+);
+@use '@ecl/vanilla-component-range/range' with (
+  $theme: theme.$theme,
+  $range: var.$range
+);
 @use '@ecl/vanilla-component-select/select-eu';
 @use '@ecl/vanilla-component-text-area/text-area' with (
   $theme: theme.$theme,
@@ -89,7 +98,10 @@
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable-eu';
+@use '@ecl/vanilla-component-expandable/expandable' with (
+  $theme: theme.$theme,
+  $expandable: var.$expandable
+);
 @use '@ecl/vanilla-component-fact-figures/fact-figures-eu';
 @use '@ecl/vanilla-component-file/file-eu';
 @use '@ecl/vanilla-component-rating-field/rating-field';

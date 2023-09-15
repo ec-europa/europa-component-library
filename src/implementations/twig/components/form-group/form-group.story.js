@@ -19,7 +19,13 @@ import formGroup from './form-group.html.twig';
 import notes from './README.md';
 
 const system = getSystem();
-
+const dataStandaloneCheckbox = {
+  ...dataCheckbox,
+  input: {
+    ...dataCheckbox.input,
+    items: [dataCheckbox.input.items[0]],
+  },
+};
 dataText.invalid_icon.size = system === 'ec' ? 's' : 'm';
 
 const getArgs = (data) => {
@@ -39,7 +45,6 @@ const getArgs = (data) => {
   };
 
   Object.assign(args.input, data.input);
-
   return args;
 };
 
@@ -104,13 +109,34 @@ Textarea.argTypes = getArgTypes(
 );
 Textarea.parameters = { notes: { markdown: notes, json: dataTextarea } };
 
+export const StandaloneCheckbox = (_, { loaded: { component } }) => component;
+
+StandaloneCheckbox.render = async (args) => {
+  const renderedStandaloneCheckbox = await formGroup(
+    prepareData(dataStandaloneCheckbox, args),
+  );
+  return renderedStandaloneCheckbox;
+};
+StandaloneCheckbox.storyName = 'Checkbox';
+StandaloneCheckbox.args = {
+  ...getArgs(dataStandaloneCheckbox),
+  required: true,
+  show_helper: false,
+  show_label: false,
+  required_text: '',
+};
+StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
+StandaloneCheckbox.parameters = {
+  notes: { markdown: notes, json: dataStandaloneCheckbox },
+};
+
 export const Checkbox = (_, { loaded: { component } }) => component;
 
 Checkbox.render = async (args) => {
   const renderedCheckbox = await formGroup(prepareData(dataCheckbox, args));
   return renderedCheckbox;
 };
-Checkbox.storyName = 'Checkbox';
+Checkbox.storyName = 'Checkbox group';
 Checkbox.args = getArgs(dataCheckbox);
 Checkbox.argTypes = getArgTypes(dataCheckbox, 'group');
 Checkbox.parameters = { notes: { markdown: notes, json: dataCheckbox } };
@@ -166,7 +192,7 @@ Range.render = async (args) => {
   return renderedRange;
 };
 Range.storyName = 'Range';
-Range.args = getArgs(dataRange);
+Range.args = { ...getArgs(dataRange), width: 'm' };
 Range.argTypes = getArgTypes(dataRange, 'element');
 Range.parameters = { notes: { markdown: notes, json: dataRange } };
 

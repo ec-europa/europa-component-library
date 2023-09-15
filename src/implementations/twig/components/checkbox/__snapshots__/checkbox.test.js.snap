@@ -36,12 +36,6 @@ exports[`Checkbox Default renders correctly 1`] = `
         Spain
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -76,12 +70,6 @@ exports[`Checkbox Default renders correctly 1`] = `
         Belgium
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-2"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--disabled"
@@ -117,12 +105,6 @@ exports[`Checkbox Default renders correctly 1`] = `
         France (disabled)
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help ecl-checkbox__help--disabled"
-      id="helper-default-3"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -160,15 +142,8 @@ exports[`Checkbox Default renders correctly 1`] = `
         >
           consectetur adipiscing elit
         </a>
-        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-4"
-    >
-      Helper text for an option
-    </div>
   </div>
 </jest>
 `;
@@ -210,12 +185,6 @@ exports[`Checkbox Default renders correctly when invalid 1`] = `
         Spain
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid"
@@ -251,12 +220,6 @@ exports[`Checkbox Default renders correctly when invalid 1`] = `
         Belgium
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-2"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid ecl-checkbox--disabled"
@@ -293,12 +256,6 @@ exports[`Checkbox Default renders correctly when invalid 1`] = `
         France (disabled)
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help ecl-checkbox__help--disabled"
-      id="helper-default-3"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--invalid"
@@ -337,15 +294,8 @@ exports[`Checkbox Default renders correctly when invalid 1`] = `
         >
           consectetur adipiscing elit
         </a>
-        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-4"
-    >
-      Helper text for an option
-    </div>
   </div>
 </jest>
 `;
@@ -387,12 +337,6 @@ exports[`Checkbox Default renders correctly when required 1`] = `
         Spain
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -428,12 +372,6 @@ exports[`Checkbox Default renders correctly when required 1`] = `
         Belgium
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-2"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--disabled"
@@ -470,12 +408,6 @@ exports[`Checkbox Default renders correctly when required 1`] = `
         France (disabled)
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help ecl-checkbox__help--disabled"
-      id="helper-default-3"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -514,15 +446,8 @@ exports[`Checkbox Default renders correctly when required 1`] = `
         >
           consectetur adipiscing elit
         </a>
-        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-4"
-    >
-      Helper text for an option
-    </div>
   </div>
 </jest>
 `;
@@ -531,6 +456,8 @@ exports[`Checkbox Default renders correctly with extra attributes 1`] = `
 <jest>
   <div
     class="ecl-checkbox"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <input
       checked=""
@@ -563,15 +490,11 @@ exports[`Checkbox Default renders correctly with extra attributes 1`] = `
         Spain
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <input
       class="ecl-checkbox__input"
@@ -603,15 +526,11 @@ exports[`Checkbox Default renders correctly with extra attributes 1`] = `
         Belgium
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-2"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--disabled"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <input
       class="ecl-checkbox__input"
@@ -644,15 +563,11 @@ exports[`Checkbox Default renders correctly with extra attributes 1`] = `
         France (disabled)
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help ecl-checkbox__help--disabled"
-      id="helper-default-3"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <input
       class="ecl-checkbox__input"
@@ -687,15 +602,8 @@ exports[`Checkbox Default renders correctly with extra attributes 1`] = `
         >
           consectetur adipiscing elit
         </a>
-        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-4"
-    >
-      Helper text for an option
-    </div>
   </div>
 </jest>
 `;
@@ -736,12 +644,6 @@ exports[`Checkbox Default renders correctly with extra class names 1`] = `
         Spain
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -776,12 +678,6 @@ exports[`Checkbox Default renders correctly with extra class names 1`] = `
         Belgium
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-2"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox ecl-checkbox--disabled"
@@ -817,12 +713,6 @@ exports[`Checkbox Default renders correctly with extra class names 1`] = `
         France (disabled)
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help ecl-checkbox__help--disabled"
-      id="helper-default-3"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-checkbox"
@@ -860,15 +750,8 @@ exports[`Checkbox Default renders correctly with extra class names 1`] = `
         >
           consectetur adipiscing elit
         </a>
-        . Nullam suscipit eros gravida arcu aliquet, sed finibus nisl egestas. Cras sed purus nec turpis eleifend dignissim a in massa.
       </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-4"
-    >
-      Helper text for an option
-    </div>
   </div>
 </jest>
 `;
@@ -909,13 +792,12 @@ exports[`Checkbox Default single checkbox renders correctly when invalid 1`] = `
       >
         Spain
       </span>
+      <span
+        class="ecl-form-label__required"
+      >
+        *
+      </span>
     </label>
-    <div
-      class="ecl-checkbox__help"
-      id="helper-default-1"
-    >
-      Helper text for an option
-    </div>
   </div>
   <div
     class="ecl-feedback-message"
