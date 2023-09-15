@@ -5,6 +5,54 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.10.0 (2023-09-12)
+
+#### :bug: Bug Fix
+
+* [#3032](https://github.com/ec-europa/europa-component-library/pull/3032) fix(news-ticker): Removing redundant aria-labels, fixing sr-only in buttons - FRONT-4083
+* [#3031](https://github.com/ec-europa/europa-component-library/pull/3031) fix(table): Fixing row extra classes, removing buggy row extra_attributes - FRONT-4084
+* [#3027](https://github.com/ec-europa/europa-component-library/pull/3027) fix(skip-link): Increasing z-index value - FRONT-4082
+* [#3024](https://github.com/ec-europa/europa-component-library/pull/3024) fix(carousel): fix rtl full screen display - FRONT-4081
+* [#3013](https://github.com/ec-europa/europa-component-library/pull/3013) fix(banner): Fixing mapping for size control - FRONT-4078
+* [#3007](https://github.com/ec-europa/europa-component-library/pull/3007) fix(website): Fixing source code in checkbox showcase - FRONT-4074
+* [#2981](https://github.com/ec-europa/europa-component-library/pull/2981) fix(site-header): fix close button - FRONT-4018
+* [#2961](https://github.com/ec-europa/europa-component-library/pull/2961) fix(footer): fix accessibility and cookie links - FRONT-4031
+* [#2968](https://github.com/ec-europa/europa-component-library/pull/2968) fix(carousel): Preventing focus trap - FRONT-4037
+
+#### :nail_care: Enhancement
+
+* [#3026](https://github.com/ec-europa/europa-component-library/pull/3026) feat(icons): Rss and yammer in social sprite - FRONT-4019
+* [#3023](https://github.com/ec-europa/europa-component-library/pull/3023) feat(expandable): Tweaking expandable content, adding divider - FRONT-4080
+* [#2989](https://github.com/ec-europa/europa-component-library/pull/2989) chore(docs): Getting started, revisited + cookie banner - FRONT-4053
+* [#2993](https://github.com/ec-europa/europa-component-library/pull/2993) feat(twitter): Replacing icon with X - FRONT-4061
+* [#2979](https://github.com/ec-europa/europa-component-library/pull/2979) fix(carousel): Handling shift+tab also in play button handler
+* [#2969](https://github.com/ec-europa/europa-component-library/pull/2969) feat(site-header): update non-eu language list - FRONT-4039
+* [#2976](https://github.com/ec-europa/europa-component-library/pull/2976) feat(accessibility): Improving  external link accessibility - FRONT-4044 
+* [#2970](https://github.com/ec-europa/europa-component-library/pull/2970) fix(icons):  Removing remaining style tags from distributes icons - FRONT-4036
+* [#2963](https://github.com/ec-europa/europa-component-library/pull/2963) feat(accessibility): menu, gallery and accordion - FRONT-4033
+
+#### :memo: Documentation
+
+* [#2989](https://github.com/ec-europa/europa-component-library/pull/2989) chore(docs): Getting started, revisited + cookie banner - FRONT-4053 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+* [#3030](https://github.com/ec-europa/europa-component-library/pull/3030) chore(deps): Updates 12-09-23
+* [#3025](https://github.com/ec-europa/europa-component-library/pull/3025) chore(deps): Green and orange updates - 11-09-23
+* [#3015](https://github.com/ec-europa/europa-component-library/pull/3015) chore(deps): Updates 07-09-23
+* [#3014](https://github.com/ec-europa/europa-component-library/pull/3014) chore(icons): Revert x icon - FRONT-4077
+* [#3010](https://github.com/ec-europa/europa-component-library/pull/3010) chore(deps): Updates 04-09-23
+* [#3004](https://github.com/ec-europa/europa-component-library/pull/3004) chore(deps): Updates 29-08-23
+* [#2999](https://github.com/ec-europa/europa-component-library/pull/2999) chore(deps): Updates - 24-08-23
+* [#2988](https://github.com/ec-europa/europa-component-library/pull/2988) chore(ci): Add ec and eu presets in release artifacts on github - FRONT-4054
+* [#2995](https://github.com/ec-europa/europa-component-library/pull/2995) chore(deps): Updates  21-08-23
+* [#2990](https://github.com/ec-europa/europa-component-library/pull/2990) chore(deps): Updates 16-08-23
+* [#2987](https://github.com/ec-europa/europa-component-library/pull/2987) chore(deps): Updates 11-08-23
+* [#2983](https://github.com/ec-europa/europa-component-library/pull/2983) chore(deps): Updates 07-08-23
+* [#2980](https://github.com/ec-europa/europa-component-library/pull/2980) chore(deps): Updates 03-08-23
+* [#2973](https://github.com/ec-europa/europa-component-library/pull/2973) chore(deps):  Updates 31-07-23
+* [#2964](https://github.com/ec-europa/europa-component-library/pull/2964) chore(npm): Adding script to unpublish package versions
+
 ## 3.9.0 (2023-07-14)
 
 #### :rocket: New Feature

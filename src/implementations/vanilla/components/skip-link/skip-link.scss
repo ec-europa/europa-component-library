@@ -24,7 +24,7 @@
   text-decoration: underline;
   white-space: nowrap;
   width: 1px;
-  z-index: map.get(theme.$z-index, 'highlight');
+  z-index: calc(map.get(theme.$z-index, 'modal') + 1);
 
   &:active,
   &:focus-visible {
