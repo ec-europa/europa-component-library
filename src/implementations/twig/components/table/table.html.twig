@@ -13,6 +13,8 @@
       ...
     ]
   - "rows" (array) (default: {}): format: [
+    [
+      "extra_classes": (string) (default: ''),
       {
         data: [
           "label" (string or array of string)
@@ -24,6 +26,8 @@
       },
       ...
     ],
+    ...
+    ]
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -44,6 +48,7 @@
 {% set _header_css_class = 'ecl-table__header' %}
 {% set _body_css_class = 'ecl-table__body' %}
 {% set _cell_header_group_class = 'ecl-table__cell--group' %}
+{% set _row_css_class = 'ecl-table__row' %}
 {% set _headers = headers|default([]) %}
 {% set _simple = simple|default(false) %}
 {% set _sortable = sortable|default(false) %}
@@ -87,7 +92,7 @@
   <table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     <thead class="{{ _head_css_class }}">
       {% for header in _headers %}
-        <tr class="ecl-table__row">
+        <tr class="{{ _row_css_class }}">
           {% for cell in header %}
             {% set _heading_attribute = '' %}
             {% if cell.colspan is not empty %}
