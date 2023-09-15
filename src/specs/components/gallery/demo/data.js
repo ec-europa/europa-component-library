@@ -233,6 +233,7 @@ module.exports = {
         path: '/icons.svg',
       },
     },
+    extra_attributes: [{ name: 'aria-label', value: 'Gallery overlay' }],
   },
   disable_overlay: false,
   view_all_label: 'See all',
