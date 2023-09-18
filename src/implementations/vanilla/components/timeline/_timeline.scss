@@ -15,7 +15,6 @@ $timeline: null !default;
 .ecl-timeline {
   list-style: none;
   margin-bottom: 0;
-  margin-inline-end: map.get($theme, 'spacing', 'l');
   margin-inline-start: (
     map.get($theme, 'spacing', 'l') +
       calc(map.get($timeline, 'bullet-size') / 2) +
@@ -69,7 +68,6 @@ $timeline: null !default;
 @include breakpoints.up('l') {
   .ecl-timeline {
     margin-inline-start: map.get($timeline, 'timeline-margin-left');
-    margin-inline-end: map.get($theme, 'spacing', 'xs');
   }
 }
 
