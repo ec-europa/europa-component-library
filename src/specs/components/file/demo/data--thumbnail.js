@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  detail_meta: ['Resource type', 'Publication date'],
+  detail_meta: ['META INFO', 'DD Month YYYY'],
   variant: 'thumbnail',
   title: 'State of the Union 2018 brochure',
   description:
@@ -41,8 +41,6 @@ module.exports = {
         path: '/icons.svg',
       },
     },
-    description:
-      'Looking for another language which is not on the list? <a href="#" class="ecl-link">Find out why</a>.',
     items: [
       {
         title: 'Title bg',

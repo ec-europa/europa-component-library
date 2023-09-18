@@ -11,6 +11,7 @@ $theme: null !default;
 $file: null !default;
 
 .ecl-file {
+  border: map.get($file, 'container-border');
   border-radius: map.get($file, 'border-radius');
   margin: 0;
   max-width: 823px;
@@ -20,10 +21,9 @@ $file: null !default;
 .ecl-file__container {
   align-items: center;
   background-color: map.get($file, 'container-background');
-  border: map.get($file, 'container-border');
   display: flex;
-  flex-wrap: wrap;
-  padding: map.get($theme, 'spacing', 'l');
+  flex-wrap: nowrap;
+  padding: map.get($theme, 'spacing', 'xl');
 }
 
 .ecl-file__icon {
@@ -41,14 +41,29 @@ $file: null !default;
 
 .ecl-file__title {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 'm');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font: map.get($theme, 'font', 'l');
   width: 100%;
+}
+
+.ecl-file__footer {
+  border-top: 1px solid map.get($file, 'file-footer-border-color');
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 map.get($theme, 'spacing', 'xl') 0
+    calc(
+      #{map.get($theme, 'spacing', 'xl')} * 2 + #{map.get(
+          $theme,
+          'icon',
+          '2xl'
+        )}
+    );
+  padding: map.get($theme, 'spacing', 'm') 0;
 }
 
 .ecl-file__language {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 's');
+  font: map.get($theme, 'font', 'm');
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-inline-end: map.get($theme, 'spacing', 'xs');
   margin-top: map.get($theme, 'spacing', '2xs');
@@ -56,33 +71,23 @@ $file: null !default;
 
 .ecl-file__meta {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 's');
-  margin-top: map.get($theme, 'spacing', '2xs');
-}
-
-.ecl-file__detail {
-  border-bottom: 1px solid map.get($file, 'border-color');
-  display: flex;
-  flex-direction: column;
-  margin-bottom: map.get($theme, 'spacing', 'm');
-  padding-bottom: map.get($theme, 'spacing', 'm');
-  width: 100%;
+  font: map.get($theme, 'font', 'm');
 }
 
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
   display: flex;
   font: map.get($theme, 'font', 's');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
+  margin-bottom: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: map.get($theme, 'spacing', 'm');
+  margin-inline-start: map.get($theme, 'spacing', 'xs');
 
   &::before {
     color: map.get($theme, 'color', 'blue-100');
     content: '|';
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: map.get($theme, 'spacing', 'xs');
   }
 }
 
@@ -103,24 +108,32 @@ $file: null !default;
   white-space: pre-wrap;
 }
 
+.ecl-file__picture {
+  order: 1;
+  align-self: flex-start;
+}
+
 .ecl-file__image {
   display: block;
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: map.get($theme, 'spacing', 'xl');
   max-width: map.get($file, 'image-width');
 }
 
 .ecl-file__taxonomy {
-  border-bottom: 1px solid map.get($file, 'border-color');
-  margin-bottom: map.get($file, 'file-spacing');
-  padding-bottom: map.get($file, 'file-spacing');
+  margin-top: map.get($file, 'file-spacing');
   width: 100%;
 }
 
 .ecl-file__label {
   display: inline-flex;
   flex-basis: 100%;
-  margin-bottom: map.get($theme, 'spacing', 'm');
+  margin-bottom: map.get($theme, 'spacing', 'xl');
   margin-inline-end: map.get($theme, 'spacing', 'xs');
+}
+
+.ecl-file__download {
+  align-self: flex-start;
+  margin-top: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-file__translation-language {
@@ -130,25 +143,20 @@ $file: null !default;
 }
 
 .ecl-file__translation-container {
-  border: map.get($file, 'file-translation-container-border');
+  background: map.get($file, 'file-translation-background');
   border-end-start-radius: map.get($file, 'border-radius');
   border-end-end-radius: map.get($file, 'border-radius');
-  border-top: 0;
   display: flex;
   flex-direction: column;
-  padding-inline-start: map.get($theme, 'spacing', 'l');
-  padding-inline-end: map.get($theme, 'spacing', 'l');
 }
 
 .ecl-file__translation-toggle {
   align-self: flex-end;
-  border: map.get($file, 'file-translation-toggle-border');
   font: map.get($theme, 'font', 'm');
   font-weight: map.get($theme, 'font-weight', 'regular');
   margin-bottom: map.get($file, 'file-translation-toggle-margin');
-  margin-inline-end: -#{map.get($theme, 'spacing', 'm')};
+  margin-inline-end: #{map.get($theme, 'spacing', 'xs')};
   margin-top: map.get($file, 'file-translation-toggle-margin');
-  padding: map.get($file, 'file-translation-padding');
 
   &:focus-visible {
     outline-offset: -5px;
@@ -175,16 +183,7 @@ $file: null !default;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: map.get($file, 'file-spacing');
-  padding-top: map.get($file, 'file-spacing');
-
-  &:last-child {
-    padding-bottom: map.get($file, 'file-spacing-last-child');
-  }
-
-  &:first-child {
-    border-top-width: 0;
-  }
+  padding: map.get($file, 'file-spacing') map.get($theme, 'spacing', 'xl');
 
   // Laco widget
   > span[class*='wt'] {
@@ -207,15 +206,13 @@ $file: null !default;
 
 .ecl-file__translation-meta {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 's');
-  margin-top: map.get($theme, 'spacing', '2xs');
+  font: map.get($theme, 'font', 'm');
 }
 
-.ecl-file__download,
 .ecl-file__translation-download {
-  align-self: center;
+  align-self: map.get($file, 'file-translation-download-alignment');
   font: map.get($theme, 'font', 'm');
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-top: map.get($theme, 'spacing', 'xs');
   width: 100%;
 }
 
@@ -231,14 +228,22 @@ $file: null !default;
     display: block;
   }
 
-  .ecl-file__translation-toggle .ecl-button__icon {
-    transform: rotate(0);
+  .ecl-file__translation-toggle {
+    background: map.get($file, 'file-translation-toggle-background');
+
+    .ecl-button__icon {
+      transform: rotate(0);
+    }
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
-  .ecl-file__download,
+  .ecl-file__download {
+    align-self: flex-end;
+    position: absolute;
+  }
+
   .ecl-file__translation-download {
     margin-top: 0;
     width: auto;
@@ -270,21 +275,11 @@ $file: null !default;
     flex-grow: 1;
   }
 
-  .ecl-file__download {
-    align-self: center;
-    margin-top: 0;
-  }
-
   .ecl-file__image {
     align-self: flex-start;
     margin-inline-start: map.get($file, 'file-image-margin-left');
     margin-inline-end: map.get($file, 'file-image-margin-right');
     margin-top: 0;
-  }
-
-  .ecl-file__taxonomy {
-    margin-bottom: map.get($theme, 'spacing', 'm');
-    padding-bottom: map.get($theme, 'spacing', 'm');
   }
 }
 
@@ -293,16 +288,15 @@ $file: null !default;
 */
 .ecl-file--thumbnail {
   .ecl-file__container {
-    padding-bottom: map.get($file, 'file-container-padding-bottom');
+    flex-direction: column;
   }
 
   .ecl-file__info {
     margin-inline-start: 0;
   }
 
-  .ecl-file__title {
-    font: map.get($theme, 'font', 'm');
-    font-weight: map.get($theme, 'font-weight', 'bold');
+  .ecl-file__footer {
+    margin: 0 map.get($theme, 'spacing', 'xl');
   }
 
   .ecl-file__language,
@@ -311,7 +305,10 @@ $file: null !default;
   }
 
   .ecl-file__translation-container {
-    padding-inline-start: map.get($theme, 'spacing', 'l');
+    padding-inline-start: map.get(
+      $file,
+      'file-translation-container-padding-left'
+    );
   }
 
   .ecl-file__translation-item {
@@ -320,18 +317,13 @@ $file: null !default;
   }
 
   .ecl-file__translation-item:first-of-type {
-    border-top-width: 0;
-    padding-top: 0;
+    border-top-width: map.get($file, 'file-translation-first-item-border');
+    padding-top: map.get($file, 'file-translation-first-item-padding');
   }
 
   .ecl-file__translation-detail {
     flex-basis: 100%;
     margin-bottom: map.get($file, 'file-translation-detail-margin-bottom');
-  }
-
-  .ecl-file__translation-info {
-    align-items: center;
-    flex-direction: row;
   }
 
   .ecl-file__translation-title {
@@ -341,7 +333,13 @@ $file: null !default;
   }
 
   .ecl-file__translation-meta {
-    margin-inline-start: map.get($theme, 'spacing', '2xs');
+    margin-inline-start: map.get($file, 'file-translation-meta-spacing');
     margin-top: 0;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-file--thumbnail .ecl-file__container {
+    flex-direction: row;
   }
 }
