@@ -42,6 +42,13 @@ describe('Navigation list', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly without borders', () => {
+      expect.assertions(1);
+      return expect(
+        render({ ...dataDefault, border: false }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataDefault, true)),
