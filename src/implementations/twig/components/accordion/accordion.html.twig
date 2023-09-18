@@ -58,7 +58,7 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <div class="ecl-accordion__item">
-        <h{{ _item.level|default(3) }} class="ecl-accordion__title">
+        <h{{ _item.level|default(3) }} class="ecl-accordion__title" id="{{ _item.id }}-title">
           <button
             type="button"
             class="ecl-accordion__toggle"
@@ -91,6 +91,7 @@
           hidden
           id="{{ _item.id }}-content"
           role="region"
+          aria-labelledby="{{ _item.id }}-title"
         >
           {%- set _content = _item.content|default('') %}
           {%- block content _content -%}
