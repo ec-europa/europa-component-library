@@ -30,8 +30,7 @@ export class Modal {
     {
       toggleSelector = '',
       closeSelector = '[data-ecl-modal-close]',
-      contentSelector = '[data-ecl-modal-content]',
-      closeOnClickOutside = true,
+      scrollSelector = '[data-ecl-modal-scroll]',
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -48,15 +47,14 @@ export class Modal {
     // Options
     this.toggleSelector = toggleSelector;
     this.closeSelector = closeSelector;
-    this.contentSelector = contentSelector;
-    this.closeOnClickOutside = closeOnClickOutside;
+    this.scrollSelector = scrollSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
     this.close = null;
-    this.content = null;
+    this.scroll = null;
     this.focusTrap = null;
 
     // Bind `this` for use in callbacks
@@ -92,15 +90,11 @@ export class Modal {
     }
 
     // Get other elements
-    this.content = queryOne(this.contentSelector, this.element);
-    if (!this.content) this.content = this.element;
     this.close = queryAll(this.closeSelector, this.element);
+    this.scroll = queryOne(this.scrollSelector, this.element);
 
     // Create focus trap
-    this.focusTrap = createFocusTrap(this.content, {
-      clickOutsideDeactivates: this.closeOnClickOutside,
-      onDeactivate: () => this.closeModal(),
-    });
+    this.focusTrap = createFocusTrap(this.element);
 
     // Polyfill to support <dialog>
     this.isDialogSupported = true;
@@ -146,6 +140,18 @@ export class Modal {
   }
 
   /**
+   * Check if there is a scroll and display overflow.
+   */
+  checkScroll() {
+    if (!this.scroll) return;
+
+    this.scroll.parentNode.classList.remove('ecl-modal__body--has-scroll');
+    if (this.scroll.scrollHeight > this.scroll.clientHeight) {
+      this.scroll.parentNode.classList.add('ecl-modal__body--has-scroll');
+    }
+  }
+
+  /**
    * Toggles between collapsed/expanded states.
    *
    * @param {Event} e
@@ -174,6 +180,9 @@ export class Modal {
     } else {
       this.element.setAttribute('open', '');
     }
+
+    // Check scroll
+    this.checkScroll();
 
     // Trap focus
     this.focusTrap.activate();

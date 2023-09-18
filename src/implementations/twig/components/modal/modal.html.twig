@@ -73,7 +73,7 @@
 <dialog data-ecl-auto-init="Modal" id="{{ _id }}" data-ecl-modal-toggle="{{ _toggle_id }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-modal__container ecl-container">
     {% set _content_class = 'ecl-modal__content ' ~ _size_class %}
-    <div class="{{ _content_class }}" data-ecl-modal-content>
+    <div class="{{ _content_class }}">
       <header class="ecl-modal__header">
         {% if _header_icon is not empty and _icon_path is not empty %}
           {% include '@ecl/icon/icon.html.twig' with {
@@ -113,13 +113,14 @@
 
       {% if _body is not empty or block('body') is not empty or _body_fixed is not empty or block('body_fixed') is not empty %}
       <div class="ecl-modal__body">
-        {% if _body is not empty or block('body') is not empty%}
-        <div class="ecl-modal__body-scroll">
+        {% if _body is not empty or block('body') is not empty %}
+        <div class="ecl-modal__body-scroll" data-ecl-modal-scroll>
           {%- block body %}{{ _body }}{% endblock -%}
         </div>
+        <div class="ecl-modal__body-overflow" aria-hidden="true"></div>
         {% endif %}
 
-        {% if _body_fixed is not empty or block('body_fixed') is not empty%}
+        {% if _body_fixed is not empty or block('body_fixed') is not empty %}
         <div class="ecl-modal__body-fixed">
           {%- block body_fixed %}{{ _body_fixed }}{% endblock -%}
         </div>

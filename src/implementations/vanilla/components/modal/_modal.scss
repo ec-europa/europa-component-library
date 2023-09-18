@@ -10,6 +10,7 @@
 $_overlay: null !default;
 $_border-radius: null !default;
 $_separator-color: null !default;
+$_overflow-height: 2rem;
 
 .ecl-modal {
   background-color: $_overlay;
@@ -99,7 +100,20 @@ $_separator-color: null !default;
   overflow-y: auto;
 }
 
-.ecl-modal__body-scroll + .ecl-modal__body-fixed {
+.ecl-modal__body-overflow {
+  background-image: linear-gradient(to bottom, transparent, #fff);
+  flex-shrink: 0;
+  display: none;
+  height: $_overflow-height;
+  left: 0;
+  margin-bottom: -#{$_overflow-height};
+  pointer-events: none;
+  position: relative;
+  top: -#{$_overflow-height};
+  width: calc(100% - 17px);
+}
+
+* + .ecl-modal__body-fixed {
   margin-top: map.get(theme.$spacing, 'l');
 }
 
@@ -174,5 +188,16 @@ $_separator-color: null !default;
 
   .ecl-modal__button {
     flex-basis: auto;
+  }
+}
+
+// Scrolling body
+.ecl-modal__body--has-scroll {
+  .ecl-modal__body-scroll {
+    padding-bottom: $_overflow-height;
+  }
+
+  .ecl-modal__body-overflow {
+    display: block;
   }
 }
