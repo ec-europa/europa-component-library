@@ -11,21 +11,6 @@ The harmonised configuration shares the same structure and guidelines, and is or
 - The local section: with information and links related to the current site. Its content is defined by the site owner, following the guidelines of DG COMM
 - The corporate part: with information applicable to the Commission as a whole. Its content is defined by DG COMM
 
-# Core config.
-
-## Anatomy image
-
-![](/cms-images/eu-footer-core.png)
-
-## Anatomy table
-
-| No. | Element/component                        | Usage     | Description                                     |
-| --- | ---------------------------------------- | --------- | ----------------------------------------------- |
-| 1   | EU identity (flag)                       | mandatory | Logo & Site name and content owner details      |
-| 2   | Content owner details                    | mandatory | Indicates **ownership over the site's content** |
-| 3   | Contact, Social media & Legal navigation | mandatory | Links to the **main service pages**             |
-| 4   | EU Institutions                          | mandatory | Links to various institutions of interest       |
-
 # Harmonised config.
 
 ## Anatomy image

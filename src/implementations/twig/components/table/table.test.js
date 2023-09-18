@@ -86,8 +86,8 @@ describe('Table', () => {
       expect.assertions(1);
 
       const withRowExtraClasses = dataDefault;
-      withRowExtraClasses.rows.forEach((row) => {
-        row.extra_classes = 'row-extra-class'; // eslint-disable-line no-param-reassign
+      withRowExtraClasses.rows.forEach((row, i) => {
+        row.extra_classes = `row-extra-class-${i}`; // eslint-disable-line no-param-reassign
       });
 
       return expect(render(withRowExtraClasses)).resolves.toMatchSnapshot();
