@@ -201,6 +201,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   ...
 ]`
 
+### Tag
+
+- Icon used in removable tag is now `close-outline`
+
 ## Custom theme
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display

@@ -695,7 +695,9 @@ $spinner: (
 // Tag
 $tag: (
   padding: map.get($spacing, 'xs') map.get($spacing, 's'),
-  border-radius: 50%,
+  border-radius: (
+    2 * map.get($spacing, 'xs') + map.get($line-height, 's'),
+  ) * 0.5,
   color: map.get($color, 'white'),
   background-color: var(--ecl-color-primary),
   color-hover: map.get($color, 'white'),
