@@ -46,19 +46,9 @@ $rating-field: null !default;
       + .ecl-rating-field__label {
         @if map-has-key($rating-field, 'focus-circle') {
           outline: none;
-
-          &::before {
-            @each $property, $value in map.get($rating-field, 'focus-circle') {
-              #{$property}: $value;
-            }
-          }
         } @else {
           outline: 2px solid var(--ecl-color-primary-100);
         }
-      }
-
-      &:checked + .ecl-rating-field__label .ecl-rating-field__icon-filled {
-        stroke: map.get($rating-field, 'checked-focus-stroke');
       }
     }
   }
@@ -109,17 +99,6 @@ $rating-field: null !default;
     .ecl-rating-field__icon-outline {
       width: 1.5rem;
       height: 1.5rem;
-    }
-
-    &:not(.ecl-rating-field--disabled)
-      .ecl-rating-field__input:focus
-      + .ecl-rating-field__label {
-      @if map-has-key($rating-field, 'focus-circle') {
-        &::before {
-          height: 1.875rem;
-          width: 1.875rem;
-        }
-      }
     }
   }
 }
