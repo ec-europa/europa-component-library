@@ -19,7 +19,7 @@ export const correctPaths = (data) => {
       } else if (data[prop].includes('flag')) {
         data[prop] = iconFlagPath;
       } else {
-        data[prop] = iconPath;
+        data[prop] = data[prop].replace('/icons.svg', iconPath);
       }
     }
     if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
