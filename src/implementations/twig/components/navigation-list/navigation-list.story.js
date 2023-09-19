@@ -82,10 +82,8 @@ const getArgTypes = () => {
 const prepareData = (data, args) => {
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
-
   // Optional elements
   for (let i = 0; i < clone.items.length; i += 1) {
-    clone.items[i].border = args.show_border;
     if (!args.show_image) {
       delete clone.items[i].picture;
     }
@@ -98,6 +96,7 @@ const prepareData = (data, args) => {
   }
 
   // Other controls
+  clone.border = args.show_border;
   clone.column = args.column;
 
   return clone;

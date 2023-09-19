@@ -155,6 +155,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Close button label is hidden on EC
 
+### Navigation list
+
+- `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items and it's now by default set to `true`.
+
 ### Page header
 
 - Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
