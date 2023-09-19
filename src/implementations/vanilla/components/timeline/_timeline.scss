@@ -181,7 +181,7 @@ $timeline: null !default;
     position: relative;
 
     &::before {
-      background: map.get($theme, 'color', 'secondary');
+      background: var(--ecl-color-secondary);
       border-radius: 0 0 2px 2px;
       content: '';
       display: block;

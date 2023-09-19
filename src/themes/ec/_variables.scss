@@ -744,9 +744,9 @@ $timeline: (
   toggle-bullet-border-width: 0.25rem,
 );
 $timeline-print: (
-  content-color: map.get($color, 'grey-75'),
+  content-color: var(--ecl-color-dark-75),
   content-font: map.get($font-print, 'm'),
-  label-color: map.get($color, 'grey'),
+  label-color: var(--ecl-color-dark),
   label-font: map.get($font-print, 'm'),
   title-color: map.get($color, 'black'),
   title-font: map.get($font-print, 'm'),
