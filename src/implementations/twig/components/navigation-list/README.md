@@ -9,11 +9,11 @@ npm install --save @ecl/twig-component-navigation-list
 ### Parameters
 
 - **"items"** (array) (default: []): array of list_illustration_item
-  - **"border"** (boolean) (default: false): Is there an extra border and padding?
   - **"picture** (associative array) (default: {}): picture of the navigation list, following ECL Picture structure
   - **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
   - **"description"** (string) (default: ''): Description of the navigation list
   - **"links"** (array) (default: []): Array or multi array of ECL Links
+- **"border"** (boolean) (default: true): Is there an extra border and padding?
 - **"column"** (number) (default: 2): number of columns (2 or 3)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

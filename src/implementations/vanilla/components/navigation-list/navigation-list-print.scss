@@ -4,7 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 // Navigation list
 
@@ -16,8 +18,8 @@
 .ecl-navigation-list--col-3 {
   display: grid;
   grid-auto-rows: auto;
-  grid-column-gap: map.get(theme.$grid, 'gutter');
-  grid-row-gap: map.get(theme.$spacing, 'xl');
+  grid-column-gap: map.get($theme, 'grid', 'gutter');
+  grid-row-gap: map.get($theme, 'spacing', 'xl');
   width: 100%;
 }
 
