@@ -527,6 +527,17 @@ $text-input: (
   padding-horizontal: map.get($spacing, 'm'),
 );
 
+// Navigation list
+$navigation-list: (
+  image-margin: 0,
+  image-border-color: var(--ecl-color-primary-20),
+  content_block_padding: map.get($spacing, 'l'),
+  border-radius: 8px,
+  shadow: map.get($shadow, '1'),
+  border: 0,
+  yellow-bar: true,
+);
+
 // Notification
 $notification: (
   radius: 4px,
