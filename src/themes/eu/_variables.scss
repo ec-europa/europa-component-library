@@ -703,6 +703,23 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Tag
+$tag: (
+  padding: map.get($spacing, 'xs') map.get($spacing, 's'),
+  border-radius: #{(2 * map.get($spacing, 'xs') + map.get($line-height, 's')) * 0.5},
+  color: map.get($color, 'white'),
+  background-color: var(--ecl-color-primary),
+  color-hover: map.get($color, 'white'),
+  background-color-hover: var(--ecl-color-primary-80),
+  color-focus: map.get($color, 'white'),
+  background-color-focus: var(--ecl-color-primary),
+  outline-color: var(--ecl-color-primary),
+  outline-offset: 2px,
+  color-active: map.get($color, 'white'),
+  background-color-active: var(--ecl-color-primary),
+  outline-color-active: var(--ecl-color-primary),
+);
+
 // Textarea
 $textarea: (
   background: map.get($color, 'white-100'),
