@@ -509,6 +509,7 @@ $_menu-max-height: null !default;
       content: '';
       background-color: $_desktop-item-border-color;
       display: block;
+      flex-shrink: 0;
       margin-bottom: map.get(theme.$spacing, 's');
       margin-top: map.get(theme.$spacing, 's');
       width: 1px;
