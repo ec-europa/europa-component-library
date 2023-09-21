@@ -4,7 +4,7 @@
   Parameters:
   - "variant" (string) (default: 'default') Name of the variant [default, thumbnail]
   - "icon" (object) (default: {}): object of type Icon; file type
-  - "title" (string) (default: '')
+  - "title" (string|object) (default: '') Plain text title or link object
   - "description" (string) (default: '') Description text (thumbnail variant)
   - "language" (string) (default: '')
   - "meta" (string) (default: '')
@@ -123,7 +123,15 @@
       </div>
     {% endif %}
     {% if _title is not empty %}
-      <div class="ecl-file__title">{{ _title }}</div>
+      <div class="ecl-file__title">
+      {%- if _title.link is defined -%}
+        {% include '@ecl/link/link.html.twig' with {
+          link: _title.link,
+        } only %}
+      {%- else -%}
+        {{ _title }}
+      {%- endif -%}
+      </div>
     {% endif %}
     {% if _description is not empty %}
       <div class="ecl-file__description">{{ _description }}</div>
