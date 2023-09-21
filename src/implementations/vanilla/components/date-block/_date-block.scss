@@ -20,6 +20,8 @@ $date-block: null !default;
   flex-direction: column;
   margin: 0;
   max-height: map.get($date-block, 'max-height');
+  outline: 1px solid map.get($date-block, 'outline-color-default');
+  outline-offset: -1px;
   overflow: hidden;
   padding-top: map.get($date-block, 'padding-top');
   position: relative;
@@ -35,6 +37,7 @@ $date-block: null !default;
     display: block;
     height: map.get($date-block, 'circle-width');
     left: map.get($theme, 'spacing', 's');
+    outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
     top: -#{map.get($date-block, 'circle-width') * 0.5};
     width: map.get($date-block, 'circle-width');
@@ -48,6 +51,7 @@ $date-block: null !default;
     content: '';
     display: block;
     height: map.get($date-block, 'circle-width');
+    outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
     right: map.get($theme, 'spacing', 's');
     top: -#{map.get($date-block, 'circle-width') * 0.5};
@@ -114,6 +118,12 @@ $date-block: null !default;
 // ongoing
 .ecl-date-block--ongoing {
   background-color: map.get($date-block, 'background-color-ongoing');
+  outline-color: map.get($date-block, 'outline-color-ongoing');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-ongoing');
+  }
 
   .ecl-date-block__day,
   .ecl-date-block__month {
@@ -124,6 +134,12 @@ $date-block: null !default;
 // cancelled
 .ecl-date-block--cancelled {
   background-color: map.get($date-block, 'background-color-cancelled');
+  outline-color: map.get($date-block, 'outline-color-cancelled');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-cancelled');
+  }
 
   .ecl-date-block__day,
   .ecl-date-block__month {
@@ -134,6 +150,12 @@ $date-block: null !default;
 // past
 .ecl-date-block--past {
   background-color: map.get($date-block, 'background-color-past');
+  outline-color: map.get($date-block, 'outline-color-past');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-past');
+  }
 
   .ecl-date-block__day,
   .ecl-date-block__month {

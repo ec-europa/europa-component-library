@@ -223,11 +223,15 @@ $content-item: (
 
 // Date Block
 $date-block: (
-  background-color-cancelled: var(--ecl-color-neutral-80),
-  background-color-default: var(--ecl-color-accent),
-  background-color-ongoing: var(--ecl-color-accent),
-  background-color-past: var(--ecl-color-neutral-80),
+  background-color-cancelled: var(--ecl-color-neutral-60),
+  background-color-default: map.get($color, 'white'),
+  background-color-ongoing: map.get($color, 'white'),
+  background-color-past: var(--ecl-color-neutral-60),
   background-color-year: var(--ecl-color-dark),
+  outline-color-cancelled: transparent,
+  outline-color-default: var(--ecl-color-dark),
+  outline-color-ongoing: var(--ecl-color-dark),
+  outline-color-past: transparent,
   border-radius: 0,
   circle-width: 10px,
   day-line-height: 90%,
