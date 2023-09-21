@@ -26,8 +26,11 @@ $banner: null !default;
 }
 
 .ecl-banner__picture-container {
-  position: relative;
   width: 100%;
+
+  .ecl-banner__picture {
+    position: relative;
+  }
 }
 
 .ecl-banner__credit {
@@ -140,6 +143,9 @@ $banner: null !default;
   // manage ratio 4:1
   .ecl-banner__image {
     aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
+
     border-bottom: map.get($banner, 'border-width', 'bottom') solid
       map.get($banner, 'border-color');
   }
@@ -153,11 +159,6 @@ $banner: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-banner--text-box {
-    .ecl-banner__container {
-      padding-bottom: 0;
-      padding-top: 0;
-    }
-
     .ecl-banner__image {
       border-bottom-width: 0;
     }
@@ -202,6 +203,8 @@ $banner: null !default;
 
   .ecl-banner__image {
     aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
   }
 
   .ecl-banner__title {
@@ -246,6 +249,8 @@ $banner: null !default;
     border-radius: map.get($banner, 'border-radius', 'banner')
       map.get($banner, 'border-radius', 'banner') 0 0;
     aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
   }
 
   .ecl-banner__title {
@@ -290,17 +295,23 @@ $banner: null !default;
   .ecl-banner--m {
     .ecl-banner__image {
       aspect-ratio: 4/1;
+
+      --css-aspect-ratio: 4/1;
     }
   }
 
   // small banner - ratio 5:1
   .ecl-banner--s .ecl-banner__image {
     aspect-ratio: 5/1;
+
+    --css-aspect-ratio: 5/1;
   }
 
   // large banner - ratio 3:1
   .ecl-banner--l .ecl-banner__image {
     aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
   }
 
   .ecl-banner .ecl-container {

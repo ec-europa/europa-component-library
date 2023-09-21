@@ -21,7 +21,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-banner' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-auto-init="Banner"' %}
 {% set _picture = picture|default({}) %}
 {% set _variant = variant|default('plain-background') %}
 {% set _size = size|default('m') %}
@@ -68,18 +68,18 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <div class="ecl-banner__picture-container">
 {% if _picture.img is not empty and _variant != 'plain-background'  %}
-  {% include '@ecl/picture/picture.html.twig' with {
-    picture: _picture,
-    extra_classes: "ecl-banner__picture",
-    extra_image_classes: "ecl-banner__image",
-  } only %}
-{% endif %}
-{% if _credit is not empty and _variant != 'plain-background' %}
-  <div class="ecl-banner__credit">{{ _credit }}</div>
-{% endif %}
+  <div class="ecl-banner__picture-container">
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: "ecl-banner__picture",
+      extra_image_classes: "ecl-banner__image",
+    } only %}
+  {% if _credit is not empty and _variant != 'plain-background' %}
+    <div class="ecl-banner__credit">{{ _credit }}</div>
+  {% endif %}
   </div>
+{% endif %}
   <div class="ecl-container">
     <div class="ecl-banner__container">
     {% if _title is not empty or _description is not empty or _link is not empty %}
