@@ -24,7 +24,7 @@ module.exports = {
       alt: 'alternative text',
     },
   },
-  credit: '© Copyright or credit',
+  credit: '© Copyright',
   variant: 'text-box',
   centered: true,
 };

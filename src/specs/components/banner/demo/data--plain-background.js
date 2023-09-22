@@ -4,7 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   title: 'Headline sed elit lorem. Donec dictum.',
   description:
-    'Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc. Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu',
+    'Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.',
   link: {
     link: {
       label: 'CTA link',

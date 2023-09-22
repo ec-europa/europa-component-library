@@ -5,8 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 // Import data for demos
 import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
 import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
-import bannerDataImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
-import bannerDataTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
+import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
@@ -256,34 +255,15 @@ TextBox.args = getArgs(bannerDataTextBox);
 TextBox.argTypes = getArgTypes(bannerDataTextBox);
 TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
 
-export const TextHighlight = (_, { loaded: { component } }) => component;
+export const TextOverlay = (_, { loaded: { component } }) => component;
 
-TextHighlight.render = async (args) => {
-  const renderedBannerHighlight = await renderStory(
-    bannerDataTextHighlight,
-    args,
-  );
-  return renderedBannerHighlight;
+TextOverlay.render = async (args) => {
+  const renderedBannerOverlay = await renderStory(bannerDataTextOverlay, args);
+  return renderedBannerOverlay;
 };
-TextHighlight.storyName = 'text highlight';
-TextHighlight.args = getArgs(bannerDataTextHighlight);
-TextHighlight.argTypes = getArgTypes(bannerDataTextHighlight);
-TextHighlight.parameters = {
-  notes: { markdown: notes, json: bannerDataTextHighlight },
-};
-
-export const ImageOverlay = (_, { loaded: { component } }) => component;
-
-ImageOverlay.render = async (args) => {
-  const renderedBannerImageOverlay = await renderStory(
-    bannerDataImageOverlay,
-    args,
-  );
-  return renderedBannerImageOverlay;
-};
-ImageOverlay.storyName = 'image overlay';
-ImageOverlay.args = getArgs(bannerDataImageOverlay);
-ImageOverlay.argTypes = getArgTypes(bannerDataImageOverlay);
-ImageOverlay.parameters = {
-  notes: { markdown: notes, json: bannerDataImageOverlay },
+TextOverlay.storyName = 'text overlay';
+TextOverlay.args = getArgs(bannerDataTextOverlay);
+TextOverlay.argTypes = getArgTypes(bannerDataTextOverlay);
+TextOverlay.parameters = {
+  notes: { markdown: notes, json: bannerDataTextOverlay },
 };

@@ -26,11 +26,8 @@ $banner: null !default;
 }
 
 .ecl-banner__picture-container {
+  position: relative;
   width: 100%;
-
-  .ecl-banner__picture {
-    position: relative;
-  }
 }
 
 .ecl-banner__credit {
@@ -48,8 +45,8 @@ $banner: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing', 'l');
-  padding-inline-end: map.get($theme, 'spacing', 'l');
+  padding-inline-start: map.get($theme, 'spacing', 'm');
+  padding-inline-end: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-banner__container {
@@ -185,62 +182,10 @@ $banner: null !default;
 }
 
 /*
-  * variant: image-overlay
+  * variant: text-overlay
   */
-.ecl-banner--image-overlay {
-  background: map.get($banner, 'background', 'image-overlay');
-
-  .ecl-banner__picture::before {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-bottom: map.get($banner, 'border-width', 'bottom') solid
-      map.get($banner, 'border-color');
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-  }
-
-  .ecl-banner__image {
-    aspect-ratio: 4/1;
-
-    --css-aspect-ratio: 4/1;
-  }
-
-  .ecl-banner__title {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-
-  .ecl-banner__description {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-banner--image-overlay {
-    .ecl-banner__picture {
-      border-bottom-width: 0;
-    }
-
-    .ecl-banner__image::before {
-      border-radius: map.get($banner, 'border-radius', 'banner');
-      height: 100%;
-      padding-top: 0;
-    }
-
-    .ecl-banner__title,
-    .ecl-banner__description {
-      text-shadow: 0 0 4px map.get($theme, 'color', 'black-100');
-    }
-  }
-}
-
-/*
-  * variant: text-highlight
-  */
-.ecl-banner--text-highlight {
-  background: map.get($banner, 'background', 'text-highlight');
+.ecl-banner--text-overlay {
+  background: map.get($banner, 'background', 'text-overlay');
 
   // manage ratio 4:1
   .ecl-banner__image {
@@ -264,7 +209,7 @@ $banner: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-banner--text-highlight {
+  .ecl-banner--text-overlay {
     .ecl-banner__image {
       border-bottom-width: 0;
     }
@@ -348,5 +293,13 @@ $banner: null !default;
   .ecl-banner__description {
     font: map.get($banner, 'font', 'description', 'desktop');
     font-weight: map.get($banner, 'font-weight', 'description');
+  }
+
+  .ecl-banner__picture-container {
+    position: static;
+  }
+
+  .ecl-banner__picture {
+    position: relative;
   }
 }
