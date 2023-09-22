@@ -277,6 +277,7 @@ $file: (
   container-border: none,
   container-spacing: map.get($spacing, 'l') map.get($spacing, 'l') 0
     map.get($spacing, 'l'),
+  container-spacing-last: 0,
   file-color: var(--ecl-color-dark-80),
   file-container-padding-bottom: map.get($spacing, 'l'),
   file-description-color: var(--ecl-color-dark-80),
@@ -307,8 +308,7 @@ $file: (
   file-picture-order-mobile: 1,
   file-spacing: map.get($spacing, 'l'),
   file-spacing-last-child: map.get($spacing, 'l'),
-  file-taxonomy-background: var(--ecl-color-primary-5),
-  file-taxonomy-spacing: 0 map.get($spacing, 'l') map.get($spacing, 'l'),
+  file-taxonomy-spacing: map.get($spacing, 'm') 0 0,
   file-thumbnail-border: true,
   file-thumbnail-container-padding: map.get($spacing, 'm'),
   file-thumbnail-download-top-position: 0,

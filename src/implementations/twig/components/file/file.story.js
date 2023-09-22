@@ -18,10 +18,6 @@ const translationsClone = { ...dataWithTranslation.translation };
 const imgClone = { ...dataThumbnail.picture };
 const system = getSystem();
 
-if (system === 'eu') {
-  listsClone.variant = 'horizontal';
-}
-
 const getArgs = (data) => {
   const args = {
     title: data.title,
@@ -40,7 +36,7 @@ const getArgs = (data) => {
   }
   if (data.picture) {
     args.show_image = !!data.picture;
-    args.show_taxonomy = false;
+    args.show_taxonomy = !!data.lists;
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
   }

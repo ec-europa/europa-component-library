@@ -102,7 +102,7 @@ $file: null !default;
   color: map.get($file, 'file-description-color');
   font: map.get($file, 'file-description-font');
   margin-top: map.get($theme, 'spacing', 's');
-  max-width: 80ch;
+  max-width: 65ch;
   white-space: pre-wrap;
 }
 
@@ -118,7 +118,6 @@ $file: null !default;
 }
 
 .ecl-file__taxonomy {
-  background: map.get($file, 'file-taxonomy-background');
   padding: map.get($file, 'file-taxonomy-spacing');
   width: 100%;
 }
@@ -223,7 +222,7 @@ $file: null !default;
   color: map.get($file, 'file-color');
   display: block;
   font: map.get($theme, 'font', 'm');
-  max-width: 80ch;
+  max-width: 65ch;
 }
 
 .ecl-file__translation-container[aria-expanded='true'] {

@@ -107,6 +107,7 @@ module.exports = {
             'Taxonomy item 3',
             'Taxonomy item 4',
             'Taxonomy item 5',
+            'Taxonomy item 6',
           ],
         },
       ],
