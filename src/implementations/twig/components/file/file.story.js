@@ -39,8 +39,8 @@ const getArgs = (data) => {
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
   }
-  if (data.lists) {
-    args.lists = false;
+  if (data.list) {
+    args.show_taxonomy = false;
   }
 
   return args;
@@ -63,16 +63,6 @@ const getArgTypes = (data) => {
       name: 'meta',
       type: { name: 'boolean' },
       description: 'Show meta',
-      table: {
-        category: 'Optional',
-      },
-    };
-  }
-  if (data.lists) {
-    argTypes.show_lists = {
-      name: 'taxonomies',
-      type: 'boolean',
-      description: 'Show the list with taxonomies',
       table: {
         category: 'Optional',
       },
@@ -261,5 +251,10 @@ Thumbnail.render = async (args) => {
 };
 Thumbnail.storyName = 'with thumbnail';
 Thumbnail.args = getArgs(dataThumbnail);
-Thumbnail.argTypes = getArgTypes(dataThumbnail);
+Thumbnail.argTypes = {
+  ...getArgTypes(dataThumbnail),
+  title: {
+    type: { name: 'object' },
+  },
+};
 Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };

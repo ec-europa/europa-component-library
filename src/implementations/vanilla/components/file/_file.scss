@@ -73,10 +73,6 @@ $file: null !default;
   display: flex;
   font: map.get($theme, 'font', 's');
   margin-bottom: map.get($file, 'file-meta-margin');
-
-  + .ecl-file__title {
-    padding-bottom: map.get($file, 'file-title-with-meta-padding');
-  }
 }
 
 .ecl-file__detail-meta-item {
@@ -127,10 +123,6 @@ $file: null !default;
   flex-basis: 100%;
   margin-bottom: map.get($file, 'file-label-spacing');
   margin-inline-end: map.get($theme, 'spacing', 'xs');
-
-  + .ecl-file__title {
-    padding-bottom: map.get($file, 'file-title-with-meta-padding');
-  }
 }
 
 .ecl-file__download {

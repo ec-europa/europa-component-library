@@ -291,7 +291,7 @@ $expandable: (
 $file: (
   border-radius: map.get($border-radius, 's'),
   border-color: var(--ecl-color-dark),
-  container-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0,
+  container-spacing: map.get($spacing, 'xl'),
   file-icon-align-self: start,
   file-info-margin-left: map.get($spacing, 'xl'),
   file-color: var(--ecl-color-dark),
@@ -315,7 +315,6 @@ $file: (
   file-meta-margin: map.get($spacing, '2xs'),
   file-spacing: map.get($spacing, 'm'),
   file-spacing-last-child: 0,
-  file-title-with-meta-padding: map.get($spacing, 'xl'),
   file-thumbnail-footer-margin: 0 map.get($spacing, 'xl'),
   file-thumbnail-download-top-position: auto,
   file-thumbnail-meta-margin: map.get($spacing, '2xs'),
