@@ -96,8 +96,8 @@ $file: null !default;
 
 .ecl-file__description {
   color: map.get($file, 'file-description-color');
-  font: map.get($theme, 'font', 'm');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  font: map.get($file, 'file-description-font');
+  margin-top: map.get($theme, 'spacing', 's');
   max-width: 80ch;
   white-space: pre-wrap;
 }
@@ -114,7 +114,7 @@ $file: null !default;
 }
 
 .ecl-file__taxonomy {
-  margin-top: map.get($file, 'file-spacing');
+  margin-top: map.get($file, 'file-taxonomy-spacing');
   width: 100%;
 }
 
