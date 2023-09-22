@@ -136,15 +136,15 @@
     {% if _description is not empty %}
       <div class="ecl-file__description">{{ _description }}</div>
     {% endif %}
-    {% if _lists is not empty and _lists is iterable %}
+    </div>
+  </div>
+      {% if _lists is not empty and _lists is iterable %}
       <div class="ecl-file__taxonomy">
         {% for _list in _lists %}
           {% include '@ecl/description-list/description-list.html.twig' with _list only %}
         {% endfor %}
       </div>
-      {% endif %}
-    </div>
-  </div>
+    {% endif %}
   <div class="ecl-file__footer">
   {% if _language is not empty %}
     <div class="ecl-file__language">{{ _language }}</div>

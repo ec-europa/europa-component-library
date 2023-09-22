@@ -37,6 +37,10 @@ $file: null !default;
   flex-grow: 1;
   flex-wrap: wrap;
   margin-inline-start: map.get($file, 'file-info-margin-left');
+
+  > *:last-child:not(:only-child) {
+    padding-bottom: map.get($file, 'container-spacing-last');
+  }
 }
 
 .ecl-file__title {
@@ -50,7 +54,7 @@ $file: null !default;
   background-color: map.get($file, 'container-background');
   border-top: map.get($file, 'file-footer-border');
   display: flex;
-  flex-direction: map.get($file, 'file-footer-flex-direction');
+  flex-direction: column;
   flex-grow: 1;
   margin: map.get($file, 'file-footer-margin');
   padding: map.get($file, 'file-footer-padding');
@@ -114,7 +118,8 @@ $file: null !default;
 }
 
 .ecl-file__taxonomy {
-  margin-top: map.get($file, 'file-taxonomy-spacing');
+  background: map.get($file, 'file-taxonomy-background');
+  padding: map.get($file, 'file-taxonomy-spacing');
   width: 100%;
 }
 
@@ -127,7 +132,8 @@ $file: null !default;
 
 .ecl-file__download {
   align-self: flex-start;
-  margin-top: map.get($file, 'file-download-spacing');
+  margin-left: auto;
+  margin-top: map.get($file, 'file-download-spacing-mobile');
 }
 
 .ecl-file__translation-language {
@@ -234,6 +240,12 @@ $file: null !default;
   }
 }
 
+@include breakpoints.down('xs') {
+  .ecl-file__footer * {
+    margin-top: map.get($theme, 'spacing', '2xs');
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-file__download {
@@ -250,6 +262,10 @@ $file: null !default;
 
   .ecl-file__info {
     margin-inline-end: map.get($theme, 'spacing', 'm');
+  }
+
+  .ecl-file__footer {
+    flex-direction: map.get($file, 'file-footer-flex-direction');
   }
 
   .ecl-file__translation-item {
@@ -271,6 +287,10 @@ $file: null !default;
     order: map.get($file, 'file-picture-order-desktop');
   }
 
+  .ecl-file__download {
+    margin-top: map.get($file, 'file-download-spacing-desktop');
+  }
+
   .ecl-file__image {
     align-self: flex-start;
     margin-inline-start: map.get($file, 'file-image-margin-left');
@@ -290,6 +310,10 @@ $file: null !default;
 
   .ecl-file__info {
     margin-inline-start: 0;
+
+    > *:last-child:not(:only-child) {
+      padding-bottom: 0;
+    }
   }
 
   .ecl-file__footer {

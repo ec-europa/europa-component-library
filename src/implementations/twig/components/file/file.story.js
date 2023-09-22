@@ -18,14 +18,19 @@ const translationsClone = { ...dataWithTranslation.translation };
 const imgClone = { ...dataThumbnail.picture };
 const system = getSystem();
 
+if (system === 'eu') {
+  listsClone.variant = 'horizontal';
+}
+
 const getArgs = (data) => {
   const args = {
-    show_label: !!data.label,
     title: data.title,
     download_label: data.download.link.label,
+    show_label: !!data.label,
     show_translations: true,
     toggle_label: translationsClone.toggle.label,
   };
+
   if (data.description) {
     args.show_description = !!data.description;
     args.description = data.description || '';
@@ -38,9 +43,6 @@ const getArgs = (data) => {
     args.show_taxonomy = false;
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
-  }
-  if (data.list) {
-    args.show_taxonomy = false;
   }
 
   return args;
