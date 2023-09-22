@@ -73,6 +73,10 @@ $file: null !default;
   display: flex;
   font: map.get($theme, 'font', 's');
   margin-bottom: map.get($file, 'file-meta-margin');
+
+  + .ecl-file__title {
+    padding-bottom: map.get($file, 'file-title-with-meta-padding');
+  }
 }
 
 .ecl-file__detail-meta-item {
@@ -103,7 +107,7 @@ $file: null !default;
 }
 
 .ecl-file__picture {
-  order: map.get($file, 'file-picture-order');
+  order: map.get($file, 'file-picture-order-mobile');
   align-self: flex-start;
 }
 
@@ -123,6 +127,10 @@ $file: null !default;
   flex-basis: 100%;
   margin-bottom: map.get($file, 'file-label-spacing');
   margin-inline-end: map.get($theme, 'spacing', 'xs');
+
+  + .ecl-file__title {
+    padding-bottom: map.get($file, 'file-title-with-meta-padding');
+  }
 }
 
 .ecl-file__download {
@@ -265,6 +273,10 @@ $file: null !default;
 
   .ecl-file__detail-info {
     flex-grow: 1;
+  }
+
+  .ecl-file__picture {
+    order: map.get($file, 'file-picture-order-desktop');
   }
 
   .ecl-file__image {
