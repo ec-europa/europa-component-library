@@ -72,8 +72,9 @@
   <div class="ecl-banner__picture-container">
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
-      extra_classes: "ecl-banner__picture",
-      extra_image_classes: "ecl-banner__image",
+      extra_classes: 'ecl-banner__picture',
+      extra_image_classes: 'ecl-banner__image',
+      extra_attributes: [{ name: 'data-ecl-banner-image' }],
     } only %}
   {% if _credit is not empty and _variant != 'plain-background' %}
     <div class="ecl-banner__credit">{{ _credit }}</div>
@@ -81,7 +82,10 @@
   </div>
 {% endif %}
   <div class="ecl-container">
-    <div class="ecl-banner__container">
+    <div
+      class="ecl-banner__container"
+      data-ecl-banner-container
+    >
     {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-banner__content">
         {% if _title is not empty %}

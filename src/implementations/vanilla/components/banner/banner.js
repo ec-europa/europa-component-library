@@ -5,8 +5,9 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.bannerContainer Selector for the banner content
  * @param {String} options.bannerVPadding Optional additional padding
- * @param {String} options.bannerImg Selector for the banner img
+ * @param {String} options.bannerPicture Selector for the banner picture
  * @param {String} options.defaultRatio Set the default aspect ratio
+ * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
  */
@@ -29,12 +30,13 @@ export class Banner {
   constructor(
     element,
     {
-      bannerContainer = '.ecl-banner__container',
+      bannerContainer = '[data-ecl-banner-container]',
       bannerVPadding = '8',
-      bannerImg = '.ecl-banner__image',
+      bannerPicture = '[data-ecl-banner-image]',
       breakpoint = '996',
       attachResizeListener = true,
       defaultRatio = '4/1',
+      maxIterations = 10,
     } = {},
   ) {
     // Check element
@@ -48,10 +50,14 @@ export class Banner {
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
-    this.bannerImg = queryOne(bannerImg, this.element);
+    this.bannerPicture = queryOne(bannerPicture, this.element);
+    this.bannerImage = this.bannerPicture
+      ? queryOne('img', this.bannerPicture)
+      : false;
     this.breakpoint = breakpoint;
     this.defaultRatio = defaultRatio;
     this.attachResizeListener = attachResizeListener;
+    this.maxIterations = maxIterations;
 
     // Bind `this` for use in callbacks
     this.setBannerHeight = this.setBannerHeight.bind(this);
@@ -74,12 +80,20 @@ export class Banner {
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
   }
 
+  /**
+   * Retrieve the value of the aspect ratio in the styles.
+   */
   waitForAspectRatioToBeDefined() {
-    const aspectRatio = getComputedStyle(this.bannerImg).getPropertyValue(
+    this.attemptCounter = (this.attemptCounter || 0) + 1;
+    const aspectRatio = getComputedStyle(this.bannerImage).getPropertyValue(
       '--css-aspect-ratio',
     );
-    if (typeof aspectRatio === 'undefined' || aspectRatio === '') {
-      setTimeout(this.waitForAspectRatioToBeDefined.bind(this), 100);
+
+    if (
+      (typeof aspectRatio === 'undefined' || aspectRatio === '') &&
+      this.maxIterations > this.attemptCounter
+    ) {
+      setTimeout(() => this.waitForAspectRatioToBeDefined(), 100);
     } else {
       this.setHeight(aspectRatio);
     }
@@ -101,8 +115,8 @@ export class Banner {
     const currentHeight = (bannerWidth * numerator) / denominator;
 
     if (bannerHeight > currentHeight) {
-      if (this.bannerImg) {
-        this.bannerImg.style.aspectRatio = 'auto';
+      if (this.bannerImage) {
+        this.bannerImage.style.aspectRatio = 'auto';
       }
       this.element.style.height = `${bannerHeight}px`;
     } else {
@@ -115,7 +129,7 @@ export class Banner {
    */
   setBannerHeight() {
     if (this.bannerImg) {
-      this.waitForAspectRatioToBeDefined.call(this);
+      this.waitForAspectRatioToBeDefined();
     } else {
       this.setHeight(this.defaultRatio);
     }
@@ -135,8 +149,7 @@ export class Banner {
   }
 
   /**
-   * Trigger events on resize
-   * Uses a debounce, for performance
+   * Check the current viewport width and act accordingly.
    */
   checkViewport() {
     if (window.innerWidth > this.breakpoint) {
