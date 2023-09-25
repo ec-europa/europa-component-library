@@ -4,7 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-media-container {
   margin: 0;
@@ -20,8 +22,8 @@
 }
 
 .ecl-media-container__caption {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged-print, 'm');
-  margin-top: map.get(theme.$spacing-print, 's');
-  max-width: 80ch;
+  color: var(--ecl-color-dark);
+  font: map.get($theme, 'font-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  max-width: 65ch;
 }

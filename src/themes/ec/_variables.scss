@@ -404,6 +404,17 @@ $list: (
   divider-color: var(--ecl-color-neutral),
 );
 
+// Media container
+$media-container: (
+  border-radius: 0,
+  shadow: none,
+  caption-background-color: map.get($color, 'grey-5'),
+  caption-color: var(--ecl-color-dark),
+  caption-border: 1px solid var(--ecl-color-dark-25),
+  caption-padding: map.get($spacing, 's'),
+  scrollbar-width: 16px,
+);
+
 // Menu
 $menu: (
   global: (
