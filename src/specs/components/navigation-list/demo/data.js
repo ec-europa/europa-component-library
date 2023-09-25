@@ -6,6 +6,7 @@ module.exports = {
   border: true,
   items: [
     {
+      border: true,
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -60,6 +61,7 @@ module.exports = {
       ],
     },
     {
+      border: true,
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -119,6 +121,7 @@ module.exports = {
       ],
     },
     {
+      border: true,
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',

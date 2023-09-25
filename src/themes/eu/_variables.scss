@@ -769,6 +769,23 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Tag
+$tag: (
+  padding: map.get($spacing, 'xs') map.get($spacing, 's'),
+  border-radius: #{(2 * map.get($spacing, 'xs') + map.get($line-height, 's')) * 0.5},
+  color: map.get($color, 'white'),
+  background-color: var(--ecl-color-primary),
+  color-hover: map.get($color, 'white'),
+  background-color-hover: var(--ecl-color-primary-80),
+  color-focus: map.get($color, 'white'),
+  background-color-focus: var(--ecl-color-primary),
+  outline-color: var(--ecl-color-primary),
+  outline-offset: 2px,
+  color-active: map.get($color, 'white'),
+  background-color-active: var(--ecl-color-primary),
+  outline-color-active: var(--ecl-color-primary),
+);
+
 // Textarea
 $textarea: (
   background: map.get($color, 'white-100'),
@@ -786,6 +803,52 @@ $textarea: (
   shadow-hover: map.get($shadow-inner, '2'),
   padding-horizontal: map.get($spacing, 'm'),
   padding-vertical: map.get($spacing, 's'),
+);
+
+// Timeline
+$timeline: (
+  border-color: var(--ecl-color-primary),
+  border-width: 0.125rem,
+  bullet-border-color: var(--ecl-color-primary),
+  bullet-border-width: 0.125rem,
+  bullet-shadow: 0 0 0 2px map.get($color, 'white'),
+  bullet-top-position: 8%,
+  content-color: var(--ecl-color-dark-80),
+  content-big-font: map.get($font-prolonged, 'm'),
+  content-font: map.get($font-prolonged, 'm'),
+  first-item-offset: 2rem,
+  first-item-height: calc(100% - #{map.get($spacing, 'xs')}),
+  item-padding-top: 0,
+  label-alignment: left,
+  label-color: var(--ecl-color-dark-140),
+  label-big-font: map.get($font, '3xl'),
+  label-font: map.get($font, '2xl'),
+  label-font-weight: map.get($font-weight, 'normal'),
+  label-layout: static,
+  label-margin: map.get($spacing, 's'),
+  last-item-height: 1.5rem,
+  left-spacing: 0,
+  timeline-margin-left:
+    calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 's')} / 2),
+  title-color: var(--ecl-color-dark-140),
+  title-font: map.get($font-prolonged, 'm'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-big-font: map.get($font-prolonged, 'l'),
+  title-margin: map.get($spacing, 's'),
+  toggle-bullet-border-color: var(--ecl-color-primary-20),
+  bullet-fill-color: map.get($color, 'white-100'),
+  bullet-size: map.get($spacing, 's'),
+  toggle-bullet-border-width: 0.125rem,
+  tooltip: true,
+  toggle-spacing: true,
+);
+$timeline-print: (
+  content-color: var(--ecl-color-dark-80),
+  content-font: map.get($font-prolonged-print, 'm'),
+  label-color: var(--ecl-color-dark-140),
+  label-font: map.get($font-prolonged-print, 'm'),
+  title-color: var(--ecl-color-dark-140),
+  title-font: map.get($font-prolonged-print, 'm'),
 );
 
 /**
