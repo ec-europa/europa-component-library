@@ -11,6 +11,7 @@ import notes from './README.md';
 
 const getArgs = (data) => ({
   label: data.items[0].label,
+  grid_content: false,
 });
 
 const getArgTypes = () => ({
@@ -24,11 +25,34 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
+  grid_content: {
+    name: 'demo grid content',
+    type: 'boolean',
+    description:
+      'Inject a test content block displayed on the grid, to see the alignment',
+    mapping: {
+      0: false,
+      1: true,
+    },
+    table: {
+      category: 'Test content',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
   data.items[0].label = args.label;
   return data;
+};
+
+const renderStory = async (data, args) => {
+  let story = await orderedList(prepareData(data, args));
+
+  if (args.grid_content) {
+    story = `<p class="ecl-u-type-paragraph">Content inside the grid</p>${story}<p class="ecl-u-type-paragraph">Content inside the grid</p>`;
+  }
+
+  return `<div class="ecl-container">${story}</div>`;
 };
 
 export default {
@@ -39,7 +63,7 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
-  const renderedList = await orderedList(prepareData(dataOrderedList, args));
+  const renderedList = await renderStory(dataOrderedList, args);
   return renderedList;
 };
 Default.storyName = 'text';
@@ -52,7 +76,7 @@ Default.parameters = {
 export const Links = (_, { loaded: { component } }) => component;
 
 Links.render = async (args) => {
-  const renderedListLinks = await orderedList(prepareData(dataLink, args));
+  const renderedListLinks = await renderStory(dataLink, args);
   return renderedListLinks;
 };
 Links.storyName = 'links';
@@ -65,7 +89,7 @@ Links.parameters = {
 export const Divider = (_, { loaded: { component } }) => component;
 
 Divider.render = async (args) => {
-  const renderedListDivider = await orderedList(prepareData(dataDivider, args));
+  const renderedListDivider = await renderStory(dataDivider, args);
   return renderedListDivider;
 };
 Divider.storyName = 'with divider';
@@ -78,9 +102,7 @@ Divider.parameters = {
 export const NoMarker = (_, { loaded: { component } }) => component;
 
 NoMarker.render = async (args) => {
-  const renderedListNoMarker = await orderedList(
-    prepareData(dataNoMarker, args),
-  );
+  const renderedListNoMarker = await renderStory(dataNoMarker, args);
   return renderedListNoMarker;
 };
 NoMarker.storyName = 'no marker';

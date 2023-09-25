@@ -12,6 +12,7 @@ import notes from './README.md';
 
 const getArgs = (data) => ({
   label: data.items[0].label,
+  grid_content: false,
 });
 
 const getArgTypes = () => ({
@@ -25,6 +26,19 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
+  grid_content: {
+    name: 'demo grid content',
+    type: 'boolean',
+    description:
+      'Inject a test content block displayed on the grid, to see the alignment',
+    mapping: {
+      0: false,
+      1: true,
+    },
+    table: {
+      category: 'Test content',
+    },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -32,6 +46,16 @@ const prepareData = (data, args) => {
 
   data.items[0].label = args.label;
   return data;
+};
+
+const renderStory = async (data, args) => {
+  let story = await unorderedList(prepareData(data, args));
+
+  if (args.grid_content) {
+    story = `<p class="ecl-u-type-paragraph">Content inside the grid</p>${story}<p class="ecl-u-type-paragraph">Content inside the grid</p>`;
+  }
+
+  return `<div class="ecl-container">${story}</div>`;
 };
 
 export default {
@@ -42,9 +66,7 @@ export default {
 export const Text = (_, { loaded: { component } }) => component;
 
 Text.render = async (args) => {
-  const renderedText = await unorderedList(
-    prepareData(dataUnorderedListText, args),
-  );
+  const renderedText = await renderStory(dataUnorderedListText, args);
   return renderedText;
 };
 Text.storyName = 'text';
@@ -57,9 +79,7 @@ Text.parameters = {
 export const Link = (_, { loaded: { component } }) => component;
 
 Link.render = async (args) => {
-  const renderedLink = await unorderedList(
-    prepareData(dataUnorderedListLink, args),
-  );
+  const renderedLink = await renderStory(dataUnorderedListLink, args);
   return renderedLink;
 };
 Link.storyName = 'links';
@@ -72,9 +92,7 @@ Link.parameters = {
 export const Divider = (_, { loaded: { component } }) => component;
 
 Divider.render = async (args) => {
-  const renderedDivider = await unorderedList(
-    prepareData(dataUnorderedListDivider, args),
-  );
+  const renderedDivider = await renderStory(dataUnorderedListDivider, args);
   return renderedDivider;
 };
 Divider.storyName = 'with divider';
@@ -87,9 +105,7 @@ Divider.parameters = {
 export const NoBullet = (_, { loaded: { component } }) => component;
 
 NoBullet.render = async (args) => {
-  const renderedDivider = await unorderedList(
-    prepareData(dataUnorderedListNoBullet, args),
-  );
+  const renderedDivider = await renderStory(dataUnorderedListNoBullet, args);
   return renderedDivider;
 };
 NoBullet.storyName = 'no marker';

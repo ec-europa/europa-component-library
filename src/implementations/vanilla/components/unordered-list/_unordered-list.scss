@@ -16,7 +16,6 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-  padding-inline-start: map.get($theme, 'spacing', 's');
 }
 
 .ecl-unordered-list .ecl-unordered-list,
