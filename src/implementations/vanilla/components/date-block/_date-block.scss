@@ -62,30 +62,30 @@ $date-block: null !default;
 .ecl-date-block__day {
   color: map.get($date-block, 'text-color-inverted');
   font-family: map.get($theme, 'font-family', 'default');
-  font-size: map.get($date-block, 'day-text-size');
+  font-size: map.get($date-block, 'day', 'text-size');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  line-height: map.get($date-block, 'day-line-height');
-  padding: map.get($date-block, 'padding-day-mobile');
+  line-height: map.get($date-block, 'day', 'line-height');
+  padding: map.get($date-block, 'day', 'padding-mobile');
   white-space: map.get($date-block, 'text-white-space');
 }
 
 .ecl-date-block__month {
   color: map.get($date-block, 'text-color-inverted');
   font-family: map.get($theme, 'font-family', 'default');
-  font-size: map.get($date-block, 'month-text-size');
-  line-height: map.get($date-block, 'month-line-height');
-  padding: map.get($date-block, 'padding-month-mobile');
+  font-size: map.get($date-block, 'month', 'text-size');
+  line-height: map.get($date-block, 'month', 'line-height');
+  padding: map.get($date-block, 'month', 'padding-mobile');
   text-decoration: none !important;
   text-transform: uppercase;
   white-space: map.get($date-block, 'text-white-space');
 }
 
 .ecl-date-block__year {
-  background-color: map.get($date-block, 'background-color-year');
-  color: map.get($date-block, 'text-color-year');
+  background-color: map.get($date-block, 'year', 'background-color');
+  color: map.get($date-block, 'year', 'text-color');
   font: map.get($theme, 'font', 's');
-  font-weight: map.get($date-block, 'year-weight');
-  padding: map.get($date-block, 'padding-year-mobile');
+  font-weight: map.get($date-block, 'year', 'weight');
+  padding: map.get($date-block, 'year', 'padding-mobile');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -95,15 +95,15 @@ $date-block: null !default;
   }
 
   .ecl-date-block__day {
-    padding: map.get($date-block, 'padding-day-desktop');
+    padding: map.get($date-block, 'day', 'padding-desktop');
   }
 
   .ecl-date-block__month {
-    padding: map.get($date-block, 'padding-month-desktop');
+    padding: map.get($date-block, 'month', 'padding-desktop');
   }
 
   .ecl-date-block__year {
-    padding: map.get($date-block, 'padding-year-desktop');
+    padding: map.get($date-block, 'year', 'padding-desktop');
   }
 }
 

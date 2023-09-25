@@ -217,29 +217,14 @@ $date-block: (
   background-color-ongoing: var(--ecl-color-primary-100),
   background-color-past: var(--ecl-color-dark-20),
   background-color-rescheduled: var(--ecl-color-primary-100),
-  background-color-year: map.get($color, 'white'),
   outline-color-cancelled: transparent,
   outline-color-default: transparent,
   outline-color-ongoing: transparent,
   outline-color-past: transparent,
   border-radius: map.get($border-radius, 'xl'),
   circle-width: 10px,
-  day-line-height: map.get($line-height, '2xl'),
-  day-text-size: map.get($font-size, '2xl'),
-  height-desktop: auto,
-  height-mobile: auto,
-  month-line-height: map.get($line-height, 'm'),
-  month-text-size: map.get($font-size, 'm'),
-  padding-day-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
-    map.get($spacing, 'xs') map.get($spacing, '2xs'),
-  padding-day-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs'),
-  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's')
-    map.get($spacing, '2xs'),
-  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
-    map.get($spacing, '2xs'),
-  padding-year-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
-  padding-year-mobile: map.get($spacing, '2xs'),
-  past-border: 1px solid var(--ecl-color-primary-20),
+  max-height: none,
+  padding-top: 0,
   shadow: map.get($shadow, '1'),
   shadow-decoration: map.get($shadow-inner, '1'),
   text-color: map.get($color, 'white'),
@@ -247,6 +232,28 @@ $date-block: (
   text-white-space: normal,
   width-desktop: 6rem,
   width-mobile: 5rem,
+  day: (
+    padding-mobile: map.get($spacing, 'xs') map.get($spacing, '2xs'),
+    padding-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
+      map.get($spacing, 'xs') map.get($spacing, '2xs'),
+    line-height: map.get($line-height, '2xl'),
+    text-size: map.get($font-size, '2xl'),
+  ),
+  month: (
+    padding-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 'xs')
+      map.get($spacing, '2xs'),
+    padding-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's')
+      map.get($spacing, '2xs'),
+    line-height: map.get($line-height, 'm'),
+    text-size: map.get($font-size, 'm'),
+  ),
+  year: (
+    padding-mobile: map.get($spacing, '2xs'),
+    padding-desktop: map.get($spacing, 'xs') map.get($spacing, '2xs'),
+    weight: map.get($font-weight, 'regular'),
+    background-color: map.get($color, 'white'),
+    text-color: var(--ecl-color-dark-140),
+  ),
 );
 
 // Description list
