@@ -67,7 +67,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Banner
 
 - The picture and the banner credit are now wrapper in a container `ecl-banner__picture-container` to handle the new position of the credit text.
-- Three variants only: `plain-background`, `text-overlay` (replacing text-hightlight) and 'text-box', the `image-overlay` one doesn't esxist anymore.
+- Three variants only: `plain-background`, `text-overlay` (replacing text-hightlight) and `text-box`, the `image-overlay` one doesn't exist anymore.
 
 ### Breadcrumb
 
