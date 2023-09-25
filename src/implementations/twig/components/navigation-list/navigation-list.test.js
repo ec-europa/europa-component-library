@@ -19,6 +19,16 @@ describe('Navigation list', () => {
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly without borders', () => {
+      const dataNoBorder = JSON.parse(JSON.stringify(dataDefault));
+      dataNoBorder.items.forEach((item) => {
+        item.border = false;
+      });
+
+      expect.assertions(1);
+      return expect(render(dataNoBorder)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
