@@ -49,10 +49,10 @@ const renderStory = async (data, args) => {
   let story = await orderedList(prepareData(data, args));
 
   if (args.grid_content) {
-    story = `<p class="ecl-u-type-paragraph">Content inside the grid</p>${story}<p class="ecl-u-type-paragraph">Content inside the grid</p>`;
+    story = `<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p>${story}<p class="ecl-u-type-paragraph">Content inside the grid</p></div>`;
   }
 
-  return `<div class="ecl-container">${story}</div>`;
+  return story;
 };
 
 export default {
