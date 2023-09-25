@@ -86,6 +86,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Button is now using variant `ghost`, instead of `secondary`
 
+### File
+
+- File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating
+  this link and the one in the download button, they should be used alternatively.
+
 ### Form group
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)

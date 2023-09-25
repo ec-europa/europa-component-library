@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "variant" (string) (default: 'default')
     - "toggle" (object) (default: {}): object of type Button
     - "items" (array) (default: []):
       - "title" (string) (default: '')
@@ -17,7 +16,6 @@
 {% set _items = items|default([]) %}
 {% set _toggle = toggle|default({}) %}
 {% set _description = description|default('') %}
-{% set _variant = variant|default('defaUlt') %}
 
 {% if _items is not empty %}
   <div
@@ -38,9 +36,7 @@
 
     <ul class="ecl-file__translation-list">
     {% for _item in _items %}
-      {% include '@ecl/file/file-translation-item.html.twig' with _item|merge({
-        variant: _variant
-      }) only %}
+      {% include '@ecl/file/file-translation-item.html.twig' with _item only %}
     {% endfor %}
     </ul>
   </div>
