@@ -13,7 +13,7 @@ const getArgs = (data) => {
   const args = {
     show_description: true,
     description: data.description,
-    width: 'outside',
+    full_width: false,
   };
   if (data.image && !data.sources) {
     args.image = data.image;
@@ -57,27 +57,13 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.width = {
-    name: 'width',
-    type: 'select',
-    description: `The media container extends to the whole viewport by default when outside the grid,
-      if it's inside it can still be extended by adding class .ecl-media-container--full-width`,
+  argTypes.full_width = {
+    name: 'full width',
+    type: 'boolean',
+    description: `Extend the component to the full viewport width`,
     table: {
-      defaultValue: { summary: 'outside the ecl-container' },
+      defaultValue: { summary: 'false' },
       category: 'Display',
-    },
-    options: ['outside', 'container', 'inside'],
-    control: {
-      labels: {
-        outside: 'outside the ecl-container',
-        container: 'inside the ecl-container',
-        inside: 'inside the ecl-container, with fullwidth class',
-      },
-    },
-    mapping: {
-      'outside the ecl-container': 'outside',
-      'inside the ecl-container': 'container',
-      'inside the ecl-container, with fullwidth class': 'inside',
     },
   };
 
@@ -95,11 +81,9 @@ const prepareData = (data, args) => {
   return Object.assign(data, args);
 };
 
-const renderStory = (data, args) => {
-  let story = mediaContainer(prepareData(data, args));
-  if (args.width === 'container' || args.width === 'inside') {
-    story = `<div class="ecl-container">${story}</div>`;
-  }
+const renderStory = async (data, args) => {
+  let story = await mediaContainer(prepareData(data, args));
+  story = `<div class="ecl-container">${story}</div>`;
 
   return story;
 };
@@ -107,6 +91,11 @@ const renderStory = (data, args) => {
 export default {
   title: 'Components/Media container',
   decorators: [withNotes, withCode],
+  parameters: {
+    viewport: {
+      defaultViewport: 'pixelxl',
+    },
+  },
 };
 
 export const Image = (_, { loaded: { component } }) => component;

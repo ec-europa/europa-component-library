@@ -393,8 +393,11 @@ $media-container: (
   caption-background-color: map.get($color, 'white'),
   caption-color: var(--ecl-color-dark-80),
   caption-border: none,
+  caption-font: map.get($font, 'm'),
+  caption-max-width: 65ch,
   caption-padding: map.get($spacing, 'l'),
   caption-before: true,
+  media-border: none,
   scrollbar-width: 16px,
 );
 

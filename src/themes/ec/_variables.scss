@@ -408,10 +408,13 @@ $list: (
 $media-container: (
   border-radius: 0,
   shadow: none,
-  caption-background-color: map.get($color, 'grey-5'),
+  caption-background-color: transparent,
   caption-color: var(--ecl-color-dark),
+  caption-font: map.get($font, 's'),
   caption-border: 1px solid var(--ecl-color-dark-25),
-  caption-padding: map.get($spacing, 's'),
+  caption-padding: map.get($spacing, 's') 0,
+  caption-max-width: 65ch,
+  media-border: 1px solid var(--ecl-color-neutral-100),
   scrollbar-width: 16px,
 );
 
