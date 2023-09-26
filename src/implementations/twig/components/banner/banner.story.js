@@ -10,6 +10,7 @@ import banner from './banner.html.twig';
 import notes from './README.md';
 
 const cta = { ...bannerDataPlainBackground.link };
+
 const getArgs = (data) => {
   const args = {
     show_title: true,
@@ -24,11 +25,9 @@ const getArgs = (data) => {
     gridContent: false,
   };
   if (data.picture) {
-    args.image = data.picture.img.src || '';
-  }
-  if (data.credit) {
     args.show_credit = true;
     args.credit = data.credit || '';
+    args.image = data.picture.img.src || '';
   }
 
   return args;
@@ -60,7 +59,6 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
-
     size: {
       name: 'banner size',
       type: 'select',
@@ -148,7 +146,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.credit) {
+  if (data.picture) {
     argTypes.show_credit = {
       name: 'credit',
       type: { name: 'boolean' },
@@ -187,12 +185,14 @@ const prepareData = (data, args) => {
   data.centered = args.centered;
   data.full_width = args.full_width;
 
-  if (data.image) {
+  if (data.picture) {
     data.image = args.image;
-    data.credit = args.credit;
-  }
-  if (!args.show_credit) {
-    data.credit = '';
+
+    if (!args.show_credit) {
+      data.credit = '';
+    } else {
+      data.credit = args.credit;
+    }
   }
   if (!args.show_title) {
     data.title = '';
