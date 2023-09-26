@@ -26,8 +26,6 @@ const getArgs = (data) => {
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
-  }
-  if (data.credit) {
     args.show_credit = true;
     args.credit = data.credit || '';
   }
@@ -159,7 +157,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.credit) {
+  if (data.picture) {
     argTypes.show_credit = {
       name: 'credit',
       type: { name: 'boolean' },
@@ -199,12 +197,14 @@ const prepareData = (data, args) => {
   data.full_width =
     args.width === 'inside the grid container, with fullwidth class';
 
-  if (data.image) {
+  if (data.picture) {
     data.image = args.image;
-    data.credit = args.credit;
-  }
-  if (!args.show_credit) {
-    data.credit = '';
+
+    if (!args.show_credit) {
+      data.credit = '';
+    } else {
+      data.credit = args.credit;
+    }
   }
   if (!args.show_title) {
     data.title = '';
