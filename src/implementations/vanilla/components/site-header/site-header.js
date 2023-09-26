@@ -395,7 +395,11 @@ export class SiteHeader {
    * Uses a debounce, for performance
    */
   handleResize() {
-    if (this.languageListOverlay.hasAttribute('hidden')) return;
+    if (
+      !this.languageListOverlay ||
+      this.languageListOverlay.hasAttribute('hidden')
+    )
+      return;
 
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
