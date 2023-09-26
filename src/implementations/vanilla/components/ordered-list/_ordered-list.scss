@@ -22,7 +22,7 @@ $list: null !default;
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
   margin-top: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', '2xs');
+  padding-inline-start: 0.35rem;
 }
 
 .ecl-ordered-list__item,
