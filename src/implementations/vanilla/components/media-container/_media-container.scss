@@ -77,7 +77,8 @@ $media-container: null !default;
 
 // Full width
 // We have to substract the scrollbar width, as it is not handled well by vw unit)
-.ecl-media-container--full-width {
+.ecl-media-container--full-width,
+.ecl-media-container--full-width + .ecl-media-container__expandable {
   left: 50%;
   margin-inline-start: calc(
     -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
