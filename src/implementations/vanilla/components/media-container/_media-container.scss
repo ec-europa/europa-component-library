@@ -50,8 +50,12 @@ $media-container: null !default;
 }
 
 .ecl-media-container__expandable {
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-top: map.get($media-container, 'expandable-spacing-top');
   position: relative;
+
+  .ecl-expandable__content {
+    margin-bottom: map.get($theme, 'spacing', 'm');
+  }
 }
 
 // Manual ratio

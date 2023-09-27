@@ -8,7 +8,8 @@
 // Exposed variables
 $theme: null !default;
 
-.ecl-media-container {
+.ecl-media-container,
+.ecl-media-container__figure {
   margin: 0;
 }
 
@@ -18,7 +19,7 @@ $theme: null !default;
 
 .ecl-media-container__media {
   max-height: 10cm;
-  max-width: 100%;
+  width: 100%;
 }
 
 .ecl-media-container__caption {
