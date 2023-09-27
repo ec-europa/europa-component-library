@@ -46,20 +46,6 @@ $theme: (
   box-shadow: 0 0 0 4px map.get($button, 'secondary-border-color') inset;
 }
 
-.ecl-card__body {
-  &::before {
-    background-color: var(--ecl-color-secondary);
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    content: '';
-    height: 4px;
-    left: map.get($theme, 'spacing', 'l');
-    position: absolute;
-    top: 0;
-    width: 32px;
-  }
-}
-
 .ecl-link--secondary:focus-visible {
   box-shadow: 0 0 0 4px map.get($link, 'secondary-border-color') inset;
 }
