@@ -275,6 +275,8 @@ $description-list-print: (
 // Expandable
 $expandable: (
   content-color: var(--ecl-color-dark-80),
+  content-margin: map.get($spacing, 'm'),
+  content-padding: map.get($spacing, 'm'),
   toggle-background-active: transparent,
   toggle-border-active: transparent,
   toggle-color-active: var(--ecl-color-primary),
