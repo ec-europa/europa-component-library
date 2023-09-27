@@ -16,19 +16,12 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-}
-
-.ecl-unordered-list .ecl-unordered-list,
-.ecl-unordered-list .ecl-ordered-list,
-%ecl-unordered-list--nested {
-  list-style-type: map.get($list, 'unordered', 'sublist-marker');
-  margin-top: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: map.get($theme, 'spacing', '3xl');
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
-  margin-inline-start: map.get($theme, 'spacing', 's');
+  margin-inline-start: map.get($theme, 'spacing', 'm');
   margin-top: map.get($theme, 'spacing', 'm');
   max-width: calc(80ch - #{map.get($theme, 'spacing', '2xl')});
   padding-inline-start: map.get($theme, 'spacing', 'xs');
@@ -42,6 +35,24 @@ $list: null !default;
   }
 }
 
+.ecl-unordered-list .ecl-unordered-list,
+.ecl-unordered-list .ecl-ordered-list,
+%ecl-unordered-list--nested {
+  list-style-type: map.get($list, 'unordered', 'sublist-marker');
+  margin-top: map.get($theme, 'spacing', 'xs');
+  padding-inline-start: calc(
+    map.get($theme, 'spacing', '3xl') - #{map.get($theme, 'spacing', 'm')} - #{map.get(
+        $theme,
+        'spacing',
+        'xs'
+      )}
+  );
+
+  .ecl-unordered-list__item {
+    padding-inline-start: 0;
+  }
+}
+
 // No marker
 .ecl-unordered-list--no-marker {
   list-style: none;
@@ -50,8 +61,13 @@ $list: null !default;
   .ecl-unordered-list {
     list-style-type: none;
     padding-inline-start: map.get($theme, 'spacing', 'm');
+
+    .ecl-unordered-list__item {
+      padding-inline-start: map.get($theme, 'spacing', 'xs');
+    }
   }
 
+  // stylelint-disable-next-line no-descending-specificity
   > .ecl-unordered-list__item {
     margin-inline-start: 0;
     padding-inline-start: 0;
@@ -63,6 +79,7 @@ $list: null !default;
   list-style: none;
   padding-inline-start: 0;
 
+  // stylelint-disable-next-line no-descending-specificity
   > .ecl-unordered-list__item {
     border-bottom: 1px solid map.get($list, 'divider-color');
     margin-bottom: map.get($theme, 'spacing', 'm');
@@ -80,13 +97,9 @@ $list: null !default;
 
     .ecl-unordered-list__item {
       list-style-type: none;
+      padding-inline-start: map.get($theme, 'spacing', 'xs');
     }
   }
-}
-
-.ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: 0;
 }
 
 .ecl-unordered-list
