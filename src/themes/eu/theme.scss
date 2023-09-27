@@ -42,14 +42,6 @@ $theme: (
   z-index: index.$z-index,
 );
 
-.ecl-button--secondary:focus-visible {
-  box-shadow: 0 0 0 4px map.get($button, 'secondary-border-color') inset;
-}
-
-.ecl-link--secondary:focus-visible {
-  box-shadow: 0 0 0 4px map.get($link, 'secondary-border-color') inset;
-}
-
 .ecl-notification .ecl-notification__close {
   align-self: self-end;
   bottom: auto;
