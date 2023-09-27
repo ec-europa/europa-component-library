@@ -29,7 +29,7 @@ const getArgTypes = () => {
     description: 'Show border',
     table: {
       type: 'boolean',
-      defaultValue: { summary: true },
+      defaultValue: { summary: false },
       category: 'Optional',
     },
   };
@@ -39,7 +39,6 @@ const getArgTypes = () => {
     description: 'Show image',
     table: {
       type: 'boolean',
-      defaultValue: { summary: true },
       category: 'Optional',
     },
   };
@@ -49,7 +48,6 @@ const getArgTypes = () => {
     description: 'Show description',
     table: {
       type: 'boolean',
-      defaultValue: { summary: true },
       category: 'Optional',
     },
   };
@@ -59,7 +57,6 @@ const getArgTypes = () => {
     description: 'Show links list',
     table: {
       type: 'boolean',
-      defaultValue: { summary: true },
       category: 'Optional',
     },
   };

@@ -28,10 +28,15 @@ $expandable: null !default;
 .ecl-expandable__content {
   color: map.get($expandable, 'content-color');
   font-family: #{map.get($theme, 'font-family', 'default')};
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: map.get($expandable, 'content-margin');
+  padding-inline-start: map.get($expandable, 'content-padding');
 
   > *:first-child {
     margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
   }
 }
 
