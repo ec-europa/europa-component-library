@@ -77,7 +77,9 @@
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-fact-figures/fact-figures-print';
-@use '@ecl/vanilla-component-file/file-print';
+@use '@ecl/vanilla-component-file/file-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
 @use '@ecl/vanilla-component-media-container/media-container-print';
 @use '@ecl/vanilla-component-modal/modal-print';
