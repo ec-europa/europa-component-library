@@ -3,6 +3,7 @@
 The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 - [Style modifications](#style-modifications)
+- [Component modifications](#component-modifications)
 
 ## Style modifications
 
@@ -245,17 +246,4 @@ You can edit them in your custom theme, and recompile ECL css by running the com
 
 #### Using CSS variables
 
-[To be updated]
-
-Each component exposes a set of CSS variables. By default, these variables are filled by the value coming from the SASS variable.
-
-You can overrive one or more CSS variable by calling a custom CSS anywhere after the ECL one.
-
-Example:
-
-```
-root: {
-  --ecl-link-color: red;
-  --ecl-link-color-hover: green;
-}
-```
+[To be done]
