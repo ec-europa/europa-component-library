@@ -1,9 +1,66 @@
-@forward '@ecl/theme-dev/maps/shape' with (
-  $shadow-color: #09318e,
-  $border-radius: (
-    's': 2px,
-    'm': 4px,
-    'l': 6px,
-    'xl': 8px,
-  )
-);
+@use 'sass:map';
+
+$border-radius: (
+  's': 2px,
+  'm': 4px,
+  'l': 6px,
+  'xl': 8px,
+) !default;
+$shadow-color: #09318e !default;
+$shadow: (
+  '1': #{0 2px 4px rgba($shadow-color, 0.08),
+  0 0 10px rgba($shadow-color, 0.04),
+  0 4px 5px rgba($shadow-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-color, 0.04)},
+  '2': #{0 3px 5px rgba($shadow-color, 0.04),
+  0 0 18px rgba($shadow-color, 0.04),
+  0 6px 10px rgba($shadow-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-color, 0.04)},
+  '3': #{0 7px 8px rgba($shadow-color, 0.08),
+  0 0 22px rgba($shadow-color, 0.04),
+  0 12px 17px rgba($shadow-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-color, 0.04)},
+  '4': #{0 11px 15px rgba($shadow-color, 0.08),
+  0 9px 46px rgba($shadow-color, 0.04),
+  0 24px 38px rgba($shadow-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-color, 0.04)},
+) !default;
+$shadow-inner: (
+  '1': #{0 2px 4px rgba($shadow-color, 0.08) inset,
+  0 0 10px rgba($shadow-color, 0.04) inset,
+  0 4px 5px rgba($shadow-color, 0.04) inset,
+  0 #{-4px} 4px rgba($shadow-color, 0.04) inset},
+  '2': #{0 3px 5px rgba($shadow-color, 0.04) inset,
+  0 0 18px rgba($shadow-color, 0.04) inset,
+  0 6px 10px rgba($shadow-color, 0.04) inset,
+  0 #{-4px} 4px rgba($shadow-color, 0.04) inset},
+) !default;
+$shadow-negative-color: #fff !default;
+$shadow-negative: (
+  '1': #{0 2px 4px rgba($shadow-negative-color, 0.08),
+  0 0 10px rgba($shadow-negative-color, 0.04),
+  0 4px 5px rgba($shadow-negative-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-negative-color, 0.04)},
+  '2': #{0 3px 5px rgba($shadow-negative-color, 0.04),
+  0 0 18px rgba($shadow-negative-color, 0.04),
+  0 6px 10px rgba($shadow-negative-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-negative-color, 0.04)},
+  '3': #{0 7px 8px rgba($shadow-negative-color, 0.08),
+  0 0 22px rgba($shadow-negative-color, 0.04),
+  0 12px 17px rgba($shadow-negative-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-negative-color, 0.04)},
+  '4': #{0 11px 15px rgba($shadow-color, 0.08),
+  0 9px 46px rgba($shadow-color, 0.04),
+  0 24px 38px rgba($shadow-color, 0.04),
+  0 #{-4px} 4px rgba($shadow-color, 0.04)},
+) !default;
+$shadow-negative-inner: (
+  '1': #{0 2px 4px rgba($shadow-negative-color, 0.08) inset,
+  0 0 10px rgba($shadow-negative-color, 0.04) inset,
+  0 4px 5px rgba($shadow-negative-color, 0.04) inset,
+  0 #{-4px} 4px rgba($shadow-negative-color, 0.04) inset},
+  '2': #{0 3px 5px rgba($shadow-negative-color, 0.04) inset,
+  0 0 18px rgba($shadow-negative-color, 0.04) inset,
+  0 6px 10px rgba($shadow-negative-color, 0.04) inset,
+  0 #{-4px} 4px rgba($shadow-negative-color, 0.04) inset},
+) !default;
