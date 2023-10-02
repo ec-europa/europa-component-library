@@ -5,6 +5,5 @@ module.exports = {
       alt: 'Jean Monnet banner',
     },
   },
-  description: `Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
-    @Copyright`,
+  description: `Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing<br />@Copyright`,
 };
