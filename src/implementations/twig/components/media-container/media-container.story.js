@@ -25,17 +25,17 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {
     show_description: {
-      name: 'description',
+      name: 'caption',
       type: { name: 'boolean' },
-      description: 'Show the description',
+      description: 'Show the caption',
       table: {
         category: 'Optional',
       },
     },
     description: {
-      name: 'description',
+      name: 'caption content',
       type: 'string',
-      description: 'Media description',
+      description: 'Media caption',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
