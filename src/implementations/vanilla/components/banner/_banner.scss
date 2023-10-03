@@ -230,11 +230,53 @@ $banner: null !default;
         map.get($theme, 'spacing', 'xs');
       width: 100%;
     }
+
+    .ecl-banner__description {
+      padding-top: 0;
+    }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
+    padding-inline-start: map.get($theme, 'spacing', '2xl');
+    padding-inline-end: map.get($theme, 'spacing', '2xl');
+  }
+
+  .ecl-banner__container {
+    padding-bottom: map.get($theme, 'spacing', '2xl');
+    padding-top: map.get($theme, 'spacing', '2xl');
+  }
+
+  .ecl-banner__title {
+    font: map.get($banner, 'font', 'title', 'desktop');
+    font-weight: map.get($banner, 'font-weight', 'title');
+  }
+
+  .ecl-banner__description {
+    font: map.get($banner, 'font', 'description', 'desktop');
+    font-weight: map.get($banner, 'font-weight', 'description');
   }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-banner .ecl-container {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
+    padding-inline-start: map.get($theme, 'spacing', 'm');
+    padding-inline-end: map.get($theme, 'spacing', 'm');
+  }
+
+  .ecl-banner__container {
+    padding-bottom: map.get($theme, 'spacing', 'm');
+    padding-top: map.get($theme, 'spacing', 'm');
+  }
+
   // medium banner - ratio 4:1
   .ecl-banner,
   .ecl-banner--m {
@@ -259,11 +301,6 @@ $banner: null !default;
     --css-aspect-ratio: 3/1;
   }
 
-  .ecl-banner .ecl-container {
-    position: absolute;
-    z-index: 1;
-  }
-
   .ecl-banner__content {
     max-width: map.get($banner, 'content-width');
   }
@@ -283,16 +320,6 @@ $banner: null !default;
     &.ecl-banner--l::before {
       padding-top: 33%;
     }
-  }
-
-  .ecl-banner__title {
-    font: map.get($banner, 'font', 'title', 'desktop');
-    font-weight: map.get($banner, 'font-weight', 'title');
-  }
-
-  .ecl-banner__description {
-    font: map.get($banner, 'font', 'description', 'desktop');
-    font-weight: map.get($banner, 'font-weight', 'description');
   }
 
   .ecl-banner__picture-container {

@@ -68,6 +68,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - The picture and the banner credit are now wrapper in a container `ecl-banner__picture-container` to handle the new position of the credit text.
 - Three variants only: `plain-background`, `text-overlay` (replacing text-hightlight) and `text-box`, the `image-overlay` one doesn't exist anymore.
+- Default display is now left, instead of centered. If you wish to have the banner centered, set the `centered` parameter to true
 
 ### Breadcrumb
 

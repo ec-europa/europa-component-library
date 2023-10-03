@@ -9,7 +9,7 @@
   - "picture" (associative array) (default: {}): Image for the banner, following ECL Picture structure
   - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
-  - "centered" (bool) (default: true) Define if banner should be centered
+  - "centered" (bool) (default: false) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (associative array) (default: predefined structure) predefined structure for the Link component
   - "extra_classes" (optional) (string) (default: '')
@@ -25,7 +25,7 @@
 {% set _picture = picture|default({}) %}
 {% set _variant = variant|default('plain-background') %}
 {% set _size = size|default('m') %}
-{% set _centered = centered ?? true %}
+{% set _centered = centered ?? false %}
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}

@@ -20,7 +20,7 @@ const getArgs = (data) => {
     title: data.title,
     description: data.description,
     label: data.link.link.label,
-    centered: data.centered,
+    left: !data.centered,
     full_width: false,
     gridContent: false,
   };
@@ -82,7 +82,8 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    centered: {
+    left: {
+      name: 'left aligned',
       type: 'boolean',
       description: 'Whether the content of the banner is centered or not',
       table: {
@@ -182,7 +183,7 @@ const prepareData = (data, args) => {
   data.size = args.size;
   data.title = args.title;
   data.description = args.description;
-  data.centered = args.centered;
+  data.centered = !args.left;
   data.full_width = args.full_width;
 
   if (data.picture) {
