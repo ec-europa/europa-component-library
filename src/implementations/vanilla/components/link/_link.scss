@@ -208,6 +208,10 @@ $link: null !default;
 
 .ecl-link--secondary {
   @include link-button(secondary);
+
+  &:focus-visible {
+    box-shadow: map.get($link, 'secondary', 'focus-shadow');
+  }
 }
 
 .ecl-link--cta {

@@ -114,3 +114,27 @@ $notification: null !default;
     fill: map.get($notification, 'error', 'color');
   }
 }
+
+@if map-has-key($notification, 'close-override') {
+  .ecl-notification .ecl-notification__close {
+    align-self: self-end;
+    bottom: auto;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-row-start: 3;
+    justify-self: end;
+    margin-bottom: map.get($notification, 'close-offset');
+  }
+
+  @include breakpoints.up('m') {
+    .ecl-notification .ecl-notification__close {
+      align-self: self-start;
+      grid-column-start: 2;
+      grid-row-end: span 2;
+      grid-row-start: 1;
+      margin-bottom: 0;
+      margin-top: map.get($notification, 'close-offset');
+      top: auto;
+    }
+  }
+}
