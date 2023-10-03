@@ -16,11 +16,11 @@ module.exports = {
   invalid: false,
   input: {
     input_type: 'file',
+    id: 'example-file-upload-multiple',
+    name: 'file-upload-name',
     button_choose_label: 'Choose files',
     button_replace_label: 'Replace files',
-    id: 'example-file-upload-multiple',
     multiple: true,
-    name: 'file-upload-name',
     required: true,
   },
 };
