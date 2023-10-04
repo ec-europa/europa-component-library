@@ -14,7 +14,6 @@ $search-form: null !default;
 // Internal variables
 $button-border-width: 1px;
 $button-padding-horizontal: map.get($theme, 'spacing', 'm');
-$button-padding-vertical: map.get($theme, 'spacing', 'xs');
 
 .ecl-search-form {
   background-color: map.get($theme, 'color', 'white');
@@ -53,13 +52,19 @@ $button-padding-vertical: map.get($theme, 'spacing', 'xs');
   border-top: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
-  padding: calc(#{$button-padding-vertical} - #{$button-border-width})
+  padding: calc(
+      #{map.get($search-form, 'button-padding-vertical')} - #{$button-border-width}
+    )
     calc(#{$button-padding-horizontal} - #{$button-border-width});
   position: relative;
 
+  &.ecl-button--ghost:not(:hover, :focus-visible) {
+    background-color: map.get($theme, 'color', 'white');
+  }
+
   &:focus-visible {
     border-width: 2px;
-    padding: calc(#{$button-padding-vertical} - 2px)
+    padding: calc(#{map.get($search-form, 'button-padding-vertical')} - 2px)
       calc(#{$button-padding-horizontal} - 2px);
   }
 
@@ -70,7 +75,7 @@ $button-padding-vertical: map.get($theme, 'spacing', 'xs');
     height: map.get($theme, 'line-height', 'm');
     left: -1px;
     position: absolute;
-    top: $button-padding-vertical;
+    top: map.get($search-form, 'button-padding-vertical');
     width: 1px;
   }
 }

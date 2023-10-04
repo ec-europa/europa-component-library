@@ -583,6 +583,7 @@ $form-group: (
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-80),
+  button-padding-vertical: map.get($spacing, 'xs'),
   separator-color: var(--ecl-color-dark-80),
 );
 
@@ -738,6 +739,9 @@ $site-header: (
     shadow: map.get($shadow, '12'),
     shadow-size: 12px,
     arrow-size: 1rem,
+    arrow-top: 1px,
+    arrow-border: 1px solid var(--ecl-color-neutral-60),
+    arrow-shadow: none,
     header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
     header-font: map.get($font, 'xl'),
     header-separator: none,

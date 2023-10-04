@@ -588,6 +588,7 @@ $form-group: (
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-80),
+  button-padding-vertical: map.get($spacing, 's'),
   separator-color: transparent,
 );
 
@@ -701,6 +702,9 @@ $site-header: (
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     shadow-size: 6px,
     arrow-size: 1rem,
+    arrow-top: 0,
+    arrow-border: none,
+    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     header-padding: map.get($spacing, 'm') map.get($spacing, 's')
       map.get($spacing, 'm') map.get($spacing, 'l'),
     header-font: map.get($font-prolonged, 'l'),
