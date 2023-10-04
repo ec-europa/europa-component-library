@@ -16,19 +16,25 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
-  padding-inline-start: map.get($theme, 'spacing', 's');
+  padding-inline-start: map.get($theme, 'spacing', '3xl');
 }
 
 .ecl-ordered-list .ecl-ordered-list,
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
   margin-top: map.get($theme, 'spacing', 'xs');
-  padding-inline-start: map.get($theme, 'spacing', '2xs');
+  padding-inline-start: calc(
+    map.get($theme, 'spacing', '3xl') - #{map.get($theme, 'spacing', 'l')} - #{map.get(
+        $theme,
+        'spacing',
+        '2xs'
+      )}
+  );
 }
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
-  margin-inline-start: map.get($theme, 'spacing', 's');
+  margin-inline-start: map.get($theme, 'spacing', 'l');
   margin-top: map.get($theme, 'spacing', 'm');
   max-width: 80ch;
   padding-inline-start: map.get($theme, 'spacing', '2xs');
@@ -49,7 +55,6 @@ $list: null !default;
 
   .ecl-ordered-list {
     list-style-type: none;
-    padding-inline-start: map.get($theme, 'spacing', 's');
   }
 
   > .ecl-ordered-list__item {
@@ -76,8 +81,6 @@ $list: null !default;
   }
 
   .ecl-ordered-list {
-    padding-inline-start: map.get($theme, 'spacing', 's');
-
     .ecl-ordered-list__item {
       list-style-type: none;
     }

@@ -50,7 +50,9 @@
 @use '@ecl/vanilla-component-spinner/spinner-print';
 @use '@ecl/vanilla-component-table/table-print';
 @use '@ecl/vanilla-component-tabs/tabs-print';
-@use '@ecl/vanilla-component-tag/tag-print';
+@use '@ecl/vanilla-component-tag/tag-print' with (
+  $theme: theme.$theme
+);
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-print-eu';
@@ -75,7 +77,9 @@
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-fact-figures/fact-figures-print';
-@use '@ecl/vanilla-component-file/file-print';
+@use '@ecl/vanilla-component-file/file-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
 @use '@ecl/vanilla-component-media-container/media-container-print';
 @use '@ecl/vanilla-component-modal/modal-print';
@@ -95,7 +99,10 @@
 @use '@ecl/vanilla-component-search-form/search-form-print';
 @use '@ecl/vanilla-component-social-media-follow/social-media-follow-print';
 @use '@ecl/vanilla-component-social-media-share/social-media-share-print';
-@use '@ecl/vanilla-component-timeline/timeline-print-eu';
+@use '@ecl/vanilla-component-timeline/timeline-print' with (
+  $theme: theme.$theme,
+  $timeline-print: var.$timeline-print
+);
 
 // Organisms
 @use '@ecl/vanilla-component-accordion/accordion-print' with (

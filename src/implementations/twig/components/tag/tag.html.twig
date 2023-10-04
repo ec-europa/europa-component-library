@@ -33,15 +33,13 @@
 {% endif %}
 
 {% set _css_class = 'ecl-tag' %}
-{% if _tag.type == 'removable' or _tag.type == 'display' %}
-  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _tag.type %}
-{% endif %}
 {% set _extra_attributes = '' %}
 {% set _default_icon_path = default_icon_path|default('') %}
 
 {# Add extra class for removable tag #}
 
 {% if _tag.type == 'removable' %}
+  {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
   {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
   {% endif %}
@@ -65,7 +63,17 @@
 
 {# Print the result #}
 
-{% if _tag.type == 'link' %}
+{% if _tag.type == 'removable' %}
+  <button type="button" aria-label="Dismiss" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+    {{- _tag.label -}}
+    <span class="ecl-tag__icon">
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: { name: 'close-outline', size: 'xs', path: _default_icon_path },
+        extra_classes: 'ecl-tag__icon-close',
+      } only %}
+    </span>
+  </button>
+{% else %}
   <a href="{{ _tag.path }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
     {%- if _tag.external -%}
@@ -79,20 +87,6 @@
       } only -%}
     {%- endif -%}
   </a>
-{% elseif _tag.type == 'removable' %}
-  <button type="button" aria-label="Dismiss" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-    {{- _tag.label -}}
-    <span class="ecl-tag__icon">
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'close', size: 'xs', path: _default_icon_path },
-        extra_classes: 'ecl-tag__icon-close',
-      } only %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'close-filled', size: 'xs', path: _default_icon_path },
-        extra_classes: 'ecl-tag__icon-close-filled',
-      } only %}
-    </span>
-  </button>
 {% endif %}
 
 {% endapply %}

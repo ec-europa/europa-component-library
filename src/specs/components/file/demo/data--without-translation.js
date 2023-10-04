@@ -3,7 +3,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   title: 'State of the Union 2018 brochure',
-  detail_meta: ['Resource type', 'Publication date'],
+  detail_meta: ['META INFO', 'DD Month YYYY'],
   language: 'English',
   meta: '(16.2 MB - PDF)',
   icon: {
