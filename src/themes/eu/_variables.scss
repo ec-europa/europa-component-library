@@ -588,7 +588,8 @@ $form-group: (
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-80),
-  button-padding-vertical: map.get($spacing, 's'),
+  button-padding-vertical-mobile: calc(#{map.get($spacing, 's')} + 2px),
+  button-padding-vertical-desktop: map.get($spacing, 's'),
   separator-color: transparent,
 );
 

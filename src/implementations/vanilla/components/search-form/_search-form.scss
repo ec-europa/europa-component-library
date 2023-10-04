@@ -53,7 +53,7 @@ $button-padding-horizontal: map.get($theme, 'spacing', 'm');
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
   padding: calc(
-      #{map.get($search-form, 'button-padding-vertical')} - #{$button-border-width}
+      #{map.get($search-form, 'button-padding-vertical-mobile')} - #{$button-border-width}
     )
     calc(#{$button-padding-horizontal} - #{$button-border-width});
   position: relative;
@@ -64,8 +64,17 @@ $button-padding-horizontal: map.get($theme, 'spacing', 'm');
 
   &:focus-visible {
     border-width: 2px;
-    padding: calc(#{map.get($search-form, 'button-padding-vertical')} - 2px)
+    padding: calc(
+        #{map.get($search-form, 'button-padding-vertical-mobile')} - 2px
+      )
       calc(#{$button-padding-horizontal} - 2px);
+  }
+
+  &:hover {
+    padding: calc(
+        #{map.get($search-form, 'button-padding-vertical-mobile')} - #{$button-border-width}
+      )
+      calc(#{$button-padding-horizontal} - #{$button-border-width});
   }
 
   &::before {
@@ -75,7 +84,7 @@ $button-padding-horizontal: map.get($theme, 'spacing', 'm');
     height: map.get($theme, 'line-height', 'm');
     left: -1px;
     position: absolute;
-    top: map.get($search-form, 'button-padding-vertical');
+    top: map.get($theme, 'spacing', 'xs');
     width: 1px;
   }
 }
@@ -99,5 +108,30 @@ $button-padding-horizontal: map.get($theme, 'spacing', 'm');
 
   .ecl-search-form__button .ecl-button__icon {
     margin-inline-end: map.get($theme, 'spacing', 'xs');
+  }
+
+  .ecl-search-form__button {
+    padding: calc(
+        #{map.get($search-form, 'button-padding-vertical-desktop')} - #{$button-border-width}
+      )
+      calc(#{$button-padding-horizontal} - #{$button-border-width});
+
+    &:focus-visible {
+      padding: calc(
+          #{map.get($search-form, 'button-padding-vertical-desktop')} - 2px
+        )
+        calc(#{$button-padding-horizontal} - 2px);
+    }
+
+    &:hover {
+      padding: calc(
+          #{map.get($search-form, 'button-padding-vertical-desktop')} - #{$button-border-width}
+        )
+        calc(#{$button-padding-horizontal} - #{$button-border-width});
+    }
+
+    &::before {
+      top: map.get($search-form, 'button-padding-vertical-desktop');
+    }
   }
 }
