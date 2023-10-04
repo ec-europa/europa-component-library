@@ -16,6 +16,7 @@ $file-upload: null !default;
 
 .ecl-file-upload__button-container {
   display: block;
+  margin-top: map.get($theme, 'spacing', 'xs');
 
   .no-js & {
     display: none;
