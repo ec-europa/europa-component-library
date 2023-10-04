@@ -69,7 +69,10 @@
 @use '@ecl/vanilla-component-skip-link/skip-link';
 @use '@ecl/vanilla-component-table/table-ec';
 @use '@ecl/vanilla-component-tabs/tabs-ec';
-@use '@ecl/vanilla-component-tag/tag-ec';
+@use '@ecl/vanilla-component-tag/tag' with (
+  $theme: theme.$theme,
+  $tag: var.$tag
+);
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner-ec';
@@ -100,7 +103,10 @@
   $expandable: var.$expandable
 );
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
-@use '@ecl/vanilla-component-file/file-ec';
+@use '@ecl/vanilla-component-file/file' with (
+  $theme: theme.$theme,
+  $file: var.$file
+);
 @use '@ecl/vanilla-component-rating-field/rating-field' with (
   $theme: theme.$theme,
   $rating-field: var.$rating-field
@@ -127,7 +133,10 @@
 );
 @use '@ecl/vanilla-component-social-media-follow/social-media-follow-ec';
 @use '@ecl/vanilla-component-social-media-share/social-media-share-ec';
-@use '@ecl/vanilla-component-timeline/timeline-ec';
+@use '@ecl/vanilla-component-timeline/timeline' with (
+  $theme: theme.$theme,
+  $timeline: var.$timeline
+);
 
 // Organisms
 @use '@ecl/vanilla-component-accordion/accordion-ec' with (

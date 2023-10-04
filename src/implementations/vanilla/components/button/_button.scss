@@ -135,6 +135,10 @@ $size-icon-only: calc(
 .ecl-button--secondary,
 %ecl-button {
   @include button(secondary);
+
+  &:focus-visible {
+    box-shadow: map.get($button, 'secondary', 'focus-shadow');
+  }
 }
 // stylelint-enable plugin/selector-bem-pattern
 

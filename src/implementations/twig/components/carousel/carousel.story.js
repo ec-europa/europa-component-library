@@ -90,8 +90,8 @@ const prepareData = (data, args) => {
   return data;
 };
 
-const renderStory = (data, args) => {
-  let story = carousel(prepareData(correctPaths(data), args));
+const renderStory = async (data, args) => {
+  let story = await carousel(prepareData(correctPaths(data), args));
   if (
     args.width === 'inside the grid container' ||
     args.width === 'inside the grid container, with fullwidth class'

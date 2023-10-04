@@ -111,6 +111,7 @@ $button: (
     color-focus: map.get($color, 'white'),
     border-color-focus: var(--ecl-color-primary-160),
     outline-color: map.get($color, 'white'),
+    focus-shadow: none,
   ),
   cta: (
     background: var(--ecl-color-secondary-80),
@@ -223,42 +224,46 @@ $content-item: (
 
 // Date Block
 $date-block: (
-  background-color-cancelled: var(--ecl-color-neutral-80),
-  background-color-default: var(--ecl-color-accent),
-  background-color-ongoing: var(--ecl-color-accent),
-  background-color-past: var(--ecl-color-neutral-80),
-  background-color-year: var(--ecl-color-dark),
+  background-color-cancelled: var(--ecl-color-neutral-60),
+  background-color-default: map.get($color, 'white'),
+  background-color-ongoing: map.get($color, 'white'),
+  background-color-past: var(--ecl-color-neutral-60),
+  outline-color-cancelled: transparent,
+  outline-color-default: var(--ecl-color-dark),
+  outline-color-ongoing: var(--ecl-color-dark),
+  outline-color-past: transparent,
   border-radius: 0,
   circle-width: 10px,
-  day-line-height: 90%,
-  day-text-size: calc(#{map.get($font-size, 'xl')} - 2px),
-  height-mobile: auto,
-  height-desktop: auto,
   max-height: 5.75rem,
-  month-line-height: calc(#{map.get($line-height, '2xs')} - 4px),
-  month-text-size: map.get($font-size, 'xs'),
-  padding-day-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
-    map.get($spacing, '2xs'),
-  padding-day-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
-    map.get($spacing, '2xs'),
-  padding-month-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
-  padding-month-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
   padding-top: map.get($spacing, 'xs'),
-  padding-year-desktop: 0,
-  padding-year-mobile: 0,
-  past-border: none,
-  separator-color: transparent,
-  separator-color-past: transparent,
   shadow: none,
   shadow-decoration: none,
   text-color: var(--ecl-color-dark),
   text-color-inverted: var(--ecl-color-dark),
-  text-color-year: map.get($color, 'white'),
   text-white-space: nowrap,
   width-desktop: 5rem,
   width-mobile: 5rem,
-  year-border: none,
-  year-weight: map.get($font-weight, 'bold'),
+  day: (
+    padding-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
+      map.get($spacing, '2xs'),
+    padding-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
+      map.get($spacing, '2xs'),
+    line-height: 20px,
+    text-size: map.get($font-size, 'xl'),
+  ),
+  month: (
+    padding-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+    padding-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+    line-height: 12px,
+    text-size: 14px,
+  ),
+  year: (
+    padding-mobile: 0,
+    padding-desktop: 0,
+    weight: map.get($font-weight, 'bold'),
+    background-color: var(--ecl-color-dark),
+    text-color: map.get($color, 'white'),
+  ),
 );
 
 // Description list
@@ -282,9 +287,75 @@ $description-list-print: (
 // Expandable
 $expandable: (
   content-color: var(--ecl-color-dark),
+  content-margin: map.get($spacing, 's'),
+  content-padding: map.get($spacing, 'm'),
   toggle-background-active: var(--ecl-color-neutral),
   toggle-border-active: var(--ecl-color-neutral),
   toggle-color-active: var(--ecl-color-dark),
+);
+
+// File download
+$file: (
+  border-radius: map.get($border-radius, 's'),
+  border-color: var(--ecl-color-dark),
+  shadow: map.get($shadow, '1'),
+  container-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0,
+  container-spacing-last: map.get($spacing, 'xl'),
+  file-icon-align-self: start,
+  file-info-margin-left: map.get($spacing, 'xl'),
+  file-color: var(--ecl-color-dark),
+  file-detail-padding-bottom: map.get($spacing, 'm'),
+  file-download-spacing-mobile: map.get($spacing, 'xs'),
+  file-download-spacing-desktop: map.get($spacing, 'xs'),
+  file-detail-meta-color: var(--ecl-color-dark),
+  file-detail-flex-direction: row,
+  file-description-color: var(--ecl-color-dark),
+  file-description-font: map.get($font, 'm'),
+  file-download-position: absolute,
+  file-download-position-top: auto,
+  file-footer-border: 1px solid var(--ecl-color-neutral-60),
+  file-footer-flex-direction: column,
+  file-footer-padding: map.get($spacing, 'm') 0,
+  file-footer-margin: 0 map.get($spacing, 'xl') 0
+    calc(#{map.get($spacing, 'xl')} * 2 + #{map.get($icon, '2xl')}),
+  file-thumbnail-footer-padding: map.get($spacing, 'm') 0,
+  file-picture-order-desktop: 1,
+  file-picture-order-mobile: 1,
+  file-label-spacing: map.get($spacing, 'xl'),
+  file-meta-font: map.get($font, 'm'),
+  file-meta-margin: map.get($spacing, '2xs'),
+  file-spacing: map.get($spacing, 'm'),
+  file-spacing-last-child: 0,
+  file-thumbnail-container-padding: map.get($spacing, 'xl'),
+  file-thumbnail-footer-margin: 0 map.get($spacing, 'xl'),
+  file-thumbnail-download-top-position: auto,
+  file-thumbnail-meta-margin: map.get($spacing, '2xs'),
+  file-taxonomy-spacing: map.get($spacing, 'xl') 0 0,
+  file-translation-border: none,
+  file-translation-toggle-margin: map.get($spacing, 'm'),
+  file-translation-background: var(--ecl-color-neutral-40),
+  file-translation-detail-margin-bottom: 0,
+  file-translation-item-padding-h: map.get($spacing, 'xl'),
+  file-translation-meta-spacing: 0,
+  file-translation-meta-font: map.get($font, 'm'),
+  file-translation-download-alignment: flex-start,
+  file-translation-title-margin-bottom: 0,
+  file-translation-first-item-border: 1px,
+  file-translation-first-item-padding: 1rem,
+  file-translation-item-margin: 0,
+  file-translation-toggle-background: transparent,
+  file-translation-toggle-border: 0,
+  file-image-margin-left: map.get($spacing, 'xl'),
+  file-image-margin-right: 0,
+  file-language-font: map.get($font, 'm'),
+  container-background: map.get($color, 'white'),
+  container-border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  icon-color: var(--ecl-color-dark),
+  translation-border-color: var(--ecl-color-neutral-60),
+  image-width: 13.125rem,
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
 );
 
 // Label
@@ -372,6 +443,7 @@ $link: (
     border-color-active: var(--ecl-color-primary-160),
     border-color-focus: var(--ecl-color-primary-160),
     outline-color: map.get($color, 'white'),
+    focus-shadow: none,
   ),
   cta: (
     background: var(--ecl-color-secondary-80),
@@ -711,6 +783,23 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Tag
+$tag: (
+  padding: map.get($spacing, '2xs') map.get($spacing, 's'),
+  border-radius: 12px,
+  color: var(--ecl-color-dark),
+  background-color: var(--ecl-color-primary-20),
+  color-hover: var(--ecl-color-dark),
+  background-color-hover: var(--ecl-color-primary-40),
+  color-focus: var(--ecl-color-dark),
+  background-color-focus: map.get($color, 'white'),
+  outline-color-focus: var(--ecl-color-primary),
+  outline-offset-focus: -2px,
+  color-active: var(--ecl-color-dark),
+  background-color-active: map.get($color, 'white'),
+  outline-color-active: var(--ecl-color-dark),
+);
+
 // Textarea
 $textarea: (
   background: map.get($color, 'white'),
@@ -728,6 +817,49 @@ $textarea: (
   shadow-hover: none,
   padding-horizontal: map.get($spacing, 'm'),
   padding-vertical: map.get($spacing, 'xs'),
+);
+
+// Timeline
+$timeline: (
+  border-color: var(--ecl-color-dark),
+  border-width: 0.125rem,
+  bullet-border-color: var(--ecl-color-secondary),
+  bullet-border-width: 0.25rem,
+  bullet-shadow: none,
+  bullet-top-position: 0.25rem,
+  content-big-font: map.get($font, 'm'),
+  content-font: map.get($font, 'm'),
+  content-color: var(--ecl-color-dark),
+  first-item-offset: map.get($spacing, '2xs'),
+  first-item-height: 100%,
+  item-padding-top: map.get($spacing, '2xs'),
+  label-alignment: right,
+  label-color: var(--ecl-color-dark),
+  label-big-font: map.get($font, 'l'),
+  label-font: map.get($font, 'l'),
+  label-font-weight: map.get($font-weight, 'bold'),
+  label-layout: absolute,
+  label-margin: 0,
+  left-spacing: 14rem,
+  last-item-height: map.get($spacing, '2xl'),
+  timeline-margin-left: map.get($spacing, 'xs') + 14rem + map.get($spacing, 'm'),
+  title-big-font: map.get($font, 'l'),
+  title-color: var(--ecl-color-dark),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: map.get($spacing, '2xs'),
+  toggle-bullet-border-color: var(--ecl-color-neutral),
+  bullet-fill-color: map.get($color, 'white-100'),
+  bullet-size: map.get($spacing, 's'),
+  toggle-bullet-border-width: 0.25rem,
+);
+$timeline-print: (
+  content-color: var(--ecl-color-dark-75),
+  content-font: map.get($font-print, 'm'),
+  label-color: var(--ecl-color-dark),
+  label-font: map.get($font-print, 'm'),
+  title-color: map.get($color, 'black'),
+  title-font: map.get($font-print, 'm'),
 );
 
 /**
