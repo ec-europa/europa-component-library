@@ -90,7 +90,7 @@ $rating-field: null !default;
 }
 
 .ecl-rating-field__input:focus + .ecl-rating-field__label {
-  background: var(--ecl-color-primary-20);
+  background: map.get($rating-field, 'focus-background');
   border-radius: 50%;
 }
 
