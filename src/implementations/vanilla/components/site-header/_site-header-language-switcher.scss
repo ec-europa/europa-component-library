@@ -12,7 +12,6 @@ $language-switcher: null !default;
 
 @mixin arrow-up {
   background-color: map.get($theme, 'color', 'white');
-  border: map.get($language-switcher, 'border');
   box-shadow: map.get($language-switcher, 'shadow');
   clip-path: polygon(
     -#{map.get($language-switcher, 'shadow-size')} -#{map.get(
