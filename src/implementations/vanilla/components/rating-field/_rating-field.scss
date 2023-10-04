@@ -89,6 +89,11 @@ $rating-field: null !default;
   position: relative;
 }
 
+.ecl-rating-field__input:focus + .ecl-rating-field__label {
+  background: var(--ecl-color-primary-20);
+  border-radius: 50%;
+}
+
 @include breakpoints.up('m') {
   .ecl-rating-field {
     .ecl-rating-field__input + .ecl-rating-field__label {
