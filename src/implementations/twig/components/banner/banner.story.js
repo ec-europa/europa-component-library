@@ -229,22 +229,6 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const PlainBackground = (_, { loaded: { component } }) => component;
-
-PlainBackground.render = async (args) => {
-  const renderedBannerPlain = await renderStory(
-    bannerDataPlainBackground,
-    args,
-  );
-  return renderedBannerPlain;
-};
-PlainBackground.storyName = 'plain background';
-PlainBackground.args = getArgs(bannerDataPlainBackground);
-PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
-PlainBackground.parameters = {
-  notes: { markdown: notes, json: bannerDataPlainBackground },
-};
-
 export const TextBox = (_, { loaded: { component } }) => component;
 
 TextBox.render = async (args) => {
@@ -267,4 +251,20 @@ TextOverlay.args = getArgs(bannerDataTextOverlay);
 TextOverlay.argTypes = getArgTypes(bannerDataTextOverlay);
 TextOverlay.parameters = {
   notes: { markdown: notes, json: bannerDataTextOverlay },
+};
+
+export const PlainBackground = (_, { loaded: { component } }) => component;
+
+PlainBackground.render = async (args) => {
+  const renderedBannerPlain = await renderStory(
+    bannerDataPlainBackground,
+    args,
+  );
+  return renderedBannerPlain;
+};
+PlainBackground.storyName = 'plain background';
+PlainBackground.args = getArgs(bannerDataPlainBackground);
+PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
+PlainBackground.parameters = {
+  notes: { markdown: notes, json: bannerDataPlainBackground },
 };
