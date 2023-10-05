@@ -144,28 +144,50 @@ $datepicker: null !default;
     text-align: center;
 
     &:hover {
-      border-radius: map.get($datepicker, 'picker-border-radius');
-      box-shadow: map.get($datepicker, 'picker-day-today-box-shadow');
+      background-color: map.get($datepicker, 'picker', 'day-hover-background');
+      border-radius: map.get($datepicker, 'picker', 'border-radius');
+      box-shadow: map.get($datepicker, 'picker', 'day-hover-shadow');
       color: map.get($datepicker, 'picker', 'theme-color');
+      font-weight: map.get($theme, 'font-weight', 'bold');
     }
   }
 
   .is-today .pika-button {
-    box-shadow: map.get($datepicker, 'picker-day-today-box-shadow');
+    position: relative;
+
+    &::before {
+      background-color: map.get(
+        $datepicker,
+        'picker',
+        'day-today-indicator-color'
+      );
+      border-radius: 2px;
+      bottom: 4px;
+      left: calc(50% - 2px);
+      content: '';
+      display: block;
+      height: 4px;
+      position: absolute;
+      width: 4px;
+    }
   }
 
   .is-selected .pika-button {
-    background-color: map.get($datepicker, 'picker-day-selected-background');
-    border-radius: map.get($datepicker, 'picker-border-radius');
+    background-color: map.get($datepicker, 'picker', 'day-selected-background');
+    border-radius: map.get($datepicker, 'picker', 'border-radius');
     box-shadow: none;
     color: map.get($theme, 'color', 'white');
-    font-weight: map.get($theme, 'font-weight', 'bold');
   }
 
   .is-outside-current-month .pika-button {
-    background-color: map.get($theme, 'color', 'grey-10');
-    color: map.get($datepicker, 'picker-day-disable-color');
+    background-color: map.get($datepicker, 'picker', 'day-outside-background');
+    color: map.get($datepicker, 'picker', 'day-outside-color');
     opacity: 1;
+
+    &:hover {
+      background-color: map.get($datepicker, 'picker', 'day-hover-background');
+      color: map.get($datepicker, 'picker', 'theme-color');
+    }
   }
 }
 
@@ -173,7 +195,7 @@ $datepicker: null !default;
 @include breakpoints.up('m') {
   .ecl-datepicker-theme.pika-single {
     .pika-lendar {
-      width: 20rem;
+      width: calc(21.25rem - 2 * #{map.get($datepicker, 'picker', 'padding')});
     }
   }
 }

@@ -268,7 +268,7 @@ $date-block: (
 
 // Datepicker
 $datepicker: (
-  input-icon-color: map.get($color, 'grey-75'),
+  input-icon-color: var(--ecl-color-dark-75),
   picker: (
     border-radius: 2px,
     shadow: map.get($shadow, '6'),
@@ -279,11 +279,13 @@ $datepicker: (
     title-padding: map.get($spacing, '2xs'),
     table-spacing: 0,
     thead-margin: map.get($spacing, '2xs'),
+    day-hover-background: var(--ecl-color-primary-20),
+    day-hover-shadow: inset 0 0 0 1px var(--ecl-color-dark-80),
+    day-selected-background: var(--ecl-color-primary),
+    day-outside-color: var(--ecl-color-dark-80),
+    day-outside-background: map.get($color, 'white'),
+    day-today-indicator-color: var(--ecl-color-dark),
   ),
-
-  picker-day-disable-color: map.get($color, 'grey'),
-  picker-day-today-box-shadow: inset 0 0 0 3px map.get($color, 'blue-25'),
-  picker-day-selected-background: map.get($color, 'blue'),
 );
 
 // Description list
