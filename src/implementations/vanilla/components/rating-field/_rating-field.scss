@@ -44,11 +44,9 @@ $rating-field: null !default;
 
     .ecl-rating-field__input:focus {
       + .ecl-rating-field__label {
-        @if map-has-key($rating-field, 'focus-circle') {
-          outline: none;
-        } @else {
-          outline: 2px solid var(--ecl-color-primary-100);
-        }
+        outline: 1px solid map.get($rating-field, 'focus-outline');
+        outline-offset: -1px;
+        border-radius: 50%;
       }
     }
   }
@@ -73,9 +71,14 @@ $rating-field: null !default;
 }
 
 .ecl-rating-field__label {
+  align-items: center;
   cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
   margin-inline-end: map.get($theme, 'spacing', 'xs');
   position: relative;
+  width: 32px;
 }
 
 .ecl-rating-field__icon-filled {
@@ -89,11 +92,6 @@ $rating-field: null !default;
   position: relative;
 }
 
-.ecl-rating-field__input:focus + .ecl-rating-field__label {
-  background: map.get($rating-field, 'focus-background');
-  border-radius: 50%;
-}
-
 @include breakpoints.up('m') {
   .ecl-rating-field {
     .ecl-rating-field__input + .ecl-rating-field__label {
@@ -105,5 +103,10 @@ $rating-field: null !default;
       width: 1.5rem;
       height: 1.5rem;
     }
+  }
+
+  .ecl-rating-field__label {
+    height: 28px;
+    width: 28px;
   }
 }
