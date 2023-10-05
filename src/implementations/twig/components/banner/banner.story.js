@@ -20,8 +20,8 @@ const getArgs = (data) => {
     title: data.title,
     description: data.description,
     label: data.link.link.label,
-    left: !data.centered,
-    full_width: false,
+    left: true,
+    full_width: true,
     gridContent: false,
   };
   if (data.picture) {
