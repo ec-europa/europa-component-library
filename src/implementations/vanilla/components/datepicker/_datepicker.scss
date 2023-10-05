@@ -136,9 +136,9 @@ $datepicker: null !default;
 
   .pika-button {
     background-color: map.get($theme, 'color', 'white');
-    border-radius: map.get($datepicker, 'picker-border-radius');
+    border-radius: map.get($datepicker, 'picker', 'border-radius');
     border-width: 0;
-    color: map.get($datepicker, 'picker-day-color');
+    color: map.get($datepicker, 'picker', 'theme-color');
     font: map.get($theme, 'font', 'm');
     padding: map.get($theme, 'spacing', 'xs');
     text-align: center;
@@ -146,7 +146,7 @@ $datepicker: null !default;
     &:hover {
       border-radius: map.get($datepicker, 'picker-border-radius');
       box-shadow: map.get($datepicker, 'picker-day-today-box-shadow');
-      color: map.get($datepicker, 'picker-day-color');
+      color: map.get($datepicker, 'picker', 'theme-color');
     }
   }
 
