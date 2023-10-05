@@ -262,15 +262,22 @@ $date-block: (
 // Datepicker
 $datepicker: (
   input-icon-color: map.get($color, 'grey-80'),
-  picker-background-color: map.get($color, 'blue-10'),
-  picker-table-background-color: map.get($color, 'blue-10'),
-  picker-border-radius: 4px,
-  picker-margin-top: map.get($spacing, 'm'),
+  picker: (
+    border-radius: 4px,
+    shadow: none,
+    theme-color: var(--ecl-color-dark-140),
+    margin-top: map.get($spacing, 'm'),
+    padding: 0,
+    background-color: var(--ecl-color-primary-10),
+    title-padding: map.get($spacing, 'xs'),
+    table-spacing: map.get($theme, 'spacing', '2xs'),
+    thead-margin: 0,
+  ),
+
   picker-day-color: map.get($color, 'grey-80'),
   picker-day-disable-color: map.get($color, 'grey-100'),
   picker-day-today-box-shadow: inset 0 0 0 2px map.get($color, 'blue-60'),
   picker-day-selected-background: map.get($color, 'blue-100'),
-  picker-theme-color: map.get($color, 'grey-140'),
 );
 
 // Description list

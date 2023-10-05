@@ -55,7 +55,7 @@ export class Datepicker {
           'Friday',
           'Saturday',
         ],
-        weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+        weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
       },
       showDaysInNextAndPreviousMonths = true,
       enableSelectionDaysInNextAndPreviousMonths = true,
@@ -111,13 +111,21 @@ export class Datepicker {
           window.innerWidth || 0,
         );
         const elRect = this.el.getBoundingClientRect();
-        const pickerMargin =
-          this.direction === 'rtl' ? vw - elRect.right : elRect.left;
 
-        if (vw < 768) {
-          this.el.style.width = 'auto';
-          this.el.style.left = `${pickerMargin}px`;
-          this.el.style.right = `${pickerMargin}px`;
+        if (this.direction === 'rtl') {
+          const pickerMargin = vw - elRect.right;
+          if (vw < 768) {
+            this.el.style.left = `${pickerMargin}px`;
+          } else {
+            this.el.style.left = 'auto';
+          }
+        } else {
+          const pickerMargin = elRect.left;
+          if (vw < 768) {
+            this.el.style.right = `${pickerMargin}px`;
+          } else {
+            this.el.style.right = 'auto';
+          }
         }
       },
     });

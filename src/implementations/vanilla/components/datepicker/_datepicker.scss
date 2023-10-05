@@ -44,20 +44,18 @@ $datepicker: null !default;
   * pikaday styling
   */
 .ecl-datepicker-theme.pika-single {
-  border-radius: map.get($datepicker, 'picker-border-radius');
+  border-radius: map.get($datepicker, 'picker', 'border-radius');
   border-width: 0;
-  color: map.get($datepicker, 'picker-theme-color');
+  box-shadow: map.get($datepicker, 'picker', 'shadow');
+  color: map.get($datepicker, 'picker', 'theme-color');
   font: map.get($theme, 'font', 'm');
-  margin-top: map.get($datepicker, 'picker-margin-top');
+  margin-top: map.get($datepicker, 'picker', 'margin-top');
   overflow: hidden;
+  padding: map.get($datepicker, 'picker', 'padding');
   width: auto;
 
-  &.is-bound {
-    box-shadow: none;
-  }
-
   .pika-lendar {
-    background-color: map.get($datepicker, 'picker-background-color');
+    background-color: map.get($datepicker, 'picker', 'background-color');
     margin: 0;
     width: 100%;
   }
@@ -65,20 +63,21 @@ $datepicker: null !default;
   .pika-title {
     background-color: map.get($theme, 'color', 'white');
     display: flex;
-    padding-bottom: map.get($theme, 'spacing', 'xs');
+    padding-bottom: map.get($datepicker, 'picker', 'title-padding');
   }
 
   .pika-label {
     align-items: center;
-    background-color: map.get($datepicker, 'picker-background-color');
-    color: map.get($datepicker, 'picker-theme-color');
+    background-color: map.get($datepicker, 'picker', 'background-color');
+    color: map.get($datepicker, 'picker', 'theme-color');
     display: flex;
+    flex-basis: 50%;
     flex-grow: 1;
     font: map.get($theme, 'font', 'm');
+    font-weight: map.get($theme, 'font-weight', 'bold');
     justify-content: space-between;
     margin-inline-end: map.get($theme, 'spacing', '2xs');
     padding: map.get($theme, 'spacing', 's') map.get($theme, 'spacing', 'm');
-    width: 50%;
 
     &:last-of-type {
       margin-inline-end: 0;
@@ -86,11 +85,12 @@ $datepicker: null !default;
   }
 
   .pika-label::after {
-    border: solid map.get($theme, 'color', 'grey');
+    border: solid map.get($datepicker, 'picker', 'theme-color');
     border-width: 0 2px 2px 0;
     content: '';
     display: inline-block;
-    padding: 3px;
+    margin-top: -6px;
+    padding: 4px;
     transform: rotate(45deg);
   }
 
@@ -107,34 +107,30 @@ $datepicker: null !default;
   }
 
   .pika-table {
-    background-color: map.get($datepicker, 'picker-table-background-color');
+    background-color: map.get($datepicker, 'picker', 'background-color');
     border-collapse: initial;
-    border-spacing: map.get($theme, 'spacing', '2xs');
+    border-spacing: map.get($datepicker, 'picker', 'table-spacing');
 
     thead {
       background-color: transparent;
-      display: table-header-group;
     }
 
     th {
-      color: map.get($datepicker, 'picker-theme-color');
+      color: map.get($datepicker, 'picker', 'theme-color');
       font: map.get($theme, 'font', 'm');
       padding: map.get($theme, 'spacing', 'xs') 0;
-      text-align: center;
-    }
-
-    td {
-      border-width: 0;
-      display: table-cell;
-      padding: 0;
-
-      &::before {
-        content: initial;
-      }
+      text-transform: uppercase;
     }
 
     abbr {
       text-decoration: none;
+    }
+
+    tbody::before {
+      background-color: transparent;
+      content: '';
+      display: block;
+      height: map.get($datepicker, 'picker', 'thead-margin');
     }
   }
 
@@ -144,7 +140,7 @@ $datepicker: null !default;
     border-width: 0;
     color: map.get($datepicker, 'picker-day-color');
     font: map.get($theme, 'font', 'm');
-    padding: map.get($theme, 'spacing', 's');
+    padding: map.get($theme, 'spacing', 'xs');
     text-align: center;
 
     &:hover {
@@ -178,10 +174,6 @@ $datepicker: null !default;
   .ecl-datepicker-theme.pika-single {
     .pika-lendar {
       width: 20rem;
-    }
-
-    .pika-button {
-      padding: map.get($theme, 'spacing', 'xs');
     }
   }
 }
