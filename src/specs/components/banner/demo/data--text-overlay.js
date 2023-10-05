@@ -26,5 +26,6 @@ module.exports = {
   },
   credit: '© Copyright',
   variant: 'text-overlay',
-  centered: true,
+  centered: false,
+  full_width: true,
 };

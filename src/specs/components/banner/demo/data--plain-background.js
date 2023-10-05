@@ -19,5 +19,6 @@ module.exports = {
     },
   },
   variant: 'plain-background',
-  centered: true,
+  centered: false,
+  full_width: true,
 };
