@@ -76,7 +76,6 @@ $rating-field: null !default;
   display: flex;
   height: 32px;
   justify-content: center;
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
   position: relative;
   width: 32px;
 }
@@ -96,10 +95,6 @@ $rating-field: null !default;
 
 @include breakpoints.up('m') {
   .ecl-rating-field {
-    .ecl-rating-field__input + .ecl-rating-field__label {
-      margin-inline-end: map.get($theme, 'spacing', '2xs');
-    }
-
     .ecl-rating-field__icon-filled,
     .ecl-rating-field__icon-outline {
       width: 1.5rem;
