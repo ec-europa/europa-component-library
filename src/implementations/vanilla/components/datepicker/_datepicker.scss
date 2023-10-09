@@ -92,7 +92,7 @@ $datepicker: null !default;
     font: map.get($theme, 'font', 'm');
     justify-content: space-between;
     margin-inline-end: map.get($theme, 'spacing', 'xs');
-    padding: map.get($theme, 'spacing', 's') map.get($theme, 'spacing', 'm');
+    padding: map.get($theme, 'spacing', 'xs') map.get($theme, 'spacing', 'm');
 
     &:last-of-type {
       margin-inline-end: 0;
@@ -168,14 +168,11 @@ $datepicker: null !default;
   }
 
   .is-today .pika-button {
+    color: map.get($datepicker, 'picker', 'day-today-color');
     position: relative;
 
     &::before {
-      background-color: map.get(
-        $datepicker,
-        'picker',
-        'day-today-indicator-color'
-      );
+      background-color: map.get($datepicker, 'picker', 'day-today-color');
       border-radius: 2px;
       bottom: 4px;
       left: calc(50% - 10px);
@@ -184,6 +181,14 @@ $datepicker: null !default;
       height: 2px;
       position: absolute;
       width: 20px;
+    }
+  }
+
+  .is-today .pika-button:hover {
+    color: map.get($datepicker, 'picker', 'theme-color');
+
+    &::before {
+      background-color: map.get($datepicker, 'picker', 'theme-color');
     }
   }
 
