@@ -111,6 +111,7 @@ $button: (
     color-focus: map.get($color, 'white'),
     border-color-focus: var(--ecl-color-primary-160),
     outline-color: map.get($color, 'white'),
+    focus-shadow: none,
   ),
   cta: (
     background: var(--ecl-color-secondary-80),
@@ -293,6 +294,70 @@ $expandable: (
   toggle-color-active: var(--ecl-color-dark),
 );
 
+// File download
+$file: (
+  border-radius: map.get($border-radius, 's'),
+  border-color: var(--ecl-color-dark),
+  shadow: map.get($shadow, '1'),
+  container-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0,
+  container-spacing-last: map.get($spacing, 'xl'),
+  file-icon-align-self: start,
+  file-info-margin-left: map.get($spacing, 'xl'),
+  file-color: var(--ecl-color-dark),
+  file-detail-padding-bottom: map.get($spacing, 'm'),
+  file-download-spacing-mobile: map.get($spacing, 'xs'),
+  file-download-spacing-desktop: map.get($spacing, 'xs'),
+  file-detail-meta-color: var(--ecl-color-dark),
+  file-detail-flex-direction: row,
+  file-description-color: var(--ecl-color-dark),
+  file-description-font: map.get($font, 'm'),
+  file-download-position: absolute,
+  file-download-position-top: auto,
+  file-footer-border: 1px solid var(--ecl-color-neutral-60),
+  file-footer-flex-direction: column,
+  file-footer-padding: map.get($spacing, 'm') 0,
+  file-footer-margin: 0 map.get($spacing, 'xl') 0
+    calc(#{map.get($spacing, 'xl')} * 2 + #{map.get($icon, '2xl')}),
+  file-thumbnail-footer-padding: map.get($spacing, 'm') 0,
+  file-picture-order-desktop: 1,
+  file-picture-order-mobile: 1,
+  file-label-spacing: map.get($spacing, 'xl'),
+  file-meta-font: map.get($font, 'm'),
+  file-meta-margin: map.get($spacing, '2xs'),
+  file-spacing: map.get($spacing, 'm'),
+  file-spacing-last-child: 0,
+  file-thumbnail-container-padding: map.get($spacing, 'xl'),
+  file-thumbnail-footer-margin: 0 map.get($spacing, 'xl'),
+  file-thumbnail-download-top-position: auto,
+  file-thumbnail-meta-margin: map.get($spacing, '2xs'),
+  file-taxonomy-spacing: map.get($spacing, 'xl') 0 0,
+  file-translation-border: none,
+  file-translation-toggle-margin: map.get($spacing, 'm'),
+  file-translation-background: var(--ecl-color-neutral-40),
+  file-translation-detail-margin-bottom: 0,
+  file-translation-item-padding-h: map.get($spacing, 'xl'),
+  file-translation-meta-spacing: 0,
+  file-translation-meta-font: map.get($font, 'm'),
+  file-translation-download-alignment: flex-start,
+  file-translation-title-margin-bottom: 0,
+  file-translation-first-item-border: 1px,
+  file-translation-first-item-padding: 1rem,
+  file-translation-item-margin: 0,
+  file-translation-toggle-background: transparent,
+  file-translation-toggle-border: 0,
+  file-image-margin-left: map.get($spacing, 'xl'),
+  file-image-margin-right: 0,
+  file-language-font: map.get($font, 'm'),
+  container-background: map.get($color, 'white'),
+  container-border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  icon-color: var(--ecl-color-dark),
+  translation-border-color: var(--ecl-color-neutral-60),
+  image-width: 13.125rem,
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+);
+
 // Label
 $label: (
   radius: 2px,
@@ -378,6 +443,7 @@ $link: (
     border-color-active: var(--ecl-color-primary-160),
     border-color-focus: var(--ecl-color-primary-160),
     outline-color: map.get($color, 'white'),
+    focus-shadow: none,
   ),
   cta: (
     background: var(--ecl-color-secondary-80),
@@ -661,6 +727,16 @@ $range: (
   outline-offset: 0,
 );
 /* stylelint-enable scss/no-global-function-names */
+
+// Rating field
+$rating-field: (
+  checked-color: var(--ecl-color-secondary-100),
+  stroke-color: var(--ecl-color-dark-100),
+  hover-stroke-color: var(--ecl-color-primary),
+  checked-hover-color: var(--ecl-color-secondary-140),
+  checked-focus-stroke: var(--ecl-color-dark-100),
+  focus-outline: var(--ecl-color-dark),
+);
 
 // Site footer
 $site-footer: (

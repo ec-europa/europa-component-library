@@ -22,12 +22,11 @@ module.exports = {
   },
   translation: {
     toggle: {
-      label: 'Other languages (3)',
+      label: 'Translations (3)',
       icon: {
         path: '/icons.svg',
       },
     },
-    description: `Looking for another language which is not on the list? <a href="${exampleLink}" class="ecl-link">Find out why</a>.`,
     items: [
       {
         title: 'български',

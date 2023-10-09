@@ -1,30 +1,34 @@
 module.exports = {
   items: [
     {
-      label: 'Jobs, growth and investment',
+      label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       nested: [
         {
-          label: 'Investment Plan for Europe: the Juncker Plan',
+          label:
+            'Duis commodo nibh eget magna tincidunt, in volutpat diam consequat. Nulla in blandit leo. Quisque ultricies molestie porta',
         },
         {
-          label: 'European Semester',
+          label: 'Phasellus suscipit eu augue nec suscipit',
         },
       ],
     },
     {
-      label: 'Digital single market',
+      label:
+        'Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit. Suspendisse tellus lorem, aliquam at ante quis, dignissim iaculis lectus. Duis pellentesque neque faucibus convallis scelerisque',
     },
     {
-      label: 'Energy union and climate',
+      label:
+        'Vestibulum sed accumsan ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae',
       nested: [
         {
-          label: 'Security, solidarity and trust',
+          label: 'Morbi vitae tortor accumsan',
         },
         {
-          label: 'A fully-integrated internal energy market',
+          label: 'Nulla facilisi',
         },
         {
-          label: 'Energy efficiency',
+          label:
+            'Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus',
         },
       ],
     },
