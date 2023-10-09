@@ -285,6 +285,18 @@ $expandable: (
   toggle-color-active: var(--ecl-color-primary),
 );
 
+// Fact and figures
+$fact-figures: (
+  border: 0,
+  border-radius: 8px,
+  text-color: map.get($color, 'grey-80'),
+  value-font-mobile: map.get($font, '5xl'),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: map.get($font, '6xl'),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  view-all-border-color: map.get($color, 'blue-20'),
+);
+
 // File download
 $file: (
   border-color: var(--ecl-primary-20),
