@@ -3,6 +3,7 @@
 The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 - [Style modifications](#style-modifications)
+- [Component modifications](#component-modifications)
 
 ## Style modifications
 
@@ -92,6 +93,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Button is now using variant `ghost`, instead of `secondary`
 
+### File
+
+- File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating
+  this link and the one in the download button, they should be used alternatively.
+
 ### Form group
 
 - Icon for invalid form input has been reduced on EC (`s` instead of `m`)
@@ -166,6 +172,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
 - Wrapper `ecl-page-header__title-container` has been removed
 
+### Rating field
+
+- Size of the icon is now `l` instead of `m`, it is resized in desktop viewports via css.
+
 ### Search form
 
 - Icon in the search button is now placed before the label
@@ -211,6 +221,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   ...
 ]`
 
+### Tag
+
+- Icon used in removable tag is now `close-outline`
+
 ## Custom theme
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
@@ -247,17 +261,4 @@ You can edit them in your custom theme, and recompile ECL css by running the com
 
 #### Using CSS variables
 
-[To be updated]
-
-Each component exposes a set of CSS variables. By default, these variables are filled by the value coming from the SASS variable.
-
-You can overrive one or more CSS variable by calling a custom CSS anywhere after the ECL one.
-
-Example:
-
-```
-root: {
-  --ecl-link-color: red;
-  --ecl-link-color-hover: green;
-}
-```
+[To be done]

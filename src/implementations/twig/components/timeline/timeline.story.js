@@ -82,10 +82,10 @@ const prepareData = (data, args) => {
 };
 
 // Prepare dummy Html for the main content.
-const prepareHtmlContent = (args) => {
-  let story = timeline(prepareData(demoData, args));
+const prepareHtmlContent = async (args) => {
+  let story = await timeline(prepareData(demoData, args));
   if (args.showDummyContent) {
-    story += `<p class="ecl-u-type-paragraph-m">${loremIpsum({
+    story += `<p class="ecl-u-type-paragraph-m ecl-u-mt-none">${loremIpsum({
       count: 25,
     })}</p>`;
   }

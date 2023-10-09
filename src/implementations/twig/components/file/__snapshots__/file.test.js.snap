@@ -10,69 +10,70 @@ exports[`File Thumbnail renders correctly 1`] = `
     <div
       class="ecl-file__container"
     >
-      <div
-        class="ecl-file__detail"
+      <picture
+        class="ecl-picture ecl-file__picture"
       >
-        <div
-          class="ecl-file__detail-info"
-        >
-          <div
-            class="ecl-file__label"
-          >
-            <span
-              class="ecl-label ecl-label--highlight"
-            >
-              highlighted
-            </span>
-          </div>
-          <div
-            class="ecl-file__detail-meta"
-          >
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Resource type
-            </span>
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Publication date
-            </span>
-          </div>
-          <div
-            class="ecl-file__title"
-          >
-            State of the Union 2018 brochure
-          </div>
-          <div
-            class="ecl-file__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
-          </div>
-        </div>
-        <picture
-          class="ecl-picture ecl-file__picture"
-        >
-          <img
-            alt="thumbnail alt"
-            class="ecl-file__image"
-            src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-          />
-        </picture>
-      </div>
+        <img
+          alt="thumbnail alt"
+          class="ecl-file__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-file__info"
       >
         <div
-          class="ecl-file__language"
+          class="ecl-file__label"
         >
-          English
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlighted
+          </span>
         </div>
         <div
-          class="ecl-file__meta"
+          class="ecl-file__detail-meta"
         >
-          (16.2 MB - PDF)
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            META INFO
+          </span>
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            DD Month YYYY
+          </span>
         </div>
+        <div
+          class="ecl-file__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            State of the Union 2018 brochure
+          </a>
+        </div>
+        <div
+          class="ecl-file__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -132,28 +133,13 @@ exports[`File Thumbnail renders correctly 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="bg"
             >
               Title bg
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="bg"
-            >
-              Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -188,28 +174,13 @@ exports[`File Thumbnail renders correctly 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="es"
             >
               Title es
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="es"
-            >
-              Proin sagittis nisi hendrerit purus porta.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -244,28 +215,13 @@ exports[`File Thumbnail renders correctly 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="fr"
             >
               Title fr
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="fr"
-            >
-              Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -295,18 +251,6 @@ exports[`File Thumbnail renders correctly 1`] = `
               />
             </svg>
           </a>
-        </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="#"
-          >
-            Find out why
-          </a>
-          .
         </li>
       </ul>
     </div>
@@ -325,91 +269,102 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
       class="ecl-file__container"
     >
       <div
-        class="ecl-file__detail"
-      >
-        <div
-          class="ecl-file__detail-info"
-        >
-          <div
-            class="ecl-file__label"
-          >
-            <span
-              class="ecl-label ecl-label--highlight"
-            >
-              highlighted
-            </span>
-          </div>
-          <div
-            class="ecl-file__detail-meta"
-          >
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Resource type
-            </span>
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Publication date
-            </span>
-          </div>
-          <div
-            class="ecl-file__title"
-          >
-            State of the Union 2018 brochure
-          </div>
-          <div
-            class="ecl-file__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
-          </div>
-        </div>
-      </div>
-      <div
-        class="ecl-file__taxonomy"
-      >
-        <dl
-          class="ecl-description-list ecl-description-list--horizontal"
-        >
-          <dt
-            class="ecl-description-list__term"
-          >
-            Taxonomy list
-          </dt>
-          <dd
-            class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-          >
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
-          </dd>
-        </dl>
-      </div>
-      <div
         class="ecl-file__info"
       >
         <div
-          class="ecl-file__language"
+          class="ecl-file__label"
         >
-          English
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlighted
+          </span>
         </div>
         <div
-          class="ecl-file__meta"
+          class="ecl-file__detail-meta"
         >
-          (16.2 MB - PDF)
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            META INFO
+          </span>
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            DD Month YYYY
+          </span>
         </div>
+        <div
+          class="ecl-file__title"
+        >
+          State of the Union 2018 brochure
+        </div>
+        <div
+          class="ecl-file__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+        </div>
+        <div
+          class="ecl-file__taxonomy"
+        >
+          <dl
+            class="ecl-description-list"
+          >
+            <dt
+              class="ecl-description-list__term"
+            >
+              Taxonomy list
+            </dt>
+            <dd
+              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
+            >
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 4
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 5
+              </span>
+              <span
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 6
+              </span>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -448,7 +403,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
             class="ecl-button__label"
             data-ecl-label="true"
           >
-            Other languages (3)
+            Translations (3)
           </span>
           <svg
             aria-hidden="true"
@@ -469,28 +424,13 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="bg"
             >
               Title bg
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="bg"
-            >
-              Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -525,28 +465,13 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="es"
             >
               Title es
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="es"
-            >
-              Proin sagittis nisi hendrerit purus porta.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -581,28 +506,13 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="fr"
             >
               Title fr
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="fr"
-            >
-              Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -632,18 +542,6 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               />
             </svg>
           </a>
-        </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="#"
-          >
-            Find out why
-          </a>
-          .
         </li>
       </ul>
     </div>
@@ -662,59 +560,60 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
       class="ecl-file__container"
     >
       <div
-        class="ecl-file__detail"
-      >
-        <div
-          class="ecl-file__detail-info"
-        >
-          <div
-            class="ecl-file__label"
-          >
-            <span
-              class="ecl-label ecl-label--highlight"
-            >
-              highlighted
-            </span>
-          </div>
-          <div
-            class="ecl-file__detail-meta"
-          >
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Resource type
-            </span>
-            <span
-              class="ecl-file__detail-meta-item"
-            >
-              Publication date
-            </span>
-          </div>
-          <div
-            class="ecl-file__title"
-          >
-            State of the Union 2018 brochure
-          </div>
-          <div
-            class="ecl-file__description"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
-          </div>
-        </div>
-      </div>
-      <div
         class="ecl-file__info"
       >
         <div
-          class="ecl-file__language"
+          class="ecl-file__label"
         >
-          English
+          <span
+            class="ecl-label ecl-label--highlight"
+          >
+            highlighted
+          </span>
         </div>
         <div
-          class="ecl-file__meta"
+          class="ecl-file__detail-meta"
         >
-          (16.2 MB - PDF)
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            META INFO
+          </span>
+          <span
+            class="ecl-file__detail-meta-item"
+          >
+            DD Month YYYY
+          </span>
         </div>
+        <div
+          class="ecl-file__title"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            State of the Union 2018 brochure
+          </a>
+        </div>
+        <div
+          class="ecl-file__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -774,28 +673,13 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="bg"
             >
               Title bg
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="bg"
-            >
-              Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -830,28 +714,13 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="es"
             >
               Title es
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="es"
-            >
-              Proin sagittis nisi hendrerit purus porta.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -886,28 +755,13 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           class="ecl-file__translation-item"
         >
           <div
-            class="ecl-file__translation-detail"
+            class="ecl-file__translation-info"
           >
             <div
               class="ecl-file__translation-title"
               lang="fr"
             >
               Title fr
-            </div>
-            <div
-              class="ecl-file__translation-description"
-              lang="fr"
-            >
-              Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.
-            </div>
-          </div>
-          <div
-            class="ecl-file__translation-info"
-          >
-            <div
-              class="ecl-file__translation-language"
-            >
-              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -937,18 +791,6 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               />
             </svg>
           </a>
-        </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="#"
-          >
-            Find out why
-          </a>
-          .
         </li>
       </ul>
     </div>
@@ -983,16 +825,20 @@ exports[`File With translation renders correctly 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1031,7 +877,7 @@ exports[`File With translation renders correctly 1`] = `
             class="ecl-button__label"
             data-ecl-label="true"
           >
-            Other languages (3)
+            Translations (3)
           </span>
           <svg
             aria-hidden="true"
@@ -1170,18 +1016,6 @@ exports[`File With translation renders correctly 1`] = `
               />
             </svg>
           </a>
-        </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="/example"
-          >
-            Find out why
-          </a>
-          .
         </li>
       </ul>
     </div>
@@ -1218,16 +1052,20 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1266,7 +1104,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
             class="ecl-button__label"
             data-ecl-label="true"
           >
-            Other languages (3)
+            Translations (3)
           </span>
           <svg
             aria-hidden="true"
@@ -1405,18 +1243,6 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
               />
             </svg>
           </a>
-        </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="/example"
-          >
-            Find out why
-          </a>
-          .
         </li>
       </ul>
     </div>
@@ -1451,16 +1277,20 @@ exports[`File With translation renders correctly with extra class names 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1499,7 +1329,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             class="ecl-button__label"
             data-ecl-label="true"
           >
-            Other languages (3)
+            Translations (3)
           </span>
           <svg
             aria-hidden="true"
@@ -1639,18 +1469,6 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             </svg>
           </a>
         </li>
-        <li
-          class="ecl-file__translation-item ecl-file__translation-description"
-        >
-          Looking for another language which is not on the list? 
-          <a
-            class="ecl-link"
-            href="/example"
-          >
-            Find out why
-          </a>
-          .
-        </li>
       </ul>
     </div>
   </div>
@@ -1684,12 +1502,12 @@ exports[`File Without translation renders correctly 1`] = `
           <span
             class="ecl-file__detail-meta-item"
           >
-            Resource type
+            META INFO
           </span>
           <span
             class="ecl-file__detail-meta-item"
           >
-            Publication date
+            DD Month YYYY
           </span>
         </div>
         <div
@@ -1697,16 +1515,20 @@ exports[`File Without translation renders correctly 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1769,12 +1591,12 @@ exports[`File Without translation renders correctly with a single label 1`] = `
           <span
             class="ecl-file__detail-meta-item"
           >
-            Resource type
+            META INFO
           </span>
           <span
             class="ecl-file__detail-meta-item"
           >
-            Publication date
+            DD Month YYYY
           </span>
         </div>
         <div
@@ -1782,16 +1604,20 @@ exports[`File Without translation renders correctly with a single label 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1847,12 +1673,12 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
           <span
             class="ecl-file__detail-meta-item"
           >
-            Resource type
+            META INFO
           </span>
           <span
             class="ecl-file__detail-meta-item"
           >
-            Publication date
+            DD Month YYYY
           </span>
         </div>
         <div
@@ -1860,16 +1686,20 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -1923,12 +1753,12 @@ exports[`File Without translation renders correctly with extra class names 1`] =
           <span
             class="ecl-file__detail-meta-item"
           >
-            Resource type
+            META INFO
           </span>
           <span
             class="ecl-file__detail-meta-item"
           >
-            Publication date
+            DD Month YYYY
           </span>
         </div>
         <div
@@ -1936,16 +1766,20 @@ exports[`File Without translation renders correctly with extra class names 1`] =
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"
@@ -2017,12 +1851,12 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
           <span
             class="ecl-file__detail-meta-item"
           >
-            Resource type
+            META INFO
           </span>
           <span
             class="ecl-file__detail-meta-item"
           >
-            Publication date
+            DD Month YYYY
           </span>
         </div>
         <div
@@ -2030,16 +1864,20 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
         >
           State of the Union 2018 brochure
         </div>
-        <div
-          class="ecl-file__language"
-        >
-          English
-        </div>
-        <div
-          class="ecl-file__meta"
-        >
-          (16.2 MB - PDF)
-        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
       </div>
       <a
         aria-label="Download file State of the Union 2018 brochure"

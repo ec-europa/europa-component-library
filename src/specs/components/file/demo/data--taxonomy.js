@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  detail_meta: ['Resource type', 'Publication date'],
+  detail_meta: ['META INFO', 'DD Month YYYY'],
   variant: 'thumbnail',
   title: 'State of the Union 2018 brochure',
   description:
@@ -30,13 +30,11 @@ module.exports = {
   },
   translation: {
     toggle: {
-      label: 'Other languages (3)',
+      label: 'Translations (3)',
       icon: {
         path: '/icons.svg',
       },
     },
-    description:
-      'Looking for another language which is not on the list? <a href="#" class="ecl-link">Find out why</a>.',
     items: [
       {
         title: 'Title bg',
@@ -99,12 +97,18 @@ module.exports = {
   },
   lists: [
     {
-      variant: 'horizontal',
       items: [
         {
           term: 'Taxonomy list',
           type: 'taxonomy',
-          definition: ['Taxonomy item 1', 'Taxonomy item 2', 'Taxonomy item 3'],
+          definition: [
+            'Taxonomy item 1',
+            'Taxonomy item 2',
+            'Taxonomy item 3',
+            'Taxonomy item 4',
+            'Taxonomy item 5',
+            'Taxonomy item 6',
+          ],
         },
       ],
     },
