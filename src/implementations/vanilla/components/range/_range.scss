@@ -33,7 +33,7 @@ $range: null !default;
 }
 
 // Add the slider size to calculate margin
-.ecl-form-group {
+.ecl-form-group[data-ecl-range] {
   .ecl-range {
     margin: calc(
         -#{map.get($range, 'touch-area')} +

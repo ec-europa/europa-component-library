@@ -14,10 +14,12 @@ $datepicker: null !default;
   display: flex;
   margin: 0;
   position: relative;
+  width: 100%;
 }
 
 .ecl-datepicker__field.ecl-text-input {
   padding-inline-end: map.get($theme, 'spacing', '2xl');
+  width: 100%;
 }
 
 .ecl-datepicker__icon {
@@ -36,7 +38,19 @@ $datepicker: null !default;
 
 @include breakpoints.up('m') {
   .ecl-datepicker {
-    display: inline-flex;
+    width: map.get($theme, 'form-width', 's', 'breakpoint-m');
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-datepicker {
+    width: map.get($theme, 'form-width', 's', 'breakpoint-l');
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-datepicker {
+    width: map.get($theme, 'form-width', 's', 'breakpoint-xl');
   }
 }
 
@@ -69,14 +83,15 @@ $datepicker: null !default;
   .pika-label {
     align-items: center;
     background-color: map.get($datepicker, 'picker', 'background-color');
+    border: map.get($datepicker, 'picker', 'select-border');
+    border-radius: map.get($datepicker, 'picker', 'border-radius');
     color: map.get($datepicker, 'picker', 'theme-color');
     display: flex;
     flex-basis: 50%;
     flex-grow: 1;
     font: map.get($theme, 'font', 'm');
-    font-weight: map.get($theme, 'font-weight', 'bold');
     justify-content: space-between;
-    margin-inline-end: map.get($theme, 'spacing', '2xs');
+    margin-inline-end: map.get($theme, 'spacing', 'xs');
     padding: map.get($theme, 'spacing', 's') map.get($theme, 'spacing', 'm');
 
     &:last-of-type {
@@ -117,8 +132,8 @@ $datepicker: null !default;
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
-      font: map.get($theme, 'font', 'm');
-      padding: map.get($theme, 'spacing', 'xs') 0;
+      font: map.get($theme, 'font', 'xs');
+      padding: map.get($theme, 'spacing', 's') 0;
       text-transform: uppercase;
     }
 
@@ -163,12 +178,18 @@ $datepicker: null !default;
       );
       border-radius: 2px;
       bottom: 4px;
-      left: calc(50% - 2px);
+      left: calc(50% - 10px);
       content: '';
       display: block;
-      height: 4px;
+      height: 2px;
       position: absolute;
-      width: 4px;
+      width: 20px;
+    }
+  }
+
+  .is-today.is-selected .pika-button {
+    &::before {
+      background-color: map.get($theme, 'color', 'white');
     }
   }
 
