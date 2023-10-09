@@ -82,12 +82,14 @@ $rating-field: null !default;
 }
 
 .ecl-rating-field__icon-filled {
+  bottom: 1px;
   display: none;
   fill: map.get($rating-field, 'checked-color');
   position: relative;
 }
 
 .ecl-rating-field__icon-outline {
+  bottom: 1px;
   fill: map.get($rating-field, 'stroke-color');
   position: relative;
 }
