@@ -69,6 +69,7 @@ $breadcrumb: (
   last-link-color: var(--ecl-color-dark-80),
   icon-color: var(--ecl-color-dark-80),
   icon-spacing: map.get($spacing, 'xs'),
+  ghost-override: true,
   ellipsis: (
     background: var(--ecl-color-primary-5),
     background-hover: var(--ecl-color-primary-10),
@@ -115,6 +116,7 @@ $button: (
     color-focus: var(--ecl-color-primary),
     border-color-focus: var(--ecl-color-primary),
     outline-color: map.get($color, 'white'),
+    focus-shadow: 0 0 0 4px var(--ecl-color-primary) inset,
   ),
   cta: (
     background: var(--ecl-color-secondary),
@@ -159,6 +161,7 @@ $card: (
   border: none,
   border-bottom: none,
   body-padding: map.get($spacing, 'l'),
+  yellow-bar: true,
 );
 
 // Checkbox
@@ -435,6 +438,7 @@ $link: (
     color-focus: var(--ecl-color-primary),
     border-color-focus: var(--ecl-color-primary),
     outline-color: map.get($color, 'white'),
+    focus-shadow: 0 0 0 4px var(--ecl-color-primary) inset,
   ),
   cta: (
     background: var(--ecl-color-secondary),
@@ -635,6 +639,7 @@ $notification: (
   title-spacing: map.get($spacing, 'xs'),
   close-color: var(--ecl-color-primary),
   close-offset: calc(#{map.get($spacing, 's')} - #{map.get($spacing, 'm')}),
+  close-override: true,
   info: (
     background: var(--ecl-color-info-5),
     color: var(--ecl-color-info),
@@ -770,6 +775,16 @@ $radio: (
   outline: 2px,
   outline-color: var(--ecl-color-primary-100),
   outline-offset: 2px,
+);
+
+// Rating field
+$rating-field: (
+  checked-color: var(--ecl-color-secondary-100),
+  stroke-color: var(--ecl-color-dark-100),
+  hover-stroke-color: var(--ecl-color-primary-80),
+  checked-hover-color: var(--ecl-color-secondary-140),
+  checked-focus-stroke: var(--ecl-color-dark-100),
+  focus-outline: var(--ecl-color-primary-20),
 );
 
 // Site footer
