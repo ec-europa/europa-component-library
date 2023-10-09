@@ -20,6 +20,15 @@ describe('Picture', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with empty alt attribute', () => {
+      expect.assertions(1);
+
+      const dataEmptyAlt = JSON.parse(JSON.stringify(data));
+      dataEmptyAlt.picture.img.alt = '';
+
+      return expect(render(dataEmptyAlt)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
