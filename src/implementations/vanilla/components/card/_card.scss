@@ -36,4 +36,18 @@ $card: null !default;
 .ecl-card__body {
   padding: map.get($card, 'body-padding');
   position: relative;
+
+  @if map-has-key($card, 'yellow-bar') {
+    &::before {
+      background-color: var(--ecl-color-secondary);
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      content: '';
+      height: 4px;
+      left: map.get($theme, 'spacing', 'l');
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+  }
 }
