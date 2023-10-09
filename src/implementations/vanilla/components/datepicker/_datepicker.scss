@@ -193,6 +193,10 @@ $datepicker: null !default;
   }
 
   .is-today.is-selected .pika-button {
+    &:hover {
+      color: map.get($theme, 'color', 'white');
+    }
+
     &::before {
       background-color: map.get($theme, 'color', 'white');
     }
