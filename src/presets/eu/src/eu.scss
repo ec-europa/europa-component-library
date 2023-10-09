@@ -107,7 +107,10 @@
   $theme: theme.$theme,
   $file: var.$file
 );
-@use '@ecl/vanilla-component-rating-field/rating-field';
+@use '@ecl/vanilla-component-rating-field/rating-field' with (
+  $theme: theme.$theme,
+  $rating-field: var.$rating-field
+);
 @use '@ecl/vanilla-component-media-container/media-container-eu';
 @use '@ecl/vanilla-component-modal/modal-eu';
 @use '@ecl/vanilla-component-navigation-list/navigation-list' with (
