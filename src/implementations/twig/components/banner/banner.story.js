@@ -5,12 +5,12 @@ import { correctPaths } from '@ecl/story-utils';
 // Import data for demos
 import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
 import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
-import bannerDataImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
-import bannerDataTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
+import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
 const cta = { ...bannerDataPlainBackground.link };
+
 const getArgs = (data) => {
   const args = {
     show_title: true,
@@ -20,14 +20,14 @@ const getArgs = (data) => {
     title: data.title,
     description: data.description,
     label: data.link.link.label,
-    centered: data.centered,
-    width: 'outside',
+    left: true,
+    full_width: true,
     gridContent: false,
   };
   if (data.picture) {
-    args.image = data.picture.img.src || '';
     args.show_credit = true;
     args.credit = data.credit || '';
+    args.image = data.picture.img.src || '';
   }
 
   return args;
@@ -59,7 +59,6 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
-
     size: {
       name: 'banner size',
       type: 'select',
@@ -83,7 +82,8 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    centered: {
+    left: {
+      name: 'left aligned',
       type: 'boolean',
       description: 'Whether the content of the banner is centered or not',
       table: {
@@ -92,27 +92,17 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    width: {
-      name: 'width',
-      type: 'radio',
-      description: `The media container extends to the whole viewport by default when outside the grid,
-        if it's inside it can still be extended by adding class .ecl-banner--full-width`,
-      options: ['outside', 'container', 'inside'],
-      control: {
-        labels: {
-          outside: 'outside the grid container',
-          container: 'inside the grid container',
-          inside: 'inside the grid container, with fullwidth class',
-        },
-      },
+    full_width: {
+      name: 'full width',
+      type: 'boolean',
+      description: `Take the full width of the viewport when in a container`,
       mapping: {
-        outside: 'outside the grid container',
-        container: 'inside the grid container',
-        inside: 'inside the grid container, with fullwidth class',
+        0: false,
+        1: true,
       },
       table: {
-        type: { summary: 'radio' },
-        defaultValue: { summary: 'outside the grid container' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Display',
       },
     },
@@ -193,9 +183,8 @@ const prepareData = (data, args) => {
   data.size = args.size;
   data.title = args.title;
   data.description = args.description;
-  data.centered = args.centered;
-  data.full_width =
-    args.width === 'inside the grid container, with fullwidth class';
+  data.centered = !args.left;
+  data.full_width = args.full_width;
 
   if (data.picture) {
     data.image = args.image;
@@ -224,12 +213,8 @@ const prepareData = (data, args) => {
 
 const renderStory = async (data, args) => {
   let story = await banner(prepareData(data, args));
-  if (
-    args.width === 'inside the grid container' ||
-    args.width === 'inside the grid container, with fullwidth class'
-  ) {
-    story = `<div class="ecl-container">${story}</div>`;
-  }
+  story = `<div class="ecl-container">${story}</div>`;
+
   if (args.gridContent) {
     story +=
       '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
@@ -242,6 +227,30 @@ export default {
   title: 'Components/Banner',
   decorators: [withNotes, withCode],
   parameters: { layout: 'fullscreen' },
+};
+
+export const TextBox = (_, { loaded: { component } }) => component;
+
+TextBox.render = async (args) => {
+  const renderedBannerText = await renderStory(bannerDataTextBox, args);
+  return renderedBannerText;
+};
+TextBox.storyName = 'text box';
+TextBox.args = getArgs(bannerDataTextBox);
+TextBox.argTypes = getArgTypes(bannerDataTextBox);
+TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
+
+export const TextOverlay = (_, { loaded: { component } }) => component;
+
+TextOverlay.render = async (args) => {
+  const renderedBannerOverlay = await renderStory(bannerDataTextOverlay, args);
+  return renderedBannerOverlay;
+};
+TextOverlay.storyName = 'text overlay';
+TextOverlay.args = getArgs(bannerDataTextOverlay);
+TextOverlay.argTypes = getArgTypes(bannerDataTextOverlay);
+TextOverlay.parameters = {
+  notes: { markdown: notes, json: bannerDataTextOverlay },
 };
 
 export const PlainBackground = (_, { loaded: { component } }) => component;
@@ -258,47 +267,4 @@ PlainBackground.args = getArgs(bannerDataPlainBackground);
 PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
 PlainBackground.parameters = {
   notes: { markdown: notes, json: bannerDataPlainBackground },
-};
-
-export const TextBox = (_, { loaded: { component } }) => component;
-
-TextBox.render = async (args) => {
-  const renderedBannerText = await renderStory(bannerDataTextBox, args);
-  return renderedBannerText;
-};
-TextBox.storyName = 'text box';
-TextBox.args = getArgs(bannerDataTextBox);
-TextBox.argTypes = getArgTypes(bannerDataTextBox);
-TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
-
-export const TextHighlight = (_, { loaded: { component } }) => component;
-
-TextHighlight.render = async (args) => {
-  const renderedBannerHighlight = await renderStory(
-    bannerDataTextHighlight,
-    args,
-  );
-  return renderedBannerHighlight;
-};
-TextHighlight.storyName = 'text highlight';
-TextHighlight.args = getArgs(bannerDataTextHighlight);
-TextHighlight.argTypes = getArgTypes(bannerDataTextHighlight);
-TextHighlight.parameters = {
-  notes: { markdown: notes, json: bannerDataTextHighlight },
-};
-
-export const ImageOverlay = (_, { loaded: { component } }) => component;
-
-ImageOverlay.render = async (args) => {
-  const renderedBannerImageOverlay = await renderStory(
-    bannerDataImageOverlay,
-    args,
-  );
-  return renderedBannerImageOverlay;
-};
-ImageOverlay.storyName = 'image overlay';
-ImageOverlay.args = getArgs(bannerDataImageOverlay);
-ImageOverlay.argTypes = getArgTypes(bannerDataImageOverlay);
-ImageOverlay.parameters = {
-  notes: { markdown: notes, json: bannerDataImageOverlay },
 };

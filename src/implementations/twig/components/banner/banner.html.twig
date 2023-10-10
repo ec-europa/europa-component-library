@@ -9,7 +9,7 @@
   - "picture" (associative array) (default: {}): Image for the banner, following ECL Picture structure
   - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
-  - "centered" (bool) (default: true) Define if banner should be centered
+  - "centered" (bool) (default: false) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (associative array) (default: predefined structure) predefined structure for the Link component
   - "extra_classes" (optional) (string) (default: '')
@@ -21,11 +21,11 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-banner' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = 'data-ecl-banner data-ecl-auto-init="Banner"' %}
 {% set _picture = picture|default({}) %}
 {% set _variant = variant|default('plain-background') %}
 {% set _size = size|default('m') %}
-{% set _centered = centered ?? true %}
+{% set _centered = centered ?? false %}
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
 {% set _description = description|default('') %}
@@ -69,17 +69,23 @@
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {% if _picture.img is not empty and _variant != 'plain-background'  %}
-  {% include '@ecl/picture/picture.html.twig' with {
-    picture: _picture,
-    extra_classes: "ecl-banner__picture",
-    extra_image_classes: "ecl-banner__image",
-  } only %}
-{% endif %}
-{% if _credit is not empty and _variant != 'plain-background' %}
-  <div class="ecl-banner__credit">{{ _credit }}</div>
+  <div class="ecl-banner__picture-container">
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      extra_classes: 'ecl-banner__picture',
+      extra_image_classes: 'ecl-banner__image',
+      extra_attributes: [{ name: 'data-ecl-banner-image' }],
+    } only %}
+  {% if _credit is not empty and _variant != 'plain-background' %}
+    <div class="ecl-banner__credit">{{ _credit }}</div>
+  {% endif %}
+  </div>
 {% endif %}
   <div class="ecl-container">
-    <div class="ecl-banner__container">
+    <div
+      class="ecl-banner__container"
+      data-ecl-banner-container
+    >
     {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-banner__content">
         {% if _title is not empty %}
