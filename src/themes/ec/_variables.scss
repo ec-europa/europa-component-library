@@ -309,6 +309,29 @@ $date-block: (
   ),
 );
 
+// Datepicker
+$datepicker: (
+  input-icon-color: var(--ecl-color-dark-75),
+  picker: (
+    border-radius: 2px,
+    shadow: map.get($shadow, '6'),
+    theme-color: var(--ecl-color-dark),
+    margin-top: map.get($spacing, '2xs'),
+    padding: map.get($spacing, 'm'),
+    background-color: map.get($color, 'white'),
+    title-padding: map.get($spacing, '2xs'),
+    select-border: 1px solid var(--ecl-color-dark-80),
+    table-spacing: 0,
+    thead-margin: map.get($spacing, '2xs'),
+    day-hover-background: var(--ecl-color-primary-20),
+    day-hover-shadow: inset 0 0 0 1px var(--ecl-color-dark-80),
+    day-selected-background: var(--ecl-color-primary),
+    day-outside-color: var(--ecl-color-dark-80),
+    day-outside-background: map.get($color, 'white'),
+    day-today-color: var(--ecl-color-primary),
+  ),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),

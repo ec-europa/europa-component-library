@@ -16,7 +16,10 @@
   $theme: theme.$theme,
   $checkbox: var.$checkbox
 );
-@use '@ecl/vanilla-component-datepicker/datepicker-ec';
+@use '@ecl/vanilla-component-datepicker/datepicker' with (
+  $theme: theme.$theme,
+  $datepicker: var.$datepicker
+);
 @use '@ecl/vanilla-component-file-upload/file-upload-ec';
 @use '@ecl/vanilla-component-radio/radio' with (
   $theme: theme.$theme,
