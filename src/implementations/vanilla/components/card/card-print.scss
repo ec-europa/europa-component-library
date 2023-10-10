@@ -4,7 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-card {
   margin: 0;
@@ -14,5 +16,5 @@
 .ecl-card__image {
   max-height: 10cm;
   max-width: 100%;
-  margin-bottom: map.get(theme.$spacing-print, 's');
+  margin-bottom: map.get($theme, 'spacing-print', 's');
 }

@@ -13,4 +13,7 @@
     'xl': 1140px,
   )
 );
-@use '@ecl/vanilla-layout-grid/grid';
+@use '@ecl/theme-dev/theme' as theme;
+@use '@ecl/vanilla-layout-grid/grid' with (
+  $theme: theme.$theme
+);

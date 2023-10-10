@@ -2,6 +2,11 @@
 @use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/theme-ec/variables' as var;
 
+// Layout
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
+  $theme: theme.$theme
+);
+
 @use '@ecl/vanilla-component-blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,

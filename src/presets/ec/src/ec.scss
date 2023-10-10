@@ -5,7 +5,9 @@
 @use '@ecl/vanilla-component-icon/icon-ec';
 
 // Layout
-@use '@ecl/vanilla-layout-grid/grid';
+@use '@ecl/vanilla-layout-grid/grid' with (
+  $theme: theme.$theme
+);
 
 // Forms
 @use '@ecl/vanilla-component-form-group/form-group' with (
