@@ -287,14 +287,28 @@ $expandable: (
 
 // Fact and figures
 $fact-figures: (
-  border: 0,
+  background: var(--ecl-color-primary-5),
+  border: none,
   border-radius: 8px,
-  text-color: map.get($color, 'grey-80'),
+  padding-mobile: map.get($spacing, 'm'),
+  padding-desktop: map.get($spacing, 'xl'),
+  margin-vertical: map.get($spacing, 'xl'),
+  margin-horizontal: map.get($spacing, 'xl'),
+  text-color: var(--ecl-color-dark-80),
   value-font-mobile: map.get($font, '5xl'),
-  value-font-weight-mobile: map.get($font-weight, 'regular'),
   value-font-desktop: map.get($font, '6xl'),
-  value-font-weight-desktop: map.get($font-weight, 'regular'),
-  view-all-border-color: map.get($color, 'blue-20'),
+  title-font: map.get($font-prolonged, 'l'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-margin: map.get($spacing, 'xs'),
+  description-font: map.get($font-prolonged, 'm'),
+  description-margin: map.get($spacing, 'xs'),
+  view-all-font: map.get($font-prolonged, 'm'),
+  view-all-border-color: var(--ecl-color-primary-20),
+  view-all-margin: map.get($spacing, 'xl'),
+  view-all-padding-mobile: map.get($spacing, 'm'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'xs'),
 );
 
 // File download

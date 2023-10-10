@@ -11,17 +11,16 @@ $theme: null !default;
 $fact-figures: null !default;
 
 .ecl-fact-figures {
-  background-color: map.get($theme, 'color', 'blue-5');
+  background-color: map.get($fact-figures, 'background');
   border: map.get($fact-figures, 'border');
   border-radius: map.get($fact-figures, 'border-radius');
   margin: 0;
-  padding: map.get($theme, 'spacing', 'm');
+  padding: map.get($fact-figures, 'padding-mobile');
 }
 
 .ecl-fact-figures__item {
   color: map.get($fact-figures, 'text-color');
-  font: map.get($theme, 'font', 'm');
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-top: map.get($fact-figures, 'margin-vertical');
 
   &:first-of-type {
     margin-top: 0;
@@ -29,43 +28,42 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__icon {
-  color: map.get($theme, 'color', 'blue-100');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
+  color: map.get($fact-figures, 'icon-color');
+  margin-bottom: map.get($fact-figures, 'icon-margin');
 }
 
 .ecl-fact-figures__value {
   font: map.get($fact-figures, 'value-font-mobile');
-  font-weight: map.get($fact-figures, 'value-font-weight-mobile');
 }
 
 .ecl-fact-figures__title {
-  font: map.get($theme, 'font-prolonged', 'l');
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  font: map.get($fact-figures, 'title-font');
+  font-weight: map.get($fact-figures, 'title-font-weight');
+  margin-top: map.get($fact-figures, 'title-margin');
 }
 
 .ecl-fact-figures__description {
-  font: map.get($theme, 'font-prolonged', 'm');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  font: map.get($fact-figures, 'description-font');
+  margin-top: map.get($fact-figures, 'description-margin');
 }
 
 .ecl-fact-figures__view-all {
   border-top: 1px solid map.get($fact-figures, 'view-all-border-color');
-  font: map.get($theme, 'font-prolonged', 'm');
-  margin-top: map.get($theme, 'spacing', 'xl');
-  padding-top: map.get($theme, 'spacing', 'm');
+  font: map.get($fact-figures, 'view-all-font');
+  margin-top: map.get($fact-figures, 'view-all-margin');
+  padding-top: map.get($fact-figures, 'view-all-padding-mobile');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-fact-figures {
-    padding: map.get($theme, 'spacing', 'xl');
+    padding: map.get($fact-figures, 'padding-desktop');
   }
 
   .ecl-fact-figures__items {
     display: grid;
-    grid-column-gap: map.get($theme, 'spacing', 'xl');
-    grid-row-gap: map.get($theme, 'spacing', 'xl');
+    grid-column-gap: map.get($fact-figures, 'margin-horizontal');
+    grid-row-gap: map.get($fact-figures, 'margin-vertical');
 
     .ecl-fact-figures--col-2 & {
       grid-template-columns: repeat(2, 1fr);
@@ -87,10 +85,9 @@ $fact-figures: null !default;
 
   .ecl-fact-figures__value {
     font: map.get($fact-figures, 'value-font-desktop');
-    font-weight: map.get($fact-figures, 'value-font-weight-desktop');
   }
 
   .ecl-fact-figures__view-all {
-    padding-top: map.get($theme, 'spacing', 'xl');
+    padding-top: map.get($fact-figures, 'view-all-padding-desktop');
   }
 }

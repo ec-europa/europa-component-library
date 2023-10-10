@@ -296,14 +296,29 @@ $expandable: (
 
 // Fact and figures
 $fact-figures: (
-  border: 1px solid map.get($color, 'blue-25'),
-  border-radius: 0,
-  text-color: map.get($color, 'grey-100'),
-  value-font-mobile: map.get($font, '3xl'),
-  value-font-weight-mobile: map.get($font-weight, 'bold'),
-  value-font-desktop: map.get($font, '4xl'),
-  value-font-weight-desktop: map.get($font-weight, 'bold'),
-  view-all-border-color: map.get($color, 'blue-25'),
+  background: var(--ecl-color-neutral-60),
+  border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  border-radius: 2px,
+  padding-mobile: map.get($spacing, '3xl'),
+  padding-desktop: map.get($spacing, '3xl'),
+  margin-vertical: map.get($spacing, '3xl'),
+  margin-horizontal: map.get($spacing, '2xl'),
+  text-color: var(--ecl-color-dark),
+  value-font-mobile: map.get($font, '2xl'),
+  value-font-desktop: map.get($font, '3xl'),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: map.get($spacing, 's'),
+  description-font: map.get($font, 'm'),
+  description-margin: map.get($spacing, 's'),
+  view-all-font: map.get($font, 'm'),
+  view-all-border-color: var(--ecl-color-neutral),
+  view-all-margin: map.get($spacing, '3xl'),
+  view-all-padding-mobile: map.get($spacing, 'xl'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 's'),
 );
 
 // File download
