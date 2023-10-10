@@ -585,6 +585,8 @@ $form-group: (
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-80),
+  button-padding-vertical-mobile: calc(#{map.get($spacing, 's')} + 2px),
+  button-padding-vertical-desktop: map.get($spacing, 'xs'),
   separator-color: var(--ecl-color-dark-80),
 );
 
@@ -599,7 +601,7 @@ $text-input: (
   border-color-invalid-focus: var(--ecl-color-error),
   color-input: var(--ecl-color-dark),
   color-placeholder: var(--ecl-color-dark-60),
-  shadow: map.get($shadow, '1'),
+  shadow: none,
   shadow-hover: none,
   padding-vertical: map.get($spacing, 'xs'),
   padding-horizontal: map.get($spacing, 'm'),
@@ -749,8 +751,10 @@ $site-header: (
     color: var(--ecl-color-dark),
     shadow: map.get($shadow, '12'),
     shadow-size: 12px,
-    border: 1px solid var(--ecl-color-neutral-60),
     arrow-size: 1rem,
+    arrow-top: 1px,
+    arrow-border: 1px solid var(--ecl-color-neutral-60),
+    arrow-shadow: none,
     header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
     header-font: map.get($font, 'xl'),
     header-separator: none,

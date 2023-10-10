@@ -12,8 +12,8 @@ $language-switcher: null !default;
 
 @mixin arrow-up {
   background-color: map.get($theme, 'color', 'white');
-  border: map.get($language-switcher, 'border');
-  box-shadow: map.get($language-switcher, 'shadow');
+  border: map.get($language-switcher, 'arrow-border');
+  box-shadow: map.get($language-switcher, 'arrow-shadow');
   clip-path: polygon(
     -#{map.get($language-switcher, 'shadow-size')} -#{map.get(
         $language-switcher,
@@ -31,14 +31,13 @@ $language-switcher: null !default;
   left: 50%;
   margin-left: calc(-#{map.get($language-switcher, 'arrow-size')} / 2);
   position: absolute;
-  top: 0;
+  top: map.get($language-switcher, 'arrow-top');
   transform: translate(0%, -50%) rotate(-45deg);
   width: map.get($language-switcher, 'arrow-size');
 }
 
 .ecl-site-header__language-container {
   background-color: map.get($theme, 'color', 'white');
-  border-top: map.get($language-switcher, 'border');
   box-shadow: map.get($language-switcher, 'shadow');
   color: map.get($language-switcher, 'color');
   font: map.get($theme, 'font', 'm');
