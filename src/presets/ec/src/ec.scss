@@ -75,7 +75,10 @@
 );
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-ec';
+@use '@ecl/vanilla-component-banner/banner' with (
+  $theme: theme.$theme,
+  $banner: var.$banner
+);
 @use '@ecl/vanilla-component-description-list/description-list' with (
   $theme: theme.$theme,
   $description-list: var.$description-list
@@ -103,8 +106,14 @@
   $expandable: var.$expandable
 );
 @use '@ecl/vanilla-component-fact-figures/fact-figures-ec';
-@use '@ecl/vanilla-component-file/file-ec';
-@use '@ecl/vanilla-component-rating-field/rating-field';
+@use '@ecl/vanilla-component-file/file' with (
+  $theme: theme.$theme,
+  $file: var.$file
+);
+@use '@ecl/vanilla-component-rating-field/rating-field' with (
+  $theme: theme.$theme,
+  $rating-field: var.$rating-field
+);
 @use '@ecl/vanilla-component-modal/modal-ec';
 @use '@ecl/vanilla-component-media-container/media-container-ec';
 @use '@ecl/vanilla-component-navigation-list/navigation-list' with (

@@ -74,6 +74,14 @@ $breadcrumb: null !default;
   }
 }
 
+@if map-has-key($breadcrumb, 'ghost-override') {
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis,
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis:hover {
+    border-width: 2px;
+    padding: 0 map.get($theme, 'spacing', '2xs');
+  }
+}
+
 .ecl-breadcrumb__link {
   overflow: hidden;
   text-overflow: ellipsis;

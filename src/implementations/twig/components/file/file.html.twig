@@ -4,7 +4,13 @@
   Parameters:
   - "variant" (string) (default: 'default') Name of the variant [default, thumbnail]
   - "icon" (object) (default: {}): object of type Icon; file type
-  - "title" (string) (default: '')
+  - "title" (string|object) (default: '') Plain text title or named link object 
+    Ex: title: {
+          link: {
+            label: 'Link label',
+            path: 'Url or path to a webpage'
+          }
+        }
   - "description" (string) (default: '') Description text (thumbnail variant)
   - "language" (string) (default: '')
   - "meta" (string) (default: '')
@@ -101,87 +107,68 @@
       extra_classes: 'ecl-file__icon',
     } only %}
   {% else %}
-    <div class="ecl-file__detail">
-      <div class="ecl-file__detail-info">
-      {% if _labels is defined %}
-      {% for _label in _labels %}
-        <div class="ecl-file__label">
-          {% include '@ecl/label/label.html.twig' with _label only %}
-        </div>
-      {% endfor %}
-      {% endif %}
-      {% if _meta_detail_string is not empty %}
-        <div class="ecl-file__detail-meta">
-          {{- _meta_detail_string -}}
-        </div>
-      {% endif %}
-        <div class="ecl-file__title">{{ _title }}</div>
-      {% if _description is not empty %}
-        <div class="ecl-file__description">{{ _description }}</div>
-      {% endif %}
-      </div>
-      {% if _picture.img is not empty %}
+    {% if _picture.img is not empty %}
       {% include '@ecl/picture/picture.html.twig' with {
         picture: _picture,
         extra_classes: "ecl-file__picture",
         extra_image_classes: 'ecl-file__image',
       } only %}
     {% endif %}
-    </div>
-    {% if _lists is not empty and _lists is iterable %}
-    <div class="ecl-file__taxonomy">
-      {% for _list in _lists %}
-        {% include '@ecl/description-list/description-list.html.twig' with _list only %}
-      {% endfor %}
-    </div>
-    {% endif %}
   {% endif %}
-
-  {% if _title is not empty or _language is not empty or _meta is not empty %}
     <div class="ecl-file__info">
-    {% if _variant == 'default' %}
-      {% if _labels is defined %}
+    {% if _labels is defined %}
       {% for _label in _labels %}
-        <div class="ecl-file__label">
-          {% include '@ecl/label/label.html.twig' with _label only %}
-        </div>
+      <div class="ecl-file__label">
+        {% include '@ecl/label/label.html.twig' with _label only %}
+      </div>
       {% endfor %}
-      {% endif %}
-      {% if  _meta_detail_string is not empty %}
+    {% endif %}
+    {% if  _meta_detail_string is not empty %}
       <div class="ecl-file__detail-meta">
         {{- _meta_detail_string -}}
       </div>
-      {% endif %}
-      {% if _title is not empty %}
-      <div class="ecl-file__title">{{ _title }}</div>
-      {% endif %}
-      {% if _language is not empty %}
-      <div class="ecl-file__language">{{ _language }}</div>
-      {% endif %}
-      {% if _meta is not empty %}
-      <div class="ecl-file__meta">{{ _meta }}</div>
-      {% endif %}
-    {% else %}
-      {% if _language is not empty %}
-      <div class="ecl-file__language">{{ _language }}</div>
-      {% endif %}
-      {% if _meta is not empty %}
-      <div class="ecl-file__meta">{{ _meta }}</div>
-      {% endif %}
+    {% endif %}
+    {% if _title is not empty %}
+      <div class="ecl-file__title">
+      {%- if _title.link is defined -%}
+        {% include '@ecl/link/link.html.twig' with {
+          link: _title.link|merge({ 'type' : 'standalone' }),
+        } only %}
+      {%- else -%}
+        {{ _title }}
+      {%- endif -%}
+      </div>
+    {% endif %}
+    {% if _description is not empty %}
+      <div class="ecl-file__description">{{ _description }}</div>
+    {% endif %}
+    {% if _lists is not empty and _lists is iterable %}
+      <div class="ecl-file__taxonomy">
+        {% for _list in _lists %}
+          {% include '@ecl/description-list/description-list.html.twig' with _list only %}
+        {% endfor %}
+      </div>
     {% endif %}
     </div>
+  </div>
+  <div class="ecl-file__footer">
+  {% if _language is not empty %}
+    <div class="ecl-file__language">{{ _language }}</div>
   {% endif %}
-  {% include '@ecl/link/link.html.twig' with _download|merge({
-    link: _download.link|default({})|merge({
-      type: 'standalone',
-      icon_position: 'after',
-    }),
-    icon: _download.icon|default({})|merge({
-      name: 'download',
-      size: 'fluid'
-    }),
-    extra_classes: 'ecl-file__download',
-  }) only %}
+  {% if _meta is not empty %}
+    <div class="ecl-file__meta">{{ _meta }}</div>
+  {% endif %}
+    {% include '@ecl/link/link.html.twig' with _download|merge({
+      link: _download.link|default({})|merge({
+        type: 'standalone',
+        icon_position: 'after',
+      }),
+      icon: _download.icon|default({})|merge({
+        name: 'download',
+        size: 'fluid'
+      }),
+      extra_classes: 'ecl-file__download',
+    }) only %}
   </div>
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({

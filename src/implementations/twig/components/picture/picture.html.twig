@@ -81,7 +81,7 @@
     {% if _picture.img.src is not empty %}
       src="{{ _picture.img.src }}"
     {% endif %}
-    {% if _picture.img.alt is not empty %}
+    {% if _picture.img.alt is defined %}
       alt="{{ _picture.img.alt }}" 
     {% endif %}
   />

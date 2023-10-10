@@ -16,7 +16,6 @@
 {% set _lang_full = lang_full|default('') %}
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}
-{% set _variant = variant|default('default') %}
 
 {% set _title %}
   <div
@@ -30,32 +29,8 @@
 {% endset %}
 
   <li class="ecl-file__translation-item">
-  {% if _variant == 'thumbnail' %}
-    <div class="ecl-file__translation-detail">
-      {{- _title -}}
-    {% if _description is not empty %}
-      <div 
-        class="ecl-file__translation-description"
-      {% if _lang is not empty %}
-        lang="{{ _lang }}"
-      {% endif %}
-      >
-        {{- _description -}}
-      </div>
-    {% endif %}
-    </div>
-  {% endif %}
     <div class="ecl-file__translation-info">
-    {% if _variant != 'thumbnail' %}
       {{- _title -}}
-    {% else %}
-      {% if _lang_full is defined and _lang_full is not empty %}
-      <div class="ecl-file__translation-language">
-        {{- _lang_full -}}
-      </div>
-      {% endif %}
-    {% endif %}
-
     {% if _meta is not empty %}
       <div class="ecl-file__translation-meta">
         {{- _meta -}}
