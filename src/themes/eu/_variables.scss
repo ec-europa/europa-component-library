@@ -556,6 +556,21 @@ $list: (
   divider-color: var(--ecl-color-primary-140),
 );
 
+// Media container
+$media-container: (
+  border-radius: 8px,
+  shadow: map.get($shadow, '1'),
+  caption-background-color: map.get($color, 'white'),
+  caption-color: var(--ecl-color-dark-80),
+  caption-font: map.get($font, 'm'),
+  caption-max-width: 80ch,
+  caption-padding: map.get($spacing, 'l'),
+  caption-before: true,
+  expandable-spacing-top: map.get($spacing, 'xs'),
+  media-border: none,
+  scrollbar-width: 16px,
+);
+
 // Menu
 $menu: (
   global: (

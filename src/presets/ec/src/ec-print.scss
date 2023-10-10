@@ -84,7 +84,9 @@
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
-@use '@ecl/vanilla-component-media-container/media-container-print';
+@use '@ecl/vanilla-component-media-container/media-container-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-modal/modal-print';
 @use '@ecl/vanilla-component-navigation-list/navigation-list-print' with (
   $theme: theme.$theme

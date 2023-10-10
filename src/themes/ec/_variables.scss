@@ -542,6 +542,20 @@ $list: (
   divider-color: var(--ecl-color-neutral),
 );
 
+// Media container
+$media-container: (
+  border-radius: 0,
+  shadow: none,
+  caption-background-color: transparent,
+  caption-color: var(--ecl-color-dark),
+  caption-font: map.get($font, 's'),
+  caption-padding: map.get($spacing, 's') 0 0,
+  caption-max-width: 80ch,
+  expandable-spacing-top: map.get($spacing, 'xl'),
+  media-border: 1px solid var(--ecl-color-neutral-100),
+  scrollbar-width: 16px,
+);
+
 // Menu
 $menu: (
   global: (
