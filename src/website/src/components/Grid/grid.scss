@@ -1,4 +1,4 @@
-@use '@ecl/theme-dev/maps/layout' with (
+@use '@ecl/theme-ec/maps/layout' with (
   $breakpoint: (
     'xs': 0,
     's': 480px,
@@ -13,7 +13,7 @@
     'xl': 1140px,
   )
 );
-@use '@ecl/theme-dev/theme' as theme;
+@use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/vanilla-layout-grid/grid' with (
   $theme: theme.$theme
 );
