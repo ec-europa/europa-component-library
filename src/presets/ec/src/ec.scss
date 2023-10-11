@@ -26,7 +26,10 @@
   $theme: theme.$theme,
   $range: var.$range
 );
-@use '@ecl/vanilla-component-select/select-ec';
+@use '@ecl/vanilla-component-select/select' with (
+  $theme: theme.$theme,
+  $select: var.$select
+);
 @use '@ecl/vanilla-component-text-area/text-area' with (
   $theme: theme.$theme,
   $textarea: var.$textarea

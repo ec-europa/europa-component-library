@@ -849,6 +849,44 @@ $rating-field: (
   focus-outline: var(--ecl-color-primary-20),
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: map.get($color, 'blue'),
+  border-radius: 4px,
+  border-color: map.get($color, 'grey-80'),
+  border-color-hover: map.get($color, 'grey-80'),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: map.get($color, 'red-100'),
+  border-color-disabled: map.get($color, 'grey-40'),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: map.get($color, 'grey-140'),
+  color-placeholder: map.get($color, 'grey-40'),
+  group-separator-color: map.get($color, 'blue-20'),
+  group-title-font: map.get($font, 'm'),
+  group-title-color: map.get($color, 'grey-80'),
+  shadow: map.get($shadow-inner, '1'),
+  shadow-hover: map.get($shadow-inner, '2'),
+  arrow-background-invalid-focus: map.get($color, 'red-100'),
+  arrow-background-color: map.get($color, 'blue-100'),
+  arrow-background-color-hover: map.get($color, 'blue-80'),
+  arrow-background-color-invalid: map.get($color, 'red-120'),
+  arrow-background-color-invalid-hover: map.get($color, 'red-100'),
+  multiple-dropdown-background-color: map.get($color, 'white'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: map.get($color, 'blue-20'),
+  multiple-dropdown-border-radius: 4px,
+  multiple-dropdown-shadow: map.get($shadow, '1'),
+  multiple-dropdown-input-margin: map.get($spacing, 'xs'),
+  multiple-dropdown-input-width:
+    calc(100% - #{map.get($spacing, 'xs')} - #{map.get($spacing, 'xs')}),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-checkbox-background-hover-color: map.get($color, 'blue-5'),
+  multiple-checkbox-label-vertical-padding: map.get($spacing, 's'),
+  multiple_counter_background: map.get($color, 'blue-100'),
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-primary-5),

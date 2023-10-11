@@ -769,6 +769,42 @@ $rating-field: (
   focus-outline: var(--ecl-color-dark),
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: map.get($color, 'blue'),
+  border-radius: 0,
+  border-color: map.get($color, 'grey-75'),
+  border-color-hover: map.get($color, 'blue-100'),
+  border-color-invalid: map.get($color, 'red-100'),
+  border-color-invalid-hover: map.get($color, 'red-130'),
+  border-color-disabled: map.get($color, 'grey-75'),
+  border-width: 1px,
+  border-width-focus: 3px,
+  color-input: map.get($color, 'grey-100'),
+  color-placeholder: map.get($color, 'grey-50'),
+  group-separator-color: map.get($color, 'grey-25'),
+  group-title-font: map.get($font-prolonged, 'm'),
+  group-title-color: map.get($color, 'grey-75'),
+  shadow: none,
+  shadow-hover: none,
+  arrow-background-color: map.get($color, 'grey-100'),
+  arrow-background-color-hover: map.get($color, 'blue-100'),
+  arrow-background-color-invalid: map.get($color, 'red-100'),
+  arrow-background-color-invalid-hover: map.get($color, 'red-130'),
+  multiple-dropdown-background-color: map.get($color, 'grey-5'),
+  multiple-dropdown-border: 1px solid map.get($color, 'grey-15'),
+  multiple-dropdown-separator-color: map.get($color, 'grey-25'),
+  multiple-dropdown-border-radius: 0,
+  multiple-dropdown-shadow: none,
+  multiple-dropdown-input-margin: 0,
+  multiple-dropdown-input-width: 100%,
+  multiple-dropdown-container-max-height: 252px,
+  multiple-checkbox-background-hover-color: map.get($color, 'grey-15'),
+  multiple-checkbox-label-vertical-padding: map.get($spacing, 's'),
+  multiple_counter_background: #707070,
+);
+
 // Site footer
 $site-footer: (
   background: var(--ecl-color-branding),
