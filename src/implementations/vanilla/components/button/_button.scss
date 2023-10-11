@@ -18,7 +18,7 @@ $button: null !default;
   border-width: 0;
   cursor: pointer;
   display: inline-block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   margin: 0;
   padding: calc(
       #{map.get($button, 'padding-vertical')} - #{map.get(

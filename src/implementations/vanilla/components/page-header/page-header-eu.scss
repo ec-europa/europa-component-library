@@ -81,7 +81,7 @@ $page-header: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-page-header__title {
-    font: map.get($theme, 'font', '6xl');
+    font: var(--ecl-font-6xl);
   }
 }
 

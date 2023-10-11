@@ -17,7 +17,7 @@ $tag: null !default;
   box-sizing: border-box;
   color: map.get($tag, 'color');
   display: inline-flex;
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   padding: map.get($tag, 'padding');
   text-decoration: underline;
   white-space: nowrap;

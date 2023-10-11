@@ -62,7 +62,7 @@ $datepicker: null !default;
   border-width: 0;
   box-shadow: map.get($datepicker, 'picker', 'shadow');
   color: map.get($datepicker, 'picker', 'theme-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   overflow: hidden;
   padding: map.get($datepicker, 'picker', 'padding');
@@ -89,7 +89,7 @@ $datepicker: null !default;
     display: flex;
     flex-basis: 50%;
     flex-grow: 1;
-    font: map.get($theme, 'font', 'm');
+    font: var(--ecl-font-m);
     justify-content: space-between;
     margin-inline-end: map.get($theme, 'spacing', 'xs');
     padding: map.get($theme, 'spacing', 'xs') map.get($theme, 'spacing', 'm');
@@ -132,7 +132,7 @@ $datepicker: null !default;
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
-      font: map.get($theme, 'font', 'xs');
+      font: var(--ecl-font-xs);
       padding: map.get($theme, 'spacing', 's') 0;
       text-transform: uppercase;
     }
@@ -154,7 +154,7 @@ $datepicker: null !default;
     border-radius: map.get($datepicker, 'picker', 'border-radius');
     border-width: 0;
     color: map.get($datepicker, 'picker', 'theme-color');
-    font: map.get($theme, 'font', 'm');
+    font: var(--ecl-font-m);
     padding: map.get($theme, 'spacing', 'xs');
     text-align: center;
 

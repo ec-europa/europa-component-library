@@ -28,7 +28,7 @@ $accordion-print: (
 // Banner
 $banner: (
   content-width: 42.5rem,
-  border-color: map.get($color, 'yellow-100'),
+  border-color: var(--ecl-color-secondary),
   border-radius: (
     'banner': 8px,
     'content': 4px,
@@ -42,40 +42,40 @@ $banner: (
     'plain-background':
       linear-gradient(
         to right,
-        #{map.get($color, 'blue-140')} 0%,
-        #{map.get($color, 'blue-100')} 100%
+        var(--ecl-color-primary-140) 0%,
+        var(--ecl-color-primary) 100%
       ),
     'text-box-mobile': map.get($color, 'white'),
     'text-box-desktop': rgba(255, 255, 255, 0.9),
     'image-overlay':
       linear-gradient(
         to right,
-        #{map.get($color, 'blue-140')} 0%,
-        #{map.get($color, 'blue-100')} 100%
+        var(--ecl-color-primary-140) 0%,
+        var(--ecl-color-primary) 100%
       ),
     'text-highlight':
       linear-gradient(
         to right,
-        #{map.get($color, 'blue-140')} 0%,
-        #{map.get($color, 'blue-100')} 100%
+        var(--ecl-color-primary-140) 0%,
+        var(--ecl-color-primary) 100%
       ),
   ),
   overlay: (
     'image-overlay': rgba(0, 0, 0, 0.4),
   ),
   text-color: (
-    'dark': map.get($color, 'grey-140'),
-    'light': map.get($color, 'grey-80'),
+    'dark': var(--ecl-color-dark-140),
+    'light': var(--ecl-color-dark-80),
     'inverted': map.get($color, 'white-100'),
   ),
   font: (
     'title': (
-      'mobile': map.get($font, '3xl'),
-      'desktop': map.get($font, '6xl'),
+      'mobile': var(--ecl-font-3xl),
+      'desktop': var(--ecl-font-6xl),
     ),
     'description': (
-      'mobile': map.get($font, 'l'),
-      'desktop': map.get($font-prolonged, 'l'),
+      'mobile': var(--ecl-font-l),
+      'desktop': var(--ecl-font-prolonged-l),
     ),
   ),
   font-weight: (
@@ -96,14 +96,14 @@ $blockquote: (
   padding: map.get($spacing, 'm') 0 map.get($spacing, 'm')
     map.get($spacing, 'l'),
   quote: (
-    font: map.get($font, '2xl'),
+    font: var(--ecl-font-2xl),
     color: var(--ecl-color-dark-80),
   ),
   author: (
     margin: map.get($spacing, 'l'),
     padding: map.get($spacing, 'xl'),
-    font-mobile: map.get($font-prolonged, 'm'),
-    font-desktop: map.get($font-prolonged, 'l'),
+    font-mobile: var(--ecl-font-prolonged-m),
+    font-desktop: var(--ecl-font-prolonged-l),
     font-weight: map.get($font-weight, 'regular'),
     color: var(--ecl-color-dark-80),
   ),
@@ -125,8 +125,8 @@ $blockquote-print: (
 // stylelint-disable length-zero-no-unit
 $breadcrumb: (
   padding-vertical: map.get($spacing, 'm'),
-  font-mobile: map.get($font-prolonged, 'm'),
-  font-desktop: map.get($font-prolonged, 'm'),
+  font-mobile: var(--ecl-font-prolonged-m),
+  font-desktop: var(--ecl-font-prolonged-m),
   line-height: map.get($line-height-prolonged, 'm'),
   last-link-color: var(--ecl-color-dark-80),
   icon-color: var(--ecl-color-dark-80),
@@ -235,7 +235,7 @@ $checkbox: (
   box-size: 1.5rem,
   box-margin-top: 0,
   help-text-color: var(--ecl-color-dark-80),
-  help-text-font: map.get($font-prolonged, 'm'),
+  help-text-font: var(--ecl-font-prolonged-m),
   invalid-border-color: var(--ecl-color-error-100),
   invalid-border-color-hover: var(--ecl-color-error-80),
   label-color: var(--ecl-color-dark-140),
@@ -250,11 +250,11 @@ $checkbox: (
 // Content block
 $content-block: (
   description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
-  description-font: map.get($font-prolonged, 'm'),
+  description-font: var(--ecl-font-prolonged-m),
   label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($spacing, 'xs')} 0,
   label-spacing: 0 0 map.get($spacing, 'xs'),
   link-separator-color: var(--ecl-color-primary-20),
-  link-font: map.get($font-prolonged, 'm'),
+  link-font: var(--ecl-font-prolonged-m),
   list-margin: map.get($spacing, 'l') 0 0,
   primary-meta-color: var(--ecl-color-dark-140),
   primary-meta-margin: map.get($spacing, 'xs') 0 -#{map.get($spacing, 'xs')},
@@ -262,7 +262,7 @@ $content-block: (
   secondary-meta-icon-color: var(--ecl-color-primary-60),
   secondary-meta-margin: map.get($spacing, 'm') 0 map.get($spacing, 'xl'),
   text-color: var(--ecl-color-dark-140),
-  title-font: map.get($font, 'xl'),
+  title-font: var(--ecl-font-xl),
   title-font-weight: map.get($font-weight, 'normal'),
   title-margin: map.get($spacing, 'xs') 0 map.get($spacing, 's'),
 );
@@ -347,7 +347,7 @@ $datepicker: (
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark-140),
-  term-font: map.get($font, 'l'),
+  term-font: var(--ecl-font-l),
   term-margin-bottom: map.get($spacing, 'xs'),
   term-margin-top: map.get($spacing, 'm'),
   definition-color: var(--ecl-color-dark-140),
@@ -383,7 +383,7 @@ $file: (
   file-color: var(--ecl-color-dark-80),
   file-container-padding-bottom: map.get($spacing, 'l'),
   file-description-color: var(--ecl-color-dark-80),
-  file-description-font: map.get($font-prolonged, 'm'),
+  file-description-font: var(--ecl-font-prolonged-m),
   file-detail-flex-direction: row-reverse,
   file-detail-margin-bottom: 0,
   file-detail-meta-color: var(--ecl-color-dark-140),
@@ -403,8 +403,8 @@ $file: (
   file-image-margin-right: map.get($spacing, 'xl'),
   file-info-margin-left: map.get($spacing, 'xs'),
   file-label-spacing: map.get($spacing, 'm'),
-  file-language-font: map.get($font, 's'),
-  file-meta-font: map.get($font, 's'),
+  file-language-font: var(--ecl-font-s),
+  file-meta-font: var(--ecl-font-s),
   file-meta-margin: map.get($spacing, 'xs'),
   file-picture-order-desktop: 0,
   file-picture-order-mobile: 1,
@@ -426,14 +426,14 @@ $file: (
   file-translation-download-alignment: flex-start,
   file-translation-item-margin: map.get($spacing, 'l'),
   file-translation-item-padding-h: 0,
-  file-translation-meta-font: map.get($font, 's'),
+  file-translation-meta-font: var(--ecl-font-s),
   file-translation-meta-spacing: 0,
   file-translation-title-margin-bottom: map.get($spacing, 's'),
   file-translation-toggle-border: 2px solid var(--ecl-color-primary-100),
   file-translation-toggle-margin: map.get($spacing, 's'),
   icon-color: var(--ecl-color-primary-100),
   image-width: 13.313rem,
-  title-font: map.get($font, 'm'),
+  title-font: var(--ecl-font-m),
   title-font-weight: map.get($font-weight, 'bold'),
   translation-border-color: var(--ecl-color-primary-20),
 );
@@ -562,7 +562,7 @@ $media-container: (
   shadow: map.get($shadow, '1'),
   caption-background-color: map.get($color, 'white'),
   caption-color: var(--ecl-color-dark-80),
-  caption-font: map.get($font, 'm'),
+  caption-font: var(--ecl-font-m),
   caption-max-width: 80ch,
   caption-padding: map.get($spacing, 'l'),
   caption-before: true,
@@ -597,14 +597,14 @@ $menu: (
         var(--ecl-color-primary)
       ),
     header-background-hover: transparent,
-    header-font: map.get($font, 'xl'),
+    header-font: var(--ecl-font-xl),
     header-color: map.get($color, 'white'),
     header-shadow: map.get($shadow, '1'),
     header-height: 77px,
     item-color: var(--ecl-color-primary),
     item-color-hover: var(--ecl-color-primary-140),
     item-border: 1px solid var(--ecl-color-primary-20),
-    item-font: map.get($font, 'l'),
+    item-font: var(--ecl-font-l),
     item-padding: map.get($spacing, 'm'),
     item-active-background: var(--ecl-color-primary-10),
     item-active-border: var(--ecl-color-primary),
@@ -614,7 +614,7 @@ $menu: (
     caret-active-background-hover: var(--ecl-color-primary-10),
     caret-color: var(--ecl-color-primary),
     subtitle-border: 3px solid var(--ecl-color-primary-10),
-    subtitle-font: map.get($font, 'xl'),
+    subtitle-font: var(--ecl-font-xl),
     subtitle-font-weight: map.get($font-weight, 'regular'),
     subitem-padding: map.get($spacing, 'm'),
   ),
@@ -677,11 +677,11 @@ $form-group: (
   color-invalid: var(--ecl-color-error),
   color-optional: var(--ecl-color-dark-80),
   color-required: var(--ecl-color-error),
-  font-label: map.get($font-prolonged, 'm'),
+  font-label: var(--ecl-font-prolonged-m),
   font-weight-label: map.get($font-weight, 'bold'),
-  font-help: map.get($font-prolonged, 'm'),
-  font-invalid: map.get($font-prolonged, 'm'),
-  font-optional: map.get($font, 'm'),
+  font-help: var(--ecl-font-prolonged-m),
+  font-invalid: var(--ecl-font-prolonged-m),
+  font-optional: var(--ecl-font-m),
   font-style-optional: 'italic',
   margin-first-element: map.get($spacing, 'm'),
   margin-help: map.get($spacing, 'xs'),
@@ -732,9 +732,9 @@ $notification: (
     map.get($spacing, 'l'),
   border-width: 0,
   border-color: transparent,
-  font: map.get($font-prolonged, 'm'),
+  font: var(--ecl-font-prolonged-m),
   color: var(--ecl-color-dark-80),
-  title-font: map.get($font-prolonged, 'm'),
+  title-font: var(--ecl-font-prolonged-m),
   title-font-weight: map.get($font-weight, 'bold'),
   title-spacing: map.get($spacing, 'xs'),
   close-color: var(--ecl-color-primary),
@@ -774,7 +774,7 @@ $range: (
   invalid-hover-color: map.get($color, 'red-120'),
   invalid-active-color: map.get($color, 'red-80'),
   value-color: var(--ecl-color-dark-80),
-  value-font: map.get($font-prolonged, 'm'),
+  value-font: var(--ecl-font-prolonged-m),
   range-margin-top: map.get($spacing, 'm'),
   range-size: 0.25rem,
   slider-size: 1rem,
@@ -813,7 +813,7 @@ $site-header: (
     arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     header-padding: map.get($spacing, 'm') map.get($spacing, 's')
       map.get($spacing, 'm') map.get($spacing, 'l'),
-    header-font: map.get($font-prolonged, 'l'),
+    header-font: var(--ecl-font-prolonged-l),
     header-separator: 1px solid var(--ecl-color-primary-10),
     close-right: map.get($spacing, 's'),
     close-top: map.get($spacing, 'xs'),
@@ -841,12 +841,12 @@ $site-header: (
 // Page header
 $page-header: (
   meta-color: var(--ecl-color-dark-80),
-  meta-font: map.get($font, 'm'),
+  meta-font: var(--ecl-font-m),
   meta-separator-color: var(--ecl-color-dark-80),
   title-color: var(--ecl-color-dark-140),
-  title-font: map.get($font, '5xl'),
+  title-font: var(--ecl-font-5xl),
   description-color: var(--ecl-color-dark-80),
-  description-font: map.get($font-prolonged, 'l'),
+  description-font: var(--ecl-font-prolonged-l),
 );
 $page-header-print: (
   meta-font: map.get($font-print, 'm'),
@@ -866,7 +866,7 @@ $radio: (
   box-margin-top: 0,
   box-size: 1.25rem,
   help-text-color: var(--ecl-color-dark-80),
-  help-text-font: map.get($font-prolonged, 'm'),
+  help-text-font: var(--ecl-font-prolonged-m),
   invalid-border-color: var(--ecl-color-error),
   invalid-border-color-hover: map.get($color, 'red-130'),
   label-color: var(--ecl-color-dark-140),
@@ -948,15 +948,15 @@ $timeline: (
   bullet-shadow: 0 0 0 2px map.get($color, 'white'),
   bullet-top-position: 8%,
   content-color: var(--ecl-color-dark-80),
-  content-big-font: map.get($font-prolonged, 'm'),
-  content-font: map.get($font-prolonged, 'm'),
+  content-big-font: var(--ecl-font-prolonged-m),
+  content-font: var(--ecl-font-prolonged-m),
   first-item-offset: 2rem,
   first-item-height: calc(100% - #{map.get($spacing, 'xs')}),
   item-padding-top: 0,
   label-alignment: left,
   label-color: var(--ecl-color-dark-140),
-  label-big-font: map.get($font, '3xl'),
-  label-font: map.get($font, '2xl'),
+  label-big-font: var(--ecl-font-3xl),
+  label-font: var(--ecl-font-2xl),
   label-font-weight: map.get($font-weight, 'normal'),
   label-layout: static,
   label-margin: map.get($spacing, 's'),
@@ -965,9 +965,9 @@ $timeline: (
   timeline-margin-left:
     calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 's')} / 2),
   title-color: var(--ecl-color-dark-140),
-  title-font: map.get($font-prolonged, 'm'),
+  title-font: var(--ecl-font-prolonged-m),
   title-font-weight: map.get($font-weight, 'bold'),
-  title-big-font: map.get($font-prolonged, 'l'),
+  title-big-font: var(--ecl-font-prolonged-l),
   title-margin: map.get($spacing, 's'),
   toggle-bullet-border-color: var(--ecl-color-primary-20),
   bullet-fill-color: map.get($color, 'white-100'),
@@ -978,7 +978,7 @@ $timeline: (
 );
 $timeline-print: (
   content-color: var(--ecl-color-dark-80),
-  content-font: map.get($font-prolonged-print, 'm'),
+  content-font: var(--ecl-font-prolonged-print-m),
   label-color: var(--ecl-color-dark-140),
   label-font: map.get($font-prolonged-print, 'm'),
   title-color: var(--ecl-color-dark-140),
@@ -1039,4 +1039,20 @@ $timeline-print: (
   --ecl-color-visited: #{map.get($color, 'visited')};
   --ecl-color-visited-100: #{map.get($color, 'visited-100')};
   --ecl-color-visited-40: #{map.get($color, 'visited-40')};
+  --ecl-font-2xs: #{map.get($font, '2xs')};
+  --ecl-font-xs: #{map.get($font, 'xs')};
+  --ecl-font-s: #{map.get($font, 's')};
+  --ecl-font-m: #{map.get($font, 'm')};
+  --ecl-font-l: #{map.get($font, 'l')};
+  --ecl-font-xl: #{map.get($font, 'xl')};
+  --ecl-font-2xl: #{map.get($font, '2xl')};
+  --ecl-font-3xl: #{map.get($font, '3xl')};
+  --ecl-font-4xl: #{map.get($font, '4xl')};
+  --ecl-font-5xl: #{map.get($font, '5xl')};
+  --ecl-font-6xl: #{map.get($font, '6xl')};
+  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
+  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
+  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
+  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
+  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
 }

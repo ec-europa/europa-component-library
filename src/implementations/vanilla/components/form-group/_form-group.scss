@@ -53,7 +53,7 @@ $form-group: null !default;
 
 .ecl-form-label__required {
   color: map.get($form-group, 'color-required');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-inline-start: map.get($theme, 'spacing', '2xs');
 }

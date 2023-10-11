@@ -40,7 +40,7 @@ $_spinner-sizes: (
 
 .ecl-spinner__text {
   color: map.get($spinner, 'text-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   margin-top: map.get($theme, 'spacing', 'xs');
 }
 

@@ -153,7 +153,7 @@ $link: null !default;
   box-sizing: border-box;
   color: map.get($link, #{$variant}, 'color');
   display: inline-block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   padding: calc(
       #{map.get($link, 'button', 'padding-vertical')} - #{map.get(
           $link,

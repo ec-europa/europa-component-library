@@ -75,7 +75,7 @@ $accordion: null !default;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: map.get($theme, 'font-prolonged', 'l');
+  font: var(--ecl-font-prolonged-l);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
@@ -124,7 +124,7 @@ $accordion: null !default;
 
 .ecl-accordion__toggle-label {
   display: none;
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--ecl-font-prolonged-m);
   margin: 0 map.get($theme, 'spacing', 'xs') 0 map.get($theme, 'spacing', 's');
 }
 
@@ -137,7 +137,7 @@ $accordion: null !default;
   border-bottom: 2px solid map.get($theme, 'color', 'blue-20');
   border-inline-start: 4px solid map.get($theme, 'color', 'blue');
   color: map.get($accordion, 'text-color');
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--ecl-font-prolonged-m);
   margin-inline-start: 0;
   padding: map.get($theme, 'spacing', 'l');
 }
@@ -149,7 +149,7 @@ $accordion: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-accordion__toggle {
-    font: map.get($theme, 'font-prolonged', 'xl');
+    font: var(--ecl-font-prolonged-xl);
   }
 
   .ecl-accordion__toggle-label {

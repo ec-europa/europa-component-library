@@ -33,7 +33,7 @@ $checkbox: null !default;
 .ecl-checkbox__label {
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   line-height: map.get($checkbox, 'label-line-height');
   max-width: map.get($checkbox, 'max-width');
   padding: map.get($theme, 'spacing', 'xs') 0;
@@ -87,7 +87,7 @@ $checkbox: null !default;
 // Required
 .ecl-checkbox__required {
   color: map.get($theme, 'color' 'error');
-  font: map.get($theme, 'font', 'xl');
+  font: var(--ecl-font-xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding-inline-start: map.get($theme, 'spacing', '2xs');
 }
@@ -126,7 +126,7 @@ $checkbox: null !default;
   }
 
   .ecl-checkbox__invalid {
-    font: map.get($theme, 'font', 's');
+    font: var(--ecl-font-s);
     margin-top: map.get($theme, 'spacing', 'xs');
   }
 }

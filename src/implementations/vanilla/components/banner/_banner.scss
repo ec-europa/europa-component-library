@@ -34,7 +34,7 @@ $banner: null !default;
   background: rgba(38, 50, 75, 0.7);
   backdrop-filter: blur(4px);
   color: map.get($theme, 'color', 'white-100');
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   line-height: map.get($theme, 'line-height', '2xs');
   padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'xs');
   position: absolute;

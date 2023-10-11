@@ -42,7 +42,7 @@ $radio: null !default;
 .ecl-radio__label {
   color: map.get($radio, 'label-color');
   display: inline-flex;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   line-height: map.get($radio, 'label-line-height');
   padding: map.get($theme, 'spacing', 'xs') 0;
   position: relative;

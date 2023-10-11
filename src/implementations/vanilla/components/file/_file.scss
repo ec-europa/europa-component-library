@@ -76,7 +76,7 @@ $file: null !default;
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
   display: flex;
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   margin-bottom: map.get($file, 'file-meta-margin');
 }
 
@@ -138,7 +138,7 @@ $file: null !default;
 
 .ecl-file__translation-language {
   color: map.get($file, 'file-description-color');
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
@@ -153,7 +153,7 @@ $file: null !default;
 
 .ecl-file__translation-toggle {
   align-self: flex-end;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   font-weight: map.get($theme, 'font-weight', 'regular');
   margin-bottom: map.get($file, 'file-translation-toggle-margin');
   margin-inline-end: #{map.get($theme, 'spacing', 'xs')};
@@ -203,7 +203,7 @@ $file: null !default;
 
 .ecl-file__translation-title {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
@@ -214,14 +214,14 @@ $file: null !default;
 
 .ecl-file__translation-download {
   align-self: map.get($file, 'file-translation-download-alignment');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   margin-top: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-file__translation-description {
   color: map.get($file, 'file-color');
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   max-width: 65ch;
 }
 
@@ -361,7 +361,7 @@ $file: null !default;
   }
 
   .ecl-file__translation-title {
-    font: map.get($theme, 'font', 'm');
+    font: var(--ecl-font-m);
     font-weight: map.get($theme, 'font-weight', 'bold');
     margin-bottom: map.get($file, 'file-translation-title-margin-bottom');
   }

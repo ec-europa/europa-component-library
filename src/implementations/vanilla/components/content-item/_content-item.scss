@@ -27,7 +27,7 @@ $content-item: null !default;
 }
 
 .ecl-content-item__content-block {
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   margin-inline-end: auto;
   max-width: 80ch;
 }

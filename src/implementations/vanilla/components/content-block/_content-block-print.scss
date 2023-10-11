@@ -35,7 +35,7 @@ $content-block: null !default;
   color: map.get($content-block, 'primary_meta-color');
   display: inline-flex;
   flex-wrap: wrap;
-  font: map.get($theme, 'font', 's');
+  font: map.get($theme, 'font-print', 's');
   list-style: none;
   margin: map.get($theme, 'spacing-print', 'xs') 0 -#{map.get(
       $theme,

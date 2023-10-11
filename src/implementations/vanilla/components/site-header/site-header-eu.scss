@@ -85,7 +85,7 @@ $site-header: null !default;
   align-items: center;
   display: flex;
   flex-direction: column;
-  font: map.get($theme, 'font', 'xs');
+  font: var(--ecl-font-xs);
   position: relative;
   text-align: center;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -118,7 +118,7 @@ $site-header: null !default;
 }
 
 .ecl-site-header__language-selector {
-  font: map.get($theme, 'font', 'xs');
+  font: var(--ecl-font-xs);
   text-align: center;
 }
 
@@ -130,7 +130,7 @@ $site-header: null !default;
   box-sizing: content-box;
   color: map.get($theme, 'color', 'grey');
   display: none;
-  font: map.get($theme, 'font-prolonged', 's');
+  font: var(--ecl-font-prolonged-s);
   left: 0;
   margin-top: calc(#{map.get($theme, 'spacing', 'xs')} - 1px);
   padding: calc(#{map.get($theme, 'spacing', 'm')} - 1px);
@@ -186,7 +186,7 @@ $site-header: null !default;
 
 .ecl-site-header__site-name {
   color: map.get($site-header, 'site-name-mobile-color');
-  font: map.get($theme, 'font-prolonged', 'xl');
+  font: var(--ecl-font-prolonged-xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-inline-end: map.get($theme, 'spacing', '3xl');
   padding: 0;
@@ -279,7 +279,7 @@ $site-header: null !default;
     align-self: center;
     color: map.get($site-header, 'site-name-desktop-color');
     flex-grow: 1;
-    font: map.get($theme, 'font', '4xl');
+    font: var(--ecl-font-4xl);
     font-weight: map.get($theme, 'font-weight', 'bold');
     margin-inline-end: 0;
     padding: map.get($theme, 'spacing', 'm') 0;
@@ -319,7 +319,7 @@ $site-header: null !default;
     align-items: center;
     display: flex;
     flex-direction: row;
-    font: map.get($theme, 'font', 'm');
+    font: var(--ecl-font-m);
   }
 
   .ecl-site-header__login-toggle,

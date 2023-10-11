@@ -83,7 +83,7 @@ $date-block: null !default;
 .ecl-date-block__year {
   background-color: map.get($date-block, 'year', 'background-color');
   color: map.get($date-block, 'year', 'text-color');
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   font-weight: map.get($date-block, 'year', 'weight');
   padding: map.get($date-block, 'year', 'padding-mobile');
 }

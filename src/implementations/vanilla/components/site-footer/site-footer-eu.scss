@@ -18,7 +18,7 @@ $site-footer: null !default;
   box-shadow: map.get($site-footer, 'shadow');
   color: map.get($site-footer, 'color');
   display: flex;
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--ecl-font-prolonged-m);
   margin: 0;
 }
 
@@ -69,7 +69,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
-  font: map.get($theme, 'font', '2xl');
+  font: var(--ecl-font-2xl);
   margin: 0;
 }
 
@@ -161,7 +161,7 @@ $site-footer: null !default;
   .ecl-site-footer__title:focus,
   .ecl-site-footer__title:visited {
     color: map.get($site-footer, 'color');
-    font: map.get($theme, 'font', '3xl');
+    font: var(--ecl-font-3xl);
   }
 
   .ecl-site-footer__logo-image {

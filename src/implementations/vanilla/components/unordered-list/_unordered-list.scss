@@ -12,7 +12,7 @@ $list: null !default;
 .ecl-unordered-list,
 %ecl-unordered-list {
   color: map.get($list, 'text-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;

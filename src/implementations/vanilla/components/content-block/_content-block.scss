@@ -35,7 +35,7 @@ $content-block: null !default;
 .ecl-content-block__primary-meta-container {
   color: map.get($content-block, 'primary_meta-color');
   display: inline-block;
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   list-style: none;
   margin: map.get($content-block, 'primary-meta-margin');
   padding: 0;
@@ -76,7 +76,7 @@ $content-block: null !default;
   color: map.get($content-block, 'secondary-meta-color');
   display: flex;
   flex-direction: column;
-  font: map.get($theme, 'font', 's');
+  font: var(--ecl-font-s);
   list-style: none;
   margin: map.get($content-block, 'secondary-meta-margin');
   padding: 0;
