@@ -65,6 +65,12 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
   overridden by the data provided when working with the EU theme to `m`.
 - A selector `ecl-accordion__item--active` is now added via our vanilla js to mark the latest item the user interacted with.
 
+### Banner
+
+- The picture and the banner credit are now wrapper in a container `ecl-banner__picture-container` to handle the new position of the credit text.
+- Three variants only: `plain-background`, `text-overlay` (replacing text-hightlight) and `text-box`, the `image-overlay` one doesn't exist anymore.
+- Default display is now left, instead of centered. If you wish to have the banner centered, set the `centered` parameter to true
+
 ### Breadcrumb
 
 - Font size of the separator icon is now `fluid` for both EC and EU, so it will automatically adjust based on the font size

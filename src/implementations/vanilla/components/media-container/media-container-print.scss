@@ -4,9 +4,12 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-.ecl-media-container {
+// Exposed variables
+$theme: null !default;
+
+.ecl-media-container,
+.ecl-media-container__figure {
   margin: 0;
 }
 
@@ -16,12 +19,12 @@
 
 .ecl-media-container__media {
   max-height: 10cm;
-  max-width: 100%;
+  width: 100%;
 }
 
 .ecl-media-container__caption {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged-print, 'm');
-  margin-top: map.get(theme.$spacing-print, 's');
-  max-width: 80ch;
+  color: var(--ecl-color-dark);
+  font: map.get($theme, 'font-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  max-width: 65ch;
 }

@@ -2,9 +2,9 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  title: 'Headline sed elit lorem. Donec dictum.',
+  title: 'Lorem ipsum dolor sit amet consectetuer adipiscing.',
   description:
-    'Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.',
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.',
   link: {
     link: {
       label: 'CTA link',
@@ -19,5 +19,6 @@ module.exports = {
     },
   },
   variant: 'plain-background',
-  centered: true,
+  centered: false,
+  full_width: true,
 };

@@ -21,11 +21,11 @@ module.exports = {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-      alt: 'alternative text',
+      alt: 'aternative text',
     },
   },
   credit: '© Copyright',
-  variant: 'text-box',
+  variant: 'text-overlay',
   centered: false,
   full_width: true,
 };

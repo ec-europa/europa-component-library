@@ -16,7 +16,10 @@
   $theme: theme.$theme,
   $checkbox: var.$checkbox
 );
-@use '@ecl/vanilla-component-datepicker/datepicker-ec';
+@use '@ecl/vanilla-component-datepicker/datepicker' with (
+  $theme: theme.$theme,
+  $datepicker: var.$datepicker
+);
 @use '@ecl/vanilla-component-file-upload/file-upload' with (
   $theme: theme.$theme,
   $file-upload: var.$file-upload
@@ -78,7 +81,10 @@
 );
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-ec';
+@use '@ecl/vanilla-component-banner/banner' with (
+  $theme: theme.$theme,
+  $banner: var.$banner
+);
 @use '@ecl/vanilla-component-description-list/description-list' with (
   $theme: theme.$theme,
   $description-list: var.$description-list
@@ -115,7 +121,10 @@
   $rating-field: var.$rating-field
 );
 @use '@ecl/vanilla-component-modal/modal-ec';
-@use '@ecl/vanilla-component-media-container/media-container-ec';
+@use '@ecl/vanilla-component-media-container/media-container' with (
+  $theme: theme.$theme,
+  $media-container: var.$media-container
+);
 @use '@ecl/vanilla-component-navigation-list/navigation-list' with (
   $theme: theme.$theme,
   $navigation-list: var.$navigation-list
