@@ -241,7 +241,15 @@ ECL4 introduces new ways to customize the look and feel of elements, by changing
 
 #### Using CSS variables
 
-CSS variables are provided for the semantic styles (mostly colors). You can find the full list of global CSS variables at the end of the file `src/themes/[your_theme]/_variables.scss`.
+CSS variables are provided for some styles values.
+You can find the full list of global CSS variables at the end of the file `src/themes/[your_theme]/_variables.scss`.
+
+Variables provided:
+
+- colors
+- spacing
+- typgraphy
+- shadow
 
 By default, these variables take values from the SASS variables. You can freely override them in a custom CSS file loaded after ECL one.
 
