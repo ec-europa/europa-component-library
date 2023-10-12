@@ -16,7 +16,7 @@ $file-upload: null !default;
 
 .ecl-file-upload__button-container {
   display: block;
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--ecl-spacing-xs);
 
   .no-js & {
     display: none;
@@ -25,9 +25,9 @@ $file-upload: null !default;
 
 .ecl-file-upload__list {
   color: var(--ecl-color-dark);
-  font: map.get($theme, 'font', 'm');
+  font: var(--ecl-font-m);
   list-style: none;
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: var(--ecl-spacing-m);
   max-width: 538px; // 6 columns; provided by designers
   padding-inline-start: 0;
   width: 100%;
@@ -39,8 +39,8 @@ $file-upload: null !default;
 
 .ecl-file-upload__item {
   border-top: 1px solid map.get($file-upload, 'separator-color');
-  padding-bottom: map.get($theme, 'spacing', 's');
-  padding-top: map.get($theme, 'spacing', 's');
+  padding-bottom: var(--ecl-spacing-s);
+  padding-top: var(--ecl-spacing-s);
 
   .ecl-file-upload__item-name {
     font-weight: map.get($file-upload, 'title-font-weight');
