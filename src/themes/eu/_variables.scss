@@ -7,7 +7,7 @@
 // Accordion
 $accordion: (
   item-background: transparent,
-  item-shadow-hover: map.get($shadow, '1'),
+  item-shadow-hover: var(--ecl-shadow-1),
   border-color: none,
   item-padding: var(--ecl-spacing-xl),
   text-color: map.get($color, 'grey-80'),
@@ -15,7 +15,7 @@ $accordion: (
   icon-color: currentcolor,
   icon-margin: var(--ecl-spacing-s),
   radius: var(--ecl-spacing-xs),
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
 );
 $accordion-print: (
   toggle-background: transparent,
@@ -143,7 +143,7 @@ $breadcrumb: (
 // Button
 $button: (
   radius: 4px,
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   border-width: 2px,
   outline-width: 2px,
   padding-horizontal: var(--ecl-spacing-m),
@@ -218,7 +218,7 @@ $button-print: (
 // Card
 $card: (
   border-radius: map.get($border-radius, 'xl'),
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   border: none,
   border-bottom: none,
   body-padding: var(--ecl-spacing-l),
@@ -289,8 +289,8 @@ $date-block: (
   circle-width: 10px,
   max-height: none,
   padding-top: 0,
-  shadow: map.get($shadow, '1'),
-  shadow-decoration: map.get($shadow-inner, '1'),
+  shadow: var(--ecl-shadow-1),
+  shadow-decoration: var(--ecl-shadow-inner-1),
   text-color: map.get($color, 'white'),
   text-color-inverted: var(--ecl-color-dark-140),
   text-white-space: normal,
@@ -494,7 +494,7 @@ $link: (
   ),
   button: (
     radius: 4px,
-    shadow: map.get($shadow, '1'),
+    shadow: var(--ecl-shadow-1),
     border-width: 2px,
     outline-width: 2px,
     padding-horizontal: var(--ecl-spacing-m),
@@ -565,7 +565,7 @@ $list: (
 // Media container
 $media-container: (
   border-radius: 8px,
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   caption-background-color: map.get($color, 'white'),
   caption-color: var(--ecl-color-dark-80),
   caption-font: var(--ecl-font-m),
@@ -581,7 +581,7 @@ $media-container: (
 $menu: (
   global: (
     border-radius: 4px,
-    shadow: map.get($shadow, '2'),
+    shadow: var(--ecl-shadow-2),
     color-outline: map.get($color, 'white'),
   ),
   mobile: (
@@ -605,7 +605,7 @@ $menu: (
     header-background-hover: transparent,
     header-font: var(--ecl-font-xl),
     header-color: map.get($color, 'white'),
-    header-shadow: map.get($shadow, '1'),
+    header-shadow: var(--ecl-shadow-1),
     header-height: 77px,
     item-color: var(--ecl-color-primary),
     item-color-hover: var(--ecl-color-primary-140),
@@ -664,7 +664,7 @@ $menu: (
     overflow-current-background-hover: map.get($color, 'white'),
     overflow-current-color-hover: var(--ecl-color-primary),
     mega-border: none,
-    mega-shadow: map.get($shadow, '2'),
+    mega-shadow: var(--ecl-shadow-2),
     mega-padding: 0,
     mega-column-gap: 0,
     mega-column-border: none,
@@ -712,8 +712,8 @@ $text-input: (
   border-color-invalid-focus: var(--ecl-color-error-80),
   color-input: var(--ecl-color-dark-140),
   color-placeholder: var(--ecl-color-dark-40),
-  shadow: map.get($shadow, '1'),
-  shadow-hover: map.get($shadow, '2'),
+  shadow: var(--ecl-shadow-1),
+  shadow-hover: var(--ecl-shadow-2),
   padding-vertical: var(--ecl-spacing-s),
   padding-horizontal: var(--ecl-spacing-m),
 );
@@ -724,7 +724,7 @@ $navigation-list: (
   image-border-color: var(--ecl-color-primary-20),
   content_block_padding: var(--ecl-spacing-l),
   border-radius: 8px,
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   border: 0,
   yellow-bar: true,
 );
@@ -895,7 +895,7 @@ $rating-field: (
 $site-footer: (
   background: var(--ecl-color-primary-5),
   color: var(--ecl-color-dark-140),
-  shadow: map.get($shadow, '2'),
+  shadow: var(--ecl-shadow-2),
   separator-color: var(--ecl-color-primary-20),
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
@@ -937,8 +937,8 @@ $textarea: (
   border-width-focus: 2px,
   color-input: var(--ecl-color-dark-140),
   color-placeholder: var(--ecl-color-dark-40),
-  shadow: map.get($shadow-inner, '1'),
-  shadow-hover: map.get($shadow-inner, '2'),
+  shadow: var(--ecl-shadow-inner-1),
+  shadow-hover: var(--ecl-shadow-inner-2),
   padding-horizontal: var(--ecl-spacing-m),
   padding-vertical: var(--ecl-spacing-s),
 );
@@ -1067,4 +1067,16 @@ $timeline-print: (
   --ecl-spacing-2xl: #{map.get($spacing, '2xl')};
   --ecl-spacing-3xl: #{map.get($spacing, '3xl')};
   --ecl-spacing-4xl: #{map.get($spacing, '4xl')};
+  --ecl-shadow-1: #{map.get($shadow, '1')};
+  --ecl-shadow-2: #{map.get($shadow, '2')};
+  --ecl-shadow-3: #{map.get($shadow, '3')};
+  --ecl-shadow-4: #{map.get($shadow, '4')};
+  --ecl-shadow-inner-1: #{map.get($shadow-inner, '1')};
+  --ecl-shadow-inner-2: #{map.get($shadow-inner, '2')};
+  --ecl-shadow-negative-1: #{map.get($shadow-negative, '1')};
+  --ecl-shadow-negative-2: #{map.get($shadow-negative, '2')};
+  --ecl-shadow-negative-3: #{map.get($shadow-negative, '3')};
+  --ecl-shadow-negative-4: #{map.get($shadow-negative, '4')};
+  --ecl-shadow-negative-inner-1: #{map.get($shadow-negative-inner, '1')};
+  --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
 }

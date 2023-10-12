@@ -35,7 +35,7 @@ $site-header: null !default;
   }
 
   &:not([data-ecl-has-menu='true']) {
-    box-shadow: map.get($theme, 'shadow', '2');
+    box-shadow: var(--ecl-shadow-2);
   }
 
   .ecl-site-header__cta {
@@ -122,7 +122,7 @@ $site-header: null !default;
 .ecl-site-header__search {
   background-color: var(--ecl-color-primary-5);
   border: 1px solid var(--ecl-color-primary-5);
-  box-shadow: map.get($theme, 'shadow', '3');
+  box-shadow: var(--ecl-shadow-3);
   box-sizing: content-box;
   color: map.get($theme, 'color', 'grey');
   display: none;

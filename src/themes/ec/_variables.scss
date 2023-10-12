@@ -72,7 +72,7 @@ $blockquote: (
   border-width: 4px,
   border-color: var(--ecl-color-primary),
   border-radius: 2px,
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   padding: var(--ecl-spacing-3xl),
   quote: (
     font: var(--ecl-font-l),
@@ -195,7 +195,7 @@ $button-print: (
 // Card
 $card: (
   border-radius: 0 0 map.get($border-radius, 's') map.get($border-radius, 's'),
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   border: 1px solid
     color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
   border-bottom: 4px solid var(--ecl-color-primary),
@@ -314,7 +314,7 @@ $datepicker: (
   input-icon-color: var(--ecl-color-dark-75),
   picker: (
     border-radius: 2px,
-    shadow: map.get($shadow, '6'),
+    shadow: var(--ecl-shadow-6),
     theme-color: var(--ecl-color-dark),
     margin-top: var(--ecl-spacing-2xs),
     padding: var(--ecl-spacing-m),
@@ -364,7 +364,7 @@ $expandable: (
 $file: (
   border-radius: map.get($border-radius, 's'),
   border-color: var(--ecl-color-dark),
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   container-spacing: var(--ecl-spacing-xl) var(--ecl-spacing-xl) 0,
   container-spacing-last: var(--ecl-spacing-xl),
   file-icon-align-self: start,
@@ -699,7 +699,7 @@ $navigation-list: (
   image-border-color: var(--ecl-color-neutral),
   content_block_padding: var(--ecl-spacing-xl),
   border-radius: map.get($border-radius, 's'),
-  shadow: map.get($shadow, '1'),
+  shadow: var(--ecl-shadow-1),
   border: 1px solid
     color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
 );
@@ -835,7 +835,7 @@ $site-header: (
   toggle-color: var(--ecl-color-dark),
   language-switcher: (
     color: var(--ecl-color-dark),
-    shadow: map.get($shadow, '12'),
+    shadow: var(--ecl-shadow-12),
     shadow-size: 12px,
     arrow-size: 1rem,
     arrow-top: 1px,
@@ -1025,4 +1025,8 @@ $timeline-print: (
   --ecl-spacing-4xl: #{map.get($spacing, '4xl')};
   --ecl-spacing-5xl: #{map.get($spacing, '5xl')};
   --ecl-spacing-6xl: #{map.get($spacing, '6xl')};
+  --ecl-shadow-1: #{map.get($shadow, '1')};
+  --ecl-shadow-6: #{map.get($shadow, '6')};
+  --ecl-shadow-12: #{map.get($shadow, '12')};
+  --ecl-shadow-16: #{map.get($shadow, '16')};
 }

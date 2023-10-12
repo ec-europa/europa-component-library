@@ -177,7 +177,7 @@ $timeline: null !default;
 
   .ecl-timeline__tooltip {
     border-radius: 8px;
-    box-shadow: map.get($theme, 'shadow', '1');
+    box-shadow: var(--ecl-shadow-1);
     padding: var(--ecl-spacing-l);
     position: relative;
 

@@ -17,7 +17,7 @@ $site-header: null !default;
 );
 
 .ecl-site-header {
-  box-shadow: map.get($theme, 'shadow', '6');
+  box-shadow: var(--ecl-shadow-6);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -126,7 +126,7 @@ $site-header: null !default;
 .ecl-site-header__login-box,
 .ecl-site-header__search {
   background-color: map.get($theme, 'color', 'white');
-  box-shadow: map.get($theme, 'shadow', '12');
+  box-shadow: var(--ecl-shadow-12);
   box-sizing: content-box;
   color: var(--ecl-color-dark-100);
   display: none;

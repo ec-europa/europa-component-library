@@ -8,27 +8,27 @@
 
 @each $key, $value in theme.$shadow {
   .ecl-u-shadow-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--ecl-shadow-#{$key}) !important;
   }
 }
 
 // Inner shadow
 @each $key, $value in theme.$shadow-inner {
   .ecl-u-shadow-inner-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--ecl-shadow-inner-#{$key}) !important;
   }
 }
 
 // Negative shadow
 @each $key, $value in theme.$shadow-negative {
   .ecl-u-shadow-negative-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--ecl-shadow-negative-#{$key}) !important;
   }
 }
 
 // Negative inner shadow
 @each $key, $value in theme.$shadow-negative-inner {
   .ecl-u-shadow-negative-inner-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--ecl-shadow-negative-inner-#{$key}) !important;
   }
 }

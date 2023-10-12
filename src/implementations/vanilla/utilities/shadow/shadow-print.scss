@@ -7,6 +7,6 @@
 
 @each $key, $value in theme.$color {
   .ecl-u-shadow-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--ecl-shadow-#{$key}) !important;
   }
 }
