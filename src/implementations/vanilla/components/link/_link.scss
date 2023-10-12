@@ -70,7 +70,7 @@ $link: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-link__icon ~ .ecl-link__label,
 .ecl-link__label ~ .ecl-link__icon {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  margin-inline-start: var(--ecl-spacing-xs);
 }
 
 // Icon only

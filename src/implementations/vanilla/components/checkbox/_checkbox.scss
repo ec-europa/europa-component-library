@@ -13,7 +13,7 @@ $checkbox: null !default;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 0 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 0 var(--ecl-spacing-xs);
   position: relative;
 
   &:last-child,
@@ -36,7 +36,7 @@ $checkbox: null !default;
   font: var(--ecl-font-m);
   line-height: map.get($checkbox, 'label-line-height');
   max-width: map.get($checkbox, 'max-width');
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--ecl-spacing-xs) 0;
   white-space: pre-wrap;
 }
 
@@ -55,7 +55,7 @@ $checkbox: null !default;
   flex-shrink: 0;
   height: map.get($checkbox, 'box-size');
   justify-content: center;
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
   margin-top: map.get($checkbox, 'box-margin-top');
   position: relative;
   user-select: none;
@@ -89,7 +89,7 @@ $checkbox: null !default;
   color: map.get($theme, 'color' 'error');
   font: var(--ecl-font-xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  padding-inline-start: map.get($theme, 'spacing', '2xs');
+  padding-inline-start: var(--ecl-spacing-2xs);
 }
 
 // Checked and indeterminate
@@ -118,7 +118,7 @@ $checkbox: null !default;
 // Invalid
 .ecl-checkbox--invalid {
   @at-root .ecl-form-group & ~ .ecl-feedback-message {
-    margin-top: map.get($theme, 'spacing', '2xs');
+    margin-top: var(--ecl-spacing-2xs);
   }
 
   .ecl-checkbox__box {
@@ -127,7 +127,7 @@ $checkbox: null !default;
 
   .ecl-checkbox__invalid {
     font: var(--ecl-font-s);
-    margin-top: map.get($theme, 'spacing', 'xs');
+    margin-top: var(--ecl-spacing-xs);
   }
 }
 

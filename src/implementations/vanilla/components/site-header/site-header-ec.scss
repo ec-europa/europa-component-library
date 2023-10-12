@@ -47,7 +47,7 @@ $site-header: null !default;
   }
 
   .ecl-site-header__cta {
-    margin-top: map.get($theme, 'spacing', 's');
+    margin-top: var(--ecl-spacing-s);
     position: relative;
     width: max-content;
     z-index: 1;
@@ -61,8 +61,8 @@ $site-header: null !default;
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
-  padding-bottom: map.get($theme, 'spacing', 'xs');
-  padding-top: map.get($theme, 'spacing', 'xs');
+  padding-bottom: var(--ecl-spacing-xs);
+  padding-top: var(--ecl-spacing-xs);
   position: static;
 }
 
@@ -88,7 +88,7 @@ $site-header: null !default;
   color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
-  margin-inline-start: map.get($theme, 'spacing', 'm');
+  margin-inline-start: var(--ecl-spacing-m);
   position: relative;
   text-align: center;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -109,7 +109,7 @@ $site-header: null !default;
 
 .ecl-site-header__language-selector {
   color: map.get($site-header, 'toggle-color');
-  margin-inline-start: map.get($theme, 'spacing', 'm');
+  margin-inline-start: var(--ecl-spacing-m);
   text-align: center;
   text-transform: uppercase;
 
@@ -132,16 +132,10 @@ $site-header: null !default;
   display: none;
   font: var(--ecl-font-m);
   left: 0;
-  margin-top: calc(#{map.get($theme, 'spacing', 'm')} - 1px);
-  padding: map.get($theme, 'spacing', '3xl') map.get($theme, 'spacing', 'm');
+  margin-top: calc(var(--ecl-spacing-m) - 1px);
+  padding: var(--ecl-spacing-3xl) var(--ecl-spacing-m);
   position: absolute;
-  width: calc(
-    100% - #{map.get($theme, 'spacing', 'm')} - #{map.get(
-        $theme,
-        'spacing',
-        'm'
-      )}
-  );
+  width: calc(100% - var(--ecl-spacing-m) - var(--ecl-spacing-m));
   z-index: map.get($theme, 'z-index', 'modal') + 1;
 }
 
@@ -172,8 +166,8 @@ $site-header: null !default;
   background-color: var(--ecl-color-neutral-100);
   border-width: 0;
   height: 1px;
-  margin-bottom: map.get($theme, 'spacing', 'm');
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-bottom: var(--ecl-spacing-m);
+  margin-top: var(--ecl-spacing-m);
 }
 
 .ecl-site-header__language-icon {
@@ -215,7 +209,7 @@ $site-header: null !default;
   display: flex;
 
   .ecl-notification {
-    margin-bottom: map.get($theme, 'spacing', 'xs');
+    margin-bottom: var(--ecl-spacing-xs);
   }
 }
 
@@ -223,7 +217,7 @@ $site-header: null !default;
   background: map.get($site-header, 'background-color');
   border-top: 1px solid map.get($theme, 'color', 'neutral-40');
   font: var(--ecl-font-m);
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--ecl-spacing-xs) 0;
 }
 
 .ecl-site-header__banner {
@@ -232,7 +226,7 @@ $site-header: null !default;
   display: block;
   font: var(--ecl-font-l);
   min-height: 1.75rem;
-  padding: map.get($theme, 'spacing', 's') 0;
+  padding: var(--ecl-spacing-s) 0;
 
   .ecl-container {
     display: flex;
@@ -241,7 +235,7 @@ $site-header: null !default;
 }
 
 .ecl-site-header__site-name {
-  margin-inline-end: map.get($theme, 'spacing', '3xl');
+  margin-inline-end: var(--ecl-spacing-3xl);
 }
 
 @include breakpoints.down('m') {
@@ -251,10 +245,10 @@ $site-header: null !default;
     background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
-    padding: map.get($theme, 'spacing', 'xs');
+    padding: var(--ecl-spacing-xs);
 
     &:hover {
-      padding: calc(map.get($theme, 'spacing', 'xs') + 1px);
+      padding: calc(var(--ecl-spacing-xs) + 1px);
     }
 
     .ecl-icon {
@@ -283,7 +277,7 @@ $site-header: null !default;
       margin: 0;
 
       &:only-child {
-        margin: map.get($theme, 'spacing', 'xs') 0;
+        margin: var(--ecl-spacing-xs) 0;
       }
     }
 
@@ -296,15 +290,15 @@ $site-header: null !default;
   .ecl-site-header__container {
     align-items: flex-end;
     flex-direction: row;
-    padding-bottom: map.get($theme, 'spacing', 'xl');
-    padding-top: map.get($theme, 'spacing', 'xl');
+    padding-bottom: var(--ecl-spacing-xl);
+    padding-top: var(--ecl-spacing-xl);
   }
 
   .ecl-site-header__site-name {
     align-self: center;
     flex-grow: 1;
     margin-inline-end: 0;
-    padding: map.get($theme, 'spacing', 's') 0;
+    padding: var(--ecl-spacing-s) 0;
   }
 
   .ecl-site-header__top {
@@ -333,9 +327,9 @@ $site-header: null !default;
 
   .ecl-site-header__login-box {
     left: 50%;
-    margin-top: map.get($theme, 'spacing', 's');
+    margin-top: var(--ecl-spacing-s);
     min-width: 22rem;
-    padding: map.get($theme, 'spacing', '3xl');
+    padding: var(--ecl-spacing-3xl);
     transform: translateX(-50%);
     width: auto;
 
@@ -356,7 +350,7 @@ $site-header: null !default;
   .ecl-site-header__language-icon {
     .ecl-site-header__icon {
       height: 1rem;
-      margin-inline-end: map.get($theme, 'spacing', 'xs');
+      margin-inline-end: var(--ecl-spacing-xs);
       width: 1rem;
     }
   }
@@ -366,25 +360,22 @@ $site-header: null !default;
 
     &[aria-expanded='true'],
     &[aria-expanded='true']:focus-visible {
-      margin-bottom: -#{map.get($theme, 'spacing', 'l')};
-      padding: calc(#{map.get($theme, 'spacing', 's')} - 1px)
-        calc(#{map.get($theme, 'spacing', 'm')} - 1px);
-      padding-bottom: calc(
-        #{map.get($theme, 'spacing', 's')} + #{map.get($theme, 'spacing', 'l')}
-      );
+      margin-bottom: calc(-1 * var(--ecl-spacing-l));
+      padding: calc(var(--ecl-spacing-s) - 1px) calc(var(--ecl-spacing-m) - 1px);
+      padding-bottom: calc(var(--ecl-spacing-s) + var(--ecl-spacing-l));
     }
   }
 
   .ecl-site-header__language-code {
     font: var(--ecl-font-xs);
-    margin-inline-end: map.get($theme, 'spacing', 'xs');
+    margin-inline-end: var(--ecl-spacing-xs);
     transform: translateX(-50%) translateX(-0.22rem) translateY(-50%)
       translateY(-0.08rem);
   }
 
   .ecl-site-header__search-container {
     flex-grow: 1;
-    margin-inline-start: map.get($theme, 'spacing', '3xl');
+    margin-inline-start: var(--ecl-spacing-3xl);
 
     .ecl-search-form__button {
       color: map.get($site-header, 'toggle-color');
@@ -404,7 +395,7 @@ $site-header: null !default;
   }
 
   .ecl-site-header__notification .ecl-notification {
-    margin-bottom: map.get($theme, 'spacing', 'xl');
+    margin-bottom: var(--ecl-spacing-xl);
   }
 
   .ecl-site-header__banner {

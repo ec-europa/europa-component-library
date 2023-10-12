@@ -36,7 +36,7 @@ $date-block: null !default;
     content: '';
     display: block;
     height: map.get($date-block, 'circle-width');
-    left: map.get($theme, 'spacing', 's');
+    left: var(--ecl-spacing-s);
     outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
     top: -#{map.get($date-block, 'circle-width') * 0.5};
@@ -53,7 +53,7 @@ $date-block: null !default;
     height: map.get($date-block, 'circle-width');
     outline: 1px solid map.get($date-block, 'outline-color-default');
     position: absolute;
-    right: map.get($theme, 'spacing', 's');
+    right: var(--ecl-spacing-s);
     top: -#{map.get($date-block, 'circle-width') * 0.5};
     width: map.get($date-block, 'circle-width');
   }

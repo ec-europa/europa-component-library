@@ -67,7 +67,7 @@ $button: null !default;
 
 .ecl-button__icon ~ .ecl-button__label,
 .ecl-button__label ~ .ecl-button__icon {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  margin-inline-start: var(--ecl-spacing-xs);
 }
 
 // Icon only

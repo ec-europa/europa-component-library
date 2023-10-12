@@ -46,8 +46,8 @@ $content-block: null !default;
   border-inline-end: 1px solid var(--ecl-color-primary);
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
-  padding-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
+  padding-inline-end: var(--ecl-spacing-xs);
   unicode-bidi: isolate;
 
   &:last-child {
@@ -85,32 +85,32 @@ $content-block: null !default;
 .ecl-content-block__secondary-meta-item {
   align-items: center;
   display: inline-flex;
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--ecl-spacing-xs) 0;
   width: 100%;
 }
 
 .ecl-content-block__secondary-meta-icon {
   flex-shrink: 0;
   fill: map.get($content-block, 'secondary-meta-icon-color');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
 }
 
 .ecl-content-block__tag-container {
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: map.get($theme, 'spacing', 'l') 0 -#{map.get($theme, 'spacing', 'xs')};
+  margin: var(--ecl-spacing-l) 0 calc(-1 * var(--ecl-spacing-xs));
   padding: 0;
   width: 100%;
 }
 
 .ecl-content-block__tag-item {
-  margin-bottom: map.get($theme, 'spacing', 'xs');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-bottom: var(--ecl-spacing-xs);
+  margin-inline-end: var(--ecl-spacing-xs);
 }
 
 .ecl-content-block__link-container {
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-top: var(--ecl-spacing-xl);
 }
 
 .ecl-content-block__link-list {
@@ -129,19 +129,19 @@ $content-block: null !default;
 .ecl-content-block__link-item {
   font: map.get($content-block, 'link-font');
   line-height: map.get($theme, 'line-height', 'm');
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--ecl-spacing-xs) 0;
 }
 
 .ecl-content-block__list-container {
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-top: var(--ecl-spacing-xl);
 }
 
 .ecl-content-block__title + .ecl-content-block__list-container {
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--ecl-spacing-xs);
 }
 
 .ecl-content-block__list {
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: var(--ecl-spacing-m);
 
   &:first-child {
     margin-top: 0;
@@ -149,7 +149,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__list + .ecl-content-block__list {
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-top: var(--ecl-spacing-l);
 }
 
 .ecl-content-block > *:first-child {

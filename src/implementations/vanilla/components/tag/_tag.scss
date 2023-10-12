@@ -58,7 +58,7 @@ $tag: null !default;
   border-width: 0;
   color: map.get($tag, 'color');
   height: map.get($theme, 'icon', 'xs');
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  margin-inline-start: var(--ecl-spacing-xs);
   padding: 0;
   pointer-events: auto;
   position: relative;

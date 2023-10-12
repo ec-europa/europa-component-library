@@ -20,7 +20,7 @@ $_spinner-sizes: (
   align-items: center;
   display: none;
   flex-direction: column;
-  margin: 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 var(--ecl-spacing-xs);
   position: relative;
   z-index: #{map.get($theme, 'z-index', 'modal') + 1};
 }
@@ -41,7 +41,7 @@ $_spinner-sizes: (
 .ecl-spinner__text {
   color: map.get($spinner, 'text-color');
   font: var(--ecl-font-m);
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--ecl-spacing-xs);
 }
 
 .ecl-spinner__circle {
@@ -82,7 +82,7 @@ $_spinner-sizes: (
   margin-right: auto;
   position: absolute;
   right: 0;
-  top: map.get($theme, 'spacing', '2xl');
+  top: var(--ecl-spacing-2xl);
 }
 
 // Negative
@@ -112,7 +112,7 @@ $_spinner-sizes: (
   }
 
   .ecl-spinner__text {
-    margin-inline-start: map.get($theme, 'spacing', 'xs');
+    margin-inline-start: var(--ecl-spacing-xs);
     margin-top: 0;
   }
 }

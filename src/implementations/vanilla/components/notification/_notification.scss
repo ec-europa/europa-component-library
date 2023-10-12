@@ -25,7 +25,7 @@ $notification: null !default;
 
 .ecl-notification__icon {
   flex-shrink: 0;
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
 }
 
 .ecl-notification__content {
@@ -44,7 +44,7 @@ $notification: null !default;
 
 .ecl-notification__description {
   grid-column-start: 1;
-  margin: 0 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 0 var(--ecl-spacing-xs);
   max-width: 80ch;
 }
 
@@ -71,7 +71,7 @@ $notification: null !default;
 
   .ecl-notification__close {
     bottom: auto;
-    top: map.get($theme, 'spacing', 'l') - map.get($theme, 'spacing', 's');
+    top: calc(var(--ecl-spacing-l) - var(--ecl-spacing-s));
   }
 }
 

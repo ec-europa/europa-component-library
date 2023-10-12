@@ -14,7 +14,7 @@ $radio: null !default;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 0 var(--ecl-spacing-xs);
 
   &:last-child {
     margin-bottom: 0;
@@ -44,7 +44,7 @@ $radio: null !default;
   display: inline-flex;
   font: var(--ecl-font-m);
   line-height: map.get($radio, 'label-line-height');
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--ecl-spacing-xs) 0;
   position: relative;
   max-width: map.get($radio, 'max-width');
   white-space: pre-wrap;
@@ -63,7 +63,7 @@ $radio: null !default;
   display: block;
   flex-shrink: 0;
   height: map.get($radio, 'box-size');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
   margin-top: map.get($radio, 'box-margin-top');
   position: relative;
   width: map.get($radio, 'box-size');
@@ -154,7 +154,7 @@ $radio: null !default;
 // Binary radio
 .ecl-radio--binary {
   display: inline-flex;
-  margin-inline-end: map.get($theme, 'spacing', 'm');
+  margin-inline-end: var(--ecl-spacing-m);
   vertical-align: top;
 }
 
@@ -163,5 +163,5 @@ $radio: null !default;
 }
 
 .ecl-form-label + .ecl-radio--binary + .ecl-radio--binary {
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--ecl-spacing-xs);
 }

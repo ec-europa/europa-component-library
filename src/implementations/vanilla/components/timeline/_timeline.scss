@@ -15,10 +15,8 @@ $timeline: null !default;
 .ecl-timeline {
   list-style: none;
   margin-bottom: 0;
-  margin-inline-start: (
-    map.get($theme, 'spacing', 'l') +
-      calc(map.get($timeline, 'bullet-size') / 2) +
-      map.get($timeline, 'bullet-border-width')
+  margin-inline-start: calc(
+    var(--ecl-spacing-l) + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width')
   );
   margin-top: 0;
   padding-inline-start: 0;
@@ -26,10 +24,11 @@ $timeline: null !default;
 
 .ecl-timeline__item {
   max-width: 607px;
-  padding-bottom: map.get($theme, 'spacing', 'xl');
-  padding-inline-start: map.get($theme, 'spacing', 'm') +
-    (map.get($timeline, 'bullet-size') * 0.5) +
-    map.get($timeline, 'bullet-border-width');
+  padding-bottom: var(--ecl-spacing-xl);
+  padding-inline-start: calc(
+    var(--ecl-spacing-m) + (map.get($timeline, 'bullet-size') * 0.5) +
+      map.get($timeline, 'bullet-border-width')
+  );
   position: relative;
 
   // Border
@@ -77,7 +76,7 @@ $timeline: null !default;
 
   &::before {
     border-inline-start-style: dashed;
-    top: -#{map.get($theme, 'spacing', '2xs')};
+    top: calc(-1 * var(--ecl-spacing-2xs));
   }
 
   &::after {
@@ -86,7 +85,7 @@ $timeline: null !default;
     box-sizing: border-box;
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    top: map.get($theme, 'spacing', '2xs') + map.get($theme, 'spacing', 'xs');
+    top: var(--ecl-spacing-2xs) + var(--ecl-spacing-xs);
     width: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
   }
@@ -122,7 +121,7 @@ $timeline: null !default;
   color: map.get($timeline, 'label-color');
   font: map.get($timeline, 'label-font');
   font-weight: map.get($timeline, 'label-font-weight');
-  margin-bottom: map.get($theme, 'spacing', '2xs');
+  margin-bottom: var(--ecl-spacing-2xs);
 }
 
 .ecl-timeline__content {
@@ -135,10 +134,12 @@ $timeline: null !default;
   .ecl-timeline__label {
     font: map.get($timeline, 'label-big-font');
     font-weight: map.get($timeline, 'label-font-weight');
-    left: -(#{map.get($timeline, 'left-spacing') +
-          map.get($theme, 'spacing', 'm') +
-          calc(map.get($timeline, 'bullet-size') / 2) +
-          map.get($timeline, 'bullet-border-width')});
+    left: calc(
+      -1 * (#{map.get($timeline, 'left-spacing')} + var(--ecl-spacing-m) + #{map.get(
+              $timeline,
+              'bullet-size'
+            )} / 2 + map.get($timeline, 'bullet-border-width'))
+    );
     line-height: map.get($theme, 'line-height', 'm');
     margin-bottom: map.get($timeline, 'label-margin');
     position: map.get($timeline, 'label-layout');
@@ -177,7 +178,7 @@ $timeline: null !default;
   .ecl-timeline__tooltip {
     border-radius: 8px;
     box-shadow: map.get($theme, 'shadow', '1');
-    padding: map.get($theme, 'spacing', 'l');
+    padding: var(--ecl-spacing-l);
     position: relative;
 
     &::before {

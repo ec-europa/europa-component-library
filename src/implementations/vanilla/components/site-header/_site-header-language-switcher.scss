@@ -43,7 +43,7 @@ $language-switcher: null !default;
   font: var(--ecl-font-m);
   left: 0;
   height: auto;
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--ecl-spacing-s);
   position: absolute;
   right: 0;
   width: auto;
@@ -125,7 +125,7 @@ $language-switcher: null !default;
   font: var(--ecl-font-m);
   font-weight: map.get($language-switcher, 'code-font-weight');
   display: inline-block;
-  margin-inline-end: map.get($theme, 'spacing', '2xs');
+  margin-inline-end: var(--ecl-spacing-2xs);
   text-transform: uppercase;
   width: map.get($language-switcher, 'code-width');
 }
@@ -205,11 +205,7 @@ $language-switcher: null !default;
 
   .ecl-site-header__language-link {
     width: calc(
-      #{map.get($language-switcher, 'item-width')} - (2 * #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )})
+      #{map.get($language-switcher, 'item-width')} - (2 * var(--ecl-spacing-s))
     );
   }
 }

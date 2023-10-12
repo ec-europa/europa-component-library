@@ -34,7 +34,7 @@ $content-item: null !default;
 
 .ecl-content-item__date {
   flex-shrink: 0;
-  margin-inline-end: map.get($theme, 'spacing', 'm');
+  margin-inline-end: var(--ecl-spacing-m);
 }
 
 .ecl-content-item__picture {
@@ -61,13 +61,13 @@ $content-item: null !default;
 
   .ecl-content-item__picture {
     margin-bottom: 0;
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--ecl-spacing-m);
     max-width: 210px;
   }
 
   .ecl-content-item__picture--right {
     margin-inline-end: 0;
-    margin-inline-start: map.get($theme, 'spacing', 'm');
+    margin-inline-start: var(--ecl-spacing-m);
     order: 1;
   }
 }

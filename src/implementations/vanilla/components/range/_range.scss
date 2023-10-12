@@ -68,7 +68,7 @@ $range: null !default;
 .ecl-form-group .ecl-range__value {
   /* eslint-disable-next-line no-math-div */
   margin-top: calc(
-    map.get($theme, 'spacing', '2xs') +
+    var(--ecl-spacing-2xs) +
       (map.get($range, 'slider-size') - map.get($range, 'range-size')) / 2
   );
 }

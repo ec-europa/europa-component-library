@@ -10,11 +10,11 @@ $accordion: (
   item-background-hover: var(--ecl-color-neutral-20),
   item-shadow-hover: none,
   border-color: var(--ecl-color-neutral-20),
-  item-padding: map.get($spacing, 'xl'),
+  item-padding: var(--ecl-spacing-xl),
   text-color: var(--ecl-color-dark-0),
   title-text-color: var(--ecl-color-dark-0),
   icon-color: var(--ecl-color-primary),
-  icon-margin: map.get($spacing, 'm'),
+  icon-margin: var(--ecl-spacing-m),
 );
 $accordion-print: (
   toggle-background: transparent,
@@ -73,22 +73,22 @@ $blockquote: (
   border-color: var(--ecl-color-primary),
   border-radius: 2px,
   shadow: map.get($shadow, '1'),
-  padding: map.get($spacing, '3xl'),
+  padding: var(--ecl-spacing-3xl),
   quote: (
     font: var(--ecl-font-l),
     color: var(--ecl-color-dark),
   ),
   author: (
-    margin: map.get($spacing, 'm'),
-    padding: map.get($spacing, '2xl'),
+    margin: var(--ecl-spacing-m),
+    padding: var(--ecl-spacing-2xl),
     font-mobile: var(--ecl-font-l),
     font-desktop: var(--ecl-font-l),
     font-weight: map.get($font-weight, 'bold'),
     color: var(--ecl-color-dark),
   ),
   image: (
-    margin-mobile: map.get($spacing, '2xl'),
-    margin-desktop: map.get($spacing, 'xl'),
+    margin-mobile: var(--ecl-spacing-2xl),
+    margin-desktop: var(--ecl-spacing-xl),
   ),
 );
 $blockquote-print: (
@@ -101,19 +101,19 @@ $blockquote-print: (
 
 // Breadcrumb
 $breadcrumb: (
-  padding-vertical: map.get($spacing, 'xs'),
+  padding-vertical: var(--ecl-spacing-spacing-xs),
   font-mobile: var(--ecl-font-m),
   font-desktop: var(--ecl-font-s),
   line-height: map.get($line-height, 'm'),
   last-link-color: var(--ecl-color-dark),
   icon-color: var(--ecl-color-primary),
-  icon-spacing: map.get($spacing, 'm'),
+  icon-spacing: var(--ecl-spacing-spacing-m),
   ellipsis: (
     background: transparent,
     background-hover: var(--ecl-color-primary-20),
     font-weight: map.get($font-weight, 'regular'),
-    offset-vertical: map.get($spacing, 'xs'),
-    offset-horizontal: map.get($spacing, 'm'),
+    offset-vertical: var(--ecl-spacing-xs),
+    offset-horizontal: var(--ecl-spacing-m),
   ),
 );
 
@@ -123,8 +123,8 @@ $button: (
   shadow: none,
   border-width: 2px,
   outline-width: 1px,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, 'xs'),
+  padding-horizontal: var(--ecl-spacing-m),
+  padding-vertical: var(--ecl-spacing-xs),
   primary: (
     background: var(--ecl-color-primary),
     color: map.get($color, 'white'),
@@ -199,7 +199,7 @@ $card: (
   border: 1px solid
     color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
   border-bottom: 4px solid var(--ecl-color-primary),
-  body-padding: map.get($spacing, 'xl'),
+  body-padding: var(--ecl-spacing-xl),
 );
 
 // Checkbox
@@ -239,30 +239,30 @@ $checkbox: (
 
 // Content block
 $content-block: (
-  description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
+  description-margin: var(--ecl-spacing-s) 0 var(--ecl-spacing-m),
   description-font: var(--ecl-font-m),
-  label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($spacing, 'xs')} 0,
-  label-spacing: 0 0 map.get($spacing, 'm'),
+  label-item-spacing: 0 var(--ecl-spacing-xs) var(--ecl-spacing-xs) 0,
+  label-spacing: 0 0 var(--ecl-spacing-m),
   link-separator-color: var(--ecl-color-neutral-60),
   link-font: var(--ecl-font-m),
-  list-margin: map.get($spacing, 'xl') 0 0,
+  list-margin: var(--ecl-spacing-xl) 0 0,
   primary-meta-color: var(--ecl-color-text-primary),
   primary-meta-margin: 0,
   secondary-meta-color: var(--ecl-color-dark),
-  secondary-meta-margin: 0 0 map.get($spacing, 'xl'),
+  secondary-meta-margin: 0 0 var(--ecl-spacing-xl),
   secondary-meta-icon-color: var(--ecl-color-dark),
   text-color: var(--ecl-color-dark),
   title-font: var(--ecl-font-l),
   title-font-weight: map.get($font-weight, 'normal'),
-  title-margin: map.get($spacing, '2xs') 0 map.get($spacing, 's'),
+  title-margin: var(--ecl-spacing-2xs) 0 var(--ecl-spacing-s),
 );
 
 // Content item
 $content-item: (
   divider-color: var(--ecl-color-neutral),
-  padding: map.get($spacing, 'xl'),
+  padding: var(--ecl-spacing-xl),
   image-border-color: var(--ecl-color-neutral),
-  image-spacing-mobile: map.get($spacing, 'xl'),
+  image-spacing-mobile: var(--ecl-spacing-xl),
 );
 
 // Date Block
@@ -278,7 +278,7 @@ $date-block: (
   border-radius: 0,
   circle-width: 10px,
   max-height: 5.75rem,
-  padding-top: map.get($spacing, 'xs'),
+  padding-top: var(--ecl-spacing-xs),
   shadow: none,
   shadow-decoration: none,
   text-color: var(--ecl-color-dark),
@@ -287,16 +287,16 @@ $date-block: (
   width-desktop: 5rem,
   width-mobile: 5rem,
   day: (
-    padding-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
-      map.get($spacing, '2xs'),
-    padding-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
-      map.get($spacing, '2xs'),
+    padding-mobile: var(--ecl-spacing-s) var(--ecl-spacing-2xs)
+      var(--ecl-spacing-2xs),
+    padding-desktop: var(--ecl-spacing-s) var(--ecl-spacing-2xs)
+      var(--ecl-spacing-2xs),
     line-height: 20px,
     text-size: map.get($font-size, 'xl'),
   ),
   month: (
-    padding-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
-    padding-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+    padding-mobile: 0 var(--ecl-spacing-2xs) var(--ecl-spacing-s),
+    padding-desktop: 0 var(--ecl-spacing-2xs) var(--ecl-spacing-s),
     line-height: 12px,
     text-size: 14px,
   ),
@@ -316,13 +316,13 @@ $datepicker: (
     border-radius: 2px,
     shadow: map.get($shadow, '6'),
     theme-color: var(--ecl-color-dark),
-    margin-top: map.get($spacing, '2xs'),
-    padding: map.get($spacing, 'm'),
+    margin-top: var(--ecl-spacing-2xs),
+    padding: var(--ecl-spacing-m),
     background-color: map.get($color, 'white'),
-    title-padding: map.get($spacing, '2xs'),
+    title-padding: var(--ecl-spacing-2xs),
     select-border: 1px solid var(--ecl-color-dark-80),
     table-spacing: 0,
-    thead-margin: map.get($spacing, '2xs'),
+    thead-margin: var(--ecl-spacing-2xs),
     day-hover-background: var(--ecl-color-primary-20),
     day-hover-shadow: inset 0 0 0 1px var(--ecl-color-dark-80),
     day-selected-background: var(--ecl-color-primary),
@@ -337,7 +337,7 @@ $description-list: (
   term-color: var(--ecl-color-dark),
   term-font: var(--ecl-font-m),
   term-margin-bottom: 0,
-  term-margin-top: map.get($spacing, 'xl'),
+  term-margin-top: var(--ecl-spacing-xl),
   definition-color: var(--ecl-color-dark),
   separator-color: var(--ecl-color-primary),
   taxonomy-color: var(--ecl-color-dark),
@@ -353,8 +353,8 @@ $description-list-print: (
 // Expandable
 $expandable: (
   content-color: var(--ecl-color-dark),
-  content-margin: map.get($spacing, 's'),
-  content-padding: map.get($spacing, 'm'),
+  content-margin: var(--ecl-spacing-s),
+  content-padding: var(--ecl-spacing-m),
   toggle-background-active: var(--ecl-color-neutral),
   toggle-border-active: var(--ecl-color-neutral),
   toggle-color-active: var(--ecl-color-dark),
@@ -365,14 +365,14 @@ $file: (
   border-radius: map.get($border-radius, 's'),
   border-color: var(--ecl-color-dark),
   shadow: map.get($shadow, '1'),
-  container-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0,
-  container-spacing-last: map.get($spacing, 'xl'),
+  container-spacing: var(--ecl-spacing-xl) var(--ecl-spacing-xl) 0,
+  container-spacing-last: var(--ecl-spacing-xl),
   file-icon-align-self: start,
-  file-info-margin-left: map.get($spacing, 'xl'),
+  file-info-margin-left: var(--ecl-spacing-xl),
   file-color: var(--ecl-color-dark),
-  file-detail-padding-bottom: map.get($spacing, 'm'),
-  file-download-spacing-mobile: map.get($spacing, 'xs'),
-  file-download-spacing-desktop: map.get($spacing, 'xs'),
+  file-detail-padding-bottom: var(--ecl-spacing-m),
+  file-download-spacing-mobile: var(--ecl-spacing-xs),
+  file-download-spacing-desktop: var(--ecl-spacing-xs),
   file-detail-meta-color: var(--ecl-color-dark),
   file-detail-flex-direction: row,
   file-description-color: var(--ecl-color-dark),
@@ -381,27 +381,27 @@ $file: (
   file-download-position-top: auto,
   file-footer-border: 1px solid var(--ecl-color-neutral-60),
   file-footer-flex-direction: column,
-  file-footer-padding: map.get($spacing, 'm') 0,
-  file-footer-margin: 0 map.get($spacing, 'xl') 0
-    calc(#{map.get($spacing, 'xl')} * 2 + #{map.get($icon, '2xl')}),
-  file-thumbnail-footer-padding: map.get($spacing, 'm') 0,
+  file-footer-padding: var(--ecl-spacing-m) 0,
+  file-footer-margin: 0 var(--ecl-spacing-xl) 0
+    calc(var(--ecl-spacing-xl) * 2 + #{map.get($icon, '2xl')}),
+  file-thumbnail-footer-padding: var(--ecl-spacing-m) 0,
   file-picture-order-desktop: 1,
   file-picture-order-mobile: 1,
-  file-label-spacing: map.get($spacing, 'xl'),
+  file-label-spacing: var(--ecl-spacing-xl),
   file-meta-font: var(--ecl-font-m),
-  file-meta-margin: map.get($spacing, '2xs'),
-  file-spacing: map.get($spacing, 'm'),
+  file-meta-margin: var(--ecl-spacing-2xs),
+  file-spacing: var(--ecl-spacing-m),
   file-spacing-last-child: 0,
-  file-thumbnail-container-padding: map.get($spacing, 'xl'),
-  file-thumbnail-footer-margin: 0 map.get($spacing, 'xl'),
+  file-thumbnail-container-padding: var(--ecl-spacing-xl),
+  file-thumbnail-footer-margin: 0 var(--ecl-spacing-xl),
   file-thumbnail-download-top-position: auto,
-  file-thumbnail-meta-margin: map.get($spacing, '2xs'),
-  file-taxonomy-spacing: map.get($spacing, 'xl') 0 0,
+  file-thumbnail-meta-margin: var(--ecl-spacing-2xs),
+  file-taxonomy-spacing: var(--ecl-spacing-xl) 0 0,
   file-translation-border: none,
-  file-translation-toggle-margin: map.get($spacing, 'm'),
+  file-translation-toggle-margin: var(--ecl-spacing-m),
   file-translation-background: var(--ecl-color-neutral-40),
   file-translation-detail-margin-bottom: 0,
-  file-translation-item-padding-h: map.get($spacing, 'xl'),
+  file-translation-item-padding-h: var(--ecl-spacing-xl),
   file-translation-meta-spacing: 0,
   file-translation-meta-font: var(--ecl-font-m),
   file-translation-download-alignment: flex-start,
@@ -411,7 +411,7 @@ $file: (
   file-translation-item-margin: 0,
   file-translation-toggle-background: transparent,
   file-translation-toggle-border: 0,
-  file-image-margin-left: map.get($spacing, 'xl'),
+  file-image-margin-left: var(--ecl-spacing-xl),
   file-image-margin-right: 0,
   file-language-font: var(--ecl-font-m),
   container-background: map.get($color, 'white'),
@@ -428,8 +428,8 @@ $file: (
 $label: (
   radius: 2px,
   border-width: 2px,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, '2xs'),
+  padding-horizontal: var(--ecl-spacing-m),
+  padding-vertical: var(--ecl-spacing-2xs),
   highlight: (
     background: var(--ecl-color-dark),
     color: map.get($color, 'white'),
@@ -477,8 +477,8 @@ $link: (
     shadow: none,
     border-width: 2px,
     outline-width: 1px,
-    padding-horizontal: map.get($spacing, 'm'),
-    padding-vertical: map.get($spacing, 'xs'),
+    padding-horizontal: var(--ecl-spacing-m),
+    padding-vertical: var(--ecl-spacing-xs),
   ),
   primary: (
     background: var(--ecl-color-primary),
@@ -549,9 +549,9 @@ $media-container: (
   caption-background-color: transparent,
   caption-color: var(--ecl-color-dark),
   caption-font: var(--ecl-font-s),
-  caption-padding: map.get($spacing, 's') 0 0,
+  caption-padding: var(--ecl-spacing-s) 0 0,
   caption-max-width: 80ch,
-  expandable-spacing-top: map.get($spacing, 'xl'),
+  expandable-spacing-top: var(--ecl-spacing-xl),
   media-border: 1px solid var(--ecl-color-neutral-100),
   scrollbar-width: 16px,
 );
@@ -568,7 +568,7 @@ $menu: (
     color: var(--ecl-color-dark),
     content-background: var(--ecl-color-background),
     overlay-background: rgba(0, 0, 0, 0.5),
-    open-padding: map.get($spacing, 'xs'),
+    open-padding: var(--ecl-spacing-xs),
     open-outline-color: transparent,
     header-background: var(--ecl-color-primary),
     header-background-hover: var(--ecl-color-primary-140),
@@ -580,7 +580,7 @@ $menu: (
     item-color-hover: var(--ecl-color-dark),
     item-border: 2px solid var(--ecl-color-background),
     item-font: var(--ecl-font-m),
-    item-padding: map.get($spacing, 'xs') map.get($spacing, 'm'),
+    item-padding: var(--ecl-spacing-xs) var(--ecl-spacing-m),
     item-active-background: var(--ecl-color-neutral),
     item-active-border: var(--ecl-color-primary),
     caret-background: var(--ecl-color-neutral-40),
@@ -591,8 +591,8 @@ $menu: (
     subtitle-border: none,
     subtitle-font: var(--ecl-font-m),
     subtitle-font-weight: map.get($font-weight, 'bold'),
-    subitem-padding: map.get($spacing, 'xs') map.get($spacing, 'm')
-      map.get($spacing, 'xs') map.get($spacing, '2xl'),
+    subitem-padding: var(--ecl-spacing-xs) var(--ecl-spacing-m)
+      var(--ecl-spacing-xs) var(--ecl-spacing-2xl),
   ),
   desktop: (
     menu-background: map.get($color, 'white'),
@@ -612,17 +612,15 @@ $menu: (
     inset 0 #{-4px} 0 var(--ecl-color-primary)},
     item-current-margin: -1px,
     separator-color: var(--ecl-color-dark-80),
-    link-padding: calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, '2xs')
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, 'xs'),
-    link-expanded-padding:
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, '2xs')
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')} + 1px)
-      map.get($spacing, 'xs'),
+    link-padding: calc(var(--ecl-spacing-xs) + var(--ecl-spacing-xs))
+      var(--ecl-spacing-2xs) calc(var(--ecl-spacing-xs) + var(--ecl-spacing-xs))
+      var(--ecl-spacing-xs),
+    link-expanded-padding: calc(var(--ecl-spacing-xs) + var(--ecl-spacing-xs))
+      var(--ecl-spacing-2xs)
+      calc(var(--ecl-spacing-xs) + var(--ecl-spacing-xs) + 1px)
+      var(--ecl-spacing-xs),
     link-line-height: map.get($line-height, 'xs'),
-    caret-padding: 0 map.get($spacing, 'xs'),
+    caret-padding: 0 var(--ecl-spacing-xs),
     caret-focus-outline: var(--ecl-color-primary),
     overflow-border: 2px solid var(--ecl-color-primary),
     overflow-border-hover: 2px solid var(--ecl-color-primary-140),
@@ -634,10 +632,10 @@ $menu: (
     overflow-current-color-hover: var(--ecl-color-dark),
     mega-border: 1px solid var(--ecl-color-dark),
     mega-shadow: none,
-    mega-padding: map.get($spacing, 'xl'),
-    mega-column-gap: map.get($spacing, '2xl'),
+    mega-padding: var(--ecl-spacing-xl),
+    mega-column-gap: var(--ecl-spacing-2xl),
     mega-column-border: 1px solid var(--ecl-color-neutral),
-    sublink-padding: map.get($spacing, 'xs') map.get($spacing, 'm'),
+    sublink-padding: var(--ecl-spacing-xs) var(--ecl-spacing-m),
     sublink-current-background: var(--ecl-color-neutral),
     sublink-current-shadow: none,
   ),
@@ -656,17 +654,17 @@ $form-group: (
   font-invalid: var(--ecl-font-s),
   font-optional: var(--ecl-font-s),
   font-style-optional: 'normal',
-  margin-first-element: map.get($spacing, 's'),
-  margin-help: map.get($spacing, '2xs'),
-  margin-invalid: map.get($spacing, '2xs'),
-  margin-icon: map.get($spacing, '2xs'),
+  margin-first-element: var(--ecl-spacing-s),
+  margin-help: var(--ecl-spacing-2xs),
+  margin-invalid: var(--ecl-spacing-2xs),
+  margin-icon: var(--ecl-spacing-2xs),
 );
 
 // Search
 $search-form: (
   button-border-color: var(--ecl-color-dark-80),
-  button-padding-vertical-mobile: calc(#{map.get($spacing, 's')} + 2px),
-  button-padding-vertical-desktop: map.get($spacing, 'xs'),
+  button-padding-vertical-mobile: calc(var(--ecl-spacing-s) + 2px),
+  button-padding-vertical-desktop: var(--ecl-spacing-xs),
   separator-color: var(--ecl-color-dark-80),
 );
 
@@ -683,15 +681,15 @@ $text-input: (
   color-placeholder: var(--ecl-color-dark-60),
   shadow: none,
   shadow-hover: none,
-  padding-vertical: map.get($spacing, 'xs'),
-  padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: var(--ecl-spacing-xs),
+  padding-horizontal: var(--ecl-spacing-m),
 );
 
 // Navigation list
 $navigation-list: (
-  image-margin: map.get($spacing, 's'),
+  image-margin: var(--ecl-spacing-s),
   image-border-color: var(--ecl-color-neutral),
-  content_block_padding: map.get($spacing, 'xl'),
+  content_block_padding: var(--ecl-spacing-xl),
   border-radius: map.get($border-radius, 's'),
   shadow: map.get($shadow, '1'),
   border: 1px solid
@@ -701,17 +699,17 @@ $navigation-list: (
 // Notification
 $notification: (
   radius: 0,
-  padding: map.get($spacing, '3xl') map.get($spacing, 'xl')
-    map.get($spacing, '3xl') map.get($spacing, '3xl'),
+  padding: var(--ecl-spacing-3xl) var(--ecl-spacing-xl) var(--ecl-spacing-3xl)
+    var(--ecl-spacing-3xl),
   border-width: 1px,
   border-color: var(--ecl-color-neutral),
   font: var(--ecl-font-m),
   color: var(--ecl-color-dark),
   title-font: var(--ecl-font-l),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-spacing: map.get($spacing, 's'),
+  title-spacing: var(--ecl-spacing-s),
   close-color: var(--ecl-color-dark),
-  close-offset: calc(#{map.get($spacing, 'm')} - #{map.get($spacing, '2xl')}),
+  close-offset: calc(var(--ecl-spacing-m) - var(--ecl-spacing-2xl)),
   info: (
     background: var(--ecl-color-neutral-20),
     color: var(--ecl-color-info),
@@ -786,7 +784,7 @@ $range: (
   invalid-active-color: mix(#da1e28, #26324b, 50%),
   value-color: var(--ecl-color-dark-100),
   value-font: var(--ecl-font-s),
-  range-margin-top: map.get($spacing, 'xs'),
+  range-margin-top: var(--ecl-spacing-xs),
   range-size: 0.25rem,
   slider-size: 1rem,
   touch-area: 1.25rem,
@@ -835,25 +833,24 @@ $site-header: (
     arrow-top: 1px,
     arrow-border: 1px solid var(--ecl-color-neutral-60),
     arrow-shadow: none,
-    header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
+    header-padding: var(--ecl-spacing-3xl) var(--ecl-spacing-3xl) 0,
     header-font: var(--ecl-font-xl),
     header-separator: none,
-    close-right: map.get($spacing, 'xl'),
-    close-top: map.get($spacing, 'm'),
-    content-padding: 0 map.get($spacing, '3xl') map.get($spacing, '3xl'),
-    category-margin: map.get($spacing, 's'),
-    category-title-padding: map.get($spacing, 's') 0 map.get($spacing, 'xs'),
-    category-stack-title-padding: map.get($spacing, 'l') 0
-      map.get($spacing, 'xs'),
-    category-stack-margin: map.get($spacing, 's'),
+    close-right: var(--ecl-spacing-xl),
+    close-top: var(--ecl-spacing-m),
+    content-padding: 0 var(--ecl-spacing-3xl) var(--ecl-spacing-3xl),
+    category-margin: var(--ecl-spacing-s),
+    category-title-padding: var(--ecl-spacing-s) 0 var(--ecl-spacing-xs),
+    category-stack-title-padding: var(--ecl-spacing-l) 0 var(--ecl-spacing-xs),
+    category-stack-margin: var(--ecl-spacing-s),
     category-separator: 1px solid var(--ecl-color-neutral),
-    column-spacing: map.get($spacing, 'm'),
+    column-spacing: var(--ecl-spacing-m),
     code-color: var(--ecl-color-dark),
     code-width: 26px,
     code-font-weight: map.get($font-weight, 'regular'),
     code-active-font-weight: map.get($font-weight, 'bold'),
     item-width: 184px,
-    item-padding: map.get($spacing, 'xs') map.get($spacing, 's'),
+    item-padding: var(--ecl-spacing-xs) var(--ecl-spacing-s),
     item-active-background: var(--ecl-color-neutral),
     item-active-color: var(--ecl-color-dark),
     item-active-shadow: none,
@@ -869,7 +866,7 @@ $spinner: (
 
 // Tag
 $tag: (
-  padding: map.get($spacing, '2xs') map.get($spacing, 's'),
+  padding: var(--ecl-spacing-2xs) var(--ecl-spacing-s),
   border-radius: 12px,
   color: var(--ecl-color-dark),
   background-color: var(--ecl-color-primary-20),
@@ -899,8 +896,8 @@ $textarea: (
   color-placeholder: var(--ecl-color-dark-60),
   shadow: none,
   shadow-hover: none,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, 'xs'),
+  padding-horizontal: var(--ecl-spacing-m),
+  padding-vertical: var(--ecl-spacing-xs),
 );
 
 // Timeline
@@ -914,9 +911,9 @@ $timeline: (
   content-big-font: var(--ecl-font-m),
   content-font: var(--ecl-font-m),
   content-color: var(--ecl-color-dark),
-  first-item-offset: map.get($spacing, '2xs'),
+  first-item-offset: var(--ecl-spacing-2xs),
   first-item-height: 100%,
-  item-padding-top: map.get($spacing, '2xs'),
+  item-padding-top: var(--ecl-spacing-2xs),
   label-alignment: right,
   label-color: var(--ecl-color-dark),
   label-big-font: var(--ecl-font-l),
@@ -925,16 +922,17 @@ $timeline: (
   label-layout: absolute,
   label-margin: 0,
   left-spacing: 14rem,
-  last-item-height: map.get($spacing, '2xl'),
-  timeline-margin-left: map.get($spacing, 'xs') + 14rem + map.get($spacing, 'm'),
+  last-item-height: var(--ecl-spacing-2xl),
+  timeline-margin-left:
+    calc(var(--ecl-spacing-xs) + 14rem + var(--ecl-spacing-m)),
   title-big-font: var(--ecl-font-l),
   title-color: var(--ecl-color-dark),
   title-font: var(--ecl-font-l),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-margin: map.get($spacing, '2xs'),
+  title-margin: var(--ecl-spacing-2xs),
   toggle-bullet-border-color: var(--ecl-color-neutral),
   bullet-fill-color: map.get($color, 'white-100'),
-  bullet-size: map.get($spacing, 's'),
+  bullet-size: 0.75rem,
   toggle-bullet-border-width: 0.25rem,
 );
 $timeline-print: (
@@ -1008,4 +1006,15 @@ $timeline-print: (
   --ecl-font-2xl: #{map.get($font, '2xl')};
   --ecl-font-3xl: #{map.get($font, '3xl')};
   --ecl-font-4xl: #{map.get($font, '4xl')};
+  --ecl-spacing-2xs: #{map.get($spacing, '2xs')};
+  --ecl-spacing-xs: #{map.get($spacing, 'xs')};
+  --ecl-spacing-s: #{map.get($spacing, 's')};
+  --ecl-spacing-m: #{map.get($spacing, 'm')};
+  --ecl-spacing-l: #{map.get($spacing, 'l')};
+  --ecl-spacing-xl: #{map.get($spacing, 'xl')};
+  --ecl-spacing-2xl: #{map.get($spacing, '2xl')};
+  --ecl-spacing-3xl: #{map.get($spacing, '3xl')};
+  --ecl-spacing-4xl: #{map.get($spacing, '4xl')};
+  --ecl-spacing-5xl: #{map.get($spacing, '5xl')};
+  --ecl-spacing-6xl: #{map.get($spacing, '6xl')};
 }

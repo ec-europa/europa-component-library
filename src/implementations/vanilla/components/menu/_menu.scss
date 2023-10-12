@@ -18,8 +18,8 @@ $menu: null !default;
   box-shadow: map.get($menu, 'global', 'shadow');
   color: map.get($menu, 'mobile', 'color');
   margin: 0;
-  padding-bottom: map.get($theme, 'spacing', 'xs');
-  padding-top: map.get($theme, 'spacing', 'xs');
+  padding-bottom: var(--ecl-spacing-xs);
+  padding-top: var(--ecl-spacing-xs);
 }
 
 .ecl-menu__container {
@@ -71,7 +71,7 @@ $menu: null !default;
 }
 
 .ecl-menu__cta {
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--ecl-spacing-s);
 }
 
 /* stylelint-disable-next-line order/order */
@@ -136,7 +136,7 @@ $menu: null !default;
 
 .ecl-menu__title {
   font: map.get($menu, 'mobile', 'header-font');
-  padding-inline-start: map.get($theme, 'spacing', 'm');
+  padding-inline-start: var(--ecl-spacing-m);
 }
 
 .ecl-menu__close {
@@ -160,7 +160,7 @@ $menu: null !default;
   }
 
   .ecl-button__label {
-    margin-top: map.get($theme, 'spacing', '2xs');
+    margin-top: var(--ecl-spacing-2xs);
   }
 
   &:hover {
@@ -404,8 +404,8 @@ $menu: null !default;
       background-color: map.get($menu, 'desktop', 'separator-color');
       display: block;
       flex-shrink: 0;
-      margin-bottom: map.get($theme, 'spacing', 'xs');
-      margin-top: map.get($theme, 'spacing', 'xs');
+      margin-bottom: var(--ecl-spacing-xs);
+      margin-top: var(--ecl-spacing-xs);
       width: 1px;
     }
 
@@ -519,7 +519,7 @@ $menu: null !default;
     }
 
     .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
-      padding-right: map.get($theme, 'spacing', 'xs');
+      padding-right: var(--ecl-spacing-xs);
     }
 
     // stylelint-disable-next-line no-descending-specificity
@@ -688,7 +688,7 @@ $menu: null !default;
 }
 
 .ecl-menu__see-all {
-  margin-top: map.get($theme, 'spacing', '3xl');
+  margin-top: var(--ecl-spacing-3xl);
 }
 
 /* stylelint-disable-next-line order/order */
@@ -714,17 +714,11 @@ $menu: null !default;
       &::before {
         content: '';
         display: block;
-        height: calc(100% + #{map.get($theme, 'spacing', 'l')});
-        left: -#{map.get($theme, 'spacing', 'l')};
+        height: calc(100% + var(--ecl-spacing-l));
+        left: calc(-1 * var(--ecl-spacing-l));
         position: absolute;
         top: 0;
-        width: calc(
-          100% + #{map.get($theme, 'spacing', 'l')} + #{map.get(
-              $theme,
-              'spacing',
-              'l'
-            )}
-        );
+        width: calc(100% + var(--ecl-spacing-l) + var(--ecl-spacing-l));
       }
     }
 

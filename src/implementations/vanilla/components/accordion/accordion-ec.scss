@@ -77,12 +77,12 @@ $accordion: null !default;
   font: var(--ecl-font-m);
   margin-inline-start: 0;
   max-width: 60ch;
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  padding-inline-end: var(--ecl-spacing-m);
   padding-inline-start: calc(
     map.get($accordion, 'item-padding') + map.get($accordion, 'icon-margin') +
       1rem + 0.25rem
   );
-  padding-bottom: map.get($theme, 'spacing', 'xl');
+  padding-bottom: var(--ecl-spacing-xl);
 }
 
 .no-js .ecl-accordion__content {

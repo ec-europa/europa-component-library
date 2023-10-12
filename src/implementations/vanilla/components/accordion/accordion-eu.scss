@@ -29,7 +29,7 @@ $accordion: null !default;
       border-end-end-radius: 2px;
       content: '';
       height: 4px;
-      left: map.get($theme, 'spacing', 'l');
+      left: var(--ecl-spacing-l);
       position: absolute;
       top: 0;
       width: 32px;
@@ -125,7 +125,7 @@ $accordion: null !default;
 .ecl-accordion__toggle-label {
   display: none;
   font: var(--ecl-font-prolonged-m);
-  margin: 0 map.get($theme, 'spacing', 'xs') 0 map.get($theme, 'spacing', 's');
+  margin: 0 var(--ecl-spacing-xs) 0 var(--ecl-spacing-s);
 }
 
 .ecl-accordion__toggle-title {
@@ -139,7 +139,7 @@ $accordion: null !default;
   color: map.get($accordion, 'text-color');
   font: var(--ecl-font-prolonged-m);
   margin-inline-start: 0;
-  padding: map.get($theme, 'spacing', 'l');
+  padding: var(--ecl-spacing-l);
 }
 
 .no-js .ecl-accordion__content {

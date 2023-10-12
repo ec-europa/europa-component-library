@@ -20,7 +20,7 @@ $navigation-list: null !default;
   display: grid;
   grid-auto-rows: auto;
   grid-column-gap: map.get($theme, 'grid', 'gutter');
-  grid-row-gap: map.get($theme, 'spacing', '2xl');
+  grid-row-gap: var(--ecl-spacing-2xl);
   width: 100%;
 }
 
@@ -28,12 +28,12 @@ $navigation-list: null !default;
 @include breakpoints.up('l') {
   .ecl-navigation-list--col-2 {
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: map.get($theme, 'spacing', '3xl');
+    grid-row-gap: var(--ecl-spacing-3xl);
   }
 
   .ecl-navigation-list--col-3 {
     grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: map.get($theme, 'spacing', '3xl');
+    grid-row-gap: var(--ecl-spacing-3xl);
   }
 }
 
@@ -87,7 +87,7 @@ $navigation-list: null !default;
         border-bottom-right-radius: 2px;
         content: '';
         height: 4px;
-        left: map.get($theme, 'spacing', 'l');
+        left: var(--ecl-spacing-l);
         position: absolute;
         top: 0;
         width: 32px;

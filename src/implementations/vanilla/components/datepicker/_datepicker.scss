@@ -18,14 +18,14 @@ $datepicker: null !default;
 }
 
 .ecl-datepicker__field.ecl-text-input {
-  padding-inline-end: map.get($theme, 'spacing', '2xl');
+  padding-inline-end: var(--ecl-spacing-2xl);
   width: 100%;
 }
 
 .ecl-datepicker__icon {
   color: map.get($datepicker, 'input-icon-color');
-  margin-inline-end: calc(#{map.get($theme, 'spacing', 's')} + 2px);
-  margin-top: calc(#{map.get($theme, 'spacing', 's')} + 2px);
+  margin-inline-end: calc(var(--ecl-spacing-s) + 2px);
+  margin-top: calc(var(--ecl-spacing-s) + 2px);
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -91,8 +91,8 @@ $datepicker: null !default;
     flex-grow: 1;
     font: var(--ecl-font-m);
     justify-content: space-between;
-    margin-inline-end: map.get($theme, 'spacing', 'xs');
-    padding: map.get($theme, 'spacing', 'xs') map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--ecl-spacing-xs);
+    padding: var(--ecl-spacing-xs) var(--ecl-spacing-m);
 
     &:last-of-type {
       margin-inline-end: 0;
@@ -133,7 +133,7 @@ $datepicker: null !default;
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
       font: var(--ecl-font-xs);
-      padding: map.get($theme, 'spacing', 's') 0;
+      padding: var(--ecl-spacing-s) 0;
       text-transform: uppercase;
     }
 
@@ -155,7 +155,7 @@ $datepicker: null !default;
     border-width: 0;
     color: map.get($datepicker, 'picker', 'theme-color');
     font: var(--ecl-font-m);
-    padding: map.get($theme, 'spacing', 'xs');
+    padding: var(--ecl-spacing-xs);
     text-align: center;
 
     &:hover {

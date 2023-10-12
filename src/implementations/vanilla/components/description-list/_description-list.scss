@@ -35,7 +35,7 @@ $description-list: null !default;
 }
 
 .ecl-description-list__term + .ecl-description-list__term {
-  margin-top: map.get($theme, 'spacing', '2xs');
+  margin-top: var(--ecl-spacing-2xs);
 }
 
 .ecl-description-list__definition,
@@ -43,13 +43,13 @@ $description-list: null !default;
   color: map.get($description-list, 'definition-color');
   font: var(--ecl-font-m);
   margin-inline-start: 0;
-  margin-top: map.get($theme, 'spacing', '2xs');
+  margin-top: var(--ecl-spacing-2xs);
   max-width: 60ch;
 }
 
 .ecl-description-list__see_more {
   display: inline;
-  margin-inline-start: map.get($theme, 'spacing', 'm');
+  margin-inline-start: var(--ecl-spacing-m);
 }
 
 .ecl-description-list__definition--link {
@@ -59,12 +59,12 @@ $description-list: null !default;
 
   .ecl-description-list__see_more {
     margin-inline-start: 0;
-    margin-top: map.get($theme, 'spacing', 'm');
+    margin-top: var(--ecl-spacing-m);
   }
 }
 
 .ecl-description-list__definition--link .ecl-description-list__definition-item {
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: var(--ecl-spacing-m);
 
   &:first-child {
     margin-top: 0;
@@ -73,7 +73,7 @@ $description-list: null !default;
 
 .ecl-description-list__definition--inline {
   display: inline-block;
-  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
+  margin-bottom: calc(-1 * var(--ecl-spacing-xs));
 }
 
 // stylelint-disable-next-line no-descending-specificity
@@ -81,9 +81,9 @@ $description-list: null !default;
   .ecl-description-list__definition-item {
   border-inline-end: 1px solid map.get($description-list, 'separator-color');
   display: inline;
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
-  padding-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--ecl-spacing-xs);
+  margin-bottom: var(--ecl-spacing-xs);
+  padding-inline-end: var(--ecl-spacing-xs);
   unicode-bidi: isolate;
 
   &.ecl-description-list__definition-item--hidden {
@@ -107,8 +107,8 @@ $description-list: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
-  margin-inline-end: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
-  padding-inline-start: calc(#{map.get($theme, 'spacing', 'xs')} + 2px);
+  margin-inline-end: calc(var(--ecl-spacing-xs) + 2px);
+  padding-inline-start: calc(var(--ecl-spacing-xs) + 2px);
   position: relative;
 
   &.ecl-description-list__definition-item--hidden {
@@ -156,7 +156,7 @@ $description-list: null !default;
 
     .ecl-description-list__term,
     %ecl-description-list__term {
-      margin-top: map.get($theme, 'spacing', 'xl');
+      margin-top: var(--ecl-spacing-xl);
     }
 
     .ecl-description-list__term:first-of-type {
@@ -166,8 +166,8 @@ $description-list: null !default;
     .ecl-description-list__definition,
     %ecl-description-list__definition {
       align-items: flex-start;
-      margin-inline-start: map.get($theme, 'spacing', '2xl');
-      margin-top: map.get($theme, 'spacing', 'xl');
+      margin-inline-start: var(--ecl-spacing-2xl);
+      margin-top: var(--ecl-spacing-xl);
       overflow-wrap: break-word;
     }
 
