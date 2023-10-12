@@ -436,6 +436,14 @@ $file: (
   translation-border-color: var(--ecl-color-primary-20),
 );
 
+// File upload
+$file-upload: (
+  separator-color: var(--ecl-color-dark-80),
+  meta-display: block,
+  meta-padding: map.get($spacing, 's'),
+  title-font-weight: map.get($font-weight, 'bold'),
+);
+
 // Label
 $label: (
   radius: 4px,

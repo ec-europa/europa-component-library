@@ -20,7 +20,10 @@
   $theme: theme.$theme,
   $datepicker: var.$datepicker
 );
-@use '@ecl/vanilla-component-file-upload/file-upload-ec';
+@use '@ecl/vanilla-component-file-upload/file-upload' with (
+  $theme: theme.$theme,
+  $file-upload: var.$file-upload
+);
 @use '@ecl/vanilla-component-radio/radio' with (
   $theme: theme.$theme,
   $radio: var.$radio
