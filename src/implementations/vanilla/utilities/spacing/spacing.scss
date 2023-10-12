@@ -23,33 +23,33 @@
 
     @each $key, $value in theme.$spacing {
       .ecl-u-ma#{$infix}-#{$key} {
-        margin: $value !important;
+        margin: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-mh#{$infix}-#{$key} {
-        margin-inline-start: $value !important;
-        margin-inline-end: $value !important;
+        margin-inline-start: var(--ecl-spacing-#{$key}) !important;
+        margin-inline-end: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-mv#{$infix}-#{$key} {
-        margin-bottom: $value !important;
-        margin-top: $value !important;
+        margin-bottom: var(--ecl-spacing-#{$key}) !important;
+        margin-top: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-mt#{$infix}-#{$key} {
-        margin-top: $value !important;
+        margin-top: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-mr#{$infix}-#{$key} {
-        margin-inline-end: $value !important;
+        margin-inline-end: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-mb#{$infix}-#{$key} {
-        margin-bottom: $value !important;
+        margin-bottom: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-ml#{$infix}-#{$key} {
-        margin-inline-start: $value !important;
+        margin-inline-start: var(--ecl-spacing-#{$key}) !important;
       }
     }
 
@@ -110,33 +110,33 @@
 
     @each $key, $value in theme.$spacing {
       .ecl-u-pa#{$infix}-#{$key} {
-        padding: $value !important;
+        padding: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-ph#{$infix}-#{$key} {
-        padding-inline-start: $value !important;
-        padding-inline-end: $value !important;
+        padding-inline-start: var(--ecl-spacing-#{$key}) !important;
+        padding-inline-end: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-pv#{$infix}-#{$key} {
-        padding-bottom: $value !important;
-        padding-top: $value !important;
+        padding-bottom: var(--ecl-spacing-#{$key}) !important;
+        padding-top: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-pt#{$infix}-#{$key} {
-        padding-top: $value !important;
+        padding-top: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-pr#{$infix}-#{$key} {
-        padding-inline-end: $value !important;
+        padding-inline-end: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-pb#{$infix}-#{$key} {
-        padding-bottom: $value !important;
+        padding-bottom: var(--ecl-spacing-#{$key}) !important;
       }
 
       .ecl-u-pl#{$infix}-#{$key} {
-        padding-inline-start: $value !important;
+        padding-inline-start: var(--ecl-spacing-#{$key}) !important;
       }
     }
 
