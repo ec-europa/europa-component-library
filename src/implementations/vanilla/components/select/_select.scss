@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/theme-dev/mixins/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -24,19 +24,25 @@ $select: null !default;
   font: map.get($theme, 'font', 'm');
   margin: 0;
   padding-bottom: calc(
-    #{map.get($theme, 'spacing', 's')} - #{map.get($select, 'border-width')}
+    #{map.get($select, 'padding-vertical')} - #{map.get(
+        $select,
+        'border-width'
+      )}
   );
   padding-inline-end: calc(
-    #{map.get($theme, 'spacing', 's')} + #{map.get($select, 'arrow-width')} - #{map.get(
+    #{map.get($theme, 'spacing', 'm')} + #{map.get($select, 'arrow-width')} - #{map.get(
         $select,
         'border-width'
       )}
   );
   padding-inline-start: calc(
-    #{map.get($theme, 'spacing', 's')} - #{map.get($select, 'border-width')}
+    #{map.get($theme, 'spacing', 'm')} - #{map.get($select, 'border-width')}
   );
   padding-top: calc(
-    #{map.get($theme, 'spacing', 's')} - #{map.get($select, 'border-width')}
+    #{map.get($select, 'padding-vertical')} - #{map.get(
+        $select,
+        'border-width'
+      )}
   );
   width: 100%;
   z-index: 1;
@@ -55,29 +61,30 @@ $select: null !default;
     box-shadow: map.get($select, 'shadow-hover');
   }
 
-  &:focus-visible {
+  &:focus-visible,
+  &--active {
     border-color: map.get($select, 'border-color-focus');
     border-width: map.get($select, 'border-width-focus');
     box-shadow: map.get($select, 'shadow-hover');
     outline: none;
     padding-bottom: calc(
-      #{map.get($theme, 'spacing', 's')} - #{map.get(
+      #{map.get($select, 'padding-vertical')} - #{map.get(
           $select,
           'border-width-focus'
         )}
     );
     padding-inline-end: calc(
-      #{map.get($theme, 'spacing', 's')} + #{map.get($select, 'arrow-width')} -
+      #{map.get($theme, 'spacing', 'm')} + #{map.get($select, 'arrow-width')} -
         #{map.get($select, 'border-width-focus')}
     );
     padding-inline-start: calc(
-      #{map.get($theme, 'spacing', 's')} - #{map.get(
+      #{map.get($theme, 'spacing', 'm')} - #{map.get(
           $select,
           'border-width-focus'
         )}
     );
     padding-top: calc(
-      #{map.get($theme, 'spacing', 's')} - #{map.get(
+      #{map.get($select, 'padding-vertical')} - #{map.get(
           $select,
           'border-width-focus'
         )}
@@ -94,27 +101,15 @@ $select: null !default;
 }
 
 .ecl-select__container--s {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 's');
-  }
+  @include mixins.form-width(s);
 }
 
 .ecl-select__container--m {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'm');
-  }
+  @include mixins.form-width(m);
 }
 
 .ecl-select__container--l {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get($theme, 'form', 'l');
-  }
+  @include mixins.form-width(l);
 }
 
 .ecl-select__container--hidden {
@@ -148,35 +143,40 @@ $select: null !default;
   background-color: map.get($select, 'arrow-background-color-hover');
 }
 
-.ecl-select__icon-shape {
-  fill: map.get($theme, 'color', 'white-100');
+.ecl-select__icon .ecl-icon {
+  fill: map.get($select, 'icon-fill');
+}
+
+.ecl-select--active {
+  &:hover {
+    cursor: pointer !important;
+  }
+
+  ~ .ecl-select__icon .ecl-icon {
+    transform: rotate(0);
+  }
 }
 
 /*
    * Disabled
    */
 .ecl-select__container--disabled {
+  opacity: 0.75;
   background-color: map.get($theme, 'color', 'white-100');
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
   .ecl-select:hover ~ .ecl-select__icon,
   .ecl-select:focus ~ .ecl-select__icon {
-    background-color: rgba(map.get($select, 'arrow-background-color'), 0.5);
-  }
-
-  .ecl-select__icon-shape {
-    fill: map.get($theme, 'color', 'white-100');
+    opacity: 0.75;
   }
 
   .ecl-select {
-    border-color: map.get($select, 'border-color-disabled');
-    color: map.get($theme, 'color', 'grey-50');
     cursor: not-allowed;
-  }
 
-  .ecl-select::placeholder {
-    color: rgba(map.get($select, 'color-placeholder'), 0.5);
+    &::placeholder {
+      opacity: 0.75;
+    }
   }
 
   .ecl-select:hover {
@@ -226,6 +226,7 @@ $select: null !default;
 
 .ecl-select__multiple {
   cursor: pointer;
+  display: inline-block;
   position: relative;
 
   .ecl-select__multiple-dropdown {
@@ -235,7 +236,9 @@ $select: null !default;
     cursor: default;
     box-shadow: map.get($select, 'multiple-dropdown-shadow');
     box-sizing: border-box;
+    margin-top: map.get($select, 'multiple-dropdown-margin');
     min-width: map.get($theme, 'form', 'm');
+    padding-bottom: map.get($theme, 'spacing', 'm');
     position: absolute;
     z-index: map.get($theme, 'z-index', 'dropdown');
   }
@@ -245,16 +248,10 @@ $select: null !default;
     width: map.get($select, 'multiple-dropdown-input-width');
   }
 
-  .ecl-select__multiple-all {
-    border-bottom: 1px solid
-      map.get($select, 'multiple-dropdown-separator-color');
-  }
-
   .ecl-select__multiple-options {
     box-sizing: border-box;
     max-height: map.get($select, 'multiple-dropdown-container-max-height');
     overflow-y: auto;
-    padding: map.get($theme, 'spacing', 's') 0;
   }
 
   .ecl-checkbox__label {
@@ -262,20 +259,16 @@ $select: null !default;
       $select,
       'multiple-checkbox-label-vertical-padding'
     );
-    padding-inline-start: map.get($theme, 'spacing', 's');
-    padding-inline-end: map.get($theme, 'spacing', 's');
+    padding-inline-start: map.get($theme, 'spacing', 'm');
+    padding-inline-end: map.get($theme, 'spacing', 'm');
     padding-top: map.get($select, 'multiple-checkbox-label-vertical-padding');
     width: calc(
-      100% - #{map.get($theme, 'spacing', 's')} - #{map.get(
+      100% - #{map.get($theme, 'spacing', 'm')} - #{map.get(
           $theme,
           'spacing',
-          's'
+          'm'
         )}
     );
-  }
-
-  .ecl-checkbox ~ .ecl-checkbox {
-    margin: 0;
   }
 
   .ecl-checkbox__label:hover,
@@ -288,7 +281,8 @@ $select: null !default;
 
   .ecl-select__multiple-group {
     border-bottom: 1px solid map.get($select, 'group-separator-color');
-    margin: 0 map.get($theme, 'spacing', 's');
+    border-top: 1px solid map.get($select, 'group-separator-color');
+    margin: 0 map.get($theme, 'spacing', 'm');
     padding: map.get($theme, 'spacing', 's') 0;
 
     &:first-child {
@@ -296,8 +290,8 @@ $select: null !default;
     }
 
     .ecl-checkbox__label {
-      margin-inline-start: -#{map.get($theme, 'spacing', 's')};
-      margin-inline-end: -#{map.get($theme, 'spacing', 's')};
+      margin-inline-start: -#{map.get($theme, 'spacing', 'm')};
+      margin-inline-end: -#{map.get($theme, 'spacing', 'm')};
       width: 100%;
     }
   }
@@ -310,7 +304,7 @@ $select: null !default;
     color: map.get($select, 'group-title-color');
     font: map.get($select, 'group-title-font');
     font-weight: map.get($theme, 'font-weight', 'bold');
-    margin: map.get($theme, 'spacing', 'xs') 0;
+    margin: 0 0 map.get($theme, 'spacing', '2xs');
   }
 
   .ecl-select__multiple-no-results {
@@ -325,30 +319,52 @@ $select: null !default;
   }
 
   .ecl-select-multiple-toolbar {
-    border-top: 1px solid map.get($select, 'multiple-dropdown-separator-color');
+    border-top: 1px solid
+      map.get($select, 'multiple-dropdown-toolbar-separator-color');
     display: flex;
-
-    * {
-      flex-basis: 50%;
-      flex-grow: 1;
-    }
+    flex-direction: column;
+    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'm') 0;
 
     .ecl-button + .ecl-button {
-      border-radius: 0 0 4px;
+      margin-top: map.get($theme, 'spacing', 'm');
+    }
+  }
+
+  .ecl-select__multiple-all {
+    border-bottom: 1px solid
+      map.get($select, 'multiple-dropdown-separator-color');
+    margin-bottom: map.get($theme, 'spacing', 's');
+    padding-bottom: map.get($theme, 'spacing', 's');
+
+    @if map-has-key($select, 'multiple-select-all-after') {
+      &::after {
+        content: '';
+        display: inline-block;
+        height: 1px;
+        margin: 0 auto;
+        position: relative;
+        bottom: -#{map.get($theme, 'spacing', 's')};
+        width: calc(100% - (#{map.get($theme, 'spacing', 'm')} * 2));
+        background: var(--ecl-color-neutral-100);
+      }
+    }
+
+    + .ecl-select__multiple-options > .ecl-select__multiple-group {
+      border-top: none;
     }
   }
 
   .ecl-select-multiple-selections-counter {
     display: none;
-    left: map.get($theme, 'spacing', 's');
+    left: map.get($theme, 'spacing', 'm');
     position: absolute;
     top: 12%;
 
     * {
       align-items: center;
       background-color: map.get($select, 'multiple_counter_background');
-      border-radius: 50%;
-      color: map.get($theme, 'color', 'white');
+      border-radius: 0.75rem;
+      color: map.get($select, 'counter-color');
       display: inline-flex;
       font: map.get($theme, 'font', 's');
       height: auto;
@@ -375,10 +391,13 @@ $select: null !default;
     display: block;
 
     + .ecl-select {
-      padding-inline-start: 3rem;
+      padding-inline-start: calc(3.5rem - #{map.get($select, 'border-width')});
 
-      &:focus-visible {
-        padding-inline-start: calc(3rem - 2px);
+      &:focus-visible,
+      &--active {
+        padding-inline-start: calc(
+          3.5rem - #{map.get($select, 'border-width-focus')}
+        );
       }
     }
   }

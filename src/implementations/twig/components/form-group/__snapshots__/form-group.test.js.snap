@@ -4122,6 +4122,7 @@ exports[`Form group  with Select renders correctly 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         id="select-default"
         name="country"
         required=""
@@ -4200,15 +4201,32 @@ exports[`Form group  with Select renders correctly 1`] = `
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -4242,6 +4260,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         disabled=""
         id="select-default"
         name="country"
@@ -4321,15 +4340,33 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -4377,6 +4414,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         id="select-default"
         name="country"
         required=""
@@ -4455,15 +4493,32 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -4497,6 +4552,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         id="select-default"
         name="country"
         required=""
@@ -4575,15 +4631,32 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -4619,6 +4692,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         id="select-default"
         name="country"
         required=""
@@ -4697,15 +4771,32 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -4739,6 +4830,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
       <select
         aria-label="country"
         class="ecl-select"
+        data-ecl-auto-init="Select"
         id="select-default"
         name="country"
         required=""
@@ -4817,15 +4909,32 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
       <div
         class="ecl-select__icon"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-          focusable="false"
+        <button
+          class="ecl-button ecl-button--ghost ecl-button--icon-only"
+          tabindex="-1"
+          type="button"
         >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Toggle dropdown
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   </div>
