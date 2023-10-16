@@ -115,7 +115,6 @@ export class Select {
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
-    this.resetFocus = this.resetFocus.bind(this);
     this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
     this.handleEsc = this.handleEsc.bind(this);
@@ -482,11 +481,12 @@ export class Select {
         this.form.addEventListener('reset', this.resetForm);
       }
     } else {
-      this.select.addEventListener('click', this.resetFocus);
+      this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
       this.select.addEventListener('focus', this.handleToggle);
+      this.select.addEventListener('blur', this.handleEsc);
+      this.select.addEventListener('click', this.handleToggle);
     }
 
-    this.select.addEventListener('blur', this.handleToggle);
     document.addEventListener('click', this.handleClickOutside);
 
     // Set ecl initialized attribute
@@ -542,7 +542,6 @@ export class Select {
 
       this.select.parentNode.classList.remove('ecl-select__container--hidden');
     } else {
-      this.select.removeEventListener('click', this.resetFocus);
       this.select.removeEventListener('focus', this.handleToggle);
     }
 
@@ -607,7 +606,6 @@ export class Select {
   handleToggle(e) {
     if (this.multiple) {
       e.preventDefault();
-
       this.input.classList.toggle('ecl-select--active');
       if (this.searchContainer.style.display === 'none') {
         this.searchContainer.style.display = 'block';
@@ -616,12 +614,6 @@ export class Select {
       }
     } else {
       this.select.classList.toggle('ecl-select--active');
-    }
-  }
-
-  resetFocus() {
-    if (document.activeElement === this.select) {
-      this.select.blur();
     }
   }
 
@@ -694,6 +686,13 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+      this.input.classList.remove('ecl-select--active');
+    } else if (
+      e.relatedTarget &&
+      !this.selectMultiple &&
+      !this.select.parentNode.contains(e.relatedTarget)
+    ) {
+      this.select.blur();
     }
   }
 
@@ -808,7 +807,7 @@ export class Select {
       !this.selectMultiple &&
       !this.select.parentNode.contains(e.target)
     ) {
-      this.select.blur();
+      this.select.classList.remove('ecl-select--active');
     }
   }
 
@@ -822,8 +821,16 @@ export class Select {
         break;
 
       case ' ':
+      case 'Enter':
+        if (this.multiple) {
+          this.handleToggle(e);
+        }
+        break;
+
       case 'ArrowDown':
-        this.search.focus();
+        if (this.multiple) {
+          this.search.focus();
+        }
         break;
 
       default:
@@ -921,21 +928,21 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClearAll(e) {
-    e.preventDefault();
-
     switch (e.key) {
       case 'Enter':
       case ' ':
-        this.handleClickOnClearAll();
+        e.preventDefault();
+        this.handleClickOnClearAll(e);
         this.input.focus();
         break;
 
-      case 'ArrowRight':
-        this.clearAllButton.nextSibling.focus();
+      case 'ArrowDown':
+        this.input.focus();
         break;
 
       case 'ArrowUp':
-        this.optionsContainer.lastChild.querySelector('input').focus();
+        e.preventDefault();
+        this.clearAllButton.previousSibling.focus();
         break;
 
       default:
@@ -946,14 +953,14 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClose(e) {
-    e.preventDefault();
-
     switch (e.key) {
-      case 'ArrowLeft':
-        this.closeButton.previousSibling.focus();
+      case 'ArrowDown':
+        e.preventDefault();
+        this.closeButton.nextSibling.focus();
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.optionsContainer.lastChild.querySelector('input').focus();
         break;
 
@@ -972,12 +979,11 @@ export class Select {
   handleEsc(e) {
     if (this.multiple) {
       e.preventDefault();
-
-      if (this.searchContainer.style.display === 'block') {
-        this.searchContainer.style.display = 'none';
-        this.input.blur();
-        this.input.classList.remove('ecl-select--active');
-      }
+      this.searchContainer.style.display = 'none';
+      this.input.blur();
+      this.input.classList.remove('ecl-select--active');
+    } else {
+      this.select.classList.remove('ecl-select--active');
     }
   }
 
