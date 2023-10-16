@@ -22,7 +22,7 @@ export class Datepicker {
   constructor(
     element,
     {
-      format = 'DD-MM-YYYY',
+      format = '',
       theme = 'ecl-datepicker-theme',
       yearRange = 40,
       reposition = false,
@@ -113,9 +113,11 @@ export class Datepicker {
         const day = `0${date.getDate()}`.slice(-2);
         const month = `0${date.getMonth() + 1}`.slice(-2);
         const year = date.getFullYear();
+
         return `${day}-${month}-${year}`;
       };
     }
+
     // eslint-disable-next-line no-undef
     this.picker = new Pikaday({
       ...options,

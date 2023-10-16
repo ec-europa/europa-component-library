@@ -90,10 +90,16 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ></script>
   ```
 
-### :warning: moment.js
+### :warning: pikaday
 
-ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
-Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
+ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled anymore by ECL.
+Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when
+a datepicker instance is present in a webpage.
+Additionally, when customising the date format used by the datepicker, in order to get a consistent output [moment.js](https://momentjs.com/) is also needed, the order of the scripts in this case should be:
+
+- moment.js
+- pikaday
+- ecl.js
 
 ## Need help?
 
