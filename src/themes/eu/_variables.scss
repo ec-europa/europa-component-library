@@ -370,6 +370,38 @@ $expandable: (
   toggle-color-active: var(--ecl-color-primary),
 );
 
+// Featured item
+$featured-item: (
+  padding: 0,
+  border: none,
+  border-radius: 0,
+  shadow: none,
+  media-padding: map.get($spacing, 'm'),
+  title-color: var(--ecl-color-dark-140),
+  title-font: map.get($font-prolonged, 'l'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-padding: 0,
+  description-color: var(--ecl-color-dark-80),
+  description-font: map.get($font-prolonged, 'm'),
+  description-padding: map.get($spacing, 's') 0 0 0,
+  link-padding: map.get($spacing, 'm') 0 0 0,
+
+  text-color: map.get($color, 'grey-80'),
+  heading-mobile-font: map.get($font, '4xl'),
+  heading-font: map.get($font, '5xl'),
+  heading-font-weight: map.get($font-weight, 'regular'),
+  heading-mobile-margin-bottom: map.get($spacing, 'm'),
+  title-margin-bottom: map.get($spacing, 's'),
+  description-margin-bottom: map.get($spacing, 'm'),
+  highlight-border-color: map.get($color, 'blue-100'),
+  highlight-border-size: 8px,
+  highlight-border-radius: 4px,
+  highlight-background: map.get($color, 'blue-10'),
+  highlight-padding-left: map.get($spacing, 'l'),
+  highlight-padding-top: map.get($spacing, 'm'),
+  highlight-padding-bottom: map.get($spacing, 'm'),
+);
+
 // File download
 $file: (
   border-color: var(--ecl-primary-20),

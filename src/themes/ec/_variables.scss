@@ -360,6 +360,41 @@ $expandable: (
   toggle-color-active: var(--ecl-color-dark),
 );
 
+// Featured item
+$featured-item: (
+  padding: map.get($spacing, 'xl'),
+  border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  border-radius: map.get($border-radius, 's'),
+  shadow: map.get($shadow, '1'),
+  media-padding: map.get($spacing, 'xl'),
+  title-color: var(--ecl-color-dark),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-padding: map.get($spacing, 'xl') map.get($spacing, 'xl') 0
+    map.get($spacing, 'xl'),
+  description-color: var(--ecl-color-dark),
+  description-font: map.get($font, 'm'),
+  description-padding: map.get($spacing, 's') map.get($spacing, 'xl') 0
+    map.get($spacing, 'xl'),
+  link-padding: map.get($spacing, 'm') map.get($spacing, 'xl') 0
+    map.get($spacing, 'xl'),
+  text-color: map.get($color, 'grey-100'),
+  heading-mobile-font: map.get($font, '2xl'),
+  heading-font: map.get($font, '3xl'),
+  heading-font-weight: map.get($font-weight, 'bold'),
+  heading-mobile-margin-bottom: map.get($spacing, 's'),
+  title-margin-bottom: map.get($spacing, 'xs'),
+  description-margin-bottom: map.get($spacing, 's'),
+  highlight-border-color: map.get($color, 'yellow'),
+  highlight-border-size: 8px,
+  highlight-border-radius: 0,
+  highlight-background: map.get($color, 'grey-10'),
+  highlight-padding-left: map.get($spacing, 'm'),
+  highlight-padding-top: map.get($spacing, 's'),
+  highlight-padding-bottom: map.get($spacing, 's'),
+);
+
 // File download
 $file: (
   border-radius: map.get($border-radius, 's'),
