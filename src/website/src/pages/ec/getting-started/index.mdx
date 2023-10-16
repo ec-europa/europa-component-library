@@ -48,26 +48,27 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <script>
-        var cl = document.querySelector('html').classList;
-        cl.remove('no-js');
-        cl.add('has-js');
-      <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
-        crossorigin="anonymous"
+          var cl = document.querySelector('html').classList;
+          cl.remove('no-js');
+          cl.add('has-js');
       >
     </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="/styles/optional/ecl-reset.css"
       media="screen"
     />
-    <link rel="stylesheet" href="/styles/ecl-eu.css" media="screen" />
-    <link rel="stylesheet" href="/styles/ecl-eu-print.css" media="print" />
+    <link rel="stylesheet" href="/styles/ecl-ec.css" media="screen" />
+    <link rel="stylesheet" href="/styles/ecl-ec-print.css" media="print" />
   </head>
   <body>
     <!-- content of your page here -->
 
-    <script src="/scripts/ecl-eu.js"></script>
+    <script src="/scripts/ecl-ec.js"></script>
     <script>
       ECL.autoInit();
     </script>
