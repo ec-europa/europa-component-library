@@ -68,13 +68,13 @@ $border-width-focus: 2px;
 .ecl-text-input--invalid {
   border-color: map.get($text-input, 'border-color-invalid');
 
+  &:active,
   &:hover {
     border-color: map.get($text-input, 'border-color-invalid-hover');
   }
 
-  &:active,
-  &:focus {
-    border-color: map.get($text-input, 'border-color-invalid-focus');
+  &:focus-visible {
+    border-color: map.get($text-input, 'border-color-focus');
   }
 }
 

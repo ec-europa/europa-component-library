@@ -7,8 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
 import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
-import bannerDataImageOverlay from '@ecl/specs-component-banner/demo/data--image-overlay';
-import bannerDataTextHighlight from '@ecl/specs-component-banner/demo/data--text-highlight';
+import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
 
 expect.extend(toHaveNoViolations);
 
@@ -62,16 +61,10 @@ describe('Banner', () => {
       return expect(render(bannerDataTextBox)).resolves.toMatchSnapshot();
     });
 
-    test(`- text highlight renders correctly`, () => {
+    test(`- text overlay renders correctly`, () => {
       expect.assertions(1);
 
-      return expect(render(bannerDataTextHighlight)).resolves.toMatchSnapshot();
-    });
-
-    test(`- image overlay renders correctly`, () => {
-      expect.assertions(1);
-
-      return expect(render(bannerDataImageOverlay)).resolves.toMatchSnapshot();
+      return expect(render(bannerDataTextOverlay)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

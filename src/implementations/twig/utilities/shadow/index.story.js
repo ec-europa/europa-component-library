@@ -19,7 +19,7 @@ const styleContainerNegative = {
   padding: '2rem 0',
 };
 const styleBox = {
-  border: '1px solid #000',
+  border: '1px dashed #808080',
   height: '5rem',
   width: '10rem',
 };
@@ -141,12 +141,10 @@ export default {
 export const Custom = (args) => {
   if (system === 'ec') {
     const container = styled(styleContainer);
-    const inner = styled(styleInner);
 
     return `
     <div style="${container}">
       <div style="${styled(styleBox)}" class="${classnames(args.shadow)}">
-        <div style="${inner}" />
       </div>
     </div>
     `;

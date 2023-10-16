@@ -6,8 +6,7 @@ order: 2
 import { Html, Playground } from '@ecl/website-components';
 import {
   bannerTextBox,
-  bannerImageOverlay,
-  bannerTextHighlight,
+  bannerTextOverlay,
   bannerPlainBackground,
 } from '../demo';
 
@@ -24,26 +23,15 @@ import {
   <Html markup={bannerTextBox} />
 </Playground>
 
-### Image overlay banner
+### Text overlay banner
 
 <Playground
   system="eu"
   selectedKind="components-banner"
-  selectedStory="image-overlay"
+  selectedStory="text-overlay"
   showFrame
 >
-  <Html markup={bannerImageOverlay} />
-</Playground>
-
-### Text highlight banner
-
-<Playground
-  system="eu"
-  selectedKind="components-banner"
-  selectedStory="text-highlight"
-  showFrame
->
-  <Html markup={bannerTextHighlight} />
+  <Html markup={bannerTextOverlay} />
 </Playground>
 
 ## Plain background banner
@@ -62,9 +50,9 @@ import {
 Note: Variants below can be applied to all kind of banners.  
 Check usage guidelines for more information.
 
-### Left aligned content
+### Centered content
 
-Removing class `.ecl-banner--center` will put the text back on left in the banner.
+Adding class `.ecl-banner--center` will center the text on banner.
 
 ### Banner width
 

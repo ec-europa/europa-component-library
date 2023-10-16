@@ -3,13 +3,16 @@
 exports[`Banner Plain background renders correctly 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--centered"
+    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--full-width"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
   >
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -20,7 +23,7 @@ exports[`Banner Plain background renders correctly 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -29,7 +32,7 @@ exports[`Banner Plain background renders correctly 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -65,7 +68,9 @@ exports[`Banner Plain background renders correctly 1`] = `
 exports[`Banner Plain background renders correctly with extra attributes 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--centered"
+    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--full-width"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -74,6 +79,7 @@ exports[`Banner Plain background renders correctly with extra attributes 1`] = `
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -84,7 +90,7 @@ exports[`Banner Plain background renders correctly with extra attributes 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -93,7 +99,7 @@ exports[`Banner Plain background renders correctly with extra attributes 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -129,13 +135,16 @@ exports[`Banner Plain background renders correctly with extra attributes 1`] = `
 exports[`Banner Plain background renders correctly with extra class names 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--centered custom-class custom-class--test"
+    class="ecl-banner ecl-banner--plain-background ecl-banner--m ecl-banner--full-width custom-class custom-class--test"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
   >
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -146,7 +155,7 @@ exports[`Banner Plain background renders correctly with extra class names 1`] = 
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -155,7 +164,7 @@ exports[`Banner Plain background renders correctly with extra class names 1`] = 
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -188,106 +197,38 @@ exports[`Banner Plain background renders correctly with extra class names 1`] = 
 </jest>
 `;
 
-exports[`Banner image - image overlay renders correctly 1`] = `
+exports[`Banner image - text overlay renders correctly 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--image-overlay ecl-banner--m ecl-banner--centered"
+    class="ecl-banner ecl-banner--text-overlay ecl-banner--m ecl-banner--full-width"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
-    </div>
-    <div
-      class="ecl-container"
-    >
-      <div
-        class="ecl-banner__container"
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
       >
-        <div
-          class="ecl-banner__content"
-        >
-          <div
-            class="ecl-banner__title"
-          >
-            <span
-              class="ecl-banner__title-text"
-            >
-              Headline sed elit lorem. Donec dictum.
-            </span>
-          </div>
-          <p
-            class="ecl-banner__description"
-          >
-            <span
-              class="ecl-banner__description-text"
-            >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
-            </span>
-          </p>
-          <div
-            class="ecl-banner__cta"
-          >
-            <a
-              class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                CTA link
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+        <img
+          alt="aternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright
       </div>
     </div>
-  </section>
-</jest>
-`;
-
-exports[`Banner image - text highlight renders correctly 1`] = `
-<jest>
-  <section
-    class="ecl-banner ecl-banner--text-highlight ecl-banner--m ecl-banner--centered"
-  >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="aternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
-    <div
-      class="ecl-banner__credit"
-    >
-      © Copyright or credit
-    </div>
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -298,7 +239,7 @@ exports[`Banner image - text highlight renders correctly 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -307,7 +248,7 @@ exports[`Banner image - text highlight renders correctly 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -343,27 +284,35 @@ exports[`Banner image - text highlight renders correctly 1`] = `
 exports[`Banner image - text-box renders correctly 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--centered"
+    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--full-width"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright
+      </div>
     </div>
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -374,7 +323,7 @@ exports[`Banner image - text-box renders correctly 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -383,7 +332,7 @@ exports[`Banner image - text-box renders correctly 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -419,29 +368,37 @@ exports[`Banner image - text-box renders correctly 1`] = `
 exports[`Banner image renders correctly with extra attributes 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--centered"
+    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--full-width"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright
+      </div>
     </div>
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -452,7 +409,7 @@ exports[`Banner image renders correctly with extra attributes 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -461,7 +418,7 @@ exports[`Banner image renders correctly with extra attributes 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div
@@ -497,27 +454,35 @@ exports[`Banner image renders correctly with extra attributes 1`] = `
 exports[`Banner image renders correctly with extra class names 1`] = `
 <jest>
   <section
-    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--centered custom-class custom-class--test"
+    class="ecl-banner ecl-banner--text-box ecl-banner--m ecl-banner--full-width custom-class custom-class--test"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
   >
-    <picture
-      class="ecl-picture ecl-banner__picture"
-    >
-      <img
-        alt="alternative text"
-        class="ecl-banner__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
     <div
-      class="ecl-banner__credit"
+      class="ecl-banner__picture-container"
     >
-      © Copyright or credit
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <div
+        class="ecl-banner__credit"
+      >
+        © Copyright
+      </div>
     </div>
     <div
       class="ecl-container"
     >
       <div
         class="ecl-banner__container"
+        data-ecl-banner-container=""
       >
         <div
           class="ecl-banner__content"
@@ -528,7 +493,7 @@ exports[`Banner image renders correctly with extra class names 1`] = `
             <span
               class="ecl-banner__title-text"
             >
-              Headline sed elit lorem. Donec dictum.
+              Lorem ipsum dolor sit amet consectetuer adipiscing.
             </span>
           </div>
           <p
@@ -537,7 +502,7 @@ exports[`Banner image renders correctly with extra class names 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Pellentesque tempor tincidunt quam, finibus vulputate eros iaculis pharetra orci arcu, dictum maximus arcu pellentesque eget. Cras massa nunc.
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequate massa quis enim donec.
             </span>
           </p>
           <div

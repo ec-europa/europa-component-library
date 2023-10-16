@@ -54,7 +54,7 @@ module.exports = {
         },
       },
       credit: '© Copyright or credit',
-      variant: 'text-highlight',
+      variant: 'text-overlay',
       centered: false,
     },
     {
@@ -81,7 +81,7 @@ module.exports = {
         },
       },
       credit: '© Copyright or credit',
-      variant: 'image-overlay',
+      variant: 'text-overlay',
       centered: false,
     },
   ],
