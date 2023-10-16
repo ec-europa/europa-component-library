@@ -111,7 +111,10 @@
   $theme: theme.$theme,
   $expandable: var.$expandable
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures-eu';
+@use '@ecl/vanilla-component-fact-figures/fact-figures' with (
+  $theme: theme.$theme,
+  $fact-figures: var.$fact-figures
+);
 @use '@ecl/vanilla-component-file/file' with (
   $theme: theme.$theme,
   $file: var.$file

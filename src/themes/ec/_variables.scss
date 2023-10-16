@@ -360,6 +360,34 @@ $expandable: (
   toggle-color-active: var(--ecl-color-dark),
 );
 
+// Fact and figures
+$fact-figures: (
+  background: var(--ecl-color-neutral-60),
+  shadow: map.get($shadow, '1'),
+  border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  border-radius: 2px,
+  padding-mobile: map.get($spacing, '3xl'),
+  padding-desktop: map.get($spacing, '3xl'),
+  margin-vertical: map.get($spacing, '3xl'),
+  margin-horizontal: map.get($spacing, '2xl'),
+  text-color: var(--ecl-color-dark),
+  value-font-mobile: map.get($font, '2xl'),
+  value-font-desktop: map.get($font, '3xl'),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: map.get($spacing, 's'),
+  description-font: map.get($font, 'm'),
+  description-margin: map.get($spacing, 's'),
+  view-all-font: map.get($font, 'm'),
+  view-all-border-color: var(--ecl-color-neutral),
+  view-all-margin: map.get($spacing, '3xl'),
+  view-all-padding-mobile: map.get($spacing, 'xl'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'm'),
+);
+
 // File download
 $file: (
   border-radius: map.get($border-radius, 's'),
