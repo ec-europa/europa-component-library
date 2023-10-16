@@ -564,6 +564,28 @@ $list: (
   divider-color: var(--ecl-color-primary-140),
 );
 
+// List with illustrations
+$list-illustration: (
+  title-color: map.get($color, 'grey-140'),
+  description-color: map.get($color, 'grey-80'),
+  background-color: map.get($color, 'blue-5'),
+  value-font-mobile: map.get($font, '5xl'),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: map.get($font, '6xl'),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon_color: map.get($color, 'blue-100'),
+);
+$list-illustration-print: (
+  title-color: map.get($color, 'grey-140'),
+  description-color: map.get($color, 'grey-80'),
+  background-color: map.get($color, 'blue-5'),
+  value-font-mobile: map.get($font-print, '5xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'regular'),
+  value-font-desktop: map.get($font-print, '6xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'regular'),
+  icon_color: map.get($color, 'blue-100'),
+);
+
 // Media container
 $media-container: (
   border-radius: 8px,
