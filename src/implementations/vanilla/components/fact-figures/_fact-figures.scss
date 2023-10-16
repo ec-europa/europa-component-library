@@ -12,6 +12,7 @@ $fact-figures: null !default;
 
 .ecl-fact-figures {
   background-color: map.get($fact-figures, 'background');
+  box-shadow: map.get($fact-figures, 'shadow');
   border: map.get($fact-figures, 'border');
   border-radius: map.get($fact-figures, 'border-radius');
   margin: 0;
@@ -29,6 +30,7 @@ $fact-figures: null !default;
 
 .ecl-fact-figures__icon {
   color: map.get($fact-figures, 'icon-color');
+  display: block;
   margin-bottom: map.get($fact-figures, 'icon-margin');
 }
 

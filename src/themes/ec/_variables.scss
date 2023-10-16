@@ -297,6 +297,7 @@ $expandable: (
 // Fact and figures
 $fact-figures: (
   background: var(--ecl-color-neutral-60),
+  shadow: map.get($shadow, '6'),
   border: 1px solid
     color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
   border-radius: 2px,
@@ -318,7 +319,7 @@ $fact-figures: (
   view-all-padding-mobile: map.get($spacing, 'xl'),
   view-all-padding-desktop: map.get($spacing, 'xl'),
   icon-color: var(--ecl-color-primary),
-  icon-margin: map.get($spacing, 's'),
+  icon-margin: map.get($spacing, 'm'),
 );
 
 // File download
