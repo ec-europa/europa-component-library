@@ -18,7 +18,7 @@ module.exports = (input, dest, options) => {
   // Instruct minifier to preserve the UMD locally scoped 'moment' (default Pikaday module) variable in Pikaday in order to correctly reference the global 'moment' included separately from the ECL library bundle.
   // When Pikaday really removes moment from its dependencies and does not load it dynamically, bundlers such as rollup will be able to handle this more gracefully.
   // @see https://github.com/Pikaday/Pikaday/issues/815
-  const uglifyOptions = { mangle: { reserved: ['moment'] } };
+  const uglifyOptions = {};
 
   if (options.banner) {
     uglifyOptions.output = { preamble: `/* ${options.banner} */` };
