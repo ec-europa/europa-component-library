@@ -370,6 +370,33 @@ $expandable: (
   toggle-color-active: var(--ecl-color-primary),
 );
 
+// Fact and figures
+$fact-figures: (
+  background: var(--ecl-color-primary-5),
+  shadow: none,
+  border: none,
+  border-radius: 8px,
+  padding-mobile: map.get($spacing, 'm'),
+  padding-desktop: map.get($spacing, 'xl'),
+  margin-vertical: map.get($spacing, 'xl'),
+  margin-horizontal: map.get($spacing, 'xl'),
+  text-color: var(--ecl-color-dark-80),
+  value-font-mobile: map.get($font, '5xl'),
+  value-font-desktop: map.get($font, '6xl'),
+  title-font: map.get($font-prolonged, 'l'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-margin: map.get($spacing, 'xs'),
+  description-font: map.get($font-prolonged, 'm'),
+  description-margin: map.get($spacing, 'xs'),
+  view-all-font: map.get($font-prolonged, 'm'),
+  view-all-border-color: var(--ecl-color-primary-20),
+  view-all-margin: map.get($spacing, 'xl'),
+  view-all-padding-mobile: map.get($spacing, 'm'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'xs'),
+);
+
 // Featured item
 $featured-item: (
   padding: 0,

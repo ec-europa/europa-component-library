@@ -93,6 +93,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Button is now using variant `ghost`, instead of `secondary`
 
+### Fact and figures
+
+- Icon size is now `l` instead of `m`
+
 ### Featured item
 
 - Variant `extended` has been renamed `highlight` to be consistent with other components
