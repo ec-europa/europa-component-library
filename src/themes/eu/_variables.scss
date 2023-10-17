@@ -321,6 +321,29 @@ $date-block: (
   ),
 );
 
+// Datepicker
+$datepicker: (
+  input-icon-color: var(--ecl-color-dark-80),
+  picker: (
+    border-radius: 4px,
+    shadow: none,
+    theme-color: var(--ecl-color-dark-140),
+    margin-top: map.get($spacing, 'm'),
+    padding: 0,
+    background-color: var(--ecl-color-primary-10),
+    title-padding: map.get($spacing, 'xs'),
+    select-border: none,
+    table-spacing: map.get($spacing, '2xs'),
+    thead-margin: 0,
+    day-hover-background: map.get($color, 'white'),
+    day-hover-shadow: inset 0 0 0 2px var(--ecl-color-primary-60),
+    day-selected-background: var(--ecl-color-primary),
+    day-outside-color: var(--ecl-color-dark),
+    day-outside-background: var(--ecl-color-dark-10),
+    day-today-color: var(--ecl-color-dark),
+  ),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark-140),
@@ -345,6 +368,33 @@ $expandable: (
   toggle-background-active: transparent,
   toggle-border-active: transparent,
   toggle-color-active: var(--ecl-color-primary),
+);
+
+// Fact and figures
+$fact-figures: (
+  background: var(--ecl-color-primary-5),
+  shadow: none,
+  border: none,
+  border-radius: 8px,
+  padding-mobile: map.get($spacing, 'm'),
+  padding-desktop: map.get($spacing, 'xl'),
+  margin-vertical: map.get($spacing, 'xl'),
+  margin-horizontal: map.get($spacing, 'xl'),
+  text-color: var(--ecl-color-dark-80),
+  value-font-mobile: map.get($font, '5xl'),
+  value-font-desktop: map.get($font, '6xl'),
+  title-font: map.get($font-prolonged, 'l'),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-margin: map.get($spacing, 'xs'),
+  description-font: map.get($font-prolonged, 'm'),
+  description-margin: map.get($spacing, 'xs'),
+  view-all-font: map.get($font-prolonged, 'm'),
+  view-all-border-color: var(--ecl-color-primary-20),
+  view-all-margin: map.get($spacing, 'xl'),
+  view-all-padding-mobile: map.get($spacing, 'm'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'xs'),
 );
 
 // File download
@@ -413,6 +463,14 @@ $file: (
   title-font: map.get($font, 'm'),
   title-font-weight: map.get($font-weight, 'bold'),
   translation-border-color: var(--ecl-color-primary-20),
+);
+
+// File upload
+$file-upload: (
+  separator-color: var(--ecl-color-dark-80),
+  meta-display: block,
+  meta-padding: map.get($spacing, 's'),
+  title-font-weight: map.get($font-weight, 'bold'),
 );
 
 // Label
@@ -531,6 +589,21 @@ $list: (
   ),
   text-color: var(--ecl-color-dark-80),
   divider-color: var(--ecl-color-primary-140),
+);
+
+// Media container
+$media-container: (
+  border-radius: 8px,
+  shadow: map.get($shadow, '1'),
+  caption-background-color: map.get($color, 'white'),
+  caption-color: var(--ecl-color-dark-80),
+  caption-font: map.get($font, 'm'),
+  caption-max-width: 80ch,
+  caption-padding: map.get($spacing, 'l'),
+  caption-before: true,
+  expandable-spacing-top: map.get($spacing, 'xs'),
+  media-border: none,
+  scrollbar-width: 16px,
 );
 
 // Menu
@@ -980,6 +1053,7 @@ $timeline-print: (
   --ecl-color-dark-60: #{map.get($color, 'dark-60')};
   --ecl-color-dark-40: #{map.get($color, 'dark-40')};
   --ecl-color-dark-20: #{map.get($color, 'dark-20')};
+  --ecl-color-dark-10: #{map.get($color, 'dark-10')};
   --ecl-color-info: #{map.get($color, 'info')};
   --ecl-color-info-100: #{map.get($color, 'info-100')};
   --ecl-color-info-5: #{map.get($color, 'info-5')};
