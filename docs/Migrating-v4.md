@@ -25,7 +25,7 @@ Semantic colors:
 - Warning
 - Error
 - Background
-- Branding: used only in EC footer and page header; could be set to primary color if needed
+- Branding: used mostly in very visual elements (EC footer and page header for instance); could be set to primary color if needed
 
 Most of these semantic colors are also defined in different tint, to cover extra needs (mouse hover, focus, ...).
 The naming convention is as follow:
@@ -256,6 +256,8 @@ Variables provided:
 - shadow
 
 By default, these variables take values from the SASS variables. You can freely override them in a custom CSS file loaded after ECL one.
+
+Note: we are using shorter aliases internally to limit the size of the compiled css file, but it is recommended to use the full variable name if you want to override them
 
 ### How to customize component display
 
