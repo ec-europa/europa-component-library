@@ -28,6 +28,7 @@ $list-illustration: null !default;
 
 .ecl-list-illustration__image {
   aspect-ratio: 3/2;
+  border: 1px solid var(--ecl-color-neutral-100);
   display: block;
   height: auto;
   margin-bottom: map.get($theme, 'spacing', 'm');
@@ -64,19 +65,25 @@ $list-illustration: null !default;
   color: map.get($list-illustration, 'title-color');
   font: map.get($list-illustration, 'value-font-mobile');
   font-weight: map.get($list-illustration, 'value-font-weight-mobile');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-list-illustration__title {
   color: map.get($list-illustration, 'title-color');
-  font: map.get($theme, 'font-prolonged', 'xl');
+  font: map.get($list-illustration, 'title-font');
+}
+
+.ecl-list-illustration__value + .ecl-list-illustration__title {
+  margin-top: map.get($theme, 'spacing', 's');
 }
 
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description-color');
-  font: map.get($theme, 'font-prolonged', 'm');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  font: map.get($theme, 'font', 'm');
   max-width: 80ch;
+}
+
+.ecl-list-illustration__title-container + .ecl-list-illustration__description {
+  margin-top: map.get($theme, 'spacing', 's');
 }
 
 @include breakpoints.up('m') {
@@ -113,7 +120,7 @@ $list-illustration: null !default;
 .ecl-list-illustration--col-3,
 .ecl-list-illustration--col-4 {
   .ecl-list-illustration__item {
-    margin-bottom: map.get($theme, 'spacing', 'xl');
+    margin-bottom: map.get($theme, 'spacing', '2xl');
     padding-bottom: 0;
     padding-top: 0;
 
@@ -130,7 +137,7 @@ $list-illustration: null !default;
     display: grid;
     grid-auto-rows: auto;
     grid-column-gap: map.get($theme, 'grid', 'gutter');
-    grid-row-gap: map.get($theme, 'spacing', 'xl');
+    grid-row-gap: map.get($theme, 'spacing', '3xl');
     width: 100%;
 
     .ecl-list-illustration__item {
@@ -201,6 +208,32 @@ $list-illustration: null !default;
     .ecl-list-illustration__icon {
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+
+  .ecl-list-illustration__image {
+    margin-bottom: map.get($theme, 'spacing', 'm');
+  }
+
+  .ecl-list-illustration__description {
+    align-self: center;
+    display: inline-block;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-list-illustration__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    * {
+      text-align: center;
+    }
+
+    .ecl-list-illustration__icon,
+    .ecl-list-illustration__picture {
+      align-self: center;
     }
   }
 }

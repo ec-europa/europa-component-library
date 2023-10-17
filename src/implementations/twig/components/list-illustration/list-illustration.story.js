@@ -50,19 +50,22 @@ const getArgs = (data, variant) => {
     args.title = data.items[0].title;
   }
   args.description = data.items[0].description;
-  if (data.items[0].picture && data.items[0].picture.img.src) {
+  if (
+    data.items[0].picture &&
+    data.items[0].picture.img &&
+    data.items[0].picture.img.src
+  ) {
     args.picture = data.items[0].picture.img.src;
     args.image_squared = false;
     args.image_size = 'm';
   }
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
-    args.icon_size = 's';
+    args.icon_size = 'l';
   }
-
+  args.centered = false;
   if (variant.includes('horizontal')) {
     args.column = 2;
-    args.centered = false;
   } else {
     args.zebra = true;
   }
@@ -121,21 +124,15 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
-    argTypes.centered = {
-      name: 'centered',
-      type: { name: 'boolean' },
-      description: 'Center the content of list items',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Layout',
-      },
-    };
   } else {
     argTypes.zebra = {
       name: 'zebra',
       type: { name: 'boolean' },
       description: 'Differentiate lines using zebra display',
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },
@@ -143,6 +140,20 @@ const getArgTypes = (data, variant) => {
       },
     };
   }
+  argTypes.centered = {
+    name: 'centered',
+    type: { name: 'boolean' },
+    description: 'Center the content of list items',
+    mapping: {
+      0: false,
+      1: true,
+    },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Layout',
+    },
+  };
 
   argTypes.value = {
     name: 'value',
@@ -175,7 +186,11 @@ const getArgTypes = (data, variant) => {
     },
   };
 
-  if (data.items[0].picture && data.items[0].picture.img.src) {
+  if (
+    data.items[0].picture &&
+    data.items[0].picture.img &&
+    data.items[0].picture.img.src
+  ) {
     argTypes.picture = {
       name: 'image',
       type: { name: 'string' },
@@ -196,30 +211,32 @@ const getArgTypes = (data, variant) => {
         category: 'Image',
       },
     };
-    argTypes.image_size = {
-      name: 'image size',
-      type: { name: 'select' },
-      description: 'Possible image sizes (square image only)',
-      options: ['s', 'm', 'l'],
-      control: {
-        labels: {
-          s: 'small',
-          m: 'medium',
-          l: 'large',
-        },
-      },
-      mapping: {
+  }
+
+  argTypes.image_size = {
+    name: 'image size',
+    type: { name: 'select' },
+    description: 'Possible image sizes (square image only)',
+    options: ['s', 'm', 'l'],
+    control: {
+      labels: {
         s: 'small',
         m: 'medium',
         l: 'large',
       },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Image',
-      },
-    };
-  }
+    },
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Image',
+    },
+    if: { arg: 'image_squared' },
+  };
 
   if (data.items[0].icon) {
     argTypes.icon = {
@@ -258,9 +275,9 @@ const getArgTypes = (data, variant) => {
         },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 'm',
+        large: 'l',
       },
       table: {
         type: { summary: 'string' },

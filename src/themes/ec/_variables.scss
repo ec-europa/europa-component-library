@@ -552,24 +552,25 @@ $list: (
 
 // List with illustrations
 $list-illustration: (
-  title-color: map.get($color, 'grey-100'),
-  description-color: map.get($color, 'grey-100'),
+  title-color: var(--ecl-color-dark),
+  description-color: var(--ecl-color-dark),
   background-color: map.get($color, 'grey-5'),
   value-font-mobile: map.get($font, '3xl'),
-  value-font-weight-mobile: map.get($font-weight, 'bold'),
-  value-font-desktop: map.get($font, '4xl'),
-  value-font-weight-desktop: map.get($font-weight, 'bold'),
-  icon_color: map.get($color, 'black-100'),
+  title-font: map.get($font, 'l'),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: map.get($font, '3xl'),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--ecl-color-dark),
 );
 $list-illustration-print: (
-  title-color: map.get($color, 'grey-100'),
-  description-color: map.get($color, 'grey-100'),
+  title-color: var(--ecl-color-dark),
+  description-color: var(--ecl-color-dark),
   background-color: map.get($color, 'grey-5'),
   value-font-mobile: map.get($font-print, '3xl'),
   value-font-weight-mobile: map.get($font-weight-print, 'bold'),
   value-font-desktop: map.get($font-print, '4xl'),
   value-font-weight-desktop: map.get($font-weight-print, 'bold'),
-  icon_color: map.get($color, 'black-100'),
+  icon-color: var(--ecl-color-dark),
 );
 
 // Media container
