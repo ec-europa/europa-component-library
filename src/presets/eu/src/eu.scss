@@ -16,8 +16,14 @@
   $theme: theme.$theme,
   $checkbox: var.$checkbox
 );
-@use '@ecl/vanilla-component-datepicker/datepicker-eu';
-@use '@ecl/vanilla-component-file-upload/file-upload-eu';
+@use '@ecl/vanilla-component-datepicker/datepicker' with (
+  $theme: theme.$theme,
+  $datepicker: var.$datepicker
+);
+@use '@ecl/vanilla-component-file-upload/file-upload' with (
+  $theme: theme.$theme,
+  $file-upload: var.$file-upload
+);
 @use '@ecl/vanilla-component-radio/radio' with (
   $theme: theme.$theme,
   $radio: var.$radio
@@ -108,7 +114,10 @@
   $theme: theme.$theme,
   $expandable: var.$expandable
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures-eu';
+@use '@ecl/vanilla-component-fact-figures/fact-figures' with (
+  $theme: theme.$theme,
+  $fact-figures: var.$fact-figures
+);
 @use '@ecl/vanilla-component-file/file' with (
   $theme: theme.$theme,
   $file: var.$file
@@ -117,7 +126,10 @@
   $theme: theme.$theme,
   $rating-field: var.$rating-field
 );
-@use '@ecl/vanilla-component-media-container/media-container-eu';
+@use '@ecl/vanilla-component-media-container/media-container' with (
+  $theme: theme.$theme,
+  $media-container: var.$media-container
+);
 @use '@ecl/vanilla-component-modal/modal-eu';
 @use '@ecl/vanilla-component-navigation-list/navigation-list' with (
   $theme: theme.$theme,

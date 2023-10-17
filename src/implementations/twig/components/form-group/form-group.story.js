@@ -13,7 +13,8 @@ import dataDatepicker from '@ecl/specs-component-datepicker/demo/data';
 import dataCheckbox from '@ecl/specs-component-checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
-import dataFile from '@ecl/specs-component-file-upload/demo/data';
+import dataFileUpload from '@ecl/specs-component-file-upload/demo/data';
+import dataFileUploadMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
 
 import formGroup from './form-group.html.twig';
 import notes from './README.md';
@@ -160,13 +161,28 @@ Datepicker.parameters = { notes: { markdown: notes, json: dataDatepicker } };
 export const FileUpload = (_, { loaded: { component } }) => component;
 
 FileUpload.render = async (args) => {
-  const renderedFileUpload = await formGroup(prepareData(dataFile, args));
+  const renderedFileUpload = await formGroup(prepareData(dataFileUpload, args));
   return renderedFileUpload;
 };
 FileUpload.storyName = 'File upload';
-FileUpload.args = getArgs(dataFile);
-FileUpload.argTypes = getArgTypes(dataFile, 'element');
-FileUpload.parameters = { notes: { markdown: notes, json: dataFile } };
+FileUpload.args = getArgs(dataFileUpload);
+FileUpload.argTypes = getArgTypes(dataFileUpload, 'element');
+FileUpload.parameters = { notes: { markdown: notes, json: dataFileUpload } };
+
+export const FileUploadMultiple = (_, { loaded: { component } }) => component;
+
+FileUploadMultiple.render = async (args) => {
+  const renderedFileUpload = await formGroup(
+    prepareData(dataFileUploadMultiple, args),
+  );
+  return renderedFileUpload;
+};
+FileUploadMultiple.storyName = 'File upload multiple';
+FileUploadMultiple.args = getArgs(dataFileUploadMultiple);
+FileUploadMultiple.argTypes = getArgTypes(dataFileUploadMultiple, 'element');
+FileUploadMultiple.parameters = {
+  notes: { markdown: notes, json: dataFileUploadMultiple },
+};
 
 export const Radio = (_, { loaded: { component } }) => component;
 

@@ -7,20 +7,20 @@
 // Accordion
 $accordion: (
   item-background: transparent,
-  item-background-hover: var(--ecl-color-neutral-20),
+  item-background-hover: var(--ecl-color-neutral-60),
   item-shadow-hover: none,
-  border-color: var(--ecl-color-neutral-20),
+  border-color: var(--ecl-color-neutral-60),
   item-padding: map.get($spacing, 'xl'),
-  text-color: var(--ecl-color-dark-0),
-  title-text-color: var(--ecl-color-dark-0),
+  text-color: var(--ecl-color-dark),
+  title-text-color: var(--ecl-color-dark),
   icon-color: var(--ecl-color-primary),
   icon-margin: map.get($spacing, 'm'),
 );
 $accordion-print: (
   toggle-background: transparent,
-  toggle-color: var(--ecl-color-dark-0),
+  toggle-color: var(--ecl-color-dark),
   toggle-font: map.get($font-print, 'l'),
-  content-color: var(--ecl-color-dark-0),
+  content-color: var(--ecl-color-dark),
   content-font: map.get($font-print, 'm'),
 );
 
@@ -309,6 +309,29 @@ $date-block: (
   ),
 );
 
+// Datepicker
+$datepicker: (
+  input-icon-color: var(--ecl-color-dark-75),
+  picker: (
+    border-radius: 2px,
+    shadow: map.get($shadow, '6'),
+    theme-color: var(--ecl-color-dark),
+    margin-top: map.get($spacing, '2xs'),
+    padding: map.get($spacing, 'm'),
+    background-color: map.get($color, 'white'),
+    title-padding: map.get($spacing, '2xs'),
+    select-border: 1px solid var(--ecl-color-dark-80),
+    table-spacing: 0,
+    thead-margin: map.get($spacing, '2xs'),
+    day-hover-background: var(--ecl-color-primary-20),
+    day-hover-shadow: inset 0 0 0 1px var(--ecl-color-dark-80),
+    day-selected-background: var(--ecl-color-primary),
+    day-outside-color: var(--ecl-color-dark-80),
+    day-outside-background: map.get($color, 'white'),
+    day-today-color: var(--ecl-color-primary),
+  ),
+);
+
 // Description list
 $description-list: (
   term-color: var(--ecl-color-dark),
@@ -335,6 +358,34 @@ $expandable: (
   toggle-background-active: var(--ecl-color-neutral),
   toggle-border-active: var(--ecl-color-neutral),
   toggle-color-active: var(--ecl-color-dark),
+);
+
+// Fact and figures
+$fact-figures: (
+  background: var(--ecl-color-neutral-60),
+  shadow: map.get($shadow, '1'),
+  border: 1px solid
+    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  border-radius: 2px,
+  padding-mobile: map.get($spacing, '3xl'),
+  padding-desktop: map.get($spacing, '3xl'),
+  margin-vertical: map.get($spacing, '3xl'),
+  margin-horizontal: map.get($spacing, '2xl'),
+  text-color: var(--ecl-color-dark),
+  value-font-mobile: map.get($font, '2xl'),
+  value-font-desktop: map.get($font, '3xl'),
+  title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: map.get($spacing, 's'),
+  description-font: map.get($font, 'm'),
+  description-margin: map.get($spacing, 's'),
+  view-all-font: map.get($font, 'm'),
+  view-all-border-color: var(--ecl-color-neutral),
+  view-all-margin: map.get($spacing, '3xl'),
+  view-all-padding-mobile: map.get($spacing, 'xl'),
+  view-all-padding-desktop: map.get($spacing, 'xl'),
+  icon-color: var(--ecl-color-primary),
+  icon-margin: map.get($spacing, 'm'),
 );
 
 // File download
@@ -398,6 +449,14 @@ $file: (
   translation-border-color: var(--ecl-color-neutral-60),
   image-width: 13.125rem,
   title-font: map.get($font, 'l'),
+  title-font-weight: map.get($font-weight, 'regular'),
+);
+
+// File upload
+$file-upload: (
+  separator-color: var(--ecl-color-neutral-60),
+  meta-display: inline-block,
+  meta-padding: 0,
   title-font-weight: map.get($font-weight, 'regular'),
 );
 
@@ -517,6 +576,20 @@ $list: (
   ),
   text-color: var(--ecl-color-dark),
   divider-color: var(--ecl-color-neutral),
+);
+
+// Media container
+$media-container: (
+  border-radius: 0,
+  shadow: none,
+  caption-background-color: transparent,
+  caption-color: var(--ecl-color-dark),
+  caption-font: map.get($font, 's'),
+  caption-padding: map.get($spacing, 's') 0 0,
+  caption-max-width: 80ch,
+  expandable-spacing-top: map.get($spacing, 'xl'),
+  media-border: 1px solid var(--ecl-color-neutral-100),
+  scrollbar-width: 16px,
 );
 
 // Menu
