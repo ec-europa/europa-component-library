@@ -481,10 +481,11 @@ export class Select {
         this.form.addEventListener('reset', this.resetForm);
       }
     } else {
+      this.shouldHandleClick = true;
       this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
-      this.select.addEventListener('focus', this.handleToggle);
       this.select.addEventListener('blur', this.handleEsc);
-      this.select.addEventListener('click', this.handleToggle);
+      this.select.addEventListener('click', this.handleToggle, true);
+      this.select.addEventListener('mousedown', this.handleToggle, true);
     }
 
     document.addEventListener('click', this.handleClickOutside);
@@ -612,7 +613,14 @@ export class Select {
       } else {
         this.searchContainer.style.display = 'none';
       }
-    } else {
+    } else if (e.type === 'click' && !this.shouldHandleClick) {
+      this.shouldHandleClick = true;
+      this.select.classList.toggle('ecl-select--active');
+    } else if (e.type === 'mousedown' && this.shouldHandleClick) {
+      this.shouldHandleClick = false;
+      this.select.classList.toggle('ecl-select--active');
+    } else if (e.type === 'keydown') {
+      this.shouldHandleClick = false;
       this.select.classList.toggle('ecl-select--active');
     }
   }
@@ -822,9 +830,7 @@ export class Select {
 
       case ' ':
       case 'Enter':
-        if (this.multiple) {
-          this.handleToggle(e);
-        }
+        this.handleToggle(e);
         break;
 
       case 'ArrowDown':
