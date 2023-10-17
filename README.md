@@ -95,10 +95,12 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled anymore by ECL.
 Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when
 a datepicker instance is present in a webpage.
-Additionally, when customising the date format used by the datepicker, in order to get a consistent output [moment.js](https://momentjs.com/) is also needed, the order of the scripts in this case should be:
+Additionally, when customising the date format used by the datepicker, in order to get a consistent output, [moment.js](https://momentjs.com/) is also needed.
+These scripts can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
+The order of the scripts should be:
 
-- moment.js
-- pikaday
+- moment.js (https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js) (https://momentjs.com/)
+- pikaday (https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js) (https://pikaday.com/)
 - ecl.js
 
 ## Need help?
