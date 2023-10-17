@@ -2,8 +2,16 @@
 
 The following guidelines aim to facilitate migration between ECL v3 to v4.
 
+- [Js modifications](#js-modifications)
 - [Style modifications](#style-modifications)
 - [Component modifications](#component-modifications)
+
+## Js modifications
+
+- The ECL javascript is not bundling anymore `pikaday`, therefore this library needs to be loaded by the project using ECL, it is only
+  needed when a `datepicker` instance is present in the page.
+- There is no hard dependency on `moment.js` anymore, this library is only needed when customising the default format for the dates, the default
+  in ECL is `DD-MM-YYYY`. If the format is customised but moment is not loaded there will not be errors in the console but the chosen format would not be consistently shown.
 
 ## Style modifications
 
