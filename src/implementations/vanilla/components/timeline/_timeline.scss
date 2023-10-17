@@ -16,7 +16,7 @@ $timeline: null !default;
   list-style: none;
   margin-bottom: 0;
   margin-inline-start: calc(
-    var(--ecl-spacing-l) + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width')
+    var(--s-l) + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width')
   );
   margin-top: 0;
   padding-inline-start: 0;
@@ -24,9 +24,9 @@ $timeline: null !default;
 
 .ecl-timeline__item {
   max-width: 607px;
-  padding-bottom: var(--ecl-spacing-xl);
+  padding-bottom: var(--s-xl);
   padding-inline-start: calc(
-    var(--ecl-spacing-m) + (map.get($timeline, 'bullet-size') * 0.5) +
+    var(--s-m) + (map.get($timeline, 'bullet-size') * 0.5) +
       map.get($timeline, 'bullet-border-width')
   );
   position: relative;
@@ -76,7 +76,7 @@ $timeline: null !default;
 
   &::before {
     border-inline-start-style: dashed;
-    top: calc(-1 * var(--ecl-spacing-2xs));
+    top: calc(-1 * var(--s-2xs));
   }
 
   &::after {
@@ -85,7 +85,7 @@ $timeline: null !default;
     box-sizing: border-box;
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    top: var(--ecl-spacing-2xs) + var(--ecl-spacing-xs);
+    top: var(--s-2xs) + var(--s-xs);
     width: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
   }
@@ -121,7 +121,7 @@ $timeline: null !default;
   color: map.get($timeline, 'label-color');
   font: map.get($timeline, 'label-font');
   font-weight: map.get($timeline, 'label-font-weight');
-  margin-bottom: var(--ecl-spacing-2xs);
+  margin-bottom: var(--s-2xs);
 }
 
 .ecl-timeline__content {
@@ -135,7 +135,7 @@ $timeline: null !default;
     font: map.get($timeline, 'label-big-font');
     font-weight: map.get($timeline, 'label-font-weight');
     left: calc(
-      -1 * (#{map.get($timeline, 'left-spacing')} + var(--ecl-spacing-m) + #{map.get(
+      -1 * (#{map.get($timeline, 'left-spacing')} + var(--s-m) + #{map.get(
               $timeline,
               'bullet-size'
             )} / 2 + map.get($timeline, 'bullet-border-width'))
@@ -177,12 +177,12 @@ $timeline: null !default;
 
   .ecl-timeline__tooltip {
     border-radius: 8px;
-    box-shadow: var(--ecl-shadow-1);
-    padding: var(--ecl-spacing-l);
+    box-shadow: var(--sh-1);
+    padding: var(--s-l);
     position: relative;
 
     &::before {
-      background: var(--ecl-color-secondary);
+      background: var(--c-s);
       border-radius: 0 0 2px 2px;
       content: '';
       display: block;

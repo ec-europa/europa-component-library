@@ -129,63 +129,63 @@ $_paragraph: null !default;
 * Font size
 */
 .ecl-u-type-xs {
-  font: var(--ecl-font-xs) !important;
+  font: var(--f-xs) !important;
 }
 
 .ecl-u-type-s {
-  font: var(--ecl-font-s) !important;
+  font: var(--f-s) !important;
 }
 
 .ecl-u-type-m {
-  font: var(--ecl-font-m) !important;
+  font: var(--f-m) !important;
 }
 
 .ecl-u-type-l {
-  font: var(--ecl-font-l) !important;
+  font: var(--f-l) !important;
 }
 
 .ecl-u-type-xl {
-  font: var(--ecl-font-xl) !important;
+  font: var(--f-xl) !important;
 }
 
 .ecl-u-type-2xl {
-  font: var(--ecl-font-2xl) !important;
+  font: var(--f-2xl) !important;
 }
 
 .ecl-u-type-3xl {
-  font: var(--ecl-font-3xl) !important;
+  font: var(--f-3xl) !important;
 }
 
 .ecl-u-type-4xl {
-  font: var(--ecl-font-4xl) !important;
+  font: var(--f-4xl) !important;
 }
 
 .ecl-u-type-5xl {
-  font: var(--ecl-font-5xl) !important;
+  font: var(--f-5xl) !important;
 }
 
 .ecl-u-type-6xl {
-  font: var(--ecl-font-6xl) !important;
+  font: var(--f-6xl) !important;
 }
 
 .ecl-u-type-prolonged-xs {
-  font: var(--ecl-font-prolonged-xs) !important;
+  font: var(--f-p-xs) !important;
 }
 
 .ecl-u-type-prolonged-s {
-  font: var(--ecl-font-prolonged-s) !important;
+  font: var(--f-p-s) !important;
 }
 
 .ecl-u-type-prolonged-m {
-  font: var(--ecl-font-prolonged-m) !important;
+  font: var(--f-p-m) !important;
 }
 
 .ecl-u-type-prolonged-l {
-  font: var(--ecl-font-prolonged-l) !important;
+  font: var(--f-p-l) !important;
 }
 
 .ecl-u-type-prolonged-xl {
-  font: var(--ecl-font-prolonged-xl) !important;
+  font: var(--f-p-xl) !important;
 }
 
 /*
@@ -193,7 +193,7 @@ $_paragraph: null !default;
 */
 @each $key, $value in theme.$color {
   .ecl-u-type-color-#{$key} {
-    color: $value !important;
+    color: var(--c-#{$value}) !important;
   }
 }
 

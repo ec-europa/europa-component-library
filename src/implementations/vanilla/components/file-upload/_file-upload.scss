@@ -16,7 +16,7 @@ $file-upload: null !default;
 
 .ecl-file-upload__button-container {
   display: block;
-  margin-top: var(--ecl-spacing-xs);
+  margin-top: var(--s-xs);
 
   .no-js & {
     display: none;
@@ -24,10 +24,10 @@ $file-upload: null !default;
 }
 
 .ecl-file-upload__list {
-  color: var(--ecl-color-dark);
-  font: var(--ecl-font-m);
+  color: var(--c-d);
+  font: var(--f-m);
   list-style: none;
-  margin-top: var(--ecl-spacing-m);
+  margin-top: var(--s-m);
   max-width: 538px; // 6 columns; provided by designers
   padding-inline-start: 0;
   width: 100%;
@@ -39,15 +39,15 @@ $file-upload: null !default;
 
 .ecl-file-upload__item {
   border-top: 1px solid map.get($file-upload, 'separator-color');
-  padding-bottom: var(--ecl-spacing-s);
-  padding-top: var(--ecl-spacing-s);
+  padding-bottom: var(--s-s);
+  padding-top: var(--s-s);
 
   .ecl-file-upload__item-name {
     font-weight: map.get($file-upload, 'title-font-weight');
   }
 
   .ecl-file-upload__item-meta {
-    color: var(--ecl-color-dark-80);
+    color: var(--c-d-80);
     display: map.get($file-upload, 'meta-display');
     padding-top: map.get($file-upload, 'meta-padding');
   }

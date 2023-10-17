@@ -24,7 +24,7 @@ $border-width-focus: 2px;
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');
   display: block;
-  font: var(--ecl-font-m);
+  font: var(--f-m);
   margin: 0;
   max-width: 100%;
   padding: calc(#{map.get($text-input, 'padding-vertical')} - #{$border-width})
@@ -32,7 +32,7 @@ $border-width-focus: 2px;
 
   &::placeholder {
     color: map.get($text-input, 'color-placeholder');
-    font: var(--ecl-font-m);
+    font: var(--f-m);
     opacity: 1;
   }
 

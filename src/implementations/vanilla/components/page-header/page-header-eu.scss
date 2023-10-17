@@ -17,12 +17,12 @@ $page-header: null !default;
   .ecl-container > div:first-of-type,
   .ecl-container > :first-child:not(.ecl-page-header__breadcrumb) {
     margin-top: 0;
-    padding-top: var(--ecl-spacing-xl);
+    padding-top: var(--s-xl);
   }
 
   .ecl-container > div:last-of-type {
     margin-bottom: 0;
-    padding-bottom: var(--ecl-spacing-xl);
+    padding-bottom: var(--s-xl);
   }
 }
 
@@ -34,8 +34,8 @@ $page-header: null !default;
 .ecl-page-header__meta-item {
   border-inline-end: 1px solid map.get($page-header, 'meta-separator-color');
   display: inline;
-  margin-inline-end: var(--ecl-spacing-m);
-  padding-inline-end: var(--ecl-spacing-m);
+  margin-inline-end: var(--s-m);
+  padding-inline-end: var(--s-m);
   unicode-bidi: isolate;
 
   &:first-of-type {
@@ -54,19 +54,19 @@ $page-header: null !default;
   color: map.get($page-header, 'title-color');
   font: map.get($page-header, 'title-font');
   margin-bottom: 0;
-  margin-top: var(--ecl-spacing-xs);
-  padding-bottom: var(--ecl-spacing-s);
+  margin-top: var(--s-xs);
+  padding-bottom: var(--s-s);
 }
 
 .ecl-page-header__description-container {
   align-items: flex-start;
   display: flex;
-  margin-top: var(--ecl-spacing-l);
+  margin-top: var(--s-l);
 }
 
 .ecl-page-header__description-thumbnail {
   border: 1px solid map.get($theme, 'color', 'blue-20');
-  margin-inline-end: var(--ecl-spacing-m);
+  margin-inline-end: var(--s-m);
   max-width: 120px;
 }
 
@@ -81,7 +81,7 @@ $page-header: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-page-header__title {
-    font: var(--ecl-font-6xl);
+    font: var(--f-6xl);
   }
 }
 
@@ -103,7 +103,7 @@ $page-header: null !default;
 
   .ecl-page-header__breadcrumb {
     background-color: transparent;
-    margin-top: calc(-1 * var(--ecl-spacing-3xl) + var(--ecl-spacing-xs));
+    margin-top: calc(-1 * var(--s-3xl) + var(--s-xs));
   }
 
   .ecl-breadcrumb__container {
@@ -111,8 +111,8 @@ $page-header: null !default;
     border-radius: 4px 4px 0 0;
     display: inline-flex;
     max-width: 100%;
-    padding-inline-start: var(--ecl-spacing-m);
-    padding-inline-end: var(--ecl-spacing-m);
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
   }
 }
 

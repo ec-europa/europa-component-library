@@ -18,8 +18,8 @@ $menu: null !default;
   box-shadow: map.get($menu, 'global', 'shadow');
   color: map.get($menu, 'mobile', 'color');
   margin: 0;
-  padding-bottom: var(--ecl-spacing-xs);
-  padding-top: var(--ecl-spacing-xs);
+  padding-bottom: var(--s-xs);
+  padding-top: var(--s-xs);
 }
 
 .ecl-menu__container {
@@ -43,7 +43,7 @@ $menu: null !default;
   color: currentcolor;
   display: flex;
   flex-direction: column;
-  font: var(--ecl-font-xs);
+  font: var(--f-xs);
   margin-inline-start: auto;
   order: 2;
   padding: map.get($menu, 'mobile', 'open-padding');
@@ -71,7 +71,7 @@ $menu: null !default;
 }
 
 .ecl-menu__cta {
-  margin-top: var(--ecl-spacing-s);
+  margin-top: var(--s-s);
 }
 
 /* stylelint-disable-next-line order/order */
@@ -136,7 +136,7 @@ $menu: null !default;
 
 .ecl-menu__title {
   font: map.get($menu, 'mobile', 'header-font');
-  padding-inline-start: var(--ecl-spacing-m);
+  padding-inline-start: var(--s-m);
 }
 
 .ecl-menu__close {
@@ -146,7 +146,7 @@ $menu: null !default;
   color: currentcolor;
   display: flex;
   flex-direction: column;
-  font: var(--ecl-font-xs);
+  font: var(--f-xs);
   margin-inline-start: auto;
   order: 0;
   text-decoration: none;
@@ -160,7 +160,7 @@ $menu: null !default;
   }
 
   .ecl-button__label {
-    margin-top: var(--ecl-spacing-2xs);
+    margin-top: var(--s-2xs);
   }
 
   &:hover {
@@ -404,8 +404,8 @@ $menu: null !default;
       background-color: map.get($menu, 'desktop', 'separator-color');
       display: block;
       flex-shrink: 0;
-      margin-bottom: var(--ecl-spacing-xs);
-      margin-top: var(--ecl-spacing-xs);
+      margin-bottom: var(--s-xs);
+      margin-top: var(--s-xs);
       width: 1px;
     }
 
@@ -431,7 +431,7 @@ $menu: null !default;
       box-shadow: none;
       color: map.get($menu, 'desktop', 'item-color');
       display: inline-flex;
-      font: var(--ecl-font-m);
+      font: var(--f-m);
       line-height: map.get($menu, 'desktop', 'link-line-height');
       padding: map.get($menu, 'desktop', 'link-padding');
       width: auto;
@@ -519,7 +519,7 @@ $menu: null !default;
     }
 
     .ecl-menu__item:not(.ecl-menu__item--has-children) .ecl-menu__link {
-      padding-right: var(--ecl-spacing-xs);
+      padding-right: var(--s-xs);
     }
 
     // stylelint-disable-next-line no-descending-specificity
@@ -688,7 +688,7 @@ $menu: null !default;
 }
 
 .ecl-menu__see-all {
-  margin-top: var(--ecl-spacing-3xl);
+  margin-top: var(--s-3xl);
 }
 
 /* stylelint-disable-next-line order/order */
@@ -714,11 +714,11 @@ $menu: null !default;
       &::before {
         content: '';
         display: block;
-        height: calc(100% + var(--ecl-spacing-l));
-        left: calc(-1 * var(--ecl-spacing-l));
+        height: calc(100% + var(--s-l));
+        left: calc(-1 * var(--s-l));
         position: absolute;
         top: 0;
-        width: calc(100% + var(--ecl-spacing-l) + var(--ecl-spacing-l));
+        width: calc(100% + var(--s-l) + var(--s-l));
       }
     }
 
@@ -773,7 +773,7 @@ $menu: null !default;
 
     .ecl-menu__sublink {
       break-inside: avoid-column;
-      font: var(--ecl-font-m);
+      font: var(--f-m);
       margin: 0;
       padding: map.get($menu, 'desktop', 'sublink-padding');
       white-space: normal;

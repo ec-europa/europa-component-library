@@ -13,7 +13,7 @@ $search-form: null !default;
 
 // Internal variables
 $button-border-width: 1px;
-$button-padding-horizontal: var(--ecl-spacing-m);
+$button-padding-horizontal: var(--s-m);
 
 .ecl-search-form {
   background-color: map.get($theme, 'color', 'white');
@@ -84,7 +84,7 @@ $button-padding-horizontal: var(--ecl-spacing-m);
     height: map.get($theme, 'line-height', 'm');
     left: -1px;
     position: absolute;
-    top: var(--ecl-spacing-xs);
+    top: var(--s-xs);
     width: 1px;
   }
 }
@@ -107,7 +107,7 @@ $button-padding-horizontal: var(--ecl-spacing-m);
   }
 
   .ecl-search-form__button .ecl-button__icon {
-    margin-inline-end: var(--ecl-spacing-xs);
+    margin-inline-end: var(--s-xs);
   }
 
   .ecl-search-form__button {

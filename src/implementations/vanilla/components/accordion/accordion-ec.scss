@@ -29,7 +29,7 @@ $accordion: null !default;
   color: map.get($theme, 'color', 'grey-100');
   cursor: pointer;
   display: block;
-  font: var(--ecl-font-m);
+  font: var(--f-m);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
@@ -74,15 +74,15 @@ $accordion: null !default;
 
 .ecl-accordion__content {
   color: map.get($theme, 'color', 'grey');
-  font: var(--ecl-font-m);
+  font: var(--f-m);
   margin-inline-start: 0;
   max-width: 60ch;
-  padding-inline-end: var(--ecl-spacing-m);
+  padding-inline-end: var(--e-s-m);
   padding-inline-start: calc(
     map.get($accordion, 'item-padding') + map.get($accordion, 'icon-margin') +
       1rem + 0.25rem
   );
-  padding-bottom: var(--ecl-spacing-xl);
+  padding-bottom: var(--e-s-xl);
 }
 
 .no-js .ecl-accordion__content {

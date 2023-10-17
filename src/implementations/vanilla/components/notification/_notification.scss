@@ -25,7 +25,7 @@ $notification: null !default;
 
 .ecl-notification__icon {
   flex-shrink: 0;
-  margin-inline-end: var(--ecl-spacing-xs);
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-notification__content {
@@ -44,14 +44,14 @@ $notification: null !default;
 
 .ecl-notification__description {
   grid-column-start: 1;
-  margin: 0 0 var(--ecl-spacing-xs);
+  margin: 0 0 var(--s-xs);
   max-width: 80ch;
 }
 
 .ecl-notification__close {
   align-self: self-start;
   color: map.get($notification, 'close-color');
-  font: var(--ecl-font-m);
+  font: var(--f-m);
   grid-column-start: 2;
   grid-row-end: span 2;
   grid-row-start: 1;
@@ -71,7 +71,7 @@ $notification: null !default;
 
   .ecl-notification__close {
     bottom: auto;
-    top: calc(var(--ecl-spacing-l) - var(--ecl-spacing-s));
+    top: calc(var(--s-l) - var(--s-s));
   }
 }
 

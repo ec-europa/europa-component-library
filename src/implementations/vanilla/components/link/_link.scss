@@ -70,7 +70,7 @@ $link: null !default;
 // stylelint-disable-next-line no-descending-specificity
 .ecl-link__icon ~ .ecl-link__label,
 .ecl-link__label ~ .ecl-link__icon {
-  margin-inline-start: var(--ecl-spacing-xs);
+  margin-inline-start: var(--s-xs);
 }
 
 // Icon only
@@ -153,7 +153,7 @@ $link: null !default;
   box-sizing: border-box;
   color: map.get($link, #{$variant}, 'color');
   display: inline-block;
-  font: var(--ecl-font-m);
+  font: var(--f-m);
   padding: calc(
       #{map.get($link, 'button', 'padding-vertical')} - #{map.get(
           $link,
