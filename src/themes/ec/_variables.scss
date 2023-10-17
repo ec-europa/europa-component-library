@@ -367,32 +367,51 @@ $featured-item: (
     color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
   border-radius: map.get($border-radius, 's'),
   shadow: map.get($shadow, '1'),
-  media-padding: map.get($spacing, 'xl'),
+  media-padding-mobile: map.get($spacing, 'xl'),
+  media-padding-desktop: map.get($spacing, 'xl'),
+  media-padding-right: map.get($spacing, 'xl'),
   title-color: var(--ecl-color-dark),
   title-font: map.get($font, 'l'),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-padding: map.get($spacing, 'xl') map.get($spacing, 'xl') 0
+  title-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0
     map.get($spacing, 'xl'),
   description-color: var(--ecl-color-dark),
   description-font: map.get($font, 'm'),
-  description-padding: map.get($spacing, 's') map.get($spacing, 'xl') 0
+  description-spacing: map.get($spacing, 's') map.get($spacing, 'xl') 0
     map.get($spacing, 'xl'),
-  link-padding: map.get($spacing, 'm') map.get($spacing, 'xl') 0
+  link-spacing: map.get($spacing, 'm') map.get($spacing, 'xl') 0
     map.get($spacing, 'xl'),
-  text-color: map.get($color, 'grey-100'),
-  heading-mobile-font: map.get($font, '2xl'),
-  heading-font: map.get($font, '3xl'),
-  heading-font-weight: map.get($font-weight, 'bold'),
-  heading-mobile-margin-bottom: map.get($spacing, 's'),
-  title-margin-bottom: map.get($spacing, 'xs'),
-  description-margin-bottom: map.get($spacing, 's'),
-  highlight-border-color: map.get($color, 'yellow'),
-  highlight-border-size: 8px,
-  highlight-border-radius: 0,
-  highlight-background: map.get($color, 'grey-10'),
-  highlight-padding-left: map.get($spacing, 'm'),
-  highlight-padding-top: map.get($spacing, 's'),
-  highlight-padding-bottom: map.get($spacing, 's'),
+  highlight: (
+    container-background: map.get($color, 'white'),
+    title-background: var(--ecl-color-neutral-80),
+    item-background: var(--ecl-color-neutral-60),
+    padding-mobile: 0,
+    padding-desktop: 0,
+    border-size: 1px,
+    border-color: color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+    title-spacing: map.get($spacing, 'xl'),
+    description-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0
+      map.get($spacing, 'xl'),
+  ),
+);
+$featured-item-print: (
+  padding: map.get($spacing-print, 'xl'),
+  media-padding-desktop: map.get($spacing-print, 'xl'),
+  media-padding-right: map.get($spacing-print, 'xl'),
+  title-font: map.get($font-print, 'l'),
+  title-font-weight: map.get($font-weight-print, 'regular'),
+  title-spacing: map.get($spacing-print, 'xl') map.get($spacing-print, 'xl') 0
+    map.get($spacing-print, 'xl'),
+  description-font: map.get($font-print, 'm'),
+  description-spacing: map.get($spacing-print, 's')
+    map.get($spacing-print, 'xl') 0 map.get($spacing-print, 'xl'),
+  link-spacing: map.get($spacing-print, 'm') map.get($spacing-print, 'xl') 0
+    map.get($spacing-print, 'xl'),
+  highlight: (
+    title-spacing: map.get($spacing-print, 'xl'),
+    description-spacing: map.get($spacing-print, 'xl')
+      map.get($spacing-print, 'xl') 0 map.get($spacing-print, 'xl'),
+  ),
 );
 
 // File download

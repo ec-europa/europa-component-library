@@ -374,32 +374,48 @@ $expandable: (
 $featured-item: (
   padding: 0,
   border: none,
-  border-radius: 0,
+  border-radius: map.get($border-radius, 'm'),
   shadow: none,
-  media-padding: map.get($spacing, 'm'),
+  media-padding-mobile: 0 0 map.get($spacing, 'm') 0,
+  media-padding-desktop: 0 map.get($spacing, 'm') map.get($spacing, 'm') 0,
+  media-padding-right: 0 0 map.get($spacing, 'm') map.get($spacing, 'm'),
   title-color: var(--ecl-color-dark-140),
   title-font: map.get($font-prolonged, 'l'),
   title-font-weight: map.get($font-weight, 'bold'),
-  title-padding: 0,
+  title-spacing: 0,
   description-color: var(--ecl-color-dark-80),
   description-font: map.get($font-prolonged, 'm'),
-  description-padding: map.get($spacing, 's') 0 0 0,
-  link-padding: map.get($spacing, 'm') 0 0 0,
-
-  text-color: map.get($color, 'grey-80'),
-  heading-mobile-font: map.get($font, '4xl'),
-  heading-font: map.get($font, '5xl'),
-  heading-font-weight: map.get($font-weight, 'regular'),
-  heading-mobile-margin-bottom: map.get($spacing, 'm'),
-  title-margin-bottom: map.get($spacing, 's'),
-  description-margin-bottom: map.get($spacing, 'm'),
-  highlight-border-color: map.get($color, 'blue-100'),
-  highlight-border-size: 8px,
-  highlight-border-radius: 4px,
-  highlight-background: map.get($color, 'blue-10'),
-  highlight-padding-left: map.get($spacing, 'l'),
-  highlight-padding-top: map.get($spacing, 'm'),
-  highlight-padding-bottom: map.get($spacing, 'm'),
+  description-spacing: map.get($spacing, 's') 0 0 0,
+  link-spacing: map.get($spacing, 'm') 0 0 0,
+  highlight: (
+    container-background: var(--ecl-color-primary-10),
+    title-background: transparent,
+    item-background: transparent,
+    padding-mobile: map.get($spacing, 'm') map.get($spacing, 'm')
+      map.get($spacing, 'm') map.get($spacing, 'xs'),
+    padding-desktop: map.get($spacing, 'm') map.get($spacing, 'm')
+      map.get($spacing, 'm') map.get($spacing, 'l'),
+    border-size: 8px,
+    border-color: var(--ecl-color-primary),
+    title-spacing: 0,
+    description-spacing: map.get($spacing, 's') 0 0 0,
+  ),
+);
+$featured-item-print: (
+  media-padding-desktop: 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm') 0,
+  media-padding-right: 0 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm'),
+  title-font: map.get($font-prolonged-print, 'l'),
+  title-font-weight: map.get($font-weight-print, 'bold'),
+  description-font: map.get($font-prolonged-print, 'm'),
+  description-spacing: map.get($spacing-print, 's') 0 0 0,
+  link-spacing: map.get($spacing-print, 'm') 0 0 0,
+  highlight: (
+    padding-desktop: map.get($spacing-print, 'm') map.get($spacing-print, 'm')
+      map.get($spacing-print, 'm') map.get($spacing-print, 'l'),
+    description-spacing: map.get($spacing-print, 's') 0 0 0,
+  ),
 );
 
 // File download
