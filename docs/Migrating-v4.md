@@ -93,6 +93,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Button is now using variant `ghost`, instead of `secondary`
 
+### Fact and figures
+
+- Icon size is now `l` instead of `m`
+
 ### File
 
 - File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating

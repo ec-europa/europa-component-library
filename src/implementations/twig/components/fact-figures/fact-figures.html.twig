@@ -57,8 +57,9 @@
     <div class="ecl-fact-figures__item">
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: item.icon,
-        size: 'm',
+        icon: item.icon|merge({
+          size: 'l',
+        }),
         extra_classes: 'ecl-fact-figures__icon',
       } only %}
     {% endif %}
