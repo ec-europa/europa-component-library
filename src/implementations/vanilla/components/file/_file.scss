@@ -65,7 +65,7 @@ $file: null !default;
   color: map.get($file, 'file-color');
   font: map.get($file, 'file-language-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-file__meta {
@@ -76,17 +76,17 @@ $file: null !default;
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
   display: flex;
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   margin-bottom: map.get($file, 'file-meta-margin');
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  margin-inline-start: var(--s-xs);
 
   &::before {
-    color: var(--ecl-color-primary);
+    color: var(--c-p);
     content: '|';
-    margin-inline-end: map.get($theme, 'spacing', 'xs');
+    margin-inline-end: var(--s-xs);
   }
 }
 
@@ -102,7 +102,7 @@ $file: null !default;
 .ecl-file__description {
   color: map.get($file, 'file-description-color');
   font: map.get($file, 'file-description-font');
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--s-s);
   max-width: 65ch;
   white-space: pre-wrap;
 }
@@ -114,7 +114,7 @@ $file: null !default;
 
 .ecl-file__image {
   display: block;
-  margin-top: map.get($theme, 'spacing', 'xl');
+  margin-top: var(--s-xl);
   max-width: map.get($file, 'image-width');
 }
 
@@ -127,7 +127,7 @@ $file: null !default;
   display: inline-flex;
   flex-basis: 100%;
   margin-bottom: map.get($file, 'file-label-spacing');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--s-xs);
 }
 
 .ecl-file__download {
@@ -138,7 +138,7 @@ $file: null !default;
 
 .ecl-file__translation-language {
   color: map.get($file, 'file-description-color');
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
@@ -153,10 +153,10 @@ $file: null !default;
 
 .ecl-file__translation-toggle {
   align-self: flex-end;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'regular');
   margin-bottom: map.get($file, 'file-translation-toggle-margin');
-  margin-inline-end: #{map.get($theme, 'spacing', 'xs')};
+  margin-inline-end: var(--s-xs);
   margin-top: map.get($file, 'file-translation-toggle-margin');
 
   &:focus-visible {
@@ -203,7 +203,7 @@ $file: null !default;
 
 .ecl-file__translation-title {
   color: map.get($file, 'file-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
@@ -214,14 +214,14 @@ $file: null !default;
 
 .ecl-file__translation-download {
   align-self: map.get($file, 'file-translation-download-alignment');
-  font: map.get($theme, 'font', 'm');
-  margin-top: map.get($theme, 'spacing', 'xs');
+  font: var(--f-m);
+  margin-top: var(--s-xs);
 }
 
 .ecl-file__translation-description {
   color: map.get($file, 'file-color');
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   max-width: 65ch;
 }
 
@@ -241,7 +241,7 @@ $file: null !default;
 
 @include breakpoints.down('xs') {
   .ecl-file__footer * {
-    margin-top: map.get($theme, 'spacing', '2xs');
+    margin-top: var(--s-2xs);
   }
 }
 
@@ -260,7 +260,7 @@ $file: null !default;
   }
 
   .ecl-file__info {
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--s-m);
   }
 
   .ecl-file__footer {
@@ -325,9 +325,9 @@ $file: null !default;
         content: '';
         position: absolute;
         top: 0;
-        left: map.get($theme, 'spacing', 'l');
-        right: map.get($theme, 'spacing', 'l');
-        border-top: 1px solid var(--ecl-color-primary-20);
+        left: var(--s-l);
+        right: var(--s-l);
+        border-top: 1px solid var(--c-p-20);
       }
     }
   }
@@ -361,7 +361,7 @@ $file: null !default;
   }
 
   .ecl-file__translation-title {
-    font: map.get($theme, 'font', 'm');
+    font: var(--f-m);
     font-weight: map.get($theme, 'font-weight', 'bold');
     margin-bottom: map.get($file, 'file-translation-title-margin-bottom');
   }

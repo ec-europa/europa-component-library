@@ -29,7 +29,7 @@ $accordion: null !default;
       border-end-end-radius: 2px;
       content: '';
       height: 4px;
-      left: map.get($theme, 'spacing', 'l');
+      left: var(--s-l);
       position: absolute;
       top: 0;
       width: 32px;
@@ -75,7 +75,7 @@ $accordion: null !default;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: map.get($theme, 'font-prolonged', 'l');
+  font: var(--f-p-l);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
@@ -124,8 +124,8 @@ $accordion: null !default;
 
 .ecl-accordion__toggle-label {
   display: none;
-  font: map.get($theme, 'font-prolonged', 'm');
-  margin: 0 map.get($theme, 'spacing', 'xs') 0 map.get($theme, 'spacing', 's');
+  font: var(--f-p-m);
+  margin: 0 var(--s-xs) 0 var(--s-s);
 }
 
 .ecl-accordion__toggle-title {
@@ -137,9 +137,9 @@ $accordion: null !default;
   border-bottom: 2px solid map.get($theme, 'color', 'blue-20');
   border-inline-start: 4px solid map.get($theme, 'color', 'blue');
   color: map.get($accordion, 'text-color');
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--f-p-m);
   margin-inline-start: 0;
-  padding: map.get($theme, 'spacing', 'l');
+  padding: var(--s-l);
 }
 
 .no-js .ecl-accordion__content {
@@ -149,7 +149,7 @@ $accordion: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-accordion__toggle {
-    font: map.get($theme, 'font-prolonged', 'xl');
+    font: var(--f-p-xl);
   }
 
   .ecl-accordion__toggle-label {

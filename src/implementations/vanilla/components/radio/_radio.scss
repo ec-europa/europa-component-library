@@ -14,7 +14,7 @@ $radio: null !default;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 0 var(--s-xs);
 
   &:last-child {
     margin-bottom: 0;
@@ -42,9 +42,9 @@ $radio: null !default;
 .ecl-radio__label {
   color: map.get($radio, 'label-color');
   display: inline-flex;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   line-height: map.get($radio, 'label-line-height');
-  padding: map.get($theme, 'spacing', 'xs') 0;
+  padding: var(--s-xs) 0;
   position: relative;
   max-width: map.get($radio, 'max-width');
   white-space: pre-wrap;
@@ -63,7 +63,7 @@ $radio: null !default;
   display: block;
   flex-shrink: 0;
   height: map.get($radio, 'box-size');
-  margin-inline-end: map.get($theme, 'spacing', 'xs');
+  margin-inline-end: var(--s-xs);
   margin-top: map.get($radio, 'box-margin-top');
   position: relative;
   width: map.get($radio, 'box-size');
@@ -105,7 +105,7 @@ $radio: null !default;
   }
 
   .ecl-radio__box-inner {
-    background: var(--ecl-color-primary);
+    background: var(--c-p);
     border-radius: 50%;
     box-sizing: border-box;
     display: map.get($radio, 'box-inner-display');
@@ -154,7 +154,7 @@ $radio: null !default;
 // Binary radio
 .ecl-radio--binary {
   display: inline-flex;
-  margin-inline-end: map.get($theme, 'spacing', 'm');
+  margin-inline-end: var(--s-m);
   vertical-align: top;
 }
 
@@ -163,5 +163,5 @@ $radio: null !default;
 }
 
 .ecl-form-label + .ecl-radio--binary + .ecl-radio--binary {
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--s-xs);
 }

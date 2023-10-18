@@ -53,7 +53,7 @@ $media-container: null !default;
   position: relative;
 
   .ecl-expandable__content {
-    margin-bottom: map.get($theme, 'spacing', 'm');
+    margin-bottom: var(--s-m);
   }
 }
 
@@ -93,7 +93,7 @@ $media-container: null !default;
       border-bottom-right-radius: 2px;
       content: '';
       height: 4px;
-      left: map.get($theme, 'spacing', 'l');
+      left: var(--s-l);
       position: absolute;
       top: 0;
       width: 32px;
