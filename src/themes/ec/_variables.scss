@@ -575,25 +575,25 @@ $list: (
 
 // List with illustrations
 $list-illustration: (
-  title-color: var(--ecl-color-dark),
-  description-color: var(--ecl-color-dark),
-  background-color: map.get($color, 'grey-5'),
-  value-font-mobile: map.get($font, '3xl'),
-  title-font: map.get($font, 'l'),
+  title-color: var(--c-d),
+  description-color: var(--c-d),
+  background-color: var(--c-n-40),
+  value-font-mobile: var(--f-3xl),
+  title-font: var(--f-l),
   value-font-weight-mobile: map.get($font-weight, 'regular'),
-  value-font-desktop: map.get($font, '3xl'),
+  value-font-desktop: var(--f-3xl),
   value-font-weight-desktop: map.get($font-weight, 'regular'),
-  icon-color: var(--ecl-color-dark),
+  icon-color: var(--c-d),
 );
 $list-illustration-print: (
-  title-color: var(--ecl-color-dark),
-  description-color: var(--ecl-color-dark),
-  background-color: map.get($color, 'grey-5'),
+  title-color: var(--c-d),
+  description-color: var(--c-d),
+  background-color: var(--c-n-40),
   value-font-mobile: map.get($font-print, '3xl'),
   value-font-weight-mobile: map.get($font-weight-print, 'bold'),
   value-font-desktop: map.get($font-print, '4xl'),
   value-font-weight-desktop: map.get($font-weight-print, 'bold'),
-  icon-color: var(--ecl-color-dark),
+  icon-color: var(--c-d),
 );
 
 // Media container
