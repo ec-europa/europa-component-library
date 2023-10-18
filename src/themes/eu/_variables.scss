@@ -938,6 +938,24 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Table
+$table: (
+  table-color: var(--ecl-color-dark-140),
+  head-border: none,
+  head-background: var(--ecl-color-primary-5),
+  header-padding: map.get($spacing, 's') map.get($spacing, 'm'),
+  header-border: 2px solid var(--ecl-color-primary-60),
+  row-border: 1px solid var(--ecl-color-primary-20),
+  cell-padding: map.get($spacing, 's') map.get($spacing, 'xl')
+    map.get($spacing, 's') map.get($spacing, 'm'),
+  zebra-background: var(--ecl-color-primary-5),
+  sort-icon-color: var(--ecl-color-primary-80),
+  sort-icon-color-active: var(--ecl-color-primary-140),
+  sort-arrow-margin-top: -#{map.get($spacing, 'xs')},
+  button_arrow_height: 36px,
+  button_arrow_width: 25px,
+);
+
 // Tag
 $tag: (
   padding: map.get($spacing, 'xs') map.get($spacing, 's'),

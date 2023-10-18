@@ -903,6 +903,23 @@ $spinner: (
   text-color: var(--ecl-color-dark),
 );
 
+// Table
+$table: (
+  table-color: var(--ecl-color-dark),
+  head-background: var(--ecl-color-neutral),
+  head-border: 1px solid var(--ecl-color-neutral-60),
+  header-padding: map.get($spacing, 'm'),
+  header-border: none,
+  row-border: 1px solid var(--ecl-color-neutral-60),
+  cell-padding: map.get($spacing, 'm'),
+  zebra-background: var(--ecl-color-neutral-40),
+  sort-icon-color: map.get($color, 'grey-75'),
+  sort-icon-color-active: map.get($color, 'grey-100'),
+  sort-arrow-margin-top: -#{map.get($spacing, 's')},
+  button_arrow_height: 44px,
+  button_arrow_width: 31px,
+);
+
 // Tag
 $tag: (
   padding: map.get($spacing, '2xs') map.get($spacing, 's'),
