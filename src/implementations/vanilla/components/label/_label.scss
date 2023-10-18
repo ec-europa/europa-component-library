@@ -14,7 +14,7 @@ $label: null !default;
   border-radius: map.get($label, 'radius');
   border: map.get($label, 'border-width') solid transparent;
   display: inline-block;
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   margin: 0;
   padding: calc(
       #{map.get($label, 'padding-vertical')} - #{map.get(

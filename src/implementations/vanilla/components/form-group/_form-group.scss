@@ -23,7 +23,7 @@ $form-group: null !default;
   color: map.get($form-group, 'color-invalid');
   display: flex;
   font: map.get($form-group, 'font-invalid');
-  margin: map.get($theme, 'spacing', '2xs') 0 map.get($theme, 'spacing', 'xs');
+  margin: var(--s-2xs) 0 var(--s-xs);
   padding: 0;
 }
 
@@ -36,7 +36,7 @@ $form-group: null !default;
   color: map.get($form-group, 'color-help');
   display: block;
   font: map.get($form-group, 'font-help');
-  margin: map.get($theme, 'spacing', '2xs') 0 map.get($theme, 'spacing', 'xs');
+  margin: var(--s-2xs) 0 var(--s-xs);
   padding: 0;
 }
 
@@ -53,9 +53,9 @@ $form-group: null !default;
 
 .ecl-form-label__required {
   color: map.get($form-group, 'color-required');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-inline-start: map.get($theme, 'spacing', '2xs');
+  margin-inline-start: var(--s-2xs);
 }
 
 .ecl-form-label__optional {
@@ -63,15 +63,15 @@ $form-group: null !default;
   color: map.get($form-group, 'color-optional');
   font: map.get($form-group, 'font-optional');
   font-style: map.get($form-group, 'font-style-optional');
-  margin-inline-start: map.get($theme, 'spacing', '2xs');
+  margin-inline-start: var(--s-2xs);
 }
 
 .ecl-form-label + {
   *:not(.ecl-help-block, .ecl-feedback-message) {
-    margin-top: map.get($theme, 'spacing', 'xs');
+    margin-top: var(--s-xs);
   }
 }
 
 .ecl-help-block + .ecl-feedback-message {
-  margin-top: -#{map.get($theme, 'spacing', '2xs')};
+  margin-top: calc(-1 * var(--s-2xs));
 }

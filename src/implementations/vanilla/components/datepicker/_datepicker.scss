@@ -18,14 +18,14 @@ $datepicker: null !default;
 }
 
 .ecl-datepicker__field.ecl-text-input {
-  padding-inline-end: map.get($theme, 'spacing', '2xl');
+  padding-inline-end: var(--s-2xl);
   width: 100%;
 }
 
 .ecl-datepicker__icon {
   color: map.get($datepicker, 'input-icon-color');
-  margin-inline-end: calc(#{map.get($theme, 'spacing', 's')} + 2px);
-  margin-top: calc(#{map.get($theme, 'spacing', 's')} + 2px);
+  margin-inline-end: calc(var(--s-s) + 2px);
+  margin-top: calc(var(--s-s) + 2px);
   pointer-events: none;
   position: absolute;
   right: 0;
@@ -62,7 +62,7 @@ $datepicker: null !default;
   border-width: 0;
   box-shadow: map.get($datepicker, 'picker', 'shadow');
   color: map.get($datepicker, 'picker', 'theme-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin-top: map.get($datepicker, 'picker', 'margin-top');
   overflow: hidden;
   padding: map.get($datepicker, 'picker', 'padding');
@@ -89,10 +89,10 @@ $datepicker: null !default;
     display: flex;
     flex-basis: 50%;
     flex-grow: 1;
-    font: map.get($theme, 'font', 'm');
+    font: var(--f-m);
     justify-content: space-between;
-    margin-inline-end: map.get($theme, 'spacing', 'xs');
-    padding: map.get($theme, 'spacing', 'xs') map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--s-xs);
+    padding: var(--s-xs) var(--s-m);
 
     &:last-of-type {
       margin-inline-end: 0;
@@ -132,8 +132,8 @@ $datepicker: null !default;
 
     th {
       color: map.get($datepicker, 'picker', 'theme-color');
-      font: map.get($theme, 'font', 'xs');
-      padding: map.get($theme, 'spacing', 's') 0;
+      font: var(--f-xs);
+      padding: var(--s-s) 0;
       text-transform: uppercase;
     }
 
@@ -154,8 +154,8 @@ $datepicker: null !default;
     border-radius: map.get($datepicker, 'picker', 'border-radius');
     border-width: 0;
     color: map.get($datepicker, 'picker', 'theme-color');
-    font: map.get($theme, 'font', 'm');
-    padding: map.get($theme, 'spacing', 'xs');
+    font: var(--f-m);
+    padding: var(--s-xs);
     text-align: center;
 
     &:hover {

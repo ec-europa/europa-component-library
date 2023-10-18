@@ -21,7 +21,7 @@ $textarea: null !default;
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin: 0;
   max-width: 100%;
   padding: map.get($textarea, 'padding-vertical')
@@ -29,7 +29,7 @@ $textarea: null !default;
 
   &::placeholder {
     color: map.get($textarea, 'color-placeholder');
-    font: map.get($theme, 'font', 'm');
+    font: var(--f-m);
     opacity: 1;
   }
 
