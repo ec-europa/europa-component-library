@@ -73,6 +73,12 @@ export class ContentBlock {
     this.linkEl = this.title ? queryOne('a', this.title) : false;
     if (this.linkEl) {
       this.picture.style.cursor = 'pointer';
+      const img = queryOne('img', this.picture);
+      if (img) {
+        img.title = this.constructor.convertToFullURL(
+          this.linkEl.getAttribute('href'),
+        );
+      }
 
       if (this.attachClickListener) {
         this.picture.addEventListener('click', this.linkTo);
@@ -113,6 +119,21 @@ export class ContentBlock {
       selector,
       maxIterations - 1,
     );
+  }
+
+  /**
+   * Convert a path to a full url.
+   *
+   * @param {String} href
+   */
+  static convertToFullURL(href) {
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      return href;
+    }
+
+    const baseUrl = new URL(window.location.href);
+    const fullUrl = new URL(href, baseUrl);
+    return fullUrl.href;
   }
 
   /**

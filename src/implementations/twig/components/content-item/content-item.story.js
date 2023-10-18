@@ -158,8 +158,8 @@ const getArgTypes = (data) => {
         },
       },
       mapping: {
-        small: 'small (square)',
-        large: 'large (landscape)',
+        'small (square)': 'small',
+        'large (landscape)': 'large',
       },
       table: {
         type: 'string',
