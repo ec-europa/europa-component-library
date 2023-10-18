@@ -14,7 +14,7 @@ $table: null !default;
 %ecl-table {
   border-collapse: collapse;
   color: map.get($table, 'table-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin: 0;
   width: 100%;
 }
@@ -48,7 +48,7 @@ $table: null !default;
   border-bottom: map.get($table, 'header-border');
 
   .ecl-table__header {
-    padding-top: map.get($theme, 'spacing', 'm');
+    padding-top: var(--s-m);
   }
 }
 
@@ -57,10 +57,6 @@ $table: null !default;
   border-width: 0;
   display: table-cell;
   padding: map.get($table, 'cell-padding');
-
-  &::before {
-    display: none;
-  }
 }
 
 // Zebra
@@ -70,67 +66,16 @@ $table: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
-@include breakpoints.down('m') {
-  .ecl-table--zebra:not(.ecl-table--simple) {
-    .ecl-table__row:nth-of-type(even) {
-      background-color: transparent;
-    }
-
-    .ecl-table__cell:nth-of-type(even) {
-      background-color: map.get($table, 'zebra-background');
-    }
-  }
-}
-
 // Multi
-.ecl-table__cell[data-ecl-table-header-group] {
-  // padding-top + line-height + padding-bottom + border + cell padding-top
-  padding-top: calc(
-    #{map.get($theme, 'spacing', 's')} + #{map.get($theme, 'line-height', 'm')} +
-      #{map.get($theme, 'spacing', 's')} + 1px + #{map.get(
-        $theme,
-        'spacing',
-        's'
-      )}
-  );
-  position: relative;
+.ecl-table__head .ecl-table__row:not(:first-child) {
+  background-color: map.get($table, 'multi-head-background-empty');
+  border-bottom-width: 0;
 }
 
-.ecl-table__cell--group {
-  &::before {
-    background-color: map.get($theme, 'color', 'white-100');
-    border-inline-end-color: map.get($theme, 'color', 'white-100');
-    margin-inline-start: -#{map.get($theme, 'spacing', 's')};
-    margin-inline-end: 0;
-    padding-inline-start: map.get($theme, 'spacing', 'l');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  .ecl-table__head .ecl-table__row:not(:first-child) {
-    background-color: map.get($theme, 'color', 'white-100');
-    border-bottom-width: 0;
-  }
-
-  .ecl-table__head
-    .ecl-table__row:not(:first-child)
-    .ecl-table__header:not(:empty) {
-    background-color: map.get($theme, 'color', 'blue-5');
-  }
-
-  .ecl-table__cell[data-ecl-table-header-group]::after {
-    display: none;
-  }
-
-  .ecl-table__cell--group {
-    padding-inline-start: map.get($theme, 'spacing', 's');
-  }
-
-  .ecl-table__cell[data-ecl-table-header-group] {
-    padding-top: map.get($theme, 'spacing', 's');
-  }
+.ecl-table__head
+  .ecl-table__row:not(:first-child)
+  .ecl-table__header:not(:empty) {
+  background-color: map.get($table, 'multi-head-background');
 }
 
 // Sort Table
@@ -228,6 +173,16 @@ $table: null !default;
       }
     }
 
+    .ecl-table__cell--group {
+      &::before {
+        background-color: map.get($theme, 'color', 'white-100');
+        border-inline-end-color: map.get($theme, 'color', 'white-100');
+        margin-inline-start: -#{map.get($theme, 'spacing', 's')};
+        margin-inline-end: 0;
+        padding-inline-start: map.get($theme, 'spacing', 'l');
+      }
+    }
+
     .ecl-table__cell[data-ecl-table-header-group] {
       display: grid;
       grid-template-columns:
@@ -240,6 +195,7 @@ $table: null !default;
         )
         1fr;
       grid-template-rows: auto 1fr;
+      position: relative;
 
       &::after {
         background-color: map.get($theme, 'color', 'blue-5');
@@ -256,6 +212,16 @@ $table: null !default;
         top: -#{map.get($theme, 'spacing', 's')};
         width: 100%;
       }
+    }
+  }
+
+  .ecl-table--zebra:not(.ecl-table--simple) {
+    .ecl-table__row:nth-of-type(even) {
+      background-color: transparent;
+    }
+
+    .ecl-table__cell:nth-of-type(even) {
+      background-color: map.get($table, 'zebra-background');
     }
   }
 }
