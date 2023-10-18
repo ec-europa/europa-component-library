@@ -19,7 +19,7 @@ $theme: null !default;
   display: grid;
   grid-auto-rows: auto;
   grid-column-gap: map.get($theme, 'grid', 'gutter');
-  grid-row-gap: map.get($theme, 'spacing', 'xl');
+  grid-row-gap: map.get($theme, 'spacing-print', 'xl');
   width: 100%;
 }
 
