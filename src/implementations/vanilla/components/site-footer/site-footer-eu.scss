@@ -18,18 +18,18 @@ $site-footer: null !default;
   box-shadow: map.get($site-footer, 'shadow');
   color: map.get($site-footer, 'color');
   display: flex;
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--f-p-m);
   margin: 0;
 }
 
 .ecl-site-footer__container {
-  padding: map.get($theme, 'spacing', '3xl') map.get($theme, 'spacing', 'm');
+  padding: var(--s-3xl) var(--s-m);
 }
 
 .ecl-site-footer__row {
   border-bottom: 2px solid map.get($site-footer, 'separator-color');
-  padding-bottom: map.get($theme, 'spacing', 'xl');
-  padding-top: map.get($theme, 'spacing', 'xl');
+  padding-bottom: var(--s-xl);
+  padding-top: var(--s-xl);
   /* stylelint-disable-next-line max-nesting-depth */
   &:first-child {
     padding-top: 0;
@@ -42,7 +42,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__column {
-  padding-top: map.get($theme, 'spacing', 'l');
+  padding-top: var(--s-l);
 
   /* stylelint-disable-next-line max-nesting-depth */
   &:first-child {
@@ -51,7 +51,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__section {
-  padding-top: map.get($theme, 'spacing', 'l');
+  padding-top: var(--s-l);
 
   /* stylelint-disable-next-line max-nesting-depth */
   &:first-child {
@@ -69,7 +69,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
-  font: map.get($theme, 'font', '2xl');
+  font: var(--f-2xl);
   margin: 0;
 }
 
@@ -82,23 +82,23 @@ $site-footer: null !default;
 
 .ecl-site-footer__title--separator {
   border-bottom: 1px solid map.get($site-footer, 'separator-color');
-  padding-bottom: map.get($theme, 'spacing', 's');
+  padding-bottom: var(--s-s);
 }
 
 .ecl-site-footer__description {
-  margin-bottom: map.get($theme, 'spacing', 'xs');
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-bottom: var(--s-xs);
+  margin-top: var(--s-m);
 }
 
 .ecl-site-footer__list {
   list-style: none;
   margin-bottom: 0;
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--s-s);
   padding-inline-start: 0;
 }
 
 .ecl-site-footer__list-item {
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--s-xs);
 
   &:first-of-type {
     margin-top: 0;
@@ -117,7 +117,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__section--site-info {
   .ecl-site-footer__list {
-    margin-top: map.get($theme, 'spacing', 'm');
+    margin-top: var(--s-m);
   }
 }
 
@@ -128,7 +128,7 @@ $site-footer: null !default;
   }
 
   .ecl-site-footer__container {
-    padding: map.get($theme, 'spacing', '4xl') map.get($theme, 'spacing', 'm');
+    padding: var(--s-4xl) var(--s-m);
   }
 
   .ecl-site-footer__row {
@@ -136,8 +136,8 @@ $site-footer: null !default;
     display: grid;
     grid-gap: 0 map.get($site-footer, 'column-gap');
     grid-template-columns: repeat(3, 1fr);
-    padding-bottom: map.get($theme, 'spacing', '3xl');
-    padding-top: map.get($theme, 'spacing', '3xl');
+    padding-bottom: var(--s-3xl);
+    padding-top: var(--s-3xl);
   }
 
   .ecl-site-footer__column {
@@ -145,7 +145,7 @@ $site-footer: null !default;
   }
 
   .ecl-site-footer__section {
-    padding-top: map.get($theme, 'spacing', 'l');
+    padding-top: var(--s-l);
   }
 
   .ecl-site-footer__section--desktop {
@@ -161,7 +161,7 @@ $site-footer: null !default;
   .ecl-site-footer__title:focus,
   .ecl-site-footer__title:visited {
     color: map.get($site-footer, 'color');
-    font: map.get($theme, 'font', '3xl');
+    font: var(--f-3xl);
   }
 
   .ecl-site-footer__logo-image {

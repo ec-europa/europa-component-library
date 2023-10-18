@@ -4,16 +4,18 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-fact-figures {
   margin: 0;
 }
 
 .ecl-fact-figures__item {
-  border-bottom: 1px solid map.get(theme.$color, 'black');
-  padding-bottom: map.get(theme.$spacing-print, 'xl');
-  padding-top: map.get(theme.$spacing-print, 'xl');
+  border-bottom: 1px solid map.get($theme, 'color', 'black');
+  padding-bottom: map.get($theme, 'spacing-print', 'xl');
+  padding-top: map.get($theme, 'spacing-print', 'xl');
 
   &:first-of-type {
     padding-top: 0;
@@ -28,33 +30,41 @@
 .ecl-fact-figures__icon {
   display: block;
   float: left;
-  margin-right: map.get(theme.$spacing-print, 'm');
-  margin-top: map.get(theme.$spacing-print, '2xs');
+  margin-right: map.get($theme, 'spacing-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', '2xs');
 }
 
 .ecl-fact-figures__value {
-  font: map.get(theme.$font-print, '4xl');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get($theme, 'font-print', '4xl');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .ecl-fact-figures__title {
   clear: left;
-  font: map.get(theme.$font-prolonged-print, 'l');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get($theme, 'font-prolonged-print', 'l');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-weight: map.get($theme, 'font-weight', 'bold');
   margin-left: calc(
-    #{map.get(theme.$icon-print, 'm')} + #{map.get(theme.$spacing-print, 'm')}
+    #{map.get($theme, 'icon-print', 'm')} + #{map.get(
+        $theme,
+        'spacing-print',
+        'm'
+      )}
   );
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-fact-figures__description {
-  font: map.get(theme.$font-prolonged-print, 'm');
+  font: map.get($theme, 'font-prolonged-print', 'm');
   margin-left: calc(
-    #{map.get(theme.$icon-print, 'm')} + #{map.get(theme.$spacing-print, 'm')}
+    #{map.get($theme, 'icon-print', 'm')} + #{map.get(
+        $theme,
+        'spacing-print',
+        'm'
+      )}
   );
-  margin-top: map.get(theme.$spacing-print, 's');
+  margin-top: map.get($theme, 'spacing-print', 's');
 }
 
 .ecl-fact-figures__view-all {

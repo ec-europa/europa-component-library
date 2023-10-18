@@ -25,7 +25,7 @@ Semantic colors:
 - Warning
 - Error
 - Background
-- Branding: used only in EC footer and page header; could be set to primary color if needed
+- Branding: used mostly in very visual elements (EC footer and page header for instance); could be set to primary color if needed
 
 Most of these semantic colors are also defined in different tint, to cover extra needs (mouse hover, focus, ...).
 The naming convention is as follow:
@@ -92,6 +92,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Expandable
 
 - Button is now using variant `ghost`, instead of `secondary`
+
+### Fact and figures
+
+- Icon size is now `l` instead of `m`
 
 ### File
 
@@ -241,9 +245,19 @@ ECL4 introduces new ways to customize the look and feel of elements, by changing
 
 #### Using CSS variables
 
-CSS variables are provided for the semantic styles (mostly colors). You can find the full list of global CSS variables at the end of the file `src/themes/[your_theme]/_variables.scss`.
+CSS variables are provided for some styles values.
+You can find the full list of global CSS variables at the end of the file `src/themes/[your_theme]/_variables.scss`.
+
+Variables provided:
+
+- colors
+- spacing
+- typgraphy
+- shadow
 
 By default, these variables take values from the SASS variables. You can freely override them in a custom CSS file loaded after ECL one.
+
+Note: we are using shorter aliases internally to limit the size of the compiled css file, but it is recommended to use the full variable name if you want to override them
 
 ### How to customize component display
 

@@ -7,20 +7,20 @@
 // Accordion
 $accordion: (
   item-background: transparent,
-  item-background-hover: var(--ecl-color-neutral-60),
+  item-background-hover: var(--c-n-60),
   item-shadow-hover: none,
-  border-color: var(--ecl-color-neutral-60),
-  item-padding: map.get($spacing, 'xl'),
-  text-color: var(--ecl-color-dark),
-  title-text-color: var(--ecl-color-dark),
-  icon-color: var(--ecl-color-primary),
-  icon-margin: map.get($spacing, 'm'),
+  border-color: var(--c-n-60),
+  item-padding: var(--s-xl),
+  text-color: var(--c-d),
+  title-text-color: var(--c-d),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
 );
 $accordion-print: (
   toggle-background: transparent,
-  toggle-color: var(--ecl-color-dark),
+  toggle-color: var(--c-d),
   toggle-font: map.get($font-print, 'l'),
-  content-color: var(--ecl-color-dark),
+  content-color: var(--c-d),
   content-font: map.get($font-print, 'm'),
 );
 
@@ -38,24 +38,24 @@ $banner: (
     'bottom': 0,
   ),
   background: (
-    'plain-background': var(--ecl-color-branding),
-    'text-box-mobile': var(--ecl-color-neutral-40),
-    'text-box-desktop': var(--ecl-color-background),
-    'text-overlay': var(--ecl-color-branding),
+    'plain-background': var(--c-br),
+    'text-box-mobile': var(--c-n-40),
+    'text-box-desktop': var(--c-bg),
+    'text-overlay': var(--c-br),
   ),
   text-color: (
-    'dark': var(--ecl-color-dark),
-    'light': var(--ecl-color-dark),
-    'inverted': map.get($color, 'white-100'),
+    'dark': var(--c-d),
+    'light': var(--c-d),
+    'inverted': map.get($color, 'white'),
   ),
   font: (
     'title': (
-      'mobile': map.get($font, '3xl'),
-      'desktop': map.get($font, '4xl'),
+      'mobile': var(--f-3xl),
+      'desktop': var(--f-4xl),
     ),
     'description': (
-      'mobile': map.get($font, 'l'),
-      'desktop': map.get($font, 'xl'),
+      'mobile': var(--f-l),
+      'desktop': var(--f-xl),
     ),
   ),
   font-weight: (
@@ -70,50 +70,50 @@ $banner-print: (
 // Blockquote
 $blockquote: (
   border-width: 4px,
-  border-color: var(--ecl-color-primary),
+  border-color: var(--c-p),
   border-radius: 2px,
-  shadow: map.get($shadow, '1'),
-  padding: map.get($spacing, '3xl'),
+  shadow: var(--sh-1),
+  padding: var(--s-3xl),
   quote: (
-    font: map.get($font, 'l'),
-    color: var(--ecl-color-dark),
+    font: var(--f-l),
+    color: var(--c-d),
   ),
   author: (
-    margin: map.get($spacing, 'm'),
-    padding: map.get($spacing, '2xl'),
-    font-mobile: map.get($font, 'l'),
-    font-desktop: map.get($font, 'l'),
+    margin: var(--s-m),
+    padding: var(--s-2xl),
+    font-mobile: var(--f-l),
+    font-desktop: var(--f-l),
     font-weight: map.get($font-weight, 'bold'),
-    color: var(--ecl-color-dark),
+    color: var(--c-d),
   ),
   image: (
-    margin-mobile: map.get($spacing, '2xl'),
-    margin-desktop: map.get($spacing, 'xl'),
+    margin-mobile: var(--s-2xl),
+    margin-desktop: var(--s-xl),
   ),
 );
 $blockquote-print: (
   padding: map.get($spacing-print, '3xl'),
-  quote-font: map.get($font-print, 'l'),
+  quote-font: var(--f-l),
   author-margin: map.get($spacing-print, 'm'),
-  author-font: map.get($font-print, 'l'),
+  author-font: var(--f-l),
   image-margin: map.get($spacing-print, 'xl'),
 );
 
 // Breadcrumb
 $breadcrumb: (
-  padding-vertical: map.get($spacing, 'xs'),
-  font-mobile: map.get($font, 'm'),
-  font-desktop: map.get($font, 's'),
+  padding-vertical: var(--s-xs),
+  font-mobile: var(--f-m),
+  font-desktop: var(--f-s),
   line-height: map.get($line-height, 'm'),
-  last-link-color: var(--ecl-color-dark),
-  icon-color: var(--ecl-color-primary),
-  icon-spacing: map.get($spacing, 'm'),
+  last-link-color: var(--c-d),
+  icon-color: var(--c-p),
+  icon-spacing: var(--s-m),
   ellipsis: (
     background: transparent,
-    background-hover: var(--ecl-color-primary-20),
+    background-hover: var(--c-p-20),
     font-weight: map.get($font-weight, 'regular'),
-    offset-vertical: map.get($spacing, 'xs'),
-    offset-horizontal: map.get($spacing, 'm'),
+    offset-vertical: var(--s-xs),
+    offset-horizontal: var(--s-m),
   ),
 );
 
@@ -123,67 +123,67 @@ $button: (
   shadow: none,
   border-width: 2px,
   outline-width: 1px,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, 'xs'),
+  padding-horizontal: var(--s-m),
+  padding-vertical: var(--s-xs),
   primary: (
-    background: var(--ecl-color-primary),
+    background: var(--c-p),
     color: map.get($color, 'white'),
-    border-color: var(--ecl-color-primary),
-    background-hover: var(--ecl-color-primary-140),
+    border-color: var(--c-p),
+    background-hover: var(--c-p-140),
     color-hover: map.get($color, 'white'),
-    border-color-hover: var(--ecl-color-primary-140),
-    background-active: var(--ecl-color-primary-160),
+    border-color-hover: var(--c-p-140),
+    background-active: var(--c-p-160),
     color-active: map.get($color, 'white'),
-    border-color-active: var(--ecl-color-primary-160),
-    background-focus: var(--ecl-color-primary),
+    border-color-active: var(--c-p-160),
+    background-focus: var(--c-p),
     color-focus: map.get($color, 'white'),
-    border-color-focus: var(--ecl-color-primary),
+    border-color-focus: var(--c-p),
     outline-color: map.get($color, 'white'),
   ),
   secondary: (
     background: map.get($color, 'white'),
-    color: var(--ecl-color-primary),
-    border-color: var(--ecl-color-primary),
-    background-hover: var(--ecl-color-primary-140),
+    color: var(--c-p),
+    border-color: var(--c-p),
+    background-hover: var(--c-p-140),
     color-hover: map.get($color, 'white'),
-    border-color-hover: var(--ecl-color-primary-140),
-    background-active: var(--ecl-color-primary-160),
+    border-color-hover: var(--c-p-140),
+    background-active: var(--c-p-160),
     color-active: map.get($color, 'white'),
-    border-color-active: var(--ecl-color-primary-160),
-    background-focus: var(--ecl-color-primary-160),
+    border-color-active: var(--c-p-160),
+    background-focus: var(--c-p-160),
     color-focus: map.get($color, 'white'),
-    border-color-focus: var(--ecl-color-primary-160),
+    border-color-focus: var(--c-p-160),
     outline-color: map.get($color, 'white'),
     focus-shadow: none,
   ),
   cta: (
-    background: var(--ecl-color-secondary-80),
-    color: var(--ecl-color-dark),
-    border-color: var(--ecl-color-secondary-80),
-    background-hover: var(--ecl-color-secondary-120),
-    color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-secondary-120),
-    background-active: var(--ecl-color-secondary-140),
-    color-active: var(--ecl-color-dark),
-    border-color-active: var(--ecl-color-secondary-140),
-    background-focus: var(--ecl-color-secondary-80),
-    color-focus: var(--ecl-color-dark),
-    border-color-focus: var(--ecl-color-secondary-80),
-    outline-color: var(--ecl-color-dark),
+    background: var(--c-s-80),
+    color: var(--c-d),
+    border-color: var(--c-s-80),
+    background-hover: var(--c-s-120),
+    color-hover: var(--c-d),
+    border-color-hover: var(--c-s-120),
+    background-active: var(--c-s-140),
+    color-active: var(--c-d),
+    border-color-active: var(--c-s-140),
+    background-focus: var(--c-s-80),
+    color-focus: var(--c-d),
+    border-color-focus: var(--c-s-80),
+    outline-color: var(--c-d),
   ),
   ghost: (
     background: transparent,
-    color: var(--ecl-color-primary),
+    color: var(--c-p),
     border-color: transparent,
-    background-hover: var(--ecl-color-primary-20),
-    color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-dark-80),
-    background-active: var(--ecl-color-primary-40),
-    color-active: var(--ecl-color-dark),
-    border-color-active: var(--ecl-color-primary-40),
+    background-hover: var(--c-p-20),
+    color-hover: var(--c-d),
+    border-color-hover: var(--c-d-80),
+    background-active: var(--c-p-40),
+    color-active: var(--c-d),
+    border-color-active: var(--c-p-40),
     background-focus: transparent,
-    color-focus: var(--ecl-color-primary),
-    border-color-focus: var(--ecl-color-primary),
+    color-focus: var(--c-p),
+    border-color-focus: var(--c-p),
     outline-color: transparent,
   ),
 );
@@ -195,29 +195,28 @@ $button-print: (
 // Card
 $card: (
   border-radius: 0 0 map.get($border-radius, 's') map.get($border-radius, 's'),
-  shadow: map.get($shadow, '1'),
-  border: 1px solid
-    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
-  border-bottom: 4px solid var(--ecl-color-primary),
-  body-padding: map.get($spacing, 'xl'),
+  shadow: var(--sh-1),
+  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border-bottom: 4px solid var(--c-p),
+  body-padding: var(--s-xl),
 );
 
 // Checkbox
 $checkbox: (
-  border-color: var(--ecl-color-dark-80),
+  border-color: var(--c-d-80),
   background: map.get($color, 'white'),
-  box-background-checked-hover: var(--ecl-color-primary),
-  box-border-color-hover: var(--ecl-color-dark-80),
+  box-background-checked-hover: var(--c-p),
+  box-border-color-hover: var(--c-d-80),
   box-size: 1.5rem,
   box-margin-top: 0,
-  help-text-font: map.get($font, 's'),
-  help-text-color: var(--ecl-color-dark),
+  help-text-font: var(--f-s),
+  help-text-color: var(--c-d),
   invalid-border-color: map.get($color, 'error'),
   invalid-border-color-hover: map.get($color, 'error'),
-  label-color: var(--ecl-color-dark),
+  label-color: var(--c-d),
   label-line-height: 1.75rem,
-  box-border-color-checked: var(--ecl-color-primary),
-  box-background-checked: var(--ecl-color-primary),
+  box-border-color-checked: var(--c-p),
+  box-background-checked: var(--c-p),
   border-width: 1px,
   border-radius: map.get($border-radius, 's'),
   checkbox-fill: map.get($color, 'white'),
@@ -239,64 +238,62 @@ $checkbox: (
 
 // Content block
 $content-block: (
-  description-margin: map.get($spacing, 's') 0 map.get($spacing, 'm'),
-  description-font: map.get($font, 'm'),
-  label-item-spacing: 0 #{map.get($spacing, 'xs')} #{map.get($spacing, 'xs')} 0,
-  label-spacing: 0 0 map.get($spacing, 'm'),
-  link-separator-color: var(--ecl-color-neutral-60),
-  link-font: map.get($font, 'm'),
-  list-margin: map.get($spacing, 'xl') 0 0,
-  primary-meta-color: var(--ecl-color-text-primary),
+  description-margin: var(--s-s) 0 var(--s-m),
+  description-font: var(--f-m),
+  label-item-spacing: 0 var(--s-xs) var(--s-xs) 0,
+  label-spacing: 0 0 var(--s-m),
+  link-separator-color: var(--c-n-60),
+  link-font: var(--f-m),
+  list-margin: var(--s-xl) 0 0,
+  primary-meta-color: var(--c-d),
   primary-meta-margin: 0,
-  secondary-meta-color: var(--ecl-color-dark),
-  secondary-meta-margin: 0 0 map.get($spacing, 'xl'),
-  secondary-meta-icon-color: var(--ecl-color-dark),
-  text-color: var(--ecl-color-dark),
-  title-font: map.get($font, 'l'),
+  secondary-meta-color: var(--c-d),
+  secondary-meta-margin: 0 0 var(--s-xl),
+  secondary-meta-icon-color: var(--c-d),
+  text-color: var(--c-d),
+  title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'normal'),
-  title-margin: map.get($spacing, '2xs') 0 map.get($spacing, 's'),
+  title-margin: var(--s-2xs) 0 var(--s-s),
 );
 
 // Content item
 $content-item: (
-  divider-color: var(--ecl-color-neutral),
-  padding: map.get($spacing, 'xl'),
-  image-border-color: var(--ecl-color-neutral),
-  image-spacing-mobile: map.get($spacing, 'xl'),
+  divider-color: var(--c-n),
+  padding: var(--s-xl),
+  image-border-color: var(--c-n),
+  image-spacing-mobile: var(--s-xl),
 );
 
 // Date Block
 $date-block: (
-  background-color-cancelled: var(--ecl-color-neutral-60),
+  background-color-cancelled: var(--c-n-60),
   background-color-default: map.get($color, 'white'),
   background-color-ongoing: map.get($color, 'white'),
-  background-color-past: var(--ecl-color-neutral-60),
+  background-color-past: var(--c-n-60),
   outline-color-cancelled: transparent,
-  outline-color-default: var(--ecl-color-dark),
-  outline-color-ongoing: var(--ecl-color-dark),
+  outline-color-default: var(--c-d),
+  outline-color-ongoing: var(--c-d),
   outline-color-past: transparent,
   border-radius: 0,
   circle-width: 10px,
   max-height: 5.75rem,
-  padding-top: map.get($spacing, 'xs'),
+  padding-top: var(--s-xs),
   shadow: none,
   shadow-decoration: none,
-  text-color: var(--ecl-color-dark),
-  text-color-inverted: var(--ecl-color-dark),
+  text-color: var(--c-d),
+  text-color-inverted: var(--c-d),
   text-white-space: nowrap,
   width-desktop: 5rem,
   width-mobile: 5rem,
   day: (
-    padding-mobile: map.get($spacing, 's') map.get($spacing, '2xs')
-      map.get($spacing, '2xs'),
-    padding-desktop: map.get($spacing, 's') map.get($spacing, '2xs')
-      map.get($spacing, '2xs'),
+    padding-mobile: var(--s-s) var(--s-2xs) var(--s-2xs),
+    padding-desktop: var(--s-s) var(--s-2xs) var(--s-2xs),
     line-height: 20px,
     text-size: map.get($font-size, 'xl'),
   ),
   month: (
-    padding-mobile: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
-    padding-desktop: 0 map.get($spacing, '2xs') map.get($spacing, 's'),
+    padding-mobile: 0 var(--s-2xs) var(--s-s),
+    padding-desktop: 0 var(--s-2xs) var(--s-s),
     line-height: 12px,
     text-size: 14px,
   ),
@@ -304,43 +301,43 @@ $date-block: (
     padding-mobile: 0,
     padding-desktop: 0,
     weight: map.get($font-weight, 'bold'),
-    background-color: var(--ecl-color-dark),
+    background-color: var(--c-d),
     text-color: map.get($color, 'white'),
   ),
 );
 
 // Datepicker
 $datepicker: (
-  input-icon-color: var(--ecl-color-dark-75),
+  input-icon-color: var(--c-d-75),
   picker: (
     border-radius: 2px,
-    shadow: map.get($shadow, '6'),
-    theme-color: var(--ecl-color-dark),
-    margin-top: map.get($spacing, '2xs'),
-    padding: map.get($spacing, 'm'),
+    shadow: var(--sh-6),
+    theme-color: var(--c-d),
+    margin-top: var(--s-2xs),
+    padding: var(--s-m),
     background-color: map.get($color, 'white'),
-    title-padding: map.get($spacing, '2xs'),
-    select-border: 1px solid var(--ecl-color-dark-80),
+    title-padding: var(--s-2xs),
+    select-border: 1px solid var(--c-d-80),
     table-spacing: 0,
-    thead-margin: map.get($spacing, '2xs'),
-    day-hover-background: var(--ecl-color-primary-20),
-    day-hover-shadow: inset 0 0 0 1px var(--ecl-color-dark-80),
-    day-selected-background: var(--ecl-color-primary),
-    day-outside-color: var(--ecl-color-dark-80),
+    thead-margin: var(--s-2xs),
+    day-hover-background: var(--c-p-20),
+    day-hover-shadow: inset 0 0 0 1px var(--c-d-80),
+    day-selected-background: var(--c-p),
+    day-outside-color: var(--c-d-80),
     day-outside-background: map.get($color, 'white'),
-    day-today-color: var(--ecl-color-primary),
+    day-today-color: var(--c-p),
   ),
 );
 
 // Description list
 $description-list: (
-  term-color: var(--ecl-color-dark),
-  term-font: map.get($font, 'm'),
+  term-color: var(--c-d),
+  term-font: var(--f-m),
   term-margin-bottom: 0,
-  term-margin-top: map.get($spacing, 'xl'),
-  definition-color: var(--ecl-color-dark),
-  separator-color: var(--ecl-color-primary),
-  taxonomy-color: var(--ecl-color-dark),
+  term-margin-top: var(--s-xl),
+  definition-color: var(--c-d),
+  separator-color: var(--c-p),
+  taxonomy-color: var(--c-d),
   term-width: 210px,
 );
 $description-list-print: (
@@ -352,58 +349,85 @@ $description-list-print: (
 
 // Expandable
 $expandable: (
-  content-color: var(--ecl-color-dark),
-  content-margin: map.get($spacing, 's'),
-  content-padding: map.get($spacing, 'm'),
-  toggle-background-active: var(--ecl-color-neutral),
-  toggle-border-active: var(--ecl-color-neutral),
-  toggle-color-active: var(--ecl-color-dark),
+  content-color: var(--c-d),
+  content-margin: var(--s-s),
+  content-padding: var(--s-m),
+  toggle-background-active: var(--c-n),
+  toggle-border-active: var(--c-n),
+  toggle-color-active: var(--c-d),
+);
+
+// Fact and figures
+$fact-figures: (
+  background: var(--c-n-60),
+  shadow: var(--sh-1),
+  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border-radius: 2px,
+  padding-mobile: var(--s-3xl),
+  padding-desktop: var(--s-3xl),
+  margin-vertical: var(--s-3xl),
+  margin-horizontal: var(--s-2xl),
+  text-color: var(--c-d),
+  value-font-mobile: var(--f-2xl),
+  value-font-desktop: var(--f-3xl),
+  title-font: var(--f-l),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: var(--s-s),
+  description-font: var(--f-m),
+  description-margin: var(--s-s),
+  view-all-font: var(--f-m),
+  view-all-border-color: var(--c-n),
+  view-all-margin: var(--s-3xl),
+  view-all-padding-mobile: var(--s-xl),
+  view-all-padding-desktop: var(--s-xl),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
 );
 
 // File download
 $file: (
   border-radius: map.get($border-radius, 's'),
-  border-color: var(--ecl-color-dark),
-  shadow: map.get($shadow, '1'),
-  container-spacing: map.get($spacing, 'xl') map.get($spacing, 'xl') 0,
-  container-spacing-last: map.get($spacing, 'xl'),
+  border-color: var(--c-d),
+  shadow: var(--sh-1),
+  container-spacing: var(--s-xl) var(--s-xl) 0,
+  container-spacing-last: var(--s-xl),
   file-icon-align-self: start,
-  file-info-margin-left: map.get($spacing, 'xl'),
-  file-color: var(--ecl-color-dark),
-  file-detail-padding-bottom: map.get($spacing, 'm'),
-  file-download-spacing-mobile: map.get($spacing, 'xs'),
-  file-download-spacing-desktop: map.get($spacing, 'xs'),
-  file-detail-meta-color: var(--ecl-color-dark),
+  file-info-margin-left: var(--s-xl),
+  file-color: var(--c-d),
+  file-detail-padding-bottom: var(--s-m),
+  file-download-spacing-mobile: var(--s-xs),
+  file-download-spacing-desktop: var(--s-xs),
+  file-detail-meta-color: var(--c-d),
   file-detail-flex-direction: row,
-  file-description-color: var(--ecl-color-dark),
-  file-description-font: map.get($font, 'm'),
+  file-description-color: var(--c-d),
+  file-description-font: var(--f-m),
   file-download-position: absolute,
   file-download-position-top: auto,
-  file-footer-border: 1px solid var(--ecl-color-neutral-60),
+  file-footer-border: 1px solid var(--c-n-60),
   file-footer-flex-direction: column,
-  file-footer-padding: map.get($spacing, 'm') 0,
-  file-footer-margin: 0 map.get($spacing, 'xl') 0
-    calc(#{map.get($spacing, 'xl')} * 2 + #{map.get($icon, '2xl')}),
-  file-thumbnail-footer-padding: map.get($spacing, 'm') 0,
+  file-footer-padding: var(--s-m) 0,
+  file-footer-margin: 0 var(--s-xl) 0
+    calc(var(--s-xl) * 2 + #{map.get($icon, '2xl')}),
+  file-thumbnail-footer-padding: var(--s-m) 0,
   file-picture-order-desktop: 1,
   file-picture-order-mobile: 1,
-  file-label-spacing: map.get($spacing, 'xl'),
-  file-meta-font: map.get($font, 'm'),
-  file-meta-margin: map.get($spacing, '2xs'),
-  file-spacing: map.get($spacing, 'm'),
+  file-label-spacing: var(--s-xl),
+  file-meta-font: var(--f-m),
+  file-meta-margin: var(--s-2xs),
+  file-spacing: var(--s-m),
   file-spacing-last-child: 0,
-  file-thumbnail-container-padding: map.get($spacing, 'xl'),
-  file-thumbnail-footer-margin: 0 map.get($spacing, 'xl'),
+  file-thumbnail-container-padding: var(--s-xl),
+  file-thumbnail-footer-margin: 0 var(--s-xl),
   file-thumbnail-download-top-position: auto,
-  file-thumbnail-meta-margin: map.get($spacing, '2xs'),
-  file-taxonomy-spacing: map.get($spacing, 'xl') 0 0,
+  file-thumbnail-meta-margin: var(--s-2xs),
+  file-taxonomy-spacing: var(--s-xl) 0 0,
   file-translation-border: none,
-  file-translation-toggle-margin: map.get($spacing, 'm'),
-  file-translation-background: var(--ecl-color-neutral-40),
+  file-translation-toggle-margin: var(--s-m),
+  file-translation-background: var(--c-n-40),
   file-translation-detail-margin-bottom: 0,
-  file-translation-item-padding-h: map.get($spacing, 'xl'),
+  file-translation-item-padding-h: var(--s-xl),
   file-translation-meta-spacing: 0,
-  file-translation-meta-font: map.get($font, 'm'),
+  file-translation-meta-font: var(--f-m),
   file-translation-download-alignment: flex-start,
   file-translation-title-margin-bottom: 0,
   file-translation-first-item-border: 1px,
@@ -411,22 +435,21 @@ $file: (
   file-translation-item-margin: 0,
   file-translation-toggle-background: transparent,
   file-translation-toggle-border: 0,
-  file-image-margin-left: map.get($spacing, 'xl'),
+  file-image-margin-left: var(--s-xl),
   file-image-margin-right: 0,
-  file-language-font: map.get($font, 'm'),
+  file-language-font: var(--f-m),
   container-background: map.get($color, 'white'),
-  container-border: 1px solid
-    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
-  icon-color: var(--ecl-color-dark),
-  translation-border-color: var(--ecl-color-neutral-60),
+  container-border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  icon-color: var(--c-d),
+  translation-border-color: var(--c-n-60),
   image-width: 13.125rem,
-  title-font: map.get($font, 'l'),
+  title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'regular'),
 );
 
 // File upload
 $file-upload: (
-  separator-color: var(--ecl-color-neutral-60),
+  separator-color: var(--c-n-60),
   meta-display: inline-block,
   meta-padding: 0,
   title-font-weight: map.get($font-weight, 'regular'),
@@ -436,27 +459,27 @@ $file-upload: (
 $label: (
   radius: 2px,
   border-width: 2px,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, '2xs'),
+  padding-horizontal: var(--s-m),
+  padding-vertical: var(--s-2xs),
   highlight: (
-    background: var(--ecl-color-dark),
+    background: var(--c-d),
     color: map.get($color, 'white'),
-    border-color: var(--ecl-color-dark),
+    border-color: var(--c-d),
   ),
   high: (
-    background: var(--ecl-color-secondary),
-    color: var(--ecl-color-dark),
-    border-color: var(--ecl-color-secondary),
+    background: var(--c-s),
+    color: var(--c-d),
+    border-color: var(--c-s),
   ),
   medium: (
-    background: var(--ecl-color-primary),
+    background: var(--c-p),
     color: map.get($color, 'white'),
-    border-color: var(--ecl-color-primary),
+    border-color: var(--c-p),
   ),
   low: (
     background: map.get($color, 'white'),
-    color: var(--ecl-color-primary),
-    border-color: var(--ecl-color-primary),
+    color: var(--c-p),
+    border-color: var(--c-p),
   ),
 );
 $label-print: (
@@ -466,18 +489,18 @@ $label-print: (
 
 // Link
 $link: (
-  color: var(--ecl-color-primary),
-  color-hover: var(--ecl-color-primary-140),
-  color-visited: var(--ecl-color-dark),
-  color-active: var(--ecl-color-dark),
-  outline-color: var(--ecl-color-primary),
+  color: var(--c-p),
+  color-hover: var(--c-p-140),
+  color-visited: var(--c-d),
+  color-active: var(--c-d),
+  outline-color: var(--c-p),
   outline-width: 2px,
   outline-radius: 1px,
   inverted: (
     color: map.get($color, 'white'),
-    color-hover: var(--ecl-color-secondary-60),
-    color-visited: var(--ecl-color-secondary-80),
-    color-active: var(--ecl-color-secondary-80),
+    color-hover: var(--c-s-60),
+    color-visited: var(--c-s-80),
+    color-active: var(--c-s-80),
     outline-color: map.get($color, 'white'),
   ),
   button: (
@@ -485,54 +508,54 @@ $link: (
     shadow: none,
     border-width: 2px,
     outline-width: 1px,
-    padding-horizontal: map.get($spacing, 'm'),
-    padding-vertical: map.get($spacing, 'xs'),
+    padding-horizontal: var(--s-m),
+    padding-vertical: var(--s-xs),
   ),
   primary: (
-    background: var(--ecl-color-primary),
+    background: var(--c-p),
     color: map.get($color, 'white'),
-    background-hover: var(--ecl-color-primary-140),
+    background-hover: var(--c-p-140),
     color-hover: map.get($color, 'white'),
-    background-active: var(--ecl-color-primary-160),
+    background-active: var(--c-p-160),
     color-active: map.get($color, 'white'),
-    background-focus: var(--ecl-color-primary),
+    background-focus: var(--c-p),
     color-focus: map.get($color, 'white'),
-    border-color: var(--ecl-color-primary),
-    border-color-hover: var(--ecl-color-primary-140),
-    border-color-active: var(--ecl-color-primary-160),
-    border-color-focus: var(--ecl-color-primary),
+    border-color: var(--c-p),
+    border-color-hover: var(--c-p-140),
+    border-color-active: var(--c-p-160),
+    border-color-focus: var(--c-p),
     outline-color: map.get($color, 'white'),
   ),
   secondary: (
     background: map.get($color, 'white'),
-    color: var(--ecl-color-primary),
-    background-hover: var(--ecl-color-primary-140),
+    color: var(--c-p),
+    background-hover: var(--c-p-140),
     color-hover: map.get($color, 'white'),
-    background-active: var(--ecl-color-primary-160),
+    background-active: var(--c-p-160),
     color-active: map.get($color, 'white'),
-    background-focus: var(--ecl-color-primary-160),
+    background-focus: var(--c-p-160),
     color-focus: map.get($color, 'white'),
-    border-color: var(--ecl-color-primary),
-    border-color-hover: var(--ecl-color-primary-140),
-    border-color-active: var(--ecl-color-primary-160),
-    border-color-focus: var(--ecl-color-primary-160),
+    border-color: var(--c-p),
+    border-color-hover: var(--c-p-140),
+    border-color-active: var(--c-p-160),
+    border-color-focus: var(--c-p-160),
     outline-color: map.get($color, 'white'),
     focus-shadow: none,
   ),
   cta: (
-    background: var(--ecl-color-secondary-80),
-    color: var(--ecl-color-dark),
-    background-hover: var(--ecl-color-secondary-120),
-    border-color: var(--ecl-color-secondary-80),
-    color-hover: var(--ecl-color-dark),
-    border-color-hover: var(--ecl-color-secondary-120),
-    background-active: var(--ecl-color-secondary-140),
-    color-active: var(--ecl-color-dark),
-    border-color-active: var(--ecl-color-secondary-140),
-    background-focus: var(--ecl-color-secondary-80),
-    color-focus: var(--ecl-color-dark),
-    border-color-focus: var(--ecl-color-secondary-80),
-    outline-color: var(--ecl-color-dark),
+    background: var(--c-s-80),
+    color: var(--c-d),
+    background-hover: var(--c-s-120),
+    border-color: var(--c-s-80),
+    color-hover: var(--c-d),
+    border-color-hover: var(--c-s-120),
+    background-active: var(--c-s-140),
+    color-active: var(--c-d),
+    border-color-active: var(--c-s-140),
+    background-focus: var(--c-s-80),
+    color-focus: var(--c-d),
+    border-color-focus: var(--c-s-80),
+    outline-color: var(--c-d),
   ),
 );
 
@@ -546,8 +569,8 @@ $list: (
     marker: decimal,
     sublist-marker: lower-latin,
   ),
-  text-color: var(--ecl-color-dark),
-  divider-color: var(--ecl-color-neutral),
+  text-color: var(--c-d),
+  divider-color: var(--c-n),
 );
 
 // List with illustrations
@@ -578,12 +601,12 @@ $media-container: (
   border-radius: 0,
   shadow: none,
   caption-background-color: transparent,
-  caption-color: var(--ecl-color-dark),
-  caption-font: map.get($font, 's'),
-  caption-padding: map.get($spacing, 's') 0 0,
+  caption-color: var(--c-d),
+  caption-font: var(--f-s),
+  caption-padding: var(--s-s) 0 0,
   caption-max-width: 80ch,
-  expandable-spacing-top: map.get($spacing, 'xl'),
-  media-border: 1px solid var(--ecl-color-neutral-100),
+  expandable-spacing-top: var(--s-xl),
+  media-border: 1px solid var(--c-n),
   scrollbar-width: 16px,
 );
 
@@ -592,191 +615,183 @@ $menu: (
   global: (
     border-radius: 0,
     shadow: none,
-    color-outline: var(--ecl-color-primary),
+    color-outline: var(--c-p),
   ),
   mobile: (
-    menu-background: var(--ecl-color-neutral-40),
-    color: var(--ecl-color-dark),
-    content-background: var(--ecl-color-background),
+    menu-background: var(--c-n-40),
+    color: var(--c-d),
+    content-background: var(--c-bg),
     overlay-background: rgba(0, 0, 0, 0.5),
-    open-padding: map.get($spacing, 'xs'),
+    open-padding: var(--s-xs),
     open-outline-color: transparent,
-    header-background: var(--ecl-color-primary),
-    header-background-hover: var(--ecl-color-primary-140),
-    header-font: map.get($font, 'l'),
+    header-background: var(--c-p),
+    header-background-hover: var(--c-p-140),
+    header-font: var(--f-l),
     header-color: map.get($color, 'white'),
     header-shadow: none,
     header-height: 64px,
-    item-color: var(--ecl-color-dark),
-    item-color-hover: var(--ecl-color-dark),
-    item-border: 2px solid var(--ecl-color-background),
-    item-font: map.get($font, 'm'),
-    item-padding: map.get($spacing, 'xs') map.get($spacing, 'm'),
-    item-active-background: var(--ecl-color-neutral),
-    item-active-border: var(--ecl-color-primary),
-    caret-background: var(--ecl-color-neutral-40),
-    caret-background-hover: var(--ecl-color-neutral),
-    caret-active-background: var(--ecl-color-neutral),
-    caret-active-background-hover: var(--ecl-color-neutral-160),
-    caret-color: var(--ecl-color-dark),
+    item-color: var(--c-d),
+    item-color-hover: var(--c-d),
+    item-border: 2px solid var(--c-bg),
+    item-font: var(--f-m),
+    item-padding: var(--s-xs) var(--s-m),
+    item-active-background: var(--c-n),
+    item-active-border: var(--c-p),
+    caret-background: var(--c-n-40),
+    caret-background-hover: var(--c-n),
+    caret-active-background: var(--c-n),
+    caret-active-background-hover: var(--c-n-160),
+    caret-color: var(--c-d),
     subtitle-border: none,
-    subtitle-font: map.get($font, 'm'),
+    subtitle-font: var(--f-m),
     subtitle-font-weight: map.get($font-weight, 'bold'),
-    subitem-padding: map.get($spacing, 'xs') map.get($spacing, 'm')
-      map.get($spacing, 'xs') map.get($spacing, '2xl'),
+    subitem-padding: var(--s-xs) var(--s-m) var(--s-xs) var(--s-2xl),
   ),
   desktop: (
     menu-background: map.get($color, 'white'),
-    menu-border: 1px solid var(--ecl-color-primary),
+    menu-border: 1px solid var(--c-p),
     item-background-hover: transparent,
     item-background-focus: transparent,
-    item-color: var(--ecl-color-dark),
-    item-color-hover: var(--ecl-color-dark),
-    item-color-focus: var(--ecl-color-primary),
-    item-shadow-hover: #{inset 1px 0 0 var(--ecl-color-dark),
-    inset #{-1px} 0 0 var(--ecl-color-dark)},
-    item-current-background: var(--ecl-color-neutral-40),
-    item-current-background-focus: var(--ecl-color-neutral-40),
-    item-current-color: var(--ecl-color-dark),
-    item-current-shadow: #{inset 1px 0 0 var(--ecl-color-primary),
-    inset #{-1px} 0 0 var(--ecl-color-primary),
-    inset 0 #{-4px} 0 var(--ecl-color-primary)},
+    item-color: var(--c-d),
+    item-color-hover: var(--c-d),
+    item-color-focus: var(--c-p),
+    item-shadow-hover: #{inset 1px 0 0 var(--c-d),
+    inset #{-1px} 0 0 var(--c-d)},
+    item-current-background: var(--c-n-40),
+    item-current-background-focus: var(--c-n-40),
+    item-current-color: var(--c-d),
+    item-current-shadow: #{inset 1px 0 0 var(--c-p),
+    inset #{-1px} 0 0 var(--c-p),
+    inset 0 #{-4px} 0 var(--c-p)},
     item-current-margin: -1px,
-    separator-color: var(--ecl-color-dark-80),
-    link-padding: calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, '2xs')
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, 'xs'),
-    link-expanded-padding:
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')})
-      map.get($spacing, '2xs')
-      calc(#{map.get($spacing, 'xs')} + #{map.get($spacing, 'xs')} + 1px)
-      map.get($spacing, 'xs'),
+    separator-color: var(--c-d-80),
+    link-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)
+      calc(var(--s-xs) + var(--s-xs)) var(--s-xs),
+    link-expanded-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)
+      calc(var(--s-xs) + var(--s-xs) + 1px) var(--s-xs),
     link-line-height: map.get($line-height, 'xs'),
-    caret-padding: 0 map.get($spacing, 'xs'),
-    caret-focus-outline: var(--ecl-color-primary),
-    overflow-border: 2px solid var(--ecl-color-primary),
-    overflow-border-hover: 2px solid var(--ecl-color-primary-140),
-    overflow-background: var(--ecl-color-primary),
-    overflow-background-hover: var(--ecl-color-primary-140),
+    caret-padding: 0 var(--s-xs),
+    caret-focus-outline: var(--c-p),
+    overflow-border: 2px solid var(--c-p),
+    overflow-border-hover: 2px solid var(--c-p-140),
+    overflow-background: var(--c-p),
+    overflow-background-hover: var(--c-p-140),
     overflow-color: map.get($color, 'white'),
     overflow-color-hover: map.get($color, 'white'),
-    overflow-current-background-hover: var(--ecl-color-neutral),
-    overflow-current-color-hover: var(--ecl-color-dark),
-    mega-border: 1px solid var(--ecl-color-dark),
+    overflow-current-background-hover: var(--c-n),
+    overflow-current-color-hover: var(--c-d),
+    mega-border: 1px solid var(--c-d),
     mega-shadow: none,
-    mega-padding: map.get($spacing, 'xl'),
-    mega-column-gap: map.get($spacing, '2xl'),
-    mega-column-border: 1px solid var(--ecl-color-neutral),
-    sublink-padding: map.get($spacing, 'xs') map.get($spacing, 'm'),
-    sublink-current-background: var(--ecl-color-neutral),
+    mega-padding: var(--s-xl),
+    mega-column-gap: var(--s-2xl),
+    mega-column-border: 1px solid var(--c-n),
+    sublink-padding: var(--s-xs) var(--s-m),
+    sublink-current-background: var(--c-n),
     sublink-current-shadow: none,
   ),
 );
 
 // Form
 $form-group: (
-  color-label: var(--ecl-color-dark),
-  color-help: var(--ecl-color-dark),
-  color-invalid: var(--ecl-color-error),
-  color-optional: var(--ecl-color-dark),
-  color-required: var(--ecl-color-error),
-  font-label: map.get($font, 'm'),
+  color-label: var(--c-d),
+  color-help: var(--c-d),
+  color-invalid: var(--c-er),
+  color-optional: var(--c-d),
+  color-required: var(--c-er),
+  font-label: var(--f-m),
   font-weight-label: map.get($font-weight, 'regular'),
-  font-help: map.get($font, 's'),
-  font-invalid: map.get($font, 's'),
-  font-optional: map.get($font, 's'),
+  font-help: var(--f-s),
+  font-invalid: var(--f-s),
+  font-optional: var(--f-s),
   font-style-optional: 'normal',
-  margin-first-element: map.get($spacing, 's'),
-  margin-help: map.get($spacing, '2xs'),
-  margin-invalid: map.get($spacing, '2xs'),
-  margin-icon: map.get($spacing, '2xs'),
+  margin-first-element: var(--s-s),
+  margin-help: var(--s-2xs),
+  margin-invalid: var(--s-2xs),
+  margin-icon: var(--s-2xs),
 );
 
 // Search
 $search-form: (
-  button-border-color: var(--ecl-color-dark-80),
-  button-padding-vertical-mobile: calc(#{map.get($spacing, 's')} + 2px),
-  button-padding-vertical-desktop: map.get($spacing, 'xs'),
-  separator-color: var(--ecl-color-dark-80),
+  button-border-color: var(--c-d-80),
+  button-padding-vertical-mobile: calc(var(--s-s) + 2px),
+  button-padding-vertical-desktop: var(--s-xs),
+  separator-color: var(--c-d-80),
 );
 
 // Text input
 $text-input: (
   radius: 2px,
-  border-color: var(--ecl-color-dark-80),
-  border-color-hover: var(--ecl-color-dark-80),
-  border-color-focus: var(--ecl-color-primary),
-  border-color-invalid: var(--ecl-color-error),
-  border-color-invalid-hover: var(--ecl-color-error),
-  border-color-invalid-focus: var(--ecl-color-error),
-  color-input: var(--ecl-color-dark),
-  color-placeholder: var(--ecl-color-dark-60),
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-focus: var(--c-p),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
+  border-color-invalid-focus: var(--c-er),
+  color-input: var(--c-d),
+  color-placeholder: var(--c-d-60),
   shadow: none,
   shadow-hover: none,
-  padding-vertical: map.get($spacing, 'xs'),
-  padding-horizontal: map.get($spacing, 'm'),
+  padding-vertical: var(--s-xs),
+  padding-horizontal: var(--s-m),
 );
 
 // Navigation list
 $navigation-list: (
-  image-margin: map.get($spacing, 's'),
-  image-border-color: var(--ecl-color-neutral),
-  content_block_padding: map.get($spacing, 'xl'),
+  image-margin: var(--s-s),
+  image-border-color: var(--c-n),
+  content_block_padding: var(--s-xl),
   border-radius: map.get($border-radius, 's'),
-  shadow: map.get($shadow, '1'),
-  border: 1px solid
-    color-mix(in srgb, var(--ecl-color-primary) 50%, transparent),
+  shadow: var(--sh-1),
+  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
 );
 
 // Notification
 $notification: (
   radius: 0,
-  padding: map.get($spacing, '3xl') map.get($spacing, 'xl')
-    map.get($spacing, '3xl') map.get($spacing, '3xl'),
+  padding: var(--s-3xl) var(--s-xl) var(--s-3xl) var(--s-3xl),
   border-width: 1px,
-  border-color: var(--ecl-color-neutral),
-  font: map.get($font, 'm'),
-  color: var(--ecl-color-dark),
-  title-font: map.get($font, 'l'),
+  border-color: var(--c-n),
+  font: var(--f-m),
+  color: var(--c-d),
+  title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-spacing: map.get($spacing, 's'),
-  close-color: var(--ecl-color-dark),
-  close-offset: calc(#{map.get($spacing, 'm')} - #{map.get($spacing, '2xl')}),
+  title-spacing: var(--s-s),
+  close-color: var(--c-d),
+  close-offset: calc(var(--s-m) - var(--s-2xl)),
   info: (
-    background: var(--ecl-color-neutral-20),
-    color: var(--ecl-color-info),
+    background: var(--c-n-20),
+    color: var(--c-in),
   ),
   success: (
-    background: var(--ecl-color-neutral-20),
-    color: var(--ecl-color-success),
+    background: var(--c-n-20),
+    color: var(--c-su),
   ),
   warning: (
-    background: var(--ecl-color-neutral-20),
-    color: var(--ecl-color-warning),
+    background: var(--c-n-20),
+    color: var(--c-wa),
   ),
   error: (
-    background: var(--ecl-color-neutral-20),
-    color: var(--ecl-color-error),
+    background: var(--c-n-20),
+    color: var(--c-er),
   ),
 );
 $notification-print: (
   padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'xl')
     map.get($spacing-print, '3xl') map.get($spacing-print, '3xl'),
-  font: map.get($font-print, 'm'),
+  font: var(--f-m),
   title-font: map.get($font-print, 'l'),
   title-spacing: map.get($spacing-print, 's'),
 );
 
 // Page header
 $page-header: (
-  meta-color: var(--ecl-color-dark),
-  meta-font: map.get($font, 'm'),
-  meta-separator-color: var(--ecl-color-primary),
-  title-color: var(--ecl-color-dark),
-  title-font: map.get($font, '4xl'),
-  description-color: var(--ecl-color-dark),
-  description-font: map.get($font, 'l'),
+  meta-color: var(--c-d),
+  meta-font: var(--f-m),
+  meta-separator-color: var(--c-p),
+  title-color: var(--c-d),
+  title-font: var(--f-4xl),
+  description-color: var(--c-d),
+  description-font: var(--f-l),
 );
 $page-header-print: (
   meta-font: map.get($font-print, 'm'),
@@ -787,21 +802,21 @@ $page-header-print: (
 // Radio
 $radio: (
   box-background: map.get($color, 'white'),
-  box-border-color-checked: var(--ecl-color-primary),
-  box-border-color: var(--ecl-color-dark-80),
-  box-border-color-hover: var(--ecl-color-primary),
-  box-border-color-checked-hover: var(--ecl-color-primary),
+  box-border-color-checked: var(--c-p),
+  box-border-color: var(--c-d-80),
+  box-border-color-hover: var(--c-p),
+  box-border-color-checked-hover: var(--c-p),
   box-border-width: 1px,
   box-border-width-checked: 1px,
   box-inner-display: inline-block,
   box-margin-top: 0,
   box-size: 1.5rem,
-  help-text-color: var(--ecl-color-dark),
-  help-text-font: map.get($font, 's'),
+  help-text-color: var(--c-d),
+  help-text-font: var(--f-s),
   hover-circle: true,
-  invalid-border-color: var(--ecl-color-error),
-  invalid-border-color-hover: var(--ecl-color-error),
-  label-color: var(--ecl-color-dark),
+  invalid-border-color: var(--c-er),
+  invalid-border-color-hover: var(--c-er),
+  label-color: var(--c-d),
   label-line-height: 1.75rem,
   max-width: 65ch,
 );
@@ -809,39 +824,39 @@ $radio: (
 // Range
 /* stylelint-disable scss/no-global-function-names */
 $range: (
-  bar-color: var(--ecl-color-neutral-100),
-  disabled-color: var(--ecl-color-neutral-60),
-  active-color: var(--ecl-color-primary-160),
-  invalid-color: var(--ecl-color-error),
-  invalid-hover-color: var(--ecl-color-error),
+  bar-color: var(--c-n),
+  disabled-color: var(--c-n-60),
+  active-color: var(--c-p-160),
+  invalid-color: var(--c-er),
+  invalid-hover-color: var(--c-er),
   invalid-active-color: mix(#da1e28, #26324b, 50%),
-  value-color: var(--ecl-color-dark-100),
-  value-font: map.get($font, 's'),
-  range-margin-top: map.get($spacing, 'xs'),
+  value-color: var(--c-d),
+  value-font: var(--f-s),
+  range-margin-top: var(--s-xs),
   range-size: 0.25rem,
   slider-size: 1rem,
   touch-area: 1.25rem,
   outline: 8px,
-  outline-color: var(--ecl-color-primary-20),
+  outline-color: var(--c-p-20),
   outline-offset: 0,
 );
 /* stylelint-enable scss/no-global-function-names */
 
 // Rating field
 $rating-field: (
-  checked-color: var(--ecl-color-secondary-100),
-  stroke-color: var(--ecl-color-dark-100),
-  hover-stroke-color: var(--ecl-color-primary),
-  checked-hover-color: var(--ecl-color-secondary-140),
-  checked-focus-stroke: var(--ecl-color-dark-100),
-  focus-outline: var(--ecl-color-dark),
+  checked-color: var(--c-s),
+  stroke-color: var(--c-d),
+  hover-stroke-color: var(--c-p),
+  checked-hover-color: var(--c-s-140),
+  checked-focus-stroke: var(--c-d),
+  focus-outline: var(--c-d),
 );
 
 // Site footer
 $site-footer: (
-  background: var(--ecl-color-branding),
+  background: var(--c-br),
   color: map.get($color, 'white'),
-  separator-color: var(--ecl-color-neutral),
+  separator-color: var(--c-n),
   column-gap: map.get($grid-gutter-width, 'm'),
 );
 
@@ -850,128 +865,127 @@ $site-header: (
   background-color: map.get($color, 'white'),
   background-image:
     'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjYuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAzNDguNCAxMzkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM0OC40IDEzOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtvcGFjaXR5OjAuNTtjbGlwLXBhdGg6dXJsKCNTVkdJRF8wMDAwMDE0NDMzNjQxNDI4NjI3NTEyNDk4MDAwMDAxNDk0Mzk0ODcyODgxNTY2Mzc4MF8pO30KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTE4MzkyNzE4MDYyNTMzNjM2NTkwMDAwMDAxNTAyMTU2OTEwODEzOTYzMTQzXyk7fQoJLnN0MntmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAxNTg3MTIxODQ4MzU4MDAwNDkwNjAwMDAwMDY1NjkwMDk0MTg5MDk2NTU3MjNfKTt9Cgkuc3Qze2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDEwMTA3MjA2NDY3NjE2MTY1MDM5MDAwMDAxMTIxMzAxNDM0MzM2MzAyOTkwN18pO30KCS5zdDR7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDc1MTI3NjM2NzA2NzU5MDYzNTUwMDAwMDAwOTUzNDg2NTUyNzI4MDA4MDc4Xyk7fQoJLnN0NXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAxMTgzODEzNDY3NjYyNTUxMTg0ODAwMDAwMTM0NzYzMDAyNjU0MDgzMjk2MTRfKTt9Cgkuc3Q2e2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDA4MDE5MTIyMzY2MjE0NjAyNjY1MDAwMDAxMzk1MjQxNTc0MDQyOTYzODU2Ml8pO30KCS5zdDd7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDE2MDc2NjM3OTg2MDAzMjk1OTgwMDAwMDE1NTA5MzUyOTE5NjQ3NTI5NjU2Xyk7fQoJLnN0OHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAwNjkzNjEzMjY2NTk2Njc2MDM3NDAwMDAwMTgzOTk5NjMxNTEzODg1Nzc0MjVfKTt9Cgkuc3Q5e2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDE3OTYwNDQwNDg4NjkwMjQzOTI3MDAwMDAwNTMyODI4NDc0NDc0NDg3NTkwNl8pO30KCS5zdDEwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDEyNzA0NDkyMDYzMDMzMTYwMzk4MDAwMDAwNzEzNTI2NjY0MTI2NDE0MDk0MF8pO30KCS5zdDExe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDE2NTkxOTcyODc3NzIxNzA5OTA1MDAwMDAwMjEyNTE4OTQyMjYxOTA2NTIzOV8pO30KCS5zdDEye2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDAwNTI1MzY3OTE2ODQwNDcxNzkwMDAwMDAwMTc2Njc5OTIyNTAzMDQxNTc1M18pO30KCS5zdDEze2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDAwODgzMjcyMDM1NTQwNjE3MDY5MDAwMDAxNjM3Njc4MTc1ODgyOTg2NjE0MF8pO30KPC9zdHlsZT4KPGc+Cgk8ZGVmcz4KCQk8cmVjdCBpZD0iU1ZHSURfMV8iIHdpZHRoPSIzNDguNCIgaGVpZ2h0PSIxMzkiLz4KCTwvZGVmcz4KCTxjbGlwUGF0aCBpZD0iU1ZHSURfMDAwMDAxNTk0NjU5MjYzMTU5MzY1NDg3NzAwMDAwMTg0MTk3MDIzNDY3NDI5MDU3ODFfIj4KCQk8dXNlIHhsaW5rOmhyZWY9IiNTVkdJRF8xXyIgIHN0eWxlPSJvdmVyZmxvdzp2aXNpYmxlOyIvPgoJPC9jbGlwUGF0aD4KCTxnIHN0eWxlPSJvcGFjaXR5OjAuNTtjbGlwLXBhdGg6dXJsKCNTVkdJRF8wMDAwMDE1OTQ2NTkyNjMxNTkzNjU0ODc3MDAwMDAxODQxOTcwMjM0Njc0MjkwNTc4MV8pOyI+CgkJCgkJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMDAwMDAxODE3Njk1NjIzNTAzOTYxODk1NjAwMDAwMTAxNzQxNjg1OTExOTkwNjc1NDhfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ii0wLjU4MzEiIHkxPSItMTQwOS40MTgiIHgyPSIxNzcuNTk3IiB5Mj0iLTE0MDkuNDE4IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgLTEzNzUuNDE3OCkiPgoJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRTBFNUY1Ii8+CgkJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNUY1RjUiLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAxODE3Njk1NjIzNTAzOTYxODk1NjAwMDAwMTAxNzQxNjg1OTExOTkwNjc1NDhfKTsiIGQ9IgoJCQlNLTAuNiwxMzkuNWMwLDAsOTkuMy02Mi40LDExNy43LTc0YzE4LjQtMTEuNSwzMi42LTI0LjcsNDIuNi03MC44YzEwLTQ2LjIsMTQuMi02Ni4xLDE0LjItNjYuMWgzLjdjMCwwLTYuMywyOS40LTE0LjcsNjcuMgoJCQljLTguNCwzNy44LTExLDUzLTM1LjIsNzAuM2MtMjAsMTQuMi0xMDQuNiw3My41LTEwNC42LDczLjVILTAuNnoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDA2OTM1OTExMDUxMTY4Mjc5OTg5MDAwMDAwNDgzOTIxNDE5ODUwMjgyMzgzNl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTEyLjk0NjkiIHkxPSItMTQwOS40MTgiIHgyPSIyMzQuODg2OSIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDY5MzU5MTEwNTExNjgyNzk5ODkwMDAwMDA0ODM5MjE0MTk4NTAyODIzODM2Xyk7IiBkPSIKCQkJTTExMi45LDEzOS41YzAsMCw1OS40LTU2LjcsNzYuNy03My41YzE4LjQtMTcuMywyNC43LTM5LjksMzAuNS03MC44YzUuMy0yOS40LDExLjYtNjYuNiwxMS42LTY2LjZoMy4yYzAsMC01LjgsMzUuMi0xMSw2Ni42CgkJCWMtNS4zLDMxLTguNCw1My0yNC43LDcwLjhjLTE0LjcsMTUuNy02OC4zLDcyLjktNjguMyw3Mi45TDExMi45LDEzOS41eiIvPgoJCQoJCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMTI3NzM1NTg3NjEwOTQ2MzEzMjUwMDAwMDEyMzc3MjcxNzc5OTYwNTI5MzI2XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxNDAuMjc2OSIgeTE9Ii0xNDA5LjQxOCIgeDI9IjI1MC4xMjY5IiB5Mj0iLTE0MDkuNDE4IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgLTEzNzUuNDE3OCkiPgoJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRTBFNUY1Ii8+CgkJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNUY1RjUiLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAxMjc3MzU1ODc2MTA5NDYzMTMyNTAwMDAwMTIzNzcyNzE3Nzk5NjA1MjkzMjZfKTsiIGQ9IgoJCQlNMTQwLjMsMTM5LjVjMCwwLDUwLjUtNTQuMSw2Ny4zLTczLjVjMTUuOC0xNy44LDIwLjUtMzIsMjcuOS03MC44YzYuOC0zOC44LDExLTY2LjYsMTEtNjYuNmgzLjdjMCwwLTUuOCwzNS4yLTExLDY2LjYKCQkJcy02LjgsNTItMjIuNiw3MC44Yy0xNy45LDIyLTU5LjksNzMuNS01OS45LDczLjVIMTQwLjN6Ii8+CgkJCgkJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMDAwMDAwNzE1MzQxMjc0MjAyMDY5NzIzOTAwMDAwMDkwNjgxMDg0Mjc3OTY3MzIzMjBfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjE2OC42NTY5IiB5MT0iLTE0MDkuNDE4IiB4Mj0iMjY0Ljg0NyIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDcxNTM0MTI3NDIwMjA2OTcyMzkwMDAwMDA5MDY4MTA4NDI3Nzk2NzMyMzIwXyk7IiBkPSIKCQkJTTE2OC43LDEzOS41YzAsMCw0OC45LTYxLjksNTcuOC03My41YzguNC0xMS41LDE4LjQtMjYuOCwyNS4yLTcwLjhjNi4zLTQ0LjEsOS41LTY2LjYsOS41LTY2LjZoMy43YzAsMC01LjgsMzkuOS04LjksNjYuNgoJCQljLTMuMiwyNi44LTQuNyw0Ny4yLTIwLjUsNzAuOGMtMTUuMiwyMy4xLTUxLDczLjUtNTEsNzMuNUgxNjguN3oiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDEyNzczMzExMDEyMTAzNzE4NzIxMDAwMDAwNzM2NDE4NTg3MjgwNjc4NDY3M18iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTk1Ljk4NjgiIHkxPSItMTQwOS40MTgiIHgyPSIyNzkuMDM2OSIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTI3NzMzMTEwMTIxMDM3MTg3MjEwMDAwMDA3MzY0MTg1ODcyODA2Nzg0NjczXyk7IiBkPSIKCQkJTTE5NiwxMzkuNWMwLDAsNDEuNS02MS45LDQ3LjgtNzMuNWM2LjMtMTEuNSwxNy4zLTI1LjcsMjMuMS03MC44YzUuOC00NS4xLDguNC02Ni42LDguNC02Ni42aDMuN2MwLDAtNC4yLDM3LjMtNy40LDY2LjYKCQkJcy03LjQsNDkuMy0xOS40LDcwLjhjLTEyLjEsMjEuNS00Mi4xLDczLjUtNDIuMSw3My41SDE5NnoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDExNjk0MTY1NjYxODg2NTQwNzUxMDAwMDAwODYyNTQxMjMxMDA4MTAzMzkxMl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjIzLjg0NyIgeTE9Ii0xNDA5LjQxOCIgeDI9IjI5Mi42OTY5IiB5Mj0iLTE0MDkuNDE4IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgLTEzNzUuNDE3OCkiPgoJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRTBFNUY1Ii8+CgkJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNUY1RjUiLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAxMTY5NDE2NTY2MTg4NjU0MDc1MTAwMDAwMDg2MjU0MTIzMTAwODEwMzM5MTJfKTsiIGQ9IgoJCQlNMjIzLjgsMTM5LjVjMCwwLDMwLTU0LjYsMzguOS03My41YzEwLjUtMjAuNSwxNS4yLTM4LjMsMTkuNS03MC44YzMuNy0zMiw3LjQtNjYuNiw3LjQtNjYuNmgzLjJjMCwwLTMuNywzMi02LjgsNjYuNgoJCQljLTMuMSwzNC4xLTQuNyw0Ni4yLTE1LjgsNzAuOGMtMTAsMjItMzMuNiw3My41LTMzLjYsNzMuNUgyMjMuOHoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDAxMDI5NzA5MDEwMjY1MTc5Mjc2MDAwMDAwMjYzMDg2Mjg0NDUzMzUxOTAyNF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjUxLjcwNjkiIHkxPSItMTQwOS45NDMxIiB4Mj0iMzA2Ljg4NjkiIHkyPSItMTQwOS45NDMxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgLTEzNzUuNDE3OCkiPgoJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRTBFNUY1Ii8+CgkJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGNUY1RjUiLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMDAwMDAwMTAyOTcwOTAxMDI2NTE3OTI3NjAwMDAwMDI2MzA4NjI4NDQ1MzM1MTkwMjRfKTsiIGQ9IgoJCQlNMjUxLjcsMTM5LjVjMCwwLDE4LjQtNDMsMzAuNS03My41YzEyLjEtMjkuOSwxMy4xLTUyLjUsMTQuNy03MC44YzEuMS03LjksNi44LTY2LjEsNi44LTY2LjFoMy4yYzAsMC0yLjYsMzQuNi01LjgsNjYuNgoJCQljLTIuNiwzMS41LTQuMiw0NS4xLTEyLjYsNzAuOGMtOC40LDI1LjctMjUuMiw3My41LTI1LjIsNzMuNUwyNTEuNywxMzkuNXoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDAzNzY3NDY4MDY3NDYwMzM4OTU1MDAwMDAxMzQwNjQ4NDcxMzkxMDI0MzI0MF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjgwLjA4NjkiIHkxPSItMTQwOS40MTgiIHgyPSIzMjIuMTM2OSIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDM3Njc0NjgwNjc0NjAzMzg5NTUwMDAwMDEzNDA2NDg0NzEzOTEwMjQzMjQwXyk7IiBkPSIKCQkJTTI4MC4xLDEzOS41YzAsMCwxMy43LTQzLjYsMjEuNS03My41YzcuOS0yOS45LDExLTU3LjIsMTIuMS03MC44YzEuMS0xMy42LDUuMy02Ni42LDUuMy02Ni42aDMuMmMwLDAtMi4xLDI5LjktNC43LDY2LjYKCQkJYy0yLjEsMjkuOS00LjIsNTMuNS04LjQsNzAuOGMtNC4yLDE5LjQtMTcuMyw3My41LTE3LjMsNzMuNUgyODAuMXoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDE0NTc0MTU3MzI1ODUyNzM3NzkzMDAwMDAxMzUwODU4MDkyODUwNTU4MzI2Nl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzA3Ljk0NjkiIHkxPSItMTQwOS40MTgiIHgyPSIzMzYuMzE2OSIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTQ1NzQxNTczMjU4NTI3Mzc3OTMwMDAwMDEzNTA4NTgwOTI4NTA1NTgzMjY2Xyk7IiBkPSIKCQkJTTMwNy45LDEzOS41YzAsMCw2LjMtMzUuNywxMi42LTczLjVjNC43LTI4LjMsNy45LTY2LjYsNy45LTcwLjhzNC43LTY2LjYsNC43LTY2LjZoMy4yYzAsMC0yLjEsMzkuOS0zLjcsNjYuNgoJCQljLTEuNiwyNy44LTMuMiw1NS4xLTQuNyw3MC44Yy0zLjcsMzUuMi04LjQsNzMuNS04LjQsNzMuNUgzMDcuOXoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDEwMjUzMTM5Mjc3ODMzNzczNjQ1MDAwMDAwNzI1NTcwNzIzNTI1MDc5MzM5MF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzM3LjM3NjkiIHkxPSItMTQwOS40MTgiIHgyPSIzNDguNDE2OSIgeTI9Ii0xNDA5LjQxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTAyNTMxMzkyNzc4MzM3NzM2NDUwMDAwMDA3MjU1NzA3MjM1MjUwNzkzMzkwXyk7IiBkPSIKCQkJTTMzNy40LDEzOS41YzAsMCwyLjEtNTYuMSwyLjYtNzMuNWMwLjUtMTcuMyw1LjItMTM3LjUsNS4yLTEzNy41aDMuMnYyMTAuOUgzMzcuNHoiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDE1MDA5NDA5Mzk2OTI5NjQ0MjIzMDAwMDAwODMwMTI2ODIxMTE2NDg5ODcwNV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjcuNzk2OSIgeTE9Ii0xNDA4Ljg5MjMiIHgyPSIxOTEuNzg2OSIgeTI9Ii0xNDA4Ljg5MjMiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCAtMTM3NS40MTc4KSI+CgkJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNFMEU1RjUiLz4KCQkJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0Y1RjVGNSIvPgoJCTwvbGluZWFyR3JhZGllbnQ+CgkJPHBhdGggc3R5bGU9ImZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDE1MDA5NDA5Mzk2OTI5NjQ0MjIzMDAwMDAwODMwMTI2ODIxMTE2NDg5ODcwNV8pOyIgZD0iCgkJCU0xNzUtNC44Yy0xMSw1MC45LTI5LjQsNjIuNC00MSw3MC44Yy0xMS42LDguNC0xMDYuMiw3Mi45LTEwNi4yLDcyLjloMjEuNmMzLjEtMi42LDc1LjctNTcuNyw5NS43LTczLjUKCQkJYzIyLjYtMTcuMywyNy45LTQ0LjYsMzMuMS03MC44YzUuOC0yNi4yLDEzLjctNjYuNiwxMy43LTY2LjZoLTMuMkMxODguNi03MS41LDE3OC4xLTE4LDE3NS00LjgiLz4KCQkKCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8wMDAwMDEzNzg1Mjg0OTYwNjE0MTMxODIwMDAwMDAwNTA0OTQ1MzE5MTU3MDg5OTg1OF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNTYuNzA2OSIgeTE9Ii0xNDA5LjE1NDciIHgyPSIyMDUuOTc3IiB5Mj0iLTE0MDkuMTU0NyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTM3ODUyODQ5NjA2MTQxMzE4MjAwMDAwMDA1MDQ5NDUzMTkxNTcwODk5ODU4Xyk7IiBkPSIKCQkJTTE5MC4yLTQuOGMtOC40LDQyLTIxLjYsNTguOC0zNy4zLDcwLjhjLTE2LjMsMTIuMS05Ni4yLDcyLjktOTYuMiw3Mi45aDIwYzMuMi0yLjYsNjguOC01OC4yLDg2LjItNzIuOQoJCQljMjAtMTcuMywyNS4yLTQxLjUsMzAuNS03MC44YzUuMy0yOS40LDEyLjYtNjYuNiwxMi42LTY2LjZoLTMuMkMyMDIuOC03MS41LDE5NC45LTI5LDE5MC4yLTQuOCIvPgoJCQoJCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMTQxNDMzNTEyNTA1OTY1OTkxNzQwMDAwMDE1NjA2OTExNTE5Njg5MDAxMzg5XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI4NC4wMzY5IiB5MT0iLTE0MDkuNjc4MiIgeDI9IjIyMC42ODY5IiB5Mj0iLTE0MDkuNjc4MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIC0xMzc1LjQxNzgpIj4KCQkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0UwRTVGNSIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVGNUY1Ii8+CgkJPC9saW5lYXJHcmFkaWVudD4KCQk8cGF0aCBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMTQxNDMzNTEyNTA1OTY1OTkxNzQwMDAwMDE1NjA2OTExNTE5Njg5MDAxMzg5Xyk7IiBkPSIKCQkJTTIwNS40LTQuOEMxOTcsMzguNywxOTAuMiw0Ny42LDE2OS43LDY2Yy0xMi42LDExLjUtODIuNSw3MC44LTg1LjcsNzMuNWgxOC40YzAsMCw1OC45LTU1LjEsNzYuNy03Mi45CgkJCWMyMy4xLTIzLjEsMjQuNy00NS4xLDI5LjQtNzAuOGM0LjctMjUuNywxMi4xLTY2LjYsMTIuMS02Ni42aC0zLjJDMjE3LjUtNzEuNSwyMDkuMS0yMi4xLDIwNS40LTQuOCIvPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=',
-  banner-background: var(--ecl-color-neutral-40),
-  banner-text-color: var(--ecl-color-dark),
-  login-box-border-color: var(--ecl-color-neutral-60),
+  banner-background: var(--c-n-40),
+  banner-text-color: var(--c-d),
+  login-box-border-color: var(--c-n-60),
   logo-height-xs: 2.75rem,
   logo-height-lg: 4rem,
   search-width-l: 25rem,
   search-width-xl: 31.5rem,
-  toggle-color: var(--ecl-color-dark),
+  toggle-color: var(--c-d),
   language-switcher: (
-    color: var(--ecl-color-dark),
-    shadow: map.get($shadow, '12'),
+    color: var(--c-d),
+    shadow: var(--sh-12),
     shadow-size: 12px,
     arrow-size: 1rem,
     arrow-top: 1px,
-    arrow-border: 1px solid var(--ecl-color-neutral-60),
+    arrow-border: 1px solid var(--c-n-60),
     arrow-shadow: none,
-    header-padding: map.get($spacing, '3xl') map.get($spacing, '3xl') 0,
-    header-font: map.get($font, 'xl'),
+    header-padding: var(--s-3xl) var(--s-3xl) 0,
+    header-font: var(--f-xl),
     header-separator: none,
-    close-right: map.get($spacing, 'xl'),
-    close-top: map.get($spacing, 'm'),
-    content-padding: 0 map.get($spacing, '3xl') map.get($spacing, '3xl'),
-    category-margin: map.get($spacing, 's'),
-    category-title-padding: map.get($spacing, 's') 0 map.get($spacing, 'xs'),
-    category-stack-title-padding: map.get($spacing, 'l') 0
-      map.get($spacing, 'xs'),
-    category-stack-margin: map.get($spacing, 's'),
-    category-separator: 1px solid var(--ecl-color-neutral),
-    column-spacing: map.get($spacing, 'm'),
-    code-color: var(--ecl-color-dark),
+    close-right: var(--s-xl),
+    close-top: var(--s-m),
+    content-padding: 0 var(--s-3xl) var(--s-3xl),
+    category-margin: var(--s-s),
+    category-title-padding: var(--s-s) 0 var(--s-xs),
+    category-stack-title-padding: var(--s-l) 0 var(--s-xs),
+    category-stack-margin: var(--s-s),
+    category-separator: 1px solid var(--c-n),
+    column-spacing: var(--s-m),
+    code-color: var(--c-d),
     code-width: 26px,
     code-font-weight: map.get($font-weight, 'regular'),
     code-active-font-weight: map.get($font-weight, 'bold'),
     item-width: 184px,
-    item-padding: map.get($spacing, 'xs') map.get($spacing, 's'),
-    item-active-background: var(--ecl-color-neutral),
-    item-active-color: var(--ecl-color-dark),
+    item-padding: var(--s-xs) var(--s-s),
+    item-active-background: var(--c-n),
+    item-active-color: var(--c-d),
     item-active-shadow: none,
   ),
 );
 
 // Spinner
 $spinner: (
-  stroke-color: var(--ecl-color-primary),
+  stroke-color: var(--c-p),
   stroke-linecap: butt,
-  text-color: var(--ecl-color-dark),
+  text-color: var(--c-d),
 );
 
 // Tag
 $tag: (
-  padding: map.get($spacing, '2xs') map.get($spacing, 's'),
+  padding: var(--s-2xs) var(--s-s),
   border-radius: 12px,
-  color: var(--ecl-color-dark),
-  background-color: var(--ecl-color-primary-20),
-  color-hover: var(--ecl-color-dark),
-  background-color-hover: var(--ecl-color-primary-40),
-  color-focus: var(--ecl-color-dark),
+  color: var(--c-d),
+  background-color: var(--c-p-20),
+  color-hover: var(--c-d),
+  background-color-hover: var(--c-p-40),
+  color-focus: var(--c-d),
   background-color-focus: map.get($color, 'white'),
-  outline-color-focus: var(--ecl-color-primary),
+  outline-color-focus: var(--c-p),
   outline-offset-focus: -2px,
-  color-active: var(--ecl-color-dark),
+  color-active: var(--c-d),
   background-color-active: map.get($color, 'white'),
-  outline-color-active: var(--ecl-color-dark),
+  outline-color-active: var(--c-d),
 );
 
 // Textarea
 $textarea: (
   background: map.get($color, 'white'),
   border-radius: map.get($border-radius, 's'),
-  border-color: var(--ecl-color-dark-80),
-  border-color-hover: var(--ecl-color-dark-80),
-  border-color-focus: var(--ecl-color-primary),
-  border-color-invalid: var(--ecl-color-error),
-  border-color-invalid-hover: var(--ecl-color-error),
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-focus: var(--c-p),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
   border-width: 1px,
   border-width-focus: 2px,
-  color-input: var(--ecl-color-dark),
-  color-placeholder: var(--ecl-color-dark-60),
+  color-input: var(--c-d),
+  color-placeholder: var(--c-d-60),
   shadow: none,
   shadow-hover: none,
-  padding-horizontal: map.get($spacing, 'm'),
-  padding-vertical: map.get($spacing, 'xs'),
+  padding-horizontal: var(--s-m),
+  padding-vertical: var(--s-xs),
 );
 
 // Timeline
 $timeline: (
-  border-color: var(--ecl-color-dark),
+  border-color: var(--c-d),
   border-width: 0.125rem,
-  bullet-border-color: var(--ecl-color-secondary),
+  bullet-border-color: var(--c-s),
   bullet-border-width: 0.25rem,
   bullet-shadow: none,
   bullet-top-position: 0.25rem,
-  content-big-font: map.get($font, 'm'),
-  content-font: map.get($font, 'm'),
-  content-color: var(--ecl-color-dark),
-  first-item-offset: map.get($spacing, '2xs'),
+  content-big-font: var(--f-m),
+  content-font: var(--f-m),
+  content-color: var(--c-d),
+  first-item-offset: var(--s-2xs),
   first-item-height: 100%,
-  item-padding-top: map.get($spacing, '2xs'),
+  item-padding-top: var(--s-2xs),
   label-alignment: right,
-  label-color: var(--ecl-color-dark),
-  label-big-font: map.get($font, 'l'),
-  label-font: map.get($font, 'l'),
+  label-color: var(--c-d),
+  label-big-font: var(--f-l),
+  label-font: var(--f-l),
   label-font-weight: map.get($font-weight, 'bold'),
   label-layout: absolute,
   label-margin: 0,
   left-spacing: 14rem,
-  last-item-height: map.get($spacing, '2xl'),
-  timeline-margin-left: map.get($spacing, 'xs') + 14rem + map.get($spacing, 'm'),
-  title-big-font: map.get($font, 'l'),
-  title-color: var(--ecl-color-dark),
-  title-font: map.get($font, 'l'),
+  last-item-height: var(--s-2xl),
+  timeline-margin-left: calc(var(--s-xs) + 14rem + var(--s-m)),
+  title-big-font: var(--f-l),
+  title-color: var(--c-d),
+  title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-margin: map.get($spacing, '2xs'),
-  toggle-bullet-border-color: var(--ecl-color-neutral),
-  bullet-fill-color: map.get($color, 'white-100'),
-  bullet-size: map.get($spacing, 's'),
+  title-margin: var(--s-2xs),
+  toggle-bullet-border-color: var(--c-n),
+  bullet-fill-color: map.get($color, 'white'),
+  bullet-size: 0.75rem,
   toggle-bullet-border-width: 0.25rem,
 );
 $timeline-print: (
-  content-color: var(--ecl-color-dark-75),
+  content-color: var(--c-d-75),
   content-font: map.get($font-print, 'm'),
-  label-color: var(--ecl-color-dark),
+  label-color: var(--c-d),
   label-font: map.get($font-print, 'm'),
   title-color: map.get($color, 'black'),
   title-font: map.get($font-print, 'm'),
@@ -1012,7 +1026,6 @@ $timeline-print: (
   --ecl-color-warning: #{map.get($color, 'warning')};
   --ecl-color-background: #{map.get($color, 'background')};
   --ecl-color-branding: #{map.get($color, 'branding')};
-  --ecl-color-text-primary: #{map.get($color, 'text-primary')};
   --ecl-color-neutral: #{map.get($color, 'neutral-100')};
   --ecl-color-neutral-180: #{map.get($color, 'neutral-180')};
   --ecl-color-neutral-160: #{map.get($color, 'neutral-160')};
@@ -1031,4 +1044,101 @@ $timeline-print: (
   --ecl-color-accent-80: #{map.get($color, 'accent-80')};
   --ecl-color-accent-60: #{map.get($color, 'accent-60')};
   --ecl-color-accent-40: #{map.get($color, 'accent-40')};
+  --ecl-font-xs: #{map.get($font, 'xs')};
+  --ecl-font-s: #{map.get($font, 's')};
+  --ecl-font-m: #{map.get($font, 'm')};
+  --ecl-font-l: #{map.get($font, 'l')};
+  --ecl-font-xl: #{map.get($font, 'xl')};
+  --ecl-font-2xl: #{map.get($font, '2xl')};
+  --ecl-font-3xl: #{map.get($font, '3xl')};
+  --ecl-font-4xl: #{map.get($font, '4xl')};
+  --ecl-spacing-2xs: #{map.get($spacing, '2xs')};
+  --ecl-spacing-xs: #{map.get($spacing, 'xs')};
+  --ecl-spacing-s: #{map.get($spacing, 's')};
+  --ecl-spacing-m: #{map.get($spacing, 'm')};
+  --ecl-spacing-l: #{map.get($spacing, 'l')};
+  --ecl-spacing-xl: #{map.get($spacing, 'xl')};
+  --ecl-spacing-2xl: #{map.get($spacing, '2xl')};
+  --ecl-spacing-3xl: #{map.get($spacing, '3xl')};
+  --ecl-spacing-4xl: #{map.get($spacing, '4xl')};
+  --ecl-spacing-5xl: #{map.get($spacing, '5xl')};
+  --ecl-spacing-6xl: #{map.get($spacing, '6xl')};
+  --ecl-shadow-1: #{map.get($shadow, '1')};
+  --ecl-shadow-6: #{map.get($shadow, '6')};
+  --ecl-shadow-12: #{map.get($shadow, '12')};
+  --ecl-shadow-16: #{map.get($shadow, '16')};
+
+  // Aliases
+  // stylelint-disable scss/double-slash-comment-empty-line-before
+  --c-p: var(--ecl-color-primary);
+  // --c-p-180: var(--ecl-color-primary-180);
+  --c-p-160: var(--ecl-color-primary-160);
+  --c-p-140: var(--ecl-color-primary-140);
+  // --c-p-120: var(--ecl-color-primary-120);
+  // --c-p-100: var(--ecl-color-primary-100);
+  // --c-p-80: var(--ecl-color-primary-80);
+  // --c-p-60: var(--ecl-color-primary-60);
+  --c-p-40: var(--ecl-color-primary-40);
+  --c-p-20: var(--ecl-color-primary-20);
+  --c-s: var(--ecl-color-secondary);
+  // --c-s-180: var(--ecl-color-secondary-180);
+  // --c-s-160: var(--ecl-color-secondary-160);
+  --c-s-140: var(--ecl-color-secondary-140);
+  --c-s-120: var(--ecl-color-secondary-120);
+  // --c-s-100: var(--ecl-color-secondary-100);
+  --c-s-80: var(--ecl-color-secondary-80);
+  --c-s-60: var(--ecl-color-secondary-60);
+  // --c-s-40: var(--ecl-color-secondary-40);
+  // --c-s-20: var(--ecl-color-secondary-20);
+  --c-d: var(--ecl-color-dark);
+  // --c-d-100: var(--ecl-color-dark-100);
+  --c-d-80: var(--ecl-color-dark-80);
+  --c-d-60: var(--ecl-color-dark-60);
+  --c-in: var(--ecl-color-info);
+  --c-su: var(--ecl-color-success);
+  --c-er: var(--ecl-color-error);
+  --c-wa: var(--ecl-color-warning);
+  --c-bg: var(--ecl-color-background);
+  --c-br: var(--ecl-color-branding);
+  --c-n: var(--ecl-color-neutral);
+  // --c-n-180: var(--ecl-color-neutral-180);
+  --c-n-160: var(--ecl-color-neutral-160);
+  // --c-n-140: var(--ecl-color-neutral-140);
+  // --c-n-120: var(--ecl-color-neutral-120);
+  // --c-n-100: var(--ecl-color-neutral-100);
+  // --c-n-80: var(--ecl-color-neutral-80);
+  --c-n-60: var(--ecl-color-neutral-60);
+  --c-n-40: var(--ecl-color-neutral-40);
+  --c-n-20: var(--ecl-color-neutral-20);
+  --c-a: var(--ecl-color-accent);
+  // --c-a-160: var(--ecl-color-accent-160);
+  // --c-a-140: var(--ecl-color-accent-140);
+  // --c-a-120: var(--ecl-color-accent-120);
+  // --c-a-100: var(--ecl-color-accent-100);
+  // --c-a-80: var(--ecl-color-accent-80);
+  // --c-a-60: var(--ecl-color-accent-60);
+  // --c-a-40: var(--ecl-color-accent-40);
+  // --f-xs: var(--ecl-font-xs);
+  --f-s: var(--ecl-font-s);
+  --f-m: var(--ecl-font-m);
+  --f-l: var(--ecl-font-l);
+  --f-xl: var(--ecl-font-xl);
+  // --f-2xl: var(--ecl-font-2xl);
+  --f-3xl: var(--ecl-font-3xl);
+  --f-4xl: var(--ecl-font-4xl);
+  --s-2xs: var(--ecl-spacing-2xs);
+  --s-xs: var(--ecl-spacing-xs);
+  --s-s: var(--ecl-spacing-s);
+  --s-m: var(--ecl-spacing-m);
+  --s-l: var(--ecl-spacing-l);
+  --s-xl: var(--ecl-spacing-xl);
+  --s-2xl: var(--ecl-spacing-2xl);
+  --s-3xl: var(--ecl-spacing-3xl);
+  // --s-4xl: var(--ecl-spacing-4xl);
+  // --s-5xl: var(--ecl-spacing-5xl);
+  // --s-6xl: var(--ecl-spacing-6xl);
+  --sh-1: var(--ecl-shadow-1);
+  --sh-6: var(--ecl-shadow-6);
+  --sh-12: var(--ecl-shadow-12);
+  // --sh-16: var(--ecl-shadow-16);
 }
