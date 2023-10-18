@@ -15,7 +15,7 @@ export class ContentBlock {
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {ContentBlock} An instance of ContentItem.
+   * @return {ContentBlock} An instance of ContentBlock.
    */
   static autoInit(root, { CONTENT_BLOCK: defaultOptions = {} } = {}) {
     const contentBlock = new ContentBlock(root, defaultOptions);
