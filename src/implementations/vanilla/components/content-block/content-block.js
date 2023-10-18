@@ -2,7 +2,7 @@ import { queryOne } from '@ecl/dom-utils';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
- * @param {Object} options#
+ * @param {Object} options
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param (String) options.dataSelector The selector of the element where to attach the click listener
  * @param (String) options.dataTitle  The selector of the element containing the link
