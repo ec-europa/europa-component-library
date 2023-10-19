@@ -7,11 +7,12 @@
 
 // Exposed variables
 $theme: null !default;
+$table: null !default;
 
 .ecl-table,
 %ecl-table {
   border-collapse: collapse;
-  color: map.get($theme, 'color', 'grey-100');
+  color: map.get($table, 'table-color');
   font: map.get($theme, 'font-print', 'm');
   margin: 0;
   page-break-inside: avoid;
@@ -20,31 +21,53 @@ $theme: null !default;
 
 .ecl-table__header,
 %ecl-table__header {
+  border-inline-start: map.get($table, 'cell-separator');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'xl') map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'm');
   text-align: start;
   vertical-align: baseline;
+
+  &:last-child {
+    border-inline-end: map.get($table, 'cell-separator');
+  }
 }
 
 .ecl-table__row,
 %ecl-table__row {
-  border-bottom: 1px solid map.get($theme, 'color', 'grey-50');
+  border-bottom: map.get($table, 'row-border');
 }
 
-.ecl-table__head .ecl-table__row:first-child {
-  border-bottom: 2px solid map.get($theme, 'color', 'grey-100');
+.ecl-table__head,
+%ecl-table__head {
+  border-bottom: map.get($table, 'row-border');
+  border-top: map.get($table, 'row-border');
+
+  .ecl-table__row {
+    border-bottom: none;
+  }
+
+  .ecl-table__row:not(:first-child) .ecl-table__header:not(:empty) {
+    border-top: map.get($table, 'row-border');
+  }
 }
 
 .ecl-table__cell,
 %ecl-table__cell {
+  border-inline-start: map.get($table, 'cell-separator');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'xl') map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'm');
+
+  &:last-child {
+    border-inline-end: map.get($table, 'cell-separator');
+  }
 }
 
-.ecl-table__header[data-ecl-table-sort-toggle] {
-  padding: map.get($theme, 'spacing', 's') map.get($theme, 'spacing', 'm');
+.ecl-table--zebra {
+  .ecl-table__row:nth-of-type(even) {
+    background-color: map.get($table, 'zebra-background');
+  }
 }
 
 .ecl-table__arrow {
