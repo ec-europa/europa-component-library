@@ -82,6 +82,7 @@ export const getIconControls = (data, icons, mapping) => {
       'extra large 2': '2xl',
       fluid: 'fluid',
     },
+    if: { arg: 'name', neq: 'none' },
   };
   argTypes.color = {
     name: 'color',
@@ -98,6 +99,7 @@ export const getIconControls = (data, icons, mapping) => {
       inverted: 'inverted',
       primary: 'primary',
     },
+    if: { arg: 'name', neq: 'none' },
   };
   argTypes.transform = {
     name: 'transformation',
@@ -134,6 +136,7 @@ export const getIconControls = (data, icons, mapping) => {
         'flip-vertical': 'vertical flip',
       },
     },
+    if: { arg: 'name', neq: 'none' },
   };
 
   return argTypes;
@@ -165,6 +168,7 @@ export const getFormControls = (data, type) => {
     name: 'error message',
     type: 'boolean',
     description: `Show ${type} error message (only visible if invalid state is active)`,
+    if: { arg: 'invalid' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: true },
@@ -180,6 +184,7 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_error' },
   };
   argTypes.invalid = {
     name: 'invalid',
@@ -210,6 +215,7 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_label' },
   };
   argTypes.helper_text = {
     name: 'helper text',
@@ -220,6 +226,7 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_helper' },
   };
   argTypes.required = {
     name: 'required',
@@ -230,6 +237,28 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: false },
       category: 'States',
     },
+  };
+  argTypes.required_text = {
+    name: 'required text',
+    type: { name: 'string' },
+    description: 'Text to be shown when required',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '*' },
+      category: 'Content',
+    },
+    if: { arg: 'required' },
+  };
+  argTypes.optional_text = {
+    name: 'optional text',
+    type: { name: 'string' },
+    description: 'Text to be shown when optional',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '*' },
+      category: 'Content',
+    },
+    if: { arg: 'required', truthy: false },
   };
   if (data.placeholder) {
     argTypes.placeholder = {

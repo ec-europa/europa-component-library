@@ -39,6 +39,8 @@ const getArgs = (data) => ({
   show_helper: true,
   show_error: true,
   label: data.label || '',
+  required_text: data.required_text,
+  optional_text: data.optional_text,
   helper_text: data.helper_text,
   invalid_text: data.invalid_text,
   invalid: data.invalid || false,

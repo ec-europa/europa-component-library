@@ -124,6 +124,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_title' },
     },
     description: {
       type: 'string',
@@ -133,6 +134,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_description' },
     },
     label: {
       type: 'string',
@@ -183,6 +185,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_credit' },
     };
   }
 

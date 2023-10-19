@@ -160,6 +160,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_site_name' },
     };
   }
   if (data.language_selector) {
