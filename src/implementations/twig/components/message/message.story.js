@@ -42,7 +42,7 @@ const getArgTypes = () => ({
   },
   title: {
     name: 'title',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     description: 'The content of the title',
     table: {
       type: { summary: 'string' },
@@ -52,7 +52,7 @@ const getArgTypes = () => ({
   },
   description: {
     name: 'description',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     description: 'The content of the description message',
     table: {
       type: { summary: 'string' },
