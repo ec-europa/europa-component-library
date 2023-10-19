@@ -32,10 +32,19 @@ $table: null !default;
 
 .ecl-table__header,
 %ecl-table__header {
+  border-inline-start: map.get($table, 'header-separator-desktop');
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding: map.get($table, 'header-padding');
   text-align: start;
   vertical-align: bottom;
+
+  &:first-child {
+    border-inline-start-color: map.get($table, 'head-background');
+  }
+
+  &:last-child {
+    border-inline-end-color: map.get($table, 'head-background');
+  }
 }
 
 .ecl-table__row,
@@ -54,9 +63,13 @@ $table: null !default;
 
 .ecl-table__cell,
 %ecl-table__cell {
-  border-width: 0;
+  border-inline-start: map.get($table, 'cell-separator');
   display: table-cell;
-  padding: map.get($table, 'cell-padding');
+  padding: map.get($table, 'cell-padding-desktop');
+
+  &:last-child {
+    border-inline-end: map.get($table, 'cell-separator');
+  }
 }
 
 // Zebra
@@ -76,17 +89,14 @@ $table: null !default;
   .ecl-table__row:not(:first-child)
   .ecl-table__header:not(:empty) {
   background-color: map.get($table, 'multi-head-background');
+  border-top: map.get($table, 'header-separator-desktop');
 }
 
 // Sort Table
 .ecl-table__header[data-ecl-table-sort-toggle] {
   cursor: pointer;
   padding-inline-start: calc(
-    #{map.get($theme, 'spacing', 'm')} + #{map.get($theme, 'icon', '2xs')} + #{map.get(
-        $theme,
-        'spacing',
-        'xs'
-      )}
+    var(--s-m) + #{map.get($theme, 'icon', 'xs')} + var(--s-xs)
   );
   position: relative;
 }
@@ -98,11 +108,12 @@ $table: null !default;
   height: map.get($table, 'button_arrow_height');
   left: map.get($theme, 'spacing', '2xs');
   margin-top: map.get($table, 'sort-arrow-margin-top');
+  padding: 0;
   position: absolute;
   width: map.get($table, 'button_arrow_width');
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'blue');
+    outline: 2px solid var(--c-p);
     outline-offset: -4px;
   }
 }
@@ -143,73 +154,63 @@ $table: null !default;
       display: none;
     }
 
+    .ecl-table__row {
+      border-bottom: none;
+    }
+
     .ecl-table__cell {
-      border-top: 1px solid map.get($table, 'row-border-color');
+      border-inline-end: map.get($table, 'cell-separator');
+      border-top: map.get($table, 'row-border');
       display: flex;
-      padding: map.get($theme, 'spacing', 's');
+      padding: map.get($table, 'cell-padding-mobile');
 
       &::before {
-        background-color: map.get($theme, 'color', 'blue-5');
-        border-inline-end: 2px solid map.get($table, 'header-border-color');
+        background-color: map.get($table, 'head-background');
+        border-inline-end: map.get($table, 'header-separator-mobile');
+        border-bottom: map.get($table, 'header-separator-desktop');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
         flex-grow: 0;
         flex-shrink: 0;
         font-weight: map.get($theme, 'font-weight', 'bold');
-        margin-bottom: -#{map.get($theme, 'spacing', 's')};
-        margin-inline-start: -#{map.get($theme, 'spacing', 's')};
-        margin-inline-end: map.get($theme, 'spacing', 's');
-        margin-top: -#{map.get($theme, 'spacing', 's')};
-        padding-bottom: map.get($theme, 'spacing', 's');
-        padding-inline-start: map.get($theme, 'spacing', 's');
-        padding-inline-end: map.get($theme, 'spacing', 'm');
-        padding-top: map.get($theme, 'spacing', 's');
+        margin: map.get($table, 'cell-margin-mobile');
+        padding: map.get($table, 'cell-padding-mobile');
       }
 
       &:last-of-type {
-        border-bottom: 1px solid map.get($table, 'row-border-color');
-        margin-bottom: map.get($theme, 'spacing', 'l');
-      }
-    }
+        border-bottom: map.get($table, 'row-border');
+        margin-bottom: var(--s-l);
 
-    .ecl-table__cell--group {
-      &::before {
-        background-color: map.get($theme, 'color', 'white-100');
-        border-inline-end-color: map.get($theme, 'color', 'white-100');
-        margin-inline-start: -#{map.get($theme, 'spacing', 's')};
-        margin-inline-end: 0;
-        padding-inline-start: map.get($theme, 'spacing', 'l');
+        &::before {
+          border-bottom: none;
+        }
       }
     }
 
     .ecl-table__cell[data-ecl-table-header-group] {
       display: grid;
       grid-template-columns:
-        calc(
-          10rem + #{map.get($theme, 'spacing', 'm')} + #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )} + 2px
-        )
+        calc(10rem + #{map.get($table, 'multi-head-position')} * 2 + 2px)
         1fr;
       grid-template-rows: auto 1fr;
       position: relative;
 
       &::after {
-        background-color: map.get($theme, 'color', 'blue-5');
-        border-bottom: 1px solid map.get($table, 'row-border-color');
+        background-color: map.get($table, 'head-background');
+        border-bottom: map.get($table, 'header-group-separator');
+        border-top: map.get($table, 'header-group-separator');
         content: attr(data-ecl-table-header-group);
         display: block;
         font-weight: map.get($theme, 'font-weight', 'bold');
         grid-column: span 2;
-        left: -#{map.get($theme, 'spacing', 's')};
+        left: calc(-1 * #{map.get($table, 'multi-head-position')});
+        margin-bottom: -1px;
         order: -1;
-        padding: map.get($theme, 'spacing', 's');
+        padding: map.get($table, 'cell-padding-mobile');
         position: relative;
-        right: -#{map.get($theme, 'spacing', 's')};
-        top: -#{map.get($theme, 'spacing', 's')};
+        right: calc(-1 * #{map.get($table, 'multi-head-position')});
+        top: calc(-1 * #{map.get($table, 'multi-head-position')} - 1px);
         width: 100%;
       }
     }
