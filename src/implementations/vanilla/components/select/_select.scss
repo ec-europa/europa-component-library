@@ -53,6 +53,7 @@ $_multiple_counter_background: null !default;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
+  overflow: hidden;
   padding-bottom: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   padding-inline-end: calc(
     #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
@@ -61,6 +62,9 @@ $_multiple_counter_background: null !default;
     #{map.get(theme.$spacing, 's')} - #{$_border-width}
   );
   padding-top: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
   z-index: 1;
 

@@ -269,16 +269,19 @@ export class Select {
     this.inputContainer.classList.add(...containerClasses);
     this.selectMultiple.appendChild(this.inputContainer);
 
-    this.input = document.createElement('input');
+    this.input = document.createElement('button');
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.input.setAttribute('type', 'text');
-    this.input.setAttribute('placeholder', this.textDefault || '');
-    this.input.setAttribute('readonly', true);
+    this.input.setAttribute('type', 'button');
+    this.input.setAttribute(
+      'aria-controls',
+      `${this.selectMultipleId}-dropdown`,
+    );
+    this.input.setAttribute('aria-expanded', false);
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
-    this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
 
+    this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
     this.input.addEventListener('click', this.handleToggle);
 
     this.selectionCount = document.createElement('div');
@@ -297,6 +300,10 @@ export class Select {
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses,
+    );
+    this.searchContainer.setAttribute(
+      'id',
+      `${this.selectMultipleId}-dropdown`,
     );
 
     this.selectMultiple.appendChild(this.searchContainer);
@@ -553,10 +560,13 @@ export class Select {
   }
 
   updateCurrentValue() {
-    this.input.value = Array.from(this.select.options)
-      .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
-      .map((option) => option.text)
-      .join(', ');
+    this.input.innerHTML =
+      Array.from(this.select.options)
+        .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
+        .map((option) => option.text)
+        .join(', ') ||
+      this.textDefault ||
+      '';
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
@@ -569,8 +579,10 @@ export class Select {
 
     if (this.searchContainer.style.display === 'none') {
       this.searchContainer.style.display = 'block';
+      this.input.setAttribute('aria-expanded', true);
     } else {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -643,6 +655,7 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -751,6 +764,7 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -760,7 +774,7 @@ export class Select {
   handleKeyboardOnSelect(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        this.handleEsc(e);
         break;
 
       case ' ':
@@ -779,7 +793,7 @@ export class Select {
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
@@ -801,7 +815,7 @@ export class Select {
   handleKeyboardOnOptions(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
@@ -827,7 +841,7 @@ export class Select {
   handleKeyboardOnSearch(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
@@ -918,6 +932,7 @@ export class Select {
 
     if (this.searchContainer.style.display === 'block') {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
