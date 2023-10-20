@@ -4,8 +4,8 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
- * @param (String) options.dataSelector The selector of the element where to attach the click listener
- * @param (String) options.dataTitle  The selector of the element containing the link
+ * @param (String) options.targetSelector The selector of the element where to attach the click listener
+ * @param (String) options.titleSelector  The selector of the element containing the link
  * @param (Integer) options.maxIterations Maximum number of ancestors to look for the element
  */
 export class ContentBlock {
@@ -27,10 +27,11 @@ export class ContentBlock {
   constructor(
     element,
     {
-      dataSelector = '.ecl-picture',
-      dataTitle = '[data-ecl-title-link]',
+      targetSelector = '[data-ecl-picture-link]',
+      titleSelector = '[data-ecl-title-link]',
       attachClickListener = true,
       maxIterations = 2,
+      withTitleAttr = false,
     } = {},
   ) {
     // Check element
@@ -43,10 +44,11 @@ export class ContentBlock {
     this.element = element;
 
     // Options
-    this.dataSelector = dataSelector;
-    this.dataTitle = dataTitle;
+    this.targetSelector = targetSelector;
+    this.titleSelector = titleSelector;
     this.attachClickListener = attachClickListener;
     this.maxIterations = maxIterations;
+    this.withTitleAttr = withTitleAttr;
 
     // Bind `this` for use in callbacks
     this.linkTo = this.linkTo.bind(this);
@@ -60,7 +62,7 @@ export class ContentBlock {
   init() {
     this.picture = this.findElementInCommonAncestor(
       this.element,
-      this.dataSelector,
+      this.targetSelector,
       this.maxIterations,
     );
 
@@ -69,12 +71,12 @@ export class ContentBlock {
       return;
     }
 
-    this.title = queryOne(this.dataTitle, this.element);
+    this.title = queryOne(this.titleSelector, this.element);
     this.linkEl = this.title ? queryOne('a', this.title) : false;
     if (this.linkEl) {
       this.picture.style.cursor = 'pointer';
       const img = queryOne('img', this.picture);
-      if (img) {
+      if (img && this.withTitleAttr) {
         img.title = this.constructor.convertToFullURL(
           this.linkEl.getAttribute('href'),
         );
