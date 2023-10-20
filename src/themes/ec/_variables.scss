@@ -455,6 +455,58 @@ $file-upload: (
   title-font-weight: map.get($font-weight, 'regular'),
 );
 
+// Inpage navigation
+$inpage-toggle-width: calc(var(--s-s) + var(--s-s) + var(--s-s));
+$inpage-navigation: (
+  border-radius: 0,
+  shadow: none,
+  title: (
+    'background': transparent,
+    'color': var(--c-d),
+    'text-transform': uppercase,
+  ),
+  item: (
+    'background': transparent,
+    'background-active': map.get($color, 'grey-10'),
+    'separator': (
+      's': map.get($color, 'blue-75'),
+      'l': transparent,
+    ),
+    'font-weight': (
+      's': map.get($font-weight, 'regular'),
+      'l': map.get($font-weight, 'bold'),
+    ),
+    'color': (
+      's': map.get($color, 'white-100'),
+      'l': var(--c-p),
+    ),
+    'color-active': var(--c-d),
+    'text-decoration-hover': underline,
+  ),
+  trigger: (
+    'background':
+      linear-gradient(
+        to left,
+        map.get($color, 'blue-120') $inpage-toggle-width,
+        var(--c-p) $inpage-toggle-width
+      ),
+    'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
+      var(--s-s),
+    'separator': 1px solid map.get($color, 'blue-120'),
+  ),
+  list: (
+    'background': (
+      's': map.get($color, 'blue-110'),
+      'l': transparent,
+    ),
+  ),
+  outline: (
+    'color': map.get($color, 'white-100'),
+    'color-active': var(--c-p),
+    'offset': -4px,
+  ),
+);
+
 // Label
 $label: (
   radius: 2px,
