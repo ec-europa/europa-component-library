@@ -2,11 +2,16 @@ import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from '@ecl/specs-component-inpage-navigation/demo/data';
 import inpageNavigation from './inpage-navigation.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
+if (system === 'eu') {
+  demoData.icon_size = 's';
+}
 const lorem = loremIpsum({ count: 25 });
 
 const getArgs = (data) => {

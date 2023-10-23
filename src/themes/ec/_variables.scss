@@ -458,52 +458,86 @@ $file-upload: (
 // Inpage navigation
 $inpage-toggle-width: calc(var(--s-s) + var(--s-s) + var(--s-s));
 $inpage-navigation: (
+  align: right,
   border-radius: 0,
   shadow: none,
   title: (
     'background': transparent,
     'color': var(--c-d),
+    'font': var(--f-s),
     'text-transform': uppercase,
+    'padding': var(--s-s) var(--s-m),
   ),
   item: (
     'background': transparent,
-    'background-active': map.get($color, 'grey-10'),
+    'background-active': var(--c-n-60),
+    'background-hover': map.get($color, 'white-100'),
+    'border': (
+      'end': (
+        'default': 4px solid var(--c-n),
+        'hover': 4px solid var(--c-n),
+        'active': 4px solid var(--c-p),
+      ),
+      'start': (
+        'active': (
+          'l': none,
+          's': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+    ),
+    'padding': (
+      'default': (
+        's': var(--s-xs) var(--s-m),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+      'active': (
+        's': var(--s-xs) var(--s-m) var(--s-xs) calc(var(--s-m) - 4px),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+    ),
     'separator': (
-      's': map.get($color, 'blue-75'),
-      'l': transparent,
+      's': none,
+      'l': none,
     ),
     'font-weight': (
       's': map.get($font-weight, 'regular'),
-      'l': map.get($font-weight, 'bold'),
+      'l': map.get($font-weight, 'regular'),
     ),
     'color': (
-      's': map.get($color, 'white-100'),
-      'l': var(--c-p),
+      's': var(--c-d),
+      'l': var(--c-d),
     ),
     'color-active': var(--c-d),
     'text-decoration-hover': underline,
   ),
   trigger: (
-    'background':
-      linear-gradient(
-        to left,
-        map.get($color, 'blue-120') $inpage-toggle-width,
-        var(--c-p) $inpage-toggle-width
-      ),
-    'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
-      var(--s-s),
-    'separator': 1px solid map.get($color, 'blue-120'),
+    'background': map.get($color, 'white-100'),
+    'border': 2px solid var(--c-p),
+    'border-radius': 2px,
+    'color': var(--c-d),
+    'font': var(--f-m),
+    'font-weight': map.get($font-weight, 'regular'),
+    'margin': 0 auto var(--s-2xs),
+    'padding': var(--s-xs) calc(#{$inpage-toggle-width} + var(--s-s))
+      var(--s-xs) var(--s-s),
+    'separator': none,
+    'width': calc(100% - #{map.get($grid, 'gutter')}),
   ),
   list: (
     'background': (
-      's': map.get($color, 'blue-110'),
+      's': map.get($color, 'white-100'),
       'l': transparent,
+    ),
+    'shadow': (
+      's': var(--sh-12),
+      'l': none,
     ),
   ),
   outline: (
-    'color': map.get($color, 'white-100'),
+    'color': var(--c-p),
     'color-active': var(--c-p),
-    'offset': -4px,
+    'offset': -2px,
   ),
 );
 

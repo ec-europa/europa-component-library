@@ -27,4 +27,5 @@ module.exports = {
     },
   ],
   icon_path: '/icons.svg',
+  icon_size: 'xs',
 };

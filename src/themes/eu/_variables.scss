@@ -463,13 +463,29 @@ $inpage-navigation: (
     'background': var(--c-p),
     'color': map.get($color, 'white-100'),
     'text-transform': none,
+    'padding': var(--s-s),
+    'font': var(--f-m),
   ),
   item: (
     'background': map.get($color, 'white-100'),
-    'background-active': map.get($color, 'blue-10'),
+    'background-active': var(--c-p-10),
+    'background-hover': map.get($color, 'white-100'),
+    'border': (
+      'start': (
+        'active': (
+          's': 4px solid var(--c-p),
+          'l': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+      'end': (
+        'active': none,
+        'hover': none,
+      ),
+    ),
     'separator': (
-      's': map.get($color, 'blue-10'),
-      'l': map.get($color, 'blue-10'),
+      's': 1px solid var(--c-p-10),
+      'l': 1px solid var(--c-p-10),
     ),
     'font-weight': (
       's': map.get($font-weight, 'regular'),
@@ -480,13 +496,30 @@ $inpage-navigation: (
       'l': var(--c-p),
     ),
     'color-active': var(--c-d-80),
+    'padding': (
+      'default': (
+        's': var(--s-s),
+        'l': var(--s-s),
+      ),
+      'active': (
+        's': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+        'l': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+      ),
+    ),
     'text-decoration-hover': none,
   ),
   trigger: (
-    'background': map.get($color, 'blue-100'),
+    'background': var(--c-p),
+    'border': none,
+    'border-radius': 0 0 var(--s-xs) var(--s-xs),
+    'color': map.get($color, 'white-100'),
+    'font': var(--f-p-m),
+    'font-weight': map.get($font-weight, 'bold'),
+    'margin': 0,
     'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
       var(--s-s),
     'separator': none,
+    'width': 100%,
   ),
   list: (
     'background': (

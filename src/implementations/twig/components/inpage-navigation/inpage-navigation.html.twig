@@ -13,6 +13,7 @@
       ...
       ]
     - "icon_path" (string) (default: ''): path to the icons svg
+    - "icon_size" (string) (default: 'xs') EC: xs, EU: s
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,6 +28,7 @@
 {% set _id = id|default('ecl-inpage-navigation-default') %}
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_size = icon_size|default('xs') %}
 {% set _trigger_aria_label = trigger_aria_label|default('') %}
 {% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
 
@@ -71,7 +73,7 @@
         icon: {
           path: _icon_path,
           name: "corner-arrow",
-          size: "s"
+          size: _icon_size,
         },
         extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
       } only %}
