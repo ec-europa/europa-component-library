@@ -884,7 +884,7 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        this.handleClickOnClearAll();
+        this.handleClickOnClearAll(e);
         this.input.focus();
         break;
 
@@ -908,6 +908,12 @@ export class Select {
     e.preventDefault();
 
     switch (e.key) {
+      case 'Enter':
+      case ' ':
+        this.handleEsc(e);
+        this.input.focus();
+        break;
+
       case 'ArrowLeft':
         this.closeButton.previousSibling.focus();
         break;
