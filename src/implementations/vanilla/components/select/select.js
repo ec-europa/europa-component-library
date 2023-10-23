@@ -889,6 +889,7 @@ export class Select {
         break;
 
       case 'ArrowRight':
+      case 'Tab':
         this.clearAllButton.nextSibling.focus();
         break;
 
