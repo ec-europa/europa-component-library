@@ -59,7 +59,6 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     },
-
     size: {
       name: 'banner size',
       type: 'select',
@@ -144,6 +143,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_button' },
     },
     gridContent: {
       name: 'demo grid content',

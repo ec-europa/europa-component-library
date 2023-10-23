@@ -168,12 +168,12 @@ export const getFormControls = (data, type) => {
     name: 'error message',
     type: 'boolean',
     description: `Show ${type} error message (only visible if invalid state is active)`,
-    if: { arg: 'invalid' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: true },
       category: 'Optional',
     },
+    if: { arg: 'invalid' },
   };
   argTypes.invalid_text = {
     name: 'error message',
@@ -184,7 +184,7 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
-    if: { arg: 'show_error' },
+    if: { arg: 'invalid' },
   };
   argTypes.invalid = {
     name: 'invalid',
