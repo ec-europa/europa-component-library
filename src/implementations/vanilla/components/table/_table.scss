@@ -104,13 +104,15 @@ $table: null !default;
 .ecl-table__arrow {
   background-color: transparent;
   border: 0;
+  bottom: map.get($table, 'sort-arrow-bottom');
   cursor: pointer;
-  height: map.get($table, 'button_arrow_height');
-  left: map.get($theme, 'spacing', '2xs');
-  margin-top: map.get($table, 'sort-arrow-margin-top');
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  left: map.get($table, 'sort-arrow-left');
   padding: 0;
   position: absolute;
-  width: map.get($table, 'button_arrow_width');
+  width: auto;
 
   &:focus-visible {
     outline: 2px solid var(--c-p);
@@ -119,18 +121,11 @@ $table: null !default;
 }
 
 .ecl-table__icon {
-  left: 0;
-  position: absolute;
-}
-
-.ecl-table__icon-up {
   fill: map.get($table, 'sort-icon-color');
-  top: 0;
 }
 
 .ecl-table__icon-down {
-  fill: map.get($table, 'sort-icon-color');
-  top: map.get($theme, 'icon', '2xs');
+  margin-top: map.get($table, 'sort-icon-spacing');
   transform: rotate(180deg);
 }
 

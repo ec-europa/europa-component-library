@@ -5,7 +5,7 @@ import iconSvgAllArrowEu from '@ecl/resources-eu-icons/dist/svg/all/solid-arrow.
 
 const system = getSystem();
 const iconSvgAllArrow = system === 'eu' ? iconSvgAllArrowEu : iconSvgAllArrowEc;
-const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'l';
+const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
