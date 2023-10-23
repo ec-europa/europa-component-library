@@ -116,15 +116,11 @@
   {% endif %}
   >
     {%- block label _label -%}
-    {%- if _required and _required_text is not empty -%}
-      <span class="{{ _label_base_class }}__required">
-        {{- _required_text -}}
-      </span>
-    {%- elseif not _required and _optional_text is not empty -%}
-      <span class="{{ _label_base_class }}__optional">
-        {{ _optional_text -}}
-      </span>
-    {% endif %}
+  {%- if _required and _required_text is not empty -%}
+    <span class="{{ _label_base_class }}__required">{{ _required_text }}</span>
+  {%- elseif not _required and _optional_text is not empty -%}
+    <span class="{{ _label_base_class }}__optional">{{ _optional_text }}</span>
+  {%- endif -%}
   </label>
 {% endif %}
 
