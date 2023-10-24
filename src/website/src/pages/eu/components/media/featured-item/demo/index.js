@@ -1,5 +1,5 @@
 import demoContent from '@ecl/specs-component-featured-item/demo/data';
-import demoContentExtended from '@ecl/specs-component-featured-item/demo/data--extended';
+import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
 import template from '@ecl/twig-component-featured-item/featured-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
@@ -10,12 +10,12 @@ export const featuredItemRightAlignement = template(
     position: 'right',
   }),
 );
-export const featuredItemExtended = template(
-  correctSvgPath(demoContentExtended),
+export const featuredItemHighlight = template(
+  correctSvgPath(demoContentHighlight),
 );
-export const featuredItemExtendedRightAlignement = template(
+export const featuredItemHighlightRightAlignement = template(
   correctSvgPath({
-    ...demoContentExtended,
+    ...demoContentHighlight,
     position: 'right',
   }),
 );

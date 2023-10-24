@@ -137,6 +137,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_description' },
     };
   }
   if (data.lists) {
@@ -149,6 +150,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: false },
         category: 'Display',
       },
+      if: { arg: 'show_lists' },
     };
   }
 

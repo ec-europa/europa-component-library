@@ -91,6 +91,7 @@ const getArgTypes = () => ({
     options: [...iconsAll],
     mapping: iconMapping,
     description: 'Name of the icon',
+    if: { arg: 'external', truthy: false },
     table: {
       type: { summary: 'string' },
       category: 'Icon',
@@ -100,6 +101,9 @@ const getArgTypes = () => ({
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Link icon transform',
+    if: { arg: 'external', truthy: false },
+    // eslint-disable-next-line no-dupe-keys
+    if: { arg: 'icon_name', neq: 'none' },
     options: [
       'rotate-90',
       'rotate-180',
@@ -123,6 +127,9 @@ const getArgTypes = () => ({
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
+    if: { arg: 'external', truthy: false },
+    // eslint-disable-next-line no-dupe-keys
+    if: { arg: 'icon_name', neq: 'none' },
     options: ['before', 'after'],
     mapping: {
       before: 'before',

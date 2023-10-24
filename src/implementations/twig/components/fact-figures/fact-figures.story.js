@@ -68,6 +68,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '' },
       category: 'Content (first item)',
     },
+    if: { arg: 'show_icons' },
   },
   value: {
     type: { name: 'string', required: true },
