@@ -81,6 +81,7 @@ const getArgTypes = (data) => {
       defaultValue: { summary: '' },
       category: 'Display',
     },
+    if: { arg: 'show_media' },
   };
 
   return argTypes;

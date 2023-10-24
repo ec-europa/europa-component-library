@@ -63,9 +63,10 @@ const getArgs = (data, variant) => {
     args.icon = data.items[0].icon.name;
     args.icon_size = 'l';
   }
-  args.centered = false;
+
   if (variant.includes('horizontal')) {
     args.column = 2;
+    args.centered = false;
   } else {
     args.zebra = true;
   }
@@ -164,6 +165,7 @@ const getArgTypes = (data, variant) => {
       defaultValue: { summary: '' },
       category: 'Content (first-item)',
     },
+    if: { arg: 'show_value' },
   };
   argTypes.title = {
     name: 'title',
@@ -184,6 +186,7 @@ const getArgTypes = (data, variant) => {
       defaultValue: { summary: '' },
       category: 'Content (first-item)',
     },
+    if: { arg: 'show_description' },
   };
 
   if (
@@ -200,6 +203,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Image',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.image_squared = {
       name: 'image squared',
@@ -210,6 +214,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: false },
         category: 'Image',
       },
+      if: { arg: 'show_image' },
     };
   }
 
@@ -250,6 +255,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
     argTypes.icon_flag = {
       name: 'icon (flag)',
@@ -262,6 +268,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
     argTypes.icon_size = {
       name: 'icon size',
@@ -284,6 +291,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
   }
 

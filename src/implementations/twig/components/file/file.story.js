@@ -86,6 +86,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_description' },
     };
     argTypes.show_description = {
       name: 'description',
@@ -140,6 +141,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.show_taxonomy = {
       name: 'taxonomies',
@@ -159,6 +161,7 @@ const getArgTypes = (data) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_translations' },
   };
   argTypes.show_translations = {
     name: 'translations',
@@ -201,6 +204,7 @@ const prepareData = (data, args) => {
 
   if (args.show_image && data.picture) {
     data.picture = imgClone;
+    data.picture.img = {};
     data.picture.img.src = args.image;
   } else if (!args.show_image && data.picture) {
     data.picture = {};

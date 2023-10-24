@@ -63,6 +63,7 @@ const getArgTypes = () => {
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Button icon transform',
+    if: { arg: 'icon_name', neq: 'none' },
     options: [
       'none',
       'rotate-90',
@@ -93,6 +94,7 @@ const getArgTypes = () => {
       before: 'before',
       after: 'after',
     },
+    if: { arg: 'icon_name', neq: 'none' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'after' },
