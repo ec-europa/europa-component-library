@@ -18,6 +18,8 @@ const getArgs = (data) => ({
   label: data.label || '',
   helper_text: data.helper_text,
   invalid_text: data.invalid_text,
+  required_text: data.required_text,
+  optional_text: data.optional_text,
   width: data.width,
 });
 

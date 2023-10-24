@@ -160,6 +160,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_site_name' },
     };
   }
   if (data.language_selector) {
@@ -175,6 +176,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Content',
       },
+      if: { arg: 'show_language_selector' },
     };
     argTypes.languages_non_eu = {
       name: 'non-EU languages',
@@ -188,6 +190,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Content',
       },
+      if: { arg: 'show_language_selector' },
     };
   }
 

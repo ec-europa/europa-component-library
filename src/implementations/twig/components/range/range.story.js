@@ -18,6 +18,8 @@ const getArgs = (data) => ({
   step: data.step || 1,
   label: data.label || '',
   helper_text: data.helper_text,
+  optional_text: data.optional_text,
+  required_text: data.required_text,
   invalid_text: data.invalid_text,
   value_text: data.value_text,
   width: data.width,
