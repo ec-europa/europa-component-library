@@ -5,6 +5,5 @@ module.exports = {
       alt: 'Jean Monnet banner',
     },
   },
-  description:
-    'The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.',
+  description: `Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing<br />@Copyright`,
 };

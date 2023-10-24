@@ -24,7 +24,7 @@ $border-width-focus: 2px;
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin: 0;
   max-width: 100%;
   padding: calc(#{map.get($text-input, 'padding-vertical')} - #{$border-width})
@@ -32,7 +32,7 @@ $border-width-focus: 2px;
 
   &::placeholder {
     color: map.get($text-input, 'color-placeholder');
-    font: map.get($theme, 'font', 'm');
+    font: var(--f-m);
     opacity: 1;
   }
 
@@ -68,13 +68,13 @@ $border-width-focus: 2px;
 .ecl-text-input--invalid {
   border-color: map.get($text-input, 'border-color-invalid');
 
+  &:active,
   &:hover {
     border-color: map.get($text-input, 'border-color-invalid-hover');
   }
 
-  &:active,
-  &:focus {
-    border-color: map.get($text-input, 'border-color-invalid-focus');
+  &:focus-visible {
+    border-color: map.get($text-input, 'border-color-focus');
   }
 }
 

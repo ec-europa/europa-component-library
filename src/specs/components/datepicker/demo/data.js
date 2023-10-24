@@ -19,7 +19,7 @@ module.exports = {
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
     required: true,
-    default_value: '11-10-2021',
+    default_value: '03-10-2023',
     icons_path: '/icons.svg',
   },
 };

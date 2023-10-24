@@ -4,24 +4,19 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-utility-media/media' as uMedia;
 
-$_border-radius: null !default;
-$_shadow: null !default;
-$_caption-background-color: null !default;
-$_caption-color: null !default;
-$_caption-border: null !default;
-$_caption-padding: null !default;
-$_scrollbar-width: 16px; // average scrollbar width; used in full screen calculus
+// Exposed variables
+$theme: null !default;
+$media-container: null !default;
 
 .ecl-media-container {
   margin: 0;
 }
 
 .ecl-media-container__figure {
-  border-radius: $_border-radius;
-  box-shadow: $_shadow;
+  border-radius: map.get($media-container, 'border-radius');
+  box-shadow: map.get($media-container, 'shadow');
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -30,6 +25,7 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 }
 
 .ecl-media-container__media {
+  border: map.get($media-container, 'media-border');
   display: block;
   height: auto;
   min-height: 1px; // IE 11 fix
@@ -44,17 +40,21 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 }
 
 .ecl-media-container__caption {
-  background-color: $_caption-background-color;
-  border: $_caption-border;
-  color: $_caption-color;
-  font: map.get(theme.$font-prolonged, 'm');
-  padding: $_caption-padding;
+  background-color: map.get($media-container, 'caption-background-color');
+  color: map.get($media-container, 'caption-color');
+  font: map.get($media-container, 'caption-font');
+  max-width: map.get($media-container, 'caption-max-width');
+  padding: map.get($media-container, 'caption-padding');
   position: relative;
 }
 
 .ecl-media-container__expandable {
-  margin-top: map.get(theme.$spacing, 'xs');
+  margin-top: map.get($media-container, 'expandable-spacing-top');
   position: relative;
+
+  .ecl-expandable__content {
+    margin-bottom: var(--s-m);
+  }
 }
 
 // Manual ratio
@@ -76,8 +76,27 @@ $_scrollbar-width: 16px; // average scrollbar width; used in full screen calculu
 
 // Full width
 // We have to substract the scrollbar width, as it is not handled well by vw unit)
-.ecl-media-container--full-width {
+.ecl-media-container--full-width,
+.ecl-media-container--full-width + .ecl-media-container__expandable {
   left: 50%;
-  margin-inline-start: calc(-50vw + (#{$_scrollbar-width} / 2));
-  width: calc(100vw - #{$_scrollbar-width});
+  margin-inline-start: calc(
+    -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
+  );
+  width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
+}
+
+@if map-has-key($media-container, 'caption-before') {
+  .ecl-media-container__caption {
+    &::before {
+      background-color: map.get($theme, 'color', 'yellow-100');
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      content: '';
+      height: 4px;
+      left: var(--s-l);
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+  }
 }

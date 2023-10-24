@@ -18,7 +18,7 @@ $button: null !default;
   border-width: 0;
   cursor: pointer;
   display: inline-block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin: 0;
   padding: calc(
       #{map.get($button, 'padding-vertical')} - #{map.get(
@@ -67,7 +67,7 @@ $button: null !default;
 
 .ecl-button__icon ~ .ecl-button__label,
 .ecl-button__label ~ .ecl-button__icon {
-  margin-inline-start: map.get($theme, 'spacing', 'xs');
+  margin-inline-start: var(--s-xs);
 }
 
 // Icon only
