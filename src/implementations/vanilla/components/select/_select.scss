@@ -21,7 +21,7 @@ $select: null !default;
   color: map.get($select, 'color-input');
   cursor: pointer;
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   margin: 0;
   padding-bottom: calc(
     #{map.get($select, 'padding-vertical')} - #{map.get(
@@ -30,14 +30,12 @@ $select: null !default;
       )}
   );
   padding-inline-end: calc(
-    #{map.get($theme, 'spacing', 'm')} + #{map.get($select, 'arrow-width')} - #{map.get(
+    var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
         $select,
         'border-width'
       )}
   );
-  padding-inline-start: calc(
-    #{map.get($theme, 'spacing', 'm')} - #{map.get($select, 'border-width')}
-  );
+  padding-inline-start: calc(var(--s-m) - #{map.get($select, 'border-width')});
   padding-top: calc(
     #{map.get($select, 'padding-vertical')} - #{map.get(
         $select,
@@ -74,14 +72,13 @@ $select: null !default;
         )}
     );
     padding-inline-end: calc(
-      #{map.get($theme, 'spacing', 'm')} + #{map.get($select, 'arrow-width')} -
-        #{map.get($select, 'border-width-focus')}
-    );
-    padding-inline-start: calc(
-      #{map.get($theme, 'spacing', 'm')} - #{map.get(
+      var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
           $select,
           'border-width-focus'
         )}
+    );
+    padding-inline-start: calc(
+      var(--s-m) - #{map.get($select, 'border-width-focus')}
     );
     padding-top: calc(
       #{map.get($select, 'padding-vertical')} - #{map.get(
@@ -238,7 +235,7 @@ $select: null !default;
     box-sizing: border-box;
     margin-top: map.get($select, 'multiple-dropdown-margin');
     min-width: map.get($theme, 'form', 'm');
-    padding-bottom: map.get($theme, 'spacing', 'm');
+    padding-bottom: var(--s-m);
     position: absolute;
     z-index: map.get($theme, 'z-index', 'dropdown');
   }
@@ -259,16 +256,10 @@ $select: null !default;
       $select,
       'multiple-checkbox-label-vertical-padding'
     );
-    padding-inline-start: map.get($theme, 'spacing', 'm');
-    padding-inline-end: map.get($theme, 'spacing', 'm');
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
     padding-top: map.get($select, 'multiple-checkbox-label-vertical-padding');
-    width: calc(
-      100% - #{map.get($theme, 'spacing', 'm')} - #{map.get(
-          $theme,
-          'spacing',
-          'm'
-        )}
-    );
+    width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
   }
 
   .ecl-checkbox__label:hover,
@@ -282,36 +273,36 @@ $select: null !default;
   .ecl-select__multiple-group {
     border-bottom: 1px solid map.get($select, 'group-separator-color');
     border-top: 1px solid map.get($select, 'group-separator-color');
-    margin: 0 map.get($theme, 'spacing', 'm');
-    padding: map.get($theme, 'spacing', 's') 0;
+    margin: 0 var(--s-m);
+    padding: var(--s-s) 0;
 
     &:first-child {
       padding-top: 0;
     }
 
     .ecl-checkbox__label {
-      margin-inline-start: -#{map.get($theme, 'spacing', 'm')};
-      margin-inline-end: -#{map.get($theme, 'spacing', 'm')};
+      margin-inline-start: calc(-1 * var(--s-m));
+      margin-inline-end: calc(-1 * var(--s-m));
       width: 100%;
     }
   }
 
   .ecl-select__multiple-group + .ecl-checkbox {
-    margin-top: map.get($theme, 'spacing', 's');
+    margin-top: var(--s-s);
   }
 
   .ecl-select__multiple-group__title {
     color: map.get($select, 'group-title-color');
     font: map.get($select, 'group-title-font');
     font-weight: map.get($theme, 'font-weight', 'bold');
-    margin: 0 0 map.get($theme, 'spacing', '2xs');
+    margin: 0 0 var(--s-2xs);
   }
 
   .ecl-select__multiple-no-results {
     align-items: center;
-    color: map.get($theme, 'color', 'grey-100');
+    color: var(--c-d);
     display: flex;
-    font: map.get($theme, 'font', 'm');
+    font: var(--f-m);
     height: 100%;
     justify-content: center;
     min-height: 100px;
@@ -323,18 +314,18 @@ $select: null !default;
       map.get($select, 'multiple-dropdown-toolbar-separator-color');
     display: flex;
     flex-direction: column;
-    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'm') 0;
+    padding: var(--s-s) var(--s-m) 0;
 
     .ecl-button + .ecl-button {
-      margin-top: map.get($theme, 'spacing', 'm');
+      margin-top: var(--s-m);
     }
   }
 
   .ecl-select__multiple-all {
     border-bottom: 1px solid
       map.get($select, 'multiple-dropdown-separator-color');
-    margin-bottom: map.get($theme, 'spacing', 's');
-    padding-bottom: map.get($theme, 'spacing', 's');
+    margin-bottom: var(--s-s);
+    padding-bottom: var(--s-s);
 
     @if map-has-key($select, 'multiple-select-all-after') {
       &::after {
@@ -343,9 +334,9 @@ $select: null !default;
         height: 1px;
         margin: 0 auto;
         position: relative;
-        bottom: -#{map.get($theme, 'spacing', 's')};
-        width: calc(100% - (#{map.get($theme, 'spacing', 'm')} * 2));
-        background: var(--ecl-color-neutral-100);
+        bottom: calc(-1 * var(--s-s));
+        width: calc(100% - (#{var(--s-m)} * 2));
+        background: var(--c-n);
       }
     }
 
@@ -356,9 +347,9 @@ $select: null !default;
 
   .ecl-select-multiple-selections-counter {
     display: none;
-    left: map.get($theme, 'spacing', 'm');
+    left: var(--s-m);
     position: absolute;
-    top: 12%;
+    top: 14%;
 
     * {
       align-items: center;
@@ -366,12 +357,12 @@ $select: null !default;
       border-radius: 0.75rem;
       color: map.get($select, 'counter-color');
       display: inline-flex;
-      font: map.get($theme, 'font', 's');
+      font: var(--f-s);
       height: auto;
       justify-content: center;
       position: relative;
       min-width: 1rem;
-      padding: map.get($theme, 'spacing', '2xs');
+      padding: var(--s-2xs);
       text-align: center;
       width: 100%;
 
