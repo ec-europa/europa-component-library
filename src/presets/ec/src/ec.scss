@@ -89,7 +89,10 @@
   $theme: theme.$theme,
   $description-list: var.$description-list
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-ec';
+@use '@ecl/vanilla-component-featured-item/featured-item' with (
+  $theme: theme.$theme,
+  $featured-item: var.$featured-item
+);
 @use '@ecl/vanilla-component-list-illustration/list-illustration-ec';
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
   $theme: theme.$theme,

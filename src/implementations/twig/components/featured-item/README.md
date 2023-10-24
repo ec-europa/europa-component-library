@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-featured-item
 
 ### Parameters
 
-- **"type"** (string) (default: '') - Featured item type ('extended'),
+- **"type"** (string) (default: '') - Featured item type ('highlight'),
 - **"title"** (string) (default: '') - Title of the content opposite the media container,
 - **"description"** (string) (default: '') - Description of the content opposite the media container,
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
@@ -23,8 +23,7 @@ npm install --save @ecl/twig-component-featured-item
 
 <!-- prettier-ignore -->
 ```twig
-{% include '@ecl/featured-item/featured-item.html.twig' with { 
-  heading: 'heading', 
+{% include '@ecl/featured-item/featured-item.html.twig' with {
   title: 'title', 
   description: 
     '<p class="ecl-u-type-paragraph-m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>', 
