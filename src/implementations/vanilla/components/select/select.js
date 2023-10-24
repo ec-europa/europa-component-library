@@ -805,6 +805,15 @@ export class Select {
         this.search.focus();
         break;
 
+      case 'Tab':
+        e.preventDefault();
+        if (e.shiftKey) {
+          this.search.focus();
+        } else {
+          this.optionsContainer.querySelectorAll('input')[0].focus();
+        }
+        break;
+
       default:
     }
   }
@@ -828,7 +837,11 @@ export class Select {
 
       case 'Tab':
         e.preventDefault();
-        this.moveFocus('down');
+        if (e.shiftKey) {
+          this.moveFocus('up');
+        } else {
+          this.moveFocus('down');
+        }
         break;
 
       default:
@@ -889,12 +902,19 @@ export class Select {
         break;
 
       case 'ArrowRight':
-      case 'Tab':
         this.clearAllButton.nextSibling.focus();
         break;
 
       case 'ArrowUp':
         this.optionsContainer.lastChild.querySelector('input').focus();
+        break;
+
+      case 'Tab':
+        if (e.shiftKey) {
+          this.optionsContainer.lastChild.querySelector('input').focus();
+        } else {
+          this.clearAllButton.nextSibling.focus();
+        }
         break;
 
       default:
@@ -923,8 +943,11 @@ export class Select {
         break;
 
       case 'Tab':
-        e.preventDefault();
-        this.input.focus();
+        if (e.shiftKey) {
+          this.closeButton.previousSibling.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
