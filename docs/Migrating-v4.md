@@ -105,6 +105,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Icon size is now `l` instead of `m`
 
+### Featured item
+
+- Variant `extended` has been renamed `highlight` to be consistent with other components
+
 ### File
 
 - File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating
