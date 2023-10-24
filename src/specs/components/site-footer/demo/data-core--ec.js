@@ -113,7 +113,7 @@ module.exports = {
             },
             {
               link: {
-                label: 'News',
+                label: 'Press Corner',
                 path: 'https://ec.europa.eu/commission/presscorner/home/en',
               },
             },
