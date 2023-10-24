@@ -16,6 +16,8 @@ const getArgs = (data) => {
     disabled: data.disabled || false,
     required: data.required,
     label: data.label || '',
+    optional_text: data.optional_text,
+    required_text: data.required_text,
     helper_text: data.helper_text,
     invalid_text: data.invalid_text,
   };

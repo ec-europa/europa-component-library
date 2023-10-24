@@ -53,6 +53,7 @@ const getArgTypes = () => ({
       type: { summary: 'integer' },
       defaultValue: { summary: '8' },
     },
+    if: { arg: 'expandable' },
   },
 });
 
