@@ -3,12 +3,12 @@
  * @define list-illustration
  */
 
-@use 'sass:math';
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
+$list-illustration: null !default;
 $list-illustration-print: null !default;
 
 .ecl-list-illustration {
@@ -50,24 +50,24 @@ $list-illustration-print: null !default;
 }
 
 .ecl-list-illustration__icon {
-  color: map.get($list-illustration-print, 'icon-color');
+  color: map.get($list-illustration, 'icon-color');
   margin-bottom: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-list-illustration__value {
-  color: map.get($list-illustration-print, 'title-color');
+  color: map.get($list-illustration, 'title-color');
   font: map.get($list-illustration-print, 'value-font-mobile');
   font-weight: map.get($list-illustration-print, 'value-font-weight-mobile');
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-list-illustration__title {
-  color: map.get($list-illustration-print, 'title-color');
+  color: map.get($list-illustration, 'title-color');
   font: map.get($theme, 'font-prolonged-print', 'xl');
 }
 
 .ecl-list-illustration__description {
-  color: map.get($list-illustration-print, 'description-color');
+  color: map.get($list-illustration, 'description-color');
   font: map.get($theme, 'font-prolonged-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
 }
@@ -75,6 +75,6 @@ $list-illustration-print: null !default;
 // Zebra
 .ecl-list-illustration--zebra {
   .ecl-list-illustration__item:nth-child(even) {
-    background-color: map.get($list-illustration-print, 'background-color');
+    background-color: map.get($list-illustration, 'background-color');
   }
 }

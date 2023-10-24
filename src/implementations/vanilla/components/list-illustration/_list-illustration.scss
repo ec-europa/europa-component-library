@@ -3,7 +3,6 @@
  * @define list-illustration
  */
 
-@use 'sass:math';
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
@@ -18,8 +17,8 @@ $list-illustration: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: column;
-  padding-bottom: map.get($theme, 'spacing', 'm');
-  padding-top: map.get($theme, 'spacing', 'm');
+  padding-bottom: var(--s-m);
+  padding-top: var(--s-m);
 }
 
 .ecl-list-illustration__picture {
@@ -28,10 +27,10 @@ $list-illustration: null !default;
 
 .ecl-list-illustration__image {
   aspect-ratio: 3/2;
-  border: 1px solid var(--ecl-color-neutral-100);
+  border: 1px solid var(--c-n);
   display: block;
   height: auto;
-  margin-bottom: map.get($theme, 'spacing', 'm');
+  margin-bottom: var(--s-m);
   max-width: 100%;
   object-fit: contain;
 }
@@ -58,7 +57,7 @@ $list-illustration: null !default;
 
 .ecl-list-illustration__icon {
   color: map.get($list-illustration, 'icon-color');
-  margin-bottom: map.get($theme, 'spacing', 'm');
+  margin-bottom: var(--s-m);
 }
 
 .ecl-list-illustration__value {
@@ -73,25 +72,25 @@ $list-illustration: null !default;
 }
 
 .ecl-list-illustration__value + .ecl-list-illustration__title {
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--s-s);
 }
 
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   max-width: 80ch;
 }
 
 .ecl-list-illustration__title-container + .ecl-list-illustration__description {
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--s-s);
 }
 
 @include breakpoints.up('m') {
   .ecl-list-illustration__item {
     flex-direction: row;
     margin-bottom: 0;
-    padding-inline-start: map.get($theme, 'spacing', 'm');
-    padding-inline-end: map.get($theme, 'spacing', 'm');
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
   }
 
   .ecl-list-illustration--zebra {
@@ -107,7 +106,7 @@ $list-illustration: null !default;
 
   .ecl-list-illustration__image {
     margin-bottom: 0;
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--s-m);
 
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
@@ -120,7 +119,7 @@ $list-illustration: null !default;
 .ecl-list-illustration--col-3,
 .ecl-list-illustration--col-4 {
   .ecl-list-illustration__item {
-    margin-bottom: map.get($theme, 'spacing', '2xl');
+    margin-bottom: var(--s-2xl);
     padding-bottom: 0;
     padding-top: 0;
 
@@ -137,7 +136,7 @@ $list-illustration: null !default;
     display: grid;
     grid-auto-rows: auto;
     grid-column-gap: map.get($theme, 'grid', 'gutter');
-    grid-row-gap: map.get($theme, 'spacing', '3xl');
+    grid-row-gap: var(--s-3xl);
     width: 100%;
 
     .ecl-list-illustration__item {
@@ -148,7 +147,7 @@ $list-illustration: null !default;
 
     .ecl-list-illustration__image {
       margin-inline-end: 0;
-      margin-bottom: map.get($theme, 'spacing', 'm');
+      margin-bottom: var(--s-m);
 
       &:not(.ecl-list-illustration__image--square) {
         width: 100%;
@@ -178,8 +177,8 @@ $list-illustration: null !default;
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-list-illustration__item {
-    padding-inline-end: map.get($theme, 'spacing', 'm');
-    padding-inline-start: map.get($theme, 'spacing', 'm');
+    padding-inline-end: var(--s-m);
+    padding-inline-start: var(--s-m);
 
     &:nth-child(even) {
       background-color: map.get($list-illustration, 'background-color');
@@ -212,7 +211,7 @@ $list-illustration: null !default;
   }
 
   .ecl-list-illustration__image {
-    margin-bottom: map.get($theme, 'spacing', 'm');
+    margin-bottom: var(--s-m);
   }
 
   .ecl-list-illustration__description {
