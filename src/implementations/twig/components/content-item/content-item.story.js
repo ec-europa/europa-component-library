@@ -166,6 +166,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.image_position = {
       name: 'image position',
@@ -181,6 +182,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
+      if: { arg: 'show_image' },
     };
   }
   if (data.title) {
@@ -205,6 +207,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_description' },
     };
   }
   if (data.lists) {
@@ -217,6 +220,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: false },
         category: 'Display',
       },
+      if: { arg: 'show_lists' },
     };
   }
 

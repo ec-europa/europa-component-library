@@ -50,7 +50,11 @@ const getArgs = (data, variant) => {
     args.title = data.items[0].title;
   }
   args.description = data.items[0].description;
-  if (data.items[0].picture && data.items[0].picture.img.src) {
+  if (
+    data.items[0].picture &&
+    data.items[0].picture.img &&
+    data.items[0].picture.img.src
+  ) {
     args.picture = data.items[0].picture.img.src;
     args.image_squared = false;
     args.image_size = 'm';
@@ -153,6 +157,7 @@ const getArgTypes = (data, variant) => {
       defaultValue: { summary: '' },
       category: 'Content (first-item)',
     },
+    if: { arg: 'show_value' },
   };
   argTypes.title = {
     name: 'title',
@@ -173,6 +178,7 @@ const getArgTypes = (data, variant) => {
       defaultValue: { summary: '' },
       category: 'Content (first-item)',
     },
+    if: { arg: 'show_description' },
   };
 
   if (data.items[0].picture && data.items[0].picture.img.src) {
@@ -185,6 +191,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Image',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.image_squared = {
       name: 'image squared',
@@ -195,6 +202,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: false },
         category: 'Image',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.image_size = {
       name: 'image size',
@@ -218,6 +226,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Image',
       },
+      if: { arg: 'show_image' },
     };
   }
 
@@ -233,6 +242,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
     argTypes.icon_flag = {
       name: 'icon (flag)',
@@ -245,6 +255,7 @@ const getArgTypes = (data, variant) => {
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
     argTypes.icon_size = {
       name: 'icon size',
@@ -258,15 +269,16 @@ const getArgTypes = (data, variant) => {
         },
       },
       mapping: {
-        s: 'small',
-        m: 'medium',
-        l: 'large',
+        small: 's',
+        medium: 'm',
+        large: 'l',
       },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Icon',
       },
+      if: { arg: 'show_icon' },
     };
   }
 
