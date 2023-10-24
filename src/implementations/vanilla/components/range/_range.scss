@@ -68,7 +68,7 @@ $range: null !default;
 .ecl-form-group .ecl-range__value {
   /* eslint-disable-next-line no-math-div */
   margin-top: calc(
-    map.get($theme, 'spacing', '2xs') +
+    var(--s-2xs) +
       (map.get($range, 'slider-size') - map.get($range, 'range-size')) / 2
   );
 }
@@ -80,7 +80,7 @@ $range: null !default;
 .ecl-range::range-thumb {
   appearance: none;
   border: none;
-  background-color: var(--ecl-color-primary-100);
+  background-color: var(--c-p);
   border-radius: 50%;
   box-sizing: border-box;
   cursor: pointer;
@@ -93,7 +93,7 @@ $range: null !default;
   z-index: 1;
 
   &:hover {
-    outline: 4px solid var(--ecl-color-primary-100);
+    outline: 4px solid var(--c-p);
   }
 
   &:active {

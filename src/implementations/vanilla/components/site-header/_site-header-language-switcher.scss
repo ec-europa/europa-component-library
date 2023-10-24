@@ -40,10 +40,10 @@ $language-switcher: null !default;
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($language-switcher, 'shadow');
   color: map.get($language-switcher, 'color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   left: 0;
   height: auto;
-  margin-top: map.get($theme, 'spacing', 's');
+  margin-top: var(--s-s);
   position: absolute;
   right: 0;
   width: auto;
@@ -86,7 +86,7 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-category-title {
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding: map.get($language-switcher, 'category-title-padding');
 }
@@ -122,10 +122,10 @@ $language-switcher: null !default;
 
 .ecl-site-header__language-link-code {
   color: map.get($language-switcher, 'code-color');
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($language-switcher, 'code-font-weight');
   display: inline-block;
-  margin-inline-end: map.get($theme, 'spacing', '2xs');
+  margin-inline-end: var(--s-2xs);
   text-transform: uppercase;
   width: map.get($language-switcher, 'code-width');
 }
@@ -205,11 +205,7 @@ $language-switcher: null !default;
 
   .ecl-site-header__language-link {
     width: calc(
-      #{map.get($language-switcher, 'item-width')} - (2 * #{map.get(
-              $theme,
-              'spacing',
-              's'
-            )})
+      #{map.get($language-switcher, 'item-width')} - (2 * var(--s-s))
     );
   }
 }

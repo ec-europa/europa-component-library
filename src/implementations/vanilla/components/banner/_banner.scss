@@ -12,7 +12,7 @@ $banner: null !default;
 
 .ecl-banner {
   align-items: center;
-  background: var(--ecl-color-branding);
+  background: var(--c-br);
   border-radius: map.get($banner, 'border-radius', 'banner');
   box-shadow: map.get($banner, 'box-shadow');
   display: flex;
@@ -34,9 +34,9 @@ $banner: null !default;
   background: rgba(38, 50, 75, 0.7);
   backdrop-filter: blur(4px);
   color: map.get($theme, 'color', 'white-100');
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   line-height: map.get($theme, 'line-height', '2xs');
-  padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'xs');
+  padding: var(--s-2xs) var(--s-xs);
   position: absolute;
   right: 0;
   bottom: 0;
@@ -45,14 +45,14 @@ $banner: null !default;
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
 .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing', 'm');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  padding-inline-start: var(--s-m);
+  padding-inline-end: var(--s-m);
 }
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get($theme, 'spacing', 'm');
-  padding-top: map.get($theme, 'spacing', 'm');
+  padding-bottom: var(--s-m);
+  padding-top: var(--s-m);
   width: 100%;
 }
 
@@ -95,11 +95,11 @@ $banner: null !default;
   font: map.get($banner, 'font', 'description', 'mobile');
   font-weight: map.get($banner, 'font-weight', 'description');
   margin-bottom: 0;
-  margin-top: map.get($theme, 'spacing', 'xs');
+  margin-top: var(--s-xs);
 }
 
 .ecl-banner__cta {
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: var(--s-m);
 }
 
 .ecl-banner__content > *:first-child {
@@ -175,8 +175,7 @@ $banner: null !default;
       border-inline-start: map.get($banner, 'border-width', 'left') solid
         map.get($banner, 'border-color');
       border-radius: map.get($banner, 'border-radius', 'content');
-      padding: map.get($theme, 'spacing', 'l') map.get($theme, 'spacing', 'xl')
-        map.get($theme, 'spacing', 'xl');
+      padding: var(--s-l) var(--s-xl) var(--s-xl);
     }
   }
 }
@@ -226,8 +225,7 @@ $banner: null !default;
       backdrop-filter: blur(2px);
       box-sizing: border-box;
       margin: 0;
-      padding: map.get($theme, 'spacing', '2xs') map.get($theme, 'spacing', 'm')
-        map.get($theme, 'spacing', 'xs');
+      padding: var(--s-2xs) var(--s-m) var(--s-xs);
       width: 100%;
     }
 
@@ -240,13 +238,13 @@ $banner: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-banner .ecl-container {
-    padding-inline-start: map.get($theme, 'spacing', '2xl');
-    padding-inline-end: map.get($theme, 'spacing', '2xl');
+    padding-inline-start: var(--s-2xl);
+    padding-inline-end: var(--s-2xl);
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($theme, 'spacing', '2xl');
-    padding-top: map.get($theme, 'spacing', '2xl');
+    padding-bottom: var(--s-2xl);
+    padding-top: var(--s-2xl);
   }
 
   .ecl-banner__title {
@@ -263,15 +261,15 @@ $banner: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-banner .ecl-container {
-    padding-inline-start: map.get($theme, 'spacing', 'm');
-    padding-inline-end: map.get($theme, 'spacing', 'm');
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
     position: absolute;
     z-index: 1;
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($theme, 'spacing', 'm');
-    padding-top: map.get($theme, 'spacing', 'm');
+    padding-bottom: var(--s-m);
+    padding-top: var(--s-m);
   }
 
   // medium banner - ratio 4:1

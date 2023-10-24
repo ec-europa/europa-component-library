@@ -39,12 +39,12 @@ $card: null !default;
 
   @if map-has-key($card, 'yellow-bar') {
     &::before {
-      background-color: var(--ecl-color-secondary);
+      background-color: var(--c-s);
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
       content: '';
       height: 4px;
-      left: map.get($theme, 'spacing', 'l');
+      left: var(--s-l);
       position: absolute;
       top: 0;
       width: 32px;
