@@ -124,6 +124,20 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
+    argTypes.centered = {
+      name: 'centered',
+      type: { name: 'boolean' },
+      description: 'Center the content of list items',
+      mapping: {
+        0: false,
+        1: true,
+      },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Layout',
+      },
+    };
   } else {
     argTypes.zebra = {
       name: 'zebra',
@@ -140,20 +154,6 @@ const getArgTypes = (data, variant) => {
       },
     };
   }
-  argTypes.centered = {
-    name: 'centered',
-    type: { name: 'boolean' },
-    description: 'Center the content of list items',
-    mapping: {
-      0: false,
-      1: true,
-    },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Layout',
-    },
-  };
 
   argTypes.value = {
     name: 'value',
