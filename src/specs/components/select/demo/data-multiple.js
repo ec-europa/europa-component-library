@@ -13,6 +13,8 @@ module.exports = {
   optional_text: ' (optional)',
   icon_path: '/icons.svg',
   required: true,
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   width: 'm',
   options: [
     {

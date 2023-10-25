@@ -12,6 +12,8 @@
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
+  - "label_aria_required" (string) (default: ''): aria text for the required field label
+  - "label_aria_optional" (string) (default: ''): aria text for the optional field label
   - "name" (string) (default: '')
   - "width" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
@@ -50,6 +52,8 @@
 {% set _invalid_text = invalid_text|default('') %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
+{% set _label_aria_required = label_aria_required|default('') %}
+{% set _label_aria_optional = label_aria_optional|default('') %}
 {% set _label = label|default('') %}
 {% set _multiple = multiple|default(false) %}
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
@@ -103,6 +107,7 @@
     <label
     {% if _id %}
       for="{{ _id }}"
+      id="{{ _id }}-label"
     {% endif %}
       class="ecl-form-label
       {{- _invalid ? ' ecl-form-label--invalid' -}}
@@ -110,15 +115,30 @@
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
-        <span class="ecl-form-label__required">{{ _required_text }}</span>
+        <span 
+          class="ecl-form-label__required"
+          {% if _label_aria_required %}
+            aria-label="{{ _label_aria_required }}"
+          {% endif %}
+        >{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
-        <span class="ecl-form-label__optional">{{ ' ' ~ _optional_text }}</span>
+        <span 
+          class="ecl-form-label__optional"
+          {% if _label_aria_optional %}
+            aria-label="{{ _label_aria_optional }}"
+          {% endif %}
+        >{{ ' ' ~ _optional_text }}</span>
       {%- endif -%}
     </label>
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+    <div 
+      {% if _id %}
+        id="{{ _id }}-helper"
+      {% endif %}
+      class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
+    >
       {%- block helper_text _helper_text -%}
     </div>
   {% endif %}

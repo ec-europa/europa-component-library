@@ -1,4 +1,5 @@
 /* eslint-disable no-return-assign */
+import { queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
 import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
@@ -25,6 +26,11 @@ const iconSvgAllCornerArrow =
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
+ * @param {String} options.closeLabelAttribute The data attribute for the close button
+ * @param {String} options.clearAllLabelAttribute The data attribute for the clear all button
+ * @param {String} options.selectMultiplesSelectionCountSelector The selector for the counter of selected options
+ * @param {String} options.closeButtonLabel The label of the close button
+ * @param {String} options.clearAllButtonLabel The label of the clear all button
  */
 export class Select {
   /**
@@ -107,6 +113,9 @@ export class Select {
     this.searchContainer = null;
     this.countSelections = null;
     this.form = null;
+    this.formGroup = null;
+    this.label = null;
+    this.helper = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -260,6 +269,19 @@ export class Select {
     this.clearAllButtonLabel =
       this.clearAllButtonLabel ||
       this.element.getAttribute(this.clearAllLabelAttribute);
+
+    this.formGroup = this.element.closest('.ecl-form-group');
+    if (this.formGroup) {
+      this.label = queryOne(`#${this.selectMultipleId}-label`, this.formGroup);
+      this.helper = queryOne(
+        `#${this.selectMultipleId}-helper`,
+        this.formGroup,
+      );
+    }
+
+    // Disable focus on default select
+    this.select.setAttribute('tabindex', '-1');
+
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
     // Close the searchContainer when tabbing out of the selectMultple
@@ -276,9 +298,25 @@ export class Select {
       'aria-controls',
       `${this.selectMultipleId}-dropdown`,
     );
+    this.input.setAttribute('id', `${this.selectMultipleId}-toggle`);
     this.input.setAttribute('aria-expanded', false);
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
+    }
+
+    // Add accessibility attributes
+    if (this.label) {
+      this.label.setAttribute('for', `${this.selectMultipleId}-toggle`);
+      this.input.setAttribute(
+        'aria-labelledby',
+        `${this.selectMultipleId}-label`,
+      );
+    }
+    if (this.helper) {
+      this.input.setAttribute(
+        'aria-describedby',
+        `${this.selectMultipleId}-helper`,
+      );
     }
 
     this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
