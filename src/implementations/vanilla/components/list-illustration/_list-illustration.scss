@@ -97,11 +97,6 @@ $list-illustration: null !default;
     width: auto;
   }
 
-  .ecl-list-illustration__value {
-    font: map.get($list-illustration, 'value-font-desktop');
-    font-weight: map.get($list-illustration, 'value-font-weight-desktop');
-  }
-
   .ecl-list-illustration__image {
     margin-bottom: 0;
     margin-inline-end: var(--s-m);
@@ -109,6 +104,13 @@ $list-illustration: null !default;
     &:not(.ecl-list-illustration__image--square) {
       width: 15.875rem;
     }
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-list-illustration__value {
+    font: map.get($list-illustration, 'value-font-desktop');
+    font-weight: map.get($list-illustration, 'value-font-weight-desktop');
   }
 }
 
