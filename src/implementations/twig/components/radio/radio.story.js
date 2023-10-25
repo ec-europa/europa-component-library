@@ -17,7 +17,9 @@ const getArgs = (data) => {
     show_error: true,
     label: data.label || '',
     helper_text: data.helper_text,
+    required_text: data.required_text,
     invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
     invalid: data.invalid || false,
     required: data.required,
   };

@@ -44,6 +44,7 @@ const getArgTypes = (variant) => ({
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_text' },
   },
   size: {
     type: { name: 'select' },

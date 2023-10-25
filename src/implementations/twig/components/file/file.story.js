@@ -39,9 +39,6 @@ const getArgs = (data) => {
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
   }
-  if (data.lists) {
-    args.lists = false;
-  }
 
   return args;
 };
@@ -68,16 +65,6 @@ const getArgTypes = (data) => {
       },
     };
   }
-  if (data.lists) {
-    argTypes.show_lists = {
-      name: 'taxonomies',
-      type: 'boolean',
-      description: 'Show the list with taxonomies',
-      table: {
-        category: 'Optional',
-      },
-    };
-  }
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
@@ -98,6 +85,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_description' },
     };
     argTypes.show_description = {
       name: 'description',
@@ -152,6 +140,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_image' },
     };
     argTypes.show_taxonomy = {
       name: 'taxonomies',
@@ -171,6 +160,7 @@ const getArgTypes = (data) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
+    if: { arg: 'show_translations' },
   };
   argTypes.show_translations = {
     name: 'translations',
@@ -213,6 +203,7 @@ const prepareData = (data, args) => {
 
   if (args.show_image && data.picture) {
     data.picture = imgClone;
+    data.picture.img = {};
     data.picture.img.src = args.image;
   } else if (!args.show_image && data.picture) {
     data.picture = {};
