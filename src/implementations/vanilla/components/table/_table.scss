@@ -36,7 +36,7 @@ $table: null !default;
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding: map.get($table, 'header-padding');
   text-align: start;
-  vertical-align: middle;
+  vertical-align: top;
 
   &:first-child {
     border-inline-start-color: map.get($table, 'head-background');
@@ -94,6 +94,7 @@ $table: null !default;
 
 // Sort Table
 .ecl-table__header[data-ecl-table-sort-toggle] {
+  background-clip: padding-box;
   cursor: pointer;
   padding-inline-start: calc(
     var(--s-m) + #{map.get($theme, 'icon', 'xs')} + var(--s-xs)
@@ -111,8 +112,7 @@ $table: null !default;
   left: map.get($table, 'sort-arrow-left');
   padding: 0;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: map.get($table, 'sort-arrow-top');
   width: auto;
 
   &:focus-visible {
