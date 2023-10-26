@@ -280,11 +280,9 @@ export class Select {
       );
     }
 
-    // Disable focus on default select
-    this.select.setAttribute('tabindex', '-1');
-
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
+    this.selectMultiple.setAttribute('aria-hidden', true);
     // Close the searchContainer when tabbing out of the selectMultple
     this.selectMultiple.addEventListener('focusout', this.handleFocusout);
 
@@ -301,6 +299,7 @@ export class Select {
     );
     this.input.setAttribute('id', `${this.selectMultipleId}-toggle`);
     this.input.setAttribute('aria-expanded', false);
+    this.input.setAttribute('aria-hidden', true);
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
@@ -312,9 +311,17 @@ export class Select {
         'aria-labelledby',
         `${this.selectMultipleId}-label`,
       );
+      this.select.setAttribute(
+        'aria-labelledby',
+        `${this.selectMultipleId}-label`,
+      );
     }
     if (this.helper) {
       this.input.setAttribute(
+        'aria-describedby',
+        `${this.selectMultipleId}-helper`,
+      );
+      this.select.setAttribute(
         'aria-describedby',
         `${this.selectMultipleId}-helper`,
       );
@@ -429,13 +436,13 @@ export class Select {
         if (option.parentNode.tagName === 'OPTGROUP') {
           if (
             !this.optionsContainer.querySelector(
-              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                 'label',
               )}"]`,
             )
           ) {
-            optgroup = document.createElement('div');
-            const title = document.createElement('h5');
+            optgroup = document.createElement('fieldset');
+            const title = document.createElement('legend');
             title.classList.add('ecl-select__multiple-group__title');
             title.innerHTML = option.parentNode.getAttribute('label');
             optgroup.appendChild(title);
@@ -447,7 +454,7 @@ export class Select {
             this.optionsContainer.appendChild(optgroup);
           } else {
             optgroup = this.optionsContainer.querySelector(
-              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                 'label',
               )}"]`,
             );

@@ -274,6 +274,10 @@ $_multiple_counter_background: null !default;
     padding: map.get(theme.$spacing, 's') 0;
   }
 
+  .ecl-checkbox {
+    clear: left;
+  }
+
   .ecl-checkbox__label {
     padding-bottom: $_multiple-checkbox-label-vertical-padding;
     padding-inline-start: map.get(theme.$spacing, 's');
@@ -290,6 +294,7 @@ $_multiple_counter_background: null !default;
   }
 
   .ecl-select__multiple-group {
+    border: none;
     border-bottom: 1px solid $_group-separator-color;
     margin: 0 map.get(theme.$spacing, 's');
     padding: map.get(theme.$spacing, 's') 0;
@@ -311,6 +316,7 @@ $_multiple_counter_background: null !default;
 
   .ecl-select__multiple-group__title {
     color: $_group-title-color;
+    float: left;
     font: $_group-title-font;
     font-weight: map.get(theme.$font-weight, 'bold');
     margin: map.get(theme.$spacing, 'xs') 0;
