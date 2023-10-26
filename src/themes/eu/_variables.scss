@@ -557,6 +557,7 @@ $inpage-navigation: (
   trigger: (
     'background': var(--c-p),
     'border': none,
+    'border-focus': none,
     'border-radius': 0 0 var(--s-xs) var(--s-xs),
     'color': map.get($color, 'white-100'),
     'font': var(--f-p-m),
@@ -564,6 +565,8 @@ $inpage-navigation: (
     'margin': 0,
     'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
       var(--s-s),
+    'padding-focus': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s))
+      var(--s-s) var(--s-s),
     'separator': none,
     'width': 100%,
   ),

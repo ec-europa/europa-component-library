@@ -562,14 +562,19 @@ $inpage-navigation: (
   ),
   trigger: (
     'background': map.get($color, 'white-100'),
-    'border': 2px solid var(--c-p),
+    'border': 1px solid var(--c-d-80),
+    'border-focus': 2px solid var(--c-p),
     'border-radius': 2px,
     'color': var(--c-d),
     'font': var(--f-m),
     'font-weight': map.get($font-weight, 'regular'),
     'margin': 0 auto var(--s-2xs),
-    'padding': var(--s-xs) calc(#{$inpage-toggle-width} + var(--s-s))
-      var(--s-xs) var(--s-s),
+    'padding': calc(var(--s-xs) - 1px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 1px)
+      calc(var(--s-s) - 1px),
+    'padding-focus': calc(var(--s-xs) - 2px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
+      calc(var(--s-s) - 2px),
     'separator': none,
     'width': calc(100% - #{map.get($grid, 'gutter')}),
   ),
@@ -579,7 +584,7 @@ $inpage-navigation: (
       'l': transparent,
     ),
     'shadow': (
-      's': var(--sh-12),
+      's': var(--sh-6),
       'l': none,
     ),
   ),

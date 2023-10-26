@@ -59,6 +59,12 @@ $inpage-navigation: null !default;
     text-overflow: ellipsis;
     white-space: nowrap;
 
+    &:focus-visible,
+    &[aria-expanded='true'] {
+      border: map.get($inpage-navigation, 'trigger', 'border-focus');
+      padding: map.get($inpage-navigation, 'trigger', 'padding-focus');
+    }
+
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       display: none;
