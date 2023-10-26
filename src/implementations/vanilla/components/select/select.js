@@ -110,6 +110,7 @@ export class Select {
     this.selectMultiple = null;
     this.inputContainer = null;
     this.optionsContainer = null;
+    this.visibleOptions = null;
     this.searchContainer = null;
     this.countSelections = null;
     this.form = null;
@@ -483,7 +484,10 @@ export class Select {
 
         return checkbox;
       });
+    } else {
+      this.checkboxes = [];
     }
+    this.visibleOptions = this.checkboxes;
 
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
@@ -702,7 +706,7 @@ export class Select {
    */
   handleSearch(e) {
     const dropDownHeight = this.optionsContainer.offsetHeight;
-    const visible = [];
+    this.visibleOptions = [];
     const keyword = e.target.value.toLowerCase();
     if (dropDownHeight > 0) {
       this.optionsContainer.style.height = `${dropDownHeight}px`;
@@ -733,12 +737,17 @@ export class Select {
             '<b>$&</b>',
           );
         }
-        visible.push(checkbox);
+        this.visibleOptions.push(checkbox);
       }
     });
     // Select all checkbox follows along.
-    const checked = visible.filter((c) => c.querySelector('input').checked);
-    if (visible.length === 0 || visible.length !== checked.length) {
+    const checked = this.visibleOptions.filter(
+      (c) => c.querySelector('input').checked,
+    );
+    if (
+      this.visibleOptions.length === 0 ||
+      this.visibleOptions.length !== checked.length
+    ) {
       this.selectAll.querySelector('input').checked = false;
     } else {
       this.selectAll.querySelector('input').checked = true;
@@ -764,7 +773,7 @@ export class Select {
       });
     }
 
-    if (visible.length === 0 && !noResultsElement) {
+    if (this.visibleOptions.length === 0 && !noResultsElement) {
       // Create no-results element.
       const noResultsContainer = document.createElement('div');
       const noResultsLabel = document.createElement('span');
@@ -772,7 +781,7 @@ export class Select {
       noResultsLabel.innerHTML = this.textNoResults;
       noResultsContainer.appendChild(noResultsLabel);
       this.optionsContainer.appendChild(noResultsContainer);
-    } else if (visible.length > 0 && noResultsElement !== null) {
+    } else if (this.visibleOptions.length > 0 && noResultsElement !== null) {
       noResultsElement.parentNode.removeChild(noResultsElement);
     }
     // reset
@@ -812,11 +821,13 @@ export class Select {
   handleKeyboardOnSelect(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case ' ':
       case 'ArrowDown':
+        e.preventDefault();
         this.handleToggle(e);
         this.search.focus();
         break;
@@ -831,15 +842,21 @@ export class Select {
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case 'ArrowDown':
-        this.optionsContainer.querySelectorAll('input')[0].focus();
         e.preventDefault();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.search.focus();
         break;
 
@@ -847,8 +864,10 @@ export class Select {
         e.preventDefault();
         if (e.shiftKey) {
           this.search.focus();
+        } else if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
         } else {
-          this.optionsContainer.querySelectorAll('input')[0].focus();
+          this.input.focus();
         }
         break;
 
@@ -862,14 +881,17 @@ export class Select {
   handleKeyboardOnOptions(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         this.moveFocus('down');
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.moveFocus('up');
         break;
 
@@ -892,16 +914,17 @@ export class Select {
   handleKeyboardOnSearch(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         if (this.selectAll.querySelector('input').disabled) {
-          const firstAvailable = Array.from(
-            this.optionsContainer.querySelectorAll('.ecl-checkbox'),
-          ).filter((el) => el.style.display !== 'none');
-          if (firstAvailable[0]) {
-            firstAvailable[0].querySelector('input').focus();
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[0].querySelector('input').focus();
+          } else {
+            this.input.focus();
           }
         } else {
           this.selectAll.querySelector('input').focus();
@@ -909,6 +932,7 @@ export class Select {
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.input.focus();
         this.handleToggle(e);
         break;
@@ -922,6 +946,7 @@ export class Select {
    */
   handleKeyboardOnOption(e) {
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       this.handleClickOption(e);
     }
   }
@@ -930,28 +955,48 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClearAll(e) {
-    e.preventDefault();
-
     switch (e.key) {
       case 'Enter':
       case ' ':
+        e.preventDefault();
         this.handleClickOnClearAll(e);
         this.input.focus();
         break;
 
-      case 'ArrowRight':
-        this.clearAllButton.nextSibling.focus();
+      case 'ArrowDown':
+        e.preventDefault();
+        if (this.closeButton) {
+          this.closeButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
-        this.optionsContainer.lastChild.querySelector('input').focus();
+        e.preventDefault();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
+        } else {
+          this.search.focus();
+        }
         break;
 
       case 'Tab':
+        e.preventDefault();
         if (e.shiftKey) {
-          this.optionsContainer.lastChild.querySelector('input').focus();
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.search.focus();
+          }
+        } else if (this.closeButton) {
+          this.closeButton.focus();
         } else {
-          this.clearAllButton.nextSibling.focus();
+          this.input.focus();
         }
         break;
 
@@ -963,26 +1008,36 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClose(e) {
-    e.preventDefault();
-
     switch (e.key) {
       case 'Enter':
       case ' ':
+        e.preventDefault();
         this.handleEsc(e);
         this.input.focus();
         break;
 
-      case 'ArrowLeft':
-        this.closeButton.previousSibling.focus();
+      case 'ArrowUp':
+        e.preventDefault();
+        if (this.clearAllButton) {
+          this.clearAllButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
-      case 'ArrowUp':
-        this.optionsContainer.lastChild.querySelector('input').focus();
+      case 'ArrowDown':
+        e.preventDefault();
+        this.input.focus();
         break;
 
       case 'Tab':
+        e.preventDefault();
         if (e.shiftKey) {
-          this.closeButton.previousSibling.focus();
+          if (this.clearAllButton) {
+            this.clearAllButton.focus();
+          } else {
+            this.input.focus();
+          }
         } else {
           this.input.focus();
         }
