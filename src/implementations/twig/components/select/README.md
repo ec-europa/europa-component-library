@@ -19,6 +19,8 @@ npm install --save @ecl/twig-component-select
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
 - **"name"** (string) (default: '')
+- **"icon_size"** (string) (default: 'xs')
+- **"toggle_label"** (string) (default: 'Toggle dropdown')
 - **"width"** (string) (default: '') Input width size (s, m or l)
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"multiple"** (bolean) (default: false): For the multiple select

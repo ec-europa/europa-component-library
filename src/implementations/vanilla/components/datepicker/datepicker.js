@@ -1,6 +1,3 @@
-/* eslint-disable class-methods-use-this */
-import Pikaday from 'pikaday';
-
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -25,7 +22,7 @@ export class Datepicker {
   constructor(
     element,
     {
-      format = 'DD-MM-YYYY',
+      format = '',
       theme = 'ecl-datepicker-theme',
       yearRange = 40,
       reposition = false,
@@ -87,11 +84,16 @@ export class Datepicker {
    * Initialise component.
    */
   init() {
+    if (typeof window.Pikaday === 'undefined') {
+      throw new TypeError(
+        'Pikaday is not available. Make sure to include Pikaday in your project if you want to use the ECL datepicker',
+      );
+    }
+
     this.direction = getComputedStyle(this.element).direction;
 
-    this.picker = new Pikaday({
+    const options = {
       field: this.element,
-      format: this.format,
       yearRange: this.yearRange,
       firstDay: 1,
       i18n: this.i18n,
@@ -102,6 +104,23 @@ export class Datepicker {
       showDaysInNextAndPreviousMonths: this.showDaysInNextAndPreviousMonths,
       enableSelectionDaysInNextAndPreviousMonths:
         this.enableSelectionDaysInNextAndPreviousMonths,
+    };
+
+    if (this.format !== '') {
+      options.format = this.format;
+    } else {
+      options.toString = (date) => {
+        const day = `0${date.getDate()}`.slice(-2);
+        const month = `0${date.getMonth() + 1}`.slice(-2);
+        const year = date.getFullYear();
+
+        return `${day}-${month}-${year}`;
+      };
+    }
+
+    // eslint-disable-next-line no-undef
+    this.picker = new Pikaday({
+      ...options,
       onOpen() {
         this.direction = getComputedStyle(this.el).direction;
 

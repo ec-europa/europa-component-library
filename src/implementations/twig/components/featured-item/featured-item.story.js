@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-featured-item/demo/data';
-import demoDataExtended from '@ecl/specs-component-featured-item/demo/data--extended';
+import demoDataHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 
@@ -81,6 +81,7 @@ const getArgTypes = (data) => {
       defaultValue: { summary: '' },
       category: 'Display',
     },
+    if: { arg: 'show_media' },
   };
 
   return argTypes;
@@ -117,17 +118,17 @@ Default.parameters = {
   notes: { markdown: notes, json: demoData },
 };
 
-export const Extended = (_, { loaded: { component } }) => component;
+export const Highlight = (_, { loaded: { component } }) => component;
 
-Extended.render = async (args) => {
+Highlight.render = async (args) => {
   const renderedFeaturedItem = await featuredItem(
-    prepareData(demoDataExtended, args),
+    prepareData(demoDataHighlight, args),
   );
   return renderedFeaturedItem;
 };
-Extended.storyName = 'extended';
-Extended.args = getArgs(demoDataExtended);
-Extended.argTypes = getArgTypes(demoDataExtended);
-Extended.parameters = {
-  notes: { markdown: notes, json: demoDataExtended },
+Highlight.storyName = 'highlighted';
+Highlight.args = getArgs(demoDataHighlight);
+Highlight.argTypes = getArgTypes(demoDataHighlight);
+Highlight.parameters = {
+  notes: { markdown: notes, json: demoDataHighlight },
 };

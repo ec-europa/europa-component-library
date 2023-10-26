@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContent from '@ecl/specs-component-featured-item/demo/data';
-import demoContentExtended from '@ecl/specs-component-featured-item/demo/data--extended';
+import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
 
 expect.extend(toHaveNoViolations);
 
@@ -35,17 +35,17 @@ describe('Featured item', () => {
     });
   });
 
-  describe('Extended', () => {
+  describe('Highlight', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(render(demoContentExtended)).resolves.toMatchSnapshot();
+      return expect(render(demoContentHighlight)).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(
-          await renderTwigFileAsHtml(template, demoContentExtended, true),
+          await renderTwigFileAsHtml(template, demoContentHighlight, true),
         ),
       ).toHaveNoViolations();
     });

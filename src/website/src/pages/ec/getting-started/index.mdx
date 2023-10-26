@@ -48,12 +48,13 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <script>
-      var cl = document.querySelector('html').classList;
-      cl.remove('no-js');
-      cl.add('has-js');
+          var cl = document.querySelector('html').classList;
+          cl.remove('no-js');
+          cl.add('has-js');
+      >
     </script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
       crossorigin="anonymous"
     ></script>
     <link
@@ -61,13 +62,13 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
       href="/styles/optional/ecl-reset.css"
       media="screen"
     />
-    <link rel="stylesheet" href="/styles/ecl-eu.css" media="screen" />
-    <link rel="stylesheet" href="/styles/ecl-eu-print.css" media="print" />
+    <link rel="stylesheet" href="/styles/ecl-ec.css" media="screen" />
+    <link rel="stylesheet" href="/styles/ecl-ec-print.css" media="print" />
   </head>
   <body>
     <!-- content of your page here -->
 
-    <script src="/scripts/ecl-eu.js"></script>
+    <script src="/scripts/ecl-ec.js"></script>
     <script>
       ECL.autoInit();
     </script>
@@ -79,7 +80,7 @@ This assumes your `preset-ec` package is directly accessible in the root of your
 
 In this example the main ECL css and js are defined and in addition a css for print and the reset css are added.
 
-There are also other optional css files distributed that can be used, moment.js is added because it's needed for the ECL datepicker, see below for further information.
+There are also other optional css files distributed that can be used, pikaday is added because it's needed for the ECL datepicker, see below for further information.
 
 ### Using the CDN
 
@@ -153,10 +154,11 @@ Then, in the footer of the document (or whenever the document is ready), call `E
 </html>
 ```
 
-### moment.js
+### Datepicker
 
-As explained in a more technical language in the [datepicker api page](/eu/components/forms/datepicker/api/) ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) which requires [moment.js](https://momentjs.com/) and this library is not bundled by ECL.
-Therefore **moment.js needs to be loaded or bundled by the application or website using ECL**, depending on the needs.
+ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled by ECL.
+Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, the library is only required when a datepicker is instantiated in a page.
+Additionally, when the default format defined by ECL `DD-MM-YYYY` needs to be customised, it is recommended to load also [moment.js](https://momentjs.com/) which will ensure a consistent output of the desired date format.
 
 ## Additional information
 

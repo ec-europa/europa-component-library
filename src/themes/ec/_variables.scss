@@ -384,6 +384,55 @@ $fact-figures: (
   icon-margin: var(--s-m),
 );
 
+// Featured item
+$featured-item: (
+  padding: var(--s-xl),
+  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border-radius: map.get($border-radius, 's'),
+  shadow: var(--sh-1),
+  media-padding-mobile: var(--s-xl),
+  media-padding-desktop: var(--s-xl),
+  media-padding-right: var(--s-xl),
+  title-color: var(--c-d),
+  title-font: var(--f-l),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-spacing: var(--s-xl) var(--s-xl) 0 var(--s-xl),
+  description-color: var(--c-d),
+  description-font: var(--f-m),
+  description-spacing: var(--s-s) var(--s-xl) 0 var(--s-xl),
+  link-spacing: var(--s-m) var(--s-xl) 0 var(--s-xl),
+  highlight: (
+    container-background: map.get($color, 'white'),
+    title-background: var(--c-n-80),
+    item-background: var(--c-n-60),
+    padding-mobile: 0,
+    padding-desktop: 0,
+    border-size: 1px,
+    border-color: color-mix(in srgb, var(--c-p) 50%, transparent),
+    title-spacing: var(--s-xl),
+    description-spacing: var(--s-xl) var(--s-xl) 0 var(--s-xl),
+  ),
+);
+$featured-item-print: (
+  padding: map.get($spacing-print, 'xl'),
+  media-padding-desktop: map.get($spacing-print, 'xl'),
+  media-padding-right: map.get($spacing-print, 'xl'),
+  title-font: map.get($font-print, 'l'),
+  title-font-weight: map.get($font-weight-print, 'regular'),
+  title-spacing: map.get($spacing-print, 'xl') map.get($spacing-print, 'xl') 0
+    map.get($spacing-print, 'xl'),
+  description-font: map.get($font-print, 'm'),
+  description-spacing: map.get($spacing-print, 's')
+    map.get($spacing-print, 'xl') 0 map.get($spacing-print, 'xl'),
+  link-spacing: map.get($spacing-print, 'm') map.get($spacing-print, 'xl') 0
+    map.get($spacing-print, 'xl'),
+  highlight: (
+    title-spacing: map.get($spacing-print, 'xl'),
+    description-spacing: map.get($spacing-print, 'xl')
+      map.get($spacing-print, 'xl') 0 map.get($spacing-print, 'xl'),
+  ),
+);
+
 // File download
 $file: (
   border-radius: map.get($border-radius, 's'),
@@ -827,6 +876,48 @@ $rating-field: (
   checked-hover-color: var(--c-s-140),
   checked-focus-stroke: var(--c-d),
   focus-outline: var(--c-d),
+);
+
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 2px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-80),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-100),
+  color-placeholder: var(--c-d-100),
+  counter-color: var(--c-d-100),
+  group-separator-color: var(--c-n-60),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-100),
+  shadow: none,
+  shadow-hover: none,
+  arrow-background-color: map.get($color, 'white-100'),
+  arrow-background-color-hover: map.get($color, 'white-100'),
+  arrow-background-color-invalid: map.get($color, 'white-100'),
+  arrow-background-color-invalid-hover: map.get($color, 'white-100'),
+  icon-fill: var(--c-d-100),
+  multiple-dropdown-background-color: map.get($color, 'white-100'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: transparent,
+  multiple-select-all-after: true,
+  multiple-dropdown-toolbar-separator-color: transparent,
+  multiple-dropdown-border-radius: 2px,
+  multiple-dropdown-shadow: var(--sh-6),
+  multiple-dropdown-margin: var(--s-2xs),
+  multiple-dropdown-input-margin: var(--s-m) var(--s-m) var(--s-s),
+  multiple-dropdown-input-width: calc(100% - (var(--s-m) * 2)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-checkbox-background-hover-color: map.get($color, 'white-100'),
+  multiple-checkbox-label-vertical-padding: map.get($spacing, 'xs'),
+  multiple_counter_background: var(--c-p-20),
+  padding-vertical: var(--s-xs),
 );
 
 // Site footer

@@ -67,7 +67,11 @@
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-print-ec';
+@use '@ecl/vanilla-component-featured-item/featured-item-print' with (
+  $theme: theme.$theme,
+  $featured-item: var.$featured-item,
+  $featured-item-print: var.$featured-item-print
+);
 @use '@ecl/vanilla-component-list-illustration/list-illustration-print-ec';
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
 @use '@ecl/vanilla-component-card/card-print';

@@ -7,8 +7,8 @@ import { Playground, Html } from '@ecl/website-components';
 import {
   featuredItem,
   featuredItemRightAlignement,
-  featuredItemExtended,
-  featuredItemExtendedRightAlignement,
+  featuredItemHighlight,
+  featuredItemHighlightRightAlignement,
 } from '../demo';
 
 ## Default
@@ -32,23 +32,23 @@ import {
   <Html markup={featuredItemRightAlignement} />
 </Playground>
 
-## Extended
+## Highlighted
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="extended"
+  selectedStory="highlight"
 >
-  <Html markup={featuredItemExtended} />
+  <Html markup={featuredItemHighlight} />
 </Playground>
 
-## Extended right-aligned
+## Highlighted right-aligned
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="extended"
+  selectedStory="highlight"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemExtendedRightAlignement} />
+  <Html markup={featuredItemHighlightRightAlignement} />
 </Playground>

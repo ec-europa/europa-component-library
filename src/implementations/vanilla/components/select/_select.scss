@@ -4,68 +4,49 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/theme-dev/mixins/mixins';
 
-$_border-radius: null !default;
-$_border-color: null !default;
-$_border-color-hover: null !default;
-$_border-color-focus: map.get(theme.$color, 'blue') !default;
-$_border-color-invalid: null !default;
-$_border-color-invalid-hover: null !default;
-$_border-color-disabled: null !default;
-$_border-width: 1px;
-$_border-width-focus: null !default;
-$_color-input: null !default;
-$_color-placeholder: null !default;
-$_group-separator-color: null !default;
-$_group-title-font: null !default;
-$_group-title-color: null !default;
-$_shadow: null !default;
-$_shadow-hover: null !default;
-$_arrow-background-invalid-focus: null !default;
-$_arrow-background-color: null !default;
-$_arrow-background-color-hover: null !default;
-$_arrow-background-color-invalid: null !default;
-$_arrow-background-color-invalid-hover: null !default;
-$_arrow-width: 2.75rem;
-$_multiple-dropdown-background-color: null !default;
-$_multiple-dropdown-border: null !default;
-$_multiple-dropdown-separator-color: null !default;
-$_multiple-dropdown-border-radius: null !default;
-$_multiple-dropdown-shadow: null !default;
-$_multiple-dropdown-input-margin: null !default;
-$_multiple-dropdown-input-width: null !default;
-$_multiple-dropdown-container-max-height: null !default;
-$_multiple-checkbox-background-hover-color: null !default;
-$_multiple-checkbox-label-vertical-padding: null !default;
-$_multiple_counter_background: null !default;
+// Exposed variables
+$theme: null !default;
+$select: null !default;
 
 .ecl-select {
   appearance: none;
   background-color: transparent;
-  border: $_border-width solid $_border-color;
-  border-radius: $_border-radius;
-  box-shadow: $_shadow;
+  border: map.get($select, 'border-width') solid
+    map.get($select, 'border-color');
+  border-radius: map.get($select, 'border-radius');
+  box-shadow: map.get($select, 'shadow');
   box-sizing: border-box;
-  color: $_color-input;
+  color: map.get($select, 'color-input');
   cursor: pointer;
   display: block;
-  font: map.get(theme.$font, 'm');
+  font: var(--f-m);
   margin: 0;
-  padding-bottom: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  padding-bottom: calc(
+    #{map.get($select, 'padding-vertical')} - #{map.get(
+        $select,
+        'border-width'
+      )}
+  );
   padding-inline-end: calc(
-    #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
+    var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
+        $select,
+        'border-width'
+      )}
   );
-  padding-inline-start: calc(
-    #{map.get(theme.$spacing, 's')} - #{$_border-width}
+  padding-inline-start: calc(var(--s-m) - #{map.get($select, 'border-width')});
+  padding-top: calc(
+    #{map.get($select, 'padding-vertical')} - #{map.get(
+        $select,
+        'border-width'
+      )}
   );
-  padding-top: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   width: 100%;
   z-index: 1;
 
   &::placeholder {
-    color: $_color-placeholder;
+    color: map.get($select, 'color-placeholder');
     opacity: 1;
   }
 
@@ -74,32 +55,42 @@ $_multiple_counter_background: null !default;
   }
 
   &:hover {
-    border-color: $_border-color-hover;
-    box-shadow: $_shadow-hover;
+    border-color: map.get($select, 'border-color-hover');
+    box-shadow: map.get($select, 'shadow-hover');
   }
 
-  &:focus-visible {
-    border-color: $_border-color-focus;
-    border-width: $_border-width-focus;
-    box-shadow: $_shadow-hover;
+  &:focus-visible,
+  &--active {
+    border-color: map.get($select, 'border-color-focus');
+    border-width: map.get($select, 'border-width-focus');
+    box-shadow: map.get($select, 'shadow-hover');
     outline: none;
     padding-bottom: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+      #{map.get($select, 'padding-vertical')} - #{map.get(
+          $select,
+          'border-width-focus'
+        )}
     );
     padding-inline-end: calc(
-      #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
+      var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
+          $select,
+          'border-width-focus'
+        )}
     );
     padding-inline-start: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+      var(--s-m) - #{map.get($select, 'border-width-focus')}
     );
     padding-top: calc(
-      #{map.get(theme.$spacing, 's')} - #{$_border-width-focus}
+      #{map.get($select, 'padding-vertical')} - #{map.get(
+          $select,
+          'border-width-focus'
+        )}
     );
   }
 }
 
 .ecl-select__container {
-  background-color: map.get(theme.$color, 'white-100');
+  background-color: map.get($theme, 'color', 'white-100');
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -107,27 +98,15 @@ $_multiple_counter_background: null !default;
 }
 
 .ecl-select__container--s {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get(theme.$form, 's');
-  }
+  @include mixins.form-width(s);
 }
 
 .ecl-select__container--m {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get(theme.$form, 'm');
-  }
+  @include mixins.form-width(m);
 }
 
 .ecl-select__container--l {
-  width: 100%;
-
-  @include breakpoints.up('m') {
-    width: map.get(theme.$form, 'l');
-  }
+  @include mixins.form-width(l);
 }
 
 .ecl-select__container--hidden {
@@ -144,57 +123,62 @@ $_multiple_counter_background: null !default;
 
 .ecl-select__icon {
   align-items: center;
-  background-color: $_arrow-background-color;
-  border-end-end-radius: $_border-radius;
-  border-start-end-radius: $_border-radius;
+  background-color: map.get($select, 'arrow-background-color');
+  border-end-end-radius: map.get($select, 'border-radius');
+  border-start-end-radius: map.get($select, 'border-radius');
   display: flex;
   height: 100%;
   justify-content: center;
   position: absolute;
   right: 0;
   top: 0;
-  width: $_arrow-width;
+  width: map.get($select, 'arrow-width');
   z-index: 0;
 }
 
 .ecl-select:hover ~ .ecl-select__icon {
-  background-color: $_arrow-background-color-hover;
+  background-color: map.get($select, 'arrow-background-color-hover');
 }
 
-.ecl-select__icon-shape {
-  fill: map.get(theme.$color, 'white-100');
+.ecl-select__icon .ecl-icon {
+  fill: map.get($select, 'icon-fill');
+}
+
+.ecl-select--active {
+  &:hover {
+    cursor: pointer !important;
+  }
+
+  ~ .ecl-select__icon .ecl-icon {
+    transform: rotate(0);
+  }
 }
 
 /*
    * Disabled
    */
 .ecl-select__container--disabled {
-  background-color: map.get(theme.$color, 'white-100');
+  opacity: 0.75;
+  background-color: map.get($theme, 'color', 'white-100');
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,
   .ecl-select:hover ~ .ecl-select__icon,
   .ecl-select:focus ~ .ecl-select__icon {
-    background-color: rgba($_arrow-background-color, 0.5);
-  }
-
-  .ecl-select__icon-shape {
-    fill: map.get(theme.$color, 'white-100');
+    opacity: 0.75;
   }
 
   .ecl-select {
-    border-color: $_border-color-disabled;
-    color: map.get(theme.$color, 'grey-50');
     cursor: not-allowed;
-  }
 
-  .ecl-select::placeholder {
-    color: rgba($_color-placeholder, 0.5);
+    &::placeholder {
+      opacity: 0.75;
+    }
   }
 
   .ecl-select:hover {
-    border-color: $_border-color-disabled;
-    box-shadow: $_shadow;
+    border-color: map.get($select, 'border-color-disabled');
+    box-shadow: map.get($select, 'shadow');
   }
 }
 
@@ -204,28 +188,28 @@ $_multiple_counter_background: null !default;
 .ecl-select__container--invalid {
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon {
-    background-color: $_arrow-background-color-invalid;
+    background-color: map.get($select, 'arrow-background-color-invalid');
   }
 
   .ecl-select:hover ~ .ecl-select__icon {
-    background-color: $_arrow-background-color-invalid-hover;
+    background-color: map.get($select, 'arrow-background-color-invalid-hover');
   }
 
   .ecl-select:focus-visible ~ .ecl-select__icon {
-    background-color: $_arrow-background-invalid-focus;
+    background-color: map.get($select, 'arrow-background-invalid-focus');
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select:not(:focus-visible) {
-    border-color: $_border-color-invalid;
+    border-color: map.get($select, 'border-color-invalid');
   }
 
   .ecl-select:hover {
-    border-color: $_border-color-invalid-hover;
+    border-color: map.get($select, 'border-color-invalid-hover');
   }
 
   .ecl-select:focus {
-    border-color: $_border-color-focus;
+    border-color: map.get($select, 'border-color-focus');
   }
 }
 
@@ -239,87 +223,86 @@ $_multiple_counter_background: null !default;
 
 .ecl-select__multiple {
   cursor: pointer;
+  display: inline-block;
   position: relative;
 
   .ecl-select__multiple-dropdown {
-    background-color: $_multiple-dropdown-background-color;
-    border: $_multiple-dropdown-border;
-    border-radius: $_multiple-dropdown-border-radius;
+    background-color: map.get($select, 'multiple-dropdown-background-color');
+    border: map.get($select, 'multiple-dropdown-border');
+    border-radius: map.get($select, 'multiple-dropdown-border-radius');
     cursor: default;
-    box-shadow: $_multiple-dropdown-shadow;
+    box-shadow: map.get($select, 'multiple-dropdown-shadow');
     box-sizing: border-box;
-    min-width: map.get(theme.$form, 'm');
+    margin-top: map.get($select, 'multiple-dropdown-margin');
+    min-width: map.get($theme, 'form', 'm');
+    padding-bottom: var(--s-m);
     position: absolute;
-    z-index: map.get(theme.$z-index, 'dropdown');
+    z-index: map.get($theme, 'z-index', 'dropdown');
   }
 
   .ecl-text-input {
-    margin: $_multiple-dropdown-input-margin;
-    width: $_multiple-dropdown-input-width;
-  }
-
-  .ecl-select__multiple-all {
-    border-bottom: 1px solid $_multiple-dropdown-separator-color;
+    margin: map.get($select, 'multiple-dropdown-input-margin');
+    width: map.get($select, 'multiple-dropdown-input-width');
   }
 
   .ecl-select__multiple-options {
     box-sizing: border-box;
-    max-height: $_multiple-dropdown-container-max-height;
+    max-height: map.get($select, 'multiple-dropdown-container-max-height');
     overflow-y: auto;
-    padding: map.get(theme.$spacing, 's') 0;
   }
 
   .ecl-checkbox__label {
-    padding-bottom: $_multiple-checkbox-label-vertical-padding;
-    padding-inline-start: map.get(theme.$spacing, 's');
-    padding-inline-end: map.get(theme.$spacing, 's');
-    padding-top: $_multiple-checkbox-label-vertical-padding;
-    width: calc(
-      100% - #{map.get(theme.$spacing, 's')} - #{map.get(theme.$spacing, 's')}
+    padding-bottom: map.get(
+      $select,
+      'multiple-checkbox-label-vertical-padding'
     );
-  }
-
-  .ecl-checkbox ~ .ecl-checkbox {
-    margin: 0;
+    padding-inline-start: var(--s-m);
+    padding-inline-end: var(--s-m);
+    padding-top: map.get($select, 'multiple-checkbox-label-vertical-padding');
+    width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
   }
 
   .ecl-checkbox__label:hover,
   .ecl-checkbox__label:focus {
-    background-color: $_multiple-checkbox-background-hover-color;
+    background-color: map.get(
+      $select,
+      'multiple-checkbox-background-hover-color'
+    );
   }
 
   .ecl-select__multiple-group {
-    border-bottom: 1px solid $_group-separator-color;
-    margin: 0 map.get(theme.$spacing, 's');
-    padding: map.get(theme.$spacing, 's') 0;
+    border-bottom: 1px solid map.get($select, 'group-separator-color');
+    border-top: 1px solid map.get($select, 'group-separator-color');
+    margin: 0 var(--s-m);
+    padding: var(--s-s) 0;
 
     &:first-child {
       padding-top: 0;
     }
 
     .ecl-checkbox__label {
-      margin-inline-start: -#{map.get(theme.$spacing, 's')};
-      margin-inline-end: -#{map.get(theme.$spacing, 's')};
+      margin-inline-start: calc(-1 * var(--s-m));
+      margin-inline-end: calc(-1 * var(--s-m));
       width: 100%;
     }
   }
 
   .ecl-select__multiple-group + .ecl-checkbox {
-    margin-top: map.get(theme.$spacing, 's');
+    margin-top: var(--s-s);
   }
 
   .ecl-select__multiple-group__title {
-    color: $_group-title-color;
-    font: $_group-title-font;
-    font-weight: map.get(theme.$font-weight, 'bold');
-    margin: map.get(theme.$spacing, 'xs') 0;
+    color: map.get($select, 'group-title-color');
+    font: map.get($select, 'group-title-font');
+    font-weight: map.get($theme, 'font-weight', 'bold');
+    margin: 0 0 var(--s-2xs);
   }
 
   .ecl-select__multiple-no-results {
     align-items: center;
-    color: map.get(theme.$color, 'grey-100');
+    color: var(--c-d);
     display: flex;
-    font: map.get(theme.$font, 'm');
+    font: var(--f-m);
     height: 100%;
     justify-content: center;
     min-height: 100px;
@@ -327,37 +310,59 @@ $_multiple_counter_background: null !default;
   }
 
   .ecl-select-multiple-toolbar {
-    border-top: 1px solid $_multiple-dropdown-separator-color;
+    border-top: 1px solid
+      map.get($select, 'multiple-dropdown-toolbar-separator-color');
     display: flex;
-
-    * {
-      flex-basis: 50%;
-      flex-grow: 1;
-    }
+    flex-direction: column;
+    padding: var(--s-s) var(--s-m) 0;
 
     .ecl-button + .ecl-button {
-      border-radius: 0 0 4px;
+      margin-top: var(--s-m);
+    }
+  }
+
+  .ecl-select__multiple-all {
+    border-bottom: 1px solid
+      map.get($select, 'multiple-dropdown-separator-color');
+    margin-bottom: var(--s-s);
+    padding-bottom: var(--s-s);
+
+    @if map-has-key($select, 'multiple-select-all-after') {
+      &::after {
+        content: '';
+        display: inline-block;
+        height: 1px;
+        margin: 0 auto;
+        position: relative;
+        bottom: calc(-1 * var(--s-s));
+        width: calc(100% - (#{var(--s-m)} * 2));
+        background: var(--c-n);
+      }
+    }
+
+    + .ecl-select__multiple-options > .ecl-select__multiple-group {
+      border-top: none;
     }
   }
 
   .ecl-select-multiple-selections-counter {
     display: none;
-    left: map.get(theme.$spacing, 's');
+    left: var(--s-m);
     position: absolute;
-    top: 12%;
+    top: 14%;
 
     * {
       align-items: center;
-      background-color: $_multiple_counter_background;
-      border-radius: 50%;
-      color: map.get(theme.$color, 'white');
+      background-color: map.get($select, 'multiple_counter_background');
+      border-radius: 0.75rem;
+      color: map.get($select, 'counter-color');
       display: inline-flex;
-      font: map.get(theme.$font, 's');
+      font: var(--f-s);
       height: auto;
       justify-content: center;
       position: relative;
       min-width: 1rem;
-      padding: map.get(theme.$spacing, '2xs');
+      padding: var(--s-2xs);
       text-align: center;
       width: 100%;
 
@@ -377,10 +382,13 @@ $_multiple_counter_background: null !default;
     display: block;
 
     + .ecl-select {
-      padding-inline-start: 3rem;
+      padding-inline-start: calc(3.5rem - #{map.get($select, 'border-width')});
 
-      &:focus-visible {
-        padding-inline-start: calc(3rem - 2px);
+      &:focus-visible,
+      &--active {
+        padding-inline-start: calc(
+          3.5rem - #{map.get($select, 'border-width-focus')}
+        );
       }
     }
   }

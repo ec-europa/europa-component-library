@@ -2,8 +2,16 @@
 
 The following guidelines aim to facilitate migration between ECL v3 to v4.
 
+- [Js modifications](#js-modifications)
 - [Style modifications](#style-modifications)
 - [Component modifications](#component-modifications)
+
+## Js modifications
+
+- The ECL javascript is not bundling anymore `pikaday`, therefore this library needs to be loaded by the project using ECL, it is only
+  needed when a `datepicker` instance is present in the page.
+- There is no hard dependency on `moment.js` anymore, this library is only needed when customising the default format for the dates, the default
+  in ECL is `DD-MM-YYYY`. If the format is customised but moment is not loaded there will not be errors in the console but the chosen format would not be consistently shown.
 
 ## Style modifications
 
@@ -97,6 +105,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Icon size is now `l` instead of `m`
 
+### Featured item
+
+- Variant `extended` has been renamed `highlight` to be consistent with other components
+
 ### File
 
 - File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating
@@ -185,6 +197,13 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon in the search button is now placed before the label
 - Search button is now using existing variant of the button; it was previously using class `ecl-button--search`, which has no definition.
   Please note that EC search form uses ghost button, while EU button uses primary button
+
+### Select
+
+- Both "variants" are now using javascript. For the single and multiple select a selector `ecl-select--active` is toggled in order to apply a transformation to the toggle icon.
+- The markup for the dropdwon toggle has changed, it is now a ghost button, not focusable.
+- A default label is provided for this button (although hidden via css), you're invited to customise it to your specific needs, the parameter name is `toggle_label`.
+- Icon size is now different in EC and EU, `xs` for EC and `s` for EU. A parameter named `icon_size` is expected in the input object to set this. The icon in the multiple select is handled via js so it is not necessary to manage that through the data passed to the template.
 
 ### Site footer
 
