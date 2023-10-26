@@ -5,6 +5,7 @@ exports[`Select Default renders correctly 1`] = `
   <select
     aria-label="country"
     class="ecl-select"
+    data-ecl-auto-init="Select"
     id="select-default"
     name="country"
   >
@@ -82,15 +83,32 @@ exports[`Select Default renders correctly 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -100,8 +118,7 @@ exports[`Select Default renders correctly with extra attributes 1`] = `
   <select
     aria-label="country"
     class="ecl-select"
-    data-test="data-test-value"
-    data-test-1="data-test-value-1"
+    data-ecl-auto-init="Select"
     id="select-default"
     name="country"
     required=""
@@ -180,15 +197,32 @@ exports[`Select Default renders correctly with extra attributes 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -198,6 +232,7 @@ exports[`Select Default renders correctly with extra class names 1`] = `
   <select
     aria-label="country"
     class="ecl-select custom-class custom-class--test"
+    data-ecl-auto-init="Select"
     id="select-default"
     name="country"
     required=""
@@ -276,15 +311,32 @@ exports[`Select Default renders correctly with extra class names 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -294,6 +346,7 @@ exports[`Select Disabled renders correctly 1`] = `
   <select
     aria-label="country"
     class="ecl-select"
+    data-ecl-auto-init="Select"
     disabled=""
     id="select-default"
     name="country"
@@ -372,15 +425,33 @@ exports[`Select Disabled renders correctly 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      disabled=""
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -393,8 +464,8 @@ exports[`Select Multiple renders correctly 1`] = `
     data-ecl-auto-init="Select"
     data-ecl-select-all="Select all"
     data-ecl-select-clear-all="Clear all"
-    data-ecl-select-close="Close"
-    data-ecl-select-default="Select an item"
+    data-ecl-select-close="Apply"
+    data-ecl-select-default="Choose options"
     data-ecl-select-multiple=""
     data-ecl-select-no-results="No results found"
     data-ecl-select-search="Enter keyword"
@@ -476,15 +547,32 @@ exports[`Select Multiple renders correctly 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -494,6 +582,7 @@ exports[`Select Required renders correctly 1`] = `
   <select
     aria-label="country"
     class="ecl-select"
+    data-ecl-auto-init="Select"
     id="select-default"
     name="country"
     required=""
@@ -572,15 +661,32 @@ exports[`Select Required renders correctly 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
@@ -590,6 +696,7 @@ exports[`Select With error renders correctly 1`] = `
   <select
     aria-label="country"
     class="ecl-select"
+    data-ecl-auto-init="Select"
     id="select-default"
     name="country"
   >
@@ -667,15 +774,32 @@ exports[`Select With error renders correctly 1`] = `
   <div
     class="ecl-select__icon"
   >
-    <svg
-      aria-hidden="true"
-      class="ecl-icon ecl-icon--s ecl-icon--rotate-180 ecl-select__icon-shape"
-      focusable="false"
+    <button
+      class="ecl-button ecl-button--ghost ecl-button--icon-only"
+      tabindex="-1"
+      type="button"
     >
-      <use
-        xlink:href="/icons.svg#corner-arrow"
-      />
-    </svg>
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Toggle dropdown
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
   </div>
 </jest>
 `;
