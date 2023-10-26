@@ -5,6 +5,33 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.11.0 (2023-10-26)
+
+#### :bug: Bug Fix
+
+* [#3073](https://github.com/ec-europa/europa-component-library/pull/3073) fix(file-upload): Fixing display of optional text - FRONT-4120
+* [#3047](https://github.com/ec-europa/europa-component-library/pull/3047) fix(site-header): Fixing handleResize method - FRONT-4076
+* [#3044](https://github.com/ec-europa/europa-component-library/pull/3044) fix(banner): Fixing show credit control - FRONT-4100
+* [#3039](https://github.com/ec-europa/europa-component-library/pull/3039) fix(menu): fix line display - FRONT-4093
+#### :nail_care: Enhancement
+
+* [#3068](https://github.com/ec-europa/europa-component-library/pull/3068) feat(ui): Making pictures clickable when needed - FRONT-4115
+* [#3072](https://github.com/ec-europa/europa-component-library/pull/3072) chore(controls): Adding conditions for toggable controls - FRONT-4118
+* [#3046](https://github.com/ec-europa/europa-component-library/pull/3046) feat(favicon): provide adaptive favicon - FRONT-4098
+* [#3051](https://github.com/ec-europa/europa-component-library/pull/3051) feat(logo): update AR logo - FRONT-4092
+* [#3045](https://github.com/ec-europa/europa-component-library/pull/3045) feat(picture): Allow empty alt attribute for the image - FRONT-4099
+
+#### :house: Internal
+
+* [#3078](https://github.com/ec-europa/europa-component-library/pull/3078) chore(deps): Updates 24-10-23
+* [#3070](https://github.com/ec-europa/europa-component-library/pull/3070) chore(deps): Updates 19-10-23
+* [#3064](https://github.com/ec-europa/europa-component-library/pull/3064) chore(deps): Updates 16-10-23
+* [#3058](https://github.com/ec-europa/europa-component-library/pull/3058) chore(deps):  Updates 09-10-23
+* [#3048](https://github.com/ec-europa/europa-component-library/pull/3048) chore(deps): Green and orange updates - 26-09-23
+* [#3041](https://github.com/ec-europa/europa-component-library/pull/3041) chore(deps):  Updates 25-09-23
+* [#3034](https://github.com/ec-europa/europa-component-library/pull/3034) fix(navigation-list): Aligning website showcase - FRONT-4091
+* [#3035](https://github.com/ec-europa/europa-component-library/pull/3035) chore(deps): Updates 15-09-23
+
 ## 3.10.0 (2023-09-12)
 
 #### :bug: Bug Fix
