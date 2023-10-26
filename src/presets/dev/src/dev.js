@@ -7,6 +7,7 @@ export * from '@ecl/vanilla-component-carousel';
 export * from '@ecl/vanilla-component-category-filter';
 export * from '@ecl/vanilla-component-datepicker';
 export * from '@ecl/vanilla-component-breadcrumb';
+export * from '@ecl/vanilla-component-content-block';
 export * from '@ecl/vanilla-component-description-list';
 export * from '@ecl/vanilla-component-expandable';
 export * from '@ecl/vanilla-component-file';

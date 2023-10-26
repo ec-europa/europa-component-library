@@ -41,7 +41,7 @@ exports[`EC Notification Error renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -102,7 +102,7 @@ exports[`EC Notification Info renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -165,7 +165,7 @@ exports[`EC Notification Info renders correctly with extra attributes 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -226,7 +226,7 @@ exports[`EC Notification Info renders correctly with extra class names 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -236,6 +236,118 @@ exports[`EC Notification Info renders correctly with extra class names 1`] = `
       >
         Information notification
       </div>
+      <div
+        class="ecl-notification__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`EC Notification Info renders correctly without description 1`] = `
+<jest>
+  <div
+    class="ecl-notification ecl-notification--info"
+    data-ecl-auto-init="Notification"
+    data-ecl-notification=""
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--l ecl-notification__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-notification__content"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-notification__close ecl-button--icon-only"
+        data-ecl-notification-close=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Close
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close-filled"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ecl-notification__title"
+      >
+        Information notification
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`EC Notification Info renders correctly without title 1`] = `
+<jest>
+  <div
+    class="ecl-notification ecl-notification--info"
+    data-ecl-auto-init="Notification"
+    data-ecl-notification=""
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--l ecl-notification__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-notification__content"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-notification__close ecl-button--icon-only"
+        data-ecl-notification-close=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Close
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close-filled"
+            />
+          </svg>
+        </span>
+      </button>
       <div
         class="ecl-notification__description"
       >
@@ -287,7 +399,7 @@ exports[`EC Notification Success renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -348,7 +460,7 @@ exports[`EC Notification Warning renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -409,7 +521,7 @@ exports[`EU Notification Error renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -470,7 +582,7 @@ exports[`EU Notification Info renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -533,7 +645,7 @@ exports[`EU Notification Info renders correctly with extra attributes 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -594,7 +706,7 @@ exports[`EU Notification Info renders correctly with extra class names 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -604,6 +716,118 @@ exports[`EU Notification Info renders correctly with extra class names 1`] = `
       >
         Information notification
       </div>
+      <div
+        class="ecl-notification__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`EU Notification Info renders correctly without description 1`] = `
+<jest>
+  <div
+    class="ecl-notification ecl-notification--info"
+    data-ecl-auto-init="Notification"
+    data-ecl-notification=""
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-notification__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-notification__content"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-notification__close ecl-button--icon-only"
+        data-ecl-notification-close=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Close
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close-filled"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ecl-notification__title"
+      >
+        Information notification
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`EU Notification Info renders correctly without title 1`] = `
+<jest>
+  <div
+    class="ecl-notification ecl-notification--info"
+    data-ecl-auto-init="Notification"
+    data-ecl-notification=""
+    role="alert"
+  >
+    <svg
+      aria-hidden="true"
+      class="ecl-icon ecl-icon--m ecl-notification__icon"
+      focusable="false"
+    >
+      <use
+        xlink:href="/icons.svg#information"
+      />
+    </svg>
+    <div
+      class="ecl-notification__content"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-notification__close ecl-button--icon-only"
+        data-ecl-notification-close=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Close
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--s ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close-filled"
+            />
+          </svg>
+        </span>
+      </button>
       <div
         class="ecl-notification__description"
       >
@@ -655,7 +879,7 @@ exports[`EU Notification Success renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
@@ -716,7 +940,7 @@ exports[`EU Notification Warning renders correctly 1`] = `
             focusable="false"
           >
             <use
-              xlink:href="/icons.svg#close"
+              xlink:href="/icons.svg#close-filled"
             />
           </svg>
         </span>
