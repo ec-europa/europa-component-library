@@ -34,5 +34,14 @@ describe('Modal', () => {
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
+
+    test('renders correctly with old data', () => {
+      expect.assertions(1);
+
+      const clone = JSON.parse(JSON.stringify(demoData));
+      delete clone.body_fixed;
+
+      return expect(render(clone)).resolves.toMatchSnapshot();
+    });
   });
 });

@@ -10,6 +10,8 @@ npm install --save @ecl/twig-component-modal
 
 - **"id"** (string) (default: '') id of the modal
 - **"toggle_id"** (string) (default: '') id of the element to toggle the modal
+- **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
+- **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"close_label"** (string) (default: '') Label of the close button (for screen reader only)
 - **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
@@ -22,7 +24,8 @@ npm install --save @ecl/twig-component-modal
 ### Blocks:
 
 - **"header"**: free block to put any content in the modal header
-- **"body"**: free block to put any content in the modal body
+- **"body"**: free block to put any content in the modal body (scrollable)
+- **"body_fixed"**: free block to put any content at the bottom of the modal body (not scrollable)
 - **"footer"**: free block to put any content in the modal footer
 
 ### Example:
@@ -42,6 +45,7 @@ npm install --save @ecl/twig-component-modal
   },
   header: 'Lorem ipsum dolor sit amet',
   body: 'Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.',
+  body_fixed: 'Fixed content',
   buttons: [
     {
       label: 'Secondary action',
