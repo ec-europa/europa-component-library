@@ -36,6 +36,7 @@
 {% set _links = links|default([]) %}
 {% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-content-block' %}
+{% set _title_attrs = '' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -56,7 +57,12 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-auto-init="ContentBlock"
+  data-ecl-content-block
+>
   {% if _labels is defined and _labels is not empty and _labels is iterable %}
     <ul class="ecl-content-block__label-container">
       {% for _label in _labels %}
@@ -78,7 +84,10 @@
   {% endif %}
 
   {% if _title is not empty %}
-    <h1 class="ecl-content-block__title">
+    {%- if _title.link is defined -%}
+      {% set _title_attrs = 'data-ecl-title-link' %}
+    {%- endif -%}
+    <h1 class="ecl-content-block__title"{{ _title_attrs }}>
     {%- if _title.link is defined -%}
       {% include '@ecl/link/link.html.twig' with _title only %}
     {# Backward compatibility #}
