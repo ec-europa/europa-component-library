@@ -1,4 +1,4 @@
-import { queryAll } from '@ecl/dom-utils';
+import { queryAll, queryOne } from '@ecl/dom-utils';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -30,6 +30,7 @@ export class Modal {
     {
       toggleSelector = '',
       closeSelector = '[data-ecl-modal-close]',
+      scrollSelector = '[data-ecl-modal-scroll]',
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -46,12 +47,14 @@ export class Modal {
     // Options
     this.toggleSelector = toggleSelector;
     this.closeSelector = closeSelector;
+    this.scrollSelector = scrollSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
     this.close = null;
+    this.scroll = null;
     this.focusTrap = null;
 
     // Bind `this` for use in callbacks
@@ -88,6 +91,7 @@ export class Modal {
 
     // Get other elements
     this.close = queryAll(this.closeSelector, this.element);
+    this.scroll = queryOne(this.scrollSelector, this.element);
 
     // Create focus trap
     this.focusTrap = createFocusTrap(this.element);
@@ -136,6 +140,18 @@ export class Modal {
   }
 
   /**
+   * Check if there is a scroll and display overflow.
+   */
+  checkScroll() {
+    if (!this.scroll) return;
+
+    this.scroll.parentNode.classList.remove('ecl-modal__body--has-scroll');
+    if (this.scroll.scrollHeight > this.scroll.clientHeight) {
+      this.scroll.parentNode.classList.add('ecl-modal__body--has-scroll');
+    }
+  }
+
+  /**
    * Toggles between collapsed/expanded states.
    *
    * @param {Event} e
@@ -165,6 +181,9 @@ export class Modal {
       this.element.setAttribute('open', '');
     }
 
+    // Check scroll
+    this.checkScroll();
+
     // Trap focus
     this.focusTrap.activate();
   }
@@ -180,7 +199,9 @@ export class Modal {
     }
 
     // Untrap focus
-    this.focusTrap.deactivate();
+    if (this.focusTrap.active) {
+      this.focusTrap.deactivate();
+    }
   }
 
   /**

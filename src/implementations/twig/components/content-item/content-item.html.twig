@@ -59,6 +59,7 @@
 {% set _lists = lists|default([]) %}
 {% set _css_class = 'ecl-content-item' %}
 {% set _extra_attributes = '' %}
+{% set _picture_attrs = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -86,16 +87,25 @@
 
 {# Print the result #}
 
-<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<article
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
-    {% set _picture_class = 'ecl-content-item__picture' %}
+    {% set _picture_class = 'ecl-content-item__picture ecl-picture' %}
     {% if _picture.size is not empty %}
       {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.size %}
     {% endif %}
     {% if _picture.position is not empty %}
       {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.position %}
     {% endif %}
-    <picture class="{{ _picture_class }}">
+    {% if _title.link is defined %}
+      {% set _picture_attrs = 'data-ecl-picture-link' %}
+    {% endif %}
+    <picture
+      class="{{ _picture_class }}"
+      {{- _picture_attrs -}}
+    >
       {% if _picture.sources is not empty and _picture.sources is iterable %}
         {% for _source in _picture.sources %}
           <source srcset="{{ _source.src }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">

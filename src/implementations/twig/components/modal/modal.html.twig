@@ -5,6 +5,7 @@
     - "id" (string) (default: ''): id of the modal
     - "toggle_id" (string) (default: ''): id of the element to toggle the modal
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
+    - "size" (string) (default: 'l'): Size of the modal. Could be 's' or 'l' 
     - "icon_path" (string) (default: '') Path to the icon sprite
     - "close_label" (string) (default: '') Label of the close button (for screen reader only)
     - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer
@@ -18,7 +19,8 @@
       ],
   Blocks:
     - "header": free block to put any content in the modal header
-    - "body": free block to put any content in the modal body
+    - "body": free block to put any content in the modal body (scrollable)
+    - "body_fixed": free block to put any content at the bottom of the modal body (not scrollable)
     - "footer": free block to put any content in the modal footer
 #}
 
@@ -27,12 +29,14 @@
 {% set _id = id|default('') %}
 {% set _toggle_id = toggle_id|default('') %}
 {% set _variant = variant|default('') %}
+{% set _size = size|default('l') %}
 {% set _css_class = 'ecl-modal' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _close_label = close_label|default('') %}
 {% set _header = header|default('') %}
 {% set _header_icon = '' %}
 {% set _body = body|default('') %}
+{% set _body_fixed = body_fixed|default('') %}
 {% set _footer = footer|default('') %}
 {% set _buttons = buttons|default({}) %}
 
@@ -42,6 +46,13 @@
   {% set _css_class = _css_class ~ ' ecl-modal--' ~ _variant %}
   {% set _header_icon = _variant %}
 {% endif %}
+
+{% if _size == 's' %}
+  {% set _size_class = 'ecl-col-12 ecl-col-m-6 ecl-col-l-5' %}
+{% else %}
+  {% set _size_class = 'ecl-col-12 ecl-col-m-10 ecl-col-l-8' %}
+{% endif %}
+{% set _css_class = _css_class ~ ' ecl-modal--' ~ _size %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -61,7 +72,8 @@
 
 <dialog data-ecl-auto-init="Modal" id="{{ _id }}" data-ecl-modal-toggle="{{ _toggle_id }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-modal__container ecl-container">
-    <div class="ecl-modal__content ecl-col-12 ecl-col-m-8 ecl-offset-m-2 ecl-col-l-6 ecl-offset-l-3">
+    {% set _content_class = 'ecl-modal__content ' ~ _size_class %}
+    <div class="{{ _content_class }}">
       <header class="ecl-modal__header">
         {% if _header_icon is not empty and _icon_path is not empty %}
           {% include '@ecl/icon/icon.html.twig' with {
@@ -99,9 +111,20 @@
         {% endif -%}
       </header>
 
-      {% if _body is not empty or block('body') is not empty %}
+      {% if _body is not empty or block('body') is not empty or _body_fixed is not empty or block('body_fixed') is not empty %}
       <div class="ecl-modal__body">
-        {%- block body %}{{ _body }}{% endblock -%}
+        {% if _body is not empty or block('body') is not empty %}
+        <div class="ecl-modal__body-scroll" data-ecl-modal-scroll>
+          {%- block body %}{{ _body }}{% endblock -%}
+        </div>
+        <div class="ecl-modal__body-overflow" aria-hidden="true"></div>
+        {% endif %}
+
+        {% if _body_fixed is not empty or block('body_fixed') is not empty %}
+        <div class="ecl-modal__body-fixed">
+          {%- block body_fixed %}{{ _body_fixed }}{% endblock -%}
+        </div>
+        {% endif %}
       </div>
       {% endif %}
 
