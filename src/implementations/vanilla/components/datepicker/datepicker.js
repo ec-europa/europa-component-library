@@ -87,6 +87,10 @@ export class Datepicker {
    * Initialise component.
    */
   init() {
+    if (!ECL.components) {
+      ECL.components = new Map();
+    }
+
     this.direction = getComputedStyle(this.element).direction;
 
     this.picker = new Pikaday({
@@ -124,6 +128,7 @@ export class Datepicker {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
 
     return this.picker;
   }
@@ -138,6 +143,7 @@ export class Datepicker {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 }

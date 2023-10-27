@@ -58,6 +58,11 @@ export class DescriptionList {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.moreItemLabel = this.element.getAttribute(this.moreItemLabelSelector);
     this.visibleItems = this.element.getAttribute(this.visibleItemsSelector);
     this.lists = queryAll(this.listsSelector, this.element);
@@ -83,6 +88,7 @@ export class DescriptionList {
 
       // Set ecl initialized attribute
       this.element.setAttribute('data-ecl-auto-initialized', 'true');
+      ECL.components.set(this.element, this);
     }
   }
 
@@ -129,6 +135,7 @@ export class DescriptionList {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

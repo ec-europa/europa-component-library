@@ -105,6 +105,10 @@ export class SiteHeader {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     // Bind global events
     if (this.attachKeyListener) {
       document.addEventListener('keyup', this.handleKeyboardGlobal);
@@ -163,6 +167,7 @@ export class SiteHeader {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -209,6 +214,7 @@ export class SiteHeader {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

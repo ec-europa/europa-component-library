@@ -40,3 +40,19 @@ var elt = document.querySelector('[data-ecl-news-ticker]');
 var newsTicker = new ECL.NewsTicker(elt);
 newsTicker.init();
 ```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var instance = ECL.components.get('yourElement');
+```
+
+To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+
+```
+var instance = ECL.components.get('yourElement');
+instance.destroy();
+instance.init();
+```

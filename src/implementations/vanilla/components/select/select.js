@@ -242,6 +242,11 @@ export class Select {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.select = this.element;
     const containerClasses = Array.from(this.select.parentElement.classList);
     this.textDefault =
@@ -459,6 +464,7 @@ export class Select {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -511,7 +517,16 @@ export class Select {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
+  }
+
+  /**
+   * Update instance.
+   */
+  update() {
+    this.updateCurrentValue();
+    this.updateSelectionsCount();
   }
 
   /**
