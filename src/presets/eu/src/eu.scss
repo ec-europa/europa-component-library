@@ -76,7 +76,10 @@
   $spinner: var.$spinner
 );
 @use '@ecl/vanilla-component-skip-link/skip-link';
-@use '@ecl/vanilla-component-table/table-eu';
+@use '@ecl/vanilla-component-table/table' with (
+  $theme: theme.$theme,
+  $table: var.$table
+);
 @use '@ecl/vanilla-component-tabs/tabs-eu';
 @use '@ecl/vanilla-component-tag/tag' with (
   $theme: theme.$theme,

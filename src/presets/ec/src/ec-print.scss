@@ -48,7 +48,10 @@
 );
 @use '@ecl/vanilla-component-skip-link/skip-link-print';
 @use '@ecl/vanilla-component-spinner/spinner-print';
-@use '@ecl/vanilla-component-table/table-print';
+@use '@ecl/vanilla-component-table/table-print' with (
+  $theme: theme.$theme,
+  $table: var.$table
+);
 @use '@ecl/vanilla-component-tabs/tabs-print';
 @use '@ecl/vanilla-component-tag/tag-print' with (
   $theme: theme.$theme
