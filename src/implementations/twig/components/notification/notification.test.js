@@ -51,6 +51,20 @@ expect.extend(toHaveNoViolations);
         return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
       });
 
+      test('renders correctly without title', () => {
+        expect.assertions(1);
+        const withoutTitle = { ...dataInfo, title: '' };
+
+        return expect(render(withoutTitle)).resolves.toMatchSnapshot();
+      });
+
+      test('renders correctly without description', () => {
+        expect.assertions(1);
+        const withoutDesc = { ...dataInfo, description: '' };
+
+        return expect(render(withoutDesc)).resolves.toMatchSnapshot();
+      });
+
       test(`passes the accessibility tests`, async () => {
         expect(
           await axe(await renderTwigFileAsHtml(template, dataInfo)),
