@@ -28,6 +28,7 @@ const dataStandaloneCheckbox = {
   },
 };
 dataText.invalid_icon.size = system === 'ec' ? 's' : 'm';
+dataSingle.input.icon_size = system === 'ec' ? 'xs' : 's';
 
 const getArgs = (data) => {
   const args = {
@@ -44,6 +45,10 @@ const getArgs = (data) => {
       input_type: data.input.input_type,
     },
   };
+
+  if (data.input.width) {
+    args.width = data.input.width;
+  }
 
   Object.assign(args.input, data.input);
   return args;

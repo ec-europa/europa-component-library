@@ -198,6 +198,13 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Search button is now using existing variant of the button; it was previously using class `ecl-button--search`, which has no definition.
   Please note that EC search form uses ghost button, while EU button uses primary button
 
+### Select
+
+- Both "variants" are now using javascript. For the single and multiple select a selector `ecl-select--active` is toggled in order to apply a transformation to the toggle icon.
+- The markup for the dropdwon toggle has changed, it is now a ghost button, not focusable.
+- A default label is provided for this button (although hidden via css), you're invited to customise it to your specific needs, the parameter name is `toggle_label`.
+- Icon size is now different in EC and EU, `xs` for EC and `s` for EU. A parameter named `icon_size` is expected in the input object to set this. The icon in the multiple select is handled via js so it is not necessary to manage that through the data passed to the template.
+
 ### Site footer
 
 - Links in EC site footer are now using links with the parameter `inverted`, instead of defining custom CSS.

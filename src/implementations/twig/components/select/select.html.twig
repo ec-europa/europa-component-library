@@ -8,11 +8,13 @@
     - "label" (string) (default: '')
     - "disabled" (boolean) (default: false)
     - "selected" (boolean) (default: false)
+  - "icon_size": (string) (default: xs)
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
   - "name" (string) (default: '')
+  - "toggle_label": (default: 'Toggle dropdown')
   - "width" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
   - "multiple" (boolean) (optional) (default: false) For the multiple select
@@ -45,12 +47,14 @@
 {% set _required = required|default(false) %}
 {% set _name = name|default('') %}
 {% set _icon_path = icon_path|default(false) %}
+{% set _icon_size = icon_size|default('xs') %}
 {% set _width = width|default('m') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
+{% set _toggle_label = toggle_label|default('Toggle dropdown') %}
 {% set _multiple = multiple|default(false) %}
 {% set _multiple_placeholder = multiple_placeholder|default('') %}
 {% set _multiple_all_text = multiple_all_text|default('') %}
@@ -63,10 +67,10 @@
 {% set _css_class = ['ecl-select'] %}
 {% set _css_class = _css_class|join(' ') %}
 {% set _extra_attributes = '' %}
+{% set extra_attributes = [{ name: 'data-ecl-auto-init', value: 'Select' }] %}
 {% if _multiple %}
   {% set extra_attributes = [
     { name: 'multiple' },
-    { name: 'data-ecl-auto-init', value: 'Select' },
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-search', value: _multiple_search_text },
@@ -74,7 +78,7 @@
     { name: 'data-ecl-select-all', value: _multiple_all_text },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
     { name: 'data-ecl-select-close', value: _multiple_close_text }
-  ]|merge(extra_attributes|default([])) %}
+  ]|merge(extra_attributes) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -148,16 +152,20 @@
       {% endif %}
     {% endfor %}
   </select>
-
   <div class="ecl-select__icon">
-    {% include '@ecl/icon/icon.html.twig' with {
+    {% include '@ecl/button/button.html.twig' with {
+      hide_label: true,
+      type: 'button',
+      variant: 'ghost',
+      disabled: _disabled,
+      label: _toggle_label,
       icon: {
         path: _icon_path,
-        name: "corner-arrow",
-        size: "s",
-        transform: "rotate-180"
+        name: 'corner-arrow',
+        size: _icon_size,
+        transform: 'rotate-180'
       },
-      extra_classes: "ecl-select__icon-shape"
+      extra_attributes: [{ name: 'tabindex', value: -1 }],
     } only %}
   </div>
 

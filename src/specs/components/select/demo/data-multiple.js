@@ -83,11 +83,11 @@ module.exports = {
       },
     ],
     multiple: true,
-    multiple_placeholder: 'Select an item',
+    multiple_placeholder: 'Choose options',
     multiple_search_text: 'Enter keyword',
     multiple_search_no_results_text: 'No results found',
     multiple_all_text: 'Select all',
-    multiple_close_text: 'Close',
+    multiple_close_text: 'Apply',
     multiple_clear_all_text: 'Clear all',
   },
 };
