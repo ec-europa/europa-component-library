@@ -57,7 +57,9 @@
     );
     head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
     head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
-    head.appendChild(createLink('./styles/ecl-eu-default-print.css', 'print'));
+    head.appendChild(
+      createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
+    );
   }
 </script>
 <script type="text/javascript" src="./scripts/ecl-eu.js"></script>
