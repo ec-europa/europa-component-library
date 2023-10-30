@@ -72,7 +72,11 @@
   $featured-item: var.$featured-item,
   $featured-item-print: var.$featured-item-print
 );
-@use '@ecl/vanilla-component-list-illustration/list-illustration-print-eu';
+@use '@ecl/vanilla-component-list-illustration/list-illustration-print' with (
+  $theme: theme.$theme,
+  $list-illustration: var.$list-illustration,
+  $list-illustration-print: var.$list-illustration-print
+);
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
 @use '@ecl/vanilla-component-card/card-print';
 @use '@ecl/vanilla-component-content-block/content-block-print' with (

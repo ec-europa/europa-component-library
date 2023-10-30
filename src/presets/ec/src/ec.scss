@@ -99,7 +99,10 @@
   $theme: theme.$theme,
   $featured-item: var.$featured-item
 );
-@use '@ecl/vanilla-component-list-illustration/list-illustration-ec';
+@use '@ecl/vanilla-component-list-illustration/list-illustration' with (
+  $theme: theme.$theme,
+  $list-illustration: var.$list-illustration
+);
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
   $theme: theme.$theme,
   $breadcrumb: var.$breadcrumb

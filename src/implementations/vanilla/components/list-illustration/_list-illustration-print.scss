@@ -3,19 +3,13 @@
  * @define list-illustration
  */
 
-@use 'sass:math';
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_title-color: null !default;
-$_description-color: null !default;
-$_background-color: null !default;
-$_value-font-mobile: null !default;
-$_value-font-weight-mobile: null !default;
-$_value-font-desktop: null !default;
-$_value-font-weight-desktop: null !default;
-$_icon_color: null !default;
+// Exposed variables
+$theme: null !default;
+$list-illustration: null !default;
+$list-illustration-print: null !default;
 
 .ecl-list-illustration {
   margin: 0;
@@ -24,11 +18,11 @@ $_icon_color: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: row;
-  padding: map.get(theme.$spacing-print, 'm');
+  padding: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-list-illustration__image {
-  margin-inline-end: map.get(theme.$spacing-print, 'm');
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
   object-fit: cover;
 
   &:not(.ecl-list-illustration__image--square) {
@@ -56,31 +50,31 @@ $_icon_color: null !default;
 }
 
 .ecl-list-illustration__icon {
-  color: $_icon-color;
-  margin-bottom: map.get(theme.$spacing-print, 'm');
+  color: map.get($list-illustration, 'icon-color');
+  margin-bottom: map.get($theme, 'spacing-print', 'm');
 }
 
 .ecl-list-illustration__value {
-  color: $_title-color;
-  font: $_value-font-mobile;
-  font-weight: $_value-font-weight-mobile;
-  margin-bottom: map.get(theme.$spacing-print, 'xs');
+  color: map.get($list-illustration, 'title-color');
+  font: map.get($list-illustration-print, 'value-font-mobile');
+  font-weight: map.get($list-illustration-print, 'value-font-weight-mobile');
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-list-illustration__title {
-  color: $_title-color;
-  font: map.get(theme.$font-prolonged-print, 'xl');
+  color: map.get($list-illustration, 'title-color');
+  font: map.get($theme, 'font-prolonged-print', 'xl');
 }
 
 .ecl-list-illustration__description {
-  color: $_description-color;
-  font: map.get(theme.$font-prolonged-print, 'm');
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  color: map.get($list-illustration, 'description-color');
+  font: map.get($theme, 'font-prolonged-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 // Zebra
 .ecl-list-illustration--zebra {
   .ecl-list-illustration__item:nth-child(even) {
-    background-color: $_background-color;
+    background-color: map.get($list-illustration, 'background-color');
   }
 }

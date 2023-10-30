@@ -61,7 +61,7 @@ const getArgs = (data, variant) => {
   }
   if (data.items[0].icon) {
     args.icon = data.items[0].icon.name;
-    args.icon_size = 's';
+    args.icon_size = 'l';
   }
 
   if (variant.includes('horizontal')) {
@@ -129,6 +129,10 @@ const getArgTypes = (data, variant) => {
       name: 'centered',
       type: { name: 'boolean' },
       description: 'Center the content of list items',
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
@@ -140,6 +144,10 @@ const getArgTypes = (data, variant) => {
       name: 'zebra',
       type: { name: 'boolean' },
       description: 'Differentiate lines using zebra display',
+      mapping: {
+        0: false,
+        1: true,
+      },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: true },
@@ -181,7 +189,11 @@ const getArgTypes = (data, variant) => {
     if: { arg: 'show_description' },
   };
 
-  if (data.items[0].picture && data.items[0].picture.img.src) {
+  if (
+    data.items[0].picture &&
+    data.items[0].picture.img &&
+    data.items[0].picture.img.src
+  ) {
     argTypes.picture = {
       name: 'image',
       type: { name: 'string' },
@@ -204,31 +216,32 @@ const getArgTypes = (data, variant) => {
       },
       if: { arg: 'show_image' },
     };
-    argTypes.image_size = {
-      name: 'image size',
-      type: { name: 'select' },
-      description: 'Possible image sizes (square image only)',
-      options: ['s', 'm', 'l'],
-      control: {
-        labels: {
-          s: 'small',
-          m: 'medium',
-          l: 'large',
-        },
-      },
-      mapping: {
+  }
+
+  argTypes.image_size = {
+    name: 'image size',
+    type: { name: 'select' },
+    description: 'Possible image sizes (square image only)',
+    options: ['s', 'm', 'l'],
+    control: {
+      labels: {
         s: 'small',
         m: 'medium',
         l: 'large',
       },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Image',
-      },
-      if: { arg: 'show_image' },
-    };
-  }
+    },
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Image',
+    },
+    if: { arg: 'image_squared' },
+  };
 
   if (data.items[0].icon) {
     argTypes.icon = {
