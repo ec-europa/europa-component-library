@@ -2,6 +2,11 @@
 @use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/theme-ec/variables' as var;
 
+// Layout
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
+  $theme: theme.$theme
+);
+
 @use '@ecl/vanilla-component-blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,
@@ -33,7 +38,11 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-utility-typography/typography-print-ec';
+@use '@ecl/vanilla-utility-typography/typography-print' with (
+  $theme: theme.$theme,
+  $typography: var.$typography,
+  $typography-print: var.$typography-print
+);
 
 html {
   font-family: #{map.get(theme.$font-family-print, 'default')};

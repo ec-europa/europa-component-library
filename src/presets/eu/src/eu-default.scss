@@ -2,6 +2,11 @@
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/variables' as var;
 
+// Layout
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
+  $theme: theme.$theme
+);
+
 @use '@ecl/vanilla-component-blockquote/blockquote' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote
@@ -30,7 +35,10 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-utility-typography/typography-eu';
+@use '@ecl/vanilla-utility-typography/typography' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
 
 // stylelint-disable no-descending-specificity
 .ecl button:not([class*='ecl-'], [class*='wt-']),

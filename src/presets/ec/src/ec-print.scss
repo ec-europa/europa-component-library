@@ -6,6 +6,9 @@
 @use '@ecl/vanilla-component-icon/icon-print';
 
 // Layout
+@use '@ecl/vanilla-layout-grid/grid' with (
+  $theme: theme.$theme
+);
 
 // Forms
 @use '@ecl/vanilla-component-form-group/form-group-print';
@@ -141,20 +144,38 @@
 @use '@ecl/vanilla-component-site-header/site-header-print';
 
 // Utilities
-@use '@ecl/vanilla-utility-background/background-print';
-@use '@ecl/vanilla-utility-border/border-print';
+@use '@ecl/vanilla-utility-background/background-print' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-border/border-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-utility-clearfix/clearfix';
 @use '@ecl/vanilla-utility-dimension/dimension-print';
-@use '@ecl/vanilla-utility-flex/flex-print';
+@use '@ecl/vanilla-utility-flex/flex-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-utility-float/float';
 @use '@ecl/vanilla-utility-disablescroll/disablescroll';
-@use '@ecl/vanilla-utility-display/display-print';
-@use '@ecl/vanilla-utility-media/media-print';
+@use '@ecl/vanilla-utility-display/display-print' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-media/media-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-utility-print/print-print';
 @use '@ecl/vanilla-utility-screen-reader/screen-reader';
-@use '@ecl/vanilla-utility-shadow/shadow-print';
-@use '@ecl/vanilla-utility-spacing/spacing-print';
-@use '@ecl/vanilla-utility-typography/typography-print-ec';
+@use '@ecl/vanilla-utility-shadow/shadow-print' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-spacing/spacing-print' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-typography/typography-print' with (
+  $theme: theme.$theme,
+  $typography: var.$typography,
+  $typography-print: var.$typography-print
+);
 @use '@ecl/vanilla-utility-z-index/z-index';
 
 html {
