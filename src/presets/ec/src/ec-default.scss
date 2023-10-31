@@ -27,7 +27,10 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-table/table-ec';
+@use '@ecl/vanilla-component-table/table' with (
+  $theme: theme.$theme,
+  $table: var.$table
+);
 @use '@ecl/vanilla-component-unordered-list/unordered-list' with (
   $theme: theme.$theme,
   $list: var.$list

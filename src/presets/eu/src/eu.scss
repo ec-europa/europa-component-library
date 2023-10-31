@@ -34,7 +34,10 @@
   $theme: theme.$theme,
   $range: var.$range
 );
-@use '@ecl/vanilla-component-select/select-eu';
+@use '@ecl/vanilla-component-select/select' with (
+  $theme: theme.$theme,
+  $select: var.$select
+);
 @use '@ecl/vanilla-component-text-area/text-area' with (
   $theme: theme.$theme,
   $textarea: var.$textarea
@@ -75,7 +78,10 @@
   $spinner: var.$spinner
 );
 @use '@ecl/vanilla-component-skip-link/skip-link';
-@use '@ecl/vanilla-component-table/table-eu';
+@use '@ecl/vanilla-component-table/table' with (
+  $theme: theme.$theme,
+  $table: var.$table
+);
 @use '@ecl/vanilla-component-tabs/tabs-eu';
 @use '@ecl/vanilla-component-tag/tag' with (
   $theme: theme.$theme,
@@ -91,8 +97,14 @@
   $theme: theme.$theme,
   $description-list: var.$description-list
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-eu';
-@use '@ecl/vanilla-component-list-illustration/list-illustration-eu';
+@use '@ecl/vanilla-component-featured-item/featured-item' with (
+  $theme: theme.$theme,
+  $featured-item: var.$featured-item
+);
+@use '@ecl/vanilla-component-list-illustration/list-illustration' with (
+  $theme: theme.$theme,
+  $list-illustration: var.$list-illustration
+);
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
   $theme: theme.$theme,
   $breadcrumb: var.$breadcrumb

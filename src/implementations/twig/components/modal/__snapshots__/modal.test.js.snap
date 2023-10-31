@@ -3,7 +3,7 @@
 exports[`Modal Collapsed renders correctly 1`] = `
 <jest>
   <dialog
-    class="ecl-modal"
+    class="ecl-modal ecl-modal--l"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
     id="modal-example"
@@ -12,7 +12,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
       class="ecl-modal__container ecl-container"
     >
       <div
-        class="ecl-modal__content ecl-col-12 ecl-col-m-8 ecl-offset-m-2 ecl-col-l-6 ecl-offset-l-3"
+        class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8"
       >
         <header
           class="ecl-modal__header"
@@ -52,7 +52,58 @@ exports[`Modal Collapsed renders correctly 1`] = `
         <div
           class="ecl-modal__body"
         >
-          Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.
+          <div
+            class="ecl-modal__body-scroll"
+            data-ecl-modal-scroll=""
+          >
+            Scrollable content: 
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+          </div>
+          <div
+            aria-hidden="true"
+            class="ecl-modal__body-overflow"
+          />
+          <div
+            class="ecl-modal__body-fixed"
+          >
+            <div
+              class="ecl-checkbox"
+            >
+              <input
+                class="ecl-checkbox__input"
+                id="checkbox-default-1"
+                name="checkbox-default"
+                type="checkbox"
+                value="1"
+              />
+              <label
+                class="ecl-checkbox__label"
+                for="checkbox-default-1"
+              >
+                <span
+                  class="ecl-checkbox__box"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="ecl-checkbox__text"
+                >
+                  Option label
+                </span>
+              </label>
+            </div>
+          </div>
         </div>
         <footer
           class="ecl-modal__footer"
@@ -84,7 +135,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
 exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 <jest>
   <dialog
-    class="ecl-modal"
+    class="ecl-modal ecl-modal--l"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
     data-test="data-test-value"
@@ -95,7 +146,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
       class="ecl-modal__container ecl-container"
     >
       <div
-        class="ecl-modal__content ecl-col-12 ecl-col-m-8 ecl-offset-m-2 ecl-col-l-6 ecl-offset-l-3"
+        class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8"
       >
         <header
           class="ecl-modal__header"
@@ -135,7 +186,58 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
         <div
           class="ecl-modal__body"
         >
-          Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.
+          <div
+            class="ecl-modal__body-scroll"
+            data-ecl-modal-scroll=""
+          >
+            Scrollable content: 
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+          </div>
+          <div
+            aria-hidden="true"
+            class="ecl-modal__body-overflow"
+          />
+          <div
+            class="ecl-modal__body-fixed"
+          >
+            <div
+              class="ecl-checkbox"
+            >
+              <input
+                class="ecl-checkbox__input"
+                id="checkbox-default-1"
+                name="checkbox-default"
+                type="checkbox"
+                value="1"
+              />
+              <label
+                class="ecl-checkbox__label"
+                for="checkbox-default-1"
+              >
+                <span
+                  class="ecl-checkbox__box"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="ecl-checkbox__text"
+                >
+                  Option label
+                </span>
+              </label>
+            </div>
+          </div>
         </div>
         <footer
           class="ecl-modal__footer"
@@ -167,7 +269,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 exports[`Modal Collapsed renders correctly with extra class names 1`] = `
 <jest>
   <dialog
-    class="ecl-modal custom-class custom-class--test"
+    class="ecl-modal ecl-modal--l custom-class custom-class--test"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
     id="modal-example"
@@ -176,7 +278,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
       class="ecl-modal__container ecl-container"
     >
       <div
-        class="ecl-modal__content ecl-col-12 ecl-col-m-8 ecl-offset-m-2 ecl-col-l-6 ecl-offset-l-3"
+        class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8"
       >
         <header
           class="ecl-modal__header"
@@ -216,7 +318,58 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
         <div
           class="ecl-modal__body"
         >
-          Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet.
+          <div
+            class="ecl-modal__body-scroll"
+            data-ecl-modal-scroll=""
+          >
+            Scrollable content: 
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+            <br />
+            Sed quam augue, volutpat sed dapibus in, accumsan a arcu. Nulla quam enim, porttitor at neque a, egestas porttitor tortor. Nam tortor sem, elementum id augue quis, posuere vestibulum dui. Donec id posuere libero, sit amet egestas lorem. Aliquam finibus ipsum mauris, a molestie tortor laoreet. Morbi interdum orci arcu, tempor porta nisl elementum non. Morbi blandit risus sed turpis mollis mattis. Maecenas semper, risus nec sollicitudin aliquet, dui eros vehicula nulla, ac bibendum mauris mauris a lectus. Ut ut justo in sem vestibulum mollis. Pellentesque ac commodo erat. Phasellus vitae aliquet mi. Suspendisse sed nisl feugiat, porta ante a, finibus nisi.
+          </div>
+          <div
+            aria-hidden="true"
+            class="ecl-modal__body-overflow"
+          />
+          <div
+            class="ecl-modal__body-fixed"
+          >
+            <div
+              class="ecl-checkbox"
+            >
+              <input
+                class="ecl-checkbox__input"
+                id="checkbox-default-1"
+                name="checkbox-default"
+                type="checkbox"
+                value="1"
+              />
+              <label
+                class="ecl-checkbox__label"
+                for="checkbox-default-1"
+              >
+                <span
+                  class="ecl-checkbox__box"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-checkbox__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#check"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="ecl-checkbox__text"
+                >
+                  Option label
+                </span>
+              </label>
+            </div>
+          </div>
         </div>
         <footer
           class="ecl-modal__footer"

@@ -9,6 +9,7 @@ import notes from './README.md';
 const getArgs = (data) => ({
   header: data.header,
   variant: '',
+  size: 'l',
   body: data.body,
   footer: 2,
 });
@@ -34,6 +35,27 @@ const getArgTypes = () => ({
     },
     table: {
       category: 'Display',
+    },
+  },
+  size: {
+    name: 'size',
+    type: { name: 'select' },
+    description: `The width and max height of the modal`,
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'l' },
+      category: 'Display',
+    },
+    options: ['s', 'l'],
+    control: {
+      labels: {
+        s: 'small',
+        l: 'large',
+      },
+    },
+    mapping: {
+      small: 's',
+      large: 'l',
     },
   },
   header: {
@@ -71,6 +93,7 @@ const prepareData = (data, args) => {
   const dataClone = structuredClone(data);
 
   dataClone.variant = args.variant;
+  dataClone.size = args.size;
   dataClone.header = args.header;
   dataClone.body = args.body;
 

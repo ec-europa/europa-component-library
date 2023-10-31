@@ -51,7 +51,10 @@
 );
 @use '@ecl/vanilla-component-skip-link/skip-link-print';
 @use '@ecl/vanilla-component-spinner/spinner-print';
-@use '@ecl/vanilla-component-table/table-print';
+@use '@ecl/vanilla-component-table/table-print' with (
+  $theme: theme.$theme,
+  $table: var.$table
+);
 @use '@ecl/vanilla-component-tabs/tabs-print';
 @use '@ecl/vanilla-component-tag/tag-print' with (
   $theme: theme.$theme
@@ -67,8 +70,16 @@
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-print-ec';
-@use '@ecl/vanilla-component-list-illustration/list-illustration-print-ec';
+@use '@ecl/vanilla-component-featured-item/featured-item-print' with (
+  $theme: theme.$theme,
+  $featured-item: var.$featured-item,
+  $featured-item-print: var.$featured-item-print
+);
+@use '@ecl/vanilla-component-list-illustration/list-illustration-print' with (
+  $theme: theme.$theme,
+  $list-illustration: var.$list-illustration,
+  $list-illustration-print: var.$list-illustration-print
+);
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
 @use '@ecl/vanilla-component-card/card-print' with (
   $theme: theme.$theme
