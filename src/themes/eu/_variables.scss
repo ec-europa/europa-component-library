@@ -703,6 +703,25 @@ $list: (
   divider-color: var(--c-p-140),
 );
 
+// List with illustrations
+$list-illustration: (
+  title-color: var(--c-d-140),
+  description-color: var(--c-d-80),
+  background-color: var(--c-p-5),
+  value-font-mobile: var(--f-5xl),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: var(--f-6xl),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--c-p),
+  title-font: var(--f-l),
+);
+$list-illustration-print: (
+  value-font-mobile: map.get($font-print, '5xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'regular'),
+  value-font-desktop: map.get($font-print, '6xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'regular'),
+);
+
 // Media container
 $media-container: (
   border-radius: 8px,
@@ -1005,6 +1024,47 @@ $rating-field: (
   focus-outline: var(--c-p-20),
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 4px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-40),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-140),
+  color-placeholder: var(--c-d-40),
+  counter-color: map.get($color, 'white-100'),
+  group-separator-color: var(--c-p-20),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-80),
+  shadow: map.get($shadow-inner, '1'),
+  shadow-hover: map.get($shadow-inner, '2'),
+  arrow-background-invalid-focus: var(--c-er),
+  arrow-background-color: var(--c-p-100),
+  arrow-background-color-hover: var(--c-p-80),
+  arrow-background-color-invalid: map.get($color, 'red-120'),
+  arrow-background-color-invalid-hover: var(--c-er),
+  icon-fill: map.get($color, 'white-100'),
+  multiple-dropdown-background-color: map.get($color, 'white'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: var(--c-p-20),
+  multiple-dropdown-border-radius: 4px,
+  multiple-dropdown-shadow: var(--sh-1),
+  multiple-dropdown-input-margin: var(--s-xs),
+  multiple-dropdown-input-width: calc(100% - var(--s-xs) - var(--s-xs)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-dropdown-toolbar-separator-color: var(--c-p-20),
+  multiple-checkbox-background-hover-color: var(--c-p-5),
+  multiple-checkbox-label-vertical-padding: var(--s-s),
+  multiple_counter_background: var(--c-p),
+  padding-vertical: var(--s-s),
+);
+
 // Site footer
 $site-footer: (
   background: var(--c-p-5),
@@ -1019,6 +1079,33 @@ $spinner: (
   stroke-color: var(--c-p-80),
   stroke-linecap: round,
   text-color: var(--c-d),
+);
+
+// Table
+$table: (
+  table-color: var(--c-d-140),
+  head-border: none,
+  head-background: var(--c-p-5),
+  header-border: 2px solid var(--c-p-60),
+  header-separator-mobile: 2px solid var(--c-p-60),
+  header-seprator-desktop: none,
+  header-group-separator: 1px solid var(--c-p-20),
+  header-padding: var(--s-m),
+  row-border: 1px solid var(--c-p-20),
+  cell-separator: none,
+  cell-padding-mobile: var(--s-s),
+  cell-padding-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
+  cell-margin-mobile: calc(-1 * var(--s-s)) var(--s-s) calc(-1 * var(--s-s))
+    calc(-1 * var(--s-s)),
+  zebra-background: var(--c-p-5),
+  multi-head-background: var(--c-p-5),
+  multi-head-background-empty: map.get($color, 'white'),
+  multi-head-position: var(--s-s),
+  sort-icon-color: var(--c-p-80),
+  sort-icon-color-active: var(--c-p-140),
+  sort-icon-spacing: -12px,
+  sort-arrow-top: var(--s-xs),
+  sort-arrow-left: var(--s-xs),
 );
 
 // Tag
@@ -1195,11 +1282,10 @@ $timeline-print: (
   --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
 
   // Aliases
-  // stylelint-disable scss/double-slash-comment-empty-line-before
   --c-p: var(--ecl-color-primary);
   --c-p-140: var(--ecl-color-primary-140);
   --c-p-130: var(--ecl-color-primary-130);
-  // --c-p-120: var(--ecl-color-primary-120);
+  --c-p-120: var(--ecl-color-primary-120);
   --c-p-100: var(--ecl-color-primary-100);
   --c-p-80: var(--ecl-color-primary-80);
   --c-p-60: var(--ecl-color-primary-60);
@@ -1209,77 +1295,77 @@ $timeline-print: (
   --c-p-5: var(--ecl-color-primary-5);
   --c-s: var(--ecl-color-secondary);
   --c-s-140: var(--ecl-color-secondary-140);
-  // --c-s-120: var(--ecl-color-secondary-120);
+  --c-s-120: var(--ecl-color-secondary-120);
   --c-s-100: var(--ecl-color-secondary-100);
-  // --c-s-80: var(--ecl-color-secondary-80);
-  // --c-s-60: var(--ecl-color-secondary-60);
-  // --c-s-40: var(--ecl-color-secondary-40);
-  // --c-s-20: var(--ecl-color-secondary-20);
+  --c-s-80: var(--ecl-color-secondary-80);
+  --c-s-60: var(--ecl-color-secondary-60);
+  --c-s-40: var(--ecl-color-secondary-40);
+  --c-s-20: var(--ecl-color-secondary-20);
   --c-s-10: var(--ecl-color-secondary-10);
   --c-d: var(--ecl-color-dark);
   --c-d-140: var(--ecl-color-dark-140);
-  // --c-d-120: var(--ecl-color-dark-120);
+  --c-d-120: var(--ecl-color-dark-120);
   --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
-  // --c-d-60: var(--ecl-color-dark-60);
+  --c-d-60: var(--ecl-color-dark-60);
   --c-d-40: var(--ecl-color-dark-40);
   --c-d-20: var(--ecl-color-dark-20);
   --c-d-10: var(--ecl-color-dark-10);
   --c-in: var(--ecl-color-info);
-  // --c-in-100: var(--ecl-color-info-100);
+  --c-in-100: var(--ecl-color-info-100);
   --c-in-5: var(--ecl-color-info-5);
   --c-su: var(--ecl-color-success);
-  // --c-su-100: var(--ecl-color-success-100);
+  --c-su-100: var(--ecl-color-success-100);
   --c-su-5: var(--ecl-color-success-5);
   --c-wa: var(--ecl-color-warning);
-  // --c-wa-100: var(--ecl-color-warning-100);
+  --c-wa-100: var(--ecl-color-warning-100);
   --c-wa-5: var(--ecl-color-warning-5);
   --c-er: var(--ecl-color-error);
-  // --c-er-100: var(--ecl-color-error-100);
+  --c-er-100: var(--ecl-color-error-100);
   --c-er-80: var(--ecl-color-error-80);
   --c-er-5: var(--ecl-color-error-5);
   --c-br: var(--ecl-color-branding);
   --c-a: var(--ecl-color-accent);
-  // --c-a-100: var(--ecl-color-accent-100);
+  --c-a-100: var(--ecl-color-accent-100);
   --c-a-30: var(--ecl-color-accent-30);
   --c-v: var(--ecl-color-visited);
-  // --c-v-100: var(--ecl-color-visited-100);
+  --c-v-100: var(--ecl-color-visited-100);
   --c-v-40: var(--ecl-color-visited-40);
-  // --f-2xs: var(--ecl-font-2xs);
-  // --f-xs: var(--ecl-font-xs);
+  --f-2xs: var(--ecl-font-2xs);
+  --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
   --f-l: var(--ecl-font-l);
   --f-xl: var(--ecl-font-xl);
   --f-2xl: var(--ecl-font-2xl);
   --f-3xl: var(--ecl-font-3xl);
-  // --f-4xl: var(--ecl-font-4xl);
+  --f-4xl: var(--ecl-font-4xl);
   --f-5xl: var(--ecl-font-5xl);
   --f-6xl: var(--ecl-font-6xl);
-  // --f-p-xs: var(--ecl-font-prolonged-xs);
-  // --f-p-s: var(--ecl-font-prolonged-s);
+  --f-p-xs: var(--ecl-font-prolonged-xs);
+  --f-p-s: var(--ecl-font-prolonged-s);
   --f-p-m: var(--ecl-font-prolonged-m);
   --f-p-l: var(--ecl-font-prolonged-l);
-  // --f-p-xl: var(--ecl-font-prolonged-xl);
+  --f-p-xl: var(--ecl-font-prolonged-xl);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
   --s-m: var(--ecl-spacing-m);
   --s-l: var(--ecl-spacing-l);
   --s-xl: var(--ecl-spacing-xl);
-  // --s-2xl: var(--ecl-spacing-2xl);
-  // --s-3xl: var(--ecl-spacing-3xl);
-  // --s-4xl: var(--ecl-spacing-4xl);
+  --s-2xl: var(--ecl-spacing-2xl);
+  --s-3xl: var(--ecl-spacing-3xl);
+  --s-4xl: var(--ecl-spacing-4xl);
   --sh-1: var(--ecl-shadow-1);
   --sh-2: var(--ecl-shadow-2);
-  // --sh-3: var(--ecl-shadow-3);
-  // --sh-4: var(--ecl-shadow-4);
+  --sh-3: var(--ecl-shadow-3);
+  --sh-4: var(--ecl-shadow-4);
   --sh-i-1: var(--ecl-shadow-inner-1);
   --sh-i-2: var(--ecl-shadow-inner-2);
-  // --sh-n-1: var(--ecl-shadow-negative-1);
-  // --sh-n-2: var(--ecl-shadow-negative-2);
-  // --sh-n-3: var(--ecl-shadow-negative-3);
-  // --sh-n-4: var(--ecl-shadow-negative-4);
-  // --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
-  // --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
+  --sh-n-1: var(--ecl-shadow-negative-1);
+  --sh-n-2: var(--ecl-shadow-negative-2);
+  --sh-n-3: var(--ecl-shadow-negative-3);
+  --sh-n-4: var(--ecl-shadow-negative-4);
+  --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
+  --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
 }

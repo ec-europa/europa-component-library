@@ -716,6 +716,25 @@ $list: (
   divider-color: var(--c-n),
 );
 
+// List with illustrations
+$list-illustration: (
+  title-color: var(--c-d),
+  description-color: var(--c-d),
+  background-color: var(--c-n-40),
+  value-font-mobile: var(--f-2xl),
+  title-font: var(--f-l),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: var(--f-3xl),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--c-d),
+);
+$list-illustration-print: (
+  value-font-mobile: map.get($font-print, '3xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'bold'),
+  value-font-desktop: map.get($font-print, '4xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'bold'),
+);
+
 // Media container
 $media-container: (
   border-radius: 0,
@@ -972,6 +991,48 @@ $rating-field: (
   focus-outline: var(--c-d),
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 2px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-80),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-100),
+  color-placeholder: var(--c-d-100),
+  counter-color: var(--c-d-100),
+  group-separator-color: var(--c-n-60),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-100),
+  shadow: none,
+  shadow-hover: none,
+  arrow-background-color: map.get($color, 'white-100'),
+  arrow-background-color-hover: map.get($color, 'white-100'),
+  arrow-background-color-invalid: map.get($color, 'white-100'),
+  arrow-background-color-invalid-hover: map.get($color, 'white-100'),
+  icon-fill: var(--c-d-100),
+  multiple-dropdown-background-color: map.get($color, 'white-100'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: transparent,
+  multiple-select-all-after: true,
+  multiple-dropdown-toolbar-separator-color: transparent,
+  multiple-dropdown-border-radius: 2px,
+  multiple-dropdown-shadow: var(--sh-6),
+  multiple-dropdown-margin: var(--s-2xs),
+  multiple-dropdown-input-margin: var(--s-m) var(--s-m) var(--s-s),
+  multiple-dropdown-input-width: calc(100% - (var(--s-m) * 2)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-checkbox-background-hover-color: map.get($color, 'white-100'),
+  multiple-checkbox-label-vertical-padding: map.get($spacing, 'xs'),
+  multiple_counter_background: var(--c-p-20),
+  padding-vertical: var(--s-xs),
+);
+
 // Site footer
 $site-footer: (
   background: var(--c-br),
@@ -1030,6 +1091,33 @@ $spinner: (
   stroke-color: var(--c-p),
   stroke-linecap: butt,
   text-color: var(--c-d),
+);
+
+// Table
+$table: (
+  table-color: var(--c-d),
+  head-background: var(--c-n),
+  head-border: 1px solid var(--c-n-60),
+  header-border: none,
+  header-separator-mobile: 2px solid var(--c-n-160),
+  header-separator-desktop: 1px solid var(--c-n-160),
+  header-group-separator: 1px solid var(--c-n-160),
+  header-padding: var(--s-m),
+  row-border: 1px solid var(--c-n-60),
+  cell-separator: 1px solid var(--c-n-60),
+  cell-padding-mobile: var(--s-m),
+  cell-padding-desktop: var(--s-m),
+  cell-margin-mobile: calc(-1 * var(--s-m)) var(--s-m)
+    calc(-1 * var(--s-m) - 1px) calc(-1 * var(--s-m)),
+  zebra-background: var(--c-n-40),
+  multi-head-background: var(--c-n),
+  multi-head-background-empty: var(--c-n),
+  multi-head-position: var(--s-m),
+  sort-icon-color: var(--c-d),
+  sort-icon-color-active: var(--c-d-60),
+  sort-icon-spacing: -10px,
+  sort-arrow-top: calc(var(--s-m) + 3px),
+  sort-arrow-left: var(--s-m),
 );
 
 // Tag
@@ -1189,29 +1277,28 @@ $timeline-print: (
   --ecl-shadow-16: #{map.get($shadow, '16')};
 
   // Aliases
-  // stylelint-disable scss/double-slash-comment-empty-line-before
   --c-p: var(--ecl-color-primary);
-  // --c-p-180: var(--ecl-color-primary-180);
+  --c-p-180: var(--ecl-color-primary-180);
   --c-p-160: var(--ecl-color-primary-160);
   --c-p-140: var(--ecl-color-primary-140);
-  // --c-p-120: var(--ecl-color-primary-120);
-  // --c-p-100: var(--ecl-color-primary-100);
-  // --c-p-80: var(--ecl-color-primary-80);
-  // --c-p-60: var(--ecl-color-primary-60);
+  --c-p-120: var(--ecl-color-primary-120);
+  --c-p-100: var(--ecl-color-primary-100);
+  --c-p-80: var(--ecl-color-primary-80);
+  --c-p-60: var(--ecl-color-primary-60);
   --c-p-40: var(--ecl-color-primary-40);
   --c-p-20: var(--ecl-color-primary-20);
   --c-s: var(--ecl-color-secondary);
-  // --c-s-180: var(--ecl-color-secondary-180);
-  // --c-s-160: var(--ecl-color-secondary-160);
+  --c-s-180: var(--ecl-color-secondary-180);
+  --c-s-160: var(--ecl-color-secondary-160);
   --c-s-140: var(--ecl-color-secondary-140);
   --c-s-120: var(--ecl-color-secondary-120);
-  // --c-s-100: var(--ecl-color-secondary-100);
+  --c-s-100: var(--ecl-color-secondary-100);
   --c-s-80: var(--ecl-color-secondary-80);
   --c-s-60: var(--ecl-color-secondary-60);
-  // --c-s-40: var(--ecl-color-secondary-40);
-  // --c-s-20: var(--ecl-color-secondary-20);
+  --c-s-40: var(--ecl-color-secondary-40);
+  --c-s-20: var(--ecl-color-secondary-20);
   --c-d: var(--ecl-color-dark);
-  // --c-d-100: var(--ecl-color-dark-100);
+  --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
   --c-d-60: var(--ecl-color-dark-60);
   --c-in: var(--ecl-color-info);
@@ -1221,29 +1308,29 @@ $timeline-print: (
   --c-bg: var(--ecl-color-background);
   --c-br: var(--ecl-color-branding);
   --c-n: var(--ecl-color-neutral);
-  // --c-n-180: var(--ecl-color-neutral-180);
+  --c-n-180: var(--ecl-color-neutral-180);
   --c-n-160: var(--ecl-color-neutral-160);
-  // --c-n-140: var(--ecl-color-neutral-140);
-  // --c-n-120: var(--ecl-color-neutral-120);
-  // --c-n-100: var(--ecl-color-neutral-100);
-  // --c-n-80: var(--ecl-color-neutral-80);
+  --c-n-140: var(--ecl-color-neutral-140);
+  --c-n-120: var(--ecl-color-neutral-120);
+  --c-n-100: var(--ecl-color-neutral-100);
+  --c-n-80: var(--ecl-color-neutral-80);
   --c-n-60: var(--ecl-color-neutral-60);
   --c-n-40: var(--ecl-color-neutral-40);
   --c-n-20: var(--ecl-color-neutral-20);
   --c-a: var(--ecl-color-accent);
-  // --c-a-160: var(--ecl-color-accent-160);
-  // --c-a-140: var(--ecl-color-accent-140);
-  // --c-a-120: var(--ecl-color-accent-120);
-  // --c-a-100: var(--ecl-color-accent-100);
-  // --c-a-80: var(--ecl-color-accent-80);
-  // --c-a-60: var(--ecl-color-accent-60);
-  // --c-a-40: var(--ecl-color-accent-40);
-  // --f-xs: var(--ecl-font-xs);
+  --c-a-160: var(--ecl-color-accent-160);
+  --c-a-140: var(--ecl-color-accent-140);
+  --c-a-120: var(--ecl-color-accent-120);
+  --c-a-100: var(--ecl-color-accent-100);
+  --c-a-80: var(--ecl-color-accent-80);
+  --c-a-60: var(--ecl-color-accent-60);
+  --c-a-40: var(--ecl-color-accent-40);
+  --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
   --f-l: var(--ecl-font-l);
   --f-xl: var(--ecl-font-xl);
-  // --f-2xl: var(--ecl-font-2xl);
+  --f-2xl: var(--ecl-font-2xl);
   --f-3xl: var(--ecl-font-3xl);
   --f-4xl: var(--ecl-font-4xl);
   --s-2xs: var(--ecl-spacing-2xs);
@@ -1254,11 +1341,11 @@ $timeline-print: (
   --s-xl: var(--ecl-spacing-xl);
   --s-2xl: var(--ecl-spacing-2xl);
   --s-3xl: var(--ecl-spacing-3xl);
-  // --s-4xl: var(--ecl-spacing-4xl);
-  // --s-5xl: var(--ecl-spacing-5xl);
-  // --s-6xl: var(--ecl-spacing-6xl);
+  --s-4xl: var(--ecl-spacing-4xl);
+  --s-5xl: var(--ecl-spacing-5xl);
+  --s-6xl: var(--ecl-spacing-6xl);
   --sh-1: var(--ecl-shadow-1);
   --sh-6: var(--ecl-shadow-6);
   --sh-12: var(--ecl-shadow-12);
-  // --sh-16: var(--ecl-shadow-16);
+  --sh-16: var(--ecl-shadow-16);
 }
