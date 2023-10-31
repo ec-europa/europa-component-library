@@ -25,19 +25,29 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-d-block': 'Block',
-        'ecl-u-d-inline': 'Inline',
-        'ecl-u-d-inline-block': 'Inline block',
-        'ecl-u-d-flex': 'Flex',
+        'ecl-u-d-block': 'block',
+        'ecl-u-d-inline': 'inline',
+        'ecl-u-d-inline-block': 'inline-block',
+        'ecl-u-d-flex': 'flex',
         'ecl-u-d-inline-flex': 'inline-flex',
-        'ecl-u-d-table': 'Table',
-        'ecl-u-d-table-cell': 'Table cell',
-        'ecl-u-d-none': 'None',
+        'ecl-u-d-table': 'table',
+        'ecl-u-d-table-cell': 'table-cell',
+        'ecl-u-d-none': 'none',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+    },
+    mapping: {
+      block: 'ecl-u-d-block',
+      inline: 'ecl-u-d-inline',
+      'inline-block': 'ecl-u-d-inline-block',
+      flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      table: 'ecl-u-d-table',
+      'table-cell': 'ecl-u-d-table-cell',
+      none: 'ecl-u-d-none',
     },
   },
   displayInner: {
@@ -56,19 +66,29 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-d-block': 'Block',
-        'ecl-u-d-inline': 'Inline',
-        'ecl-u-d-inline-block': 'Inline block',
-        'ecl-u-d-flex': 'Flex',
+        'ecl-u-d-block': 'block',
+        'ecl-u-d-inline': 'inline',
+        'ecl-u-d-inline-block': 'inline-block',
+        'ecl-u-d-flex': 'flex',
         'ecl-u-d-inline-flex': 'inline-flex',
-        'ecl-u-d-table': 'Table',
-        'ecl-u-d-table-cell': 'Table cell',
-        'ecl-u-d-none': 'None',
+        'ecl-u-d-table': 'table',
+        'ecl-u-d-table-cell': 'table-cell',
+        'ecl-u-d-none': 'none',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+    },
+    mapping: {
+      block: 'ecl-u-d-block',
+      inline: 'ecl-u-d-inline',
+      'inline-block': 'ecl-u-d-inline-block',
+      flex: 'ecl-u-d-flex',
+      'inline-flex': 'ecl-u-d-inline-flex',
+      table: 'ecl-u-d-table',
+      'table-cell': 'ecl-u-d-table-cell',
+      none: 'ecl-u-d-none',
     },
   },
   boxSizing: {
@@ -78,13 +98,17 @@ const getArgTypes = () => ({
     options: ['ecl-u-box-sizing-content', 'ecl-u-box-sizing-border'],
     control: {
       labels: {
-        'ecl-u-box-sizing-content': 'Content box',
-        'ecl-u-box-sizing-border': 'Border box',
+        'ecl-u-box-sizing-content': 'content box',
+        'ecl-u-box-sizing-border': 'border box',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+    },
+    mapping: {
+      'content box': 'ecl-u-box-sizing-content',
+      'border box': 'ecl-u-box-sizing-border',
     },
   },
 });

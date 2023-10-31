@@ -72,6 +72,13 @@ const getArgTypes = () => {
         type: 'string',
         defaultValue: { summary: '' },
       },
+      mapping: {
+        none: 'ecl-u-shadow-none',
+        'elevation 1': 'ecl-u-shadow-1',
+        'elevation 6': 'ecl-u-shadow-6',
+        'elevation 12': 'ecl-u-shadow-12',
+        'elevation 16': 'ecl-u-shadow-16',
+      },
     };
   } else {
     argTypes.shadow = {
@@ -102,6 +109,15 @@ const getArgTypes = () => {
         type: 'string',
         defaultValue: { summary: '' },
       },
+      mapping: {
+        none: 'ecl-u-shadow-none',
+        'elevation 1': 'ecl-u-shadow-1',
+        'elevation 2': 'ecl-u-shadow-2',
+        'elevation 3': 'ecl-u-shadow-3',
+        'negative, elevation 1': 'ecl-u-shadow-negative-1',
+        'negative, elevation 2': 'ecl-u-shadow-negative-2',
+        'negative, elevation 3': 'ecl-u-shadow-negative-3',
+      },
     };
     argTypes.shadowInner = {
       name: 'inner shadow',
@@ -126,6 +142,13 @@ const getArgTypes = () => {
       table: {
         type: 'string',
         defaultValue: { summary: '' },
+      },
+      mapping: {
+        none: 'ecl-u-shadow-none',
+        'depth 1': 'ecl-u-shadow-inner-1',
+        'depth 2': 'ecl-u-shadow-inner-2',
+        'negative, depth 1': 'ecl-u-shadow-negative-inner-1',
+        'negative, depth 2': 'ecl-u-shadow-negative-inner-2',
       },
     };
   }
