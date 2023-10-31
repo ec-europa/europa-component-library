@@ -568,15 +568,18 @@ $inpage-navigation: (
     'color': var(--c-d),
     'font': var(--f-m),
     'font-weight': map.get($font-weight, 'regular'),
-    'margin': 0 auto var(--s-2xs),
+    'margin': 0 auto,
     'padding': calc(var(--s-xs) - 1px)
       calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 1px)
-      calc(var(--s-s) - 1px),
+      calc(var(--s-m) - 1px),
     'padding-focus': calc(var(--s-xs) - 2px)
       calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
-      calc(var(--s-s) - 2px),
+      calc(var(--s-m) - 2px),
+    'background-wrapper': map.get($color, 'white-100'),
+    'margin-wrapper': 0 0 var(--s-2xs),
+    'padding-wrapper': var(--s-s) var(--s-m),
+    'shadow': var(--sh-6),
     'separator': none,
-    'width': calc(100% - #{map.get($grid, 'gutter')}),
   ),
   list: (
     'background': (

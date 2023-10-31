@@ -26,6 +26,20 @@ $inpage-navigation: null !default;
   }
 }
 
+.ecl-inpage-navigation__trigger-wrapper {
+  background: map.get($inpage-navigation, 'trigger', 'background-wrapper');
+  box-shadow: map.get($inpage-navigation, 'trigger', 'shadow');
+  margin: map.get($inpage-navigation, 'trigger', 'margin-wrapper');
+  padding: map.get($inpage-navigation, 'trigger', 'padding-wrapper');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .ecl-inpage-navigation__trigger {
   background: map.get($inpage-navigation, 'trigger', 'background');
   background-origin: border-box;
@@ -36,7 +50,7 @@ $inpage-navigation: null !default;
   padding: map.get($inpage-navigation, 'trigger', 'padding');
   position: relative;
   text-align: start;
-  width: map.get($inpage-navigation, 'trigger', 'width');
+  width: 100%;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {

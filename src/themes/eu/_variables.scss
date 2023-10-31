@@ -556,6 +556,7 @@ $inpage-navigation: (
   ),
   trigger: (
     'background': var(--c-p),
+    'background-wrapper': transparent,
     'border': none,
     'border-focus': none,
     'border-radius': 0 0 var(--s-xs) var(--s-xs),
@@ -567,8 +568,9 @@ $inpage-navigation: (
       var(--s-s),
     'padding-focus': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s))
       var(--s-s) var(--s-s),
+    'margin-wrapper': 0,
+    'padding-wrapper': 0,
     'separator': none,
-    'width': 100%,
   ),
   list: (
     'background': (
