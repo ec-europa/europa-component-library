@@ -371,12 +371,11 @@ export class InpageNavigation {
    * @param {Event} e
    */
   handleShiftTab(e) {
-    if (
-      e.key === 'Tab' &&
-      e.shiftKey &&
-      e.target === queryAll(this.linksSelector, this.element)[0]
-    ) {
-      this.handleClickOnLink();
+    if (e.key === 'Tab' && e.shiftKey) {
+      const links = queryAll(this.linksSelector, this.element);
+      if (Array.isArray(links) && links.length > 0 && e.target === links[0]) {
+        this.handleClickOnLink();
+      }
     }
   }
 
