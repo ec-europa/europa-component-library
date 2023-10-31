@@ -704,6 +704,25 @@ $list: (
   divider-color: var(--c-p-140),
 );
 
+// List with illustrations
+$list-illustration: (
+  title-color: var(--c-d-140),
+  description-color: var(--c-d-80),
+  background-color: var(--c-p-5),
+  value-font-mobile: var(--f-5xl),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: var(--f-6xl),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--c-p),
+  title-font: var(--f-l),
+);
+$list-illustration-print: (
+  value-font-mobile: map.get($font-print, '5xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'regular'),
+  value-font-desktop: map.get($font-print, '6xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'regular'),
+);
+
 // Media container
 $media-container: (
   border-radius: 8px,
@@ -911,6 +930,47 @@ $range: (
   outline-offset: 2px,
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 4px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-40),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-140),
+  color-placeholder: var(--c-d-40),
+  counter-color: map.get($color, 'white-100'),
+  group-separator-color: var(--c-p-20),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-80),
+  shadow: map.get($shadow-inner, '1'),
+  shadow-hover: map.get($shadow-inner, '2'),
+  arrow-background-invalid-focus: var(--c-er),
+  arrow-background-color: var(--c-p-100),
+  arrow-background-color-hover: var(--c-p-80),
+  arrow-background-color-invalid: map.get($color, 'red-120'),
+  arrow-background-color-invalid-hover: var(--c-er),
+  icon-fill: map.get($color, 'white-100'),
+  multiple-dropdown-background-color: map.get($color, 'white'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: var(--c-p-20),
+  multiple-dropdown-border-radius: 4px,
+  multiple-dropdown-shadow: var(--sh-1),
+  multiple-dropdown-input-margin: var(--s-xs),
+  multiple-dropdown-input-width: calc(100% - var(--s-xs) - var(--s-xs)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-dropdown-toolbar-separator-color: var(--c-p-20),
+  multiple-checkbox-background-hover-color: var(--c-p-5),
+  multiple-checkbox-label-vertical-padding: var(--s-s),
+  multiple_counter_background: var(--c-p),
+  padding-vertical: var(--s-s),
+);
+
 // Site header
 $site-header: (
   background-color: map.get($color, 'white'),
@@ -1020,6 +1080,33 @@ $spinner: (
   stroke-color: var(--c-p-80),
   stroke-linecap: round,
   text-color: var(--c-d),
+);
+
+// Table
+$table: (
+  table-color: var(--c-d-140),
+  head-border: none,
+  head-background: var(--c-p-5),
+  header-border: 2px solid var(--c-p-60),
+  header-separator-mobile: 2px solid var(--c-p-60),
+  header-seprator-desktop: none,
+  header-group-separator: 1px solid var(--c-p-20),
+  header-padding: var(--s-m),
+  row-border: 1px solid var(--c-p-20),
+  cell-separator: none,
+  cell-padding-mobile: var(--s-s),
+  cell-padding-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
+  cell-margin-mobile: calc(-1 * var(--s-s)) var(--s-s) calc(-1 * var(--s-s))
+    calc(-1 * var(--s-s)),
+  zebra-background: var(--c-p-5),
+  multi-head-background: var(--c-p-5),
+  multi-head-background-empty: map.get($color, 'white'),
+  multi-head-position: var(--s-s),
+  sort-icon-color: var(--c-p-80),
+  sort-icon-color-active: var(--c-p-140),
+  sort-icon-spacing: -12px,
+  sort-arrow-top: var(--s-xs),
+  sort-arrow-left: var(--s-xs),
 );
 
 // Tag

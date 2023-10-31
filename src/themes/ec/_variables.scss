@@ -717,6 +717,25 @@ $list: (
   divider-color: var(--c-n),
 );
 
+// List with illustrations
+$list-illustration: (
+  title-color: var(--c-d),
+  description-color: var(--c-d),
+  background-color: var(--c-n-40),
+  value-font-mobile: var(--f-2xl),
+  title-font: var(--f-l),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: var(--f-3xl),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--c-d),
+);
+$list-illustration-print: (
+  value-font-mobile: map.get($font-print, '3xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'bold'),
+  value-font-desktop: map.get($font-print, '4xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'bold'),
+);
+
 // Media container
 $media-container: (
   border-radius: 0,
@@ -973,6 +992,48 @@ $rating-field: (
   focus-outline: var(--c-d),
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 2px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-80),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-100),
+  color-placeholder: var(--c-d-100),
+  counter-color: var(--c-d-100),
+  group-separator-color: var(--c-n-60),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-100),
+  shadow: none,
+  shadow-hover: none,
+  arrow-background-color: map.get($color, 'white-100'),
+  arrow-background-color-hover: map.get($color, 'white-100'),
+  arrow-background-color-invalid: map.get($color, 'white-100'),
+  arrow-background-color-invalid-hover: map.get($color, 'white-100'),
+  icon-fill: var(--c-d-100),
+  multiple-dropdown-background-color: map.get($color, 'white-100'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: transparent,
+  multiple-select-all-after: true,
+  multiple-dropdown-toolbar-separator-color: transparent,
+  multiple-dropdown-border-radius: 2px,
+  multiple-dropdown-shadow: var(--sh-6),
+  multiple-dropdown-margin: var(--s-2xs),
+  multiple-dropdown-input-margin: var(--s-m) var(--s-m) var(--s-s),
+  multiple-dropdown-input-width: calc(100% - (var(--s-m) * 2)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-checkbox-background-hover-color: map.get($color, 'white-100'),
+  multiple-checkbox-label-vertical-padding: map.get($spacing, 'xs'),
+  multiple_counter_background: var(--c-p-20),
+  padding-vertical: var(--s-xs),
+);
+
 // Site footer
 $site-footer: (
   background: var(--c-br),
@@ -1031,6 +1092,33 @@ $spinner: (
   stroke-color: var(--c-p),
   stroke-linecap: butt,
   text-color: var(--c-d),
+);
+
+// Table
+$table: (
+  table-color: var(--c-d),
+  head-background: var(--c-n),
+  head-border: 1px solid var(--c-n-60),
+  header-border: none,
+  header-separator-mobile: 2px solid var(--c-n-160),
+  header-separator-desktop: 1px solid var(--c-n-160),
+  header-group-separator: 1px solid var(--c-n-160),
+  header-padding: var(--s-m),
+  row-border: 1px solid var(--c-n-60),
+  cell-separator: 1px solid var(--c-n-60),
+  cell-padding-mobile: var(--s-m),
+  cell-padding-desktop: var(--s-m),
+  cell-margin-mobile: calc(-1 * var(--s-m)) var(--s-m)
+    calc(-1 * var(--s-m) - 1px) calc(-1 * var(--s-m)),
+  zebra-background: var(--c-n-40),
+  multi-head-background: var(--c-n),
+  multi-head-background-empty: var(--c-n),
+  multi-head-position: var(--s-m),
+  sort-icon-color: var(--c-d),
+  sort-icon-color-active: var(--c-d-60),
+  sort-icon-spacing: -10px,
+  sort-arrow-top: calc(var(--s-m) + 3px),
+  sort-arrow-left: var(--s-m),
 );
 
 // Tag
