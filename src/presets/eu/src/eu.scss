@@ -139,7 +139,10 @@
   $theme: theme.$theme,
   $media-container: var.$media-container
 );
-@use '@ecl/vanilla-component-modal/modal-eu';
+@use '@ecl/vanilla-component-modal/modal' with (
+  $theme: theme.$theme,
+  $modal: var.$modal
+);
 @use '@ecl/vanilla-component-navigation-list/navigation-list' with (
   $theme: theme.$theme,
   $navigation-list: var.$navigation-list

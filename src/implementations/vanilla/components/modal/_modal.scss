@@ -4,18 +4,19 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_overlay: null !default;
-$_border-radius: null !default;
-$_separator-color: null !default;
-$_overflow-height: 2rem;
+// Exposed variables
+$theme: null !default;
+$modal: null !default;
+
+// Internal variables
+$overflow-height: 2rem;
 
 .ecl-modal {
-  background-color: $_overlay;
+  background-color: map.get($modal, 'overlay');
   border: none;
-  color: map.get(theme.$color, 'grey-100');
+  color: map.get($theme, 'color', 'grey-100');
   height: 100%;
   left: 0;
   margin: 0;
@@ -25,7 +26,7 @@ $_overflow-height: 2rem;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: map.get(theme.$z-index, 'modal');
+  z-index: map.get($theme, 'z-index', 'modal');
 }
 
 .ecl-modal[open] {
@@ -39,12 +40,12 @@ $_overflow-height: 2rem;
 }
 
 .ecl-modal__content {
-  background-color: map.get(theme.$color, 'white-100');
-  border-radius: $_border-radius;
-  box-shadow: map.get(theme.$shadow, '4');
+  background-color: map.get($theme, 'color', 'white-100');
+  border-radius: map.get($modal, 'border-radius');
+  box-shadow: map.get($theme, 'shadow', '4');
   display: flex;
   flex-direction: column;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get($theme, 'font-prolonged', 'm');
   overflow: hidden;
   left: 50%;
   margin: 0;
@@ -52,36 +53,36 @@ $_overflow-height: 2rem;
   padding: 0;
   position: relative;
   transform: translateX(-50%);
-  z-index: map.get(theme.$z-index, 'modal');
+  z-index: map.get($theme, 'z-index', 'modal');
 }
 
 .ecl-modal__header {
   align-items: flex-start;
-  border-bottom: 1px solid $_separator-color;
+  border-bottom: 1px solid map.get($modal, 'separator-color');
   display: flex;
-  font: map.get(theme.$font-prolonged, 'l');
-  padding: map.get(theme.$spacing, 'm');
+  font: map.get($theme, 'font-prolonged', 'l');
+  padding: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-modal__icon {
   flex-shrink: 0;
-  margin-inline-end: map.get(theme.$spacing, 's');
+  margin-inline-end: map.get($theme, 'spacing', 's');
   margin-top: 2px; // Fix alignment with text
 
   .ecl-modal--information & {
-    color: map.get(theme.$color, 'info');
+    color: map.get($theme, 'color', 'info');
   }
 
   .ecl-modal--success & {
-    color: map.get(theme.$color, 'success');
+    color: map.get($theme, 'color', 'success');
   }
 
   .ecl-modal--warning & {
-    color: map.get(theme.$color, 'warning');
+    color: map.get($theme, 'color', 'warning');
   }
 
   .ecl-modal--error & {
-    color: map.get(theme.$color, 'error');
+    color: map.get($theme, 'color', 'error');
   }
 }
 
@@ -93,7 +94,7 @@ $_overflow-height: 2rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: map.get(theme.$spacing, 'm');
+  padding: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-modal__body-scroll {
@@ -104,22 +105,22 @@ $_overflow-height: 2rem;
   background-image: linear-gradient(to bottom, transparent, #fff);
   flex-shrink: 0;
   display: none;
-  height: $_overflow-height;
+  height: $overflow-height;
   left: 0;
-  margin-bottom: -#{$_overflow-height};
+  margin-bottom: -#{$overflow-height};
   pointer-events: none;
   position: relative;
-  top: -#{$_overflow-height};
+  top: -#{$overflow-height};
   width: 100%;
 }
 
 * + .ecl-modal__body-fixed {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-modal__footer {
-  border-top: 1px solid $_separator-color;
-  padding: map.get(theme.$spacing, 'm');
+  border-top: 1px solid map.get($modal, 'separator-color');
+  padding: map.get($theme, 'spacing', 'm');
 }
 
 .ecl-modal__header + .ecl-modal__footer {
@@ -133,7 +134,7 @@ $_overflow-height: 2rem;
 
 .ecl-modal__button {
   flex-basis: 50%;
-  margin-inline-end: map.get(theme.$spacing, 'm');
+  margin-inline-end: map.get($theme, 'spacing', 'm');
 
   &:last-of-type {
     margin-inline-end: 0;
@@ -141,10 +142,10 @@ $_overflow-height: 2rem;
 }
 
 .ecl-modal__close {
-  padding: map.get(theme.$spacing, 's');
-  margin-bottom: -#{map.get(theme.$spacing, 'xs')};
-  margin-inline-end: -#{map.get(theme.$spacing, 's')};
-  margin-top: -#{map.get(theme.$spacing, 'xs')};
+  padding: map.get($theme, 'spacing', 's');
+  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
+  margin-inline-end: -#{map.get($theme, 'spacing', 's')};
+  margin-top: -#{map.get($theme, 'spacing', 'xs')};
 
   &:hover {
     box-shadow: none;
@@ -171,15 +172,15 @@ $_overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-modal__header {
-    padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
+    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'l');
   }
 
   .ecl-modal__body {
-    padding: map.get(theme.$spacing, 'l');
+    padding: map.get($theme, 'spacing', 'l');
   }
 
   .ecl-modal__footer {
-    padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
+    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'l');
   }
 
   .ecl-modal__footer-content {
@@ -194,7 +195,7 @@ $_overflow-height: 2rem;
 // Scrolling body
 .ecl-modal__body--has-scroll {
   .ecl-modal__body-scroll {
-    padding-bottom: $_overflow-height;
+    padding-bottom: $overflow-height;
   }
 
   .ecl-modal__body-overflow {

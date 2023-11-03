@@ -731,6 +731,13 @@ $menu: (
   ),
 );
 
+// Modal
+$modal: (
+  overlay: rgba(map.get($color, 'blue-140'), 0.4),
+  border-radius: map.get($border-radius, 'm'),
+  separator-color: map.get($color, 'blue-20'),
+);
+
 // Form
 $form-group: (
   color-label: var(--c-d-140),
