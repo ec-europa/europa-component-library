@@ -107,6 +107,10 @@ export class SiteHeader {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     this.arrowSize = '0.5rem';
     // Bind global events
     if (this.attachKeyListener) {
@@ -166,6 +170,7 @@ export class SiteHeader {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -212,6 +217,7 @@ export class SiteHeader {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 
@@ -411,8 +417,11 @@ export class SiteHeader {
    */
   handleResize() {
     if (
-      (this.languageListOverlay &&
-        !this.languageListOverlay.hasAttribute('hidden')) ||
+      !this.languageListOverlay ||
+      this.languageListOverlay.hasAttribute('hidden')
+    )
+      return;
+    if (
       (this.loginBox &&
         this.loginBox.classList.contains(
           'ecl-site-header__login-box--active',

@@ -89,6 +89,10 @@ export class Datepicker {
         'Pikaday is not available. Make sure to include Pikaday in your project if you want to use the ECL datepicker',
       );
     }
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
 
     this.direction = getComputedStyle(this.element).direction;
 
@@ -151,6 +155,7 @@ export class Datepicker {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
 
     return this.picker;
   }
@@ -165,6 +170,7 @@ export class Datepicker {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 }

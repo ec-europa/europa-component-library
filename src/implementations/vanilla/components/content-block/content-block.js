@@ -60,6 +60,11 @@ export class ContentBlock {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.picture = this.findElementInCommonAncestor(
       this.element,
       this.targetSelector,
@@ -88,6 +93,7 @@ export class ContentBlock {
     }
 
     this.element.setAttribute('data-ecl-auto-initialized', true);
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -147,6 +153,7 @@ export class ContentBlock {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 }
