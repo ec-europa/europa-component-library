@@ -63,6 +63,11 @@ export class Accordion {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
@@ -80,6 +85,7 @@ export class Accordion {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -93,6 +99,7 @@ export class Accordion {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

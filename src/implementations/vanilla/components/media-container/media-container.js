@@ -50,6 +50,10 @@ export class MediaContainer {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     // Check if a ratio has been set manually
     const media = queryOne('.ecl-media-container__media', this.element);
     if (media && !/ecl-media-container__media--ratio/.test(media.className)) {
@@ -62,6 +66,7 @@ export class MediaContainer {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -70,6 +75,7 @@ export class MediaContainer {
   destroy() {
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

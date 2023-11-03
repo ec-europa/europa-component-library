@@ -80,6 +80,10 @@ export class SiteHeaderCore {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     // Language list management
     this.languageSelector = queryOne(this.languageLinkSelector);
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
@@ -115,6 +119,7 @@ export class SiteHeaderCore {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -142,6 +147,7 @@ export class SiteHeaderCore {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 
