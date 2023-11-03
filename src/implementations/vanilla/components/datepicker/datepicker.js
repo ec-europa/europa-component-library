@@ -87,9 +87,10 @@ export class Datepicker {
    * Initialise component.
    */
   init() {
-    if (!ECL.components) {
-      ECL.components = new Map();
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
     }
+    ECL.components = ECL.components || new Map();
 
     this.direction = getComputedStyle(this.element).direction;
 

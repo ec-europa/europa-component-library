@@ -63,9 +63,11 @@ export class Accordion {
    * Initialise component.
    */
   init() {
-    if (!ECL.components) {
-      ECL.components = new Map();
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
     }
+    ECL.components = ECL.components || new Map();
+
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
