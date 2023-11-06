@@ -53,6 +53,11 @@ export class Message {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.close = queryOne(this.closeSelector, this.element);
 
     // Bind click event on close
@@ -62,6 +67,7 @@ export class Message {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -73,6 +79,7 @@ export class Message {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

@@ -65,6 +65,11 @@ export class Expandable {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.toggle = queryOne(this.toggleSelector, this.element);
 
     // Get target element
@@ -89,6 +94,7 @@ export class Expandable {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -100,6 +106,7 @@ export class Expandable {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 
