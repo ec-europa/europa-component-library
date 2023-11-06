@@ -5,7 +5,6 @@
 
 @use 'sass:map';
 @use '@ecl/theme-dev/theme';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 .ecl-fact-figures {
   margin: 0;
@@ -41,40 +40,27 @@
 .ecl-fact-figures__description {
   font: map.get(theme.$font-prolonged-print, 'm');
   margin-top: map.get(theme.$spacing-print, 's');
+  max-width: 80ch;
 }
 
 .ecl-fact-figures__view-all {
   display: none;
 }
 
-@include breakpoints.up('l') {
-  .ecl-fact-figures {
-    padding: map.get(theme.$spacing-print, 'xl');
+.ecl-fact-figures__items {
+  display: grid;
+  grid-column-gap: map.get(theme.$spacing-print, 'xl');
+  grid-row-gap: map.get(theme.$spacing-print, 'xl');
+
+  .ecl-fact-figures--col-2 & {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .ecl-fact-figures__items {
-    display: grid;
-    grid-column-gap: map.get(theme.$spacing-print, 'xl');
-    grid-row-gap: map.get(theme.$spacing-print, 'xl');
-
-    .ecl-fact-figures--col-2 & {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .ecl-fact-figures--col-3 & {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .ecl-fact-figures--col-4 & {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  .ecl-fact-figures--col-3 & {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .ecl-fact-figures__description {
-    max-width: 80ch;
-  }
-
-  .ecl-fact-figures__item {
-    margin-top: 0;
+  .ecl-fact-figures--col-4 & {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
