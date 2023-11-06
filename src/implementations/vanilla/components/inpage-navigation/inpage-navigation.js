@@ -291,6 +291,11 @@ export class InpageNavigation {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     const toggleElement = queryOne(this.toggleSelector, this.element);
     const navLinks = queryAll(this.linksSelector, this.element);
 
@@ -310,6 +315,7 @@ export class InpageNavigation {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -374,6 +380,7 @@ export class InpageNavigation {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 }
