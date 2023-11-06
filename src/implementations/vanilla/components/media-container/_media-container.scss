@@ -4,11 +4,14 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-utility-media/media' as uMedia;
 
 // Exposed variables
 $theme: null !default;
 $media-container: null !default;
+
+@use '@ecl/vanilla-utility-media/media' as uMedia with (
+  $theme: $theme
+);
 
 .ecl-media-container {
   margin: 0;

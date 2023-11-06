@@ -1,6 +1,7 @@
 @use 'sass:list';
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+$theme: null !default;
 
 /* Breakpoint viewport sizes and media queries.
 
@@ -21,7 +22,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 
 @function next(
   $name,
-  $breakpoints: theme.$breakpoint,
+  $breakpoints: map.get($theme, 'breakpoint'),
   $breakpoint-names: map.keys($breakpoints)
 ) {
   $n: list.index($breakpoint-names, $name);
@@ -37,7 +38,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
     >> ecl-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
     576px
 */
-@function ecl-min($name, $breakpoints: theme.$breakpoint) {
+@function ecl-min($name, $breakpoints: map.get($theme, 'breakpoint')) {
   $min: map.get($breakpoints, $name);
 
   @return if($min != 0, $min, null);
@@ -49,7 +50,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
    >> ecl-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
    767px
 */
-@function ecl-max($name, $breakpoints: theme.$breakpoint) {
+@function ecl-max($name, $breakpoints: map.get($theme, 'breakpoint')) {
   $next: next($name, $breakpoints);
 
   @return if($next, ecl-min($next, $breakpoints) - 1px, null);
@@ -63,13 +64,13 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
     >> infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
     "-sm"
 */
-@function infix($name, $breakpoints: theme.$breakpoint) {
+@function infix($name, $breakpoints: map.get($theme, 'breakpoint')) {
   @return if(ecl-min($name, $breakpoints) == null, '', '-#{$name}');
 }
 
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
-@mixin up($name, $breakpoints: theme.$breakpoint) {
+@mixin up($name, $breakpoints: map.get($theme, 'breakpoint')) {
   @if map_has_key($breakpoints, $name) {
     $min: ecl-min($name, $breakpoints);
 
@@ -88,7 +89,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
-@mixin down($name, $breakpoints: theme.$breakpoint) {
+@mixin down($name, $breakpoints: map.get($theme, 'breakpoint')) {
   @if map_has_key($breakpoints, $name) {
     $max: ecl-max($name, $breakpoints);
 
@@ -107,7 +108,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 
 // Media that spans multiple breakpoint widths.
 // Makes the @content apply between the min and max breakpoints
-@mixin between($lower, $upper, $breakpoints: theme.$breakpoint) {
+@mixin between($lower, $upper, $breakpoints: map.get($theme, 'breakpoint')) {
   @include up($lower, $breakpoints) {
     @include down($upper, $breakpoints) {
       @content;
@@ -118,7 +119,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 // Media between the breakpoint"s minimum and maximum widths.
 // No minimum for the smallest breakpoint, and no maximum for the largest one.
 // Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
-@mixin only($name, $breakpoints: theme.$breakpoint) {
+@mixin only($name, $breakpoints: map.get($theme, 'breakpoint')) {
   @include between($name, $name, $breakpoints) {
     @content;
   }

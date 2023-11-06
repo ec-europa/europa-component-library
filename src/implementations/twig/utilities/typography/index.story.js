@@ -9,7 +9,7 @@ const getArgs = (data, story) => {
     content: data.content,
   };
   if (story === 'text-colour') {
-    args.colour = 'ecl-u-type-color-black';
+    args.colour = 'ecl-u-type-color-dark';
   }
   if (story === 'text-style') {
     args.bold = false;
@@ -42,30 +42,36 @@ const getArgTypes = (story) => {
       description: 'Choose different colours',
       type: 'select',
       options: [
-        'ecl-u-type-color-black',
-        'ecl-u-type-color-white ecl-u-bg-black',
-        'ecl-u-type-color-primary',
-        'ecl-u-type-color-secondary ecl-u-bg-black',
         'ecl-u-type-color-dark',
+        'ecl-u-type-color-white ecl-u-bg-dark',
+        'ecl-u-type-color-primary',
+        'ecl-u-type-color-secondary ecl-u-bg-dark',
         'ecl-u-type-color-success',
         'ecl-u-type-color-error',
       ],
       control: {
         type: 'select',
         labels: {
-          'ecl-u-type-color-black': 'Black',
-          'ecl-u-type-color-white ecl-u-bg-black': 'White',
-          'ecl-u-type-color-primary': 'Primary',
-          'ecl-u-type-color-secondary ecl-u-bg-black': 'Secondary',
-          'ecl-u-type-color-dark': 'Dark',
-          'ecl-u-type-color-success': 'Success',
-          'ecl-u-type-color-error': 'Error',
+          'ecl-u-type-color-dark': 'dark',
+          'ecl-u-type-color-white ecl-u-bg-dark': 'white',
+          'ecl-u-type-color-primary': 'primary',
+          'ecl-u-type-color-secondary ecl-u-bg-dark': 'secondary',
+          'ecl-u-type-color-success': 'success',
+          'ecl-u-type-color-error': 'error',
         },
       },
       table: {
         category: 'Style',
         type: { summary: 'string' },
         defaultValue: { summary: '' },
+      },
+      mapping: {
+        dark: 'ecl-u-type-color-dark',
+        white: 'ecl-u-type-color-white ecl-u-bg-dark',
+        primary: 'ecl-u-type-color-primary',
+        secondary: 'ecl-u-type-color-secondary ecl-u-bg-dark',
+        success: 'ecl-u-type-color-success',
+        error: 'ecl-u-type-color-error',
       },
     };
   } else if (story === 'text-style') {
@@ -77,6 +83,10 @@ const getArgTypes = (story) => {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Styles',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
     argTypes.style = {
@@ -94,19 +104,28 @@ const getArgTypes = (story) => {
       ],
       control: {
         labels: {
-          'ecl-u-type-none': 'Default',
-          'ecl-u-type-lowercase': 'Lowercase',
-          'ecl-u-type-uppercase': 'Uppercase',
-          'ecl-u-type-capitalize': 'Capitalize',
-          'ecl-u-type-overline': 'Overline',
-          'ecl-u-type-underline': 'Underline',
-          'ecl-u-type-strike': 'Strike',
+          'ecl-u-type-none': 'default',
+          'ecl-u-type-lowercase': 'lowercase',
+          'ecl-u-type-uppercase': 'uppercase',
+          'ecl-u-type-capitalize': 'capitalize',
+          'ecl-u-type-overline': 'overline',
+          'ecl-u-type-underline': 'underline',
+          'ecl-u-type-strike': 'strike',
         },
       },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Styles',
+      },
+      mapping: {
+        default: 'ecl-u-type-none',
+        lowercase: 'ecl-u-type-lowercase',
+        uppercase: 'ecl-u-type-uppercase',
+        capitalize: 'ecl-u-type-capitalize',
+        overline: 'ecl-u-type-overline',
+        underline: 'ecl-u-type-underline',
+        strike: 'ecl-u-type-strike',
       },
     };
     argTypes.alignment = {
@@ -121,15 +140,20 @@ const getArgTypes = (story) => {
       control: {
         type: 'select',
         labels: {
-          'ecl-u-type-align-left': 'Left',
-          'ecl-u-type-align-right': 'Right',
-          'ecl-u-type-align-center': 'Center',
+          'ecl-u-type-align-left': 'left',
+          'ecl-u-type-align-right': 'right',
+          'ecl-u-type-align-center': 'center',
         },
       },
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Styles',
+      },
+      mapping: {
+        left: 'ecl-u-type-align-left',
+        right: 'ecl-u-type-align-right',
+        center: 'ecl-u-type-align-center',
       },
     };
   }

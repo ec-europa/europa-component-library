@@ -1,12 +1,14 @@
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-u-shadow-none {
   box-shadow: none !important;
 }
 
-@each $key, $value in theme.$color {
+@each $key, $value in map.get($theme, 'color') {
   .ecl-u-shadow-#{$key} {
-    box-shadow: var(--sh-#{$key}) !important;
+    box-shadow: $value !important;
   }
 }
