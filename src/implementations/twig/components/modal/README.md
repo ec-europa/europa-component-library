@@ -13,7 +13,7 @@ npm install --save @ecl/twig-component-modal
 - **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
 - **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
 - **"icon_path"** (string) (default: '') Path to the icon sprite
-- **"close_label"** (string) (default: '') Label of the close button (for screen reader only)
+- **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
 - **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -36,7 +36,14 @@ npm install --save @ecl/twig-component-modal
   id: 'modal-example',
   toggle_id: 'modal-toggle',
   icon_path: '/icons.svg',
-  close_label: 'Close',
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close',
+      size: 'm',
+    },
+  },
   header_icon: {
     icon: {
       name: 'warning',

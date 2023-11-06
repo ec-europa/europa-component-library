@@ -16,7 +16,7 @@ $overflow-height: 2rem;
 .ecl-modal {
   background-color: map.get($modal, 'overlay');
   border: none;
-  color: map.get($theme, 'color', 'grey-100');
+  color: var(--c-d);
   height: 100%;
   left: 0;
   margin: 0;
@@ -40,16 +40,16 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__content {
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($theme, 'color', 'white');
   border-radius: map.get($modal, 'border-radius');
-  box-shadow: map.get($theme, 'shadow', '4');
+  box-shadow: map.get($modal, 'shadow');
   display: flex;
   flex-direction: column;
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: map.get($modal, 'font');
   overflow: hidden;
   left: 50%;
   margin: 0;
-  max-height: min(100vh, 501px);
+  max-height: min(100vh, 530px);
   padding: 0;
   position: relative;
   transform: translateX(-50%);
@@ -58,31 +58,30 @@ $overflow-height: 2rem;
 
 .ecl-modal__header {
   align-items: flex-start;
-  border-bottom: 1px solid map.get($modal, 'separator-color');
+  border-bottom: map.get($modal, 'separator');
   display: flex;
-  font: map.get($theme, 'font-prolonged', 'l');
-  padding: map.get($theme, 'spacing', 'm');
+  font: map.get($modal, 'header', 'font');
+  padding: map.get($modal, 'header', 'padding-mobile');
 }
 
 .ecl-modal__icon {
   flex-shrink: 0;
-  margin-inline-end: map.get($theme, 'spacing', 's');
-  margin-top: 2px; // Fix alignment with text
+  margin-inline-end: var(--s-xs);
 
   .ecl-modal--information & {
-    color: map.get($theme, 'color', 'info');
+    color: var(--c-in);
   }
 
   .ecl-modal--success & {
-    color: map.get($theme, 'color', 'success');
+    color: var(--c-su);
   }
 
   .ecl-modal--warning & {
-    color: map.get($theme, 'color', 'warning');
+    color: var(--c-wa);
   }
 
   .ecl-modal--error & {
-    color: map.get($theme, 'color', 'error');
+    color: var(--c-er);
   }
 }
 
@@ -94,7 +93,11 @@ $overflow-height: 2rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: map.get($theme, 'spacing', 'm');
+  padding: map.get($modal, 'body', 'padding-mobile');
+
+  &:is(:last-child) {
+    padding-bottom: map.get($modal, 'body', 'padding-last-child');
+  }
 }
 
 .ecl-modal__body-scroll {
@@ -115,12 +118,12 @@ $overflow-height: 2rem;
 }
 
 * + .ecl-modal__body-fixed {
-  margin-top: map.get($theme, 'spacing', 'm');
+  margin-top: var(--s-m);
 }
 
 .ecl-modal__footer {
-  border-top: 1px solid map.get($modal, 'separator-color');
-  padding: map.get($theme, 'spacing', 'm');
+  border-top: map.get($modal, 'separator');
+  padding: map.get($modal, 'footer', 'padding-mobile');
 }
 
 .ecl-modal__header + .ecl-modal__footer {
@@ -129,23 +132,19 @@ $overflow-height: 2rem;
 
 .ecl-modal__footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .ecl-modal__button {
-  flex-basis: 50%;
-  margin-inline-end: map.get($theme, 'spacing', 'm');
+  margin-top: var(--s-m);
 
-  &:last-of-type {
-    margin-inline-end: 0;
+  &:first-of-type {
+    margin-top: 0;
   }
 }
 
 .ecl-modal__close {
-  padding: map.get($theme, 'spacing', 's');
-  margin-bottom: -#{map.get($theme, 'spacing', 'xs')};
-  margin-inline-end: -#{map.get($theme, 'spacing', 's')};
-  margin-top: -#{map.get($theme, 'spacing', 'xs')};
+  margin: map.get($modal, 'close-margin');
 
   &:hover {
     box-shadow: none;
@@ -160,11 +159,7 @@ $overflow-height: 2rem;
 @include breakpoints.up('s') {
   .ecl-modal__content {
     .ecl-modal--s & {
-      max-height: min(100vh, 475px);
-    }
-
-    .ecl-modal--l & {
-      max-height: min(100vh, 508px);
+      max-height: min(100vh, 502px);
     }
   }
 }
@@ -172,23 +167,30 @@ $overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-modal__header {
-    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'l');
+    padding: map.get($modal, 'header', 'padding-desktop');
   }
 
   .ecl-modal__body {
-    padding: map.get($theme, 'spacing', 'l');
+    padding: map.get($modal, 'body', 'padding-desktop');
   }
 
   .ecl-modal__footer {
-    padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 'l');
+    padding: map.get($modal, 'padding-desktop');
   }
 
   .ecl-modal__footer-content {
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .ecl-modal__button {
-    flex-basis: auto;
+    flex-grow: 1;
+    margin-inline-end: var(--s-m);
+    margin-top: 0;
+
+    &:last-of-type {
+      margin-inline-end: 0;
+    }
   }
 }
 
