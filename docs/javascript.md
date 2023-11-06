@@ -24,6 +24,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
+Alternatively components can be manually initialised this way:
+
+```js
+var elt = document.querySelector('yourSelector');
+var accordion = new ECL.Accordion(elt);
+accordion.init();
+```
+
+In both cases the instance will be available in the main ECL object, in the components Map, from here an existing instance can be retrieved to further update it, for instance running `destroy()` and `init()` again.
+
+```js
+var instance = ECL.components.get('yourElement');
+instance.destroy();
+instance.init();
+```
+
 For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v3-dev/src/tools/dom-utils/autoinit/README.md).
 
 ## Settings

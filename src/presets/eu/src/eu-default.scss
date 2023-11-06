@@ -35,7 +35,10 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-utility-typography/typography-eu';
+@use '@ecl/vanilla-utility-typography/typography' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
 
 // stylelint-disable no-descending-specificity
 .ecl button:not([class*='ecl-'], [class*='wt-']),

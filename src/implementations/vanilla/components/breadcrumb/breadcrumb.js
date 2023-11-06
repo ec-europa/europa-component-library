@@ -74,6 +74,11 @@ export class Breadcrumb {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
 
     // Bind click event on ellipsis
@@ -89,6 +94,9 @@ export class Breadcrumb {
     );
 
     this.check();
+    // Set ecl initialized attribute
+    this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -100,6 +108,10 @@ export class Breadcrumb {
         'click',
         this.handleClickOnEllipsis,
       );
+    }
+    if (this.element) {
+      this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

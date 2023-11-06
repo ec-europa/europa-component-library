@@ -9,7 +9,7 @@ const styleBox = {
 };
 
 const getArgs = () => ({
-  colour: 'ecl-u-border-color-black',
+  colour: 'ecl-u-border-color-dark',
   width: 'ecl-u-border-width-1',
   direction: [
     'ecl-u-border-bottom',
@@ -26,12 +26,11 @@ const getArgTypes = () => ({
     type: 'select',
     description: 'Apply different colours',
     options: [
-      'ecl-u-border-color-black',
+      'ecl-u-border-color-dark',
       'ecl-u-border-color-primary',
       'ecl-u-border-color-secondary',
-      'ecl-u-border-color-dark',
       'ecl-u-border-color-success',
-      'ecl-u-border-color-danger',
+      'ecl-u-border-color-error',
     ],
     table: {
       type: { summary: 'string' },
@@ -39,13 +38,19 @@ const getArgTypes = () => ({
     },
     control: {
       labels: {
-        'ecl-u-border-color-black': 'Black',
-        'ecl-u-border-color-primary': 'Primary',
-        'ecl-u-border-color-secondary': 'Secondary',
-        'ecl-u-border-color-dark': 'Dark',
-        'ecl-u-border-color-success': 'Success',
-        'ecl-u-border-color-danger': 'Danger',
+        'ecl-u-border-color-dark': 'dark',
+        'ecl-u-border-color-primary': 'primary',
+        'ecl-u-border-color-secondary': 'secondary',
+        'ecl-u-border-color-success': 'success',
+        'ecl-u-border-color-error': 'error',
       },
+    },
+    mapping: {
+      dark: 'ecl-u-border-color-dark',
+      primary: 'ecl-u-border-color-primary',
+      secondary: 'ecl-u-border-color-secondary',
+      success: 'ecl-u-border-color-success',
+      error: 'ecl-u-border-color-error',
     },
   },
   width: {
@@ -69,6 +74,12 @@ const getArgTypes = () => ({
         'ecl-u-border-width-8': '8px',
       },
     },
+    mapping: {
+      '1px': 'ecl-u-border-width-1',
+      '2px': 'ecl-u-border-width-2',
+      '4px': 'ecl-u-border-width-4',
+      '8px': 'ecl-u-border-width-8',
+    },
   },
   direction: {
     description: 'Select the border to apply the style to',
@@ -85,11 +96,17 @@ const getArgTypes = () => ({
     control: {
       type: 'inline-check',
       labels: {
-        'ecl-u-border-bottom': 'Bottom',
-        'ecl-u-border-left': 'Left',
-        'ecl-u-border-right': 'Right',
-        'ecl-u-border-top': 'Top',
+        'ecl-u-border-bottom': 'bottom',
+        'ecl-u-border-left': 'left',
+        'ecl-u-border-right': 'right',
+        'ecl-u-border-top': 'top',
       },
+    },
+    mapping: {
+      bottom: 'ecl-u-border-bottom',
+      left: 'ecl-u-border-left',
+      right: 'ecl-u-border-right',
+      top: 'ecl-u-border-top',
     },
   },
   radius: {
@@ -115,6 +132,13 @@ const getArgTypes = () => ({
         'ecl-u-border-radius-4': '4px',
         'ecl-u-border-radius-8': '8px',
       },
+    },
+    mapping: {
+      '0px': 'none',
+      '1px': 'ecl-u-border-radius-1',
+      '2px': 'ecl-u-border-radius-2',
+      '4px': 'ecl-u-border-radius-4',
+      '8px': 'ecl-u-border-radius-8',
     },
   },
 });

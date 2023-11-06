@@ -71,6 +71,11 @@ export class Table {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.sortHeadings = queryAll(this.sortSelector, this.element);
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
@@ -92,6 +97,7 @@ export class Table {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -105,6 +111,7 @@ export class Table {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

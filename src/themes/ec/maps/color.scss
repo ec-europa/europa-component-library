@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 $color: (
   // Semantic colors
   'primary': #3860ed,
@@ -56,7 +58,9 @@ $color: (
   'branding': #254acb,
   'black': #000,
   'white': #fff,
-
+  'stroke': color.adjust(#3860ed, $alpha: -0.5),
+  'overlay-light': color.adjust(#26324b, $alpha: -0.3),
+  'overlay-dark': color.adjust(#26324b, $alpha: -0.1),
   // TODO: Old EC colors; to be removed once components are updated
   // semantic colours
   'tertiary': #e3e3e3,

@@ -1,6 +1,9 @@
-@use '@ecl/theme-ec/theme';
+@use 'sass:map';
 
-@each $key, $value in theme.$color {
+// Exposed variables
+$theme: null !default;
+
+@each $key, $value in map.get($theme, 'color') {
   .ecl-u-bg-#{$key} {
     background-color: $value !important;
   }

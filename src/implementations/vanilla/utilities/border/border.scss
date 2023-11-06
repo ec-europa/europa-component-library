@@ -1,36 +1,38 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-@each $breakpoint in map.keys(theme.$breakpoint) {
+// Exposed variables
+$theme: null !default;
+
+@each $breakpoint in map.keys(map.get($theme, 'breakpoint')) {
   @include breakpoints.up($breakpoint) {
-    $infix: breakpoints.infix($breakpoint, theme.$breakpoint);
+    $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
     // Full border
     .ecl-u-border#{$infix}-all {
-      border: 1px solid map.get(theme.$color, 'black-100') !important;
+      border: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-bottom {
-      border-bottom: 1px solid map.get(theme.$color, 'black-100') !important;
+      border-bottom: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-left {
-      border-left: 1px solid map.get(theme.$color, 'black-100') !important;
+      border-left: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-top {
-      border-top: 1px solid map.get(theme.$color, 'black-100') !important;
+      border-top: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-right {
-      border-right: 1px solid map.get(theme.$color, 'black-100') !important;
+      border-right: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     // Border color
-    @each $key, $value in theme.$color {
+    @each $key, $value in map.get($theme, 'color') {
       .ecl-u-border-color#{$infix}-#{$key} {
-        border-color: $value !important;
+        border-color: var(--ecl-color-#{$key}) !important;
       }
     }
 

@@ -1,33 +1,35 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+
+// Exposed variables
+$theme: null !default;
 
 // Drop shadow
 .ecl-u-shadow-none {
   box-shadow: none !important;
 }
 
-@each $key, $value in theme.$shadow {
+@each $key, $value in map.get($theme, 'shadow') {
   .ecl-u-shadow-#{$key} {
     box-shadow: var(--sh-#{$key}) !important;
   }
 }
 
 // Inner shadow
-@each $key, $value in theme.$shadow-inner {
+@each $key, $value in map.get($theme, 'shadow-inner') {
   .ecl-u-shadow-inner-#{$key} {
     box-shadow: var(--sh-i-#{$key}) !important;
   }
 }
 
 // Negative shadow
-@each $key, $value in theme.$shadow-negative {
+@each $key, $value in map.get($theme, 'shadow-negative') {
   .ecl-u-shadow-negative-#{$key} {
     box-shadow: var(--sh-n-#{$key}) !important;
   }
 }
 
 // Negative inner shadow
-@each $key, $value in theme.$shadow-negative-inner {
+@each $key, $value in map.get($theme, 'shadow-negative-inner') {
   .ecl-u-shadow-negative-inner-#{$key} {
     box-shadow: var(--sh-n-i-#{$key}) !important;
   }
