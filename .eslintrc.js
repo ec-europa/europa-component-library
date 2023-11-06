@@ -3,6 +3,9 @@ module.exports = {
   root: true,
   plugins: ['jest'],
   extends: ['airbnb-base', 'prettier'],
+  globals: {
+    ECL: 'writable',
+  },
   env: {
     node: true,
     browser: true,

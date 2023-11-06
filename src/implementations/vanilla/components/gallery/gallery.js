@@ -154,6 +154,10 @@ export class Gallery {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     // Query elements
     this.expandable = !this.element.hasAttribute(this.expandableSelector);
     this.visibleItems = this.element.getAttribute(this.itemsLimitSelector);
@@ -288,6 +292,7 @@ export class Gallery {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -338,6 +343,7 @@ export class Gallery {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

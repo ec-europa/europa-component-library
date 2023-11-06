@@ -53,6 +53,10 @@ export class CategoryFilter {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
     // Query elementslur
     this.items = queryAll(this.itemSelector, this.element);
 
@@ -65,6 +69,7 @@ export class CategoryFilter {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -78,6 +83,7 @@ export class CategoryFilter {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

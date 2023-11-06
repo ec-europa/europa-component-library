@@ -57,6 +57,11 @@ export class FileDownload {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.translationToggle = queryOne(
       this.translationToggleSelector,
       this.element,
@@ -76,6 +81,7 @@ export class FileDownload {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -90,6 +96,7 @@ export class FileDownload {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

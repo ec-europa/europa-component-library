@@ -196,7 +196,7 @@ $button-print: (
 $card: (
   border-radius: 0 0 map.get($border-radius, 's') map.get($border-radius, 's'),
   shadow: var(--sh-1),
-  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border: 1px solid var(--c-st),
   border-bottom: 4px solid var(--c-p),
   body-padding: var(--s-xl),
 );
@@ -361,7 +361,7 @@ $expandable: (
 $fact-figures: (
   background: var(--c-n-60),
   shadow: var(--sh-1),
-  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border: 1px solid var(--c-st),
   border-radius: 2px,
   padding-mobile: var(--s-3xl),
   padding-desktop: var(--s-3xl),
@@ -387,7 +387,7 @@ $fact-figures: (
 // Featured item
 $featured-item: (
   padding: var(--s-xl),
-  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border: 1px solid var(--c-st),
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-1),
   media-padding-mobile: var(--s-xl),
@@ -408,7 +408,7 @@ $featured-item: (
     padding-mobile: 0,
     padding-desktop: 0,
     border-size: 1px,
-    border-color: color-mix(in srgb, var(--c-p) 50%, transparent),
+    border-color: var(--c-st),
     title-spacing: var(--s-xl),
     description-spacing: var(--s-xl) var(--s-xl) 0 var(--s-xl),
   ),
@@ -488,7 +488,7 @@ $file: (
   file-image-margin-right: 0,
   file-language-font: var(--f-m),
   container-background: map.get($color, 'white'),
-  container-border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  container-border: 1px solid var(--c-st),
   icon-color: var(--c-d),
   translation-border-color: var(--c-n-60),
   image-width: 13.125rem,
@@ -787,7 +787,7 @@ $navigation-list: (
   content_block_padding: var(--s-xl),
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-1),
-  border: 1px solid color-mix(in srgb, var(--c-p) 50%, transparent),
+  border: 1px solid var(--c-st),
 );
 
 // Notification
@@ -1194,6 +1194,9 @@ $typography-print: (
   --ecl-color-warning: #{map.get($color, 'warning')};
   --ecl-color-background: #{map.get($color, 'background')};
   --ecl-color-branding: #{map.get($color, 'branding')};
+  --ecl-color-stroke: color-mix(in srgb, var(--c-p) 50%, transparent);
+  --ecl-color-overlay-light: color-mix(in srgb, var(--c-d) 70%, transparent);
+  --ecl-color-overlay-dark: color-mix(in srgb, var(--c-d) 90%, transparent);
   --ecl-color-neutral: #{map.get($color, 'neutral-100')};
   --ecl-color-neutral-180: #{map.get($color, 'neutral-180')};
   --ecl-color-neutral-160: #{map.get($color, 'neutral-160')};
@@ -1267,6 +1270,9 @@ $typography-print: (
   --c-wa: var(--ecl-color-warning);
   --c-bg: var(--ecl-color-background);
   --c-br: var(--ecl-color-branding);
+  --c-st: var(--ecl-color-stroke);
+  --c-ov-l: var(--ecl-color-overlay-light);
+  --c-ov-d: var(--ecl-color-overlay-dark);
   --c-n: var(--ecl-color-neutral);
   --c-n-180: var(--ecl-color-neutral-180);
   --c-n-160: var(--ecl-color-neutral-160);
