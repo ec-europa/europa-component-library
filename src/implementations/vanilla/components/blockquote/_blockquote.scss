@@ -42,14 +42,55 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   font-style: italic;
   margin: 0;
   max-width: $_text-max-width;
-  quotes: '\201C' '\201D';
+
+  // U+2019 U+2019
+  quotes: '‘' '’';
 
   &::before {
     content: open-quote;
+    margin-inline-end: map.get(theme.$spacing, '2xs');
   }
 
   &::after {
     content: close-quote;
+    margin-inline-start: map.get(theme.$spacing, '2xs');
+  }
+
+  // U+201E U+201D
+  &[lang='bg'],
+  &[lang='cs'],
+  &[lang='de'],
+  &[lang='et'],
+  &[lang='hr'],
+  &[lang='sk'],
+  &[lang='ro'],
+  &[lang='pl'],
+  &[lang='sl'],
+  &[lang='lt'] {
+    quotes: '„' '“';
+  }
+
+  // U+00BB U+00AB
+  &[lang='da'] {
+    quotes: '»' '«';
+  }
+
+  // U+00AB U+00BB
+  &[lang='el'],
+  &[lang='fr'],
+  &[lang='es'],
+  &[lang='it'],
+  &[lang='pt'] {
+    quotes: '«' '»';
+  }
+
+  // U+201D U+201D
+  &[lang='fi'],
+  &[lang='sv'],
+  &[lang='nl'],
+  &[lang='mt'],
+  &[lang='lv'] {
+    quotes: '”' '”';
   }
 }
 
