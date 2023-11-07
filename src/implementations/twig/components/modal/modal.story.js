@@ -1,10 +1,15 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-component-modal/demo/data';
+import dataEC from '@ecl/specs-component-modal/demo/data-ec';
+import dataEU from '@ecl/specs-component-modal/demo/data-eu';
 import modal from './modal.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const dataDefault = system === 'eu' ? dataEU : dataEC;
 
 const getArgs = (data) => ({
   header: data.header,

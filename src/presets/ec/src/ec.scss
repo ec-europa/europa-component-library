@@ -148,7 +148,10 @@
   $theme: theme.$theme,
   $rating-field: var.$rating-field
 );
-@use '@ecl/vanilla-component-modal/modal-ec';
+@use '@ecl/vanilla-component-modal/modal' with (
+  $theme: theme.$theme,
+  $modal: var.$modal
+);
 @use '@ecl/vanilla-component-media-container/media-container' with (
   $theme: theme.$theme,
   $media-container: var.$media-container

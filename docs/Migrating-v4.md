@@ -183,6 +183,13 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Close button label is hidden on EC
 
+### Modal
+
+- Close button updated:
+  - new `close` twig parameter, expecting an ECL Button structure. It replaces the `close-label` parameter
+  - Icon is now different between EC and EU: `close` for EC, `close-filled` for EU.
+  - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
+
 ### Navigation list
 
 - `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items and it's now by default set to `true`.
