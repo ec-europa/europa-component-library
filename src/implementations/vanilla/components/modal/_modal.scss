@@ -178,18 +178,20 @@ $overflow-height: 2rem;
     padding: map.get($modal, 'padding-desktop');
   }
 
-  .ecl-modal__footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  .ecl-modal:not(.ecl-modal--s) {
+    .ecl-modal__footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-  .ecl-modal__button {
-    flex-grow: 1;
-    margin-inline-end: var(--s-m);
-    margin-top: 0;
+    .ecl-modal__button {
+      flex-grow: 1;
+      margin-inline-end: var(--s-m);
+      margin-top: 0;
 
-    &:last-of-type {
-      margin-inline-end: 0;
+      &:last-of-type {
+        margin-inline-end: 0;
+      }
     }
   }
 }
