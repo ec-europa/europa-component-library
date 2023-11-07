@@ -2,7 +2,10 @@
 @use '@ecl/theme-eu/variables' as var;
 
 // Icons & Images
-@use '@ecl/vanilla-component-icon/icon-eu';
+@use '@ecl/vanilla-component-icon/icon' with (
+  $theme: theme.$theme,
+  $icons: var.$icons
+);
 
 // Layout
 @use '@ecl/vanilla-layout-grid/grid' with (
@@ -68,7 +71,10 @@
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-news-ticker/news-ticker-eu';
+@use '@ecl/vanilla-component-news-ticker/news-ticker' with (
+  $theme: theme.$theme,
+  $news-ticker: var.$news-ticker
+);
 @use '@ecl/vanilla-component-notification/notification' with (
   $theme: theme.$theme,
   $notification: var.$notification
@@ -77,12 +83,17 @@
   $theme: theme.$theme,
   $spinner: var.$spinner
 );
-@use '@ecl/vanilla-component-skip-link/skip-link';
+@use '@ecl/vanilla-component-skip-link/skip-link' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-table/table' with (
   $theme: theme.$theme,
   $table: var.$table
 );
-@use '@ecl/vanilla-component-tabs/tabs-eu';
+@use '@ecl/vanilla-component-tabs/tabs' with (
+  $theme: theme.$theme,
+  $tabs: var.$tabs
+);
 @use '@ecl/vanilla-component-tag/tag' with (
   $theme: theme.$theme,
   $tag: var.$tag
@@ -154,14 +165,25 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-pagination/pagination-eu';
-@use '@ecl/vanilla-component-popover/popover';
+@use '@ecl/vanilla-component-pagination/pagination' with (
+  $theme: theme.$theme,
+  $pagination: var.$pagination
+);
+@use '@ecl/vanilla-component-popover/popover' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-search-form/search-form' with (
   $theme: theme.$theme,
   $search-form: var.$search-form
 );
-@use '@ecl/vanilla-component-social-media-follow/social-media-follow-eu';
-@use '@ecl/vanilla-component-social-media-share/social-media-share-eu';
+@use '@ecl/vanilla-component-social-media-follow/social-media-follow' with (
+  $theme: theme.$theme,
+  $social-media-follow: var.$social-media-follow
+);
+@use '@ecl/vanilla-component-social-media-share/social-media-share' with (
+  $theme: theme.$theme,
+  $social-media-share: var.$social-media-share
+);
 @use '@ecl/vanilla-component-timeline/timeline' with (
   $theme: theme.$theme,
   $timeline: var.$timeline
@@ -172,9 +194,18 @@
   $theme: theme.$theme,
   $accordion: var.$accordion
 );
-@use '@ecl/vanilla-component-carousel/carousel-eu';
-@use '@ecl/vanilla-component-category-filter/category-filter-eu';
-@use '@ecl/vanilla-component-gallery/gallery-eu';
+@use '@ecl/vanilla-component-carousel/carousel' with (
+  $theme: theme.$theme,
+  $carousel: var.$carousel
+);
+@use '@ecl/vanilla-component-category-filter/category-filter' with (
+  $theme: theme.$theme,
+  $category-filter: var.$category-filter
+);
+@use '@ecl/vanilla-component-gallery/gallery' with (
+  $theme: theme.$theme,
+  $gallery: var.$gallery
+);
 @use '@ecl/vanilla-component-page-header/page-header-eu' with (
   $theme: theme.$theme,
   $page-header: var.$page-header
@@ -226,4 +257,6 @@
   $theme: theme.$theme,
   $typography: var.$typography
 );
-@use '@ecl/vanilla-utility-z-index/z-index';
+@use '@ecl/vanilla-utility-z-index/z-index' with (
+  $theme: theme.$theme
+);

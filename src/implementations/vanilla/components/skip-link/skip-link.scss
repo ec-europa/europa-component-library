@@ -1,40 +1,43 @@
 /**
  * Skip link
  * @define skip-link
+ * TODO
  */
 
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-skip-link {
-  background-color: map.get(theme.$color, 'blue-75');
+  background-color: map.get($theme, 'color', 'blue-75');
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
-  color: map.get(theme.$color, 'white');
+  color: map.get($theme, 'color', 'white');
   display: block;
-  font: map.get(theme.$font, 'm');
+  font: map.get($theme, 'font', 'm');
   height: 1px;
   margin: 0;
-  outline: 2px solid map.get(theme.$color, 'blue-100');
+  outline: 2px solid map.get($theme, 'color', 'blue-100');
   outline-offset: 0;
   overflow: hidden;
-  padding: map.get(theme.$spacing, 'xs');
+  padding: map.get($theme, 'spacing', 'xs');
   position: absolute;
   text-decoration: underline;
   white-space: nowrap;
   width: 1px;
-  z-index: calc(map.get(theme.$z-index, 'modal') + 1);
+  z-index: calc(map.get($theme, 'z-index', 'modal') + 1);
 
   &:active,
   &:focus-visible {
     clip: auto;
     clip-path: none;
     height: auto;
-    left: map.get(theme.$spacing, 'l');
+    left: map.get($theme, 'spacing', 'l');
     overflow: visible;
     position: fixed;
-    top: map.get(theme.$spacing, 'l');
+    top: map.get($theme, 'spacing', 'l');
     width: auto;
   }
 }

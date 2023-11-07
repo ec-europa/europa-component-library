@@ -1,29 +1,18 @@
 /**
  * News ticker component
  * @define tabs
+ * TODO
  */
 
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_tabs-font-color: none !default;
-$_tabs-active-font-color: none !default;
-$_tabs-border-radius: none !default;
-$_tabs-border-color: none !default;
-$_tabs-active-border-top-color: none !default;
-$_tabs-inactive-mobile-color: none !default;
-$_dropdown-border: none !default;
-$_dropdown-border-radius: none !default;
-$_dropdown-shadow: none !default;
-$_dropdown-link-active-color: none !default;
-$_dropdown-link-active-background: none !default;
-$_dropdown-link-hover-color: none !default;
-$_more-active-border-radius: none !default;
-$_button-arrows-border-radius: none !default;
+// Exposed variables
+$theme: null !default;
+$tabs: null !default;
 
 .ecl-tabs {
-  margin: 0 0 map.get(theme.$spacing, '3xl');
+  margin: 0 0 map.get($theme, 'spacing', '3xl');
   padding: 0;
   position: relative;
 }
@@ -33,7 +22,7 @@ $_button-arrows-border-radius: none !default;
 }
 
 .ecl-tabs__list {
-  border-bottom: 1px solid $_tabs-border-color;
+  border-bottom: 1px solid map.get($tabs, 'tabs-border-color');
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -42,14 +31,14 @@ $_button-arrows-border-radius: none !default;
 }
 
 .ecl-tabs__link {
-  background-color: $_tabs-inactive-mobile-color;
-  border-bottom: 1px solid $_tabs-border-color;
-  border-radius: $_tabs-border-radius;
-  color: $_tabs-font-color;
+  background-color: map.get($tabs, 'tabs-inactive-mobile-color');
+  border-bottom: 1px solid map.get($tabs, 'tabs-border-color');
+  border-radius: map.get($tabs, 'tabs-border-radius');
+  color: map.get($tabs, 'tabs-font-color');
   display: block;
-  font: map.get(theme.$font, 'm');
+  font: map.get($theme, 'font', 'm');
   margin-bottom: -1px;
-  padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 's');
+  padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 's');
   text-decoration: none;
 
   &:focus-visible {
@@ -57,22 +46,22 @@ $_button-arrows-border-radius: none !default;
   }
 
   &:visited {
-    color: $_tabs-font-color;
+    color: map.get($tabs, 'tabs-font-color');
   }
 }
 
 .ecl-tabs__link--active {
-  background-color: map.get(theme.$color, 'white');
-  border-bottom: 1px solid map.get(theme.$color, 'white');
-  border-inline-start: 1px solid $_tabs-border-color;
-  border-inline-end: 1px solid $_tabs-border-color;
-  border-top: 4px solid $_tabs-active-border-top-color;
-  color: $_tabs-active-font-color;
-  font-weight: map.get(theme.$font-weight, 'bold');
-  padding-top: calc(#{map.get(theme.$spacing, 'm')} - 4px);
+  background-color: map.get($theme, 'color', 'white');
+  border-bottom: 1px solid map.get($theme, 'color', 'white');
+  border-inline-start: 1px solid map.get($tabs, 'tabs-border-color');
+  border-inline-end: 1px solid map.get($tabs, 'tabs-border-color');
+  border-top: 4px solid map.get($tabs, 'tabs-active-border-top-color');
+  color: map.get($tabs, 'tabs-active-font-color');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  padding-top: calc(#{map.get($theme, 'spacing', 'm')} - 4px);
 
   &:visited {
-    color: $_tabs-active-font-color;
+    color: map.get($tabs, 'tabs-active-font-color');
   }
 }
 
@@ -89,7 +78,7 @@ $_button-arrows-border-radius: none !default;
 }
 
 .ecl-tabs__toggle {
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: map.get($theme, 'font-weight', 'bold');
   position: relative;
 
   &:not(:focus-visible) {
@@ -106,11 +95,11 @@ $_button-arrows-border-radius: none !default;
 }
 
 .ecl-tabs__toggle--active {
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: map.get($theme, 'font-weight', 'bold');
 
   &::before {
-    background-color: $_tabs-active-border-top-color;
-    border-radius: $_more-active-border-radius;
+    background-color: map.get($tabs, 'tabs-active-border-top-color');
+    border-radius: map.get($tabs, 'more-active-border-radius');
     content: '';
     display: block;
     height: 4px;
@@ -126,9 +115,9 @@ $_button-arrows-border-radius: none !default;
 }
 
 .ecl-tabs__dropdown {
-  border: $_dropdown-border;
-  border-radius: $_dropdown-border-radius;
-  box-shadow: $_dropdown-shadow;
+  border: map.get($tabs, 'dropdown-border');
+  border-radius: map.get($tabs, 'dropdown-border-radius');
+  box-shadow: map.get($tabs, 'dropdown-shadow');
   display: none;
   list-style: none;
   margin: 0;
@@ -145,20 +134,20 @@ $_button-arrows-border-radius: none !default;
   .ecl-tabs__link {
     border: 0;
     border-radius: 0;
-    color: map.get(theme.$color, 'grey');
+    color: map.get($theme, 'color', 'grey');
     margin-bottom: 0;
   }
 
   .ecl-tabs__link:hover {
-    background-color: $_dropdown-link-active-background;
-    color: $_dropdown-link-hover-color;
+    background-color: map.get($tabs, 'dropdown-link-active-background');
+    color: map.get($tabs, 'dropdown-link-hover-color');
   }
 
   .ecl-tabs__link--active {
-    background-color: $_dropdown-link-active-background;
-    color: $_dropdown-link-active-color;
-    font-weight: map.get(theme.$font-weight, 'bold');
-    padding-top: map.get(theme.$spacing, 'm');
+    background-color: map.get($tabs, 'dropdown-link-active-background');
+    color: map.get($tabs, 'dropdown-link-active-color');
+    font-weight: map.get($theme, 'font-weight', 'bold');
+    padding-top: map.get($theme, 'spacing', 'm');
     text-decoration: underline;
   }
 }
@@ -180,17 +169,17 @@ $_button-arrows-border-radius: none !default;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
-  background: map.get(theme.$color, 'blue-100');
+  background: map.get($theme, 'color', 'blue-100');
   border: 0;
-  border-radius: $_button-arrows-border-radius;
+  border-radius: map.get($tabs, 'button-arrows-border-radius');
   cursor: pointer;
-  padding: calc(#{map.get(theme.$spacing, 'm')} - 1px);
+  padding: calc(#{map.get($theme, 'spacing', 'm')} - 1px);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white');
+    outline: 2px solid map.get($theme, 'color', 'white');
     outline-offset: -4px;
   }
 }
@@ -202,7 +191,7 @@ $_button-arrows-border-radius: none !default;
   }
 
   .ecl-tabs__link {
-    background-color: map.get(theme.$color, 'white');
+    background-color: map.get($theme, 'color', 'white');
   }
 
   .ecl-tabs__dropdown {
@@ -222,6 +211,6 @@ $_button-arrows-border-radius: none !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-tabs__list {
-    padding: 0 map.get(theme.$spacing, 'xs');
+    padding: 0 map.get($theme, 'spacing', 'xs');
   }
 }

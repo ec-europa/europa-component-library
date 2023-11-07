@@ -1,35 +1,35 @@
 /**
  * Pagination
  * @define pagination
+ * TODO
  */
 
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_background-color: null !default;
-$_text-color: map.get(theme.$color, 'blue-100');
-$_border-color: map.get(theme.$color, 'black-100');
-$_border-radius: null !default;
-$_border-width: null !default;
-$_current-text-color: null !default;
-$_current-border-color: map.get(theme.$color, 'black-100');
-$_current-border-width: null !default;
+// Exposed variables
+$theme: null !default;
+$pagination: null !default;
+
+// Internal variables
+$_text-color: map.get($theme, 'color', 'blue-100');
+$_border-color: map.get($theme, 'color', 'black-100');
+$_current-border-color: map.get($theme, 'color', 'black-100');
 
 .ecl-pagination {
-  background-color: $_background-color;
-  border-radius: $_border-radius;
-  border-top: $_border-width solid $_border-color;
+  background-color: map.get($pagination, 'background-color');
+  border-radius: map.get($pagination, 'border-radius');
+  border-top: map.get($pagination, 'border-width') solid $_border-color;
   color: $_text-color;
-  font: map.get(theme.$font-prolonged, 'm');
+  font: map.get($theme, 'font-prolonged', 'm');
   margin: 0;
   padding-bottom: calc(
-    #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, '2xs')}
+    #{map.get($theme, 'spacing', 'm')} - #{map.get($theme, 'spacing', '2xs')}
   );
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-inline-end: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get($theme, 'spacing', 'm');
+  padding-inline-end: map.get($theme, 'spacing', 'm');
   padding-top: calc(
-    #{map.get(theme.$spacing, 'm')} - #{map.get(theme.$spacing, '2xs')}
+    #{map.get($theme, 'spacing', 'm')} - #{map.get($theme, 'spacing', '2xs')}
   );
 }
 
@@ -59,9 +59,9 @@ $_current-border-width: null !default;
 }
 
 .ecl-pagination__item--current {
-  color: $_current-text-color;
+  color: map.get($pagination, 'current-text-color');
   display: flex;
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font-weight: map.get($theme, 'font-weight', 'bold');
   position: relative;
 }
 
@@ -75,7 +75,7 @@ $_current-border-width: null !default;
 
 .ecl-pagination__link,
 .ecl-pagination__text {
-  padding: map.get(theme.$spacing, '2xs');
+  padding: map.get($theme, 'spacing', '2xs');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -93,7 +93,11 @@ $_current-border-width: null !default;
     display: flex;
     flex-grow: 0;
     margin-inline-end: calc(
-      #{map.get(theme.$spacing, 'l')} - (2 * #{map.get(theme.$spacing, '2xs')})
+      #{map.get($theme, 'spacing', 'l')} - (2 * #{map.get(
+              $theme,
+              'spacing',
+              '2xs'
+            )})
     );
 
     &:last-child {
@@ -107,19 +111,26 @@ $_current-border-width: null !default;
   }
 
   .ecl-pagination__item--current::before {
-    border: $_current-border-width solid $_current-border-color;
+    border: map.get($pagination, 'current-border-width solid')
+      $_current-border-color;
     border-radius: 10rem;
     content: '';
     display: block;
     height: calc(
-      #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
+      #{map.get($theme, 'line-height-prolonged', 'm')} + (2 * #{map.get(
+              $pagination,
+              'current-border-width'
+            )})
     );
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: calc(
-      #{map.get(theme.$line-height-prolonged, 'm')} + (2 * #{$_current-border-width})
+      #{map.get($theme, 'line-height-prolonged', 'm')} + (2 * #{map.get(
+              $pagination,
+              'current-border-width'
+            )})
     );
   }
 

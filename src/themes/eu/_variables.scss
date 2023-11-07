@@ -213,6 +213,17 @@ $card: (
   yellow-bar: true,
 );
 
+// Carousel
+$carousel: (
+  controls-background: map.get($color, 'blue-140'),
+);
+
+// Category filter
+$category-filter: (
+  item_separator_border_color: map.get($color, 'blue-20'),
+  item_hover_background_color: map.get($color, 'blue-10'),
+);
+
 // Checkbox
 $checkbox: (
   border-color: var(--c-d-80),
@@ -498,6 +509,34 @@ $file-upload: (
   meta-display: block,
   meta-padding: var(--s-s),
   title-font-weight: map.get($font-weight, 'bold'),
+);
+
+// Gallery
+$gallery: (
+  actions-margin: map.get($spacing, 'm'),
+  actions-margin-desktop: map.get($spacing, 'm'),
+  arrow-margin: map.get($spacing, 'xs'),
+  arrow-margins: map.get($spacing, '2xs'),
+  close-button-color: map.get($color, 'white-100'),
+  description-background: rgba(map.get($color, 'black'), 0.65),
+  description-icon: map.get($icon, 's'),
+  description-icon-mobile: map.get($icon, 'm'),
+  description-margin-desktop: map.get($spacing, 'xs'),
+  detail-background: map.get($color, 'white'),
+  detail-color: map.get($color, 'white-100'),
+  gallery-info-color: map.get($color, 'grey-140'),
+  gallery-info-font: map.get($font, 's'),
+  gallery-meta-color: map.get($color, 'white-100'),
+  overlay-description-color: map.get($color, 'black'),
+  overlay_links_color: map.get($color, 'white-100'),
+  overlay-links-hover-color: map.get($color, 'yellow-25'),
+  overlay-radius: 8px,
+  overlay-shadow: map.get($shadow, '3'),
+);
+
+// Icon
+$icons: (
+  primary-color: map.get($color, 'blue-100'),
 );
 
 // Inpage navigation
@@ -872,6 +911,14 @@ $navigation-list: (
   yellow-bar: true,
 );
 
+// News ticker
+$news-ticker: (
+  controls-background: map.get($color, 'blue-140'),
+  border-radius: 4px,
+  border-width: 2px,
+  counter-color: map.get($color, 'grey-80'),
+);
+
 // Notification
 $notification: (
   radius: 4px,
@@ -1033,6 +1080,15 @@ $page-header-print: (
   description-font: map.get($font-prolonged-print, 'l'),
 );
 
+// Pagination
+$pagination: (
+  background-color: map.get($color, 'blue-5'),
+  border-radius: 4px,
+  border-width: 0,
+  current-border-width: 0px,
+  current-text-color: map.get($color, 'grey-140'),
+);
+
 // Radio
 $radio: (
   box-border-color-checked: var(--c-p),
@@ -1075,6 +1131,22 @@ $site-footer: (
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
 
+// Social media follow
+$social-media-follow: (
+  background-color: map.get($color, 'blue-5'),
+  border-radius: 4px,
+  main-border: 0,
+  title-color: map.get($color, 'grey-140'),
+);
+
+// Social media share
+$social-media-share: (
+  background-color: map.get($color, 'white'),
+  border-radius: 4px,
+  main-border: 0,
+  title-color: map.get($color, 'grey-140'),
+);
+
 // Spinner
 $spinner: (
   stroke-color: var(--c-p-80),
@@ -1107,6 +1179,24 @@ $table: (
   sort-icon-spacing: -12px,
   sort-arrow-top: var(--s-xs),
   sort-arrow-left: var(--s-xs),
+);
+
+// Tabs
+$tabs: (
+  tabs-font-color: map.get($color, 'grey-80'),
+  tabs-active-font-color: map.get($color, 'blue-100'),
+  tabs-border-radius: 4px 4px 0 0,
+  tabs-border-color: map.get($color, 'grey-20'),
+  tabs-active-border-top-color: map.get($color, 'blue-100'),
+  tabs-inactive-mobile-color: map.get($color, 'white'),
+  dropdown-border: none,
+  dropdown-border-radius: 0 0 4px 4px,
+  dropdown-shadow: map.get($shadow, '1'),
+  dropdown-link-active-color: map.get($color, 'blue-100'),
+  dropdown-link-active-background: map.get($color, 'blue-5'),
+  dropdown-link-hover-color: map.get($color, 'blue-140'),
+  more-active-border-radius: 4px 4px 0 0,
+  button-arrows-border-radius: 4px,
 );
 
 // Tag

@@ -4,11 +4,12 @@
 */
 
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
 
-$_overlay-background: rgba(map.get(theme.$color, 'black'), 0.7);
-$_overlay-shadow: null !default;
-$_overlay-radius: null !default;
+// Exposed variables
+$theme: null !default;
+
+// Internal variables
+$_overlay-background: rgba(map.get($theme, 'color', 'black'), 0.7);
 
 .ecl-gallery {
   margin: 0;
@@ -20,7 +21,7 @@ $_overlay-radius: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get(theme.$spacing-print, 'xs')};
+  margin-top: -#{map.get($theme, 'spacing-print', 'xs')};
   padding-inline-start: 0;
 }
 
@@ -29,8 +30,8 @@ $_overlay-radius: null !default;
   flex-grow: 1;
   height: 5cm;
   margin-bottom: 0;
-  margin-inline-start: map.get(theme.$spacing-print, 'xs');
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
   min-width: 7cm;
   position: relative;
 }
@@ -43,7 +44,7 @@ $_overlay-radius: null !default;
   display: flex;
   height: 5cm;
   position: relative;
-  background-color: map.get(theme.$color, 'black-100');
+  background-color: map.get($theme, 'color', 'black-100');
   flex-grow: 1;
   margin: 0;
 }
@@ -74,15 +75,16 @@ $_overlay-radius: null !default;
 .ecl-gallery__description {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  color: map.get(theme.$color, 'white-100');
-  font: map.get(theme.$font-prolonged, 's');
-  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing-print, 'xs');
+  color: map.get($theme, 'color', 'white-100');
+  font: map.get($theme, 'font-prolonged', 's');
+  padding: map.get($theme, 'spacing', '2xs')
+    map.get($theme, 'spacing-print', 'xs');
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: text-bottom;
-  width: calc(100% - (#{map.get(theme.$spacing-print, 'xs')} * 2));
+  width: calc(100% - (#{map.get($theme, 'spacing-print', 'xs')} * 2));
   bottom: 0;
   left: 0;
   position: absolute;
@@ -113,7 +115,7 @@ $_overlay-radius: null !default;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: map.get(theme.$z-index, 'overlay');
+  z-index: map.get($theme, 'z-index', 'overlay');
 
   .ecl-gallery__close,
   .ecl-gallery__slider-previous,
@@ -146,25 +148,25 @@ $_overlay-radius: null !default;
   }
 
   .ecl-gallery__detail {
-    padding: map.get(theme.$spacing, 'm');
+    padding: map.get($theme, 'spacing', 'm');
 
     * {
-      color: map.get(theme.$color, 'white-100');
+      color: map.get($theme, 'color', 'white-100');
     }
   }
 
   .ecl-gallery__detail-meta {
-    margin-top: map.get(theme.$spacing, 'xs');
+    margin-top: map.get($theme, 'spacing', 'xs');
   }
 
   .ecl-gallery__pager {
     display: flex;
     flex-direction: row-reverse;
-    margin-top: map.get(theme.$spacing, 'xs');
+    margin-top: map.get($theme, 'spacing', 'xs');
 
     * {
       align-self: flex-end;
-      font: map.get(theme.$font-prolonged, 's');
+      font: map.get($theme, 'font-prolonged', 's');
     }
   }
 }
