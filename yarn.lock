@@ -1768,144 +1768,235 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@ecl/twig-component-breadcrumb-standardised@3.11.0":
+"@ecl/specs-component-checkbox@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/twig-component-breadcrumb-standardised/-/twig-component-breadcrumb-standardised-3.11.0.tgz#0509258602a55373f8993741d6789008b590dc4d"
-  integrity sha512-ZhjB2dTvSp6NO0B29ukYzYV2PCJdNtNKQgi9Qty+/y+CtkefK5eWcIM50xKNoI0DqjHCLeB58vo0VKbcmNCEvg==
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-checkbox/-/specs-component-checkbox-3.11.0.tgz#dbe42f88f1f64e18182bbfde7262693b7dfa39c5"
+  integrity sha512-eSA0T0AvTyCrxZX+7bb1v81K5jodvpkG2EgZvsLYrbss/OIXDaaB1RHLwK39D6FWt04SWJeihCn6vaQgTC0GBg==
+
+"@ecl/specs-component-datepicker@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-datepicker/-/specs-component-datepicker-3.11.0.tgz#fb7fbf7b671f7da22cd2fe91867f7deedd458990"
+  integrity sha512-ie4zB1k1zu3hpk5amhY4aYWJuodlWL/rWqPmblSddQs6Od5QGztUsyqHi+F7AhxfQqO8qFkJsmQhfpGyB9JMoQ==
+
+"@ecl/specs-component-file-upload@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-file-upload/-/specs-component-file-upload-3.11.0.tgz#3c4c66f48a18709aeed5bc3a1fb7c64abe7b86c0"
+  integrity sha512-cpGpMBh1+7EDcOGB1pbL07qonca6fYpsIvHWeqwi4kjX8fkL4nOVCH0Hq89djR+lohGbQS57yeff2jlDMWwwWg==
+
+"@ecl/specs-component-radio@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-radio/-/specs-component-radio-3.11.0.tgz#44ed93f32cbdd2a447710353cb63af857c613b6c"
+  integrity sha512-xCwqLTn8RWIIDGSXpb+HCp1IdpvAvsYHHZiKPQBDqZA0TJV4DbOBtiMIO4MruaU5XvObbcKs4bMLlaVE8Hp/bg==
+
+"@ecl/specs-component-range@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-range/-/specs-component-range-3.11.0.tgz#c8d1a419b9f39dc16caa59bf82b56a2bc643ffb1"
+  integrity sha512-mzWpz19o272pouPjK4wUPV5+xRHhRbalhTUiOWF1U5PfVZQ+oGEsWpQfAc7kDkAzX1GHGYfDDZEKhuo2nI+nig==
+
+"@ecl/specs-component-rating-field@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-rating-field/-/specs-component-rating-field-3.11.0.tgz#9d3cee56e0b4dc4607f7eb011ce3e6dc34ebc9ac"
+  integrity sha512-hUxhpo/s9SGwMm6PvYpTSeeL6PxSlqcozhAuirdc+rqs3ST6Nat+zC5qkyKO2u59KAIV8+xVSoKRj43+ZCn7GA==
+
+"@ecl/specs-component-text-area@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-text-area/-/specs-component-text-area-3.11.0.tgz#726933b8399a08feb08749d8388d2a4c2f0dfc57"
+  integrity sha512-3phsGS31nd9vFPvnun5B7mSWkFi6AtH0ZEl4m0igxqK4dm43+yAs0XW7KgUiiJ+4u/pGyRr2znoszKineS6Thw==
+
+"@ecl/specs-component-text-input@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/specs-component-text-input/-/specs-component-text-input-3.11.0.tgz#ab057f59f0c1b2b76ea5c54fddb2bfb859b8b6ff"
+  integrity sha512-STVe6PQiwZyFbPEEU6128LRQmAGFImPrSBa6SQygJckQZNdFGTCGgIEWf94+OsIqpepnXGmZh/N+n9LDO6iXyQ==
+
+"@ecl/twig-component-breadcrumb-standardised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-breadcrumb-standardised/-/twig-component-breadcrumb-standardised-3.11.1.tgz#0e51476304e298c8d4282e586d6c7639fbe2ba8d"
+  integrity sha512-7aLE6W6FT8TbOqCE4fbK6d++E3ENx6pIbzPXEkcDIabr7ohWQirDaaZ0Keol4dToqV+UfaeBu0N+2Su9mb74hQ==
   dependencies:
-    "@ecl/twig-component-button" "3.11.0"
+    "@ecl/twig-component-button" "3.11.1"
+    "@ecl/twig-component-icon" "3.11.1"
+    "@ecl/twig-component-link" "3.11.1"
+
+"@ecl/twig-component-checkbox@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-checkbox/-/twig-component-checkbox-3.11.0.tgz#cf7526d48329925e1fd7f5d91ba30750877c7080"
+  integrity sha512-Zkuv5W43bW7WaXCovF7gU/dhBp5zRuevTA8PDY+k1bqbjmn7NWjYwH9QL7OndvMHqzpWyaO6T7I3MqyMSDg7GQ==
+  dependencies:
     "@ecl/twig-component-icon" "3.11.0"
-    "@ecl/twig-component-link" "3.11.0"
 
-"@ecl/twig-component-message@3.11.0":
+"@ecl/twig-component-datepicker@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/twig-component-message/-/twig-component-message-3.11.0.tgz#ae4556a57aed8e2f5160f3f23ae4b0172286d0e0"
-  integrity sha512-BXzwgjg4dWtJUSXjDsqcvRHDobcAQFSsWp9030vjtA6RSCYz+6OJtejlopp6mQJ5UlMbfwEqWtQo9u9orY7hxw==
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-datepicker/-/twig-component-datepicker-3.11.0.tgz#a6fba4d8ea99e0f571131351ad73e845653507b8"
+  integrity sha512-o841AwDSihHUJQ7SCVBRIdSmx8wD5cqnh+7R54fSvMlmJycaX365QjMDcmUWXQ+qqO8bO41RB01BBQEzGih7uQ==
   dependencies:
-    "@ecl/twig-component-button" "3.11.0"
     "@ecl/twig-component-icon" "3.11.0"
 
-"@ecl/vanilla-component-breadcrumb-core@3.11.0":
+"@ecl/twig-component-file-upload@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-core/-/vanilla-component-breadcrumb-core-3.11.0.tgz#bdaf096a2cda078a5e8badad6fe0582defc53e04"
-  integrity sha512-AakABn8b+t7/BfL4aOanmZ4RPjhPcXkvrrBm9EEi8jEQ1Y1V+YBexCWGNuzmBuCiutIShCIA4Q2kQsnMXuSC8A==
-  dependencies:
-    "@ecl/dom-utils" "3.11.0"
-    "@ecl/theme-dev" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-file-upload/-/twig-component-file-upload-3.11.0.tgz#1ddd1c5d85afa00ef8d0cb911d41c7d6bee6c547"
+  integrity sha512-bbM9q4lRaPQ8XbN0VRPR+RGBNHP51aHAPF6jT3xtfw6IwqdJ8A37a5rA8QS9cHXgTEyeiQeECJ3fW9BiZQJIPQ==
 
-"@ecl/vanilla-component-breadcrumb-harmonised@3.11.0":
+"@ecl/twig-component-icon@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-harmonised/-/vanilla-component-breadcrumb-harmonised-3.11.0.tgz#607dd2f2739afd7f201ec7e0eff2d4328b24ef8b"
-  integrity sha512-WR69nQsnssEHssw06wlgY1TR7B8bPDfo1AS6cKiXMMr39PajtiYd5ANDWS7M1ceSO1C09aWYmB5by8Kk3aN/vA==
-  dependencies:
-    "@ecl/dom-utils" "3.11.0"
-    "@ecl/theme-dev" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-icon/-/twig-component-icon-3.11.0.tgz#ca1c16eee4784982114cd1c55f6ad25a63e6e6f1"
+  integrity sha512-w9lDLyH0lrIeL7Idmpz9VxyL6eH35DKFHIpyAfo21Tpo0Lpzjhz62edShVbKKY1QGz8vAm6rZ7kzKVtW8ux83g==
 
-"@ecl/vanilla-component-breadcrumb-standardised@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-standardised/-/vanilla-component-breadcrumb-standardised-3.11.0.tgz#c61f9f4f4e18e46ff3b1094774201991c4290ca1"
-  integrity sha512-06hl0BHt7Q1fOxGBjho3eWwEPxmuwHTZ/2bSWU6oxNSOTyGncI0uVnZhRtRD3rnQofck6+YnvFF7DkVHuzeZvw==
+"@ecl/twig-component-message@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-message/-/twig-component-message-3.11.1.tgz#5dd7d74c38abf7f82e35bcd724da6bf707522840"
+  integrity sha512-oO7JbLw3Vy4J9Kvb0j93/jgfckNyBMYu8CWvhObWDlE/4txbd1psUQCFFWe7d0yX9rlRY5wggWduLXUIjdjdHg==
   dependencies:
-    "@ecl/dom-utils" "3.11.0"
-    "@ecl/theme-dev" "3.11.0"
+    "@ecl/twig-component-button" "3.11.1"
+    "@ecl/twig-component-icon" "3.11.1"
 
-"@ecl/vanilla-component-footer-core@3.11.0":
+"@ecl/twig-component-radio@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-core/-/vanilla-component-footer-core-3.11.0.tgz#cb89cfdf6037d60d39d86de6aa61b4f2abca45f2"
-  integrity sha512-RshrpJ47oG+wo1uhvVXW9xwgIytsJ0eev99vkeKoyYxSCK1O8xG/JtYynCqDXvCKFCL3xA8pWhuLQxZQh5qQZw==
-  dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-radio/-/twig-component-radio-3.11.0.tgz#4a25d369d3cccb1f9813a38fcd7b38763afedc94"
+  integrity sha512-Ukp7oeHVMr0ZUMv5nKIqKWFOtiYQCenKrXFY/2t0Tdak7CUASKM9muzl4tkg/JRsdbXgCJgesiAR7btEXf4zBQ==
 
-"@ecl/vanilla-component-footer-harmonised@3.11.0":
+"@ecl/twig-component-range@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-harmonised/-/vanilla-component-footer-harmonised-3.11.0.tgz#c752994f363bc95f7a0ca1e6446cae680c80bee2"
-  integrity sha512-3QDTdIFExaQhbf3gFniA1PHyA7HvHXW+PxvmU1TtZX9J82/JiS8wLNJXaApTRq/6QpKZencxfmfD7zAGXyqZyw==
-  dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-range/-/twig-component-range-3.11.0.tgz#050d654de491029688760bf347b73f91cc1086cd"
+  integrity sha512-Od8ul7zqn3H0p3UfcW4gy/7cuLNWxmyEFWXEw0Z63ZU7yAQCmeyPO0gYQOMgEL/gXsN+r2cbyZNfcMCGG9sF3A==
 
-"@ecl/vanilla-component-footer-standardised@3.11.0":
+"@ecl/twig-component-rating-field@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-standardised/-/vanilla-component-footer-standardised-3.11.0.tgz#1597ff3c82eb0f5d3693d0f6ea03708cbdde4bc2"
-  integrity sha512-ixsqIOWL+e1Vfvzghd0E3x/TJLRI4EysPKxMtLrZkTTZu3Q6L5LLUn1H6iEX4Cm33/0Nymzk/+dDViCyfdjyzQ==
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-rating-field/-/twig-component-rating-field-3.11.0.tgz#e0119249c693f6b5e90d75ee566c1c419dffd01c"
+  integrity sha512-a1WFg2PU99Yl14SrTjJzHo2TWiJ4BhLbBmjE7tqA/iQ1Ph/wRQYnCKLWP1ceudys7+nT90DFs9JjIua/aq6jGw==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/twig-component-icon" "3.11.0"
 
-"@ecl/vanilla-component-form@3.11.0":
+"@ecl/twig-component-text-area@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-form/-/vanilla-component-form-3.11.0.tgz#62b7ef8221e6f3b8e4d206513ec9e9a02d4d560b"
-  integrity sha512-lOzdH6HSzD9ZEawuI3VaROaj50IjdoTD8WS8ZuPo6DC/EbSa19ffFcumcZAtGMyN0GeIJxEhyfs3Th7LyKJqlw==
-  dependencies:
-    "@ecl/theme-dev" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-text-area/-/twig-component-text-area-3.11.0.tgz#3594e87e69e3c5247281bb1429ebff4d965f6810"
+  integrity sha512-6HJmIbLSFhzzDne1e+fU5vpxx2ObI+1cKPKGZDe0ciVCKtTqdbSbzriEEptjcxnf278ZhKiAnF4JeaR69fjS9g==
 
-"@ecl/vanilla-component-hero-banner@3.11.0":
+"@ecl/twig-component-text-input@3.11.0":
   version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-hero-banner/-/vanilla-component-hero-banner-3.11.0.tgz#9107fee30b264ed77d06bda3c94232ebc5741c30"
-  integrity sha512-OslbPjRta8Oncddfa0DSEeRsX8PmpBRH2FzWCudMDRGkzj3Iemo/+Uy9EeQztYlXmcY+6hCV2AgWouNdSgrkGg==
-  dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+  resolved "https://registry.yarnpkg.com/@ecl/twig-component-text-input/-/twig-component-text-input-3.11.0.tgz#ce6ce73542649af8c49e1a90ae26c90729689304"
+  integrity sha512-Xkadxc4ZgRxaDiOeQcRDBJuOFHTYxgDcAA2Rj4m48+nAxs5Ch5oRF4F+GeePKnVcDiB2SjaBsEvLsvzcgVj1Kg==
 
-"@ecl/vanilla-component-language-list@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-language-list/-/vanilla-component-language-list-3.11.0.tgz#d469f68adeb9d5c81d43a976e463704ba7fa7627"
-  integrity sha512-nNGLAnTzLRHf4hxte08BIU9gNSmfdzAcMgdiTQl1H3WHj7yjdxe2NfsYn3F+DgLrL9otpr96v7iEw40Pq70NRg==
+"@ecl/vanilla-component-breadcrumb-core@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-core/-/vanilla-component-breadcrumb-core-3.11.1.tgz#2dcf632c1775521c6fd7a5fb39ad3e1b455c9505"
+  integrity sha512-2bGOXXMwItBS7enjak/PfHWqrxhaXECQEqjhxsLaNt52jKUdMCypux/hPnGQtUS4Vyk/sWnxaZOECxv1gxruLA==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/dom-utils" "3.11.1"
+    "@ecl/theme-dev" "3.11.1"
 
-"@ecl/vanilla-component-page-banner@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-banner/-/vanilla-component-page-banner-3.11.0.tgz#774faa833edde55865eb0acc05ee311cf2f13545"
-  integrity sha512-Z4Y7PTiSQp8tDewvjJ2nWEPu9k9Jf6CPJPFfv3cfyqmaAmZf6iXrbDql6GHNM9nQt5hrCdnyTu+EJPvKmUEvOA==
+"@ecl/vanilla-component-breadcrumb-harmonised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-harmonised/-/vanilla-component-breadcrumb-harmonised-3.11.1.tgz#2a5327b71cdf044f06ce632283faeb476f79a35f"
+  integrity sha512-UW/ccmVf8bhb0i3mcifnGK20PTLx4ThkZ2o0fxtUHPaUElyxR9dmUdiwFtyWlfpN9iKcb9WG8Zltug4PxVG9kA==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/dom-utils" "3.11.1"
+    "@ecl/theme-dev" "3.11.1"
 
-"@ecl/vanilla-component-page-header-core@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-core/-/vanilla-component-page-header-core-3.11.0.tgz#7b959b9771a6615dd15f08d7c8622627f1951bd5"
-  integrity sha512-mA7M/IMpTewr2TFIFGs0UH7JjW8isywhQWLaG2a+XkRZGEGkS99/LLH1T1CJ43q2meylyjGiSdKOlOMmzQNqOw==
+"@ecl/vanilla-component-breadcrumb-standardised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-breadcrumb-standardised/-/vanilla-component-breadcrumb-standardised-3.11.1.tgz#2763ea00dee2003950369f5e470a9398970c5e29"
+  integrity sha512-msp4xDZqLDBXYg+qpo1XWUTcIxWrQ3rNDxwWU6pcalC35hMpOEChKY8aYiGldyWSNlSC+3cF5h+yT54IuiNdyw==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/dom-utils" "3.11.1"
+    "@ecl/theme-dev" "3.11.1"
 
-"@ecl/vanilla-component-page-header-harmonised@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-harmonised/-/vanilla-component-page-header-harmonised-3.11.0.tgz#e310a54ae734833649758c67240d14383515da74"
-  integrity sha512-jUHhuIFqQZgSMOaen+rYg4WJqxVPehZpz0rjvyydOP3Qg2xnRojsUctseeo+Iw6/oF+te8quVmZMeQ3WesEh6g==
+"@ecl/vanilla-component-footer-core@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-core/-/vanilla-component-footer-core-3.11.1.tgz#4fdf7bf6fd2ddcaf1e2ca80bd96e87aa528948f1"
+  integrity sha512-SetTOVqHmy8C300+FfQyRsHxGEwHVtR2BP+52B1ntdzzO0sMdR5CaCDQlZKmIllUuS5T9ONax5oEjmnKTfXpzQ==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
 
-"@ecl/vanilla-component-page-header-standardised@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-standardised/-/vanilla-component-page-header-standardised-3.11.0.tgz#8af05b8291d180ddd9464785b6f7013ac64a6400"
-  integrity sha512-ISDY6JZjUS6CS3JSf/Dn0wHf0DIu0E/M5VJLdqCrFqqGRCunARoI62zGRM8EqwrkBwiXCM3J9EwQDXELYP392w==
+"@ecl/vanilla-component-footer-harmonised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-harmonised/-/vanilla-component-footer-harmonised-3.11.1.tgz#ef83b1961fdf8a05ed6288017b9a3a3f602651ab"
+  integrity sha512-KMjCp6DL5DWO23+GFsz6s/p0an6OhIGo4vvGM30N4ge82rnb3ta181ug0VgV9fLoHih4HtuJbq9J8agVFvab/w==
   dependencies:
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
 
-"@ecl/vanilla-component-site-header-core@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-site-header-core/-/vanilla-component-site-header-core-3.11.0.tgz#834111a549fb24f10e20ce060d59bf6eb9b3abd3"
-  integrity sha512-S/86JgVu24aW64y3ahVonw6XdGa0ZLHPFwG8/gMFJSy4YKscEmAhVeigF6/n3hTdXNfh586gjeI3FsZUXIl1SQ==
+"@ecl/vanilla-component-footer-standardised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-footer-standardised/-/vanilla-component-footer-standardised-3.11.1.tgz#d9031bcb6eeb6563e8063d071fd5ed93aae27d60"
+  integrity sha512-wGhS6C9Uad4HkmTjF4pldU6Ujo/zeuwNnK0SSky/USg7R5AK6zmGQR+8A++TnDsqzEg9nOPUvOhnDtaSHpp5Kg==
   dependencies:
-    "@ecl/dom-utils" "3.11.0"
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-form@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-form/-/vanilla-component-form-3.11.1.tgz#faaddcc416bd50f99cc6238c83de54e75c2a0cb2"
+  integrity sha512-wveNX+cBjTtwSm/McYn9VDmnifPxRb5TaZres+WmtWXPfmqFuFzmQIcObQYPMYmSYbhEv1SHuAVg4uQ8U+/HQA==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+
+"@ecl/vanilla-component-hero-banner@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-hero-banner/-/vanilla-component-hero-banner-3.11.1.tgz#e7b2f05923a935ab3fc5c45e2b66a97b8d54198f"
+  integrity sha512-AlwHLaF7dk335Qxo0AuM1e8w/v3wpob4D+EIkcbN7FnkFqjLch0Ifh5rcptPcx9Oa2xV65p9j8EOQiaZ1ze9IA==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-language-list@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-language-list/-/vanilla-component-language-list-3.11.1.tgz#bcbb29acbb1e6df3a622dd82270ccd5853a7e496"
+  integrity sha512-gUIxQq9EqO73mL97J3sdxLsL1hQX7ZhXLIvfLV9IWH5iaLG58blYITT6jkHeK9XQ31cf87S1MZ2Cxz+LxL3LRg==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-page-banner@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-banner/-/vanilla-component-page-banner-3.11.1.tgz#d18f2cbc5582a3c740b23a099f978344dc1b222a"
+  integrity sha512-5GTyp/tXGX4ST+a35dvTROt5yxyLGiP7yr4Sqr6hb6GrUC3CM4Ukm+K+dST/MuPIeEVZPKY51kI1hVcPn1JqzQ==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-page-header-core@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-core/-/vanilla-component-page-header-core-3.11.1.tgz#f2b479bef7fdd7112cc505c7fb40944d412adaf5"
+  integrity sha512-2xpFdy7igsBXlaqJxQWQW0EMYrq4nQ4xZuPDfjsnoioFm6C/U1B5tzlFNJwRZ+CI4llkQ/ohq68oVFeVYVIAow==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-page-header-harmonised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-harmonised/-/vanilla-component-page-header-harmonised-3.11.1.tgz#7eeaa288894ce7e08304959d6435a8ba41234003"
+  integrity sha512-MUhvdSSD1kNP/8WfzfsHdKRWWCKG+NH5+nQrXX1WX7po7DQ8mtwdN8t4VQWxN9UokYoY1fcNWQldC2QvvrERmw==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-page-header-standardised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-page-header-standardised/-/vanilla-component-page-header-standardised-3.11.1.tgz#c6342fb07cc8910b400ff2c7d32eab06c67c591d"
+  integrity sha512-Ie0F+0wLN9nPrSmOtjcp61gTLzL+E1KLyg6Dr6MBAsxM7qe7QzEpo3+O9st8QUeoARQU/82WzsjnEi8bEOsNmA==
+  dependencies:
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
+
+"@ecl/vanilla-component-site-header-core@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-site-header-core/-/vanilla-component-site-header-core-3.11.1.tgz#5357daa1a6c5f65f76a303f0cef33ec6782ec7e4"
+  integrity sha512-JUz242Fsq9WQqZeYwms6iuv8il6yUhpUmcyLyH+a/W0fuQ5ZHjZTkjEu7iYORIOyn2V0hZvCltqH5W6MA3Jk/w==
+  dependencies:
+    "@ecl/dom-utils" "3.11.1"
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
     focus-trap "7.5.4"
 
-"@ecl/vanilla-component-site-header-standardised@3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-site-header-standardised/-/vanilla-component-site-header-standardised-3.11.0.tgz#4d2a2c5d924fd9f4ab1f3584d20123c5cc8f6e13"
-  integrity sha512-XypEc9hMpHKFZ5mQy7vTAh9Qx3s5yrJNd61iUtxke7YqJ58sZNXXL3FA5exq6pOl92JFa2gtF7l79LiIaRk9IQ==
+"@ecl/vanilla-component-site-header-standardised@3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@ecl/vanilla-component-site-header-standardised/-/vanilla-component-site-header-standardised-3.11.1.tgz#b22ab34b2c5fd6f7d036de60dbe96f8971b74301"
+  integrity sha512-ew97TmMGqPZdYcp09eKwN2gMe00ICqYJ8benj+40WHuUmPztm+9suyKAZS0LRMBXtr8Ei5AnZ2u+HFcAN62c5A==
   dependencies:
-    "@ecl/dom-utils" "3.11.0"
-    "@ecl/theme-dev" "3.11.0"
-    "@ecl/vanilla-layout-grid" "3.11.0"
+    "@ecl/dom-utils" "3.11.1"
+    "@ecl/theme-dev" "3.11.1"
+    "@ecl/vanilla-layout-grid" "3.11.1"
     focus-trap "7.5.4"
 
 "@emotion/babel-plugin@^11.11.0":
