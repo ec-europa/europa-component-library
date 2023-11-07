@@ -179,7 +179,10 @@
   $theme: theme.$theme,
   $page-header: var.$page-header
 );
-@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-ec';
+@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation' with (
+  $theme: theme.$theme,
+  $inpage-navigation: var.$inpage-navigation
+);
 @use '@ecl/vanilla-component-menu/menu' with (
   $theme: theme.$theme,
   $menu: var.$menu

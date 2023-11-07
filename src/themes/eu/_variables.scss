@@ -496,8 +496,94 @@ $file: (
 $file-upload: (
   separator-color: var(--c-d-80),
   meta-display: block,
-  meta-padding: map.get($spacing, 's'),
+  meta-padding: var(--s-s),
   title-font-weight: map.get($font-weight, 'bold'),
+);
+
+// Inpage navigation
+$inpage-toggle-width: calc(var(--s-s) + #{map.get($icon, 's')} + var(--s-s));
+$inpage-navigation: (
+  border-radius: 8px,
+  shadow: var(--sh-1),
+  title: (
+    'background': var(--c-p),
+    'color': map.get($color, 'white-100'),
+    'text-transform': none,
+    'padding': var(--s-s),
+    'font': var(--f-m),
+  ),
+  item: (
+    'background': map.get($color, 'white-100'),
+    'background-active': var(--c-p-10),
+    'background-hover': map.get($color, 'white-100'),
+    'border': (
+      'start': (
+        'active': (
+          's': 4px solid var(--c-p),
+          'l': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+      'end': (
+        'active': none,
+        'hover': none,
+      ),
+    ),
+    'separator': (
+      's': 1px solid var(--c-p-10),
+      'l': 1px solid var(--c-p-10),
+    ),
+    'font-weight': (
+      's': map.get($font-weight, 'regular'),
+      'l': map.get($font-weight, 'regular'),
+    ),
+    'color': (
+      's': var(--c-p),
+      'l': var(--c-p),
+    ),
+    'color-active': var(--c-d-80),
+    'padding': (
+      'default': (
+        's': var(--s-s),
+        'l': var(--s-s),
+      ),
+      'active': (
+        's': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+        'l': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+      ),
+    ),
+    'text-decoration-hover': none,
+  ),
+  trigger: (
+    'background': var(--c-p),
+    'background-wrapper': transparent,
+    'border': none,
+    'border-focus': none,
+    'border-radius': 0 0 var(--s-xs) var(--s-xs),
+    'color': map.get($color, 'white-100'),
+    'font': var(--f-p-m),
+    'font-weight': map.get($font-weight, 'bold'),
+    'margin': 0,
+    'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
+      var(--s-s),
+    'padding-focus': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s))
+      var(--s-s) var(--s-s),
+    'margin-wrapper': 0,
+    'padding-wrapper': 0,
+    'separator': none,
+    'width': 100%,
+  ),
+  list: (
+    'background': (
+      's': transparent,
+      'l': transparent,
+    ),
+  ),
+  outline: (
+    'color': var(--c-p),
+    'color-active': var(--c-p),
+    'offset': -2px,
+  ),
 );
 
 // Label
@@ -844,6 +930,47 @@ $range: (
   outline-offset: 2px,
 );
 
+// Select
+$select: (
+  arrow-width: 2.75rem,
+  border-color-focus: var(--c-p),
+  border-radius: 4px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid-hover: var(--c-er),
+  border-color-disabled: var(--c-d-40),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-140),
+  color-placeholder: var(--c-d-40),
+  counter-color: map.get($color, 'white-100'),
+  group-separator-color: var(--c-p-20),
+  group-title-font: var(--f-m),
+  group-title-color: var(--c-d-80),
+  shadow: map.get($shadow-inner, '1'),
+  shadow-hover: map.get($shadow-inner, '2'),
+  arrow-background-invalid-focus: var(--c-er),
+  arrow-background-color: var(--c-p-100),
+  arrow-background-color-hover: var(--c-p-80),
+  arrow-background-color-invalid: map.get($color, 'red-120'),
+  arrow-background-color-invalid-hover: var(--c-er),
+  icon-fill: map.get($color, 'white-100'),
+  multiple-dropdown-background-color: map.get($color, 'white'),
+  multiple-dropdown-border: none,
+  multiple-dropdown-separator-color: var(--c-p-20),
+  multiple-dropdown-border-radius: 4px,
+  multiple-dropdown-shadow: var(--sh-1),
+  multiple-dropdown-input-margin: var(--s-xs),
+  multiple-dropdown-input-width: calc(100% - var(--s-xs) - var(--s-xs)),
+  multiple-dropdown-container-max-height: 252px,
+  multiple-dropdown-toolbar-separator-color: var(--c-p-20),
+  multiple-checkbox-background-hover-color: var(--c-p-5),
+  multiple-checkbox-label-vertical-padding: var(--s-s),
+  multiple_counter_background: var(--c-p),
+  padding-vertical: var(--s-s),
+);
+
 // Site header
 $site-header: (
   background-color: map.get($color, 'white'),
@@ -937,47 +1064,6 @@ $rating-field: (
   checked-hover-color: var(--c-s-140),
   checked-focus-stroke: var(--c-d),
   focus-outline: var(--c-p-20),
-);
-
-// Select
-$select: (
-  arrow-width: 2.75rem,
-  border-color-focus: var(--c-p),
-  border-radius: 4px,
-  border-color: var(--c-d-80),
-  border-color-hover: var(--c-d-80),
-  border-color-invalid: map.get($color, 'red-120'),
-  border-color-invalid-hover: var(--c-er),
-  border-color-disabled: var(--c-d-40),
-  border-width: 1px,
-  border-width-focus: 2px,
-  color-input: var(--c-d-140),
-  color-placeholder: var(--c-d-40),
-  counter-color: map.get($color, 'white-100'),
-  group-separator-color: var(--c-p-20),
-  group-title-font: var(--f-m),
-  group-title-color: var(--c-d-80),
-  shadow: map.get($shadow-inner, '1'),
-  shadow-hover: map.get($shadow-inner, '2'),
-  arrow-background-invalid-focus: var(--c-er),
-  arrow-background-color: var(--c-p-100),
-  arrow-background-color-hover: var(--c-p-80),
-  arrow-background-color-invalid: map.get($color, 'red-120'),
-  arrow-background-color-invalid-hover: var(--c-er),
-  icon-fill: map.get($color, 'white-100'),
-  multiple-dropdown-background-color: map.get($color, 'white'),
-  multiple-dropdown-border: none,
-  multiple-dropdown-separator-color: var(--c-p-20),
-  multiple-dropdown-border-radius: 4px,
-  multiple-dropdown-shadow: var(--sh-1),
-  multiple-dropdown-input-margin: var(--s-xs),
-  multiple-dropdown-input-width: calc(100% - var(--s-xs) - var(--s-xs)),
-  multiple-dropdown-container-max-height: 252px,
-  multiple-dropdown-toolbar-separator-color: var(--c-p-20),
-  multiple-checkbox-background-hover-color: var(--c-p-5),
-  multiple-checkbox-label-vertical-padding: var(--s-s),
-  multiple_counter_background: var(--c-p),
-  padding-vertical: var(--s-s),
 );
 
 // Site footer
@@ -1251,10 +1337,11 @@ $typography-print: (
   --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
 
   // Aliases
+  // stylelint-disable scss/double-slash-comment-empty-line-before
   --c-p: var(--ecl-color-primary);
   --c-p-140: var(--ecl-color-primary-140);
   --c-p-130: var(--ecl-color-primary-130);
-  --c-p-120: var(--ecl-color-primary-120);
+  // --c-p-120: var(--ecl-color-primary-120);
   --c-p-100: var(--ecl-color-primary-100);
   --c-p-80: var(--ecl-color-primary-80);
   --c-p-60: var(--ecl-color-primary-60);
@@ -1264,77 +1351,77 @@ $typography-print: (
   --c-p-5: var(--ecl-color-primary-5);
   --c-s: var(--ecl-color-secondary);
   --c-s-140: var(--ecl-color-secondary-140);
-  --c-s-120: var(--ecl-color-secondary-120);
+  // --c-s-120: var(--ecl-color-secondary-120);
   --c-s-100: var(--ecl-color-secondary-100);
-  --c-s-80: var(--ecl-color-secondary-80);
-  --c-s-60: var(--ecl-color-secondary-60);
-  --c-s-40: var(--ecl-color-secondary-40);
-  --c-s-20: var(--ecl-color-secondary-20);
+  // --c-s-80: var(--ecl-color-secondary-80);
+  // --c-s-60: var(--ecl-color-secondary-60);
+  // --c-s-40: var(--ecl-color-secondary-40);
+  // --c-s-20: var(--ecl-color-secondary-20);
   --c-s-10: var(--ecl-color-secondary-10);
   --c-d: var(--ecl-color-dark);
   --c-d-140: var(--ecl-color-dark-140);
-  --c-d-120: var(--ecl-color-dark-120);
+  // --c-d-120: var(--ecl-color-dark-120);
   --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
-  --c-d-60: var(--ecl-color-dark-60);
+  // --c-d-60: var(--ecl-color-dark-60);
   --c-d-40: var(--ecl-color-dark-40);
   --c-d-20: var(--ecl-color-dark-20);
   --c-d-10: var(--ecl-color-dark-10);
   --c-in: var(--ecl-color-info);
-  --c-in-100: var(--ecl-color-info-100);
+  // --c-in-100: var(--ecl-color-info-100);
   --c-in-5: var(--ecl-color-info-5);
   --c-su: var(--ecl-color-success);
-  --c-su-100: var(--ecl-color-success-100);
+  // --c-su-100: var(--ecl-color-success-100);
   --c-su-5: var(--ecl-color-success-5);
   --c-wa: var(--ecl-color-warning);
-  --c-wa-100: var(--ecl-color-warning-100);
+  // --c-wa-100: var(--ecl-color-warning-100);
   --c-wa-5: var(--ecl-color-warning-5);
   --c-er: var(--ecl-color-error);
-  --c-er-100: var(--ecl-color-error-100);
+  // --c-er-100: var(--ecl-color-error-100);
   --c-er-80: var(--ecl-color-error-80);
   --c-er-5: var(--ecl-color-error-5);
   --c-br: var(--ecl-color-branding);
   --c-a: var(--ecl-color-accent);
-  --c-a-100: var(--ecl-color-accent-100);
+  // --c-a-100: var(--ecl-color-accent-100);
   --c-a-30: var(--ecl-color-accent-30);
   --c-v: var(--ecl-color-visited);
-  --c-v-100: var(--ecl-color-visited-100);
+  // --c-v-100: var(--ecl-color-visited-100);
   --c-v-40: var(--ecl-color-visited-40);
-  --f-2xs: var(--ecl-font-2xs);
-  --f-xs: var(--ecl-font-xs);
+  // --f-2xs: var(--ecl-font-2xs);
+  // --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
   --f-l: var(--ecl-font-l);
   --f-xl: var(--ecl-font-xl);
   --f-2xl: var(--ecl-font-2xl);
   --f-3xl: var(--ecl-font-3xl);
-  --f-4xl: var(--ecl-font-4xl);
+  // --f-4xl: var(--ecl-font-4xl);
   --f-5xl: var(--ecl-font-5xl);
   --f-6xl: var(--ecl-font-6xl);
-  --f-p-xs: var(--ecl-font-prolonged-xs);
-  --f-p-s: var(--ecl-font-prolonged-s);
+  // --f-p-xs: var(--ecl-font-prolonged-xs);
+  // --f-p-s: var(--ecl-font-prolonged-s);
   --f-p-m: var(--ecl-font-prolonged-m);
   --f-p-l: var(--ecl-font-prolonged-l);
-  --f-p-xl: var(--ecl-font-prolonged-xl);
+  // --f-p-xl: var(--ecl-font-prolonged-xl);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
   --s-m: var(--ecl-spacing-m);
   --s-l: var(--ecl-spacing-l);
   --s-xl: var(--ecl-spacing-xl);
-  --s-2xl: var(--ecl-spacing-2xl);
-  --s-3xl: var(--ecl-spacing-3xl);
-  --s-4xl: var(--ecl-spacing-4xl);
+  // --s-2xl: var(--ecl-spacing-2xl);
+  // --s-3xl: var(--ecl-spacing-3xl);
+  // --s-4xl: var(--ecl-spacing-4xl);
   --sh-1: var(--ecl-shadow-1);
   --sh-2: var(--ecl-shadow-2);
-  --sh-3: var(--ecl-shadow-3);
-  --sh-4: var(--ecl-shadow-4);
+  // --sh-3: var(--ecl-shadow-3);
+  // --sh-4: var(--ecl-shadow-4);
   --sh-i-1: var(--ecl-shadow-inner-1);
   --sh-i-2: var(--ecl-shadow-inner-2);
-  --sh-n-1: var(--ecl-shadow-negative-1);
-  --sh-n-2: var(--ecl-shadow-negative-2);
-  --sh-n-3: var(--ecl-shadow-negative-3);
-  --sh-n-4: var(--ecl-shadow-negative-4);
-  --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
-  --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
+  // --sh-n-1: var(--ecl-shadow-negative-1);
+  // --sh-n-2: var(--ecl-shadow-negative-2);
+  // --sh-n-3: var(--ecl-shadow-negative-3);
+  // --sh-n-4: var(--ecl-shadow-negative-4);
+  // --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
+  // --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
 }

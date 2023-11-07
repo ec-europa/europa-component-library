@@ -79,6 +79,8 @@ export class InpageNavigation {
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.initScrollSpy = this.initScrollSpy.bind(this);
     this.initObserver = this.initObserver.bind(this);
+    this.handleEsc = this.handleEsc.bind(this);
+    this.handleShiftTab = this.handleShiftTab.bind(this);
     this.activateScrollSpy = this.activateScrollSpy.bind(this);
     this.deactivateScrollSpy = this.deactivateScrollSpy.bind(this);
     this.destroySticky = this.destroySticky.bind(this);
@@ -310,8 +312,11 @@ export class InpageNavigation {
       navLinks.forEach((link) =>
         link.addEventListener('click', this.handleClickOnLink),
       );
+      this.element.addEventListener('keydown', this.handleShiftTab);
       toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
+
+    document.addEventListener('keydown', this.handleEsc);
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -360,6 +365,27 @@ export class InpageNavigation {
   }
 
   /**
+   * @param {Event} e
+   */
+  handleEsc(e) {
+    if (e.key === 'Escape') {
+      this.handleClickOnLink();
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleShiftTab(e) {
+    if (e.key === 'Tab' && e.shiftKey) {
+      const links = queryAll(this.linksSelector, this.element);
+      if (Array.isArray(links) && links.length > 0 && e.target === links[0]) {
+        this.handleClickOnLink();
+      }
+    }
+  }
+
+  /**
    * Destroy component instance.
    */
   destroy() {
@@ -377,8 +403,10 @@ export class InpageNavigation {
     this.destroyScrollSpy();
     this.destroySticky();
     this.destroyObserver();
+    document.removeEventListener('keydown', this.handleEsc);
 
     if (this.element) {
+      this.element.removeEventListener('keydown', this.handleShiftTab);
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
