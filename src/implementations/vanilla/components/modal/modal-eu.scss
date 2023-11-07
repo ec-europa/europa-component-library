@@ -1,7 +1,0 @@
-@use 'sass:map';
-@use '@ecl/theme-dev/theme';
-@use 'modal' with (
-  $_overlay: rgba(map.get(theme.$color, 'blue-140'), 0.4),
-  $_border-radius: map.get(theme.$border-radius, 'm'),
-  $_separator-color: map.get(theme.$color, 'blue-20')
-);

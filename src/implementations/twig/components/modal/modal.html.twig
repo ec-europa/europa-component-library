@@ -7,7 +7,7 @@
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
     - "size" (string) (default: 'l'): Size of the modal. Could be 's' or 'l' 
     - "icon_path" (string) (default: '') Path to the icon sprite
-    - "close_label" (string) (default: '') Label of the close button (for screen reader only)
+    - "close" (object of type "button") (default: {}): close button; label has to be provided for screen reader
     - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -32,7 +32,7 @@
 {% set _size = size|default('l') %}
 {% set _css_class = 'ecl-modal' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _close_label = close_label|default('') %}
+{% set _close = close|default({}) %}
 {% set _header = header|default('') %}
 {% set _header_icon = '' %}
 {% set _body = body|default('') %}
@@ -80,7 +80,7 @@
             icon: {
               path: _icon_path,
               name: _header_icon,
-              size: 'm',
+              size: 'l',
             },
             extra_classes: 'ecl-modal__icon',
           } only %}
@@ -92,23 +92,17 @@
           </div>
         {% endif %}
 
-        {%- if _icon_path is not empty %}
-          {% include '@ecl/button/button.html.twig' with {
+        {% if _close is not empty %}
+          {% include '@ecl/button/button.html.twig' with _close|merge({
             type: 'button',
             variant: 'ghost',
-            label: _close_label,
-            icon: {
-              path: _icon_path,
-              name: 'close-filled',
-              size: 's',
-            },
             hide_label: true,
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{
               name: 'data-ecl-modal-close',
             }],
-          } only %}
-        {% endif -%}
+          }) only %}
+        {% endif %}
       </header>
 
       {% if _body is not empty or block('body') is not empty or _body_fixed is not empty or block('body_fixed') is not empty %}
