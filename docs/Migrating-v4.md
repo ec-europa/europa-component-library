@@ -139,6 +139,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss`
   and `form-group-print.scss`
 
+### Inpage navigation
+
+- Icon size is different in EC and EU, a new parameter `icon_size` is available in the template and set to the EC default (`xs`), in EU it should be set to `s`, instead.
+
 ### Links
 
 - `Negative` links have been renamed `inverted`, to be consistent with other components. This concern the css class, and the twig parameter.
