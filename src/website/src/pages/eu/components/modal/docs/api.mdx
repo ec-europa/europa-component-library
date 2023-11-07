@@ -34,3 +34,19 @@ var elt = document.querySelector('[data-ecl-modal]');
 var modal = new ECL.Modal(elt);
 modal.init();
 ```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-modal]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run destroy() and init() on this instance, like this:
+
+```
+instance.destroy();
+instance.init();
+```

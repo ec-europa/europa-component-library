@@ -36,3 +36,19 @@ var elt = document.querySelector('[data-ecl-timeline]');
 var timeline = new ECL.Timeline(elt);
 timeline.init();
 ```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-timeline]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+
+```
+instance.destroy();
+instance.init();
+```

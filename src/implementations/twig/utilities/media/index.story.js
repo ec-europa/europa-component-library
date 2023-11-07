@@ -3,16 +3,76 @@ import classnames from 'classnames';
 import { styled } from '@ecl/dom-utils';
 
 const getArgs = () => ({
+  size: 'm',
+  direction: 'a',
+  ratio: '16-9',
   bgPosition: 'ecl-u-media-bg-position-initial',
   bgOrigin: 'ecl-u-media-bg-origin-padding',
   bgRepeat: 'ecl-u-media-bg-repeat-none',
   bgSize: 'ecl-u-media-bg-size-contain',
-  ratio: '16-9',
-  direction: 'a',
-  size: 'm',
 });
 
 const getArgTypes = () => ({
+  size: {
+    type: 'select',
+    description: 'Choose different sizes',
+    options: ['s', 'm'],
+    control: {
+      labels: {
+        s: 'small',
+        m: 'medium',
+      },
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Media sizes',
+    },
+    mapping: {
+      small: 's',
+      medium: 'm',
+    },
+  },
+  direction: {
+    name: 'size direction',
+    type: 'select',
+    description: 'Choose different size directions',
+    options: ['a', 'h', 'v'],
+    control: {
+      labels: {
+        a: 'all',
+        h: 'horizontal',
+        v: 'vertical',
+      },
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Media sizes',
+    },
+    mapping: {
+      all: 'a',
+      horizontal: 'h',
+      vertical: 'v',
+    },
+  },
+  ratio: {
+    name: 'ratio',
+    description: 'Choose different Ratio for the media',
+    type: 'select',
+    options: ['16-9', '4-3', '3-2', '1-1'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Media ratio',
+    },
+    mapping: {
+      '16-9': '16-9',
+      '4-3': '4-3',
+      '3-2': '3-2',
+      '1-1': '1-1',
+    },
+  },
   bgPosition: {
     name: 'background position',
     description: 'Choose different background position values',
@@ -27,17 +87,26 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-media-bg-position-initial': 'Initial',
-        'ecl-u-media-bg-position-top': 'Top',
-        'ecl-u-media-bg-position-bottom': 'Bottom',
-        'ecl-u-media-bg-position-left': 'Left',
-        'ecl-u-media-bg-position-right': 'Right',
-        'ecl-u-media-bg-position-center': 'Center',
+        'ecl-u-media-bg-position-initial': 'initial',
+        'ecl-u-media-bg-position-top': 'top',
+        'ecl-u-media-bg-position-bottom': 'bottom',
+        'ecl-u-media-bg-position-left': 'left',
+        'ecl-u-media-bg-position-right': 'right',
+        'ecl-u-media-bg-position-center': 'center',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Background media',
+    },
+    mapping: {
+      initial: 'ecl-u-media-bg-position-initial',
+      top: 'ecl-u-media-bg-position-top',
+      bottom: 'ecl-u-media-bg-position-bottom',
+      left: 'ecl-u-media-bg-position-left',
+      right: 'ecl-u-media-bg-position-right',
+      center: 'ecl-u-media-bg-position-center',
     },
   },
   bgOrigin: {
@@ -51,14 +120,20 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-media-bg-origin-padding': 'Padding',
-        'ecl-u-media-bg-origin-border': 'Border',
-        'ecl-u-media-bg-origin-content': 'Content',
+        'ecl-u-media-bg-origin-padding': 'padding',
+        'ecl-u-media-bg-origin-border': 'border',
+        'ecl-u-media-bg-origin-content': 'content',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Background media',
+    },
+    mapping: {
+      padding: 'ecl-u-media-bg-origin-padding',
+      border: 'ecl-u-media-bg-origin-border',
+      content: 'ecl-u-media-bg-origin-content',
     },
   },
   bgRepeat: {
@@ -74,15 +149,22 @@ const getArgTypes = () => ({
     control: {
       type: 'select',
       labels: {
-        'ecl-u-media-bg-repeat-none': 'No repeat',
-        'ecl-u-media-bg-repeat-all': 'Repeat',
-        'ecl-u-media-bg-repeat-x': 'Repeat-x',
-        'ecl-u-media-bg-repeat-y': 'Repeat-y',
+        'ecl-u-media-bg-repeat-none': 'no repeat',
+        'ecl-u-media-bg-repeat-all': 'repeat',
+        'ecl-u-media-bg-repeat-x': 'repeat-x',
+        'ecl-u-media-bg-repeat-y': 'repeat-y',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Background media',
+    },
+    mapping: {
+      'no repeat': 'ecl-u-media-bg-repeat-none',
+      repeat: 'ecl-u-media-bg-repeat-all',
+      'repeat-x': 'ecl-u-media-bg-repeat-x',
+      'repeat-y': 'ecl-u-media-bg-repeat-y',
     },
   },
   bgSize: {
@@ -96,50 +178,20 @@ const getArgTypes = () => ({
     ],
     control: {
       labels: {
-        'ecl-u-media-bg-size-contain': 'Contain',
-        'ecl-u-media-bg-size-cover': 'Cover',
-        'ecl-u-media-bg-size-auto': 'Auto',
+        'ecl-u-media-bg-size-contain': 'contain',
+        'ecl-u-media-bg-size-cover': 'cover',
+        'ecl-u-media-bg-size-auto': 'auto',
       },
     },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Background media',
     },
-  },
-  ratio: {
-    name: 'ratio',
-    description: 'Choose different Ratio for the media',
-    type: 'select',
-    options: ['16-9', '4-3', '3-2', '1-1'],
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-    },
-  },
-  direction: {
-    name: 'size direction',
-    type: 'select',
-    description: 'Choose different size directions',
-    options: ['a', 'h', 'v'],
-    control: {
-      labels: {
-        a: 'All',
-        h: 'Horizontal',
-        v: 'Vertical',
-      },
-    },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-    },
-  },
-  size: {
-    type: 'select',
-    description: 'Choose different sizes',
-    options: ['s', 'm'],
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
+    mapping: {
+      contain: 'ecl-u-media-bg-size-contain',
+      cover: 'ecl-u-media-bg-size-cover',
+      auto: 'ecl-u-media-bg-size-auto',
     },
   },
 });

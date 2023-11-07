@@ -15,7 +15,7 @@ const getArgTypes = () => ({
     options: ['ecl-u-width-auto', 'ecl-u-width-100'],
     control: {
       labels: {
-        'ecl-u-width-auto': 'Auto',
+        'ecl-u-width-auto': 'auto',
         'ecl-u-width-100': '100%',
       },
     },
@@ -24,13 +24,17 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'auto' },
       category: 'width/height',
     },
+    mapping: {
+      auto: 'ecl-u-width-auto',
+      '100%': 'ecl-u-width-100',
+    },
   },
   height: {
     type: 'select',
     options: ['ecl-u-height-auto', 'ecl-u-height-100'],
     control: {
       labels: {
-        'ecl-u-height-auto': 'Auto',
+        'ecl-u-height-auto': 'auto',
         'ecl-u-height-100': '100%',
       },
     },
@@ -39,6 +43,10 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'auto' },
       category: 'width/height',
     },
+    mapping: {
+      auto: 'ecl-u-height-auto',
+      '100%': 'ecl-u-height-100',
+    },
   },
   maxWidth: {
     name: 'max width',
@@ -46,7 +54,7 @@ const getArgTypes = () => ({
     options: ['ecl-u-max-width-none', 'ecl-u-max-width-100'],
     control: {
       labels: {
-        'ecl-u-max-width-none': 'None',
+        'ecl-u-max-width-none': 'none',
         'ecl-u-max-width-100': '100%',
       },
     },
@@ -55,6 +63,10 @@ const getArgTypes = () => ({
       defaultValue: { summary: 'none' },
       category: 'max-width/max-height',
     },
+    mapping: {
+      none: 'ecl-u-max-width-none',
+      '100%': 'ecl-u-max-width-100',
+    },
   },
   maxHeight: {
     name: 'max height',
@@ -62,7 +74,7 @@ const getArgTypes = () => ({
     options: ['ecl-u-max-height-none', 'ecl-u-max-height-100'],
     control: {
       labels: {
-        'ecl-u-max-height-none': 'None',
+        'ecl-u-max-height-none': 'none',
         'ecl-u-max-height-100': '100%',
       },
     },
@@ -70,6 +82,10 @@ const getArgTypes = () => ({
       type: { summary: 'string' },
       defaultValue: { summary: 'none' },
       category: 'max-width/max-height',
+    },
+    mapping: {
+      none: 'ecl-u-max-height-none',
+      '100%': 'ecl-u-max-height-100',
     },
   },
 });

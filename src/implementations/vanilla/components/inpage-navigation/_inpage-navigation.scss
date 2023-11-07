@@ -4,20 +4,15 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_border-radius: null !default;
-$_shadow: null !default;
-$_title: null !default;
-$_item: null !default;
-$_trigger: null !default;
-$_list: null !default;
-$_outline: null !default;
+// Exposed variables
+$theme: null !default;
+$inpage-navigation: null !default;
 
 .ecl-inpage-navigation {
-  border-radius: $_border-radius;
-  box-shadow: $_shadow;
+  border-radius: map.get($inpage-navigation, 'border-radius');
+  box-shadow: map.get($inpage-navigation, 'shadow');
   display: none;
   margin: 0;
   position: relative;
@@ -31,13 +26,28 @@ $_outline: null !default;
   }
 }
 
+.ecl-inpage-navigation__trigger-wrapper {
+  background: map.get($inpage-navigation, 'trigger', 'background-wrapper');
+  box-shadow: map.get($inpage-navigation, 'trigger', 'shadow');
+  margin: map.get($inpage-navigation, 'trigger', 'margin-wrapper');
+  padding: map.get($inpage-navigation, 'trigger', 'padding-wrapper');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .ecl-inpage-navigation__trigger {
-  background: map.get($_trigger, 'background');
+  background: map.get($inpage-navigation, 'trigger', 'background');
   background-origin: border-box;
-  border: none;
-  color: map.get(theme.$color, 'white-100');
+  border-radius: map.get($inpage-navigation, 'trigger', 'border-radius');
+  color: map.get($inpage-navigation, 'trigger', 'color');
   display: none;
-  padding: map.get($_trigger, 'padding');
+  margin: map.get($inpage-navigation, 'trigger', 'margin');
+  padding: map.get($inpage-navigation, 'trigger', 'padding');
   position: relative;
   text-align: start;
   width: 100%;
@@ -48,7 +58,7 @@ $_outline: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline: 2px solid map.get($theme, 'color', 'white-100');
     outline-offset: -4px;
   }
 }
@@ -57,27 +67,29 @@ $_outline: null !default;
   display: block;
 
   .ecl-inpage-navigation__trigger {
-    border-radius: 0 0 $_border-radius $_border-radius;
+    border: map.get($inpage-navigation, 'trigger', 'border');
     display: block;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    /* stylelint-disable-next-line max-nesting-depth */
+    &:focus-visible,
     &[aria-expanded='true'] {
-      border-radius: 0;
+      border: map.get($inpage-navigation, 'trigger', 'border-focus');
+      padding: map.get($inpage-navigation, 'trigger', 'padding-focus');
     }
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
       display: none;
+      margin: 0;
     }
   }
 }
 
 .ecl-inpage-navigation__trigger-current {
-  font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get($inpage-navigation, 'trigger', 'font');
+  font-weight: map.get($inpage-navigation, 'trigger', 'font-weight');
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -85,7 +97,8 @@ $_outline: null !default;
 
 .ecl-inpage-navigation__trigger-icon {
   position: absolute;
-  right: map.get(theme.$spacing, 's');
+  right: map.get($theme, 'spacing', 's');
+  top: map.get($theme, 'spacing', 's');
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -97,30 +110,37 @@ $_outline: null !default;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get($_title, 'background');
-    border-radius: $_border-radius $_border-radius 0 0;
-    color: map.get($_title, 'color');
+    background-color: map.get($inpage-navigation, 'title', 'background');
+    border-radius: map.get($inpage-navigation, 'border-radius')
+      map.get($inpage-navigation, 'border-radius') 0 0;
+    color: map.get($inpage-navigation, 'title', 'color');
     display: block;
-    font: map.get(theme.$font-prolonged, 'm');
-    padding: map.get(theme.$spacing, 's');
-    text-transform: map.get($_title, 'text-transform');
+    font: map.get($inpage-navigation, 'title', 'font');
+    padding: map.get($inpage-navigation, 'title', 'padding');
+    text-align: map.get($inpage-navigation, 'align');
+    text-transform: map.get($inpage-navigation, 'title', 'text-transform');
   }
 }
 
 .ecl-inpage-navigation__list {
-  background-color: map.get($_list, 'background', 's');
-  border-top: map.get($_trigger, 'separator');
+  background-color: map.get($inpage-navigation, 'list', 'background', 's');
+  border-top: map.get($inpage-navigation, 'trigger', 'separator');
+  box-shadow: map.get($inpage-navigation, 'list', 'shadow', 's');
   display: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   list-style-type: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
+  width: map.get($inpage-navigation, 'trigger', 'width');
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get($_list, 'background', 'l');
+    background-color: map.get($inpage-navigation, 'list', 'background', 'l');
     border-top-width: 0;
+    box-shadow: map.get($inpage-navigation, 'list', 'shadow', 'l');
     display: block;
+    text-align: map.get($inpage-navigation, 'align');
+    width: auto;
   }
 }
 
@@ -130,7 +150,7 @@ $_outline: null !default;
 }
 
 .ecl-inpage-navigation__item {
-  border-top: 1px solid map.get($_item, 'separator', 's');
+  border-top: map.get($inpage-navigation, 'item', 'separator', 's');
 
   &:first-of-type {
     border-top-width: 0;
@@ -138,82 +158,152 @@ $_outline: null !default;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    border-top-color: map.get($_item, 'separator', 'l');
+    border-top: map.get($inpage-navigation, 'item', 'separator', 'l');
   }
 }
 
 .ecl-inpage-navigation__item--active {
-  border-top-color: map.get($_item, 'background');
+  border-top-color: map.get($inpage-navigation, 'item', 'background');
 }
 
 .ecl-inpage-navigation__link {
-  background-color: map.get($_item, 'background');
-  color: map.get($_item, 'color', 's');
+  background-color: map.get($inpage-navigation, 'item', 'background');
+  color: map.get($inpage-navigation, 'item', 'color', 's');
   display: block;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get($_item, 'font-weight', 's');
-  padding: map.get(theme.$spacing, 's');
+  font: map.get($theme, 'font', 'm');
+  font-weight: map.get($inpage-navigation, 'item', 'font-weight', 's');
+  padding: map.get($inpage-navigation, 'item', 'padding', 'default', 's');
   text-decoration: none;
 
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
-    background-color: map.get($_item, 'background');
-    color: map.get($_item, 'color', 'l');
-    font-weight: map.get($_item, 'font-weight', 'l');
+    background-color: map.get($inpage-navigation, 'item', 'background');
+    border-inline-end: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'end',
+      'default'
+    );
+    color: map.get($inpage-navigation, 'item', 'color', 'l');
+    font-weight: map.get($inpage-navigation, 'item', 'font-weight', 'l');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'default', 'l');
   }
 
   &:hover {
-    color: map.get($_item, 'color', 's');
+    background: map.get($inpage-navigation, 'item', 'background-hover');
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'hover'
+    );
+    color: map.get($inpage-navigation, 'item', 'color', 's');
     text-decoration: underline;
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      color: map.get($_item, 'color', 'l');
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'hover'
+      );
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
     }
   }
 
   &:focus-visible {
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'active',
+      's'
+    );
     border-radius: 0;
-    color: map.get($_item, 'color', 's');
-    outline-color: map.get($_outline, 'color');
-    outline-offset: map.get($_outline, 'offset');
-    text-decoration: underline;
+    color: map.get($inpage-navigation, 'item', 'color', 's');
+    outline-color: map.get($inpage-navigation, 'outline', 'color');
+    outline-offset: map.get($inpage-navigation, 'outline', 'offset');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      color: map.get($_item, 'color', 'l');
-      outline-color: map.get(theme.$color, 'blue-100');
+      border-inline-start: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'start',
+        'active',
+        'l'
+      );
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'active'
+      );
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
+      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
+      outline-color: var(--c-p);
       outline-offset: -2px;
     }
   }
 
   &:visited {
-    color: map.get($_item, 'color', 's');
+    color: map.get($inpage-navigation, 'item', 'color', 's');
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      color: map.get($_item, 'color', 'l');
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
     }
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-inpage-navigation__item--active &,
   .ecl-inpage-navigation__item--active &:hover {
-    background-color: map.get($_item, 'background-active');
-    border-inline-start: 4px solid map.get(theme.$color, 'blue-100');
-    color: map.get($_item, 'color-active');
-    padding-inline-start: calc(#{map.get(theme.$spacing, 's')} - 4px);
+    background-color: map.get($inpage-navigation, 'item', 'background-active');
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'active',
+      's'
+    );
+    color: map.get($inpage-navigation, 'item', 'color-active');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
 
     &:focus-visible {
-      outline-color: map.get($_outline, 'color-active');
+      outline-color: map.get($inpage-navigation, 'outline', 'color-active');
+      outline-offset: -2px;
     }
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
-      border-inline-start-color: map.get(theme.$color, 'blue-100');
+      border-inline-start: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'start',
+        'active',
+        'l'
+      );
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'active'
+      );
+      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
 
       &:focus-visible {
-        color: map.get($_item, 'color-active');
+        color: map.get($inpage-navigation, 'item', 'color-active');
       }
     }
   }
@@ -221,13 +311,15 @@ $_outline: null !default;
 
 /* stylelint-disable-next-line no-descending-specificity */
 .ecl-inpage-navigation__item:last-of-type .ecl-inpage-navigation__link {
-  border-radius: 0 0 $_border-radius $_border-radius;
+  border-radius: 0 0 map.get($inpage-navigation, 'border-radius')
+    map.get($inpage-navigation, 'border-radius');
 }
 
 .ecl-inpage-navigation__body {
   .ecl-inpage-navigation--visible & {
-    border-radius: 0 0 $_border-radius $_border-radius;
-    box-shadow: $_shadow;
+    border-radius: 0 0 map.get($inpage-navigation, 'border-radius')
+      map.get($inpage-navigation, 'border-radius');
+    box-shadow: map.get($inpage-navigation, 'shadow');
     left: 0;
     position: fixed;
     right: 0;
@@ -245,15 +337,15 @@ $_outline: null !default;
 @include breakpoints.down('m') {
   .ecl-inpage-navigation__heading--active {
     &:first-of-type {
-      padding-top: map.get(theme.$spacing, '4xl');
+      padding-top: map.get($theme, 'spacing', '4xl');
     }
 
     &:not(:first-of-type) {
       &::before {
         content: '';
         display: block;
-        margin-top: -#{map.get(theme.$spacing, '4xl')};
-        padding-top: map.get(theme.$spacing, '4xl');
+        margin-top: -#{map.get($theme, 'spacing', '4xl')};
+        padding-top: map.get($theme, 'spacing', '4xl');
         visibility: hidden;
       }
     }

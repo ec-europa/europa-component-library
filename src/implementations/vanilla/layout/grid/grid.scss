@@ -1,6 +1,8 @@
 // Grid mixins
-
-@use 'mixins/grid-framework';
+$theme: null !default;
+@use 'mixins/grid-framework' with (
+  $theme: $theme
+);
 @use 'mixins/grid';
 
 @mixin ecl-grid() {
