@@ -68,6 +68,11 @@ export class FileUpload {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     this.fileUploadGroup = this.element.closest(this.groupSelector);
     this.fileUploadInput = this.element;
     this.fileUploadButton = queryOne(this.buttonSelector, this.fileUploadGroup);
@@ -80,6 +85,7 @@ export class FileUpload {
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -91,6 +97,7 @@ export class FileUpload {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      ECL.components.delete(this.element);
     }
   }
 

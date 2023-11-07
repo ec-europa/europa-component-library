@@ -16,6 +16,7 @@ Parameters:
   - href: (string) (default: '')
   - label: (string) (default: '')
 - **"icon_path"** (string) (default: ''): path to the icons svg
+- **"icon_size"** (string) (default( 'xs') size of the toggle icon
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

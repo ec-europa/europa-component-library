@@ -504,6 +504,101 @@ $file-upload: (
   title-font-weight: map.get($font-weight, 'regular'),
 );
 
+// Inpage navigation
+$inpage-toggle-width: calc(var(--s-s) + var(--s-s) + var(--s-s));
+$inpage-navigation: (
+  align: right,
+  border-radius: 0,
+  shadow: none,
+  title: (
+    'background': transparent,
+    'color': var(--c-d),
+    'font': var(--f-s),
+    'text-transform': uppercase,
+    'padding': var(--s-s) var(--s-m),
+  ),
+  item: (
+    'background': transparent,
+    'background-active': var(--c-n-60),
+    'background-hover': map.get($color, 'white-100'),
+    'border': (
+      'end': (
+        'default': 4px solid var(--c-n),
+        'hover': 4px solid var(--c-n),
+        'active': 4px solid var(--c-p),
+      ),
+      'start': (
+        'active': (
+          'l': none,
+          's': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+    ),
+    'padding': (
+      'default': (
+        's': var(--s-xs) var(--s-m),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+      'active': (
+        's': var(--s-xs) var(--s-m) var(--s-xs) calc(var(--s-m) - 4px),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+    ),
+    'separator': (
+      's': none,
+      'l': none,
+    ),
+    'font-weight': (
+      's': map.get($font-weight, 'regular'),
+      'l': map.get($font-weight, 'regular'),
+    ),
+    'color': (
+      's': var(--c-d),
+      'l': var(--c-d),
+    ),
+    'color-active': var(--c-d),
+    'text-decoration-hover': underline,
+  ),
+  trigger: (
+    'background': map.get($color, 'white-100'),
+    'border': 1px solid var(--c-d-80),
+    'border-focus': 2px solid var(--c-p),
+    'border-radius': 2px,
+    'color': var(--c-d),
+    'font': var(--f-m),
+    'font-weight': map.get($font-weight, 'regular'),
+    'margin': 0 auto,
+    'padding': calc(var(--s-xs) - 1px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 1px)
+      calc(var(--s-m) - 1px),
+    'padding-focus': calc(var(--s-xs) - 2px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
+      calc(var(--s-m) - 2px),
+    'background-wrapper': map.get($color, 'white-100'),
+    'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
+    'padding-wrapper': var(--s-s) var(--s-m),
+    'shadow': var(--sh-6),
+    'separator': none,
+    'width': calc(100% - #{map.get($grid, 'gutter')}),
+  ),
+  list: (
+    'background': (
+      's': map.get($color, 'white-100'),
+      'l': transparent,
+    ),
+    'shadow': (
+      's': var(--sh-6),
+      'l': none,
+    ),
+  ),
+  outline: (
+    'color': var(--c-p),
+    'color-active': var(--c-p),
+    'offset': -2px,
+  ),
+);
+
 // Label
 $label: (
   radius: 2px,
@@ -1129,6 +1224,60 @@ $timeline-print: (
   title-font: map.get($font-print, 'm'),
 );
 
+// Utilities
+
+$typography: (
+  heading-color: var(--c-d),
+  text-color: var(--c-d),
+  heading1: (
+    'mobile': var(--f-3xl),
+    'desktop': var(--f-4xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading2: (
+    'mobile': var(--f-2xl),
+    'desktop': var(--f-3xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading3: (
+    'mobile': var(--f-xl),
+    'desktop': var(--f-2xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading4: (
+    'mobile': var(--f-l),
+    'desktop': var(--f-xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading5: (
+    'mobile': var(--f-l),
+    'desktop': var(--f-l),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading6: (
+    'mobile': var(--f-m),
+    'desktop': var(--f-m),
+    'font-weight': map.get($font-weight, 'bold'),
+  ),
+  paragraph: (
+    'xs': var(--f-xs),
+    's': var(--f-s),
+    'm': var(--f-m),
+    'l': (
+      'mobile': var(--f-l),
+      'desktop': var(--f-l),
+    ),
+  ),
+);
+$typography-print: (
+  heading1: map.get($font-print, '4xl'),
+  heading2: map.get($font-print, '3xl'),
+  heading3: map.get($font-print, '2xl'),
+  heading4: map.get($font-print, 'xl'),
+  heading5: map.get($font-print, 'm'),
+  heading6: map.get($font-print, 'm'),
+);
+
 /**
 * Do not modify past this line
 */
@@ -1210,28 +1359,29 @@ $timeline-print: (
   --ecl-shadow-16: #{map.get($shadow, '16')};
 
   // Aliases
+  // stylelint-disable scss/double-slash-comment-empty-line-before
   --c-p: var(--ecl-color-primary);
-  --c-p-180: var(--ecl-color-primary-180);
+  // --c-p-180: var(--ecl-color-primary-180);
   --c-p-160: var(--ecl-color-primary-160);
   --c-p-140: var(--ecl-color-primary-140);
-  --c-p-120: var(--ecl-color-primary-120);
-  --c-p-100: var(--ecl-color-primary-100);
-  --c-p-80: var(--ecl-color-primary-80);
-  --c-p-60: var(--ecl-color-primary-60);
+  // --c-p-120: var(--ecl-color-primary-120);
+  // --c-p-100: var(--ecl-color-primary-100);
+  // --c-p-80: var(--ecl-color-primary-80);
+  // --c-p-60: var(--ecl-color-primary-60);
   --c-p-40: var(--ecl-color-primary-40);
   --c-p-20: var(--ecl-color-primary-20);
   --c-s: var(--ecl-color-secondary);
-  --c-s-180: var(--ecl-color-secondary-180);
-  --c-s-160: var(--ecl-color-secondary-160);
+  // --c-s-180: var(--ecl-color-secondary-180);
+  // --c-s-160: var(--ecl-color-secondary-160);
   --c-s-140: var(--ecl-color-secondary-140);
   --c-s-120: var(--ecl-color-secondary-120);
-  --c-s-100: var(--ecl-color-secondary-100);
+  // --c-s-100: var(--ecl-color-secondary-100);
   --c-s-80: var(--ecl-color-secondary-80);
   --c-s-60: var(--ecl-color-secondary-60);
-  --c-s-40: var(--ecl-color-secondary-40);
-  --c-s-20: var(--ecl-color-secondary-20);
+  // --c-s-40: var(--ecl-color-secondary-40);
+  // --c-s-20: var(--ecl-color-secondary-20);
   --c-d: var(--ecl-color-dark);
-  --c-d-100: var(--ecl-color-dark-100);
+  // --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
   --c-d-60: var(--ecl-color-dark-60);
   --c-in: var(--ecl-color-info);
@@ -1244,29 +1394,29 @@ $timeline-print: (
   --c-ov-l: var(--ecl-color-overlay-light);
   --c-ov-d: var(--ecl-color-overlay-dark);
   --c-n: var(--ecl-color-neutral);
-  --c-n-180: var(--ecl-color-neutral-180);
+  // --c-n-180: var(--ecl-color-neutral-180);
   --c-n-160: var(--ecl-color-neutral-160);
-  --c-n-140: var(--ecl-color-neutral-140);
-  --c-n-120: var(--ecl-color-neutral-120);
-  --c-n-100: var(--ecl-color-neutral-100);
-  --c-n-80: var(--ecl-color-neutral-80);
+  // --c-n-140: var(--ecl-color-neutral-140);
+  // --c-n-120: var(--ecl-color-neutral-120);
+  // --c-n-100: var(--ecl-color-neutral-100);
+  // --c-n-80: var(--ecl-color-neutral-80);
   --c-n-60: var(--ecl-color-neutral-60);
   --c-n-40: var(--ecl-color-neutral-40);
   --c-n-20: var(--ecl-color-neutral-20);
   --c-a: var(--ecl-color-accent);
-  --c-a-160: var(--ecl-color-accent-160);
-  --c-a-140: var(--ecl-color-accent-140);
-  --c-a-120: var(--ecl-color-accent-120);
-  --c-a-100: var(--ecl-color-accent-100);
-  --c-a-80: var(--ecl-color-accent-80);
-  --c-a-60: var(--ecl-color-accent-60);
-  --c-a-40: var(--ecl-color-accent-40);
-  --f-xs: var(--ecl-font-xs);
+  // --c-a-160: var(--ecl-color-accent-160);
+  // --c-a-140: var(--ecl-color-accent-140);
+  // --c-a-120: var(--ecl-color-accent-120);
+  // --c-a-100: var(--ecl-color-accent-100);
+  // --c-a-80: var(--ecl-color-accent-80);
+  // --c-a-60: var(--ecl-color-accent-60);
+  // --c-a-40: var(--ecl-color-accent-40);
+  // --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
   --f-l: var(--ecl-font-l);
   --f-xl: var(--ecl-font-xl);
-  --f-2xl: var(--ecl-font-2xl);
+  // --f-2xl: var(--ecl-font-2xl);
   --f-3xl: var(--ecl-font-3xl);
   --f-4xl: var(--ecl-font-4xl);
   --s-2xs: var(--ecl-spacing-2xs);
@@ -1277,11 +1427,11 @@ $timeline-print: (
   --s-xl: var(--ecl-spacing-xl);
   --s-2xl: var(--ecl-spacing-2xl);
   --s-3xl: var(--ecl-spacing-3xl);
-  --s-4xl: var(--ecl-spacing-4xl);
-  --s-5xl: var(--ecl-spacing-5xl);
-  --s-6xl: var(--ecl-spacing-6xl);
+  // --s-4xl: var(--ecl-spacing-4xl);
+  // --s-5xl: var(--ecl-spacing-5xl);
+  // --s-6xl: var(--ecl-spacing-6xl);
   --sh-1: var(--ecl-shadow-1);
   --sh-6: var(--ecl-shadow-6);
   --sh-12: var(--ecl-shadow-12);
-  --sh-16: var(--ecl-shadow-16);
+  // --sh-16: var(--ecl-shadow-16);
 }

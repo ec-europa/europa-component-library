@@ -5,7 +5,9 @@
 @use '@ecl/vanilla-component-icon/icon-ec';
 
 // Layout
-@use '@ecl/vanilla-layout-grid/grid';
+@use '@ecl/vanilla-layout-grid/grid' with (
+  $theme: theme.$theme
+);
 
 // Forms
 @use '@ecl/vanilla-component-form-group/form-group' with (
@@ -180,7 +182,10 @@
   $theme: theme.$theme,
   $page-header: var.$page-header
 );
-@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-ec';
+@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation' with (
+  $theme: theme.$theme,
+  $inpage-navigation: var.$inpage-navigation
+);
 @use '@ecl/vanilla-component-menu/menu' with (
   $theme: theme.$theme,
   $menu: var.$menu
@@ -195,18 +200,33 @@
 );
 
 // Utilities
-@use '@ecl/vanilla-utility-background/background';
-@use '@ecl/vanilla-utility-border/border';
+@use '@ecl/vanilla-utility-background/background' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-border/border' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-utility-clearfix/clearfix';
 @use '@ecl/vanilla-utility-dimension/dimension';
-@use '@ecl/vanilla-utility-flex/flex';
+@use '@ecl/vanilla-utility-flex/flex' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-utility-float/float';
 @use '@ecl/vanilla-utility-disablescroll/disablescroll';
-@use '@ecl/vanilla-utility-display/display';
-@use '@ecl/vanilla-utility-media/media';
+@use '@ecl/vanilla-utility-display/display' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-media/media'; // $theme is already loaded in media-container
 @use '@ecl/vanilla-utility-print/print';
 @use '@ecl/vanilla-utility-screen-reader/screen-reader';
-@use '@ecl/vanilla-utility-shadow/shadow';
-@use '@ecl/vanilla-utility-spacing/spacing';
-@use '@ecl/vanilla-utility-typography/typography-ec';
+@use '@ecl/vanilla-utility-shadow/shadow' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-spacing/spacing' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-typography/typography' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
 @use '@ecl/vanilla-utility-z-index/z-index';

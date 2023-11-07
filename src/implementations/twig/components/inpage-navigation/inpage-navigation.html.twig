@@ -13,6 +13,7 @@
       ...
       ]
     - "icon_path" (string) (default: ''): path to the icons svg
+    - "icon_size" (string) (default: 'xs') EC: xs, EU: s
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,6 +28,7 @@
 {% set _id = id|default('ecl-inpage-navigation-default') %}
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_size = icon_size|default('xs') %}
 {% set _trigger_aria_label = trigger_aria_label|default('') %}
 {% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
 
@@ -62,20 +64,22 @@
     {% set _button_attributes = _button_attributes ~ ' aria-label="' ~ _trigger_aria_label ~ '"' %}
   {% endif %}
   <div class="ecl-inpage-navigation__body">
-    <button {{ _button_attributes|raw }}>
-      <span
-        class="ecl-inpage-navigation__trigger-current"
-        data-ecl-inpage-navigation-trigger-current="true">
-      </span>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: "corner-arrow",
-          size: "s"
-        },
-        extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
-      } only %}
-    </button>
+    <div class="ecl-inpage-navigation__trigger-wrapper">
+      <button {{ _button_attributes|raw }}>
+        <span
+          class="ecl-inpage-navigation__trigger-current"
+          data-ecl-inpage-navigation-trigger-current="true">
+        </span>
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            path: _icon_path,
+            name: "corner-arrow",
+            size: _icon_size,
+          },
+          extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',
+        } only %}
+      </button>
+    </div>
     <ul class="ecl-inpage-navigation__list" data-ecl-inpage-navigation-list="true" id="{{ _id }}-list">
       {% for link in links %}
         <li class="ecl-inpage-navigation__item">

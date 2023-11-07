@@ -5,12 +5,6 @@ export const autoInit = ({ root = document, ...options } = {}) => {
     throw new TypeError('Called autoInit but ECL is not present');
   }
 
-  const components = [];
-
-  if (!ECL.components) {
-    ECL.components = [];
-  }
-
   const nodes = queryAll('[data-ecl-auto-init]', root);
 
   const init = () => {
@@ -40,22 +34,19 @@ export const autoInit = ({ root = document, ...options } = {}) => {
           );
         }
 
-        const component = ctor.autoInit(node, options);
-
-        ECL.components.push(component);
-        components.push(component);
+        ctor.autoInit(node, options);
       });
   };
 
   // Destroy should not throw, in order to be non-blocking.
   const destroy = () => {
     if (ECL.components) {
-      for (let i = ECL.components.length - 1; i >= 0; i -= 1) {
-        if (ECL.components[i].destroy) {
-          ECL.components[i].destroy();
-          ECL.components.splice(i, 1);
+      ECL.components.forEach((component, node) => {
+        if (component.destroy) {
+          component.destroy();
+          ECL.components.delete(node);
         }
-      }
+      });
     }
   };
 
@@ -63,7 +54,7 @@ export const autoInit = ({ root = document, ...options } = {}) => {
 
   init();
 
-  return { update, destroy, components };
+  return { update, destroy };
 };
 
 export default autoInit;
