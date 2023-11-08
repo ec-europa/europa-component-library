@@ -619,13 +619,21 @@ export class Select {
   }
 
   updateCurrentValue() {
-    this.input.innerHTML =
-      Array.from(this.select.options)
-        .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
-        .map((option) => option.text)
-        .join(', ') ||
-      this.textDefault ||
-      '';
+    const optionSelected = Array.from(this.select.options)
+      .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
+      .map((option) => option.text)
+      .join(', ');
+    this.input.innerHTML = optionSelected || this.textDefault || '';
+
+    if (optionSelected !== '') {
+      this.label.setAttribute(
+        'aria-label',
+        this.label.innerText + optionSelected,
+      );
+    } else {
+      this.label.removeAttribute('aria-label');
+    }
+
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
