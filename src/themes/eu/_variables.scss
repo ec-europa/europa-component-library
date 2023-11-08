@@ -213,6 +213,17 @@ $card: (
   yellow-bar: true,
 );
 
+// Carousel
+$carousel: (
+  controls-background: map.get($color, 'blue-140'),
+);
+
+// Category filter
+$category-filter: (
+  item_separator_border_color: map.get($color, 'blue-20'),
+  item_hover_background_color: map.get($color, 'blue-10'),
+);
+
 // Checkbox
 $checkbox: (
   border-color: var(--c-d-80),
@@ -429,7 +440,7 @@ $featured-item-print: (
 
 // File download
 $file: (
-  border-color: var(--ecl-primary-20),
+  border-color: var(--c-p-20),
   border-radius: 4px,
   shadow: none,
   container-background: var(--c-p-5),
@@ -472,9 +483,9 @@ $file: (
   file-thumbnail-footer-margin: 0,
   file-thumbnail-footer-padding: var(--s-m) var(--s-l) var(--s-l),
   file-thumbnail-meta-margin: var(--s-xs),
-  file-translation-background: var(--ecl-color-neutral-40),
+  file-translation-background: var(--c-n-40),
   file-translation-border: 1px solid var(--c-p-10),
-  file-translation-container-border: 2px solid var(--ecl-primary-10),
+  file-translation-container-border: 2px solid var(--c-p-10),
   file-translation-container-padding-left: var(--s-l),
   file-translation-detail-margin-bottom: var(--s-l),
   file-translation-download-alignment: flex-start,
@@ -498,6 +509,34 @@ $file-upload: (
   meta-display: block,
   meta-padding: var(--s-s),
   title-font-weight: map.get($font-weight, 'bold'),
+);
+
+// Gallery
+$gallery: (
+  actions-margin: map.get($spacing, 'm'),
+  actions-margin-desktop: map.get($spacing, 'm'),
+  arrow-margin: map.get($spacing, 'xs'),
+  arrow-margins: map.get($spacing, '2xs'),
+  close-button-color: map.get($color, 'white-100'),
+  description-background: rgba(map.get($color, 'black'), 0.65),
+  description-icon: map.get($icon, 's'),
+  description-icon-mobile: map.get($icon, 'm'),
+  description-margin-desktop: map.get($spacing, 'xs'),
+  detail-background: map.get($color, 'white'),
+  detail-color: map.get($color, 'white-100'),
+  gallery-info-color: map.get($color, 'grey-140'),
+  gallery-info-font: map.get($font, 's'),
+  gallery-meta-color: map.get($color, 'white-100'),
+  overlay-description-color: map.get($color, 'black'),
+  overlay_links_color: map.get($color, 'white-100'),
+  overlay-links-hover-color: map.get($color, 'yellow-25'),
+  overlay-radius: 8px,
+  overlay-shadow: map.get($shadow, '3'),
+);
+
+// Icon
+$icons: (
+  primary-color: map.get($color, 'blue-100'),
 );
 
 // Inpage navigation
@@ -896,6 +935,14 @@ $navigation-list: (
   yellow-bar: true,
 );
 
+// News ticker
+$news-ticker: (
+  controls-background: map.get($color, 'blue-140'),
+  border-radius: 4px,
+  border-width: 2px,
+  counter-color: map.get($color, 'grey-80'),
+);
+
 // Notification
 $notification: (
   radius: 4px,
@@ -1057,6 +1104,15 @@ $page-header-print: (
   description-font: map.get($font-prolonged-print, 'l'),
 );
 
+// Pagination
+$pagination: (
+  background-color: map.get($color, 'blue-5'),
+  border-radius: 4px,
+  border-width: 0,
+  current-border-width: 0px,
+  current-text-color: map.get($color, 'grey-140'),
+);
+
 // Radio
 $radio: (
   box-border-color-checked: var(--c-p),
@@ -1099,6 +1155,22 @@ $site-footer: (
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
 
+// Social media follow
+$social-media-follow: (
+  background-color: map.get($color, 'blue-5'),
+  border-radius: 4px,
+  main-border: 0,
+  title-color: map.get($color, 'grey-140'),
+);
+
+// Social media share
+$social-media-share: (
+  background-color: map.get($color, 'white'),
+  border-radius: 4px,
+  main-border: 0,
+  title-color: map.get($color, 'grey-140'),
+);
+
 // Spinner
 $spinner: (
   stroke-color: var(--c-p-80),
@@ -1131,6 +1203,24 @@ $table: (
   sort-icon-spacing: -12px,
   sort-arrow-top: var(--s-xs),
   sort-arrow-left: var(--s-xs),
+);
+
+// Tabs
+$tabs: (
+  tabs-font-color: map.get($color, 'grey-80'),
+  tabs-active-font-color: map.get($color, 'blue-100'),
+  tabs-border-radius: 4px 4px 0 0,
+  tabs-border-color: map.get($color, 'grey-20'),
+  tabs-active-border-top-color: map.get($color, 'blue-100'),
+  tabs-inactive-mobile-color: map.get($color, 'white'),
+  dropdown-border: none,
+  dropdown-border-radius: 0 0 4px 4px,
+  dropdown-shadow: map.get($shadow, '1'),
+  dropdown-link-active-color: map.get($color, 'blue-100'),
+  dropdown-link-active-background: map.get($color, 'blue-5'),
+  dropdown-link-hover-color: map.get($color, 'blue-140'),
+  more-active-border-radius: 4px 4px 0 0,
+  button-arrows-border-radius: 4px,
 );
 
 // Tag
@@ -1361,11 +1451,10 @@ $typography-print: (
   --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
 
   // Aliases
-  // stylelint-disable scss/double-slash-comment-empty-line-before
   --c-p: var(--ecl-color-primary);
   --c-p-140: var(--ecl-color-primary-140);
   --c-p-130: var(--ecl-color-primary-130);
-  // --c-p-120: var(--ecl-color-primary-120);
+  --c-p-120: var(--ecl-color-primary-120);
   --c-p-100: var(--ecl-color-primary-100);
   --c-p-80: var(--ecl-color-primary-80);
   --c-p-60: var(--ecl-color-primary-60);
@@ -1375,77 +1464,77 @@ $typography-print: (
   --c-p-5: var(--ecl-color-primary-5);
   --c-s: var(--ecl-color-secondary);
   --c-s-140: var(--ecl-color-secondary-140);
-  // --c-s-120: var(--ecl-color-secondary-120);
+  --c-s-120: var(--ecl-color-secondary-120);
   --c-s-100: var(--ecl-color-secondary-100);
-  // --c-s-80: var(--ecl-color-secondary-80);
-  // --c-s-60: var(--ecl-color-secondary-60);
-  // --c-s-40: var(--ecl-color-secondary-40);
-  // --c-s-20: var(--ecl-color-secondary-20);
+  --c-s-80: var(--ecl-color-secondary-80);
+  --c-s-60: var(--ecl-color-secondary-60);
+  --c-s-40: var(--ecl-color-secondary-40);
+  --c-s-20: var(--ecl-color-secondary-20);
   --c-s-10: var(--ecl-color-secondary-10);
   --c-d: var(--ecl-color-dark);
   --c-d-140: var(--ecl-color-dark-140);
-  // --c-d-120: var(--ecl-color-dark-120);
+  --c-d-120: var(--ecl-color-dark-120);
   --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
-  // --c-d-60: var(--ecl-color-dark-60);
+  --c-d-60: var(--ecl-color-dark-60);
   --c-d-40: var(--ecl-color-dark-40);
   --c-d-20: var(--ecl-color-dark-20);
   --c-d-10: var(--ecl-color-dark-10);
   --c-in: var(--ecl-color-info);
-  // --c-in-100: var(--ecl-color-info-100);
+  --c-in-100: var(--ecl-color-info-100);
   --c-in-5: var(--ecl-color-info-5);
   --c-su: var(--ecl-color-success);
-  // --c-su-100: var(--ecl-color-success-100);
+  --c-su-100: var(--ecl-color-success-100);
   --c-su-5: var(--ecl-color-success-5);
   --c-wa: var(--ecl-color-warning);
-  // --c-wa-100: var(--ecl-color-warning-100);
+  --c-wa-100: var(--ecl-color-warning-100);
   --c-wa-5: var(--ecl-color-warning-5);
   --c-er: var(--ecl-color-error);
-  // --c-er-100: var(--ecl-color-error-100);
+  --c-er-100: var(--ecl-color-error-100);
   --c-er-80: var(--ecl-color-error-80);
   --c-er-5: var(--ecl-color-error-5);
   --c-br: var(--ecl-color-branding);
   --c-a: var(--ecl-color-accent);
-  // --c-a-100: var(--ecl-color-accent-100);
+  --c-a-100: var(--ecl-color-accent-100);
   --c-a-30: var(--ecl-color-accent-30);
   --c-v: var(--ecl-color-visited);
-  // --c-v-100: var(--ecl-color-visited-100);
+  --c-v-100: var(--ecl-color-visited-100);
   --c-v-40: var(--ecl-color-visited-40);
-  // --f-2xs: var(--ecl-font-2xs);
-  // --f-xs: var(--ecl-font-xs);
+  --f-2xs: var(--ecl-font-2xs);
+  --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
   --f-l: var(--ecl-font-l);
   --f-xl: var(--ecl-font-xl);
   --f-2xl: var(--ecl-font-2xl);
   --f-3xl: var(--ecl-font-3xl);
-  // --f-4xl: var(--ecl-font-4xl);
+  --f-4xl: var(--ecl-font-4xl);
   --f-5xl: var(--ecl-font-5xl);
   --f-6xl: var(--ecl-font-6xl);
-  // --f-p-xs: var(--ecl-font-prolonged-xs);
-  // --f-p-s: var(--ecl-font-prolonged-s);
+  --f-p-xs: var(--ecl-font-prolonged-xs);
+  --f-p-s: var(--ecl-font-prolonged-s);
   --f-p-m: var(--ecl-font-prolonged-m);
   --f-p-l: var(--ecl-font-prolonged-l);
-  // --f-p-xl: var(--ecl-font-prolonged-xl);
+  --f-p-xl: var(--ecl-font-prolonged-xl);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
   --s-m: var(--ecl-spacing-m);
   --s-l: var(--ecl-spacing-l);
   --s-xl: var(--ecl-spacing-xl);
-  // --s-2xl: var(--ecl-spacing-2xl);
-  // --s-3xl: var(--ecl-spacing-3xl);
-  // --s-4xl: var(--ecl-spacing-4xl);
+  --s-2xl: var(--ecl-spacing-2xl);
+  --s-3xl: var(--ecl-spacing-3xl);
+  --s-4xl: var(--ecl-spacing-4xl);
   --sh-1: var(--ecl-shadow-1);
   --sh-2: var(--ecl-shadow-2);
-  // --sh-3: var(--ecl-shadow-3);
-  // --sh-4: var(--ecl-shadow-4);
+  --sh-3: var(--ecl-shadow-3);
+  --sh-4: var(--ecl-shadow-4);
   --sh-i-1: var(--ecl-shadow-inner-1);
   --sh-i-2: var(--ecl-shadow-inner-2);
-  // --sh-n-1: var(--ecl-shadow-negative-1);
-  // --sh-n-2: var(--ecl-shadow-negative-2);
-  // --sh-n-3: var(--ecl-shadow-negative-3);
-  // --sh-n-4: var(--ecl-shadow-negative-4);
-  // --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
-  // --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
+  --sh-n-1: var(--ecl-shadow-negative-1);
+  --sh-n-2: var(--ecl-shadow-negative-2);
+  --sh-n-3: var(--ecl-shadow-negative-3);
+  --sh-n-4: var(--ecl-shadow-negative-4);
+  --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
+  --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
 }

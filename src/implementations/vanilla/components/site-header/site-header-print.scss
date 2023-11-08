@@ -4,12 +4,14 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-site-header__logo-image {
   height: 1.9cm;
-  margin-bottom: map.get(theme.$spacing-print, 's');
-  margin-top: map.get(theme.$spacing-print, 'm');
+  margin-bottom: map.get($theme, 'spacing-print', 's');
+  margin-top: map.get($theme, 'spacing-print', 'm');
   width: 7.2cm;
 }
 
@@ -18,11 +20,11 @@
 }
 
 .ecl-site-header__banner-top {
-  color: map.get(theme.$color, 'grey');
-  font: map.get(theme.$font-prolonged-print, 'm');
+  color: map.get($theme, 'color', 'grey');
+  font: map.get($theme, 'font-prolonged-print', 'm');
 
   .ecl-link {
-    color: map.get(theme.$color, 'grey');
+    color: map.get($theme, 'color', 'grey');
   }
 
   .ecl-link::after {
@@ -31,10 +33,10 @@
 }
 
 .ecl-site-header__banner {
-  font: map.get(theme.$font-print, '3xl');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  font: map.get($theme, 'font-print', '3xl');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-site-header__logo-link::after {

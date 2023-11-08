@@ -1,6 +1,9 @@
-@use '@ecl/theme-dev/theme';
+@use 'sass:map';
 
-@each $key, $value in theme.$z-index {
+// Exposed variables
+$theme: null !default;
+
+@each $key, $value in map.get($theme, 'z-index') {
   .ecl-u-z-#{$key} {
     z-index: $value !important;
   }

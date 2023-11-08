@@ -1,30 +1,29 @@
 /**
 * Social media follow component
 * @define social-media-share
+* TODO
 */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_background-color: null !default;
-$_border-radius: null !default;
-$_title-color: null !default;
-$_main-border: null !default;
+// Exposed variables
+$theme: null !default;
+$social-media-share: null !default;
 
 .ecl-social-media-share {
-  background-color: $_background-color;
-  border: $_main_border;
-  border-radius: $_border-radius;
+  background-color: map.get($social-media-share, 'background-color');
+  border: map.get($social-media-share, 'main_border');
+  border-radius: map.get($social-media-share, 'border-radius');
   margin: 0;
   padding: 0;
 }
 
 .ecl-social-media-share__description {
-  color: $_title-color;
-  font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin-bottom: map.get(theme.$spacing, 'xs');
+  color: map.get($social-media-share, 'title-color');
+  font: map.get($theme, 'font-prolonged', 'm');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-bottom: map.get($theme, 'spacing', 'xs');
   margin-top: 0;
 }
 
@@ -34,14 +33,14 @@ $_main-border: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get(theme.$spacing, 's')};
+  margin-top: -#{map.get($theme, 'spacing', 's')};
   padding-inline-start: 0;
 }
 
 .ecl-social-media-share__item {
   display: flex;
-  margin-inline-end: map.get(theme.$spacing, 'l');
-  margin-top: map.get(theme.$spacing, 'l');
+  margin-inline-end: map.get($theme, 'spacing', 'l');
+  margin-top: map.get($theme, 'spacing', 'l');
 
   &:last-child {
     margin-inline-end: 0;
@@ -51,7 +50,7 @@ $_main-border: null !default;
 .ecl-social-media-share__link {
   align-items: center;
   display: flex;
-  font: map.get(theme.$font, 's');
+  font: map.get($theme, 'font', 's');
   overflow: hidden; /* Improve rendering on IE */
 }
 

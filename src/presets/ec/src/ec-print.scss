@@ -3,7 +3,9 @@
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
-@use '@ecl/vanilla-component-icon/icon-print';
+@use '@ecl/vanilla-component-icon/icon-print' with (
+  $theme: theme.$theme
+);
 
 // Layout
 @use '@ecl/vanilla-layout-grid/grid' with (
@@ -55,7 +57,9 @@
   $theme: theme.$theme,
   $table: var.$table
 );
-@use '@ecl/vanilla-component-tabs/tabs-print';
+@use '@ecl/vanilla-component-tabs/tabs-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-tag/tag-print' with (
   $theme: theme.$theme
 );
@@ -81,7 +85,9 @@
   $list-illustration-print: var.$list-illustration-print
 );
 @use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
-@use '@ecl/vanilla-component-card/card-print';
+@use '@ecl/vanilla-component-card/card-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-content-block/content-block-print' with (
   $theme: theme.$theme,
   $content-block: var.$content-block
@@ -118,7 +124,9 @@
 @use '@ecl/vanilla-component-pagination/pagination-print';
 @use '@ecl/vanilla-component-popover/popover-print';
 @use '@ecl/vanilla-component-search-form/search-form-print';
-@use '@ecl/vanilla-component-social-media-follow/social-media-follow-print';
+@use '@ecl/vanilla-component-social-media-follow/social-media-follow-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-social-media-share/social-media-share-print';
 @use '@ecl/vanilla-component-timeline/timeline-print' with (
   $theme: theme.$theme,
@@ -132,16 +140,22 @@
 );
 @use '@ecl/vanilla-component-carousel/carousel-print';
 @use '@ecl/vanilla-component-category-filter/category-filter-print';
-@use '@ecl/vanilla-component-gallery/gallery-print';
+@use '@ecl/vanilla-component-gallery/gallery-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-page-header/page-header-print-ec' with (
   $theme: theme.$theme,
   $page-header: var.$page-header,
   $page-header-print: var.$page-header-print
 );
 @use '@ecl/vanilla-component-inpage-navigation/inpage-navigation-print';
-@use '@ecl/vanilla-component-menu/menu-print';
+@use '@ecl/vanilla-component-menu/menu-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-site-footer/site-footer-print';
-@use '@ecl/vanilla-component-site-header/site-header-print';
+@use '@ecl/vanilla-component-site-header/site-header-print' with (
+  $theme: theme.$theme
+);
 
 // Utilities
 @use '@ecl/vanilla-utility-background/background-print' with (
@@ -176,7 +190,9 @@
   $typography: var.$typography,
   $typography-print: var.$typography-print
 );
-@use '@ecl/vanilla-utility-z-index/z-index';
+@use '@ecl/vanilla-utility-z-index/z-index' with (
+  $theme: theme.$theme
+);
 
 html {
   font-family: #{map.get(theme.$font-family-print, 'default')};

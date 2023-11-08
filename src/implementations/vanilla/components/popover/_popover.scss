@@ -1,16 +1,20 @@
 /**
  * Popover
  * @define popover
+ * TODO
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
+// Exposed variables
+$theme: null !default;
+
+// Internal variables
 $_arrow-size: 1rem;
 $_shadow-size: 8px;
-$_item-height: map.get(theme.$line-height, 'm') +
-  (map.get(theme.$spacing, 's') * 2);
+$_item-height: map.get($theme, 'line-height', 'm') +
+  (map.get($theme, 'spacing', 's') * 2);
 $_item-width: 188px;
 
 .ecl-popover {
@@ -20,20 +24,20 @@ $_item-width: 188px;
 }
 
 .ecl-popover__container {
-  background-color: map.get(theme.$color, 'white');
-  box-shadow: map.get(theme.$shadow, '3');
+  background-color: map.get($theme, 'color', 'white');
+  box-shadow: map.get($theme, 'shadow', '3');
   left: 50%;
   margin-top: calc(
-    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+    #{map.get($theme, 'spacing', 'xs')} + #{map.get($theme, 'spacing', 's')}
   );
   position: absolute;
   transform: translateX(-50%);
-  z-index: map.get(theme.$z-index, 'dropdown');
+  z-index: map.get($theme, 'z-index', 'dropdown');
 
   // arrow with border shadow
   &::before {
-    background-color: map.get(theme.$color, 'white');
-    box-shadow: map.get(theme.$shadow, '3');
+    background-color: map.get($theme, 'color', 'white');
+    box-shadow: map.get($theme, 'shadow', '3');
     clip-path: polygon(
       -#{$_shadow-size} -#{$_shadow-size},
       calc(100% + #{$_shadow-size}) -#{$_shadow-size},
@@ -51,10 +55,10 @@ $_item-width: 188px;
 }
 
 .ecl-popover__content {
-  font: map.get(theme.$font, 'm');
+  font: map.get($theme, 'font', 'm');
   max-height: #{$_item-height * 4};
   min-width: $_item-width;
-  padding: map.get(theme.$spacing, 's');
+  padding: map.get($theme, 'spacing', 's');
   width: auto;
   overflow-y: auto;
 }
@@ -75,7 +79,7 @@ $_item-width: 188px;
 .ecl-popover__link {
   align-items: center;
   display: flex;
-  padding: map.get(theme.$spacing, 's');
+  padding: map.get($theme, 'spacing', 's');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -86,7 +90,7 @@ $_item-width: 188px;
 .ecl-popover--top .ecl-popover__container {
   bottom: 100%;
   margin-bottom: calc(
-    #{map.get(theme.$spacing, 'xs')} + #{map.get(theme.$spacing, 's')}
+    #{map.get($theme, 'spacing', 'xs')} + #{map.get($theme, 'spacing', 's')}
   );
   margin-top: 0;
 
