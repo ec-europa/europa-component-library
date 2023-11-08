@@ -42,14 +42,57 @@ $_author-color: null !default;
   font: $_body-font;
   font-style: italic;
   margin: 0;
-  quotes: '\201C' '\201D';
+  quotes: '‘' '’';
+  max-width: 80ch;
 
   &::before {
     content: open-quote;
+    margin-inline-end: map.get(theme.$spacing-print, '2xs');
   }
 
   &::after {
     content: close-quote;
+    margin-inline-start: map.get(theme.$spacing-print, '2xs');
+  }
+
+  &[lang='bg'],
+  &[lang='cs'],
+  &[lang='de'],
+  &[lang='et'],
+  &[lang='sk'],
+  &[lang='sl'],
+  &[lang='lt'] {
+    quotes: '„' '“';
+  }
+
+  &[lang='hr'],
+  &[lang='hu'],
+  &[lang='pl'],
+  &[lang='ro'] {
+    quotes: '„' '”';
+  }
+
+  &[lang='da'] {
+    quotes: '»' '«';
+  }
+
+  &[lang='el'],
+  &[lang='fr'],
+  &[lang='es'],
+  &[lang='it'],
+  &[lang='pt'] {
+    quotes: '«' '»';
+  }
+
+  &[lang='fi'],
+  &[lang='sv'] {
+    quotes: '”' '”';
+  }
+
+  &[lang='lv'],
+  &[lang='nl'],
+  &[lang='mt'] {
+    quotes: '“' '”';
   }
 }
 

@@ -42,8 +42,6 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
   font-style: italic;
   margin: 0;
   max-width: $_text-max-width;
-
-  // U+2019 U+2019
   quotes: '‘' '’';
 
   &::before {
@@ -56,26 +54,27 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     margin-inline-start: map.get(theme.$spacing, '2xs');
   }
 
-  // U+201E U+201D
   &[lang='bg'],
   &[lang='cs'],
   &[lang='de'],
   &[lang='et'],
-  &[lang='hr'],
   &[lang='sk'],
-  &[lang='ro'],
-  &[lang='pl'],
   &[lang='sl'],
   &[lang='lt'] {
     quotes: '„' '“';
   }
 
-  // U+00BB U+00AB
+  &[lang='hr'],
+  &[lang='hu'],
+  &[lang='pl'],
+  &[lang='ro'] {
+    quotes: '„' '”';
+  }
+
   &[lang='da'] {
     quotes: '»' '«';
   }
 
-  // U+00AB U+00BB
   &[lang='el'],
   &[lang='fr'],
   &[lang='es'],
@@ -84,13 +83,15 @@ $_text-max-width: 65ch; // Approximately 80 characters with the current font
     quotes: '«' '»';
   }
 
-  // U+201D U+201D
   &[lang='fi'],
-  &[lang='sv'],
-  &[lang='nl'],
-  &[lang='mt'],
-  &[lang='lv'] {
+  &[lang='sv'] {
     quotes: '”' '”';
+  }
+
+  &[lang='lv'],
+  &[lang='nl'],
+  &[lang='mt'] {
+    quotes: '“' '”';
   }
 }
 
