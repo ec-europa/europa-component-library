@@ -628,7 +628,7 @@ export class Select {
     if (optionSelected !== '') {
       this.label.setAttribute(
         'aria-label',
-        this.label.innerText + optionSelected,
+        `${this.label.innerText} ${optionSelected}`,
       );
     } else {
       this.label.removeAttribute('aria-label');
