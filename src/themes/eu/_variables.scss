@@ -500,6 +500,28 @@ $file-upload: (
   title-font-weight: map.get($font-weight, 'bold'),
 );
 
+// Gallery
+$gallery: (
+  actions-margin: var(--s-m),
+  actions-margin-desktop: var(--s-m),
+  arrow-margin: var(--s-xs),
+  arrow-margins: var(--s-2xs) close-button-color: map.get($color, 'white'),
+  description-background: rgba(map.get($color, 'black'), 0.65),
+  description-icon: map.get($icon, 's'),
+  description-icon-mobile: map.get($icon, 'm'),
+  description-margin-desktop: var(--s-xs),
+  detail-background: map.get($color, 'white'),
+  detail-color: map.get($color, 'white'),
+  gallery-info-color: var(--c-d-140),
+  gallery-info-font: var(--f-s),
+  gallery-meta-color: map.get($color, 'white'),
+  overlay-description-color: var(--c-d),
+  overlay_links_color: map.get($color, 'white'),
+  overlay-links-hover-color: map.get($color, 'yellow-25'),
+  overlay-radius: 8px,
+  overlay-shadow: var(--sh-3),
+);
+
 // Inpage navigation
 $inpage-toggle-width: calc(var(--s-s) + #{map.get($icon, 's')} + var(--s-s));
 $inpage-navigation: (

@@ -4,19 +4,16 @@
 */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_description-background: null !default;
-$_description-color: map.get(theme.$color, 'white-100');
-$_description-icon: null !default;
-$_description-icon-mobile: null !default;
-$_gallery-info-color: null !default;
-$_gallery-info-font: null !default;
-$_image-height: 192px;
-$_image-height-mobile: 260px;
-$_item-outline: null !default;
-$_item-outline-offset: null !default;
+// Exposed variables
+$theme: null !default;
+$gallery: null !default;
+$description-color: map.get($theme, 'color', 'white-100');
+$image-height: 192px;
+$image-height-mobile: 260px;
+$overlay-background: rgba(map.get($theme, 'color', 'black'), 0.7);
+$overlay-z-index: map.get($theme, 'z-index', 'overlay');
 
 .ecl-gallery {
   margin: 0;
@@ -26,15 +23,15 @@ $_item-outline-offset: null !default;
   display: block;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get(theme.$spacing, 'xs')};
+  margin-top: calc(-1 * var(--s-xs));
   padding-inline-start: 0;
 }
 
 .ecl-gallery__item {
   display: block;
-  height: $_image-height-mobile;
+  height: $image-height-mobile;
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing, 'xs');
+  margin-top: var(--s-xs);
   position: relative;
 }
 
@@ -51,8 +48,8 @@ $_item-outline-offset: null !default;
 }
 
 .ecl-gallery__item-icon-wrapper {
-  background: map.get(theme.$color, 'grey-100');
-  box-shadow: 0 0 15px 6px rgba(map.get(theme.$color, 'grey-100'), 0.55);
+  background: var(--c-d);
+  box-shadow: 0 0 15px 6px rgba(var(--c-d), 0.55);
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -69,9 +66,9 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__image-container {
   display: flex;
-  height: $_image-height-mobile;
+  height: $image-height-mobile;
   position: relative;
-  background-color: map.get(theme.$color, 'black-100');
+  background-color: var(--c-d);
   flex-grow: 1;
   margin: 0;
 }
@@ -80,7 +77,7 @@ $_item-outline-offset: null !default;
   outline: none;
 
   .ecl-gallery__image-container {
-    outline: 2px solid map.get(theme.$color, 'blue-100');
+    outline: 2px solid var(--c-p);
     outline-offset: 2px;
   }
 }
@@ -101,7 +98,7 @@ $_item-outline-offset: null !default;
 
 @supports (object-fit: cover) {
   .ecl-gallery__image-container {
-    background-color: $_description-background;
+    background-color: map.get($gallery, 'description-background');
   }
 }
 
@@ -124,16 +121,16 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__description {
   align-items: center;
-  background-color: $_description-background;
-  color: $_description-color;
-  font: map.get(theme.$font-prolonged, 's');
-  padding: map.get(theme.$spacing, '2xs') map.get(theme.$spacing, 'xs');
+  background-color: map.get($gallery, 'description-background');
+  color: $description-color;
+  font: var(--f-s);
+  padding: var(--s-2xs) var(--s-xs);
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: text-bottom;
-  width: calc(100% - (#{map.get(theme.$spacing, 'xs')} * 2));
+  width: calc(100% - (var(--s-xs) * 2));
   bottom: 0;
   display: none;
   left: 0;
@@ -153,10 +150,10 @@ $_item-outline-offset: null !default;
 
 .ecl-gallery__description-icon {
   flex-shrink: 0;
-  height: $_description-icon-mobile;
-  margin-inline-end: map.get(theme.$spacing, 'xs');
+  height: map.get($gallery, 'description-icon-mobile');
+  margin-inline-end: var(--s-xs);
   vertical-align: text-top;
-  width: $_description-icon-mobile;
+  width: map.get($gallery, 'description-icon-mobile');
 }
 
 .ecl-gallery__meta {
@@ -169,13 +166,13 @@ $_item-outline-offset: null !default;
 }
 
 .ecl-gallery__info {
-  color: $_gallery-info-color;
-  font: $_gallery-info-font;
+  color: map.get($gallery, 'gallery-info-color');
+  font: map.get($gallery, 'gallery-info-font');
   text-align: right;
 }
 
 .ecl-gallery__info-total {
-  margin-inline-end: map.get(theme.$spacing, '2xs');
+  margin-inline-end: var(--s-2xs);
 }
 
 .ecl-gallery__footer {
@@ -184,18 +181,18 @@ $_item-outline-offset: null !default;
   align-items: flex-end;
   margin: 0 auto;
   max-width: 1140px;
-  padding-top: map.get(theme.$spacing, 'xs');
+  padding-top: var(--s-xs);
   text-align: right;
 }
 
 .ecl-gallery__view-all {
-  margin-bottom: -#{map.get(theme.$spacing, '2xs')};
-  margin-inline-start: map.get(theme.$spacing, 'm');
+  margin-bottom: calc(-1 * var(--s-2xs));
+  margin-inline-start: var(--s-m);
 }
 
 .ecl-gallery__footer-link {
   text-align: right;
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: var(--s-s);
   width: 100%;
 }
 
@@ -210,14 +207,14 @@ $_item-outline-offset: null !default;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: map.get(theme.$spacing, 'xs');
-    margin-inline-start: -#{map.get(theme.$spacing, 'xs')};
+    margin-bottom: var(--s-xs);
+    margin-inline-start: calc(-1 * var(--s-xs));
   }
 
   .ecl-gallery__item {
     flex-grow: 1;
-    margin-inline-start: map.get(theme.$spacing, 'xs');
-    min-width: $_image-height-mobile;
+    margin-inline-start: var(--s-xs);
+    min-width: $image-height-mobile;
   }
 
   .ecl-gallery__image {
@@ -225,18 +222,18 @@ $_item-outline-offset: null !default;
   }
 
   .ecl-gallery__image-icon {
-    background-color: $_description-background;
+    background-color: map.get($gallery, 'description-background');
     bottom: 0;
     display: block;
-    fill: $_description-color;
-    padding: map.get(theme.$spacing, 's');
+    fill: $description-color;
+    padding: var(--s-s);
     position: absolute;
     right: 0;
   }
 
   .ecl-gallery__description-icon {
-    height: $_description-icon;
-    width: $_description-icon;
+    height: map.get($gallery, 'description-icon');
+    width: map.get($gallery, 'description-icon');
   }
 
   .ecl-gallery__footer {
@@ -263,7 +260,7 @@ $_item-outline-offset: null !default;
   }
 
   .ecl-gallery__view-all {
-    margin-top: -#{map.get(theme.$spacing, 's')};
+    margin-top: calc(-1 * var(--s-s));
   }
 
   .ecl-gallery--full-width {
@@ -274,11 +271,11 @@ $_item-outline-offset: null !default;
     width: 100vw;
 
     .ecl-gallery__footer-link {
-      margin-inline-start: map.get(theme.$spacing, 'm');
+      margin-inline-start: ar(--s-m);
     }
 
     .ecl-gallery__view-all {
-      margin-inline-end: map.get(theme.$spacing, 'm');
+      margin-inline-end: ar(--s-m);
     }
   }
 }
@@ -286,44 +283,27 @@ $_item-outline-offset: null !default;
 @include breakpoints.up('l') {
   .ecl-gallery__item,
   .ecl-gallery__image {
-    height: $_image-height;
+    height: $image-height;
   }
 
   .ecl-gallery__image {
-    min-width: $_image-height;
+    min-width: $image-height;
   }
 
   .ecl-gallery__image-container {
-    height: $_image-height;
+    height: $image-height;
   }
 }
 
 /*
  * Overlay
 */
-$_actions-margin: null !default;
-$_actions-margin-desktop: null !default;
-$_arrow-margin: null !default;
-$_arrow-margins: null !default;
-$_close-button-color: null !default;
-$_description-margin-desktop: null !default;
-$_overlay-background: rgba(map.get(theme.$color, 'black'), 0.7);
-$_overlay-description-color: null !default;
-$_overlay-radius: null !default;
-$_overlay-shadow: null !default;
-$_overlay-z-index: map.get(theme.$z-index, 'overlay');
-$_detail-background: null !default;
-$_detail-color: null !default;
-$_gallery-meta-color: null !default;
-$_overlay-links-color: null !default;
-$_overlay-links-hover-color: null !default;
-
 .ecl-gallery__overlay {
-  background-color: $_overlay-background;
+  background-color: $overlay-background;
   backdrop-filter: blur(50px);
-  border-radius: $_overlay-radius;
+  border-radius: map.get($gallery, 'overlay-radius');
   border-width: 0;
-  box-shadow: $_overlay-shadow;
+  box-shadow: map.get($gallery, 'overlay-shadow');
   display: none;
   flex-direction: column;
   height: 100%;
@@ -335,7 +315,7 @@ $_overlay-links-hover-color: null !default;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: $_overlay-z-index;
+  z-index: $overlay-z-index;
 }
 
 .ecl-gallery__overlay[open] {
@@ -350,20 +330,20 @@ $_overlay-links-hover-color: null !default;
 }
 
 .ecl-gallery__close-button {
-  color: $_close-button-color;
-  font-weight: map.get(theme.$font-weight, 'regular');
-  margin: map.get(theme.$spacing, 'xs');
+  color: map.get($gallery, 'close-button-color');
+  font-weight: map.get($theme, 'font-weight', 'regular');
+  margin: var(--s-xs);
 
   &:hover,
   &:focus-visible {
-    color: map.get(theme.$color, 'white-100');
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    color: map.get($theme, 'color', 'white');
+    outline: 2px solid map.get($theme, 'color', 'white');
   }
 }
 
 .ecl-gallery__slider {
   align-items: center;
-  background: $_overlay-background;
+  background: $overlay-background;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -404,48 +384,46 @@ $_overlay-links-hover-color: null !default;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--s-m);
 }
 
 .ecl-gallery__slider-previous,
 .ecl-gallery__slider-next {
   align-self: flex-end;
-  color: map.get(theme.$color, 'white');
+  color: map.get($theme, 'color', 'white');
   flex-shrink: 0;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs')
-    map.get(theme.$spacing, 's') map.get(theme.$spacing, 's');
+  padding: var(--s-s) var(--s-xs) var(--s-s) var(--s-s);
 }
 
 .ecl-gallery__slider-next {
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 's')
-    map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs');
+  padding: var(--s-s) var(--s-s) var(--s-s) var(--s-xs);
 }
 
 .ecl-gallery__slider-next:hover,
 .ecl-gallery__slider-previous:hover {
-  background: map.get(theme.$color, 'white-100');
+  background: map.get($theme, 'color', 'white-100');
 
   .ecl-icon {
-    fill: map.get(theme.$color, 'grey-100');
+    fill: var(--c-d);
   }
 }
 
 .ecl-gallery__slider-next:focus-visible,
 .ecl-gallery__slider-previous:focus-visible {
-  outline: 2px solid map.get(theme.$color, 'white-100');
+  outline: 2px solid map.get($theme, 'color', 'white-100');
   outline-offset: -4px;
 
   .ecl-icon {
-    fill: map.get(theme.$color, 'white-100');
+    fill: map.get($theme, 'color', 'white-100');
   }
 }
 
 .ecl-gallery__detail {
-  color: $_detail_color;
+  color: map.get($gallery, 'detail_color');
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  padding: map.get(theme.$spacing, '2xs') 0 map.get(theme.$spacing, 'm');
+  padding: var(--s-2xs) 0 var(--s-m);
 
   .ecl-container {
     position: static;
@@ -456,35 +434,35 @@ $_overlay-links-hover-color: null !default;
 .ecl-gallery__detail-counter {
   align-self: center;
   display: inline-flex;
-  font: map.get(theme.$font, 's');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin: 0 map.get(theme.$spacing, 'xs');
+  font: var(--f-s);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin: 0 var(--s-xs);
   white-space: pre-wrap;
 }
 
 .ecl-gallery__detail-actions {
-  margin-top: $_actions-margin;
+  margin-top: map.get($gallery, 'actions-margin');
 }
 
 .ecl-gallery__download {
-  margin-inline-end: map.get(theme.$spacing, 's') !important;
+  margin-inline-end: var(--s-s) !important;
 }
 
 .ecl-gallery__download,
 .ecl-gallery__share {
-  color: $_overlay-links-color;
+  color: map.get($gallery, 'overlay-links-color');
 
   &:hover {
-    color: $_overlay-links-hover-color;
+    color: map.get($gallery, 'overlay-links-hover-color');
   }
 
   &:focus-visible {
-    outline-color: map.get(theme.$color, 'white-100');
+    outline-color: map.get($theme, 'color', 'white-100');
     outline-offset: 4px;
   }
 
   &:visited {
-    color: $_overlay-links-color;
+    color: map.get($gallery, 'overlay-links-color');
   }
 
   &[hidden] {
@@ -493,8 +471,8 @@ $_overlay-links-hover-color: null !default;
 }
 
 .ecl-gallery__detail-description {
-  font: map.get(theme.$font-prolonged, 'm');
-  margin-top: map.get(theme.$spacing, 'xs');
+  font: var(--f-m);
+  margin-top: var(--s-xs);
   max-width: 670px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -508,8 +486,8 @@ $_overlay-links-hover-color: null !default;
 
 .ecl-gallery__detail-meta {
   color: $_gallery-meta-color;
-  font: map.get(theme.$font, 's');
-  margin-top: map.get(theme.$spacing, 'xs');
+  font: var(--f-s);
+  margin-top: var(--s-xs);
 }
 
 @include breakpoints.up('s') {
@@ -541,7 +519,7 @@ $_overlay-links-hover-color: null !default;
 @include breakpoints.up('xl') {
   .ecl-gallery__slider-previous,
   .ecl-gallery__slider-next {
-    background: $_overlay-background;
+    background: $overlay-background;
     margin: 0;
     position: absolute;
     top: 40%;
@@ -550,17 +528,17 @@ $_overlay-links-hover-color: null !default;
   }
 
   .ecl-gallery__slider-previous {
-    left: map.get(theme.$spacing, 'xs');
+    left: var(--s-xs);
   }
 
   .ecl-gallery__slider-next {
     margin: 0;
-    right: map.get(theme.$spacing, 'xs');
+    right: var(--s-xs);
   }
 
   .ecl-gallery__slider-previous:focus-visible,
   .ecl-gallery__slider-next:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline: 2px solid map.get($theme, 'color', 'white-100');
     outline-offset: -4px;
   }
 
@@ -571,8 +549,7 @@ $_overlay-links-hover-color: null !default;
   }
 
   .ecl-gallery__detail {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-      map.get(theme.$spacing, 'xl');
+    padding: var(--s-s) var(--s-m) var(--s-xl);
   }
 
   .ecl-gallery__pager {
