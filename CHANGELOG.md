@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.11.1 (2023-11-07)
+
+#### :rocket: New Feature
+
+- [#3093](https://github.com/ec-europa/europa-component-library/pull/3093) feat(logo): Hebrew, adding logos in EC and EU - FRONT-4133 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3084](https://github.com/ec-europa/europa-component-library/pull/3084) chore(showcase): Fix path to the default print css file - FRONT-4131 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3083](https://github.com/ec-europa/europa-component-library/pull/3083) chore(js): Storing instances in their init() in a Map object - FRONT-4130 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3090](https://github.com/ec-europa/europa-component-library/pull/3090) chore(deps): Updates 03-11-23 ([@planctus](https://github.com/planctus))
+- [#3086](https://github.com/ec-europa/europa-component-library/pull/3086) chore(deps): Updates 30-10-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 3.11.0 (2023-10-26)
 
 #### :bug: Bug Fix
