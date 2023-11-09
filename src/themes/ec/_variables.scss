@@ -950,10 +950,20 @@ $navigation-list: (
 
 // News ticker
 $news-ticker: (
-  controls-background: map.get($color, 'blue-130'),
+  height: 56px,
+  border: 1px solid var(--c-n),
   border-radius: 0,
-  border-width: 2px,
-  counter-color: map.get($color, 'grey'),
+  padding-horizontal: var(--s-m),
+  font: var(--f-s),
+  controls-background: var(--c-p),
+  counter: (
+    font: var(--f-s),
+    font-weight: map.get($font-weight, 'regular'),
+    background-mobile: var(--c-n-60),
+    color-mobile: var(--c-d),
+    background-desktop: var(--c-n-60),
+    color-desktop: var(--c-d),
+  ),
 );
 
 // Notification
