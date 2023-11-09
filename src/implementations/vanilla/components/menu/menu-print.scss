@@ -4,17 +4,19 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-menu {
   margin: 0;
 }
 
 .ecl-menu__site-name {
-  font: map.get(theme.$font-print, '3xl');
-  font-family: #{map.get(theme.$font-family-print, 'alt')};
-  font-weight: map.get(theme.$font-weight-print, 'bold');
-  margin-top: map.get(theme.$spacing-print, 'xs');
+  font: map.get($theme, 'font-print', '3xl');
+  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-menu__open,

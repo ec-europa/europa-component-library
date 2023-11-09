@@ -4,7 +4,9 @@
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
+
+// Exposed variables
+$theme: null !default;
 
 .ecl-tabs__item--more {
   display: none;
@@ -15,5 +17,5 @@
 }
 
 .ecl-tabs__link {
-  font: map.get(theme.$font, 'm');
+  font: map.get($theme, 'font', 'm');
 }

@@ -1,12 +1,14 @@
 /**
  * Icon component
  * @define icon
+ * TODO
  */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 
-$_primary-color: null !default;
+// Exposed variables
+$theme: null !default;
+$icons: null !default;
 
 .ecl-icon {
   fill: currentcolor;
@@ -15,51 +17,51 @@ $_primary-color: null !default;
 }
 
 .ecl-icon--2xs {
-  height: map.get(theme.$icon, '2xs');
-  width: map.get(theme.$icon, '2xs');
+  height: map.get($theme, 'icon', '2xs');
+  width: map.get($theme, 'icon', '2xs');
 }
 
 .ecl-icon--xs {
-  height: map.get(theme.$icon, 'xs');
-  width: map.get(theme.$icon, 'xs');
+  height: map.get($theme, 'icon', 'xs');
+  width: map.get($theme, 'icon', 'xs');
 }
 
 .ecl-icon--s {
-  height: map.get(theme.$icon, 's');
-  width: map.get(theme.$icon, 's');
+  height: map.get($theme, 'icon', 's');
+  width: map.get($theme, 'icon', 's');
 }
 
 .ecl-icon--m {
-  height: map.get(theme.$icon, 'm');
-  width: map.get(theme.$icon, 'm');
+  height: map.get($theme, 'icon', 'm');
+  width: map.get($theme, 'icon', 'm');
 }
 
 .ecl-icon--l {
-  height: map.get(theme.$icon, 'l');
-  width: map.get(theme.$icon, 'l');
+  height: map.get($theme, 'icon', 'l');
+  width: map.get($theme, 'icon', 'l');
 }
 
 .ecl-icon--xl {
-  height: map.get(theme.$icon, 'xl');
-  width: map.get(theme.$icon, 'xl');
+  height: map.get($theme, 'icon', 'xl');
+  width: map.get($theme, 'icon', 'xl');
 }
 
 .ecl-icon--2xl {
-  height: map.get(theme.$icon, '2xl');
-  width: map.get(theme.$icon, '2xl');
+  height: map.get($theme, 'icon', '2xl');
+  width: map.get($theme, 'icon', '2xl');
 }
 
 .ecl-icon--fluid {
-  height: map.get(theme.$icon, 'fluid');
-  width: map.get(theme.$icon, 'fluid');
+  height: map.get($theme, 'icon', 'fluid');
+  width: map.get($theme, 'icon', 'fluid');
 }
 
 .ecl-icon--primary {
-  fill: $_primary-color;
+  fill: map.get($icons, 'primary-color');
 }
 
 .ecl-icon--inverted {
-  fill: map.get(theme.$color, 'white-100');
+  fill: map.get($theme, 'color', 'white-100');
 }
 
 .ecl-icon--rotate-90 {

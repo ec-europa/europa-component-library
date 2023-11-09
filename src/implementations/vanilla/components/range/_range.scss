@@ -5,11 +5,14 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
-@use '@ecl/theme-dev/mixins/mixins';
 
 // Exposed variables
 $theme: null !default;
 $range: null !default;
+
+@use '@ecl/vanilla-layout-form/mixins' with (
+  $theme: $theme
+);
 
 /* stylelint-disable selector-pseudo-element-no-unknown */
 .ecl-range {

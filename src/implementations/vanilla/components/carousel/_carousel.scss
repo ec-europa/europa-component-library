@@ -1,14 +1,16 @@
 /**
  * Carousel component
  * @define carousel; weak
+ * TODO
  */
 /* stylelint-disable max-nesting-depth, no-descending-specificity */
 
 @use 'sass:map';
-@use '@ecl/theme-dev/theme';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
-$_controls-background: null !default;
+// Exposed variables
+$theme: null !default;
+$carousel: null !default;
 
 .ecl-carousel {
   overflow: hidden;
@@ -30,9 +32,10 @@ $_controls-background: null !default;
 }
 
 .ecl-carousel__container {
-  background-color: $_controls-background;
-  box-shadow: inset 0 -4px 12px -9px rgba(map.get(theme.$color, 'black'), 0.6);
-  width: calc(100% - #{map.get(theme.$spacing, 'l')});
+  background-color: map.get($carousel, 'controls-background');
+  box-shadow: inset 0 -4px 12px -9px
+    rgba(map.get($theme, 'color', 'black'), 0.6);
+  width: calc(100% - #{map.get($theme, 'spacing', 'l')});
 }
 
 .ecl-carousel__slides {
@@ -48,24 +51,24 @@ $_controls-background: null !default;
   position: relative;
 
   &::before {
-    background: map.get(theme.$color, 'white-100');
+    background: map.get($theme, 'color', 'white-100');
     content: '';
     display: block;
     height: 100%;
-    left: -#{map.get(theme.$spacing, '2xs')};
+    left: -#{map.get($theme, 'spacing', '2xs')};
     position: absolute;
     top: 0;
-    width: map.get(theme.$spacing, '2xs');
+    width: map.get($theme, 'spacing', '2xs');
   }
 }
 
 .ecl-carousel__slide .ecl-banner__credit {
-  margin-inline-end: map.get(theme.$spacing, '2xs');
+  margin-inline-end: map.get($theme, 'spacing', '2xs');
 }
 
 .ecl-carousel__controls {
-  background-color: $_controls-background;
-  padding: map.get(theme.$spacing, '2xs') 0;
+  background-color: map.get($carousel, 'controls-background');
+  padding: map.get($theme, 'spacing', '2xs') 0;
 
   .ecl-container {
     display: flex;
@@ -83,23 +86,23 @@ $_controls-background: null !default;
 
 .ecl-carousel__prev,
 .ecl-carousel__next {
-  background: $_controls-background;
+  background: map.get($carousel, 'controls-background');
   border: 0;
   cursor: pointer;
   display: block;
-  padding: map.get(theme.$spacing, 'xs');
+  padding: map.get($theme, 'spacing', 'xs');
 
   &:active,
   &:hover {
-    background-color: map.get(theme.$color, 'white-100');
+    background-color: map.get($theme, 'color', 'white-100');
 
     .ecl-carousel__icon-default {
-      fill: $_controls-background;
+      fill: map.get($carousel, 'controls-background');
     }
   }
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline: 2px solid map.get($theme, 'color', 'white-100');
   }
 }
 
@@ -114,7 +117,7 @@ $_controls-background: null !default;
   border: 0;
   cursor: pointer;
   display: flex;
-  padding: map.get(theme.$spacing, 'xs');
+  padding: map.get($theme, 'spacing', 'xs');
 
   &:active,
   &:hover,
@@ -129,7 +132,7 @@ $_controls-background: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline: 2px solid map.get($theme, 'color', 'white-100');
   }
 }
 
@@ -143,14 +146,14 @@ $_controls-background: null !default;
 
 .ecl-carousel__pagination {
   align-items: center;
-  color: map.get(theme.$color, 'white-100');
+  color: map.get($theme, 'color', 'white-100');
   display: flex;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: map.get($theme, 'font', 'm');
+  font-weight: map.get($theme, 'font-weight', 'bold');
   justify-content: end;
   padding-top: 2px;
   white-space: pre-wrap;
-  margin: 0 map.get(theme.$spacing, 'xs');
+  margin: 0 map.get($theme, 'spacing', 'xs');
 }
 
 .ecl-carousel__navigation {
@@ -159,31 +162,31 @@ $_controls-background: null !default;
 
 .ecl-carousel__navigation-item {
   background-color: transparent;
-  border: 2px solid map.get(theme.$color, 'white-100');
+  border: 2px solid map.get($theme, 'color', 'white-100');
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  margin: map.get(theme.$spacing, 'm');
-  margin-inline-end: map.get(theme.$spacing, 'l');
+  margin: map.get($theme, 'spacing', 'm');
+  margin-inline-end: map.get($theme, 'spacing', 'l');
   padding: 0;
   width: 1rem;
 
   &:active,
   &:hover {
-    background-color: map.get(theme.$color, 'white-100');
+    background-color: map.get($theme, 'color', 'white-100');
   }
 
   &:focus-visible {
-    outline: 2px solid map.get(theme.$color, 'white-100');
+    outline: 2px solid map.get($theme, 'color', 'white-100');
     outline-offset: 2px;
   }
 
   &[aria-current='true'] {
-    background-color: map.get(theme.$color, 'white-100');
+    background-color: map.get($theme, 'color', 'white-100');
   }
 
   &:last-child {
-    margin-inline-end: map.get(theme.$spacing, 'm');
+    margin-inline-end: map.get($theme, 'spacing', 'm');
   }
 }
 
@@ -254,14 +257,14 @@ $_controls-background: null !default;
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    padding: map.get(theme.$spacing, 's');
+    padding: map.get($theme, 'spacing', 's');
     position: absolute;
     top: calc(50% - 22px);
     transform: translateY(-50%);
     z-index: 1;
 
     &:focus-visible {
-      outline: 2px solid map.get(theme.$color, 'white-100');
+      outline: 2px solid map.get($theme, 'color', 'white-100');
       outline-offset: -4px;
     }
   }
@@ -294,6 +297,6 @@ $_controls-background: null !default;
   .ecl-carousel--full-width
   .ecl-banner:not(.ecl-banner--full-width)
   .ecl-container {
-  padding-inline-start: map.get(theme.$spacing, 'm');
-  padding-inline-end: map.get(theme.$spacing, 'm');
+  padding-inline-start: map.get($theme, 'spacing', 'm');
+  padding-inline-end: map.get($theme, 'spacing', 'm');
 }

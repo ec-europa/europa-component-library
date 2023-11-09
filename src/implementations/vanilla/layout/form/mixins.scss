@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+$theme: null !default;
+
+@mixin form-width($variant: null) {
+  width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-xs');
+
+  @include breakpoints.up('s') {
+    width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-s');
+  }
+
+  @include breakpoints.up('m') {
+    width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-m');
+  }
+
+  @include breakpoints.up('l') {
+    width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-l');
+  }
+
+  @include breakpoints.up('xl') {
+    width: map.get(map.get($theme, 'form-width'), #{$variant}, 'breakpoint-xl');
+  }
+}
