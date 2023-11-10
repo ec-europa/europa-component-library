@@ -47,12 +47,10 @@ $_author-color: null !default;
 
   &::before {
     content: open-quote;
-    margin-inline-end: map.get(theme.$spacing-print, '2xs');
   }
 
   &::after {
     content: close-quote;
-    margin-inline-start: map.get(theme.$spacing-print, '2xs');
   }
 
   &[lang='bg'],
