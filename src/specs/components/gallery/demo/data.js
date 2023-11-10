@@ -192,11 +192,12 @@ module.exports = {
   overlay: {
     close: {
       variant: 'ghost',
+      hide_label: true,
       label: 'Close',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
-        name: 'close-filled',
-        size: 's',
+        name: 'close',
+        size: 'm',
       },
     },
     previous: {

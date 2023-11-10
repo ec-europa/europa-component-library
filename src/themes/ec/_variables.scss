@@ -517,11 +517,13 @@ $file-upload: (
 
 // Gallery
 $gallery: (
-  actions-margin: var(--s-m),
-  actions-margin-desktop: var(--s-m),
+  actions-margin: var(--s-l),
+  actions-margin-desktop: var(--s-xs),
   arrow-margin: var(--s-m),
   arrow-margins: var(--s-xs) var(--s-2xs),
   close-button-color: map.get($color, 'white'),
+  counter-border: 1px solid map.get($color, 'white-100'),
+  counter-font-weight: map.get($font-weight, 'regular'),
   description-background: rgba(map.get($color, 'black'), 0.65),
   description-icon: map.get($icon, 'xs'),
   description-icon-mobile: map.get($icon, 'xs'),
@@ -531,9 +533,13 @@ $gallery: (
   gallery-info-color: var(--c-d),
   gallery-info-font: var(--f-s),
   gallery-meta-color: map.get($color, 'white'),
+  overlay-background: rgba(map.get($color, 'dark-100'), 0.9),
+  overlay-backdrop: blur(25px),
   overlay-description-color: map.get($color, 'white'),
   overlay-links-color: map.get($color, 'white'),
   overlay-links-hover-color: map.get($color, 'yellow-25'),
+  overlay-buttons-background: map.get($color, 'white'),
+  overlay-buttons-color: var(--c-d),
   overlay-radius: 0,
   overlay-shadow: none,
 );

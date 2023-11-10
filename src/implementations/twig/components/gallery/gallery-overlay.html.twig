@@ -62,6 +62,49 @@
 
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
     <div class="ecl-container">
+      <div class="ecl-gallery__pager">
+      {% if _overlay.previous is defined and _overlay.previous is not empty %}
+        {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
+          extra_classes: 'ecl-gallery__slider-previous',
+          type: _button_type,
+          variant: _button_variant,
+          icon_position: 'before',
+          hide_label: true,
+          icon: _overlay.previous.icon|merge({
+            size: 'm',
+            transform: 'rotate-270',
+            name: 'corner-arrow',
+          }),
+          extra_attributes: [
+            { name: 'data-ecl-gallery-overlay-previous' },
+          ],
+        }) only %}
+      {% endif %}
+      {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
+        <div class="ecl-gallery__detail-counter">
+          <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
+            {{- _overlay.counter_separator }}{{- ' ' -}}
+          <span data-ecl-gallery-overlay-counter-max>0</span>
+        </div>
+      {% endif %}
+      {% if (_overlay.next is defined and _overlay.next is not empty) and
+        (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
+        {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
+          extra_classes: 'ecl-gallery__slider-next',
+          type: _button_type,
+          variant: _button_variant,
+          hide_label: true,
+          icon: _overlay.next.icon|merge({
+            size: 'm',
+            transform: 'rotate-90',
+            name: 'corner-arrow',
+          }),
+          extra_attributes: [
+            { name: 'data-ecl-gallery-overlay-next' },
+          ],
+        }) only %}
+      {% endif %}
+      </div>
       <div class="ecl-gallery__detail-actions">
       {% if _overlay.full_screen_label is not empty %}
         {% include '@ecl/link/link.html.twig' with {
@@ -113,49 +156,6 @@
         {{- _item.meta -}}
       </div>
     {% endif %}
-      <div class="ecl-gallery__pager">
-      {% if _overlay.previous is defined and _overlay.previous is not empty %}
-        {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
-          extra_classes: 'ecl-gallery__slider-previous',
-          type: _button_type,
-          variant: _button_variant,
-          icon_position: 'before',
-          hide_label: true,
-          icon: _overlay.previous.icon|merge({
-            size: 'm',
-            transform: 'rotate-270',
-            name: 'corner-arrow',
-          }),
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-previous' },
-          ],
-        }) only %}
-      {% endif %}
-      {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
-        <div class="ecl-gallery__detail-counter">
-          <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
-            {{- _overlay.counter_separator }}{{- ' ' -}}
-          <span data-ecl-gallery-overlay-counter-max>0</span>
-        </div>
-      {% endif %}
-      {% if (_overlay.next is defined and _overlay.next is not empty) and
-        (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
-        {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
-          extra_classes: 'ecl-gallery__slider-next',
-          type: _button_type,
-          variant: _button_variant,
-          hide_label: true,
-          icon: _overlay.next.icon|merge({
-            size: 'm',
-            transform: 'rotate-90',
-            name: 'corner-arrow',
-          }),
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-next' },
-          ],
-        }) only %}
-      {% endif %}
-      </div>
     </div>
   </footer>
 </dialog>
