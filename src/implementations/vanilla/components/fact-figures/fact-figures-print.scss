@@ -14,15 +14,6 @@
   border-bottom: 1px solid map.get(theme.$color, 'black');
   padding-bottom: map.get(theme.$spacing-print, 'xl');
   padding-top: map.get(theme.$spacing-print, 'xl');
-
-  &:first-of-type {
-    padding-top: 0;
-  }
-
-  &:last-of-type {
-    border-bottom-width: 0;
-    padding-bottom: 0;
-  }
 }
 
 .ecl-fact-figures__icon {
@@ -43,20 +34,33 @@
   font: map.get(theme.$font-prolonged-print, 'l');
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight, 'bold');
-  margin-left: calc(
-    #{map.get(theme.$icon-print, 'm')} + #{map.get(theme.$spacing-print, 'm')}
-  );
   margin-top: map.get(theme.$spacing-print, 'xs');
 }
 
 .ecl-fact-figures__description {
   font: map.get(theme.$font-prolonged-print, 'm');
-  margin-left: calc(
-    #{map.get(theme.$icon-print, 'm')} + #{map.get(theme.$spacing-print, 'm')}
-  );
   margin-top: map.get(theme.$spacing-print, 's');
+  max-width: 80ch;
 }
 
 .ecl-fact-figures__view-all {
   display: none;
+}
+
+.ecl-fact-figures__items {
+  display: grid;
+  grid-column-gap: map.get(theme.$spacing-print, 'xl');
+  grid-row-gap: map.get(theme.$spacing-print, 'xl');
+
+  .ecl-fact-figures--col-2 & {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-fact-figures--col-3 & {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-fact-figures--col-4 & {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
