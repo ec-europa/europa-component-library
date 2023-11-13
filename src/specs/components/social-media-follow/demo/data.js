@@ -2,8 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  description:
-    'Follow the latest progress and learn more about getting involved.',
+  description: 'Follow us',
   links: [
     {
       link: {

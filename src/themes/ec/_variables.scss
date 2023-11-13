@@ -1019,6 +1019,12 @@ $pagination: (
   current-text-color: map.get($color, 'black'),
 );
 
+// Popover
+$popover: (
+  shadow: var(--sh-6),
+  shadow-size: 2px,
+);
+
 // Radio
 $radio: (
   box-background: map.get($color, 'white'),
@@ -1169,10 +1175,27 @@ $site-header: (
 
 // Social media follow
 $social-media-follow: (
-  background-color: map.get($color, 'grey-5'),
+  background-color: transparent,
   border-radius: 0,
-  main-border: 1px solid map.get($color, 'grey-25'),
-  title-color: map.get($color, 'grey-100'),
+  padding: 0,
+  description: (
+    color: var(--c-d),
+    font: var(--f-m),
+    margin-horizontal: var(--s-2xs),
+    margin-vertical: var(--s-2xs),
+  ),
+  item: (
+    font: var(--f-m),
+    margin: var(--s-xl),
+  ),
+);
+$social-media-follow-print: (
+  description: (
+    font: map.get($font-print, 'm'),
+  ),
+  item: (
+    font: map.get($font-print, 'm'),
+  ),
 );
 
 // Social media share
