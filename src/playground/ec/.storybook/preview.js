@@ -45,6 +45,12 @@ export const parameters = {
       hideCode: true,
     },
     {
+      id: 'ecl-ec-utilities',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-utilities.css" />`,
+      picked: true,
+      hideCode: true,
+    },
+    {
       id: 'ecl-rtl',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-rtl.css" />`,
       picked: false,

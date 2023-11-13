@@ -40,6 +40,15 @@ module.exports = {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/ec-utilities.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-utilities.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-print.scss'),
       dest: path.resolve(outputFolder, 'styles/ecl-ec-print.css'),
       options: {
