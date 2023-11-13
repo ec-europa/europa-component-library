@@ -18,8 +18,13 @@ export const correctPaths = (data) => {
         data[prop] = iconSocialPath;
       } else if (data[prop].includes('flag')) {
         data[prop] = iconFlagPath;
+      } else if (data[prop].includes('xlink:href="/icons.svg#')) {
+        data[prop] = data[prop].replace(
+          'xlink:href="/icons.svg#',
+          `xlink:href="${iconPath}#`,
+        );
       } else {
-        data[prop] = data[prop].replace('/icons.svg', iconPath);
+        data[prop] = iconPath;
       }
     }
     if (typeof data[prop] === 'string' && data[prop].endsWith('/example')) {
