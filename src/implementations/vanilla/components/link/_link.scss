@@ -13,6 +13,7 @@ $link: null !default;
 .ecl-link,
 %ecl-link {
   color: map.get($link, 'color');
+  font-family: #{map.get($theme, 'font-family', 'default')};
   margin: 0;
   text-decoration: underline;
 
@@ -89,7 +90,6 @@ $link: null !default;
 * Standalone
 */
 .ecl-link--standalone {
-  font-family: #{map.get($theme, 'font-family', 'default')};
   text-decoration: none;
 
   &:visited {

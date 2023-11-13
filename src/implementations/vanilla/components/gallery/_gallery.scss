@@ -49,7 +49,7 @@ $_image-height-mobile: 260px;
 
 .ecl-gallery__item-icon-wrapper {
   background: var(--c-d);
-  box-shadow: 0 0 15px 6px rgba(var(--c-d), 0.55);
+  box-shadow: 0 0 15px 6px rgba(map.get($theme, 'color', 'dark-80'), 0.55);
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -334,15 +334,7 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 
 .ecl-gallery__close-button {
   color: map.get($gallery, 'close-button-color');
-  font-weight: map.get($theme, 'font-weight', 'regular');
   margin: var(--s-xs);
-
-  &:hover,
-  &:focus-visible {
-    border-color: transparent;
-    color: map.get($theme, 'color', 'white');
-    outline: 2px solid map.get($theme, 'color', 'white');
-  }
 }
 
 .ecl-gallery__slider {
@@ -387,7 +379,6 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin-top: var(--s-m);
 }
 
 .ecl-gallery__slider-previous,
@@ -410,7 +401,7 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  padding: var(--s-xs) 0 var(--s-m);
+  padding: var(--s-xl) var(--s-xs);
 
   .ecl-container {
     position: static;
@@ -440,21 +431,6 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 
 .ecl-gallery__download,
 .ecl-gallery__share {
-  color: map.get($gallery, 'overlay-links-color');
-
-  &:hover {
-    color: map.get($gallery, 'overlay-links-hover-color');
-  }
-
-  &:focus-visible {
-    outline-color: map.get($theme, 'color', 'white-100');
-    outline-offset: 4px;
-  }
-
-  &:visited {
-    color: map.get($gallery, 'overlay-links-color');
-  }
-
   &[hidden] {
     display: none;
   }
@@ -488,10 +464,6 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
-  .ecl-gallery__detail {
-    padding: 0 var(--s-l);
-  }
-
   .ecl-gallery__detail-description {
     min-height: 0;
   }
@@ -520,22 +492,18 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
   }
 
   .ecl-gallery__slider-previous {
-    left: var(--s-xs);
+    left: var(--s-m);
   }
 
   .ecl-gallery__slider-next {
     margin: 0;
-    right: var(--s-xs);
+    right: var(--s-m);
   }
 
   .ecl-gallery__detail .ecl-container {
     display: flex;
     flex-direction: column;
     width: 1140px;
-  }
-
-  .ecl-gallery__detail {
-    padding: var(--s-s) var(--s-m) var(--s-xl);
   }
 
   .ecl-gallery__detail-actions {
