@@ -11,11 +11,11 @@ import HomePageEU from '../pages/eu/index.md';
 
 import Skeleton from './Skeleton';
 
-const ECRoutes = lazy(() =>
-  import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec'),
+const ECRoutes = lazy(
+  () => import(/* webpackChunkName: "ec", webpackPrefetch: true */ './Ec'),
 );
-const EURoutes = lazy(() =>
-  import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu'),
+const EURoutes = lazy(
+  () => import(/* webpackChunkName: "eu", webpackPrefetch: true */ './Eu'),
 );
 
 function WaitingEC(props) {
