@@ -87,7 +87,7 @@ $language-switcher: null !default;
 
 .ecl-site-header__language-category-title {
   font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($language-switcher, 'category-title-font-weight');
   padding: map.get($language-switcher, 'category-title-padding');
 }
 
