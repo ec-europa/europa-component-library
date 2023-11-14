@@ -345,13 +345,6 @@ export class NewsTicker {
    * Trigger events on resize.
    */
   handleResize() {
-    let highestSlide = 0;
-    this.slides.forEach((slide) => {
-      const slideHeight = slide.offsetHeight;
-      highestSlide = highestSlide < slideHeight ? slideHeight : highestSlide;
-    });
-    highestSlide = highestSlide < 58 ? 58 : highestSlide;
-    this.container.style.height = `${highestSlide + 10}px`;
     this.moveSlides(false);
   }
 

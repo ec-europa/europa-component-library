@@ -106,97 +106,107 @@ exports[`News ticker Default renders correctly 1`] = `
       class="ecl-news-ticker__controls"
     >
       <button
-        class="ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Prev item
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__next"
-        data-ecl-news-ticker-next=""
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next item
-        </span>
-      </button>
-      <button
-        class="ecl-news-ticker__play"
+        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
         data-ecl-news-ticker-play=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Play news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Play news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#play"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__pause"
+        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
         data-ecl-news-ticker-pause=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Pause news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Pause news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#pause"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
+        data-ecl-news-ticker-next=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <div
@@ -327,97 +337,107 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
       class="ecl-news-ticker__controls"
     >
       <button
-        class="ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Prev item
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__next"
-        data-ecl-news-ticker-next=""
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next item
-        </span>
-      </button>
-      <button
-        class="ecl-news-ticker__play"
+        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
         data-ecl-news-ticker-play=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Play news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Play news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#play"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__pause"
+        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
         data-ecl-news-ticker-pause=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Pause news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Pause news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#pause"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
+        data-ecl-news-ticker-next=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <div
@@ -546,97 +566,107 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
       class="ecl-news-ticker__controls"
     >
       <button
-        class="ecl-news-ticker__prev"
+        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
         data-ecl-news-ticker-prev=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Prev item
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__next"
-        data-ecl-news-ticker-next=""
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-        <span
-          class="ecl-u-sr-only"
-        >
-          Next item
-        </span>
-      </button>
-      <button
-        class="ecl-news-ticker__play"
+        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
         data-ecl-news-ticker-play=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#play-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Play news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Play news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#play"
+            />
+          </svg>
         </span>
       </button>
       <button
-        class="ecl-news-ticker__pause"
+        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
         data-ecl-news-ticker-pause=""
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-default"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-news-ticker__icon-active"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#pause-filled"
-          />
-        </svg>
         <span
-          class="ecl-u-sr-only"
+          class="ecl-button__container"
         >
-          Pause news ticker
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Pause news ticker
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#pause"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
+        data-ecl-news-ticker-next=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next item
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
         </span>
       </button>
       <div
