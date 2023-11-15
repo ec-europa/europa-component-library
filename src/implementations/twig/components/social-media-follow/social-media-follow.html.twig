@@ -5,7 +5,6 @@
     - "variant" (string) (default: ''): can be 'vertical',
     - "description" (string) (default: ''),
     - "links" (array) (default: {}): Array of links for social media, following ECL Link structure
-    - "popover" (associative array) (default: {}): Popover for other social media, following ECL Popover structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -21,7 +20,6 @@
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
 {% set _links = links|default({}) %}
-{% set _popover = popover|default({}) %}
 {% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
@@ -71,31 +69,6 @@
         } only %}
       </li>
     {% endfor %}
-
-    {% if _popover is not empty %}
-      <li class="ecl-social-media-follow__item">
-        {% set _toggle_extra_classes = 'ecl-social-media-follow__link' %}
-        {% if _popover.toggle.extra_classes is not empty %}
-          {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _popover.toggle.extra_classes %}
-        {% endif %}
-        {% set _icon_extra_classes = 'ecl-social-media-follow__icon' %}
-        {% if _popover.toggle.icon is not empty and _popover.toggle.icon.extra_classes is not empty %}
-          {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ _popover.toggle.icon.extra_classes %}
-        {% endif %}
-        {% include '@ecl/popover/popover.html.twig' with _popover|merge({
-          toggle: _popover.toggle|merge({
-            link: _popover.toggle.link|default({})|merge({
-              type: 'standalone',
-            }),
-            icon: _popover.toggle.icon|default({})|merge({
-              extra_classes: _icon_extra_classes,
-            }),
-            extra_classes: _toggle_extra_classes,
-          })
-        }) only %}
-      </li>
-    {% endif %}
-    </ul>
   {% endif %}
 </div>
 

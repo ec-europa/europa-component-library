@@ -233,6 +233,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 - A container is added as first child of the root element of the component, with this class: `ecl-site-header__background`, it is needed in EC to handle the background image.
 
+### Social media follow
+
+- Icon size is different (`xs` for EC, `m` for EU). This has to be passed as data.
+- The link "Other social media networks" is no longer a popover. This is now a standard link, leading to a dedicated page, and added after the other links. Corresponding twig parameter `popover` has been removed
+
 ### Table
 
 - In order to properly support the row extra_classes and extra_attributes the data structure is now changed and it expects a `data` named object containing all the table cells belonging to that row.
