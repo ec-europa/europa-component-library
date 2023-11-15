@@ -181,8 +181,8 @@ $language-switcher: null !default;
     .ecl-site-header__language-category:nth-child(2) {
       border-top: none;
       border-inline-start: map.get($language-switcher, 'category-separator');
-      margin-inline-start: map.get($language-switcher, 'column-spacing');
-      padding-inline-start: map.get($language-switcher, 'column-spacing');
+      margin-inline-start: map.get($language-switcher, 'column-spacing-before');
+      padding-inline-start: map.get($language-switcher, 'column-spacing-after');
     }
 
     .ecl-site-header__language-category-title {
