@@ -10,6 +10,8 @@ import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
+import dataGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
+import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
 
 import button from './button.html.twig';
 import notes from './README.md';
@@ -24,6 +26,11 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 
 // Create 'none' option.
 iconsAll.unshift('none');
+
+const withInverted = (story) => {
+  const demo = story();
+  return `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
+};
 
 const getArgs = () => ({
   icon_name: 'none',
@@ -189,6 +196,20 @@ Secondary.parameters = {
   notes: { markdown: notes, json: dataSecondary },
 };
 
+export const Tertiary = (_, { loaded: { component } }) => component;
+
+Tertiary.render = async (args) => {
+  const renderedCta = await button(prepareData(dataTertiary, args));
+  return renderedCta;
+};
+Tertiary.args = {
+  label: dataTertiary.label,
+};
+Tertiary.storyName = 'tertiary';
+Tertiary.parameters = {
+  notes: { markdown: notes, json: dataTertiary },
+};
+
 export const CallToAction = (_, { loaded: { component } }) => component;
 
 CallToAction.render = async (args) => {
@@ -215,4 +236,19 @@ Ghost.args = {
 Ghost.storyName = 'ghost';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
+};
+
+export const GhostInverted = (_, { loaded: { component } }) => component;
+
+GhostInverted.render = async (args) => {
+  const renderedCta = await button(prepareData(dataGhostInverted, args));
+  return renderedCta;
+};
+GhostInverted.args = {
+  label: dataGhostInverted.label,
+};
+GhostInverted.storyName = 'ghost inverted';
+GhostInverted.decorators = [withNotes, withCode, withInverted];
+GhostInverted.parameters = {
+  notes: { markdown: notes, json: dataGhostInverted },
 };
