@@ -195,7 +195,7 @@ module.exports = {
       hide_label: true,
       label: 'Close',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
+        path: '/icons.svg',
         name: 'close',
         size: 'm',
       },
@@ -204,7 +204,7 @@ module.exports = {
       variant: 'tertiary',
       label: 'Previous',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
+        path: 'icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-270',
@@ -215,7 +215,7 @@ module.exports = {
       variant: 'tertiary',
       label: 'Next',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
+        path: '/icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-90',
