@@ -34,6 +34,11 @@ const btnTabHandler = (state) => {
   }
 };
 
+const withParagraph = (story) => {
+  const demo = story();
+  return `${demo}<p class="ecl-u-type-m">Use the keyboard tab or the Storybook control to display the skip link</p>`;
+};
+
 export default {
   title: 'Components/Navigation/Skip Link',
 };
@@ -52,4 +57,4 @@ Default.args = getArgs();
 Default.argTypes = getArgTypes();
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes, json: specs } };
-Default.decorators = [withNotes, withCode];
+Default.decorators = [withNotes, withCode, withParagraph];

@@ -50,7 +50,7 @@
 
 <div class="ecl-site-header__language">
   <a
-    class="ecl-button ecl-button--ghost ecl-site-header__language-selector"
+    class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
     href="{{ _language_selector.href }}"
     data-ecl-language-selector
     role="button"
@@ -88,7 +88,7 @@
       </div>
       {% if _language_selector.overlay.close is not empty %}
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
-          variant: 'ghost',
+          variant: 'tertiary',
           extra_classes: 'ecl-site-header__language-close',
           extra_attributes: [{
             name: 'data-ecl-language-list-close',
