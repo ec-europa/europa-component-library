@@ -1023,10 +1023,19 @@ $page-header-print: (
 // Pagination
 $pagination: (
   background-color: transparent,
+  border-color: var(--c-n),
   border-radius: 0,
-  border-width: 2px,
+  border-width: 1px,
+  current-background: var(--c-p),
   current-border-width: 2px,
-  current-text-color: map.get($color, 'black'),
+  current-font-weight: 'regular',
+  current-radius: 2px,
+  current-text-color-desktop: map.get($color, 'white'),
+  current-text-color-mobile: var(--c-d),
+  item-background-hover: var(--c-p-20),
+  item-default-color: var(--c-d),
+  item-hover-color: var(--c-d),
+  item-border-hover: var(--c-d-80),
 );
 
 // Radio

@@ -16,21 +16,38 @@ $_text-color: map.get($theme, 'color', 'blue-100');
 $_border-color: map.get($theme, 'color', 'black-100');
 $_current-border-color: map.get($theme, 'color', 'black-100');
 
+@mixin item-styles {
+  align-items: center;
+  color: map.get($pagination, 'item-default-color');
+  justify-content: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 3rem;
+  width: 3rem;
+
+  &:hover {
+    background: map.get($pagination, 'item-background-hover');
+    border: 1px solid map.get($pagination, 'item-border-hover');
+    color: map.get($pagination, 'item-hover-color');
+    text-decoration: none;
+  }
+
+  &:focus-visible {
+    background: transparent;
+    border: 2px solid var(--c-p);
+    outline: none;
+  }
+}
+
 .ecl-pagination {
   background-color: map.get($pagination, 'background-color');
   border-radius: map.get($pagination, 'border-radius');
-  border-top: map.get($pagination, 'border-width') solid $_border-color;
+  border-top: map.get($pagination, 'border-width') solid
+    map.get($pagination, 'border-color');
   color: $_text-color;
   font: map.get($theme, 'font-prolonged', 'm');
   margin: 0;
-  padding-bottom: calc(
-    #{map.get($theme, 'spacing', 'm')} - #{map.get($theme, 'spacing', '2xs')}
-  );
-  padding-inline-start: map.get($theme, 'spacing', 'm');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
-  padding-top: calc(
-    #{map.get($theme, 'spacing', 'm')} - #{map.get($theme, 'spacing', '2xs')}
-  );
+  padding-top: var(--s-xl);
 }
 
 .ecl-pagination__list {
@@ -47,11 +64,24 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
   display: none;
 }
 
+.ecl-pagination__link {
+  @include item-styles;
+}
+
+.ecl-pagination__link,
+.ecl-pagination__text {
+  padding: map.get($theme, 'spacing', '2xs');
+}
+
 .ecl-pagination__item--previous,
 .ecl-pagination__item--next {
   display: flex;
   flex-basis: 0;
   flex-grow: 1;
+
+  .ecl-pagination__link {
+    color: var(--c-p);
+  }
 }
 
 .ecl-pagination__item--next {
@@ -59,9 +89,9 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
 }
 
 .ecl-pagination__item--current {
-  color: map.get($pagination, 'current-text-color');
+  color: map.get($pagination, 'current-text-color-mobile');
   display: flex;
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($pagination, 'current-font-weight');
   position: relative;
 }
 
@@ -71,11 +101,6 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
 
 .ecl-pagination__text--full {
   display: block;
-}
-
-.ecl-pagination__link,
-.ecl-pagination__text {
-  padding: map.get($theme, 'spacing', '2xs');
 }
 
 /* stylelint-disable-next-line order/order */
@@ -92,13 +117,15 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
   .ecl-pagination__item {
     display: flex;
     flex-grow: 0;
-    margin-inline-end: calc(
-      #{map.get($theme, 'spacing', 'l')} - (2 * #{map.get(
-              $theme,
-              'spacing',
-              '2xs'
-            )})
-    );
+    margin-inline-end: var(--s-2xs);
+
+    &--current {
+      @include item-styles;
+
+      background: map.get($pagination, 'current-background');
+      border-radius: map.get($pagination, 'current-radius');
+      color: map.get($pagination, 'current-text-color-desktop');
+    }
 
     &:last-child {
       margin-inline-end: 0;
@@ -110,28 +137,26 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
     flex-basis: auto;
   }
 
-  .ecl-pagination__item--current::before {
-    border: map.get($pagination, 'current-border-width solid')
-      $_current-border-color;
-    border-radius: 10rem;
-    content: '';
-    display: block;
-    height: calc(
-      #{map.get($theme, 'line-height-prolonged', 'm')} + (2 * #{map.get(
-              $pagination,
-              'current-border-width'
-            )})
-    );
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(
-      #{map.get($theme, 'line-height-prolonged', 'm')} + (2 * #{map.get(
-              $pagination,
-              'current-border-width'
-            )})
-    );
+  @if map-has-key($pagination, 'before') {
+    .ecl-pagination__item--current::before {
+      border: map.get($pagination, 'current-border-width solid')
+        $_current-border-color;
+      border-radius: 10rem;
+      content: '';
+      display: block;
+      height: calc(
+        #{map.get($theme, 'line-height-prolonged', 'm')} +
+          (2 * #{map.get($pagination, 'current-border-width')})
+      );
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(
+        #{map.get($theme, 'line-height-prolonged', 'm')} +
+          (2 * #{map.get($pagination, 'current-border-width')})
+      );
+    }
   }
 
   .ecl-pagination__text--summary {
