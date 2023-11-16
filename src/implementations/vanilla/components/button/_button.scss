@@ -142,12 +142,40 @@ $size-icon-only: calc(
 }
 // stylelint-enable plugin/selector-bem-pattern
 
+.ecl-button--tertiary {
+  @include button(tertiary);
+
+  &:hover {
+    border-width: 1px;
+    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
+      calc(#{map.get($button, 'padding-horizontal')} - 1px);
+  }
+
+  &.ecl-button--icon-only:hover {
+    padding: 1px;
+  }
+}
+
 .ecl-button--cta {
   @include button(cta);
 }
 
 .ecl-button--ghost {
   @include button(ghost);
+
+  &:hover {
+    border-width: 1px;
+    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
+      calc(#{map.get($button, 'padding-horizontal')} - 1px);
+  }
+
+  &.ecl-button--icon-only:hover {
+    padding: 1px;
+  }
+}
+
+.ecl-button--ghost-inverted {
+  @include button(ghost-inverted);
 
   &:hover {
     border-width: 1px;
