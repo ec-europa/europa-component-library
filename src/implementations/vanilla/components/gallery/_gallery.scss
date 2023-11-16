@@ -437,6 +437,11 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 .ecl-gallery__detail-meta {
   color: map.get($gallery, 'gallery-meta-color');
   font: var(--f-m);
+  max-width: 670px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @include breakpoints.up('s') {
