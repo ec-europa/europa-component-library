@@ -201,7 +201,7 @@ module.exports = {
       },
     },
     previous: {
-      variant: 'ghost',
+      variant: 'tertiary',
       label: 'Previous',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
@@ -212,7 +212,7 @@ module.exports = {
       icon_position: 'before',
     },
     next: {
-      variant: 'ghost',
+      variant: 'tertiary',
       label: 'Next',
       icon: {
         path: 'static/media/icons.3cf410f9.svg',
