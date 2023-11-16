@@ -110,7 +110,8 @@
         {% include '@ecl/link/link.html.twig' with {
           link: {
             icon_position: 'after',
-            type: 'inverted',
+            type: 'standalone',
+            inverted: true,
             label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
           },
           icon: {
@@ -130,7 +131,8 @@
         {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
           link: _overlay.share.link|merge({
             icon_position: 'after',
-            type: 'inverted',
+            type: 'standalone',
+            inverted: true,
           }),
           icon: _overlay.share.icon|merge({
             name: 'share',

@@ -28,9 +28,6 @@
 {% set _icon_path = icon_path|default('') %}
 {% set _item = item|default({}) %}
 
-{% set _has_icon = (_item.icon is defined and _item.icon is not empty) and
-  (_item.icon.name is defined and _item.icon.name is not empty) %}
-
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -105,12 +102,6 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
-      {%- if _has_icon -%}
-        {%- include '@ecl/icon/icon.html.twig' with {
-          icon: _item.icon,
-          extra_classes: 'ecl-gallery__description-icon',
-        } only %}
-      {%- endif -%}
         {{- _item.description -}}
       {%- if _item.meta is defined and _item.meta is not empty -%}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
