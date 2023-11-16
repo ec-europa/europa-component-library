@@ -1059,13 +1059,17 @@ $pagination: (
   current-background: var(--c-p),
   current-border-width: 2px,
   current-font-weight: 'regular',
-  current-radius: 2px,
   current-text-color-desktop: map.get($color, 'white'),
   current-text-color-mobile: var(--c-d),
+  focus-radius: 0,
   item-background-hover: var(--c-p-20),
   item-default-color: var(--c-d),
   item-hover-color: var(--c-d),
+  item-margin-end: var(--s-2xs),
+  item-padding: 0,
   item-border-hover: var(--c-d-80),
+  item-size: 3rem,
+  padding: var(--s-xl) 0 0,
 );
 
 // Radio

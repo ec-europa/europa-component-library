@@ -22,6 +22,26 @@ module.exports = {
       },
     },
     {
+      aria_label: 'Go to page 1',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '1',
+        },
+      },
+    },
+    {
+      aria_label: 'between 1 and 24',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '...',
+        },
+      },
+    },
+    {
       aria_label: 'Go to page 24',
       link: {
         link: {
@@ -43,7 +63,7 @@ module.exports = {
     },
     {
       type: 'current',
-      aria_label: 'Page 26',
+      aria_label: 'Page 26 of 40',
       label: '26',
     },
     {
@@ -63,6 +83,26 @@ module.exports = {
           variant: 'standalone',
           path: exampleLink,
           label: '28',
+        },
+      },
+    },
+    {
+      aria_label: 'Between 28 and 40',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '...',
+        },
+      },
+    },
+    {
+      aria_label: 'Go to page 40',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '40',
         },
       },
     },

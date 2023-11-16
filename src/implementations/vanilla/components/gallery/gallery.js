@@ -536,6 +536,7 @@ export class Gallery {
     const shareHref = this.selectedItem.getAttribute(
       'data-ecl-gallery-item-share',
     );
+    console.log(shareHref);
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
       this.overlayShare.hidden = false;
