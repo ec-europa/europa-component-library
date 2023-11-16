@@ -370,7 +370,16 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 .ecl-gallery__slider-previous,
 .ecl-gallery__slider-next {
   align-self: flex-end;
+  background: map.get($theme, 'color', 'white');
   flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--c-p-20);
+  }
+
+  &:focus-visible {
+    background-color: map.get($theme, 'color', 'white');
+  }
 }
 
 .ecl-gallery__detail {
