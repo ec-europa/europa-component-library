@@ -73,6 +73,11 @@ $pagination: null !default;
   @include item-styles;
 }
 
+.ecl-pagination__item--truncation:active {
+  background: transparent;
+  color: var(--c-d);
+}
+
 .ecl-pagination__item--next {
   justify-content: flex-end;
 
@@ -97,7 +102,9 @@ $pagination: null !default;
     }
 
     &:active {
-      color: map.get($pagination, 'current-text-color-desktop');
+      background: map.get($pagination, 'prev-next-active-background');
+      border: map.get($pagination, 'prev-next-active-border');
+      color: map.get($pagination, 'current-text-color-mobile');
     }
   }
 }
