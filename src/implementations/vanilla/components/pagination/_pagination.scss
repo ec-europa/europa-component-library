@@ -33,9 +33,9 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
 
   &:focus-visible {
     background: transparent;
-    border: 2px solid var(--c-p);
+    border: map.get($pagination, 'focus-border');
     border-radius: map.get($pagination, 'focus-radius');
-    outline: none;
+    outline: map.get($pagination, 'focus-outline');
   }
 
   &:active {
@@ -77,6 +77,14 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
   @include item-styles;
 }
 
+.ecl-pagination__item--next {
+  justify-content: flex-end;
+
+  .ecl-pagination__link {
+    margin-inline-end: 0;
+  }
+}
+
 .ecl-pagination__item--previous,
 .ecl-pagination__item--next {
   display: flex;
@@ -90,10 +98,6 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
       color: map.get($pagination, 'current-text-color-desktop');
     }
   }
-}
-
-.ecl-pagination__item--next {
-  justify-content: flex-end;
 }
 
 .ecl-pagination__item--current {
