@@ -11,11 +11,6 @@
 $theme: null !default;
 $pagination: null !default;
 
-// Internal variables
-$_text-color: map.get($theme, 'color', 'blue-100');
-$_border-color: map.get($theme, 'color', 'black-100');
-$_current-border-color: map.get($theme, 'color', 'black-100');
-
 @mixin item-styles {
   align-items: center;
   color: map.get($pagination, 'item-default-color');
@@ -53,7 +48,7 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
   border-top: map.get($pagination, 'border-width') solid
     map.get($pagination, 'border-color');
   border-radius: map.get($pagination, 'border-radius');
-  color: $_text-color;
+  color: map.get($pagination, 'text-color');
   font: var(--f-m);
   margin: 0;
   padding: map.get($pagination, 'padding');
@@ -73,7 +68,8 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
   display: none;
 }
 
-.ecl-pagination__link {
+.ecl-pagination__link,
+.ecl-pagination__item--truncation {
   @include item-styles;
 }
 
@@ -93,6 +89,12 @@ $_current-border-color: map.get($theme, 'color', 'black-100');
 
   .ecl-pagination__link {
     color: var(--c-p);
+
+    &:hover {
+      background: map.get($pagination, 'prev-next-hover-background');
+      border: map.get($pagination, 'prev-next-hover-border');
+      color: map.get($pagination, 'prev-next-hover-color');
+    }
 
     &:active {
       color: map.get($pagination, 'current-text-color-desktop');

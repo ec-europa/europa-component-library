@@ -32,14 +32,8 @@ module.exports = {
       },
     },
     {
-      aria_label: 'between 1 and 24',
-      link: {
-        link: {
-          variant: 'standalone',
-          path: exampleLink,
-          label: '...',
-        },
-      },
+      type: 'truncation',
+      label: '...',
     },
     {
       aria_label: 'Go to page 24',
@@ -87,14 +81,8 @@ module.exports = {
       },
     },
     {
-      aria_label: 'Between 28 and 40',
-      link: {
-        link: {
-          variant: 'standalone',
-          path: exampleLink,
-          label: '...',
-        },
-      },
+      type: 'truncation',
+      label: '...',
     },
     {
       aria_label: 'Go to page 40',

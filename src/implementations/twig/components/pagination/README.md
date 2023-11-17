@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-pagination
 
 - **"label"** (string) (default: ''): for screen reader
 - **"items"** (array) (default: []):
-  - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
+  - "type" (string) (default: ''): could be 'previous', 'current', 'next', 'truncation'
   - "label" (string) (default: ''): label used when the item is not a link
   - "aria_label" (string) (default: '')
   - "link" (object) (default: ''): object of type Link
