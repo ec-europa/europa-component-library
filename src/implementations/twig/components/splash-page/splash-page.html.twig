@@ -1,0 +1,194 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "icon_file_path" (string) (default: ''): URL to icons file
+    - "logo" (associative array) (default: predefined structure): Logo image settings. format: {
+        "title": (string) (default: ''): Logo title attribute.
+        "alt": (string) (default: ''): Logo alt attribute.
+        "href": (string) (default: ''): Logo URL.
+        "src_desktop": (string) (default: ''): Desktop logo image file path
+        "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
+      },
+    - "title": (string) (default: ''): Page title, eg. 'Select your language'.
+    - "eu_category": (string) (default: ''): Label for EU languages
+    - "non_eu_category": (string) (default: ''): Label for non-EU languages
+    - "items": (array) (default: []): (array) (default: []): format: [
+        {
+          "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+          "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+          "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+          "active" (boolean) (default: false) define if item is the active language.
+        },
+      ],
+    - "non_eu_items": (array) (default: []): (array) (default: []): format: [
+        {
+          "lang" (string) (default: '') Item language code, eg. 'en', 'fr', etc.
+          "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
+          "path" (string) (default: '') Item language URL eg. '/example#language_en'.
+          "active" (boolean) (default: false) define if item is the active language.
+        },
+      ],
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-splash-page' %}
+{% set _logo = logo|default({}) %}
+{% set _icon_file_path = icon_file_path|default('') %}
+{% set _title = title|default('') %}
+{% set _eu_category = eu_category|default('') %}
+{% set _non_eu_category = non_eu_category|default('') %}
+{% set _items = items|default('') %}
+{% set _non_eu_items = non_eu_items|default('') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {# Logo #}
+  {% if _logo is not empty and _logo.src_desktop is not empty %}
+    <div class="ecl-splash-page__logo-container">
+      <div class="ecl-container">
+        {% set _label %}
+          {% set _picture = { sources: [{ src: _logo.src_desktop, media: 'm' }] } %}
+          {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
+            {% set _picture = _picture|merge({
+              img: {
+                src: _logo.src_mobile,
+                alt: _logo.alt,
+              },
+            }) %}
+          {% else %}
+            {% set _picture = _picture|merge({
+              img: {
+                src: _logo.src_desktop,
+                alt: _logo.alt,
+              },
+            }) %}
+          {% endif %}
+          {% include '@ecl/picture/picture.html.twig' with {
+            picture: _picture,
+            extra_classes: "ecl-splash-page__picture",
+            extra_image_classes: 'ecl-splash-page__logo-image',
+            extra_attributes: [{ name: 'title', value: _logo.title }],
+          } only %}
+        {% endset %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            path: _logo.path,
+            label: _label,
+            type: 'standalone',
+            aria_label: _logo.title
+          },
+          extra_classes: 'ecl-splash-page__logo-link'
+        } only %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="ecl-container ecl-splash-page__language-container">
+    {% if _title is not empty %}
+      <div class="ecl-splash-page__language-title">{{ _title }}</div>
+    {% endif %}
+
+    <div class="ecl-splash-page__language-content">
+      {# EU languages #}
+      {% if _items is not empty and _items is iterable %}
+      <div class="ecl-splash-page__language-category ecl-splash-page__language-category--3-col">
+        {% if _eu_category is not empty %}
+        <div class="ecl-splash-page__language-category-title">
+          {{- _eu_category -}}
+        </div>
+        {% endif %}
+        <ul class="ecl-splash-page__language-list">
+          {% for _item in _items %}
+          <li class="ecl-splash-page__language-item">
+            {% set _link_label %}
+              <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
+              <span class="ecl-splash-page__language-link-label">{{ _item.label }}</span>
+            {% endset %}
+            {% set _link_classes = 'ecl-splash-page__language-link' %}
+            {% if _item.active %}
+              {% set _link_classes = _link_classes ~ ' ecl-splash-page__language-link--active' %}
+            {% endif %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: _item|merge({
+                label: _link_label,
+                type: 'standalone'
+              }),
+              extra_classes: _link_classes,
+              extra_attributes: [
+                { name: 'lang', value: _item.lang|default('')|e('html_attr') },
+                { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
+              ],
+            } only %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {# non-EU languages #}
+      {% if _non_eu_items is not empty and _non_eu_items is iterable %}
+      <div class="ecl-splash-page__language-category ecl-splash-page__language-category--2-col">
+        {% if _non_eu_category is not empty %}
+        <div class="ecl-splash-page__language-category-title">
+          {{- _non_eu_category -}}
+        </div>
+        {% endif %}
+        <ul class="ecl-splash-page__language-list">
+          {% for _item in _non_eu_items %}
+          <li class="ecl-splash-page__language-item">
+          {% set _link_label %}
+            <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
+            <span class="ecl-splash-page__language-link-label">{{ _item.label }}</span>
+          {% endset %}
+            {% set _link_classes = 'ecl-splash-page__language-link' %}
+            {% if _item.active %}
+              {% set _link_classes = _link_classes ~ ' ecl-splash-page__language-link--active' %}
+            {% endif %}
+            {% include '@ecl/link/link.html.twig' with {
+              link: _item|merge({
+                label: _link_label,
+                type: 'standalone'
+              }),
+              extra_classes: _link_classes,
+              extra_attributes: [
+                { name: 'lang', value: _item.lang|default('') },
+                { name: 'hreflang', value: _item.lang|default('') },
+              ],
+            } only %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endapply %}

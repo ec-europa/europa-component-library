@@ -1052,52 +1052,6 @@ $select: (
   padding-vertical: var(--s-s),
 );
 
-// Site header
-$site-header: (
-  background-color: map.get($color, 'white'),
-  logo-height-xs: 1.875rem,
-  logo-width-xs: auto,
-  logo-height-sm: 2.5rem,
-  logo-width-sm: auto,
-  logo-height-lg: 2.75rem,
-  logo-width-lg: auto,
-  search-width-l: 25rem,
-  search-width-xl: 31.5rem,
-  gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
-  site-name-mobile-color: map.get($color, 'white'),
-  site-name-desktop-color: map.get($color, 'dark-80'),
-  language-switcher: (
-    color: var(--c-d-140),
-    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    shadow-size: 6px,
-    arrow-size: 1rem,
-    arrow-top: 0,
-    arrow-border: none,
-    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
-    header-font: var(--f-p-l),
-    header-separator: 1px solid var(--c-p-10),
-    close-right: var(--s-s),
-    close-top: var(--s-xs),
-    content-padding: 0 var(--s-s) var(--s-s),
-    category-margin: var(--s-l),
-    category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-stack-margin: var(--s-m),
-    category-separator: 1px solid var(--c-p-10),
-    column-spacing: var(--s-s),
-    code-color: var(--c-d-140),
-    code-width: 30px,
-    code-font-weight: map.get($font-weight, 'bold'),
-    code-active-font-weight: map.get($font-weight, 'bold'),
-    item-width: 188px,
-    item-padding: var(--s-s),
-    item-active-background: var(--c-p-10),
-    item-active-color: var(--c-d-140),
-    item-active-shadow: inset 4px 0 0 0 var(--c-p),
-  ),
-);
-
 // Page header
 $page-header: (
   meta-color: var(--c-d-80),
@@ -1165,6 +1119,52 @@ $site-footer: (
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
 
+// Site header
+$site-header: (
+  background-color: map.get($color, 'white'),
+  logo-height-xs: 1.875rem,
+  logo-width-xs: auto,
+  logo-height-sm: 2.5rem,
+  logo-width-sm: auto,
+  logo-height-lg: 2.75rem,
+  logo-width-lg: auto,
+  search-width-l: 25rem,
+  search-width-xl: 31.5rem,
+  gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
+  site-name-mobile-color: map.get($color, 'white'),
+  site-name-desktop-color: map.get($color, 'dark-80'),
+  language-switcher: (
+    color: var(--c-d-140),
+    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    shadow-size: 6px,
+    arrow-size: 1rem,
+    arrow-top: 0,
+    arrow-border: none,
+    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
+    header-font: var(--f-p-l),
+    header-separator: 1px solid var(--c-p-10),
+    close-right: var(--s-s),
+    close-top: var(--s-xs),
+    content-padding: 0 var(--s-s) var(--s-s),
+    category-margin: var(--s-l),
+    category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+    category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+    category-stack-margin: var(--s-m),
+    category-separator: 1px solid var(--c-p-10),
+    column-spacing: var(--s-s),
+    code-color: var(--c-d-140),
+    code-width: 30px,
+    code-font-weight: map.get($font-weight, 'bold'),
+    code-active-font-weight: map.get($font-weight, 'bold'),
+    item-width: 188px,
+    item-padding: var(--s-s),
+    item-active-background: var(--c-p-10),
+    item-active-color: var(--c-d-140),
+    item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  ),
+);
+
 // Social media follow
 $social-media-follow: (
   background-color: map.get($color, 'blue-5'),
@@ -1186,6 +1186,37 @@ $spinner: (
   stroke-color: var(--c-p-80),
   stroke-linecap: round,
   text-color: var(--c-d),
+);
+
+// Splash page
+$splash-page: (
+  logo-background: map.get($color, 'white'),
+  logo-padding: var(--s-xl) var(--s-m),
+  logo-height-mobile: 2.5rem,
+  logo-height-desktop: 2.75rem,
+  color: var(--c-d-140),
+  container-padding: var(--s-xl) var(--s-m),
+  header-font: var(--f-p-l),
+  content-margin: 0,
+  category-title-font-weight: map.get($font-weight, 'bold'),
+  category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+  category-separator: 1px solid var(--c-p-10),
+  category-stack-margin: var(--s-m),
+  list-margin: 0 0 0 calc(-1 * var(--s-s)),
+  item-padding: var(--s-s),
+  code-color: var(--c-d-140),
+  code-font-weight: map.get($font-weight, 'bold'),
+  code-active-font-weight: map.get($font-weight, 'bold'),
+  code-width: 30px,
+  item-active-background: var(--c-p-10),
+  item-active-color: var(--c-d-140),
+  item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  item-width: 188px,
+  column-spacing-before: var(--s-s),
+  column-spacing-after: var(--s-s),
+  header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
+  header-separator: 1px solid var(--c-p-10),
+  category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
 );
 
 // Table

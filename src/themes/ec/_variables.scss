@@ -1200,6 +1200,37 @@ $spinner: (
   text-color: var(--c-d),
 );
 
+// Splash page
+$splash-page: (
+  logo-background: var(--c-n-40),
+  logo-padding: var(--s-xl) var(--s-3xl),
+  logo-height-mobile: 2.75rem,
+  logo-height-desktop: 4rem,
+  color: var(--c-d),
+  container-padding: var(--s-3xl),
+  header-font: var(--f-xl),
+  content-margin: var(--s-s),
+  category-title-font-weight: map.get($font-weight, 'regular'),
+  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-separator: 1px solid var(--c-n),
+  category-stack-margin: var(--s-s),
+  list-margin: 0 0 0 calc(-1 * var(--s-s)),
+  item-padding: var(--s-xs) var(--s-s),
+  code-color: var(--c-d),
+  code-font-weight: map.get($font-weight, 'regular'),
+  code-active-font-weight: map.get($font-weight, 'bold'),
+  code-width: 26px,
+  item-active-background: var(--c-n-80),
+  item-active-color: var(--c-d),
+  item-active-shadow: none,
+  item-width: 184px,
+  column-spacing-before: var(--s-m),
+  column-spacing-after: var(--s-m),
+  header-padding: var(--s-3xl) var(--s-3xl) 0 var(--s-xl),
+  header-separator: none,
+  category-stack-title-padding: var(--s-l) 0 var(--s-xs),
+);
+
 // Table
 $table: (
   table-color: var(--c-d),
