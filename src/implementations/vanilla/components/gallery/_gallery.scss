@@ -161,7 +161,7 @@ $_image-height-mobile: 260px;
   color: map.get($gallery, 'gallery-info-color');
   display: flex;
   flex-direction: row;
-  font: map.get($gallery, 'gallery-info-font');
+  font: var(--f-s);
 }
 
 .ecl-gallery__info-total {
@@ -285,11 +285,9 @@ $_image-height-mobile: 260px;
 /*
  * Overlay
 */
-$_overlay-z-index: map.get($theme, 'z-index', 'overlay');
-
 .ecl-gallery__overlay {
   background-color: map.get($gallery, 'overlay-background');
-  backdrop-filter: map.get($gallery, 'overlay-backdrop');
+  backdrop-filter: blur(25px);
   border-radius: map.get($gallery, 'overlay-radius');
   border-width: 0;
   box-shadow: map.get($gallery, 'overlay-shadow');
@@ -304,7 +302,7 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: $_overlay-z-index;
+  z-index: map.get($theme, 'z-index', 'overlay');
 }
 
 .ecl-gallery__overlay[open] {
@@ -319,7 +317,7 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 }
 
 .ecl-gallery__close-button {
-  color: map.get($gallery, 'close-button-color');
+  color: map.get($theme, 'color', 'white');
   margin: var(--s-xs);
 }
 
@@ -399,8 +397,8 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 
 .ecl-gallery__detail-counter {
   align-self: center;
-  border-left: map.get($gallery, 'counter-border');
-  border-right: map.get($gallery, 'counter-border');
+  border-left: 1px solid map.get($theme, 'color', 'white-100');
+  border-right: 1px solid map.get($theme, 'color', 'white-100');
   display: inline-flex;
   font: var(--f-m);
   font-weight: map.get($gallery, 'counter-font-weight');
@@ -435,7 +433,7 @@ $_overlay-z-index: map.get($theme, 'z-index', 'overlay');
 }
 
 .ecl-gallery__detail-meta {
-  color: map.get($gallery, 'gallery-meta-color');
+  color: map.get($theme, 'color', 'white');
   font: var(--f-m);
   max-width: 580px;
   display: -webkit-box;
