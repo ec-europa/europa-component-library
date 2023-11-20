@@ -105,78 +105,72 @@
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
-    {% set _button_attributes = 'data-ecl-news-ticker-prev' %}
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      label: _sr_previous,
+      hide_label: true,
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'l',
+        transform: 'rotate-270',
+      },
+      extra_classes: 'ecl-news-ticker__prev',
+      extra_attributes: [{
+        name: 'data-ecl-news-ticker-prev',
+      }],
+    } only %}
 
-    <button class="ecl-news-ticker__prev" {{ _button_attributes|raw }}>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'l',
-          color: 'inverted',
-          transform: 'rotate-270',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
-    </button>
-    {% set _button_attributes = 'data-ecl-news-ticker-next' %}
+{% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      label: _sr_play,
+      hide_label: true,
+      icon: {
+        path: _icon_path,
+        name: 'play',
+        size: 'l',
+      },
+      extra_classes: 'ecl-news-ticker__play',
+      extra_attributes: [{
+        name: 'data-ecl-news-ticker-play',
+      }],
+    } only %}
 
-    <button class="ecl-news-ticker__next" {{ _button_attributes|raw }}>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'corner-arrow',
-          size: 'l',
-          color: 'inverted',
-          transform: 'rotate-90',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_next }}</span>
-    </button>
-    <button class="ecl-news-ticker__play" data-ecl-news-ticker-play>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'play',
-          size: 'l',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'play-filled',
-          size: 'l',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-news-ticker__icon-active',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_play }}</span>
-    </button>
-    <button class="ecl-news-ticker__pause" data-ecl-news-ticker-pause>
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'pause',
-          size: 'l',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-news-ticker__icon-default',
-      } only %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          path: _icon_path,
-          name: 'pause-filled',
-          size: 'l',
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-news-ticker__icon-active',
-      } only %}
-      <span class="ecl-u-sr-only">{{ _sr_pause }}</span>
-    </button>
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      label: _sr_pause,
+      hide_label: true,
+      icon: {
+        path: _icon_path,
+        name: 'pause',
+        size: 'l',
+      },
+      extra_classes: 'ecl-news-ticker__pause',
+      extra_attributes: [{
+        name: 'data-ecl-news-ticker-pause',
+      }],
+    } only %}
+
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
+      variant: 'primary',
+      label: _sr_next,
+      hide_label: true,
+      icon: {
+        path: _icon_path,
+        name: 'corner-arrow',
+        size: 'l',
+        transform: 'rotate-90',
+      },
+      extra_classes: 'ecl-news-ticker__next',
+      extra_attributes: [{
+        name: 'data-ecl-news-ticker-next',
+      }],
+    } only %}
+
     <div class="ecl-news-ticker__counter">
       <span class="ecl-news-ticker__counter--current">1</span>
       {{- ' ' -}}{{- _counter_label }}{{- ' ' -}}

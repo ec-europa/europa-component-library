@@ -7,7 +7,7 @@ module.exports = {
   icon_path: '/icons.svg',
   counter_label: 'of',
   sr_next: 'Next item',
-  sr_previous: 'Prev item',
+  sr_previous: 'Previous item',
   sr_pause: 'Pause news ticker',
   items: [
     {

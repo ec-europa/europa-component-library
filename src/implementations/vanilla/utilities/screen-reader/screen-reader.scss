@@ -20,13 +20,19 @@
   @include sr-only;
 }
 
-.ecl-u-sr-only--focusable:active,
-.ecl-u-sr-only--focusable:focus {
-  clip: auto !important;
-  clip-path: none !important;
-  height: auto !important;
-  overflow: visible !important;
-  position: static !important;
-  white-space: normal !important;
-  width: auto !important;
+@mixin sr-only-focusable() {
+  &:active,
+  &:focus {
+    clip: auto !important;
+    clip-path: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    white-space: normal !important;
+    width: auto !important;
+  }
+}
+
+.ecl-u-sr-only--focusable {
+  @include sr-only-focusable;
 }

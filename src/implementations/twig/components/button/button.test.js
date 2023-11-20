@@ -10,6 +10,8 @@ import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
+import dataGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
+import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
 
 expect.extend(toHaveNoViolations);
 
@@ -37,6 +39,26 @@ describe('Button', () => {
 
       return expect(render(dataSecondary)).resolves.toMatchSnapshot();
     });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataSecondary)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Tertiary', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataTertiary)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataTertiary)),
+      ).toHaveNoViolations();
+    });
   });
 
   describe('CTA', () => {
@@ -53,7 +75,7 @@ describe('Button', () => {
     });
   });
 
-  describe('Text', () => {
+  describe('Ghost', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
@@ -63,6 +85,20 @@ describe('Button', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataGhost)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Ghost inverted', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataGhostInverted)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataGhostInverted)),
       ).toHaveNoViolations();
     });
   });

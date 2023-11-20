@@ -87,15 +87,6 @@ exports[`Gallery Default renders correctly 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               New digital strategy
               <span
                 class="ecl-gallery__meta"
@@ -301,15 +292,6 @@ exports[`Gallery Default renders correctly 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               EU law
               <span
                 class="ecl-gallery__meta"
@@ -448,15 +430,6 @@ exports[`Gallery Default renders correctly 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
@@ -549,13 +522,16 @@ exports[`Gallery Default renders correctly 1`] = `
       <div
         class="ecl-gallery__info"
       >
-        <strong
+        <div
           class="ecl-gallery__info-total"
-          data-ecl-gallery-count=""
         >
-          0
-        </strong>
-        Media files in this gallery
+          <strong
+            data-ecl-gallery-count=""
+          >
+            0
+          </strong>
+          Media files in this gallery
+        </div>
         <button
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
@@ -603,7 +579,7 @@ exports[`Gallery Default renders correctly 1`] = `
         data-ecl-gallery-overlay-header=""
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-gallery__close-button"
+          class="ecl-button ecl-button--ghost ecl-gallery__close-button ecl-button--icon-only"
           data-ecl-gallery-close=""
           type="submit"
         >
@@ -618,12 +594,12 @@ exports[`Gallery Default renders correctly 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-button__icon"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
               data-ecl-icon=""
               focusable="false"
             >
               <use
-                xlink:href="static/media/icons.3cf410f9.svg#close-filled"
+                xlink:href="/icons.svg#close"
               />
             </svg>
           </span>
@@ -645,10 +621,81 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__pager"
+          >
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="icons.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
             class="ecl-gallery__detail-actions"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__download"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
               data-ecl-gallery-overlay-download=""
               href=""
               target="_blank"
@@ -669,7 +716,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </a>
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__share"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
               data-ecl-gallery-overlay-share=""
               href="/example"
             >
@@ -700,77 +747,6 @@ exports[`Gallery Default renders correctly 1`] = `
             data-ecl-gallery-overlay-meta=""
           >
             Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__pager"
-          >
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <div
-              class="ecl-gallery__detail-counter"
-            >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
-              >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
-              >
-                0
-              </span>
-            </div>
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Next
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </footer>
@@ -868,15 +844,6 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               New digital strategy
               <span
                 class="ecl-gallery__meta"
@@ -1082,15 +1049,6 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               EU law
               <span
                 class="ecl-gallery__meta"
@@ -1229,15 +1187,6 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
@@ -1330,13 +1279,16 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
       <div
         class="ecl-gallery__info"
       >
-        <strong
+        <div
           class="ecl-gallery__info-total"
-          data-ecl-gallery-count=""
         >
-          0
-        </strong>
-        Media files in this gallery
+          <strong
+            data-ecl-gallery-count=""
+          >
+            0
+          </strong>
+          Media files in this gallery
+        </div>
         <button
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
@@ -1384,7 +1336,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         data-ecl-gallery-overlay-header=""
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-gallery__close-button"
+          class="ecl-button ecl-button--ghost ecl-gallery__close-button ecl-button--icon-only"
           data-ecl-gallery-close=""
           type="submit"
         >
@@ -1399,12 +1351,12 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-button__icon"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
               data-ecl-icon=""
               focusable="false"
             >
               <use
-                xlink:href="static/media/icons.3cf410f9.svg#close-filled"
+                xlink:href="/icons.svg#close"
               />
             </svg>
           </span>
@@ -1426,10 +1378,81 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__pager"
+          >
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="icons.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
             class="ecl-gallery__detail-actions"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__download"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
               data-ecl-gallery-overlay-download=""
               href=""
               target="_blank"
@@ -1450,7 +1473,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </a>
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__share"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
               data-ecl-gallery-overlay-share=""
               href="/example"
             >
@@ -1481,77 +1504,6 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             data-ecl-gallery-overlay-meta=""
           >
             Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__pager"
-          >
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <div
-              class="ecl-gallery__detail-counter"
-            >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
-              >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
-              >
-                0
-              </span>
-            </div>
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Next
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </footer>
@@ -1647,15 +1599,6 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               New digital strategy
               <span
                 class="ecl-gallery__meta"
@@ -1861,15 +1804,6 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               EU law
               <span
                 class="ecl-gallery__meta"
@@ -2008,15 +1942,6 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
@@ -2109,13 +2034,16 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
       <div
         class="ecl-gallery__info"
       >
-        <strong
+        <div
           class="ecl-gallery__info-total"
-          data-ecl-gallery-count=""
         >
-          0
-        </strong>
-        Media files in this gallery
+          <strong
+            data-ecl-gallery-count=""
+          >
+            0
+          </strong>
+          Media files in this gallery
+        </div>
         <button
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
@@ -2163,7 +2091,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         data-ecl-gallery-overlay-header=""
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-gallery__close-button"
+          class="ecl-button ecl-button--ghost ecl-gallery__close-button ecl-button--icon-only"
           data-ecl-gallery-close=""
           type="submit"
         >
@@ -2178,12 +2106,12 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-button__icon"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
               data-ecl-icon=""
               focusable="false"
             >
               <use
-                xlink:href="static/media/icons.3cf410f9.svg#close-filled"
+                xlink:href="/icons.svg#close"
               />
             </svg>
           </span>
@@ -2205,10 +2133,81 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__pager"
+          >
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="icons.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
             class="ecl-gallery__detail-actions"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__download"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
               data-ecl-gallery-overlay-download=""
               href=""
               target="_blank"
@@ -2229,7 +2228,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </a>
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__share"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
               data-ecl-gallery-overlay-share=""
               href="/example"
             >
@@ -2260,77 +2259,6 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             data-ecl-gallery-overlay-meta=""
           >
             Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__pager"
-          >
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <div
-              class="ecl-gallery__detail-counter"
-            >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
-              >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
-              >
-                0
-              </span>
-            </div>
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Next
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </footer>
@@ -2426,15 +2354,6 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               New digital strategy
               <span
                 class="ecl-gallery__meta"
@@ -2640,15 +2559,6 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               EU law
               <span
                 class="ecl-gallery__meta"
@@ -2787,15 +2697,6 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-gallery__description-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#video"
-                />
-              </svg>
               Climate change and protect nature
               <span
                 class="ecl-gallery__meta"
@@ -2888,13 +2789,16 @@ exports[`Gallery Default renders correctly with old data 1`] = `
       <div
         class="ecl-gallery__info"
       >
-        <strong
+        <div
           class="ecl-gallery__info-total"
-          data-ecl-gallery-count=""
         >
-          0
-        </strong>
-        Media files in this gallery
+          <strong
+            data-ecl-gallery-count=""
+          >
+            0
+          </strong>
+          Media files in this gallery
+        </div>
         <button
           class="ecl-button ecl-button--ghost ecl-gallery__view-all"
           data-ecl-gallery-all=""
@@ -2942,7 +2846,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         data-ecl-gallery-overlay-header=""
       >
         <button
-          class="ecl-button ecl-button--ghost ecl-gallery__close-button"
+          class="ecl-button ecl-button--ghost ecl-gallery__close-button ecl-button--icon-only"
           data-ecl-gallery-close=""
           type="submit"
         >
@@ -2957,12 +2861,12 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             </span>
             <svg
               aria-hidden="true"
-              class="ecl-icon ecl-icon--s ecl-button__icon"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
               data-ecl-icon=""
               focusable="false"
             >
               <use
-                xlink:href="static/media/icons.3cf410f9.svg#close-filled"
+                xlink:href="/icons.svg#close"
               />
             </svg>
           </span>
@@ -2984,10 +2888,81 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           class="ecl-container"
         >
           <div
+            class="ecl-gallery__pager"
+          >
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+              data-ecl-gallery-overlay-previous=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="icons.svg#corner-arrow"
+                  />
+                </svg>
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Previous
+                </span>
+              </span>
+            </button>
+            <div
+              class="ecl-gallery__detail-counter"
+            >
+              <span
+                data-ecl-gallery-overlay-counter-current=""
+              >
+                0
+              </span>
+               of 
+              <span
+                data-ecl-gallery-overlay-counter-max=""
+              >
+                0
+              </span>
+            </div>
+            <button
+              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+              data-ecl-gallery-overlay-next=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Next
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
             class="ecl-gallery__detail-actions"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__download"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
               data-ecl-gallery-overlay-download=""
               href=""
               target="_blank"
@@ -3008,7 +2983,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </a>
             <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-gallery__share"
+              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
               data-ecl-gallery-overlay-share=""
               href="/example"
             >
@@ -3039,77 +3014,6 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             data-ecl-gallery-overlay-meta=""
           >
             Copyright, Author, Licence for image 1
-          </div>
-          <div
-            class="ecl-gallery__pager"
-          >
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <div
-              class="ecl-gallery__detail-counter"
-            >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
-              >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
-              >
-                0
-              </span>
-            </div>
-            <button
-              class="ecl-button ecl-button--ghost ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
-              >
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Next
-                </span>
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="static/media/icons.3cf410f9.svg#corner-arrow"
-                  />
-                </svg>
-              </span>
-            </button>
           </div>
         </div>
       </footer>

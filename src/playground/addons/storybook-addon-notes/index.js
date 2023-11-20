@@ -24,7 +24,8 @@ const renderer = {
       code = highlightedCode;
     }
 
-    const htmlLang = this.options.langPrefix + escape(lang, true);
+    const htmlLang = `language-${escape(lang, true)}`;
+
     // Due to the format produced by JSON.stringify.
     if (infostring === 'twig') {
       code = code.replace(

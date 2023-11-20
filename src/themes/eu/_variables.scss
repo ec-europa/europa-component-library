@@ -167,6 +167,21 @@ $button: (
     outline-color: map.get($color, 'white'),
     focus-shadow: 0 0 0 4px var(--c-p) inset,
   ),
+  tertiary: (
+    background: transparent,
+    color: var(--c-d),
+    border-color: transparent,
+    background-hover: transparent,
+    color-hover: var(--c-d),
+    border-color-hover: transparent,
+    background-active: transparent,
+    color-active: var(--c-d),
+    border-color-active: transparent,
+    background-focus: transparent,
+    color-focus: var(--c-d),
+    border-color-focus: transparent,
+    outline-color: var(--c-d),
+  ),
   cta: (
     background: var(--c-s),
     color: var(--c-d-140),
@@ -196,6 +211,21 @@ $button: (
     color-focus: var(--c-p),
     border-color-focus: transparent,
     outline-color: var(--c-p),
+  ),
+  ghost-inverted: (
+    background: transparent,
+    color: map.get($color, 'white'),
+    border-color: transparent,
+    background-hover: var(--c-p-20),
+    color-hover: var(--c-d),
+    border-color-hover: var(--c-d),
+    background-active: transparent,
+    color-active: map.get($color, 'white'),
+    border-color-active: map.get($color, 'white'),
+    background-focus: transparent,
+    color-focus: map.get($color, 'white'),
+    border-color-focus: transparent,
+    outline-color: map.get($color, 'white'),
   ),
 );
 $button-print: (
@@ -513,25 +543,15 @@ $file-upload: (
 
 // Gallery
 $gallery: (
-  actions-margin: map.get($spacing, 'm'),
-  actions-margin-desktop: map.get($spacing, 'm'),
-  arrow-margin: map.get($spacing, 'xs'),
-  arrow-margins: map.get($spacing, '2xs'),
-  close-button-color: map.get($color, 'white-100'),
-  description-background: rgba(map.get($color, 'black'), 0.65),
-  description-icon: map.get($icon, 's'),
-  description-icon-mobile: map.get($icon, 'm'),
-  description-margin-desktop: map.get($spacing, 'xs'),
-  detail-background: map.get($color, 'white'),
+  actions-margin: var(--s-m),
+  actions-margin-desktop: var(--s-m),
+  counter-font-weight: map.get($font-weight, 'bold'),
+  description-background: rgba(map.get($color, 'dark'), 0.65),
   detail-color: map.get($color, 'white-100'),
-  gallery-info-color: map.get($color, 'grey-140'),
-  gallery-info-font: map.get($font, 's'),
-  gallery-meta-color: map.get($color, 'white-100'),
-  overlay-description-color: map.get($color, 'black'),
-  overlay_links_color: map.get($color, 'white-100'),
-  overlay-links-hover-color: map.get($color, 'yellow-25'),
+  gallery-info-color: var(--c-d-140),
+  overlay-background: rgba(map.get($color, 'dark-100'), 0.9),
   overlay-radius: 8px,
-  overlay-shadow: map.get($shadow, '3'),
+  overlay-shadow: var(--sh-3),
 );
 
 // Icon
@@ -789,7 +809,7 @@ $menu: (
     color: map.get($color, 'white'),
     content-background: map.get($color, 'white'),
     overlay-background: rgba(38, 43, 56, 0.7),
-    open-padding: 0,
+    open-padding: 0px,
     open-outline-color: var(--c-p),
     header-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     header-background-hover: transparent,
@@ -937,10 +957,20 @@ $navigation-list: (
 
 // News ticker
 $news-ticker: (
-  controls-background: map.get($color, 'blue-140'),
+  height: 68px,
+  border: 2px solid var(--c-p),
   border-radius: 4px,
-  border-width: 2px,
-  counter-color: map.get($color, 'grey-80'),
+  padding-horizontal: var(--s-s),
+  font: var(--f-p-m),
+  controls-background: var(--c-p),
+  counter: (
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
+    background-mobile: transparent,
+    color-mobile: map.get($color, 'white'),
+    background-desktop: map.get($color, 'white'),
+    color-desktop: var(--c-d-80),
+  ),
 );
 
 // Notification
@@ -1073,9 +1103,11 @@ $site-header: (
     category-margin: var(--s-l),
     category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
     category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+    category-title-font-weight: map.get($font-weight, 'bold'),
     category-stack-margin: var(--s-m),
     category-separator: 1px solid var(--c-p-10),
-    column-spacing: var(--s-s),
+    column-spacing-before: var(--s-s),
+    column-spacing-after: var(--s-s),
     code-color: var(--c-d-140),
     code-width: 30px,
     code-font-weight: map.get($font-weight, 'bold'),

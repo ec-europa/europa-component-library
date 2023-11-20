@@ -14,13 +14,15 @@ $link: null !default;
   color: map.get($link, 'color');
   page-break-inside: avoid;
   text-decoration: none;
-}
 
-.ecl-link::after {
-  content: '(' attr(href) ')';
-  font-style: italic;
-  margin-inline-start: map.get($theme, spacing-print, '2xs');
-  text-decoration: underline;
+  &::after {
+    color: map.get($theme, 'color', 'black-100');
+    content: '(' attr(href) ')';
+    font: map.get($theme, 'font-print', 's');
+    font-style: italic;
+    margin-inline-start: map.get($theme, 'spacing-print', '2xs');
+    text-decoration: underline;
+  }
 }
 
 .ecl-link--icon-before,
@@ -63,6 +65,10 @@ $link: null !default;
 
 .ecl-link--inverted {
   color: map.get($link, 'inverted', 'color');
+
+  &::after {
+    color: map.get($link, 'inverted', 'color');
+  }
 }
 
 /**
