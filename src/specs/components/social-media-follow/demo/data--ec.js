@@ -69,11 +69,10 @@ module.exports = {
         label: 'Other social networks',
         path: exampleLink,
         icon_position: 'before',
-        external: true,
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'share',
+        name: 'chain',
         size: 'xs',
       },
     },

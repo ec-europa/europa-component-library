@@ -72,7 +72,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'share',
+        name: 'chain',
         size: 'm',
       },
     },
