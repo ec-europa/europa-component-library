@@ -543,25 +543,15 @@ $file-upload: (
 
 // Gallery
 $gallery: (
-  actions-margin: map.get($spacing, 'm'),
-  actions-margin-desktop: map.get($spacing, 'm'),
-  arrow-margin: map.get($spacing, 'xs'),
-  arrow-margins: map.get($spacing, '2xs'),
-  close-button-color: map.get($color, 'white-100'),
-  description-background: rgba(map.get($color, 'black'), 0.65),
-  description-icon: map.get($icon, 's'),
-  description-icon-mobile: map.get($icon, 'm'),
-  description-margin-desktop: map.get($spacing, 'xs'),
-  detail-background: map.get($color, 'white'),
+  actions-margin: var(--s-m),
+  actions-margin-desktop: var(--s-m),
+  counter-font-weight: map.get($font-weight, 'bold'),
+  description-background: rgba(map.get($color, 'dark'), 0.65),
   detail-color: map.get($color, 'white-100'),
-  gallery-info-color: map.get($color, 'grey-140'),
-  gallery-info-font: map.get($font, 's'),
-  gallery-meta-color: map.get($color, 'white-100'),
-  overlay-description-color: map.get($color, 'black'),
-  overlay_links_color: map.get($color, 'white-100'),
-  overlay-links-hover-color: map.get($color, 'yellow-25'),
+  gallery-info-color: var(--c-d-140),
+  overlay-background: rgba(map.get($color, 'dark-100'), 0.9),
   overlay-radius: 8px,
-  overlay-shadow: map.get($shadow, '3'),
+  overlay-shadow: var(--sh-3),
 );
 
 // Icon
