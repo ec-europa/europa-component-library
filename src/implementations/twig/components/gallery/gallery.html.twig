@@ -107,7 +107,9 @@
   <div class="ecl-gallery__footer">
   {%- if _expandable -%}
     <div class="ecl-gallery__info">
-      <strong class="ecl-gallery__info-total" data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+      <div class="ecl-gallery__info-total">
+        <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
+      </div>
         {% include '@ecl/button/button.html.twig' with {
           label: _view_all_label,
           type: 'submit',

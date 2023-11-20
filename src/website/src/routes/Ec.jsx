@@ -28,14 +28,15 @@ function flatDeep(pages) {
 
 const pagesToRoutes = (pages) =>
   flatDeep(pages).map((page) => {
-    page.document = React.lazy(() =>
-      import(
-        /* webpackInclude: /\.mdx?$/ */
-        /* webpackChunkName: "ec-pages" */
-        /* webpackMode: "lazy-once" */
-        /* webpackPreload: true */
-        `../pages/ec${page.key.slice(1)}`
-      ),
+    page.document = React.lazy(
+      () =>
+        import(
+          /* webpackInclude: /\.mdx?$/ */
+          /* webpackChunkName: "ec-pages" */
+          /* webpackMode: "lazy-once" */
+          /* webpackPreload: true */
+          `../pages/ec${page.key.slice(1)}`
+        ),
     );
 
     if (page.attributes.defaultTab) {
