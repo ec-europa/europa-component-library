@@ -202,6 +202,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Pagination
 
 - A new `type` has been introduced, `truncation` can be used to add a placeholder with no link to represent some skipped items.
+- In EC the previous and next links are icon only links, in order to get the expected look and feel set the `item.link.link.hide_label` parameter to `true`.
 
 ### Rating field
 
