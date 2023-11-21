@@ -5,7 +5,7 @@
   - "label" (string) (default: ''): for screen reader
   - "icon_path" (string) (default: '') Path to the icons file
   - "items" (array) (default: []):
-    - "type" (string) (default: ''): could be 'previous', 'current' or 'next'
+    - "type" (string) (default: ''): can be 'previous', 'current', 'next' or 'truncation'
     - "label" (string) (default: ''): label used when the item is not a link
     - "aria_label" (string) (default: '')
     - "link" (object) (default: ''): object of type Link
@@ -45,7 +45,7 @@
   <ul class="ecl-pagination__list">
     {% for _item in _items %}
       <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">
-        {% if _item.link is not empty %}
+        {% if _item.link is not empty and _item.link.link is not empty %}
           {% set _link = _item.link.link|merge({ type: 'standalone' }) %}
           {% if _item.aria_label is defined and _item.aria_label is not empty %}
             {% set _link = _link|merge({ aria_label: _item.aria_label }) %}
@@ -68,12 +68,14 @@
           >
             {{- _item.label -}}
           </span>
+          {% if _item.aria_label is not empty %}
           <span
             class="ecl-pagination__text ecl-pagination__text--full"
             {{ _item.type == 'current' ? 'aria-current="true"' }}
           >
             {{- _item.aria_label -}}
           </span>
+          {% endif %} 
         {% endif %}
       </li>
     {% endfor %}
