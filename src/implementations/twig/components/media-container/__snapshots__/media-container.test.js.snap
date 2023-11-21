@@ -3,6 +3,35 @@
 exports[`Media Container generic tests renders correctly with extra attributes 1`] = `
 <jest>
   <div
+    class="ecl-media-container custom-class custom-class--test"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Jean Monnet banner"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
+        <br />
+        @Copyright
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container generic tests renders correctly with extra attributes 2`] = `
+<jest>
+  <div
     class="ecl-media-container"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
