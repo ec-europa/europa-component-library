@@ -111,6 +111,7 @@ export class Carousel {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
     this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
+    this.checkBannerHeights = this.checkBannerHeights.bind(this);
   }
 
   /**
@@ -137,6 +138,8 @@ export class Carousel {
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
+
+    this.intervalId = setInterval(this.checkBannerHeights, 100);
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
@@ -286,6 +289,34 @@ export class Carousel {
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  checkBannerHeights() {
+    const elementHeights = this.slides.map((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      const height = parseInt(banner.style.height, 10) || 0;
+      return height;
+    });
+
+    if (elementHeights.length === this.slides.length) {
+      clearInterval(this.intervalId);
+    }
+
+    const tallestElementHeight = Math.max(...elementHeights);
+
+    if (tallestElementHeight) {
+      this.slides.forEach((slide) => {
+        let bannerImage = null;
+        const banner = queryOne('.ecl-banner', slide);
+        if (banner) {
+          bannerImage = queryOne('img', banner);
+          banner.style.height = `${tallestElementHeight}px`;
+        }
+        if (bannerImage) {
+          bannerImage.style.aspectRatio = 'auto';
+        }
+      });
     }
   }
 

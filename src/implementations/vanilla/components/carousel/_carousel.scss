@@ -1,7 +1,6 @@
 /**
  * Carousel component
- * @define carousel; weak
- * TODO
+ * @define carousel;
  */
 /* stylelint-disable max-nesting-depth, no-descending-specificity */
 
@@ -35,7 +34,7 @@ $carousel: null !default;
   background-color: map.get($carousel, 'controls-background');
   box-shadow: inset 0 -4px 12px -9px
     rgba(map.get($theme, 'color', 'black'), 0.6);
-  width: calc(100% - #{map.get($theme, 'spacing', 'l')});
+  width: calc(100% - calc(-1 * var(--s-l)));
 }
 
 .ecl-carousel__slides {
@@ -55,20 +54,20 @@ $carousel: null !default;
     content: '';
     display: block;
     height: 100%;
-    left: -#{map.get($theme, 'spacing', '2xs')};
+    left: calc(-1 * var(--s-2xs));
     position: absolute;
     top: 0;
-    width: map.get($theme, 'spacing', '2xs');
+    width: var(--s-2xs);
   }
 }
 
 .ecl-carousel__slide .ecl-banner__credit {
-  margin-inline-end: map.get($theme, 'spacing', '2xs');
+  margin-inline-end: var(--s-2xs);
 }
 
 .ecl-carousel__controls {
   background-color: map.get($carousel, 'controls-background');
-  padding: map.get($theme, 'spacing', '2xs') 0;
+  padding: var(--s-2xs) 0;
 
   .ecl-container {
     display: flex;
@@ -90,7 +89,7 @@ $carousel: null !default;
   border: 0;
   cursor: pointer;
   display: block;
-  padding: map.get($theme, 'spacing', 'xs');
+  padding: var(--s-xs);
 
   &:active,
   &:hover {
@@ -117,7 +116,7 @@ $carousel: null !default;
   border: 0;
   cursor: pointer;
   display: flex;
-  padding: map.get($theme, 'spacing', 'xs');
+  padding: var(--s-xs);
 
   &:active,
   &:hover,
@@ -148,12 +147,12 @@ $carousel: null !default;
   align-items: center;
   color: map.get($theme, 'color', 'white-100');
   display: flex;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   justify-content: end;
   padding-top: 2px;
   white-space: pre-wrap;
-  margin: 0 map.get($theme, 'spacing', 'xs');
+  margin: 0 var(--s-xs);
 }
 
 .ecl-carousel__navigation {
@@ -166,8 +165,8 @@ $carousel: null !default;
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  margin: map.get($theme, 'spacing', 'm');
-  margin-inline-end: map.get($theme, 'spacing', 'l');
+  margin: var(--s-m);
+  margin-inline-end: var(--s-l);
   padding: 0;
   width: 1rem;
 
@@ -186,7 +185,7 @@ $carousel: null !default;
   }
 
   &:last-child {
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: var(--s-m);
   }
 }
 
@@ -257,7 +256,7 @@ $carousel: null !default;
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    padding: map.get($theme, 'spacing', 's');
+    padding: var(--s-s);
     position: absolute;
     top: calc(50% - 22px);
     transform: translateY(-50%);
@@ -297,6 +296,6 @@ $carousel: null !default;
   .ecl-carousel--full-width
   .ecl-banner:not(.ecl-banner--full-width)
   .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing', 'm');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  padding-inline-start: var(--s-m);
+  padding-inline-end: var(--s-m);
 }
