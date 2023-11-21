@@ -1190,18 +1190,20 @@ $spinner: (
 
 // Splash page
 $splash-page: (
-  logo-background: map.get($color, 'white'),
-  logo-padding: var(--s-xl) var(--s-m),
+  logo-background: var(--c-p-5),
+  logo-padding: var(--s-l),
   logo-height-mobile: 2.5rem,
   logo-height-desktop: 2.75rem,
   color: var(--c-d-140),
-  container-padding: var(--s-xl) var(--s-m),
-  header-font: var(--f-p-l),
-  content-margin: 0,
+  container-padding: var(--s-3xl) var(--s-l) var(--s-l),
+  header-font: var(--f-p-xl),
+  content-margin-mobile: var(--s-s),
+  content-margin-desktop: var(--s-xl),
+  category-title-font: var(--f-p-m),
   category-title-font-weight: map.get($font-weight, 'bold'),
-  category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-  category-separator: 1px solid var(--c-p-10),
-  category-stack-margin: var(--s-m),
+  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-separator: 1px solid var(--c-p-20),
+  category-stack-margin: var(--s-s),
   list-margin: 0 0 0 calc(-1 * var(--s-s)),
   item-padding: var(--s-s),
   code-color: var(--c-d-140),
@@ -1212,11 +1214,7 @@ $splash-page: (
   item-active-color: var(--c-d-140),
   item-active-shadow: inset 4px 0 0 0 var(--c-p),
   item-width: 188px,
-  column-spacing-before: var(--s-s),
-  column-spacing-after: var(--s-s),
-  header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
-  header-separator: 1px solid var(--c-p-10),
-  category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+  column-spacing: var(--s-m),
 );
 
 // Table

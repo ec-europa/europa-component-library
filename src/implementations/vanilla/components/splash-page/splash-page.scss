@@ -48,11 +48,11 @@ $splash-page: null !default;
 .ecl-splash-page__language-content {
   display: flex;
   flex-direction: column;
-  margin-top: map.get($splash-page, 'content-margin');
+  margin-top: map.get($splash-page, 'content-margin-mobile');
 }
 
 .ecl-splash-page__language-category-title {
-  font: var(--f-m);
+  font: map.get($splash-page, 'category-title-font');
   font-weight: map.get($splash-page, 'category-title-font-weight');
   padding: map.get($splash-page, 'category-title-padding');
 }
@@ -134,6 +134,10 @@ $splash-page: null !default;
 }
 
 @include breakpoints.up('l') {
+  .ecl-splash-page__language-content {
+    margin-top: map.get($splash-page, 'content-margin-mobile');
+  }
+
   // Horizontal sections
   .ecl-splash-page__language-content:not(
       .ecl-splash-page__language-content--stack
@@ -147,8 +151,8 @@ $splash-page: null !default;
     .ecl-splash-page__language-category:nth-child(2) {
       border-top: none;
       border-inline-start: map.get($splash-page, 'category-separator');
-      margin-inline-start: map.get($splash-page, 'column-spacing-before');
-      padding-inline-start: map.get($splash-page, 'column-spacing-after');
+      margin-inline-start: map.get($splash-page, 'column-spacing');
+      padding-inline-start: map.get($splash-page, 'column-spacing');
     }
 
     .ecl-splash-page__language-category-title {

@@ -1209,7 +1209,9 @@ $splash-page: (
   color: var(--c-d),
   container-padding: var(--s-3xl),
   header-font: var(--f-xl),
-  content-margin: var(--s-s),
+  content-margin-mobile: var(--s-s),
+  content-margin-desktop: var(--s-s),
+  category-title-font: var(--f-m),
   category-title-font-weight: map.get($font-weight, 'regular'),
   category-title-padding: var(--s-l) 0 var(--s-xs),
   category-separator: 1px solid var(--c-n),
@@ -1224,11 +1226,7 @@ $splash-page: (
   item-active-color: var(--c-d),
   item-active-shadow: none,
   item-width: 184px,
-  column-spacing-before: var(--s-m),
-  column-spacing-after: var(--s-m),
-  header-padding: var(--s-3xl) var(--s-3xl) 0 var(--s-xl),
-  header-separator: none,
-  category-stack-title-padding: var(--s-l) 0 var(--s-xs),
+  column-spacing: var(--s-m),
 );
 
 // Table
