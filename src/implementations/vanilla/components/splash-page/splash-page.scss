@@ -135,7 +135,7 @@ $splash-page: null !default;
 
 @include breakpoints.up('l') {
   .ecl-splash-page__language-content {
-    margin-top: map.get($splash-page, 'content-margin-mobile');
+    margin-top: map.get($splash-page, 'content-margin-desktop');
   }
 
   // Horizontal sections
