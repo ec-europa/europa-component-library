@@ -192,18 +192,19 @@ module.exports = {
   overlay: {
     close: {
       variant: 'ghost',
+      hide_label: true,
       label: 'Close',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
-        name: 'close-filled',
-        size: 's',
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
       },
     },
     previous: {
-      variant: 'ghost',
+      variant: 'tertiary',
       label: 'Previous',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
+        path: 'icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-270',
@@ -211,10 +212,10 @@ module.exports = {
       icon_position: 'before',
     },
     next: {
-      variant: 'ghost',
+      variant: 'tertiary',
       label: 'Next',
       icon: {
-        path: 'static/media/icons.3cf410f9.svg',
+        path: '/icons.svg',
         name: 'corner-arrow',
         size: 's',
         transform: 'rotate-90',

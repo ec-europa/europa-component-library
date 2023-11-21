@@ -16,15 +16,6 @@ $theme: null !default;
   border-bottom: 1px solid map.get($theme, 'color', 'black');
   padding-bottom: map.get($theme, 'spacing-print', 'xl');
   padding-top: map.get($theme, 'spacing-print', 'xl');
-
-  &:first-of-type {
-    padding-top: 0;
-  }
-
-  &:last-of-type {
-    border-bottom-width: 0;
-    padding-bottom: 0;
-  }
 }
 
 .ecl-fact-figures__icon {
@@ -69,4 +60,22 @@ $theme: null !default;
 
 .ecl-fact-figures__view-all {
   display: none;
+}
+
+.ecl-fact-figures__items {
+  display: grid;
+  grid-column-gap: map.get($theme, 'spacing-print', 'xl');
+  grid-row-gap: map.get($theme, 'spacing-print', 'xl');
+
+  .ecl-fact-figures--col-2 & {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-fact-figures--col-3 & {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-fact-figures--col-4 & {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

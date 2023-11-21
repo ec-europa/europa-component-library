@@ -22,6 +22,20 @@ module.exports = {
       },
     },
     {
+      aria_label: 'Go to page 1',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '1',
+        },
+      },
+    },
+    {
+      type: 'truncation',
+      label: '...',
+    },
+    {
       aria_label: 'Go to page 24',
       link: {
         link: {
@@ -43,7 +57,7 @@ module.exports = {
     },
     {
       type: 'current',
-      aria_label: 'Page 26',
+      aria_label: 'Page 26 of 40',
       label: '26',
     },
     {
@@ -63,6 +77,20 @@ module.exports = {
           variant: 'standalone',
           path: exampleLink,
           label: '28',
+        },
+      },
+    },
+    {
+      type: 'truncation',
+      label: '...',
+    },
+    {
+      aria_label: 'Go to page 40',
+      link: {
+        link: {
+          variant: 'standalone',
+          path: exampleLink,
+          label: '40',
         },
       },
     },

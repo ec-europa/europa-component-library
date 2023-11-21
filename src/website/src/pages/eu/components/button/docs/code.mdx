@@ -7,8 +7,10 @@ import { Playground, Html } from '@ecl/website-components';
 import {
   buttonPrimary,
   buttonSecondary,
+  buttonTertiary,
   buttonCall,
   buttonGhost,
+  buttonGhostInverted,
   buttonIconOnly,
 } from '../demo';
 
@@ -32,6 +34,16 @@ import {
   <Html markup={buttonSecondary} />
 </Playground>
 
+## Tertiary
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="tertiary"
+>
+  <Html markup={buttonTertiary} />
+</Playground>
+
 ## Call to action
 
 <Playground
@@ -46,6 +58,19 @@ import {
 
 <Playground system="eu" selectedKind="components-button" selectedStory="ghost">
   <Html markup={buttonGhost} />
+</Playground>
+
+## Ghost inverted
+
+<Playground
+  system="eu"
+  selectedKind="components-button"
+  selectedStory="ghost-inverted"
+>
+  <Html
+    extraClasses="ecl-u-pa-s ecl-u-bg-dark ecl-u-type-color-white"
+    markup={buttonGhostInverted}
+  />
 </Playground>
 
 ## Button with icon only

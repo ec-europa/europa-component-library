@@ -248,7 +248,7 @@
             <div class="ecl-site-header__login-container">
             {% if _logged %}
               <a
-                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                 href="{{ _login_toggle.href_logged }}"
                 aria-controls="{{ _login_box.id }}"
                 data-ecl-login-toggle
@@ -287,7 +287,7 @@
               </div>
             {% else %}
               <a
-                class="ecl-button ecl-button--ghost ecl-site-header__login-toggle"
+                class="ecl-button ecl-button--tertiary ecl-site-header__login-toggle"
                 href="{{ _login_toggle.href_not_logged }}"
                 data-ecl-login-toggle
               >
@@ -322,7 +322,7 @@
             <div class="ecl-site-header__search-container" role="search">
             {% if _search_toggle is not empty %}
               <a
-                class="ecl-button ecl-button--ghost ecl-site-header__search-toggle"
+                class="ecl-button ecl-button--tertiary ecl-site-header__search-toggle"
                 href="{{ _search_toggle.href }}"
                 data-ecl-search-toggle="true"
                 aria-controls="search-form-id"
