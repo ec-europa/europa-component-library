@@ -9,10 +9,10 @@
 
 // Exposed variables
 $theme: null !default;
+$popover: null !default;
 
 // Internal variables
 $_arrow-size: 1rem;
-$_shadow-size: 8px;
 $_item-height: map.get($theme, 'line-height', 'm') +
   (map.get($theme, 'spacing', 's') * 2);
 $_item-width: 188px;
@@ -25,7 +25,7 @@ $_item-width: 188px;
 
 .ecl-popover__container {
   background-color: map.get($theme, 'color', 'white');
-  box-shadow: map.get($theme, 'shadow', '3');
+  box-shadow: map.get($popover, 'shadow');
   left: 50%;
   margin-top: calc(
     #{map.get($theme, 'spacing', 'xs')} + #{map.get($theme, 'spacing', 's')}
@@ -37,11 +37,15 @@ $_item-width: 188px;
   // arrow with border shadow
   &::before {
     background-color: map.get($theme, 'color', 'white');
-    box-shadow: map.get($theme, 'shadow', '3');
+    box-shadow: map.get($popover, 'shadow');
     clip-path: polygon(
-      -#{$_shadow-size} -#{$_shadow-size},
-      calc(100% + #{$_shadow-size}) -#{$_shadow-size},
-      calc(100% + #{$_shadow-size}) calc(100% + #{$_shadow-size})
+      -#{map.get($popover, 'shadow-size')} -#{map.get($popover, 'shadow-size')},
+      calc(100% + #{map.get($popover, 'shadow-size')}) -#{map.get(
+          $popover,
+          'shadow-size'
+        )},
+      calc(100% + #{map.get($popover, 'shadow-size')})
+        calc(100% + #{map.get($popover, 'shadow-size')})
     );
     content: '';
     height: $_arrow-size;

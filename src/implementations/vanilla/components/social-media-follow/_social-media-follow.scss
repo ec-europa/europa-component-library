@@ -1,7 +1,6 @@
 /**
 * Social media follow component
 * @define social-media-follow
-* TODO
 */
 
 @use 'sass:map';
@@ -13,17 +12,20 @@ $social-media-follow: null !default;
 
 .ecl-social-media-follow {
   background-color: map.get($social-media-follow, 'background-color');
-  border: map.get($social-media-follow, 'main_border');
   border-radius: map.get($social-media-follow, 'border-radius');
   margin: 0;
-  padding: map.get($theme, 'spacing', 'l');
+  padding: map.get($social-media-follow, 'padding');
 }
 
 .ecl-social-media-follow__description {
-  color: map.get($social-media-follow, 'title-color');
-  font: map.get($theme, 'font-prolonged', 'm');
+  color: map.get($social-media-follow, 'description', 'color');
+  font: map.get($social-media-follow, 'description', 'font');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
+  margin-bottom: map.get(
+    $social-media-follow,
+    'description',
+    'margin-horizontal'
+  );
   margin-top: 0;
 }
 
@@ -33,14 +35,14 @@ $social-media-follow: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get($theme, 'spacing', 's')};
+  margin-top: calc(-1 * var(--s-xs));
   padding-inline-start: 0;
 }
 
 .ecl-social-media-follow__item {
   display: flex;
-  margin-inline-end: map.get($theme, 'spacing', 'l');
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-inline-end: map.get($social-media-follow, 'item', 'margin');
+  margin-top: var(--s-xs);
 
   &:last-child {
     margin-inline-end: 0;
@@ -50,19 +52,24 @@ $social-media-follow: null !default;
 .ecl-social-media-follow__link {
   align-items: center;
   display: flex;
-  font: map.get($theme, 'font', 's');
+  font: map.get($social-media-follow, 'item', 'font');
   overflow: hidden; /* Improve rendering on IE */
 }
 
 // Icon
 .ecl-social-media-follow__icon {
+  color: var(--c-d);
   flex-shrink: 0;
   top: 0 !important;
 }
 
 @mixin ecl-social-media-follow-vertical {
   .ecl-social-media-follow__description {
-    margin-bottom: 0;
+    margin-bottom: map.get(
+      $social-media-follow,
+      'description',
+      'margin-vertical'
+    );
   }
 
   .ecl-social-media-follow__list {
@@ -72,9 +79,11 @@ $social-media-follow: null !default;
   }
 
   .ecl-social-media-follow__item {
+    margin-bottom: var(--s-xs);
     margin-inline-end: 0;
 
     &:last-child {
+      margin-bottom: 0;
       margin-inline-end: 0;
     }
   }

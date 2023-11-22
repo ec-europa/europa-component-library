@@ -1165,6 +1165,12 @@ $pagination: (
   text-color: var(--c-p),
 );
 
+// Popover
+$popover: (
+  shadow: var(--sh-3),
+  shadow-size: 6px,
+);
+
 // Radio
 $radio: (
   box-border-color-checked: var(--c-p),
@@ -1211,8 +1217,25 @@ $site-footer: (
 $social-media-follow: (
   background-color: map.get($color, 'blue-5'),
   border-radius: 4px,
-  main-border: 0,
-  title-color: map.get($color, 'grey-140'),
+  padding: var(--s-l),
+  description: (
+    color: var(--c-d-140),
+    font: var(--f-p-m),
+    margin-horizontal: var(--s-xs),
+    margin-vertical: 0,
+  ),
+  item: (
+    font: var(--f-s),
+    margin: var(--s-l),
+  ),
+);
+$social-media-follow-print: (
+  description: (
+    font: map.get($font-prolonged-print, 'm'),
+  ),
+  item: (
+    font: map.get($font-prolonged-print, 'm'),
+  ),
 );
 
 // Social media share
