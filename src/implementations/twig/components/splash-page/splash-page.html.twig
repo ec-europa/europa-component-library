@@ -118,7 +118,7 @@
     <div class="ecl-splash-page__language-content">
       {# EU languages #}
       {% if _items is not empty and _items is iterable %}
-      <div class="ecl-splash-page__language-category ecl-splash-page__language-category--3-col">
+      <div class="ecl-splash-page__language-category">
         {% if _eu_category is not empty %}
         <div class="ecl-splash-page__language-category-title">
           {{- _eu_category -}}
@@ -154,7 +154,7 @@
 
       {# non-EU languages #}
       {% if _non_eu_items is not empty and _non_eu_items is iterable %}
-      <div class="ecl-splash-page__language-category ecl-splash-page__language-category--2-col">
+      <div class="ecl-splash-page__language-category">
         {% if _non_eu_category is not empty %}
         <div class="ecl-splash-page__language-category-title">
           {{- _non_eu_category -}}

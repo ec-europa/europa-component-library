@@ -70,7 +70,7 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-title {
-  font: map.get($language-switcher, 'header-font');
+  font: map.get($language-switcher, 'header-font-mobile');
 }
 
 .ecl-site-header__language-close {
@@ -159,6 +159,10 @@ $language-switcher: null !default;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
+  }
+
+  .ecl-site-header__language-title {
+    font: map.get($language-switcher, 'header-font-desktop');
   }
 
   // Horizontal position

@@ -42,7 +42,7 @@ $splash-page: null !default;
 }
 
 .ecl-splash-page__language-title {
-  font: map.get($splash-page, 'header-font');
+  font: map.get($splash-page, 'header-font-mobile');
 }
 
 .ecl-splash-page__language-content {
@@ -115,17 +115,17 @@ $splash-page: null !default;
 }
 
 @include breakpoints.up('m') {
+  .ecl-splash-page__language-title {
+    font: map.get($splash-page, 'header-font-desktop');
+  }
+
   // Columns display
   .ecl-splash-page__language-list {
     column-gap: 0;
   }
 
-  .ecl-splash-page__language-category--3-col .ecl-splash-page__language-list {
+  .ecl-splash-page__language-category .ecl-splash-page__language-list {
     column-count: 3;
-  }
-
-  .ecl-splash-page__language-category--2-col .ecl-splash-page__language-list {
-    column-count: 2;
   }
 
   .ecl-splash-page__language-link {
@@ -136,6 +136,12 @@ $splash-page: null !default;
 @include breakpoints.up('l') {
   .ecl-splash-page__language-content {
     margin-top: map.get($splash-page, 'content-margin-desktop');
+  }
+
+  .ecl-splash-page__language-category
+    + .ecl-splash-page__language-category
+    .ecl-splash-page__language-list {
+    column-count: 2;
   }
 
   // Horizontal sections
