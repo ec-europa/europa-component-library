@@ -4,7 +4,7 @@
   Parameters:
     - "variant" (string) (default: ''): can be 'vertical',
     - "description" (string) (default: ''),
-    - "links" (array) (default: {}): Array of links for social media, following ECL Link structure
+    - "links" (array) (default: []): Array of links for social media, following ECL Link structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -19,7 +19,7 @@
 {% set _css_class = 'ecl-social-media-follow' %}
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
-{% set _links = links|default({}) %}
+{% set _links = links|default([]) %}
 {% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
@@ -61,6 +61,7 @@
         {% include '@ecl/link/link.html.twig' with {
           link: link.link|merge({
             type: 'standalone',
+            no_visited: true,
           }),
           icon: link.icon|default({})|merge({
             extra_classes: _icon_extra_classes,

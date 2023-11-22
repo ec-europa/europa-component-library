@@ -46,7 +46,7 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   if (!args.show_other) {
-    delete clone.popover;
+    delete clone.links.pop();
   }
 
   return Object.assign(clone, args);
