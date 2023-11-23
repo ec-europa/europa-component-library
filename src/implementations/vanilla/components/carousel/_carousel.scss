@@ -34,7 +34,7 @@ $carousel: null !default;
   background-color: map.get($carousel, 'controls-background');
   box-shadow: inset 0 -4px 12px -9px
     rgba(map.get($theme, 'color', 'black'), 0.6);
-  width: calc(100% - var(--s-2xl));
+  width: calc(100% - var(--s-xl));
 }
 
 .ecl-carousel__slides {
@@ -100,6 +100,10 @@ $carousel: null !default;
   cursor: pointer;
   display: flex;
 
+  .ecl-icon {
+    fill: map.get($carousel, 'play-color');
+  }
+
   &:active,
   &:hover,
   &:focus-visible {
@@ -123,7 +127,7 @@ $carousel: null !default;
 
 .ecl-carousel__pagination {
   align-items: center;
-  color: var(--c-d);
+  color: map.get($carousel, 'pagination-color');
   display: flex;
   font: var(--f-m);
   justify-content: end;
@@ -136,8 +140,8 @@ $carousel: null !default;
 }
 
 .ecl-carousel__navigation-item {
-  background-color: var(--c-d-60);
-  border: none;
+  background-color: map.get($carousel, 'navigation-color-default');
+  border: map.get($carousel, 'navigation-border');
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
@@ -146,13 +150,13 @@ $carousel: null !default;
   width: 1rem;
 
   &:hover {
-    background-color: var(--c-d-80);
+    background-color: map.get($carousel, 'navigation-color-hover');
   }
 
   &:active,
   &:focus-visible,
   &[aria-current='true'] {
-    background-color: var(--c-d);
+    background-color: map.get($carousel, 'navigation-color-active');
     outline: none;
   }
 }
@@ -230,6 +234,10 @@ $carousel: null !default;
     top: calc(50% - 22px);
     transform: translateY(-50%);
     z-index: 1;
+
+    &:hover {
+      background-color: map.get($carousel, 'prev-next-hover-background');
+    }
 
     &:focus-visible {
       background-color: var(--c-n-60);
