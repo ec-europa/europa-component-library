@@ -91,7 +91,7 @@
       } only %}
       {{- _title -}}
     </a>
-    <section class="ecl-menu__inner" data-ecl-menu-inner>
+    <section class="ecl-menu__inner" data-ecl-menu-inner role="application">
       <header class="ecl-menu__inner-header">
         <button
           class="ecl-menu__close ecl-button ecl-button--text"
@@ -183,10 +183,11 @@
       
       <ul class="ecl-menu__list" data-ecl-menu-list>
       {% if items is defined and items is not empty and items is iterable %}
-        {% for item in items %}
+        {% for key, item in items %}
         {% if item is defined and item is not empty %}
           {% include '@ecl/menu/menu-item.html.twig' with {
             item: item,
+            id: key,
             icon_path: _icon_path,
           } only %}
         {% endif %}
