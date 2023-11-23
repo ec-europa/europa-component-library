@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-content-item
 
 - **picture** (associative array) (default: {}):
   - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
-  - **position** (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+  - **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
   - **img** (associative array) (default: {}):
     - **src** (string) (default: ''): Path to the default image
     - **alt** (string) (default: ''): Alt text of the default image

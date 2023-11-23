@@ -7,6 +7,10 @@ import { correctSvgPath } from '@ecl/website-utils';
 const dataImageRight = JSON.parse(JSON.stringify(demoImage));
 dataImageRight.picture.position = 'right';
 
+const dataImageTop = JSON.parse(JSON.stringify(demoImage));
+dataImageTop.picture.position = 'top';
+
 export const contentItemImage = template(correctSvgPath(demoImage));
 export const contentItemImageRight = template(correctSvgPath(dataImageRight));
+export const contentItemImageTop = template(correctSvgPath(dataImageTop));
 export const contentItemEvent = template(correctSvgPath(demoEvent));

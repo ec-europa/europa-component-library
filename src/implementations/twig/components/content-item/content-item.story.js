@@ -171,11 +171,12 @@ const getArgTypes = (data) => {
     argTypes.image_position = {
       name: 'image position',
       type: 'select',
-      description: "Possible image position ('left' or 'right')",
-      options: ['left', 'right'],
+      description: 'Possible image position',
+      options: ['left', 'right', 'top'],
       mapping: {
         left: 'left',
         right: 'right',
+        top: 'top',
       },
       table: {
         type: 'string',

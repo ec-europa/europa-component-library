@@ -8,12 +8,12 @@ module.exports = {
     position: 'left',
     size: 'large',
     img: {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
       alt: 'Alt text of the image',
     },
     sources: [
       {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
         media: '(min-width: 480px)',
         type: 'image/jpg',
       },
