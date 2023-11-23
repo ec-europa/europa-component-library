@@ -112,6 +112,7 @@ export class Carousel {
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
     this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
     this.checkBannerHeights = this.checkBannerHeights.bind(this);
+    this.resetBannerHeights = this.resetBannerHeights.bind(this);
   }
 
   /**
@@ -138,8 +139,6 @@ export class Carousel {
 
     this.slides = queryAll(this.slideClass, this.element);
     this.total = this.slides.length;
-
-    this.intervalId = setInterval(this.checkBannerHeights, 100);
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
@@ -292,18 +291,31 @@ export class Carousel {
     }
   }
 
+  /**
+   * Set the banners height above the xl breakpoint
+   */
   checkBannerHeights() {
-    const elementHeights = this.slides.map((slide) => {
+    const heightValues = this.slides.map((slide) => {
       const banner = queryOne('.ecl-banner', slide);
-      const height = parseInt(banner.style.height, 10) || 0;
+      const height = parseInt(banner.style.height, 10);
+
+      if (banner.style.height === 'auto') {
+        return 0;
+      }
+      if (Number.isNaN(height)) {
+        return undefined;
+      }
       return height;
     });
+
+    const elementHeights = heightValues.filter(
+      (height) => height !== undefined,
+    );
+    const tallestElementHeight = Math.max(...elementHeights);
 
     if (elementHeights.length === this.slides.length) {
       clearInterval(this.intervalId);
     }
-
-    const tallestElementHeight = Math.max(...elementHeights);
 
     if (tallestElementHeight) {
       this.slides.forEach((slide) => {
@@ -318,6 +330,25 @@ export class Carousel {
         }
       });
     }
+  }
+
+  /**
+   * Set the banners height below the xl breakpoint
+   */
+  resetBannerHeights() {
+    this.slides.forEach((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      let bannerImage = null;
+      if (banner) {
+        banner.style.height = '100%';
+        bannerImage = queryOne('img', banner);
+        if (bannerImage) {
+          const computedStyle = getComputedStyle(bannerImage);
+          bannerImage.style.aspectRatio =
+            computedStyle.getPropertyValue('--css-aspect-ratio');
+        }
+      }
+    });
   }
 
   /**
@@ -509,8 +540,24 @@ export class Carousel {
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
     );
+    clearInterval(this.intervalId);
+    clearTimeout(this.resizeTimer);
+    let containerWidth = 0;
+    // We set 250ms delay which is higher than the 200ms delay uin the banner.
+    this.resizeTimer = setTimeout(() => {
+      if (vw >= 998) {
+        this.intervalId = setInterval(this.checkBannerHeights, 100);
+      } else {
+        this.resetBannerHeights();
+      }
+    }, 250);
 
-    const containerWidth = this.container.offsetWidth;
+    if (vw >= 768) {
+      containerWidth = this.container.offsetWidth;
+    } else {
+      containerWidth = this.container.offsetWidth + 15;
+    }
+
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
     }px`;

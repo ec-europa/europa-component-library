@@ -34,7 +34,7 @@ $carousel: null !default;
   background-color: map.get($carousel, 'controls-background');
   box-shadow: inset 0 -4px 12px -9px
     rgba(map.get($theme, 'color', 'black'), 0.6);
-  width: calc(100% - calc(-1 * var(--s-l)));
+  width: calc(100% - var(--s-2xl));
 }
 
 .ecl-carousel__slides {
@@ -67,7 +67,6 @@ $carousel: null !default;
 
 .ecl-carousel__controls {
   background-color: map.get($carousel, 'controls-background');
-  padding: var(--s-2xs) 0;
 
   .ecl-container {
     display: flex;
@@ -85,24 +84,8 @@ $carousel: null !default;
 
 .ecl-carousel__prev,
 .ecl-carousel__next {
-  background: map.get($carousel, 'controls-background');
-  border: 0;
   cursor: pointer;
   display: block;
-  padding: var(--s-xs);
-
-  &:active,
-  &:hover {
-    background-color: map.get($theme, 'color', 'white-100');
-
-    .ecl-carousel__icon-default {
-      fill: map.get($carousel, 'controls-background');
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
-  }
 }
 
 .ecl-carousel__autoplay {
@@ -113,10 +96,9 @@ $carousel: null !default;
 .ecl-carousel__pause {
   align-items: center;
   background: transparent;
-  border: 0;
+  border-color: transparent;
   cursor: pointer;
   display: flex;
-  padding: var(--s-xs);
 
   &:active,
   &:hover,
@@ -128,10 +110,6 @@ $carousel: null !default;
     .ecl-carousel__icon-active {
       display: block;
     }
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
   }
 }
 
@@ -145,14 +123,12 @@ $carousel: null !default;
 
 .ecl-carousel__pagination {
   align-items: center;
-  color: map.get($theme, 'color', 'white-100');
+  color: var(--c-d);
   display: flex;
   font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
   justify-content: end;
   padding-top: 2px;
   white-space: pre-wrap;
-  margin: 0 var(--s-xs);
 }
 
 .ecl-carousel__navigation {
@@ -160,32 +136,24 @@ $carousel: null !default;
 }
 
 .ecl-carousel__navigation-item {
-  background-color: transparent;
-  border: 2px solid map.get($theme, 'color', 'white-100');
+  background-color: var(--c-d-60);
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   height: 1rem;
-  margin: var(--s-m);
-  margin-inline-end: var(--s-l);
+  margin: calc(var(--s-m) - 2px);
   padding: 0;
   width: 1rem;
 
-  &:active,
   &:hover {
-    background-color: map.get($theme, 'color', 'white-100');
+    background-color: var(--c-d-80);
   }
 
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
-    outline-offset: 2px;
-  }
-
+  &:active,
+  &:focus-visible,
   &[aria-current='true'] {
-    background-color: map.get($theme, 'color', 'white-100');
-  }
-
-  &:last-child {
-    margin-inline-end: var(--s-m);
+    background-color: var(--c-d);
+    outline: none;
   }
 }
 
@@ -256,24 +224,24 @@ $carousel: null !default;
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    padding: var(--s-s);
+    background-color: map.get($theme, 'color', 'white-100');
+    color: var(--c-d);
     position: absolute;
     top: calc(50% - 22px);
     transform: translateY(-50%);
     z-index: 1;
 
     &:focus-visible {
-      outline: 2px solid map.get($theme, 'color', 'white-100');
-      outline-offset: -4px;
+      background-color: var(--c-n-60);
     }
   }
 
   .ecl-carousel__prev {
-    left: 0;
+    left: var(--s-m);
   }
 
   .ecl-carousel__next {
-    right: 0;
+    right: var(--s-m);
   }
 
   .ecl-carousel__autoplay,
