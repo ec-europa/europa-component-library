@@ -199,6 +199,11 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
 - Wrapper `ecl-page-header__title-container` has been removed
 
+### Pagination
+
+- A new `type` has been introduced, `truncation` can be used to add a placeholder with no link to represent some skipped items.
+- In EC the previous and next links are icon only links, in order to get the expected look and feel set the `item.link.link.hide_label` parameter to `true`.
+
 ### Rating field
 
 - Size of the icon is now `l` instead of `m`, it is resized in desktop viewports via css.
@@ -232,6 +237,12 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 - A container is added as first child of the root element of the component, with this class: `ecl-site-header__background`, it is needed in EC to handle the background image.
+
+### Social media follow
+
+- Icon size is different (`xs` for EC, `m` for EU). This has to be passed as data.
+- The link "Other social media networks" is no longer a popover. This is now a standard link, leading to a dedicated page, and added after the other links. Corresponding twig parameter `popover` has been removed
+- Icon `share` and its variants has been removed from the social media icons. It has been replaced by a new icon `chain`
 
 ### Table
 

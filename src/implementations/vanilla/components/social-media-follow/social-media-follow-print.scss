@@ -7,6 +7,8 @@
 
 // Exposed variables
 $theme: null !default;
+$social-media-follow: null !default;
+$social-media-follow-print: null !default;
 
 .ecl-social-media-follow {
   margin: 0;
@@ -17,21 +19,21 @@ $theme: null !default;
 }
 
 .ecl-social-media-follow__description {
-  color: map.get($theme, 'color', 'black');
-  font: map.get($theme, 'font-prolonged-print', 'm');
+  color: map.get($social-media-follow, 'description', 'color');
+  font: map.get($social-media-follow-print, 'description', 'font');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
   margin: 0;
 }
 
 .ecl-social-media-follow__list {
   list-style: none;
-  margin-top: map.get($theme, 'spacing-print', 'l');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
   padding-left: 0;
 }
 
 .ecl-social-media-follow__item {
-  color: map.get($theme, 'color', 'grey');
-  font: map.get($theme, 'font-prolonged', 'm');
+  color: var(--c-d);
+  font: map.get($social-media-follow-print, 'item', 'font');
   margin-top: map.get($theme, 'spacing-print', 's');
 
   &:first-of-type {

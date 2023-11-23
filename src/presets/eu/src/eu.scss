@@ -173,7 +173,8 @@
   $pagination: var.$pagination
 );
 @use '@ecl/vanilla-component-popover/popover' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $popover: var.$popover
 );
 @use '@ecl/vanilla-component-search-form/search-form' with (
   $theme: theme.$theme,

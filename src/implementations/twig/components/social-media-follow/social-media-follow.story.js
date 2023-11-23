@@ -1,10 +1,15 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
+import getSystem from '@ecl/builder/utils/getSystem';
 
-import specs from '@ecl/specs-component-social-media-follow/demo/data';
+import specsEc from '@ecl/specs-component-social-media-follow/demo/data--ec';
+import specsEu from '@ecl/specs-component-social-media-follow/demo/data--eu';
 import SocialMediaFollow from './social-media-follow.html.twig';
 import notes from './README.md';
+
+const system = getSystem();
+const specs = system === 'eu' ? specsEu : specsEc;
 
 // Preserve original data.
 const dataHorizontal = { ...specs };
@@ -41,7 +46,7 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   if (!args.show_other) {
-    delete clone.popover;
+    delete clone.links.pop();
   }
 
   return Object.assign(clone, args);

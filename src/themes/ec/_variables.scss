@@ -1050,10 +1050,37 @@ $page-header-print: (
 // Pagination
 $pagination: (
   background-color: transparent,
+  border-color: var(--c-n),
   border-radius: 0,
-  border-width: 2px,
+  border-width: 1px,
+  current-background: var(--c-p),
   current-border-width: 2px,
-  current-text-color: map.get($color, 'black'),
+  current-font-weight: map.get($font-weight, 'regular'),
+  current-text-color-desktop: map.get($color, 'white'),
+  current-text-color-mobile: var(--c-d),
+  focus-radius: 0,
+  focus-border: 2px solid var(--c-p),
+  focus-outline: none,
+  item-background-hover: var(--c-p-20),
+  item-default-color: var(--c-d),
+  item-hover-color: var(--c-d),
+  item-margin-end: var(--s-2xs),
+  item-padding: 0,
+  item-border-hover: var(--c-d-80),
+  item-size: 3rem,
+  padding: var(--s-xl) 0 0,
+  prev-next-active-border: var(--c-n-80),
+  prev-next-active-background: var(--c-n-80),
+  prev-next-hover-background: var(--c-n-60),
+  prev-next-hover-border: 1px solid var(--c-d-80),
+  prev-next-hover-color: var(--c-d),
+  text-color: var(--c-d),
+);
+
+// Popover
+$popover: (
+  shadow: var(--sh-6),
+  shadow-size: 2px,
 );
 
 // Radio
@@ -1208,10 +1235,27 @@ $site-header: (
 
 // Social media follow
 $social-media-follow: (
-  background-color: map.get($color, 'grey-5'),
+  background-color: transparent,
   border-radius: 0,
-  main-border: 1px solid map.get($color, 'grey-25'),
-  title-color: map.get($color, 'grey-100'),
+  padding: 0,
+  description: (
+    color: var(--c-d),
+    font: var(--f-m),
+    margin-horizontal: var(--s-2xs),
+    margin-vertical: var(--s-2xs),
+  ),
+  item: (
+    font: var(--f-m),
+    margin: var(--s-xl),
+  ),
+);
+$social-media-follow-print: (
+  description: (
+    font: map.get($font-print, 'm'),
+  ),
+  item: (
+    font: map.get($font-print, 'm'),
+  ),
 );
 
 // Social media share
