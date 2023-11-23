@@ -114,6 +114,14 @@ $splash-page: null !default;
   }
 }
 
+.ecl-splash-page__language-link:hover.ecl-splash-page__language-link--active {
+  color: map.get($splash-page, 'item-active-color');
+
+  .ecl-splash-page__language-link-label {
+    text-decoration: none;
+  }
+}
+
 @include breakpoints.up('m') {
   .ecl-splash-page__language-title {
     font: map.get($splash-page, 'header-font-desktop');

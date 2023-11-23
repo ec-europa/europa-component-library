@@ -157,7 +157,9 @@
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-splash-page/splash-page-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $splash-page: var.$splash-page,
+  $splash-page-print: var.$splash-page-print
 );
 
 // Utilities

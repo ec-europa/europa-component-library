@@ -1273,6 +1273,16 @@ $splash-page: (
   item-width: 184px,
   column-spacing: var(--s-m),
 );
+$splash-page-print: (
+  logo-padding: map.get($spacing-print, 'xl') map.get($spacing-print, '3xl'),
+  container-padding: map.get($spacing-print, '3xl'),
+  header-font-desktop: map.get($font-print, 'xl'),
+  content-margin-desktop: map.get($spacing-print, 's'),
+  category-title-font: map.get($font-print, 'm'),
+  category-title-padding: map.get($spacing-print, 'l') 0
+    map.get($spacing-print, 'xs'),
+  item-padding: map.get($spacing-print, 'xs') map.get($spacing-print, 's'),
+);
 
 // Table
 $table: (

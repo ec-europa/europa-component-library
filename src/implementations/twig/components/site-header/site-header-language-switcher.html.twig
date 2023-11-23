@@ -120,7 +120,8 @@
             {% include '@ecl/link/link.html.twig' with {
               link: _item|merge({
                 label: _link_label,
-                type: 'standalone'
+                type: 'standalone',
+                no_visited: true
               }),
               extra_classes: _link_classes,
               extra_attributes: [
@@ -156,7 +157,8 @@
             {% include '@ecl/link/link.html.twig' with {
               link: _item|merge({
                 label: _link_label,
-                type: 'standalone'
+                type: 'standalone',
+                no_visited: true
               }),
               extra_classes: _link_classes,
               extra_attributes: [
