@@ -5,7 +5,23 @@
     - "label" (string) (default: '')
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'cta', 'ghost', 'ghost-inverted', 'tertiaty'
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
-    - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "icon" (associative array) OR (array) of associative arrays : format
+        {
+          name: (string) (default: ''),
+          ...
+        }
+        OR
+        [
+          {
+            name: (string) (default: ''),
+            ....
+          },
+          {
+            name: (string) (default: ''),
+            ...
+          }
+          ...
+        ]
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
     - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
