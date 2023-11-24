@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/theme-ec/variables' as var;
+@use '@ecl/theme-ec/variables-utilities' as utils;
 
 // Icons & Images
 @use '@ecl/vanilla-component-icon/icon-print' with (
@@ -187,8 +188,8 @@
 );
 @use '@ecl/vanilla-utility-typography/typography-print' with (
   $theme: theme.$theme,
-  $typography: var.$typography,
-  $typography-print: var.$typography-print
+  $typography: utils.$typography,
+  $typography-print: utils.$typography-print
 );
 @use '@ecl/vanilla-utility-z-index/z-index' with (
   $theme: theme.$theme
