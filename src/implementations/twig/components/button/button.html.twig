@@ -77,9 +77,13 @@
   <span class="ecl-button__container">
   {% if _icon_position == 'before' %}
     {% for icon in _icons %}
+      {% set _icon_extra_classes = 'ecl-button__icon' %}
+      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- endif -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: icon,
-        extra_classes: 'ecl-button__icon',
+        extra_classes: _icon_extra_classes,
         extra_attributes: [
           { name: 'data-ecl-icon' }
         ],
@@ -91,9 +95,13 @@
   {% endif %}
   {% if _icon_position == 'after' %}
     {% for icon in _icons %}
+      {% set _icon_extra_classes = 'ecl-button__icon' %}
+      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- endif -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: icon,
-        extra_classes: 'ecl-button__icon',
+        extra_classes: _icon_extra_classes,
         extra_attributes: [
           { name: 'data-ecl-icon' }
         ],

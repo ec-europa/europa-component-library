@@ -68,10 +68,6 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if _icon.extra_classes is defined and _icon.extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ _icon.extra_classes %}
-{% endif %}
-
 {% if extra_accessibility is defined and extra_accessibility is not empty %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'role', value: _extra_accessibility.role },
