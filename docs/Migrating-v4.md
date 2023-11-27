@@ -15,7 +15,7 @@ The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 ## Style modifications
 
-- The main ecl css is not including the ecl utilities anymore. Those are available in a separate css file named `ecl-{ec/eu}-utilities.css`.
+- The main ecl css is not including the ecl utilities anymore. Those are available in a separate css file named `ecl-{ec/eu}-utilities.css` in the `styles/optional` folder.
 
 ### Colors
 

@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as theme;
 @use '@ecl/theme-ec/variables' as var;
-@use '@ecl/theme-ec/variables-utilities' as utils;
 
 // Layout
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
@@ -38,7 +37,7 @@
 );
 @use '@ecl/vanilla-utility-typography/typography' with (
   $theme: theme.$theme,
-  $typography: utils.$typography
+  $typography: var.$typography
 );
 
 // stylelint-disable no-descending-specificity

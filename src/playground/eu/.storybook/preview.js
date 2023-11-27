@@ -46,7 +46,7 @@ export const parameters = {
     },
     {
       id: 'ecl-eu-utlities',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-utilities.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-utilities.css" />`,
       picked: true,
       hideCode: true,
     },

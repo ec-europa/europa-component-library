@@ -53,7 +53,7 @@ class Skeleton extends Component {
         utils.rel = 'stylesheet';
         utils.type = 'text/css';
         utils.id = `${system}-utilities-css`;
-        utils.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}-utilities.css`;
+        utils.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/optional/ecl-${system}-utilities.css`;
         utils.media = 'screen';
         head.appendChild(utils);
       } else {

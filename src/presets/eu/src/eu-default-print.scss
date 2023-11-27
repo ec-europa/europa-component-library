@@ -1,7 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-eu/theme' as theme;
 @use '@ecl/theme-eu/variables' as var;
-@use '@ecl/theme-eu/variables-utilities' as utils;
 
 // Layout
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
@@ -41,8 +40,8 @@
 );
 @use '@ecl/vanilla-utility-typography/typography-print' with (
   $theme: theme.$theme,
-  $typography: utils.$typography,
-  $typography-print: utils.$typography-print
+  $typography: var.$typography,
+  $typography-print: var.$typography-print
 );
 
 html {

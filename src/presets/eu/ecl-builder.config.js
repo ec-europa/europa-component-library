@@ -41,7 +41,7 @@ module.exports = {
     },
     {
       entry: path.resolve(__dirname, 'src/eu-utilities.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-eu-utilities.css'),
+      dest: path.resolve(outputFolder, 'styles/optional/ecl-eu-utilities.css'),
       options: {
         banner,
         includePaths,
