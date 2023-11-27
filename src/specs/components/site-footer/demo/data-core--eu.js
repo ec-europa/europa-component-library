@@ -211,7 +211,7 @@ module.exports = {
               },
             },
           ],
-          section_class_name: 'ecl-footer-standardised__section--desktop',
+          section_class_name: 'ecl-site-footer__section--desktop',
         },
         {
           title: 'EU institutions',
@@ -225,7 +225,7 @@ module.exports = {
               },
             },
           ],
-          section_class_name: 'ecl-footer-standardised__section--mobile',
+          section_class_name: 'ecl-site-footer__section--mobile',
         },
       ],
     ],
