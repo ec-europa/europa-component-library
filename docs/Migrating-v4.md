@@ -99,6 +99,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
 
+### Content item
+
+- New variant `ecl-content-item__picture--top` added to put the image on top. It requires to also add class `ecl-content-item--stack` to the root element of the component
+
 ### Expandable
 
 - Button is now using variant `ghost`, instead of `secondary`
