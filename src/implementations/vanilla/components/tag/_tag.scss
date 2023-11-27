@@ -19,8 +19,8 @@ $tag: null !default;
   display: inline-flex;
   font: var(--f-s);
   padding: map.get($tag, 'padding');
+  text-align: left;
   text-decoration: underline;
-  white-space: nowrap;
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
