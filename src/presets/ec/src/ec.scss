@@ -1,4 +1,5 @@
 @use '@ecl/theme-ec/theme' as theme;
+@use '@ecl/theme-ec/custom-properties';
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
@@ -229,38 +230,4 @@
 @use '@ecl/vanilla-component-site-header/site-header-ec' with (
   $theme: theme.$theme,
   $site-header: var.$site-header
-);
-
-// Utilities
-@use '@ecl/vanilla-utility-background/background' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-border/border' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-clearfix/clearfix';
-@use '@ecl/vanilla-utility-dimension/dimension';
-@use '@ecl/vanilla-utility-flex/flex' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-float/float';
-@use '@ecl/vanilla-utility-disablescroll/disablescroll';
-@use '@ecl/vanilla-utility-display/display' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-media/media'; // $theme is already loaded in media-container
-@use '@ecl/vanilla-utility-print/print';
-@use '@ecl/vanilla-utility-screen-reader/screen-reader';
-@use '@ecl/vanilla-utility-shadow/shadow' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-spacing/spacing' with (
-  $theme: theme.$theme
-);
-@use '@ecl/vanilla-utility-typography/typography' with (
-  $theme: theme.$theme,
-  $typography: var.$typography
-);
-@use '@ecl/vanilla-utility-z-index/z-index' with (
-  $theme: theme.$theme
 );
