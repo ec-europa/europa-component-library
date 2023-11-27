@@ -1,7 +1,6 @@
 /**
  * Icon component
  * @define icon
- * TODO
  */
 
 @use 'sass:map';
@@ -57,7 +56,7 @@ $icons: null !default;
 }
 
 .ecl-icon--primary {
-  fill: map.get($icons, 'primary-color');
+  fill: var(--c-p);
 }
 
 .ecl-icon--inverted {
