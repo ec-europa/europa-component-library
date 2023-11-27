@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-page-header
 ### Parameters
 
 - **"title"** (string) (default: '') Title of header
-- **"hide_title"** (boolean) (default: false) Hide the h1 title, for screen reader only
+- **"hide_title"** (boolean) (default: false) Hide the title, for screen reader only
 - **"description"** (string) (default: '') Description of header
 - **"picture_thumbnail"** (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
 - **"picture_background"** (associative array) (default: {}): Image for background, following ECL Picture structure

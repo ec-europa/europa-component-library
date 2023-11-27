@@ -2,7 +2,7 @@
 {#
   Parameters:
     - "title" (string) (default: '') Title of header
-    - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
+    - "hide_title" (boolean) (default: false) Hide the title, for screen reader only
     - "description" (string) (default: '') Description of header
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
@@ -91,7 +91,7 @@
       {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
     {% endif %}
 
-    <h1 class="{{ _title_class }}">{{ _title }}</h1>
+    <div class="{{ _title_class }}">{{ _title }}</div>
   {% endif %}
 
   {% if _description is not empty or _picture_thumbnail.img is not empty %}
