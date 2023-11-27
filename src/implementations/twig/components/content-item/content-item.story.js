@@ -166,7 +166,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
-      if: { arg: 'show_image' },
+      if: { arg: 'image_position', neq: 'top' },
     };
     argTypes.image_position = {
       name: 'image position',
