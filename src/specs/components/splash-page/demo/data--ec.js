@@ -54,6 +54,7 @@ module.exports = {
       label: 'English',
       path: exampleLink,
       lang: 'en',
+      active: true,
     },
     {
       label: 'français',
