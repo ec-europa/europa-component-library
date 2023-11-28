@@ -15,6 +15,8 @@ The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 ## Style modifications
 
+- The main ecl css is not including the ecl utilities anymore. Those are available in a separate css file named `ecl-{ec/eu}-utilities.css` in the `styles/optional` folder.
+
 ### Colors
 
 Semantic colors have been introduced; they were already defined in v3 but not used.
@@ -96,6 +98,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Checkbox
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
+
+### Content item
+
+- New variant `ecl-content-item__picture--top` added to put the image on top. It requires to also add class `ecl-content-item--stack` to the root element of the component
 
 ### Expandable
 
@@ -237,6 +243,12 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 - A container is added as first child of the root element of the component, with this class: `ecl-site-header__background`, it is needed in EC to handle the background image.
+
+### Social media follow
+
+- Icon size is different (`xs` for EC, `m` for EU). This has to be passed as data.
+- The link "Other social media networks" is no longer a popover. This is now a standard link, leading to a dedicated page, and added after the other links. Corresponding twig parameter `popover` has been removed
+- Icon `share` and its variants has been removed from the social media icons. It has been replaced by a new icon `chain`
 
 ### Table
 

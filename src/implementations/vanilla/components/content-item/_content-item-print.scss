@@ -16,6 +16,10 @@ $content-item: null !default;
   margin: 0;
 }
 
+.ecl-content-item--stack {
+  flex-direction: column;
+}
+
 .ecl-content-item--divider {
   border-bottom: 1px solid map.get($content-item, 'divider-color');
   padding-bottom: map.get($theme, 'spacing-print', 'l');
@@ -51,4 +55,9 @@ $content-item: null !default;
   margin-inline-end: 0;
   margin-inline-start: map.get($theme, 'spacing-print', 'm');
   order: 1;
+}
+
+.ecl-content-item__picture--top {
+  margin: 0 0 map.get($theme, 'spacing-print', 'm');
+  max-width: 100%;
 }

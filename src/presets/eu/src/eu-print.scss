@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-eu/theme' as theme;
+@use '@ecl/theme-eu/custom-properties';
 @use '@ecl/theme-eu/variables' as var;
 
 // Icons & Images
@@ -125,7 +126,9 @@
 @use '@ecl/vanilla-component-popover/popover-print';
 @use '@ecl/vanilla-component-search-form/search-form-print';
 @use '@ecl/vanilla-component-social-media-follow/social-media-follow-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $social-media-follow: var.$social-media-follow,
+  $social-media-follow-print: var.$social-media-follow-print
 );
 @use '@ecl/vanilla-component-social-media-share/social-media-share-print';
 @use '@ecl/vanilla-component-timeline/timeline-print' with (
