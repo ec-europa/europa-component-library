@@ -42,10 +42,6 @@
 {# Print the result #}
 
 <figure class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <div class="ecl-blockquote__body">
-    <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation">{{ _citation }}</p></blockquote>
-    <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
-  </div>
   {% if _picture is not empty and _picture.img is not empty %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
@@ -53,6 +49,10 @@
       extra_image_classes: "ecl-blockquote__image",
     } only %}
   {% endif %}
+  <div class="ecl-blockquote__body">
+    <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation">{{ _citation }}</p></blockquote>
+    <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
+  </div>
 </figure>
 
 {% endapply %}

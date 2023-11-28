@@ -12,19 +12,14 @@ $blockquote-print: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: start;
-  margin: 0;
-}
-
-.ecl-blockquote__body,
-%ecl-blockquote {
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
   border-radius: map.get($blockquote, 'border-radius');
   box-shadow: map.get($blockquote, 'shadow');
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
   padding: map.get($blockquote-print, 'padding');
 }
 

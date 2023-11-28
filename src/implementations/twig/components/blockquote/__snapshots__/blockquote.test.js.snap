@@ -5,6 +5,15 @@ exports[`Blockquote Default renders correctly 1`] = `
   <figure
     class="ecl-blockquote"
   >
+    <picture
+      class="ecl-picture ecl-blockquote__picture"
+    >
+      <img
+        alt="Image alternative text"
+        class="ecl-blockquote__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-blockquote__body"
     >
@@ -27,15 +36,6 @@ exports[`Blockquote Default renders correctly 1`] = `
         </cite>
       </footer>
     </div>
-    <picture
-      class="ecl-picture ecl-blockquote__picture"
-    >
-      <img
-        alt="Image alternative text"
-        class="ecl-blockquote__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
   </figure>
 </jest>
 `;
@@ -47,6 +47,15 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
+    <picture
+      class="ecl-picture ecl-blockquote__picture"
+    >
+      <img
+        alt="Image alternative text"
+        class="ecl-blockquote__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-blockquote__body"
     >
@@ -69,15 +78,6 @@ exports[`Blockquote Default renders correctly with extra attributes 1`] = `
         </cite>
       </footer>
     </div>
-    <picture
-      class="ecl-picture ecl-blockquote__picture"
-    >
-      <img
-        alt="Image alternative text"
-        class="ecl-blockquote__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
   </figure>
 </jest>
 `;
@@ -87,6 +87,15 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
   <figure
     class="ecl-blockquote custom-class custom-class--test"
   >
+    <picture
+      class="ecl-picture ecl-blockquote__picture"
+    >
+      <img
+        alt="Image alternative text"
+        class="ecl-blockquote__image"
+        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+      />
+    </picture>
     <div
       class="ecl-blockquote__body"
     >
@@ -109,15 +118,6 @@ exports[`Blockquote Default renders correctly with extra class names 1`] = `
         </cite>
       </footer>
     </div>
-    <picture
-      class="ecl-picture ecl-blockquote__picture"
-    >
-      <img
-        alt="Image alternative text"
-        class="ecl-blockquote__image"
-        src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-      />
-    </picture>
   </figure>
 </jest>
 `;
