@@ -267,7 +267,7 @@ $_search-width-xl: 31.5rem;
 @include breakpoints.up('l') {
   .ecl-site-header-standardised {
     .ecl-standardised__cta {
-      align-self: start;
+      align-self: flex-start;
       margin: map.get(theme.$spacing, 'xs') 0;
 
       &:only-child {
@@ -277,7 +277,7 @@ $_search-width-xl: 31.5rem;
 
     // Deprecated
     .ecl-standardised__menu-cta {
-      align-self: start;
+      align-self: flex-start;
       margin: map.get(theme.$spacing, 'xs') 0;
 
       &:only-child {
