@@ -70,7 +70,7 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-title {
-  font: map.get($language-switcher, 'header-font');
+  font: map.get($language-switcher, 'header-font-mobile');
 }
 
 .ecl-site-header__language-close {
@@ -147,7 +147,11 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-link:hover.ecl-site-header__language-link--active {
-  color: map.get($language-switcher, 'active-item-color');
+  color: map.get($language-switcher, 'item-active-color');
+
+  .ecl-site-header__language-link-label {
+    text-decoration: none;
+  }
 }
 
 @include breakpoints.up('m') {
@@ -159,6 +163,10 @@ $language-switcher: null !default;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
+  }
+
+  .ecl-site-header__language-title {
+    font: map.get($language-switcher, 'header-font-desktop');
   }
 
   // Horizontal position
