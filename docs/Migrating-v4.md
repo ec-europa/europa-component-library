@@ -269,6 +269,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Tag
 
 - Icon used in removable tag is now `close-outline`
+- Tags now wrap on several lines by default. New twig parameter `nowrap` added to force display of the tag on one line.
+- Added possibilty to handle set of tags. Twig template and corresponding css have been added.
 
 ## Custom theme
 

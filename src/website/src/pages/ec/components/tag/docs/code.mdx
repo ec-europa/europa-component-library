@@ -4,7 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { tagLink, tagRemovable } from '../demo';
+import { tagLink, tagRemovable, tagSet } from '../demo';
 
 ## Link tag
 
@@ -16,4 +16,10 @@ import { tagLink, tagRemovable } from '../demo';
 
 <Playground system="ec" selectedKind="components-tag" selectedStory="removable">
   <Html markup={tagRemovable} />
+</Playground>
+
+## Tag set
+
+<Playground system="ec" selectedKind="components-tag" selectedStory="set">
+  <Html markup={tagSet} />
 </Playground>

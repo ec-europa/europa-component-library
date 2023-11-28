@@ -9,6 +9,7 @@
         label: string (default: '') tag text as string,
         external: boolean (default: false) External icon for a tag with link
         aria_label: (string) (default: '') (optional) aria label for removable tag as a string
+        nowrap: boolean (default: false) force the tag to stay on one line
       }
     - "default_icon_path" (string) Path to the icons sprite
     - "extra_classes" (string) (default: '') Extra classes
@@ -25,7 +26,10 @@
 {% set _tag = {
     type: 'link',
     path: '',
-    label: ''
+    label: '',
+    external: false,
+    aria_label: '',
+    nowrap: false,
 } %}
 
 {% if tag is defined %}
@@ -36,13 +40,17 @@
 {% set _extra_attributes = '' %}
 {% set _default_icon_path = default_icon_path|default('') %}
 
-{# Add extra class for removable tag #}
+{# Internal logic - Process properties #}
 
 {% if _tag.type == 'removable' %}
   {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
   {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
   {% endif %}
+{% endif %}
+
+{% if _tag.nowrap %}
+  {% set _css_class = _css_class ~ ' ecl-tag--nowrap' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
