@@ -77,9 +77,9 @@ $accordion: null !default;
   font: var(--f-m);
   margin-inline-start: 0;
   max-width: 60ch;
-  padding-inline-end: var(--e-s-m);
+  padding-inline-end: map.get($accordion, 'item-padding');
   padding-inline-start: map.get($accordion, 'item-padding');
-  padding-bottom: var(--e-s-xl);
+  padding-bottom: var(--s-xl);
 }
 
 .no-js .ecl-accordion__content {
