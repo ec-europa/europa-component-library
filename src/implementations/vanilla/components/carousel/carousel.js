@@ -41,7 +41,6 @@ export class Carousel {
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
-      paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -66,7 +65,6 @@ export class Carousel {
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
     this.controlsClass = controlsClass;
-    this.paginationClass = paginationClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -132,7 +130,6 @@ export class Carousel {
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__navigation', this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
-    this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
@@ -297,10 +294,11 @@ export class Carousel {
   checkBannerHeights() {
     const heightValues = this.slides.map((slide) => {
       const banner = queryOne('.ecl-banner', slide);
-      const height = parseInt(banner.style.height, 10);
+      let height = parseInt(banner.style.height, 10);
 
       if (banner.style.height === 'auto') {
-        return 0;
+        const bannerStyles = window.getComputedStyle(banner);
+        height = parseInt(bannerStyles.getPropertyValue('height'), 10);
       }
       if (Number.isNaN(height)) {
         return undefined;
@@ -571,21 +569,6 @@ export class Carousel {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
 
-    // Move previous and next buttons in or out the control bar
-    if (vw < 1140) {
-      this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
-      this.pagination.parentNode.insertBefore(
-        this.btnNext,
-        this.pagination.nextSibling,
-      );
-    } else {
-      this.container.insertBefore(
-        this.btnPrev,
-        this.slidesContainer.nextSibling,
-      );
-      this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
-    }
-
     // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
     if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
       this.handleAutoPlay();
@@ -636,6 +619,7 @@ export class Carousel {
           }
         } else if (focusedEl.nextSibling) {
           e.preventDefault();
+          console.log('shifting..');
           this.shiftSlide('next', true);
           setTimeout(() => focusedEl.nextSibling.focus(), 400);
         }

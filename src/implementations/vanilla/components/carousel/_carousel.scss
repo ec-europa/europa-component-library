@@ -70,7 +70,7 @@ $carousel: null !default;
 
   .ecl-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
@@ -85,10 +85,6 @@ $carousel: null !default;
 .ecl-carousel__prev,
 .ecl-carousel__next {
   cursor: pointer;
-  display: block;
-}
-
-.ecl-carousel__autoplay {
   display: none;
 }
 
@@ -125,38 +121,18 @@ $carousel: null !default;
   display: none;
 }
 
-.ecl-carousel__pagination {
-  align-items: center;
-  color: map.get($carousel, 'pagination-color');
-  display: flex;
-  font: var(--f-m);
-  justify-content: end;
-  padding-top: 2px;
-  white-space: pre-wrap;
-}
-
-.ecl-carousel__navigation {
-  display: none;
-}
-
 .ecl-carousel__navigation-item {
-  background-color: map.get($carousel, 'navigation-color-default');
-  border: map.get($carousel, 'navigation-border');
-  border-radius: 50%;
+  background-color: map.get($carousel, 'navigation-background-default');
+  border: 2px solid transparent;
   cursor: pointer;
-  height: 1rem;
-  margin: calc(var(--s-m) - 2px);
-  padding: 0;
-  width: 1rem;
-
-  &:hover {
-    background-color: map.get($carousel, 'navigation-color-hover');
-  }
 
   &:active,
+  &:hover,
   &:focus-visible,
   &[aria-current='true'] {
-    background-color: map.get($carousel, 'navigation-color-active');
+    background-color: map.get($carousel, 'navigation-background-active');
+    border-color: map.get($carousel, 'navigation-background-active');
+    color: map.get($carousel, 'navigation-color-active');
     outline: none;
   }
 }
@@ -172,7 +148,6 @@ $carousel: null !default;
   .ecl-carousel__navigation {
     align-items: center;
     display: flex;
-    margin-inline-end: auto;
   }
 }
 
@@ -230,6 +205,7 @@ $carousel: null !default;
   .ecl-carousel__next {
     background-color: map.get($theme, 'color', 'white-100');
     color: var(--c-d);
+    display: block;
     position: absolute;
     top: calc(50% - 22px);
     transform: translateY(-50%);
@@ -252,8 +228,7 @@ $carousel: null !default;
     right: var(--s-m);
   }
 
-  .ecl-carousel__autoplay,
-  .ecl-carousel__pagination {
+  .ecl-carousel__autoplay {
     width: 10%;
   }
 }
