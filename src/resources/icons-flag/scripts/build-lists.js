@@ -3,30 +3,28 @@ const glob = require('glob');
 
 const writeList = require('./write-list');
 
-const src = path.resolve(__dirname, '../src');
-const dest = path.resolve(__dirname, '../dist/lists');
+const srcMembers = path.resolve(__dirname, '../src/members');
+const destMembers = path.resolve(__dirname, '../dist/lists/members');
 
-const files = glob
-  .sync('**/*.svg', { cwd: src })
+const filesMembers = glob
+  .sync('*.svg', { cwd: srcMembers })
   .filter((file) => !file.includes('/_')); // ignore files prepended with "_"
 
 /* Write list of all icons */
 
-writeList({ dest, files, outputFile: 'all.json' });
+writeList({ dest: destMembers, files: filesMembers, outputFile: 'all.json' });
 
-/* Write lists of icons per set */
+const srcNonMembers = path.resolve(__dirname, '../src/non-members');
+const destNonMembers = path.resolve(__dirname, '../dist/lists/non-members');
 
-const filesBySet = {};
-files.forEach((file) => {
-  const [set, filename] = file.split('/');
-  if (!filesBySet[set]) filesBySet[set] = [];
-  filesBySet[set].push(filename);
-});
+const filesNonMembers = glob
+  .sync('*.svg', { cwd: srcNonMembers })
+  .filter((file) => !file.includes('/_')); // ignore files prepended with "_"
 
-Object.keys(filesBySet).forEach((set) => {
-  writeList({
-    dest,
-    files: filesBySet[set],
-    outputFile: `${set}.json`,
-  });
+/* Write list of all icons */
+
+writeList({
+  dest: destNonMembers,
+  files: filesNonMembers,
+  outputFile: 'all.json',
 });
