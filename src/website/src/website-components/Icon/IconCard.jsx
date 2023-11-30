@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import iconsEC from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
 import iconsEU from '@ecl/resources-eu-icons/dist/sprites/icons.svg';
 import iconsFlag from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
+import iconsFlagNonMembers from '@ecl/resources-flag-icons/dist/sprites/icons-flag-non-members.svg';
 import iconsSocialMedia from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
 import styles from './IconCard.scss';
 
@@ -11,6 +12,7 @@ function IconCard({ system, name, set }) {
   let cardClass = styles.card;
   let iconSet = system === 'eu' ? iconsEU : iconsEC;
   if (set === 'flag') iconSet = iconsFlag;
+  if (set === 'flag-non-members') iconSet = iconsFlagNonMembers;
   if (set === 'social-media') {
     iconSet = iconsSocialMedia;
     cardClass = name.includes('-negative')
