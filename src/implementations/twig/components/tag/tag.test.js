@@ -13,7 +13,9 @@ expect.extend(toHaveNoViolations);
 
 describe('Tag', () => {
   const template = '@ecl/tag/tag.html.twig';
+  const templateSet = '@ecl/tag/tag-set.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
+  const renderSet = (params) => renderTwigFileAsNode(templateSet, params);
 
   describe('Link', () => {
     test('renders correctly', () => {
@@ -80,7 +82,7 @@ describe('Tag', () => {
   describe('Set', () => {
     test('renders correctly', () => {
       expect.assertions(1);
-      return expect(render(dataSet)).resolves.toMatchSnapshot();
+      return expect(renderSet(dataSet)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -90,7 +92,9 @@ describe('Tag', () => {
         extra_classes: 'custom-class custom-class--test',
       });
 
-      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+      return expect(
+        renderSet(optionsWithExtraClasses),
+      ).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra attributes', () => {
@@ -103,7 +107,9 @@ describe('Tag', () => {
         ],
       });
 
-      return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
+      return expect(
+        renderSet(optionsWithExtraClasses),
+      ).resolves.toMatchSnapshot();
     });
 
     test(`passes the accessibility tests`, async () => {
