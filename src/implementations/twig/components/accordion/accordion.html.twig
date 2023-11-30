@@ -68,6 +68,9 @@
             aria-controls="{{ _item.id }}-content"
           >
             <span class="ecl-accordion__toggle-flex">
+              <span class="ecl-accordion__toggle-title">
+                {{- _item.toggle.label -}}
+              </span>
               <span class="ecl-accordion__toggle-indicator">
                 <span class="ecl-accordion__toggle-label">{{ _label_collapsed }}</span>
                 {% include '@ecl/icon/icon.html.twig' with {
@@ -80,9 +83,7 @@
                   extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
                 } only %}
               </span>
-              <span class="ecl-accordion__toggle-title">
-                {{- _item.toggle.label -}}
-              </span>
+              
             </span>
           </button>
         </h{{ _item.level|default(3) }}>

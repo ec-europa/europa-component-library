@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as theme;
+@use '@ecl/theme-ec/custom-properties';
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
@@ -157,6 +158,11 @@
 @use '@ecl/vanilla-component-site-footer/site-footer-print';
 @use '@ecl/vanilla-component-site-header/site-header-print' with (
   $theme: theme.$theme
+);
+@use '@ecl/vanilla-component-splash-page/splash-page-print' with (
+  $theme: theme.$theme,
+  $splash-page: var.$splash-page,
+  $splash-page-print: var.$splash-page-print
 );
 
 // Utilities

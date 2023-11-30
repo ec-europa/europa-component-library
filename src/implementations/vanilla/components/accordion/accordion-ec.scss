@@ -56,8 +56,8 @@ $accordion: null !default;
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-inline-start: 0;
-  margin-inline-end: map.get($accordion, 'icon-margin');
+  margin-inline-end: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
 }
 
 .ecl-accordion__toggle-label {
@@ -77,12 +77,9 @@ $accordion: null !default;
   font: var(--f-m);
   margin-inline-start: 0;
   max-width: 60ch;
-  padding-inline-end: var(--e-s-m);
-  padding-inline-start: calc(
-    map.get($accordion, 'item-padding') + map.get($accordion, 'icon-margin') +
-      1rem + 0.25rem
-  );
-  padding-bottom: var(--e-s-xl);
+  padding-inline-end: map.get($accordion, 'item-padding');
+  padding-inline-start: map.get($accordion, 'item-padding');
+  padding-bottom: var(--s-xl);
 }
 
 .no-js .ecl-accordion__content {

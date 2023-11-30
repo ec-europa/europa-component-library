@@ -300,7 +300,7 @@ $content-item: (
   divider-color: var(--c-p-20),
   padding: var(--s-l),
   image-border-color: var(--c-p-20),
-  image-spacing-mobile: var(--s-m),
+  image-top-spacing: var(--s-l),
 );
 
 // Date block
@@ -1072,54 +1072,6 @@ $select: (
   padding-vertical: var(--s-s),
 );
 
-// Site header
-$site-header: (
-  background-color: map.get($color, 'white'),
-  logo-height-xs: 1.875rem,
-  logo-width-xs: auto,
-  logo-height-sm: 2.5rem,
-  logo-width-sm: auto,
-  logo-height-lg: 2.75rem,
-  logo-width-lg: auto,
-  search-width-l: 25rem,
-  search-width-xl: 31.5rem,
-  gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
-  site-name-mobile-color: map.get($color, 'white'),
-  site-name-desktop-color: map.get($color, 'dark-80'),
-  language-switcher: (
-    color: var(--c-d-140),
-    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    shadow-size: 6px,
-    arrow-size: 1rem,
-    arrow-top: 0,
-    arrow-border: none,
-    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
-    header-font: var(--f-p-l),
-    header-separator: 1px solid var(--c-p-10),
-    close-right: var(--s-s),
-    close-top: var(--s-xs),
-    content-padding: 0 var(--s-s) var(--s-s),
-    category-margin: var(--s-l),
-    category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-title-font-weight: map.get($font-weight, 'bold'),
-    category-stack-margin: var(--s-m),
-    category-separator: 1px solid var(--c-p-10),
-    column-spacing-before: var(--s-s),
-    column-spacing-after: var(--s-s),
-    code-color: var(--c-d-140),
-    code-width: 30px,
-    code-font-weight: map.get($font-weight, 'bold'),
-    code-active-font-weight: map.get($font-weight, 'bold'),
-    item-width: 188px,
-    item-padding: var(--s-s),
-    item-active-background: var(--c-p-10),
-    item-active-color: var(--c-d-140),
-    item-active-shadow: inset 4px 0 0 0 var(--c-p),
-  ),
-);
-
 // Page header
 $page-header: (
   meta-color: var(--c-d-80),
@@ -1213,6 +1165,53 @@ $site-footer: (
   column-gap: map.get($grid-gutter-width, 'xl'),
 );
 
+// Site header
+$site-header: (
+  background-color: map.get($color, 'white'),
+  logo-height-xs: 1.875rem,
+  logo-width-xs: auto,
+  logo-height-sm: 2.5rem,
+  logo-width-sm: auto,
+  logo-height-lg: 2.75rem,
+  logo-width-lg: auto,
+  search-width-l: 25rem,
+  search-width-xl: 31.5rem,
+  gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
+  site-name-mobile-color: map.get($color, 'white'),
+  site-name-desktop-color: map.get($color, 'dark-80'),
+  language-switcher: (
+    color: var(--c-d-140),
+    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    shadow-size: 6px,
+    arrow-size: 1rem,
+    arrow-top: 0,
+    arrow-border: none,
+    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
+    header-font-mobile: var(--f-p-l),
+    header-font-desktop: var(--f-p-xl),
+    header-separator: 1px solid var(--c-p-10),
+    close-right: var(--s-s),
+    close-top: var(--s-xs),
+    content-padding: 0 var(--s-s) var(--s-s),
+    category-margin: var(--s-l),
+    category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+    category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
+    category-stack-margin: var(--s-m),
+    category-separator: 1px solid var(--c-p-10),
+    column-spacing: var(--s-s),
+    code-color: var(--c-d-140),
+    code-width: 30px,
+    code-font-weight: map.get($font-weight, 'bold'),
+    code-active-font-weight: map.get($font-weight, 'bold'),
+    item-width: 188px,
+    item-padding: var(--s-s),
+    item-active-background: var(--c-p-10),
+    item-active-color: var(--c-d-140),
+    item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  ),
+);
+
 // Social media follow
 $social-media-follow: (
   background-color: map.get($color, 'blue-5'),
@@ -1251,6 +1250,47 @@ $spinner: (
   stroke-color: var(--c-p-80),
   stroke-linecap: round,
   text-color: var(--c-d),
+);
+
+// Splash page
+$splash-page: (
+  logo-background: var(--c-p-5),
+  logo-padding: var(--s-l),
+  logo-height-mobile: 2.5rem,
+  logo-height-desktop: 2.75rem,
+  color: var(--c-d-140),
+  container-padding: var(--s-2xl) var(--s-l) var(--s-l),
+  header-font-mobile: var(--f-p-l),
+  header-font-desktop: var(--f-p-xl),
+  content-margin-mobile: var(--s-m),
+  content-margin-desktop: var(--s-m),
+  category-title-font: var(--f-p-m),
+  category-title-font-weight: map.get($font-weight, 'bold'),
+  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-separator: 1px solid var(--c-p-20),
+  category-stack-margin: var(--s-s),
+  list-margin: 0 0 0 calc(-1 * var(--s-s)),
+  item-padding: var(--s-s),
+  code-color: var(--c-d-140),
+  code-font-weight: map.get($font-weight, 'bold'),
+  code-active-font-weight: map.get($font-weight, 'bold'),
+  code-width: 30px,
+  item-active-background: var(--c-p-10),
+  item-active-color: var(--c-d-140),
+  item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  item-width: 188px,
+  column-spacing: var(--s-m),
+);
+$splash-page-print: (
+  logo-padding: map.get($spacing-print, 'l'),
+  container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
+    map.get($spacing-print, 'l'),
+  header-font-desktop: map.get($font-print, 'xl'),
+  content-margin-desktop: map.get($spacing-print, 'l'),
+  category-title-font: map.get($font-print, 'm'),
+  category-title-padding: map.get($spacing-print, 'l') 0
+    map.get($spacing-print, 'xs'),
+  item-padding: map.get($spacing-print, 's'),
 );
 
 // Table
@@ -1380,7 +1420,6 @@ $timeline-print: (
 );
 
 // Utilities
-
 $typography: (
   heading-color: var(--c-d),
   text-color: var(--c-d-80),
@@ -1432,184 +1471,3 @@ $typography-print: (
   heading5: map.get($font-print, '2xl'),
   heading6: map.get($font-prolonged-print, 'xl'),
 );
-
-/**
-* Do not modify past this line
-*/
-
-:root {
-  --ecl-color-primary: #{map.get($color, 'primary')};
-  --ecl-color-primary-140: #{map.get($color, 'primary-140')};
-  --ecl-color-primary-130: #{map.get($color, 'primary-130')};
-  --ecl-color-primary-120: #{map.get($color, 'primary-120')};
-  --ecl-color-primary-100: #{map.get($color, 'primary-100')};
-  --ecl-color-primary-80: #{map.get($color, 'primary-80')};
-  --ecl-color-primary-60: #{map.get($color, 'primary-60')};
-  --ecl-color-primary-40: #{map.get($color, 'primary-40')};
-  --ecl-color-primary-20: #{map.get($color, 'primary-20')};
-  --ecl-color-primary-10: #{map.get($color, 'primary-10')};
-  --ecl-color-primary-5: #{map.get($color, 'primary-5')};
-  --ecl-color-secondary: #{map.get($color, 'secondary')};
-  --ecl-color-secondary-140: #{map.get($color, 'secondary-140')};
-  --ecl-color-secondary-120: #{map.get($color, 'secondary-120')};
-  --ecl-color-secondary-100: #{map.get($color, 'secondary-100')};
-  --ecl-color-secondary-80: #{map.get($color, 'secondary-80')};
-  --ecl-color-secondary-60: #{map.get($color, 'secondary-60')};
-  --ecl-color-secondary-40: #{map.get($color, 'secondary-40')};
-  --ecl-color-secondary-20: #{map.get($color, 'secondary-20')};
-  --ecl-color-secondary-10: #{map.get($color, 'secondary-10')};
-  --ecl-color-dark: #{map.get($color, 'dark')};
-  --ecl-color-dark-140: #{map.get($color, 'dark-140')};
-  --ecl-color-dark-120: #{map.get($color, 'dark-120')};
-  --ecl-color-dark-100: #{map.get($color, 'dark-100')};
-  --ecl-color-dark-80: #{map.get($color, 'dark-80')};
-  --ecl-color-dark-60: #{map.get($color, 'dark-60')};
-  --ecl-color-dark-40: #{map.get($color, 'dark-40')};
-  --ecl-color-dark-20: #{map.get($color, 'dark-20')};
-  --ecl-color-dark-10: #{map.get($color, 'dark-10')};
-  --ecl-color-info: #{map.get($color, 'info')};
-  --ecl-color-info-100: #{map.get($color, 'info-100')};
-  --ecl-color-info-5: #{map.get($color, 'info-5')};
-  --ecl-color-success: #{map.get($color, 'success')};
-  --ecl-color-success-100: #{map.get($color, 'success-100')};
-  --ecl-color-success-5: #{map.get($color, 'success-5')};
-  --ecl-color-warning: #{map.get($color, 'warning')};
-  --ecl-color-warning-100: #{map.get($color, 'warning-100')};
-  --ecl-color-warning-5: #{map.get($color, 'warning-5')};
-  --ecl-color-error: #{map.get($color, 'error')};
-  --ecl-color-error-100: #{map.get($color, 'error-100')};
-  --ecl-color-error-80: #{map.get($color, 'error-80')};
-  --ecl-color-error-5: #{map.get($color, 'error-5')};
-  --ecl-color-branding: #{map.get($color, 'branding')};
-  --ecl-color-accent: #{map.get($color, 'accent')};
-  --ecl-color-accent-100: #{map.get($color, 'accent-100')};
-  --ecl-color-accent-30: #{map.get($color, 'accent-30')};
-  --ecl-color-visited: #{map.get($color, 'visited')};
-  --ecl-color-visited-100: #{map.get($color, 'visited-100')};
-  --ecl-color-visited-40: #{map.get($color, 'visited-40')};
-  --ecl-font-2xs: #{map.get($font, '2xs')};
-  --ecl-font-xs: #{map.get($font, 'xs')};
-  --ecl-font-s: #{map.get($font, 's')};
-  --ecl-font-m: #{map.get($font, 'm')};
-  --ecl-font-l: #{map.get($font, 'l')};
-  --ecl-font-xl: #{map.get($font, 'xl')};
-  --ecl-font-2xl: #{map.get($font, '2xl')};
-  --ecl-font-3xl: #{map.get($font, '3xl')};
-  --ecl-font-4xl: #{map.get($font, '4xl')};
-  --ecl-font-5xl: #{map.get($font, '5xl')};
-  --ecl-font-6xl: #{map.get($font, '6xl')};
-  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
-  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
-  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
-  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
-  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
-  --ecl-spacing-2xs: #{map.get($spacing, '2xs')};
-  --ecl-spacing-xs: #{map.get($spacing, 'xs')};
-  --ecl-spacing-s: #{map.get($spacing, 's')};
-  --ecl-spacing-m: #{map.get($spacing, 'm')};
-  --ecl-spacing-l: #{map.get($spacing, 'l')};
-  --ecl-spacing-xl: #{map.get($spacing, 'xl')};
-  --ecl-spacing-2xl: #{map.get($spacing, '2xl')};
-  --ecl-spacing-3xl: #{map.get($spacing, '3xl')};
-  --ecl-spacing-4xl: #{map.get($spacing, '4xl')};
-  --ecl-shadow-1: #{map.get($shadow, '1')};
-  --ecl-shadow-2: #{map.get($shadow, '2')};
-  --ecl-shadow-3: #{map.get($shadow, '3')};
-  --ecl-shadow-4: #{map.get($shadow, '4')};
-  --ecl-shadow-inner-1: #{map.get($shadow-inner, '1')};
-  --ecl-shadow-inner-2: #{map.get($shadow-inner, '2')};
-  --ecl-shadow-negative-1: #{map.get($shadow-negative, '1')};
-  --ecl-shadow-negative-2: #{map.get($shadow-negative, '2')};
-  --ecl-shadow-negative-3: #{map.get($shadow-negative, '3')};
-  --ecl-shadow-negative-4: #{map.get($shadow-negative, '4')};
-  --ecl-shadow-negative-inner-1: #{map.get($shadow-negative-inner, '1')};
-  --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
-
-  // Aliases
-  --c-p: var(--ecl-color-primary);
-  --c-p-140: var(--ecl-color-primary-140);
-  --c-p-130: var(--ecl-color-primary-130);
-  --c-p-120: var(--ecl-color-primary-120);
-  --c-p-100: var(--ecl-color-primary-100);
-  --c-p-80: var(--ecl-color-primary-80);
-  --c-p-60: var(--ecl-color-primary-60);
-  --c-p-40: var(--ecl-color-primary-40);
-  --c-p-20: var(--ecl-color-primary-20);
-  --c-p-10: var(--ecl-color-primary-10);
-  --c-p-5: var(--ecl-color-primary-5);
-  --c-s: var(--ecl-color-secondary);
-  --c-s-140: var(--ecl-color-secondary-140);
-  --c-s-120: var(--ecl-color-secondary-120);
-  --c-s-100: var(--ecl-color-secondary-100);
-  --c-s-80: var(--ecl-color-secondary-80);
-  --c-s-60: var(--ecl-color-secondary-60);
-  --c-s-40: var(--ecl-color-secondary-40);
-  --c-s-20: var(--ecl-color-secondary-20);
-  --c-s-10: var(--ecl-color-secondary-10);
-  --c-d: var(--ecl-color-dark);
-  --c-d-140: var(--ecl-color-dark-140);
-  --c-d-120: var(--ecl-color-dark-120);
-  --c-d-100: var(--ecl-color-dark-100);
-  --c-d-80: var(--ecl-color-dark-80);
-  --c-d-60: var(--ecl-color-dark-60);
-  --c-d-40: var(--ecl-color-dark-40);
-  --c-d-20: var(--ecl-color-dark-20);
-  --c-d-10: var(--ecl-color-dark-10);
-  --c-in: var(--ecl-color-info);
-  --c-in-100: var(--ecl-color-info-100);
-  --c-in-5: var(--ecl-color-info-5);
-  --c-su: var(--ecl-color-success);
-  --c-su-100: var(--ecl-color-success-100);
-  --c-su-5: var(--ecl-color-success-5);
-  --c-wa: var(--ecl-color-warning);
-  --c-wa-100: var(--ecl-color-warning-100);
-  --c-wa-5: var(--ecl-color-warning-5);
-  --c-er: var(--ecl-color-error);
-  --c-er-100: var(--ecl-color-error-100);
-  --c-er-80: var(--ecl-color-error-80);
-  --c-er-5: var(--ecl-color-error-5);
-  --c-br: var(--ecl-color-branding);
-  --c-a: var(--ecl-color-accent);
-  --c-a-100: var(--ecl-color-accent-100);
-  --c-a-30: var(--ecl-color-accent-30);
-  --c-v: var(--ecl-color-visited);
-  --c-v-100: var(--ecl-color-visited-100);
-  --c-v-40: var(--ecl-color-visited-40);
-  --f-2xs: var(--ecl-font-2xs);
-  --f-xs: var(--ecl-font-xs);
-  --f-s: var(--ecl-font-s);
-  --f-m: var(--ecl-font-m);
-  --f-l: var(--ecl-font-l);
-  --f-xl: var(--ecl-font-xl);
-  --f-2xl: var(--ecl-font-2xl);
-  --f-3xl: var(--ecl-font-3xl);
-  --f-4xl: var(--ecl-font-4xl);
-  --f-5xl: var(--ecl-font-5xl);
-  --f-6xl: var(--ecl-font-6xl);
-  --f-p-xs: var(--ecl-font-prolonged-xs);
-  --f-p-s: var(--ecl-font-prolonged-s);
-  --f-p-m: var(--ecl-font-prolonged-m);
-  --f-p-l: var(--ecl-font-prolonged-l);
-  --f-p-xl: var(--ecl-font-prolonged-xl);
-  --s-2xs: var(--ecl-spacing-2xs);
-  --s-xs: var(--ecl-spacing-xs);
-  --s-s: var(--ecl-spacing-s);
-  --s-m: var(--ecl-spacing-m);
-  --s-l: var(--ecl-spacing-l);
-  --s-xl: var(--ecl-spacing-xl);
-  --s-2xl: var(--ecl-spacing-2xl);
-  --s-3xl: var(--ecl-spacing-3xl);
-  --s-4xl: var(--ecl-spacing-4xl);
-  --sh-1: var(--ecl-shadow-1);
-  --sh-2: var(--ecl-shadow-2);
-  --sh-3: var(--ecl-shadow-3);
-  --sh-4: var(--ecl-shadow-4);
-  --sh-i-1: var(--ecl-shadow-inner-1);
-  --sh-i-2: var(--ecl-shadow-inner-2);
-  --sh-n-1: var(--ecl-shadow-negative-1);
-  --sh-n-2: var(--ecl-shadow-negative-2);
-  --sh-n-3: var(--ecl-shadow-negative-3);
-  --sh-n-4: var(--ecl-shadow-negative-4);
-  --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
-  --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
-}

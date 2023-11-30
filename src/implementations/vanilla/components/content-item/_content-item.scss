@@ -39,7 +39,7 @@ $content-item: null !default;
 
 .ecl-content-item__picture {
   flex-shrink: 0;
-  margin-bottom: map.get($content-item, 'image-spacing-mobile');
+  margin-bottom: map.get($content-item, 'image-top-spacing');
   max-width: 100%;
 }
 
@@ -55,7 +55,7 @@ $content-item: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-content-item {
+  .ecl-content-item:not(.ecl-content-item--stack) {
     flex-direction: row;
   }
 
@@ -69,5 +69,10 @@ $content-item: null !default;
     margin-inline-end: 0;
     margin-inline-start: var(--s-m);
     order: 1;
+  }
+
+  .ecl-content-item__picture--top {
+    margin: 0 0 map.get($content-item, 'image-top-spacing');
+    max-width: 100%;
   }
 }
