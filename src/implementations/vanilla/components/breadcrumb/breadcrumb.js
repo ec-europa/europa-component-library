@@ -166,7 +166,6 @@ export class Breadcrumb {
     this.expandableElements.forEach((item) =>
       item.setAttribute('aria-hidden', 'false'),
     );
-    console.log('all visible');
   }
 
   /**
