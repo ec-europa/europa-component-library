@@ -4,7 +4,7 @@
   Parameters:
     - "picture" (associative array) (default: {}): 
       - "size" (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
-      - "position" (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+      - "position" (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
       - "img" (associative array) (default: {}):
         - "src" (string) (default: ''): Path to the default image
         - "alt" (string) (default: ''): Alt text of the default image
@@ -69,6 +69,10 @@
 
 {% if _date is not empty %}
   {% set _css_class = _css_class ~ ' ecl-content-item--inline' %}
+{% endif %}
+
+{% if _picture is not empty and _picture.position is not empty and _picture.position == 'top' %}
+  {% set _css_class = _css_class ~ ' ecl-content-item--stack' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

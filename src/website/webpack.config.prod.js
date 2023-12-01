@@ -348,6 +348,9 @@ module.exports = {
       'process.env.ECL_EC_CSS': JSON.stringify(
         (sri['ecl-ec.css'] || []).join(' ') || 'n/a',
       ),
+      'process.env.ECL_EC_UTILITIES_CSS': JSON.stringify(
+        (sri['ecl-ec-utilities.css'] || []).join(' ') || 'n/a',
+      ),
       'process.env.ECL_EC_PRINT_CSS': JSON.stringify(
         (sri['ecl-ec-print.css'] || []).join(' ') || 'n/a',
       ),
@@ -359,6 +362,9 @@ module.exports = {
       ),
       'process.env.ECL_EU_CSS': JSON.stringify(
         (sri['ecl-eu.css'] || []).join(' ') || 'n/a',
+      ),
+      'process.env.ECL_EU_UTILITIES_CSS': JSON.stringify(
+        (sri['ecl-eu-utilities.css'] || []).join(' ') || 'n/a',
       ),
       'process.env.ECL_EU_PRINT_CSS': JSON.stringify(
         (sri['ecl-eu-print.css'] || []).join(' ') || 'n/a',
