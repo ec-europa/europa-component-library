@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-forms--textarea
+  path: /story/components-forms-text
 ---
