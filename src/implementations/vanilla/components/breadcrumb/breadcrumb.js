@@ -39,6 +39,7 @@ export class Breadcrumb {
       onPartialExpand = null,
       onFullExpand = null,
       attachClickListener = true,
+      attachResizeListener = true,
     } = {},
   ) {
     // Check element
@@ -59,15 +60,18 @@ export class Breadcrumb {
     this.onPartialExpand = onPartialExpand;
     this.onFullExpand = onFullExpand;
     this.attachClickListener = attachClickListener;
+    this.attachResizeListener = attachResizeListener;
 
     // Private variables
     this.ellipsisButton = null;
     this.itemsElements = null;
     this.staticElements = null;
     this.expandableElements = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnEllipsis = this.handleClickOnEllipsis.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -94,6 +98,11 @@ export class Breadcrumb {
     );
 
     this.check();
+
+    // Bind resize events
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -108,6 +117,9 @@ export class Breadcrumb {
         'click',
         this.handleClickOnEllipsis,
       );
+    }
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -127,7 +139,6 @@ export class Breadcrumb {
    */
   check() {
     const visibilityMap = this.computeVisibilityMap();
-
     if (!visibilityMap) return;
 
     if (visibilityMap.expanded === true) {
@@ -179,12 +190,23 @@ export class Breadcrumb {
     if (this.onPartialExpand) {
       this.onPartialExpand(isItemVisible);
     } else {
-      this.expandableElements.forEach((item, index) => {
-        item.setAttribute(
-          'aria-hidden',
-          isItemVisible[index] ? 'false' : 'true',
-        );
-      });
+      // eslint-disable-next-line no-lonely-if
+      if (Math.floor(this.element.getBoundingClientRect().width) > 767) {
+        const ellipsis = queryOne(this.ellipsisSelector, this.element);
+        if (ellipsis) {
+          ellipsis.setAttribute('aria-hidden', 'false');
+        }
+        this.expandableElements.forEach((item, index) => {
+          item.setAttribute(
+            'aria-hidden',
+            isItemVisible[index] ? 'false' : 'true',
+          );
+        });
+      } else {
+        this.expandableElements.forEach((item) => {
+          item.setAttribute('aria-hidden', 'true');
+        });
+      }
     }
   }
 
@@ -203,6 +225,16 @@ export class Breadcrumb {
   }
 
   /**
+   * Trigger events on resize
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.check();
+    }, 200);
+  }
+
+  /**
    * Measure/evaluate which elements can be displayed and toggle those who don't fit.
    */
   computeVisibilityMap() {
@@ -215,12 +247,20 @@ export class Breadcrumb {
 
     // Get the sum of all items' width
     const allItemsWidth = this.itemsElements
-      .map(
-        (breadcrumbSegment) => breadcrumbSegment.getBoundingClientRect().width,
-      )
+      .map((breadcrumbSegment) => {
+        let segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
+        // Current page can have a display none set via the css.
+        if (segmentWidth === 0) {
+          breadcrumbSegment.style.display = 'inline-flex';
+          segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
+          breadcrumbSegment.style.cssText = '';
+        }
+        return segmentWidth;
+      })
       .reduce((a, b) => a + b);
 
-    if (allItemsWidth <= wrapperWidth) {
+    // This calculation is not always 100% reliable, we add a 20% to limit the risk.
+    if (allItemsWidth * 1.2 <= wrapperWidth) {
       return { expanded: true };
     }
 
