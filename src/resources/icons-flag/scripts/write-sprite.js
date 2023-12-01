@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const mkdirp = require('mkdirp');
 const SVGSpriter = require('svg-sprite');
+const mkdirp = require('mkdirp');
 
 const writeSprite = ({ cwd, files, dest, outputFile }) => {
   const spriter = new SVGSpriter({
@@ -9,8 +9,7 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
     shape: {
       id: {
         generator(name) {
-          const segments = name.split(path.sep);
-          return segments[1].replace('.svg', '');
+          return path.basename(name, '.svg');
         },
       },
       dimension: { attributes: true },
