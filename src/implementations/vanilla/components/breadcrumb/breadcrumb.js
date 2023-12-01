@@ -157,14 +157,6 @@ export class Breadcrumb {
     if (ellipsis) {
       ellipsis.setAttribute('aria-hidden', 'true');
     }
-
-    // Remove event listener
-    if (this.attachClickListener && this.ellipsisButton) {
-      this.ellipsisButton.removeEventListener(
-        'click',
-        this.handleClickOnEllipsis,
-      );
-    }
   }
 
   /**
@@ -174,6 +166,7 @@ export class Breadcrumb {
     this.expandableElements.forEach((item) =>
       item.setAttribute('aria-hidden', 'false'),
     );
+    console.log('all visible');
   }
 
   /**
