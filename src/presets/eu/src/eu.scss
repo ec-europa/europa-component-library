@@ -229,9 +229,11 @@
 );
 @use '@ecl/vanilla-component-site-header/site-header-eu' with (
   $theme: theme.$theme,
-  $site-header: var.$site-header
+  $site-header: var.$site-header,
+  $language-list: var.$language-list
 );
 @use '@ecl/vanilla-component-splash-page/splash-page' with (
   $theme: theme.$theme,
-  $splash-page: var.$splash-page
+  $splash-page: var.$splash-page,
+  $language-list: var.$language-list
 );
