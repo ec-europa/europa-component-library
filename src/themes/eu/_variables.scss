@@ -81,13 +81,13 @@ $blockquote: (
   border-color: var(--c-p),
   border-radius: 4px 0 0 4px,
   shadow: none,
-  padding: var(--s-m) 0 var(--s-m) var(--s-l),
+  padding: var(--s-l),
   quote: (
     font: var(--f-2xl),
     color: var(--c-d-80),
   ),
   author: (
-    margin: var(--s-l),
+    margin: var(--s-m),
     padding: var(--s-xl),
     font-mobile: var(--f-p-m),
     font-desktop: var(--f-p-l),
@@ -95,13 +95,12 @@ $blockquote: (
     color: var(--c-d-80),
   ),
   image: (
-    margin-mobile: var(--s-s),
+    margin-mobile: var(--s-l),
     margin-desktop: var(--s-l),
   ),
 );
 $blockquote-print: (
-  padding: map.get($spacing-print, 'm') 0 map.get($spacing-print, 'm')
-    map.get($spacing-print, 'l'),
+  padding: map.get($spacing-print, 'l'),
   quote-font: map.get($font-print, '2xl'),
   author-margin: map.get($spacing-print, 'l'),
   author-font: map.get($font-print, 'l'),
