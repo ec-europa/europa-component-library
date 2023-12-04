@@ -63,11 +63,8 @@ $breadcrumb: null !default;
   background-color: map.get($breadcrumb, 'ellipsis', 'background');
   font: map.get($breadcrumb, 'link-font');
   font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight');
-  margin: -#{map.get($breadcrumb, 'ellipsis', 'offset-vertical')} -#{map.get(
-      $breadcrumb,
-      'ellipsis',
-      'offset-horizontal'
-    )};
+  margin: map.get($breadcrumb, 'ellipsis', 'offset-vertical')
+    map.get($breadcrumb, 'ellipsis', 'offset-horizontal');
 
   &:hover {
     background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
@@ -122,13 +119,22 @@ $breadcrumb: null !default;
   }
 }
 
+@include breakpoints.down('s') {
+  .ecl-breadcrumb__segment--ellipsis {
+    display: none;
+  }
+}
+
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-breadcrumb {
     font: map.get($breadcrumb, 'font-desktop');
     line-height: map.get($breadcrumb, 'line-height');
   }
+}
 
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
   .ecl-breadcrumb__icon {
     transform: rotateZ(90deg);
   }

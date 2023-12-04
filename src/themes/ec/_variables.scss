@@ -112,8 +112,8 @@ $breadcrumb: (
     background: transparent,
     background-hover: var(--c-p-20),
     font-weight: map.get($font-weight, 'regular'),
-    offset-vertical: var(--s-xs),
-    offset-horizontal: var(--s-m),
+    offset-vertical: calc(-1 * var(--s-xs)),
+    offset-horizontal: calc(-1 * var(--s-m)),
   ),
 );
 

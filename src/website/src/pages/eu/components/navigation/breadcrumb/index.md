@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: eu
-  path: /story/components-navigation-breadcrumb--core
+  path: /story/components-navigation-breadcrumb--default
 ---
