@@ -126,12 +126,15 @@ $breadcrumb: null !default;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
+@include breakpoints.up('m') {
   .ecl-breadcrumb {
     font: map.get($breadcrumb, 'font-desktop');
     line-height: map.get($breadcrumb, 'line-height');
   }
+}
 
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
   .ecl-breadcrumb__icon {
     transform: rotateZ(90deg);
   }
