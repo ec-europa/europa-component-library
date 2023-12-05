@@ -275,6 +275,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Tabs
 
 - Button for "more" is now a `ghost` button, and icon is now size `s`
+- A container has been added for the dropdown list
 
 ### Tag
 

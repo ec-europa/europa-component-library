@@ -1350,12 +1350,18 @@ $tabs: (
   ),
   overflow: (
     background: var(--c-p),
+    color: map.get($color, 'white'),
+    background-hover: var(--c-p),
+    color-hover: map.get($color, 'white'),
   ),
   dropdown: (
     shadow: var(--sh-1),
     container-padding: 0,
+    list-margin: 0,
     item-padding: var(--s-s) var(--s-m),
     item-color: var(--c-d-140),
+    item-active-background: var(--c-p-10),
+    item-active-color: var(--c-d-140),
   ),
 );
 

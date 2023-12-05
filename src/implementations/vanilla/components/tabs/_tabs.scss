@@ -19,6 +19,15 @@ $tabs: null !default;
 
 .ecl-tabs__container {
   overflow-x: hidden;
+  transition-duration: 0.4s;
+}
+
+.ecl-tabs__container--left {
+  margin-inline-start: 44px;
+}
+
+.ecl-tabs__container--right {
+  margin-inline-end: 44px;
 }
 
 .ecl-tabs__list {
@@ -132,8 +141,6 @@ $tabs: null !default;
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($tabs, 'dropdown', 'shadow');
   display: none;
-  list-style: none;
-  margin: 0;
   max-height: 233px;
   max-width: 100%;
   overflow-y: auto;
@@ -141,7 +148,7 @@ $tabs: null !default;
   position: absolute;
   right: 0;
   text-align: start;
-  top: 100%;
+  top: calc(100% + map.get($tabs, 'separator-width'));
   width: 100%;
 
   .ecl-tabs__link {
@@ -150,16 +157,28 @@ $tabs: null !default;
     color: map.get($tabs, 'dropdown', 'item-color');
     margin-bottom: 0;
     padding: map.get($tabs, 'dropdown', 'item-padding');
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .ecl-tabs__link--active {
-    border-bottom-width: map.get($tabs, 'separator-width');
+    background-color: map.get($tabs, 'dropdown', 'item-active-background');
+    color: map.get($tabs, 'dropdown', 'item-active-color');
+    font-weight: map.get($theme, 'font-weight', 'regular');
   }
 }
 
-.ecl-tabs__dropdown--show {
+.ecl-tabs__dropdown-list {
   display: grid;
-  margin-top: 0;
+  list-style: none;
+  margin: map.get($tabs, 'dropdown', 'list-margin');
+  padding: 0;
+}
+
+.ecl-tabs__dropdown--show {
+  display: block;
 }
 
 .ecl-tabs__next {
@@ -174,12 +193,12 @@ $tabs: null !default;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
-  background: map.get($tabs, 'overflow', 'background');
+  background: map.get($theme, 'color', 'white');
   position: absolute;
   top: 0;
 
   &:focus-visible {
-    background: map.get($tabs, 'overflow', 'background');
+    background: map.get($theme, 'color', 'white');
   }
 }
 
@@ -189,7 +208,11 @@ $tabs: null !default;
     overflow-x: visible;
   }
 
-  .ecl-tabs__dropdown {
+  .ecl-tabs__dropdown--show {
+    width: auto;
+  }
+
+  .ecl-tabs__dropdown-list {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;
     height: auto;
