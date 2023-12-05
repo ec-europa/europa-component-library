@@ -272,6 +272,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   ...
 ]`
 
+### Tabs
+
+- Button for "more" is now a `ghost` button
+
 ### Tag
 
 - Icon used in removable tag is now `close-outline`
