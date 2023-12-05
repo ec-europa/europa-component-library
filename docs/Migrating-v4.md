@@ -274,7 +274,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Tabs
 
-- Button for "more" is now a `ghost` button
+- Button for "more" is now a `ghost` button, and icon is now size `s`
 
 ### Tag
 
