@@ -5,7 +5,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 
 import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
 import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
-import iconsFlag from '@ecl/resources-flag-icons/dist/lists/flag.json';
+import iconsFlag from '@ecl/resources-flag-icons/dist/lists/members/all.json';
 import dataListIllustrationImage from '@ecl/specs-component-list-illustration/demo/data--image';
 import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/demo/data--icon';
 

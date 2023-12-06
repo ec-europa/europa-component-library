@@ -8,6 +8,7 @@
 
 .ecl-accordion__item {
   margin-top: map.get(theme.$spacing-print, 'l');
+  page-break-inside: avoid;
 
   &:first-of-type {
     margin-top: 0;
@@ -23,6 +24,7 @@
   font-family: #{map.get(theme.$font-family-print, 'alt')};
   font-weight: map.get(theme.$font-weight-print, 'bold');
   margin: 0;
+  page-break-after: avoid;
 }
 
 .ecl-accordion__toggle {

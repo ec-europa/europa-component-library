@@ -544,11 +544,11 @@ export class Gallery {
     }
 
     // Update download link
-    if (embeddedVideo != null) {
-      this.overlayDownload.hidden = true;
-    } else {
+    if (this.overlayDownload !== null && embeddedVideo === null) {
       this.overlayDownload.href = this.selectedItem.href;
       this.overlayDownload.hidden = false;
+    } else if (this.overlayDownload !== null) {
+      this.overlayDownload.hidden = true;
     }
 
     // Update meta
