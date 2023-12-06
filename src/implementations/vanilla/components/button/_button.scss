@@ -125,6 +125,27 @@ $size-icon-only: calc(
     border-color: map.get($button, #{$variant}, 'border-color-active');
     color: map.get($button, #{$variant}, 'color-active');
   }
+
+  @if map-has-key($button, #{$variant}, 'border-width-hover') {
+    &:hover {
+      border-width: map.get($button, #{$variant}, 'border-width-hover');
+      padding: calc(
+          #{map.get($button, 'padding-vertical')} -
+            #{map.get($button, #{$variant}, 'border-width-hover')}
+        )
+        calc(
+          #{map.get($button, 'padding-horizontal')} -
+            #{map.get($button, #{$variant}, 'border-width-hover')}
+        );
+    }
+
+    &.ecl-button--icon-only:hover {
+      padding: calc(
+        #{map.get($button, 'border-width')} -
+          #{map.get($button, #{$variant}, 'border-width-hover')}
+      );
+    }
+  }
 }
 
 .ecl-button--primary {
@@ -144,16 +165,6 @@ $size-icon-only: calc(
 
 .ecl-button--tertiary {
   @include button(tertiary);
-
-  &:hover {
-    border-width: 1px;
-    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
-      calc(#{map.get($button, 'padding-horizontal')} - 1px);
-  }
-
-  &.ecl-button--icon-only:hover {
-    padding: 1px;
-  }
 }
 
 .ecl-button--cta {
@@ -162,28 +173,8 @@ $size-icon-only: calc(
 
 .ecl-button--ghost {
   @include button(ghost);
-
-  &:hover {
-    border-width: 1px;
-    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
-      calc(#{map.get($button, 'padding-horizontal')} - 1px);
-  }
-
-  &.ecl-button--icon-only:hover {
-    padding: 1px;
-  }
 }
 
 .ecl-button--ghost-inverted {
   @include button(ghost-inverted);
-
-  &:hover {
-    border-width: 1px;
-    padding: calc(#{map.get($button, 'padding-vertical')} - 1px)
-      calc(#{map.get($button, 'padding-horizontal')} - 1px);
-  }
-
-  &.ecl-button--icon-only:hover {
-    padding: 1px;
-  }
 }
