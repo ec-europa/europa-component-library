@@ -122,8 +122,8 @@ $carousel: null !default;
 }
 
 .ecl-carousel__navigation-item {
-  background-color: map.get($carousel, 'navigation-background-default');
   border: 2px solid transparent;
+  color: map.get($carousel, 'navigation-color');
   cursor: pointer;
 
   &:active,

@@ -245,13 +245,11 @@ $card: (
 
 // Carousel
 $carousel: (
-  controls-background: var(--c-p-140),
-  navigation-color-default: transparent,
-  navigation-border: 2px solid map.get($color, 'white-100'),
-  navigation-color-hover: map.get($color, 'white-100'),
-  navigation-color-active: map.get($color, 'white-100'),
-  pagination-color: map.get($color, 'white-100'),
-  play-color: map.get($color, 'white-100'),
+  controls-background: var(--c-p-5),
+  navigation-color: var(--c-d-80),
+  navigation-background-active: transparent,
+  navigation-color-active: var(--c-d-80),
+  play-color: var(--c-p),
   prev-next-hover-background: var(--c-d-20),
 );
 

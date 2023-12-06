@@ -541,7 +541,7 @@ export class Carousel {
     clearInterval(this.intervalId);
     clearTimeout(this.resizeTimer);
     let containerWidth = 0;
-    // We set 250ms delay which is higher than the 200ms delay uin the banner.
+    // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
       if (vw >= 998) {
         this.intervalId = setInterval(this.checkBannerHeights, 100);
@@ -619,7 +619,6 @@ export class Carousel {
           }
         } else if (focusedEl.nextSibling) {
           e.preventDefault();
-          console.log('shifting..');
           this.shiftSlide('next', true);
           setTimeout(() => focusedEl.nextSibling.focus(), 400);
         }
