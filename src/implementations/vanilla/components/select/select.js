@@ -1,4 +1,5 @@
 /* eslint-disable no-return-assign */
+import { queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
 import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
@@ -25,6 +26,11 @@ const iconSvgAllCornerArrow =
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
+ * @param {String} options.closeLabelAttribute The data attribute for the close button
+ * @param {String} options.clearAllLabelAttribute The data attribute for the clear all button
+ * @param {String} options.selectMultiplesSelectionCountSelector The selector for the counter of selected options
+ * @param {String} options.closeButtonLabel The label of the close button
+ * @param {String} options.clearAllButtonLabel The label of the clear all button
  */
 export class Select {
   /**
@@ -104,9 +110,13 @@ export class Select {
     this.selectMultiple = null;
     this.inputContainer = null;
     this.optionsContainer = null;
+    this.visibleOptions = null;
     this.searchContainer = null;
     this.countSelections = null;
     this.form = null;
+    this.formGroup = null;
+    this.label = null;
+    this.helper = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -187,10 +197,12 @@ export class Select {
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('id', `${ctx}-${id}`);
+    input.setAttribute('name', `${ctx}-${id}`);
     checkbox.appendChild(input);
     label.classList.add('ecl-checkbox__label');
     label.setAttribute('for', `${ctx}-${id}`);
     box.classList.add('ecl-checkbox__box');
+    box.setAttribute('aria-hidden', true);
     box.appendChild(
       Select.createSvgIcon(
         iconSvgAllCheck,
@@ -265,6 +277,19 @@ export class Select {
     this.clearAllButtonLabel =
       this.clearAllButtonLabel ||
       this.element.getAttribute(this.clearAllLabelAttribute);
+
+    this.formGroup = this.element.closest('.ecl-form-group');
+    if (this.formGroup) {
+      this.label = queryOne(`#${this.selectMultipleId}-label`, this.formGroup);
+      this.helper = queryOne(
+        `#${this.selectMultipleId}-helper`,
+        this.formGroup,
+      );
+    }
+
+    // Disable focus on default select
+    this.select.setAttribute('tabindex', '-1');
+
     this.selectMultiple = document.createElement('div');
     this.selectMultiple.classList.add('ecl-select__multiple');
     // Close the searchContainer when tabbing out of the selectMultple
@@ -274,16 +299,35 @@ export class Select {
     this.inputContainer.classList.add(...containerClasses);
     this.selectMultiple.appendChild(this.inputContainer);
 
-    this.input = document.createElement('input');
+    this.input = document.createElement('button');
     this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-    this.input.setAttribute('type', 'text');
-    this.input.setAttribute('placeholder', this.textDefault || '');
-    this.input.setAttribute('readonly', true);
+    this.input.setAttribute('type', 'button');
+    this.input.setAttribute(
+      'aria-controls',
+      `${this.selectMultipleId}-dropdown`,
+    );
+    this.input.setAttribute('id', `${this.selectMultipleId}-toggle`);
+    this.input.setAttribute('aria-expanded', false);
     if (containerClasses.find((c) => c.includes('disabled'))) {
       this.input.setAttribute('disabled', true);
     }
-    this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
 
+    // Add accessibility attributes
+    if (this.label) {
+      this.label.setAttribute('for', `${this.selectMultipleId}-toggle`);
+      this.input.setAttribute(
+        'aria-labelledby',
+        `${this.selectMultipleId}-label`,
+      );
+    }
+    if (this.helper) {
+      this.input.setAttribute(
+        'aria-describedby',
+        `${this.selectMultipleId}-helper`,
+      );
+    }
+
+    this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
     this.input.addEventListener('click', this.handleToggle);
 
     this.selectionCount = document.createElement('div');
@@ -302,6 +346,10 @@ export class Select {
     this.searchContainer.classList.add(
       'ecl-select__multiple-dropdown',
       ...containerClasses,
+    );
+    this.searchContainer.setAttribute(
+      'id',
+      `${this.selectMultipleId}-dropdown`,
     );
 
     this.selectMultiple.appendChild(this.searchContainer);
@@ -388,13 +436,13 @@ export class Select {
         if (option.parentNode.tagName === 'OPTGROUP') {
           if (
             !this.optionsContainer.querySelector(
-              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                 'label',
               )}"]`,
             )
           ) {
-            optgroup = document.createElement('div');
-            const title = document.createElement('h5');
+            optgroup = document.createElement('fieldset');
+            const title = document.createElement('legend');
             title.classList.add('ecl-select__multiple-group__title');
             title.innerHTML = option.parentNode.getAttribute('label');
             optgroup.appendChild(title);
@@ -406,7 +454,7 @@ export class Select {
             this.optionsContainer.appendChild(optgroup);
           } else {
             optgroup = this.optionsContainer.querySelector(
-              `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                 'label',
               )}"]`,
             );
@@ -443,7 +491,10 @@ export class Select {
 
         return checkbox;
       });
+    } else {
+      this.checkboxes = [];
     }
+    this.visibleOptions = this.checkboxes;
 
     this.select.parentNode.parentNode.insertBefore(
       this.selectMultiple,
@@ -568,10 +619,21 @@ export class Select {
   }
 
   updateCurrentValue() {
-    this.input.value = Array.from(this.select.options)
+    const optionSelected = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
       .join(', ');
+    this.input.innerHTML = optionSelected || this.textDefault || '';
+
+    if (optionSelected !== '') {
+      this.label.setAttribute(
+        'aria-label',
+        `${this.label.innerText} ${optionSelected}`,
+      );
+    } else {
+      this.label.removeAttribute('aria-label');
+    }
+
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
@@ -584,8 +646,10 @@ export class Select {
 
     if (this.searchContainer.style.display === 'none') {
       this.searchContainer.style.display = 'block';
+      this.input.setAttribute('aria-expanded', true);
     } else {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -658,6 +722,7 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -666,7 +731,7 @@ export class Select {
    */
   handleSearch(e) {
     const dropDownHeight = this.optionsContainer.offsetHeight;
-    const visible = [];
+    this.visibleOptions = [];
     const keyword = e.target.value.toLowerCase();
     if (dropDownHeight > 0) {
       this.optionsContainer.style.height = `${dropDownHeight}px`;
@@ -697,12 +762,17 @@ export class Select {
             '<b>$&</b>',
           );
         }
-        visible.push(checkbox);
+        this.visibleOptions.push(checkbox);
       }
     });
     // Select all checkbox follows along.
-    const checked = visible.filter((c) => c.querySelector('input').checked);
-    if (visible.length === 0 || visible.length !== checked.length) {
+    const checked = this.visibleOptions.filter(
+      (c) => c.querySelector('input').checked,
+    );
+    if (
+      this.visibleOptions.length === 0 ||
+      this.visibleOptions.length !== checked.length
+    ) {
       this.selectAll.querySelector('input').checked = false;
     } else {
       this.selectAll.querySelector('input').checked = true;
@@ -728,7 +798,7 @@ export class Select {
       });
     }
 
-    if (visible.length === 0 && !noResultsElement) {
+    if (this.visibleOptions.length === 0 && !noResultsElement) {
       // Create no-results element.
       const noResultsContainer = document.createElement('div');
       const noResultsLabel = document.createElement('span');
@@ -736,7 +806,7 @@ export class Select {
       noResultsLabel.innerHTML = this.textNoResults;
       noResultsContainer.appendChild(noResultsLabel);
       this.optionsContainer.appendChild(noResultsContainer);
-    } else if (visible.length > 0 && noResultsElement !== null) {
+    } else if (this.visibleOptions.length > 0 && noResultsElement !== null) {
       noResultsElement.parentNode.removeChild(noResultsElement);
     }
     // reset
@@ -766,6 +836,7 @@ export class Select {
       this.searchContainer.style.display === 'block'
     ) {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
@@ -775,11 +846,13 @@ export class Select {
   handleKeyboardOnSelect(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        e.preventDefault();
+        this.handleEsc(e);
         break;
 
       case ' ':
       case 'ArrowDown':
+        e.preventDefault();
         this.handleToggle(e);
         this.search.focus();
         break;
@@ -794,16 +867,33 @@ export class Select {
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        e.preventDefault();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
-        this.optionsContainer.querySelectorAll('input')[0].focus();
         e.preventDefault();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.search.focus();
+        break;
+
+      case 'Tab':
+        e.preventDefault();
+        if (e.shiftKey) {
+          this.search.focus();
+        } else if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -816,20 +906,27 @@ export class Select {
   handleKeyboardOnOptions(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        e.preventDefault();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         this.moveFocus('down');
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.moveFocus('up');
         break;
 
       case 'Tab':
         e.preventDefault();
-        this.moveFocus('down');
+        if (e.shiftKey) {
+          this.moveFocus('up');
+        } else {
+          this.moveFocus('down');
+        }
         break;
 
       default:
@@ -842,16 +939,17 @@ export class Select {
   handleKeyboardOnSearch(e) {
     switch (e.key) {
       case 'Escape':
-        this.handleEsc();
+        e.preventDefault();
+        this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         if (this.selectAll.querySelector('input').disabled) {
-          const firstAvailable = Array.from(
-            this.optionsContainer.querySelectorAll('.ecl-checkbox'),
-          ).filter((el) => el.style.display !== 'none');
-          if (firstAvailable[0]) {
-            firstAvailable[0].querySelector('input').focus();
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[0].querySelector('input').focus();
+          } else {
+            this.input.focus();
           }
         } else {
           this.selectAll.querySelector('input').focus();
@@ -859,6 +957,7 @@ export class Select {
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.input.focus();
         this.handleToggle(e);
         break;
@@ -872,6 +971,7 @@ export class Select {
    */
   handleKeyboardOnOption(e) {
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       this.handleClickOption(e);
     }
   }
@@ -880,21 +980,49 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClearAll(e) {
-    e.preventDefault();
-
     switch (e.key) {
       case 'Enter':
       case ' ':
-        this.handleClickOnClearAll();
+        e.preventDefault();
+        this.handleClickOnClearAll(e);
         this.input.focus();
         break;
 
-      case 'ArrowRight':
-        this.clearAllButton.nextSibling.focus();
+      case 'ArrowDown':
+        e.preventDefault();
+        if (this.closeButton) {
+          this.closeButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
-        this.optionsContainer.lastChild.querySelector('input').focus();
+        e.preventDefault();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
+        } else {
+          this.search.focus();
+        }
+        break;
+
+      case 'Tab':
+        e.preventDefault();
+        if (e.shiftKey) {
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.search.focus();
+          }
+        } else if (this.closeButton) {
+          this.closeButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -905,20 +1033,39 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClose(e) {
-    e.preventDefault();
-
     switch (e.key) {
-      case 'ArrowLeft':
-        this.closeButton.previousSibling.focus();
+      case 'Enter':
+      case ' ':
+        e.preventDefault();
+        this.handleEsc(e);
+        this.input.focus();
         break;
 
       case 'ArrowUp':
-        this.optionsContainer.lastChild.querySelector('input').focus();
+        e.preventDefault();
+        if (this.clearAllButton) {
+          this.clearAllButton.focus();
+        } else {
+          this.input.focus();
+        }
+        break;
+
+      case 'ArrowDown':
+        e.preventDefault();
+        this.input.focus();
         break;
 
       case 'Tab':
         e.preventDefault();
-        this.input.focus();
+        if (e.shiftKey) {
+          if (this.clearAllButton) {
+            this.clearAllButton.focus();
+          } else {
+            this.input.focus();
+          }
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -933,6 +1080,7 @@ export class Select {
 
     if (this.searchContainer.style.display === 'block') {
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
     }
   }
 
