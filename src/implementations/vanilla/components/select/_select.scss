@@ -53,6 +53,7 @@ $_multiple_counter_background: null !default;
   display: block;
   font: map.get(theme.$font, 'm');
   margin: 0;
+  overflow: hidden;
   padding-bottom: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
   padding-inline-end: calc(
     #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width}
@@ -61,6 +62,9 @@ $_multiple_counter_background: null !default;
     #{map.get(theme.$spacing, 's')} - #{$_border-width}
   );
   padding-top: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
   z-index: 1;
 
@@ -239,6 +243,7 @@ $_multiple_counter_background: null !default;
 
 .ecl-select__multiple {
   cursor: pointer;
+  display: inline-block;
   position: relative;
 
   .ecl-select__multiple-dropdown {
@@ -269,6 +274,10 @@ $_multiple_counter_background: null !default;
     padding: map.get(theme.$spacing, 's') 0;
   }
 
+  .ecl-checkbox {
+    clear: left;
+  }
+
   .ecl-checkbox__label {
     padding-bottom: $_multiple-checkbox-label-vertical-padding;
     padding-inline-start: map.get(theme.$spacing, 's');
@@ -285,6 +294,7 @@ $_multiple_counter_background: null !default;
   }
 
   .ecl-select__multiple-group {
+    border: none;
     border-bottom: 1px solid $_group-separator-color;
     margin: 0 map.get(theme.$spacing, 's');
     padding: map.get(theme.$spacing, 's') 0;
@@ -306,6 +316,7 @@ $_multiple_counter_background: null !default;
 
   .ecl-select__multiple-group__title {
     color: $_group-title-color;
+    float: left;
     font: $_group-title-font;
     font-weight: map.get(theme.$font-weight, 'bold');
     margin: map.get(theme.$spacing, 'xs') 0;
