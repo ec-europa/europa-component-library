@@ -711,16 +711,6 @@ export class Menu {
         }
         return;
       }
-      if (e.key === 'ArrowDown') {
-        const firstItem = queryOne(
-          '.ecl-menu__sublink:first-of-type',
-          menuItem,
-        );
-        if (firstItem) {
-          firstItem.focus();
-          return;
-        }
-      }
     }
 
     // Key actions to navigate between first level menu items
@@ -729,6 +719,7 @@ export class Menu {
       cList.contains('ecl-menu__button-caret')
     ) {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
         let prevItem = element.previousSibling;
 
         if (prevItem && prevItem.classList.contains('ecl-menu__link')) {
@@ -752,6 +743,7 @@ export class Menu {
         }
       }
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
         let nextItem = element.nextSibling;
 
         if (nextItem && nextItem.classList.contains('ecl-menu__button-caret')) {

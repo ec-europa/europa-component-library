@@ -181,7 +181,7 @@
         } only %}
       {% endif %}
       
-      <ul class="ecl-menu__list" data-ecl-menu-list>
+      <ul class="ecl-menu__list" data-ecl-menu-list role="menu">
       {% if items is defined and items is not empty and items is iterable %}
         {% for key, item in items %}
         {% if item is defined and item is not empty %}
