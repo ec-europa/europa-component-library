@@ -247,6 +247,7 @@ export class Tabs {
 
     if (newOffset > maxScroll) {
       this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
       newOffset = maxScroll;
     }
 
@@ -304,6 +305,7 @@ export class Tabs {
       this.btnNext.style.display = 'block';
       this.container.classList.add('ecl-tabs__container--right');
       this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
       this.tabsKeyEvents();
       return;
     }
@@ -311,7 +313,9 @@ export class Tabs {
     this.isMobile = false;
     // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--right');
     this.btnPrev.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--left');
     this.list.style.width = 'auto';
 
     // Hide items that won't fit in the list

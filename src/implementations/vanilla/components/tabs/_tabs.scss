@@ -10,6 +10,9 @@
 $theme: null !default;
 $tabs: null !default;
 
+// Internal variables
+$button-width: 44px;
+
 .ecl-tabs {
   margin: 0 0 var(--s-xl);
   padding: 0;
@@ -21,14 +24,6 @@ $tabs: null !default;
   transition-duration: 0.4s;
 }
 
-.ecl-tabs__container--left {
-  margin-inline-start: 44px;
-}
-
-.ecl-tabs__container--right {
-  margin-inline-end: 44px;
-}
-
 .ecl-tabs__list {
   border-bottom: map.get($tabs, 'separator-width') solid
     map.get($tabs, 'separator-color');
@@ -37,6 +32,19 @@ $tabs: null !default;
   list-style: none;
   margin: 0;
   padding-inline-start: 0;
+  transition-duration: 0.4s;
+}
+
+.ecl-tabs__container--left {
+  margin-inline-start: $button-width;
+
+  .ecl-tabs__list {
+    margin-left: -$button-width;
+  }
+}
+
+.ecl-tabs__container--right {
+  margin-inline-end: $button-width;
 }
 
 .ecl-tabs__link {
