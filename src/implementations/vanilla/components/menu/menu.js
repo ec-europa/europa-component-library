@@ -711,6 +711,18 @@ export class Menu {
         }
         return;
       }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const firstItem = queryOne(
+          '.ecl-menu__sublink:first-of-type',
+          menuItem,
+        );
+        if (firstItem) {
+          this.handleHoverOnItem(e);
+          firstItem.focus();
+          return;
+        }
+      }
     }
 
     // Key actions to navigate between first level menu items
