@@ -35,8 +35,8 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}" role="none">
-  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }} id="{{ _id }}-link" role="menuitem">
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
+  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }} id="{{ _id }}-link">
     {{- item.label -}}
     {%- if item.external -%}
       {% include '@ecl/icon/icon.html.twig' with {
