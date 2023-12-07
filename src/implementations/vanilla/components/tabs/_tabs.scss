@@ -1,7 +1,6 @@
 /**
  * News ticker component
  * @define tabs
- * TODO
  */
 
 @use 'sass:map';
@@ -51,6 +50,10 @@ $tabs: null !default;
   margin-bottom: -#{map.get($tabs, 'separator-width')};
   padding: map.get($tabs, 'item', 'padding');
   text-decoration: none;
+
+  &:visited {
+    color: map.get($tabs, 'item', 'color');
+  }
 
   &:hover {
     color: map.get($tabs, 'hover', 'color');
