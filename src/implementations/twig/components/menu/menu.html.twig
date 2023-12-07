@@ -187,7 +187,7 @@
         {% if item is defined and item is not empty %}
           {% include '@ecl/menu/menu-item.html.twig' with {
             item: item,
-            id: key,
+            id: "ecl-menu-item-" ~ key,
             icon_path: _icon_path,
           } only %}
         {% endif %}

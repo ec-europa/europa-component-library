@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "id" (string) Unique id for this item. Needed for accessibility
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
@@ -35,8 +35,8 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="ecl-menu-item-{{ _id }}">
-  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }} id="ecl-menu-item-{{ _id }}-link">
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
+  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }} id="{{ _id }}-link">
     {{- item.label -}}
     {%- if item.external -%}
       {% include '@ecl/icon/icon.html.twig' with {
@@ -55,7 +55,7 @@
   {% if item.trigger_aria_label is not empty %}
     {% set _button_extra_attributes = _button_extra_attributes|merge([
       { name: 'aria-label', value: item.trigger_aria_label },
-      { name: 'aria-describedby', value: "ecl-menu-item-" ~ _id ~ "-link" },
+      { name: 'aria-describedby', value: _id ~ "-link" },
       { name: 'aria-expanded', value: 'false' }
     ]) %}
   {% endif %}
