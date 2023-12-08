@@ -713,7 +713,8 @@ $language-list: (
   item-active-color: var(--c-d),
   item-active-shadow: none,
   item-width: 184px,
-  column-spacing: var(--s-m),
+  column-spacing-before: var(--s-m),
+  column-spacing-after: var(--s-xl),
 );
 $language-list-print: (
   container-padding: map.get($spacing-print, '3xl'),
