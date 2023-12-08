@@ -63,13 +63,14 @@ $button-width: 44px;
     color: map.get($tabs, 'item', 'color');
   }
 
-  &:hover {
-    color: map.get($tabs, 'hover', 'color');
-    border-bottom-color: map.get($tabs, 'hover', 'separator-color');
-  }
-
   &:focus-visible {
     outline-offset: -2px;
+  }
+
+  &:hover,
+  &:visited:hover {
+    color: map.get($tabs, 'hover', 'color');
+    border-bottom-color: map.get($tabs, 'hover', 'separator-color');
   }
 }
 
@@ -162,6 +163,7 @@ $button-width: 44px;
   top: calc(100% + map.get($tabs, 'separator-width'));
   width: 100%;
 
+  // stylelint-disable-next-line no-descending-specificity
   .ecl-tabs__link {
     border-width: 0;
     border-radius: 0;
