@@ -90,39 +90,6 @@ $carousel: null !default;
   display: none;
 }
 
-.ecl-carousel__play,
-.ecl-carousel__pause {
-  align-items: center;
-  background: transparent;
-  border-color: transparent;
-  cursor: pointer;
-  display: flex;
-
-  .ecl-icon {
-    fill: map.get($carousel, 'play-color');
-  }
-
-  &:active,
-  &:hover,
-  &:focus-visible {
-    .ecl-carousel__icon-default {
-      display: none;
-    }
-
-    .ecl-carousel__icon-active {
-      display: block;
-    }
-  }
-}
-
-.ecl-carousel__icon-default {
-  display: block;
-}
-
-.ecl-carousel__icon-active {
-  display: none;
-}
-
 .ecl-carousel__navigation-item {
   &[aria-current='true'] {
     background-color: map.get($carousel, 'navigation-background-active');
@@ -193,7 +160,7 @@ $carousel: null !default;
     .ecl-carousel:not(.ecl-carousel--full-width)
     .ecl-banner
     .ecl-container {
-    margin-inline-start: 100px;
+    margin-inline-start: 120px;
   }
 
   .ecl-carousel__prev,

@@ -105,20 +105,13 @@
           type: 'button',
           variant: 'ghost',
           extra_classes: 'ecl-carousel__play',
-          icon: [{
+          icon: {
             path: _icon_path,
             name: 'play',
             size: 'm',
             color: 'primary',
             extra_classes: 'ecl-carousel__icon-default',
           },
-          {
-            path: _icon_path,
-            name: 'play-filled',
-            size: 'm',
-            color: 'primary',
-            extra_classes: 'ecl-carousel__icon-active',
-          }],
         } only %}
         {% include '@ecl/button/button.html.twig' with {
           hide_label: true,
@@ -126,20 +119,13 @@
           type: 'button',
           variant: 'ghost',
           extra_classes: 'ecl-carousel__pause',
-          icon: [{
+          icon: {
             path: _icon_path,
             name: 'pause',
             size: 'm',
             color: 'primary',
             extra_classes: 'ecl-carousel__icon-default',
           },
-          {
-            path: _icon_path,
-            name: 'pause-filled',
-            size: 'm',
-            color: 'primary',
-            extra_classes: 'ecl-carousel__icon-active',
-          }],
         } only %}
       </div>
       <div class="ecl-carousel__navigation">
