@@ -233,10 +233,12 @@ $card: (
 
 // Carousel
 $carousel: (
-  controls-background: var(--c-n-60),
-  navigation-color: var(--c-d),
-  navigation-background-active: var(--c-p),
-  navigation-color-active: map.get($color, 'white-100'),
+  separator: 1px solid var(--c-n),
+  controls-background: map.get($color, 'white'),
+  controls-padding: var(--s-xs) 0,
+  navigation-background-active: var(--c-n-80),
+  navigation-color-active: var(--c-d),
+  navigation-border-active: var(--c-n-80),
   play-color: var(--c-p),
   prev-next-hover-background: var(--c-n-60),
 );

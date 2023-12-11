@@ -96,6 +96,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
   Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
 - It is now possible to pass multiple icons to the button, the same way it happens for the link, an array of objects of type icon will be rendered as a list of icons one after the other.
 
+### Carousel
+
+- Buttons for carousel pagination are now placed differently, and use Button `ghost`
+
 ### Checkbox
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.

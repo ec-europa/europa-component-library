@@ -12,6 +12,7 @@ $theme: null !default;
 $carousel: null !default;
 
 .ecl-carousel {
+  border-bottom: map.get($carousel, 'separator');
   overflow: hidden;
   position: relative;
 
@@ -67,6 +68,7 @@ $carousel: null !default;
 
 .ecl-carousel__controls {
   background-color: map.get($carousel, 'controls-background');
+  padding: map.get($carousel, 'controls-padding');
 
   .ecl-container {
     display: flex;
@@ -122,16 +124,9 @@ $carousel: null !default;
 }
 
 .ecl-carousel__navigation-item {
-  border: 2px solid transparent;
-  color: map.get($carousel, 'navigation-color');
-  cursor: pointer;
-
-  &:active,
-  &:hover,
-  &:focus-visible,
   &[aria-current='true'] {
     background-color: map.get($carousel, 'navigation-background-active');
-    border-color: map.get($carousel, 'navigation-background-active');
+    border-color: map.get($carousel, 'navigation-border-active');
     color: map.get($carousel, 'navigation-color-active');
     outline: none;
   }
