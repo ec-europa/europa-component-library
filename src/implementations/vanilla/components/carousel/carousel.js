@@ -294,11 +294,10 @@ export class Carousel {
   checkBannerHeights() {
     const heightValues = this.slides.map((slide) => {
       const banner = queryOne('.ecl-banner', slide);
-      let height = parseInt(banner.style.height, 10);
+      const height = parseInt(banner.style.height, 10);
 
       if (banner.style.height === 'auto') {
-        const bannerStyles = window.getComputedStyle(banner);
-        height = parseInt(bannerStyles.getPropertyValue('height'), 10);
+        return 0;
       }
       if (Number.isNaN(height)) {
         return undefined;
