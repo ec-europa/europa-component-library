@@ -9,6 +9,7 @@ module.exports = {
   },
   required_text: '*',
   optional_text: ' (optional)',
+  icon_path: '/icons.svg',
   required: true,
   input: {
     input_type: 'select',

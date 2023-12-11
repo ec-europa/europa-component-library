@@ -191,10 +191,12 @@ export class Select {
     input.classList.add('ecl-checkbox__input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('id', `${ctx}-${id}`);
+    input.setAttribute('name', `${ctx}-${id}`);
     checkbox.appendChild(input);
     label.classList.add('ecl-checkbox__label');
     label.setAttribute('for', `${ctx}-${id}`);
     box.classList.add('ecl-checkbox__box');
+    box.setAttribute('aria-hidden', true);
     box.appendChild(
       Select.createSvgIcon(
         iconSvgAllCheck,
@@ -840,6 +842,7 @@ export class Select {
   handleKeyboardOnSelect(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
@@ -864,6 +867,7 @@ export class Select {
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
@@ -873,6 +877,7 @@ export class Select {
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.search.focus();
         break;
 
@@ -886,14 +891,17 @@ export class Select {
   handleKeyboardOnOptions(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         this.moveFocus('down');
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.moveFocus('up');
         break;
 
@@ -912,10 +920,12 @@ export class Select {
   handleKeyboardOnSearch(e) {
     switch (e.key) {
       case 'Escape':
+        e.preventDefault();
         this.handleEsc(e);
         break;
 
       case 'ArrowDown':
+        e.preventDefault();
         if (this.selectAll.querySelector('input').disabled) {
           const firstAvailable = Array.from(
             this.optionsContainer.querySelectorAll('.ecl-checkbox'),
@@ -929,7 +939,9 @@ export class Select {
         break;
 
       case 'ArrowUp':
+        e.preventDefault();
         this.input.focus();
+        this.handleToggle(e);
         break;
 
       default:
@@ -941,6 +953,7 @@ export class Select {
    */
   handleKeyboardOnOption(e) {
     if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
       this.handleClickOption(e);
     }
   }
@@ -949,6 +962,8 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClearAll(e) {
+    e.preventDefault();
+
     switch (e.key) {
       case 'Enter':
       case ' ':
@@ -974,6 +989,8 @@ export class Select {
    * @param {Event} e
    */
   handleKeyboardOnClose(e) {
+    e.preventDefault();
+
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
