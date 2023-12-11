@@ -3,6 +3,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  id: 'demo',
   group: 'group1',
   title: 'Menu',
   close: 'Close',

@@ -12,6 +12,7 @@ module.exports = {
   },
   group: 'group1',
   menu: {
+    id: 'demo',
     title: 'Menu',
     close: 'Close',
     back: 'Back',
