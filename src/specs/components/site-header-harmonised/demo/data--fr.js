@@ -12,6 +12,7 @@ module.exports = {
     src_desktop: 'static/media/logo-ec--fr.ef2ee614.svg',
   },
   menu: {
+    id: 'demo',
     title: 'Menu',
     close: 'Fermer',
     back: 'Retour',

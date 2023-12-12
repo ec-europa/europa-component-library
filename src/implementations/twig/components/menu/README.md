@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-menu
 
 ### Parameters
 
+- **"id"** (string) (default: random): Unique id
 - **"title"** (string) (default: ''): Title
 - **"close"** (string) (default: ''): Close button label
 - **"back"** (string): (default: ''): Back button label

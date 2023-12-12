@@ -10,6 +10,7 @@ module.exports = {
     src_desktop: '/logo-ec--en.svg',
   },
   menu: {
+    id: 'demo',
     title: 'Menu',
     close: 'Close',
     back: 'Back',

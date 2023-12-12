@@ -712,11 +712,13 @@ export class Menu {
         return;
       }
       if (e.key === 'ArrowDown') {
+        e.preventDefault();
         const firstItem = queryOne(
           '.ecl-menu__sublink:first-of-type',
           menuItem,
         );
         if (firstItem) {
+          this.handleHoverOnItem(e);
           firstItem.focus();
           return;
         }
@@ -729,6 +731,7 @@ export class Menu {
       cList.contains('ecl-menu__button-caret')
     ) {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
         let prevItem = element.previousSibling;
 
         if (prevItem && prevItem.classList.contains('ecl-menu__link')) {
@@ -752,6 +755,7 @@ export class Menu {
         }
       }
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
         let nextItem = element.nextSibling;
 
         if (nextItem && nextItem.classList.contains('ecl-menu__button-caret')) {
@@ -821,6 +825,9 @@ export class Menu {
       }
       this.items.forEach((item) => {
         item.setAttribute('aria-expanded', 'false');
+      });
+      this.carets.forEach((caret) => {
+        caret.setAttribute('aria-expanded', 'false');
       });
     }
   }
@@ -997,14 +1004,19 @@ export class Menu {
 
     // Add attribute to current item, and remove it from others
     this.items.forEach((item) => {
+      const caretButton = queryOne(this.caretSelector, item);
       if (item === menuItem) {
         item.setAttribute('aria-expanded', 'true');
+
+        if (caretButton) {
+          caretButton.setAttribute('aria-expanded', 'true');
+        }
       } else {
         item.setAttribute('aria-expanded', 'false');
 
         // Force remove focus on caret buttons
-        const caretButton = queryOne('.ecl-menu__button-caret', item);
         if (caretButton) {
+          caretButton.setAttribute('aria-expanded', 'false');
           caretButton.blur();
         }
       }
@@ -1022,6 +1034,11 @@ export class Menu {
     const menuItem = e.target.closest(this.itemSelector);
     menuItem.setAttribute('aria-expanded', 'false');
 
+    const caretButton = queryOne(this.caretSelector, menuItem);
+    if (caretButton) {
+      caretButton.setAttribute('aria-expanded', 'false');
+    }
+
     return this;
   }
 
@@ -1035,6 +1052,11 @@ export class Menu {
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
+
+      const caretButton = queryOne(this.caretSelector, currentItem);
+      if (caretButton) {
+        caretButton.setAttribute('aria-expanded', 'false');
+      }
     }
   }
 

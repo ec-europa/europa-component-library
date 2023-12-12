@@ -2,10 +2,12 @@
 
 {#
   Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
+  - "icon_path" (string) Path to the icon sprite
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
-    - "icon_path" (string) Path to the icon sprite
+    - "path": (string) Href of the link
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
@@ -14,6 +16,7 @@
       - "label" (string) Label of the sub-item link
 #}
 
+{% set _id = id|default('') %}
 {% set _item = item|default({}) %}
 {% set _menu_item_class = 'ecl-menu__link' %}
 {% set _menu_item_attributes = 'data-ecl-menu-link' %}
@@ -32,8 +35,8 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }}>
-  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }}>
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
+  <a href="{{ item.path }}" class="{{ _menu_item_class }}" {{ _menu_item_attributes }} id="{{ _id }}-link">
     {{- item.label -}}
     {%- if item.external -%}
       {% include '@ecl/icon/icon.html.twig' with {
@@ -50,9 +53,11 @@
 {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
   {% set _button_extra_attributes = [{name: 'data-ecl-menu-caret' }] %}
   {% if item.trigger_aria_label is not empty %}
-    {% set _button_extra_attributes = _button_extra_attributes|merge([{
-      name: 'aria-label', value: item.trigger_aria_label
-    }]) %}
+    {% set _button_extra_attributes = _button_extra_attributes|merge([
+      { name: 'aria-label', value: item.trigger_aria_label },
+      { name: 'aria-describedby', value: _id ~ "-link" },
+      { name: 'aria-expanded', value: 'false' }
+    ]) %}
   {% endif %}
   {% include '@ecl/button/button.html.twig' with {
     variant: 'primary',
