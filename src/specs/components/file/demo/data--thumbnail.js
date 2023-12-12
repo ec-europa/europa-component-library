@@ -50,8 +50,6 @@ module.exports = {
     items: [
       {
         title: 'Title bg',
-        description:
-          'Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
         lang_full: 'български',
@@ -68,7 +66,6 @@ module.exports = {
       },
       {
         title: 'Title es',
-        description: 'Proin sagittis nisi hendrerit purus porta.',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
         lang_full: 'español',
@@ -85,8 +82,6 @@ module.exports = {
       },
       {
         title: 'Title fr',
-        description:
-          'Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.',
         meta: '(15.4 MB - PDF)',
         lang: 'fr',
         lang_full: 'français',
