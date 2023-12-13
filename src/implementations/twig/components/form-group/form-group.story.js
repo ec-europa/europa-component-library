@@ -24,6 +24,7 @@ const dataStandaloneCheckbox = {
   ...dataCheckbox,
   input: {
     ...dataCheckbox.input,
+    group_id: '',
     items: [dataCheckbox.input.items[0]],
   },
 };

@@ -29,12 +29,6 @@
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  Blocks:
-  - "helper_text"
-  - "invalid_text"
-  - "required_text"
-  - "optional_text"
-  - "label"
 #}
 
 {# Internal properties #}
@@ -66,10 +60,10 @@
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = ['ecl-select'] %}
 {% set _css_class = _css_class|join(' ') %}
-{% set _extra_attributes = '' %}
-{% set extra_attributes = [{ name: 'data-ecl-auto-init', value: 'Select' }] %}
+{% set extra_attributes = extra_attributes|default([]) %}
+{% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
 {% if _multiple %}
-  {% set extra_attributes = [
+  {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
@@ -78,7 +72,7 @@
     { name: 'data-ecl-select-all', value: _multiple_all_text },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
     { name: 'data-ecl-select-close', value: _multiple_close_text }
-  ]|merge(extra_attributes) %}
+  ]) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -118,7 +112,7 @@
   {% if _disabled %}
     disabled
   {% endif %}
-    {{- _extra_attributes -}}
+  {{ _extra_attributes|raw }}
   >
     {% for _option in _options %}
       {% if _option.optgroup %}

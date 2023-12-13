@@ -9,12 +9,12 @@ npm install --save @ecl/twig-component-checkbox
 ### Parameters:
 
 - **"items"** (array) (default: [])
-  - "id" (string) (default: '')
+  - "id" (string) (default: ''): id of the checkbox
+  - "group_id" (string) (default: ''): id of the form group
   - "value" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
-  - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
@@ -37,6 +37,7 @@ npm install --save @ecl/twig-component-checkbox
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/checkbox/checkbox-group.html.twig' with { 
+  group_id: 'checkbox-default',
   invalid_text: 'Error message for the group', 
   name: 'checkbox-default', 
   invalid: false, 
@@ -46,7 +47,6 @@ npm install --save @ecl/twig-component-checkbox
       id: 'checkbox-default-1', 
       value: 'lu', 
       label: 'Luxembourg', 
-      helper_id: 'helper-default-1', 
       helper_text: 'Help text for option 1', 
       checked: true, 
     }, 
@@ -54,14 +54,12 @@ npm install --save @ecl/twig-component-checkbox
       id: 'checkbox-default-2', 
       value: 'be', 
       label: 'Belgium', 
-      helper_id: 'helper-default-2', 
       helper_text: 'Help text for option 2', 
     }, 
     { 
       id: 'checkbox-default-3', 
       value: 'fr', 
       label: 'France (disabled)', 
-      helper_id: 'helper-default-3', 
       helper_text: 'Help text for option 3', 
       disabled: true, 
     }, 

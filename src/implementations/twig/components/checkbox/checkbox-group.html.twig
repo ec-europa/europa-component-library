@@ -2,10 +2,9 @@
 
 {#
   Parameters:
-  - "label_id" (string) (default: '')
+  - "group_id" (string) (default: ''): id of the form group; used in the form-group template
   - "items" (array) (default: []): array of checkbox_button
   - "name" (string) (default: '')
-  - "helper_id" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "item_required_text" (string) (default: *)
@@ -20,6 +19,7 @@
 
 {# Internal properties #}
 
+{% set _group_id = group_id|default('') %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}

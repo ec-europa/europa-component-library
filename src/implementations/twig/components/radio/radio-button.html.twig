@@ -2,18 +2,18 @@
 
 {#
   Parameters:
-  - "id" (string) (default: '')
+  - "id" (string) (default: ''): id of the radio
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "required" (boolean) (default: false)
   - "checked" (boolean) (default: false)
-  - "helper_id" (string) (default: '')
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+
   Blocks:
   - "helper_text"
   - "label"
@@ -74,8 +74,8 @@
 <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <input
   {% if _id %}
-     id="{{ _id }}"
-   {% endif %}
+    id="{{ _id }}"
+  {% endif %}
   {% if _name is not empty %}
     name="{{ _name }}"
   {% endif %}
@@ -90,9 +90,6 @@
   {% endif %}
   {% if _required %}
     required
-  {% endif %}
-  {% if _helper_id is not empty %}
-    aria-describedby="{{ _helper_id }}"
   {% endif %}
   />
 
@@ -115,8 +112,8 @@
   {% if _helper_text is not empty %}
     <div
       class="{{ _helper_css_class }}"
-    {% if _helper_id is not empty %}
-      id="{{ _helper_id }}"
+    {% if _id is not empty %}
+      id="{{ _id }}-helper"
     {% endif %}
     >
       {%- block helper_text _helper_text -%}

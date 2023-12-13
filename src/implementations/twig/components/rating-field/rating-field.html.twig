@@ -5,7 +5,6 @@
   - "id" (string) (default: 'rating'): unique id for the rating field
   - "items" (array) (default: []): array of radio_button
   - "name" (string) (default: 'rating')
-  - "helper_id" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object) default({})
@@ -16,12 +15,6 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-  Blocks:
-  - "label"
-  - "helper_text"
-  - "invalid_text"
-  - "optional_text"
-  - "required_text"
 #}
 
 {# Internal properties #}
@@ -29,7 +22,6 @@
 {% set _id = id|default('rating') %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('rating') %}
-{% set _helper_id = helper_id|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
