@@ -10,6 +10,9 @@
 $theme: null !default;
 $button: null !default;
 
+// Internal variables
+$min-width: 44px; // According to COMM every interactive element should be at least 44px large
+
 .ecl-button,
 %ecl-button {
   appearance: none;
@@ -20,6 +23,7 @@ $button: null !default;
   display: inline-block;
   font: var(--f-m);
   margin: 0;
+  min-width: $min-width;
   padding: calc(
       #{map.get($button, 'padding-vertical')} - #{map.get(
           $button,
