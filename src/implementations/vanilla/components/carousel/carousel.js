@@ -41,7 +41,6 @@ export class Carousel {
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
-      paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -66,7 +65,6 @@ export class Carousel {
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
     this.controlsClass = controlsClass;
-    this.paginationClass = paginationClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -111,6 +109,8 @@ export class Carousel {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
     this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
+    this.checkBannerHeights = this.checkBannerHeights.bind(this);
+    this.resetBannerHeights = this.resetBannerHeights.bind(this);
   }
 
   /**
@@ -130,7 +130,6 @@ export class Carousel {
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__navigation', this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
-    this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
@@ -287,6 +286,66 @@ export class Carousel {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+  }
+
+  /**
+   * Set the banners height above the xl breakpoint
+   */
+  checkBannerHeights() {
+    const heightValues = this.slides.map((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      const height = parseInt(banner.style.height, 10);
+
+      if (banner.style.height === 'auto') {
+        return 0;
+      }
+      if (Number.isNaN(height)) {
+        return undefined;
+      }
+      return height;
+    });
+
+    const elementHeights = heightValues.filter(
+      (height) => height !== undefined,
+    );
+    const tallestElementHeight = Math.max(...elementHeights);
+
+    if (elementHeights.length === this.slides.length) {
+      clearInterval(this.intervalId);
+    }
+
+    if (tallestElementHeight) {
+      this.slides.forEach((slide) => {
+        let bannerImage = null;
+        const banner = queryOne('.ecl-banner', slide);
+        if (banner) {
+          bannerImage = queryOne('img', banner);
+          banner.style.height = `${tallestElementHeight}px`;
+        }
+        if (bannerImage) {
+          bannerImage.style.aspectRatio = 'auto';
+        }
+      });
+    }
+  }
+
+  /**
+   * Set the banners height below the xl breakpoint
+   */
+  resetBannerHeights() {
+    this.slides.forEach((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      let bannerImage = null;
+      if (banner) {
+        banner.style.height = '100%';
+        bannerImage = queryOne('img', banner);
+        if (bannerImage) {
+          const computedStyle = getComputedStyle(bannerImage);
+          bannerImage.style.aspectRatio =
+            computedStyle.getPropertyValue('--css-aspect-ratio');
+        }
+      }
+    });
   }
 
   /**
@@ -478,8 +537,24 @@ export class Carousel {
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
     );
+    clearInterval(this.intervalId);
+    clearTimeout(this.resizeTimer);
+    let containerWidth = 0;
+    // We set 250ms delay which is higher than the 200ms delay in the banner.
+    this.resizeTimer = setTimeout(() => {
+      if (vw >= 998) {
+        this.intervalId = setInterval(this.checkBannerHeights, 100);
+      } else {
+        this.resetBannerHeights();
+      }
+    }, 250);
 
-    const containerWidth = this.container.offsetWidth;
+    if (vw >= 768) {
+      containerWidth = this.container.offsetWidth;
+    } else {
+      containerWidth = this.container.offsetWidth + 15;
+    }
+
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
     }px`;
@@ -491,21 +566,6 @@ export class Carousel {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
-    }
-
-    // Move previous and next buttons in or out the control bar
-    if (vw < 1140) {
-      this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
-      this.pagination.parentNode.insertBefore(
-        this.btnNext,
-        this.pagination.nextSibling,
-      );
-    } else {
-      this.container.insertBefore(
-        this.btnPrev,
-        this.slidesContainer.nextSibling,
-      );
-      this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
     }
 
     // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop

@@ -6,13 +6,11 @@
   - "meta" (string) (default: '')
   - "lang" (string) (default: '')
   - "download" (object) (default to the parent download property) object of type Link
-  - "description (string) (default:'')
 #}
 
 {# Internal properties #}
 
 {% set _lang = lang|default('') %}
-{% set _description = description|default('') %}
 {% set _lang_full = lang_full|default('') %}
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}

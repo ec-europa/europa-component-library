@@ -45,8 +45,6 @@
 {% set _width = width|default('m') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('') %}
-{% set _optional_text = optional_text|default('') %}
 {% set _label = label|default('') %}
 {% set _toggle_label = toggle_label|default('Toggle dropdown') %}
 {% set _multiple = multiple|default(false) %}
@@ -65,6 +63,7 @@
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
+    { name: 'data-ecl-auto-init', value: 'Select' },
     { name: 'data-ecl-select-multiple'},
     { name: 'data-ecl-select-default', value: _multiple_placeholder },
     { name: 'data-ecl-select-search', value: _multiple_search_text },

@@ -73,11 +73,17 @@ export class Banner {
    * Initialise component.
    */
   init() {
+    if (!ECL) {
+      throw new TypeError('Called init but ECL is not present');
+    }
+    ECL.components = ECL.components || new Map();
+
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
+    ECL.components.set(this.element, this);
   }
 
   /**
@@ -176,6 +182,7 @@ export class Banner {
   destroy() {
     this.resetBannerHeight();
     this.element.removeAttribute('data-ecl-auto-initialized');
+    ECL.components.delete(this.element);
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }

@@ -244,7 +244,15 @@ $card: (
 
 // Carousel
 $carousel: (
-  controls-background: map.get($color, 'blue-140'),
+  separator: none,
+  controls-background: var(--c-p-5),
+  controls-padding: var(--s-xs) 0,
+  navigation-color: var(--c-d-80),
+  navigation-background-active: transparent,
+  navigation-color-active: var(--c-p),
+  navigation-border-active: var(--c-p),
+  play-color: var(--c-p),
+  prev-next-hover-background: var(--c-d-20),
 );
 
 // Category filter

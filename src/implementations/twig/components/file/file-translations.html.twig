@@ -8,14 +8,12 @@
       - "meta" (string) (default: '')
       - "lang" (string) (default: '')
       - "download" (object) (default to the parent download property) object of type Link
-    - "description (string) (default:'')
 #}
 
 {# Internal properties #}
 
 {% set _items = items|default([]) %}
 {% set _toggle = toggle|default({}) %}
-{% set _description = description|default('') %}
 
 {% if _items is not empty %}
   <div
