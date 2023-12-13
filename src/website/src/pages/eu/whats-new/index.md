@@ -5,6 +5,42 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.12.0 (2023-12-12)
+
+#### :rocket: New Feature
+
+* [#3108](https://github.com/ec-europa/europa-component-library/pull/3108) feat(flags): Adding new flag icons - FRONT-4151
+
+#### :warning: Markup Changes
+
+* [#3112](https://github.com/ec-europa/europa-component-library/pull/3112) feat(menu): improve accessibility - FRONT-4126
+* [#3074](https://github.com/ec-europa/europa-component-library/pull/3074) feat(multi-select): improve accessiblity - FRONT-4114
+
+#### :bug: Bug Fix
+
+* [#3107](https://github.com/ec-europa/europa-component-library/pull/3107) fix(gallery): Safer code in updateOverlay() method - FRONT-4148
+* [#3098](https://github.com/ec-europa/europa-component-library/pull/3098) fix(website): Fixing story utils setting the path to svgs
+
+#### :nail_care: Enhancement
+
+* [#3112](https://github.com/ec-europa/europa-component-library/pull/3112) feat(menu): improve accessibility - FRONT-4126
+* [#3074](https://github.com/ec-europa/europa-component-library/pull/3074) feat(multi-select): improve accessiblity - FRONT-4114
+* [#3122](https://github.com/ec-europa/europa-component-library/pull/3122) chore(css): Removing usage of start and end in flex context - FRONT-4163
+* [#3126](https://github.com/ec-europa/europa-component-library/pull/3126) chore(website): Adding missing playground links - FRONT-4165
+* [#3095](https://github.com/ec-europa/europa-component-library/pull/3095) feat(blockquote): Changing quotes signs basing on the language - FRONT-4135
+* [#3092](https://github.com/ec-europa/europa-component-library/pull/3092) feat(print): Finalizing iteration - FRONT-4127 
+
+#### :house: Internal
+
+* [#3132](https://github.com/ec-europa/europa-component-library/pull/3132) chore(deps):  Updates 11-12-23
+* [#3128](https://github.com/ec-europa/europa-component-library/pull/3128) chore(deps): Updates 01-12-23
+* [#3125](https://github.com/ec-europa/europa-component-library/pull/3125) chore(deps): Updates 28-11-23
+* [#3114](https://github.com/ec-europa/europa-component-library/pull/3114) chore(deps): Updates - 24-11-23
+* [#3104](https://github.com/ec-europa/europa-component-library/pull/3104) chore(deps): Updates 14-11-23
+* [#3100](https://github.com/ec-europa/europa-component-library/pull/3100) chore(deps): Updates - 10-11-23
+* [#3096](https://github.com/ec-europa/europa-component-library/pull/3096) chore(deps): Updates 08-11-23
+
+
 ## 3.11.0 (2023-10-26)
 
 #### :bug: Bug Fix
