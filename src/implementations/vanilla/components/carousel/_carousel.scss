@@ -1,7 +1,6 @@
 /**
  * Carousel component
- * @define carousel; weak
-
+ * @define carousel;
  */
 /* stylelint-disable max-nesting-depth, no-descending-specificity */
 
@@ -13,6 +12,7 @@ $theme: null !default;
 $carousel: null !default;
 
 .ecl-carousel {
+  border-bottom: map.get($carousel, 'separator');
   overflow: hidden;
   position: relative;
 
@@ -35,7 +35,7 @@ $carousel: null !default;
   background-color: map.get($carousel, 'controls-background');
   box-shadow: inset 0 -4px 12px -9px
     rgba(map.get($theme, 'color', 'black'), 0.6);
-  width: calc(100% - #{map.get($theme, 'spacing', 'l')});
+  width: calc(100% - var(--s-xl));
 }
 
 .ecl-carousel__slides {
@@ -55,24 +55,24 @@ $carousel: null !default;
     content: '';
     display: block;
     height: 100%;
-    left: -#{map.get($theme, 'spacing', '2xs')};
+    left: calc(-1 * var(--s-2xs));
     position: absolute;
     top: 0;
-    width: map.get($theme, 'spacing', '2xs');
+    width: var(--s-2xs);
   }
 }
 
 .ecl-carousel__slide .ecl-banner__credit {
-  margin-inline-end: map.get($theme, 'spacing', '2xs');
+  margin-inline-end: var(--s-2xs);
 }
 
 .ecl-carousel__controls {
   background-color: map.get($carousel, 'controls-background');
-  padding: map.get($theme, 'spacing', '2xs') 0;
+  padding: map.get($carousel, 'controls-padding');
 
   .ecl-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 
@@ -86,107 +86,22 @@ $carousel: null !default;
 
 .ecl-carousel__prev,
 .ecl-carousel__next {
-  background: map.get($carousel, 'controls-background');
-  border: 0;
   cursor: pointer;
-  display: block;
-  padding: map.get($theme, 'spacing', 'xs');
-
-  &:active,
-  &:hover {
-    background-color: map.get($theme, 'color', 'white-100');
-
-    .ecl-carousel__icon-default {
-      fill: map.get($carousel, 'controls-background');
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
-  }
-}
-
-.ecl-carousel__autoplay {
-  display: none;
-}
-
-.ecl-carousel__play,
-.ecl-carousel__pause {
-  align-items: center;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  display: flex;
-  padding: map.get($theme, 'spacing', 'xs');
-
-  &:active,
-  &:hover,
-  &:focus-visible {
-    .ecl-carousel__icon-default {
-      display: none;
-    }
-
-    .ecl-carousel__icon-active {
-      display: block;
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
-  }
-}
-
-.ecl-carousel__icon-default {
-  display: block;
-}
-
-.ecl-carousel__icon-active {
-  display: none;
-}
-
-.ecl-carousel__pagination {
-  align-items: center;
-  color: map.get($theme, 'color', 'white-100');
-  display: flex;
-  font: map.get($theme, 'font', 'm');
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  justify-content: end;
-  padding-top: 2px;
-  white-space: pre-wrap;
-  margin: 0 map.get($theme, 'spacing', 'xs');
-}
-
-.ecl-carousel__navigation {
   display: none;
 }
 
 .ecl-carousel__navigation-item {
-  background-color: transparent;
-  border: 2px solid map.get($theme, 'color', 'white-100');
-  border-radius: 50%;
-  cursor: pointer;
-  height: 1rem;
-  margin: map.get($theme, 'spacing', 'm');
-  margin-inline-end: map.get($theme, 'spacing', 'l');
-  padding: 0;
-  width: 1rem;
-
-  &:active,
-  &:hover {
-    background-color: map.get($theme, 'color', 'white-100');
-  }
-
-  &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white-100');
-    outline-offset: 2px;
-  }
+  margin-inline-end: var(--s-xs);
 
   &[aria-current='true'] {
-    background-color: map.get($theme, 'color', 'white-100');
+    background-color: map.get($carousel, 'navigation-background-active');
+    border-color: map.get($carousel, 'navigation-border-active');
+    color: map.get($carousel, 'navigation-color-active');
+    outline: none;
   }
 
   &:last-child {
-    margin-inline-end: map.get($theme, 'spacing', 'm');
+    margin-inline-end: 0;
   }
 }
 
@@ -201,7 +116,6 @@ $carousel: null !default;
   .ecl-carousel__navigation {
     align-items: center;
     display: flex;
-    margin-inline-end: auto;
   }
 }
 
@@ -252,33 +166,37 @@ $carousel: null !default;
     .ecl-carousel:not(.ecl-carousel--full-width)
     .ecl-banner
     .ecl-container {
-    margin-inline-start: 100px;
+    margin-inline-start: 120px;
   }
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    padding: map.get($theme, 'spacing', 's');
+    background-color: map.get($theme, 'color', 'white-100');
+    color: var(--c-d);
+    display: block;
     position: absolute;
     top: calc(50% - 22px);
     transform: translateY(-50%);
     z-index: 1;
 
+    &:hover {
+      background-color: map.get($carousel, 'prev-next-hover-background');
+    }
+
     &:focus-visible {
-      outline: 2px solid map.get($theme, 'color', 'white-100');
-      outline-offset: -4px;
+      background-color: var(--c-n-60);
     }
   }
 
   .ecl-carousel__prev {
-    left: 0;
+    left: var(--s-m);
   }
 
   .ecl-carousel__next {
-    right: 0;
+    right: var(--s-m);
   }
 
-  .ecl-carousel__autoplay,
-  .ecl-carousel__pagination {
+  .ecl-carousel__autoplay {
     width: 10%;
   }
 }
@@ -297,6 +215,6 @@ $carousel: null !default;
   .ecl-carousel--full-width
   .ecl-banner:not(.ecl-banner--full-width)
   .ecl-container {
-  padding-inline-start: map.get($theme, 'spacing', 'm');
-  padding-inline-end: map.get($theme, 'spacing', 'm');
+  padding-inline-start: var(--s-m);
+  padding-inline-end: var(--s-m);
 }
