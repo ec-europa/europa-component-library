@@ -2,7 +2,8 @@
 
 exports[`Form group  with Checkbox renders correctly 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -10,6 +11,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
     >
       Select your preferred destinations
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -17,6 +19,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="checkbox-default-helper"
     >
       Helper text for the group
     </div>
@@ -167,13 +170,15 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="checkbox-default-helper checkbox-default-invalid"
+    aria-invalid="true"
     class="ecl-form-group"
   >
     <legend
@@ -181,6 +186,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
     >
       Select your preferred destinations
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -188,11 +194,13 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="checkbox-default-helper"
     >
       Helper text for the group
     </div>
     <div
       class="ecl-feedback-message"
+      id="checkbox-default-invalid"
     >
       <svg
         aria-hidden="true"
@@ -352,13 +360,14 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Checkbox renders correctly when required 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -366,6 +375,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
     >
       Select your preferred destinations
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -373,6 +383,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="checkbox-default-helper"
     >
       Helper text for the group
     </div>
@@ -523,13 +534,14 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Checkbox renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="checkbox-default-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -539,6 +551,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
     >
       Select your preferred destinations
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -546,6 +559,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
     </legend>
     <div
       class="ecl-help-block"
+      id="checkbox-default-helper"
     >
       Helper text for the group
     </div>
@@ -696,13 +710,14 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Checkbox renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="checkbox-default-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -710,6 +725,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
     >
       Select your preferred destinations
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -717,6 +733,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
     </legend>
     <div
       class="ecl-help-block"
+      id="checkbox-default-helper"
     >
       Helper text for the group
     </div>
@@ -867,7 +884,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
@@ -879,9 +896,11 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -889,6 +908,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
@@ -896,6 +916,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
       class="ecl-datepicker"
     >
       <input
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
@@ -929,9 +950,11 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -939,6 +962,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
@@ -946,6 +970,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
       class="ecl-datepicker"
     >
       <input
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
@@ -980,9 +1005,11 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -990,11 +1017,13 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="example-input-id-1-invalid"
     >
       <svg
         aria-hidden="true"
@@ -1011,6 +1040,8 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       class="ecl-datepicker ecl-datepicker--invalid"
     >
       <input
+        aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
+        aria-invalid="true"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s ecl-text-input--invalid"
         data-ecl-auto-init="Datepicker"
@@ -1044,9 +1075,11 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1054,6 +1087,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
@@ -1061,6 +1095,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
       class="ecl-datepicker"
     >
       <input
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
@@ -1096,9 +1131,11 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1106,6 +1143,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
@@ -1113,6 +1151,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
       class="ecl-datepicker"
     >
       <input
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
@@ -1146,9 +1185,11 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1156,6 +1197,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
@@ -1163,6 +1205,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
       class="ecl-datepicker"
     >
       <input
+        aria-describedby="example-input-id-1-helper"
         autocomplete="off"
         class="ecl-datepicker__field ecl-text-input ecl-text-input--s"
         data-ecl-auto-init="Datepicker"
@@ -1198,9 +1241,11 @@ exports[`Form group  with File Upload renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1208,6 +1253,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1222,6 +1268,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1261,9 +1308,11 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1271,6 +1320,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1285,6 +1335,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1326,9 +1377,11 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1336,6 +1389,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1351,6 +1405,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
     </div>
     <div
       class="ecl-feedback-message"
+      id="example-input-id-1-invalid"
     >
       <svg
         aria-hidden="true"
@@ -1364,6 +1419,8 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <input
+      aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
+      aria-invalid="true"
       class="ecl-file-upload ecl-file-upload--invalid"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1403,9 +1460,11 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1413,6 +1472,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1427,6 +1487,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1466,9 +1527,11 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1476,6 +1539,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1490,6 +1554,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1529,9 +1594,11 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1539,6 +1606,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       Only 
       <strong>
@@ -1553,6 +1621,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1584,7 +1653,8 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
 
 exports[`Form group  with Radio renders correctly 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -1592,6 +1662,7 @@ exports[`Form group  with Radio renders correctly 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1599,6 +1670,7 @@ exports[`Form group  with Radio renders correctly 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
@@ -1606,7 +1678,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -1636,7 +1707,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -1666,7 +1736,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -1697,7 +1766,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -1729,13 +1797,14 @@ exports[`Form group  with Radio renders correctly 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Radio renders correctly when disabled 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -1743,6 +1812,7 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1750,6 +1820,7 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
     </legend>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
@@ -1757,7 +1828,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -1787,7 +1857,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -1817,7 +1886,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -1848,7 +1916,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -1880,13 +1947,15 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Radio renders correctly when invalid 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper radio-default-invalid"
+    aria-invalid="true"
     class="ecl-form-group"
   >
     <legend
@@ -1894,6 +1963,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -1901,11 +1971,13 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="radio-default-invalid"
     >
       <svg
         aria-hidden="true"
@@ -1922,7 +1994,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -1952,7 +2023,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -1982,7 +2052,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -2013,7 +2082,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -2045,13 +2113,14 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Radio renders correctly when required 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper"
     class="ecl-form-group"
   >
     <legend
@@ -2059,6 +2128,7 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -2066,6 +2136,7 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
@@ -2073,7 +2144,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -2103,7 +2173,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -2133,7 +2202,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -2164,7 +2232,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -2196,13 +2263,14 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -2212,6 +2280,7 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -2219,6 +2288,7 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
@@ -2226,7 +2296,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -2256,7 +2325,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -2286,7 +2354,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -2317,7 +2384,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -2349,13 +2415,14 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Radio renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="radio-default-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -2363,6 +2430,7 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
     >
       Select your country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -2370,6 +2438,7 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="radio-default-helper"
     >
       This is the group's helper text.
     </div>
@@ -2377,7 +2446,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-1"
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
@@ -2407,7 +2475,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-2"
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
@@ -2437,7 +2504,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       class="ecl-radio ecl-radio--disabled"
     >
       <input
-        aria-describedby="helper-3"
         class="ecl-radio__input"
         disabled=""
         id="radio-default-3"
@@ -2468,7 +2534,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       class="ecl-radio"
     >
       <input
-        aria-describedby="helper-4"
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
@@ -2500,7 +2565,7 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
         </span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
@@ -2514,9 +2579,11 @@ exports[`Form group  with Range field renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -2524,10 +2591,12 @@ exports[`Form group  with Range field renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-range-id-helper"
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
@@ -2559,9 +2628,11 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -2569,10 +2640,12 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-range-id-helper"
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
@@ -2605,9 +2678,11 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -2615,11 +2690,13 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="example-range-id-invalid"
     >
       <svg
         aria-hidden="true"
@@ -2633,6 +2710,8 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <input
+      aria-describedby="example-range-id-helper example-range-id-invalid"
+      aria-invalid="true"
       aria-label="example-range-id"
       class="ecl-range ecl-range--invalid ecl-range--m"
       data-ecl-range-input=""
@@ -2664,9 +2743,11 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -2674,10 +2755,12 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-range-id-helper"
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
@@ -2710,9 +2793,11 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     <label
       class="ecl-form-label"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -2720,10 +2805,12 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     </label>
     <div
       class="ecl-help-block"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-range-id-helper"
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
@@ -2755,9 +2842,11 @@ exports[`Form group  with Range field renders correctly with extra class names 1
     <label
       class="ecl-form-label"
       for="example-range-id"
+      id="example-range-id-label"
     >
       Range slider
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -2765,10 +2854,12 @@ exports[`Form group  with Range field renders correctly with extra class names 1
     </label>
     <div
       class="ecl-help-block"
+      id="example-range-id-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-range-id-helper"
       aria-label="example-range-id"
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
@@ -2792,15 +2883,18 @@ exports[`Form group  with Range field renders correctly with extra class names 1
 
 exports[`Form group  with Rating field renders correctly 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -2808,6 +2902,7 @@ exports[`Form group  with Rating field renders correctly 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
@@ -2995,21 +3090,24 @@ exports[`Form group  with Rating field renders correctly 1`] = `
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
       class="ecl-form-label ecl-form-label--disabled"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -3017,6 +3115,7 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
     </legend>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
@@ -3209,21 +3308,25 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Rating field renders correctly when invalid 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper rating-field-invalid"
+    aria-invalid="true"
     class="ecl-form-group"
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -3231,11 +3334,13 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="rating-field-invalid"
     >
       <svg
         aria-hidden="true"
@@ -3432,21 +3537,24 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Rating field renders correctly when required 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper"
     class="ecl-form-group"
   >
     <legend
       class="ecl-form-label"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -3454,6 +3562,7 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
     </legend>
     <div
       class="ecl-help-block"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
@@ -3641,13 +3750,14 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Rating field renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -3655,9 +3765,11 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
     <legend
       class="ecl-form-label"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -3665,6 +3777,7 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
     </legend>
     <div
       class="ecl-help-block"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
@@ -3852,21 +3965,24 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
 exports[`Form group  with Rating field renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <fieldset
+    aria-describedby="rating-field-helper"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
       class="ecl-form-label"
       for="rating-field"
+      id="rating-field-label"
     >
       Please Rate
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -3874,6 +3990,7 @@ exports[`Form group  with Rating field renders correctly with extra class names 
     </legend>
     <div
       class="ecl-help-block"
+      id="rating-field-helper"
     >
       This is the group's helper text.
     </div>
@@ -4061,7 +4178,7 @@ exports[`Form group  with Rating field renders correctly with extra class names 
         </svg>
       </label>
     </div>
-  </div>
+  </fieldset>
 </jest>
 `;
 
@@ -4073,9 +4190,11 @@ exports[`Form group  with Select renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4083,6 +4202,7 @@ exports[`Form group  with Select renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
@@ -4090,6 +4210,7 @@ exports[`Form group  with Select renders correctly 1`] = `
       class="ecl-select__container ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4211,9 +4332,11 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4221,6 +4344,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
@@ -4228,6 +4352,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       class="ecl-select__container ecl-select__container--disabled ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4351,9 +4476,11 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4361,11 +4488,13 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="select-default-invalid"
     >
       <svg
         aria-hidden="true"
@@ -4382,6 +4511,8 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper select-default-invalid"
+        aria-invalid="true"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4503,9 +4634,11 @@ exports[`Form group  with Select renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4513,6 +4646,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
@@ -4520,6 +4654,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       class="ecl-select__container ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4643,9 +4778,11 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
     <label
       class="ecl-form-label"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4653,6 +4790,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
@@ -4660,6 +4798,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
       class="ecl-select__container ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4781,9 +4920,11 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
     <label
       class="ecl-form-label"
       for="select-default"
+      id="select-default-label"
     >
       Select a country
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -4791,6 +4932,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
     </label>
     <div
       class="ecl-help-block"
+      id="select-default-helper"
     >
       This is the input's helper text.
     </div>
@@ -4798,6 +4940,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
       class="ecl-select__container ecl-select__container--m"
     >
       <select
+        aria-describedby="select-default-helper"
         aria-label="country"
         class="ecl-select"
         data-ecl-auto-init="Select"
@@ -4919,9 +5062,11 @@ exports[`Form group  with Text field renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -4929,10 +5074,12 @@ exports[`Form group  with Text field renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
@@ -4950,9 +5097,11 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -4960,10 +5109,12 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-text-input ecl-text-input--m"
       disabled=""
       id="example-input-id-1"
@@ -4982,9 +5133,11 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -4992,11 +5145,13 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="example-input-id-1-invalid"
     >
       <svg
         aria-hidden="true"
@@ -5010,6 +5165,8 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <input
+      aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
+      aria-invalid="true"
       class="ecl-text-input ecl-text-input--invalid ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
@@ -5027,9 +5184,11 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -5037,10 +5196,12 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
@@ -5061,9 +5222,11 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5071,10 +5234,12 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
@@ -5092,9 +5257,11 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
     <label
       class="ecl-form-label"
       for="example-input-id-1"
+      id="example-input-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5102,10 +5269,12 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
     </label>
     <div
       class="ecl-help-block"
+      id="example-input-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <input
+      aria-describedby="example-input-id-1-helper"
       class="ecl-text-input ecl-text-input--m"
       id="example-input-id-1"
       placeholder="Placeholder text"
@@ -5123,9 +5292,11 @@ exports[`Form group  with Textarea renders correctly 1`] = `
     <label
       class="ecl-form-label"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5133,10 +5304,12 @@ exports[`Form group  with Textarea renders correctly 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper"
       class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
@@ -5154,9 +5327,11 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
     <label
       class="ecl-form-label ecl-form-label--disabled"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5164,10 +5339,12 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
     </label>
     <div
       class="ecl-help-block ecl-help-block--disabled"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper"
       class="ecl-text-area ecl-text-area--m"
       disabled=""
       id="example-textarea-id-1"
@@ -5186,9 +5363,11 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
     <label
       class="ecl-form-label ecl-form-label--invalid"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5196,11 +5375,13 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <div
       class="ecl-feedback-message"
+      id="example-textarea-id-1-invalid"
     >
       <svg
         aria-hidden="true"
@@ -5214,6 +5395,8 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
             Invalid text
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper example-textarea-id-1-invalid"
+      aria-invalid="true"
       class="ecl-text-area ecl-text-area--invalid ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
@@ -5231,9 +5414,11 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
     <label
       class="ecl-form-label"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="required"
         class="ecl-form-label__required"
       >
         *
@@ -5241,10 +5426,12 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
     </label>
     <div
       class="ecl-help-block"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper"
       class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
@@ -5265,9 +5452,11 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
     <label
       class="ecl-form-label"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5275,10 +5464,12 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
     </label>
     <div
       class="ecl-help-block"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper"
       class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
@@ -5296,9 +5487,11 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
     <label
       class="ecl-form-label"
       for="example-textarea-id-1"
+      id="example-textarea-id-1-label"
     >
       Label
       <span
+        aria-label="optional"
         class="ecl-form-label__optional"
       >
         (optional)
@@ -5306,10 +5499,12 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
     </label>
     <div
       class="ecl-help-block"
+      id="example-textarea-id-1-helper"
     >
       This is the input's helper text.
     </div>
     <textarea
+      aria-describedby="example-textarea-id-1-helper"
       class="ecl-text-area ecl-text-area--m"
       id="example-textarea-id-1"
       placeholder="Placeholder text"
