@@ -70,89 +70,68 @@
     {% endfor %}
     </div>
   </div>
-  <button class="ecl-carousel__prev"> 
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'm',
-        transform: 'rotate-270',
-        color: 'inverted',
-      },
-      extra_classes: 'ecl-carousel__icon-default',
-    } only %}
-    <span class="ecl-u-sr-only">{{ _sr_previous }}</span>
-  </button>
-  <button class="ecl-carousel__next">
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'm',
-        transform: 'rotate-90',
-        color: 'inverted',
-      },
-      extra_classes: 'ecl-carousel__icon-default',
-    } only %}
-    <span class="ecl-u-sr-only">{{ _sr_next }}</span>
-  </button>
+  {% include '@ecl/button/button.html.twig' with {
+    hide_label: true,
+    label: _sr_previous,
+    type: 'button',
+    variant: 'ghost',
+    extra_classes: 'ecl-carousel__prev',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-270',
+    },
+  } only %}
+  {% include '@ecl/button/button.html.twig' with {
+    hide_label: true,
+    label: _sr_next,
+    type: 'button',
+    variant: 'ghost',
+    extra_classes: 'ecl-carousel__next',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-90',
+    },
+  } only %}
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
       <div class="ecl-carousel__autoplay">
-        <button class="ecl-carousel__play">
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              path: _icon_path,
-              name: 'play',
-              size: 'l',
-              color: 'inverted',
-            },
+        {% include '@ecl/button/button.html.twig' with {
+          hide_label: true,
+          label: _sr_play,
+          type: 'button',
+          variant: 'ghost',
+          extra_classes: 'ecl-carousel__play',
+          icon: {
+            path: _icon_path,
+            name: 'play',
+            size: 'm',
             extra_classes: 'ecl-carousel__icon-default',
-          } only %}
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              path: _icon_path,
-              name: 'play-filled',
-              size: 'l',
-              color: 'inverted',
-            },
-            extra_classes: 'ecl-carousel__icon-active',
-          } only %}
-          <span class="ecl-u-sr-only">{{ _sr_play }}</span>
-        </button>
-        <button class="ecl-carousel__pause">
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              path: _icon_path,
-              name: 'pause',
-              size: 'l',
-              color: 'inverted',
-            },
+          },
+        } only %}
+        {% include '@ecl/button/button.html.twig' with {
+          hide_label: true,
+          label: _sr_pause,
+          type: 'button',
+          variant: 'ghost',
+          extra_classes: 'ecl-carousel__pause',
+          icon: {
+            path: _icon_path,
+            name: 'pause',
+            size: 'm',
             extra_classes: 'ecl-carousel__icon-default',
-          } only %}
-          {% include '@ecl/icon/icon.html.twig' with {
-            icon: {
-              path: _icon_path,
-              name: 'pause-filled',
-              size: 'l',
-              color: 'inverted',
-            },
-            extra_classes: 'ecl-carousel__icon-active',
-          } only %}
-          <span class="ecl-u-sr-only">{{ _sr_pause }}</span>
-        </button>
+          },
+        } only %}
       </div>
       <div class="ecl-carousel__navigation">
         {% for item in _items %}
-          <button class="ecl-carousel__navigation-item">
-            <span class="ecl-u-sr-only">{{ _sr_navigation|replace({'%d': loop.index}) }}</span>
+          <button class="ecl-button ecl-button--ghost ecl-carousel__navigation-item">
+            {{ loop.index }}
           </button>
         {% endfor %}
-      </div>
-      <div class="ecl-carousel__pagination">
-        <span class="ecl-carousel__current">1</span>{{- ' ' -}}
-          {{- _counter_label }}{{- ' ' -}}
-        <span class="ecl-carousel__max">{{_items|length}}</span>
       </div>
     </div>
   </div>

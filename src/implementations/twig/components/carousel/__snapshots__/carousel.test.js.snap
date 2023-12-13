@@ -271,39 +271,53 @@ exports[`Carousel Default renders correctly 1`] = `
       </div>
     </div>
     <button
-      class="ecl-carousel__prev"
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Previous slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <button
-      class="ecl-carousel__next"
+      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Next slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Next slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <div
@@ -316,57 +330,53 @@ exports[`Carousel Default renders correctly 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-carousel__play"
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Play carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
             </span>
           </button>
           <button
-            class="ecl-carousel__pause"
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Pause carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
             </span>
           </button>
         </div>
@@ -374,47 +384,26 @@ exports[`Carousel Default renders correctly 1`] = `
           class="ecl-carousel__navigation"
         >
           <button
-            class="ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 1
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 2
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 3
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__pagination"
-        >
-          <span
-            class="ecl-carousel__current"
-          >
+            
             1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
             3
-          </span>
+          
+          </button>
         </div>
       </div>
     </div>
@@ -695,39 +684,53 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
       </div>
     </div>
     <button
-      class="ecl-carousel__prev"
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Previous slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <button
-      class="ecl-carousel__next"
+      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Next slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Next slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <div
@@ -740,57 +743,53 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-carousel__play"
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Play carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
             </span>
           </button>
           <button
-            class="ecl-carousel__pause"
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Pause carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
             </span>
           </button>
         </div>
@@ -798,47 +797,26 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           class="ecl-carousel__navigation"
         >
           <button
-            class="ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 1
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 2
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 3
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__pagination"
-        >
-          <span
-            class="ecl-carousel__current"
-          >
+            
             1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
             3
-          </span>
+          
+          </button>
         </div>
       </div>
     </div>
@@ -1117,39 +1095,53 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
       </div>
     </div>
     <button
-      class="ecl-carousel__prev"
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Previous slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <button
-      class="ecl-carousel__next"
+      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-icon--inverted ecl-carousel__icon-default"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#corner-arrow"
-        />
-      </svg>
       <span
-        class="ecl-u-sr-only"
+        class="ecl-button__container"
       >
-        Next slides
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Next slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
       </span>
     </button>
     <div
@@ -1162,57 +1154,53 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-carousel__play"
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#play-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Play carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
             </span>
           </button>
           <button
-            class="ecl-carousel__pause"
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-default"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause"
-              />
-            </svg>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-carousel__icon-active"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#pause-filled"
-              />
-            </svg>
             <span
-              class="ecl-u-sr-only"
+              class="ecl-button__container"
             >
-              Pause carousel
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
             </span>
           </button>
         </div>
@@ -1220,47 +1208,26 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           class="ecl-carousel__navigation"
         >
           <button
-            class="ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 1
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 2
-            </span>
-          </button>
-          <button
-            class="ecl-carousel__navigation-item"
-          >
-            <span
-              class="ecl-u-sr-only"
-            >
-              Go to slide 3
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__pagination"
-        >
-          <span
-            class="ecl-carousel__current"
-          >
+            
             1
-          </span>
-           of 
-          <span
-            class="ecl-carousel__max"
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
           >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
             3
-          </span>
+          
+          </button>
         </div>
       </div>
     </div>
