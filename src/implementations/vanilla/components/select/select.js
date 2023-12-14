@@ -20,7 +20,6 @@ const iconSvgAllCornerArrow =
  * @param {String} options.defaultText The default placeholder
  * @param {String} options.searchText The label for search
  * @param {String} options.selectAllText The label for select all
- * @param {String} options.selectMultipleId The id attribute of the select multiple
  * @param {String} options.selectMultipleSelector The data attribute selector of the select multiple
  * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
  * @param {String} options.searchTextAttribute The data attribute for the default search text
@@ -56,7 +55,6 @@ export class Select {
       searchText = '',
       selectAllText = '',
       noResultsText = '',
-      selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
@@ -79,7 +77,6 @@ export class Select {
     this.element = element;
 
     // Options
-    this.selectMultipleId = selectMultipleId;
     this.selectMultipleSelector = selectMultipleSelector;
     this.selectMultiplesSelectionCountSelector =
       selectMultiplesSelectionCountSelector;
@@ -117,6 +114,7 @@ export class Select {
     this.formGroup = null;
     this.label = null;
     this.helper = null;
+    this.selectMultipleId = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -277,14 +275,15 @@ export class Select {
     this.clearAllButtonLabel =
       this.clearAllButtonLabel ||
       this.element.getAttribute(this.clearAllLabelAttribute);
+    // Retrieve the id from the markup or generate one.
+    this.selectMultipleId =
+      this.element.id || `select-multiple-${Select.generateRandomId(4)}`;
+    this.element.id = this.selectMultipleId;
 
     this.formGroup = this.element.closest('.ecl-form-group');
     if (this.formGroup) {
-      this.label = queryOne(`#${this.selectMultipleId}-label`, this.formGroup);
-      this.helper = queryOne(
-        `#${this.selectMultipleId}-helper`,
-        this.formGroup,
-      );
+      this.label = queryOne('.ecl-form-label', this.formGroup);
+      this.helper = queryOne('.ecl-help-block', this.formGroup);
     }
 
     // Disable focus on default select
@@ -625,12 +624,12 @@ export class Select {
       .join(', ');
     this.input.innerHTML = optionSelected || this.textDefault || '';
 
-    if (optionSelected !== '') {
+    if (optionSelected !== '' && this.label) {
       this.label.setAttribute(
         'aria-label',
         `${this.label.innerText} ${optionSelected}`,
       );
-    } else {
+    } else if (optionSelected === '' && this.label) {
       this.label.removeAttribute('aria-label');
     }
 
