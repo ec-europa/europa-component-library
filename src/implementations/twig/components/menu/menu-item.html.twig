@@ -36,7 +36,7 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }}>
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
   {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
   {% include '@ecl/link/link.html.twig' with {
     link: {
@@ -46,9 +46,10 @@
       icon_path: _icon_path,
     },
     extra_classes: _menu_item_class,
-    extra_attributes: [{
-      name: _menu_item_attributes,
-    }],
+    extra_attributes: [
+      { name: _menu_item_attributes },
+      { name: 'id', value: _id ~ "-link" },
+    ],
   } %}
 
 {%- if item.children is defined and item.children is not empty and item.children is iterable -%}

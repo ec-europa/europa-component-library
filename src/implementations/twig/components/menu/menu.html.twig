@@ -92,7 +92,7 @@
       }) only %}
     {% endif %}
 
-    <section class="ecl-menu__inner" data-ecl-menu-inner>
+    <section class="ecl-menu__inner" data-ecl-menu-inner role="application" aria-label="{{ _title }}">
       <header class="ecl-menu__inner-header">
         {% if _close is not empty %}
           {% include '@ecl/button/button.html.twig' with _close|merge({
