@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "id": (string) (default: random): Unique id for the menu
   - "title": (string) (default: ''): Title of the menu (displayed on mobile)
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
@@ -37,6 +38,7 @@
 
 {# Internal properties #}
 
+{% set _id = id|default(random()) %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _toggle = toggle|default({}) %}
@@ -90,7 +92,7 @@
       }) only %}
     {% endif %}
 
-    <section class="ecl-menu__inner" data-ecl-menu-inner>
+    <section class="ecl-menu__inner" data-ecl-menu-inner role="application" aria-label="{{ _title }}">
       <header class="ecl-menu__inner-header">
         {% if _close is not empty %}
           {% include '@ecl/button/button.html.twig' with _close|merge({
@@ -167,10 +169,11 @@
       
       <ul class="ecl-menu__list" data-ecl-menu-list>
       {% if items is defined and items is not empty and items is iterable %}
-        {% for item in items %}
+        {% for key, item in items %}
         {% if item is defined and item is not empty %}
           {% include '@ecl/menu/menu-item.html.twig' with {
             item: item,
+            id: "ecl-menu-item-" ~ _id ~ '-' ~ key,
             icon_path: _icon_path,
             see_all_label: _see_all_label,
           } only %}

@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   title: 'Menu',
+  id: 'demo',
   toggle: {
     link: {
       label: 'Menu',

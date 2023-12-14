@@ -4,6 +4,7 @@
   Parameters:
     - "citation" (string) (default: '')
     - "author" (string) (default: '')
+    - "lang" (string) (default: 'en')
     - "extra_classes" (string) (default: '')
     - "picture" (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
     - "extra_classes" (optional) (string) (default: '') Extra classes (space separated)
@@ -22,6 +23,7 @@
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
 {% set _picture = picture|default({}) %}
+{% set _lang = lang|default('en') %}
 
 {# Internal logic - Process properties #}
 
@@ -50,7 +52,7 @@
     } only %}
   {% endif %}
   <div class="ecl-blockquote__body">
-    <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation">{{ _citation }}</p></blockquote>
+    <blockquote class="ecl-blockquote__quote"><p class="ecl-blockquote__citation" lang="{{ _lang }}">{{ _citation }}</p></blockquote>
     <footer class="ecl-blockquote__attribution"><cite class="ecl-blockquote__author">{{ _author }}</cite></footer>
   </div>
 </figure>
