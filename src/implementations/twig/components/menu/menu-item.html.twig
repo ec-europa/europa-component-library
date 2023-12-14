@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
   - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "item" (object)
@@ -16,6 +17,7 @@
       - "label" (string) Label of the sub-item link
 #}
 
+{% set _id = id|default('') %}
 {% set _item = item|default({}) %}
 {% set _menu_item_class = 'ecl-menu__link' %}
 {% set _menu_item_attributes = 'data-ecl-menu-link' %}
@@ -34,7 +36,7 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--has-children' %}
 {% endif %}
 
-<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }}>
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
   {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
   {% include '@ecl/link/link.html.twig' with {
     link: {
@@ -44,17 +46,20 @@
       icon_path: _icon_path,
     },
     extra_classes: _menu_item_class,
-    extra_attributes: [{
-      name: _menu_item_attributes,
-    }],
+    extra_attributes: [
+      { name: _menu_item_attributes },
+      { name: 'id', value: _id ~ "-link" },
+    ],
   } %}
 
 {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
   {% set _button_extra_attributes = [{name: 'data-ecl-menu-caret' }] %}
   {% if item.trigger_aria_label is not empty %}
-    {% set _button_extra_attributes = _button_extra_attributes|merge([{
-      name: 'aria-label', value: item.trigger_aria_label
-    }]) %}
+    {% set _button_extra_attributes = _button_extra_attributes|merge([
+      { name: 'aria-label', value: item.trigger_aria_label },
+      { name: 'aria-describedby', value: _id ~ "-link" },
+      { name: 'aria-expanded', value: 'false' }
+    ]) %}
   {% endif %}
   {% include '@ecl/button/button.html.twig' with {
     variant: 'ghost',

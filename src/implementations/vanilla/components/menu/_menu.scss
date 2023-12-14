@@ -58,7 +58,7 @@ $menu: null !default;
 
   &:hover {
     text-decoration: underline;
-    padding: calc(#{map.get($menu, 'mobile', 'open-padding')} + 1px);
+    padding: calc(#{map.get($menu, 'mobile', 'open-padding-hover')} + 1px);
   }
 
   &:focus-visible {

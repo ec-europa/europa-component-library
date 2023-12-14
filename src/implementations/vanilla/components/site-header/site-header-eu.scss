@@ -9,10 +9,12 @@
 // Exposed variables
 $theme: null !default;
 $site-header: null !default;
+$language-list: null !default;
 
 @use 'site-header-language-switcher' with (
   $theme: $theme,
-  $language-switcher: map.get($site-header, 'language-switcher')
+  $language-switcher: map.get($site-header, 'language-switcher'),
+  $language-list: $language-list
 );
 
 .ecl-site-header {

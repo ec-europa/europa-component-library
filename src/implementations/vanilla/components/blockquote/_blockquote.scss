@@ -41,6 +41,46 @@ $text-max-width: 65ch; // Approximately 80 characters with the current font
   &::after {
     content: close-quote;
   }
+
+  &[lang='bg'],
+  &[lang='cs'],
+  &[lang='de'],
+  &[lang='et'],
+  &[lang='sk'],
+  &[lang='sl'],
+  &[lang='lt'] {
+    quotes: '„' '“';
+  }
+
+  &[lang='hr'],
+  &[lang='hu'],
+  &[lang='pl'],
+  &[lang='ro'] {
+    quotes: '„' '”';
+  }
+
+  &[lang='da'] {
+    quotes: '»' '«';
+  }
+
+  &[lang='el'],
+  &[lang='fr'],
+  &[lang='es'],
+  &[lang='it'],
+  &[lang='pt'] {
+    quotes: '«' '»';
+  }
+
+  &[lang='fi'],
+  &[lang='sv'] {
+    quotes: '”' '”';
+  }
+
+  &[lang='lv'],
+  &[lang='nl'],
+  &[lang='mt'] {
+    quotes: '“' '”';
+  }
 }
 
 .ecl-blockquote__quote {
