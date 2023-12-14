@@ -8,6 +8,7 @@ module.exports = {
     link: {
       label: 'Menu',
       path: exampleLink,
+      hide_label: true,
     },
     icon: {
       path: '/icons.svg',
