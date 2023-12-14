@@ -684,6 +684,43 @@ $label-print: (
   padding-vertical: map.get($spacing-print, 'xs'),
 );
 
+// Language list
+$language-list: (
+  color: var(--c-d-140),
+  container-padding: var(--s-2xl) var(--s-l) var(--s-l),
+  header-font-mobile: var(--f-p-l),
+  header-font-desktop: var(--f-p-xl),
+  content-margin-mobile: var(--s-m),
+  content-margin-desktop: var(--s-m),
+  category-title-font: var(--f-p-m),
+  category-title-font-weight: map.get($font-weight, 'bold'),
+  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-separator: 1px solid var(--c-p-20),
+  category-stack-margin: var(--s-s),
+  list-margin: 0 0 0 calc(-1 * var(--s-s)),
+  item-padding: var(--s-s),
+  code-color: var(--c-d-140),
+  code-font-weight: map.get($font-weight, 'bold'),
+  code-active-font-weight: map.get($font-weight, 'bold'),
+  code-width: 30px,
+  item-active-background: var(--c-p-10),
+  item-active-color: var(--c-d-140),
+  item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  item-width: 188px,
+  column-spacing-before: var(--s-m),
+  column-spacing-after: var(--s-xl),
+);
+$language-list-print: (
+  container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
+    map.get($spacing-print, 'l'),
+  header-font-desktop: map.get($font-print, 'xl'),
+  content-margin-desktop: map.get($spacing-print, 'l'),
+  category-title-font: map.get($font-print, 'm'),
+  category-title-padding: map.get($spacing-print, 'l') 0
+    map.get($spacing-print, 'xs'),
+  item-padding: map.get($spacing-print, 's'),
+);
+
 // Link
 $link: (
   color: var(--c-p),
@@ -1187,35 +1224,14 @@ $site-header: (
   site-name-mobile-color: map.get($color, 'white'),
   site-name-desktop-color: map.get($color, 'dark-80'),
   language-switcher: (
-    color: var(--c-d-140),
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     shadow-size: 6px,
     arrow-size: 1rem,
     arrow-top: 0,
     arrow-border: none,
     arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
-    header-padding: var(--s-m) var(--s-s) var(--s-m) var(--s-l),
-    header-font-mobile: var(--f-p-l),
-    header-font-desktop: var(--f-p-xl),
-    header-separator: 1px solid var(--c-p-10),
     close-right: var(--s-s),
     close-top: var(--s-xs),
-    content-padding: 0 var(--s-s) var(--s-s),
-    category-margin: var(--s-l),
-    category-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-stack-title-padding: var(--s-l) var(--s-s) var(--s-xs),
-    category-stack-margin: var(--s-m),
-    category-separator: 1px solid var(--c-p-10),
-    column-spacing: var(--s-s),
-    code-color: var(--c-d-140),
-    code-width: 30px,
-    code-font-weight: map.get($font-weight, 'bold'),
-    code-active-font-weight: map.get($font-weight, 'bold'),
-    item-width: 188px,
-    item-padding: var(--s-s),
-    item-active-background: var(--c-p-10),
-    item-active-color: var(--c-d-140),
-    item-active-shadow: inset 4px 0 0 0 var(--c-p),
   ),
 );
 
@@ -1265,39 +1281,9 @@ $splash-page: (
   logo-padding: var(--s-l),
   logo-height-mobile: 2.5rem,
   logo-height-desktop: 2.75rem,
-  color: var(--c-d-140),
-  container-padding: var(--s-2xl) var(--s-l) var(--s-l),
-  header-font-mobile: var(--f-p-l),
-  header-font-desktop: var(--f-p-xl),
-  content-margin-mobile: var(--s-m),
-  content-margin-desktop: var(--s-m),
-  category-title-font: var(--f-p-m),
-  category-title-font-weight: map.get($font-weight, 'bold'),
-  category-title-padding: var(--s-l) 0 var(--s-xs),
-  category-separator: 1px solid var(--c-p-20),
-  category-stack-margin: var(--s-s),
-  list-margin: 0 0 0 calc(-1 * var(--s-s)),
-  item-padding: var(--s-s),
-  code-color: var(--c-d-140),
-  code-font-weight: map.get($font-weight, 'bold'),
-  code-active-font-weight: map.get($font-weight, 'bold'),
-  code-width: 30px,
-  item-active-background: var(--c-p-10),
-  item-active-color: var(--c-d-140),
-  item-active-shadow: inset 4px 0 0 0 var(--c-p),
-  item-width: 188px,
-  column-spacing: var(--s-m),
 );
 $splash-page-print: (
   logo-padding: map.get($spacing-print, 'l'),
-  container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
-    map.get($spacing-print, 'l'),
-  header-font-desktop: map.get($font-print, 'xl'),
-  content-margin-desktop: map.get($spacing-print, 'l'),
-  category-title-font: map.get($font-print, 'm'),
-  category-title-padding: map.get($spacing-print, 'l') 0
-    map.get($spacing-print, 'xs'),
-  item-padding: map.get($spacing-print, 's'),
 );
 
 // Table

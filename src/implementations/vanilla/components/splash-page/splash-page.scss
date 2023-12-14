@@ -9,6 +9,7 @@
 // Exposed variables
 $theme: null !default;
 $splash-page: null !default;
+$language-list: null !default;
 
 // Logo
 .ecl-splash-page__logo-container {
@@ -36,25 +37,25 @@ $splash-page: null !default;
 
 // Language list
 .ecl-splash-page__language-container {
-  color: map.get($splash-page, 'color');
+  color: map.get($language-list, 'color');
   font: var(--f-m);
-  padding: map.get($splash-page, 'container-padding');
+  padding: map.get($language-list, 'container-padding');
 }
 
 .ecl-splash-page__language-title {
-  font: map.get($splash-page, 'header-font-mobile');
+  font: map.get($language-list, 'header-font-mobile');
 }
 
 .ecl-splash-page__language-content {
   display: flex;
   flex-direction: column;
-  margin-top: map.get($splash-page, 'content-margin-mobile');
+  margin-top: map.get($language-list, 'content-margin-mobile');
 }
 
 .ecl-splash-page__language-category-title {
-  font: map.get($splash-page, 'category-title-font');
-  font-weight: map.get($splash-page, 'category-title-font-weight');
-  padding: map.get($splash-page, 'category-title-padding');
+  font: map.get($language-list, 'category-title-font');
+  font-weight: map.get($language-list, 'category-title-font-weight');
+  padding: map.get($language-list, 'category-title-padding');
 }
 
 .ecl-splash-page__language-category:first-child {
@@ -64,20 +65,20 @@ $splash-page: null !default;
 }
 
 .ecl-splash-page__language-category:nth-child(2) {
-  border-top: map.get($splash-page, 'category-separator');
-  margin-top: map.get($splash-page, 'category-stack-margin');
+  border-top: map.get($language-list, 'category-separator');
+  margin-top: map.get($language-list, 'category-stack-margin');
 }
 
 .ecl-splash-page__language-list {
   list-style: none;
-  margin: map.get($splash-page, 'list-margin');
+  margin: map.get($language-list, 'list-margin');
   padding: 0;
 }
 
 .ecl-splash-page__language-link {
   align-items: baseline;
   display: flex;
-  padding: map.get($splash-page, 'item-padding');
+  padding: map.get($language-list, 'item-padding');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -89,13 +90,13 @@ $splash-page: null !default;
 }
 
 .ecl-splash-page__language-link-code {
-  color: map.get($splash-page, 'code-color');
+  color: map.get($language-list, 'code-color');
   font: var(--f-m);
-  font-weight: map.get($splash-page, 'code-font-weight');
+  font-weight: map.get($language-list, 'code-font-weight');
   display: inline-block;
   margin-inline-end: var(--s-2xs);
   text-transform: uppercase;
-  width: map.get($splash-page, 'code-width');
+  width: map.get($language-list, 'code-width');
 }
 
 .ecl-splash-page__language-link:hover .ecl-splash-page__language-link-label,
@@ -105,17 +106,17 @@ $splash-page: null !default;
 }
 
 .ecl-splash-page__language-link--active {
-  background-color: map.get($splash-page, 'item-active-background');
-  box-shadow: map.get($splash-page, 'item-active-shadow');
-  color: map.get($splash-page, 'item-active-color');
+  background-color: map.get($language-list, 'item-active-background');
+  box-shadow: map.get($language-list, 'item-active-shadow');
+  color: map.get($language-list, 'item-active-color');
 
   .ecl-splash-page__language-link-code {
-    font-weight: map.get($splash-page, 'code-active-font-weight');
+    font-weight: map.get($language-list, 'code-active-font-weight');
   }
 }
 
 .ecl-splash-page__language-link:hover.ecl-splash-page__language-link--active {
-  color: map.get($splash-page, 'item-active-color');
+  color: map.get($language-list, 'item-active-color');
 
   .ecl-splash-page__language-link-label {
     text-decoration: none;
@@ -124,7 +125,7 @@ $splash-page: null !default;
 
 @include breakpoints.up('m') {
   .ecl-splash-page__language-title {
-    font: map.get($splash-page, 'header-font-desktop');
+    font: map.get($language-list, 'header-font-desktop');
   }
 
   // Columns display
@@ -137,13 +138,13 @@ $splash-page: null !default;
   }
 
   .ecl-splash-page__language-link {
-    width: calc(#{map.get($splash-page, 'item-width')} - (2 * var(--s-s)));
+    width: calc(#{map.get($language-list, 'item-width')} - (2 * var(--s-s)));
   }
 }
 
 @include breakpoints.up('l') {
   .ecl-splash-page__language-content {
-    margin-top: map.get($splash-page, 'content-margin-desktop');
+    margin-top: map.get($language-list, 'content-margin-desktop');
   }
 
   .ecl-splash-page__language-category
@@ -164,9 +165,9 @@ $splash-page: null !default;
 
     .ecl-splash-page__language-category:nth-child(2) {
       border-top: none;
-      border-inline-start: map.get($splash-page, 'category-separator');
-      margin-inline-start: map.get($splash-page, 'column-spacing');
-      padding-inline-start: map.get($splash-page, 'column-spacing');
+      border-inline-start: map.get($language-list, 'category-separator');
+      margin-inline-start: map.get($language-list, 'column-spacing-before');
+      padding-inline-start: map.get($language-list, 'column-spacing-after');
     }
 
     .ecl-splash-page__language-category-title {

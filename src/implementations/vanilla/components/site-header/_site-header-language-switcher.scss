@@ -4,6 +4,7 @@
 // Exposed variables
 $theme: null !default;
 $language-switcher: null !default;
+$language-list: null !default;
 
 .ecl-site-header__language {
   margin: 0;
@@ -39,11 +40,12 @@ $language-switcher: null !default;
 .ecl-site-header__language-container {
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($language-switcher, 'shadow');
-  color: map.get($language-switcher, 'color');
+  color: map.get($language-list, 'color');
   font: var(--f-m);
   left: 0;
   height: auto;
   margin-top: var(--s-s);
+  padding: map.get($language-list, 'container-padding');
   position: absolute;
   right: 0;
   width: auto;
@@ -63,14 +65,12 @@ $language-switcher: null !default;
 
 .ecl-site-header__language-header {
   align-items: center;
-  border-bottom: map.get($language-switcher, 'header-separator');
   display: flex;
   justify-content: space-between;
-  padding: map.get($language-switcher, 'header-padding');
 }
 
 .ecl-site-header__language-title {
-  font: map.get($language-switcher, 'header-font-mobile');
+  font: map.get($language-list, 'header-font-mobile');
 }
 
 .ecl-site-header__language-close {
@@ -82,34 +82,29 @@ $language-switcher: null !default;
 .ecl-site-header__language-content {
   display: flex;
   flex-direction: column;
-  padding: map.get($language-switcher, 'content-padding');
 }
 
 .ecl-site-header__language-category-title {
-  font: var(--f-m);
-  font-weight: map.get($language-switcher, 'category-title-font-weight');
-  padding: map.get($language-switcher, 'category-title-padding');
+  font: map.get($language-list, 'category-title-font');
+  font-weight: map.get($language-list, 'category-title-font-weight');
+  padding: map.get($language-list, 'category-title-padding');
 }
 
 .ecl-site-header__language-category:nth-child(2) {
-  border-top: map.get($language-switcher, 'category-separator');
-  margin-top: map.get($language-switcher, 'category-stack-margin');
-
-  .ecl-site-header__language-category-title {
-    padding: map.get($language-switcher, 'category-stack-title-padding');
-  }
+  border-top: map.get($language-list, 'category-separator');
+  margin-top: map.get($language-list, 'category-stack-margin');
 }
 
 .ecl-site-header__language-list {
   list-style: none;
-  margin: 0;
+  margin: map.get($language-list, 'list-margin');
   padding: 0;
 }
 
 .ecl-site-header__language-link {
   align-items: baseline;
   display: flex;
-  padding: map.get($language-switcher, 'item-padding');
+  padding: map.get($language-list, 'item-padding');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -121,13 +116,13 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-link-code {
-  color: map.get($language-switcher, 'code-color');
+  color: map.get($language-list, 'code-color');
   font: var(--f-m);
-  font-weight: map.get($language-switcher, 'code-font-weight');
+  font-weight: map.get($language-list, 'code-font-weight');
   display: inline-block;
   margin-inline-end: var(--s-2xs);
   text-transform: uppercase;
-  width: map.get($language-switcher, 'code-width');
+  width: map.get($language-list, 'code-width');
 }
 
 .ecl-site-header__language-link:hover .ecl-site-header__language-link-label,
@@ -137,17 +132,17 @@ $language-switcher: null !default;
 }
 
 .ecl-site-header__language-link--active {
-  background-color: map.get($language-switcher, 'item-active-background');
-  box-shadow: map.get($language-switcher, 'item-active-shadow');
-  color: map.get($language-switcher, 'item-active-color');
+  background-color: map.get($language-list, 'item-active-background');
+  box-shadow: map.get($language-list, 'item-active-shadow');
+  color: map.get($language-list, 'item-active-color');
 
   .ecl-site-header__language-link-code {
-    font-weight: map.get($language-switcher, 'code-active-font-weight');
+    font-weight: map.get($language-list, 'code-active-font-weight');
   }
 }
 
 .ecl-site-header__language-link:hover.ecl-site-header__language-link--active {
-  color: map.get($language-switcher, 'item-active-color');
+  color: map.get($language-list, 'item-active-color');
 
   .ecl-site-header__language-link-label {
     text-decoration: none;
@@ -166,7 +161,7 @@ $language-switcher: null !default;
   }
 
   .ecl-site-header__language-title {
-    font: map.get($language-switcher, 'header-font-desktop');
+    font: map.get($language-list, 'header-font-desktop');
   }
 
   // Horizontal position
@@ -181,16 +176,17 @@ $language-switcher: null !default;
       .ecl-site-header__language-content--stack
     ) {
     flex-direction: row;
+    margin-top: map.get($language-list, 'content-margin-desktop');
 
     .ecl-site-header__language-category {
-      margin-top: map.get($language-switcher, 'category-margin');
+      margin-top: 0;
     }
 
     .ecl-site-header__language-category:nth-child(2) {
       border-top: none;
-      border-inline-start: map.get($language-switcher, 'category-separator');
-      margin-inline-start: map.get($language-switcher, 'column-spacing-before');
-      padding-inline-start: map.get($language-switcher, 'column-spacing-after');
+      border-inline-start: map.get($language-list, 'category-separator');
+      margin-inline-start: map.get($language-list, 'column-spacing-before');
+      padding-inline-start: map.get($language-list, 'column-spacing-after');
     }
 
     .ecl-site-header__language-category-title {
@@ -212,8 +208,6 @@ $language-switcher: null !default;
   }
 
   .ecl-site-header__language-link {
-    width: calc(
-      #{map.get($language-switcher, 'item-width')} - (2 * var(--s-s))
-    );
+    width: calc(#{map.get($language-list, 'item-width')} - (2 * var(--s-s)));
   }
 }
