@@ -23,6 +23,7 @@ $select: null !default;
   display: block;
   font: var(--f-m);
   margin: 0;
+  overflow: hidden;
   padding-bottom: calc(
     #{map.get($select, 'padding-vertical')} - #{map.get(
         $select,
@@ -42,6 +43,9 @@ $select: null !default;
         'border-width'
       )}
   );
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
   z-index: 1;
 
@@ -251,6 +255,10 @@ $select: null !default;
     overflow-y: auto;
   }
 
+  .ecl-checkbox {
+    clear: left;
+  }
+
   .ecl-checkbox__label {
     padding-bottom: map.get(
       $select,
@@ -272,6 +280,8 @@ $select: null !default;
 
   .ecl-select__multiple-group {
     border-bottom: 1px solid map.get($select, 'group-separator-color');
+    border-left: none;
+    border-right: none;
     border-top: 1px solid map.get($select, 'group-separator-color');
     margin: 0 var(--s-m);
     padding: var(--s-s) 0;
@@ -293,6 +303,7 @@ $select: null !default;
 
   .ecl-select__multiple-group__title {
     color: map.get($select, 'group-title-color');
+    float: left;
     font: map.get($select, 'group-title-font');
     font-weight: map.get($theme, 'font-weight', 'bold');
     margin: 0 0 var(--s-2xs);
