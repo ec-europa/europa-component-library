@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.12.1 (2023-12-15)
+
+#### :bug: Bug Fix
+
+- [#3139](https://github.com/ec-europa/europa-component-library/pull/3139) fix(select): Using the id from the markup or adding a randomised one in the js - FRONT-4176 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 3.12.0 (2023-12-12)
 
 #### :rocket: New Feature
