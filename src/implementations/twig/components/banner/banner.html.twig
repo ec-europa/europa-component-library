@@ -69,7 +69,7 @@
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {% if _picture.img is not empty and _variant != 'plain-background'  %}
-  <div class="ecl-banner__picture-container">
+  <figure class="ecl-banner__picture-container">
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
       extra_classes: 'ecl-banner__picture',
@@ -77,9 +77,9 @@
       extra_attributes: [{ name: 'data-ecl-banner-image' }],
     } only %}
   {% if _credit is not empty and _variant != 'plain-background' %}
-    <div class="ecl-banner__credit">{{ _credit }}</div>
+    <footer class="ecl-banner__credit"><small>{{ _credit }}</small></footer>
   {% endif %}
-  </div>
+  </figure>
 {% endif %}
   <div class="ecl-container">
     <div
