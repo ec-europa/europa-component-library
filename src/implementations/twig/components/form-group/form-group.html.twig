@@ -48,11 +48,6 @@
 {% set _group_tag = 'div' %}
 {% set _label_tag = 'label' %}
 
-{% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
-  {% set _group_tag = 'fieldset' %}
-  {% set _label_tag = 'legend' %}
-{% endif %}
-
 {% if _helper_text and _id %}
   {% set _aria_describedby = _id ~ '-helper' %}
 {% endif %}
@@ -90,23 +85,42 @@
 {% endif %}
 
 {% if _input.input_type == 'range' %}
-  {% set extra_attributes = [
+  {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'data-ecl-range', value: true },
     { name: 'data-ecl-auto-init', value: 'Range' },
-  ] %}
+  ]) %}
 {% endif %}
 
 {% if _input.input_type == 'file' %}
-  {% set extra_attributes = [
+  {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'data-ecl-file-upload-group', value: true },
     { name: 'data-ecl-autoinit', value: 'FileUpload' },
-  ] %}
+  ]) %}
 {% endif %}
 
 {% if _helper_text is not empty %}
   {% set _input_extra_attributes = _input_extra_attributes|merge([
     { name: 'aria-describedby', value: _aria_describedby }
   ]) %}
+{% endif %}
+
+{% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
+  {% set _group_tag = 'fieldset' %}
+  {% set _label_tag = 'legend' %}
+  {% if _aria_describedby %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'aria-describedby', value: _aria_describedby },
+    ]) %}
+  {% endif %}
+  {% if _invalid %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'aria-invalid', value: 'true' },
+    ]) %}
+  {% endif %}
+{% elseif _input_extra_attributes is not empty %}
+  {% set _input = _input|merge({
+    extra_attributes: _input_extra_attributes,
+  }) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -121,18 +135,7 @@
 
 {# Print the result #}
 
-<{{ _group_tag }} 
-  class="{{ _css_class }}"
-  {% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
-    {% if _aria_describedby %}
-      aria-describedby="{{ _aria_describedby }}"
-    {% endif %}
-    {% if _invalid %}
-      aria-invalid="true"
-    {% endif %}
-  {% endif %}
-  {{- _extra_attributes|raw -}}
->
+<{{ _group_tag }} class="{{ _css_class }}" {{- _extra_attributes|raw -}}>
   {% if _label is not empty %}
     <{{ _label_tag }}
     {% if _id %}
@@ -149,16 +152,16 @@
       {%- if _required and _required_text is not empty -%}
         <span 
           class="ecl-form-label__required"
-          {% if _label_aria_required %}
+          {%- if _label_aria_required -%}
             aria-label="{{ _label_aria_required }}"
-          {% endif %}
+          {%- endif -%}
         >{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
         <span 
           class="ecl-form-label__optional"
-          {% if _label_aria_optional %}
+          {%- if _label_aria_optional -%}
             aria-label="{{ _label_aria_optional }}"
-          {% endif %}
+          {%- endif -%}
         >{{ _optional_text }}</span>
       {%- endif -%}
     </{{ _label_tag }}>
@@ -181,12 +184,12 @@
         id="{{ _id }}-invalid"
       {% endif %}
     >
-      {% if _invalid_icon is not empty %}
+      {%- if _invalid_icon is not empty -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: _invalid_icon,
         extra_classes: 'ecl-feedback-message__icon',
       } only %}
-      {% endif %}
+      {%- endif -%}
       {%- block invalid_text _invalid_text -%}
     </div>
     {% endif %}
@@ -195,28 +198,22 @@
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
     {% include '@ecl/text-input/text-input.html.twig' with _input|merge({
       type: _input.input_type,
-      extra_attributes: _input_extra_attributes,
     }) only %}
   {%- endif -%}
+  
   {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
-    {% include '@ecl/select/select.html.twig' with _input|merge({
-      extra_attributes: _input_extra_attributes,
-    }) only %}
+    {% include '@ecl/select/select.html.twig' with _input only %}
     </div>
   {%- endif -%}
 
   {%- if _input.input_type == 'textarea' -%}
-    {% include '@ecl/text-area/text-area.html.twig' with _input|merge({
-      extra_attributes: _input_extra_attributes,
-    }) only %}
+    {% include '@ecl/text-area/text-area.html.twig' with _input only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'datepicker' -%}
-    {% include '@ecl/datepicker/datepicker.html.twig' with _input|merge({
-      input_extra_attributes: _input_extra_attributes,
-    }) only %}
+    {% include '@ecl/datepicker/datepicker.html.twig' with _input only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'radio' -%}
@@ -231,9 +228,7 @@
   {%- endif -%}
 
   {%- if _input.input_type == 'range' -%}
-    {% include '@ecl/range/range.html.twig' with _input|merge({
-      extra_attributes: _input_extra_attributes,
-    }) only %}
+    {% include '@ecl/range/range.html.twig' with _input only %}
   {%- endif -%}
 
   {%- if _input.input_type == 'rating-field' -%}
@@ -241,9 +236,7 @@
   {%- endif -%}
 
   {%- if _input.input_type == 'file' -%}
-    {% include '@ecl/file-upload/file-upload.html.twig' with _input|merge({
-      extra_attributes: _input_extra_attributes,
-    }) only %}
+    {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
 </{{ _group_tag }}>
 

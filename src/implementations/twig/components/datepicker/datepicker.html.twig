@@ -18,10 +18,7 @@
     - "icons_path" (string) (default: '')
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []) Extra attributes for the datepicker wrapper
-      - "name" (string) Attribute name, eg. 'data-test'
-      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
-    - "input_extra_attributes" (array) (default: []) Extra attributes for the datepicker input
+    - "extra_attributes" (array) (default: []) Extra attributes for the datepicker
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
@@ -41,7 +38,6 @@
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
 {% set _extra_attributes = '' %}
-{% set _input_extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -69,20 +65,7 @@
   {% endfor %}
 {% endif %}
 
-{% if input_extra_attributes is defined and input_extra_attributes is not empty and input_extra_attributes is iterable %}
-  {% for attr in input_extra_attributes %}
-    {% if attr.value is defined %}
-      {% set _input_extra_attributes = _input_extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
-    {% else %}
-      {% set _input_extra_attributes = _input_extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
-  <div
-    class="{{ _css_class }}"
-    {{ _extra_attributes|raw }}
-  >
+  <div class="{{ _css_class }}">
     <input
       autocomplete="off"
       data-ecl-datepicker-toggle
@@ -111,7 +94,7 @@
     {% if _default_value is not empty %}
       value="{{ _default_value }}"
     {% endif %}
-    {{ _input_extra_attributes|raw }}
+    {{ _extra_attributes|raw }}
     />
   {% if _icons_path is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {

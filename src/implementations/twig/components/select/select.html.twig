@@ -56,10 +56,8 @@
 {% set _multiple_close_text = multiple_close_text|default('') %}
 {% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
 {% set _css_group_class = 'ecl-form-group' %}
-{% set _css_class = ['ecl-select'] %}
-{% set _css_class = _css_class|join(' ') %}
-{% set extra_attributes = extra_attributes|default([]) %}
-{% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
+{% set _css_class = 'ecl-select' %}
+{% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
