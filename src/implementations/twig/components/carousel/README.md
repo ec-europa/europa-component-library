@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-carousel
 
 ### Parameters
 
-- **"items"** (array) (default: []): List of page-banner compatible with EC banner component structure
+- **"items"** (array) (default: []): List of banner compatible with EC banner component structure
 - **"counter_label"** (string) (default: 'of')
 - **"sr_previous"** (string) (default: 'Previous slides') screen reader label for previous button
 - **"sr_next"** (string) (default: 'Next slides') screen reader label for next button
