@@ -3,6 +3,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.containerSelector Selector for container element
  * @param {String} options.listSelector Selector for list element
  * @param {String} options.listItemsSelector Selector for tabs element
  * @param {String} options.moreLabelSelector Selector for more list item element
@@ -32,6 +33,7 @@ export class Tabs {
   constructor(
     element,
     {
+      containerSelector = '.ecl-tabs__container',
       listSelector = '.ecl-tabs__list',
       listItemsSelector = '.ecl-tabs__item:not(.ecl-tabs__item--more)',
       moreItemSelector = '.ecl-tabs__item--more',
@@ -53,6 +55,7 @@ export class Tabs {
     this.element = element;
 
     // Options
+    this.containerSelector = containerSelector;
     this.listSelector = listSelector;
     this.listItemsSelector = listItemsSelector;
     this.moreItemSelector = moreItemSelector;
@@ -64,6 +67,7 @@ export class Tabs {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
+    this.container = null;
     this.list = null;
     this.listItems = null;
     this.moreItem = null;
@@ -72,6 +76,7 @@ export class Tabs {
     this.moreLabel = null;
     this.moreLabelValue = null;
     this.dropdown = null;
+    this.dropdownList = null;
     this.dropdownItems = null;
     this.allowShift = true;
     this.buttonNextSize = 0;
@@ -103,6 +108,7 @@ export class Tabs {
     }
     ECL.components = ECL.components || new Map();
 
+    this.container = queryOne(this.containerSelector, this.element);
     this.list = queryOne(this.listSelector, this.element);
     this.listItems = queryAll(this.listItemsSelector, this.element);
     this.moreItem = queryOne(this.moreItemSelector, this.element);
@@ -115,11 +121,14 @@ export class Tabs {
 
     if (this.moreButton) {
       // Create the "more" dropdown and clone existing list items
-      this.dropdown = document.createElement('ul');
+      this.dropdown = document.createElement('div');
       this.dropdown.classList.add('ecl-tabs__dropdown');
+      this.dropdownList = document.createElement('ul');
+      this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
-        this.dropdown.appendChild(item.cloneNode(true));
+        this.dropdownList.appendChild(item.cloneNode(true));
       });
+      this.dropdown.appendChild(this.dropdownList);
       this.moreItem.appendChild(this.dropdown);
       this.dropdownItems = queryAll(
         '.ecl-tabs__dropdown .ecl-tabs__item',
@@ -202,25 +211,33 @@ export class Tabs {
   shiftTabs(dir) {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
     // Show or hide prev or next button based on tab index
-    this.btnPrev.style.display = this.index >= 1 ? 'block' : 'none';
-    this.btnNext.style.display =
-      this.index >= this.total - 1 ? 'none' : 'block';
+    if (this.index >= 1) {
+      this.btnPrev.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--left');
+    } else {
+      this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
+    }
+
+    if (this.index >= this.total - 1) {
+      this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
+    } else {
+      this.btnNext.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--right');
+    }
 
     // Slide tabs
-    const leftMargin =
-      this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
-
     let newOffset = 0;
     this.direction = getComputedStyle(this.element).direction;
     if (this.direction === 'rtl') {
       newOffset = Math.ceil(
         this.list.offsetWidth -
           this.listItems[this.index].offsetLeft -
-          this.listItems[this.index].offsetWidth -
-          leftMargin,
+          this.listItems[this.index].offsetWidth,
       );
     } else {
-      newOffset = Math.ceil(this.listItems[this.index].offsetLeft - leftMargin);
+      newOffset = Math.ceil(this.listItems[this.index].offsetLeft);
     }
 
     const maxScroll = Math.ceil(
@@ -230,6 +247,7 @@ export class Tabs {
 
     if (newOffset > maxScroll) {
       this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
       newOffset = maxScroll;
     }
 
@@ -285,7 +303,9 @@ export class Tabs {
       });
       this.list.style.width = `${listWidth}px`;
       this.btnNext.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--right');
       this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
       this.tabsKeyEvents();
       return;
     }
@@ -293,7 +313,9 @@ export class Tabs {
     this.isMobile = false;
     // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--right');
     this.btnPrev.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--left');
     this.list.style.width = 'auto';
 
     // Hide items that won't fit in the list
@@ -394,10 +416,12 @@ export class Tabs {
 
     switch (e.key) {
       case 'ArrowLeft':
+      case 'ArrowUp':
         this.arrowFocusToTab(tgt, 'prev');
         break;
 
       case 'ArrowRight':
+      case 'ArrowDown':
         this.arrowFocusToTab(tgt, 'next');
         break;
 
