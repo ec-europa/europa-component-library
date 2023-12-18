@@ -8,6 +8,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="checkbox-default-label"
     >
       Select your preferred destinations
       <span
@@ -183,6 +184,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
+      id="checkbox-default-label"
     >
       Select your preferred destinations
       <span
@@ -211,7 +213,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <div
       class="ecl-checkbox ecl-checkbox--invalid"
@@ -372,6 +374,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="checkbox-default-label"
     >
       Select your preferred destinations
       <span
@@ -548,6 +551,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
   >
     <legend
       class="ecl-form-label"
+      id="checkbox-default-label"
     >
       Select your preferred destinations
       <span
@@ -722,6 +726,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
   >
     <legend
       class="ecl-form-label"
+      id="checkbox-default-label"
     >
       Select your preferred destinations
       <span
@@ -1034,7 +1039,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <div
       class="ecl-datepicker ecl-datepicker--invalid"
@@ -1416,7 +1421,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <input
       aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
@@ -1523,6 +1528,8 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
     class="ecl-form-group"
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <label
       class="ecl-form-label"
@@ -1659,6 +1666,7 @@ exports[`Form group  with Radio renders correctly 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -1809,6 +1817,7 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
   >
     <legend
       class="ecl-form-label ecl-form-label--disabled"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -1960,6 +1969,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -1988,7 +1998,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <div
       class="ecl-radio"
@@ -2125,6 +2135,7 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -2277,6 +2288,7 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -2427,6 +2439,7 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
   >
     <legend
       class="ecl-form-label"
+      id="radio-default-label"
     >
       Select your country
       <span
@@ -2707,7 +2720,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <input
       aria-describedby="example-range-id-helper example-range-id-invalid"
@@ -2789,6 +2802,8 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     class="ecl-form-group"
     data-ecl-auto-init="Range"
     data-ecl-range="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
   >
     <label
       class="ecl-form-label"
@@ -2889,7 +2904,6 @@ exports[`Form group  with Rating field renders correctly 1`] = `
   >
     <legend
       class="ecl-form-label"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -3102,7 +3116,6 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
   >
     <legend
       class="ecl-form-label ecl-form-label--disabled"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -3321,7 +3334,6 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -3351,7 +3363,7 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <div
       class="ecl-rating-field"
@@ -3549,7 +3561,6 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
   >
     <legend
       class="ecl-form-label"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -3764,7 +3775,6 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
   >
     <legend
       class="ecl-form-label"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -3977,7 +3987,6 @@ exports[`Form group  with Rating field renders correctly with extra class names 
   >
     <legend
       class="ecl-form-label"
-      for="rating-field"
       id="rating-field-label"
     >
       Please Rate
@@ -4505,7 +4514,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <div
       class="ecl-select__container ecl-select__container--invalid ecl-select__container--m"
@@ -5162,7 +5171,7 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <input
       aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
@@ -5392,7 +5401,7 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
           xlink:href="/icons.svg#error"
         />
       </svg>
-            Invalid text
+      Invalid text
     </div>
     <textarea
       aria-describedby="example-textarea-id-1-helper example-textarea-id-1-invalid"
