@@ -4,25 +4,17 @@ import { correctPaths } from '@ecl/story-utils';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
-import dataSet from '@ecl/specs-component-tag/demo/data--set';
 
 import tag from './tag.html.twig';
-import tagSet from './tag-set.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {};
 
-  if (data.items) {
-    args.label = data.items[0].tag.label;
-    args.nowrap = false;
+  args.label = data.tag.label;
+  args.nowrap = false;
+  if (data.tag.type === 'link') {
     args.external = false;
-  } else {
-    args.label = data.tag.label;
-    args.nowrap = false;
-    if (data.tag.type === 'link') {
-      args.external = false;
-    }
   }
 
   return args;
@@ -52,7 +44,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.items || data.tag.type === 'link') {
+  if (data.tag.type === 'link') {
     argTypes.external = {
       type: { name: 'boolean' },
       description: 'External link',
@@ -68,19 +60,9 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  if (data.items) {
-    data.items[0].tag.label = args.label;
-    data.items[0].tag.nowrap = args.nowrap;
-
-    data.items.forEach((item) => {
-      item.tag.external = args.external;
-      item.tag.nowrap = args.nowrap;
-    });
-  } else {
-    data.tag.label = args.label;
-    data.tag.nowrap = args.nowrap;
-    data.tag.external = args.external;
-  }
+  data.tag.label = args.label;
+  data.tag.nowrap = args.nowrap;
+  data.tag.external = args.external;
 
   correctPaths(data);
 
@@ -113,14 +95,3 @@ Removable.storyName = 'removable tag';
 Removable.args = getArgs(dataRemovable);
 Removable.argTypes = getArgTypes(dataRemovable);
 Removable.parameters = { notes: { markdown: notes, json: dataRemovable } };
-
-export const Set = (_, { loaded: { component } }) => component;
-
-Set.render = async (args) => {
-  const renderedTagSet = await tagSet(prepareData(dataSet, args));
-  return renderedTagSet;
-};
-Set.storyName = 'tag set';
-Set.args = getArgs(dataSet);
-Set.argTypes = getArgTypes(dataSet);
-Set.parameters = { notes: { markdown: notes, json: dataSet } };

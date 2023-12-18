@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "icon_file_path" (string) (default: ''): URL to icons file
+    - "icon_path" (string) (default: ''): URL to icons file
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
           "href": (string) (default: ''): URL for switcher
@@ -38,7 +38,7 @@
 {# Default variables #}
 
 {% set _language_selector = language_selector|default({}) %}
-{% set _icon_file_path = icon_file_path|default('') %}
+{% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -62,7 +62,7 @@
     <span class="ecl-site-header__language-icon">
       {% include '@ecl/icon/icon.html.twig' with {
         icon: {
-          path: _icon_file_path,
+          path: _icon_path,
           name: 'global',
           size: 's'
         },

@@ -2,7 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  default_icon_path: '/icons.svg',
+  icon_path: '/icons.svg',
   items: [
     {
       tag: {

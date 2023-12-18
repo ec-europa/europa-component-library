@@ -8,7 +8,6 @@ npm install --save @ecl/twig-component-splash-page
 
 ### Parameters
 
-- **"icon_file_path"** (string) (default: ''): file containing the svg icons
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
@@ -44,7 +43,6 @@ npm install --save @ecl/twig-component-splash-page
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/splash-page/splash-page.html.twig' with { 
-  icon_file_path: '/icons.svg',
   logo: {
     title: 'European Commission',
     alt: 'European Commission logo',
