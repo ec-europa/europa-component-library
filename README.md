@@ -19,7 +19,7 @@ ECL is currently using **node 18.18.2 (LTS)**, we recommend using this version (
 
 Read the technical documentation [on GitHub](docs/README.md).
 
-## Migrate from v2
+## Migrate from v3
 
 Read the technical documentation [on GitHub](docs/Migrating-v4.md).
 
