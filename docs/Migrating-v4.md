@@ -103,7 +103,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Checkbox
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
-- New twig parameter `group_id`. It is used to set a unique id for a group of checkbox (needed for accessibility). It replaces parameters `label_id` and `helper_id`
+- Remove parameters `label_id` and `helper_id`, handled in form group
 - New twig parameter `label_aria_required`. It is used to set a readable text when a single checkbox is required (and not only a '\*'). If there are multiple checkboxes, it is handled in the form group
 
 ### Content item
@@ -225,7 +225,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Radio
 
-- New twig parameter `group_id`. It is used to set a unique id for a group of radio (needed for accessibility). It replaces parameters `helper_id`
+- Remove parameters `helper_id` and `invalid_icon`, handled in form group
 
 ### Rating field
 

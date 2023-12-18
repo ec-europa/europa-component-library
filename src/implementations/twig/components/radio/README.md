@@ -10,7 +10,6 @@ npm install --save @ecl/twig-component-radio
 
 - **"items"** (array) (default: [])
   - "id" (string) (default: ''): id of the radio
-  - "group_id" (string) (default: ''): id of the form group
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
@@ -32,7 +31,6 @@ npm install --save @ecl/twig-component-radio
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/radio/radio-group.html.twig' with { 
-  group_id: 'radio-default',
   name: 'radio-default', 
   invalid: false, 
   binary: false, 

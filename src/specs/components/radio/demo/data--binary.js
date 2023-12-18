@@ -15,7 +15,7 @@ module.exports = {
     size: 'm',
   },
   input: {
-    group_id: 'radio-default',
+    id: 'radio-default',
     input_type: 'radio',
     name: 'radio-group-1',
     binary: true,

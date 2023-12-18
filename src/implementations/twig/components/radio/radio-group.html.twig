@@ -2,11 +2,9 @@
 
 {#
   Parameters:
-  - "group_id" (string) (default: ''): id of the form group; used in the form-group template
   - "items" (array) (default: []): array of radio_button
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
-  - "invalid_icon" (object) default({})
   - "binary" (boolean) (default: false)
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
@@ -17,18 +15,11 @@
 
 {# Internal properties #}
 
-{% set _group_id = group_id|default('') %}
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _binary = binary|default(false) %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_icon = invalid_icon|default({}) %}
-{% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('') %}
-{% set _label = label|default('') %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 

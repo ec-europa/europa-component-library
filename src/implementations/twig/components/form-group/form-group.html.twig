@@ -40,7 +40,6 @@
 {% set _input = input|default({}) %}
 {% set _width = _input.width|default('') %}
 {% set _id = _input.id|default('') %}
-{% set _group_id = _input.group_id|default('') %}
 {% set _input_extra_attributes = _input.extra_attributes|default([]) %}
 {% set _aria_describedby = '' %}
 
@@ -54,10 +53,8 @@
   {% set _label_tag = 'legend' %}
 {% endif %}
 
-{% if _id %}
+{% if _helper_text and _id %}
   {% set _aria_describedby = _id ~ '-helper' %}
-{% elseif _group_id %}
-  {% set _aria_describedby = _group_id ~ '-helper' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -79,9 +76,7 @@
     invalid: true,
   }) %}
   {% if _id %}
-    {% set _aria_describedby = _aria_describedby ~ ' ' ~ _id ~ '-invalid' %}
-  {% elseif _group_id %}
-    {% set _aria_describedby =  _aria_describedby ~ ' ' ~ _group_id ~ '-invalid' %}
+    {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-invalid' : _id ~ '-invalid' %}
   {% endif %}
   {% set _input_extra_attributes = _input_extra_attributes|merge([
     { name: 'aria-invalid', value: 'true' }
@@ -129,7 +124,9 @@
 <{{ _group_tag }} 
   class="{{ _css_class }}"
   {% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
-    aria-describedby="{{ _aria_describedby }}"
+    {% if _aria_describedby %}
+      aria-describedby="{{ _aria_describedby }}"
+    {% endif %}
     {% if _invalid %}
       aria-invalid="true"
     {% endif %}
@@ -139,7 +136,9 @@
   {% if _label is not empty %}
     <{{ _label_tag }}
     {% if _id %}
-      for="{{ _id }}"
+      {% if _input.input_type != 'radio' and _input.input_type != 'checkbox' and _input.input_type != 'rating-field' %}
+        for="{{ _id }}"
+      {% endif %}
       id="{{ _id }}-label"
     {% endif %}
       class="{{- _label_class -}}
@@ -169,8 +168,6 @@
     <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
       {% if _id %}
         id="{{ _id }}-helper"
-      {% elseif _group_id %}
-        id="{{ _group_id }}-helper"
       {% endif %}
     >
       {%- block helper_text _helper_text -%}
@@ -182,8 +179,6 @@
     <div class="ecl-feedback-message"
       {% if _id %}
         id="{{ _id }}-invalid"
-      {% elseif _group_id %}
-        id="{{ _group_id }}-invalid"
       {% endif %}
     >
       {% if _invalid_icon is not empty %}

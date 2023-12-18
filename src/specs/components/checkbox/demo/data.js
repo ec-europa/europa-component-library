@@ -19,15 +19,9 @@ module.exports = {
     size: 'm',
   },
   input: {
-    group_id: 'checkbox-default',
+    id: 'checkbox-default',
     input_type: 'checkbox',
     name: 'checkbox-default',
-    invalid_text: 'Error message for the group',
-    invalid_icon: {
-      path: '/icons.svg',
-      name: 'error',
-      size: 'm',
-    },
     items: [
       {
         checked: true,
