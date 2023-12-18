@@ -29,7 +29,7 @@ describe('Tag', () => {
       const withExternal = { ...dataLink.tag, external: true };
       const optionsWithExternal = {
         ...dataLink,
-        default_icon_path: '/icons.svg',
+        icon_path: '/icons.svg',
         tag: withExternal,
       };
 
