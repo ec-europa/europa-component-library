@@ -28,8 +28,6 @@ export class Accordion {
     {
       toggleSelector = '[data-ecl-accordion-toggle]',
       iconSelector = '[data-ecl-accordion-icon]',
-      labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
     } = {},
   ) {
@@ -46,14 +44,11 @@ export class Accordion {
     this.toggleSelector = toggleSelector;
     this.iconSelector = iconSelector;
     this.attachClickListener = attachClickListener;
-    this.labelExpanded = labelExpanded;
-    this.labelCollapsed = labelCollapsed;
 
     // Private variables
     this.toggles = null;
     this.forceClose = false;
     this.target = null;
-    this.label = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -73,8 +68,6 @@ export class Accordion {
 
     this.toggles = queryAll(this.toggleSelector, this.element);
 
-    // Get label, if any
-    this.label = queryOne(this.labelSelector, this.element);
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
@@ -159,16 +152,6 @@ export class Accordion {
           newXlinkHref = originalXlinkHref.replace('plus', 'minus');
         }
         useNode.setAttribute('xlink:href', newXlinkHref);
-      }
-    }
-
-    // Toggle icon label
-    const iconLabelElement = queryOne('.ecl-accordion__toggle-label', toggle);
-    if (iconLabelElement) {
-      if (isExpanded) {
-        iconLabelElement.textContent = toggle.getAttribute(this.labelCollapsed);
-      } else {
-        iconLabelElement.textContent = toggle.getAttribute(this.labelExpanded);
       }
     }
 

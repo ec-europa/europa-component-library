@@ -74,6 +74,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - The icon size is now different in the two systems, the twig template sets it by default to `xs` which is the value for EC, it needs to be
   overridden by the data provided when working with the EU theme to `m`.
 - A selector `ecl-accordion__item--active` is now added via our vanilla js to mark the latest item the user interacted with.
+- Label associated to the accordion icon is no longer displayed. This mean that twig parameters `label_expanded` and `label_collapsed`, and associated `data-ecl-label-expanded` and `data-ecl-label-collapsed` are no longer used. Javascript has also been updated to remove corresponding code
 
 ### Banner
 
