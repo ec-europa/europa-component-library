@@ -18,6 +18,7 @@
       ]
     - "date" (associative array) (default: {}): Predefined structure compatible with ECL Date block component
     - "labels" (array) (default: []): Array of ECL Labels
+    - "labels_aria" (strings) (default: ''): Aria label for the labels area
     - "primary_meta" (array of strings) (default: []): Primary meta of the content item
     - "title" (associative array) (default: {}): Title of the content item, following ECL Link structure
     - "description" (string) (default: ''): Description of the content item
@@ -52,6 +53,7 @@
 }) %}
 {% set _date = date|default({}) %}
 {% set _labels = labels|default([]) %}
+{% set _labels_aria = labels_aria|default('') %}
 {% set _primary_meta = primary_meta|default(_meta) %}
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
@@ -126,6 +128,7 @@
 
   {% set _content_block = {
     labels: _labels,
+    labels_aria: _labels_aria,
     primary_meta: _primary_meta,
     title: _title,
     description: _description,

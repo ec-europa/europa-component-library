@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "labels" (array) (default: []): Array of ECL Labels
+    - "labels_aria" (strings) (default: ''): Aria label for the labels area
     - "primary_meta" (array of strings) (default: []): Primary meta of the content block
     - "title" (associative array OR string) (default: {}): Title of the content block, following ECL Link structure
     - "description" (string) (default: ''): Description of the content block
@@ -27,6 +28,7 @@
 {# Internal properties #}
 
 {% set _labels = labels|default([]) %}
+{% set _labels_aria = labels_aria|default('') %}
 {% set _primary_meta = primary_meta|default([]) %}
 {% set _title = title|default({}) %}
 {% set _description = description|default('') %}
@@ -62,7 +64,11 @@
   data-ecl-content-block
 >
   {% if _labels is defined and _labels is not empty and _labels is iterable %}
-    <ul class="ecl-content-block__label-container">
+    <ul class="ecl-content-block__label-container"
+      {%- if _labels_aria is not empty -%}
+        aria-label="{{ _labels_aria }}"
+      {%- endif -%}
+    >
       {% for _label in _labels %}
         <li class="ecl-content-block__label-item">
           {% include '@ecl/label/label.html.twig' with _label only %}
