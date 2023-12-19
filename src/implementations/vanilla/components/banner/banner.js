@@ -134,7 +134,7 @@ export class Banner {
    * Prepare to set the banner height
    */
   setBannerHeight() {
-    if (this.bannerImg) {
+    if (this.bannerImage) {
       this.waitForAspectRatioToBeDefined();
     } else {
       this.setHeight(this.defaultRatio);
@@ -145,9 +145,9 @@ export class Banner {
    * Remove any override and get back the css
    */
   resetBannerHeight() {
-    if (this.bannerImg) {
-      const computedStyle = getComputedStyle(this.bannerImg);
-      this.bannerImg.style.aspectRatio =
+    if (this.bannerImage) {
+      const computedStyle = getComputedStyle(this.bannerImage);
+      this.bannerImage.style.aspectRatio =
         computedStyle.getPropertyValue('--css-aspect-ratio');
     }
 

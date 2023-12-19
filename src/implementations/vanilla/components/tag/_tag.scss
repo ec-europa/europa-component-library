@@ -19,8 +19,8 @@ $tag: null !default;
   display: inline-flex;
   font: var(--f-s);
   padding: map.get($tag, 'padding');
+  text-align: left;
   text-decoration: underline;
-  white-space: nowrap;
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');
@@ -47,6 +47,11 @@ $tag: null !default;
   }
 }
 
+// No wrap
+.ecl-tag--nowrap {
+  white-space: nowrap;
+}
+
 // Removable tag
 .ecl-tag--removable {
   text-decoration: none;
@@ -57,6 +62,7 @@ $tag: null !default;
   background: none;
   border-width: 0;
   color: map.get($tag, 'color');
+  flex-shrink: 0;
   height: map.get($theme, 'icon', 'xs');
   margin-inline-start: var(--s-xs);
   padding: 0;
@@ -75,4 +81,18 @@ $tag: null !default;
   left: 0;
   position: absolute;
   top: 0;
+}
+
+// Tag set
+.ecl-tag-set {
+  margin-top: calc(-1 * var(--s-xs));
+
+  .ecl-tag {
+    margin-inline-end: var(--s-xs);
+    margin-top: var(--s-xs);
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
 }

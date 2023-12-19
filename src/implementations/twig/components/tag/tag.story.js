@@ -9,9 +9,10 @@ import tag from './tag.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
-  const args = {
-    label: data.tag.label,
-  };
+  const args = {};
+
+  args.label = data.tag.label;
+  args.nowrap = false;
   if (data.tag.type === 'link') {
     args.external = false;
   }
@@ -21,6 +22,16 @@ const getArgs = (data) => {
 
 const getArgTypes = (data) => {
   const argTypes = {
+    nowrap: {
+      name: 'no wrap',
+      type: { name: 'boolean' },
+      description: 'Keep the tag on one line (no label wrap)',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
+    },
     label: {
       name: 'label',
       type: { name: 'string', required: true },
@@ -50,12 +61,8 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   data.tag.label = args.label;
-  if (args.external) {
-    data.tag.external = true;
-    data.default_icon_path = '/icons.svg';
-  } else {
-    delete data.tag.external;
-  }
+  data.tag.nowrap = args.nowrap;
+  data.tag.external = args.external;
 
   correctPaths(data);
 

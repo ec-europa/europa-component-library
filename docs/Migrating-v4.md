@@ -87,6 +87,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - Font size of the separator icon is now `fluid` for both EC and EU, so it will automatically adjust based on the font size
 - Icon rotation is now handled in CSS as it depends on the context, so no need to use icon variant anymore for that (`ecl-icon--rotate-90`)
 - All EC breadcrumb now share the same display; there is no longer a specific variant for EC Core (previously called `negative`). Corresponding parameter and css classes have been removed
+- Rename twig parameter `icon_file_path` to `icon_path`, to be consistent with other components
 
 ### Button
 
@@ -108,6 +109,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Content item
 
 - New variant `ecl-content-item__picture--top` added to put the image on top. It requires to also add class `ecl-content-item--stack` to the root element of the component
+
+### Datepicker
+
+- Rename twig parameter `icons_path` to `icon_path`, to be consistent with other components
 
 ### Expandable
 
@@ -245,6 +250,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Site header
 
 - Twig parameter `message` has been renamed to `notification`
+- Twig parameter `icon_file_path` has been renamed to `icon_path`, to be consistent with other components
 - CSS class `ecl-site-header__message` has been renamed to `ecl-site-header__notification`
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
@@ -286,6 +292,9 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Tag
 
 - Icon used in removable tag is now `close-outline`
+- Renamed twig paramter `default_icon_path` to `icon_path`, to be consistent with other components
+- Tags now wrap on several lines by default. New twig parameter `nowrap` added to force display of the tag on one line.
+- Added possibilty to handle set of tags. Twig template and corresponding css have been added.
 
 ## Custom theme
 

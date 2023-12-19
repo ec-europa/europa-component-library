@@ -272,5 +272,5 @@ module.exports = {
       },
     },
   },
-  icon_file_path: '/icons.svg',
+  icon_path: '/icons.svg',
 };

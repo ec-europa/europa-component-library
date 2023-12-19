@@ -12,6 +12,6 @@ module.exports = {
     { label: 'Current Page Label' },
   ],
   navigation_text: 'You are here:',
-  icon_file_path: '/icons.svg',
+  icon_path: '/icons.svg',
   ellipsis_label: 'Click to expand',
 };

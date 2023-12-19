@@ -12,7 +12,7 @@
     - "navigation_text" (string) (default: ''): Text of navigation in breadcrumb
     - "ellipsis_label" (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
     - "ellipsis_text" (string) (default: '...'): Text of the ellipsis
-    - "icon_file_path" (string) (default: ''): URL to icons file
+    - "icon_path" (string) (default: ''): URL to icons file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -26,7 +26,7 @@
 
 {% set _breadcrumb_size = links|length %}
 {% set _links = links|default([]) %}
-{% set _icon_file_path = icon_file_path|default('') %}
+{% set _icon_path = icon_path|default('') %}
 {% set _navigation_text = navigation_text|default('') %}
 {% set _ellipsis_label = ellipsis_label|default('') %}
 {% set _ellipsis_text = ellipsis_text|default('…') %}
@@ -42,7 +42,7 @@
   icon: {
     name: 'corner-arrow',
     size: 'fluid',
-    path: _icon_file_path,
+    path: _icon_path,
   },
   extra_classes: 'ecl-breadcrumb__icon',
   extra_attributes: [{ name: 'role', value: 'presentation' }]
@@ -123,7 +123,7 @@
               no_visited: true,
             }),
             extra_classes: _link_extra_class,
-            icon_path: _icon_file_path
+            icon_path: _icon_path
           } only %}
           {% include '@ecl/icon/icon.html.twig' with _breadcrumb_icon only %}
         </li>

@@ -9,8 +9,9 @@
         label: string (default: '') tag text as string,
         external: boolean (default: false) External icon for a tag with link
         aria_label: (string) (default: '') (optional) aria label for removable tag as a string
+        nowrap: boolean (default: false) force the tag to stay on one line
       }
-    - "default_icon_path" (string) Path to the icons sprite
+    - "icon_path" (string) Path to the icons sprite
     - "extra_classes" (string) (default: '') Extra classes
     - "extra_attributes" (array) (default: []): Extra attributes, format: [
         {
@@ -25,7 +26,10 @@
 {% set _tag = {
     type: 'link',
     path: '',
-    label: ''
+    label: '',
+    external: false,
+    aria_label: '',
+    nowrap: false,
 } %}
 
 {% if tag is defined %}
@@ -34,15 +38,19 @@
 
 {% set _css_class = 'ecl-tag' %}
 {% set _extra_attributes = '' %}
-{% set _default_icon_path = default_icon_path|default('') %}
+{% set _icon_path = icon_path|default('') %}
 
-{# Add extra class for removable tag #}
+{# Internal logic - Process properties #}
 
 {% if _tag.type == 'removable' %}
   {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
   {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
     {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
   {% endif %}
+{% endif %}
+
+{% if _tag.nowrap %}
+  {% set _css_class = _css_class ~ ' ecl-tag--nowrap' %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -68,7 +76,7 @@
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'close-outline', size: 'xs', path: _default_icon_path },
+        icon: { name: 'close-outline', size: 'xs', path: _icon_path },
         extra_classes: 'ecl-tag__icon-close',
       } only %}
     </span>
@@ -81,7 +89,7 @@
           icon: {
             name: 'external',
             size: '2xs',
-            path: default_icon_path,
+            path: _icon_path,
           },
           extra_classes: 'ecl-tag__icon ecl-tag__icon--external',
       } only -%}
