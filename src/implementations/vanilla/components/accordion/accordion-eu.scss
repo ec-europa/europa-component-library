@@ -22,7 +22,7 @@ $accordion: null !default;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: var(--f-2xl);
+  font: var(--f-l);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
@@ -64,6 +64,7 @@ $accordion: null !default;
   color: map.get($accordion, 'text-color');
   font: var(--f-p-m);
   margin-inline-start: 0;
+  max-width: map.get($accordion, 'max-width');
   padding: 0 var(--s-l) var(--s-l);
 }
 
@@ -125,16 +126,17 @@ $accordion: null !default;
 .ecl-accordion__toggle-flex {
   align-items: flex-start;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
 }
 
 .ecl-accordion__toggle-title {
-  flex-grow: 1;
+  max-width: map.get($accordion, 'max-width');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-accordion__toggle {
-    font: var(--f-3xl);
+    font: var(--f-xl);
   }
 }
