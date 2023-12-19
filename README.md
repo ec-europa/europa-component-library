@@ -1,4 +1,4 @@
-# ECL v3 - Europa Component Library
+# ECL v4 - Europa Component Library
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
@@ -19,9 +19,9 @@ ECL is currently using **node 18.18.2 (LTS)**, we recommend using this version (
 
 Read the technical documentation [on GitHub](docs/README.md).
 
-## Migrate from v2
+## Migrate from v3
 
-Read the technical documentation [on GitHub](docs/Migrating-v3.md).
+Read the technical documentation [on GitHub](docs/Migrating-v4.md).
 
 ## Quick start
 
@@ -93,8 +93,7 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 ### :warning: pikaday
 
 ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled anymore by ECL.
-Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when
-a datepicker instance is present in a webpage.
+Therefore **pikaday needs to be loaded or bundled by the application or website using ECL**, depending on the needs, it is only required when a datepicker instance is present in a webpage.
 Additionally, when customising the date format used by the datepicker, in order to get a consistent output, [moment.js](https://momentjs.com/) is also needed.
 These scripts can be loaded from a CDN or fetched from the respective npm packages or websites for then hosting them locally.
 The order of the scripts should be:
