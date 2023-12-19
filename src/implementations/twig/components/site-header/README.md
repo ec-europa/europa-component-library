@@ -11,7 +11,7 @@ npm install --save @ecl/twig-component-site-header
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (boolean) (default: false): Whether the component includes a menu or not
 - **"banner_top"** (string) OR (object with Link component in property): Class name
-- **"icon_file_path"** (string) (default: ''): file containing the svg icons
+- **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"site_name"** (string) (default: '') Site name
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
@@ -68,7 +68,7 @@ npm install --save @ecl/twig-component-site-header
   banner: 'Class name', 
   menu: true, 
   site_name: 'This site name'
-  icon_file_path: '/icons.svg', 
+  icon_path: '/icons.svg', 
   logo: { 
     title: 'European Commission', 
     alt: 'European Commission logo', 

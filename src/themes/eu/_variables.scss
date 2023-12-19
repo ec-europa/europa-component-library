@@ -1316,20 +1316,48 @@ $table: (
 
 // Tabs
 $tabs: (
-  tabs-font-color: map.get($color, 'grey-80'),
-  tabs-active-font-color: map.get($color, 'blue-100'),
-  tabs-border-radius: 4px 4px 0 0,
-  tabs-border-color: map.get($color, 'grey-20'),
-  tabs-active-border-top-color: map.get($color, 'blue-100'),
-  tabs-inactive-mobile-color: map.get($color, 'white'),
-  dropdown-border: none,
-  dropdown-border-radius: 0 0 4px 4px,
-  dropdown-shadow: map.get($shadow, '1'),
-  dropdown-link-active-color: map.get($color, 'blue-100'),
-  dropdown-link-active-background: map.get($color, 'blue-5'),
-  dropdown-link-hover-color: map.get($color, 'blue-140'),
-  more-active-border-radius: 4px 4px 0 0,
-  button-arrows-border-radius: 4px,
+  separator-width: 1px,
+  separator-color: var(--c-d-20),
+  item: (
+    border-radius: 4px 4px 0 0,
+    color: var(--c-d-80),
+    padding: var(--s-m) var(--s-s),
+  ),
+  hover: (
+    color: var(--c-p-140),
+    separator-color: var(--c-d-20),
+  ),
+  active: (
+    separator-color: map.get($color, 'white'),
+    border-width: 1px,
+    highlight-width: 4px,
+    highlight-color: var(--c-p),
+    color: var(--c-p),
+    padding-top: calc(var(--s-m) - 4px),
+  ),
+  more: (
+    font-weight: map.get($font-weight, 'bold'),
+    highlight-width: 4px,
+    highlight-color: var(--c-p),
+    active-separator-color: map.get($color, 'white'),
+    color-open: var(--c-p),
+    background-open: map.get($color, 'white'),
+  ),
+  overflow: (
+    background: var(--c-p),
+    color: map.get($color, 'white'),
+    background-hover: var(--c-p),
+    color-hover: map.get($color, 'white'),
+  ),
+  dropdown: (
+    shadow: var(--sh-1),
+    container-padding: 0,
+    list-margin: 0,
+    item-padding: var(--s-s) var(--s-m),
+    item-color: var(--c-d-140),
+    item-active-background: var(--c-p-10),
+    item-active-color: var(--c-d-140),
+  ),
 );
 
 // Tag

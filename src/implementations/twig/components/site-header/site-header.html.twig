@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "icon_file_path" (string) (default: ''): URL to icons file
+    - "icon_path" (string) (default: ''): URL to icons file
     - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (boolean): Whether the component includes a menu
@@ -84,7 +84,7 @@
 {% set _login_box = login_box|default({}) %}
 {% set _login_toggle = login_toggle|default({}) %}
 {% set _search_toggle = search_toggle|default({}) %}
-{% set _icon_file_path = icon_file_path|default('') %}
+{% set _icon_path = icon_path|default('') %}
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
@@ -168,7 +168,7 @@
       label: _search_button_label,
       icon: {
         name: 'search',
-        path: _icon_file_path,
+        path: _icon_path,
         size: 'fluid',
       },
       icon_position: 'before',
@@ -256,7 +256,7 @@
               >
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
-                    path: _icon_file_path,
+                    path: _icon_path,
                     name: 'logged-in',
                     size: 's'
                   },
@@ -293,7 +293,7 @@
               >
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
-                    path: _icon_file_path,
+                    path: _icon_path,
                     name: 'log-in',
                     size: 's'
                   },
@@ -313,7 +313,7 @@
           {% if _language_selector is not empty %}
             {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
               language_selector: _language_selector,
-              icon_file_path: _icon_file_path,
+              icon_path: _icon_path,
             } only %}
           {% endif %}
 
@@ -331,7 +331,7 @@
               {%- include '@ecl/icon/icon.html.twig' with {
                 icon: {
                   name: 'search',
-                  path: _icon_file_path,
+                  path: _icon_path,
                   size: 's',
                 },
                 as_image: true,
@@ -368,7 +368,7 @@
     {%- if banner_top.link is defined and banner_top.link is not empty %}
       {% include '@ecl/link/link.html.twig' with banner_top|merge({
         link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
-        icon_path: _icon_file_path
+        icon_path: _icon_path
       }) only %}
     {% else %}
       {{ banner_top }}
@@ -400,7 +400,7 @@
 {% if _menu is defined and _menu is not empty %}
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     site_name: _site_name,
-    icon_path: _icon_file_path,
+    icon_path: _icon_path,
   }) only %}
 {% endif %}
 </header>

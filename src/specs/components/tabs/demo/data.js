@@ -5,31 +5,19 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   icon_path: '/icons.svg',
   items: [
-    { label: 'Item 1 label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
     {
-      label: 'Item 2 label',
-      path: exampleLink,
-    },
-    {
-      label: 'Item 3 label',
-      path: exampleLink,
-    },
-    {
-      label: 'Item 4 label',
+      label: 'Tab label',
       path: exampleLink,
       is_current: true,
     },
-    {
-      label: 'Item 5 label',
-      path: exampleLink,
-    },
-    {
-      label: 'Item 6 with a very long label',
-      path: exampleLink,
-    },
-    {
-      label: 'Item 7 label',
-      path: exampleLink,
-    },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
+    { label: 'Tab label', path: exampleLink },
   ],
 };

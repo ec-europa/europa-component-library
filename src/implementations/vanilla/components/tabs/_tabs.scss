@@ -1,7 +1,6 @@
 /**
  * News ticker component
  * @define tabs
- * TODO
  */
 
 @use 'sass:map';
@@ -11,57 +10,85 @@
 $theme: null !default;
 $tabs: null !default;
 
+// Internal variables
+$button-width: 44px;
+
 .ecl-tabs {
-  margin: 0 0 map.get($theme, 'spacing', '3xl');
+  margin: 0 0 var(--s-xl);
   padding: 0;
   position: relative;
 }
 
 .ecl-tabs__container {
   overflow-x: hidden;
+  transition-duration: 0.4s;
 }
 
 .ecl-tabs__list {
-  border-bottom: 1px solid map.get($tabs, 'tabs-border-color');
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'separator-color');
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding-inline-start: 0;
+  transition-duration: 0.4s;
+}
+
+.ecl-tabs__container--left {
+  margin-inline-start: $button-width;
+
+  .ecl-tabs__list {
+    margin-left: -$button-width;
+  }
+}
+
+.ecl-tabs__container--right {
+  margin-inline-end: $button-width;
 }
 
 .ecl-tabs__link {
-  background-color: map.get($tabs, 'tabs-inactive-mobile-color');
-  border-bottom: 1px solid map.get($tabs, 'tabs-border-color');
-  border-radius: map.get($tabs, 'tabs-border-radius');
-  color: map.get($tabs, 'tabs-font-color');
+  background-color: map.get($theme, 'color', 'white');
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'separator-color');
+  border-radius: map.get($tabs, 'item', 'border-radius');
+  color: map.get($tabs, 'item', 'color');
   display: block;
-  font: map.get($theme, 'font', 'm');
-  margin-bottom: -1px;
-  padding: map.get($theme, 'spacing', 'm') map.get($theme, 'spacing', 's');
+  font: var(--f-m);
+  margin-bottom: -#{map.get($tabs, 'separator-width')};
+  padding: map.get($tabs, 'item', 'padding');
   text-decoration: none;
+
+  &:visited {
+    color: map.get($tabs, 'item', 'color');
+  }
 
   &:focus-visible {
     outline-offset: -2px;
   }
 
-  &:visited {
-    color: map.get($tabs, 'tabs-font-color');
+  &:hover,
+  &:visited:hover {
+    color: map.get($tabs, 'hover', 'color');
+    border-bottom-color: map.get($tabs, 'hover', 'separator-color');
   }
 }
 
 .ecl-tabs__link--active {
-  background-color: map.get($theme, 'color', 'white');
-  border-bottom: 1px solid map.get($theme, 'color', 'white');
-  border-inline-start: 1px solid map.get($tabs, 'tabs-border-color');
-  border-inline-end: 1px solid map.get($tabs, 'tabs-border-color');
-  border-top: 4px solid map.get($tabs, 'tabs-active-border-top-color');
-  color: map.get($tabs, 'tabs-active-font-color');
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'active', 'separator-color');
+  border-inline-start: map.get($tabs, 'active', 'border-width') solid
+    map.get($tabs, 'separator-color');
+  border-inline-end: map.get($tabs, 'active', 'border-width') solid
+    map.get($tabs, 'separator-color');
+  border-top: map.get($tabs, 'active', 'highlight-width') solid
+    map.get($tabs, 'active', 'highlight-color');
+  color: map.get($tabs, 'active', 'color');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  padding-top: calc(#{map.get($theme, 'spacing', 'm')} - 4px);
+  padding-top: map.get($tabs, 'active', 'padding-top');
 
   &:visited {
-    color: map.get($tabs, 'tabs-active-font-color');
+    color: map.get($tabs, 'active', 'color');
   }
 }
 
@@ -78,35 +105,43 @@ $tabs: null !default;
 }
 
 .ecl-tabs__toggle {
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($tabs, 'more', 'font-weight');
+  margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
   position: relative;
-
-  &:not(:focus-visible) {
-    border-color: transparent;
-  }
 
   &:hover {
     box-shadow: none;
   }
   // stylelint-disable plugin/selector-bem-pattern
-  &[aria-expanded='true'].ecl-button__icon {
-    transform: rotate(0deg);
+  &[aria-expanded='true'] {
+    background-color: map.get($tabs, 'more', 'background-open');
+    color: map.get($tabs, 'more', 'color-open');
+
+    .ecl-button__icon {
+      transform: rotate(0deg);
+    }
   }
 }
 
 .ecl-tabs__toggle--active {
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  border-bottom-color: map.get($tabs, 'more', 'active-separator-color');
 
   &::before {
-    background-color: map.get($tabs, 'tabs-active-border-top-color');
-    border-radius: map.get($tabs, 'more-active-border-radius');
+    background-color: map.get($tabs, 'more', 'highlight-color');
+    border-radius: map.get($tabs, 'item', 'border-radius');
     content: '';
     display: block;
-    height: 4px;
+    height: map.get($tabs, 'more', 'highlight-width');
     left: 0;
     position: absolute;
-    top: -4px;
+    top: -#{map.get($tabs, 'more', 'highlight-width')};
     width: 100%;
+  }
+
+  &:hover::before {
+    left: 1px;
+    top: calc(-#{map.get($tabs, 'more', 'highlight-width')} + 1px);
+    width: calc(100% - 2px);
   }
 
   &:focus-visible::before {
@@ -115,46 +150,48 @@ $tabs: null !default;
 }
 
 .ecl-tabs__dropdown {
-  border: map.get($tabs, 'dropdown-border');
-  border-radius: map.get($tabs, 'dropdown-border-radius');
-  box-shadow: map.get($tabs, 'dropdown-shadow');
+  background-color: map.get($theme, 'color', 'white');
+  box-shadow: map.get($tabs, 'dropdown', 'shadow');
   display: none;
-  list-style: none;
-  margin: 0;
   max-height: 233px;
   max-width: 100%;
   overflow-y: auto;
-  padding: 0;
+  padding: map.get($tabs, 'dropdown', 'container-padding');
   position: absolute;
   right: 0;
   text-align: start;
-  top: 100%;
+  top: calc(100% + map.get($tabs, 'separator-width'));
   width: 100%;
 
+  // stylelint-disable-next-line no-descending-specificity
   .ecl-tabs__link {
-    border: 0;
+    border-width: 0;
     border-radius: 0;
-    color: map.get($theme, 'color', 'grey');
+    color: map.get($tabs, 'dropdown', 'item-color');
     margin-bottom: 0;
-  }
+    padding: map.get($tabs, 'dropdown', 'item-padding');
 
-  .ecl-tabs__link:hover {
-    background-color: map.get($tabs, 'dropdown-link-active-background');
-    color: map.get($tabs, 'dropdown-link-hover-color');
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .ecl-tabs__link--active {
-    background-color: map.get($tabs, 'dropdown-link-active-background');
-    color: map.get($tabs, 'dropdown-link-active-color');
-    font-weight: map.get($theme, 'font-weight', 'bold');
-    padding-top: map.get($theme, 'spacing', 'm');
-    text-decoration: underline;
+    background-color: map.get($tabs, 'dropdown', 'item-active-background');
+    color: map.get($tabs, 'dropdown', 'item-active-color');
+    font-weight: map.get($theme, 'font-weight', 'regular');
   }
 }
 
-.ecl-tabs__dropdown--show {
+.ecl-tabs__dropdown-list {
   display: grid;
-  margin-top: 0;
+  list-style: none;
+  margin: map.get($tabs, 'dropdown', 'list-margin');
+  padding: 0;
+}
+
+.ecl-tabs__dropdown--show {
+  display: block;
 }
 
 .ecl-tabs__next {
@@ -169,18 +206,12 @@ $tabs: null !default;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
-  background: map.get($theme, 'color', 'blue-100');
-  border: 0;
-  border-radius: map.get($tabs, 'button-arrows-border-radius');
-  cursor: pointer;
-  padding: calc(#{map.get($theme, 'spacing', 'm')} - 1px);
+  background: map.get($theme, 'color', 'white');
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'white');
-    outline-offset: -4px;
+    background: map.get($theme, 'color', 'white');
   }
 }
 
@@ -190,27 +221,20 @@ $tabs: null !default;
     overflow-x: visible;
   }
 
-  .ecl-tabs__link {
-    background-color: map.get($theme, 'color', 'white');
+  .ecl-tabs__dropdown--show {
+    width: auto;
   }
 
-  .ecl-tabs__dropdown {
+  .ecl-tabs__dropdown-list {
     grid-auto-flow: column;
     grid-template-rows: auto auto auto auto;
     height: auto;
-    overflow-y: none;
+    overflow-y: visible;
     width: auto;
 
     .ecl-tabs__item {
       min-width: 13.56rem;
       width: 100%;
     }
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-tabs__list {
-    padding: 0 map.get($theme, 'spacing', 'xs');
   }
 }

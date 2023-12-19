@@ -2,7 +2,6 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
-  icon_file_path: '/icons.svg',
   logo: {
     title: 'European Union',
     alt: 'European Union flag',

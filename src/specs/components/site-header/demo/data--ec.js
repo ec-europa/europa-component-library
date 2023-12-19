@@ -252,7 +252,7 @@ module.exports = {
       transform: 'rotate-90',
     },
   },
-  icon_file_path: '/icons.svg',
+  icon_path: '/icons.svg',
   banner_top: {
     link: {
       label: 'Class name',

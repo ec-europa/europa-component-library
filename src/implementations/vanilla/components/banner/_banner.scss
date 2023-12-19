@@ -34,13 +34,16 @@ $banner: null !default;
   background: rgba(38, 50, 75, 0.7);
   backdrop-filter: blur(4px);
   color: map.get($theme, 'color', 'white-100');
-  font: var(--f-s);
-  line-height: map.get($theme, 'line-height', '2xs');
   padding: var(--s-2xs) var(--s-xs);
   position: absolute;
   right: 0;
   bottom: 0;
   z-index: 1;
+
+  small {
+    font: var(--f-s);
+    line-height: map.get($theme, 'line-height', '2xs');
+  }
 }
 
 // stylelint-disable-next-line plugin/selector-bem-pattern

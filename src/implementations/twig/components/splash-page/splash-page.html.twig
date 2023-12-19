@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "icon_file_path" (string) (default: ''): URL to icons file
     - "logo" (associative array) (default: predefined structure): Logo image settings. format: {
         "title": (string) (default: ''): Logo title attribute.
         "alt": (string) (default: ''): Logo alt attribute.
@@ -42,7 +41,6 @@
 
 {% set _css_class = 'ecl-splash-page' %}
 {% set _logo = logo|default({}) %}
-{% set _icon_file_path = icon_file_path|default('') %}
 {% set _title = title|default('') %}
 {% set _eu_category = eu_category|default('') %}
 {% set _non_eu_category = non_eu_category|default('') %}

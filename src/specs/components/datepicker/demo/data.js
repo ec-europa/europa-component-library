@@ -22,6 +22,6 @@ module.exports = {
     autoinit: true,
     required: true,
     default_value: '03-10-2023',
-    icons_path: '/icons.svg',
+    icon_path: '/icons.svg',
   },
 };
