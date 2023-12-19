@@ -48,40 +48,12 @@
 {% set _group_tag = 'div' %}
 {% set _label_tag = 'label' %}
 
-{% if _helper_text and _id %}
-  {% set _aria_describedby = _id ~ '-helper' %}
-{% endif %}
-
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_label_classes is defined and extra_label_classes is not empty %}
   {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
-{% endif %}
-
-{% if _disabled %}
-  {% set _input = _input|merge({
-    disabled: true,
-  }) %}
-{% endif %}
-
-{% if _invalid %}
-  {% set _input = _input|merge({
-    invalid: true,
-  }) %}
-  {% if _id %}
-    {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-invalid' : _id ~ '-invalid' %}
-  {% endif %}
-  {% set _input_extra_attributes = _input_extra_attributes|merge([
-    { name: 'aria-invalid', value: 'true' }
-  ]) %}
-{% endif %}
-
-{% if _required %}
-  {% set _input = _input|merge({
-    required: true,
-  }) %}
 {% endif %}
 
 {% if _input.input_type == 'range' %}
@@ -98,29 +70,70 @@
   ]) %}
 {% endif %}
 
-{% if _helper_text is not empty %}
-  {% set _input_extra_attributes = _input_extra_attributes|merge([
-    { name: 'aria-describedby', value: _aria_describedby }
-  ]) %}
+{# add status #}
+{% if _disabled %}
+  {% set _input = _input|merge({
+    disabled: true,
+  }) %}
 {% endif %}
 
+{% if _invalid %}
+  {% set _input = _input|merge({
+    invalid: true,
+  }) %}
+{% endif %}
+
+{% if _required %}
+  {% set _input = _input|merge({
+    required: true,
+  }) %}
+{% endif %}
+
+{# calculate aria-describedby. It could contain helper text and/or invalid text #}
+{% if _helper_text and _id %}
+  {% set _aria_describedby = _id ~ '-helper' %}
+{% endif %}
+
+{% if _invalid and _id %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-invalid' : _id ~ '-invalid' %}
+{% endif %}
+
+{# aria-describedby is added to the wrapper for group input, and to the input for the others #}
 {% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
+  {# group input, uses extra_attributes #}
   {% set _group_tag = 'fieldset' %}
   {% set _label_tag = 'legend' %}
-  {% if _aria_describedby %}
+
+  {% if _aria_describedby is not empty %}
     {% set extra_attributes = extra_attributes|default([])|merge([
       { name: 'aria-describedby', value: _aria_describedby },
     ]) %}
   {% endif %}
+
   {% if _invalid %}
     {% set extra_attributes = extra_attributes|default([])|merge([
       { name: 'aria-invalid', value: 'true' },
     ]) %}
   {% endif %}
-{% elseif _input_extra_attributes is not empty %}
-  {% set _input = _input|merge({
-    extra_attributes: _input_extra_attributes,
-  }) %}
+{% else %}
+  {# single input, uses input.extra_attributes #}
+  {% if _aria_describedby is not empty %}
+    {% set _input_extra_attributes = _input_extra_attributes|merge([
+      { name: 'aria-describedby', value: _aria_describedby }
+    ]) %}
+  {% endif %}
+
+  {% if _invalid %}
+    {% set _input_extra_attributes = _input_extra_attributes|merge([
+      { name: 'aria-invalid', value: 'true' }
+    ]) %}
+  {% endif %}
+
+  {% if _input_extra_attributes is not empty %}
+    {% set _input = _input|merge({
+      extra_attributes: _input_extra_attributes,
+    }) %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
