@@ -57,7 +57,7 @@
 
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {% if _picture is not empty and _picture.img is not empty %}
-  {% set _picture_extra_attrs = [{ name: 'aria-label', value: _picture.img.alt }] %}
+  {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
   {% if _title.link is defined %}
     {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
   {% endif %}
