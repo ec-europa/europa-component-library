@@ -9,10 +9,13 @@ npm install --save @ecl/twig-component-tag
 ### Parameters
 
 - **"tag"** (associative array) (default: 'predefined structure below')
-  - "path" (string) (default: '') - path/url for tag (if needed - only for type 'link')
-  - "type" (string) (default: '') - type of tag (can be 'link' or 'removable')
-  - "label" (string) (default: '') - tag label
-- **"default_icon_path"** (string ) (default: '') - path for the icon image (need to render Icon component if tag type is 'removable')
+  - type: string (default: 'link') can be 'link' or 'removable'
+  - path: string (default: '') tag url if needed),
+  - label: string (default: '') tag text as string,
+  - external: boolean (default: false) External icon for a tag with link
+  - aria_label: (string) (default: '') (optional) aria label for removable tag as a string
+  - nowrap: boolean (default: false) force the tag to stay on one line
+- **"icon_path"** (string ) (default: '') - path for the icon image (need to render Icon component if tag type is 'removable')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -28,7 +31,7 @@ npm install --save @ecl/twig-component-tag
     path: '/example', 
     label: 'Tag 1' 
   }, 
-  default_icon_path: '/path-to-the-icon-file', 
+  icon_path: '/path-to-the-icon-file', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
     { name: 'data-test', value: 'data-test-value' }, 
