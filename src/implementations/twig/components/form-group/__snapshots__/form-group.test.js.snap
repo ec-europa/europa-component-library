@@ -14,6 +14,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -190,6 +191,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -380,6 +382,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -557,6 +560,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -732,6 +736,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -907,6 +912,7 @@ exports[`Form group  with Datepicker renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -961,6 +967,7 @@ exports[`Form group  with Datepicker renders correctly when disabled 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1016,6 +1023,7 @@ exports[`Form group  with Datepicker renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1086,6 +1094,7 @@ exports[`Form group  with Datepicker renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1142,6 +1151,7 @@ exports[`Form group  with Datepicker renders correctly with extra attributes 1`]
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1196,6 +1206,7 @@ exports[`Form group  with Datepicker renders correctly with extra class names 1`
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1243,7 +1254,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
-    <label
+    <div
       class="ecl-form-label"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1252,10 +1263,11 @@ exports[`Form group  with File Upload renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block"
       id="example-input-id-1-helper"
@@ -1273,7 +1285,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
-      aria-describedby="example-input-id-1-helper"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1310,7 +1322,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
-    <label
+    <div
       class="ecl-form-label ecl-form-label--disabled"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1319,10 +1331,11 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block ecl-help-block--disabled"
       id="example-input-id-1-helper"
@@ -1340,7 +1353,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
-      aria-describedby="example-input-id-1-helper"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1379,7 +1392,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
-    <label
+    <div
       class="ecl-form-label ecl-form-label--invalid"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1388,10 +1401,11 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block"
       id="example-input-id-1-helper"
@@ -1424,7 +1438,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       Invalid text
     </div>
     <input
-      aria-describedby="example-input-id-1-helper example-input-id-1-invalid"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper example-input-id-1-invalid"
       aria-invalid="true"
       class="ecl-file-upload ecl-file-upload--invalid"
       data-ecl-auto-init="FileUpload"
@@ -1462,7 +1476,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
-    <label
+    <div
       class="ecl-form-label"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1471,10 +1485,11 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block"
       id="example-input-id-1-helper"
@@ -1492,7 +1507,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
-      aria-describedby="example-input-id-1-helper"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1531,7 +1546,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <label
+    <div
       class="ecl-form-label"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1540,10 +1555,11 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block"
       id="example-input-id-1-helper"
@@ -1561,7 +1577,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
-      aria-describedby="example-input-id-1-helper"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1598,7 +1614,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
     data-ecl-autoinit="FileUpload"
     data-ecl-file-upload-group="true"
   >
-    <label
+    <div
       class="ecl-form-label"
       for="example-input-id-1"
       id="example-input-id-1-label"
@@ -1607,10 +1623,11 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
-    </label>
+    </div>
     <div
       class="ecl-help-block"
       id="example-input-id-1-helper"
@@ -1628,7 +1645,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
       Encrypted documents and those containing macros are not accepted.
     </div>
     <input
-      aria-describedby="example-input-id-1-helper"
+      aria-describedby="example-input-id-1-label example-input-id-1-helper"
       class="ecl-file-upload"
       data-ecl-auto-init="FileUpload"
       data-ecl-file-upload-input=""
@@ -1672,6 +1689,7 @@ exports[`Form group  with Radio renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1823,6 +1841,7 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -1975,6 +1994,7 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -2141,6 +2161,7 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -2294,6 +2315,7 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -2445,6 +2467,7 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -2598,6 +2621,7 @@ exports[`Form group  with Range field renders correctly 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -2647,6 +2671,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -2697,6 +2722,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -2762,6 +2788,7 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -2814,6 +2841,7 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -2863,6 +2891,7 @@ exports[`Form group  with Range field renders correctly with extra class names 1
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -2910,6 +2939,7 @@ exports[`Form group  with Rating field renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -3122,6 +3152,7 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -3340,6 +3371,7 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -3567,6 +3599,7 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -3781,6 +3814,7 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -3993,6 +4027,7 @@ exports[`Form group  with Rating field renders correctly with extra class names 
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4205,6 +4240,7 @@ exports[`Form group  with Select renders correctly 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4347,6 +4383,7 @@ exports[`Form group  with Select renders correctly when disabled 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4491,6 +4528,7 @@ exports[`Form group  with Select renders correctly when invalid 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4649,6 +4687,7 @@ exports[`Form group  with Select renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4793,6 +4832,7 @@ exports[`Form group  with Select renders correctly with extra attributes 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -4935,6 +4975,7 @@ exports[`Form group  with Select renders correctly with extra class names 1`] = 
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -5077,6 +5118,7 @@ exports[`Form group  with Text field renders correctly 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5112,6 +5154,7 @@ exports[`Form group  with Text field renders correctly when disabled 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5148,6 +5191,7 @@ exports[`Form group  with Text field renders correctly when invalid 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5199,6 +5243,7 @@ exports[`Form group  with Text field renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -5237,6 +5282,7 @@ exports[`Form group  with Text field renders correctly with extra attributes 1`]
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5272,6 +5318,7 @@ exports[`Form group  with Text field renders correctly with extra class names 1`
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5307,6 +5354,7 @@ exports[`Form group  with Textarea renders correctly 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5342,6 +5390,7 @@ exports[`Form group  with Textarea renders correctly when disabled 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5378,6 +5427,7 @@ exports[`Form group  with Textarea renders correctly when invalid 1`] = `
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5429,6 +5479,7 @@ exports[`Form group  with Textarea renders correctly when required 1`] = `
       <span
         aria-label="required"
         class="ecl-form-label__required"
+        role="note"
       >
         *
       </span>
@@ -5467,6 +5518,7 @@ exports[`Form group  with Textarea renders correctly with extra attributes 1`] =
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
@@ -5502,6 +5554,7 @@ exports[`Form group  with Textarea renders correctly with extra class names 1`] 
       <span
         aria-label="optional"
         class="ecl-form-label__optional"
+        role="note"
       >
         (optional)
       </span>
