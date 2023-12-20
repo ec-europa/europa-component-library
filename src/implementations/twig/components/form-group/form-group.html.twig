@@ -68,6 +68,7 @@
     { name: 'data-ecl-file-upload-group', value: true },
     { name: 'data-ecl-autoinit', value: 'FileUpload' },
   ]) %}
+  {% set _label_tag = 'div' %}
 {% endif %}
 
 {# add status #}
@@ -89,9 +90,13 @@
   }) %}
 {% endif %}
 
-{# calculate aria-describedby. It could contain helper text and/or invalid text #}
+{# calculate aria-describedby. It could contain label and/or helper text and/or invalid text #}
+{% if _input.input_type == 'file' %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-label' : _id ~ '-label' %}
+{% endif %}
+
 {% if _helper_text and _id %}
-  {% set _aria_describedby = _id ~ '-helper' %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
 {% endif %}
 
 {% if _invalid and _id %}
@@ -166,6 +171,7 @@
         <span 
           class="ecl-form-label__required"
           {%- if _label_aria_required -%}
+            role="note"
             aria-label="{{ _label_aria_required }}"
           {%- endif -%}
         >{{ _required_text }}</span>
@@ -173,6 +179,7 @@
         <span 
           class="ecl-form-label__optional"
           {%- if _label_aria_optional -%}
+            role="note"
             aria-label="{{ _label_aria_optional }}"
           {%- endif -%}
         >{{ _optional_text }}</span>
