@@ -7,9 +7,11 @@ module.exports = {
     size: 'm',
   },
   invalid_text: 'This is the error message',
-  optional_text: ' (optional)',
+  optional_text: '(optional)',
   required_text: '*',
   required: true,
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   disabled: false,
   invalid: false,
   input: {

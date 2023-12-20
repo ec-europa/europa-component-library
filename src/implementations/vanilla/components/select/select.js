@@ -21,12 +21,16 @@ const iconSize = system === 'eu' ? 's' : 'xs';
  * @param {String} options.defaultText The default placeholder
  * @param {String} options.searchText The label for search
  * @param {String} options.selectAllText The label for select all
- * @param {String} options.selectMultipleId The id attribute of the select multiple
  * @param {String} options.selectMultipleSelector The data attribute selector of the select multiple
  * @param {String} options.defaultTextAttribute The data attribute for the default placeholder text
  * @param {String} options.searchTextAttribute The data attribute for the default search text
  * @param {String} options.selectAllTextAttribute The data attribute for the select all text
  * @param {String} options.noResultsTextAttribute The data attribute for the no results options text
+ * @param {String} options.closeLabelAttribute The data attribute for the close button
+ * @param {String} options.clearAllLabelAttribute The data attribute for the clear all button
+ * @param {String} options.selectMultiplesSelectionCountSelector The selector for the counter of selected options
+ * @param {String} options.closeButtonLabel The label of the close button
+ * @param {String} options.clearAllButtonLabel The label of the clear all button
  */
 export class Select {
   /**
@@ -52,7 +56,6 @@ export class Select {
       searchText = '',
       selectAllText = '',
       noResultsText = '',
-      selectMultipleId = 'select-multiple',
       selectMultipleSelector = '[data-ecl-select-multiple]',
       defaultTextAttribute = 'data-ecl-select-default',
       searchTextAttribute = 'data-ecl-select-search',
@@ -75,7 +78,6 @@ export class Select {
     this.element = element;
 
     // Options
-    this.selectMultipleId = selectMultipleId;
     this.selectMultipleSelector = selectMultipleSelector;
     this.selectMultiplesSelectionCountSelector =
       selectMultiplesSelectionCountSelector;
@@ -106,9 +108,15 @@ export class Select {
     this.selectMultiple = null;
     this.inputContainer = null;
     this.optionsContainer = null;
+    this.visibleOptions = null;
     this.searchContainer = null;
     this.countSelections = null;
     this.form = null;
+    this.formGroup = null;
+    this.label = null;
+    this.helper = null;
+    this.invalid = null;
+    this.selectMultipleId = null;
     this.multiple =
       queryOne(this.selectMultipleSelector, this.element.parentNode) || false;
 
@@ -289,6 +297,22 @@ export class Select {
       this.clearAllButtonLabel =
         this.clearAllButtonLabel ||
         this.element.getAttribute(this.clearAllLabelAttribute);
+      // Retrieve the id from the markup or generate one.
+      this.selectMultipleId =
+        this.element.id || `select-multiple-${Select.generateRandomId(4)}`;
+      this.element.id = this.selectMultipleId;
+
+      this.formGroup = this.element.closest('.ecl-form-group');
+      if (this.formGroup) {
+        this.formGroup.setAttribute('role', 'application');
+        this.label = queryOne('.ecl-form-label', this.formGroup);
+        this.helper = queryOne('.ecl-help-block', this.formGroup);
+        this.invalid = queryOne('.ecl-feedback-message', this.formGroup);
+      }
+
+      // Disable focus on default select
+      this.select.setAttribute('tabindex', '-1');
+
       this.selectMultiple = document.createElement('div');
       this.selectMultiple.classList.add('ecl-select__multiple');
       // Close the searchContainer when tabbing out of the selectMultiple
@@ -298,14 +322,37 @@ export class Select {
       this.inputContainer.classList.add(...containerClasses);
       this.selectMultiple.appendChild(this.inputContainer);
 
-      this.input = document.createElement('input');
+      this.input = document.createElement('button');
       this.input.classList.add('ecl-select', 'ecl-select__multiple-toggle');
-      this.input.setAttribute('type', 'text');
-      this.input.setAttribute('placeholder', this.textDefault || '');
-      this.input.setAttribute('readonly', true);
+      this.input.setAttribute('type', 'button');
+      this.input.setAttribute(
+        'aria-controls',
+        `${this.selectMultipleId}-dropdown`,
+      );
+      this.input.setAttribute('id', `${this.selectMultipleId}-toggle`);
+      this.input.setAttribute('aria-expanded', false);
       if (containerClasses.find((c) => c.includes('disabled'))) {
         this.input.setAttribute('disabled', true);
       }
+
+      // Add accessibility attributes
+      if (this.label) {
+        this.label.setAttribute('for', `${this.selectMultipleId}-toggle`);
+        this.input.setAttribute('aria-labelledby', this.label.id);
+      }
+      let describedby = '';
+      if (this.helper) {
+        describedby = this.helper.id;
+      }
+      if (this.invalid) {
+        describedby = describedby
+          ? `${describedby} ${this.invalid.id}`
+          : this.invalid.id;
+      }
+      if (describedby) {
+        this.input.setAttribute('aria-describedby', describedby);
+      }
+
       this.input.addEventListener('keydown', this.handleKeyboardOnSelect);
       this.input.addEventListener('click', this.handleToggle);
       this.selectionCount = document.createElement('div');
@@ -324,6 +371,11 @@ export class Select {
       this.searchContainer.classList.add(
         'ecl-select__multiple-dropdown',
         ...containerClasses,
+      );
+
+      this.searchContainer.setAttribute(
+        'id',
+        `${this.selectMultipleId}-dropdown`,
       );
 
       this.selectMultiple.appendChild(this.searchContainer);
@@ -415,14 +467,15 @@ export class Select {
           let checkbox = '';
           if (option.parentNode.tagName === 'OPTGROUP') {
             if (
-              !this.optionsContainer.querySelector(
-                `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              !queryOne(
+                `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                   'label',
                 )}"]`,
+                this.optionsContainer,
               )
             ) {
-              optgroup = document.createElement('div');
-              const title = document.createElement('h5');
+              optgroup = document.createElement('fieldset');
+              const title = document.createElement('legend');
               title.classList.add('ecl-select__multiple-group__title');
               title.innerHTML = option.parentNode.getAttribute('label');
               optgroup.appendChild(title);
@@ -433,10 +486,11 @@ export class Select {
               optgroup.classList.add('ecl-select__multiple-group');
               this.optionsContainer.appendChild(optgroup);
             } else {
-              optgroup = this.optionsContainer.querySelector(
-                `div[data-ecl-multiple-group="${option.parentNode.getAttribute(
+              optgroup = queryOne(
+                `fieldset[data-ecl-multiple-group="${option.parentNode.getAttribute(
                   'label',
                 )}"]`,
+                this.optionsContainer,
               );
             }
           }
@@ -471,7 +525,10 @@ export class Select {
 
           return checkbox;
         });
+      } else {
+        this.checkboxes = [];
       }
+      this.visibleOptions = this.checkboxes;
 
       this.select.parentNode.parentNode.insertBefore(
         this.selectMultiple,
@@ -610,10 +667,22 @@ export class Select {
   }
 
   updateCurrentValue() {
-    this.input.value = Array.from(this.select.options)
+    const optionSelected = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
       .join(', ');
+
+    this.input.innerHTML = optionSelected || this.textDefault || '';
+
+    if (optionSelected !== '' && this.label) {
+      this.label.setAttribute(
+        'aria-label',
+        `${this.label.innerText} ${optionSelected}`,
+      );
+    } else if (optionSelected === '' && this.label) {
+      this.label.removeAttribute('aria-label');
+    }
+
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
@@ -627,8 +696,10 @@ export class Select {
       this.input.classList.toggle('ecl-select--active');
       if (this.searchContainer.style.display === 'none') {
         this.searchContainer.style.display = 'block';
+        this.input.setAttribute('aria-expanded', true);
       } else {
         this.searchContainer.style.display = 'none';
+        this.input.setAttribute('aria-expanded', false);
       }
     } else if (e.type === 'click' && !this.shouldHandleClick) {
       this.shouldHandleClick = true;
@@ -712,6 +783,7 @@ export class Select {
     ) {
       this.searchContainer.style.display = 'none';
       this.input.classList.remove('ecl-select--active');
+      this.input.setAttribute('aria-expanded', false);
     } else if (
       e.relatedTarget &&
       !this.selectMultiple &&
@@ -726,7 +798,7 @@ export class Select {
    */
   handleSearch(e) {
     const dropDownHeight = this.optionsContainer.offsetHeight;
-    const visible = [];
+    this.visibleOptions = [];
     const keyword = e.target.value.toLowerCase();
     if (dropDownHeight > 0) {
       this.optionsContainer.style.height = `${dropDownHeight}px`;
@@ -757,12 +829,17 @@ export class Select {
             '<b>$&</b>',
           );
         }
-        visible.push(checkbox);
+        this.visibleOptions.push(checkbox);
       }
     });
     // Select all checkbox follows along.
-    const checked = visible.filter((c) => c.querySelector('input').checked);
-    if (visible.length === 0 || visible.length !== checked.length) {
+    const checked = this.visibleOptions.filter(
+      (c) => c.querySelector('input').checked,
+    );
+    if (
+      this.visibleOptions.length === 0 ||
+      this.visibleOptions.length !== checked.length
+    ) {
       this.selectAll.querySelector('input').checked = false;
     } else {
       this.selectAll.querySelector('input').checked = true;
@@ -788,7 +865,7 @@ export class Select {
       });
     }
 
-    if (visible.length === 0 && !noResultsElement) {
+    if (this.visibleOptions.length === 0 && !noResultsElement) {
       // Create no-results element.
       const noResultsContainer = document.createElement('div');
       const noResultsLabel = document.createElement('span');
@@ -796,7 +873,7 @@ export class Select {
       noResultsLabel.innerHTML = this.textNoResults;
       noResultsContainer.appendChild(noResultsLabel);
       this.optionsContainer.appendChild(noResultsContainer);
-    } else if (visible.length > 0 && noResultsElement !== null) {
+    } else if (this.visibleOptions.length > 0 && noResultsElement !== null) {
       noResultsElement.parentNode.removeChild(noResultsElement);
     }
     // reset
@@ -827,6 +904,7 @@ export class Select {
     ) {
       this.searchContainer.style.display = 'none';
       this.input.classList.remove('ecl-select--active');
+      this.input.setAttribute('aria-expanded', false);
     } else if (
       e.target &&
       !this.selectMultiple &&
@@ -848,10 +926,9 @@ export class Select {
 
       case ' ':
       case 'Enter':
-        this.handleToggle(e);
-        break;
-
       case 'ArrowDown':
+        e.preventDefault();
+        this.handleToggle(e);
         if (this.multiple) {
           this.search.focus();
         }
@@ -872,13 +949,28 @@ export class Select {
         break;
 
       case 'ArrowDown':
-        this.optionsContainer.querySelectorAll('input')[0].focus();
         e.preventDefault();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
         e.preventDefault();
         this.search.focus();
+        break;
+
+      case 'Tab':
+        e.preventDefault();
+        if (e.shiftKey) {
+          this.search.focus();
+        } else if (this.visibleOptions.length > 0) {
+          this.visibleOptions[0].querySelector('input').focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -907,7 +999,11 @@ export class Select {
 
       case 'Tab':
         e.preventDefault();
-        this.moveFocus('down');
+        if (e.shiftKey) {
+          this.moveFocus('up');
+        } else {
+          this.moveFocus('down');
+        }
         break;
 
       default:
@@ -927,11 +1023,10 @@ export class Select {
       case 'ArrowDown':
         e.preventDefault();
         if (this.selectAll.querySelector('input').disabled) {
-          const firstAvailable = Array.from(
-            this.optionsContainer.querySelectorAll('.ecl-checkbox'),
-          ).filter((el) => el.style.display !== 'none');
-          if (firstAvailable[0]) {
-            firstAvailable[0].querySelector('input').focus();
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[0].querySelector('input').focus();
+          } else {
+            this.input.focus();
           }
         } else {
           this.selectAll.querySelector('input').focus();
@@ -973,12 +1068,40 @@ export class Select {
         break;
 
       case 'ArrowDown':
-        this.input.focus();
+        e.preventDefault();
+        if (this.closeButton) {
+          this.closeButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       case 'ArrowUp':
         e.preventDefault();
-        this.clearAllButton.previousSibling.focus();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
+        } else {
+          this.search.focus();
+        }
+        break;
+
+      case 'Tab':
+        e.preventDefault();
+        if (e.shiftKey) {
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.search.focus();
+          }
+        } else if (this.closeButton) {
+          this.closeButton.focus();
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -992,19 +1115,38 @@ export class Select {
     e.preventDefault();
 
     switch (e.key) {
-      case 'ArrowDown':
+      case 'Enter':
+      case ' ':
         e.preventDefault();
-        this.closeButton.nextSibling.focus();
+        this.handleEsc(e);
+        this.input.focus();
         break;
 
       case 'ArrowUp':
         e.preventDefault();
-        this.optionsContainer.lastChild.querySelector('input').focus();
+        if (this.clearAllButton) {
+          this.clearAllButton.focus();
+        } else {
+          this.input.focus();
+        }
+        break;
+
+      case 'ArrowDown':
+        e.preventDefault();
+        this.input.focus();
         break;
 
       case 'Tab':
         e.preventDefault();
-        this.input.focus();
+        if (e.shiftKey) {
+          if (this.clearAllButton) {
+            this.clearAllButton.focus();
+          } else {
+            this.input.focus();
+          }
+        } else {
+          this.input.focus();
+        }
         break;
 
       default:
@@ -1018,6 +1160,7 @@ export class Select {
     if (this.multiple) {
       e.preventDefault();
       this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
       this.input.blur();
       this.input.classList.remove('ecl-select--active');
     } else {

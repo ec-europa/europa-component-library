@@ -108,6 +108,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Checkbox
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
+- Remove parameters `label_id` and `helper_id`, handled in form group
+- New twig parameter `label_aria_required`. It is used to set a readable text when a single checkbox is required (and not only a '\*'). If there are multiple checkboxes, it is handled in the form group
 
 ### Content block
 
@@ -151,7 +153,9 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   invalid_text: 'this is an invalid text', 
   required_text: '*', 
   required: true,
-  optional_text: 'this is an optional text', 
+  optional_text: '(optional)',
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   input: {
     input_type: file,
     multiple: false, 
@@ -161,8 +165,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
   implementation to ensure that the accessibility is not compromised.
-- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss`
-  and `form-group-print.scss`
+- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss` and `form-group-print.scss`
+- The form group template take care of accessibility for everything surrounding the form input (label, helper text, ...). Depending on the form input, the way it is handled may vary (using specific html tags or aria attributes)
 
 ### Inpage navigation
 
@@ -228,6 +232,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - A new `type` has been introduced, `truncation` can be used to add a placeholder with no link to represent some skipped items.
 - In EC the previous and next links are icon only links, in order to get the expected look and feel set the `item.link.link.hide_label` parameter to `true`.
+
+### Radio
+
+- Remove parameters `helper_id` and `invalid_icon`, handled in form group
 
 ### Rating field
 

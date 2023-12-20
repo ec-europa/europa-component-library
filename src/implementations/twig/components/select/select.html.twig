@@ -56,12 +56,10 @@
 {% set _multiple_close_text = multiple_close_text|default('') %}
 {% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
 {% set _css_group_class = 'ecl-form-group' %}
-{% set _css_class = ['ecl-select'] %}
-{% set _css_class = _css_class|join(' ') %}
-{% set _extra_attributes = '' %}
-{% set extra_attributes = [{ name: 'data-ecl-auto-init', value: 'Select' }] %}
+{% set _css_class = 'ecl-select' %}
+{% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
 {% if _multiple %}
-  {% set extra_attributes = [
+  {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
     { name: 'data-ecl-auto-init', value: 'Select' },
     { name: 'data-ecl-select-multiple'},
@@ -71,7 +69,7 @@
     { name: 'data-ecl-select-all', value: _multiple_all_text },
     { name: 'data-ecl-select-clear-all', value: _multiple_clear_all_text },
     { name: 'data-ecl-select-close', value: _multiple_close_text }
-  ]|merge(extra_attributes) %}
+  ]) %}
 {% endif %}
 
 {# Internal logic - Process properties #}
@@ -111,7 +109,7 @@
   {% if _disabled %}
     disabled
   {% endif %}
-    {{- _extra_attributes -}}
+  {{ _extra_attributes|raw }}
   >
     {% for _option in _options %}
       {% if _option.optgroup %}

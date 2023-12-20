@@ -10,8 +10,10 @@ module.exports = {
     size: 'm',
   },
   required_text: '*',
-  optional_text: ' (optional)',
+  optional_text: '(optional)',
   required: true,
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   disabled: false,
   invalid: false,
   input: {

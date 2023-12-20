@@ -2,6 +2,8 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '*',
   required: true,
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   disabled: false,
   invalid: false,
   label: 'Do you need help?',
@@ -13,9 +15,9 @@ module.exports = {
     size: 'm',
   },
   input: {
+    id: 'radio-default',
     input_type: 'radio',
     name: 'radio-group-1',
-    helper_id: 'helper-id-1',
     binary: true,
     required: true,
     items: [
