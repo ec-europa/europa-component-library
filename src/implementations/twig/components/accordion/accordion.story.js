@@ -55,7 +55,6 @@ const prepareData = (data, args) => {
   const system = getSystem();
   if (system === 'eu') {
     data.icon.name = 'corner-arrow';
-    data.icon.size = 'm';
   }
   correctPaths(data);
   data.items.forEach((item, i) => {

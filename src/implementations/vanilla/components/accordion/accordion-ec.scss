@@ -47,10 +47,10 @@ $accordion: null !default;
 }
 
 .ecl-accordion__toggle-flex {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .ecl-accordion__toggle-indicator {
@@ -59,6 +59,7 @@ $accordion: null !default;
   flex-shrink: 0;
   margin-inline-end: 0;
   margin-inline-start: map.get($accordion, 'icon-margin');
+  margin-top: 4px;
 }
 
 .ecl-accordion__toggle-title {
