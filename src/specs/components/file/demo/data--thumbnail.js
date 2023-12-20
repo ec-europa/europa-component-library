@@ -16,7 +16,7 @@ module.exports = {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-      alt: 'thumbnail alt',
+      alt: '',
     },
   },
   language: 'English',
