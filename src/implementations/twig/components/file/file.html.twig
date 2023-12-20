@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "id" (string) (default: randomized string)
   - "variant" (string) (default: 'default') Name of the variant [default, thumbnail]
   - "icon" (object) (default: {}): object of type Icon; file type
   - "title" (string|object) (default: '') Plain text title or named link object 
@@ -56,7 +57,11 @@
 {% set _meta_detail_string = '' %}
 {% set _variant = variant|default('default') %}
 {% set _description = description|default('') %}
-{% set _extra_attributes = 'data-ecl-file' %}
+{% set _id = id|default('ecl-file-' ~ random()) %}
+{% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
+{% set _lang_id = _id ~ '-lang' %}
+{% set _title_id = _id ~ '-title' %}
+{% set _link_id = _id ~ '-link' %}
 
 {% if _label.label is defined %}
   {% set _labels = [_label] %}
@@ -128,7 +133,12 @@
       </div>
     {% endif %}
     {% if _title is not empty %}
-      <div class="ecl-file__title">
+      <div class="ecl-file__title"
+      {%- if _translation is not empty -%}
+        id="{{ _title_id }}"
+      {%- endif -%}
+
+      >
       {%- if _title.link is defined -%}
         {% include '@ecl/link/link.html.twig' with {
           link: _title.link|merge({ 'type' : 'standalone' }),
@@ -152,7 +162,7 @@
   </div>
   <div class="ecl-file__footer">
   {% if _language is not empty %}
-    <div class="ecl-file__language">{{ _language }}</div>
+    <div class="ecl-file__language" id={{ _lang_id }}>{{ _language }}</div>
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-file__meta">{{ _meta }}</div>
@@ -166,12 +176,17 @@
         name: 'download',
         size: 'fluid'
       }),
+      extra_attributes: [
+       { name: 'id', value: _link_id },
+       { name: 'aria-labelledby', value: '#' ~ _link_id ~ ' #' ~ _title_id ~ ' #' ~ _lang_id },
+      ],
       extra_classes: 'ecl-file__download',
     }) only %}
   </div>
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
-    variant: _variant
+    variant: _variant,
+    title_id: _title_id
   }) only %}
 {% endif %}
 </div>

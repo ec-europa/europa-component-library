@@ -14,6 +14,7 @@
 
 {% set _items = items|default([]) %}
 {% set _toggle = toggle|default({}) %}
+{% set _title_id = title_id|default('') %}
 
 {% if _items is not empty %}
   <div
@@ -34,7 +35,7 @@
 
     <ul class="ecl-file__translation-list">
     {% for _item in _items %}
-      {% include '@ecl/file/file-translation-item.html.twig' with _item only %}
+      {% include '@ecl/file/file-translation-item.html.twig' with _item|merge({ title_id: _title_id }) only %}
     {% endfor %}
     </ul>
   </div>

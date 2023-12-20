@@ -11,6 +11,21 @@ import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
 import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
 
+dataWithTranslation.id = `ecl-file-with-translation`;
+dataWithTranslation.translation.items.forEach((item, i) => {
+  item.id = `ecl-file-translation-${i}`;
+});
+
+dataThumbnail.id = `ecl-file-with-thumbnail`;
+dataThumbnail.translation.items.forEach((item, i) => {
+  item.id = `ecl-file-thumbnail-translation-${i}`;
+});
+
+dataTaxonomy.id = `ecl-file-taxonomy`;
+dataTaxonomy.translation.items.forEach((item, i) => {
+  item.id = `ecl-file-taxonomy-translation-${i}`;
+});
+
 expect.extend(toHaveNoViolations);
 
 describe('File', () => {

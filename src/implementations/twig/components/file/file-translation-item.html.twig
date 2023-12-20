@@ -5,6 +5,7 @@
   - "title" (string) (default: '')
   - "meta" (string) (default: '')
   - "lang" (string) (default: '')
+  - "id" (string) (default: random)
   - "download" (object) (default to the parent download property) object of type Link
 #}
 
@@ -14,10 +15,15 @@
 {% set _lang_full = lang_full|default('') %}
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}
+{% set _id = id|default('ecl-ft-' ~ random() ~ '') %}
+{% set _title_id = title_id|default('') %}
+{% set _link_id = _id ~ '-link' %}
+{% set _lang_id = _id ~ '-lang' %}
 
 {% set _title %}
   <div
       class="ecl-file__translation-title"
+      id="{{ _id ~ '-lang' }}"
     {% if _lang is not empty %}
       lang="{{ _lang }}"
     {% endif %}
@@ -35,6 +41,7 @@
       </div>
     {% endif %}
     </div>
+
     {% include '@ecl/link/link.html.twig' with _download|merge({
       link: _download.link|default(_download.link|default({}))|merge({
         type: 'standalone',
@@ -46,7 +53,9 @@
       }),
       extra_classes: 'ecl-file__translation-download',
       extra_attributes: [
+        { name: 'id', value: _link_id },
         { name: 'download' },
+        { name: 'aria-labelledby', value: '#' ~ _link_id ~ '  #' ~ _title_id ~ ' #' ~  _lang_id },
         { name: 'hreflang', value: _lang }
       ],
     }) only %}
