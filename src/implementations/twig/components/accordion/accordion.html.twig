@@ -14,8 +14,6 @@
       ...
     ]
     - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
-    - "label_expanded" (string) (default: '')
-    - "label_collapsed" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,8 +25,6 @@
 
 {# Internal properties #}
 
-{% set _label_expanded = label_expanded|default('') %}
-{% set _label_collapsed = label_collapsed|default('') %}
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
@@ -63,8 +59,6 @@
             type="button"
             class="ecl-accordion__toggle"
             data-ecl-accordion-toggle
-            data-ecl-label-expanded="{{ _label_expanded }}"
-            data-ecl-label-collapsed="{{ _label_collapsed }}"
             aria-controls="{{ _item.id }}-content"
           >
             <span class="ecl-accordion__toggle-flex">
@@ -72,12 +66,11 @@
                 {{- _item.toggle.label -}}
               </span>
               <span class="ecl-accordion__toggle-indicator">
-                <span class="ecl-accordion__toggle-label">{{ _label_collapsed }}</span>
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
                     path: icon.path|default(''),
                     name: icon.name|default(''),
-                    size: icon.size|default('xs'),
+                    size: icon.size|default('s'),
                   },
                   extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
                   extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),

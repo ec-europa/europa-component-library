@@ -1,5 +1,3 @@
-/* stylelint-disable max-nesting-depth, no-descending-specificity */
-
 /**
  * Accordion
  * @define accordion
@@ -18,96 +16,30 @@ $accordion: null !default;
   margin: 0;
 }
 
-.ecl-accordion__item {
-  background-color: map.get($accordion, 'item-background');
-  position: relative;
-
-  &:first-child {
-    &::before {
-      background-color: map.get($theme, 'color', 'yellow-100');
-      border-end-start-radius: 2px;
-      border-end-end-radius: 2px;
-      content: '';
-      height: 4px;
-      left: var(--s-l);
-      position: absolute;
-      top: 0;
-      width: 32px;
-    }
-
-    .ecl-accordion__toggle {
-      border-start-start-radius: map.get($accordion, 'radius');
-      border-start-end-radius: map.get($accordion, 'radius');
-    }
-  }
-
-  &:last-child {
-    .ecl-accordion__toggle {
-      border-bottom-color: transparent;
-      border-end-start-radius: map.get($accordion, 'radius');
-      border-end-end-radius: map.get($accordion, 'radius');
-
-      &[aria-expanded='true'] {
-        border-bottom-color: map.get($theme, 'color' 'blue-20');
-        border-end-start-radius: 0;
-        border-end-end-radius: 0;
-      }
-    }
-
-    .ecl-accordion__content {
-      border-bottom: 0;
-      border-end-start-radius: map.get($accordion, 'radius');
-      border-end-end-radius: map.get($accordion, 'radius');
-      overflow: hidden;
-    }
-  }
-}
-
-.ecl-accordion__title {
-  margin: 0;
-  padding: 0;
-}
-
 .ecl-accordion__toggle {
   background-color: transparent;
   border: 2px solid transparent;
-  border-bottom-color: map.get($theme, 'color', 'blue-20');
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: var(--f-p-l);
+  font: var(--f-l);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
   width: 100%;
-}
 
-.ecl-accordion__toggle:hover {
-  box-shadow: map.get($accordion, 'item-shadow-hover');
-}
-
-.ecl-accordion__toggle:focus-visible {
-  border: 2px solid map.get($theme, 'color' 'blue-100');
-  border-bottom-color: map.get($theme, 'color' 'blue-100') !important;
-  outline: 0;
-}
-
-.ecl-accordion__toggle[aria-expanded='true'] {
-  .ecl-accordion__toggle-icon {
-    transform: rotate(0deg);
-    transition-duration: 0s;
+  &:hover {
+    background-color: map.get($accordion, 'item-background-hover');
   }
-}
 
-.ecl-accordion__toggle-flex {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
+  &:focus-visible {
+    border: 2px solid var(--c-p);
+    outline: 0;
+  }
 }
 
 .ecl-accordion__toggle-indicator {
   align-items: center;
-  color: map.get($theme, 'color', 'blue');
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
@@ -121,36 +53,90 @@ $accordion: null !default;
   }
 }
 
-.ecl-accordion__toggle-label {
-  display: none;
-  font: var(--f-p-m);
-  margin: 0 var(--s-xs) 0 var(--s-s);
-}
-
-.ecl-accordion__toggle-title {
-  flex-grow: 1;
+.ecl-accordion__toggle[aria-expanded='true'] {
+  .ecl-accordion__toggle-icon {
+    transform: rotate(0deg);
+    transition-duration: 0s;
+  }
 }
 
 .ecl-accordion__content {
-  border-bottom: 2px solid map.get($theme, 'color', 'blue-20');
-  border-inline-start: 4px solid map.get($theme, 'color', 'blue');
   color: map.get($accordion, 'text-color');
   font: var(--f-p-m);
   margin-inline-start: 0;
-  padding: var(--s-l);
+  max-width: map.get($accordion, 'max-width');
+  padding: 0 var(--s-l) var(--s-l);
 }
 
 .no-js .ecl-accordion__content {
   display: block;
 }
 
+.ecl-accordion__item {
+  background-color: map.get($accordion, 'item-background');
+  border-bottom: 2px solid var(--c-p-20);
+  position: relative;
+
+  &:first-child {
+    &::before {
+      background-color: var(--c-s);
+      border-end-start-radius: 2px;
+      border-end-end-radius: 2px;
+      content: '';
+      height: 4px;
+      left: var(--s-l);
+      position: absolute;
+      top: 0;
+      width: 32px;
+      z-index: 1;
+    }
+
+    .ecl-accordion__toggle {
+      border-start-start-radius: map.get($accordion, 'radius');
+      border-start-end-radius: map.get($accordion, 'radius');
+    }
+  }
+
+  &:last-child {
+    border-bottom-width: 0;
+
+    .ecl-accordion__toggle {
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
+
+      &[aria-expanded='true'] {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
+    }
+
+    .ecl-accordion__content {
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
+      overflow: hidden;
+    }
+  }
+}
+
+.ecl-accordion__title {
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-accordion__toggle-flex {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.ecl-accordion__toggle-title {
+  max-width: map.get($accordion, 'max-width');
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-accordion__toggle {
-    font: var(--f-p-xl);
-  }
-
-  .ecl-accordion__toggle-label {
-    display: block;
+    font: var(--f-xl);
   }
 }

@@ -15,8 +15,6 @@ npm install --save @ecl/twig-component-accordion
     - "label" (string) (default: '')
   - "content" (string) (default: '')
 - **"icon"** (associative array) (default: {}) A predefined structure compatible with Icon component.
-- **"label_expanded"** (string) (default: '')
-- **"label_collapsed"** (string) (default: '')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -43,8 +41,6 @@ npm install --save @ecl/twig-component-accordion
   icon: { 
     path: 'static/icons.svg', 
     name: 'plus', 
-  }, 
-  label_expanded: 'Close', 
-  label_collapsed: 'Open' 
+  }
 } %} 
 ```

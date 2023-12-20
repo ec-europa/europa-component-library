@@ -7,15 +7,16 @@
 // Accordion
 $accordion: (
   item-background: transparent,
-  item-shadow-hover: var(--sh-1),
+  item-background-hover: var(--c-p-5),
   border-color: none,
-  item-padding: var(--s-xl),
+  item-padding: calc(var(--s-l) - 2px),
   text-color: var(--c-d-80),
   title-text-color: var(--c-d-140),
-  icon-color: currentcolor,
-  icon-margin: var(--s-s),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
   radius: var(--s-xs),
   shadow: var(--sh-1),
+  max-width: 580px,
 );
 $accordion-print: (
   toggle-background: transparent,
