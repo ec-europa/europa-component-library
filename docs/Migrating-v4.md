@@ -124,6 +124,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Rename twig parameter `icons_path` to `icon_path`, to be consistent with other components
 
+### Description list
+
+- Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
+
 ### Expandable
 
 - Button is now using variant `ghost`, instead of `secondary`
