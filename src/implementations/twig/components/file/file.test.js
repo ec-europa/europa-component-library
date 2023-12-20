@@ -11,6 +11,8 @@ import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
 import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
 
+dataWithoutTranslation.id = 'ecl-file-without-translations';
+
 dataWithTranslation.id = `ecl-file-with-translation`;
 dataWithTranslation.translation.items.forEach((item, i) => {
   item.id = `ecl-file-translation-${i}`;
