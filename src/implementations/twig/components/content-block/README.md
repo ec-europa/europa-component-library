@@ -9,6 +9,7 @@ npm install --save @ecl/twig-component-content-block
 ### Parameters
 
 - **labels** (array) (default: []): Array of ECL Labels
+- **labels_aria** (strings) (default: ''): Aria label for the labels area
 - **primary_meta** (array of strings) (default: []): Primary meta of the content block
 - **title** (associative array OR string) (default: {}): Title of the content block, following ECL Link structure
 - **description** (string) (default: ''): Description of the content block
@@ -37,6 +38,7 @@ npm install --save @ecl/twig-component-content-block
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
+  labels_aria: 'Labels',
   primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     label: 'Title',

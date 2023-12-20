@@ -23,6 +23,7 @@ module.exports = {
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
+  labels_aria: 'Labels',
   primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     link: {

@@ -97,6 +97,10 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
   Note: even with this variant, it is still mandatory to provide a label for the button, for screen readers. It is just not displayed.
 - It is now possible to pass multiple icons to the button, the same way it happens for the link, an array of objects of type icon will be rendered as a list of icons one after the other.
 
+### Card
+
+- New twig parameter `labels_aria`, to add an aria-label to the primary meta area
+
 ### Carousel
 
 - Buttons for carousel pagination are now placed differently, and use Button `ghost`
@@ -105,9 +109,14 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
 
+### Content block
+
+- New twig parameter `labels_aria`, to add an aria-label to the primary meta area
+
 ### Content item
 
 - New variant `ecl-content-item__picture--top` added to put the image on top. It requires to also add class `ecl-content-item--stack` to the root element of the component
+- New twig parameter `labels_aria`, to add an aria-label to the primary meta area
 
 ### Datepicker
 

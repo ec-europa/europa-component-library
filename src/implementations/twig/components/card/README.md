@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-card
 
 - **picture** (associative array) (default: {}): Image for the card, following ECL Picture structure
 - **labels** (array) (default: []): Array of ECL Labels
+- **labels_aria** (strings) (default: ''): Aria label for the labels area
 - **primary_meta** (array of strings) (default: []): Primary meta of the card
 - **title** (associative array OR string) (default: {}): Title of the card, following ECL Link structure
 - **description** (string) (default: ''): Description of the card
