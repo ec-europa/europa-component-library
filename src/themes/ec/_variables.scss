@@ -849,7 +849,7 @@ $media-container: (
   caption-color: var(--c-d),
   caption-font: var(--f-s),
   caption-padding: var(--s-s) 0 0,
-  caption-max-width: 80ch,
+  caption-max-width: var(--max-w),
   expandable-spacing-top: var(--s-xl),
   media-border: 1px solid var(--c-n),
   scrollbar-width: 16px,
@@ -1035,6 +1035,7 @@ $news-ticker: (
 
 // Notification
 $notification: (
+  max-width: var(--max-w),
   radius: 0,
   padding: var(--s-xl),
   border-width: 1px,

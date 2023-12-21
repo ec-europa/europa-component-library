@@ -834,7 +834,7 @@ $media-container: (
   caption-background-color: map.get($color, 'white'),
   caption-color: var(--c-d-80),
   caption-font: var(--f-m),
-  caption-max-width: 80ch,
+  caption-max-width: var(--max-w),
   caption-padding: var(--s-l),
   caption-before: true,
   expandable-spacing-top: var(--s-xs),
@@ -1021,6 +1021,7 @@ $news-ticker: (
 
 // Notification
 $notification: (
+  max-width: var(--max-w),
   radius: 4px,
   padding: var(--s-l) var(--s-xs) var(--s-l) var(--s-l),
   border-width: 0,
