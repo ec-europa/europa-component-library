@@ -225,17 +225,15 @@ $file: null !default;
   max-width: 65ch;
 }
 
-.ecl-file__translation-container[aria-expanded='true'] {
-  .ecl-file__translation-list {
-    display: block;
+.ecl-file__translation-toggle[aria-expanded='true'] {
+  background: map.get($file, 'file-translation-toggle-background');
+
+  .ecl-button__icon {
+    transform: rotate(0);
   }
 
-  .ecl-file__translation-toggle {
-    background: map.get($file, 'file-translation-toggle-background');
-
-    .ecl-button__icon {
-      transform: rotate(0);
-    }
+  + .ecl-file__translation-list {
+    display: block;
   }
 }
 
