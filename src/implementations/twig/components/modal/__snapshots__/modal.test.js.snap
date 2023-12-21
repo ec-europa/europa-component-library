@@ -3,6 +3,8 @@
 exports[`Modal Collapsed renders correctly 1`] = `
 <jest>
   <dialog
+    aria-labelledby="modal-example-header"
+    aria-modal="true"
     class="ecl-modal ecl-modal--l"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
@@ -19,6 +21,7 @@ exports[`Modal Collapsed renders correctly 1`] = `
         >
           <div
             class="ecl-modal__header-content"
+            id="modal-example-header"
           >
             Modal title
           </div>
@@ -135,6 +138,8 @@ exports[`Modal Collapsed renders correctly 1`] = `
 exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 <jest>
   <dialog
+    aria-labelledby="modal-example-header"
+    aria-modal="true"
     class="ecl-modal ecl-modal--l"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
@@ -153,6 +158,7 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
         >
           <div
             class="ecl-modal__header-content"
+            id="modal-example-header"
           >
             Modal title
           </div>
@@ -269,6 +275,8 @@ exports[`Modal Collapsed renders correctly with extra attributes 1`] = `
 exports[`Modal Collapsed renders correctly with extra class names 1`] = `
 <jest>
   <dialog
+    aria-labelledby="modal-example-header"
+    aria-modal="true"
     class="ecl-modal ecl-modal--l custom-class custom-class--test"
     data-ecl-auto-init="Modal"
     data-ecl-modal-toggle="modal-toggle"
@@ -285,6 +293,7 @@ exports[`Modal Collapsed renders correctly with extra class names 1`] = `
         >
           <div
             class="ecl-modal__header-content"
+            id="modal-example-header"
           >
             Modal title
           </div>

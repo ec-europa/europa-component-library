@@ -54,6 +54,12 @@
 {% endif %}
 {% set _css_class = _css_class ~ ' ecl-modal--' ~ _size %}
 
+{% if _header is not empty or block('header') is not empty %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'aria-labelledby', value: _id ~ '-header'}
+  ]) %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -70,7 +76,14 @@
 
 {# Print the result #}
 
-<dialog data-ecl-auto-init="Modal" id="{{ _id }}" data-ecl-modal-toggle="{{ _toggle_id }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<dialog 
+  data-ecl-auto-init="Modal" 
+  data-ecl-modal-toggle="{{ _toggle_id }}" 
+  id="{{ _id }}" 
+  aria-modal="true"
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <div class="ecl-modal__container ecl-container">
     {% set _content_class = 'ecl-modal__content ' ~ _size_class %}
     <div class="{{ _content_class }}">
@@ -87,7 +100,7 @@
         {% endif %}
 
         {% if _header is not empty or block('header') is not empty %}
-          <div class="ecl-modal__header-content">
+          <div class="ecl-modal__header-content" id="{{ _id }}-header">
             {%- block header %}{{ _header }}{% endblock -%}
           </div>
         {% endif %}
