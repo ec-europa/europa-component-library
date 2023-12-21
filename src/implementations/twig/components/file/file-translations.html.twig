@@ -29,7 +29,10 @@
         transform: 'rotate-180'
       }),
       extra_classes: 'ecl-file__translation-toggle',
-      extra_attributes: [{ name: 'data-ecl-file-translation-toggle' }],
+      extra_attributes: [
+        { name: 'data-ecl-file-translation-toggle' },
+        { name: 'aria-expanded', value: 'false' },
+      ],
     }) only %}
 
     <ul class="ecl-file__translation-list">
