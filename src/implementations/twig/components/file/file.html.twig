@@ -63,6 +63,7 @@
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
 {% set _link_id = _id ~ '-link' %}
+{% set _label_id = _id ~ '-link-label' %}
 
 {% if _label.label is defined %}
   {% set _labels = [_label] %}
@@ -174,7 +175,7 @@
       }),
       extra_attributes: [
        { name: 'id', value: _link_id },
-       { name: 'aria-labelledby', value: _link_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+       { name: 'aria-labelledby', value: _label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
       ],
       extra_classes: 'ecl-file__download',
     }) only %}
