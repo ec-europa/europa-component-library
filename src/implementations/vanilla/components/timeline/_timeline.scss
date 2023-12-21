@@ -23,7 +23,7 @@ $timeline: null !default;
 }
 
 .ecl-timeline__item {
-  max-width: 607px;
+  max-width: var(--max-w);
   padding-bottom: var(--s-xl);
   padding-inline-start: calc(
     var(--s-m) + (map.get($timeline, 'bullet-size') * 0.5) +

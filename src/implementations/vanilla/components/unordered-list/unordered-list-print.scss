@@ -19,6 +19,7 @@ $list: null !default;
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
   margin-top: map.get($theme, 'spacing-print', 's');
+  max-width: var(--max-w);
 
   .ecl-link {
     display: inline-block;

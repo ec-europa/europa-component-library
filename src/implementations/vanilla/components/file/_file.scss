@@ -103,7 +103,7 @@ $file: null !default;
   color: map.get($file, 'file-description-color');
   font: map.get($file, 'file-description-font');
   margin-top: var(--s-s);
-  max-width: 65ch;
+  max-width: var(--max-w);
   white-space: pre-wrap;
 }
 
@@ -222,7 +222,7 @@ $file: null !default;
   color: map.get($file, 'file-color');
   display: block;
   font: var(--f-m);
-  max-width: 65ch;
+  max-width: var(--max-w);
 }
 
 .ecl-file__translation-container[aria-expanded='true'] {

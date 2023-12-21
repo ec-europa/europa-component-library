@@ -22,7 +22,7 @@ $description-list: null !default;
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-bottom: map.get($description-list, 'term-margin-bottom');
   margin-top: map.get($description-list, 'term-margin-top');
-  max-width: 60ch;
+  max-width: var(--max-w);
   overflow-wrap: break-word;
 
   &:first-child {
@@ -44,7 +44,7 @@ $description-list: null !default;
   font: var(--f-m);
   margin-inline-start: 0;
   margin-top: var(--s-2xs);
-  max-width: 60ch;
+  max-width: var(--max-w);
 }
 
 .ecl-description-list__see_more {
@@ -151,7 +151,7 @@ $description-list: null !default;
   %ecl-description-list {
     display: grid;
     grid-template-columns: map.get($description-list, 'term-width') fit-content(
-        60ch
+        var(--max-w)
       );
 
     .ecl-description-list__term,

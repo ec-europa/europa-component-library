@@ -39,13 +39,13 @@ $notification-print: null !default;
   font-weight: map.get($notification, 'title-font-weight');
   grid-column-start: 1;
   margin-bottom: map.get($notification-print, 'title-spacing');
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-notification__description {
   grid-column-start: 1;
   margin: 0;
-  max-width: 80ch;
+  max-width: var(--max-w);
   padding-bottom: 0;
 }
 

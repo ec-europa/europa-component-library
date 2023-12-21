@@ -64,14 +64,14 @@ $content-block: null !default;
   font: map.get($content-block, 'title-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: map.get($theme, 'spacing-print', 'xs') 0 0;
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-content-block__description {
   color: map.get($content-block, 'text-color');
   font: map.get($theme, 'font-prolonged-width', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-content-block__secondary-meta-container {

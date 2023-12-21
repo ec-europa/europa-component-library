@@ -46,7 +46,7 @@ $radio: null !default;
   line-height: map.get($radio, 'label-line-height');
   padding: var(--s-xs) 0;
   position: relative;
-  max-width: map.get($radio, 'max-width');
+  max-width: var(--max-w);
   white-space: pre-wrap;
 }
 

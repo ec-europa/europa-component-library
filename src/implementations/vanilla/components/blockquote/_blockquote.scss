@@ -10,9 +10,6 @@
 $theme: null !default;
 $blockquote: null !default;
 
-// Internal variables
-$text-max-width: 65ch; // Approximately 80 characters with the current font
-
 .ecl-blockquote,
 %ecl-blockquote {
   border-inline-start: map.get($blockquote, 'border-width') solid
@@ -31,7 +28,7 @@ $text-max-width: 65ch; // Approximately 80 characters with the current font
   font: map.get($blockquote, 'quote', 'font');
   font-style: italic;
   margin: 0;
-  max-width: $text-max-width;
+  max-width: var(--max-w);
   quotes: '\201C' '\201D';
 
   &::before {
@@ -90,7 +87,7 @@ $text-max-width: 65ch; // Approximately 80 characters with the current font
 .ecl-blockquote__attribution,
 %ecl-blockquote__author {
   margin-top: map.get($blockquote, 'author', 'margin');
-  max-width: map.get($blockquote, 'text-max-width');
+  max-width: var(--max-w);
 }
 
 .ecl-blockquote__author,
