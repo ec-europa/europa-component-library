@@ -58,6 +58,7 @@
 {% set _variant = variant|default('default') %}
 {% set _description = description|default('') %}
 {% set _id = id|default('ecl-file-' ~ random()) %}
+
 {% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
@@ -133,12 +134,7 @@
       </div>
     {% endif %}
     {% if _title is not empty %}
-      <div class="ecl-file__title"
-      {%- if _translation is not empty -%}
-        id="{{ _title_id }}"
-      {%- endif -%}
-
-      >
+      <div class="ecl-file__title" id="{{ _title_id }}">
       {%- if _title.link is defined -%}
         {% include '@ecl/link/link.html.twig' with {
           link: _title.link|merge({ 'type' : 'standalone' }),
@@ -178,13 +174,14 @@
       }),
       extra_attributes: [
        { name: 'id', value: _link_id },
-       { name: 'aria-labelledby', value: '#' ~ _link_id ~ ' #' ~ _title_id ~ ' #' ~ _lang_id },
+       { name: 'aria-labelledby', value: _link_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
       ],
       extra_classes: 'ecl-file__download',
     }) only %}
   </div>
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
+    id: _id,
     variant: _variant,
     title_id: _title_id
   }) only %}
