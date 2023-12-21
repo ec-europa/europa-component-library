@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-file
 
 ### Parameters
 
+- **"id"** (string) (default: random string)
 - **"icon"** (object) (default: {}): object of type Icon; file type
 - **"variant"** (string) (default: '') Thumbnail
 - **"title"** (string|object) (default: '') Title as plain text or link object

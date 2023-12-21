@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "toggle" (object) (default: {}): object of type Button
+    - "id" (string) (default: '')
     - "items" (array) (default: []):
       - "title" (string) (default: '')
       - "meta" (string) (default: '')
@@ -14,6 +15,7 @@
 
 {% set _items = items|default([]) %}
 {% set _toggle = toggle|default({}) %}
+{% set _id = id|default('') %}
 
 {% if _items is not empty %}
   <div
@@ -36,8 +38,11 @@
     }) only %}
 
     <ul class="ecl-file__translation-list">
-    {% for _item in _items %}
-      {% include '@ecl/file/file-translation-item.html.twig' with _item only %}
+    {% for key, _item in _items %}
+      {% include '@ecl/file/file-translation-item.html.twig' with _item|merge({
+          id:  _id ~ '-translation-' ~ key,
+          title_id: _id ~ '-title',
+      }) only %}
     {% endfor %}
     </ul>
   </div>

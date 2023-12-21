@@ -140,6 +140,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - File title can now be also a link, the intended usage of this is limited to the case when the href is set to a webpage, please avoid duplicating
   this link and the one in the download button, they should be used alternatively.
+- The component is now going to generate ids for many elements, to improve accessibility, they are all based on the main id assigned to the component wrapper, `id` is added as a parameter and can be used to customise the generated ids.
+- Download links are now going to have an `aria-labelledby` attribute with a value generated programmatically, therefore the `aria-label` arttribute should be omitted for those links.
 
 ### Form group
 

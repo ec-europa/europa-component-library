@@ -14,7 +14,6 @@ module.exports = {
     link: {
       label: 'Download',
       path: exampleLink,
-      aria_label: 'Download file State of the Union 2018 brochure',
     },
     icon: {
       path: '/icons.svg',
@@ -36,7 +35,6 @@ module.exports = {
           link: {
             label: 'Download',
             path: '/example#bg',
-            aria_label: 'Download file български',
           },
           icon: {
             path: '/icons.svg',
@@ -51,7 +49,6 @@ module.exports = {
           link: {
             label: 'Download',
             path: '/example#es',
-            aria_label: 'Download file español',
           },
           icon: {
             path: '/icons.svg',
@@ -66,7 +63,6 @@ module.exports = {
           link: {
             label: 'Download',
             path: '/example#fr',
-            aria_label: 'Download file français',
           },
           icon: {
             path: '/icons.svg',

@@ -118,6 +118,9 @@
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
+      {% if attr.name == 'id' %}
+        {% set _label_id = attr.value ~ '-label' %}
+      {% endif %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
@@ -149,7 +152,14 @@
     {% endfor %}
   {%- endif -%}
   {%- if (_icons is defined and _icons is not empty) -%}
-    <span class="ecl-link__label">{{ _link.label }}</span>
+    <span 
+      class="ecl-link__label"
+    {%- if _label_id is defined %}
+      id="{{ _label_id }}"
+    {%- endif -%}
+    >
+      {{- _link.label -}}
+    </span>
   {%- endif -%}
   {%- if (_icons is defined and _link.icon_position == 'after') or _link.external -%}
     {% for icon in _icons %}
