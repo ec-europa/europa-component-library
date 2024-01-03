@@ -4,12 +4,20 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   detail_meta: ['META INFO', 'DD Month YYYY'],
   variant: 'thumbnail',
-  title: 'State of the Union 2018 brochure',
+  title: {
+    link: {
+      label: 'State of the Union 2018 brochure',
+      path: exampleLink,
+      type: 'standalone',
+    },
+  },
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis lorem tellus. Nullam sollicitudin suscipit diam, ac blandit ipsum tempor consectetur. Duis vitae pulvinar turpis. Donec maximus pharetra ex a ultricies.',
-  image: {
-    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-    alt: 'thumbnail alt',
+  picture: {
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+      alt: '',
+    },
   },
   language: 'English',
   meta: '(16.2 MB - PDF)',
@@ -22,7 +30,6 @@ module.exports = {
     link: {
       label: 'Download',
       path: exampleLink,
-      aria_label: 'Download file State of the Union 2018 brochure',
     },
     icon: {
       path: '/icons.svg',
@@ -44,7 +51,6 @@ module.exports = {
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file български',
             path: '/example#bg',
           },
           icon: {
@@ -60,7 +66,6 @@ module.exports = {
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file español',
             path: '/example#es',
           },
           icon: {
@@ -76,7 +81,6 @@ module.exports = {
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file français',
             path: '/example#fr',
           },
           icon: {

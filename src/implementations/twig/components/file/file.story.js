@@ -3,30 +3,27 @@ import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
-import dataDefault from '@ecl/specs-component-file/demo/data--without-translation';
-import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
+import dataDefault from '@ecl/specs-component-file/demo/data--with-translation';
 import dataThumbnailTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
 
 import file from './file.html.twig';
 import notes from './README.md';
 
-const listsClone = { ...dataThumbnailTaxonomy.lists[0] };
-const metaClone = [...dataThumbnail.detail_meta];
-const labelClone = { ...dataThumbnail.label };
-const translationsClone = { ...dataWithTranslation.translation };
-const imgClone = { ...dataThumbnail.picture };
 const system = getSystem();
 
 const getArgs = (data) => {
   const args = {
     title: data.title,
     download_label: data.download.link.label,
-    show_label: !!data.label,
-    show_translations: true,
-    toggle_label: translationsClone.toggle.label,
   };
 
+  if (data.label) {
+    args.show_label = true;
+  }
+  if (data.translation) {
+    args.show_translations = true;
+    args.toggle_label = data.translation.toggle.label || '';
+  }
   if (data.description) {
     args.show_description = !!data.description;
     args.description = data.description || '';
@@ -45,16 +42,18 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {
-    show_label: {
+  const argTypes = {};
+
+  if (data.label) {
+    argTypes.show_label = {
       name: 'label',
       type: { name: 'boolean' },
       description: 'Show label',
       table: {
         category: 'Optional',
       },
-    },
-  };
+    };
+  }
 
   if (data.detail_meta) {
     argTypes.show_meta = {
@@ -176,56 +175,45 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  if (system === 'eu') {
-    data.icon.size = 'm';
-  }
-
-  data.title = args.title;
-  data.description = args.description;
-  data.download.link.label = args.download_label;
-
-  if (args.show_label) {
-    data.label = labelClone;
-  } else if (!args.show_label && data.label) {
-    data.label = {};
-  }
-
-  if (args.show_meta && data.detail_meta) {
-    data.detail_meta = metaClone;
-  } else if (!args.show_meta && data.detail_meta) {
-    data.detail_meta = [];
-  }
-
-  if (args.show_description) {
-    data.description = args.description;
-  } else if (!args.show_description && data.description) {
-    data.description = '';
-  }
-
-  if (args.show_image && data.picture) {
-    data.picture = imgClone;
-    data.picture.img = {};
-    data.picture.img.src = args.image;
-  } else if (!args.show_image && data.picture) {
-    data.picture = {};
-  }
-
-  if (args.show_translations) {
-    data.translation = translationsClone;
-    data.translation.toggle.label = args.toggle_label;
-  } else if (!args.show_translations && data.translation) {
-    data.translation = {};
-  }
-
-  if (args.show_taxonomy) {
-    data.lists = [listsClone];
-  } else {
-    data.lists = [];
-  }
-
   correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
 
-  return data;
+  if (system === 'eu') {
+    clone.icon.size = 'm';
+  }
+
+  clone.title = args.title;
+  clone.description = args.description;
+  clone.download.link.label = args.download_label;
+  clone.translation.toggle.label = args.toggle_label;
+
+  if (!args.show_label) {
+    delete clone.label;
+  }
+
+  if (!args.show_meta) {
+    delete clone.detail_meta;
+  }
+
+  if (!args.show_description) {
+    delete clone.description;
+  }
+
+  if (!args.show_image) {
+    delete clone.picture;
+  } else {
+    clone.picture.img.src = args.image;
+  }
+
+  if (!args.show_translations) {
+    delete clone.translation;
+  }
+
+  if (!args.show_taxonomy) {
+    delete clone.lists;
+  }
+
+  return clone;
 };
 
 export default {
@@ -248,15 +236,19 @@ Default.parameters = {
 export const Thumbnail = (_, { loaded: { component } }) => component;
 
 Thumbnail.render = async (args) => {
-  const renderedFileThumbnail = await file(prepareData(dataThumbnail, args));
+  const renderedFileThumbnail = await file(
+    prepareData(dataThumbnailTaxonomy, args),
+  );
   return renderedFileThumbnail;
 };
 Thumbnail.storyName = 'with thumbnail';
-Thumbnail.args = getArgs(dataThumbnail);
+Thumbnail.args = getArgs(dataThumbnailTaxonomy);
 Thumbnail.argTypes = {
-  ...getArgTypes(dataThumbnail),
+  ...getArgTypes(dataThumbnailTaxonomy),
   title: {
     type: { name: 'object' },
   },
 };
-Thumbnail.parameters = { notes: { markdown: notes, json: dataThumbnail } };
+Thumbnail.parameters = {
+  notes: { markdown: notes, json: dataThumbnailTaxonomy },
+};

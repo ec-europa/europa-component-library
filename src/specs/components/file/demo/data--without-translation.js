@@ -15,7 +15,6 @@ module.exports = {
     link: {
       label: 'Download',
       path: exampleLink,
-      aria_label: 'Download file State of the Union 2018 brochure',
     },
     icon: {
       path: '/icons.svg',

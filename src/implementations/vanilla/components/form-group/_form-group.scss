@@ -9,7 +9,6 @@ $theme: null !default;
 $form-group: null !default;
 
 .ecl-form-group {
-  align-items: flex-start;
   border-width: 0;
   box-sizing: border-box;
   display: block;
@@ -23,7 +22,7 @@ $form-group: null !default;
   color: map.get($form-group, 'color-invalid');
   display: flex;
   font: map.get($form-group, 'font-invalid');
-  margin: var(--s-2xs) 0 var(--s-xs);
+  margin-top: var(--s-xs);
   max-width: var(--max-w);
   padding: 0;
 }
