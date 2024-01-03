@@ -27,12 +27,14 @@ $file-upload: null !default;
   color: var(--c-d);
   font: var(--f-m);
   list-style: none;
+  margin-bottom: 0;
   margin-top: var(--s-m);
   max-width: 538px; // 6 columns; provided by designers
   padding-inline-start: 0;
   width: 100%;
 
-  .no-js & {
+  .no-js &,
+  &:empty {
     display: none;
   }
 }
@@ -50,5 +52,9 @@ $file-upload: null !default;
     color: var(--c-d-80);
     display: map.get($file-upload, 'meta-display');
     padding-top: map.get($file-upload, 'meta-padding');
+  }
+
+  &:last-child {
+    padding-bottom: var(--s-2xs);
   }
 }

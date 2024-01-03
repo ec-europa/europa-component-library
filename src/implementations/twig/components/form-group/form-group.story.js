@@ -41,6 +41,8 @@ const getArgs = (data) => {
     label: data.label || '',
     helper_text: data.helper_text,
     invalid_text: data.invalid_text,
+    optional_text: data.optional_text,
+    required_text: data.required_text,
     input: {
       input_type: data.input.input_type,
     },
@@ -48,6 +50,10 @@ const getArgs = (data) => {
 
   if (data.input.width) {
     args.width = data.input.width;
+  }
+
+  if (data.input.name) {
+    args.name = data.input.name;
   }
 
   Object.assign(args.input, data.input);
