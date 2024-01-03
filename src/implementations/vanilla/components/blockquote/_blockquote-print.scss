@@ -30,7 +30,7 @@ $blockquote-print: null !default;
   font-style: italic;
   margin: 0;
   quotes: '‘' '’';
-  max-width: 80ch;
+  max-width: var(--max-w);
 
   &::before {
     content: open-quote;
@@ -88,6 +88,7 @@ $blockquote-print: null !default;
 .ecl-blockquote__attribution,
 %ecl-blockquote__author {
   margin-top: map.get($blockquote-print, 'author-margin');
+  max-width: var(--max-w);
 }
 
 .ecl-blockquote__author,

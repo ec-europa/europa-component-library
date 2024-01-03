@@ -19,6 +19,7 @@ $timeline-print: null !default;
 
 .ecl-timeline__item {
   margin-top: map.get($theme, 'spacing-print', 'm');
+  max-width: var(--max-w);
 
   &:first-child {
     margin-top: 0;

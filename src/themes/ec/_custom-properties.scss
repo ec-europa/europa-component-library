@@ -76,6 +76,7 @@
   --ecl-shadow-6: #{map.get($shadow, '6')};
   --ecl-shadow-12: #{map.get($shadow, '12')};
   --ecl-shadow-16: #{map.get($shadow, '16')};
+  --ecl-max-width: #{$max-width};
 
   // Aliases
   --c-p: var(--ecl-color-primary);
@@ -152,4 +153,5 @@
   --sh-6: var(--ecl-shadow-6);
   --sh-12: var(--ecl-shadow-12);
   --sh-16: var(--ecl-shadow-16);
+  --max-w: var(--ecl-max-width);
 }

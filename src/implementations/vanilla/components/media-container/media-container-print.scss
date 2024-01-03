@@ -25,5 +25,5 @@ $theme: null !default;
   color: var(--c-d);
   font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 's');
-  max-width: 65ch;
+  max-width: var(--max-w);
 }

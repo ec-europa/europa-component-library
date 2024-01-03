@@ -46,6 +46,7 @@ $featured-item-print: null !default;
   font: map.get($featured-item, 'title-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
+  max-width: var(--max-w);
   padding: map.get($featured-item, 'title-spacing');
 }
 
@@ -54,6 +55,7 @@ $featured-item-print: null !default;
   font: map.get($featured-item, 'description-font');
   margin: 0;
   margin: map.get($featured-item, 'description-spacing');
+  max-width: var(--max-w);
 
   > *:first-child {
     margin-top: 0;

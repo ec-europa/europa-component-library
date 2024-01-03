@@ -47,6 +47,7 @@ $list-illustration-print: null !default;
 .ecl-list-illustration__title-container {
   display: flex;
   flex-direction: column;
+  max-width: var(--max-w);
 }
 
 .ecl-list-illustration__icon {
@@ -70,6 +71,7 @@ $list-illustration-print: null !default;
   color: map.get($list-illustration, 'description-color');
   font: map.get($theme, 'font-prolonged-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
+  max-width: var(--max-w);
 }
 
 // Zebra

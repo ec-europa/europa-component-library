@@ -23,6 +23,7 @@ $form-group: null !default;
   display: flex;
   font: map.get($form-group, 'font-invalid');
   margin-top: var(--s-xs);
+  max-width: var(--max-w);
   padding: 0;
 }
 
@@ -36,6 +37,7 @@ $form-group: null !default;
   display: block;
   font: map.get($form-group, 'font-help');
   margin: var(--s-2xs) 0 var(--s-xs);
+  max-width: var(--max-w);
   padding: 0;
 }
 
@@ -46,6 +48,7 @@ $form-group: null !default;
   font: map.get($form-group, 'font-label');
   font-weight: map.get($form-group, 'font-weight-label');
   margin: 0;
+  max-width: var(--max-w);
   padding: 0;
   white-space: pre-wrap;
 }
@@ -69,8 +72,4 @@ $form-group: null !default;
   *:not(.ecl-help-block, .ecl-feedback-message) {
     margin-top: var(--s-xs);
   }
-}
-
-.ecl-help-block + .ecl-feedback-message {
-  margin-top: calc(-1 * var(--s-2xs));
 }

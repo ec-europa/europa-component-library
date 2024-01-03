@@ -87,19 +87,19 @@ $typography: null !default;
 .ecl-u-type-paragraph-m {
   color: map.get($typography, 'text-color') !important;
   font: map.get($typography, 'paragraph', 'm') !important;
-  max-width: 80ch !important;
+  max-width: var(--max-w) !important;
 }
 
 %ecl-paragraph {
   color: map.get($typography, 'text-color');
   font: map.get($typography, 'paragraph', 'm');
-  max-width: 80ch !important;
+  max-width: var(--max-w) !important;
 }
 
 .ecl-u-type-paragraph-lead {
   color: map.get($typography, 'text-color');
   font: map.get($typography, 'paragraph', 'l', 'mobile') !important;
-  max-width: 80ch !important;
+  max-width: var(--max-w) !important;
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'paragraph', 'l', 'desktop') !important;
@@ -109,13 +109,13 @@ $typography: null !default;
 .ecl-u-type-paragraph-s {
   color: map.get($typography, 'text-color');
   font: map.get($typography, 'paragraph', 's') !important;
-  max-width: 80ch !important;
+  max-width: var(--max-w) !important;
 }
 
 .ecl-u-type-paragraph-xs {
   color: map.get($typography, 'text-color');
   font: map.get($typography, 'paragraph', 'xs') !important;
-  max-width: 80ch !important;
+  max-width: var(--max-w) !important;
 }
 
 /*

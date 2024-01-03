@@ -14,6 +14,7 @@ $theme: null !default;
 
 .ecl-fact-figures__item {
   border-bottom: 1px solid map.get($theme, 'color', 'black');
+  max-width: var(--max-w);
   padding-bottom: map.get($theme, 'spacing-print', 'xl');
   padding-top: map.get($theme, 'spacing-print', 'xl');
 }

@@ -118,6 +118,7 @@ $_image-width: 13.125rem;
   color: map.get($theme, 'color', 'black');
   display: inline-flex;
   font: map.get($theme, 'font-print', 'm');
+  max-width: var(--max-w);
   white-space: pre-wrap;
 }
 
@@ -156,6 +157,7 @@ $_image-width: 13.125rem;
   color: map.get($theme, 'color', 'black');
   font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 's');
+  max-width: var(--max-w);
 }
 
 .ecl-file__translation-language {

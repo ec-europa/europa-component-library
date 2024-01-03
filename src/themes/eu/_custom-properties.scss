@@ -88,6 +88,7 @@
   --ecl-shadow-negative-4: #{map.get($shadow-negative, '4')};
   --ecl-shadow-negative-inner-1: #{map.get($shadow-negative-inner, '1')};
   --ecl-shadow-negative-inner-2: #{map.get($shadow-negative-inner, '2')};
+  --ecl-max-width: #{$max-width};
 
   // Aliases
   --c-p: var(--ecl-color-primary);
@@ -176,4 +177,5 @@
   --sh-n-4: var(--ecl-shadow-negative-4);
   --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
   --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
+  --max-w: var(--ecl-max-width);
 }

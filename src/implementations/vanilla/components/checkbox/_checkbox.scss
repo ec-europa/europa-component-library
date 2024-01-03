@@ -35,7 +35,7 @@ $checkbox: null !default;
   display: inline-flex;
   font: var(--f-m);
   line-height: map.get($checkbox, 'label-line-height');
-  max-width: map.get($checkbox, 'max-width');
+  max-width: var(--max-w);
   padding: var(--s-xs) 0;
   white-space: pre-wrap;
 }

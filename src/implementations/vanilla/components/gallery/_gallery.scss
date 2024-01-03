@@ -425,7 +425,7 @@ $_image-height-mobile: 260px;
 .ecl-gallery__detail-description {
   font: var(--f-m);
   margin-top: var(--s-s);
-  max-width: 580px;
+  max-width: var(--max-w);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -435,7 +435,7 @@ $_image-height-mobile: 260px;
 .ecl-gallery__detail-meta {
   color: map.get($theme, 'color', 'white');
   font: var(--f-m);
-  max-width: 580px;
+  max-width: var(--max-w);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;

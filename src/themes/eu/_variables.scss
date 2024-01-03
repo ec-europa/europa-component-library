@@ -16,7 +16,6 @@ $accordion: (
   icon-margin: var(--s-m),
   radius: var(--s-xs),
   shadow: var(--sh-1),
-  max-width: 580px,
 );
 $accordion-print: (
   toggle-background: transparent,
@@ -280,7 +279,6 @@ $checkbox: (
   box-background-checked: var(--c-p),
   border-width: 2px,
   checkbox-fill: map.get($color, 'white'),
-  max-width: 65ch,
 );
 
 // Content block
@@ -834,7 +832,6 @@ $media-container: (
   caption-background-color: map.get($color, 'white'),
   caption-color: var(--c-d-80),
   caption-font: var(--f-m),
-  caption-max-width: 80ch,
   caption-padding: var(--s-l),
   caption-before: true,
   expandable-spacing-top: var(--s-xs),
@@ -1186,7 +1183,6 @@ $radio: (
   invalid-border-color-hover: map.get($color, 'red-130'),
   label-color: var(--c-d-140),
   label-line-height: map.get($line-height, 'l'),
-  max-width: 65ch,
   outline: 2px,
   outline-color: var(--c-p),
   outline-offset: 2px,
