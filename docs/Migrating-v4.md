@@ -104,6 +104,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Carousel
 
 - Buttons for carousel pagination are now placed differently, and use Button `ghost`
+- New twig parameter `sr_description`, to provide a human friendly description of the carousel. It is used mostly by screen readers
+- New twig parameters `sr_role` and `sr_slide_role`, to provide localized role for the carousel and slides tags. It is used mostly by screen readers
 
 ### Checkbox
 
