@@ -15,9 +15,11 @@ const getArgs = (data) => {
   const args = {
     title: data.title,
     download_label: data.download.link.label,
-    show_label: !!data.label,
   };
 
+  if (data.label) {
+    args.show_label = true;
+  }
   if (data.translation) {
     args.show_translations = true;
     args.toggle_label = data.translation.toggle.label || '';
@@ -40,16 +42,18 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {
-    show_label: {
+  const argTypes = {};
+
+  if (data.label) {
+    argTypes.show_label = {
       name: 'label',
       type: { name: 'boolean' },
       description: 'Show label',
       table: {
         category: 'Optional',
       },
-    },
-  };
+    };
+  }
 
   if (data.detail_meta) {
     argTypes.show_meta = {
