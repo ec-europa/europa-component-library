@@ -15,7 +15,7 @@ exports[`File Thumbnail renders correctly 1`] = `
         class="ecl-picture ecl-file__picture"
       >
         <img
-          alt="thumbnail alt"
+          alt=""
           class="ecl-file__image"
           src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
         />
@@ -284,6 +284,15 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
     <div
       class="ecl-file__container"
     >
+      <picture
+        class="ecl-picture ecl-file__picture"
+      >
+        <img
+          alt=""
+          class="ecl-file__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-file__info"
       >
@@ -314,7 +323,12 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           class="ecl-file__title"
           id="ecl-file-taxonomy-title"
         >
-          State of the Union 2018 brochure
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            State of the Union 2018 brochure
+          </a>
         </div>
         <div
           class="ecl-file__description"
