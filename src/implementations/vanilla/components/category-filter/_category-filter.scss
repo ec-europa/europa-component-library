@@ -83,7 +83,7 @@ $category-filter: null !default;
   }
 }
 
-.ecl-category-filter__item--current {
+.ecl-category-filter__item[aria-current='true'] {
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 

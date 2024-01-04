@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "id": (string) (default: randomized string): Unique id for the category filter
   - "items": (associative array) (default: {}): The menu items - format: [
     {
       "label": "Item 1",
@@ -30,9 +31,10 @@
 {% if _items is defined and _items is not empty %}
   {% for item in _items %}
     {% set _has_children = false %}
+    {% set _item_id = id ~ '-' ~ loop.index %}
     {% set _sub_list_item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
     {% if item.children is defined and item.children is not empty and item.children is iterable %}
-      {% set _sub_list_item_attributes = ' aria-expanded="false"' %}
+      {% set _sub_list_item_attributes = 'aria-expanded="false" aria-controls="' ~ _item_id ~ '"' %}
       {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--has-children' %}
       {% set _has_children = true %}
     {% endif %}
@@ -65,15 +67,16 @@
           {%- endif -%}
           </button>
 
-          <ul class="ecl-category-filter__list">
+          <ul class="ecl-category-filter__list" id="{{ _item_id }}">
             {% include '@ecl/category-filter/category-filter-items.html.twig' with {
               items: item.children,
               icon_path: _icon_path,
               level: _level + 1,
+              id: _item_id,
             } only %}
           </ul>
       {%- else -%}
-        <a href="{{ item.path }}" class="{{ _sub_list_item_class }}" {{ _sub_list_item_attributes }}>
+        <a href="{{ item.path }}" class="{{ _sub_list_item_class }}">
           {{- item.label -}}
         </a>
       {%- endif -%}

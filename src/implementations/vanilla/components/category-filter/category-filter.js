@@ -100,9 +100,9 @@ export class CategoryFilter {
     // Toggle current item
     this.items.forEach((item) => {
       if (item === treeItem) {
-        item.classList.add('ecl-category-filter__item--current');
+        item.setAttribute('aria-current', true);
       } else {
-        item.classList.remove('ecl-category-filter__item--current');
+        item.removeAttribute('aria-current');
       }
     });
 

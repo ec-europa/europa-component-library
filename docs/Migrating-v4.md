@@ -107,6 +107,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 ### Category filter
 
+- New twig parameter `label`, to provide a readable label for the category filter (mostly for screen readers)
+- New twig parameter `id`, to provide a unique id for the category filter (used for accessibility). If not provided, a random id is generated
 - Markup and javascript have been updated to improve accessibilty: use of `button` when there are children and set `aria-expanded` to the button itself
 
 ### Checkbox
