@@ -20,7 +20,7 @@ module.exports = {
               path: exampleLink,
               children: [
                 { label: 'Item 2.1.2 a', path: exampleLink },
-                { label: 'Item 2.1.2 b', path: exampleLink, is_current: true },
+                { label: 'Item 2.1.2 b', path: exampleLink },
                 { label: 'Item 2.1.2 c', path: exampleLink },
               ],
             },
