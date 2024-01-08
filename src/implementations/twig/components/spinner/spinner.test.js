@@ -20,11 +20,11 @@ describe('Spinner', () => {
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
     });
 
-    test('negative renders correctly', () => {
+    test('inverted renders correctly', () => {
       expect.assertions(1);
 
       return expect(
-        render({ ...dataDefault, variant: 'negative' }),
+        render({ ...dataDefault, variant: 'inverted' }),
       ).resolves.toMatchSnapshot();
     });
 

@@ -6,7 +6,7 @@ import dataDefault from '@ecl/specs-component-spinner/demo/data';
 import spinner from './spinner.html.twig';
 import notes from './README.md';
 
-const dataNegative = { ...dataDefault, variant: 'negative' };
+const dataInverted = { ...dataDefault, variant: 'inverted' };
 
 const getArgs = (data) => ({
   show_text: true,
@@ -80,7 +80,7 @@ const getArgTypes = () => ({
   },
 });
 
-const withNegative = (story) => {
+const withInverted = (story) => {
   const demo = story();
 
   return `<div class="ecl-u-bg-dark ecl-u-width-100 ecl-u-height-100" style="position: absolute;">${demo}</div>`;
@@ -126,11 +126,11 @@ Default.args = getArgs(dataDefault, 'primary');
 Default.argTypes = getArgTypes('primary');
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Negative = (_, { loaded: { component } }) => component;
+export const Inverted = (_, { loaded: { component } }) => component;
 
-Negative.render = async (args) => renderStory(dataNegative, args);
-Negative.storyName = 'negative';
-Negative.args = getArgs(dataNegative, 'negative');
-Negative.argTypes = getArgTypes('negative');
-Negative.parameters = { notes: { markdown: notes, json: dataNegative } };
-Negative.decorators = [withNotes, withCode, withNegative];
+Inverted.render = async (args) => renderStory(dataInverted, args);
+Inverted.storyName = 'inverted';
+Inverted.args = getArgs(dataInverted, 'inverted');
+Inverted.argTypes = getArgTypes('inverted');
+Inverted.parameters = { notes: { markdown: notes, json: dataInverted } };
+Inverted.decorators = [withNotes, withCode, withInverted];
