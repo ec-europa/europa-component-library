@@ -173,3 +173,14 @@ html {
 .ecl-timeline__tooltip::before {
   left: map.get(theme.$spacing, 'l');
 }
+
+// Popover
+.ecl-popover--left .ecl-popover__container {
+  .ecl-popover__content {
+    direction: rtl;
+
+    * {
+      direction: rtl;
+    }
+  }
+}
