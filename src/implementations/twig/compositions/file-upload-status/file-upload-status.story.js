@@ -14,6 +14,7 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
+    EclNotes: { disable: true },
   },
 };
 

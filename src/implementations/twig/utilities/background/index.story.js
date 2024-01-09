@@ -3,6 +3,9 @@ import withCode from '@ecl/storybook-addon-code';
 export default {
   title: 'Utilities/Background',
   decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
 const getArgs = () => ({
