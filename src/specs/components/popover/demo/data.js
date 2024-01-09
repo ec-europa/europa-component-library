@@ -15,7 +15,7 @@ module.exports = {
     icon: {
       path: '/icons.svg',
       name: 'share',
-      size: 'fluid',
+      size: 'm',
     },
   },
   links: [
