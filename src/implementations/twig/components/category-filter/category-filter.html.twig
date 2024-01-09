@@ -3,6 +3,8 @@
 {#
   Parameters:
   - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "label": (string) (default: ''): Aria label provided for accessibility
+  - "id": (string) (default: randomized string): Unique id for the category filter
   - "items": (associative array) (default: {}): The menu items - format: [
     {
       "label": "Home",
@@ -34,6 +36,10 @@
 {% set _css_class = 'ecl-category-filter' %}
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _label = label|default('') %}
+{% set _id = id|default('ecl-category-filter-' ~ random()) %}
+
+{# Internal logic - Process properties #}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -49,10 +55,15 @@
   {% endfor %}
 {% endif %}
 
+{# Print the result #}
+
 <nav
   class="{{ _css_class }}"
   data-ecl-category-filter
   data-ecl-auto-init="CategoryFilter"
+  {% if _label is not empty %}
+    aria-label="{{ _label }}"
+  {% endif %}
   {{ _extra_attributes|raw }}
 >
   <ul class="ecl-category-filter__list">
@@ -60,6 +71,7 @@
     {% include '@ecl/category-filter/category-filter-items.html.twig' with {
       items: items,
       icon_path: _icon_path,
+      id: _id,
     } only %}
   {% endif %}
   </ul>

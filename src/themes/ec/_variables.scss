@@ -247,8 +247,10 @@ $carousel: (
 
 // Category filter
 $category-filter: (
-  item_separator_border_color: map.get($color, 'grey-15'),
-  item_hover_background_color: map.get($color, 'grey-10'),
+  separator: none,
+  background-hover: var(--c-n-80),
+  background-subitem: var(--c-n-60),
+  subitem-spacing: var(--s-xl),
 );
 
 // Checkbox
