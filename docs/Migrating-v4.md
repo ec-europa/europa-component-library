@@ -127,6 +127,7 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Description list
 
 - Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
+- Links in the taxonomies are no longer using variant `standalone`
 
 ### Expandable
 

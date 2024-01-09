@@ -90,7 +90,7 @@
                 <li class="ecl-description-list__definition-item">
                 {%- if _definition.link is defined -%}
                   {% include '@ecl/link/link.html.twig' with {
-                    link: _definition.link|merge({ type: 'standalone' }),
+                    link: _definition.link,
                   } only %}
                 {%- else -%}
                   {{- _definition -}}
