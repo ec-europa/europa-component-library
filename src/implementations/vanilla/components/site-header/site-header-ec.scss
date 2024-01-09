@@ -217,7 +217,7 @@ $language-list: null !default;
 
 .ecl-site-header__banner-top {
   background: map.get($site-header, 'background-color');
-  border-top: 1px solid map.get($theme, 'color', 'neutral-40');
+  border-top: 1px solid var(--c-n-40);
   font: var(--f-m);
   padding: var(--s-xs) 0;
 }

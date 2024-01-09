@@ -10,6 +10,7 @@ import 'normalize.css/normalize.css';
 import './styles/app.scss';
 import 'prismjs/themes/prism.css';
 import styles from './styles/markdown.scss';
+import '@ecl/theme-ec/_custom-properties.scss';
 
 // Static routes
 import MainRoutes from './routes/MainRoutes';

@@ -247,8 +247,8 @@ $carousel: (
 
 // Category filter
 $category-filter: (
-  item_separator_border_color: map.get($color, 'grey-15'),
-  item_hover_background_color: map.get($color, 'grey-10'),
+  item_separator_border_color: var(--c-n-60),
+  item_hover_background_color: var(--c-n-40),
 );
 
 // Checkbox
@@ -261,8 +261,8 @@ $checkbox: (
   box-margin-top: 0,
   help-text-font: var(--f-s),
   help-text-color: var(--c-d),
-  invalid-border-color: map.get($color, 'error'),
-  invalid-border-color-hover: map.get($color, 'error'),
+  invalid-border-color: var(--c-er),
+  invalid-border-color-hover: var(--c-er),
   label-color: var(--c-d),
   label-line-height: 1.75rem,
   box-border-color-checked: var(--c-p),
@@ -280,7 +280,7 @@ $checkbox: (
     top: 50%,
     left: 50%,
     transform: translate(-50%, -50%),
-    background-color: map.get($color, 'primary-20'),
+    background-color: var(--c-p-20),
     z-index: -1,
   ),
 );
@@ -558,8 +558,8 @@ $gallery: (
   actions-margin: var(--s-xl),
   actions-margin-desktop: var(--s-xs),
   counter-font-weight: map.get($font-weight, 'regular'),
-  detail-color: map.get($color, 'white-100'),
-  description-background: rgba(map.get($color, 'dark-100'), 0.7),
+  detail-color: map.get($color, 'white'),
+  description-background: var(--c-ov-l),
   gallery-info-color: var(--c-d),
   overlay-background: var(--c-ov-d),
   overlay-radius: 0,
@@ -568,7 +568,7 @@ $gallery: (
 
 // Icon
 $icons: (
-  primary-color: map.get($color, 'primary'),
+  primary-color: var(--c-p),
 );
 
 // Inpage navigation
@@ -587,7 +587,7 @@ $inpage-navigation: (
   item: (
     'background': transparent,
     'background-active': var(--c-n-80),
-    'background-hover': map.get($color, 'white-100'),
+    'background-hover': map.get($color, 'white'),
     'border': (
       'end': (
         'default': 4px solid var(--c-n),
@@ -628,7 +628,7 @@ $inpage-navigation: (
     'text-decoration-hover': underline,
   ),
   trigger: (
-    'background': map.get($color, 'white-100'),
+    'background': map.get($color, 'white'),
     'border': 1px solid var(--c-d-80),
     'border-focus': 2px solid var(--c-p),
     'border-radius': 2px,
@@ -642,7 +642,7 @@ $inpage-navigation: (
     'padding-focus': calc(var(--s-xs) - 2px)
       calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
       calc(var(--s-m) - 2px),
-    'background-wrapper': map.get($color, 'white-100'),
+    'background-wrapper': map.get($color, 'white'),
     'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
     'padding-wrapper': var(--s-s) var(--s-m),
     'shadow': var(--sh-6),
@@ -651,7 +651,7 @@ $inpage-navigation: (
   ),
   list: (
     'background': (
-      's': map.get($color, 'white-100'),
+      's': map.get($color, 'white'),
       'l': transparent,
     ),
     'shadow': (
@@ -1192,12 +1192,12 @@ $select: (
   group-title-color: var(--c-d-100),
   shadow: none,
   shadow-hover: none,
-  arrow-background-color: map.get($color, 'white-100'),
-  arrow-background-color-hover: map.get($color, 'white-100'),
-  arrow-background-color-invalid: map.get($color, 'white-100'),
-  arrow-background-color-invalid-hover: map.get($color, 'white-100'),
+  arrow-background-color: map.get($color, 'white'),
+  arrow-background-color-hover: map.get($color, 'white'),
+  arrow-background-color-invalid: map.get($color, 'white'),
+  arrow-background-color-invalid-hover: map.get($color, 'white'),
   icon-fill: var(--c-d-100),
-  multiple-dropdown-background-color: map.get($color, 'white-100'),
+  multiple-dropdown-background-color: map.get($color, 'white'),
   multiple-dropdown-border: none,
   multiple-dropdown-separator-color: transparent,
   multiple-select-all-after: true,
@@ -1208,7 +1208,7 @@ $select: (
   multiple-dropdown-input-margin: var(--s-m) var(--s-m) var(--s-s),
   multiple-dropdown-input-width: calc(100% - (var(--s-m) * 2)),
   multiple-dropdown-container-max-height: 252px,
-  multiple-checkbox-background-hover-color: map.get($color, 'white-100'),
+  multiple-checkbox-background-hover-color: map.get($color, 'white'),
   multiple-checkbox-label-vertical-padding: map.get($spacing, 'xs'),
   multiple_counter_background: var(--c-p-20),
   padding-vertical: var(--s-xs),
@@ -1277,7 +1277,7 @@ $social-media-share: (
   background-color: map.get($color, 'white'),
   border-radius: 0,
   main-border: 0,
-  title-color: map.get($color, 'grey-100'),
+  title-color: var(--c-d),
 );
 
 // Spinner

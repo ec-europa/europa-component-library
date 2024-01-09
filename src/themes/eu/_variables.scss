@@ -257,8 +257,8 @@ $carousel: (
 
 // Category filter
 $category-filter: (
-  item_separator_border_color: map.get($color, 'blue-20'),
-  item_hover_background_color: map.get($color, 'blue-10'),
+  item_separator_border_color: var(--c-p-20),
+  item_hover_background_color: var(--c-p-10),
 );
 
 // Checkbox
@@ -552,17 +552,17 @@ $gallery: (
   actions-margin: var(--s-m),
   actions-margin-desktop: var(--s-m),
   counter-font-weight: map.get($font-weight, 'bold'),
-  description-background: rgba(map.get($color, 'dark'), 0.65),
-  detail-color: map.get($color, 'white-100'),
+  description-background: color-mix(in srgb, var(--c-d) 65%, transparent),
+  detail-color: map.get($color, 'white'),
   gallery-info-color: var(--c-d-140),
-  overlay-background: rgba(map.get($color, 'dark-100'), 0.9),
+  overlay-background: color-mix(in srgb, var(--c-d) 90%, transparent),
   overlay-radius: 8px,
   overlay-shadow: var(--sh-3),
 );
 
 // Icon
 $icons: (
-  primary-color: map.get($color, 'blue-100'),
+  primary-color: var(--c-p),
 );
 
 // Inpage navigation
@@ -572,15 +572,15 @@ $inpage-navigation: (
   shadow: var(--sh-1),
   title: (
     'background': var(--c-p),
-    'color': map.get($color, 'white-100'),
+    'color': map.get($color, 'white'),
     'text-transform': none,
     'padding': var(--s-s),
     'font': var(--f-m),
   ),
   item: (
-    'background': map.get($color, 'white-100'),
+    'background': map.get($color, 'white'),
     'background-active': var(--c-p-10),
-    'background-hover': map.get($color, 'white-100'),
+    'background-hover': map.get($color, 'white'),
     'border': (
       'start': (
         'active': (
@@ -625,7 +625,7 @@ $inpage-navigation: (
     'border': none,
     'border-focus': none,
     'border-radius': 0 0 var(--s-xs) var(--s-xs),
-    'color': map.get($color, 'white-100'),
+    'color': map.get($color, 'white'),
     'font': var(--f-p-m),
     'font-weight': map.get($font-weight, 'bold'),
     'margin': 0,
@@ -1058,11 +1058,11 @@ $notification-print: (
 // Range
 $range: (
   bar-color: var(--c-p-20),
-  disabled-color: map.get($color, 'grey-10'),
+  disabled-color: var(--c-d-20),
   active-color: var(--c-p-80),
-  invalid-color: var(--c-er),
-  invalid-hover-color: map.get($color, 'red-120'),
-  invalid-active-color: map.get($color, 'red-80'),
+  invalid-color: var(--c-er-80),
+  invalid-hover-color: var(--c-er),
+  invalid-active-color: var(--c-er-80),
   value-color: var(--c-d-80),
   value-font: var(--f-p-m),
   range-margin-top: var(--s-m),
@@ -1081,14 +1081,14 @@ $select: (
   border-radius: 4px,
   border-color: var(--c-d-80),
   border-color-hover: var(--c-d-80),
-  border-color-invalid: map.get($color, 'red-120'),
+  border-color-invalid: var(--c-er),
   border-color-invalid-hover: var(--c-er),
   border-color-disabled: var(--c-d-40),
   border-width: 1px,
   border-width-focus: 2px,
   color-input: var(--c-d-140),
   color-placeholder: var(--c-d-40),
-  counter-color: map.get($color, 'white-100'),
+  counter-color: map.get($color, 'white'),
   group-separator-color: var(--c-p-20),
   group-title-font: var(--f-m),
   group-title-color: var(--c-d-80),
@@ -1097,9 +1097,9 @@ $select: (
   arrow-background-invalid-focus: var(--c-er),
   arrow-background-color: var(--c-p-100),
   arrow-background-color-hover: var(--c-p-80),
-  arrow-background-color-invalid: map.get($color, 'red-120'),
+  arrow-background-color-invalid: var(--c-er),
   arrow-background-color-invalid-hover: var(--c-er),
-  icon-fill: map.get($color, 'white-100'),
+  icon-fill: map.get($color, 'white'),
   multiple-dropdown-background-color: map.get($color, 'white'),
   multiple-dropdown-border: none,
   multiple-dropdown-separator-color: var(--c-p-20),
@@ -1180,7 +1180,7 @@ $radio: (
   help-text-color: var(--c-d-80),
   help-text-font: var(--f-p-m),
   invalid-border-color: var(--c-er),
-  invalid-border-color-hover: map.get($color, 'red-130'),
+  invalid-border-color-hover: var(--c-er-80),
   label-color: var(--c-d-140),
   label-line-height: map.get($line-height, 'l'),
   outline: 2px,
@@ -1220,7 +1220,7 @@ $site-header: (
   search-width-xl: 31.5rem,
   gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
   site-name-mobile-color: map.get($color, 'white'),
-  site-name-desktop-color: map.get($color, 'dark-80'),
+  site-name-desktop-color: var(--c-d-80),
   language-switcher: (
     shadow: 0 0 6px rgba(9, 49, 142, 0.2),
     shadow-size: 6px,
@@ -1235,7 +1235,7 @@ $site-header: (
 
 // Social media follow
 $social-media-follow: (
-  background-color: map.get($color, 'blue-5'),
+  background-color: var(--c-p-5),
   border-radius: 4px,
   padding: var(--s-l),
   description: (
@@ -1263,7 +1263,7 @@ $social-media-share: (
   background-color: map.get($color, 'white'),
   border-radius: 4px,
   main-border: 0,
-  title-color: map.get($color, 'grey-140'),
+  title-color: var(--c-d-140),
 );
 
 // Spinner
@@ -1381,8 +1381,8 @@ $textarea: (
   border-color: var(--c-d-80),
   border-color-hover: var(--c-d-80),
   border-color-focus: var(--c-p),
-  border-color-invalid: map.get($color, 'red-120'),
-  border-color-invalid-hover: var(--c-er),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er-80),
   border-width: 1px,
   border-width-focus: 2px,
   color-input: var(--c-d-140),

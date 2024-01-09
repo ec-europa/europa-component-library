@@ -33,7 +33,7 @@ $banner: null !default;
 .ecl-banner__credit {
   background: rgba(38, 50, 75, 0.7);
   backdrop-filter: blur(4px);
-  color: map.get($theme, 'color', 'white-100');
+  color: map.get($theme, 'color', 'white');
   padding: var(--s-2xs) var(--s-xs);
   position: absolute;
   right: 0;
@@ -152,7 +152,7 @@ $banner: null !default;
 
   .ecl-banner__title,
   .ecl-banner__description {
-    color: map.get($theme, 'color', 'dark');
+    color: var(--c-d);
   }
 }
 

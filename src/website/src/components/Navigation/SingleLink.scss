@@ -1,63 +1,59 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
 
 .page-list-item {
   align-items: center;
-  background-color: map.get(theme.$color, 'grey-5');
+  background-color: var(--c-n-40);
   border-width: 0;
-  color: map.get(theme.$color, 'dark');
+  color: var(--c-d);
   display: flex;
-  font: map.get(theme.$font, 'm');
+  font: var(--f-m);
   margin: 0;
   text-decoration: none;
 
   &.level-0 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+    padding: var(--s-s) var(--s-m);
   }
 
   &.level-1 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl');
+    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-xl);
   }
 
   &.level-2 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, '3xl');
+    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-3xl);
   }
 
   &.level-3 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, '4xl');
+    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-4xl);
   }
 }
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: map.get(theme.$color, 'grey-10');
+  background-color: var(--c-n-60);
   outline: none;
 }
 
 .page-list-item:active {
-  background-color: map.get(theme.$color, 'grey-25');
+  background-color: var(--c-n-80);
 }
 
 .page-list-item--active {
-  border-left: 4px solid map.get(theme.$color, 'yellow-100');
+  border-left: 4px solid var(--c-s);
 
   &.level-0 {
-    padding-left: calc(#{map.get(theme.$spacing, 'm')} - 4px);
+    padding-left: calc(var(--s-m) - 4px);
   }
 
   &.level-1 {
-    padding-left: calc(#{map.get(theme.$spacing, 'xl')} - 4px);
+    padding-left: calc(var(--s-xl) - 4px);
   }
 
   &.level-2 {
-    padding-left: calc(#{map.get(theme.$spacing, '3xl')} - 4px);
+    padding-left: calc(var(--s-3xl) - 4px);
   }
 
   &.level-3 {
-    padding-left: calc(#{map.get(theme.$spacing, '4xl')} - 4px);
+    padding-left: calc(var(--s-4xl) - 4px);
   }
 }
 
