@@ -6,6 +6,9 @@ const system = getSystem();
 export default {
   title: 'Utilities/Background',
   decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
 const getArgs = () => ({
