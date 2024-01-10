@@ -79,6 +79,7 @@ addons.register('ecl/notes', (api) => {
   const channel = addons.getChannel();
   addons.addPanel('ecl/notes/panel', {
     title: 'Notes',
+    paramKey: 'EclNotes',
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
       <Notes channel={channel} api={api} active={active} />
