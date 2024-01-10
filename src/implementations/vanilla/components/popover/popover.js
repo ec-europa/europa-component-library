@@ -125,11 +125,18 @@ export class Popover {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
 
+    window.removeEventListener('resize', this.checkPosition);
+    document.removeEventListener('scroll', this.checkPosition);
+
     if (this.attachKeyListener) {
       document.removeEventListener('keyup', this.handleKeyboardGlobal);
     }
     if (this.attachClickListener) {
       document.removeEventListener('click', this.handleClickGlobal);
+    }
+
+    if (this.toggle.getAttribute('aria-expanded') === 'true') {
+      this.closePopover();
     }
 
     if (this.element) {
