@@ -13,6 +13,7 @@ export default {
   parameters: {
     controls: { disable: true },
     a11y: { disable: true },
+    EclNotes: { disable: true },
     viewport: {
       defaultViewport: 'responsive',
     },

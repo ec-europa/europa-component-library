@@ -1,7 +1,6 @@
 /**
  * Category filter component
  * @define category-filter
- * TODO
  */
 
 @use 'sass:map';
@@ -10,69 +9,59 @@
 $theme: null !default;
 $category-filter: null !default;
 
-// Internal variables
-$_outline-width: 3px !default;
-
 .ecl-category-filter {
   max-width: 18rem;
 }
 
 .ecl-category-filter__list-item {
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
-.ecl-category-filter__item-icon {
-  color: map.get($theme, 'color', 'blue-100');
-  margin: -3px 0;
-}
-
 .ecl-category-filter__item {
-  border-bottom: 1px solid
-    map.get($category-filter, 'item_separator_border_color');
-  color: map.get($theme, 'color', 'grey-100');
+  appearance: none;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: map.get($category-filter, 'separator');
+  box-sizing: border-box;
+  color: var(--c-d);
   display: flex;
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   justify-content: space-between;
-  padding: map.get($theme, 'spacing', 's');
+  min-height: 44px;
+  padding: var(--s-xs) var(--s-m);
+  text-align: left;
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    background-color: map.get($category-filter, 'background-hover');
+    cursor: pointer;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($theme, 'color', 'blue-100');
+    outline: 2px solid var(--c-p);
     outline-offset: -2px;
-    text-decoration: underline;
+  }
+}
+
+.ecl-category-filter__item-icon {
+  align-self: flex-start;
+  color: var(--c-p);
+  flex-shrink: 0;
+  margin-inline-end: var(--s-xs);
+  margin-top: 6px;
+}
+
+.ecl-category-filter__item--level-1 {
+  .ecl-category-filter__item-icon {
+    margin-inline-end: 0;
+    margin-inline-start: var(--s-xs);
   }
 
-  &.ecl-category-filter__item--level-1 {
-    .ecl-category-filter__item-icon {
-      margin: 0 0 0 map.get($theme, 'spacing', 'xs');
-    }
-  }
-
-  &.ecl-category-filter__item--level-2 {
-    justify-content: initial;
-    padding-inline-start: map.get($theme, 'spacing', 'xl');
-
-    &.ecl-category-filter__item--has-children {
-      padding-inline-start: map.get($theme, 'spacing', 'xs');
-    }
-  }
-
-  &.ecl-category-filter__item--level-3 {
-    justify-content: initial;
-    padding-inline-start: map.get($theme, 'spacing', '3xl');
-
-    &.ecl-category-filter__item--has-children {
-      padding-inline-start: map.get($theme, 'spacing', 'l');
-    }
-  }
-
-  &.ecl-category-filter__item--level-4 {
-    justify-content: initial;
-    padding-inline-start: map.get($theme, 'spacing', '4xl');
+  &.ecl-category-filter__item--has-children {
+    padding-inline-end: var(--s-xs);
   }
 }
 
@@ -81,8 +70,11 @@ $_outline-width: 3px !default;
   margin: 0;
   padding: 0;
 
-  .ecl-category-filter__list .ecl-category-filter__item {
-    border-bottom: 0;
+  .ecl-category-filter__list {
+    .ecl-category-filter__item {
+      border-bottom: 0;
+      justify-content: initial;
+    }
   }
 }
 
@@ -92,13 +84,31 @@ $_outline-width: 3px !default;
   }
 }
 
-.ecl-category-filter__list-item[aria-expanded='false'] {
-  .ecl-category-filter__list {
-    display: none;
-  }
+.ecl-category-filter__item[aria-current='true'] {
+  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
-.ecl-category-filter__list-item[aria-expanded='true'] {
+// Toggle sub level
+.ecl-category-filter__list-item .ecl-category-filter__list {
+  display: none;
+}
+
+.ecl-category-filter__list-item--open {
+  background-color: map.get($category-filter, 'background-subitem');
+
+  &::before {
+    background-color: var(--c-p);
+    content: '';
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 4px;
+    z-index: 1;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
   .ecl-category-filter__item {
     border-bottom: 0;
   }
@@ -116,34 +126,35 @@ $_outline-width: 3px !default;
   }
 }
 
-.ecl-category-filter__list-item[aria-expanded='true'],
-.ecl-category-filter__item--current {
-  background-color: map.get($category-filter, 'item_hover_background_color');
+// Sub level spacing
+@mixin category-filter-item($level: 0) {
+  padding-inline-start: calc(
+    var(--s-m) + #{$level - 1} * #{map.get($category-filter, 'subitem-spacing')}
+  );
 
-  &::before {
-    background-color: map.get($theme, 'color', 'blue-100');
-    content: '';
-    display: inline-block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 4px;
-    z-index: 1;
+  &.ecl-category-filter__item--has-children {
+    padding-inline-start: calc(
+      var(--s-m) + #{$level - 2} * #{map.get(
+          $category-filter,
+          'subitem-spacing'
+        )}
+    );
   }
 }
 
-.ecl-category-filter__item--current {
-  font-weight: map.get($theme, 'font-weight', 'bold');
+.ecl-category-filter__item--level-2 {
+  @include category-filter-item(2);
 }
 
-.ecl-category-filter
-  > .ecl-category-filter__list
-  > .ecl-category-filter__list-item[aria-expanded='true'] {
-  border-bottom: 1px solid
-    map.get($category-filter, 'item_separator_border_color');
+.ecl-category-filter__item--level-3 {
+  @include category-filter-item(3);
 }
 
+.ecl-category-filter__item--level-4 {
+  @include category-filter-item(4);
+}
+
+// No js
 .no-js .ecl-category-filter__list-item {
   .ecl-category-filter__item {
     border-bottom: 0;
