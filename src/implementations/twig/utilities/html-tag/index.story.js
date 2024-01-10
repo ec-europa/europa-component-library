@@ -7,6 +7,7 @@ export default {
   parameters: {
     a11y: { disable: true },
     controls: { disable: true },
+    EclNotes: { disable: true },
   },
 };
 

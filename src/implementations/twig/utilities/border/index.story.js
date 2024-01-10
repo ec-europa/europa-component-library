@@ -126,6 +126,9 @@ const getArgTypes = () => ({
 export default {
   title: 'Utilities/Border',
   decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
 export const Custom = (args) => {

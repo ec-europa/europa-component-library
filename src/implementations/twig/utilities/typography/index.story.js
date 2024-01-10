@@ -144,6 +144,9 @@ const getArgTypes = (story) => {
 export default {
   title: 'Utilities/Typography',
   decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
 export const Paragraph = (args) => `
