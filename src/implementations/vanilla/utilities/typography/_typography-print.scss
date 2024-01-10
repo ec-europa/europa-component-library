@@ -149,8 +149,14 @@ $typography-print: null !default;
 * Font colour
 */
 @each $key, $value in map.get($theme, 'color') {
-  .ecl-u-type-color-#{$key} {
-    color: var(--ecl-color-#{$key}) !important;
+  @if $key == 'white' or $key == 'black' {
+    .ecl-u-type-color-#{$key} {
+      color: map.get($theme, 'color', $key) !important;
+    }
+  } @else {
+    .ecl-u-type-color-#{$key} {
+      color: var(--ecl-color-#{$key}) !important;
+    }
   }
 }
 
