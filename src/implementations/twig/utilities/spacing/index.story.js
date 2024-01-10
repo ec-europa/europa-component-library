@@ -49,6 +49,7 @@ export default {
     viewport: {
       defaultViewport: 'responsive',
     },
+    EclNotes: { disable: true },
   },
 };
 
