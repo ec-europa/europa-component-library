@@ -1,5 +1,24 @@
 # Changelog
 
+## 3.13.0 (2024-01-10)
+
+#### :nail_care: Enhancement
+
+- [#3165](https://github.com/ec-europa/europa-component-library/pull/3165) feat(icons): add threads and bluesky icons - FRONT-4200 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3164](https://github.com/ec-europa/europa-component-library/pull/3164) chore(storybook): Hiding notes tab for utilities - v3 - FRONT-4199 ([@planctus](https://github.com/planctus))
+- [#3166](https://github.com/ec-europa/europa-component-library/pull/3166) chore(deps): Updates 10-01-24 ([@planctus](https://github.com/planctus))
+- [#3157](https://github.com/ec-europa/europa-component-library/pull/3157) chore(deps): Updates 03-01-24 - v3 ([@planctus](https://github.com/planctus))
+- [#3155](https://github.com/ec-europa/europa-component-library/pull/3155) chore(deps): Updates 22-12-23 ([@planctus](https://github.com/planctus))
+- [#3142](https://github.com/ec-europa/europa-component-library/pull/3142) chore(deps): v3, Updates 18-12-23 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 3.12.1 (2023-12-15)
 
 #### :bug: Bug Fix
