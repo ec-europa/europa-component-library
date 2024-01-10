@@ -5,6 +5,12 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 3.13.0 (2024-01-10)
+
+#### :nail_care: Enhancement
+
+* [#3165](https://github.com/ec-europa/europa-component-library/pull/3165) feat(icons): add threads and bluesky icons - FRONT-4200
+
 ## 3.12.0 (2023-12-12)
 
 #### :rocket: New Feature
@@ -30,16 +36,6 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 * [#3095](https://github.com/ec-europa/europa-component-library/pull/3095) feat(blockquote): Changing quotes signs basing on the language - FRONT-4135
 * [#3092](https://github.com/ec-europa/europa-component-library/pull/3092) feat(print): Finalizing iteration - FRONT-4127 
 
-#### :house: Internal
-
-* [#3132](https://github.com/ec-europa/europa-component-library/pull/3132) chore(deps):  Updates 11-12-23
-* [#3128](https://github.com/ec-europa/europa-component-library/pull/3128) chore(deps): Updates 01-12-23
-* [#3125](https://github.com/ec-europa/europa-component-library/pull/3125) chore(deps): Updates 28-11-23
-* [#3114](https://github.com/ec-europa/europa-component-library/pull/3114) chore(deps): Updates - 24-11-23
-* [#3104](https://github.com/ec-europa/europa-component-library/pull/3104) chore(deps): Updates 14-11-23
-* [#3100](https://github.com/ec-europa/europa-component-library/pull/3100) chore(deps): Updates - 10-11-23
-* [#3096](https://github.com/ec-europa/europa-component-library/pull/3096) chore(deps): Updates 08-11-23
-
 
 ## 3.11.0 (2023-10-26)
 
@@ -56,17 +52,6 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 * [#3046](https://github.com/ec-europa/europa-component-library/pull/3046) feat(favicon): provide adaptive favicon - FRONT-4098
 * [#3051](https://github.com/ec-europa/europa-component-library/pull/3051) feat(logo): update AR logo - FRONT-4092
 * [#3045](https://github.com/ec-europa/europa-component-library/pull/3045) feat(picture): Allow empty alt attribute for the image - FRONT-4099
-
-#### :house: Internal
-
-* [#3078](https://github.com/ec-europa/europa-component-library/pull/3078) chore(deps): Updates 24-10-23
-* [#3070](https://github.com/ec-europa/europa-component-library/pull/3070) chore(deps): Updates 19-10-23
-* [#3064](https://github.com/ec-europa/europa-component-library/pull/3064) chore(deps): Updates 16-10-23
-* [#3058](https://github.com/ec-europa/europa-component-library/pull/3058) chore(deps):  Updates 09-10-23
-* [#3048](https://github.com/ec-europa/europa-component-library/pull/3048) chore(deps): Green and orange updates - 26-09-23
-* [#3041](https://github.com/ec-europa/europa-component-library/pull/3041) chore(deps):  Updates 25-09-23
-* [#3034](https://github.com/ec-europa/europa-component-library/pull/3034) fix(navigation-list): Aligning website showcase - FRONT-4091
-* [#3035](https://github.com/ec-europa/europa-component-library/pull/3035) chore(deps): Updates 15-09-23
 
 ## 3.10.0 (2023-09-12)
 
@@ -96,25 +81,7 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 
 #### :memo: Documentation
 
-* [#2989](https://github.com/ec-europa/europa-component-library/pull/2989) chore(docs): Getting started, revisited + cookie banner - FRONT-4053 ([@planctus](https://github.com/planctus))
-
-#### :house: Internal
-
-* [#3030](https://github.com/ec-europa/europa-component-library/pull/3030) chore(deps): Updates 12-09-23
-* [#3025](https://github.com/ec-europa/europa-component-library/pull/3025) chore(deps): Green and orange updates - 11-09-23
-* [#3015](https://github.com/ec-europa/europa-component-library/pull/3015) chore(deps): Updates 07-09-23
-* [#3014](https://github.com/ec-europa/europa-component-library/pull/3014) chore(icons): Revert x icon - FRONT-4077
-* [#3010](https://github.com/ec-europa/europa-component-library/pull/3010) chore(deps): Updates 04-09-23
-* [#3004](https://github.com/ec-europa/europa-component-library/pull/3004) chore(deps): Updates 29-08-23
-* [#2999](https://github.com/ec-europa/europa-component-library/pull/2999) chore(deps): Updates - 24-08-23
-* [#2988](https://github.com/ec-europa/europa-component-library/pull/2988) chore(ci): Add ec and eu presets in release artifacts on github - FRONT-4054
-* [#2995](https://github.com/ec-europa/europa-component-library/pull/2995) chore(deps): Updates  21-08-23
-* [#2990](https://github.com/ec-europa/europa-component-library/pull/2990) chore(deps): Updates 16-08-23
-* [#2987](https://github.com/ec-europa/europa-component-library/pull/2987) chore(deps): Updates 11-08-23
-* [#2983](https://github.com/ec-europa/europa-component-library/pull/2983) chore(deps): Updates 07-08-23
-* [#2980](https://github.com/ec-europa/europa-component-library/pull/2980) chore(deps): Updates 03-08-23
-* [#2973](https://github.com/ec-europa/europa-component-library/pull/2973) chore(deps):  Updates 31-07-23
-* [#2964](https://github.com/ec-europa/europa-component-library/pull/2964) chore(npm): Adding script to unpublish package versions
+* [#2989](https://github.com/ec-europa/europa-component-library/pull/2989) chore(docs): Getting started, revisited + cookie banner - FRONT-4053
 
 ## 3.9.0 (2023-07-14)
 
@@ -151,27 +118,14 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 
 * [#2923](https://github.com/ec-europa/europa-component-library/pull/2923) docs(website): update typography page - FRONT-3967
 
-#### :house: Internal
-
-* [#2952](https://github.com/ec-europa/europa-component-library/pull/2952) chore(deps): Prettier 3, svg linted
-* [#2945](https://github.com/ec-europa/europa-component-library/pull/2945) chore(deps): Updates 07-07-23
-* [#2942](https://github.com/ec-europa/europa-component-library/pull/2942) chore(deps): Updates 05-07-23
-* [#2939](https://github.com/ec-europa/europa-component-library/pull/2939) chore(docs): Adding modal usage page in the cms - FRONT-4022
-* [#2930](https://github.com/ec-europa/europa-component-library/pull/2930) chore(cms): Fixing base url, fixing path to deprecated pages - FRONT-4020
-* [#2929](https://github.com/ec-europa/europa-component-library/pull/2929) chore(build): Fixing issue with wrong sri published ([@planctus](https://github.com/planctus))
-* [#2928](https://github.com/ec-europa/europa-component-library/pull/2928) chore(deps): green updates and audit fix
-* [#2925](https://github.com/ec-europa/europa-component-library/pull/2925) chore(deps): Updates 27-06-23
-* [#2920](https://github.com/ec-europa/europa-component-library/pull/2920) chore(deps): Fixing audit issue 
-* [#2913](https://github.com/ec-europa/europa-component-library/pull/2913) chore(deps): Updates 19-06-23
-
 
 ## 3.8.0 (2023-05-02)
 
 #### :rocket: New Feature
 
-* [#2776](https://github.com/ec-europa/europa-component-library/pull/2776) feat(modal): add modal component - FRONT-3858 ([@emeryro](https://github.com/emeryro))
-* [#2784](https://github.com/ec-europa/europa-component-library/pull/2784) feat(blockquote): use picture tag - FRONT-3873 ([@emeryro](https://github.com/emeryro))
-* [#2789](https://github.com/ec-europa/europa-component-library/pull/2789) feat(picture): add picture component - FRONT-3868 ([@emeryro](https://github.com/emeryro))
+* [#2776](https://github.com/ec-europa/europa-component-library/pull/2776) feat(modal): add modal component - FRONT-3858
+* [#2784](https://github.com/ec-europa/europa-component-library/pull/2784) feat(blockquote): use picture tag - FRONT-3873
+* [#2789](https://github.com/ec-europa/europa-component-library/pull/2789) feat(picture): add picture component - FRONT-3868
 
 #### :bug: Bug Fix
 
@@ -257,17 +211,6 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 * [#2711](https://github.com/ec-europa/europa-component-library/pull/2711) feat(icon): update file and edit icons - FRONT-3820
 * [#2653](https://github.com/ec-europa/europa-component-library/pull/2653) feat(table): add parameter for enhanced mobile - FRONT-3754 
 
-#### :house: Internal
-
-* [#2748](https://github.com/ec-europa/europa-component-library/pull/2748) chore(carousel): Changing default story
-* [#2743](https://github.com/ec-europa/europa-component-library/pull/2743) chore(deps): updates 30-01-23
-* [#2738](https://github.com/ec-europa/europa-component-library/pull/2738) chore(deps): updates 25-01-23, audit fix
-* [#2733](https://github.com/ec-europa/europa-component-library/pull/2733) chore(deps): Updates 16-01-23
-* [#2726](https://github.com/ec-europa/europa-component-library/pull/2726) chore(deps): Updates - 03-01-23 
-* [#2707](https://github.com/ec-europa/europa-component-library/pull/2707) chore(changelog): Adding markup changes category
-* [#2713](https://github.com/ec-europa/europa-component-library/pull/2713) chore(deps): Small updates and audit fix
-* [#2706](https://github.com/ec-europa/europa-component-library/pull/2706) chore(deps): Updates 06-12-22
-
 ## 3.6.0 ((2022-11-30))
 
 #### :rocket: New Feature
@@ -298,13 +241,6 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 * [#2675](https://github.com/ec-europa/europa-component-library/pull/2675) fix(icons): Replacing greece square and slovakia square - FRONT-3779
 * [#2669](https://github.com/ec-europa/europa-component-library/pull/2669) fix(site header): fix z-index for mobile - FRONT-3768 
 
-#### :house: Internal
-
-* [#2694](https://github.com/ec-europa/europa-component-library/pull/2694) chore(deps): Updates 22-11-22 
-* [#2682](https://github.com/ec-europa/europa-component-library/pull/2682) fix(storybook): Resetting static dirs when building - FRONT-3789 ([@planctus](https://github.com/planctus))
-* [#2684](https://github.com/ec-europa/europa-component-library/pull/2684) chore(deps): bump loader-utils from 1.4.0 to 1.4.1
-* [#2681](https://github.com/ec-europa/europa-component-library/pull/2681) chore(deps): updates 07-11-22
-* [#2676](https://github.com/ec-europa/europa-component-library/pull/2676) chore(deps): Updates 27-10-22
 
 ## 3.5.0 ((2022-10-17))
 
@@ -337,8 +273,8 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 
 #### :rocket: New Feature
 
-* [#2552](https://github.com/ec-europa/europa-component-library/pull/2552) feat(rating-field): Add component - FRONT-3543 ([@papegaill](https://github.com/papegaill))
-* [#2545](https://github.com/ec-europa/europa-component-library/pull/2545) feat(featured-media): Add position parameter - FRONT-3638 ([@papegaill](https://github.com/papegaill))
+* [#2552](https://github.com/ec-europa/europa-component-library/pull/2552) feat(rating-field): Add component - FRONT-3543
+* [#2545](https://github.com/ec-europa/europa-component-library/pull/2545) feat(featured-media): Add position parameter - FRONT-3638
 
 #### :bug: Bug Fix
 
@@ -376,12 +312,6 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 #### :memo: Documentation
 
 * [#2550](https://github.com/ec-europa/europa-component-library/pull/2550) refactor(website): Deprecate families templates - FRONT-3640
-
-#### :house: Internal
-
-* [#2603](https://github.com/ec-europa/europa-component-library/pull/2603) chore(deps): Updates - 01-08-22
-* [#2599](https://github.com/ec-europa/europa-component-library/pull/2599) chore(deps): Updates 18-07-22
-* [#2571](https://github.com/ec-europa/europa-component-library/pull/2571) chore(links): Randomize links used in the stories - FRONT-3666
 
 
 ## 3.3.0 (2022-05-16)
@@ -445,109 +375,86 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 * [#2441](https://github.com/ec-europa/europa-component-library/pull/2441) chore: usage pages update
 * [#2364](https://github.com/ec-europa/europa-component-library/pull/2364) chore(docs): Adding info about moment.js in getting started - FRONT-3576
 
-#### :house: Internal
-
-* [#2480](https://github.com/ec-europa/europa-component-library/pull/2480) chore(deps): Using fixed version of ECL packages as dependencies
-* [#2479](https://github.com/ec-europa/europa-component-library/pull/2479) chore(deps): Updates 16-05-22 
-* [#2478](https://github.com/ec-europa/europa-component-library/pull/2478) chore(deps): Updates 13-05-22
-* [#2445](https://github.com/ec-europa/europa-component-library/pull/2445) chore(deps): Updates 10-05-22
-* [#2444](https://github.com/ec-europa/europa-component-library/pull/2444) chore(deps): Updates 05-05-22
-* [#2407](https://github.com/ec-europa/europa-component-library/pull/2407) chore(deps): Updates 02-05-22 - audit check fix
-* [#2401](https://github.com/ec-europa/europa-component-library/pull/2401) chore(deps): Updates 26-04-22
-* [#2395](https://github.com/ec-europa/europa-component-library/pull/2395) chore(deps): Updates 19-04-22
-* [#2390](https://github.com/ec-europa/europa-component-library/pull/2390) chore(deps): Updates 13-04-22
-* [#2386](https://github.com/ec-europa/europa-component-library/pull/2386) chore(logo): Fixing packages, distributing from dist folder
-* [#2376](https://github.com/ec-europa/europa-component-library/pull/2376) chore(deps): Updates 31-03-22
-* [#2369](https://github.com/ec-europa/europa-component-library/pull/2369) fix(storybook): Adding static folder for rtl css - FRONT-3575
-* [#2370](https://github.com/ec-europa/europa-component-library/pull/2370) chore(deps): Fixing in resolutions problematic deps 
-* [#2368](https://github.com/ec-europa/europa-component-library/pull/2368) chore(deps): Updates 24-03-22
-* [#2365](https://github.com/ec-europa/europa-component-library/pull/2365) chore(deps): updates 21-03-22
-* [#2356](https://github.com/ec-europa/europa-component-library/pull/2356) chore(deps): updates 14-03-22
-* [#2352](https://github.com/ec-europa/europa-component-library/pull/2352) chore(deps): updates 07-03-22
-* [#2346](https://github.com/ec-europa/europa-component-library/pull/2346) chore(deps): dependabot alerts
-* [#2343](https://github.com/ec-europa/europa-component-library/pull/2343) chore(deps): Updates 18-02-22
-
 ## 3.2.0 (2022-01-13)
 
 #### :rocket: New Feature
-* [#2286](https://github.com/ec-europa/europa-component-library/pull/2286) feat(tabs): Add component - FRONT-3292 ([@papegaill](https://github.com/papegaill))
-* [#2285](https://github.com/ec-europa/europa-component-library/pull/2285) feat(icons): Add external-events icon - FRONT-3511 ([@papegaill](https://github.com/papegaill))
-* [#2250](https://github.com/ec-europa/europa-component-library/pull/2250) feat(content-item): add component - FRONT-2499 ([@emeryro](https://github.com/emeryro))
-* [#2260](https://github.com/ec-europa/europa-component-library/pull/2260) feat(carousel): Add component - FRONT-2513 ([@papegaill](https://github.com/papegaill))
-* [#2255](https://github.com/ec-europa/europa-component-library/pull/2255) feat(spinner): Adding component - FRONT-3223 ([@planctus](https://github.com/planctus))
+
+* [#2286](https://github.com/ec-europa/europa-component-library/pull/2286) feat(tabs): Add component - FRONT-3292
+* [#2285](https://github.com/ec-europa/europa-component-library/pull/2285) feat(icons): Add external-events icon - FRONT-3511
+* [#2250](https://github.com/ec-europa/europa-component-library/pull/2250) feat(content-item): add component - FRONT-2499
+* [#2260](https://github.com/ec-europa/europa-component-library/pull/2260) feat(carousel): Add component - FRONT-2513 
+* [#2255](https://github.com/ec-europa/europa-component-library/pull/2255) feat(spinner): Adding component - FRONT-3223
 
 #### :bug: Bug Fix
-* [#2307](https://github.com/ec-europa/europa-component-library/pull/2307) fix(file): fix file stories - FRONT-3303 ([@emeryro](https://github.com/emeryro))
-* [#2303](https://github.com/ec-europa/europa-component-library/pull/2303) fix(utilities): fix paragraph utilities - FRONT-3523 ([@emeryro](https://github.com/emeryro))
-* [#2287](https://github.com/ec-europa/europa-component-library/pull/2287) fix(unordered-list): fix spacing - FRONT-3516 ([@emeryro](https://github.com/emeryro))
-* [#2292](https://github.com/ec-europa/europa-component-library/pull/2292) fix(site-header): Correctly rename the cta class in the standardised variant - FRONT-3519 ([@papegaill](https://github.com/papegaill))
-* [#2288](https://github.com/ec-europa/europa-component-library/pull/2288) fix(news-ticker): Fix EU showcase iframe resize issue - FRONT-3425 ([@papegaill](https://github.com/papegaill))
-* [#2281](https://github.com/ec-europa/europa-component-library/pull/2281) fix(site-header): Mobile display of site-header harmonised without site_name - FRONT-3497 ([@papegaill](https://github.com/papegaill))
-* [#2276](https://github.com/ec-europa/europa-component-library/pull/2276) fix(gallery): fix visited link color - FRONT-3420 ([@emeryro](https://github.com/emeryro))
-* [#2271](https://github.com/ec-europa/europa-component-library/pull/2271) fix(news-ticker): Fix showcase iframe resize issue - FRONT-3425 ([@papegaill](https://github.com/papegaill))
+
+* [#2307](https://github.com/ec-europa/europa-component-library/pull/2307) fix(file): fix file stories - FRONT-3303
+* [#2303](https://github.com/ec-europa/europa-component-library/pull/2303) fix(utilities): fix paragraph utilities - FRONT-3523
+* [#2287](https://github.com/ec-europa/europa-component-library/pull/2287) fix(unordered-list): fix spacing - FRONT-3516
+* [#2292](https://github.com/ec-europa/europa-component-library/pull/2292) fix(site-header): Correctly rename the cta class in the standardised variant - FRONT-3519
+* [#2288](https://github.com/ec-europa/europa-component-library/pull/2288) fix(news-ticker): Fix EU showcase iframe resize issue - FRONT-3425
+* [#2281](https://github.com/ec-europa/europa-component-library/pull/2281) fix(site-header): Mobile display of site-header harmonised without site_name - FRONT-3497
+* [#2276](https://github.com/ec-europa/europa-component-library/pull/2276) fix(gallery): fix visited link color - FRONT-3420
+* [#2271](https://github.com/ec-europa/europa-component-library/pull/2271) fix(news-ticker): Fix showcase iframe resize issue - FRONT-3425
 
 #### :nail_care: Enhancement
-* [#2300](https://github.com/ec-europa/europa-component-library/pull/2300) feat(logo): add translated logos (EC/EU) ([@emeryro](https://github.com/emeryro))
-* [#2295](https://github.com/ec-europa/europa-component-library/pull/2295) feat(icon): add 'trash' icon - FRONT-3521 ([@emeryro](https://github.com/emeryro))
-* [#2296](https://github.com/ec-europa/europa-component-library/pull/2296) feat(stories): Third batch - FRONT-3514 ([@planctus](https://github.com/planctus))
-* [#2289](https://github.com/ec-europa/europa-component-library/pull/2289) fix(file): Review component spacings - FRONT-3424 ([@papegaill](https://github.com/papegaill))
-* [#2293](https://github.com/ec-europa/europa-component-library/pull/2293) feat(stories): refactoring, batch 2 - FRONT-3513 ([@planctus](https://github.com/planctus))
-* [#2290](https://github.com/ec-europa/europa-component-library/pull/2290) feat(stories): Refactoring form element stories - front-3512 ([@planctus](https://github.com/planctus))
-* [#2284](https://github.com/ec-europa/europa-component-library/pull/2284) fix(site header harmonised): Using ecl-buttons as in the other families - FRONT-3503 ([@planctus](https://github.com/planctus))
-* [#2279](https://github.com/ec-europa/europa-component-library/pull/2279) feat(news-ticker): Add mobile version - FRONT-3502 ([@papegaill](https://github.com/papegaill))
-* [#2277](https://github.com/ec-europa/europa-component-library/pull/2277) feat(EC page-header): apply new style - FRONT-3423 ([@emeryro](https://github.com/emeryro))
-* [#2278](https://github.com/ec-europa/europa-component-library/pull/2278) fix(button): cleanup markup and css - FRONT-3464 ([@emeryro](https://github.com/emeryro))
-* [#2275](https://github.com/ec-europa/europa-component-library/pull/2275) fix(banners): add wrapper around link - FRONT-3403 ([@emeryro](https://github.com/emeryro))
-* [#2253](https://github.com/ec-europa/europa-component-library/pull/2253) feat(menu): allows more menu items - FRONT-3354 ([@emeryro](https://github.com/emeryro))
-* [#2263](https://github.com/ec-europa/europa-component-library/pull/2263) feat(tag): update EU style - FRONT-3422 ([@emeryro](https://github.com/emeryro))
 
-#### :house: Internal
-* [#2302](https://github.com/ec-europa/europa-component-library/pull/2302) chore(deps): Moving to fermium, libraries updated ([@planctus](https://github.com/planctus))
-* [#2298](https://github.com/ec-europa/europa-component-library/pull/2298) chore(deps): updates 06-01-22 ([@planctus](https://github.com/planctus))
-* [#2297](https://github.com/ec-europa/europa-component-library/pull/2297) chore(deps): Updates 03-01-22 ([@planctus](https://github.com/planctus))
-* [#2291](https://github.com/ec-europa/europa-component-library/pull/2291) chore(deps): Updates - 20-12-21 ([@planctus](https://github.com/planctus))
-* [#2282](https://github.com/ec-europa/europa-component-library/pull/2282) chore(deps): Updates 09-12-21 ([@planctus](https://github.com/planctus))
-* [#2280](https://github.com/ec-europa/europa-component-library/pull/2280) chore(storybook): Update to 6.4.8 ([@planctus](https://github.com/planctus))
+* [#2300](https://github.com/ec-europa/europa-component-library/pull/2300) feat(logo): add translated logos (EC/EU)
+* [#2295](https://github.com/ec-europa/europa-component-library/pull/2295) feat(icon): add 'trash' icon - FRONT-3521
+* [#2296](https://github.com/ec-europa/europa-component-library/pull/2296) feat(stories): Third batch - FRONT-3514
+* [#2289](https://github.com/ec-europa/europa-component-library/pull/2289) fix(file): Review component spacings - FRONT-3424 
+* [#2293](https://github.com/ec-europa/europa-component-library/pull/2293) feat(stories): refactoring, batch 2 - FRONT-3513 
+* [#2290](https://github.com/ec-europa/europa-component-library/pull/2290) feat(stories): Refactoring form element stories - front-3512
+* [#2284](https://github.com/ec-europa/europa-component-library/pull/2284) fix(site header harmonised): Using ecl-buttons as in the other families - FRONT-3503
+* [#2279](https://github.com/ec-europa/europa-component-library/pull/2279) feat(news-ticker): Add mobile version - FRONT-3502 
+* [#2277](https://github.com/ec-europa/europa-component-library/pull/2277) feat(EC page-header): apply new style - FRONT-3423
+* [#2278](https://github.com/ec-europa/europa-component-library/pull/2278) fix(button): cleanup markup and css - FRONT-3464
+* [#2275](https://github.com/ec-europa/europa-component-library/pull/2275) fix(banners): add wrapper around link - FRONT-3403
+* [#2253](https://github.com/ec-europa/europa-component-library/pull/2253) feat(menu): allows more menu items - FRONT-3354
+* [#2263](https://github.com/ec-europa/europa-component-library/pull/2263) feat(tag): update EU style - FRONT-3422
+
 
 ## 3.1.2 (2021-10-25)
 
 #### :bug: Bug Fix
-* [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319 ([@papegaill](https://github.com/papegaill))
+
+* [#2246](https://github.com/ec-europa/europa-component-library/pull/2246) feat(datepicker): Remove DD-MM-YYYY auto-formatting on input - FRONT-3319
 
 ## 3.1.0 (2021-10-21)
 
 #### :rocket: New Feature
-* [#2232](https://github.com/ec-europa/europa-component-library/pull/2232) feat(card, file): add highlight label - FRONT-3276 ([@emeryro](https://github.com/emeryro))
-* [#2214](https://github.com/ec-europa/europa-component-library/pull/2214) feat(display-list): add display list component - FRONT-2342 ([@emeryro](https://github.com/emeryro))
-* [#2199](https://github.com/ec-europa/europa-component-library/pull/2199) feat(news-ticker): Add component - FRONT-2515 ([@papegaill](https://github.com/papegaill))
-* [#2206](https://github.com/ec-europa/europa-component-library/pull/2206) feat(featured-item): Add component - FRONT-2339 ([@papegaill](https://github.com/papegaill))
-* [#2196](https://github.com/ec-europa/europa-component-library/pull/2196) feat(site-header): add optional CTA - FRONT-2514 ([@emeryro](https://github.com/emeryro))
+
+* [#2232](https://github.com/ec-europa/europa-component-library/pull/2232) feat(card, file): add highlight label - FRONT-3276
+* [#2214](https://github.com/ec-europa/europa-component-library/pull/2214) feat(display-list): add display list component - FRONT-2342
+* [#2199](https://github.com/ec-europa/europa-component-library/pull/2199) feat(news-ticker): Add component - FRONT-2515
+* [#2206](https://github.com/ec-europa/europa-component-library/pull/2206) feat(featured-item): Add component - FRONT-2339
+* [#2196](https://github.com/ec-europa/europa-component-library/pull/2196) feat(site-header): add optional CTA - FRONT-2514
 
 #### :bug: Bug Fix
-* [#2227](https://github.com/ec-europa/europa-component-library/pull/2227) fix(banners): Correct centred text alignment for page & hero banners - FRONT-3240 ([@papegaill](https://github.com/papegaill))
-* [#2223](https://github.com/ec-europa/europa-component-library/pull/2223) fix(file-upload): replacing forEach on a FileList - FRONT-3230 ([@planctus](https://github.com/planctus))
-* [#2221](https://github.com/ec-europa/europa-component-library/pull/2221) fix(site-header): Fixing error when hiding menu - FRONT-3228 ([@planctus](https://github.com/planctus))
-* [#2217](https://github.com/ec-europa/europa-component-library/pull/2217) fix(checkbox & radio): Fix white space for inline elements in label - FRONT-3190 ([@papegaill](https://github.com/papegaill))
-* [#2209](https://github.com/ec-europa/europa-component-library/pull/2209) fix(datepicker): Fix display issues on mobile - FRONT-3174 ([@papegaill](https://github.com/papegaill))
-* [#2210](https://github.com/ec-europa/europa-component-library/pull/2210) fix(default-css): fix conflict with webtools - FRONT-3171 ([@emeryro](https://github.com/emeryro))
+
+* [#2227](https://github.com/ec-europa/europa-component-library/pull/2227) fix(banners): Correct centred text alignment for page & hero banners - FRONT-3240
+* [#2223](https://github.com/ec-europa/europa-component-library/pull/2223) fix(file-upload): replacing forEach on a FileList - FRONT-3230
+* [#2221](https://github.com/ec-europa/europa-component-library/pull/2221) fix(site-header): Fixing error when hiding menu - FRONT-3228 
+* [#2217](https://github.com/ec-europa/europa-component-library/pull/2217) fix(checkbox & radio): Fix white space for inline elements in label - FRONT-3190
+* [#2209](https://github.com/ec-europa/europa-component-library/pull/2209) fix(datepicker): Fix display issues on mobile - FRONT-3174 
+* [#2210](https://github.com/ec-europa/europa-component-library/pull/2210) fix(default-css): fix conflict with webtools - FRONT-3171
 
 #### :nail_care: Enhancement
-* [#2229](https://github.com/ec-europa/europa-component-library/pull/2229) feat(date-picker): Add auto-formatting to datepicker input - FRONT-3253 ([@papegaill](https://github.com/papegaill))
-* [#2231](https://github.com/ec-europa/europa-component-library/pull/2231) feat(description-list): add block for definition - FRONT-3204 ([@emeryro](https://github.com/emeryro))
-* [#2226](https://github.com/ec-europa/europa-component-library/pull/2226) fix(site-headers): Using only one site_name in site-headers - FRONT-3227 ([@planctus](https://github.com/planctus))
-* [#2230](https://github.com/ec-europa/europa-component-library/pull/2230) fix(menu): remove swipe events - FRONT-3075 ([@emeryro](https://github.com/emeryro))
-* [#2222](https://github.com/ec-europa/europa-component-library/pull/2222) feat(footers): Adding EC logo to all the footers - FRONT-3224 ([@planctus](https://github.com/planctus))
-* [#2216](https://github.com/ec-europa/europa-component-library/pull/2216) fix(banners): Text styling for page & hero banners - FRONT-3150 ([@papegaill](https://github.com/papegaill))
-* [#2211](https://github.com/ec-europa/europa-component-library/pull/2211) fix(date-picker): Styling and JS adaptations - FRONT-3183 ([@papegaill](https://github.com/papegaill))
-* [#2197](https://github.com/ec-europa/europa-component-library/pull/2197) feat(quote-image): added image in blockquote - FRONT-2463 ([@tibi2303](https://github.com/tibi2303))
+* [#2229](https://github.com/ec-europa/europa-component-library/pull/2229) feat(date-picker): Add auto-formatting to datepicker input - FRONT-3253
+* [#2231](https://github.com/ec-europa/europa-component-library/pull/2231) feat(description-list): add block for definition - FRONT-3204
+* [#2226](https://github.com/ec-europa/europa-component-library/pull/2226) fix(site-headers): Using only one site_name in site-headers - FRONT-3227
+* [#2230](https://github.com/ec-europa/europa-component-library/pull/2230) fix(menu): remove swipe events - FRONT-3075
+* [#2222](https://github.com/ec-europa/europa-component-library/pull/2222) feat(footers): Adding EC logo to all the footers - FRONT-3224
+* [#2216](https://github.com/ec-europa/europa-component-library/pull/2216) fix(banners): Text styling for page & hero banners - FRONT-3150
+* [#2211](https://github.com/ec-europa/europa-component-library/pull/2211) fix(date-picker): Styling and JS adaptations - FRONT-3183
+* [#2197](https://github.com/ec-europa/europa-component-library/pull/2197) feat(quote-image): added image in blockquote - FRONT-2463
 
 #### :memo: Documentation
-* [#2205](https://github.com/ec-europa/europa-component-library/pull/2205) chore(docs): Adding docs for v3, updating main README file - front-3155 ([@planctus](https://github.com/planctus))
+* [#2205](https://github.com/ec-europa/europa-component-library/pull/2205) chore(docs): Adding docs for v3, updating main README file - front-3155
 
 #### :house: Internal
-* [#2225](https://github.com/ec-europa/europa-component-library/pull/2225) chore(deps): Updates 08-10-21 ([@planctus](https://github.com/planctus))
-* [#2218](https://github.com/ec-europa/europa-component-library/pull/2218) chore(deps): Updates - 28/09/21 ([@planctus](https://github.com/planctus))
-* [#2207](https://github.com/ec-europa/europa-component-library/pull/2207) chore(deps): Updates, using ecl min and max functions for sass ([@planctus](https://github.com/planctus))
+* [#2225](https://github.com/ec-europa/europa-component-library/pull/2225) chore(deps): Updates 08-10-21
+* [#2218](https://github.com/ec-europa/europa-component-library/pull/2218) chore(deps): Updates - 28/09/21
+* [#2207](https://github.com/ec-europa/europa-component-library/pull/2207) chore(deps): Updates, using ecl min and max functions for sass
 
 ## 3.0.3 (2021-09-10)
 
@@ -567,17 +474,18 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 #### :house: Internal
 
 * [#2202](https://github.com/ec-europa/europa-component-library/pull/2202) fix(specs): Fix secondary variant value for hero-banner
-* [#2198](https://github.com/ec-europa/europa-component-library/pull/2198) feat(storybook): Refactoring stories (select options and defaultValue) - FRONT-2722 ([@planctus](https://github.com/planctus))
+* [#2198](https://github.com/ec-europa/europa-component-library/pull/2198) feat(storybook): Refactoring stories (select options and defaultValue) - FRONT-2722
 * [#2201](https://github.com/ec-europa/europa-component-library/pull/2201) chore(deps):  updates 9-9-2021
 * [#2191](https://github.com/ec-europa/europa-component-library/pull/2191) chore(deps): Updates
 
 ## 3.0.2 (2021-08-24)
 
 #### :nail_care: Enhancement
-* [#2187](https://github.com/ec-europa/europa-component-library/pull/2187) fix(banners): remove border radius when full width - FRONT-2966 ([@emeryro](https://github.com/emeryro))
-* [#2186](https://github.com/ec-europa/europa-component-library/pull/2186) fix(typography): update headings and paragraphs - FRONT-2965 ([@emeryro](https://github.com/emeryro))
-* [#2185](https://github.com/ec-europa/europa-component-library/pull/2185) fix(page-header): fix padding and optional item - FRONT-2964 ([@emeryro](https://github.com/emeryro))
-* [#2184](https://github.com/ec-europa/europa-component-library/pull/2184) fix(page-header): center image - FRONT-2963 ([@emeryro](https://github.com/emeryro))
+
+* [#2187](https://github.com/ec-europa/europa-component-library/pull/2187) fix(banners): remove border radius when full width - FRONT-2966
+* [#2186](https://github.com/ec-europa/europa-component-library/pull/2186) fix(typography): update headings and paragraphs - FRONT-2965
+* [#2185](https://github.com/ec-europa/europa-component-library/pull/2185) fix(page-header): fix padding and optional item - FRONT-2964
+* [#2184](https://github.com/ec-europa/europa-component-library/pull/2184) fix(page-header): center image - FRONT-2963
 
 ## 3.0.1 (2021-08-20)
 
