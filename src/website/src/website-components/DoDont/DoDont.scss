@@ -12,7 +12,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: var(--s-l);
+  margin-top: var(--ws-s-l);
 }
 
 .dodont .do,
@@ -35,7 +35,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid var(--c-n-60);
+  border: 1px solid var(--ws-c-n-60);
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -60,57 +60,57 @@
 }
 
 .do .separator {
-  background-color: var(--c-su);
+  background-color: var(--ws-c-su);
 }
 
 .dont .separator {
-  background-color: var(--c-er);
+  background-color: var(--ws-c-er);
 }
 
 .caution .separator {
-  background-color: var(--c-wa);
+  background-color: var(--ws-c-wa);
 }
 
 .container {
-  background-color: var(--c-n-40);
+  background-color: var(--ws-c-n-40);
   flex-grow: 1;
   flex-shrink: 0;
-  padding: var(--s-m) var(--s-l);
+  padding: var(--ws-s-m) var(--ws-s-l);
 }
 
 .title {
   display: flex;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .do .title {
-  color: var(--c-su);
+  color: var(--ws-c-su);
 }
 
 .dont .title {
-  color: var(--c-er);
+  color: var(--ws-c-er);
 }
 
 .caution .title {
-  color: var(--c-wa);
+  color: var(--ws-c-wa);
 }
 
 .title__icon {
   fill: currentcolor;
   height: map.get($theme, 'icon', 's');
-  margin-right: var(--s-s);
+  margin-right: var(--ws-s-s);
   width: map.get($theme, 'icon', 's');
 }
 
 .description {
-  color: var(--c-d);
-  font: var(--f-m);
-  margin-top: var(--s-xs);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin-top: var(--ws-s-xs);
 }
 // stylelint-disable-next-line media-query-no-invalid
 @media screen and (min-width: map.get($theme, 'breakpoint', 's')) {
   .dont {
-    margin-top: var(--s-l);
+    margin-top: var(--ws-s-l);
   }
 }

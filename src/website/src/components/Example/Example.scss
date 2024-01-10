@@ -7,11 +7,11 @@ $_outline-width: 2px;
   background: none;
   border-width: 0;
   box-sizing: border-box;
-  color: var(--c-p);
-  font: var(--f-m);
+  color: var(--ws-c-p);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
-  padding: var(--s-s) var(--s-m);
+  padding: var(--ws-s-s) var(--ws-s-m);
   text-decoration: none;
 
   &:hover,
@@ -21,7 +21,7 @@ $_outline-width: 2px;
   }
 
   &:focus {
-    outline: $_outline-width solid var(--c-s);
+    outline: $_outline-width solid var(--ws-c-s);
     outline-offset: -($_outline-width);
   }
 }

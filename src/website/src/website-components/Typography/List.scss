@@ -1,18 +1,16 @@
-@use 'sass:map';
-
 .list {
   box-sizing: border-box;
-  color: var(--c-d);
-  font: var(--f-m);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
   margin: 0;
-  max-width: var(--max-w);
+  max-width: var(--ws-max-w);
 }
 
 * + .list {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }
 
 .list--lead {
-  font: var(--f-xl);
-  max-width: var(--max-w);
+  font: var(--ws-f-xl);
+  max-width: var(--ws-max-w);
 }

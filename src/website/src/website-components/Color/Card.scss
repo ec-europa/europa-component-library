@@ -14,12 +14,12 @@
   flex-direction: column;
   height: 7.875rem;
   justify-content: center;
-  padding-left: var(--s-m);
-  padding-right: var(--s-m);
+  padding-left: var(--ws-s-m);
+  padding-right: var(--ws-s-m);
 }
 
 .title {
-  font: var(--f-m);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
 
@@ -36,9 +36,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: var(--f-s);
+  font: var(--ws-f-s);
   height: 2.5rem;
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
   width: 5.5rem;
 
   .card--light & {
@@ -59,16 +59,16 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: var(--c-d);
+    border-color: var(--ws-c-d);
     color: #000;
 
     &:focus {
-      background-color: color-mix(in srgb, var(--c-d) 10%, transparent);
+      background-color: color-mix(in srgb, var(--ws-c-d) 10%, transparent);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: var(--c-d);
+      background-color: var(--ws-c-d);
       color: #fff;
     }
   }
@@ -87,13 +87,13 @@
 }
 
 .body {
-  background-color: var(--c-n-40);
-  color: var(--c-d);
+  background-color: var(--ws-c-n-40);
+  color: var(--ws-c-d);
   flex-grow: 1;
-  font: var(--f-m);
-  padding: var(--s-s) var(--s-m);
+  font: var(--ws-f-m);
+  padding: var(--ws-s-s) var(--ws-s-m);
 }
 
 * + .card {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }

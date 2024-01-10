@@ -1,32 +1,32 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as *;
 
-$_header-bg-color: var(--c-n-40);
+$_header-bg-color: var(--ws-c-n-40);
 $_header-tabs-border-width: 4px;
-$_border-color: var(--c-d);
+$_border-color: var(--ws-c-d);
 $_border-width: 1px;
-$_border-color-hover: var(--c-p);
-$_border-color-focus: var(--c-p);
+$_border-color-hover: var(--ws-c-p);
+$_border-color-focus: var(--ws-c-p);
 $_border-width-focus: 2px;
 $_arrow-width: 2.75rem;
 
 .header {
   background-color: $_header-bg-color;
   margin: 0;
-  padding-top: var(--s-2xl);
+  padding-top: var(--ws-s-2xl);
 }
 
 .header__page-title {
-  color: var(--c-d);
-  font: var(--f-4xl);
+  color: var(--ws-c-d);
+  font: var(--ws-f-4xl);
   margin: 0;
-  padding-bottom: var(--s-2xl);
+  padding-bottom: var(--ws-s-2xl);
 }
 
 .header__section-header {
-  color: var(--c-d);
-  font: var(--f-m);
-  margin: 0 0 var(--s-xs);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin: 0 0 var(--ws-s-xs);
   padding: 0;
 }
 
@@ -47,32 +47,32 @@ $_arrow-width: 2.75rem;
   border-bottom: $_header-tabs-border-width solid transparent;
   color: #000;
   display: flex;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-right: var(--s-xl);
-  padding-bottom: var(--s-xs);
+  margin-right: var(--ws-s-xl);
+  padding-bottom: var(--ws-s-xs);
   text-decoration: none;
 }
 
 .header__tabs-item:hover,
 .header__tabs-item:focus {
-  background-color: var(--c-n-40);
+  background-color: var(--ws-c-n-40);
 }
 
 .header__tabs-item--active {
-  border-bottom: $_header-tabs-border-width solid var(--c-s);
+  border-bottom: $_header-tabs-border-width solid var(--ws-c-s);
 }
 
 .header__tabs-icon {
   width: 1em;
   height: 1em;
-  margin-left: var(--s-xs);
+  margin-left: var(--ws-s-xs);
 }
 
 .select__container {
   background-color: map.get($theme, 'color', 'white');
   display: inline-flex;
-  margin-bottom: var(--s-s);
+  margin-bottom: var(--ws-s-s);
   position: relative;
   width: 100%;
 
@@ -87,14 +87,15 @@ $_arrow-width: 2.75rem;
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-sizing: border-box;
-  color: var(--c-d);
+  color: var(--ws-c-d);
   display: block;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   margin: 0;
   width: 100%;
-  padding: calc(var(--s-s) - #{$_border-width})
-    calc(var(--s-s) + #{$_arrow-width} - #{$_border-width})
-    calc(var(--s-s) - #{$_border-width}) calc(var(--s-s) - #{$_border-width});
+  padding: calc(var(--ws-s-s) - #{$_border-width})
+    calc(var(--ws-s-s) + #{$_arrow-width} - #{$_border-width})
+    calc(var(--ws-s-s) - #{$_border-width})
+    calc(var(--ws-s-s) - #{$_border-width});
   z-index: 1;
 
   &::-ms-expand {
@@ -109,10 +110,10 @@ $_arrow-width: 2.75rem;
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
     outline: none;
-    padding: calc(var(--s-s) - #{$_border-width-focus})
-      calc(var(--s-s) + #{$_arrow-width} - #{$_border-width-focus})
-      calc(var(--s-s) - #{$_border-width-focus})
-      calc(var(--s-s) - #{$_border-width-focus});
+    padding: calc(var(--ws-s-s) - #{$_border-width-focus})
+      calc(var(--ws-s-s) + #{$_arrow-width} - #{$_border-width-focus})
+      calc(var(--ws-s-s) - #{$_border-width-focus})
+      calc(var(--ws-s-s) - #{$_border-width-focus});
   }
 }
 

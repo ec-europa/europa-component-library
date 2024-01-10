@@ -1,62 +1,63 @@
 @use 'sass:map';
+@use 'custom-properties';
 @use '@ecl/theme-ec/theme' as *;
 
 .h1 {
-  color: var(--c-d);
-  font: var(--f-3xl);
+  color: var(--ws-c-d);
+  font: var(--ws-f-3xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
   padding: 0;
 
   @media screen and (width >= 768px) {
-    font: var(--f-4xl);
+    font: var(--ws-f-4xl);
     font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h2 {
-  border-bottom: 2px solid var(--c-n-80);
-  color: var(--c-d);
-  font: var(--f-2xl);
+  border-bottom: 2px solid var(--ws-c-n-80);
+  color: var(--ws-c-d);
+  font: var(--ws-f-2xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
-  padding: 0 0 var(--s-m) 0;
+  padding: 0 0 var(--ws-s-m) 0;
 
   @media screen and (width >= 768px) {
-    font: var(--f-3xl);
+    font: var(--ws-f-3xl);
     font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h3 {
-  color: var(--c-d);
-  font: var(--f-xl);
+  color: var(--ws-c-d);
+  font: var(--ws-f-xl);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
 
   @media screen and (width >= 768px) {
-    font: var(--f-2xl);
+    font: var(--ws-f-2xl);
     font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h4 {
-  color: var(--c-d);
-  font: var(--f-l);
+  color: var(--ws-c-d);
+  font: var(--ws-f-l);
   margin: 0;
   padding: 0;
 }
 
 .p {
-  color: var(--c-d);
-  font: var(--f-m);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
   margin: 0;
-  max-width: var(--max-w);
+  max-width: var(--ws-max-w);
   padding: 0;
 }
 
 .a {
-  color: var(--c-p);
+  color: var(--ws-c-p);
   font-family: #{map.get($theme, 'font-family', 'default')};
   text-decoration: underline;
 
@@ -66,14 +67,14 @@
   }
 
   &:focus {
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--ws-c-p);
     outline-offset: 2px;
   }
 }
 
 .details {
-  color: var(--c-d);
-  font: var(--f-m);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
   margin: 0;
   padding: 0;
 }
@@ -95,17 +96,17 @@
 
 .ul {
   box-sizing: border-box;
-  color: var(--c-d);
-  font: var(--f-m);
-  max-width: var(--max-w);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  max-width: var(--ws-max-w);
   margin: 0;
 }
 
 .ol {
   box-sizing: border-box;
-  color: var(--c-d);
-  font: var(--f-m);
-  max-width: var(--max-w);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  max-width: var(--ws-max-w);
   margin: 0;
 }
 
@@ -117,36 +118,36 @@
 }
 
 .thead .tr {
-  border-bottom: 2px solid var(--c-d-60);
+  border-bottom: 2px solid var(--ws-c-d-60);
 }
 
 .tbody .tr {
-  border-bottom: 1px solid var(--c-d-60);
+  border-bottom: 1px solid var(--ws-c-d-60);
 }
 
 .th {
   background-color: transparent;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   text-align: left;
 }
 
 .td {
-  font: var(--f-m);
+  font: var(--ws-f-m);
 }
 
 .td,
 .th {
-  color: var(--c-d);
+  color: var(--ws-c-d);
   display: table-cell;
-  padding: var(--s-s);
+  padding: var(--ws-s-s);
   vertical-align: top;
   margin: 0;
-  max-width: var(--max-w);
+  max-width: var(--ws-max-w);
 }
 
 .hr {
-  border-color: var(--c-d-80);
+  border-color: var(--ws-c-d-80);
   border-width: 1px;
   border-style: solid;
   margin: 0;
@@ -154,26 +155,26 @@
 }
 
 * + .h1 {
-  margin-top: var(--s-2xl);
+  margin-top: var(--ws-s-2xl);
 }
 
 * + .h2 {
-  margin-top: var(--s-2xl);
+  margin-top: var(--ws-s-2xl);
 
   @media screen and (width >= 768px) {
-    margin-top: var(--s-3xl);
+    margin-top: var(--ws-s-3xl);
   }
 }
 
 * + .h3 {
-  margin-top: var(--s-xl);
+  margin-top: var(--ws-s-xl);
 }
 
 * + .h4 {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 
   @media screen and (width >= 768px) {
-    margin-top: var(--s-l);
+    margin-top: var(--ws-s-l);
   }
 }
 
@@ -183,7 +184,7 @@
 * + .ul,
 * + .ol,
 * + .table {
-  margin-top: var(--s-s);
+  margin-top: var(--ws-s-s);
 }
 
 .h1 + .p,
@@ -192,7 +193,7 @@
 .h1 + .ul,
 .h1 + .ol,
 .h1 + .table {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }
 
 .h2 + .p,
@@ -201,18 +202,18 @@
 .h2 + .ul,
 .h2 + .ol,
 .h2 + .table {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }
 
 h2 + blockquote + p {
-  border: 1px solid var(--c-n-40);
+  border: 1px solid var(--ws-c-n-40);
   max-width: 100% !important;
   text-align: center;
 
   &::after {
     background:
       url('../../public/cms-images/anatomy_legend.png') 2rem center no-repeat,
-      var(--c-n-20);
+      var(--ws-c-n-20);
     background-size: 15rem;
     content: '';
     display: block;
@@ -221,18 +222,18 @@ h2 + blockquote + p {
 }
 
 img[alt='anatomy'] {
-  border: 1px solid var(--c-n-40);
+  border: 1px solid var(--ws-c-n-40);
 }
 
 div:not([class^='ecl']):first-child p:not([class^='ecl']):first-child {
-  font: var(--f-l);
-  max-width: 49ch;
+  font: var(--ws-f-l);
+  max-width: var(--ws-max-w);
 }
 
 * + .hr {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }
 
 * + .imgA {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }

@@ -2,7 +2,7 @@
 @use '@ecl/theme-ec/theme' as *;
 
 .link {
-  color: var(--c-p);
+  color: var(--ws-c-p);
   display: inline-block;
   fill: currentcolor;
   font-family: #{map.get($theme, 'font-family', 'default')};
@@ -14,7 +14,7 @@
   }
 
   &:focus {
-    outline: 2px solid var(--c-p);
+    outline: 2px solid var(--ws-c-p);
     outline-offset: 2px;
   }
 }

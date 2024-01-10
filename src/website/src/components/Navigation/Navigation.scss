@@ -10,7 +10,7 @@ $_nav-toggle-bar-height: 0.125rem; // 2px
 $_nav-toggle-bar-spacing-between: 0.375rem;
 
 .nav {
-  background-color: var(--c-n-40);
+  background-color: var(--ws-c-n-40);
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
   bottom: 0;
   left: 0;
@@ -43,17 +43,17 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 
 .header {
   background-color: map.get($theme, 'color', 'white');
-  border-bottom: 2px solid var(--c-n-60);
-  padding: var(--s-m);
+  border-bottom: 2px solid var(--ws-c-n-60);
+  padding: var(--ws-s-m);
 }
 
 .version {
-  background-color: var(--c-n-40);
+  background-color: var(--ws-c-n-40);
   border-radius: 1rem;
-  color: var(--c-d);
+  color: var(--ws-c-d);
   display: inline-block;
-  font: var(--f-s);
-  padding: var(--s-xs) var(--s-s);
+  font: var(--ws-f-s);
+  padding: var(--ws-s-xs) var(--ws-s-s);
 }
 
 .logo {
@@ -63,7 +63,7 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
   background-size: contain;
   display: block;
   height: $_nav-logo-height;
-  margin-top: var(--s-l);
+  margin-top: var(--ws-s-l);
   max-width: $_nav-logo-max-width;
 }
 
@@ -76,9 +76,9 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .title {
-  color: var(--c-d);
-  font: var(--f-m);
-  margin-top: var(--s-s);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin-top: var(--ws-s-s);
 }
 
 .system-list {
@@ -94,34 +94,34 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .system-list-item-link {
-  color: var(--c-d);
+  color: var(--ws-c-d);
   display: block;
-  font: var(--f-l);
+  font: var(--ws-f-l);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  padding: var(--s-s) 0 calc(var(--s-s) - 4px);
+  padding: var(--ws-s-s) 0 calc(var(--ws-s-s) - 4px);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    background-color: var(--c-n-60);
+    background-color: var(--ws-c-n-60);
     outline: none;
   }
 }
 
 .system-list-item-link--selected {
-  border-bottom: 4px solid var(--c-s);
+  border-bottom: 4px solid var(--ws-c-s);
 }
 
 .loading {
-  color: var(--c-d);
-  font: var(--f-m);
-  padding: var(--s-s);
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  padding: var(--ws-s-s);
 }
 
 /* Burger */
 
 .button-toggle {
-  background-color: var(--c-n-60);
+  background-color: var(--ws-c-n-60);
   border-width: 0;
   height: $_nav-toggle-size;
   position: absolute;
@@ -154,7 +154,7 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 .hamburger-inner,
 .hamburger-inner::before,
 .hamburger-inner::after {
-  background-color: var(--c-d-80);
+  background-color: var(--ws-c-d-80);
   height: $_nav-toggle-bar-height;
   position: absolute;
   width: $_nav-toggle-bar-width;

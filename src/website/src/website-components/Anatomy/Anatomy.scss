@@ -2,18 +2,18 @@
 @use '@ecl/theme-ec/theme' as *;
 
 * + .anatomy {
-  margin-top: var(--s-m);
+  margin-top: var(--ws-s-m);
 }
 
 .container {
-  background-color: var(--c-n-40);
-  padding: var(--s-l) var(--s-m);
+  background-color: var(--ws-c-n-40);
+  padding: var(--ws-s-l) var(--ws-s-m);
 }
 
 .image-container {
   align-items: center;
   background-color: map.get($theme, 'color', 'white');
-  border: 1px solid var(--c-n-60);
+  border: 1px solid var(--ws-c-n-60);
   display: flex;
   justify-content: center;
 }
@@ -40,7 +40,7 @@
 
 .legend__item {
   display: inline-flex;
-  margin-right: var(--s-xl);
+  margin-right: var(--ws-s-xl);
 
   &:last-child {
     margin-right: 0;
@@ -56,36 +56,36 @@
 .legend__color {
   border-radius: 2px;
   height: 1rem;
-  margin-right: var(--s-s);
+  margin-right: var(--ws-s-s);
   width: 1.25rem;
 }
 
 .legend__label {
-  color: var(--c-d);
-  font: var(--f-s);
+  color: var(--ws-c-d);
+  font: var(--ws-f-s);
   font-style: italic;
 }
 
 .legend__description {
-  color: var(--c-d-80);
-  font: var(--f-s);
-  margin-top: var(--s-m);
+  color: var(--ws-c-d-80);
+  font: var(--ws-f-s);
+  margin-top: var(--ws-s-m);
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: var(--c-p);
+  color: var(--ws-c-p);
   display: inline-flex;
   float: right;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentcolor;
   height: 1em;
-  margin-left: var(--s-xs);
+  margin-left: var(--ws-s-xs);
   width: 1em;
   transform: rotateZ(90deg);
 }
@@ -105,17 +105,17 @@
 }
 
 .link:focus {
-  outline: 2px solid var(--c-p);
+  outline: 2px solid var(--ws-c-p);
   outline-offset: 2px;
 }
 // stylelint-disable-next-line media-query-no-invalid
 @media screen and (min-width: map.get($theme, 'breakpoint', 'm')) {
   * + .anatomy {
-    margin-top: var(--s-l);
+    margin-top: var(--ws-s-l);
   }
 
   .anatomy--vertical {
-    border: 1px solid var(--c-n-60);
+    border: 1px solid var(--ws-c-n-60);
 
     .image {
       border-width: 0;
@@ -129,7 +129,7 @@
 
     .legend__item {
       margin-right: 0;
-      margin-top: var(--s-s);
+      margin-top: var(--ws-s-s);
 
       &:first-child {
         margin-top: 0;
@@ -137,7 +137,7 @@
     }
 
     .legend__description {
-      margin-top: var(--s-l);
+      margin-top: var(--ws-s-l);
     }
   }
 }

@@ -27,7 +27,7 @@ class Skeleton extends Component {
   }
 
   componentDidMount() {
-    const { isLoading } = this.props;
+    const { system, isLoading } = this.props;
 
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
@@ -36,14 +36,14 @@ class Skeleton extends Component {
 
     // Inject/enable ECL stylesheet
     if (!isLoading) {
-      const element = document.getElementById(`ec-css`);
+      const element = document.getElementById(`${system}-css`);
 
       if (!element) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.id = `ec-css`;
-        link.href = `${process.env.PUBLIC_URL}/playground/ec/styles/ecl-ec.css`;
+        link.id = `${system}-css`;
+        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}.css`;
         link.media = 'screen';
 
         const head = document.head || document.getElementsByTagName('head')[0];
@@ -52,8 +52,8 @@ class Skeleton extends Component {
         const utils = document.createElement('link');
         utils.rel = 'stylesheet';
         utils.type = 'text/css';
-        utils.id = `ec-utilities-css`;
-        utils.href = `${process.env.PUBLIC_URL}/playground/ec/styles/optional/ecl-ec-utilities.css`;
+        utils.id = `${system}-utilities-css`;
+        utils.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/optional/ecl-${system}-utilities.css`;
         utils.media = 'screen';
         head.appendChild(utils);
       } else {
@@ -63,11 +63,11 @@ class Skeleton extends Component {
   }
 
   componentWillUnmount() {
-    const { isLoading } = this.props;
+    const { system, isLoading } = this.props;
 
     // Disable ECL stylesheet
     if (!isLoading) {
-      const element = document.getElementById(`ec-css`);
+      const element = document.getElementById(`${system}-css`);
       if (element) {
         element.disabled = true;
       }
@@ -120,6 +120,7 @@ Skeleton.propTypes = {
   HomePage: PropTypes.func.isRequired,
   prefix: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  system: PropTypes.string.isRequired,
   pages: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   routes: PropTypes.node,
   isLoading: PropTypes.bool,

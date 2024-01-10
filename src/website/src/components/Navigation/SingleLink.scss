@@ -1,59 +1,57 @@
-@use 'sass:map';
-
 .page-list-item {
   align-items: center;
-  background-color: var(--c-n-40);
+  background-color: var(--ws-c-n-40);
   border-width: 0;
-  color: var(--c-d);
+  color: var(--ws-c-d);
   display: flex;
-  font: var(--f-m);
+  font: var(--ws-f-m);
   margin: 0;
   text-decoration: none;
 
   &.level-0 {
-    padding: var(--s-s) var(--s-m);
+    padding: var(--ws-s-s) var(--ws-s-m);
   }
 
   &.level-1 {
-    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-xl);
+    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-xl);
   }
 
   &.level-2 {
-    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-3xl);
+    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-3xl);
   }
 
   &.level-3 {
-    padding: var(--s-s) var(--s-m) var(--s-s) var(--s-4xl);
+    padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-4xl);
   }
 }
 
 .page-list-item:hover,
 .page-list-item:focus {
-  background-color: var(--c-n-60);
+  background-color: var(--ws-c-n-60);
   outline: none;
 }
 
 .page-list-item:active {
-  background-color: var(--c-n-80);
+  background-color: var(--ws-c-n-80);
 }
 
 .page-list-item--active {
-  border-left: 4px solid var(--c-s);
+  border-left: 4px solid var(--ws-c-s);
 
   &.level-0 {
-    padding-left: calc(var(--s-m) - 4px);
+    padding-left: calc(var(--ws-s-m) - 4px);
   }
 
   &.level-1 {
-    padding-left: calc(var(--s-xl) - 4px);
+    padding-left: calc(var(--ws-s-xl) - 4px);
   }
 
   &.level-2 {
-    padding-left: calc(var(--s-3xl) - 4px);
+    padding-left: calc(var(--ws-s-3xl) - 4px);
   }
 
   &.level-3 {
-    padding-left: calc(var(--s-4xl) - 4px);
+    padding-left: calc(var(--ws-s-4xl) - 4px);
   }
 }
 

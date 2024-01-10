@@ -11,32 +11,32 @@
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
-  margin: var(--s-s) var(--s-s) 0 0;
+  margin: var(--ws-s-s) var(--ws-s-s) 0 0;
   max-width: 14.5rem;
-  padding: var(--s-s);
+  padding: var(--ws-s-s);
 }
 
 .card {
   // stylelint-disable-next-line at-rule-no-unknown
   @extend %card;
 
-  border-color: var(--c-n-60);
-  color: var(--c-d);
+  border-color: var(--ws-c-n-60);
+  color: var(--ws-c-d);
 }
 
 .card--negative {
   // stylelint-disable-next-line at-rule-no-unknown
   @extend %card;
 
-  background-color: var(--c-d);
-  border-color: var(--c-n-60);
+  background-color: var(--ws-c-d);
+  border-color: var(--ws-c-n-60);
   color: map.get($theme, 'color', 'white');
 }
 
 .title {
-  font: var(--f-m);
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin: var(--s-s) 0 0;
+  margin: var(--ws-s-s) 0 0;
   text-align: center;
   width: 100%;
 }
