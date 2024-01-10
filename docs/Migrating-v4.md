@@ -105,6 +105,12 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Buttons for carousel pagination are now placed differently, and use Button `ghost`
 
+### Category filter
+
+- New twig parameter `label`, to provide a readable label for the category filter (mostly for screen readers)
+- New twig parameter `id`, to provide a unique id for the category filter (used for accessibility). If not provided, a random id is generated
+- Markup and javascript have been updated to improve accessibilty: use of `button` when there are children and set `aria-expanded` to the button itself
+
 ### Checkbox
 
 - In the single checkbox use case, when required, a mark is expected also in the checkbox label, this can be provided by passing a `required_text` prop in the checkbox item object.
@@ -123,6 +129,11 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Datepicker
 
 - Rename twig parameter `icons_path` to `icon_path`, to be consistent with other components
+
+### Description list
+
+- Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
+- Links in the taxonomies are no longer using variant `standalone`
 
 ### Expandable
 

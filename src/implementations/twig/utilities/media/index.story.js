@@ -297,6 +297,7 @@ export default {
   decorators: [withCode],
   parameters: {
     a11y: { disable: true },
+    EclNotes: { disable: true },
   },
 };
 

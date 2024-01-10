@@ -80,55 +80,60 @@
 
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
-            <dd
-              class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-            {%- if _visible_items > 0 -%}
-              data-ecl-description-list-collapsible
-            {%- endif -%}
-            >
-            {%- for _definition in _item.definition -%}
-              <span class="ecl-description-list__definition-item">
-              {%- if _definition.link is defined -%}
-                {% include '@ecl/link/link.html.twig' with {
-                  link: _definition.link|merge({ type: 'standalone' }),
-                } only %}
-              {%- else -%}
-                {{- _definition -}}
+            <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
               {%- endif -%}
-              </span>
-            {%- endfor -%}
+              >
+              {%- for _definition in _item.definition -%}
+                <li class="ecl-description-list__definition-item">
+                {%- if _definition.link is defined -%}
+                  {% include '@ecl/link/link.html.twig' with {
+                    link: _definition.link,
+                  } only %}
+                {%- else -%}
+                  {{- _definition -}}
+                {%- endif -%}
+                </li>
+              {%- endfor -%}
+              </ul>
             </dd>
 
           {# links #}
           {% elseif _item.type is not empty and _item.type == 'link' %}   
-            <dd
-              class="ecl-description-list__definition ecl-description-list__definition--link"
-            {%- if _visible_items > 0 -%}
-              data-ecl-description-list-collapsible
-            {%- endif -%}
-            >
-            {% for _definition in _item.definition %}
-              {% include '@ecl/link/link.html.twig' with _definition|merge({
-                link: _definition.link|merge({ type: 'standalone' }),
-                extra_classes: 'ecl-description-list__definition-item',
-              }) only %}
-            {% endfor %}
+            <dd class="ecl-description-list__definition ecl-description-list__definition--link">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/link/link.html.twig' with _definition|merge({
+                  link: _definition.link|merge({ type: 'standalone' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
             </dd>
 
           {# links inline #}
           {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
-            <dd
-              class="ecl-description-list__definition ecl-description-list__definition--inline"
-            {%- if _visible_items > 0 -%}
-              data-ecl-description-list-collapsible
-            {%- endif -%}
-            >
-            {% for _definition in _item.definition %}  
-              {% include '@ecl/link/link.html.twig' with _definition|merge({
-                link: _definition.link|merge({ type: 'standalone' }),
-                extra_classes: 'ecl-description-list__definition-item',
-              })  only %}
-            {% endfor %}
+            <dd class="ecl-description-list__definition ecl-description-list__definition--inline">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}  
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/link/link.html.twig' with _definition|merge({
+                  link: _definition.link|merge({ type: 'standalone' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
             </dd>
 
           {# text #}

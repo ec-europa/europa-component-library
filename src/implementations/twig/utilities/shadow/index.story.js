@@ -159,6 +159,9 @@ const getArgTypes = () => {
 export default {
   title: 'Utilities/Shadow',
   decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
 export const Custom = (args) => {
