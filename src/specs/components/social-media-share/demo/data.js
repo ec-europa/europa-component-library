@@ -1,6 +1,3 @@
-const { loremIpsum } = require('lorem-ipsum');
-
-const lorem = loremIpsum({ count: 2 });
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
@@ -70,6 +67,7 @@ module.exports = {
         size: 'm',
       },
     },
-    content: lorem,
+    content: `Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+      Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.`,
   },
 };
