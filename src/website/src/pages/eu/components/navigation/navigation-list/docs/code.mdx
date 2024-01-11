@@ -4,7 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { navigationList } from '../demo';
+import { navigationList, navigationListIcon } from '../demo';
 
 <Playground
   system="eu"
@@ -13,4 +13,13 @@ import { navigationList } from '../demo';
   showFrame
 >
   <Html markup={navigationList} />
+</Playground>
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="icons"
+  showFrame
+>
+  <Html markup={navigationListIcon} />
 </Playground>

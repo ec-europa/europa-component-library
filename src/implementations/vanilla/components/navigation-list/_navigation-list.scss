@@ -62,15 +62,14 @@ $navigation-list: null !default;
   top: 0;
   right: 0;
   border-radius: 50%;
-  background: var(--ecl-color-neutral-80);
+  background: var(--c-n-80, var(--c-p-20));
   height: 4rem;
-  margin: calc(-1 * var(--s-xl)) calc(-1 * var(--s-m)) 0 0;
-  padding: var(--s-m) var(--s-s) 0 0;
+  margin: calc(-1 * var(--s-m)) calc(-1 * var(--s-m)) 0 0;
   width: 4rem;
 
   .ecl-navigation-list__icon {
     fill: #5470a6;
-    margin: var(--s-m) 0 0 var(--s-m);
+    margin: var(--s-l) 0 0 var(--s-s);
   }
 
   + .ecl-navigation-list__content-block .ecl-content-block__title {
