@@ -499,8 +499,8 @@ export class Menu {
     }
 
     // Check if the menu is too large
-    // We take some margin for safety
-    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth + 50;
+    // We take some margin for safety (same margin as the container's padding)
+    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth + 16;
     if (!this.hasOverflow || !this.isDesktop) {
       // Reset values related to overflow
       if (this.btnPrevious) {
