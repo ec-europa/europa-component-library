@@ -45,6 +45,7 @@ $navigation-list: null !default;
   border-radius: map.get($navigation-list, 'border-radius');
   box-shadow: map.get($navigation-list, 'shadow');
   box-sizing: border-box;
+  position: relative;
   overflow: hidden;
 }
 
@@ -54,6 +55,27 @@ $navigation-list: null !default;
   display: block;
   object-fit: cover;
   width: 100%;
+}
+
+.ecl-navigation-list__item-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background: var(--ecl-color-neutral-80);
+  height: 4rem;
+  margin: calc(-1 * var(--s-xl)) calc(-1 * var(--s-m)) 0 0;
+  padding: var(--s-m) var(--s-s) 0 0;
+  width: 4rem;
+
+  .ecl-navigation-list__icon {
+    fill: #5470a6;
+    margin: var(--s-m) 0 0 var(--s-m);
+  }
+
+  + .ecl-navigation-list__content-block .ecl-content-block__title {
+    margin-right: 2.5rem;
+  }
 }
 
 .ecl-navigation-list__content-block {

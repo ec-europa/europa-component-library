@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-navigation-list
 
 - **"items"** (array) (default: []): array of list_illustration_item
   - **"picture** (associative array) (default: {}): picture of the navigation list, following ECL Picture structure
+  - **"icon"** (object) (default: {}): Object of type ECL icon
   - **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
   - **"description"** (string) (default: ''): Description of the navigation list
   - **"links"** (array) (default: []): Array or multi array of ECL Links

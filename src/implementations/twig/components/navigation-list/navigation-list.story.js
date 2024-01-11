@@ -3,23 +3,27 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
+import dataIcon from '@ecl/specs-component-navigation-list/demo/data-icon';
 
 import navigationList from './navigation-list.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
+const getArgs = (data) => {
   const args = {};
-
   args.show_border = true;
-  args.show_image = true;
+  if (data.items[0].picture) {
+    args.show_image = true;
+  }
   args.show_description = true;
-  args.show_links = true;
+  if (data.items[0].links) {
+    args.show_links = true;
+  }
   args.column = 2;
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
@@ -33,15 +37,17 @@ const getArgTypes = () => {
       category: 'Optional',
     },
   };
-  argTypes.show_image = {
-    name: 'image',
-    type: 'boolean',
-    description: 'Show image',
-    table: {
+  if (data.items[0].picture) {
+    argTypes.show_image = {
+      name: 'image',
       type: 'boolean',
-      category: 'Optional',
-    },
-  };
+      description: 'Show image',
+      table: {
+        type: 'boolean',
+        category: 'Optional',
+      },
+    };
+  }
   argTypes.show_description = {
     name: 'description',
     type: 'boolean',
@@ -51,15 +57,18 @@ const getArgTypes = () => {
       category: 'Optional',
     },
   };
-  argTypes.show_links = {
-    name: 'links',
-    type: 'boolean',
-    description: 'Show links list',
-    table: {
+
+  if (data.items[0].links) {
+    argTypes.show_links = {
+      name: 'links',
       type: 'boolean',
-      category: 'Optional',
-    },
-  };
+      description: 'Show links list',
+      table: {
+        type: 'boolean',
+        category: 'Optional',
+      },
+    };
+  }
 
   // Other controls
   argTypes.column = {
@@ -113,6 +122,20 @@ Default.render = async (args) => {
   return renderedNavigationList;
 };
 Default.storyName = 'default';
-Default.args = getArgs();
-Default.argTypes = getArgTypes();
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+
+export const Icons = (_, { loaded: { component } }) => component;
+
+Icons.render = async (args) => {
+  const renderedNavigationList = await navigationList(
+    prepareData(dataIcon, args),
+  );
+  return renderedNavigationList;
+};
+
+Icons.storyName = 'with icons';
+Icons.args = getArgs(dataIcon);
+Icons.argTypes = getArgTypes(dataIcon);
+Icons.parameters = { notes: { markdown: notes, json: dataIcon } };

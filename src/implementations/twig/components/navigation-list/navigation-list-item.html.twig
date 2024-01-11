@@ -7,6 +7,7 @@
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
     - "description" (string) (default: ''): Description of the navigation list
     - "links" (array) (default: []): Array or multi array of ECL Links
+    - "icon" (object) (default: {}): Object of type ECL icon
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -25,6 +26,7 @@
 {% set _description = description|default('') %}
 {% set _links = links|default([]) %}
 {% set _css_class = 'ecl-navigation-list__item' %}
+{% set _icon = icon|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -55,13 +57,20 @@
 
 {# Print the result #}
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _picture.img is not empty %}
-    {% include '@ecl/picture/picture.html.twig' with {
-      picture: _picture,
-      extra_classes: "ecl-navigation-list__picture",
-      extra_image_classes: 'ecl-navigation-list__image',
+{% if _icon is not empty and _icon.name is not empty and _icon.path is not empty %}
+  <div class="ecl-navigation-list__item-icon">
+    {% include '@ecl/icon/icon.html.twig' with {
+      icon: _icon|merge({ size: 'l' }),
+      extra_classes: "ecl-navigation-list__icon",
     } only %}
-  {% endif %}
+  </div>
+{% elseif _picture.img is not empty %}
+  {% include '@ecl/picture/picture.html.twig' with {
+    picture: _picture,
+    extra_classes: "ecl-navigation-list__picture",
+    extra_image_classes: 'ecl-navigation-list__image',
+  } only %}
+{% endif %}
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
     extra_classes: 'ecl-navigation-list__content-block'
   }) only %}
