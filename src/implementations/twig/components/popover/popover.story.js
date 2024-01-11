@@ -4,6 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-popover/demo/data';
+
 import popover from './popover.html.twig';
 import notes from './README.md';
 
@@ -11,7 +12,7 @@ const lorem = loremIpsum({ count: 10 });
 
 const getArgs = (data) => ({
   label: data.toggle.link.label,
-  content: '',
+  content: data.content,
 });
 
 const getArgTypes = () => ({

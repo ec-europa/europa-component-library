@@ -4,7 +4,6 @@
   Parameters:
     - "id" (string) (default: '')
     - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link structure
-    - "links" (array) (default: []): Array of ECL Links
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -63,21 +62,6 @@
 
   <div id="{{ _id }}" class="ecl-popover__container" hidden>
     <div class="{{ _css_popover_class }}">
-      {% if _links is not empty and _links is iterable %}
-        <ul class="ecl-popover__list">
-          {% for _link in _links %}
-            <li class="ecl-popover__item">
-              {% include '@ecl/link/link.html.twig' with _link|merge({
-                link: {
-                  type: 'standalone',
-                  icon_position: 'before',
-                }|merge(_link.link),
-                extra_classes: 'ecl-popover__link',
-              }) only %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
       {%- block content _content -%}
     </div>
   </div>

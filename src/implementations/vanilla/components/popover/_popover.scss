@@ -13,8 +13,6 @@ $popover: null !default;
 
 // Internal variables
 $_arrow-size: 1rem;
-$_item-height: calc(#{map.get($theme, 'line-height', 'm')} + var(--s-s) * 2);
-$_item-width: 188px;
 
 .ecl-popover {
   display: inline-block;
@@ -55,30 +53,10 @@ $_item-width: 188px;
 .ecl-popover__content {
   background-color: map.get($theme, 'color', 'white');
   font: var(--f-m);
-  max-height: calc($_item-height * 4);
-  min-width: $_item-width;
-  padding: var(--s-s);
+  min-width: 250px;
+  padding: var(--s-xl);
   width: auto;
   overflow-y: auto;
-}
-
-@include breakpoints.up('m') {
-  .ecl-popover__content {
-    max-height: calc($_item-height * 6);
-  }
-}
-
-.ecl-popover__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: $_item-width;
-}
-
-.ecl-popover__link {
-  align-items: center;
-  display: flex;
-  padding: var(--s-s);
 }
 
 .ecl-popover--bottom .ecl-popover__container,

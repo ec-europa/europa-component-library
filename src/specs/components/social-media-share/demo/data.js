@@ -1,3 +1,6 @@
+const { loremIpsum } = require('lorem-ipsum');
+
+const lorem = loremIpsum({ count: 2 });
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
@@ -67,91 +70,6 @@ module.exports = {
         size: 'm',
       },
     },
-    links: [
-      {
-        link: {
-          label: 'Pinterest',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'pinterest-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Mastodon',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'mastodon-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Reddit',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'reddit-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Youtube',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'youtube-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Flickr',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'flickr-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Skype',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'skype-color',
-          size: 's',
-        },
-      },
-      {
-        link: {
-          label: 'Spotify',
-          path: exampleLink,
-          icon_position: 'before',
-        },
-        icon: {
-          path: '/icon-social-media.svg',
-          name: 'spotify-color',
-          size: 's',
-        },
-      },
-    ],
+    content: lorem,
   },
 };
