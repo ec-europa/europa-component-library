@@ -50,13 +50,17 @@ $_arrow-size: 1rem;
   }
 }
 
+.ecl-popover__scrollable {
+  min-width: 250px;
+  overflow-y: auto;
+  padding: var(--s-xl);
+}
+
 .ecl-popover__content {
   background-color: map.get($theme, 'color', 'white');
   font: var(--f-m);
-  min-width: 250px;
-  padding: var(--s-xl);
+  text-align: start;
   width: auto;
-  overflow-y: auto;
 }
 
 .ecl-popover--bottom .ecl-popover__container,
@@ -66,6 +70,10 @@ $_arrow-size: 1rem;
 
 .ecl-popover--bottom .ecl-popover__container {
   margin-top: 1rem;
+
+  &::before {
+    top: 1px;
+  }
 }
 
 // Top Popover
@@ -98,10 +106,10 @@ $_arrow-size: 1rem;
   transform: translateY(-50%);
   top: 50%;
 
-  .ecl-popover__content {
+  .ecl-popover__scrollable {
     direction: rtl;
 
-    * {
+    .ecl-popover__content {
       direction: ltr;
     }
   }

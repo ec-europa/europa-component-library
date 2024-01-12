@@ -61,8 +61,10 @@
   }) only %}
 
   <div id="{{ _id }}" class="ecl-popover__container" hidden>
-    <div class="{{ _css_popover_class }}">
-      {%- block content _content -%}
+    <div class="ecl-popover__scrollable">
+      <div class="{{ _css_popover_class }}">
+        {%- block content _content -%}
+      </div>
     </div>
   </div>
 </div>

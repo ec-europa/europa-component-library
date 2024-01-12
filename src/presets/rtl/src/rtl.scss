@@ -175,12 +175,9 @@ html {
 }
 
 // Popover
-.ecl-popover--left .ecl-popover__container {
+.ecl-popover--left
+  .ecl-popover__container
+  .ecl-popover__scrollable
   .ecl-popover__content {
-    direction: rtl;
-
-    * {
-      direction: rtl;
-    }
-  }
+  direction: rtl;
 }
