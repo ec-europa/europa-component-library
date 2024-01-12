@@ -31,8 +31,14 @@ $theme: null !default;
 
     // Border color
     @each $key, $value in map.get($theme, 'color') {
-      .ecl-u-border-color#{$infix}-#{$key} {
-        border-color: var(--ecl-color-#{$key}) !important;
+      @if $key == 'white' or $key == 'black' {
+        .ecl-u-border-color#{$infix}-#{$key} {
+          border-color: map.get($theme, 'color', $key) !important;
+        }
+      } @else {
+        .ecl-u-border-color#{$infix}-#{$key} {
+          border-color: var(--ecl-color-#{$key}) !important;
+        }
       }
     }
 

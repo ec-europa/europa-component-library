@@ -29,7 +29,7 @@ $date-block: null !default;
   min-width: map.get($date-block, 'width-mobile');
 
   &::before {
-    background-color: map.get($theme, 'color', 'white-100');
+    background-color: map.get($theme, 'color', 'white');
     border-radius: 50%;
     box-shadow: map.get($date-block, 'shadow-decoration');
     box-sizing: content-box;
@@ -44,7 +44,7 @@ $date-block: null !default;
   }
 
   &::after {
-    background-color: map.get($theme, 'color', 'white-100');
+    background-color: map.get($theme, 'color', 'white');
     border-radius: 50%;
     box-shadow: map.get($date-block, 'shadow-decoration');
     box-sizing: content-box;

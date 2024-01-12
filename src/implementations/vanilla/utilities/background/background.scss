@@ -4,8 +4,14 @@
 $theme: null !default;
 
 @each $key, $value in map.get($theme, 'color') {
-  .ecl-u-bg-#{$key} {
-    background-color: var(--ecl-color-#{$key}) !important;
+  @if $key == 'white' or $key == 'black' {
+    .ecl-u-bg-#{$key} {
+      background-color: map.get($theme, 'color', $key) !important;
+    }
+  } @else {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--ecl-color-#{$key}) !important;
+    }
   }
 }
 

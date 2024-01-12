@@ -3,12 +3,13 @@
 // Exposed variables
 $theme: null !default;
 
+// Drop shadow
 .ecl-u-shadow-none {
   box-shadow: none !important;
 }
 
-@each $key, $value in map.get($theme, 'color') {
+@each $key, $value in map.get($theme, 'shadow') {
   .ecl-u-shadow-#{$key} {
-    box-shadow: $value !important;
+    box-shadow: var(--sh-#{$key}) !important;
   }
 }

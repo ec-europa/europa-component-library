@@ -1,12 +1,9 @@
-@use 'sass:map';
-@use '@ecl/theme-ec/theme';
-
 .ul {
   box-sizing: border-box;
-  color: map.get(theme.$color, 'grey-75');
-  font: map.get(theme.$font-prolonged, 'm');
+  color: var(--ws-c-d-80);
+  font: var(--ws-f-m);
   margin-bottom: 0;
-  margin-top: map.get(theme.$spacing, 's');
-  max-width: 38em;
+  margin-top: var(--ws-s-s);
+  max-width: var(--ws-max-w);
   text-transform: lowercase;
 }

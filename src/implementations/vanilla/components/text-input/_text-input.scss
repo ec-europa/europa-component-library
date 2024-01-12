@@ -17,7 +17,7 @@ $border-width-focus: 2px;
 
 .ecl-text-input {
   appearance: none;
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($theme, 'color', 'white');
   border: $border-width solid map.get($text-input, 'border-color');
   border-radius: map.get($text-input, 'radius');
   box-shadow: map.get($text-input, 'shadow');
@@ -60,7 +60,7 @@ $border-width-focus: 2px;
 .ecl-text-input--disabled,
 .ecl-text-input[readonly],
 .ecl-text-input--readonly {
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($theme, 'color', 'white');
   cursor: not-allowed;
   opacity: 0.5;
 }

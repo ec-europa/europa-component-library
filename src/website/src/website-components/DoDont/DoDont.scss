@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 .dodont {
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 .do,
 .dont,
 .caution {
-  margin-top: map.get(theme.$spacing, 'l');
+  margin-top: var(--ws-s-l);
 }
 
 .dodont .do,
@@ -24,7 +24,7 @@
   position: relative;
   width: 100%;
   // stylelint-disable-next-line media-query-no-invalid
-  @media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
+  @media screen and (min-width: map.get($theme, 'breakpoint', 'm')) {
     display: flex;
     flex: 0 0 50%;
     flex-direction: column;
@@ -35,7 +35,7 @@
 
 .image-container {
   align-items: center;
-  border: 1px solid map.get(theme.$color, 'grey-15');
+  border: 1px solid var(--ws-c-n-60);
   border-bottom-width: 0;
   display: flex;
   justify-content: center;
@@ -60,57 +60,57 @@
 }
 
 .do .separator {
-  background-color: map.get(theme.$color, 'success');
+  background-color: var(--ws-c-su);
 }
 
 .dont .separator {
-  background-color: map.get(theme.$color, 'error');
+  background-color: var(--ws-c-er);
 }
 
 .caution .separator {
-  background-color: map.get(theme.$color, 'warning');
+  background-color: var(--ws-c-wa);
 }
 
 .container {
-  background-color: map.get(theme.$color, 'grey-5');
+  background-color: var(--ws-c-n-40);
   flex-grow: 1;
   flex-shrink: 0;
-  padding: map.get(theme.$spacing, 'm') map.get(theme.$spacing, 'l');
+  padding: var(--ws-s-m) var(--ws-s-l);
 }
 
 .title {
   display: flex;
-  font: map.get(theme.$font-prolonged, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .do .title {
-  color: map.get(theme.$color, 'success');
+  color: var(--ws-c-su);
 }
 
 .dont .title {
-  color: map.get(theme.$color, 'error');
+  color: var(--ws-c-er);
 }
 
 .caution .title {
-  color: map.get(theme.$color, 'warning');
+  color: var(--ws-c-wa);
 }
 
 .title__icon {
   fill: currentcolor;
-  height: map.get(theme.$icon, 's');
-  margin-right: map.get(theme.$spacing, 's');
-  width: map.get(theme.$icon, 's');
+  height: map.get($theme, 'icon', 's');
+  margin-right: var(--ws-s-s);
+  width: map.get($theme, 'icon', 's');
 }
 
 .description {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font-prolonged, 'm');
-  margin-top: map.get(theme.$spacing, 'xs');
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin-top: var(--ws-s-xs);
 }
 // stylelint-disable-next-line media-query-no-invalid
-@media screen and (min-width: map.get(theme.$breakpoint, 's')) {
+@media screen and (min-width: map.get($theme, 'breakpoint', 's')) {
   .dont {
-    margin-top: map.get(theme.$spacing, 'l');
+    margin-top: var(--ws-s-l);
   }
 }

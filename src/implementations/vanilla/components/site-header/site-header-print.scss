@@ -20,11 +20,11 @@ $theme: null !default;
 }
 
 .ecl-site-header__banner-top {
-  color: map.get($theme, 'color', 'grey');
+  color: var(--c-d);
   font: map.get($theme, 'font-prolonged-print', 'm');
 
   .ecl-link {
-    color: map.get($theme, 'color', 'grey');
+    color: var(--c-d);
   }
 
   .ecl-link::after {
