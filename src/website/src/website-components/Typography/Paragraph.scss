@@ -1,27 +1,24 @@
-@use 'sass:map';
-@use '@ecl/theme-ec/theme';
-
 .paragraph {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font-prolonged, 'm');
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
   margin: 0;
-  max-width: 64ch;
+  max-width: var(--ws-max-w);
   padding: 0;
 }
 
 * + .paragraph {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
 }
 
 .paragraph--lead {
-  font: map.get(theme.$font-prolonged, 'xl');
-  max-width: 49ch;
+  font: var(--ws-f-xl);
+  max-width: var(--ws-max-w);
 }
 
 .paragraph--s {
-  font: map.get(theme.$font-prolonged, 's');
+  font: var(--ws-f-s);
 }
 
 .paragraph--xs {
-  font: map.get(theme.$font-prolonged, 'xs');
+  font: var(--ws-f-xs);
 }

@@ -94,7 +94,7 @@ $select: null !default;
 }
 
 .ecl-select__container {
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($theme, 'color', 'white');
   display: flex;
   flex-direction: column;
   max-width: 100%;
@@ -163,7 +163,7 @@ $select: null !default;
    */
 .ecl-select__container--disabled {
   opacity: 0.75;
-  background-color: map.get($theme, 'color', 'white-100');
+  background-color: map.get($theme, 'color', 'white');
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__icon,

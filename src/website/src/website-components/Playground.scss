@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 * + .playground {
   margin-top: 1rem;
@@ -11,8 +11,8 @@
 }
 
 .showcase {
-  background-color: map.get(theme.$color, 'white-100');
-  border: 1px solid map.get(theme.$color, 'grey-10');
+  background-color: map.get($theme, 'color', 'white');
+  border: 1px solid var(--ws-c-n-60);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -27,28 +27,28 @@
 
 .fullscreen {
   align-self: flex-end;
-  padding: map.get(theme.$spacing, 's');
+  padding: var(--ws-s-s);
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'blue-100');
+  color: var(--ws-c-p);
   display: inline-flex;
-  font: map.get(theme.$font, 'm');
+  font: var(--ws-f-m);
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentcolor;
   height: 1em;
-  margin-left: map.get(theme.$spacing, 'xs');
+  margin-left: var(--ws-s-xs);
   width: 1em;
 }
 
 .link:hover,
 .link:focus {
-  color: map.get(theme.$color, 'black-100');
+  color: map.get($theme, 'color', 'black');
   text-decoration: underline;
 
   &.link--icon {
@@ -61,23 +61,23 @@
 }
 
 .link:focus {
-  outline: 3px solid map.get(theme.$color, 'yellow-100');
+  outline: 2px solid var(--ws-c-p);
   outline-offset: 2px;
 }
 
 .code {
-  background-color: map.get(theme.$color, 'white-100');
-  border: 1px solid map.get(theme.$color, 'grey-10');
+  background-color: map.get($theme, 'color', 'white');
+  border: 1px solid var(--ws-c-n-60);
   display: flex;
   flex-direction: column;
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
   overflow: visible;
 }
 
 .code-pre {
-  background-color: map.get(theme.$color, 'white-100') !important;
+  background-color: map.get($theme, 'color', 'white') !important;
   line-height: 1.5rem !important;
-  margin: map.get(theme.$spacing, 'm') !important;
+  margin: var(--ws-s-m) !important;
   overflow-y: hidden !important;
   padding: 0 !important;
 
@@ -89,7 +89,7 @@
 
 .playground-link {
   align-self: flex-end;
-  padding: map.get(theme.$spacing, 's');
+  padding: var(--ws-s-s);
 }
 
 .playground-link .link__icon {
@@ -102,9 +102,9 @@
   border-width: 0;
   box-sizing: border-box;
   display: none;
-  font: map.get(theme.$font, 'm');
+  font: var(--ws-f-m);
   margin: 0;
-  padding: map.get(theme.$spacing, 's');
+  padding: var(--ws-s-s);
   text-decoration: none;
 
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
@@ -143,7 +143,7 @@
 }
 
 .description {
-  font: map.get(theme.$font-prolonged, 'm');
-  margin-bottom: map.get(theme.$spacing, 'm') - map.get(theme.$spacing, 's');
-  margin-top: map.get(theme.$spacing, 'm');
+  font: var(--ws-f-m);
+  margin-bottom: var(--ws-s-m) - var(--ws-s-s);
+  margin-top: var(--ws-s-m);
 }

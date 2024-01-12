@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 .group-list-parent {
   box-sizing: border-box;
@@ -8,62 +8,58 @@
 }
 
 .group-list-item {
-  background-color: map.get(theme.$color, 'grey-5');
+  background-color: var(--ws-c-n-40);
   border-width: 0;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'dark');
+  color: var(--ws-c-d);
   display: block;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs')
-    map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  padding: var(--ws-s-s) var(--ws-s-xs) var(--ws-s-s) var(--ws-s-m);
   text-align: left;
   text-decoration: none;
   text-transform: capitalize;
   width: 100%;
 
   &.level-0 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+    padding: var(--ws-s-s) var(--ws-s-xs) var(--ws-s-s) var(--ws-s-m);
   }
 
   &.level-1 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl');
+    padding: var(--ws-s-s) var(--ws-s-xs) var(--ws-s-s) var(--ws-s-xl);
   }
 
   &.level-2 {
-    padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xs')
-      map.get(theme.$spacing, 's') map.get(theme.$spacing, '3xl');
+    padding: var(--ws-s-s) var(--ws-s-xs) var(--ws-s-s) var(--ws-s-3xl);
   }
 }
 
 .group-list-item:hover,
 .group-list-item:focus {
-  background-color: map.get(theme.$color, 'grey-10');
+  background-color: var(--ws-c-n-60);
   outline: none;
 }
 
 .group-list-item:active {
-  background-color: map.get(theme.$color, 'grey-25');
+  background-color: var(--ws-c-n-80);
 }
 
 .button {
   appearance: none;
   background-color: transparent;
   border-width: 0;
-  padding: map.get(theme.$spacing, 's');
+  padding: var(--ws-s-s);
 }
 
 .button:hover,
 .button:focus {
-  background-color: map.get(theme.$color, 'grey-10');
+  background-color: var(--ws-c-n-60);
   outline: none;
 }
 
 .button:active {
-  background-color: map.get(theme.$color, 'grey-25');
+  background-color: var(--ws-c-n-80);
 }
 
 .icon {

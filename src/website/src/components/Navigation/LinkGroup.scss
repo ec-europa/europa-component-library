@@ -1,12 +1,11 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 .group {
-  color: map.get(theme.$color, 'grey-75');
+  color: var(--ws-c-d-80);
   display: block;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm')
-    map.get(theme.$spacing, 's') map.get(theme.$spacing, 'xl');
+  padding: var(--ws-s-s) var(--ws-s-m) var(--ws-s-s) var(--ws-s-xl);
 }

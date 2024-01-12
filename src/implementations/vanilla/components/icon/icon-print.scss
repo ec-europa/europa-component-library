@@ -55,11 +55,11 @@ $theme: null !default;
 }
 
 .ecl-icon--primary {
-  fill: map.get($theme, 'color', 'primary');
+  fill: var(--c-p);
 }
 
 .ecl-icon--inverted {
-  fill: map.get($theme, 'color', 'white-100');
+  fill: map.get($theme, 'color', 'white');
 }
 
 .ecl-icon--rotate-90 {

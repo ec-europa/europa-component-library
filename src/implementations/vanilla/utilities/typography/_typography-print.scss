@@ -11,6 +11,7 @@ $typography-print: null !default;
 */
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading1') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight', 'bold') !important;
@@ -18,6 +19,7 @@ $typography-print: null !default;
 
 .ecl-u-type-heading-2,
 %ecl-heading-2 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading2') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
@@ -25,6 +27,7 @@ $typography-print: null !default;
 
 .ecl-u-type-heading-3,
 %ecl-heading-3 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading3') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
@@ -32,6 +35,7 @@ $typography-print: null !default;
 
 .ecl-u-type-heading-4,
 %ecl-heading-4 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading4') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
@@ -39,6 +43,7 @@ $typography-print: null !default;
 
 .ecl-u-type-heading-5,
 %ecl-heading-5 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading5') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
@@ -46,6 +51,7 @@ $typography-print: null !default;
 
 .ecl-u-type-heading-6,
 %ecl-heading-6 {
+  color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading6') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
@@ -57,18 +63,22 @@ $typography-print: null !default;
 .ecl-u-type-paragraph,
 .ecl-u-type-paragraph-m,
 %ecl-paragraph {
+  color: map.get($typography, 'text-color');
   font: map.get($theme, 'font-prolonged-print', 'm') !important;
 }
 
 .ecl-u-type-paragraph-lead {
+  color: map.get($typography, 'text-color');
   font: map.get($theme, 'font-prolonged-print', 'xl') !important;
 }
 
 .ecl-u-type-paragraph-s {
+  color: map.get($typography, 'text-color');
   font: map.get($theme, 'font-prolonged-print', 's') !important;
 }
 
 .ecl-u-type-paragraph-xs {
+  color: map.get($typography, 'text-color');
   font: map.get($theme, 'font-prolonged-print', 'xs') !important;
 }
 
@@ -139,8 +149,14 @@ $typography-print: null !default;
 * Font colour
 */
 @each $key, $value in map.get($theme, 'color') {
-  .ecl-u-type-color-#{$key} {
-    color: $value !important;
+  @if $key == 'white' or $key == 'black' {
+    .ecl-u-type-color-#{$key} {
+      color: map.get($theme, 'color', $key) !important;
+    }
+  } @else {
+    .ecl-u-type-color-#{$key} {
+      color: var(--ecl-color-#{$key}) !important;
+    }
   }
 }
 

@@ -50,7 +50,7 @@ $page-header: null !default;
 }
 
 .ecl-page-header__title {
-  border-bottom: 2px solid map.get($theme, 'color', 'blue-20');
+  border-bottom: 2px solid var(--c-p-20);
   color: map.get($page-header, 'title-color');
   font: map.get($page-header, 'title-font');
   margin-bottom: 0;
@@ -65,7 +65,7 @@ $page-header: null !default;
 }
 
 .ecl-page-header__description-thumbnail {
-  border: 1px solid map.get($theme, 'color', 'blue-20');
+  border: 1px solid var(--c-p-20);
   margin-inline-end: var(--s-m);
   max-width: 120px;
 }

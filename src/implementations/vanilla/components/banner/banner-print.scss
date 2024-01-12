@@ -36,7 +36,7 @@ $banner-print: null !default;
 }
 
 .ecl-banner__cta {
-  background: map.get($theme, 'color', 'yellow-100');
+  background: var(--c-s);
   border-radius: map.get($banner-print, 'cta-radius');
   display: inline-block;
   padding: map.get($theme, 'spacing-print', 's');

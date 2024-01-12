@@ -1,23 +1,20 @@
-@use 'sass:map';
-@use '@ecl/theme-ec/theme';
-
 .splash-page {
-  background-color: map.get(theme.$color, 'grey-5');
+  background-color: var(--ws-c-n-40);
   box-sizing: border-box;
   min-height: 100vh;
-  padding: map.get(theme.$spacing, '4xl') 0 map.get(theme.$spacing, 'xl');
+  padding: var(--ws-s-4xl) 0 var(--ws-s-xl);
 }
 
 .splash-page-actions-row {
-  margin-top: map.get(theme.$spacing, 'xl');
+  margin-top: var(--ws-s-xl);
 
   @media screen and (width >= 768px) {
-    margin-top: map.get(theme.$spacing, '4xl');
+    margin-top: var(--ws-s-4xl);
   }
 }
 
 .splash-page-actions-row .splash-page-actions-col + .splash-page-actions-col {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
 
   @media screen and (width >= 768px) {
     margin-top: 0;

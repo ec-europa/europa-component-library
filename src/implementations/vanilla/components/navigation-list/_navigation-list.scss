@@ -82,7 +82,7 @@ $navigation-list: null !default;
   .ecl-navigation-list__item:not(.ecl-navigation-list__item--no-border) {
     .ecl-navigation-list__content-block {
       &::before {
-        background-color: map.get($theme, 'color', 'yellow-100');
+        background-color: var(--c-s);
         border-bottom-left-radius: 2px;
         border-bottom-right-radius: 2px;
         content: '';
