@@ -1,19 +1,19 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 * + .anatomy {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
 }
 
 .container {
-  background-color: map.get(theme.$color, 'grey-5');
-  padding: map.get(theme.$spacing, 'l') map.get(theme.$spacing, 'm');
+  background-color: var(--ws-c-n-40);
+  padding: var(--ws-s-l) var(--ws-s-m);
 }
 
 .image-container {
   align-items: center;
-  background-color: map.get(theme.$color, 'white-100');
-  border: 1px solid map.get(theme.$color, 'grey-15');
+  background-color: map.get($theme, 'color', 'white');
+  border: 1px solid var(--ws-c-n-60);
   display: flex;
   justify-content: center;
 }
@@ -40,7 +40,7 @@
 
 .legend__item {
   display: inline-flex;
-  margin-right: map.get(theme.$spacing, 'xl');
+  margin-right: var(--ws-s-xl);
 
   &:last-child {
     margin-right: 0;
@@ -56,43 +56,43 @@
 .legend__color {
   border-radius: 2px;
   height: 1rem;
-  margin-right: map.get(theme.$spacing, 's');
+  margin-right: var(--ws-s-s);
   width: 1.25rem;
 }
 
 .legend__label {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font, 's');
+  color: var(--ws-c-d);
+  font: var(--ws-f-s);
   font-style: italic;
 }
 
 .legend__description {
-  color: map.get(theme.$color, 'grey-75');
-  font: map.get(theme.$font-prolonged, 's');
-  margin-top: map.get(theme.$spacing, 'm');
+  color: var(--ws-c-d-80);
+  font: var(--ws-f-s);
+  margin-top: var(--ws-s-m);
 }
 
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'blue-100');
+  color: var(--ws-c-p);
   display: inline-flex;
   float: right;
-  font: map.get(theme.$font, 'm');
+  font: var(--ws-f-m);
   text-decoration: none;
 }
 
 .link__icon {
   fill: currentcolor;
   height: 1em;
-  margin-left: map.get(theme.$spacing, 'xs');
+  margin-left: var(--ws-s-xs);
   width: 1em;
   transform: rotateZ(90deg);
 }
 
 .link:hover,
 .link:focus {
-  color: map.get(theme.$color, 'black-100');
+  color: map.get($theme, 'color', 'black');
   text-decoration: underline;
 
   &.link--icon {
@@ -105,17 +105,17 @@
 }
 
 .link:focus {
-  outline: 3px solid map.get(theme.$color, 'yellow-100');
+  outline: 2px solid var(--ws-c-p);
   outline-offset: 2px;
 }
 // stylelint-disable-next-line media-query-no-invalid
-@media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
+@media screen and (min-width: map.get($theme, 'breakpoint', 'm')) {
   * + .anatomy {
-    margin-top: map.get(theme.$spacing, 'l');
+    margin-top: var(--ws-s-l);
   }
 
   .anatomy--vertical {
-    border: 1px solid map.get(theme.$color, 'grey-15');
+    border: 1px solid var(--ws-c-n-60);
 
     .image {
       border-width: 0;
@@ -129,7 +129,7 @@
 
     .legend__item {
       margin-right: 0;
-      margin-top: map.get(theme.$spacing, 's');
+      margin-top: var(--ws-s-s);
 
       &:first-child {
         margin-top: 0;
@@ -137,7 +137,7 @@
     }
 
     .legend__description {
-      margin-top: map.get(theme.$spacing, 'l');
+      margin-top: var(--ws-s-l);
     }
   }
 }

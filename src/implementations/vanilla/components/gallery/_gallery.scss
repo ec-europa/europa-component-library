@@ -11,7 +11,7 @@ $theme: null !default;
 $gallery: null !default;
 
 // Internal variables
-$_description-color: map.get($theme, 'color', 'white-100');
+$_description-color: map.get($theme, 'color', 'white');
 $_image-height: 192px;
 $_image-height-mobile: 260px;
 
@@ -49,7 +49,7 @@ $_image-height-mobile: 260px;
 
 .ecl-gallery__item-icon-wrapper {
   background: var(--c-d);
-  box-shadow: 0 0 15px 6px rgba(map.get($theme, 'color', 'dark-80'), 0.55);
+  box-shadow: 0 0 15px 6px color-mix(in srgb, var(--c-d-80) 55%, transparent);
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -397,8 +397,8 @@ $_image-height-mobile: 260px;
 
 .ecl-gallery__detail-counter {
   align-self: center;
-  border-left: 1px solid map.get($theme, 'color', 'white-100');
-  border-right: 1px solid map.get($theme, 'color', 'white-100');
+  border-left: 1px solid map.get($theme, 'color', 'white');
+  border-right: 1px solid map.get($theme, 'color', 'white');
   display: inline-flex;
   font: var(--f-m);
   font-weight: map.get($gallery, 'counter-font-weight');

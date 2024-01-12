@@ -1,20 +1,20 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 .link {
-  color: map.get(theme.$color, 'primary');
+  color: var(--ws-c-p);
   display: inline-block;
   fill: currentcolor;
-  font-family: #{map.get(theme.$font-family, 'default')};
+  font-family: #{map.get($theme, 'font-family', 'default')};
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: map.get(theme.$color, 'black-100');
+    color: map.get($theme, 'color', 'black');
   }
 
   &:focus {
-    outline: 3px solid map.get(theme.$color, 'secondary');
+    outline: 2px solid var(--ws-c-p);
     outline-offset: 2px;
   }
 }

@@ -23,7 +23,7 @@ $theme: null !default;
   @include breakpoints.up($breakpoint) {
     $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    @each $key, $value in map.get($theme, 'spacing') {
+    @each $key, $value in map.get($theme, 'spacing-print') {
       .ecl-u-ma#{$infix}-#{$key} {
         margin: $value !important;
       }
@@ -110,7 +110,7 @@ $theme: null !default;
   @include breakpoints.up($breakpoint) {
     $infix: breakpoints.infix($breakpoint, map.get($theme, 'breakpoint'));
 
-    @each $key, $value in map.get($theme, 'spacing') {
+    @each $key, $value in map.get($theme, 'spacing-print') {
       .ecl-u-pa#{$infix}-#{$key} {
         padding: $value !important;
       }

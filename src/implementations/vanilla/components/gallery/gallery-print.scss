@@ -7,9 +7,7 @@
 
 // Exposed variables
 $theme: null !default;
-
-// Internal variables
-$_overlay-background: rgba(map.get($theme, 'color', 'dark-100'), 0.9);
+$gallery: null !default;
 
 .ecl-gallery {
   margin: 0;
@@ -74,7 +72,7 @@ $_overlay-background: rgba(map.get($theme, 'color', 'dark-100'), 0.9);
 .ecl-gallery__description {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  color: map.get($theme, 'color', 'white-100');
+  color: map.get($theme, 'color', 'white');
   font: map.get($theme, 'font-print', 's');
   padding: map.get($theme, 'spacing-print', '2xs')
     map.get($theme, 'spacing-print', 'xs');
@@ -100,7 +98,7 @@ $_overlay-background: rgba(map.get($theme, 'color', 'dark-100'), 0.9);
 // Overlay
 
 .ecl-gallery__overlay {
-  background-color: $_overlay-background;
+  background-color: map.get($gallery, 'overlay-background');
   backdrop-filter: blur(25px);
   border-width: 0;
   display: none;
@@ -149,7 +147,7 @@ $_overlay-background: rgba(map.get($theme, 'color', 'dark-100'), 0.9);
     padding: map.get($theme, 'spacing-print', 'm');
 
     * {
-      color: map.get($theme, 'color', 'white-100');
+      color: map.get($theme, 'color', 'white');
     }
   }
 

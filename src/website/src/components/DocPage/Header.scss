@@ -1,32 +1,32 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
-$_header-bg-color: map.get(theme.$color, 'grey-10');
+$_header-bg-color: var(--ws-c-n-40);
 $_header-tabs-border-width: 4px;
-$_border-color: map.get(theme.$color, 'grey-100');
+$_border-color: var(--ws-c-d);
 $_border-width: 1px;
-$_border-color-hover: map.get(theme.$color, 'blue-100');
-$_border-color-focus: map.get(theme.$color, 'yellow-100');
-$_border-width-focus: 3px;
+$_border-color-hover: var(--ws-c-p);
+$_border-color-focus: var(--ws-c-p);
+$_border-width-focus: 2px;
 $_arrow-width: 2.75rem;
 
 .header {
   background-color: $_header-bg-color;
   margin: 0;
-  padding-top: map.get(theme.$spacing, '2xl');
+  padding-top: var(--ws-s-2xl);
 }
 
 .header__page-title {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font, '5xl');
+  color: var(--ws-c-d);
+  font: var(--ws-f-4xl);
   margin: 0;
-  padding-bottom: map.get(theme.$spacing, '2xl');
+  padding-bottom: var(--ws-s-2xl);
 }
 
 .header__section-header {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font, 'm');
-  margin: 0 0 map.get(theme.$spacing, 'xs');
+  color: var(--ws-c-d);
+  font: var(--ws-f-m);
+  margin: 0 0 var(--ws-s-xs);
   padding: 0;
 }
 
@@ -47,33 +47,32 @@ $_arrow-width: 2.75rem;
   border-bottom: $_header-tabs-border-width solid transparent;
   color: #000;
   display: flex;
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin-right: map.get(theme.$spacing, 'xl');
-  padding-bottom: map.get(theme.$spacing, 'xs');
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-right: var(--ws-s-xl);
+  padding-bottom: var(--ws-s-xs);
   text-decoration: none;
 }
 
 .header__tabs-item:hover,
 .header__tabs-item:focus {
-  background-color: map.get(theme.$color, 'grey-15');
+  background-color: var(--ws-c-n-40);
 }
 
 .header__tabs-item--active {
-  border-bottom: $_header-tabs-border-width solid
-    map.get(theme.$color, 'yellow-100');
+  border-bottom: $_header-tabs-border-width solid var(--ws-c-s);
 }
 
 .header__tabs-icon {
   width: 1em;
   height: 1em;
-  margin-left: map.get(theme.$spacing, 'xs');
+  margin-left: var(--ws-s-xs);
 }
 
 .select__container {
-  background-color: map.get(theme.$color, 'white-100');
+  background-color: map.get($theme, 'color', 'white');
   display: inline-flex;
-  margin-bottom: map.get(theme.$spacing, 's');
+  margin-bottom: var(--ws-s-s);
   position: relative;
   width: 100%;
 
@@ -88,15 +87,15 @@ $_arrow-width: 2.75rem;
   border: $_border-width solid $_border-color;
   border-radius: 0;
   box-sizing: border-box;
-  color: map.get(theme.$color, 'grey-100');
+  color: var(--ws-c-d);
   display: block;
-  font: map.get(theme.$font, 'm');
+  font: var(--ws-f-m);
   margin: 0;
   width: 100%;
-  padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width})
-    calc(#{map.get(theme.$spacing, 's')} - #{$_border-width});
+  padding: calc(var(--ws-s-s) - #{$_border-width})
+    calc(var(--ws-s-s) + #{$_arrow-width} - #{$_border-width})
+    calc(var(--ws-s-s) - #{$_border-width})
+    calc(var(--ws-s-s) - #{$_border-width});
   z-index: 1;
 
   &::-ms-expand {
@@ -111,12 +110,10 @@ $_arrow-width: 2.75rem;
     border-color: $_border-color-focus;
     border-width: $_border-width-focus;
     outline: none;
-    padding: calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
-      calc(
-        #{map.get(theme.$spacing, 's')} + #{$_arrow-width} - #{$_border-width-focus}
-      )
-      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus})
-      calc(#{map.get(theme.$spacing, 's')} - #{$_border-width-focus});
+    padding: calc(var(--ws-s-s) - #{$_border-width-focus})
+      calc(var(--ws-s-s) + #{$_arrow-width} - #{$_border-width-focus})
+      calc(var(--ws-s-s) - #{$_border-width-focus})
+      calc(var(--ws-s-s) - #{$_border-width-focus});
   }
 }
 
@@ -142,13 +139,13 @@ $_arrow-width: 2.75rem;
 }
 
 .select__icon-shape {
-  fill: map.get(theme.$color, 'white-100');
+  fill: map.get($theme, 'color', 'white');
   height: 1.25rem;
   transform: rotate(180deg);
   width: 1.25rem;
 }
 // stylelint-disable-next-line media-query-no-invalid
-@media screen and (min-width: map.get(theme.$breakpoint, 'm')) {
+@media screen and (min-width: map.get($theme, 'breakpoint', 'm')) {
   .select__container {
     display: none;
   }

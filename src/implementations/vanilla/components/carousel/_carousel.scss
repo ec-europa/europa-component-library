@@ -51,7 +51,7 @@ $carousel: null !default;
   position: relative;
 
   &::before {
-    background: map.get($theme, 'color', 'white-100');
+    background: map.get($theme, 'color', 'white');
     content: '';
     display: block;
     height: 100%;
@@ -171,7 +171,7 @@ $carousel: null !default;
 
   .ecl-carousel__prev,
   .ecl-carousel__next {
-    background-color: map.get($theme, 'color', 'white-100');
+    background-color: map.get($theme, 'color', 'white');
     color: var(--c-d);
     display: block;
     position: absolute;
