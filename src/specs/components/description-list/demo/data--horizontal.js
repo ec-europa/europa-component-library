@@ -107,5 +107,16 @@ module.exports = {
         { link: { label: 'Taxonomy item 5', path: exampleLink } },
       ],
     },
+    {
+      term: 'Tag list',
+      type: 'tag',
+      definition: [
+        { tag: { label: 'Link tag 1', path: exampleLink } },
+        { tag: { label: 'Link tag 2', path: exampleLink } },
+        { tag: { label: 'Link tag 3', path: exampleLink } },
+        { tag: { label: 'Link tag 4', path: exampleLink } },
+        { tag: { label: 'Link tag 5', path: exampleLink } },
+      ],
+    },
   ],
 };

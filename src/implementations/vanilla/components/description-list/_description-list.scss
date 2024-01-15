@@ -52,6 +52,7 @@ $description-list: null !default;
   margin-inline-start: var(--s-m);
 }
 
+// Links
 .ecl-description-list__definition--link {
   align-items: flex-start;
   display: flex;
@@ -78,6 +79,7 @@ $description-list: null !default;
   }
 }
 
+// Inline links
 .ecl-description-list__definition--inline {
   display: inline-block;
   margin-bottom: calc(-1 * var(--s-xs));
@@ -105,6 +107,29 @@ $description-list: null !default;
   }
 }
 
+// Tag
+.ecl-description-list__definition--tag {
+  display: inline-block;
+  margin-bottom: calc(-1 * var(--s-xs));
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--tag .ecl-description-list__definition-item {
+  display: inline-block;
+  margin-inline-end: var(--s-xs);
+  margin-bottom: var(--s-xs);
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
+  }
+}
+
+// Taxonomy
 .ecl-description-list__definition--taxonomy {
   color: map.get($description-list, 'taxonomy-color');
   display: inline-block;
