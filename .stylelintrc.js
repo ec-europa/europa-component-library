@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-standard-scss',
-    'stylelint-config-prettier',
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-standard-scss'],
   rules: {
     // Prevent percentages, they break in cssnano
     'alpha-value-notation': 'number',
