@@ -114,6 +114,20 @@
     </div>
   </div>
 
+  {% include '@ecl/button/button.html.twig' with {
+    hide_label: true,
+    label: _sr_previous,
+    type: 'button',
+    variant: 'ghost',
+    extra_classes: 'ecl-carousel__prev',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-270',
+    },
+  } only %}
+
   <div class="ecl-carousel__container">
     <div class="ecl-carousel__slides" id="ecl-carousel-slider">
     {% for item in _items %}
@@ -130,20 +144,7 @@
     {% endfor %}
     </div>
   </div>
-
-  {% include '@ecl/button/button.html.twig' with {
-    hide_label: true,
-    label: _sr_previous,
-    type: 'button',
-    variant: 'ghost',
-    extra_classes: 'ecl-carousel__prev',
-    icon: {
-      path: _icon_path,
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-270',
-    },
-  } only %}
+  
   {% include '@ecl/button/button.html.twig' with {
     hide_label: true,
     label: _sr_next,
