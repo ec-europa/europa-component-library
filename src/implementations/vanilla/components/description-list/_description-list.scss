@@ -41,7 +41,7 @@ $description-list: null !default;
 .ecl-description-list__definition,
 %ecl-description-list__definition {
   color: map.get($description-list, 'definition-color');
-  font: var(--f-m);
+  font: map.get($description-list, 'definition-font');
   margin-inline-start: 0;
   margin-top: var(--s-2xs);
   max-width: var(--max-w);
