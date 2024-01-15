@@ -119,6 +119,7 @@ export class Select {
     this.selectMultipleId = null;
     this.multiple =
       queryOne(this.selectMultipleSelector, this.element.parentNode) || false;
+    this.onToggleCallback = null;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -711,6 +712,18 @@ export class Select {
       this.shouldHandleClick = false;
       this.select.classList.toggle('ecl-select--active');
     }
+
+    if (this.onToggleCallback) {
+      this.onToggleCallback();
+    }
+  }
+
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  get onToggle() {
+    return this.onToggleCallback;
   }
 
   /**
