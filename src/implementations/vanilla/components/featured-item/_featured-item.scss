@@ -33,12 +33,16 @@ $featured-item: null !default;
 }
 
 .ecl-featured-item__title {
+  margin: 0;
+  padding: map.get($featured-item, 'title-spacing');
+}
+
+.ecl-featured-item__title-content {
   color: map.get($featured-item, 'title-color');
+  display: inline-block;
   font: map.get($featured-item, 'title-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin: 0;
   max-width: var(--max-w);
-  padding: map.get($featured-item, 'title-spacing');
 }
 
 .ecl-featured-item__description {
@@ -117,4 +121,31 @@ $featured-item: null !default;
       padding: map.get($featured-item, 'highlight', 'padding-desktop');
     }
   }
+}
+
+// Footer
+.ecl-featured-item__footer {
+  justify-content: space-between;
+  background-color: var(--c-p);
+  display: flex;
+  padding: var(--s-l);
+}
+
+.ecl-featured-item__footer-content {
+  align-self: center;
+}
+
+.ecl-featured-item__footer-description {
+  color: map.get($theme, 'color', 'white');
+  font: var(--f-m);
+}
+
+.ecl-featured-item__footer-link {
+  margin-top: var(--s-2xs);
+}
+
+.ecl-featured-item__footer-picture img {
+  display: block;
+  margin-inline-start: var(--s-xl);
+  max-width: 100px;
 }
