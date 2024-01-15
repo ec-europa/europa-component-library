@@ -3,7 +3,6 @@ module.exports = {
     'stylelint-config-standard',
     'stylelint-config-standard-scss',
     'stylelint-config-css-modules',
-    'stylelint-config-prettier',
   ],
   rules: {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['use'] }],
