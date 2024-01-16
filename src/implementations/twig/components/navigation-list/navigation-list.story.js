@@ -126,16 +126,18 @@ Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
-export const Icons = (_, { loaded: { component } }) => component;
+export const Illustration = (_, { loaded: { component } }) => component;
 
-Icons.render = async (args) => {
+Illustration.render = async (args) => {
   const renderedNavigationList = await navigationList(
     prepareData(dataIllustration, args),
   );
   return renderedNavigationList;
 };
 
-Icons.storyName = 'with illustration';
-Icons.args = getArgs(dataIllustration);
-Icons.argTypes = getArgTypes(dataIllustration);
-Icons.parameters = { notes: { markdown: notes, json: dataIllustration } };
+Illustration.storyName = 'with illustration';
+Illustration.args = getArgs(dataIllustration);
+Illustration.argTypes = getArgTypes(dataIllustration);
+Illustration.parameters = {
+  notes: { markdown: notes, json: dataIllustration },
+};
