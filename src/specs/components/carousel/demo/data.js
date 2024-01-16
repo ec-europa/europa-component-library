@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  sr_description: 'Carousel description here',
   items: [
     {
       title: 'Lorem ipsum dolor sit amet',
