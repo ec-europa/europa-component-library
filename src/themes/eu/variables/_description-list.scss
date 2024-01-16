@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$description-list: (
+  term-color: var(--c-d-140),
+  term-font: var(--f-l),
+  term-margin-bottom: var(--s-xs),
+  term-margin-top: var(--s-m),
+  definition-color: var(--c-d-140),
+  separator-color: var(--c-p),
+  taxonomy-color: var(--c-d-80),
+  term-width: 210px,
+);
+$description-list-print: (
+  term-width: 32%,
+  definition-width: 68%,
+);
