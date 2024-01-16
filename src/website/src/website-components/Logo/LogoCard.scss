@@ -2,8 +2,8 @@
 @use '@ecl/theme-ec/theme' as *;
 
 %card {
-  align-items: flex-start;
-  border: 2px solid transparent;
+  align-items: center;
+  border: 1px solid transparent;
   box-sizing: border-box;
   display: flex;
   flex-basis: 14.5rem;
@@ -11,7 +11,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
-  margin: var(--ws-s-s) var(--ws-s-s) 0 0;
+  margin: var(--ws-s-xs) var(--ws-s-xs) 0 0;
   max-width: 14.5rem;
   padding: var(--ws-s-s);
 }
@@ -29,14 +29,15 @@
   @extend %card;
 
   background-color: var(--ws-c-d);
-  border-color: var(--ws-c-n-60);
+  border-color: var(--ws-c-d);
   color: map.get($theme, 'color', 'white');
 }
 
 .title {
+  box-sizing: border-box;
   font: var(--ws-f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: var(--ws-s-s) 0 0;
+  padding: 0;
   text-align: center;
   width: 100%;
 }
@@ -44,5 +45,4 @@
 .logo {
   height: auto;
   max-width: 100%;
-  margin: 0 auto;
 }
