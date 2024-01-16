@@ -19,6 +19,7 @@
 
 {# Internal properties #}
 
+{% set _variant = variant|default('') %}
 {% set _border = border ?? true %}
 {% set _image = image|default({}) %}
 {% set _title = title|default({}) %}
@@ -41,6 +42,10 @@
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}
 {% endif %}
 
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-navigation-list__item--illustration' %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -57,14 +62,7 @@
 
 {# Print the result #}
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-{% if _icon is not empty and _icon.name is not empty and _icon.path is not empty %}
-  <div class="ecl-navigation-list__item-icon">
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: _icon|merge({ size: 'l' }),
-      extra_classes: "ecl-navigation-list__icon",
-    } only %}
-  </div>
-{% elseif _picture.img is not empty %}
+{% if _picture.img is not empty %}
   {% include '@ecl/picture/picture.html.twig' with {
     picture: _picture,
     extra_classes: "ecl-navigation-list__picture",

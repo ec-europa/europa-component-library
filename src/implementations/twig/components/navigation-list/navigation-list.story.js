@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
-import dataIcon from '@ecl/specs-component-navigation-list/demo/data-icon';
+import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
 import navigationList from './navigation-list.html.twig';
 import notes from './README.md';
@@ -130,12 +130,12 @@ export const Icons = (_, { loaded: { component } }) => component;
 
 Icons.render = async (args) => {
   const renderedNavigationList = await navigationList(
-    prepareData(dataIcon, args),
+    prepareData(dataIllustration, args),
   );
   return renderedNavigationList;
 };
 
-Icons.storyName = 'with icons';
-Icons.args = getArgs(dataIcon);
-Icons.argTypes = getArgTypes(dataIcon);
-Icons.parameters = { notes: { markdown: notes, json: dataIcon } };
+Icons.storyName = 'with illustration';
+Icons.args = getArgs(dataIllustration);
+Icons.argTypes = getArgTypes(dataIllustration);
+Icons.parameters = { notes: { markdown: notes, json: dataIllustration } };
