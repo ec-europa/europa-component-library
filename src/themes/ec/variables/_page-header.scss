@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$page-header: (
+  meta-color: var(--c-d),
+  meta-font: var(--f-m),
+  meta-separator-color: var(--c-p),
+  title-color: var(--c-d),
+  title-font: var(--f-4xl),
+  description-color: var(--c-d),
+  description-font: var(--f-l),
+);
+$page-header-print: (
+  meta-font: map.get($font-print, 'm'),
+  title-font: map.get($font-print, '4xl'),
+  description-font: map.get($font-print, 'l'),
+);
