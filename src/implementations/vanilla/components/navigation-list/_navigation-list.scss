@@ -83,7 +83,7 @@ $navigation-list: null !default;
   border-radius: 100px 0 100px 100px;
   top: var(--s-xs);
   right: var(--s-xs);
-  background: #e0e5f5;
+  background: var(--c-n-60, #e0e5f5);
   height: 60px;
   width: 60px;
 
@@ -98,7 +98,8 @@ $navigation-list: null !default;
   }
 
   + .ecl-navigation-list__content-block .ecl-content-block__title {
-    margin-right: 2.5rem;
+    margin-bottom: var(--s-l);
+    margin-right: 3.5rem;
   }
 }
 
