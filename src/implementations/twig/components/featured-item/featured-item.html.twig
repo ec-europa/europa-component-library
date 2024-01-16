@@ -92,7 +92,7 @@
   </div>
 
   {% if _footer_description is not empty or _footer_link is not empty or _footer_picture is not empty %}
-  <div class="ecl-featured-item__footer">
+  <footer class="ecl-featured-item__footer">
     <div class="ecl-featured-item__footer-content">
       {% if _footer_description is not empty %}
         <div class="ecl-featured-item__footer-description">{{ _footer_description }}</div>
@@ -113,7 +113,7 @@
         extra_classes: 'ecl-featured-item__footer-picture',
       } only %}
     {% endif %}
-  </div>
+  </footer>
   {% endif %}
 </article>
 {% endapply %}
