@@ -108,9 +108,13 @@ $featured-item-print: null !default;
 .ecl-featured-item__footer {
   align-items: center;
   justify-content: space-between;
-  background-color: var(--c-p);
+  background-color: var(--c-br);
   display: flex;
-  padding: map.get($theme, 'spacing-print', 'l');
+  padding: map.get($theme, 'spacing-print', 'xl');
+
+  .ecl-featured-item__footer-content {
+    max-width: var(--max-w);
+  }
 
   .ecl-featured-item__footer-description {
     color: map.get($theme, 'color', 'white');
@@ -119,11 +123,12 @@ $featured-item-print: null !default;
 
   .ecl-featured-item__footer-link {
     color: map.get($theme, 'color', 'white');
-    margin-top: map.get($theme, 'spacing-print', '2xs');
+    margin-top: map.get($theme, 'spacing-print', 'm');
   }
 
   .ecl-featured-item__footer-picture img {
     display: block;
-    max-width: 100px;
+    max-width: 210px;
+    min-width: 72px;
   }
 }
