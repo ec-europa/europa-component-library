@@ -10,12 +10,10 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {};
-  args.show_border = true;
-  if (data.items[0].picture) {
-    args.show_image = true;
-  }
+  args.show_image = true;
   args.show_description = true;
   if (data.items[0].links) {
+    args.show_border = true;
     args.show_links = true;
   }
   args.column = 2;
@@ -27,27 +25,15 @@ const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
-  argTypes.show_border = {
-    name: 'border',
+  argTypes.show_image = {
+    name: 'image',
     type: 'boolean',
-    description: 'Show border',
+    description: 'Show image',
     table: {
       type: 'boolean',
-      defaultValue: { summary: false },
       category: 'Optional',
     },
   };
-  if (data.items[0].picture) {
-    argTypes.show_image = {
-      name: 'image',
-      type: 'boolean',
-      description: 'Show image',
-      table: {
-        type: 'boolean',
-        category: 'Optional',
-      },
-    };
-  }
   argTypes.show_description = {
     name: 'description',
     type: 'boolean',
@@ -59,6 +45,16 @@ const getArgTypes = (data) => {
   };
 
   if (data.items[0].links) {
+    argTypes.show_border = {
+      name: 'border',
+      type: 'boolean',
+      description: 'Show border',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Optional',
+      },
+    };
     argTypes.show_links = {
       name: 'links',
       type: 'boolean',
@@ -102,7 +98,7 @@ const prepareData = (data, args) => {
   }
 
   // Other controls
-  clone.border = args.show_border;
+  clone.border = 'show_border' in args ? args.show_border : true;
   clone.column = args.column;
 
   return clone;
