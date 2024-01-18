@@ -29,4 +29,25 @@ module.exports = {
     description:
       'Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing.<br />@Copyright',
   },
+  footer_description:
+    'Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.',
+  footer_link: {
+    link: {
+      path: exampleLink,
+      label: 'See more',
+      icon_position: 'after',
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'corner-arrow',
+      size: 'xs',
+      transform: 'rotate-90',
+    },
+  },
+  footer_picture: {
+    img: {
+      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+      alt: 'Image alt text',
+    },
+  },
 };

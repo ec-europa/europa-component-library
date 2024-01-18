@@ -148,6 +148,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Featured item
 
 - Variant `extended` has been renamed `highlight` to be consistent with other components
+- New parameters `footer_description`, `footer_link` and `footer_picture` to handle a new section below the featured item
+- Markup updated for the title, with a new `<span>`
 
 ### File
 

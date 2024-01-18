@@ -12,12 +12,19 @@ const mediaContainer = { ...demoData.media_container };
 const getArgs = (data) => {
   const args = {
     show_media: true,
+    show_footer: true,
     title: data.title,
     description: data.description,
     position: 'left',
   };
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
+  }
+  if (data.footer_link.link.label) {
+    args.footer_link_label = data.footer_link.link.label;
+  }
+  if (data.footer_description) {
+    args.footer_description = data.footer_description;
   }
 
   return args;
@@ -31,7 +38,16 @@ const getArgTypes = (data) => {
     name: 'show media',
     description: 'Toggle media visility',
     table: {
-      category: 'Content',
+      category: 'Optional',
+    },
+  };
+
+  argTypes.show_footer = {
+    type: 'boolean',
+    name: 'show footer',
+    description: 'Toggle footer visility',
+    table: {
+      category: 'Optional',
     },
   };
 
@@ -68,6 +84,34 @@ const getArgTypes = (data) => {
     };
   }
 
+  if (data.footer_link.link.label) {
+    argTypes.footer_link_label = {
+      name: 'footer link label',
+      type: { name: 'string' },
+      description: 'Label of the footer link',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_footer' },
+    };
+  }
+
+  if (data.footer_description) {
+    argTypes.footer_description = {
+      name: 'footer description',
+      type: { name: 'string' },
+      description: 'Label of the footer description',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_footer' },
+    };
+  }
+
   argTypes.position = {
     type: { name: 'select' },
     description: 'Alignment inside featured item',
@@ -88,16 +132,26 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  if (data.link.link.label) {
-    data.link.link.label = args.link_label;
+  const clone = JSON.parse(JSON.stringify(data));
+
+  if (clone.link.link.label) {
+    clone.link.link.label = args.link_label;
   }
   if (args.show_media) {
-    data.media_container = mediaContainer;
+    clone.media_container = mediaContainer;
   } else {
-    delete data.media_container;
+    delete clone.media_container;
   }
 
-  return Object.assign(correctPaths(data), args);
+  if (!args.show_footer) {
+    delete clone.footer_description;
+    delete clone.footer_link;
+    delete clone.footer_picture;
+  } else {
+    clone.footer_link.link.label = args.footer_link_label;
+  }
+
+  return Object.assign(correctPaths(clone), args);
 };
 
 export default {
