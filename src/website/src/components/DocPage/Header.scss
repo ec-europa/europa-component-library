@@ -1,8 +1,8 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as *;
 
-$_header-bg-color: var(--ws-c-n-40);
-$_header-tabs-border-width: 4px;
+$_header-bg-color: map.get($color, 'white');
+$_header-tabs-border-width: 2px;
 $_border-color: var(--ws-c-d);
 $_border-width: 1px;
 $_border-color-hover: var(--ws-c-p);
@@ -44,23 +44,23 @@ $_arrow-width: 2.75rem;
 }
 
 .header__tabs-item {
-  border-bottom: $_header-tabs-border-width solid transparent;
-  color: #000;
+  border-bottom: $_header-tabs-border-width solid var(--ws-c-n-60);
+  color: var(--ws-c-d);
   display: flex;
   font: var(--ws-f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-right: var(--ws-s-xl);
-  padding-bottom: var(--ws-s-xs);
+  padding: var(--ws-s-xs) var(--ws-s-m);
   text-decoration: none;
 }
 
 .header__tabs-item:hover,
 .header__tabs-item:focus {
   background-color: var(--ws-c-n-40);
+  border-bottom-color: var(--ws-c-d-80);
 }
 
 .header__tabs-item--active {
-  border-bottom: $_header-tabs-border-width solid var(--ws-c-s);
+  border-bottom-color: var(--ws-c-p);
+  font-weight: map.get($theme, 'font-weight', 'bold');
 }
 
 .header__tabs-icon {

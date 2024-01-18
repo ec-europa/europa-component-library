@@ -50,7 +50,7 @@ const Navigation = React.memo(
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
         )}
-        <h2 className={styles.title}>Europa Component Library</h2>
+        <div className={styles.title}>Europa Component Library</div>
       </header>
       <ul className={styles['system-list']}>
         <li className={styles['system-list-item']}>

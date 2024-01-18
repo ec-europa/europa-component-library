@@ -1,8 +1,21 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
 .thumbnail {
+  background-color: map.get($color, 'white');
   border: 1px solid var(--ws-c-n-60);
   display: block;
   padding: var(--ws-s-m);
   text-decoration: none;
+
+  &:hover {
+    border-color: map.get($theme, 'color', 'black');
+  }
+
+  &:focus,
+  &:active {
+    outline-offset: -2px;
+  }
 }
 
 .title {
