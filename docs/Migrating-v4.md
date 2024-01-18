@@ -239,6 +239,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Navigation list
 
 - `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items and it's now by default set to `true`.
+- `variant` parameter has been added, it can be set to `illustration` to get the image on the right in the tear drop container.
 
 ### Page header
 
