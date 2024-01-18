@@ -182,6 +182,7 @@ $description-list: null !default;
   .ecl-description-list--horizontal,
   %ecl-description-list {
     display: grid;
+    column-gap: var(--s-xl);
     grid-template-columns: map.get($description-list, 'term-width') fit-content(
         var(--max-w)
       );
@@ -198,7 +199,6 @@ $description-list: null !default;
     .ecl-description-list__definition,
     %ecl-description-list__definition {
       align-items: flex-start;
-      margin-inline-start: var(--s-xl);
       margin-top: var(--s-xl);
       overflow-wrap: break-word;
     }
