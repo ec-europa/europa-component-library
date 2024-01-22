@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$content-block: (
+  description-margin: var(--s-s) 0 var(--s-m),
+  description-font: var(--f-p-m),
+  label-item-spacing: 0 var(--s-xs) var(--s-xs) 0,
+  label-spacing: 0 0 var(--s-xs),
+  link-separator-color: var(--c-p-20),
+  link-font: var(--f-p-m),
+  list-margin: var(--s-l) 0 0,
+  primary-meta-color: var(--c-d-140),
+  primary-meta-margin: var(--s-xs) 0 calc(var(--s-xs) * -1),
+  secondary-meta-color: var(--c-d-80),
+  secondary-meta-icon-color: var(--c-p-60),
+  secondary-meta-margin: var(--s-m) 0 var(--s-xl),
+  text-color: var(--c-d-140),
+  title-font: var(--f-xl),
+  title-font-weight: map.get($font-weight, 'normal'),
+  title-margin: var(--s-xs) 0 var(--s-s),
+);

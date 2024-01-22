@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$datepicker: (
+  input-icon-color: var(--c-d-75),
+  picker: (
+    border-radius: 2px,
+    shadow: var(--sh-6),
+    theme-color: var(--c-d),
+    margin-top: var(--s-2xs),
+    padding: var(--s-m),
+    background-color: map.get($color, 'white'),
+    title-padding: var(--s-2xs),
+    select-border: 1px solid var(--c-d-80),
+    table-spacing: 0,
+    thead-margin: var(--s-2xs),
+    day-hover-background: var(--c-p-20),
+    day-hover-shadow: inset 0 0 0 1px var(--c-d-80),
+    day-selected-background: var(--c-p),
+    day-outside-color: var(--c-d-80),
+    day-outside-background: map.get($color, 'white'),
+    day-today-color: var(--c-p),
+  ),
+);

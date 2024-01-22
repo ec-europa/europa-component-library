@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$featured-item: (
+  padding: 0,
+  border: none,
+  border-radius: map.get($border-radius, 'm'),
+  shadow: none,
+  media-padding-mobile: 0 0 var(--s-m) 0,
+  media-padding-desktop: 0 var(--s-m) var(--s-m) 0,
+  media-padding-right: 0 0 var(--s-m) var(--s-m),
+  title-color: var(--c-d-140),
+  title-font: var(--f-p-l),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-spacing: 0,
+  description-color: var(--c-d-80),
+  description-font: var(--f-p-m),
+  description-spacing: var(--s-s) 0 0 0,
+  link-spacing: var(--s-m) 0 0 0,
+  highlight: (
+    container-background: var(--c-p-10),
+    title-background: transparent,
+    item-background: transparent,
+    padding-mobile: var(--s-m) var(--s-m) var(--s-m) var(--s-xs),
+    padding-desktop: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
+    border-size: 8px,
+    border-color: var(--c-p),
+    title-spacing: 0,
+    description-spacing: var(--s-s) 0 0 0,
+  ),
+);
+$featured-item-print: (
+  media-padding-desktop: 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm') 0,
+  media-padding-right: 0 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm'),
+  title-font: map.get($font-prolonged-print, 'l'),
+  title-font-weight: map.get($font-weight-print, 'bold'),
+  description-font: map.get($font-prolonged-print, 'm'),
+  description-spacing: map.get($spacing-print, 's') 0 0 0,
+  link-spacing: map.get($spacing-print, 'm') 0 0 0,
+  highlight: (
+    padding-desktop: map.get($spacing-print, 'm') map.get($spacing-print, 'm')
+      map.get($spacing-print, 'm') map.get($spacing-print, 'l'),
+    description-spacing: map.get($spacing-print, 's') 0 0 0,
+  ),
+);

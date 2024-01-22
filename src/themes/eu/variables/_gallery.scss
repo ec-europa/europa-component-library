@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$gallery: (
+  actions-margin: var(--s-m),
+  actions-margin-desktop: var(--s-m),
+  counter-font-weight: map.get($font-weight, 'bold'),
+  description-background: color-mix(in srgb, var(--c-d) 65%, transparent),
+  detail-color: map.get($color, 'white'),
+  gallery-info-color: var(--c-d-140),
+  overlay-background: color-mix(in srgb, var(--c-d) 90%, transparent),
+  overlay-radius: 8px,
+  overlay-shadow: var(--sh-3),
+);

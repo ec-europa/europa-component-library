@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$date-block: (
+  background-color-cancelled: var(--c-d-20),
+  background-color-default: var(--c-p),
+  background-color-ongoing: var(--c-p),
+  background-color-past: var(--c-d-20),
+  background-color-rescheduled: var(--c-p),
+  outline-color-cancelled: transparent,
+  outline-color-default: transparent,
+  outline-color-ongoing: transparent,
+  outline-color-past: transparent,
+  border-radius: map.get($border-radius, 'xl'),
+  circle-width: 10px,
+  max-height: none,
+  padding-top: 0,
+  shadow: var(--sh-1),
+  shadow-decoration: var(--sh-i-1),
+  text-color: map.get($color, 'white'),
+  text-color-inverted: var(--c-d-140),
+  text-white-space: normal,
+  width-desktop: 6rem,
+  width-mobile: 5rem,
+  day: (
+    padding-mobile: var(--s-xs) var(--s-2xs),
+    padding-desktop: var(--s-s) var(--s-2xs) var(--s-xs) var(--s-2xs),
+    line-height: map.get($line-height, '2xl'),
+    text-size: map.get($font-size, '2xl'),
+  ),
+  month: (
+    padding-mobile: 0 var(--s-2xs) var(--s-xs) var(--s-2xs),
+    padding-desktop: 0 var(--s-2xs) var(--s-s) var(--s-2xs),
+    line-height: map.get($line-height, 'm'),
+    text-size: map.get($font-size, 'm'),
+  ),
+  year: (
+    padding-mobile: var(--s-2xs),
+    padding-desktop: var(--s-xs) var(--s-2xs),
+    weight: map.get($font-weight, 'regular'),
+    background-color: map.get($color, 'white'),
+    text-color: var(--c-d-140),
+  ),
+);
