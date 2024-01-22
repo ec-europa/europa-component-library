@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$table: (
+  table-color: var(--c-d-140),
+  head-border: none,
+  head-background: var(--c-p-5),
+  header-border: 2px solid var(--c-p-60),
+  header-separator-mobile: 2px solid var(--c-p-60),
+  header-seprator-desktop: none,
+  header-group-separator: 1px solid var(--c-p-20),
+  header-padding: var(--s-m),
+  row-border: 1px solid var(--c-p-20),
+  cell-separator: none,
+  cell-padding-mobile: var(--s-s),
+  cell-padding-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
+  cell-margin-mobile: calc(-1 * var(--s-s)) var(--s-s) calc(-1 * var(--s-s))
+    calc(-1 * var(--s-s)),
+  zebra-background: var(--c-p-5),
+  multi-head-background: var(--c-p-5),
+  multi-head-background-empty: map.get($color, 'white'),
+  multi-head-position: var(--s-s),
+  sort-icon-color: var(--c-p-80),
+  sort-icon-color-active: var(--c-p-140),
+  sort-icon-spacing: -12px,
+  sort-arrow-top: var(--s-xs),
+  sort-arrow-left: var(--s-xs),
+);

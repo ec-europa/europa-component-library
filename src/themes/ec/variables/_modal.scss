@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$modal: (
+  overlay: var(--c-ov-l),
+  border-radius: map.get($border-radius, 's'),
+  shadow: var(--sh-16),
+  font: var(--f-m),
+  separator: none,
+  header: (
+    font: var(--f-l),
+    padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
+    padding-desktop: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
+  ),
+  close-margin: calc(-1 * var(--s-xl)) calc(-1 * var(--s-xl)) 0 0,
+  body: (
+    padding-mobile: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
+    padding-desktop: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
+    padding-last-child: var(--s-3xl),
+  ),
+  footer: (
+    padding-mobile: 0 var(--s-3xl) var(--s-3xl),
+    padding-desktop: 0 var(--s-3xl) var(--s-3xl),
+  ),
+);

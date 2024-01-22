@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$card: (
+  border-radius: map.get($border-radius, 'xl'),
+  shadow: var(--sh-1),
+  border: none,
+  border-bottom: none,
+  body-padding: var(--s-l),
+  yellow-bar: true,
+);
