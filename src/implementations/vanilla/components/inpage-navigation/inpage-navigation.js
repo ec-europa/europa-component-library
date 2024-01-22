@@ -73,6 +73,8 @@ export class InpageNavigation {
     this.gumshoe = null;
     this.observer = null;
     this.stickyObserver = null;
+    this.onToggleCallback = null;
+    this.onClickCallback = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -351,6 +353,26 @@ export class InpageNavigation {
     } else {
       currentList.classList.add('ecl-inpage-navigation__list--visible');
     }
+
+    if (this.onToggleCallback) {
+      this.onToggleCallback();
+    }
+  }
+
+  /**
+   * Sets the callback function to be executed on toggle.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onToggle() {
+    return this.onToggleCallback;
   }
 
   /**
@@ -362,6 +384,26 @@ export class InpageNavigation {
 
     currentList.classList.remove('ecl-inpage-navigation__list--visible');
     togglerElement.setAttribute('aria-expanded', 'false');
+
+    if (this.onClickCallback) {
+      this.onClickCallback();
+    }
+  }
+
+  /**
+   * Sets the callback function to be executed on click.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onClick(callback) {
+    this.onClickCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for click events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onClick() {
+    return this.onClickCallback;
   }
 
   /**
