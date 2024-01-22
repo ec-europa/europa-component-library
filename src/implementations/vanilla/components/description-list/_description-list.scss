@@ -139,6 +139,7 @@ $description-list: null !default;
 .ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item {
   display: inline;
+  font: map.get($description-list, 'taxonomy-font');
   margin-inline-end: calc(var(--s-xs) + 2px);
   padding-inline-start: calc(var(--s-xs) + 2px);
   position: relative;
