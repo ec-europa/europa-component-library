@@ -37,6 +37,7 @@ export class Banner {
       attachResizeListener = true,
       defaultRatio = '4/1',
       maxIterations = 10,
+      ctaClickCallback = false,
     } = {},
   ) {
     // Check element
@@ -54,6 +55,10 @@ export class Banner {
     this.bannerImage = this.bannerPicture
       ? queryOne('img', this.bannerPicture)
       : false;
+    this.bannerCTA = this.bannerPicture
+      ? queryOne('.ecl-banner__cta', this.element)
+      : false;
+    this.ctaClickCallback = ctaClickCallback;
     this.breakpoint = breakpoint;
     this.defaultRatio = defaultRatio;
     this.attachResizeListener = attachResizeListener;
@@ -81,6 +86,18 @@ export class Banner {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    if (this.bannerCTA) {
+      this.bannerCTA.addEventListener('click', (event) => {
+        if (
+          this.ctaClickCallback &&
+          typeof this.ctaClickCallback === 'function'
+        ) {
+          this.ctaClickCallback(event);
+        }
+      });
+    }
+
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
