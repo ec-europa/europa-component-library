@@ -123,7 +123,7 @@ export class Tabs {
       // Create the "more" dropdown and clone existing list items
       this.dropdown = document.createElement('div');
       this.dropdown.classList.add('ecl-tabs__dropdown');
-      this.dropdownList = document.createElement('ul');
+      this.dropdownList = document.createElement('div');
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
         this.dropdownList.appendChild(item.cloneNode(true));
