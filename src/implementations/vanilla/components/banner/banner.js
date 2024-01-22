@@ -10,6 +10,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
+ * @param {Function} options.ctaClickCallback Custom user callback on click on the CTA button
  */
 export class Banner {
   /**
@@ -37,7 +38,7 @@ export class Banner {
       attachResizeListener = true,
       defaultRatio = '4/1',
       maxIterations = 10,
-      ctaClickCallback = false,
+      ctaClickCallback = null,
     } = {},
   ) {
     // Check element

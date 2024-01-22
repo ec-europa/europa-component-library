@@ -16,6 +16,8 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.spyTrigger
  * @param {Number} options.spyOffset
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Function} options.onToggleCallback Custom user callback on toggle
+ * @param {Function} options.onClickCallback Custom user callback on click
  */
 export class InpageNavigation {
   /**
@@ -48,6 +50,8 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       contentClass = 'ecl-inpage-navigation__heading--active',
+      onToggleCallback = null,
+      onClickCallback = null,
     } = {},
   ) {
     // Check element
@@ -65,6 +69,8 @@ export class InpageNavigation {
     this.linksSelector = linksSelector;
     this.inPageList = inPageList;
     this.spyActiveContainer = spyActiveContainer;
+    this.onToggleCallback = onToggleCallback;
+    this.onClickCallback = onClickCallback;
     this.spySelector = spySelector;
     this.spyOffset = spyOffset;
     this.spyClass = spyClass;
@@ -73,8 +79,6 @@ export class InpageNavigation {
     this.gumshoe = null;
     this.observer = null;
     this.stickyObserver = null;
-    this.onToggleCallback = null;
-    this.onClickCallback = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);

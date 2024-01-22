@@ -6,6 +6,7 @@ import { queryAll, queryOne } from '@ecl/dom-utils';
  * @param {String} options.toggleSelector Selector for toggling element
  * @param {String} options.iconSelector Selector for icon element
  * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Function} options.onToggleCallback Custom user callback on toggle
  */
 export class Accordion {
   /**
@@ -29,6 +30,7 @@ export class Accordion {
       toggleSelector = '[data-ecl-accordion-toggle]',
       iconSelector = '[data-ecl-accordion-icon]',
       attachClickListener = true,
+      onToggleCallback = null,
     } = {},
   ) {
     // Check element
@@ -49,7 +51,7 @@ export class Accordion {
     this.toggles = null;
     this.forceClose = false;
     this.target = null;
-    this.onToggleCallback = null;
+    this.onToggleCallback = onToggleCallback;
 
     // Bind `this` for use in callbacks
     this.handleClickOutside = this.handleClickOutside.bind(this);

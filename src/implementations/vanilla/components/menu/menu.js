@@ -25,6 +25,8 @@ import isMobile from 'mobile-device-detect';
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Function} options.onOpenCallback Custom user callback on menu opening
+ * @param {Function} options.onCloseCallback Custom user callback on menu closing
  */
 export class Menu {
   /**
@@ -65,6 +67,8 @@ export class Menu {
       attachFocusListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
+      onCloseCallback = null,
+      onOpenCallback = null,
     } = {},
   ) {
     // Check element
@@ -97,6 +101,8 @@ export class Menu {
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.onOpenCallback = onOpenCallback;
+    this.onCloseCallback = onCloseCallback;
 
     // Private variables
     this.direction = 'ltr';
@@ -844,7 +850,27 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'false');
     this.isOpen = true;
 
+    if (this.onOpenCallback) {
+      this.onOpenCallback();
+    }
+
     return this;
+  }
+
+  /**
+   * Sets the callback function to be executed when opening the menu.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onOpen(callback) {
+    this.onOpenCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for the open event.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onOpen() {
+    return this.onOpenCallback;
   }
 
   /**
@@ -870,7 +896,27 @@ export class Menu {
 
     this.isOpen = false;
 
+    if (this.onCloseCallback) {
+      this.onCloseCallback();
+    }
+
     return this;
+  }
+
+  /**
+   * Sets the callback function to be executed when closing the menu.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onClose(callback) {
+    this.onCloseCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for the close event.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onClose() {
+    return this.onCloseCallback;
   }
 
   /**
