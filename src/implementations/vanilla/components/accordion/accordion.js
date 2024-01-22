@@ -49,6 +49,7 @@ export class Accordion {
     this.toggles = null;
     this.forceClose = false;
     this.target = null;
+    this.onToggleCallback = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -162,6 +163,26 @@ export class Accordion {
     if (event.detail > 0) {
       toggle.classList.add('ecl-accordion__toggle--active');
     }
+
+    if (this.onToggleCallback) {
+      this.onToggleCallback();
+    }
+  }
+
+  /**
+   * Sets the callback function to be executed on toggle.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onToggle() {
+    return this.onToggleCallback;
   }
 }
 
