@@ -61,10 +61,10 @@
 {% if _items is not empty and _items is iterable %}
 <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-tabs__container">
-    <ul class="ecl-tabs__list" role="tablist">
+    <div class="ecl-tabs__list" role="tablist">
       {% for _item in _items %}
         {% if _item.path is not empty %}
-          <li class="ecl-tabs__item" role="presentation">
+          <div class="ecl-tabs__item">
           {% set _item_extra_classes = 'ecl-tabs__link' %}
           {% set _item_extra_attributes = [{ name: 'role', value: 'tab' }] %}
           {% if loop.index != 1 %}
@@ -88,10 +88,10 @@
             extra_classes: _item_extra_classes,
             extra_attributes: _item_extra_attributes,
           } only %}
-          </li>
+          </div>
         {% endif %}
       {% endfor %}
-      <li class="ecl-tabs__item ecl-tabs__item--more" role="presentation">
+      <div class="ecl-tabs__item ecl-tabs__item--more">
         {% include '@ecl/button/button.html.twig' with {
           label: _more_label,
           variant: 'ghost',
@@ -106,8 +106,8 @@
           extra_classes: 'ecl-tabs__toggle',
           extra_attributes: [{ name: 'tabindex', value: '-1' }],
         } only %}
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
   <div class="ecl-tabs__controls">
     {% include '@ecl/button/button.html.twig' with {
@@ -121,8 +121,7 @@
         size: 's',
         transform: 'rotate-270',
       },
-      extra_classes: 'ecl-tabs__prev',
-      extra_attributes: [{ name: 'aria-hidden', value: 'true' }],
+      extra_classes: 'ecl-tabs__prev ecl-tabs__item--hidden',
     } only %}
     {% include '@ecl/button/button.html.twig' with {
       label: _sr_next,
@@ -135,8 +134,7 @@
         size: 's',
         transform: 'rotate-90',
       },
-      extra_classes: 'ecl-tabs__next',
-      extra_attributes: [{ name: 'aria-hidden', value: 'true' }],
+      extra_classes: 'ecl-tabs__next ecl-tabs__item--hidden',
     } only %}
   </div>
 </nav>
