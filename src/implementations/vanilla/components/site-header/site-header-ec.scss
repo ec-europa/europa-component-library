@@ -41,11 +41,8 @@ $language-list: null !default;
     padding: 0;
     position: absolute;
     right: 0;
+    top: var(--s-xs);
     width: 100%;
-  }
-
-  .ecl-menu__open {
-    margin-bottom: 5px;
   }
 
   .ecl-site-header__cta {
@@ -80,13 +77,26 @@ $language-list: null !default;
   height: map.get($site-header, 'logo-height-xs');
 }
 
+.ecl-site-header__logo-link {
+  z-index: map.get($theme, 'z-index', 'modal') + 2;
+}
+
 .ecl-site-header__action {
   display: flex;
+
+  > :first-child .ecl-button {
+    margin-inline-start: 0;
+  }
+
+  .ecl-site-header--has-menu & {
+    margin-inline-end: calc(44px + var(--s-m));
+  }
 }
 
 .ecl-site-header__login-toggle,
 .ecl-site-header__search-toggle {
   align-items: center;
+  box-sizing: border-box;
   color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
@@ -110,10 +120,13 @@ $language-list: null !default;
 }
 
 .ecl-site-header__language-selector {
+  box-sizing: border-box;
   color: map.get($site-header, 'toggle-color');
   margin-inline-start: var(--s-m);
+  position: relative;
   text-align: center;
   text-transform: uppercase;
+  z-index: map.get($theme, 'z-index', 'modal') + 2;
 
   &:focus-visible {
     color: map.get($site-header, 'toggle-color');
@@ -247,10 +260,10 @@ $language-list: null !default;
     background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
-    padding: var(--s-xs);
+    padding: var(--s-xs) 0;
 
     &:hover {
-      padding: calc(var(--s-xs) + 1px);
+      padding: calc(var(--s-xs) + 1px) 1px;
     }
 
     .ecl-icon {
@@ -351,6 +364,7 @@ $language-list: null !default;
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-icon {
     .ecl-site-header__icon {
+      flex-shrink: 0;
       height: 1rem;
       margin-inline-end: var(--s-xs);
       width: 1rem;

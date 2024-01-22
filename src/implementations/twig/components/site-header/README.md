@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-site-header
 ### Parameters
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
-- **"menu"** (boolean) (default: false): Whether the component includes a menu or not
+- **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"site_name"** (string) (default: '') Site name
@@ -64,8 +64,7 @@ npm install --save @ecl/twig-component-site-header
 ```twig
 {% include '@ecl/site-header/site-header.html.twig' with { 
   banner_top: 'Class name', 
-  banner: 'Class name', 
-  menu: true, 
+  banner: 'Class name',
   site_name: 'This site name'
   icon_path: '/icons.svg', 
   logo: { 
