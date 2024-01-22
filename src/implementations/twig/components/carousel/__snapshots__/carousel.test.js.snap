@@ -2,10 +2,124 @@
 
 exports[`Carousel Default renders correctly 1`] = `
 <jest>
-  <div
+  <section
+    aria-label="Carousel description here"
+    aria-roledescription="carousel"
     class="ecl-carousel"
     data-ecl-auto-init="Carousel"
   >
+    <div
+      class="ecl-carousel__controls"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-carousel__autoplay"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ecl-carousel__navigation"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            1
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            3
+          
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
+    >
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
     <div
       class="ecl-carousel__container"
     >
@@ -15,6 +129,7 @@ exports[`Carousel Default renders correctly 1`] = `
       >
         <div
           aria-label="slide 1 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -102,6 +217,7 @@ exports[`Carousel Default renders correctly 1`] = `
         </div>
         <div
           aria-label="slide 2 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -189,6 +305,7 @@ exports[`Carousel Default renders correctly 1`] = `
         </div>
         <div
           aria-label="slide 3 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -277,31 +394,6 @@ exports[`Carousel Default renders correctly 1`] = `
       </div>
     </div>
     <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
       class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
       type="button"
     >
@@ -326,106 +418,133 @@ exports[`Carousel Default renders correctly 1`] = `
         </svg>
       </span>
     </button>
-    <div
-      class="ecl-carousel__controls"
-    >
-      <div
-        class="ecl-container"
-      >
-        <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play"
-                />
-              </svg>
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#pause"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__navigation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            1
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            2
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            3
-          
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Carousel Default renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <section
+    aria-label="Carousel description here"
+    aria-roledescription="carousel"
     class="ecl-carousel"
     data-ecl-auto-init="Carousel"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
     <div
+      class="ecl-carousel__controls"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-carousel__autoplay"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ecl-carousel__navigation"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            1
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            3
+          
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
+    >
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
       class="ecl-carousel__container"
     >
       <div
@@ -434,6 +553,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
       >
         <div
           aria-label="slide 1 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -521,6 +641,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </div>
         <div
           aria-label="slide 2 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -608,6 +729,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </div>
         <div
           aria-label="slide 3 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -696,31 +818,6 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
       </div>
     </div>
     <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
       class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
       type="button"
     >
@@ -745,103 +842,130 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </svg>
       </span>
     </button>
-    <div
-      class="ecl-carousel__controls"
-    >
-      <div
-        class="ecl-container"
-      >
-        <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play"
-                />
-              </svg>
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#pause"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__navigation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            1
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            2
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            3
-          
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </jest>
 `;
 
 exports[`Carousel Default renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <section
+    aria-label="Carousel description here"
+    aria-roledescription="carousel"
     class="ecl-carousel custom-class custom-class--test"
     data-ecl-auto-init="Carousel"
   >
+    <div
+      class="ecl-carousel__controls"
+    >
+      <div
+        class="ecl-container"
+      >
+        <div
+          class="ecl-carousel__autoplay"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Play carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#play"
+                />
+              </svg>
+            </span>
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            type="button"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Pause carousel
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#pause"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ecl-carousel__navigation"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            1
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            2
+          
+          </button>
+          <button
+            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+          >
+            
+            3
+          
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
+      type="button"
+    >
+      <span
+        class="ecl-button__container"
+      >
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Previous slides
+        </span>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#corner-arrow"
+          />
+        </svg>
+      </span>
+    </button>
     <div
       class="ecl-carousel__container"
     >
@@ -851,6 +975,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
       >
         <div
           aria-label="slide 1 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -938,6 +1063,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </div>
         <div
           aria-label="slide 2 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -1025,6 +1151,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </div>
         <div
           aria-label="slide 3 of 3"
+          aria-roledescription="slide"
           class="ecl-carousel__slide"
           role="group"
         >
@@ -1113,31 +1240,6 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
       </div>
     </div>
     <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
       class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
       type="button"
     >
@@ -1162,93 +1264,6 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </svg>
       </span>
     </button>
-    <div
-      class="ecl-carousel__controls"
-    >
-      <div
-        class="ecl-container"
-      >
-        <div
-          class="ecl-carousel__autoplay"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Play carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play"
-                />
-              </svg>
-            </span>
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                Pause carousel
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-button__icon ecl-carousel__icon-default"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#pause"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-        <div
-          class="ecl-carousel__navigation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            1
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            2
-          
-          </button>
-          <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
-          >
-            
-            3
-          
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </jest>
 `;

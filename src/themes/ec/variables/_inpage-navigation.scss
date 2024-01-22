@@ -1,0 +1,96 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$inpage-toggle-width: calc(var(--s-s) + var(--s-s) + var(--s-s));
+$inpage-navigation: (
+  align: right,
+  border-radius: 0,
+  shadow: none,
+  title: (
+    'background': transparent,
+    'color': var(--c-d),
+    'font': var(--f-s),
+    'text-transform': uppercase,
+    'padding': var(--s-s) var(--s-m),
+  ),
+  item: (
+    'background': transparent,
+    'background-active': var(--c-n-80),
+    'background-hover': map.get($color, 'white'),
+    'border': (
+      'end': (
+        'default': 4px solid var(--c-n),
+        'hover': 4px solid var(--c-n),
+        'active': 4px solid var(--c-p),
+      ),
+      'start': (
+        'active': (
+          'l': none,
+          's': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+    ),
+    'padding': (
+      'default': (
+        's': var(--s-xs) var(--s-m),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+      'active': (
+        's': var(--s-xs) var(--s-m) var(--s-xs) calc(var(--s-m) - 4px),
+        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
+      ),
+    ),
+    'separator': (
+      's': none,
+      'l': none,
+    ),
+    'font-weight': (
+      's': map.get($font-weight, 'regular'),
+      'l': map.get($font-weight, 'regular'),
+    ),
+    'color': (
+      's': var(--c-d),
+      'l': var(--c-d),
+    ),
+    'color-active': var(--c-d),
+    'text-decoration-hover': underline,
+  ),
+  trigger: (
+    'background': map.get($color, 'white'),
+    'border': 1px solid var(--c-d-80),
+    'border-focus': 2px solid var(--c-p),
+    'border-radius': 2px,
+    'color': var(--c-d),
+    'font': var(--f-m),
+    'font-weight': map.get($font-weight, 'regular'),
+    'margin': 0 auto,
+    'padding': calc(var(--s-xs) - 1px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 1px)
+      calc(var(--s-m) - 1px),
+    'padding-focus': calc(var(--s-xs) - 2px)
+      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
+      calc(var(--s-m) - 2px),
+    'background-wrapper': map.get($color, 'white'),
+    'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
+    'padding-wrapper': var(--s-s) var(--s-m),
+    'shadow': var(--sh-6),
+    'separator': none,
+    'width': calc(100% - #{map.get($grid, 'gutter')}),
+  ),
+  list: (
+    'background': (
+      's': map.get($color, 'white'),
+      'l': transparent,
+    ),
+    'shadow': (
+      's': var(--sh-6),
+      'l': none,
+    ),
+  ),
+  outline: (
+    'color': var(--c-p),
+    'color-active': var(--c-p),
+    'offset': -2px,
+  ),
+);

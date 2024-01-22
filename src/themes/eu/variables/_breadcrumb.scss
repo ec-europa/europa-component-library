@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../index' as *;
+
+// stylelint-disable length-zero-no-unit
+$breadcrumb: (
+  padding-vertical: var(--s-m),
+  font-mobile: var(--f-p-m),
+  font-desktop: var(--f-p-m),
+  line-height: map.get($line-height-prolonged, 'm'),
+  last-link-color: var(--c-d-80),
+  icon-color: var(--c-d-80),
+  icon-spacing: var(--s-xs),
+  ghost-override: true,
+  ellipsis: (
+    background: var(--c-p-5),
+    background-hover: var(--c-p-10),
+    font-weight: map.get($font-weight, 'bold'),
+    offset-vertical: 0px,
+    offset-horizontal: 0px,
+  ),
+);
+// stylelint-enable length-zero-no-unit

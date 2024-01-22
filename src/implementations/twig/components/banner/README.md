@@ -8,8 +8,8 @@ npm install --save @ecl/twig-component-banner
 
 ### Parameters
 
-- **"variant"** (string) (default: 'plain-background') Variant of banner
-  (can be 'plain-background', 'text-box', 'text-overlay',)
+- **"variant"** (string) (default: 'plain-background') Variant of the banner
+  (can be 'plain-background', 'text-box', 'text-overlay')
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"title"** (string) (default: '') Title of banner
 - **"picture"** (associative array) (default: {}): Image for the banner, following ECL Picture structure

@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$accordion: (
+  item-background: transparent,
+  item-background-hover: var(--c-n-60),
+  border-color: var(--c-n-60),
+  item-padding: var(--s-xl),
+  text-color: var(--c-d),
+  title-text-color: var(--c-d),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
+);
+$accordion-print: (
+  toggle-background: transparent,
+  toggle-color: var(--c-d),
+  toggle-font: map.get($font-print, 'l'),
+  content-color: var(--c-d),
+  content-font: map.get($font-print, 'm'),
+);

@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$list-illustration: (
+  title-color: var(--c-d),
+  description-color: var(--c-d),
+  background-color: var(--c-n-40),
+  value-font-mobile: var(--f-2xl),
+  title-font: var(--f-l),
+  value-font-weight-mobile: map.get($font-weight, 'regular'),
+  value-font-desktop: var(--f-3xl),
+  value-font-weight-desktop: map.get($font-weight, 'regular'),
+  icon-color: var(--c-d),
+);
+$list-illustration-print: (
+  value-font-mobile: map.get($font-print, '3xl'),
+  value-font-weight-mobile: map.get($font-weight-print, 'bold'),
+  value-font-desktop: map.get($font-print, '4xl'),
+  value-font-weight-desktop: map.get($font-weight-print, 'bold'),
+);

@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$list: (
+  unordered: (
+    marker: '—',
+    sublist-marker: square,
+  ),
+  ordered: (
+    marker: decimal,
+    sublist-marker: lower-latin,
+  ),
+  text-color: var(--c-d),
+  divider-color: var(--c-n),
+);
