@@ -322,6 +322,8 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 - Button for "more" is now a `ghost` button, and icon is now size `s`
 - A container has been added for the dropdown list
+- Markup is using `div` instead of HTML list, to avoid issue reported by accessibility tools
+- Display/hide of elements is now done using the css class `ecl-tabs__item--hidden` (twig, css and js updated)
 
 ### Tag
 
