@@ -1,6 +1,7 @@
 /* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
+import EventManager from '@ecl/event-manager';
 import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
 import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
 import iconSvgAllCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/all/corner-arrow.svg';
@@ -76,6 +77,7 @@ export class Select {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.selectMultipleSelector = selectMultipleSelector;
@@ -560,6 +562,14 @@ export class Select {
     ECL.components.set(this.element, this);
   }
 
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
   /**
    * Destroy component.
    */
@@ -713,9 +723,7 @@ export class Select {
       this.select.classList.toggle('ecl-select--active');
     }
 
-    if (this.onToggleCallback) {
-      this.onToggleCallback();
-    }
+    this.trigger('onToggle', e);
   }
 
   /**

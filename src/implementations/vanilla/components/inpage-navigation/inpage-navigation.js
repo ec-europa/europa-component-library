@@ -1,6 +1,7 @@
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -16,8 +17,6 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.spyTrigger
  * @param {Number} options.spyOffset
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
- * @param {Function} options.onToggleCallback Custom user callback on toggle
- * @param {Function} options.onClickCallback Custom user callback on click
  */
 export class InpageNavigation {
   /**
@@ -50,8 +49,6 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       contentClass = 'ecl-inpage-navigation__heading--active',
-      onToggleCallback = null,
-      onClickCallback = null,
     } = {},
   ) {
     // Check element
@@ -62,6 +59,8 @@ export class InpageNavigation {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
+
     this.attachClickListener = attachClickListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
@@ -69,8 +68,6 @@ export class InpageNavigation {
     this.linksSelector = linksSelector;
     this.inPageList = inPageList;
     this.spyActiveContainer = spyActiveContainer;
-    this.onToggleCallback = onToggleCallback;
-    this.onClickCallback = onClickCallback;
     this.spySelector = spySelector;
     this.spyOffset = spyOffset;
     this.spyClass = spyClass;
@@ -329,6 +326,14 @@ export class InpageNavigation {
     ECL.components.set(this.element, this);
   }
 
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
   /**
    * Update scroll spy instance.
    */
@@ -358,9 +363,7 @@ export class InpageNavigation {
       currentList.classList.add('ecl-inpage-navigation__list--visible');
     }
 
-    if (this.onToggleCallback) {
-      this.onToggleCallback();
-    }
+    this.trigger('onToggle', e);
   }
 
   /**
@@ -382,16 +385,14 @@ export class InpageNavigation {
   /**
    * Sets the necessary attributes to collapse inpage navigation list.
    */
-  handleClickOnLink() {
+  handleClickOnLink(e) {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
     currentList.classList.remove('ecl-inpage-navigation__list--visible');
     togglerElement.setAttribute('aria-expanded', 'false');
 
-    if (this.onClickCallback) {
-      this.onClickCallback();
-    }
+    this.trigger('onClick', e);
   }
 
   /**

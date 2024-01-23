@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -10,7 +11,6 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
- * @param {Function} options.ctaClickCallback Custom user callback on click on the CTA button
  */
 export class Banner {
   /**
@@ -38,7 +38,6 @@ export class Banner {
       attachResizeListener = true,
       defaultRatio = '4/1',
       maxIterations = 10,
-      ctaClickCallback = null,
     } = {},
   ) {
     // Check element
@@ -49,6 +48,8 @@ export class Banner {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
+
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
@@ -59,7 +60,6 @@ export class Banner {
     this.bannerCTA = this.bannerPicture
       ? queryOne('.ecl-banner__cta', this.element)
       : false;
-    this.ctaClickCallback = ctaClickCallback;
     this.breakpoint = breakpoint;
     this.defaultRatio = defaultRatio;
     this.attachResizeListener = attachResizeListener;
@@ -89,19 +89,36 @@ export class Banner {
     }
 
     if (this.bannerCTA) {
-      this.bannerCTA.addEventListener('click', (event) => {
-        if (
-          this.ctaClickCallback &&
-          typeof this.ctaClickCallback === 'function'
-        ) {
-          this.ctaClickCallback(event);
-        }
-      });
+      this.bannerCTA.addEventListener('click', (e) => this.handleCtaClick(e));
     }
 
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
+   * Sets the callback function to be executed on click.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onCtaClick(callback) {
+    this.onCtaClickCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onCtaClick() {
+    return this.onCtaClickCallback;
   }
 
   /**
@@ -192,6 +209,22 @@ export class Banner {
     this.resizeTimer = setTimeout(() => {
       this.checkViewport();
     }, 200);
+  }
+
+  /**
+   * Triggers a custom event when clicking on the cta.
+   *
+   * @param {e} Event
+   */
+  handleCtaClick(e) {
+    let href = null;
+    const anchor = e.target.closest('a');
+    if (anchor) {
+      href = anchor.getAttribute('href');
+    }
+
+    const eventData = { item: this.bannerCTA, target: href || e.target };
+    this.trigger('onCtaClick', eventData);
   }
 
   /**

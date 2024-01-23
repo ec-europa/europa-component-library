@@ -13,6 +13,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.nextSelector Selector for next element
  * @param {Boolean} options.attachClickListener
  * @param {Boolean} options.attachResizeListener
+ * @param {Function} options.onToggleCallback User callback to be run on toggle
  */
 export class Tabs {
   /**
@@ -43,6 +44,7 @@ export class Tabs {
       nextSelector = '.ecl-tabs__next',
       attachClickListener = true,
       attachResizeListener = true,
+      onToggleCallback = null,
     } = {},
   ) {
     // Check element
@@ -65,6 +67,7 @@ export class Tabs {
     this.nextSelector = nextSelector;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
+    this.onToggleCallback = onToggleCallback;
 
     // Private variables
     this.container = null;
@@ -269,6 +272,26 @@ export class Tabs {
       'aria-expanded',
       this.dropdown.classList.contains('ecl-tabs__dropdown--show'),
     );
+
+    if (this.onToggleCallback) {
+      this.onToggleCallback();
+    }
+  }
+
+  /**
+   * Sets the callback function to be executed on toggle.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onToggle() {
+    return this.onToggleCallback;
   }
 
   /**

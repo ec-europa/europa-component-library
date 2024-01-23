@@ -1,6 +1,6 @@
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
-
+import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
 
 /**
@@ -25,8 +25,6 @@ import isMobile from 'mobile-device-detect';
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
- * @param {Function} options.onOpenCallback Custom user callback on menu opening
- * @param {Function} options.onCloseCallback Custom user callback on menu closing
  */
 export class Menu {
   /**
@@ -79,6 +77,7 @@ export class Menu {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.openSelector = openSelector;
@@ -314,6 +313,14 @@ export class Menu {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -850,9 +857,7 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'false');
     this.isOpen = true;
 
-    if (this.onOpenCallback) {
-      this.onOpenCallback();
-    }
+    this.trigger('onOpen', e);
 
     return this;
   }
@@ -876,7 +881,7 @@ export class Menu {
   /**
    * Close menu list.
    */
-  handleClickOnClose() {
+  handleClickOnClose(e) {
     this.element.setAttribute('aria-expanded', 'false');
 
     // Remove css class and attribute from inner menu
@@ -895,10 +900,7 @@ export class Menu {
     }
 
     this.isOpen = false;
-
-    if (this.onCloseCallback) {
-      this.onCloseCallback();
-    }
+    this.trigger('onClose', e);
 
     return this;
   }
