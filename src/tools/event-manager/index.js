@@ -11,20 +11,13 @@ export class EventManager {
   }
 
   trigger(eventName, eventData) {
-    if (this.events.has(eventName)) {
-      const callbacks = this.events.get(eventName);
+    const callbacks = this.events.get(eventName);
+
+    if (callbacks) {
       callbacks.forEach((callback) => {
         callback(eventData);
       });
     }
-  }
-
-  /**
-   * Get the list of supported events.
-   * @returns {Array} - An array of supported events.
-   */
-  getSupportedEvents() {
-    return Object.keys(this.eventCallbacks);
   }
 }
 

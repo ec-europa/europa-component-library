@@ -34,6 +34,14 @@ export class InpageNavigation {
     return inpageNavigation;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof InpageNavigation
+   */
+  supportedEvents = ['onToggle', 'onClick'];
+
   constructor(
     element,
     {
@@ -76,6 +84,7 @@ export class InpageNavigation {
     this.gumshoe = null;
     this.observer = null;
     this.stickyObserver = null;
+    this.isExpanded = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -326,10 +335,32 @@ export class InpageNavigation {
     ECL.components.set(this.element, this);
   }
 
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof InpageNavigation
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * inpage.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
   on(eventName, callback) {
     this.eventManager.on(eventName, callback);
   }
 
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof InpageNavigation
+   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }
@@ -353,21 +384,25 @@ export class InpageNavigation {
     e.preventDefault();
 
     // Get current status
-    const isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
+    this.isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    togglerElement.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-    if (isExpanded) {
+    togglerElement.setAttribute(
+      'aria-expanded',
+      this.isExpanded ? 'false' : 'true',
+    );
+    if (this.isExpanded) {
       currentList.classList.remove('ecl-inpage-navigation__list--visible');
     } else {
       currentList.classList.add('ecl-inpage-navigation__list--visible');
     }
 
-    this.trigger('onToggle', e);
+    this.trigger('onToggle', { isExpanded: this.isExpanded });
   }
 
   /**
    * Sets the callback function to be executed on toggle.
+   *
    * @param {Function} callback - The callback function to be set.
    */
   set onToggle(callback) {
@@ -376,6 +411,7 @@ export class InpageNavigation {
 
   /**
    * Gets the callback function set for toggle events.
+   *
    * @returns {Function|null} - The callback function, or null if not set.
    */
   get onToggle() {
@@ -384,19 +420,33 @@ export class InpageNavigation {
 
   /**
    * Sets the necessary attributes to collapse inpage navigation list.
+   *
+   * @param {Event} e
    */
   handleClickOnLink(e) {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
+    const { href } = e.target;
+    let heading = null;
+
+    if (href) {
+      const id = href.split('#')[1];
+
+      if (id) {
+        heading = queryOne(`#${id}`, document);
+      }
+    }
 
     currentList.classList.remove('ecl-inpage-navigation__list--visible');
     togglerElement.setAttribute('aria-expanded', 'false');
 
-    this.trigger('onClick', e);
+    const eventData = { target: heading || href, e };
+    this.trigger('onClick', eventData);
   }
 
   /**
    * Sets the callback function to be executed on click.
+   *
    * @param {Function} callback - The callback function to be set.
    */
   set onClick(callback) {
@@ -405,6 +455,7 @@ export class InpageNavigation {
 
   /**
    * Gets the callback function set for click events.
+   *
    * @returns {Function|null} - The callback function, or null if not set.
    */
   get onClick() {

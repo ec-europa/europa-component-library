@@ -28,6 +28,14 @@ export class Banner {
     return banner;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Banner
+   */
+  supportedEvents = ['onCtaClick'];
+
   constructor(
     element,
     {
@@ -97,10 +105,33 @@ export class Banner {
     ECL.components.set(this.element, this);
   }
 
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Banner
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onCtaClick' event
+   * banner.on('onCtaClick', (event) => {
+   *   console.log('The cta was clicked', event);
+   * });
+   */
   on(eventName, callback) {
     this.eventManager.on(eventName, callback);
   }
 
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Banner
+   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }

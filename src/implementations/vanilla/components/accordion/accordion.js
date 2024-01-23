@@ -24,6 +24,14 @@ export class Accordion {
     return accordion;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Accordion
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
@@ -84,10 +92,33 @@ export class Accordion {
     ECL.components.set(this.element, this);
   }
 
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Accordion
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'click' event
+   * accordion.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
   on(eventName, callback) {
     this.eventManager.on(eventName, callback);
   }
 
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Accordion
+   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }

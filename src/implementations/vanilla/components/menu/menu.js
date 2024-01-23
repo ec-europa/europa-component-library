@@ -42,6 +42,14 @@ export class Menu {
     return menu;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Menu
+   */
+  supportedEvents = ['onOpen', 'onClose'];
+
   constructor(
     element,
     {
@@ -315,10 +323,32 @@ export class Menu {
     ECL.components.set(this.element, this);
   }
 
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Menu
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onOpen' event
+   * menu.on('onOpen', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
   on(eventName, callback) {
     this.eventManager.on(eventName, callback);
   }
 
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Menu
+   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }
