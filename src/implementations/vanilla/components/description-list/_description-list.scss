@@ -48,8 +48,8 @@ $description-list: null !default;
 }
 
 .ecl-description-list__see_more {
-  display: inline;
-  margin-inline-start: var(--s-m);
+  display: block;
+  margin-top: var(--s-xs);
 }
 
 // Links
@@ -59,8 +59,6 @@ $description-list: null !default;
   flex-direction: column;
 
   .ecl-description-list__see_more {
-    display: inline-block;
-    margin-inline-start: 0;
     margin-top: var(--s-m);
   }
 }
