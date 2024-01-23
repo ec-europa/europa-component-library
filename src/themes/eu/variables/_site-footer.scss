@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$site-footer: (
+  background: var(--c-p-5),
+  color: var(--c-d-140),
+  shadow: var(--sh-2),
+  separator-color: var(--c-p-20),
+  column-gap: map.get($grid-gutter-width, 'xl'),
+);

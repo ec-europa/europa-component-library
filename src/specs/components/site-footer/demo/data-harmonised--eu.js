@@ -46,18 +46,36 @@ module.exports = {
               link: {
                 label: 'Social 1',
                 path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                path: '/icon-social-media.svg',
+                name: 'facebook',
+                size: 'xs',
               },
             },
             {
               link: {
                 label: 'Social 2',
                 path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                path: '/icon-social-media.svg',
+                name: 'twitter',
+                size: 'xs',
               },
             },
             {
               link: {
                 label: 'Social 3',
                 path: exampleLink,
+                icon_position: 'before',
+              },
+              icon: {
+                path: '/icon-social-media.svg',
+                name: 'mastodon',
+                size: 'xs',
               },
             },
           ],

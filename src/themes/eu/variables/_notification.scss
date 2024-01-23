@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$notification: (
+  radius: 4px,
+  padding: var(--s-l) var(--s-xs) var(--s-l) var(--s-l),
+  border-width: 0,
+  border-color: transparent,
+  font: var(--f-p-m),
+  color: var(--c-d-80),
+  title-font: var(--f-p-m),
+  title-font-weight: map.get($font-weight, 'bold'),
+  title-spacing: var(--s-xs),
+  close-color: var(--c-p),
+  close-offset: calc(var(--s-s) - var(--s-m)),
+  close-override: true,
+  info: (
+    background: var(--c-in-5),
+    color: var(--c-in),
+  ),
+  success: (
+    background: var(--c-su-5),
+    color: var(--c-su),
+  ),
+  warning: (
+    background: var(--c-wa-5),
+    color: var(--c-wa),
+  ),
+  error: (
+    background: var(--c-er-5),
+    color: var(--c-er),
+  ),
+);
+$notification-print: (
+  padding: map.get($spacing-print, 'l') map.get($spacing-print, 'xs')
+    map.get($spacing-print, 'l') map.get($spacing-print, 'l'),
+  font: map.get($font-prolonged-print, 'm'),
+  title-font: map.get($font-prolonged-print, 'm'),
+  title-spacing: map.get($spacing-print, 'xs'),
+);

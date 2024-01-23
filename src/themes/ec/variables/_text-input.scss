@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$text-input: (
+  radius: 2px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-focus: var(--c-p),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er),
+  border-color-invalid-focus: var(--c-er),
+  color-input: var(--c-d),
+  color-placeholder: var(--c-d-60),
+  shadow: none,
+  shadow-hover: none,
+  padding-vertical: var(--s-xs),
+  padding-horizontal: var(--s-m),
+);
