@@ -893,22 +893,6 @@ export class Menu {
   }
 
   /**
-   * Sets the callback function to be executed when opening the menu.
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onOpen(callback) {
-    this.onOpenCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for the open event.
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onOpen() {
-    return this.onOpenCallback;
-  }
-
-  /**
    * Close menu list.
    */
   handleClickOnClose(e) {
@@ -933,22 +917,6 @@ export class Menu {
     this.trigger('onClose', e);
 
     return this;
-  }
-
-  /**
-   * Sets the callback function to be executed when closing the menu.
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onClose(callback) {
-    this.onCloseCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for the close event.
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onClose() {
-    return this.onCloseCallback;
   }
 
   /**

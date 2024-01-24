@@ -137,22 +137,6 @@ export class Banner {
   }
 
   /**
-   * Sets the callback function to be executed on click.
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onCtaClick(callback) {
-    this.onCtaClickCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for toggle events.
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onCtaClick() {
-    return this.onCtaClickCallback;
-  }
-
-  /**
    * Retrieve the value of the aspect ratio in the styles.
    */
   waitForAspectRatioToBeDefined() {

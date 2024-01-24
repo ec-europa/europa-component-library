@@ -800,22 +800,6 @@ export class Select {
   }
 
   /**
-   * Sets the callback function to be executed on toggle.
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onToggle(callback) {
-    this.onToggleCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for toggle events.
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onToggle() {
-    return this.onToggleCallback;
-  }
-
-  /**
    * @param {Event} e
    */
   handleClickOption(e) {

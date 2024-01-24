@@ -210,22 +210,6 @@ export class Accordion {
       toggle.classList.add('ecl-accordion__toggle--active');
     }
   }
-
-  /**
-   * Sets the callback function to be executed on toggle.
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onToggle(callback) {
-    this.onToggleCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for toggle events.
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onToggle() {
-    return this.onToggleCallback;
-  }
 }
 
 export default Accordion;

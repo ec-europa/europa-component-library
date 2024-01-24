@@ -401,24 +401,6 @@ export class InpageNavigation {
   }
 
   /**
-   * Sets the callback function to be executed on toggle.
-   *
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onToggle(callback) {
-    this.onToggleCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for toggle events.
-   *
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onToggle() {
-    return this.onToggleCallback;
-  }
-
-  /**
    * Sets the necessary attributes to collapse inpage navigation list.
    *
    * @param {Event} e
@@ -442,24 +424,6 @@ export class InpageNavigation {
 
     const eventData = { target: heading || href, e };
     this.trigger('onClick', eventData);
-  }
-
-  /**
-   * Sets the callback function to be executed on click.
-   *
-   * @param {Function} callback - The callback function to be set.
-   */
-  set onClick(callback) {
-    this.onClickCallback = callback;
-  }
-
-  /**
-   * Gets the callback function set for click events.
-   *
-   * @returns {Function|null} - The callback function, or null if not set.
-   */
-  get onClick() {
-    return this.onClickCallback;
   }
 
   /**
