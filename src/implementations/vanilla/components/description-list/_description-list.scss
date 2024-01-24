@@ -41,25 +41,24 @@ $description-list: null !default;
 .ecl-description-list__definition,
 %ecl-description-list__definition {
   color: map.get($description-list, 'definition-color');
-  font: var(--f-m);
+  font: map.get($description-list, 'definition-font');
   margin-inline-start: 0;
   margin-top: var(--s-2xs);
   max-width: var(--max-w);
 }
 
 .ecl-description-list__see_more {
-  display: inline;
-  margin-inline-start: var(--s-m);
+  display: block;
+  margin-top: var(--s-xs);
 }
 
+// Links
 .ecl-description-list__definition--link {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
 
   .ecl-description-list__see_more {
-    display: inline-block;
-    margin-inline-start: 0;
     margin-top: var(--s-m);
   }
 }
@@ -78,6 +77,7 @@ $description-list: null !default;
   }
 }
 
+// Inline links
 .ecl-description-list__definition--inline {
   display: inline-block;
   margin-bottom: calc(-1 * var(--s-xs));
@@ -105,6 +105,29 @@ $description-list: null !default;
   }
 }
 
+// Tag
+.ecl-description-list__definition--tag {
+  display: inline-block;
+  margin-bottom: calc(-1 * var(--s-xs));
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--tag .ecl-description-list__definition-item {
+  display: inline-block;
+  margin-inline-end: var(--s-xs);
+  margin-bottom: var(--s-xs);
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
+  }
+}
+
+// Taxonomy
 .ecl-description-list__definition--taxonomy {
   color: map.get($description-list, 'taxonomy-color');
   display: inline-block;
@@ -157,6 +180,7 @@ $description-list: null !default;
   .ecl-description-list--horizontal,
   %ecl-description-list {
     display: grid;
+    column-gap: var(--s-xl);
     grid-template-columns: map.get($description-list, 'term-width') fit-content(
         var(--max-w)
       );
@@ -173,7 +197,6 @@ $description-list: null !default;
     .ecl-description-list__definition,
     %ecl-description-list__definition {
       align-items: flex-start;
-      margin-inline-start: var(--s-2xl);
       margin-top: var(--s-xl);
       overflow-wrap: break-word;
     }

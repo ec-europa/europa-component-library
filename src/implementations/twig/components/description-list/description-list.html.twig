@@ -6,7 +6,7 @@
         {
           "term" (string or array of string)
           "definition" (block or array of string or array of ECL Link or array of ECL Tag)
-          "type" (string): type of data (text, link, taxonomy)
+          "type" (string): type of data, if not plain text; could be "link", "link-inline", "taxonomy", "tag"
         },
         ...
       ]
@@ -130,6 +130,24 @@
                 <li class="ecl-description-list__definition-item">
                 {% include '@ecl/link/link.html.twig' with _definition|merge({
                   link: _definition.link|merge({ type: 'standalone' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
+            </dd>
+
+          {# tags #}
+          {% elseif _item.type is not empty and _item.type == 'tag' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--tag">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}  
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/tag/tag.html.twig' with _definition|merge({
+                  tag: _definition.tag|merge({ type: 'link' }),
                 }) only %}
                 </li>
               {% endfor %}

@@ -206,6 +206,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 #### Description list
 
 - Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+- Items definition can now contain an array of `tag`
 
 ### Menu
 
