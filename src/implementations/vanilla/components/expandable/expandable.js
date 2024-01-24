@@ -114,7 +114,6 @@ export class Expandable {
    * @param {Function} callback - The callback function to be invoked when the event occurs.
    * @returns {void}
    * @memberof Expandable
-   * @instance
    *
    * @example
    * // Registering a callback for the 'onToggle' event
@@ -126,13 +125,6 @@ export class Expandable {
     this.eventManager.on(eventName, callback);
   }
 
-  /**
-   * Trigger a component event.
-   *
-   * @param {string} eventName - The name of the event to trigger.
-   * @param {any} eventData - Data associated with the event.
-   * @memberof Select
-   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }
@@ -152,8 +144,6 @@ export class Expandable {
 
   /**
    * Toggles between collapsed/expanded states.
-   *
-   * @param {Event} e.
    */
   handleClickOnToggle(e) {
     // Get current status
