@@ -252,6 +252,9 @@ export class Banner {
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
     }
+    if (this.bannerCTA) {
+      this.bannerCTA.removeEventListener('click', this.handleCtaClick);
+    }
   }
 }
 
