@@ -582,7 +582,7 @@ export class Select {
    *
    * @example
    * // Registering a callback for the 'onToggle' event
-   * inpage.on('onToggle', (event) => {
+   * select.on('onToggle', (event) => {
    *   console.log('Toggle event occurred!', event);
    * });
    */
