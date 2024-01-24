@@ -56,7 +56,7 @@ export class Select {
    * @type {Array<string>}
    * @memberof Select
    */
-  supportedEvents = ['onToggle'];
+  supportedEvents = ['onToggle', 'onSelection', 'onAllSelection'];
 
   constructor(
     element,
@@ -129,6 +129,7 @@ export class Select {
     this.selectMultipleId = null;
     this.multiple =
       queryOne(this.selectMultipleSelector, this.element.parentNode) || false;
+    this.isOpen = false;
 
     // Bind `this` for use in callbacks
     this.updateCurrentValue = this.updateCurrentValue.bind(this);
@@ -150,6 +151,7 @@ export class Select {
     this.handleKeyboardOnClearAll = this.handleKeyboardOnClearAll.bind(this);
     this.handleKeyboardOnClose = this.handleKeyboardOnClose.bind(this);
     this.updateSelectionsCount = this.updateSelectionsCount.bind(this);
+    this.setCurrentValue = this.setCurrentValue.bind(this);
   }
 
   /**
@@ -706,6 +708,44 @@ export class Select {
     }
   }
 
+  /**
+   * Set the selected value(s) programmatically.
+   *
+   * @param {string | Array<string>} values - A string or an array of values or labels to set as selected.
+   * @param {string} [op='replace'] - The operation mode. Use 'add' to keep the previous selections.
+   * @throws {Error} Throws an error if an invalid operation mode is provided.
+   *
+   * @example
+   * // Replace current selection with new values
+   * setCurrentValue(['value1', 'value2']);
+   *
+   * // Add to current selection without clearing previous selections
+   * setCurrentValue(['value3', 'value4'], 'add');
+   *
+   */
+  setCurrentValue(values, op = 'replace') {
+    if (op !== 'replace' && op !== 'add') {
+      throw new Error('Invalid operation mode. Use "replace" or "add".');
+    }
+
+    const valuesArray = typeof values === 'string' ? [values] : values;
+
+    Array.from(this.select.options).forEach((option) => {
+      if (op === 'replace') {
+        option.selected = false;
+      }
+      if (
+        valuesArray.includes(option.value) ||
+        valuesArray.includes(option.label)
+      ) {
+        option.selected = true;
+      }
+    });
+
+    this.updateCurrentValue();
+    this.updateSelectionsCount();
+  }
+
   updateCurrentValue() {
     const optionSelected = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
@@ -723,6 +763,7 @@ export class Select {
       this.label.removeAttribute('aria-label');
     }
 
+    this.trigger('onSelection', { selection: optionSelected });
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
@@ -737,9 +778,11 @@ export class Select {
       if (this.searchContainer.style.display === 'none') {
         this.searchContainer.style.display = 'block';
         this.input.setAttribute('aria-expanded', true);
+        this.isOpen = true;
       } else {
         this.searchContainer.style.display = 'none';
         this.input.setAttribute('aria-expanded', false);
+        this.isOpen = false;
       }
     } else if (e.type === 'click' && !this.shouldHandleClick) {
       this.shouldHandleClick = true;
@@ -752,7 +795,8 @@ export class Select {
       this.select.classList.toggle('ecl-select--active');
     }
 
-    this.trigger('onToggle', e);
+    const eventData = { opened: this.isOpen, e };
+    this.trigger('onToggle', eventData);
   }
 
   /**
@@ -827,6 +871,7 @@ export class Select {
 
     this.updateCurrentValue();
     this.updateSelectionsCount();
+    this.trigger('onAllSelection', e);
   }
 
   /**
