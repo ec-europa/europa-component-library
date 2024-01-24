@@ -1,0 +1,38 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$language-list: (
+  color: var(--c-d-140),
+  container-padding: var(--s-2xl) var(--s-l) var(--s-l),
+  header-font-mobile: var(--f-p-l),
+  header-font-desktop: var(--f-p-xl),
+  content-margin-mobile: var(--s-m),
+  content-margin-desktop: var(--s-m),
+  category-title-font: var(--f-p-m),
+  category-title-font-weight: map.get($font-weight, 'bold'),
+  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-separator: 1px solid var(--c-p-20),
+  category-stack-margin: var(--s-s),
+  list-margin: 0 0 0 calc(-1 * var(--s-s)),
+  item-padding: var(--s-s),
+  code-color: var(--c-d-140),
+  code-font-weight: map.get($font-weight, 'bold'),
+  code-active-font-weight: map.get($font-weight, 'bold'),
+  code-width: 30px,
+  item-active-background: var(--c-p-10),
+  item-active-color: var(--c-d-140),
+  item-active-shadow: inset 4px 0 0 0 var(--c-p),
+  item-width: 188px,
+  column-spacing-before: var(--s-m),
+  column-spacing-after: var(--s-xl),
+);
+$language-list-print: (
+  container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
+    map.get($spacing-print, 'l'),
+  header-font-desktop: map.get($font-print, 'xl'),
+  content-margin-desktop: map.get($spacing-print, 'l'),
+  category-title-font: map.get($font-print, 'm'),
+  category-title-padding: map.get($spacing-print, 'l') 0
+    map.get($spacing-print, 'xs'),
+  item-padding: map.get($spacing-print, 's'),
+);

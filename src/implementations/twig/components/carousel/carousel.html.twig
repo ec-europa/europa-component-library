@@ -5,6 +5,9 @@
     - "items" (array) (default: []): List of banner compatible with EC Banner component structure
     - "size" (string) (default: 'm') Size of the carousel (can be 's', 'm', 'l')
     - "counter_label" (string) (default: 'of')
+    - "sr_description" (string) (default: '') screen reader description of the carousel
+    - "sr_role" (string) (default: 'carousel') screen reader localized role for the carousel
+    - "sr_slide_role" (string) (default: 'slide') screen reader localized role for the slides
     - "sr_previous" (string) (default: 'Previous slides') screen reader label for previous button
     - "sr_next" (string) (default: 'Next slides') screen reader label for next button
     - "sr_navigation" (string) (default: 'Go to slide %d') screen reader label for navigation buttons
@@ -24,9 +27,12 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-carousel' %}
-{% set _extra_attributes = 'data-ecl-auto-init="Carousel"' %}
+{% set _extra_attributes = '' %}
 {% set _items = items|default('') %}
 {% set _size = size|default('m') %}
+{% set _sr_description = sr_description|default('') %}
+{% set _sr_role = sr_role|default('carousel') %}
+{% set _sr_slide_role = sr_slide_role|default('slide') %}
 {% set _sr_previous = sr_previous|default('Previous slides') %}
 {% set _sr_next = sr_next|default('Next slides') %}
 {% set _sr_navigation = sr_navigation|default('Go to slide %d') %}
@@ -57,45 +63,17 @@
 {% endif %}
 
 {# Print the result #}
+
 {% if _items is not empty and _items is iterable %}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <div class="ecl-carousel__container">
-    <div class="ecl-carousel__slides" id="ecl-carousel-slider">
-    {% for item in _items %}
-      <div class="ecl-carousel__slide" role="group" aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}">
-        {% include '@ecl/banner/banner.html.twig' with item|merge({
-          size: _size,
-        }) only %}
-      </div>
-    {% endfor %}
-    </div>
-  </div>
-  {% include '@ecl/button/button.html.twig' with {
-    hide_label: true,
-    label: _sr_previous,
-    type: 'button',
-    variant: 'ghost',
-    extra_classes: 'ecl-carousel__prev',
-    icon: {
-      path: _icon_path,
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-270',
-    },
-  } only %}
-  {% include '@ecl/button/button.html.twig' with {
-    hide_label: true,
-    label: _sr_next,
-    type: 'button',
-    variant: 'ghost',
-    extra_classes: 'ecl-carousel__next',
-    icon: {
-      path: _icon_path,
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-90',
-    },
-  } only %}
+<section 
+  class="{{ _css_class }}"
+  data-ecl-auto-init="Carousel"
+  aria-roledescription="{{ _sr_role }}"
+  {% if _sr_description %}
+    aria-label="{{ _sr_description }}"
+  {% endif %}
+  {{- _extra_attributes|raw -}}
+>
   <div class="ecl-carousel__controls">
     <div class="ecl-container">
       <div class="ecl-carousel__autoplay">
@@ -135,6 +113,52 @@
       </div>
     </div>
   </div>
-</div>
+
+  {% include '@ecl/button/button.html.twig' with {
+    hide_label: true,
+    label: _sr_previous,
+    type: 'button',
+    variant: 'ghost',
+    extra_classes: 'ecl-carousel__prev',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-270',
+    },
+  } only %}
+
+  <div class="ecl-carousel__container">
+    <div class="ecl-carousel__slides" id="ecl-carousel-slider">
+    {% for item in _items %}
+      <div 
+        class="ecl-carousel__slide" 
+        role="group" 
+        aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}"
+        aria-roledescription="{{ _sr_slide_role }}"
+      >
+        {% include '@ecl/banner/banner.html.twig' with item|merge({
+          size: _size,
+        }) only %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  
+  {% include '@ecl/button/button.html.twig' with {
+    hide_label: true,
+    label: _sr_next,
+    type: 'button',
+    variant: 'ghost',
+    extra_classes: 'ecl-carousel__next',
+    icon: {
+      path: _icon_path,
+      name: 'corner-arrow',
+      size: 'm',
+      transform: 'rotate-90',
+    },
+  } only %}
+</section>
 {% endif %}
+
 {% endapply %}

@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$banner: (
+  content-width: 42.5rem,
+  border-color: var(--c-s),
+  border-radius: (
+    'banner': 8px,
+    'content': 4px,
+  ),
+  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  border-width: (
+    'left': 4px,
+    'bottom': 0,
+  ),
+  background: (
+    'plain-background':
+      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+    'text-box-mobile': map.get($color, 'white'),
+    'text-box-desktop': rgba(255, 255, 255, 0.9),
+    'image-overlay':
+      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+    'text-highlight':
+      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+  ),
+  overlay: (
+    'image-overlay': rgba(0, 0, 0, 0.4),
+  ),
+  text-color: (
+    'dark': var(--c-d-140),
+    'light': var(--c-d-80),
+    'inverted': map.get($color, 'white'),
+  ),
+  font: (
+    'title': (
+      'mobile': var(--f-3xl),
+      'desktop': var(--f-6xl),
+    ),
+    'description': (
+      'mobile': var(--f-l),
+      'desktop': var(--f-p-l),
+    ),
+  ),
+  font-weight: (
+    'title': map.get($font-weight, 'regular'),
+    'description': map.get($font-weight, 'regular'),
+  ),
+);
+$banner-print: (
+  cta-radius: 4px,
+);

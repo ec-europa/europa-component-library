@@ -104,6 +104,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Carousel
 
 - Buttons for carousel pagination are now placed differently, and use Button `ghost`
+- New twig parameter `sr_description`, to provide a human friendly description of the carousel. It is used mostly by screen readers
+- New twig parameters `sr_role` and `sr_slide_role`, to provide localized role for the carousel and slides tags. It is used mostly by screen readers
 
 ### Category filter
 
@@ -146,6 +148,8 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 ### Featured item
 
 - Variant `extended` has been renamed `highlight` to be consistent with other components
+- New parameters `footer_description`, `footer_link` and `footer_picture` to handle a new section below the featured item
+- Markup updated for the title, with a new `<span>`
 
 ### File
 
@@ -202,6 +206,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 #### Description list
 
 - Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+- Items definition can now contain an array of `tag`
 
 ### Menu
 
@@ -235,6 +240,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 ### Navigation list
 
 - `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items and it's now by default set to `true`.
+- `variant` parameter has been added, it can be set to `illustration` to get the image on the right in the tear drop container.
 
 ### Page header
 

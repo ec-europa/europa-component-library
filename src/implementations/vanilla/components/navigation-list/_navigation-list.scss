@@ -45,6 +45,7 @@ $navigation-list: null !default;
   border-radius: map.get($navigation-list, 'border-radius');
   box-shadow: map.get($navigation-list, 'shadow');
   box-sizing: border-box;
+  position: relative;
   overflow: hidden;
 }
 
@@ -62,7 +63,6 @@ $navigation-list: null !default;
 }
 
 // No border
-
 .ecl-navigation-list__item--no-border {
   border-radius: 0;
   border-width: 0;
@@ -75,6 +75,34 @@ $navigation-list: null !default;
   .ecl-navigation-list__content-block {
     padding-inline-start: 0;
     padding-inline-end: 0;
+  }
+}
+
+.ecl-navigation-list__item--illustration .ecl-navigation-list__picture {
+  position: absolute;
+  border-radius: 100px 0 100px 100px;
+  top: var(--s-xs);
+  right: var(--s-xs);
+  background: var(--c-n-60, #e0e5f5);
+  height: 60px;
+  width: 60px;
+
+  .ecl-navigation-list__image {
+    border: none;
+    object-fit: contain;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  + .ecl-navigation-list__content-block .ecl-content-block__title {
+    margin-right: 3.25rem;
+
+    + .ecl-content-block__description {
+      margin-right: var(--s-m);
+    }
   }
 }
 

@@ -4,9 +4,12 @@
   - "type" (optional) (can be 'highlight'),
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
-  - "link" (object) (default: ''): object of type Link
-  - "media_container" (object) (default: ''): object of type Media container
+  - "link" (object) (default: {}): object of type Link
+  - "media_container" (object) (default: {}): object of type Media container
   - "position" (object) (default: 'left'): Media position
+  - "footer_description" (string) (default: ''): short description in the footer
+  - "footer_link" (object) (default: {}): call to action link in the footer; type Link
+  - "footer_picture" (object) (default: {}): picture in the footer; type Picture
   - "extra_classes" (string) (default: ''),
   - "extra_attributes" (array) (default: []): format: [
       {
@@ -27,6 +30,9 @@
 {% set _link = link|default({}) %}
 {% set _media_container = media_container|default({}) %}
 {% set _position = position|default('left') %}
+{% set _footer_description = footer_description|default('') %}
+{% set _footer_link = footer_link|default({}) %}
+{% set _footer_picture = footer_picture|default({}) %}
 {% set _extra_attributes = '' %}
 
 {# Set class for featured item different than default #}
@@ -67,18 +73,47 @@
     </div>
   {% endif %}
     <div class="ecl-featured-item__item">
-    {% if _title is defined and _title is not empty %}
-      <div class="ecl-featured-item__title">{{ _title }}</div>
+    {% if _title is not empty %}
+      <div class="ecl-featured-item__title">
+        <span class="ecl-featured-item__title-content">
+          {{- _title -}}
+        </span>
+      </div>
     {% endif %}
-    {% if _description is defined and _description is not empty %}
+    {% if _description is not empty %}
       <div class="ecl-featured-item__description">{{ _description }}</div>
     {% endif %}
-    {% if _link is defined and _link is not empty %}
+    {% if _link is not empty %}
       {% include '@ecl/link/link.html.twig' with _link|merge({
         extra_classes: 'ecl-featured-item__link',
       }) only %}
     {% endif %}
     </div>
   </div>
+
+  {% if _footer_description is not empty or _footer_link is not empty or _footer_picture is not empty %}
+  <footer class="ecl-featured-item__footer">
+    <div class="ecl-featured-item__footer-content">
+      {% if _footer_description is not empty %}
+        <div class="ecl-featured-item__footer-description">{{ _footer_description }}</div>
+      {% endif %}
+      {% if _footer_link is not empty %}
+        {% include '@ecl/link/link.html.twig' with _footer_link|merge({
+          link: _footer_link.link|merge({
+            type: 'cta'
+          }),
+          extra_classes: 'ecl-featured-item__footer-link',
+        }) only %}
+      {% endif %}
+    </div>
+
+    {% if _footer_picture is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _footer_picture,
+        extra_classes: 'ecl-featured-item__footer-picture',
+      } only %}
+    {% endif %}
+  </footer>
+  {% endif %}
 </article>
 {% endapply %}

@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$typography: (
+  heading-color: var(--c-d),
+  text-color: var(--c-d-80),
+  heading1: (
+    'mobile': var(--f-5xl),
+    'desktop': var(--f-6xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading2: (
+    'mobile': var(--f-4xl),
+    'desktop': var(--f-5xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading3: (
+    'mobile': var(--f-3xl),
+    'desktop': var(--f-4xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading4: (
+    'mobile': var(--f-2xl),
+    'desktop': var(--f-3xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading5: (
+    'mobile': var(--f-xl),
+    'desktop': var(--f-2xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  heading6: (
+    'mobile': var(--f-p-l),
+    'desktop': var(--f-p-xl),
+    'font-weight': map.get($font-weight, 'regular'),
+  ),
+  paragraph: (
+    'xs': var(--f-p-xs),
+    's': var(--f-p-s),
+    'm': var(--f-p-m),
+    'l': (
+      'mobile': var(--f-p-l),
+      'desktop': var(--f-p-xl),
+    ),
+  ),
+);
+$typography-print: (
+  heading1: map.get($font-print, '6xl'),
+  heading2: map.get($font-print, '5xl'),
+  heading3: map.get($font-print, '4xl'),
+  heading4: map.get($font-print, '3xl'),
+  heading5: map.get($font-print, '2xl'),
+  heading6: map.get($font-prolonged-print, 'xl'),
+);

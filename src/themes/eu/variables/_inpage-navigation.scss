@@ -1,0 +1,87 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$inpage-toggle-width: calc(var(--s-s) + #{map.get($icon, 's')} + var(--s-s));
+$inpage-navigation: (
+  border-radius: 8px,
+  shadow: var(--sh-1),
+  title: (
+    'background': var(--c-p),
+    'color': map.get($color, 'white'),
+    'text-transform': none,
+    'padding': var(--s-s),
+    'font': var(--f-m),
+  ),
+  item: (
+    'background': map.get($color, 'white'),
+    'background-active': var(--c-p-10),
+    'background-hover': map.get($color, 'white'),
+    'border': (
+      'start': (
+        'active': (
+          's': 4px solid var(--c-p),
+          'l': 4px solid var(--c-p),
+        ),
+        'hover': none,
+      ),
+      'end': (
+        'active': none,
+        'hover': none,
+      ),
+    ),
+    'separator': (
+      's': 1px solid var(--c-p-10),
+      'l': 1px solid var(--c-p-10),
+    ),
+    'font-weight': (
+      's': map.get($font-weight, 'regular'),
+      'l': map.get($font-weight, 'regular'),
+    ),
+    'color': (
+      's': var(--c-p),
+      'l': var(--c-p),
+    ),
+    'color-active': var(--c-d-80),
+    'padding': (
+      'default': (
+        's': var(--s-s),
+        'l': var(--s-s),
+      ),
+      'active': (
+        's': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+        'l': var(--s-s) var(--s-s) var(--s-s) calc(var(--s-s) - 4px),
+      ),
+    ),
+    'text-decoration-hover': none,
+  ),
+  trigger: (
+    'background': var(--c-p),
+    'background-wrapper': transparent,
+    'border': none,
+    'border-focus': none,
+    'border-radius': 0 0 var(--s-xs) var(--s-xs),
+    'color': map.get($color, 'white'),
+    'font': var(--f-p-m),
+    'font-weight': map.get($font-weight, 'bold'),
+    'margin': 0,
+    'padding': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s)) var(--s-s)
+      var(--s-s),
+    'padding-focus': var(--s-s) calc(#{$inpage-toggle-width} + var(--s-s))
+      var(--s-s) var(--s-s),
+    'margin-wrapper': 0,
+    'padding-wrapper': 0,
+    'separator': none,
+    'width': 100%,
+  ),
+  list: (
+    'background': (
+      's': transparent,
+      'l': transparent,
+    ),
+  ),
+  outline: (
+    'color': var(--c-p),
+    'color-active': var(--c-p),
+    'offset': -2px,
+  ),
+);
