@@ -125,6 +125,13 @@ export class Expandable {
     this.eventManager.on(eventName, callback);
   }
 
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Expandable
+   */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
   }
