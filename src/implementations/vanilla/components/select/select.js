@@ -14,7 +14,11 @@ const iconSvgAllCornerArrow =
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**
- * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
+ * This API mostly refers to the multiple select, in the default select only three methods are actually used:
+ * handleToggle(), handleKeyboardOnSelect() and handleEsc().
+ *
+ * For the multiple select there are multiple labels contained in this component. You can set them in 2 ways:
+ * directly as a string or through data attributes.
  * Textual values have precedence and if they are not provided, then DOM data attributes are used.
  *
  * @param {HTMLElement} element DOM element for component instantiation and scope
