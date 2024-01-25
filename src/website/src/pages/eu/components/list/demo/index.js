@@ -1,4 +1,4 @@
-import demoContentUnorderedNoBullet from '@ecl/specs-component-unordered-list/demo/data--no-bullet';
+import demoContentUnorderedUnstyled from '@ecl/specs-component-unordered-list/demo/data--unstyled';
 import demoContentUnorderedText from '@ecl/specs-component-unordered-list/demo/data--text';
 import demoContentUnorderedWithDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
 
@@ -14,8 +14,8 @@ import { correctSvgPath } from '@ecl/website-utils';
 
 export const listOrdered = templateOrdered(demoContentOrdered);
 export const listUnordered = templateUnordered(demoContentUnorderedText);
-export const listUnorderedNoBullet = templateUnordered(
-  demoContentUnorderedNoBullet,
+export const listUnorderedUnstyled = templateUnordered(
+  demoContentUnorderedUnstyled,
 );
 export const listUnorderedWithDivider = templateUnordered(
   demoContentUnorderedWithDivider,
