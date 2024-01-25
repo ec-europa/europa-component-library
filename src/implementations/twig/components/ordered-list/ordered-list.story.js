@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
 import dataLink from '@ecl/specs-component-ordered-list/demo/data--link';
-import dataNoMarker from '@ecl/specs-component-ordered-list/demo/data--no-marker';
+import dataUnstyled from '@ecl/specs-component-ordered-list/demo/data--unstyled';
 import dataDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
 
 import orderedList from './ordered-list.html.twig';
@@ -99,15 +99,15 @@ Divider.parameters = {
   notes: { markdown: notes, json: dataDivider },
 };
 
-export const NoMarker = (_, { loaded: { component } }) => component;
+export const Unstyled = (_, { loaded: { component } }) => component;
 
-NoMarker.render = async (args) => {
-  const renderedListNoMarker = await renderStory(dataNoMarker, args);
-  return renderedListNoMarker;
+Unstyled.render = async (args) => {
+  const renderedListUnstyled = await renderStory(dataUnstyled, args);
+  return renderedListUnstyled;
 };
-NoMarker.storyName = 'no marker';
-NoMarker.args = getArgs(dataNoMarker);
-NoMarker.argTypes = getArgTypes(dataNoMarker);
-NoMarker.parameters = {
-  notes: { markdown: notes, json: dataNoMarker },
+Unstyled.storyName = 'unstyled';
+Unstyled.args = getArgs(dataUnstyled);
+Unstyled.argTypes = getArgTypes(dataUnstyled);
+Unstyled.parameters = {
+  notes: { markdown: notes, json: dataUnstyled },
 };

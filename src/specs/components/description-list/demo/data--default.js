@@ -94,7 +94,7 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'facebook-color',
+            name: 'facebook',
             path: '/icons-social-media.svg',
             size: 's',
           },
@@ -106,7 +106,7 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'twitter-color',
+            name: 'twitter',
             path: '/icons-social-media.svg',
             size: 's',
           },
@@ -118,7 +118,7 @@ module.exports = {
             icon_position: 'before',
           },
           icon: {
-            name: 'mastodon-color',
+            name: 'mastodon',
             path: '/icons-social-media.svg',
             size: 's',
           },
