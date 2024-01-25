@@ -878,7 +878,7 @@ export class Select {
           (el) => !el.disabled && el.parentElement.style.display !== 'none',
         );
       if (previousSiblings.length > 0) {
-        previousSiblings.pop().focus();
+        previousSiblings[previousSiblings.length - 1].focus();
       } else {
         this.optionsContainer.scrollTop = 0;
         if (!this.selectAll.querySelector('input').disabled) {
@@ -1296,17 +1296,21 @@ export class Select {
 
       case 'Tab':
         if (e.shiftKey) {
-          if (this.visibleOptions.length > 0) {
-            this.visibleOptions[this.visibleOptions.length - 1]
-              .querySelector('input')
-              .focus();
+          if (this.closeButton) {
+            this.closeButton.focus();
           } else {
-            this.search.focus();
+            // eslint-disable-next-line no-lonely-if
+            if (this.visibleOptions.length > 0) {
+              this.visibleOptions[this.visibleOptions.length - 1]
+                .querySelector('input')
+                .focus();
+            } else {
+              this.search.focus();
+            }
           }
-        } else if (this.closeButton) {
-          this.closeButton.focus();
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1337,6 +1341,7 @@ export class Select {
             .focus();
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1345,6 +1350,7 @@ export class Select {
           this.clearAllButton.focus();
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1354,9 +1360,18 @@ export class Select {
             this.clearAllButton.focus();
           } else {
             this.input.focus();
+            this.handleToggle(e);
           }
         } else {
-          this.input.focus();
+          // eslint-disable-next-line no-lonely-if
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.input.focus();
+            this.handleToggle(e);
+          }
         }
         break;
 
