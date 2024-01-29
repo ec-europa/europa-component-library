@@ -1,18 +1,12 @@
 module.exports = {
   headers: [
     [
-      { label: 'Job title' },
-      { label: 'EFSI finance approved by EIB' },
+      { label: 'Job title', rowspan: '2' },
+      { label: 'EFSI finance approved by EIB', rowspan: '2' },
       { label: 'Extra information', colspan: '2' },
-      { label: 'Location' },
+      { label: 'Location', rowspan: '2' },
     ],
-    [
-      { label: '' },
-      { label: '' },
-      { label: 'Organization' },
-      { label: 'Type of contract' },
-      { label: '' },
-    ],
+    [{ label: 'Organization' }, { label: 'Type of contract' }],
   ],
   rows: [
     {
