@@ -1,0 +1,240 @@
+/**
+ * Tabs
+ * @define tabs
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$tabs: null !default;
+
+// Internal variables
+$button-width: 44px;
+
+.ecl-tabs {
+  margin: 0 0 var(--s-xl);
+  padding: 0;
+  position: relative;
+}
+
+.ecl-tabs__container {
+  overflow-x: hidden;
+  transition-duration: 0.4s;
+}
+
+.ecl-tabs__list {
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'separator-color');
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+  transition-duration: 0.4s;
+}
+
+.ecl-tabs__container--left {
+  margin-inline-start: $button-width;
+
+  .ecl-tabs__list {
+    margin-left: -$button-width;
+  }
+}
+
+.ecl-tabs__container--right {
+  margin-inline-end: $button-width;
+}
+
+.ecl-tabs__link {
+  background-color: map.get($theme, 'color', 'white');
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'separator-color');
+  border-radius: map.get($tabs, 'item', 'border-radius');
+  color: map.get($tabs, 'item', 'color');
+  display: block;
+  font: var(--f-m);
+  margin-bottom: -#{map.get($tabs, 'separator-width')};
+  padding: map.get($tabs, 'item', 'padding');
+  text-decoration: none;
+
+  &:visited {
+    color: map.get($tabs, 'item', 'color');
+  }
+
+  &:focus-visible {
+    outline-offset: -2px;
+  }
+
+  &:hover,
+  &:visited:hover {
+    color: map.get($tabs, 'hover', 'color');
+    border-bottom-color: map.get($tabs, 'hover', 'separator-color');
+  }
+}
+
+.ecl-tabs__link--active {
+  border-bottom: map.get($tabs, 'separator-width') solid
+    map.get($tabs, 'active', 'separator-color');
+  border-inline-start: map.get($tabs, 'active', 'border-width') solid
+    map.get($tabs, 'separator-color');
+  border-inline-end: map.get($tabs, 'active', 'border-width') solid
+    map.get($tabs, 'separator-color');
+  border-top: map.get($tabs, 'active', 'highlight-width') solid
+    map.get($tabs, 'active', 'highlight-color');
+  color: map.get($tabs, 'active', 'color');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  padding-top: map.get($tabs, 'active', 'padding-top');
+
+  &:visited {
+    color: map.get($tabs, 'active', 'color');
+  }
+}
+
+.ecl-tabs__item--more {
+  align-self: center;
+  flex-grow: 1;
+  text-align: end;
+}
+
+.ecl-tabs__item {
+  &[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+.ecl-tabs__toggle {
+  font-weight: map.get($tabs, 'more', 'font-weight');
+  margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
+  position: relative;
+
+  &:hover {
+    box-shadow: none;
+  }
+  // stylelint-disable plugin/selector-bem-pattern
+  &[aria-expanded='true'] {
+    background-color: map.get($tabs, 'more', 'background-open');
+    color: map.get($tabs, 'more', 'color-open');
+
+    .ecl-button__icon {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.ecl-tabs__toggle--active {
+  border-bottom-color: map.get($tabs, 'more', 'active-separator-color');
+
+  &::before {
+    background-color: map.get($tabs, 'more', 'highlight-color');
+    border-radius: map.get($tabs, 'item', 'border-radius');
+    content: '';
+    display: block;
+    height: map.get($tabs, 'more', 'highlight-width');
+    left: 0;
+    position: absolute;
+    top: -#{map.get($tabs, 'more', 'highlight-width')};
+    width: 100%;
+  }
+
+  &:hover::before {
+    left: 1px;
+    top: calc(-#{map.get($tabs, 'more', 'highlight-width')} + 1px);
+    width: calc(100% - 2px);
+  }
+
+  &:focus-visible::before {
+    content: none;
+  }
+}
+
+.ecl-tabs__dropdown {
+  background-color: map.get($theme, 'color', 'white');
+  box-shadow: map.get($tabs, 'dropdown', 'shadow');
+  display: none;
+  max-height: 233px;
+  max-width: 100%;
+  overflow-y: auto;
+  padding: map.get($tabs, 'dropdown', 'container-padding');
+  position: absolute;
+  right: 0;
+  text-align: start;
+  top: calc(100% + map.get($tabs, 'separator-width'));
+  width: 100%;
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-tabs__link {
+    border-width: 0;
+    border-radius: 0;
+    color: map.get($tabs, 'dropdown', 'item-color');
+    margin-bottom: 0;
+    padding: map.get($tabs, 'dropdown', 'item-padding');
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-tabs__link--active {
+    background-color: map.get($tabs, 'dropdown', 'item-active-background');
+    color: map.get($tabs, 'dropdown', 'item-active-color');
+    font-weight: map.get($theme, 'font-weight', 'regular');
+  }
+}
+
+.ecl-tabs__dropdown-list {
+  display: grid;
+  list-style: none;
+  margin: map.get($tabs, 'dropdown', 'list-margin');
+  padding: 0;
+}
+
+.ecl-tabs__dropdown--show {
+  display: block;
+}
+
+.ecl-tabs__next {
+  display: none;
+  right: 0;
+}
+
+.ecl-tabs__prev {
+  display: none;
+  left: 0;
+}
+
+.ecl-tabs__prev,
+.ecl-tabs__next {
+  background: map.get($theme, 'color', 'white');
+  position: absolute;
+  top: 0;
+
+  &:focus-visible {
+    background: map.get($theme, 'color', 'white');
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-tabs__container {
+    overflow-x: visible;
+  }
+
+  .ecl-tabs__dropdown--show {
+    width: auto;
+  }
+
+  .ecl-tabs__dropdown-list {
+    grid-auto-flow: column;
+    grid-template-rows: auto auto auto auto;
+    height: auto;
+    overflow-y: visible;
+    width: auto;
+
+    .ecl-tabs__item {
+      min-width: 13.56rem;
+      width: 100%;
+    }
+  }
+}

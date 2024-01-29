@@ -1,0 +1,91 @@
+/**
+ * Social media share
+ * @define social-media-share
+ * TODO
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$social-media-share: null !default;
+
+.ecl-social-media-share {
+  background-color: map.get($social-media-share, 'background-color');
+  border: map.get($social-media-share, 'main_border');
+  border-radius: map.get($social-media-share, 'border-radius');
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-social-media-share__description {
+  color: map.get($social-media-share, 'title-color');
+  font: map.get($theme, 'font-prolonged', 'm');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-bottom: map.get($theme, 'spacing', 'xs');
+  margin-top: 0;
+}
+
+.ecl-social-media-share__list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: -#{map.get($theme, 'spacing', 's')};
+  padding-inline-start: 0;
+}
+
+.ecl-social-media-share__item {
+  display: flex;
+  margin-inline-end: map.get($theme, 'spacing', 'l');
+  margin-top: map.get($theme, 'spacing', 'l');
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
+.ecl-social-media-share__link {
+  align-items: center;
+  display: flex;
+  font: map.get($theme, 'font', 's');
+  overflow: hidden; /* Improve rendering on IE */
+}
+
+// Icon
+.ecl-social-media-share__icon {
+  flex-shrink: 0;
+  top: 0 !important;
+}
+
+@mixin ecl-social-media-share-vertical {
+  .ecl-social-media-share__description {
+    margin-bottom: 0;
+  }
+
+  .ecl-social-media-share__list {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .ecl-social-media-share__item {
+    margin-inline-end: 0;
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
+}
+
+// Vertical
+.ecl-social-media-share--vertical {
+  @include ecl-social-media-share-vertical;
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.down('s') {
+  @include ecl-social-media-share-vertical;
+}

@@ -1,0 +1,184 @@
+/**
+ * Checkbox
+ * @define checkbox
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$checkbox: null !default;
+
+.ecl-checkbox {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 var(--s-xs);
+  position: relative;
+
+  &:last-child,
+  &--single {
+    margin-bottom: 0;
+  }
+}
+
+.ecl-checkbox__input {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+}
+
+.ecl-checkbox__label {
+  color: map.get($checkbox, 'label-color');
+  display: inline-flex;
+  font: var(--f-m);
+  line-height: map.get($checkbox, 'label-line-height');
+  max-width: var(--max-w);
+  padding: var(--s-xs) 0;
+  white-space: pre-wrap;
+}
+
+.ecl-checkbox--disabled .ecl-checkbox__label {
+  cursor: not-allowed;
+}
+
+.ecl-checkbox__box {
+  align-items: center;
+  background: map.get($checkbox, 'background');
+  border: map.get($checkbox, 'border-width') solid
+    map.get($checkbox, 'border-color');
+  border-radius: map.get($checkbox, 'border-radius');
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: map.get($checkbox, 'box-size');
+  justify-content: center;
+  margin-inline-end: var(--s-xs);
+  margin-top: map.get($checkbox, 'box-margin-top');
+  position: relative;
+  user-select: none;
+  width: map.get($checkbox, 'box-size');
+}
+
+.ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+  cursor: pointer;
+}
+
+.ecl-checkbox__help {
+  box-sizing: border-box;
+  color: map.get($checkbox, 'help-text-color');
+  display: block;
+  font: map.get($checkbox, 'help-text-font');
+  margin: 0;
+}
+
+.ecl-checkbox__icon {
+  fill: map.get($checkbox, 'checkbox-fill');
+  visibility: hidden;
+}
+
+// Disabled.
+.ecl-checkbox--disabled {
+  opacity: 0.5;
+}
+
+// Required
+.ecl-checkbox__required {
+  color: map.get($theme, 'color' 'error');
+  font: var(--f-xl);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  padding-inline-start: var(--s-2xs);
+}
+
+// Checked and indeterminate
+// stylelint-disable no-descending-specificity
+.ecl-checkbox__input:checked {
+  ~ .ecl-checkbox__label .ecl-checkbox__box {
+    background: map.get($checkbox, 'box-background-checked');
+    border-color: map.get($checkbox, 'box-border-color-checked');
+  }
+
+  ~ .ecl-checkbox__label:hover .ecl-checkbox__box {
+    background: map.get($checkbox, 'box-background-checked-hover');
+    border-color: map.get($checkbox, 'box-background-checked-hover');
+  }
+
+  ~ .ecl-checkbox__label .ecl-checkbox__box--invalid {
+    background: map.get($checkbox, 'invalid-border-color');
+    border-color: map.get($checkbox, 'invalid-border-color');
+  }
+
+  ~ .ecl-checkbox__label .ecl-checkbox__icon {
+    visibility: visible;
+  }
+}
+
+// Invalid
+.ecl-checkbox--invalid {
+  .ecl-checkbox__box {
+    border-color: map.get($checkbox, 'invalid-border-color');
+  }
+
+  .ecl-checkbox__invalid {
+    font: var(--f-s);
+    margin-top: var(--s-xs);
+  }
+}
+
+.ecl-checkbox--invalid
+  .ecl-checkbox__label:hover
+  .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+  border-color: map.get($checkbox, 'invalid-border-color-hover');
+}
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors */
+.ecl-checkbox--invalid
+  input:checked
+  ~ .ecl-checkbox__label:hover
+  .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+  background: var(--c-er);
+}
+
+.ecl-checkbox__label:hover
+  .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+  border-color: map.get($checkbox, 'box-border-color-hover');
+
+  @if map-has-key($checkbox, 'hover-circle') {
+    &::before {
+      @each $property, $value in map.get($checkbox, 'hover-circle') {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+// Hover and default focus state
+.ecl-checkbox__input:focus-visible {
+  ~ .ecl-checkbox__label {
+    .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+      @if map-has-key($checkbox, 'hover-circle') {
+        &::before {
+          @each $property, $value in map.get($checkbox, 'hover-circle') {
+            #{$property}: $value;
+          }
+        }
+      } @else {
+        outline: 2px solid var(--c-p);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &:checked {
+    ~ .ecl-checkbox__label {
+      .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+        @if not map-has-key($checkbox, 'hover-circle') {
+          outline: 2px solid var(--c-p);
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,353 @@
+/**
+ * Inpage navigation
+ * @define inpage-navigation
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$inpage-navigation: null !default;
+
+.ecl-inpage-navigation {
+  border-radius: map.get($inpage-navigation, 'border-radius');
+  box-shadow: map.get($inpage-navigation, 'shadow');
+  display: none;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    display: block;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.ecl-inpage-navigation__trigger-wrapper {
+  background: map.get($inpage-navigation, 'trigger', 'background-wrapper');
+  box-shadow: map.get($inpage-navigation, 'trigger', 'shadow');
+  margin: map.get($inpage-navigation, 'trigger', 'margin-wrapper');
+  padding: map.get($inpage-navigation, 'trigger', 'padding-wrapper');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.ecl-inpage-navigation__trigger {
+  background: map.get($inpage-navigation, 'trigger', 'background');
+  background-origin: border-box;
+  border-radius: map.get($inpage-navigation, 'trigger', 'border-radius');
+  color: map.get($inpage-navigation, 'trigger', 'color');
+  display: none;
+  margin: map.get($inpage-navigation, 'trigger', 'margin');
+  padding: map.get($inpage-navigation, 'trigger', 'padding');
+  position: relative;
+  text-align: start;
+  width: 100%;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    display: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get($theme, 'color', 'white');
+    outline-offset: -4px;
+  }
+}
+
+.ecl-inpage-navigation--visible {
+  display: block;
+
+  .ecl-inpage-navigation__trigger {
+    border: map.get($inpage-navigation, 'trigger', 'border');
+    display: block;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:focus-visible,
+    &[aria-expanded='true'] {
+      border: map.get($inpage-navigation, 'trigger', 'border-focus');
+      padding: map.get($inpage-navigation, 'trigger', 'padding-focus');
+    }
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      display: none;
+      margin: 0;
+    }
+  }
+}
+
+.ecl-inpage-navigation__trigger-current {
+  font: map.get($inpage-navigation, 'trigger', 'font');
+  font-weight: map.get($inpage-navigation, 'trigger', 'font-weight');
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecl-inpage-navigation__trigger-icon {
+  position: absolute;
+  right: map.get($theme, 'spacing', 's');
+  top: map.get($theme, 'spacing', 's');
+
+  .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
+    transform: rotate(0deg);
+  }
+}
+
+.ecl-inpage-navigation__title {
+  display: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: map.get($inpage-navigation, 'title', 'background');
+    border-radius: map.get($inpage-navigation, 'border-radius')
+      map.get($inpage-navigation, 'border-radius') 0 0;
+    color: map.get($inpage-navigation, 'title', 'color');
+    display: block;
+    font: map.get($inpage-navigation, 'title', 'font');
+    padding: map.get($inpage-navigation, 'title', 'padding');
+    text-align: map.get($inpage-navigation, 'align');
+    text-transform: map.get($inpage-navigation, 'title', 'text-transform');
+  }
+}
+
+.ecl-inpage-navigation__list {
+  background-color: map.get($inpage-navigation, 'list', 'background', 's');
+  border-top: map.get($inpage-navigation, 'trigger', 'separator');
+  box-shadow: map.get($inpage-navigation, 'list', 'shadow', 's');
+  display: none;
+  list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+  width: map.get($inpage-navigation, 'trigger', 'width');
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: map.get($inpage-navigation, 'list', 'background', 'l');
+    border-top-width: 0;
+    box-shadow: map.get($inpage-navigation, 'list', 'shadow', 'l');
+    display: block;
+    text-align: map.get($inpage-navigation, 'align');
+    width: auto;
+  }
+}
+
+.ecl-inpage-navigation__list--visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-inpage-navigation__item {
+  border-top: map.get($inpage-navigation, 'item', 'separator', 's');
+
+  &:first-of-type {
+    border-top-width: 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    border-top: map.get($inpage-navigation, 'item', 'separator', 'l');
+  }
+}
+
+.ecl-inpage-navigation__item--active {
+  border-top-color: map.get($inpage-navigation, 'item', 'background');
+}
+
+.ecl-inpage-navigation__link {
+  background-color: map.get($inpage-navigation, 'item', 'background');
+  color: map.get($inpage-navigation, 'item', 'color', 's');
+  display: block;
+  font: map.get($theme, 'font', 'm');
+  font-weight: map.get($inpage-navigation, 'item', 'font-weight', 's');
+  padding: map.get($inpage-navigation, 'item', 'padding', 'default', 's');
+  text-decoration: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include breakpoints.up('l') {
+    background-color: map.get($inpage-navigation, 'item', 'background');
+    border-inline-end: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'end',
+      'default'
+    );
+    color: map.get($inpage-navigation, 'item', 'color', 'l');
+    font-weight: map.get($inpage-navigation, 'item', 'font-weight', 'l');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'default', 'l');
+  }
+
+  &:hover {
+    background: map.get($inpage-navigation, 'item', 'background-hover');
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'hover'
+    );
+    color: map.get($inpage-navigation, 'item', 'color', 's');
+    text-decoration: underline;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'hover'
+      );
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
+    }
+  }
+
+  &:focus-visible {
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'active',
+      's'
+    );
+    border-radius: 0;
+    color: map.get($inpage-navigation, 'item', 'color', 's');
+    outline-color: map.get($inpage-navigation, 'outline', 'color');
+    outline-offset: map.get($inpage-navigation, 'outline', 'offset');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      border-inline-start: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'start',
+        'active',
+        'l'
+      );
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'active'
+      );
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
+      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
+      outline-color: var(--c-p);
+      outline-offset: -2px;
+    }
+  }
+
+  &:visited {
+    color: map.get($inpage-navigation, 'item', 'color', 's');
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      color: map.get($inpage-navigation, 'item', 'color', 'l');
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-inpage-navigation__item--active &,
+  .ecl-inpage-navigation__item--active &:hover {
+    background-color: map.get($inpage-navigation, 'item', 'background-active');
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'active',
+      's'
+    );
+    color: map.get($inpage-navigation, 'item', 'color-active');
+    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
+
+    &:focus-visible {
+      outline-color: map.get($inpage-navigation, 'outline', 'color-active');
+      outline-offset: -2px;
+    }
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      border-inline-start: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'start',
+        'active',
+        'l'
+      );
+      border-inline-end: map.get(
+        $inpage-navigation,
+        'item',
+        'border',
+        'end',
+        'active'
+      );
+      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
+
+      &:focus-visible {
+        color: map.get($inpage-navigation, 'item', 'color-active');
+      }
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.ecl-inpage-navigation__item:last-of-type .ecl-inpage-navigation__link {
+  border-radius: 0 0 map.get($inpage-navigation, 'border-radius')
+    map.get($inpage-navigation, 'border-radius');
+}
+
+.ecl-inpage-navigation__body {
+  .ecl-inpage-navigation--visible & {
+    border-radius: 0 0 map.get($inpage-navigation, 'border-radius')
+      map.get($inpage-navigation, 'border-radius');
+    box-shadow: map.get($inpage-navigation, 'shadow');
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    /* stylelint-disable-next-line order/order */
+    @include breakpoints.up('l') {
+      box-shadow: none;
+      position: static;
+    }
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.down('m') {
+  .ecl-inpage-navigation__heading--active {
+    &:first-of-type {
+      padding-top: map.get($theme, 'spacing', '4xl');
+    }
+
+    &:not(:first-of-type) {
+      &::before {
+        content: '';
+        display: block;
+        margin-top: -#{map.get($theme, 'spacing', '4xl')};
+        padding-top: map.get($theme, 'spacing', '4xl');
+        visibility: hidden;
+      }
+    }
+  }
+}
