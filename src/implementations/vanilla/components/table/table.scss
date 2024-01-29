@@ -32,6 +32,7 @@ $table: null !default;
 
 .ecl-table__header,
 %ecl-table__header {
+  border-inline-end: map.get($table, 'header-separator-desktop');
   border-inline-start: map.get($table, 'header-separator-desktop');
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding: map.get($table, 'header-padding');
