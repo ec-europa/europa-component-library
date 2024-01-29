@@ -426,11 +426,7 @@ export class Select {
             this.handleKeyboardOnClose,
           );
 
-          if (this.dropDownToolbar) {
-            this.dropDownToolbar.appendChild(this.closeButton);
-            this.searchContainer.appendChild(this.dropDownToolbar);
-            this.dropDownToolbar.style.display = 'none';
-          }
+          this.dropDownToolbar.appendChild(this.closeButton);
         }
 
         if (this.clearAllButtonLabel) {
@@ -450,6 +446,9 @@ export class Select {
           );
           this.dropDownToolbar.appendChild(this.clearAllButton);
         }
+
+        this.searchContainer.appendChild(this.dropDownToolbar);
+        this.dropDownToolbar.style.display = 'none';
       }
 
       this.selectAll.addEventListener(
@@ -1062,34 +1061,19 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        e.preventDefault();
         this.handleClickOnClearAll(e);
         this.input.focus();
         break;
 
       case 'ArrowDown':
-        e.preventDefault();
-        if (this.closeButton) {
-          this.closeButton.focus();
-        } else {
-          this.input.focus();
-        }
+        this.input.focus();
         break;
 
       case 'ArrowUp':
-        e.preventDefault();
-        if (this.visibleOptions.length > 0) {
-          this.visibleOptions[this.visibleOptions.length - 1]
-            .querySelector('input')
-            .focus();
+        if (this.closeButton) {
+          this.closeButton.focus();
         } else {
-          this.search.focus();
-        }
-        break;
-
-      case 'Tab':
-        e.preventDefault();
-        if (e.shiftKey) {
+          // eslint-disable-next-line no-lonely-if
           if (this.visibleOptions.length > 0) {
             this.visibleOptions[this.visibleOptions.length - 1]
               .querySelector('input')
@@ -1097,10 +1081,26 @@ export class Select {
           } else {
             this.search.focus();
           }
-        } else if (this.closeButton) {
-          this.closeButton.focus();
+        }
+        break;
+
+      case 'Tab':
+        if (e.shiftKey) {
+          if (this.closeButton) {
+            this.closeButton.focus();
+          } else {
+            // eslint-disable-next-line no-lonely-if
+            if (this.visibleOptions.length > 0) {
+              this.visibleOptions[this.visibleOptions.length - 1]
+                .querySelector('input')
+                .focus();
+            } else {
+              this.search.focus();
+            }
+          }
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1117,35 +1117,48 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        e.preventDefault();
         this.handleEsc(e);
         this.input.focus();
         break;
 
       case 'ArrowUp':
-        e.preventDefault();
-        if (this.clearAllButton) {
-          this.clearAllButton.focus();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
       case 'ArrowDown':
-        e.preventDefault();
-        this.input.focus();
+        if (this.clearAllButton) {
+          this.clearAllButton.focus();
+        } else {
+          this.input.focus();
+          this.handleToggle(e);
+        }
         break;
 
       case 'Tab':
-        e.preventDefault();
-        if (e.shiftKey) {
+        if (!e.shiftKey) {
           if (this.clearAllButton) {
             this.clearAllButton.focus();
           } else {
             this.input.focus();
+            this.handleToggle(e);
           }
         } else {
-          this.input.focus();
+          // eslint-disable-next-line no-lonely-if
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.input.focus();
+            this.handleToggle(e);
+          }
         }
         break;
 
@@ -1213,8 +1226,9 @@ export class Select {
         .filter(
           (el) => !el.disabled && el.parentElement.style.display !== 'none',
         );
+
       if (previousSiblings.length > 0) {
-        previousSiblings.pop().focus();
+        previousSiblings[previousSiblings.length - 1].focus();
       } else {
         this.optionsContainer.scrollTop = 0;
         if (!this.selectAll.querySelector('input').disabled) {
