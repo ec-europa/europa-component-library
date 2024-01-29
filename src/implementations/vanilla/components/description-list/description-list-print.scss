@@ -1,0 +1,193 @@
+/**
+ * Description list print
+ * @define description-list
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$description-list: null !default;
+$description-list-print: null !default;
+
+// Vertical description list
+.ecl-description-list,
+%ecl-description-list {
+  margin: 0;
+}
+
+.ecl-description-list__term,
+%ecl-description-list__term {
+  color: map.get($description-list, 'term-color');
+  font-family: map.get($description-list-print, 'term-font-family');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-top: map.get($theme, 'spacing-print', 'm');
+  max-width: var(--max-w);
+  overflow-wrap: break-word;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.ecl-description-list__term + .ecl-description-list__term {
+  margin-top: map.get($theme, 'spacing-print', '2xs');
+}
+
+.ecl-description-list__definition,
+%ecl-description-list__definition {
+  color: map.get($description-list, 'definition-color');
+  font: map.get($description-list-print, 'definition-font');
+  margin-inline-start: 0;
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+  max-width: var(--max-w);
+}
+
+.ecl-description-list__definition-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Links
+.ecl-description-list__definition--link {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  .ecl-icon {
+    margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  }
+}
+
+.ecl-description-list__definition--link .ecl-description-list__definition-item {
+  margin-top: map.get($theme, 'spacing-print', 's');
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Inline links
+.ecl-description-list__definition--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: -#{map.get($theme, 'spacing-print', 'xs')};
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--inline
+  .ecl-description-list__definition-item {
+  border-inline-end: 1px solid map.get($description-list, 'definition-color');
+  display: inline;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+  padding-inline-end: map.get($theme, 'spacing-print', 'xs');
+  unicode-bidi: isolate;
+
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+  }
+}
+
+// Tag
+.ecl-description-list__definition--tag {
+  display: inline-block;
+  margin-bottom: calc(-1 * #{map.get($theme, 'spacing-print', 'xs')});
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--tag .ecl-description-list__definition-item {
+  display: inline-block;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
+// Taxonomy
+.ecl-description-list__definition--taxonomy {
+  color: map.get($description-list, 'taxonomy-color');
+  display: inline-block;
+  margin-bottom: -#{map.get($theme, 'spacing-print', 'xs')};
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--taxonomy
+  .ecl-description-list__definition-item {
+  display: inline;
+  margin-inline-end: map.get($theme, 'spacing-print', 'm');
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+  padding-inline-start: map.get($theme, 'spacing-print', 'm');
+  position: relative;
+
+  &::before {
+    background-color: map.get($description-list, 'separator-color');
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    left: -2px;
+    position: absolute;
+    top: 8px;
+    width: 4px;
+  }
+
+  &:first-child {
+    padding-inline-start: 0;
+  }
+
+  &:first-child::before {
+    display: none;
+  }
+
+  &:last-child {
+    margin-inline-start: 0;
+  }
+}
+
+// Horizontal description lists
+
+.ecl-description-list--horizontal,
+%ecl-description-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .ecl-description-list__term,
+  %ecl-description-list__term {
+    margin-top: map.get($theme, 'spacing-print', 'm');
+    width: map.get($description-list-print, 'term-width');
+  }
+
+  .ecl-description-list__term:first-of-type {
+    margin-top: 0;
+  }
+
+  .ecl-description-list__definition,
+  %ecl-description-list__definition {
+    align-items: flex-start;
+    margin-inline-start: map.get($theme, 'spacing-print', 'xl');
+    margin-top: map.get($theme, 'spacing-print', 'm');
+    overflow-wrap: break-word;
+    width: calc(
+      #{map.get($description-list-print, 'definition-width')} - #{map.get(
+          $theme,
+          'spacing-print',
+          'xl'
+        )}
+    );
+  }
+
+  .ecl-description-list__definition:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-description-list__see_more {
+  display: none;
+}

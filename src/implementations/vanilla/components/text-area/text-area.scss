@@ -1,0 +1,115 @@
+/**
+ * Textarea
+ * @define text-area
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-form/mixins';
+
+// Exposed variables
+$theme: null !default;
+$textarea: null !default;
+
+.ecl-text-area {
+  appearance: none;
+  background-color: map.get($textarea, 'background');
+  border: map.get($textarea, 'border-width') solid
+    map.get($textarea, 'border-color');
+  border-radius: map.get($textarea, 'border-radius');
+  box-shadow: map.get($textarea, 'shadow');
+  box-sizing: border-box;
+  color: map.get($textarea, 'color-input');
+  display: block;
+  font: var(--f-m);
+  margin: 0;
+  max-width: 100%;
+  padding: map.get($textarea, 'padding-vertical')
+    map.get($textarea, 'padding-horizontal');
+
+  &::placeholder {
+    color: map.get($textarea, 'color-placeholder');
+    font: var(--f-m);
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: map.get($textarea, 'border-color-hover');
+    box-shadow: map.get($textarea, 'shadow-hover');
+    cursor: pointer;
+  }
+
+  &:focus-visible,
+  &:active {
+    border-color: map.get($textarea, 'border-color-focus');
+    border-width: map.get($textarea, 'border-width-focus');
+    box-shadow: map.get($textarea, 'shadow-hover');
+    outline: none;
+    padding: calc(
+        #{map.get($textarea, 'padding-vertical')} - (#{map.get(
+                $textarea,
+                'border-width-focus'
+              )} - #{map.get($textarea, 'border-width')})
+      )
+      calc(
+        #{map.get($textarea, 'padding-horizontal')} - (#{map.get(
+                $textarea,
+                'border-width-focus'
+              )} - #{map.get($textarea, 'border-width')})
+      );
+  }
+}
+
+.ecl-text-area--s {
+  @include mixins.form-width('s');
+}
+
+.ecl-text-area--m {
+  @include mixins.form-width('m');
+}
+
+.ecl-text-area--l {
+  @include mixins.form-width('l');
+}
+
+.ecl-text-area[disabled],
+.ecl-text-area--disabled {
+  opacity: 0.5;
+}
+
+.ecl-text-area[disabled],
+.ecl-text-area--disabled,
+.ecl-text-area[readonly],
+.ecl-text-area--readonly {
+  background-color: map.get($textarea, 'background');
+  border-color: rgba(map.get($textarea, 'border-color'), 0.5);
+  box-shadow: map.get($textarea, 'shadow');
+  cursor: not-allowed;
+
+  &::placeholder {
+    color: rgba(map.get($textarea, 'color-placeholder'), 0.5);
+  }
+
+  &:hover {
+    border-color: rgba(map.get($textarea, 'border-color'), 0.5);
+    box-shadow: map.get($textarea, 'shadow');
+  }
+
+  &:focus,
+  &:active {
+    border-color: rgba(map.get($textarea, 'border-color'), 0.5);
+    border-width: map.get($textarea, 'border-width');
+  }
+}
+
+.ecl-text-area--invalid {
+  border-color: map.get($textarea, 'border-color-invalid');
+
+  &:active,
+  &:hover {
+    border-color: map.get($textarea, 'border-color-invalid-hover');
+  }
+
+  &:focus-visible {
+    border-color: map.get($textarea, 'border-color-focus');
+  }
+}

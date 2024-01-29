@@ -1,0 +1,145 @@
+/*
+ * Breadcrumb
+ * @define breadcrumb
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$breadcrumb: null !default;
+
+.ecl-breadcrumb {
+  background-color: map.get($theme, 'color', 'white');
+  font: map.get($breadcrumb, 'font-mobile');
+  line-height: map.get($breadcrumb, 'line-height');
+  margin: 0;
+}
+
+.ecl-breadcrumb__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 map.get($breadcrumb, 'padding-vertical');
+
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}
+
+.ecl-breadcrumb__segment {
+  align-items: center;
+  display: inline-flex;
+  margin-top: map.get($breadcrumb, 'padding-vertical');
+  max-width: 100%;
+
+  &[aria-hidden='true'] {
+    position: absolute;
+    visibility: hidden;
+
+    /* Force display if JS is disabled */
+    .no-js & {
+      position: static;
+      visibility: visible;
+    }
+  }
+}
+
+.ecl-breadcrumb__segment--ellipsis {
+  &[aria-hidden='false'] {
+    /* Force hide if JS is disabled */
+    .no-js & {
+      display: none;
+    }
+  }
+}
+
+.ecl-breadcrumb__ellipsis {
+  background-color: map.get($breadcrumb, 'ellipsis', 'background');
+  font: map.get($breadcrumb, 'link-font');
+  font-weight: map.get($breadcrumb, 'ellipsis', 'font-weight');
+  margin: map.get($breadcrumb, 'ellipsis', 'offset-vertical')
+    map.get($breadcrumb, 'ellipsis', 'offset-horizontal');
+
+  &:hover {
+    background-color: map.get($breadcrumb, 'ellipsis', 'background-hover');
+  }
+}
+
+@if map-has-key($breadcrumb, 'ghost-override') {
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis,
+  .ecl-breadcrumb .ecl-breadcrumb__ellipsis:hover {
+    border-width: 2px;
+    padding: 0 var(--s-2xs);
+  }
+}
+
+.ecl-breadcrumb__link {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ecl-breadcrumb__icon {
+  fill: map.get($breadcrumb, 'icon-color');
+  flex-shrink: 0;
+  margin-inline-start: map.get($breadcrumb, 'icon-spacing');
+  margin-inline-end: map.get($breadcrumb, 'icon-spacing');
+  transform: rotateZ(90deg);
+  vertical-align: text-bottom;
+}
+
+.ecl-breadcrumb__current-page {
+  color: map.get($breadcrumb, 'last-link-color');
+  font: map.get($breadcrumb, 'link-font');
+  font-weight: map.get($breadcrumb, 'link-font-weight');
+}
+
+// Alter some element on mobile when collapsed
+@include breakpoints.down('m') {
+  .ecl-breadcrumb--collapsed {
+    .ecl-breadcrumb__icon {
+      transform: rotateZ(270deg);
+    }
+
+    .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__link,
+    .ecl-breadcrumb__segment:nth-last-of-type(2) .ecl-breadcrumb__icon,
+    .ecl-breadcrumb__current-page {
+      display: none;
+    }
+
+    .ecl-breadcrumb__segment:first-of-type .ecl-breadcrumb__icon {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+@include breakpoints.down('s') {
+  .ecl-breadcrumb__segment--ellipsis {
+    display: none;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-breadcrumb {
+    font: map.get($breadcrumb, 'font-desktop');
+    line-height: map.get($breadcrumb, 'line-height');
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-breadcrumb__icon {
+    transform: rotateZ(90deg);
+  }
+
+  .ecl-breadcrumb__current-page {
+    display: inline-flex;
+  }
+}
