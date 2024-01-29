@@ -176,7 +176,6 @@ module.exports = {
                 label: 'Follow the European Commission on social media',
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 inverted: true,
-                external: true,
                 icon_path: '/icons.svg',
               },
             },
