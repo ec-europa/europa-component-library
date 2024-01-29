@@ -925,11 +925,17 @@ export class Select {
 
       case ' ':
       case 'Enter':
-      case 'ArrowDown':
-        e.preventDefault();
         this.handleToggle(e);
         if (this.multiple) {
+          e.preventDefault();
           this.search.focus();
+        }
+        break;
+
+      case 'ArrowDown':
+        if (this.multiple) {
+          e.preventDefault();
+          this.handleToggle(e);
         }
         break;
 
