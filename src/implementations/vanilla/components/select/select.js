@@ -60,7 +60,13 @@ export class Select {
    * @type {Array<string>}
    * @memberof Select
    */
-  supportedEvents = ['onToggle', 'onSelection', 'onAllSelection'];
+  supportedEvents = [
+    'onToggle',
+    'onSelection',
+    'onSelectAll',
+    'onReset',
+    'onSearch',
+  ];
 
   constructor(
     element,
@@ -828,7 +834,7 @@ export class Select {
       this.label.removeAttribute('aria-label');
     }
 
-    this.trigger('onSelection', { selection: optionSelected });
+    this.trigger('onSelection', { selected: optionSelected });
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
@@ -954,7 +960,7 @@ export class Select {
     });
 
     this.update();
-    this.trigger('onAllSelection', e);
+    this.trigger('onSelectAll', { selected: options });
   }
 
   /**
@@ -992,6 +998,7 @@ export class Select {
     const dropDownHeight = this.optionsContainer.offsetHeight;
     this.visibleOptions = [];
     const keyword = e.target.value.toLowerCase();
+    let eventDetails = {};
     if (dropDownHeight > 0) {
       this.optionsContainer.style.height = `${dropDownHeight}px`;
     }
@@ -1082,6 +1089,23 @@ export class Select {
       this.selectAll.classList.add('ecl-checkbox--disabled');
       this.selectAll.querySelector('input').disabled = true;
     }
+    if (this.visibleOptions.length > 0) {
+      const visibleLabels = this.visibleOptions.map((option) => {
+        let label = null;
+        const labelEl = queryOne('.ecl-checkbox__label-text', option);
+        if (labelEl) {
+          label = labelEl.innerHTML.replace(/<\/?b>/g, '');
+        }
+        return label || '';
+      });
+      eventDetails = {
+        results: visibleLabels,
+        text: e.target.value.toLowerCase(),
+      };
+    } else {
+      eventDetails = { results: 'none', text: e.target.value.toLowerCase() };
+    }
+    this.trigger('onSearch', eventDetails);
   }
 
   /**
@@ -1276,6 +1300,7 @@ export class Select {
       case 'Enter':
       case ' ':
         this.handleClickOnClearAll(e);
+        this.trigger('onReset', e);
         this.input.focus();
         break;
 
@@ -1420,6 +1445,7 @@ export class Select {
 
     this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
     this.update(0);
+    this.trigger('onReset', e);
   }
 
   /**
