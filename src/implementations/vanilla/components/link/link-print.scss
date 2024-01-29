@@ -1,0 +1,81 @@
+/**
+* Link print
+* @define link
+*/
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$link: null !default;
+
+.ecl-link,
+%ecl-link {
+  color: map.get($link, 'color');
+  page-break-inside: avoid;
+  text-decoration: none;
+
+  &::after {
+    color: map.get($theme, 'color', 'black');
+    content: '(' attr(href) ')';
+    font: map.get($theme, 'font-print', 's');
+    font-style: italic;
+    margin-inline-start: map.get($theme, 'spacing-print', '2xs');
+    text-decoration: underline;
+  }
+}
+
+.ecl-link--icon-before,
+.ecl-link--icon-after {
+  display: inline;
+}
+
+.ecl-link--icon {
+  text-decoration: none;
+
+  .ecl-link__icon {
+    fill: currentcolor;
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+  &:not(
+      .ecl-link--standalone,
+      .ecl-link--cta,
+      .ecl-link--primary,
+      .ecl-link--secondary
+    )
+    .ecl-link__label {
+    text-decoration: underline;
+  }
+}
+
+.ecl-link--icon-before .ecl-link__icon {
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-link--icon-after .ecl-link__icon {
+  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-link--standalone {
+  font-family: #{map.get($theme, 'font-family-print', 'default')};
+}
+
+.ecl-link--inverted {
+  color: map.get($link, 'inverted', 'color');
+
+  &::after {
+    color: map.get($link, 'inverted', 'color');
+  }
+}
+
+/**
+* CTA display
+*/
+.ecl-link--cta,
+.ecl-link--primary,
+.ecl-link--secondary {
+  display: inline-block;
+}
