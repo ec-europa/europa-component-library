@@ -28,6 +28,8 @@ export class Accordion {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when an item is toggled
    * @memberof Accordion
    */
   supportedEvents = ['onToggle'];

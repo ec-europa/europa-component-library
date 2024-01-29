@@ -32,6 +32,8 @@ export class Banner {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
+   * @event onCtaClick
+   *   Triggered when the call-to-action (CTA) is clicked.
    * @memberof Banner
    */
   supportedEvents = ['onCtaClick'];

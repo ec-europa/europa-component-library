@@ -30,6 +30,8 @@ export class Expandable {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
+   * @event onToggle
+   *   Triggered on expand/collapse
    * @memberof Expandable
    */
   supportedEvents = ['onToggle'];

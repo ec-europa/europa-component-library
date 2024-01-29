@@ -58,6 +58,16 @@ export class Select {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when the dropdown is toggled
+   * @event onSelection
+   *   Triggered when a selection is made or removed
+   * @event onSelectAll
+   *   Triggered when the select all checkbox is clicked
+   * @event onReset
+   *   Triggered when the select values are reset
+   * @event onSearch
+   *   Triggered when the user types in the search box
    * @memberof Select
    */
   supportedEvents = [

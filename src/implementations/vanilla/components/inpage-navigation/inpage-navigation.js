@@ -38,6 +38,10 @@ export class InpageNavigation {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when the list is toggled in mobile
+   * @event onClick
+   *   Triggered when an item is clicked
    * @memberof InpageNavigation
    */
   supportedEvents = ['onToggle', 'onClick'];
