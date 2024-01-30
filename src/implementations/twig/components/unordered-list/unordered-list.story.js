@@ -5,7 +5,7 @@ import { correctPaths } from '@ecl/story-utils';
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListLink from '@ecl/specs-component-unordered-list/demo/data--link';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
-import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/data--no-bullet';
+import dataUnorderedListUnstyled from '@ecl/specs-component-unordered-list/demo/data--unstyled';
 
 import unorderedList from './unordered-list.html.twig';
 import notes from './README.md';
@@ -102,15 +102,15 @@ Divider.parameters = {
   notes: { markdown: notes, json: dataUnorderedListDivider },
 };
 
-export const NoBullet = (_, { loaded: { component } }) => component;
+export const Unstyled = (_, { loaded: { component } }) => component;
 
-NoBullet.render = async (args) => {
-  const renderedDivider = await renderStory(dataUnorderedListNoBullet, args);
+Unstyled.render = async (args) => {
+  const renderedDivider = await renderStory(dataUnorderedListUnstyled, args);
   return renderedDivider;
 };
-NoBullet.storyName = 'no marker';
-NoBullet.args = getArgs(dataUnorderedListNoBullet);
-NoBullet.argTypes = getArgTypes(dataUnorderedListNoBullet);
-NoBullet.parameters = {
-  notes: { markdown: notes, json: dataUnorderedListNoBullet },
+Unstyled.storyName = 'unstyled';
+Unstyled.args = getArgs(dataUnorderedListUnstyled);
+Unstyled.argTypes = getArgTypes(dataUnorderedListUnstyled);
+Unstyled.parameters = {
+  notes: { markdown: notes, json: dataUnorderedListUnstyled },
 };

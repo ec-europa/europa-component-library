@@ -204,5 +204,12 @@ $description-list: null !default;
     .ecl-description-list__definition:first-of-type {
       margin-top: 0;
     }
+
+    dd:not(.ecl-description-list__definition--link)
+      .ecl-description-list__see_more {
+      display: inline-block;
+      margin-inline-start: var(--s-m);
+      margin-top: 0;
+    }
   }
 }
