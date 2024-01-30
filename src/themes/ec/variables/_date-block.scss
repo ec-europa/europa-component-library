@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$date-block: (
+  background-color-cancelled: var(--c-n-60),
+  background-color-default: map.get($color, 'white'),
+  background-color-ongoing: map.get($color, 'white'),
+  background-color-past: var(--c-n-60),
+  outline-color-cancelled: transparent,
+  outline-color-default: var(--c-d),
+  outline-color-ongoing: var(--c-d),
+  outline-color-past: transparent,
+  border-radius: 0,
+  circle-width: 10px,
+  max-height: 5.75rem,
+  padding-top: var(--s-xs),
+  shadow: none,
+  shadow-decoration: none,
+  text-color: var(--c-d),
+  text-color-inverted: var(--c-d),
+  text-white-space: nowrap,
+  width-desktop: 5rem,
+  width-mobile: 5rem,
+  day: (
+    padding-mobile: var(--s-s) var(--s-2xs) var(--s-2xs),
+    padding-desktop: var(--s-s) var(--s-2xs) var(--s-2xs),
+    line-height: 20px,
+    text-size: map.get($font-size, 'xl'),
+  ),
+  month: (
+    padding-mobile: 0 var(--s-2xs) var(--s-s),
+    padding-desktop: 0 var(--s-2xs) var(--s-s),
+    line-height: 12px,
+    text-size: 14px,
+  ),
+  year: (
+    padding-mobile: 0,
+    padding-desktop: 0,
+    weight: map.get($font-weight, 'bold'),
+    background-color: var(--c-d),
+    text-color: map.get($color, 'white'),
+  ),
+);

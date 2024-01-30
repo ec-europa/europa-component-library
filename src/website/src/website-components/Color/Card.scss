@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 .card {
   display: flex;
@@ -14,13 +14,13 @@
   flex-direction: column;
   height: 7.875rem;
   justify-content: center;
-  padding-left: map.get(theme.$spacing, 'm');
-  padding-right: map.get(theme.$spacing, 'm');
+  padding-left: var(--ws-s-m);
+  padding-right: var(--ws-s-m);
 }
 
 .title {
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
 
   .card--light & {
@@ -36,9 +36,9 @@
   background: none;
   border-style: solid;
   border-width: 2px;
-  font: map.get(theme.$font, 's');
+  font: var(--ws-f-s);
   height: 2.5rem;
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
   width: 5.5rem;
 
   .card--light & {
@@ -59,16 +59,16 @@
 
   /* stylelint-disable-next-line */
   .card--dark & {
-    border-color: map.get(theme.$color, 'grey-100');
+    border-color: var(--ws-c-d);
     color: #000;
 
     &:focus {
-      background-color: rgba(map.get(theme.$color, 'grey-100'), 0.1);
+      background-color: color-mix(in srgb, var(--ws-c-d) 10%, transparent);
     }
 
     /* stylelint-disable-next-line */
     &:hover {
-      background-color: map.get(theme.$color, 'grey-100');
+      background-color: var(--ws-c-d);
       color: #fff;
     }
   }
@@ -87,13 +87,13 @@
 }
 
 .body {
-  background-color: map.get(theme.$color, 'grey-5');
-  color: map.get(theme.$color, 'text');
+  background-color: var(--ws-c-n-40);
+  color: var(--ws-c-d);
   flex-grow: 1;
-  font: map.get(theme.$font-prolonged, 'm');
-  padding: map.get(theme.$spacing, 's') map.get(theme.$spacing, 'm');
+  font: var(--ws-f-m);
+  padding: var(--ws-s-s) var(--ws-s-m);
 }
 
 * + .card {
-  margin-top: map.get(theme.$spacing, 'm');
+  margin-top: var(--ws-s-m);
 }

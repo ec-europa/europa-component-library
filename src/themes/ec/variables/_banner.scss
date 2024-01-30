@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$banner: (
+  content-width: 42.5rem,
+  border-color: transparent,
+  border-radius: (
+    'banner': 0,
+    'content': 0,
+  ),
+  box-shadow: none,
+  border-width: (
+    'left': 0,
+    'bottom': 0,
+  ),
+  background: (
+    'plain-background': var(--c-p),
+    'text-box-mobile': var(--c-n-40),
+    'text-box-desktop': var(--c-bg),
+    'text-overlay': var(--c-p),
+  ),
+  text-color: (
+    'dark': var(--c-d),
+    'light': var(--c-d),
+    'inverted': map.get($color, 'white'),
+  ),
+  font: (
+    'title': (
+      'mobile': var(--f-3xl),
+      'desktop': var(--f-4xl),
+    ),
+    'description': (
+      'mobile': var(--f-l),
+      'desktop': var(--f-xl),
+    ),
+  ),
+  font-weight: (
+    'title': map.get($font-weight, 'regular'),
+    'description': map.get($font-weight, 'regular'),
+  ),
+);
+$banner-print: (
+  cta-radius: 0,
+);

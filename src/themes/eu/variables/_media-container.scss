@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$media-container: (
+  border-radius: 8px,
+  shadow: var(--sh-1),
+  caption-background-color: map.get($color, 'white'),
+  caption-color: var(--c-d-80),
+  caption-font: var(--f-m),
+  caption-padding: var(--s-l),
+  caption-before: true,
+  expandable-spacing-top: var(--s-xs),
+  media-border: none,
+  scrollbar-width: 16px,
+);

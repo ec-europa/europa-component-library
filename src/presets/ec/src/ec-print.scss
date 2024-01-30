@@ -144,7 +144,8 @@
 @use '@ecl/vanilla-component-carousel/carousel-print';
 @use '@ecl/vanilla-component-category-filter/category-filter-print';
 @use '@ecl/vanilla-component-gallery/gallery-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $gallery: var.$gallery
 );
 @use '@ecl/vanilla-component-page-header/page-header-print-ec' with (
   $theme: theme.$theme,
@@ -168,23 +169,23 @@
 );
 
 // Utilities
-@use '@ecl/vanilla-utility-background/background-print' with (
+@use '@ecl/vanilla-utility-background/background' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-utility-border/border-print' with (
+@use '@ecl/vanilla-utility-border/border' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-utility-clearfix/clearfix';
-@use '@ecl/vanilla-utility-dimension/dimension-print';
-@use '@ecl/vanilla-utility-flex/flex-print' with (
+@use '@ecl/vanilla-utility-dimension/dimension';
+@use '@ecl/vanilla-utility-flex/flex' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-utility-float/float';
 @use '@ecl/vanilla-utility-disablescroll/disablescroll';
-@use '@ecl/vanilla-utility-display/display-print' with (
+@use '@ecl/vanilla-utility-display/display' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-utility-media/media-print' with (
+@use '@ecl/vanilla-utility-media/media' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-utility-print/print-print';

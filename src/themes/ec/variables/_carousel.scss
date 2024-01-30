@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$carousel: (
+  separator: 1px solid var(--c-n),
+  controls-background: map.get($color, 'white'),
+  controls-padding: var(--s-xs) 0,
+  navigation-background-active: var(--c-n-80),
+  navigation-color-active: var(--c-d),
+  navigation-border-active: var(--c-n-80),
+  play-color: var(--c-p),
+  prev-next-hover-background: var(--c-n-60),
+);

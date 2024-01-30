@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$pagination: (
+  background-color: transparent,
+  border-color: var(--c-n),
+  border-radius: 0,
+  border-width: 1px,
+  current-background: var(--c-p),
+  current-border-width: 2px,
+  current-font-weight: map.get($font-weight, 'regular'),
+  current-text-color-desktop: map.get($color, 'white'),
+  current-text-color-mobile: var(--c-d),
+  focus-radius: 0,
+  focus-border: 2px solid var(--c-p),
+  focus-outline: none,
+  item-background-hover: var(--c-p-20),
+  item-default-color: var(--c-d),
+  item-hover-color: var(--c-d),
+  item-margin-end: var(--s-2xs),
+  item-padding: 0,
+  item-border-hover: var(--c-d-80),
+  item-size: 3rem,
+  padding: var(--s-xl) 0 0,
+  prev-next-active-border: var(--c-n-80),
+  prev-next-active-background: var(--c-n-80),
+  prev-next-hover-background: var(--c-n-60),
+  prev-next-hover-border: 1px solid var(--c-d-80),
+  prev-next-hover-color: var(--c-d),
+  text-color: var(--c-d),
+);

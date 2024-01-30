@@ -1,22 +1,19 @@
-@use 'sass:map';
-@use '@ecl/theme-ec/theme';
-
 .logo-link {
   align-items: center;
-  background-color: map.get(theme.$color, 'grey-5');
-  border: 1px solid map.get(theme.$color, 'grey-10');
+  background-color: var(--ws-c-n-40);
+  border: 1px solid var(--ws-c-n-80);
   box-sizing: border-box;
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  padding: calc(#{map.get(theme.$spacing, 'xl')} - 1px);
+  padding: calc(var(--ws-s-xl) - 1px);
 }
 
 .logo-link:hover,
 .logo-link:focus {
-  border: 3px solid map.get(theme.$color, 'yellow-100');
+  border: 2px solid var(--ws-c-s);
   outline: none;
-  padding: calc(#{map.get(theme.$spacing, 'xl')} - 3px);
+  padding: calc(var(--ws-s-xl) - 2px);
 }
 
 .logo-link--ec img {

@@ -42,7 +42,11 @@ exports[`Featured item Default renders correctly 1`] = `
         <div
           class="ecl-featured-item__title"
         >
-          Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
         </div>
         <div
           class="ecl-featured-item__description"
@@ -74,6 +78,46 @@ exports[`Featured item Default renders correctly 1`] = `
         </a>
       </div>
     </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
   </article>
 </jest>
 `;
@@ -92,7 +136,11 @@ exports[`Featured item Default renders correctly without image 1`] = `
         <div
           class="ecl-featured-item__title"
         >
-          Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
         </div>
         <div
           class="ecl-featured-item__description"
@@ -124,6 +172,46 @@ exports[`Featured item Default renders correctly without image 1`] = `
         </a>
       </div>
     </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
   </article>
 </jest>
 `;
@@ -170,7 +258,11 @@ exports[`Featured item Highlight renders correctly 1`] = `
         <div
           class="ecl-featured-item__title"
         >
-          Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
         </div>
         <div
           class="ecl-featured-item__description"
@@ -182,13 +274,45 @@ exports[`Featured item Highlight renders correctly 1`] = `
           </p>
         </div>
         <a
-          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__link"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-featured-item__link"
           href="/example"
         >
           <span
             class="ecl-link__label"
           >
-            Call to Action
+            Standalone link
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#external"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
           </span>
           <svg
             aria-hidden="true"
@@ -201,7 +325,15 @@ exports[`Featured item Highlight renders correctly 1`] = `
           </svg>
         </a>
       </div>
-    </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
   </article>
 </jest>
 `;
@@ -250,7 +382,11 @@ exports[`Featured item renders correctly with extra attributes 1`] = `
         <div
           class="ecl-featured-item__title"
         >
-          Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
         </div>
         <div
           class="ecl-featured-item__description"
@@ -282,6 +418,46 @@ exports[`Featured item renders correctly with extra attributes 1`] = `
         </a>
       </div>
     </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
   </article>
 </jest>
 `;
@@ -328,7 +504,11 @@ exports[`Featured item renders correctly with extra class names 1`] = `
         <div
           class="ecl-featured-item__title"
         >
-          Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
         </div>
         <div
           class="ecl-featured-item__description"
@@ -360,6 +540,46 @@ exports[`Featured item renders correctly with extra class names 1`] = `
         </a>
       </div>
     </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
   </article>
 </jest>
 `;

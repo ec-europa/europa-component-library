@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$tag: (
+  padding: var(--s-2xs) var(--s-s),
+  border-radius: 12px,
+  color: var(--c-d),
+  background-color: var(--c-p-20),
+  color-hover: var(--c-d),
+  background-color-hover: var(--c-p-40),
+  color-focus: var(--c-d),
+  background-color-focus: map.get($color, 'white'),
+  outline-color-focus: var(--c-p),
+  outline-offset-focus: -2px,
+  color-active: var(--c-d),
+  background-color-active: map.get($color, 'white'),
+  outline-color-active: var(--c-d),
+);

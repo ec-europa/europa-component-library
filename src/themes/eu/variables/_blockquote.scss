@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$blockquote: (
+  border-width: 8px,
+  border-color: var(--c-p),
+  border-radius: 4px 0 0 4px,
+  shadow: none,
+  padding: var(--s-l),
+  quote: (
+    font: var(--f-2xl),
+    color: var(--c-d-80),
+  ),
+  author: (
+    margin: var(--s-m),
+    padding: var(--s-xl),
+    font-mobile: var(--f-p-m),
+    font-desktop: var(--f-p-l),
+    font-weight: map.get($font-weight, 'regular'),
+    color: var(--c-d-80),
+  ),
+  image: (
+    margin-mobile: var(--s-l),
+    margin-desktop: var(--s-l),
+  ),
+);
+$blockquote-print: (
+  padding: map.get($spacing-print, 'l'),
+  quote-font: map.get($font-print, '2xl'),
+  author-margin: map.get($spacing-print, 'l'),
+  author-font: map.get($font-print, 'l'),
+  image-margin: map.get($spacing-print, 'l'),
+);

@@ -94,35 +94,43 @@ export class CategoryFilter {
   handleClickExpand(e) {
     e.preventDefault();
 
+    // Get item even if we clicked on the icon
     const treeItem = e.target.closest('.ecl-category-filter__item');
 
-    if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
-      this.items.forEach((item) => {
-        if (item !== treeItem) {
-          item.parentElement.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      if (treeItem.parentElement.getAttribute('aria-expanded') === 'true') {
-        treeItem.parentElement.setAttribute('aria-expanded', 'false');
-        treeItem.classList.remove('ecl-category-filter__item--current');
-        return;
-      }
-    }
-
+    // Toggle current item
     this.items.forEach((item) => {
       if (item === treeItem) {
-        item.classList.add('ecl-category-filter__item--current');
+        item.setAttribute('aria-current', true);
       } else {
-        item.classList.remove('ecl-category-filter__item--current');
+        item.removeAttribute('aria-current');
       }
     });
 
-    const ariaExpanded = treeItem.parentElement.getAttribute('aria-expanded');
-    treeItem.parentElement.setAttribute(
-      'aria-expanded',
-      ariaExpanded === 'false' ? 'true' : 'false',
-    );
+    // Toggle expanded
+    const isExpanded = treeItem.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      treeItem.setAttribute('aria-expanded', 'false');
+      treeItem.parentElement.classList.remove(
+        'ecl-category-filter__list-item--open',
+      );
+    } else {
+      treeItem.setAttribute('aria-expanded', 'true');
+      treeItem.parentElement.classList.add(
+        'ecl-category-filter__list-item--open',
+      );
+    }
+
+    // For first level, keep only one item open
+    if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
+      this.items.forEach((item) => {
+        if (item !== treeItem) {
+          item.parentElement.classList.remove(
+            'ecl-category-filter__list-item--open',
+          );
+          item.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
   }
 }
 

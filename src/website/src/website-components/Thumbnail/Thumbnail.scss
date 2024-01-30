@@ -1,20 +1,17 @@
-@use 'sass:map';
-@use '@ecl/theme-ec/theme';
-
 .thumbnail {
-  border: 1px solid map.get(theme.$color, 'grey-15');
+  border: 1px solid var(--ws-c-n-60);
   display: block;
-  padding: map.get(theme.$spacing, 'm');
+  padding: var(--ws-s-m);
   text-decoration: none;
 }
 
 .title {
-  color: map.get(theme.$color, 'grey-100');
-  font: map.get(theme.$font, 'l');
+  color: var(--ws-c-d);
+  font: var(--ws-f-l);
 }
 
 .imageContainer {
-  margin-top: map.get(theme.$spacing, 's');
+  margin-top: var(--ws-s-s);
   padding-top: 75%; /* 4:3 Aspect Ratio */
   position: relative;
 }

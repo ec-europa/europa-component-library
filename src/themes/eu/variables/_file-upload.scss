@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$file-upload: (
+  separator-color: var(--c-d-80),
+  meta-display: block,
+  meta-padding: var(--s-s),
+  title-font-weight: map.get($font-weight, 'bold'),
+);
