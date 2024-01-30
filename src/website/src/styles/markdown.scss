@@ -217,7 +217,8 @@ img[alt='anatomy'] {
   border: 1px solid var(--ws-c-n-40);
 }
 
-div:not([class^='ecl']):first-child p:not([class^='ecl']):first-child {
+div:not([class^='ecl'], [class^='wt']):first-child
+  p:not([class^='ecl'], [class^='wt']):first-child {
   font: var(--ws-f-l);
   max-width: var(--ws-max-w);
 }

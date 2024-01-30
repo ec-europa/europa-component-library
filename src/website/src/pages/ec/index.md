@@ -4,7 +4,7 @@ title: Europa Component Library
 
 # Europa Component Library
 
-## ec.europa.eu
+## commission.europa.eu
 
 This library contains all available components that you can use to build your own website.
 
