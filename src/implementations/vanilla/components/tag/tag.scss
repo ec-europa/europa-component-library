@@ -1,0 +1,98 @@
+/**
+ * Tag
+ * @define tag
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$tag: null !default;
+
+.ecl-tag {
+  align-items: center;
+  background-color: map.get($tag, 'background-color');
+  border-radius: map.get($tag, 'border-radius');
+  border-width: 0;
+  box-sizing: border-box;
+  color: map.get($tag, 'color');
+  display: inline-flex;
+  font: var(--f-s);
+  padding: map.get($tag, 'padding');
+  text-align: left;
+  text-decoration: underline;
+
+  &:focus-visible {
+    background-color: map.get($tag, 'background-color-focus');
+    color: map.get($tag, 'color-focus');
+    outline: 2px solid map.get($tag, 'outline-color-focus');
+    outline-offset: map.get($tag, 'outline-offset-focus');
+  }
+
+  &:hover {
+    background-color: map.get($tag, 'background-color-hover');
+    color: map.get($tag, 'color-hover');
+  }
+
+  &:active {
+    background-color: map.get($tag, 'background-color-active');
+    color: map.get($tag, 'color-active');
+    outline: 1px solid map.get($tag, 'outline-color-active');
+    outline-offset: -1px;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// No wrap
+.ecl-tag--nowrap {
+  white-space: nowrap;
+}
+
+// Removable tag
+.ecl-tag--removable {
+  text-decoration: none;
+}
+
+.ecl-tag__icon {
+  appearance: none;
+  background: none;
+  border-width: 0;
+  color: map.get($tag, 'color');
+  flex-shrink: 0;
+  height: map.get($theme, 'icon', 'xs');
+  margin-inline-start: var(--s-xs);
+  padding: 0;
+  pointer-events: auto;
+  position: relative;
+  width: map.get($theme, 'icon', 'xs');
+
+  &.ecl-tag__icon--external {
+    height: map.get($theme, 'icon', '2xs');
+    width: map.get($theme, 'icon', '2xs');
+  }
+}
+
+.ecl-tag__icon-close {
+  fill: currentcolor;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+// Tag set
+.ecl-tag-set {
+  margin-top: calc(-1 * var(--s-xs));
+
+  .ecl-tag {
+    margin-inline-end: var(--s-xs);
+    margin-top: var(--s-xs);
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
+}

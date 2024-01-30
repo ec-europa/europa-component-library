@@ -1,0 +1,94 @@
+/**
+ * Button print
+ * @define button
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$button: null !default;
+$button-print: null !default;
+
+.ecl-button,
+%ecl-button {
+  appearance: none;
+  background: none;
+  border-radius: map.get($button, 'radius');
+  border-width: 0;
+  cursor: pointer;
+  display: inline-block;
+  font: map.get($theme, 'font-print', 'm');
+  margin: 0;
+  padding: calc(
+      #{map.get($button-print, 'padding-vertical')} - #{map.get(
+          $button,
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($button-print, 'padding-horizontal')} - #{map.get(
+          $button,
+          'border-width'
+        )}
+    );
+  text-decoration: none;
+
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+}
+
+.ecl-button__container {
+  align-items: center;
+  display: flex;
+}
+
+.ecl-button__label {
+  text-align: left;
+}
+
+.ecl-button__icon {
+  flex-shrink: 0;
+}
+
+.ecl-button__icon--before,
+.ecl-button__icon + .ecl-button__label {
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-button__icon--after,
+.ecl-button__label + .ecl-button__icon {
+  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
+}
+
+/**
+* Button styles
+*/
+@mixin button($variant: null) {
+  background-color: map.get($button, #{$variant}, 'background');
+  border: map.get($button, 'border-width') solid
+    map.get($button, #{$variant}, 'border-color');
+  color: map.get($button, #{$variant}, 'color');
+}
+
+.ecl-button--primary {
+  @include button(primary);
+}
+
+// stylelint-disable plugin/selector-bem-pattern
+.ecl-button--secondary,
+%ecl-button {
+  @include button(secondary);
+}
+// stylelint-enable plugin/selector-bem-pattern
+
+.ecl-button--cta {
+  @include button(cta);
+}
+
+.ecl-button--ghost {
+  @include button(ghost);
+}

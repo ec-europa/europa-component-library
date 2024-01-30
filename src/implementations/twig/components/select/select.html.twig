@@ -57,6 +57,7 @@
 {% set _multiple_clear_all_text = multiple_clear_all_text|default('') %}
 {% set _css_group_class = 'ecl-form-group' %}
 {% set _css_class = 'ecl-select' %}
+{% set _extra_attributes = '' %}
 {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
