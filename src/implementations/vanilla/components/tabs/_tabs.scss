@@ -22,6 +22,7 @@ $button-width: 44px;
 
 .ecl-tabs__container {
   overflow-x: hidden;
+  position: relative;
   transition-duration: 0.4s;
 }
 
@@ -106,7 +107,9 @@ $button-width: 44px;
 .ecl-tabs__toggle {
   font-weight: map.get($tabs, 'more', 'font-weight');
   margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
 
   &:hover {
     box-shadow: none;
@@ -146,6 +149,10 @@ $button-width: 44px;
   &:focus-visible::before {
     content: none;
   }
+}
+
+.ecl-tabs__toggle--hidden {
+  display: none;
 }
 
 .ecl-tabs__dropdown {

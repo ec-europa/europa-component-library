@@ -296,6 +296,9 @@ export class Tabs {
       if (this.moreItem) {
         this.moreItem.classList.add('ecl-tabs__item--hidden');
       }
+      if (this.moreButton) {
+        this.moreButton.classList.add('ecl-tabs__toggle--hidden');
+      }
       let listWidth = 0;
       this.listItems.forEach((item) => {
         item.classList.remove('ecl-tabs__item--hidden');
@@ -349,8 +352,10 @@ export class Tabs {
     // Toggle the visibility of More button and items in dropdown
     if (!hiddenItems.length) {
       this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
     } else {
       this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
       this.moreLabel.textContent = this.moreLabelValue.replace(
         '%d',
         hiddenItems.length,
