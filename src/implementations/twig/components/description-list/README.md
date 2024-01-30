@@ -12,7 +12,7 @@ npm install --save @ecl/twig-component-description-list
   {
   "term" (string or array of string)
   "definition" (block or array of string or array of ECL Link or array of ECL Tag)
-  "type" (string): type of data (text, link, taxonomy)
+  "type" (string): type of data, if not plain text; could be "link", "link-inline", "taxonomy", "tag"
   },
   ...
   ]

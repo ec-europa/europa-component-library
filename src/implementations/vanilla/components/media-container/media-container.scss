@@ -1,0 +1,105 @@
+/**
+ * Media container
+ * @define media-container
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$media-container: null !default;
+
+@use '@ecl/vanilla-utility-media/media' as uMedia with (
+  $theme: $theme
+);
+
+.ecl-media-container {
+  margin: 0;
+}
+
+.ecl-media-container__figure {
+  background-color: map.get($media-container, 'caption-background-color');
+  border-radius: map.get($media-container, 'border-radius');
+  box-shadow: map.get($media-container, 'shadow');
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ecl-media-container__media {
+  border: map.get($media-container, 'media-border');
+  display: block;
+  height: auto;
+  min-height: 1px; // IE 11 fix
+  object-fit: cover;
+  width: 100%;
+
+  > iframe {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.ecl-media-container__caption {
+  color: map.get($media-container, 'caption-color');
+  font: map.get($media-container, 'caption-font');
+  max-width: var(--max-w);
+  padding: map.get($media-container, 'caption-padding');
+  position: relative;
+}
+
+.ecl-media-container__expandable {
+  margin-top: map.get($media-container, 'expandable-spacing-top');
+  position: relative;
+
+  .ecl-expandable__content {
+    margin-bottom: var(--s-m);
+  }
+}
+
+// Manual ratio
+.ecl-media-container__media--ratio-16-9 {
+  @include uMedia.aspect-ratio(16, 9);
+}
+
+.ecl-media-container__media--ratio-4-3 {
+  @include uMedia.aspect-ratio(4, 3);
+}
+
+.ecl-media-container__media--ratio-3-2 {
+  @include uMedia.aspect-ratio(3, 2);
+}
+
+.ecl-media-container__media--ratio-1-1 {
+  @include uMedia.aspect-ratio(1, 1);
+}
+
+// Full width
+// We have to substract the scrollbar width, as it is not handled well by vw unit)
+.ecl-media-container--full-width,
+.ecl-media-container--full-width + .ecl-media-container__expandable {
+  left: 50%;
+  margin-inline-start: calc(
+    -50vw + (#{map.get($media-container, 'scrollbar-width')} / 2)
+  );
+  width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
+}
+
+@if map-has-key($media-container, 'caption-before') {
+  .ecl-media-container__caption {
+    &::before {
+      background-color: var(--c-s);
+      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: 2px;
+      content: '';
+      height: 4px;
+      left: var(--s-l);
+      position: absolute;
+      top: 0;
+      width: 32px;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 # ECL Tag component (tag set)
 
-npm package: `@ecl/twig-component-tag-set`
+npm package: `@ecl/twig-component-tag`
 
 ```shell
-npm install --save @ecl/twig-component-tag-set
+npm install --save @ecl/twig-component-tag
 ```
 
 ### Parameters
