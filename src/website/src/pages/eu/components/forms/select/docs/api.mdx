@@ -11,7 +11,7 @@ import SelectJSDoc from '../../../../_jsdoc/select.md';
 
 ## Setup
 
-There are 2 ways to initialise the select multiple component.
+There are 2 ways to initialise the select and the select multiple components.
 
 ### Automatic
 
@@ -38,4 +38,10 @@ var select = ECL.Select.autoInit(
   document.querySelector('[data-ecl-select-multiple]'),
   { defaultText: 'string', searchText: 'string', selectAllText: 'string' },
 );
+```
+
+Once created the new instance can be retrieved like this:
+
+```js
+ECL.components.get(document.querySelector('[data-ecl-select-multiple]'));
 ```

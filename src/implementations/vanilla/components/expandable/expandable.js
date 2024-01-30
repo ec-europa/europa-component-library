@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -25,6 +26,16 @@ export class Expandable {
     return expandable;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event onToggle
+   *   Triggered on expand/collapse
+   * @memberof Expandable
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
@@ -43,6 +54,7 @@ export class Expandable {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.toggleSelector = toggleSelector;
@@ -98,6 +110,35 @@ export class Expandable {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Expandable
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * expandable.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Expandable
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -113,7 +154,7 @@ export class Expandable {
   /**
    * Toggles between collapsed/expanded states.
    */
-  handleClickOnToggle() {
+  handleClickOnToggle(e) {
     // Get current status
     const isExpanded =
       this.forceClose === true ||
@@ -141,6 +182,8 @@ export class Expandable {
     ) {
       this.label.innerHTML = this.toggle.getAttribute(this.labelCollapsed);
     }
+    const eventData = { expanded: !isExpanded, e };
+    this.trigger('onToggle', eventData);
 
     return this;
   }

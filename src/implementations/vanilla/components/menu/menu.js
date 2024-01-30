@@ -1,6 +1,6 @@
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
-
+import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
 
 /**
@@ -42,6 +42,14 @@ export class Menu {
     return menu;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Menu
+   */
+  supportedEvents = ['onOpen', 'onClose'];
+
   constructor(
     element,
     {
@@ -65,6 +73,8 @@ export class Menu {
       attachFocusListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
+      onCloseCallback = null,
+      onOpenCallback = null,
     } = {},
   ) {
     // Check element
@@ -75,6 +85,7 @@ export class Menu {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.openSelector = openSelector;
@@ -97,6 +108,8 @@ export class Menu {
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.onOpenCallback = onOpenCallback;
+    this.onCloseCallback = onCloseCallback;
 
     // Private variables
     this.direction = 'ltr';
@@ -308,6 +321,36 @@ export class Menu {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Menu
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onOpen' event
+   * menu.on('onOpen', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Menu
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -844,13 +887,15 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'false');
     this.isOpen = true;
 
+    this.trigger('onOpen', e);
+
     return this;
   }
 
   /**
    * Close menu list.
    */
-  handleClickOnClose() {
+  handleClickOnClose(e) {
     this.element.setAttribute('aria-expanded', 'false');
 
     // Remove css class and attribute from inner menu
@@ -869,6 +914,7 @@ export class Menu {
     }
 
     this.isOpen = false;
+    this.trigger('onClose', e);
 
     return this;
   }

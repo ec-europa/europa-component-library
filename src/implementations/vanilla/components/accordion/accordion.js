@@ -1,4 +1,5 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -23,6 +24,16 @@ export class Accordion {
     return accordion;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when an item is toggled
+   * @memberof Accordion
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
@@ -39,6 +50,7 @@ export class Accordion {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.toggleSelector = toggleSelector;
@@ -83,6 +95,37 @@ export class Accordion {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Accordion
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'click' event
+   * accordion.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Accordion
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -113,6 +156,7 @@ export class Accordion {
    * @param {HTMLElement} toggle Target element to toggle.
    */
   handleClickOnToggle(event, toggle) {
+    let isOpening = false;
     // Get target element
     const target = queryOne(
       `#${toggle.getAttribute('aria-controls')}`,
@@ -133,11 +177,16 @@ export class Accordion {
 
     // Toggle the expandable/collapsible
     toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+
     if (isExpanded) {
       target.hidden = true;
     } else {
       target.hidden = false;
+      isOpening = true;
     }
+
+    const eventData = { item: target, isOpening };
+    this.trigger('onToggle', eventData);
 
     // Toggle icon
     const iconElement = queryOne(this.iconSelector, toggle);
