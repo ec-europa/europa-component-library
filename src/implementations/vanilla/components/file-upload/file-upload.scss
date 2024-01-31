@@ -1,0 +1,60 @@
+/**
+ * File-upload
+ * @define file-upload
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
+
+// Exposed variables
+$theme: null !default;
+$file-upload: null !default;
+
+.ecl-file-upload:not(.no-js .ecl-file-upload) {
+  @include screen-reader.sr-only;
+}
+
+.ecl-file-upload__button-container {
+  display: block;
+  margin-top: var(--s-xs);
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-file-upload__list {
+  color: var(--c-d);
+  font: var(--f-m);
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: var(--s-m);
+  max-width: var(--max-w);
+  padding-inline-start: 0;
+  width: 100%;
+
+  .no-js &,
+  &:empty {
+    display: none;
+  }
+}
+
+.ecl-file-upload__item {
+  border-top: 1px solid map.get($file-upload, 'separator-color');
+  padding-bottom: var(--s-s);
+  padding-top: var(--s-s);
+
+  .ecl-file-upload__item-name {
+    font-weight: map.get($file-upload, 'title-font-weight');
+  }
+
+  .ecl-file-upload__item-meta {
+    color: var(--c-d-80);
+    display: map.get($file-upload, 'meta-display');
+    padding-top: map.get($file-upload, 'meta-padding');
+  }
+
+  &:last-child {
+    padding-bottom: var(--s-2xs);
+  }
+}

@@ -3,11 +3,13 @@
   Parameters:
   - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
+  - "label_sort" (string) (default: ''): label used for sorting buttons (screen reader only)
   - "zebra" (boolean) (default: false))
   - "headers" (array) (default: []): format: [
       {
         "label" (string or array of string)
         "colspan" (string) (default: ''),
+        "rowspan" (string) (default: ''),
         "data-ecl-table-header-group" (string) (default: ''),
       },
       ...
@@ -53,6 +55,7 @@
 {% set _headers = headers|default([]) %}
 {% set _simple = simple|default(false) %}
 {% set _sortable = sortable|default(false) %}
+{% set _label_sort = label_sort|default('') %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
 
@@ -65,7 +68,8 @@
 {% if _sortable %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'data-ecl-table' },
-    { name: 'data-ecl-auto-init', value: 'Table' }
+    { name: 'data-ecl-auto-init', value: 'Table' },
+    { name: 'data-ecl-table-sort-label', value: _label_sort }
   ]) %}
 {% endif %}
 
@@ -96,12 +100,13 @@
         <tr class="{{ _row_css_class }}">
           {% for cell in header %}
             {% set _heading_attribute = '' %}
+            {% if cell.rowspan is not empty %}
+              {% set _heading_attribute = _heading_attribute ~ 'rowspan="' ~ cell.rowspan|e('html_attr') ~ '"' %}
+            {% endif %}
             {% if cell.colspan is not empty %}
-              {% set _heading_attribute = cell.colspan is not empty ? 'colspan="' ~ cell.colspan|e('html_attr') ~ '"' : '' %}
-            {% else %}
-              {% if cell.label is not empty and _sortable %}
-                {% set _heading_attribute = 'data-ecl-table-sort-toggle' %}
-              {% endif %}
+              {% set _heading_attribute = _heading_attribute ~ ' colspan="' ~ cell.colspan|e('html_attr') ~ '"' %}
+            {% elseif cell.label is not empty and _sortable %}
+              {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-sort-toggle' %}
             {% endif %}
             <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
           {% endfor %}

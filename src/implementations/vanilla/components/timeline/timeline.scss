@@ -1,0 +1,217 @@
+/**
+ * Timeline
+ * @define timeline
+ */
+
+@use 'sass:map';
+@use 'sass:math';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$timeline: null !default;
+
+// Timeline structure
+.ecl-timeline {
+  list-style: none;
+  margin-bottom: 0;
+  margin-inline-start: calc(
+    var(--s-l) + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width')
+  );
+  margin-top: 0;
+  padding-inline-start: 0;
+}
+
+.ecl-timeline__item {
+  max-width: var(--max-w);
+  padding-bottom: var(--s-xl);
+  padding-inline-start: calc(
+    var(--s-m) + (map.get($timeline, 'bullet-size') * 0.5) +
+      map.get($timeline, 'bullet-border-width')
+  );
+  position: relative;
+
+  // Border
+  &::before {
+    border-inline-start: map.get($timeline, 'border-width') solid
+      map.get($timeline, 'border-color');
+    content: '';
+    height: 100%;
+    left: -#{(map.get($timeline, 'border-width') * 0.5)};
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  // Bullet
+  &::after {
+    background-color: map.get($timeline, 'bullet-fill-color');
+    border: map.get($timeline, 'bullet-border-width') solid
+      map.get($timeline, 'bullet-border-color');
+    border-radius: 50%;
+    box-shadow: map.get($timeline, 'bullet-shadow');
+    box-sizing: border-box;
+    content: '';
+    height: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+    left: -(#{calc(map.get($timeline, 'bullet-size') / 2) +
+          map.get($timeline, 'bullet-border-width')});
+    position: absolute;
+    top: map.get($timeline, 'bullet-top-position');
+    width: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-timeline {
+    margin-inline-start: map.get($timeline, 'timeline-margin-left');
+  }
+}
+
+// Toggle button
+.ecl-timeline__item--toggle {
+  padding-top: 0;
+
+  &::before {
+    border-inline-start-style: dashed;
+    top: calc(-1 * var(--s-2xs));
+  }
+
+  &::after {
+    border: map.get($timeline, 'toggle-bullet-border-width') solid
+      map.get($timeline, 'toggle-bullet-border-color');
+    box-sizing: border-box;
+    height: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+    top: var(--s-2xs) + var(--s-xs);
+    width: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+  }
+
+  .no-js & {
+    display: none;
+  }
+}
+
+.ecl-timeline__toggle[aria-expanded='true'] .ecl-icon {
+  transform: rotate(0deg);
+}
+
+// Border adjustment
+.ecl-timeline__item:first-child::before {
+  height: map.get($timeline, 'first-item-height');
+  top: map.get($timeline, 'first-item-offset');
+}
+
+.ecl-timeline__item:last-child::before {
+  height: map.get($timeline, 'last-item-height');
+}
+
+// Timeline data
+.ecl-timeline__title {
+  color: map.get($timeline, 'title-color');
+  font: map.get($timeline, 'title-font');
+  font-weight: map.get($timeline, 'title-font-weight');
+  margin-bottom: map.get($timeline, 'title-margin');
+}
+
+.ecl-timeline__label {
+  color: map.get($timeline, 'label-color');
+  font: map.get($timeline, 'label-font');
+  font-weight: map.get($timeline, 'label-font-weight');
+  margin-bottom: var(--s-2xs);
+}
+
+.ecl-timeline__content {
+  color: map.get($timeline, 'content-color');
+  font: map.get($timeline, 'content-font');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-timeline__label {
+    font: map.get($timeline, 'label-big-font');
+    font-weight: map.get($timeline, 'label-font-weight');
+    left: calc(
+      -1 * (#{map.get($timeline, 'left-spacing')} + var(--s-m) + #{map.get(
+              $timeline,
+              'bullet-size'
+            )} / 2 + map.get($timeline, 'bullet-border-width'))
+    );
+    line-height: map.get($theme, 'line-height', 'm');
+    margin-bottom: map.get($timeline, 'label-margin');
+    position: map.get($timeline, 'label-layout');
+    text-align: map.get($timeline, 'label-alignment');
+    width: map.get($timeline, 'left-spacing');
+  }
+
+  .ecl-timeline__title {
+    font: map.get($timeline, 'title-big-font');
+    font-weight: map.get($timeline, 'title-font-weight');
+  }
+
+  .ecl-timeline__content {
+    font: map.get($timeline, 'content-big-font');
+  }
+}
+
+// Collapsible items
+.ecl-timeline__item--collapsed {
+  display: none;
+
+  .no-js & {
+    display: block;
+  }
+}
+
+.ecl-timeline[data-ecl-timeline-expanded] .ecl-timeline__item--collapsed {
+  display: block;
+}
+
+@if map-has-key($timeline, 'tooltip') {
+  .ecl-timeline__label {
+    width: auto;
+  }
+
+  .ecl-timeline__tooltip {
+    border-radius: 8px;
+    box-shadow: var(--sh-1);
+    padding: var(--s-l);
+    position: relative;
+
+    &::before {
+      background: var(--c-s);
+      border-radius: 0 0 2px 2px;
+      content: '';
+      display: block;
+      height: 0.25rem;
+      position: absolute;
+      top: 0;
+      width: 2rem;
+    }
+  }
+
+  .ecl-timeline__tooltip-arrow {
+    height: 15px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 10%;
+    transform: translateX(-100%) rotate(90deg);
+    width: 15px;
+
+    &::after {
+      background: map.get($theme, 'color', 'white');
+      box-shadow: 0 0 6px rgb(14 71 203 / 0.2);
+      content: '';
+      height: 10px;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      width: 10px;
+    }
+  }
+}

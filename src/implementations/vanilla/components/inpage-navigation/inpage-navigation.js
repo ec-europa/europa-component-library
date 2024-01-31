@@ -1,6 +1,7 @@
 import Stickyfill from 'stickyfilljs';
 import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -33,6 +34,18 @@ export class InpageNavigation {
     return inpageNavigation;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when the list is toggled in mobile
+   * @event onClick
+   *   Triggered when an item is clicked
+   * @memberof InpageNavigation
+   */
+  supportedEvents = ['onToggle', 'onClick'];
+
   constructor(
     element,
     {
@@ -58,6 +71,8 @@ export class InpageNavigation {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
+
     this.attachClickListener = attachClickListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
@@ -73,6 +88,7 @@ export class InpageNavigation {
     this.gumshoe = null;
     this.observer = null;
     this.stickyObserver = null;
+    this.isExpanded = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -324,6 +340,36 @@ export class InpageNavigation {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof InpageNavigation
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * inpage.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof InpageNavigation
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Update scroll spy instance.
    */
   update() {
@@ -342,26 +388,46 @@ export class InpageNavigation {
     e.preventDefault();
 
     // Get current status
-    const isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
+    this.isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    togglerElement.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
-    if (isExpanded) {
+    togglerElement.setAttribute(
+      'aria-expanded',
+      this.isExpanded ? 'false' : 'true',
+    );
+    if (this.isExpanded) {
       currentList.classList.remove('ecl-inpage-navigation__list--visible');
     } else {
       currentList.classList.add('ecl-inpage-navigation__list--visible');
     }
+
+    this.trigger('onToggle', { isExpanded: this.isExpanded });
   }
 
   /**
    * Sets the necessary attributes to collapse inpage navigation list.
+   *
+   * @param {Event} e
    */
-  handleClickOnLink() {
+  handleClickOnLink(e) {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
+    const { href } = e.target;
+    let heading = null;
+
+    if (href) {
+      const id = href.split('#')[1];
+
+      if (id) {
+        heading = queryOne(`#${id}`, document);
+      }
+    }
 
     currentList.classList.remove('ecl-inpage-navigation__list--visible');
     togglerElement.setAttribute('aria-expanded', 'false');
+
+    const eventData = { target: heading || href, e };
+    this.trigger('onClick', eventData);
   }
 
   /**

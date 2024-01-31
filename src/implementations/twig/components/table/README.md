@@ -14,8 +14,11 @@ npm install --save @ecl/twig-component-table
 - **"headers"** (array) (default: [])
   - "label" (string or array of string)
   - "colspan" (string) (default: ''),
+  - "rowspan" (string) (default: ''),
+  - "data-ecl-table-header-group" (string) (default: ''),
 - **"rows"** (array) (default: [])
   [
+  - "extra_attributes": (string) (default: ''),
   - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
     { - "label" (string or array of string) - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') - "group" (bool) (default: false),
     }

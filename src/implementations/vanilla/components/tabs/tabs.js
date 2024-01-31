@@ -1,4 +1,5 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -30,6 +31,14 @@ export class Tabs {
     return tabs;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Select
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
@@ -53,6 +62,7 @@ export class Tabs {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.containerSelector = containerSelector;
@@ -171,6 +181,37 @@ export class Tabs {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Tabs
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * inpage.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Tabs
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -263,12 +304,30 @@ export class Tabs {
   /**
    * Toggle the "more" dropdown.
    */
-  handleClickOnToggle() {
+  handleClickOnToggle(e) {
     this.dropdown.classList.toggle('ecl-tabs__dropdown--show');
     this.moreButton.setAttribute(
       'aria-expanded',
       this.dropdown.classList.contains('ecl-tabs__dropdown--show'),
     );
+
+    this.trigger('onToggle', e);
+  }
+
+  /**
+   * Sets the callback function to be executed on toggle.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onToggle() {
+    return this.onToggleCallback;
   }
 
   /**

@@ -1,0 +1,225 @@
+/**
+ * Carousel
+ * @define carousel;
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$carousel: null !default;
+
+.ecl-carousel {
+  border-bottom: map.get($carousel, 'separator');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  .ecl-banner,
+  .ecl-banner__image::before {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ecl-banner {
+    height: 100%;
+
+    .ecl-container {
+      height: 100%;
+    }
+  }
+}
+
+.ecl-carousel__container {
+  background-color: map.get($carousel, 'controls-background');
+  box-shadow: inset 0 -4px 12px -9px
+    rgba(map.get($theme, 'color', 'black'), 0.6);
+  order: 1;
+  width: calc(100% - var(--s-xl));
+}
+
+.ecl-carousel__slides {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.ecl-carousel__slide {
+  position: relative;
+
+  &::before {
+    background: map.get($theme, 'color', 'white');
+    content: '';
+    display: block;
+    height: 100%;
+    left: calc(-1 * var(--s-2xs));
+    position: absolute;
+    top: 0;
+    width: var(--s-2xs);
+  }
+}
+
+.ecl-carousel__slide .ecl-banner__credit {
+  margin-inline-end: var(--s-2xs);
+}
+
+.ecl-carousel__controls {
+  background-color: map.get($carousel, 'controls-background');
+  order: 2;
+  padding: map.get($carousel, 'controls-padding');
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.ecl-carousel__controls,
+.ecl-carousel__slides .ecl-banner {
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-container {
+    max-width: 1140px;
+    width: 100%;
+  }
+}
+
+.ecl-carousel__prev,
+.ecl-carousel__next {
+  cursor: pointer;
+  display: none;
+}
+
+.ecl-carousel__navigation-item {
+  margin-inline-end: var(--s-xs);
+
+  &[aria-current='true'] {
+    background-color: map.get($carousel, 'navigation-background-active');
+    border-color: map.get($carousel, 'navigation-border-active');
+    color: map.get($carousel, 'navigation-color-active');
+    outline: none;
+  }
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
+.ecl-carousel-container--padded .ecl-banner {
+  .ecl-container {
+    margin-inline-start: 100px;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-carousel__navigation {
+    align-items: center;
+    display: flex;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-carousel__autoplay {
+    display: flex;
+    width: 140px;
+  }
+
+  .ecl-carousel__navigation {
+    margin-inline-start: auto;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-carousel {
+    .ecl-banner {
+      height: initial;
+
+      .ecl-container {
+        height: initial;
+      }
+    }
+  }
+
+  .ecl-carousel__container {
+    width: 100%;
+  }
+
+  .ecl-carousel__slide {
+    position: relative;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .ecl-carousel__slide .ecl-banner__credit {
+    margin-inline-end: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('xl') {
+  .ecl-container
+    .ecl-carousel:not(.ecl-carousel--full-width)
+    .ecl-banner
+    .ecl-container {
+    margin-inline-start: 120px;
+  }
+
+  .ecl-carousel__prev {
+    left: var(--s-m);
+  }
+
+  .ecl-carousel__next {
+    right: var(--s-m);
+  }
+
+  .ecl-carousel__prev,
+  .ecl-carousel__next {
+    background-color: map.get($theme, 'color', 'white');
+    color: var(--c-d);
+    display: block;
+    position: absolute;
+    top: calc(50% - 22px);
+    transform: translateY(-50%);
+    z-index: 2;
+
+    &:hover {
+      background-color: map.get($carousel, 'prev-next-hover-background');
+    }
+
+    &:focus-visible {
+      background-color: var(--c-n-60);
+    }
+  }
+
+  .ecl-carousel__autoplay {
+    width: 10%;
+  }
+}
+
+/*
+ * full width
+ */
+.ecl-carousel--full-width {
+  left: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+}
+
+// stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors
+.ecl-container
+  .ecl-carousel--full-width
+  .ecl-banner:not(.ecl-banner--full-width)
+  .ecl-container {
+  padding-inline-start: var(--s-m);
+  padding-inline-end: var(--s-m);
+}

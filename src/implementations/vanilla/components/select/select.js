@@ -1,6 +1,7 @@
 /* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
+import EventManager from '@ecl/event-manager';
 import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
 import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
 import iconSvgAllCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/all/corner-arrow.svg';
@@ -13,7 +14,11 @@ const iconSvgAllCornerArrow =
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**
- * There are multiple labels contained in this component. You can set them in 2 ways: directly as a string or through data attributes.
+ * This API mostly refers to the multiple select, in the default select only three methods are actually used:
+ * handleToggle(), handleKeyboardOnSelect() and handleEsc().
+ *
+ * For the multiple select there are multiple labels contained in this component. You can set them in 2 ways:
+ * directly as a string or through data attributes.
  * Textual values have precedence and if they are not provided, then DOM data attributes are used.
  *
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -49,6 +54,30 @@ export class Select {
     return select;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event onToggle
+   *   Triggered when the dropdown is toggled
+   * @event onSelection
+   *   Triggered when a selection is made or removed
+   * @event onSelectAll
+   *   Triggered when the select all checkbox is clicked
+   * @event onReset
+   *   Triggered when the select values are reset
+   * @event onSearch
+   *   Triggered when the user types in the search box
+   * @memberof Select
+   */
+  supportedEvents = [
+    'onToggle',
+    'onSelection',
+    'onSelectAll',
+    'onReset',
+    'onSearch',
+  ];
+
   constructor(
     element,
     {
@@ -76,6 +105,7 @@ export class Select {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.selectMultipleSelector = selectMultipleSelector;
@@ -119,9 +149,9 @@ export class Select {
     this.selectMultipleId = null;
     this.multiple =
       queryOne(this.selectMultipleSelector, this.element.parentNode) || false;
+    this.isOpen = false;
 
     // Bind `this` for use in callbacks
-    this.updateCurrentValue = this.updateCurrentValue.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
     this.handleClickOption = this.handleClickOption.bind(this);
     this.handleClickSelectAll = this.handleClickSelectAll.bind(this);
@@ -129,7 +159,6 @@ export class Select {
     this.handleFocusout = this.handleFocusout.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.moveFocus = this.moveFocus.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.handleClickOnClearAll = this.handleClickOnClearAll.bind(this);
     this.handleKeyboardOnSelect = this.handleKeyboardOnSelect.bind(this);
@@ -139,13 +168,18 @@ export class Select {
     this.handleKeyboardOnOption = this.handleKeyboardOnOption.bind(this);
     this.handleKeyboardOnClearAll = this.handleKeyboardOnClearAll.bind(this);
     this.handleKeyboardOnClose = this.handleKeyboardOnClose.bind(this);
-    this.updateSelectionsCount = this.updateSelectionsCount.bind(this);
+    this.setCurrentValue = this.setCurrentValue.bind(this);
+    this.update = this.update.bind(this);
   }
 
   /**
+   * Static method to create an svg icon.
+   *
+   * @static
+   * @private
    * @returns {HTMLElement}
    */
-  static createSvgIcon(icon, classes) {
+  static #createSvgIcon(icon, classes) {
     const tempElement = document.createElement('div');
     tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
     const svg = tempElement.children[0];
@@ -159,6 +193,9 @@ export class Select {
   }
 
   /**
+   * Static method to create a checkbox element.
+   *
+   * @static
    * @param {Object} options
    * @param {String} options.id
    * @param {String} options.text
@@ -166,9 +203,10 @@ export class Select {
    * @param {String} [options.disabled] - relevant when re-creating an option
    * @param {String} [options.selected] - relevant when re-creating an option
    * @param {String} ctx
+   * @private
    * @returns {HTMLElement}
    */
-  static createCheckbox(options, ctx) {
+  static #createCheckbox(options, ctx) {
     // Early returns.
     if (!options || !ctx) return '';
     const { id, text, disabled, selected, extraClass } = options;
@@ -206,7 +244,7 @@ export class Select {
     box.classList.add('ecl-checkbox__box');
     box.setAttribute('aria-hidden', true);
     box.appendChild(
-      Select.createSvgIcon(
+      Select.#createSvgIcon(
         iconSvgAllCheck,
         'ecl-icon ecl-icon--s ecl-checkbox__icon',
       ),
@@ -220,9 +258,13 @@ export class Select {
   }
 
   /**
+   * Static method to generate the select icon
+   *
+   * @static
+   * @private
    * @returns {HTMLElement}
    */
-  static createSelectIcon() {
+  static #createSelectIcon() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('ecl-select__icon');
     const button = document.createElement('button');
@@ -238,7 +280,7 @@ export class Select {
     label.classList.add('ecl-button__label');
     label.textContent = 'Toggle dropdown';
     labelWrapper.appendChild(label);
-    const icon = Select.createSvgIcon(
+    const icon = Select.#createSvgIcon(
       iconSvgAllCornerArrow,
       `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
     );
@@ -249,10 +291,13 @@ export class Select {
   }
 
   /**
-   * Manually checks an ECL-specific checkbox when previously default has been prevented.
+   * Static method to programmatically check an ECL-specific checkbox when previously default has been prevented.
+   *
+   * @static
    * @param {Event} e
+   * @private
    */
-  static checkCheckbox(e) {
+  static #checkCheckbox(e) {
     const input = e.target.closest('.ecl-checkbox').querySelector('input');
     input.checked = !input.checked;
 
@@ -260,10 +305,13 @@ export class Select {
   }
 
   /**
-   * Generate random string
+   * Static method to generate a random string
+   *
+   * @static
    * @param {number} length
+   * @private
    */
-  static generateRandomId(length) {
+  static #generateRandomId(length) {
     return Math.random().toString(36).substr(2, length);
   }
 
@@ -299,7 +347,7 @@ export class Select {
         this.element.getAttribute(this.clearAllLabelAttribute);
       // Retrieve the id from the markup or generate one.
       this.selectMultipleId =
-        this.element.id || `select-multiple-${Select.generateRandomId(4)}`;
+        this.element.id || `select-multiple-${Select.#generateRandomId(4)}`;
       this.element.id = this.selectMultipleId;
 
       this.formGroup = this.element.closest('.ecl-form-group');
@@ -364,7 +412,7 @@ export class Select {
 
       this.inputContainer.appendChild(this.selectionCount);
       this.inputContainer.appendChild(this.input);
-      this.inputContainer.appendChild(Select.createSelectIcon());
+      this.inputContainer.appendChild(Select.#createSelectIcon());
 
       this.searchContainer = document.createElement('div');
       this.searchContainer.style.display = 'none';
@@ -393,9 +441,9 @@ export class Select {
           (option) => !option.disabled,
         ).length;
 
-        this.selectAll = Select.createCheckbox(
+        this.selectAll = Select.#createCheckbox(
           {
-            id: `all-${Select.generateRandomId(4)}`,
+            id: `all-${Select.#generateRandomId(4)}`,
             text: `${this.textSelectAll} (${optionsCount})`,
             extraClass: 'ecl-select__multiple-all',
           },
@@ -496,12 +544,12 @@ export class Select {
           }
 
           if (option.selected) {
-            this.updateSelectionsCount(1);
+            this.#updateSelectionsCount(1);
             if (this.dropDownToolbar) {
               this.dropDownToolbar.style.display = 'flex';
             }
           }
-          checkbox = Select.createCheckbox(
+          checkbox = Select.#createCheckbox(
             {
               // spread operator does not work in storybook context so we map 1:1
               id: option.value,
@@ -538,7 +586,7 @@ export class Select {
       this.select.parentNode.classList.add('ecl-select__container--hidden');
 
       // Respect default selected options.
-      this.updateCurrentValue();
+      this.#updateCurrentValue();
 
       this.form = this.element.closest('form');
       if (this.form) {
@@ -560,7 +608,120 @@ export class Select {
   }
 
   /**
-   * Destroy component.
+   * Update instance.
+   *
+   * @param {Integer} i
+   */
+  update(i) {
+    this.#updateCurrentValue();
+    this.#updateSelectionsCount(i);
+  }
+
+  /**
+   * Set the selected value(s) programmatically.
+   *
+   * @param {string | Array<string>} values - A string or an array of values or labels to set as selected.
+   * @param {string} [op='replace'] - The operation mode. Use 'add' to keep the previous selections.
+   * @throws {Error} Throws an error if an invalid operation mode is provided.
+   *
+   * @example
+   * // Replace current selection with new values
+   * setCurrentValue(['value1', 'value2']);
+   *
+   * // Add to current selection without clearing previous selections
+   * setCurrentValue(['value3', 'value4'], 'add');
+   *
+   */
+  setCurrentValue(values, op = 'replace') {
+    if (op !== 'replace' && op !== 'add') {
+      throw new Error('Invalid operation mode. Use "replace" or "add".');
+    }
+
+    const valuesArray = typeof values === 'string' ? [values] : values;
+
+    Array.from(this.select.options).forEach((option) => {
+      if (op === 'replace') {
+        option.selected = false;
+      }
+      if (
+        valuesArray.includes(option.value) ||
+        valuesArray.includes(option.label)
+      ) {
+        option.selected = true;
+      }
+    });
+
+    this.update();
+  }
+
+  /**
+   * Event callback to show/hide the dropdown
+   *
+   * @param {Event} e
+   * @callback
+   */
+  handleToggle(e) {
+    if (this.multiple) {
+      e.preventDefault();
+      this.input.classList.toggle('ecl-select--active');
+      if (this.searchContainer.style.display === 'none') {
+        this.searchContainer.style.display = 'block';
+        this.input.setAttribute('aria-expanded', true);
+        this.isOpen = true;
+      } else {
+        this.searchContainer.style.display = 'none';
+        this.input.setAttribute('aria-expanded', false);
+        this.isOpen = false;
+      }
+    } else if (e.type === 'click' && !this.shouldHandleClick) {
+      this.shouldHandleClick = true;
+      this.select.classList.toggle('ecl-select--active');
+    } else if (e.type === 'mousedown' && this.shouldHandleClick) {
+      this.shouldHandleClick = false;
+      this.select.classList.toggle('ecl-select--active');
+    } else if (e.type === 'keydown') {
+      this.shouldHandleClick = false;
+      this.select.classList.toggle('ecl-select--active');
+    }
+
+    const eventData = { opened: this.isOpen, e };
+    this.trigger('onToggle', eventData);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Select
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * select.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Select
+   * @instance
+   *
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
+   * Destroy the component instance.
    */
   destroy() {
     if (this.multiple) {
@@ -621,17 +782,12 @@ export class Select {
   }
 
   /**
-   * Update instance.
-   */
-  update() {
-    this.updateCurrentValue();
-    this.updateSelectionsCount();
-  }
-
-  /**
+   * Private method to handle the update of the selected options counter.
+   *
    * @param {Integer} i
+   * @private
    */
-  updateSelectionsCount(i) {
+  #updateSelectionsCount(i) {
     let selectedOptionsCount = 0;
 
     if (i > 0) {
@@ -666,7 +822,12 @@ export class Select {
     }
   }
 
-  updateCurrentValue() {
+  /**
+   * Private method to update the select value.
+   *
+   * @private
+   */
+  #updateCurrentValue() {
     const optionSelected = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
@@ -683,42 +844,81 @@ export class Select {
       this.label.removeAttribute('aria-label');
     }
 
+    this.trigger('onSelection', { selected: optionSelected });
     // Dispatch a change event once the value of the select has changed.
     this.select.dispatchEvent(new window.Event('change', { bubbles: true }));
   }
 
   /**
-   * @param {Event} e
+   * Private method to handle the focus switch.
+   *
+   * @param {upOrDown}
+   * @private
    */
-  handleToggle(e) {
-    if (this.multiple) {
-      e.preventDefault();
-      this.input.classList.toggle('ecl-select--active');
-      if (this.searchContainer.style.display === 'none') {
-        this.searchContainer.style.display = 'block';
-        this.input.setAttribute('aria-expanded', true);
+  #moveFocus(upOrDown) {
+    const activeEl = document.activeElement;
+    const hasGroups = activeEl.parentElement.parentElement.classList.contains(
+      'ecl-select__multiple-group',
+    );
+    const options = !hasGroups
+      ? Array.from(
+          activeEl.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input',
+          ),
+        )
+      : Array.from(
+          activeEl.parentElement.parentElement.parentElement.querySelectorAll(
+            '.ecl-checkbox__input',
+          ),
+        );
+    const activeIndex = options.indexOf(activeEl);
+    if (upOrDown === 'down') {
+      const nextSiblings = options
+        .splice(activeIndex + 1, options.length)
+        .filter(
+          (el) => !el.disabled && el.parentElement.style.display !== 'none',
+        );
+      if (nextSiblings.length > 0) {
+        nextSiblings[0].focus();
       } else {
-        this.searchContainer.style.display = 'none';
-        this.input.setAttribute('aria-expanded', false);
+        // eslint-disable-next-line no-lonely-if
+        if (
+          this.dropDownToolbar &&
+          this.dropDownToolbar.style.display === 'flex'
+        ) {
+          this.dropDownToolbar.firstChild.focus();
+        } else {
+          this.input.focus();
+        }
       }
-    } else if (e.type === 'click' && !this.shouldHandleClick) {
-      this.shouldHandleClick = true;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'mousedown' && this.shouldHandleClick) {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'keydown') {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
+    } else {
+      const previousSiblings = options
+        .splice(0, activeIndex)
+        .filter(
+          (el) => !el.disabled && el.parentElement.style.display !== 'none',
+        );
+      if (previousSiblings.length > 0) {
+        previousSiblings[previousSiblings.length - 1].focus();
+      } else {
+        this.optionsContainer.scrollTop = 0;
+        if (!this.selectAll.querySelector('input').disabled) {
+          this.selectAll.querySelector('input').focus();
+        } else {
+          this.search.focus();
+        }
+      }
     }
   }
 
   /**
+   * Event callback to handle the click on a checkbox.
+   *
    * @param {Event} e
+   * @callback
    */
   handleClickOption(e) {
     e.preventDefault();
-    Select.checkCheckbox(e);
+    Select.#checkCheckbox(e);
 
     // Toggle values
     const checkbox = e.target.closest('.ecl-checkbox');
@@ -733,12 +933,14 @@ export class Select {
       }
     });
 
-    this.updateCurrentValue();
-    this.updateSelectionsCount();
+    this.update();
   }
 
   /**
+   * Event callback to handle the click on the select all checkbox.
+   *
    * @param {Event} e
+   * @callback
    */
   handleClickSelectAll(e) {
     e.preventDefault();
@@ -746,7 +948,7 @@ export class Select {
     if (this.selectAll.querySelector('input').disabled) {
       return;
     }
-    const checked = Select.checkCheckbox(e);
+    const checked = Select.#checkCheckbox(e);
     const options = Array.from(this.select.options).filter((o) => !o.disabled);
     const checkboxes = Array.from(
       this.searchContainer.querySelectorAll('[data-visible="true"]'),
@@ -767,12 +969,15 @@ export class Select {
       }
     });
 
-    this.updateCurrentValue();
-    this.updateSelectionsCount();
+    this.update();
+    this.trigger('onSelectAll', { selected: options });
   }
 
   /**
+   * Event callback to handle moving the focus out of the select.
+   *
    * @param {Event} e
+   * @callback
    */
   handleFocusout(e) {
     if (
@@ -794,12 +999,16 @@ export class Select {
   }
 
   /**
+   * Event callback to handle the user typing in the search field.
+   *
    * @param {Event} e
+   * @callback
    */
   handleSearch(e) {
     const dropDownHeight = this.optionsContainer.offsetHeight;
     this.visibleOptions = [];
     const keyword = e.target.value.toLowerCase();
+    let eventDetails = {};
     if (dropDownHeight > 0) {
       this.optionsContainer.style.height = `${dropDownHeight}px`;
     }
@@ -890,10 +1099,30 @@ export class Select {
       this.selectAll.classList.add('ecl-checkbox--disabled');
       this.selectAll.querySelector('input').disabled = true;
     }
+    if (this.visibleOptions.length > 0) {
+      const visibleLabels = this.visibleOptions.map((option) => {
+        let label = null;
+        const labelEl = queryOne('.ecl-checkbox__label-text', option);
+        if (labelEl) {
+          label = labelEl.innerHTML.replace(/<\/?b>/g, '');
+        }
+        return label || '';
+      });
+      eventDetails = {
+        results: visibleLabels,
+        text: e.target.value.toLowerCase(),
+      };
+    } else {
+      eventDetails = { results: 'none', text: e.target.value.toLowerCase() };
+    }
+    this.trigger('onSearch', eventDetails);
   }
 
   /**
+   * Event callback to handle the click outside the select.
+   *
    * @param {Event} e
+   * @callback
    */
   handleClickOutside(e) {
     if (
@@ -915,7 +1144,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle keyboard events on the select.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnSelect(e) {
     switch (e.key) {
@@ -926,11 +1158,17 @@ export class Select {
 
       case ' ':
       case 'Enter':
-      case 'ArrowDown':
-        e.preventDefault();
         this.handleToggle(e);
         if (this.multiple) {
+          e.preventDefault();
           this.search.focus();
+        }
+        break;
+
+      case 'ArrowDown':
+        if (this.multiple) {
+          e.preventDefault();
+          this.handleToggle(e);
         }
         break;
 
@@ -939,7 +1177,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle keyboard events on the select all checkbox.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
@@ -978,7 +1219,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle keyboard events on the dropdown.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnOptions(e) {
     switch (e.key) {
@@ -989,20 +1233,20 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        this.moveFocus('down');
+        this.#moveFocus('down');
         break;
 
       case 'ArrowUp':
         e.preventDefault();
-        this.moveFocus('up');
+        this.#moveFocus('up');
         break;
 
       case 'Tab':
         e.preventDefault();
         if (e.shiftKey) {
-          this.moveFocus('up');
+          this.#moveFocus('up');
         } else {
-          this.moveFocus('down');
+          this.#moveFocus('down');
         }
         break;
 
@@ -1011,7 +1255,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle keyboard events
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnSearch(e) {
     switch (e.key) {
@@ -1044,7 +1291,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle the click on an option.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnOption(e) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -1054,7 +1304,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle keyboard events on the clear all button.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnClearAll(e) {
     e.preventDefault();
@@ -1062,34 +1315,20 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        e.preventDefault();
         this.handleClickOnClearAll(e);
+        this.trigger('onReset', e);
         this.input.focus();
         break;
 
       case 'ArrowDown':
-        e.preventDefault();
-        if (this.closeButton) {
-          this.closeButton.focus();
-        } else {
-          this.input.focus();
-        }
+        this.input.focus();
         break;
 
       case 'ArrowUp':
-        e.preventDefault();
-        if (this.visibleOptions.length > 0) {
-          this.visibleOptions[this.visibleOptions.length - 1]
-            .querySelector('input')
-            .focus();
+        if (this.closeButton) {
+          this.closeButton.focus();
         } else {
-          this.search.focus();
-        }
-        break;
-
-      case 'Tab':
-        e.preventDefault();
-        if (e.shiftKey) {
+          // eslint-disable-next-line no-lonely-if
           if (this.visibleOptions.length > 0) {
             this.visibleOptions[this.visibleOptions.length - 1]
               .querySelector('input')
@@ -1097,10 +1336,26 @@ export class Select {
           } else {
             this.search.focus();
           }
-        } else if (this.closeButton) {
-          this.closeButton.focus();
+        }
+        break;
+
+      case 'Tab':
+        if (e.shiftKey) {
+          if (this.closeButton) {
+            this.closeButton.focus();
+          } else {
+            // eslint-disable-next-line no-lonely-if
+            if (this.visibleOptions.length > 0) {
+              this.visibleOptions[this.visibleOptions.length - 1]
+                .querySelector('input')
+                .focus();
+            } else {
+              this.search.focus();
+            }
+          }
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1109,7 +1364,10 @@ export class Select {
   }
 
   /**
+   * Event callback for handling keyboard events in the close button.
+   *
    * @param {Event} e
+   * @callback
    */
   handleKeyboardOnClose(e) {
     e.preventDefault();
@@ -1117,35 +1375,48 @@ export class Select {
     switch (e.key) {
       case 'Enter':
       case ' ':
-        e.preventDefault();
         this.handleEsc(e);
         this.input.focus();
         break;
 
       case 'ArrowUp':
-        e.preventDefault();
-        if (this.clearAllButton) {
-          this.clearAllButton.focus();
+        if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
         } else {
           this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
       case 'ArrowDown':
-        e.preventDefault();
-        this.input.focus();
+        if (this.clearAllButton) {
+          this.clearAllButton.focus();
+        } else {
+          this.input.focus();
+          this.handleToggle(e);
+        }
         break;
 
       case 'Tab':
-        e.preventDefault();
-        if (e.shiftKey) {
+        if (!e.shiftKey) {
           if (this.clearAllButton) {
             this.clearAllButton.focus();
           } else {
             this.input.focus();
+            this.handleToggle(e);
           }
         } else {
-          this.input.focus();
+          // eslint-disable-next-line no-lonely-if
+          if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else {
+            this.input.focus();
+            this.handleToggle(e);
+          }
         }
         break;
 
@@ -1154,7 +1425,10 @@ export class Select {
   }
 
   /**
+   * Event callback to handle different events which will close the dropdown.
+   *
    * @param {Event} e
+   * @callback
    */
   handleEsc(e) {
     if (this.multiple) {
@@ -1169,68 +1443,10 @@ export class Select {
   }
 
   /**
-   * @param {upOrDown}
-   */
-  moveFocus(upOrDown) {
-    const activeEl = document.activeElement;
-    const hasGroups = activeEl.parentElement.parentElement.classList.contains(
-      'ecl-select__multiple-group',
-    );
-    const options = !hasGroups
-      ? Array.from(
-          activeEl.parentElement.parentElement.querySelectorAll(
-            '.ecl-checkbox__input',
-          ),
-        )
-      : Array.from(
-          activeEl.parentElement.parentElement.parentElement.querySelectorAll(
-            '.ecl-checkbox__input',
-          ),
-        );
-    const activeIndex = options.indexOf(activeEl);
-    if (upOrDown === 'down') {
-      const nextSiblings = options
-        .splice(activeIndex + 1, options.length)
-        .filter(
-          (el) => !el.disabled && el.parentElement.style.display !== 'none',
-        );
-      if (nextSiblings.length > 0) {
-        nextSiblings[0].focus();
-      } else {
-        // eslint-disable-next-line no-lonely-if
-        if (
-          this.dropDownToolbar &&
-          this.dropDownToolbar.style.display === 'flex'
-        ) {
-          this.dropDownToolbar.firstChild.focus();
-        } else {
-          this.input.focus();
-        }
-      }
-    } else {
-      const previousSiblings = options
-        .splice(0, activeIndex)
-        .filter(
-          (el) => !el.disabled && el.parentElement.style.display !== 'none',
-        );
-      if (previousSiblings.length > 0) {
-        previousSiblings.pop().focus();
-      } else {
-        this.optionsContainer.scrollTop = 0;
-        if (!this.selectAll.querySelector('input').disabled) {
-          this.selectAll.querySelector('input').focus();
-        } else {
-          this.search.focus();
-        }
-      }
-    }
-  }
-
-  /**
+   * Event callback to handle the click on the clear all button.
+   *
    * @param {Event} e
-   *
-   * Reset values of the Multiselect.
-   *
+   * @callback
    */
   handleClickOnClearAll(e) {
     e.preventDefault();
@@ -1244,12 +1460,14 @@ export class Select {
     });
 
     this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
-    this.updateCurrentValue();
-    this.updateSelectionsCount(0);
+    this.update(0);
+    this.trigger('onReset', e);
   }
 
   /**
-   * Reset Multiselect.
+   * Event callback to reset the multiple select on form reset.
+   *
+   * @callback
    */
   resetForm() {
     if (this.multiple) {
@@ -1266,8 +1484,7 @@ export class Select {
             option.selected = false;
           }
         });
-        this.updateCurrentValue();
-        this.updateSelectionsCount(0);
+        this.update(0);
       }, 10);
     }
   }

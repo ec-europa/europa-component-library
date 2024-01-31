@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -27,6 +28,16 @@ export class Banner {
     return banner;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event onCtaClick
+   *   Triggered when the call-to-action (CTA) is clicked.
+   * @memberof Banner
+   */
+  supportedEvents = ['onCtaClick'];
+
   constructor(
     element,
     {
@@ -47,12 +58,17 @@ export class Banner {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
+
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
     this.bannerPicture = queryOne(bannerPicture, this.element);
     this.bannerImage = this.bannerPicture
       ? queryOne('img', this.bannerPicture)
+      : false;
+    this.bannerCTA = this.bannerPicture
+      ? queryOne('.ecl-banner__cta', this.element)
       : false;
     this.breakpoint = breakpoint;
     this.defaultRatio = defaultRatio;
@@ -81,9 +97,45 @@ export class Banner {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    if (this.bannerCTA) {
+      this.bannerCTA.addEventListener('click', (e) => this.handleCtaClick(e));
+    }
+
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Banner
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onCtaClick' event
+   * banner.on('onCtaClick', (event) => {
+   *   console.log('The cta was clicked', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Banner
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -177,6 +229,22 @@ export class Banner {
   }
 
   /**
+   * Triggers a custom event when clicking on the cta.
+   *
+   * @param {e} Event
+   */
+  handleCtaClick(e) {
+    let href = null;
+    const anchor = e.target.closest('a');
+    if (anchor) {
+      href = anchor.getAttribute('href');
+    }
+
+    const eventData = { item: this.bannerCTA, target: href || e.target };
+    this.trigger('onCtaClick', eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -185,6 +253,9 @@ export class Banner {
     ECL.components.delete(this.element);
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.bannerCTA) {
+      this.bannerCTA.removeEventListener('click', this.handleCtaClick);
     }
   }
 }

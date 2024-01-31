@@ -1,0 +1,94 @@
+/*
+ * Notification print
+ * @define notification
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$notification: null !default;
+$notification-print: null !default;
+
+.ecl-notification {
+  border: map.get($notification, 'border-width') solid
+    map.get($notification, 'border-color');
+  border-radius: map.get($notification, 'radius');
+  box-sizing: border-box;
+  color: map.get($notification, 'color');
+  display: inline-flex;
+  font: map.get($notification-print, 'font');
+  margin: 0;
+  padding: map.get($notification-print, 'padding');
+  position: relative;
+}
+
+.ecl-notification__icon {
+  flex-shrink: 0;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-notification__content {
+  display: grid;
+  grid-template-columns: auto max-content;
+  width: 100%;
+}
+
+.ecl-notification__title {
+  font: map.get($notification-print, 'title-font');
+  font-weight: map.get($notification, 'title-font-weight');
+  grid-column-start: 1;
+  margin-bottom: map.get($notification-print, 'title-spacing');
+  max-width: var(--max-w);
+}
+
+.ecl-notification__description {
+  grid-column-start: 1;
+  margin: 0;
+  max-width: var(--max-w);
+  padding-bottom: 0;
+}
+
+.ecl-notification__close {
+  display: none;
+}
+
+// information
+.ecl-notification--info {
+  background: map.get($notification, 'info', 'background');
+  border-inline-start: 4px solid map.get($notification, 'info', 'color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'info', 'color');
+  }
+}
+
+// success
+.ecl-notification--success {
+  background: map.get($notification, 'success', 'background');
+  border-inline-start: 4px solid map.get($notification, 'success', 'color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'success', 'color');
+  }
+}
+
+// warning
+.ecl-notification--warning {
+  background: map.get($notification, 'warning', 'background');
+  border-inline-start: 4px solid map.get($notification, 'warning', 'color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'warning', 'color');
+  }
+}
+
+// error
+.ecl-notification--error {
+  background: map.get($notification, 'error', 'background');
+  border-inline-start: 4px solid map.get($notification, 'error', 'color');
+
+  .ecl-notification__icon {
+    fill: map.get($notification, 'error', 'color');
+  }
+}
