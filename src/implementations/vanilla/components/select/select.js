@@ -55,20 +55,25 @@ export class Select {
   }
 
   /**
-   * An array of supported events for this component.
-   *
-   * @type {Array<string>}
    * @event onToggle
-   *   Triggered when the dropdown is toggled
+   *  Triggered when the dropdown is toggled.
+   */
+  /**
    * @event onSelection
-   *   Triggered when a selection is made or removed
+   *  Triggered when a selection is made or removed.
+   */
+  /**
    * @event onSelectAll
-   *   Triggered when the select all checkbox is clicked
+   *  Triggered when the select all checkbox is clicked.
+   */
+  /**
    * @event onReset
-   *   Triggered when the select values are reset
+   *  Triggered when the select values are reset.
+   */
+  /**
    * @event onSearch
-   *   Triggered when the user types in the search box
-   * @memberof Select
+   *  Triggered when the user types in the search box.
+   *
    */
   supportedEvents = [
     'onToggle',
@@ -658,6 +663,7 @@ export class Select {
    * Event callback to show/hide the dropdown
    *
    * @param {Event} e
+   * @fires onToggle
    * @callback
    */
   handleToggle(e) {
@@ -825,6 +831,7 @@ export class Select {
   /**
    * Private method to update the select value.
    *
+   * @fires onSelection
    * @private
    */
   #updateCurrentValue() {
@@ -940,6 +947,7 @@ export class Select {
    * Event callback to handle the click on the select all checkbox.
    *
    * @param {Event} e
+   * @fires onSelectAll
    * @callback
    */
   handleClickSelectAll(e) {
@@ -1002,6 +1010,7 @@ export class Select {
    * Event callback to handle the user typing in the search field.
    *
    * @param {Event} e
+   * @fires onSearch
    * @callback
    */
   handleSearch(e) {
@@ -1307,6 +1316,7 @@ export class Select {
    * Event callback to handle keyboard events on the clear all button.
    *
    * @param {Event} e
+   * @fires onReset
    * @callback
    */
   handleKeyboardOnClearAll(e) {
@@ -1446,6 +1456,7 @@ export class Select {
    * Event callback to handle the click on the clear all button.
    *
    * @param {Event} e
+   * @fires onReset
    * @callback
    */
   handleClickOnClearAll(e) {
