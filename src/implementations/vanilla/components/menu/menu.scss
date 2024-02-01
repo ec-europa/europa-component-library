@@ -185,8 +185,8 @@ $menu: null !default;
 
   &:hover {
     background-color: map.get($menu, 'mobile', 'header-background-hover');
-    border-color: transparent;
-    color: currentcolor;
+    border-color: map.get($menu, 'mobile', 'header-border-hover');
+    color: map.get($menu, 'mobile', 'header-color-hover');
   }
 
   &:focus-visible {
@@ -196,6 +196,17 @@ $menu: null !default;
 }
 
 // Expanded
+@if map-has-key($menu, 'mobile', 'hide-header') {
+  .ecl-menu__inner-header {
+    flex-flow: row;
+  }
+
+  .ecl-menu__inner:not(.ecl-menu__inner--expanded) .ecl-menu__inner-header,
+  .ecl-menu__close {
+    display: none;
+  }
+}
+
 .ecl-menu__inner--expanded .ecl-menu__title {
   display: none;
 }
