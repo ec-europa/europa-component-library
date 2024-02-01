@@ -531,7 +531,7 @@ $menu: null !default;
       padding: map.get($menu, 'desktop', 'caret-padding');
 
       .ecl-button__container {
-        width: auto;
+        width: 100%;
       }
 
       .ecl-button__icon {
@@ -811,3 +811,94 @@ $menu: null !default;
     }
   }
 }
+
+/*
+ * Dark variant
+ */
+// stylelint-disable no-descending-specificity
+@include breakpoints.up('l') {
+  .ecl-menu--dark:not(.ecl-menu--forced-mobile) {
+    background-color: map.get($menu, 'dark', 'menu-background');
+    border-top: none;
+
+    .ecl-menu__item {
+      color: map.get($menu, 'dark', 'item-color');
+
+      &:not(.ecl-menu__items-previous, .ecl-menu__items-next):hover,
+      &:not(.ecl-menu__item--current):focus-within {
+        background-color: map.get($menu, 'dark', 'item-background-hover');
+        color: map.get($menu, 'dark', 'item-color-hover');
+      }
+
+      &:hover .ecl-menu__link,
+      &:hover .ecl-menu__button-caret,
+      &:focus-within .ecl-menu__link,
+      &:focus-within .ecl-menu__button-caret {
+        color: map.get($menu, 'dark', 'item-color-hover');
+      }
+    }
+
+    .ecl-menu__item--current {
+      background-color: map.get($menu, 'dark', 'item-current-background');
+      box-shadow: map.get($menu, 'dark', 'item-current-shadow');
+      color: map.get($menu, 'dark', 'item-current-color');
+
+      &:focus-within {
+        background-color: map.get(
+          $menu,
+          'dark',
+          'item-current-background-focus'
+        );
+      }
+    }
+
+    .ecl-menu__link {
+      color: map.get($menu, 'dark', 'item-color');
+
+      &:hover {
+        background-color: map.get($menu, 'dark', 'item-background-hover');
+        color: map.get($menu, 'dark', 'item-color-hover');
+      }
+
+      &:focus-visible {
+        background-color: map.get($menu, 'dark', 'item-background-focus');
+        color: map.get($menu, 'dark', 'item-color-focus');
+      }
+    }
+
+    .ecl-menu__button-caret {
+      color: map.get($menu, 'dark', 'item-color');
+
+      &:focus-visible {
+        background-color: map.get($menu, 'dark', 'item-background-focus');
+        color: map.get($menu, 'dark', 'item-color-focus');
+      }
+    }
+
+    .ecl-menu__items-previous,
+    .ecl-menu__items-next {
+      background-color: map.get($menu, 'dark', 'overflow-background');
+      border-color: transparent;
+      border-radius: map.get($menu, 'global', 'border-radius');
+      color: map.get($menu, 'dark', 'overflow-color');
+      margin: 0;
+
+      &:hover {
+        background-color: map.get($menu, 'dark', 'overflow-background-hover');
+        color: map.get($menu, 'dark', 'overflow-color-hover');
+      }
+
+      &.ecl-menu__item--current {
+        background-color: map.get($menu, 'dark', 'item-current-background');
+        box-shadow: map.get($menu, 'dark', 'item-current-shadow');
+        color: map.get($menu, 'dark', 'item-current-color');
+
+        &:hover {
+          background-color: map.get($menu, 'dark', 'overflow-background-hover');
+          color: map.get($menu, 'dark', 'overflow-color-hover');
+        }
+      }
+    }
+  }
+}
+// stylelint-enable no-descending-specificity

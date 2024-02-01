@@ -13,6 +13,10 @@ import notes from './README.md';
 const system = getSystem();
 const dataShort = system === 'eu' ? dataEu : dataEc;
 const dataLong = system === 'eu' ? dataEuLong : dataEcLong;
+const dataDark =
+  system === 'eu'
+    ? { ...dataEuLong, variant: 'dark' }
+    : { ...dataEcLong, variant: 'dark' };
 
 const getArgs = (data) => ({
   max_lines: data.max_lines || 2,
@@ -66,3 +70,14 @@ Long.storyName = 'long - with overlay';
 Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes();
 Long.parameters = { notes: { markdown: notes, json: dataLong } };
+
+export const Dark = (_, { loaded: { component } }) => component;
+
+Dark.render = async (args) => {
+  const renderedMenuDark = await menu(prepareData(dataDark, args));
+  return renderedMenuDark;
+};
+Dark.storyName = 'dark';
+Dark.args = getArgs(dataDark);
+Dark.argTypes = getArgTypes();
+Dark.parameters = { notes: { markdown: notes, json: dataDark } };
