@@ -78,7 +78,7 @@ $language-list: null !default;
   }
 
   .ecl-site-header--has-menu & {
-    margin-inline-end: calc(44px + var(--s-m));
+    margin-inline-end: calc(44px + var(--s-xs));
   }
 }
 
@@ -89,7 +89,7 @@ $language-list: null !default;
   color: map.get($site-header, 'toggle-color');
   display: flex;
   flex-direction: column;
-  margin-inline-start: var(--s-m);
+  margin-inline-start: var(--s-xs);
   position: relative;
   text-align: center;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -104,14 +104,14 @@ $language-list: null !default;
 
   &:active,
   &[aria-expanded='true'] {
-    background-color: var(--c-n);
+    background-color: var(--c-n-80);
   }
 }
 
 .ecl-site-header__language-selector {
   box-sizing: border-box;
   color: map.get($site-header, 'toggle-color');
-  margin-inline-start: var(--s-m);
+  margin-inline-start: var(--s-xs);
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -123,7 +123,7 @@ $language-list: null !default;
 
   &:active,
   &[aria-expanded='true'] {
-    background-color: var(--c-n);
+    background-color: var(--c-n-80);
   }
 }
 
@@ -230,7 +230,7 @@ $language-list: null !default;
   display: block;
   font: var(--f-l);
   min-height: 1.75rem;
-  padding: var(--s-s) 0;
+  padding: var(--s-xs) 0;
 
   .ecl-container {
     display: flex;

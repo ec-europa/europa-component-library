@@ -72,6 +72,8 @@ $menu: null !default;
 }
 
 .ecl-menu[aria-expanded='true'] .ecl-menu__open {
+  background-color: map.get($menu, 'mobile', 'open-background-active');
+
   .ecl-icon:first-of-type {
     display: none;
   }
