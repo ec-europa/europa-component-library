@@ -125,10 +125,10 @@ const indexPageContent = `
       }
       .ecl-apis-menu li {
         flex-grow: 1;
-        padding: 0.5rem;
+        padding: 1rem 0;
         border: 1px solid lightgrey;
         margin: 0.5rem;
-        min-width: 100px;
+        width: 190px;
         text-align: center;
       }
       .ecl-apis-menu li:hover {
@@ -140,9 +140,12 @@ const indexPageContent = `
         align-items: center;
         display:flex;
         flex-direction: column;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
         color: #26324b;
+      }
+      .ecl-apis-menu li a svg {
+        margin-bottom: 0.5rem;
       }
       .ecl-apis-menu li:hover a {
         color: #fff;
