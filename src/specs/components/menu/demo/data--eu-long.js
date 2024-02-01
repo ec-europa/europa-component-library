@@ -11,11 +11,18 @@ module.exports = {
       path: exampleLink,
       hide_label: true,
     },
-    icon: {
-      path: '/icons.svg',
-      name: 'hamburger',
-      size: 's',
-    },
+    icon: [
+      {
+        path: '/icons.svg',
+        name: 'hamburger',
+        size: 'm',
+      },
+      {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      },
+    ],
   },
   close: {
     label: 'Close',

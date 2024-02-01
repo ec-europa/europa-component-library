@@ -219,10 +219,26 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   - New twig parameter `toggle` added. It expects an ECL Link structure
   - Twig parameter `menu_link` removed, as it is now part of this structure
   - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
-- `back` twig paramter has been renamed to `back_label`, to avoid confusion
+  - Toggle now expect to recieve 2 icons in the data: the first one for the hamburger icon, the second one for the close icon
+    ```
+    icon: [
+      {
+        path: '/icons.svg',
+        name: 'hamburger',
+        size: 'm',
+      },
+      {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      }
+    ]
+    ```
+- `back` twig parameter has been renamed to `back_label`, to avoid confusion
 - New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
 - Menu link are now using the Link twig template directly, with `standalone` variant
 - Menu buttons are now using the Button twig template directly, with the `ghost` variant
+- Option `overlaySelector` is no longer used in the javascript, as click detection outside of the menu is handled differently
 
 ### Message
 

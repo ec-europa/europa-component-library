@@ -34,15 +34,6 @@ $language-list: null !default;
     background-size: auto 100%;
   }
 
-  .ecl-menu {
-    background: transparent;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: var(--s-xs);
-    width: calc(44px + var(--s-m) * 2);
-  }
-
   .ecl-site-header__cta {
     margin-top: var(--s-s);
     position: relative;
@@ -227,8 +218,8 @@ $language-list: null !default;
 }
 
 .ecl-site-header__banner-top {
-  background: map.get($site-header, 'background-color');
-  border-top: 1px solid var(--c-n-40);
+  background: var(--c-n-40);
+  border-top: 1px solid var(--c-n);
   font: var(--f-m);
   padding: var(--s-xs) 0;
 }
@@ -249,6 +240,26 @@ $language-list: null !default;
 
 .ecl-site-header__site-name {
   margin-inline-end: var(--s-3xl);
+}
+
+// Menu display and position
+$menu-top: calc(44px + 2 * var(--s-xs) + 1px);
+
+// stylelint-disable-next-line no-duplicate-selectors
+.ecl-site-header {
+  .ecl-menu {
+    background: transparent;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: var(--s-xs);
+    width: calc(44px + var(--s-m) * 2);
+  }
+
+  .ecl-menu__overlay,
+  .ecl-menu__inner {
+    top: $menu-top;
+  }
 }
 
 @include breakpoints.down('m') {
@@ -297,6 +308,11 @@ $language-list: null !default;
     .ecl-menu {
       position: static;
       width: 100%;
+    }
+
+    .ecl-menu__overlay,
+    .ecl-menu__inner {
+      top: 0;
     }
   }
 

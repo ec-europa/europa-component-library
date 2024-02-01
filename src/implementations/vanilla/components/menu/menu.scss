@@ -66,8 +66,18 @@ $menu: null !default;
     outline: 2px solid map.get($menu, 'mobile', 'open-outline-color');
   }
 
-  .ecl-link__label {
-    margin: 0;
+  .ecl-icon:last-of-type {
+    display: none;
+  }
+}
+
+.ecl-menu[aria-expanded='true'] .ecl-menu__open {
+  .ecl-icon:first-of-type {
+    display: none;
+  }
+
+  .ecl-icon:last-of-type {
+    display: block;
   }
 }
 

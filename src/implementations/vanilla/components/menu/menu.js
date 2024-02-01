@@ -9,7 +9,6 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.openSelector Selector for the hamburger button
  * @param {String} options.closeSelector Selector for the close button
  * @param {String} options.backSelector Selector for the back button
- * @param {String} options.overlaySelector Selector for the menu overlay
  * @param {String} options.innerSelector Selector for the menu inner
  * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
@@ -56,7 +55,6 @@ export class Menu {
       openSelector = '[data-ecl-menu-open]',
       closeSelector = '[data-ecl-menu-close]',
       backSelector = '[data-ecl-menu-back]',
-      overlaySelector = '[data-ecl-menu-overlay]',
       innerSelector = '[data-ecl-menu-inner]',
       listSelector = '[data-ecl-menu-list]',
       itemSelector = '[data-ecl-menu-item]',
@@ -91,7 +89,6 @@ export class Menu {
     this.openSelector = openSelector;
     this.closeSelector = closeSelector;
     this.backSelector = backSelector;
-    this.overlaySelector = overlaySelector;
     this.innerSelector = innerSelector;
     this.listSelector = listSelector;
     this.itemSelector = itemSelector;
@@ -116,7 +113,6 @@ export class Menu {
     this.open = null;
     this.close = null;
     this.back = null;
-    this.overlay = null;
     this.inner = null;
     this.itemsList = null;
     this.items = null;
@@ -137,11 +133,13 @@ export class Menu {
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnNextItems = this.handleClickOnNextItems.bind(this);
     this.handleClickOnPreviousItems =
       this.handleClickOnPreviousItems.bind(this);
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
+    this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleFocusIn = this.handleFocusIn.bind(this);
@@ -171,7 +169,6 @@ export class Menu {
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
     this.back = queryOne(this.backSelector, this.element);
-    this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.itemsList = queryOne(this.listSelector, this.element);
     this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
@@ -194,7 +191,7 @@ export class Menu {
     if (this.attachClickListener) {
       // Open
       if (this.open) {
-        this.open.addEventListener('click', this.handleClickOnOpen);
+        this.open.addEventListener('click', this.handleClickOnToggle);
       }
 
       // Close
@@ -220,9 +217,9 @@ export class Menu {
         this.btnNext.addEventListener('click', this.handleClickOnNextItems);
       }
 
-      // Overlay
-      if (this.overlay) {
-        this.overlay.addEventListener('click', this.handleClickOnClose);
+      // Global click
+      if (this.attachClickListener) {
+        document.addEventListener('click', this.handleClickGlobal);
       }
     }
 
@@ -363,7 +360,7 @@ export class Menu {
 
     if (this.attachClickListener) {
       if (this.open) {
-        this.open.removeEventListener('click', this.handleClickOnOpen);
+        this.open.removeEventListener('click', this.handleClickOnToggle);
       }
 
       if (this.close) {
@@ -385,8 +382,8 @@ export class Menu {
         this.btnNext.removeEventListener('click', this.handleClickOnNextItems);
       }
 
-      if (this.overlay) {
-        this.overlay.removeEventListener('click', this.handleClickOnClose);
+      if (this.attachClickListener) {
+        document.removeEventListener('click', this.handleClickGlobal);
       }
     }
 
@@ -920,6 +917,20 @@ export class Menu {
   }
 
   /**
+   * Toggle menu list.
+   * @param {Event} e
+   */
+  handleClickOnToggle(e) {
+    e.preventDefault();
+
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.handleClickOnOpen(e);
+    }
+  }
+
+  /**
    * Get back to previous list (on mobile)
    */
   handleClickOnBack() {
@@ -1153,6 +1164,21 @@ export class Menu {
 
         // This is the last item, go back to close button
         this.close.focus();
+      }
+    }
+  }
+
+  /**
+   * Handles global click events, triggered outside of the menu.
+   *
+   * @param {Event} e
+   */
+  handleClickGlobal(e) {
+    // Check if the menu is open
+    if (this.isOpen) {
+      // Check if the click occured in the menu
+      if (!this.inner.contains(e.target) && !this.open.contains(e.target)) {
+        this.handleClickOnClose(e);
       }
     }
   }

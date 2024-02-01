@@ -76,7 +76,7 @@
   role="navigation"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
+  <div class="ecl-menu__overlay"></div>
   <div class="ecl-container ecl-menu__container">
     {% if _toggle is not empty %}
       {% include '@ecl/link/link.html.twig' with _toggle|merge({
