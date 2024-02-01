@@ -5,7 +5,6 @@ module.exports = {
       params: {
         overrides: {
           removeViewBox: false,
-          convertPathData: false,
         },
       },
     },
