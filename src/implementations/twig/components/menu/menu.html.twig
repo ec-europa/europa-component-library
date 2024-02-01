@@ -3,7 +3,7 @@
 {#
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
-  - "variant": (string) (default: 'light'): Alternative display. Can be 'light' or 'dark'
+  - "variant": (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
   - "title": (string) (default: ''): Title of the menu (displayed on mobile)
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
@@ -40,7 +40,7 @@
 {# Internal properties #}
 
 {% set _id = id|default(random()) %}
-{% set _variant = variant|default('light') %}
+{% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _toggle = toggle|default({}) %}
@@ -57,7 +57,9 @@
 
 {# Internal logic - Process properties #}
 
-{% set _css_class = _css_class ~ ' ecl-menu--' ~ _variant %}
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-menu--' ~ _variant %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

@@ -9,6 +9,7 @@ npm install --save @ecl/twig-component-menu
 ### Parameters
 
 - **"id"** (string) (default: random): Unique id
+- **"variant"**: (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
 - **"title"** (string) (default: ''): Title of the menu (displayed on mobile)
 - **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
 - **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
