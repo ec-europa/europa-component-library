@@ -3,7 +3,7 @@
   "name": "@ecl/website",
   "version": "4.0.0-alpha.0",
   "scripts": {
-    "clean": "rimraf build public/apis",
+    "clean": "rimraf -rf build public/apis",
     "start": "npm run prebuild && webpack-dev-server --config webpack.config.dev.js",
     "postinstall": "npm run clean && ./scripts/docs.js",
     "prebuild": "npm run clean && ./scripts/docs.js",
