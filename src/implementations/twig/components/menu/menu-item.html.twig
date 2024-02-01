@@ -8,6 +8,7 @@
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
+    - "external" (boolean) External link
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "children" (array of object) Array of sub-items
@@ -44,6 +45,10 @@
       label: _item.label,
       path: _item.path,
       icon_path: _icon_path,
+      external: _item.external|default(false),
+      icon: {
+        size: 'm',
+      },
     },
     extra_classes: _menu_item_class,
     extra_attributes: [
