@@ -5,8 +5,8 @@
   "scripts": {
     "clean": "rimraf build public/apis",
     "start": "npm run prebuild && webpack-dev-server --config webpack.config.dev.js",
-    "postinstall": "npm run clean && ./scripts/docs.mjs",
-    "prebuild": "npm run clean && ./scripts/docs.mjs",
+    "postinstall": "npm run clean && ./scripts/docs.js",
+    "prebuild": "npm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
     "build": "npm run build:copy && webpack --config webpack.config.prod.js",
     "postbuild": "react-snap",
