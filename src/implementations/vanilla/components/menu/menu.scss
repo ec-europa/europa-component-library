@@ -85,6 +85,12 @@ $menu: null !default;
       display: block;
     }
 
+    // For the external icon
+    .ecl-menu__item .ecl-link__label + .ecl-icon {
+      height: map.get($theme, 'icon', 'm');
+      width: map.get($theme, 'icon', 'm');
+    }
+
     .ecl-menu__site-name,
     .ecl-menu__inner-header,
     .ecl-menu__open,

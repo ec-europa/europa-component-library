@@ -70,14 +70,10 @@
 {% endif %}
 
 {% if _link.external and _link.icon_path is not empty %}
-  {% set _size = '2xs' %}
-  {% if _link.icon is defined and _link.icon.size is defined and _link.icon.size is not empty %}
-    {% set _size = _link.icon.size %}
-  {% endif %}
   {% set _icons = [_icon|merge({
     name: 'external',
     path: _link.icon_path,
-    size: _size,
+    size: '2xs',
   })] %}
 
   {% set _link = _link|merge({ icon_position: 'after' }) %}
