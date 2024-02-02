@@ -13,4 +13,4 @@ All library elements are accompanied by
 - a visual demonstration
 - HTML/CSS code for implementation
 
-For support in building a European Commission website using the ECL, please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) (CEM).
+For support in building a European Commission website using the ECL, please contact [COMM Europa Management](https://digit.service-now.com/esc?id=emp_taxonomy_topic&topic_id=e2bcc0f38721fd50dd76873e8bbb35da) (CEM).
