@@ -6,17 +6,6 @@ order: 3
 import React from 'react';
 import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
-## API
-
-<Iframe url="/apis/Menu.html" />
-
-## Force close
-
-For javascript based pages or applications, you can use the css class `ecl-menu--forced-close` to manually close the menu on desktop view (on mobile a close function is already provided).
-Feel free to add/remove this class when needed.
-
-Note: for a better display, you may want to remove/add the css class `ecl-menu--transition` when manually changing the close/open status of the menu.
-
 ## Setup
 
 There are 2 ways to initialise the component.
@@ -42,3 +31,14 @@ var elt = document.querySelector('[data-ecl-menu]');
 var menu = new ECL.menu(elt);
 menu.init();
 ```
+
+## API
+
+<Iframe url="/apis/Menu.html" />
+
+## Force close
+
+For javascript based pages or applications, you can use the css class `ecl-menu--forced-close` to manually close the menu on desktop view (on mobile a close function is already provided).
+Feel free to add/remove this class when needed.
+
+Note: for a better display, you may want to remove/add the css class `ecl-menu--transition` when manually changing the close/open status of the menu.

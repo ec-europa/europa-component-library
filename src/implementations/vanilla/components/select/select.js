@@ -55,24 +55,19 @@ export class Select {
   }
 
   /**
-   * @event onToggle
-   *  Triggered when the dropdown is toggled.
+   * @event Select#onToggle
    */
   /**
-   * @event onSelection
-   *  Triggered when a selection is made or removed.
+   * @event Select#onSelection
    */
   /**
-   * @event onSelectAll
-   *  Triggered when the select all checkbox is clicked.
+   * @event Select#onSelectAll
    */
   /**
-   * @event onReset
-   *  Triggered when the select values are reset.
+   * @event Select#onReset
    */
   /**
-   * @event onSearch
-   *  Triggered when the user types in the search box.
+   * @event Select#onSearch
    *
    */
   supportedEvents = [
@@ -663,8 +658,8 @@ export class Select {
    * Event callback to show/hide the dropdown
    *
    * @param {Event} e
-   * @fires onToggle
-   * @callback
+   * @fires Select#onToggle
+   * @type {function}
    */
   handleToggle(e) {
     if (this.multiple) {
@@ -831,7 +826,7 @@ export class Select {
   /**
    * Private method to update the select value.
    *
-   * @fires onSelection
+   * @fires Select#onSelection
    * @private
    */
   #updateCurrentValue() {
@@ -921,7 +916,7 @@ export class Select {
    * Event callback to handle the click on a checkbox.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleClickOption(e) {
     e.preventDefault();
@@ -947,8 +942,8 @@ export class Select {
    * Event callback to handle the click on the select all checkbox.
    *
    * @param {Event} e
-   * @fires onSelectAll
-   * @callback
+   * @fires Select#onSelectAll
+   * @type {function}
    */
   handleClickSelectAll(e) {
     e.preventDefault();
@@ -985,7 +980,7 @@ export class Select {
    * Event callback to handle moving the focus out of the select.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleFocusout(e) {
     if (
@@ -1010,8 +1005,8 @@ export class Select {
    * Event callback to handle the user typing in the search field.
    *
    * @param {Event} e
-   * @fires onSearch
-   * @callback
+   * @fires Select#onSearch
+   * @type {function}
    */
   handleSearch(e) {
     const dropDownHeight = this.optionsContainer.offsetHeight;
@@ -1131,7 +1126,7 @@ export class Select {
    * Event callback to handle the click outside the select.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleClickOutside(e) {
     if (
@@ -1156,7 +1151,7 @@ export class Select {
    * Event callback to handle keyboard events on the select.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnSelect(e) {
     switch (e.key) {
@@ -1189,7 +1184,7 @@ export class Select {
    * Event callback to handle keyboard events on the select all checkbox.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnSelectAll(e) {
     switch (e.key) {
@@ -1231,7 +1226,7 @@ export class Select {
    * Event callback to handle keyboard events on the dropdown.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnOptions(e) {
     switch (e.key) {
@@ -1267,7 +1262,7 @@ export class Select {
    * Event callback to handle keyboard events
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnSearch(e) {
     switch (e.key) {
@@ -1303,7 +1298,7 @@ export class Select {
    * Event callback to handle the click on an option.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnOption(e) {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -1316,8 +1311,8 @@ export class Select {
    * Event callback to handle keyboard events on the clear all button.
    *
    * @param {Event} e
-   * @fires onReset
-   * @callback
+   * @fires Select#onReset
+   * @type {function}
    */
   handleKeyboardOnClearAll(e) {
     e.preventDefault();
@@ -1377,7 +1372,7 @@ export class Select {
    * Event callback for handling keyboard events in the close button.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleKeyboardOnClose(e) {
     e.preventDefault();
@@ -1438,7 +1433,7 @@ export class Select {
    * Event callback to handle different events which will close the dropdown.
    *
    * @param {Event} e
-   * @callback
+   * @type {function}
    */
   handleEsc(e) {
     if (this.multiple) {
@@ -1456,8 +1451,8 @@ export class Select {
    * Event callback to handle the click on the clear all button.
    *
    * @param {Event} e
-   * @fires onReset
-   * @callback
+   * @fires Select#onReset
+   * @type {function}
    */
   handleClickOnClearAll(e) {
     e.preventDefault();
@@ -1478,7 +1473,7 @@ export class Select {
   /**
    * Event callback to reset the multiple select on form reset.
    *
-   * @callback
+   * @type {function}
    */
   resetForm() {
     if (this.multiple) {

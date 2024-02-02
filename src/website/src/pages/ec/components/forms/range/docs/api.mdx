@@ -6,10 +6,6 @@ order: 3
 import React from 'react';
 import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
-## API
-
-<Iframe url="/apis/Range.html" />
-
 ## Setup
 
 There are 2 ways to initialise the component.
@@ -44,3 +40,16 @@ var elt = document.querySelector('[data-ecl-range]');
 var range = new ECL.Range(elt);
 range.init();
 ```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-range]');
+var instance = ECL.components.get(elt);
+```
+
+## API
+
+<Iframe url="/apis/Range.html" />

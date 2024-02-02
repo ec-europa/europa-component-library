@@ -6,10 +6,6 @@ order: 3
 import React from 'react';
 import Iframe from '../../../../../website-components/Showcase/Iframe';
 
-## API
-
-<Iframe url="/apis/CategoryFilter.html" />
-
 ## Setup
 
 There are 2 ways to initialise the component.
@@ -51,9 +47,6 @@ var elt = document.querySelector('[data-ecl-category-filter]');
 var instance = ECL.components.get(elt);
 ```
 
-To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+## API
 
-```
-instance.destroy();
-instance.init();
-```
+<Iframe url="/apis/CategoryFilter.html" />

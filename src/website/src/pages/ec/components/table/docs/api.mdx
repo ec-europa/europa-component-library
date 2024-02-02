@@ -6,10 +6,6 @@ order: 3
 import React from 'react';
 import Iframe from '../../../../../website-components/Showcase/Iframe';
 
-## API
-
-<Iframe url="/apis/Table.html" />
-
 ## Setup
 
 Add `data-ecl-table-sort-toggle` attribute on table headings for which you want to activate sorting.
@@ -49,9 +45,6 @@ var elt = document.querySelector('[data-ecl-table]');
 var instance = ECL.components.get(elt);
 ```
 
-To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+## API
 
-```
-instance.destroy();
-instance.init();
-```
+<Iframe url="/apis/Table.html" />

@@ -11,10 +11,6 @@ import Iframe from '../../../../../../website-components/Showcase/Iframe';
 The ECL datepicker component uses the [Pikaday](https://github.com/Pikaday/Pikaday) under the hood. This library is not bundled in the ECL js anymore and needs to be loaded in the project before the ECL js.
 Additionally pikaday uses [moment.js](https://momentjs.com/) to handle the rendering of date formats and other things, although this is only an optional dependency and should be only loaded when the datepicker is initialised with a custom date format (default in ECL is `DD-MM-YYYY`).
 
-## API
-
-<Iframe url="/apis/Datepicker.html" />
-
 ## Setup
 
 There are 2 ways to initialise the component.
@@ -42,3 +38,7 @@ var elt = document.querySelector('[data-ecl-datepicker-toggle]');
 var datepicker = new ECL.Datepicker(elt);
 datepicker.init();
 ```
+
+## API
+
+<Iframe url="/apis/Datepicker.html" />
