@@ -1,17 +1,19 @@
 # ECL v4 migration notes
 
-The following guidelines aim to facilitate migration between ECL v3 to v4.
+The following guidelines aim to facilitate migration between ECL v3 and v4.
 
 - [Js modifications](#js-modifications)
 - [Style modifications](#style-modifications)
 - [Component modifications](#component-modifications)
+- [Customizing the display](#customizing-the-display)
 
 ## Js modifications
 
 - The ECL javascript is not bundling anymore `pikaday`, therefore this library needs to be loaded by the project using ECL, it is only
   needed when a `datepicker` instance is present in the page.
-- There is no hard dependency on `moment.js` anymore, this library is only needed when customising the default format for the dates, the default
-  in ECL is `DD-MM-YYYY`. If the format is customised but moment is not loaded there will not be errors in the console but the chosen format would not be consistently shown.
+- There is no hard dependency on `moment.js` anymore, this library is only needed when customising the default format for the dates, the default in ECL is `DD-MM-YYYY`. If the format is customised but moment is not loaded there will not be errors in the console but the chosen format would not be consistently shown.
+- Callback are now provided for some components, and can be used to trigger custom code when needed
+- Documentation for javascript API has been improved, to offer a better visualisation of the components methods and events
 
 ## Style modifications
 
@@ -21,7 +23,7 @@ The following guidelines aim to facilitate migration between ECL v3 to v4.
 
 Semantic colors have been introduced; they were already defined in v3 but not used.
 
-All EC and EU components would rely on these semantic colors, to allow easy color swap where needed.
+All EC and EU components rely on these semantic colors, to allow easy color swap where needed.
 
 If there are custom styles or components, they should be updated to use one of the semantic color wherever applicable
 
@@ -44,13 +46,16 @@ The naming convention is as follow:
 - lighter colors use smaller numbers. Ex: primary-80, dark-20
 - darker colors use larger numbers. Ex: primary-120, dark-140
 
+To change the default values of these colors, check the section "Customizing the display"
+
 ### Typography
 
 No more categories of font for EC (normal - with standard line height, and prolonged - with bigger line height). Now all the font are using the same scale
 
 ### Shadows
 
-Elevation scale has been updated for EC, to allow more flexibility. Instead of elevation 1 to 4, it now uses the real depth of it. It affects mostly the shadow utilites.
+Elevation scale has been updated for EC, to allow more flexibility and give the possibility to introduce new shadows later.
+Instead of elevation 1 to 4, it now uses the real depth of it. It affects mostly the shadow utilites.
 
 Corresponding list (v3 -> v4):
 
@@ -132,11 +137,6 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 
 - Rename twig parameter `icons_path` to `icon_path`, to be consistent with other components
 
-### Description list
-
-- Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
-- Links in the taxonomies are no longer using variant `standalone`
-
 ### Expandable
 
 - Button is now using variant `ghost`, instead of `secondary`
@@ -164,25 +164,29 @@ Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2X
 - form-group.html.twig template has been added. Form elements can now be rendered through it by passing an input named object with the same
   properties of the ECL v3 form elements and an additional input_type that can be `text`, `checkbox`, `radio`, `datepicker`, `select`, `file`, `textarea`, `range`, `rating-field`.
 
-EX: `{% include '@ecl/form-group/form-group.html.twig' with { 
-  label: 'my file upload label', 
-  helper_text: 'this is a helper text', 
-  invalid_text: 'this is an invalid text', 
-  required_text: '*', 
+Ex:
+
+```
+{% include '@ecl/form-group/form-group.html.twig' with {
+  label: 'my file upload label',
+  helper_text: 'this is a helper text',
+  invalid_text: 'this is an invalid text',
+  required_text: '*',
   required: true,
   optional_text: '(optional)',
   label_aria_required: 'required',
   label_aria_optional: 'optional',
   input: {
     input_type: file,
-    multiple: false, 
-    button_choose_label: "Choose file", 
+    multiple: false,
+    button_choose_label: "Choose file",
     button_replace_label: "Replace file",
-  } only %}`
+  }} only %}
+```
 
 - It is also possible to include directly the form elements templates to only render the input field, but in that case it's responsibility of the
   implementation to ensure that the accessibility is not compromised.
-- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `_form-group.scss` and `form-group-print.scss`
+- The vanilla package defining the styles for the form group elements is now named `@ecl/vanilla-component-form-group` and the scss contained in it are `form-group.scss` and `form-group-print.scss`
 - The form group template take care of accessibility for everything surrounding the form input (label, helper text, ...). Depending on the form input, the way it is handled may vary (using specific html tags or aria attributes)
 
 ### Inpage navigation
@@ -205,8 +209,9 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 #### Description list
 
-- Lists with links, regardless of the type, always expect the `ecl-link--standalone` class to prevent the underlining.
+- Lists with links, in most cases, expect the `ecl-link--standalone` class to prevent the underlining. The only excpetion is the taxonomy list.
 - Items definition can now contain an array of `tag`
+- Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
 
 ### Menu
 
@@ -219,7 +224,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
   - New twig parameter `toggle` added. It expects an ECL Link structure
   - Twig parameter `menu_link` removed, as it is now part of this structure
   - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
-- `back` twig paramter has been renamed to `back_label`, to avoid confusion
+- `back` twig parameter has been renamed to `back_label`, to avoid confusion
 - New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
 - Menu link are now using the Link twig template directly, with `standalone` variant
 - Menu buttons are now using the Button twig template directly, with the `ghost` variant
@@ -239,7 +244,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Navigation list
 
-- `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items and it's now by default set to `true`.
+- `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items. The default value is set to `true`.
 - `variant` parameter has been added, it can be set to `illustration` to get the image on the right in the tear drop container.
 
 ### Page header
@@ -301,25 +306,26 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Table
 
-- In order to properly support the row extra_classes and extra_attributes the data structure is now changed and it expects a `data` named object containing all the table cells belonging to that row.
-  Classes and attributes for the single row can now be set inside the row object, like this:
-  `rows: [
-  {
-    data: [
-      {
-        label: 'Administators in Competition Law',
-        'data-ecl-table-header': 'Job title',
-      },
-      {
-        label: 'AD7',
-        'data-ecl-table-header': 'EFSI finance approved by EIB',
-      },
-      extra_classes: 'row-extra-class',
-      extra_attributes: [{ name: 'custom-attr', value: 'custom-value'}],
-    ],
-  },
-  ...
-]`
+- In order to properly support the row extra_classes and extra_attributes the data structure is now changed and it expects a `data` named object containing all the table cells belonging to that row. Classes and attributes for the single row can now be set inside the row object, like this:
+  ```
+  rows: [
+    {
+      data: [
+        {
+          label: 'Administators in Competition Law',
+          'data-ecl-table-header': 'Job title',
+        },
+        {
+          label: 'AD7',
+          'data-ecl-table-header': 'EFSI finance approved by EIB',
+        },
+        extra_classes: 'row-extra-class',
+        extra_attributes: [{ name: 'custom-attr', value: 'custom-value'}],
+      ],
+    },
+    ...
+  ]
+  ```
 - New parameter `rowspan` in the header structure, to allow header on multiple rows.
   It is still possible to have empty headers as previously, but it may trigger a (minor) accessibility warning
 - New parameter `label_sort`, to provide a screen reader label for the sort button
@@ -339,7 +345,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 - Tags now wrap on several lines by default. New twig parameter `nowrap` added to force display of the tag on one line.
 - Added possibilty to handle set of tags. Twig template and corresponding css have been added.
 
-## Custom theme
+## Customizing the display
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
 
