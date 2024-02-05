@@ -13,7 +13,7 @@ import notes from './README.md';
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
-const enMenu = { ...enDataMenu };
+const enMenu = { ...enDataMenu, variant: 'dark' };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
