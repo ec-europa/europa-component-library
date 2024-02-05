@@ -3,11 +3,8 @@ title: API
 order: 3
 ---
 
-import ModalJSDoc from '../../../_jsdoc/modal.md';
-
-## API
-
-<ModalJSDoc />
+import React from 'react';
+import Iframe from '../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
@@ -44,9 +41,6 @@ var elt = document.querySelector('[data-ecl-modal]');
 var instance = ECL.components.get(elt);
 ```
 
-To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+## API
 
-```
-instance.destroy();
-instance.init();
-```
+<Iframe url="/apis/Modal.html" />
