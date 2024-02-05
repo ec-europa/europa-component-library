@@ -49,11 +49,11 @@ const getArgTypes = () => ({
 
 export const Custom = (args) => {
   let background = `ecl-u-bg-${args.background}`;
-  const negative =
+  const inverted =
     system === 'eu'
       ? ['primary', 'dark', 'info', 'success', 'error', 'warning']
       : ['primary', 'dark', 'info', 'success', 'error'];
-  if (negative.includes(args.background)) {
+  if (inverted.includes(args.background)) {
     background += ' ecl-u-type-color-white';
   }
   return `<p class='ecl-u-type-paragraph ${background}'>

@@ -114,9 +114,6 @@
         {# Render all the items with different attributes, aria labels are set via js #}
         <li class="{{ _breadcrumb_segment_class }}" {{ _breadcrumb_segment_attributes|raw }}>
           {% set _link_extra_class = 'ecl-breadcrumb__link' %}
-          {% if _variant is not empty and _variant == 'negative' %}
-            {% set _link_extra_class = _link_extra_class ~ ' ecl-link--inverted' %}
-          {% endif %}
           {% include '@ecl/link/link.html.twig' with {
             link: link|default({})|merge({
               type: 'standalone',

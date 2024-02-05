@@ -3,11 +3,8 @@ title: API
 order: 3
 ---
 
-import BannerJSDoc from '../../../_jsdoc/banner.md';
-
-## API
-
-<BannerJSDoc />
+import React from 'react';
+import Iframe from '../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
@@ -36,3 +33,14 @@ var elt = document.querySelector('[data-ecl-banner]');
 var banner = new ECL.Banner(elt);
 banner.init();
 ```
+
+### Retrieve an existing instance
+
+```js
+var elt = document.querySelector('[data-ecl-banner]');
+var instance = ECL.components.get(elt);
+```
+
+## API
+
+<Iframe url="/apis/Banner.html" />
