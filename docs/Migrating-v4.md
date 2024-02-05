@@ -244,7 +244,7 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Page header
 
-- Twig parameter `variant` has been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
+- Twig parameters `variant` and `negative` have been removed, with the corresponding CSS classes. It was only used in EC Core page header. There is no more differences between Core, Standardised and Harmonised.
 - Wrapper `ecl-page-header__title-container` has been removed
 
 ### Pagination
@@ -279,8 +279,10 @@ EX: `{% include '@ecl/form-group/form-group.html.twig' with {
 
 ### Spinner
 
+- Component has been renamed `loading indicator` on the website, but css markup and classes are still the same to avoid issues
 - For consistency, possible sizes have been renamed `s`, `m` and `l`, instead of `small`, `medium` and `large`. Corresponding css classes have been renamed.
 - Order of elements in the markup has been changed
+- Variant `negative` has been renamed `inverted`, to be consistent with other components
 
 ### Site header
 
