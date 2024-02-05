@@ -8,7 +8,6 @@ npm install --save @ecl/twig-component-breadcrumb
 
 ### Parameters
 
-- **"variant"** (string) (default: '') options: [ negative ] Negative style with a darker background (only for EC)
 - **"links"** (array) (default: []): format:
   - "label" (string) (default: '') Label of link
   - "path" (string) (default: '') URL of link

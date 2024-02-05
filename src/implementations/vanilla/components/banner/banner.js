@@ -32,8 +32,7 @@ export class Banner {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event onCtaClick
-   *   Triggered when the call-to-action (CTA) is clicked.
+   * @event Banner#onCtaClick
    * @memberof Banner
    */
   supportedEvents = ['onCtaClick'];
@@ -232,6 +231,7 @@ export class Banner {
    * Triggers a custom event when clicking on the cta.
    *
    * @param {e} Event
+   * @fires Banner#onCtaClick
    */
   handleCtaClick(e) {
     let href = null;

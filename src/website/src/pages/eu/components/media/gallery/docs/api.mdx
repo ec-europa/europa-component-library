@@ -3,11 +3,8 @@ title: API
 order: 3
 ---
 
-import GalleryJSDoc from '../../../../_jsdoc/gallery.md';
-
-## API
-
-<GalleryJSDoc />
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
@@ -49,7 +46,6 @@ var instance = ECL.components.get(elt);
 
 To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
 
-```
-instance.destroy();
-instance.init();
-```
+## API
+
+<Iframe url="/apis/Gallery.html" />

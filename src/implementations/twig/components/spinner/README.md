@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-spinner
 
 ### Parameters:
 
-- **"variant"** (string) (default: primary): could be 'primary' or 'negative'
+- **"variant"** (string) (default: primary): could be 'primary' or 'inverted'
 - **"size"** (string) (default: m): could be 's', 'm' or 'l'
 - **"text"** (string) (default: '')
 - **"centered"** (boolean) (default: false)
@@ -24,7 +24,7 @@ npm install --save @ecl/twig-component-spinner
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/spinner/spinner.html.twig' with {
-    variant: 'negative',
+    variant: 'inverted',
     centered: false,
     size: 'small',
     visible: true,

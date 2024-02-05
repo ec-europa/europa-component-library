@@ -43,6 +43,13 @@ export class Menu {
   }
 
   /**
+   *   @event Menu#onOpen
+   */
+  /**
+   *   @event Menu#onClose
+   */
+
+  /**
    * An array of supported events for this component.
    *
    * @type {Array<string>}
@@ -879,6 +886,8 @@ export class Menu {
   /**
    * Open menu list.
    * @param {Event} e
+   *
+   * @fires Menu#onOpen
    */
   handleClickOnOpen(e) {
     e.preventDefault();
@@ -894,6 +903,9 @@ export class Menu {
 
   /**
    * Close menu list.
+   * @param {Event} e
+   *
+   * @fires Menu#onClose
    */
   handleClickOnClose(e) {
     this.element.setAttribute('aria-expanded', 'false');

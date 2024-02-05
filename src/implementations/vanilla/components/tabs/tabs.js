@@ -133,7 +133,7 @@ export class Tabs {
       // Create the "more" dropdown and clone existing list items
       this.dropdown = document.createElement('div');
       this.dropdown.classList.add('ecl-tabs__dropdown');
-      this.dropdownList = document.createElement('ul');
+      this.dropdownList = document.createElement('div');
       this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
         this.dropdownList.appendChild(item.cloneNode(true));
@@ -353,11 +353,14 @@ export class Tabs {
       this.list.style.transitionDuration = '0.4s';
       this.shiftTabs(this.index);
       if (this.moreItem) {
-        this.moreItem.setAttribute('aria-hidden', 'true');
+        this.moreItem.classList.add('ecl-tabs__item--hidden');
+      }
+      if (this.moreButton) {
+        this.moreButton.classList.add('ecl-tabs__toggle--hidden');
       }
       let listWidth = 0;
       this.listItems.forEach((item) => {
-        item.setAttribute('aria-hidden', 'false');
+        item.classList.remove('ecl-tabs__item--hidden');
         listWidth += Math.ceil(item.getBoundingClientRect().width);
       });
       this.list.style.width = `${listWidth}px`;
@@ -383,14 +386,14 @@ export class Tabs {
     const listWidth = this.list.getBoundingClientRect().width;
     this.moreButtonActive = false;
     this.listItems.forEach((item, i) => {
-      item.setAttribute('aria-hidden', 'false');
+      item.classList.remove('ecl-tabs__item--hidden');
       if (
         listWidth >= stopWidth + item.getBoundingClientRect().width &&
         !hiddenItems.includes(i - 1)
       ) {
         stopWidth += item.getBoundingClientRect().width;
       } else {
-        item.setAttribute('aria-hidden', 'true');
+        item.classList.add('ecl-tabs__item--hidden');
         if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
           this.moreButtonActive = true;
         }
@@ -407,18 +410,20 @@ export class Tabs {
 
     // Toggle the visibility of More button and items in dropdown
     if (!hiddenItems.length) {
-      this.moreItem.setAttribute('aria-hidden', 'true');
+      this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
     } else {
-      this.moreItem.setAttribute('aria-hidden', 'false');
+      this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
       this.moreLabel.textContent = this.moreLabelValue.replace(
         '%d',
         hiddenItems.length,
       );
       this.dropdownItems.forEach((item, i) => {
         if (!hiddenItems.includes(i)) {
-          item.setAttribute('aria-hidden', 'true');
+          item.classList.add('ecl-tabs__item--hidden');
         } else {
-          item.setAttribute('aria-hidden', 'false');
+          item.classList.remove('ecl-tabs__item--hidden');
         }
       });
     }
@@ -433,7 +438,7 @@ export class Tabs {
     this.tabsKey = [];
     this.listItems.forEach((item, index, array) => {
       let tab = null;
-      if (item.getAttribute('aria-hidden') === 'false') {
+      if (!item.classList.contains('ecl-tabs__item--hidden')) {
         tab = queryOne('.ecl-tabs__link', item);
       } else {
         const dropdownItem = this.dropdownItems[index];
