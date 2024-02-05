@@ -3,7 +3,7 @@
   "name": "@ecl/website",
   "version": "4.0.0-alpha.0",
   "scripts": {
-    "clean": "rimraf build src/pages/ec/_jsdoc src/pages/eu/_jsdoc",
+    "clean": "rimraf build public/apis/*",
     "start": "npm run prebuild && webpack-dev-server --config webpack.config.dev.js",
     "postinstall": "npm run clean && ./scripts/docs.js",
     "prebuild": "npm run clean && ./scripts/docs.js",
@@ -62,7 +62,8 @@
     "copy-webpack-plugin": "11.0.0",
     "css-loader": "6.9.1",
     "css-minimizer-webpack-plugin": "5.0.1",
-    "documentation": "13.2.5",
+    "docdash": "2.0.2",
+    "jsdoc": "4.0.2",
     "eslint": "8.56.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-base": "15.0.0",

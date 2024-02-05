@@ -28,8 +28,7 @@ export class Accordion {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event onToggle
-   *   Triggered when an item is toggled
+   * @event Accordion#onToggle
    * @memberof Accordion
    */
   supportedEvents = ['onToggle'];
@@ -154,6 +153,8 @@ export class Accordion {
 
   /**
    * @param {HTMLElement} toggle Target element to toggle.
+   *
+   * @fires Accordion#onToggle
    */
   handleClickOnToggle(event, toggle) {
     let isOpening = false;

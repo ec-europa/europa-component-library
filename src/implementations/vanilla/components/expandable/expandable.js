@@ -30,8 +30,7 @@ export class Expandable {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event onToggle
-   *   Triggered on expand/collapse
+   * @event Expandable#onToggle
    * @memberof Expandable
    */
   supportedEvents = ['onToggle'];
@@ -153,6 +152,8 @@ export class Expandable {
 
   /**
    * Toggles between collapsed/expanded states.
+   *
+   * @fires Expandable#handleToggle
    */
   handleClickOnToggle(e) {
     // Get current status

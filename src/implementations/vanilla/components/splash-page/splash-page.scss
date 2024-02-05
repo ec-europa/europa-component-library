@@ -52,6 +52,10 @@ $language-list: null !default;
   margin-top: map.get($language-list, 'content-margin-mobile');
 }
 
+.ecl-splash-page__language-category {
+  flex-grow: 1;
+}
+
 .ecl-splash-page__language-category-title {
   font: map.get($language-list, 'category-title-font');
   font-weight: map.get($language-list, 'category-title-font-weight');

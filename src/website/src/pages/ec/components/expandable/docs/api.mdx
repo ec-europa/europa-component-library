@@ -3,11 +3,8 @@ title: API
 order: 3
 ---
 
-import ExpandableJSDoc from '../../../_jsdoc/expandable.md';
-
-## API
-
-<ExpandableJSDoc />
+import React from 'react';
+import Iframe from '../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
@@ -46,9 +43,6 @@ var elt = document.querySelector('[data-ecl-expandable]');
 var instance = ECL.components.get(elt);
 ```
 
-To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+## API
 
-```
-instance.destroy();
-instance.init();
-```
+<Iframe url="/apis/Expandable.html" />

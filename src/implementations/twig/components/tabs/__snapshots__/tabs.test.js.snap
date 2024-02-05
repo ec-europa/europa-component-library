@@ -2,7 +2,7 @@
 
 exports[`Tabs Default renders correctly 1`] = `
 <jest>
-  <nav
+  <div
     class="ecl-tabs"
     data-ecl-auto-init="Tabs"
     data-ecl-tabs="true"
@@ -10,13 +10,12 @@ exports[`Tabs Default renders correctly 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -26,24 +25,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
-        >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-link--no-visited ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Tab label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -54,10 +38,22 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-link--no-visited ecl-tabs__link"
+            href="/example"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
         >
           <a
             aria-selected="true"
@@ -68,10 +64,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -82,10 +77,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -96,10 +90,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -110,10 +103,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -124,10 +116,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -138,10 +129,9 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -152,51 +142,54 @@ exports[`Tabs Default renders correctly 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-tabs__controls"
-    >
+        />
+      </div>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__toggle"
+        tabindex="-1"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            More (%d)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-tabs__item--hidden ecl-button--icon-only"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon"
@@ -210,13 +203,18 @@ exports[`Tabs Default renders correctly 1`] = `
         </span>
       </button>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-tabs__item--hidden ecl-button--icon-only"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon"
@@ -230,13 +228,13 @@ exports[`Tabs Default renders correctly 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </jest>
 `;
 
 exports[`Tabs Default renders correctly with extra attributes 1`] = `
 <jest>
-  <nav
+  <div
     class="ecl-tabs"
     data-ecl-auto-init="Tabs"
     data-ecl-tabs="true"
@@ -246,13 +244,12 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -262,24 +259,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
-        >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-link--no-visited ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Tab label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -290,10 +272,22 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-link--no-visited ecl-tabs__link"
+            href="/example"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
         >
           <a
             aria-selected="true"
@@ -304,10 +298,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -318,10 +311,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -332,10 +324,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -346,10 +337,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -360,10 +350,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -374,10 +363,9 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -388,51 +376,54 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-tabs__controls"
-    >
+        />
+      </div>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__toggle"
+        tabindex="-1"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            More (%d)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-tabs__item--hidden ecl-button--icon-only"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon"
@@ -446,13 +437,18 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
         </span>
       </button>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-tabs__item--hidden ecl-button--icon-only"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon"
@@ -466,13 +462,13 @@ exports[`Tabs Default renders correctly with extra attributes 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </jest>
 `;
 
 exports[`Tabs Default renders correctly with extra class names 1`] = `
 <jest>
-  <nav
+  <div
     class="ecl-tabs custom-class custom-class--test"
     data-ecl-auto-init="Tabs"
     data-ecl-tabs="true"
@@ -480,13 +476,12 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-tabs__container"
     >
-      <ul
+      <div
         class="ecl-tabs__list"
         role="tablist"
       >
-        <li
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -496,24 +491,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
-        >
-          <a
-            aria-selected="false"
-            class="ecl-link ecl-link--no-visited ecl-tabs__link"
-            href="/example"
-            role="tab"
-            tabindex="-1"
-          >
-            Tab label
-          </a>
-        </li>
-        <li
-          class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -524,10 +504,22 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-link--no-visited ecl-tabs__link"
+            href="/example"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
         >
           <a
             aria-selected="true"
@@ -538,10 +530,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -552,10 +543,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -566,10 +556,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -580,10 +569,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -594,10 +582,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -608,10 +595,9 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item"
-          role="presentation"
         >
           <a
             aria-selected="false"
@@ -622,51 +608,54 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
           >
             Tab label
           </a>
-        </li>
-        <li
+        </div>
+        <div
           class="ecl-tabs__item ecl-tabs__item--more"
-          role="presentation"
-        >
-          <button
-            class="ecl-button ecl-button--ghost ecl-tabs__toggle"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="ecl-button__container"
-            >
-              <span
-                class="ecl-button__label"
-                data-ecl-label="true"
-              >
-                More (%d)
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
-                data-ecl-icon=""
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-            </span>
-          </button>
-        </li>
-      </ul>
-    </div>
-    <div
-      class="ecl-tabs__controls"
-    >
+        />
+      </div>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__toggle"
+        tabindex="-1"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            More (%d)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ecl-tabs__controls"
+    >
+      <button
+        class="ecl-button ecl-button--ghost ecl-tabs__prev ecl-tabs__item--hidden ecl-button--icon-only"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon"
@@ -680,13 +669,18 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
         </span>
       </button>
       <button
-        aria-hidden="true"
-        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-button--icon-only"
+        class="ecl-button ecl-button--ghost ecl-tabs__next ecl-tabs__item--hidden ecl-button--icon-only"
         type="button"
       >
         <span
           class="ecl-button__container"
         >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next
+          </span>
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon"
@@ -700,6 +694,6 @@ exports[`Tabs Default renders correctly with extra class names 1`] = `
         </span>
       </button>
     </div>
-  </nav>
+  </div>
 </jest>
 `;

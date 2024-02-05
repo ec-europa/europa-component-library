@@ -85,8 +85,8 @@ $_spinner-sizes: (
   top: var(--s-2xl);
 }
 
-// Negative
-.ecl-spinner--negative {
+// Inverted
+.ecl-spinner--inverted {
   .ecl-spinner__loader {
     stroke: map.get($theme, 'color', 'white');
   }
@@ -140,7 +140,7 @@ $_spinner-sizes: (
     position: fixed;
   }
 
-  & ~ .ecl-spinner--negative {
+  & ~ .ecl-spinner--inverted {
     .ecl-spinner__loader {
       stroke: map.get($spinner, 'stroke-color');
     }

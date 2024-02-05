@@ -3,11 +3,8 @@ title: API
 order: 3
 ---
 
-import RangeJSDoc from '../../../../_jsdoc/range.md';
-
-## API
-
-<RangeJSDoc />
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
@@ -43,3 +40,16 @@ var elt = document.querySelector('[data-ecl-range]');
 var range = new ECL.Range(elt);
 range.init();
 ```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-range]');
+var instance = ECL.components.get(elt);
+```
+
+## API
+
+<Iframe url="/apis/Range.html" />

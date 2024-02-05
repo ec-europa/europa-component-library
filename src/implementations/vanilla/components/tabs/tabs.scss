@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -21,6 +22,7 @@ $button-width: 44px;
 
 .ecl-tabs__container {
   overflow-x: hidden;
+  position: relative;
   transition-duration: 0.4s;
 }
 
@@ -98,16 +100,16 @@ $button-width: 44px;
   text-align: end;
 }
 
-.ecl-tabs__item {
-  &[aria-hidden='true'] {
-    display: none;
-  }
+.ecl-tabs__item--hidden {
+  display: none;
 }
 
 .ecl-tabs__toggle {
   font-weight: map.get($tabs, 'more', 'font-weight');
   margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
-  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
 
   &:hover {
     box-shadow: none;
@@ -149,10 +151,13 @@ $button-width: 44px;
   }
 }
 
+.ecl-tabs__toggle--hidden {
+  display: none;
+}
+
 .ecl-tabs__dropdown {
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($tabs, 'dropdown', 'shadow');
-  display: none;
   max-height: 233px;
   max-width: 100%;
   overflow-y: auto;
@@ -183,15 +188,15 @@ $button-width: 44px;
   }
 }
 
+.ecl-tabs__dropdown:not(.ecl-tabs__dropdown--show) {
+  @include screen-reader.sr-only;
+}
+
 .ecl-tabs__dropdown-list {
   display: grid;
   list-style: none;
   margin: map.get($tabs, 'dropdown', 'list-margin');
   padding: 0;
-}
-
-.ecl-tabs__dropdown--show {
-  display: block;
 }
 
 .ecl-tabs__next {
