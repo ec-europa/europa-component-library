@@ -39,6 +39,7 @@ $menu: null !default;
   align-items: center;
   align-self: center;
   border-radius: map.get($menu, 'global', 'border-radius');
+  box-sizing: border-box;
   cursor: pointer;
   color: currentcolor;
   display: flex;
@@ -58,15 +59,27 @@ $menu: null !default;
 
   &:hover {
     text-decoration: underline;
-    padding: calc(#{map.get($menu, 'mobile', 'open-padding-hover')} + 1px);
+    padding: map.get($menu, 'mobile', 'open-padding-hover');
   }
 
   &:focus-visible {
     outline: 2px solid map.get($menu, 'mobile', 'open-outline-color');
   }
 
-  .ecl-link__label {
-    margin: 0;
+  .ecl-icon:last-of-type {
+    display: none;
+  }
+}
+
+.ecl-menu[aria-expanded='true'] .ecl-menu__open {
+  background-color: map.get($menu, 'mobile', 'open-background-active');
+
+  .ecl-icon:first-of-type {
+    display: none;
+  }
+
+  .ecl-icon:last-of-type {
+    display: block;
   }
 }
 

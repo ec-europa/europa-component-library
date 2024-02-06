@@ -2,10 +2,11 @@
 
 {#
   Parameters:
+    - "variant": (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
     - "icon_path" (string) (default: ''): URL to icons file
     - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
-    - "menu" (boolean): Whether the component includes a menu
+    - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
     - "site_name" (string) Site name
     - "cta_link": (optional) (default: {}): Call to action link compatible with ECL Link component structure
     - "logo" (associative array) (default: predefined structure): Logo image settings. format:
@@ -78,6 +79,7 @@
 
 {# Default variables #}
 
+{% set _variant = variant|default('') %}
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _logged = logged|default(false) %}
@@ -104,10 +106,6 @@
   { name: 'data-ecl-auto-init', value: 'SiteHeader' }
   ]|merge(extra_attributes|default([]))
 %}
-
-{% if _menu is not empty %}
-  {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
-{% endif %}
 
 {% if logo is defined and logo is not empty %}
   {% set _logo = _logo|merge(logo) %}
@@ -182,6 +180,14 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _menu is not empty %}
+  {% set extra_classes = _css_class ~ '--has-menu ' ~ extra_classes %}
+{% endif %}
+
+{% if _variant is not empty %}
+  {% set extra_classes = _css_class ~ '--' ~ _variant ~ ' ' ~ extra_classes %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

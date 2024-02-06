@@ -84,15 +84,24 @@
   role="navigation"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
+  <div class="ecl-menu__overlay"></div>
   <div class="ecl-container ecl-menu__container">
     {% if _toggle is not empty %}
+      {% set _toggle_icon = {} %}
+      {% if _toggle.icon is defined %}
+        {% if _close is not empty and _close.icon is defined %}
+          {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
+        {% else %}
+          {% set _toggle_icon = _toggle.icon %}
+        {% endif %}
+      {% endif %}
       {% include '@ecl/link/link.html.twig' with _toggle|merge({
         link: _toggle.link|merge({
           type: 'standalone',
           icon_path: _icon_path,
           icon_position: 'before',
         }),
+        icon: _toggle_icon,
         extra_classes: 'ecl-button ecl-button--tertiary ecl-menu__open',
         extra_attributes: [{
           name: 'data-ecl-menu-open',

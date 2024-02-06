@@ -38,6 +38,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    dark: true,
   };
 
   if (data.login_box) {
@@ -195,6 +196,15 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.dark = {
+    name: 'dark',
+    type: { name: 'boolean' },
+    description: 'Use the dark display',
+    table: {
+      category: 'Display',
+    },
+  };
+
   return argTypes;
 };
 
@@ -265,6 +275,12 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+  }
+
+  if (args.dark) {
+    data.variant = 'dark';
+  } else {
+    data.variant = '';
   }
 
   correctPaths(data);

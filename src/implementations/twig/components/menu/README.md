@@ -53,11 +53,18 @@ npm install --save @ecl/twig-component-menu
       label: 'Menu',
       path: exampleLink,
     },
-    icon: {
-      path: '/icons.svg',
-      name: 'hamburger',
-      size: 'm',
-    },
+    icon: [
+      {
+        path: '/icons.svg',
+        name: 'hamburger',
+        size: 'm',
+      },
+      {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      }
+    ],
   },
   close: {
     label: 'Close',
