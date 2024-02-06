@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-site-header
 
 ### Parameters
 
+- **"variant"**: (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
 - **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
 - **"banner_top"** (string) OR (object with Link component in property): Class name

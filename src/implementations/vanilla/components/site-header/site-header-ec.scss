@@ -218,8 +218,8 @@ $language-list: null !default;
 }
 
 .ecl-site-header__banner-top {
-  background: var(--c-n-40);
-  border-top: 1px solid var(--c-n);
+  background: map.get($theme, 'color', 'white');
+  border-top: 1px solid var(--c-n-40);
   font: var(--f-m);
   padding: var(--s-xs) 0;
 }
@@ -338,6 +338,10 @@ $menu-top: calc(44px + 2 * var(--s-xs) + 1px);
     align-items: center;
   }
 
+  .ecl-site-header--has-menu .ecl-site-header__action {
+    margin-inline-end: 0;
+  }
+
   .ecl-site-header__logo-link {
     margin-bottom: 0;
   }
@@ -442,5 +446,18 @@ $menu-top: calc(44px + 2 * var(--s-xs) + 1px);
 @include breakpoints.up('xl') {
   .ecl-site-header__search {
     width: map.get($site-header, 'search-width-xl');
+  }
+}
+
+// Dark site header
+.ecl-site-header--dark {
+  .ecl-site-header__banner-top {
+    background: var(--c-n-40);
+    border-top-color: var(--c-n);
+  }
+
+  .ecl-site-header__banner {
+    background-color: var(--c-br);
+    color: map.get($theme, 'color', 'white');
   }
 }
