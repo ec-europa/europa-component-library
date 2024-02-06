@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-menu
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
+  "external": (boolean) (optional),
   "trigger_aria_label" (string),
   "children": (associative array) (optional): [
   {
