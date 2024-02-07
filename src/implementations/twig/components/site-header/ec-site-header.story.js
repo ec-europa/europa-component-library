@@ -279,10 +279,14 @@ const prepareData = (data, args) => {
 
   if (args.dark) {
     data.variant = 'dark';
-    data.menu.variant = 'dark';
+    if (data.menu) {
+      data.menu.variant = 'dark';
+    }
   } else {
     data.variant = '';
-    data.menu.variant = '';
+    if (data.menu) {
+      data.menu.variant = '';
+    }
   }
 
   correctPaths(data);
