@@ -924,6 +924,11 @@ $menu: null !default;
       }
     }
 
+    .ecl-menu__item::before,
+    .ecl-menu__item:last-child::after {
+      background-color: map.get($menu, 'dark', 'separator-color');
+    }
+
     .ecl-menu__items-previous:not(.ecl-menu__item--current)::after {
       height: calc(
         100% + 2 * #{map.get($menu, 'dark', 'overflow-separator-offset')}
