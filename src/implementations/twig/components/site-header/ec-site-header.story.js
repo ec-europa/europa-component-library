@@ -13,7 +13,7 @@ import notes from './README.md';
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
-const enMenu = { ...enDataMenu, variant: 'dark' };
+const enMenu = { ...enDataMenu };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -279,8 +279,10 @@ const prepareData = (data, args) => {
 
   if (args.dark) {
     data.variant = 'dark';
+    data.menu.variant = 'dark';
   } else {
     data.variant = '';
+    data.menu.variant = '';
   }
 
   correctPaths(data);

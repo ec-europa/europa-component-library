@@ -9,7 +9,7 @@ $menu: (
     color-outline: var(--c-p),
   ),
   mobile: (
-    menu-background: var(--c-n-40),
+    menu-background: transparent,
     color: var(--c-d),
     content-background: map.get($color, 'white'),
     overlay-background: var(--c-ov-l),
@@ -60,7 +60,7 @@ $menu: (
     inset #{-1px} 0 0 var(--c-p),
     inset 0 #{-4px} 0 var(--c-p)},
     item-current-margin: -1px,
-    separator-color: map.get($color, 'white'),
+    separator-color: var(--c-d-80),
     link-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)
       calc(var(--s-xs) + var(--s-xs)) var(--s-xs),
     link-expanded-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)

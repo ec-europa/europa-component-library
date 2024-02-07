@@ -749,7 +749,7 @@ $menu: null !default;
       min-width: 100%;
       padding: map.get($menu, 'desktop', 'mega-padding');
       position: absolute;
-      top: 100%;
+      top: calc(100% - 1px);
       transition-property: visibility;
       visibility: hidden;
       z-index: map.get($theme, 'z-index', 'dropdown');
