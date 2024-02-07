@@ -118,6 +118,7 @@ $menu: null !default;
 .ecl-menu__inner {
   background: map.get($menu, 'mobile', 'content-background');
   bottom: 0;
+  box-shadow: map.get($menu, 'mobile', 'content-shadow');
   display: none;
   overflow-y: auto;
   position: fixed;
@@ -264,6 +265,7 @@ $menu: null !default;
   .ecl-menu:not(.ecl-menu--forced-mobile) {
     .ecl-menu__inner {
       background-color: transparent;
+      box-shadow: none;
       display: block;
       overflow-y: visible;
       position: relative;
@@ -642,15 +644,15 @@ $menu: null !default;
 
         .ecl-menu__link {
           background-color: map.get($theme, 'color', 'white');
-          margin-bottom: -1px;
+          margin-bottom: -2px;
           padding: map.get($menu, 'desktop', 'link-expanded-padding');
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
 
         .ecl-menu__button-caret {
           background-color: map.get($theme, 'color', 'white');
-          margin-bottom: -1px;
-          padding-bottom: 1px;
+          margin-bottom: -2px;
+          padding-bottom: 2px;
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }
@@ -754,7 +756,7 @@ $menu: null !default;
       min-width: 100%;
       padding: map.get($menu, 'desktop', 'mega-padding');
       position: absolute;
-      top: calc(100% - 1px);
+      top: 100%;
       transition-property: visibility;
       visibility: hidden;
       z-index: map.get($theme, 'z-index', 'dropdown');

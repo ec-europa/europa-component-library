@@ -12,6 +12,7 @@ $menu: (
     menu-background: transparent,
     color: var(--c-d),
     content-background: map.get($color, 'white'),
+    content-shadow: var(--sh-6),
     overlay-background: var(--c-ov-l),
     open-padding: var(--s-xs) 0,
     open-padding-hover: calc(var(--s-xs) + 1px) 0,
@@ -64,7 +65,7 @@ $menu: (
     link-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)
       calc(var(--s-xs) + var(--s-xs)) var(--s-xs),
     link-expanded-padding: calc(var(--s-xs) + var(--s-xs)) var(--s-2xs)
-      calc(var(--s-xs) + var(--s-xs) + 1px) var(--s-xs),
+      calc(var(--s-xs) + var(--s-xs) + 2px) var(--s-xs),
     link-line-height: map.get($line-height, 'xs'),
     caret-padding: 0 var(--s-xs),
     caret-focus-outline: var(--c-p),
@@ -81,7 +82,7 @@ $menu: (
     overflow-current-color-hover: var(--c-d),
     mega-border: 1px solid var(--c-d),
     mega-shadow: none,
-    mega-padding: var(--s-xl),
+    mega-padding: calc(var(--s-xl) + 2px) var(--s-xl) var(--s-xl),
     mega-column-gap: var(--s-2xl),
     mega-column-border: 1px solid var(--c-n),
     sublink-padding: var(--s-xs) var(--s-m),

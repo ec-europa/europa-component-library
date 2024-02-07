@@ -2,7 +2,6 @@
 
 {#
   Parameters:
-    - "variant": (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
     - "icon_path" (string) (default: ''): URL to icons file
     - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
@@ -79,7 +78,6 @@
 
 {# Default variables #}
 
-{% set _variant = variant|default('') %}
 {% set _logo = logo|default({}) %}
 {% set _language_selector = language_selector|default({}) %}
 {% set _logged = logged|default(false) %}
@@ -183,10 +181,6 @@
 
 {% if _menu is not empty %}
   {% set extra_classes = _css_class ~ '--has-menu ' ~ extra_classes %}
-{% endif %}
-
-{% if _variant is not empty %}
-  {% set extra_classes = _css_class ~ '--' ~ _variant ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

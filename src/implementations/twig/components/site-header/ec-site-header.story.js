@@ -277,14 +277,10 @@ const prepareData = (data, args) => {
     data.notification = clonedDataFull.notification;
   }
 
-  if (args.dark) {
-    data.variant = 'dark';
-    if (data.menu) {
+  if (data.menu) {
+    if (args.dark) {
       data.menu.variant = 'dark';
-    }
-  } else {
-    data.variant = '';
-    if (data.menu) {
+    } else {
       data.menu.variant = '';
     }
   }
