@@ -12,8 +12,8 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'twitter',
-        size: 'xs',
+        name: 'twitter-color',
+        size: 'm',
       },
     },
     {
@@ -24,8 +24,8 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'facebook',
-        size: 'xs',
+        name: 'facebook-color',
+        size: 'm',
       },
     },
     {
@@ -36,8 +36,8 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'linkedin',
-        size: 'xs',
+        name: 'linkedin-color',
+        size: 'm',
       },
     },
     {
@@ -48,8 +48,8 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'instagram',
-        size: 'xs',
+        name: 'instagram-color',
+        size: 'm',
       },
     },
     {
@@ -60,8 +60,8 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'telegram',
-        size: 'xs',
+        name: 'telegram-color',
+        size: 'm',
       },
     },
     {
@@ -73,7 +73,7 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'chain',
-        size: 'xs',
+        size: 'm',
       },
     },
   ],

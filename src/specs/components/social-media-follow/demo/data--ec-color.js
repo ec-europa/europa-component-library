@@ -12,7 +12,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'twitter',
+        name: 'twitter-color',
         size: 'xs',
       },
     },
@@ -24,7 +24,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'facebook',
+        name: 'facebook-color',
         size: 'xs',
       },
     },
@@ -36,7 +36,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'linkedin',
+        name: 'linkedin-color',
         size: 'xs',
       },
     },
@@ -48,7 +48,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'instagram',
+        name: 'instagram-color',
         size: 'xs',
       },
     },
@@ -60,7 +60,7 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'telegram',
+        name: 'telegram-color',
         size: 'xs',
       },
     },

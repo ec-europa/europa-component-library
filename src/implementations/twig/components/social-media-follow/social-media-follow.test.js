@@ -6,6 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoData from '@ecl/specs-component-social-media-follow/demo/data--ec';
+import demoDataColor from '@ecl/specs-component-social-media-follow/demo/data--ec-color';
 
 expect.extend(toHaveNoViolations);
 
@@ -61,6 +62,14 @@ describe('Social Media Follow', () => {
           variant: 'vertical',
         }),
       ).resolves.toMatchSnapshot();
+    });
+  });
+
+  describe('Colored', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(demoDataColor)).resolves.toMatchSnapshot();
     });
   });
 });
