@@ -48,11 +48,13 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}" data-ecl-notification role="alert"{{ _extra_attributes|raw }}>
+{% if _variant == 'warning' and _icon is not empty and _icon.name is defined and _icon.name == 'warning' %}
+  <span class="ecl-notification__icon-background"></span>
+{% endif %}
   {% include '@ecl/icon/icon.html.twig' with {
     icon: _icon,
     extra_classes: 'ecl-notification__icon',
   } only %}
-  
   <div class="ecl-notification__content">
     {% if _close is not empty %}
       {% include '@ecl/button/button.html.twig' with _close|merge({
