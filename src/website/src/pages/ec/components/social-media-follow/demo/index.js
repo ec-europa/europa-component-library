@@ -1,5 +1,5 @@
-import demoDefault from '@ecl/specs-component-social-media-follow/demo/data--ec';
-import demoColor from '@ecl/specs-component-social-media-follow/demo/data--ec-color';
+import demoDefault from '@ecl/specs-component-social-media-follow/demo/data--monochrome';
+import demoColor from '@ecl/specs-component-social-media-follow/demo/data--color';
 import template from '@ecl/twig-component-social-media-follow/social-media-follow.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
