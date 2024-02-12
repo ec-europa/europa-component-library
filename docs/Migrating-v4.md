@@ -209,7 +209,7 @@ Ex:
 
 #### Description list
 
-- Lists with links, in most cases, expect the `ecl-link--standalone` class to prevent the underlining. The only excpetion is the taxonomy list.
+- Lists with links, in most cases, expect the `ecl-link--standalone` class to prevent the underlining. The only exception is the taxonomy list.
 - Items definition can now contain an array of `tag`
 - Markup has been updated to put links and taxonomies in dedicated `<ul>` lists
 
