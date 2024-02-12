@@ -1,6 +1,6 @@
 # ECL v4 migration notes
 
-The following guidelines aim to facilitate migration between ECL v3 and v4.
+The following guidelines aim to facilitate the migration from ECL v3 to v4.
 
 - [Js modifications](#js-modifications)
 - [Style modifications](#style-modifications)
