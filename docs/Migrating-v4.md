@@ -388,4 +388,4 @@ This is not the recommended way to customize ECL, as it may conflict with future
 
 SASS variables are defined in the files `src/themes/[your_theme]/variables/*.scss`. There are two themes available by default (EC and EU).
 
-You can edit the values, and recompile ECL css by running the command `yarn dist` at the root of the project. The compiled files are available in `/dist/packages/[your_theme]`
+You can edit the values, and recompile ECL css by running the command `yarn` at the root of the project. The compiled files are available in `/src/presets/[ec/eu]/dist`.
