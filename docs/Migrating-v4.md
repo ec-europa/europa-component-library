@@ -349,19 +349,19 @@ Ex:
 
 ECL4 introduces new ways to customize the look and feel of elements, by changing styles and component display
 
-### Using CSS variables
+### Using CSS custom properties
 
-The easiest way to change the look and feel of ECL is by using the provided CSS variables. They are provided for most common styles values.
-You can find the full list of global CSS variables in the file `src/themes/[your_theme]/_custom-properties.scss`.
+The easiest way to change the look and feel of ECL is by using the provided CSS custom properties. They are provided for most common styles values.
+You can find the full list of global CSS custom properties in the file `src/themes/[theme_name]/_custom-properties.scss`. This is in the `@ecl/[theme_name]` package.
 
-Variables provided:
+Custom properties provided:
 
 - colors
 - spacing
 - typgraphy
 - shadow
 
-By default, these variables take values from the SASS variables. You can freely override any variable you want in a custom CSS file loaded after ECL one.
+By default, these custom properties take values from the SASS variables. You can freely override any custom properties you want in a custom CSS file loaded after ECL one.
 
 Example:
 
@@ -379,13 +379,13 @@ your_custom_css_file.css
 }
 ```
 
-Note: we are using shorter aliases internally to limit the size of the compiled css file, but it is recommended to use the full variable name if you want to override them
+Note: we are using shorter aliases internally to limit the size of the compiled css file, but it is recommended to use the full custom properties name if you want to override them
 
 ### Using SASS variables
 
 If you are building ECL directly on your side, you can change the values of the SASS variables before compilation.
 This is not the recommended way to customize ECL, as it may conflict with future updates (CSS variables are prefered), but this is an option if you have full control over the ECL implementation.
 
-SASS variables are defined in the files `src/themes/[your_theme]/variables/*.scss`. There are two themes available by default (EC and EU).
+SASS variables are defined in the files `src/themes/[theme_name]/variables/*.scss` (package `@ecl/[theme_name]`). There are two themes available by default (EC and EU).
 
-You can edit the values, and recompile ECL css by running the command `yarn` at the root of the project. The compiled files are available in `/src/presets/[ec/eu]/dist`.
+You can edit the values, and recompile ECL css by running the command `yarn` at the root of the project. The compiled files are available in `/src/presets/[ec/eu]/dist` (package `@ecl/preset-[ec|eu]`).
