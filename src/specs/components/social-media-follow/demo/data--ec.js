@@ -6,18 +6,6 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'Twitter',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'twitter',
-        size: 'xs',
-      },
-    },
-    {
-      link: {
         label: 'Facebook',
         path: exampleLink,
         icon_position: 'before',
@@ -25,18 +13,6 @@ module.exports = {
       icon: {
         path: '/icon-social-media.svg',
         name: 'facebook',
-        size: 'xs',
-      },
-    },
-    {
-      link: {
-        label: 'Linkedin',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'linkedin',
         size: 'xs',
       },
     },
@@ -54,6 +30,30 @@ module.exports = {
     },
     {
       link: {
+        label: 'Mastodon',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'mastodon',
+        size: 'xs',
+      },
+    },
+    {
+      link: {
+        label: 'Linkedin',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'linkedin',
+        size: 'xs',
+      },
+    },
+    {
+      link: {
         label: 'Telegram',
         path: exampleLink,
         icon_position: 'before',
@@ -66,7 +66,7 @@ module.exports = {
     },
     {
       link: {
-        label: 'Other social networks',
+        label: 'Other',
         path: exampleLink,
         icon_position: 'before',
       },

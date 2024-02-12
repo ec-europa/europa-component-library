@@ -22,10 +22,19 @@ const dataVerticalColor = { ...specsColor, variant: 'vertical' };
 
 const getArgs = (data) => ({
   show_other: true,
+  show_label: true,
   description: data.description,
 });
 
 const getArgTypes = () => ({
+  show_label: {
+    name: 'label',
+    type: { name: 'boolean' },
+    description: 'toggle the visibility of the links label',
+    table: {
+      category: 'Optional',
+    },
+  },
   show_other: {
     name: 'other social networks',
     type: { name: 'boolean' },
@@ -52,6 +61,12 @@ const prepareData = (data, args) => {
 
   if (!args.show_other) {
     delete clone.links.pop();
+  }
+
+  if (!args.show_label) {
+    clone.links.forEach((element) => {
+      element.link.hide_label = true;
+    });
   }
 
   return Object.assign(clone, args);
