@@ -386,6 +386,6 @@ Note: we are using shorter aliases internally to limit the size of the compiled 
 If you are building ECL directly on your side, you can change the values of the SASS variables before compilation.
 This is not the recommended way to customize ECL, as it may conflict with future updates (CSS variables are prefered), but this is an option if you have full control over the ECL implementation.
 
-SASS variables are defined in the files `src/themes/[your_theme]/variables/*.scss`. There are two theme available by default (EC and EU).
+SASS variables are defined in the files `src/themes/[your_theme]/variables/*.scss`. There are two themes available by default (EC and EU).
 
 You can edit the values, and recompile ECL css by running the command `yarn dist` at the root of the project. The compiled files are available in `/dist/packages/[your_theme]`
