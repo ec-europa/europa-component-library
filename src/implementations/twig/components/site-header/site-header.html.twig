@@ -65,6 +65,12 @@
         "label_logged": (string) Label for the logged in users
         "href_logged": (string) Link to the logout form
       }
+    - "basket" (associate array) (default: {}) format:
+      {
+        "id": (string): Id of the basket link
+        "label": (string): Basket label
+        "href": (string): Url of the link
+      }
     - "search_form" (associative array) (default: predefined structure): EC Search Form component structure
     - "notification" (object) (default: {}): Optional notification compatible with ECL Notification component structure
     - "extra_classes" (string) (default: '')
@@ -88,6 +94,7 @@
 {% set _menu = menu|default(false) %}
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
+{% set _basket = basket|default({}) %}
 {% set _notification = notification|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _css_class = 'ecl-site-header' %}
@@ -315,6 +322,29 @@
               language_selector: _language_selector,
               icon_path: _icon_path,
             } only %}
+          {% endif %}
+
+          {# Basket #}
+          {% if _basket is not empty %}
+            <div class="ecl-site-header__basket">
+              <a
+                class="ecl-button ecl-button--tertiary ecl-site-header__basket_toggle"
+                href="{{ _basket.href }}"
+                {% if _basket.id is defined and _basket.id is not empty %}
+                  id="{{ _basket.id }}"
+                {% endif %}
+              >
+                {% include '@ecl/icon/icon.html.twig' with {
+                  icon: {
+                    path: _icon_path,
+                    name: 'basket',
+                    size: 's'
+                  },
+                  extra_classes: 'ecl-site-header__icon',
+                } only %}
+                {{- _basket.label -}}
+              </a>
+            </div>
           {% endif %}
 
           {# Search form #}
