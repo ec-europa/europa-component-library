@@ -31,6 +31,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    show_basket: false,
   };
 
   if (data.login_box) {
@@ -101,6 +102,16 @@ const getArgTypes = (data) => {
       name: 'notification',
       type: { name: 'boolean' },
       description: 'Show the notification box',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
+  if (data.basket) {
+    argTypes.show_basket = {
+      name: 'basket',
+      type: { name: 'boolean' },
+      description: 'Show the basket',
       table: {
         category: 'Optional',
       },
@@ -237,6 +248,12 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+  }
+
+  if (!args.show_basket) {
+    delete data.basket;
+  } else {
+    data.basket = clonedDataFull.basket;
   }
 
   data.logged = args.logged;

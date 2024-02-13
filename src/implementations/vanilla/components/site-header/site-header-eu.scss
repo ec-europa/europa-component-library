@@ -80,14 +80,20 @@ $language-list: null !default;
 .ecl-site-header__action {
   align-items: center;
   display: flex;
+
+  > :first-child .ecl-button {
+    margin-inline-start: 0;
+  }
 }
 
 .ecl-site-header__login-toggle,
-.ecl-site-header__search-toggle {
+.ecl-site-header__search-toggle,
+.ecl-site-header__basket_link {
   align-items: center;
   display: flex;
   flex-direction: column;
   font: var(--f-xs);
+  margin-inline-start: var(--s-xs);
   position: relative;
   text-align: center;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -117,6 +123,7 @@ $language-list: null !default;
 
 .ecl-site-header__language-selector {
   font: var(--f-xs);
+  margin-inline-start: var(--s-xs);
   text-align: center;
 }
 
@@ -307,7 +314,8 @@ $language-list: null !default;
   }
 
   .ecl-site-header__login-toggle,
-  .ecl-site-header__language-selector {
+  .ecl-site-header__language-selector,
+  .ecl-site-header__basket_link {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -315,7 +323,8 @@ $language-list: null !default;
   }
 
   .ecl-site-header__login-toggle,
-  .ecl-site-header__language-icon {
+  .ecl-site-header__language-icon,
+  .ecl-site-header__basket_link {
     margin-bottom: 0;
 
     .ecl-site-header__icon {
@@ -327,8 +336,6 @@ $language-list: null !default;
   }
 
   .ecl-site-header__login-toggle {
-    margin-inline-end: var(--s-xs);
-
     .ecl-site-header__login-arrow {
       display: block;
       height: map.get($theme, 'icon', 'xs');

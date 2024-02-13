@@ -328,7 +328,7 @@
           {% if _basket is not empty %}
             <div class="ecl-site-header__basket">
               <a
-                class="ecl-button ecl-button--tertiary ecl-site-header__basket_toggle"
+                class="ecl-button ecl-button--tertiary ecl-site-header__basket_link"
                 href="{{ _basket.href }}"
                 {% if _basket.id is defined and _basket.id is not empty %}
                   id="{{ _basket.id }}"
@@ -340,7 +340,11 @@
                     name: 'basket',
                     size: 's'
                   },
+                  as_image: true,
                   extra_classes: 'ecl-site-header__icon',
+                  extra_accessibility: {
+                    title: _basket.label,
+                  },
                 } only %}
                 {{- _basket.label -}}
               </a>
