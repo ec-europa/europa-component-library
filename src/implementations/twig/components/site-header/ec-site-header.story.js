@@ -74,94 +74,154 @@ const getArgTypes = (data) => {
   if (data.login_box) {
     argTypes.show_login = {
       name: 'login',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the login box',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
     argTypes.logged = {
       name: 'logged in',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the login box for a logged in user',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   argTypes.show_language_selector = {
     name: 'language selector',
-    type: { name: 'boolean' },
+    control: { type: 'boolean' },
     description: 'Show the language selector',
     table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'true' },
       category: 'Optional',
+    },
+    mapping: {
+      0: false,
+      1: true,
     },
   };
   argTypes.show_search = {
     name: 'search (Europa Search)',
-    type: { name: 'boolean' },
+    control: { type: 'boolean' },
     description: 'Show the search form',
     table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'true' },
       category: 'Optional',
+    },
+    mapping: {
+      0: false,
+      1: true,
     },
   };
   if (data.notification) {
     argTypes.show_notification = {
       name: 'notification',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the notification box',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.basket) {
     argTypes.show_basket = {
       name: 'basket',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the basket',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.banner_top) {
     argTypes.show_banner_top = {
       name: 'class name',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the class name',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the menu',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.cta_link) {
     argTypes.show_cta_link = {
       name: 'call to action',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the call to action link',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.site_name) {
     argTypes.show_site_name = {
       name: 'site name',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the site name',
       table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
     argTypes.site_name = {
