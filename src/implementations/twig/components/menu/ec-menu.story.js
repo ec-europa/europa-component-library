@@ -1,18 +1,15 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataEc from '@ecl/specs-component-menu/demo/data--ec';
 import dataEcLong from '@ecl/specs-component-menu/demo/data--ec-long';
-import dataEu from '@ecl/specs-component-menu/demo/data--eu';
-import dataEuLong from '@ecl/specs-component-menu/demo/data--eu-long';
 import menu from './menu.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-const dataShort = system === 'eu' ? dataEu : dataEc;
-const dataLong = system === 'eu' ? dataEuLong : dataEcLong;
+const dataShort = dataEc;
+const dataLong = dataEcLong;
+const dataDark = { ...dataEcLong, variant: 'dark' };
 
 const getArgs = (data) => ({
   max_lines: data.max_lines || 2,
@@ -66,3 +63,14 @@ Long.storyName = 'long - with overlay';
 Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes();
 Long.parameters = { notes: { markdown: notes, json: dataLong } };
+
+export const Dark = (_, { loaded: { component } }) => component;
+
+Dark.render = async (args) => {
+  const renderedMenuDark = await menu(prepareData(dataDark, args));
+  return renderedMenuDark;
+};
+Dark.storyName = 'dark';
+Dark.args = getArgs(dataDark);
+Dark.argTypes = getArgTypes();
+Dark.parameters = { notes: { markdown: notes, json: dataDark } };
