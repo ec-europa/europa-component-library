@@ -14,7 +14,7 @@ module.exports = {
     icon: {
       path: '/icons.svg',
       name: 'hamburger',
-      size: 's',
+      size: 'm',
     },
   },
   close: {

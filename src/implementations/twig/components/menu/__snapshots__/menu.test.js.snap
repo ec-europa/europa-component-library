@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu Default renders correctly 1`] = `
+exports[`Menu Dark renders correctly 1`] = `
 <jest>
   <nav
     aria-expanded="false"
-    class="ecl-menu"
+    class="ecl-menu ecl-menu--dark"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
     data-ecl-menu-max-lines="2"
@@ -12,7 +12,6 @@ exports[`Menu Default renders correctly 1`] = `
   >
     <div
       class="ecl-menu__overlay"
-      data-ecl-menu-overlay=""
     />
     <div
       class="ecl-container ecl-menu__container"
@@ -29,6 +28,1422 @@ exports[`Menu Default renders correctly 1`] = `
         >
           <use
             xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
+          />
+        </svg>
+        <span
+          class="ecl-link__label"
+        >
+          Menu
+        </span>
+      </a>
+      <section
+        aria-label="Menu"
+        class="ecl-menu__inner"
+        data-ecl-menu-inner=""
+        role="application"
+      >
+        <header
+          class="ecl-menu__inner-header"
+        >
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__close ecl-button--icon-only"
+            data-ecl-menu-close=""
+            type="submit"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Close
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--m ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#close"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ecl-menu__title"
+          >
+            Menu
+          </div>
+          <button
+            class="ecl-button ecl-button--ghost ecl-menu__back"
+            data-ecl-menu-back=""
+            type="submit"
+          >
+            <span
+              class="ecl-button__container"
+            >
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-270 ecl-button__icon"
+                data-ecl-icon=""
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+              <span
+                class="ecl-button__label"
+                data-ecl-label="true"
+              >
+                Back
+              </span>
+            </span>
+          </button>
+        </header>
+        <button
+          class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-previous ecl-button--icon-only"
+          data-ecl-menu-items-previous=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-icon--rotate-270 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous items
+            </span>
+          </span>
+        </button>
+        <button
+          class="ecl-button ecl-button--ghost ecl-menu__item ecl-menu__items-next ecl-button--icon-only"
+          data-ecl-menu-items-next=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-icon--rotate-90 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next items
+            </span>
+          </span>
+        </button>
+        <ul
+          class="ecl-menu__list"
+          data-ecl-menu-list=""
+        >
+          <li
+            class="ecl-menu__item"
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-0"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-0-link"
+            >
+              Home
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--current ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-1"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-1-link"
+            >
+              Principles, countries, history
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-1-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 2.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 2.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__subitem--current"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink ecl-menu__sublink--current"
+                    href="/example"
+                  >
+                    Item 2.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 2.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 2.5
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 2.6
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-2"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-2-link"
+            >
+              Institutions, law, budget
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-2-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 3.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 3.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 3.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            class="ecl-menu__item"
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-3"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-3-link"
+            >
+              Priorities and actions
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-4"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-4-link"
+            >
+              Live, work, study
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-4-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 5.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 5.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 5.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 5.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-5"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-5-link"
+            >
+              News and events
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-5-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.5
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.6
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.7
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.8
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.9 with a very long label
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.10
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.11
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.12
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.13
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.14
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.15
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.16
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.17
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.18
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.19
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.20
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.21
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.22
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.23
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.24
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.25
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.26
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.27
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 6.28
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-6"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-6-link"
+            >
+              European years
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-6-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.5
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.6
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.7
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.8
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.9
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 7.10
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-7"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-7-link"
+            >
+              Visit a European Union institution
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-7-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.4
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.5
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 8.6
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
+            class="ecl-menu__item"
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-8"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-8-link"
+            >
+              Jobs & traineeships in EU institutions
+            </a>
+          </li>
+          <li
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-menu__item ecl-menu__item--has-children"
+            data-ecl-has-children=""
+            data-ecl-menu-item=""
+            id="ecl-menu-item-demo-9"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-menu__link"
+              data-ecl-menu-link=""
+              href="/example"
+              id="ecl-menu-item-demo-9-link"
+            >
+              Participate, interact, vote
+            </a>
+            <button
+              aria-describedby="ecl-menu-item-demo-9-link"
+              aria-expanded="false"
+              aria-label="Access item's children"
+              class="ecl-button ecl-button--ghost ecl-menu__button-caret ecl-button--icon-only"
+              data-ecl-menu-caret=""
+              type="button"
+            >
+              <span
+                class="ecl-button__container"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ecl-menu__mega"
+              data-ecl-menu-mega=""
+            >
+              <ul
+                class="ecl-menu__sublist"
+              >
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 9.1
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 9.2
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem"
+                  data-ecl-menu-subitem=""
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-menu__sublink"
+                    href="/example"
+                  >
+                    Item 9.3
+                  </a>
+                </li>
+                <li
+                  class="ecl-menu__subitem ecl-menu__see-all"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-menu__sublink"
+                    href="/example"
+                  >
+                    <span
+                      class="ecl-link__label"
+                    >
+                      See all pages
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#back"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </nav>
+</jest>
+`;
+
+exports[`Menu Default renders correctly 1`] = `
+<jest>
+  <nav
+    aria-expanded="false"
+    class="ecl-menu"
+    data-ecl-auto-init="Menu"
+    data-ecl-menu=""
+    data-ecl-menu-max-lines="2"
+    role="navigation"
+  >
+    <div
+      class="ecl-menu__overlay"
+    />
+    <div
+      class="ecl-container ecl-menu__container"
+    >
+      <a
+        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+        data-ecl-menu-open=""
+        href="/example"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
           />
         </svg>
         <span
@@ -856,7 +2271,6 @@ exports[`Menu Default renders correctly with a external first level menu item 1`
   >
     <div
       class="ecl-menu__overlay"
-      data-ecl-menu-overlay=""
     />
     <div
       class="ecl-container ecl-menu__container"
@@ -873,6 +2287,15 @@ exports[`Menu Default renders correctly with a external first level menu item 1`
         >
           <use
             xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
           />
         </svg>
         <span
@@ -1716,7 +3139,6 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
   >
     <div
       class="ecl-menu__overlay"
-      data-ecl-menu-overlay=""
     />
     <div
       class="ecl-container ecl-menu__container"
@@ -1733,6 +3155,15 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
         >
           <use
             xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
           />
         </svg>
         <span
@@ -2560,7 +3991,6 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
   >
     <div
       class="ecl-menu__overlay"
-      data-ecl-menu-overlay=""
     />
     <div
       class="ecl-container ecl-menu__container"
@@ -2577,6 +4007,15 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
         >
           <use
             xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
           />
         </svg>
         <span
@@ -3404,7 +4843,6 @@ exports[`Menu Long renders correctly 1`] = `
   >
     <div
       class="ecl-menu__overlay"
-      data-ecl-menu-overlay=""
     />
     <div
       class="ecl-container ecl-menu__container"
@@ -3421,6 +4859,15 @@ exports[`Menu Long renders correctly 1`] = `
         >
           <use
             xlink:href="/icons.svg#hamburger"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-link__icon"
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#close"
           />
         </svg>
         <span

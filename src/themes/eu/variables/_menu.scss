@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../index' as *;
 
+// stylelint-disable length-zero-no-unit
 $menu: (
   global: (
     border-radius: 4px,
@@ -11,14 +12,18 @@ $menu: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     color: var(--c-d),
     content-background: map.get($color, 'white'),
+    content-shadow: none,
     overlay-background: rgba(38, 43, 56, 0.7),
-    open-padding: var(--s-xs),
-    open-padding-hover: calc(var(--s-xs) - 1px),
+    open-padding: var(--s-xs) 0,
+    open-padding-hover: var(--s-xs) 0,
     open-outline-color: map.get($color, 'white'),
+    open-background-active: var(--c-p-5),
     header-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     header-background-hover: transparent,
     header-font: var(--f-xl),
     header-color: map.get($color, 'white'),
+    header-color-hover: map.get($color, 'white'),
+    header-border-hover: transparent,
     header-shadow: var(--sh-1),
     header-height: 77px,
     item-color: var(--c-p),
@@ -57,12 +62,15 @@ $menu: (
     link-padding: calc(var(--s-s) + var(--s-2xs)) var(--s-2xs)
       calc(var(--s-s) + var(--s-2xs)) var(--s-xs),
     link-expanded-padding: calc(var(--s-s) + var(--s-2xs)) var(--s-2xs)
-      calc(var(--s-s) + var(--s-2xs) + 1px) var(--s-xs),
+      calc(var(--s-s) + var(--s-2xs) + 2px) var(--s-xs),
     link-line-height: map.get($line-height, 'm'),
     caret-padding: 0 var(--s-s),
     caret-focus-outline: var(--c-p),
-    overflow-border: 4px solid var(--c-p-60),
-    overflow-border-hover: 4px solid var(--c-p-60),
+    overflow-separator-width: 4px,
+    overflow-separator-color: var(--c-p-60),
+    overflow-separator-offset: 0px,
+    overflow-border: none,
+    overflow-border-hover: none,
     overflow-background: var(--c-p),
     overflow-background-hover: map.get($color, 'white'),
     overflow-color: map.get($color, 'white'),
@@ -71,7 +79,7 @@ $menu: (
     overflow-current-color-hover: var(--c-p),
     mega-border: none,
     mega-shadow: var(--sh-2),
-    mega-padding: 0,
+    mega-padding: 2px 0 0,
     mega-column-gap: 0,
     mega-column-border: none,
     sublink-padding: var(--s-s) var(--s-xs),
@@ -79,3 +87,4 @@ $menu: (
     sublink-current-shadow: inset 4px 0 0 0 var(--c-p),
   ),
 );
+// stylelint-enable length-zero-no-unit
