@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -27,13 +26,16 @@ $theme: null !default;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  flex-basis: 105px;
+
+  .ecl-slider__controls {
+    margin-inline-start: var(--s-m);
+  }
 }
 
 .ecl-slider__progress-bar {
   background: var(--c-n-80);
   height: var(--s-2xs);
-  width: 85%;
+  flex-grow: 1;
 
   .ecl-slider__progress {
     background: var(--c-p);
@@ -46,28 +48,25 @@ $theme: null !default;
   margin-inline-end: var(--s-xl);
 }
 
-@include breakpoints.up('l') {
-  .ecl-slider__progress-bar {
-    width: 90%;
-  }
-}
-
 // Tags variant
 .ecl-slider--tags {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 
   .ecl-slider__list {
     margin: 0;
   }
 
-  .ecl-slider__container {
-    width: 90%;
-    overflow-x: hidden;
+  .ecl-slider__info {
+    flex: 0 0 auto;
+    align-self: flex-end;
   }
 
-  .ecl-slider__controls {
-    margin-inline-start: var(--s-m);
+  .ecl-slider__container {
+    overflow-x: hidden;
+    flex: 1;
   }
 
   .ecl-slider__slide {
