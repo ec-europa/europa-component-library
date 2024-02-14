@@ -85,7 +85,7 @@ $timeline: null !default;
     box-sizing: border-box;
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    top: var(--s-2xs) + var(--s-xs);
+    top: calc(var(--s-2xs) + var(--s-xs));
     width: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
   }
