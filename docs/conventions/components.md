@@ -21,12 +21,12 @@ Please ensure the presence of the following attributes:
 
 ## Naming
 
-- `@ecl/` namespace should be used consistently throughout all packages in order to be published correctly on [ECL v3 npm organisation](https://www.npmjs.com/org/ecl).
+- `@ecl/` namespace should be used consistently throughout all packages in order to be published correctly on [ECL npm organisation](https://www.npmjs.com/org/ecl).
 
 Examples:
 
 - `@ecl/vanilla-component-menu` - vanilla (base) component
-- `@ecl/twig-component-menu` react implementation for website
+- `@ecl/twig-component-menu` - twig component
 
 ## Implementations
 
