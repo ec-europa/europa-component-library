@@ -1,0 +1,40 @@
+/**
+ * Slider print
+ * @define slider
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+
+.ecl-slider__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ecl-slider__info {
+  display: none;
+}
+
+.ecl-slider__slide {
+  margin: map.get($theme, 'spacing-print', 's');
+  max-width: var(--max-w);
+}
+
+.ecl-slider--tags {
+  max-width: var(--max-w);
+
+  .ecl-slider__slide {
+    margin: map.get($theme, 'spacing-print', '2xs');
+
+    &::after {
+      color: map.get($theme, 'color', 'black');
+      content: '(' attr(href) ')';
+      font: map.get($theme, 'font-print', 's');
+      font-style: italic;
+      margin-inline-start: map.get($theme, 'spacing-print', '2xs');
+      text-decoration: underline;
+    }
+  }
+}

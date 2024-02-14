@@ -1,0 +1,44 @@
+---
+title: API
+order: 2
+---
+
+import React from 'react';
+import Iframe from '../../../../../website-components/Showcase/Iframe';
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="Slider"` attribute to a container in your markup:
+
+```html
+<div data-ecl-auto-init="Slider">...</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+```js
+var elt = document.querySelector('yourSelector');
+var slider = new ECL.Slider(elt);
+slider.init();
+```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('yourSelector');
+var instance = ECL.components.get(elt);
+```
+
+## API
+
+<Iframe url="../../../../apis/Slider.html" />

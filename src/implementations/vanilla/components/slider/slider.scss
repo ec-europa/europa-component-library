@@ -1,0 +1,77 @@
+/**
+ * Slider
+ * @define slider
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+
+.ecl-slider {
+  overflow-x: hidden;
+
+  .ecl-slider__list {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin: 0 0 var(--s-m);
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+}
+
+.ecl-slider__info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 105px;
+}
+
+.ecl-slider__progress-bar {
+  background: var(--c-n-80);
+  height: var(--s-2xs);
+  width: 85%;
+
+  .ecl-slider__progress {
+    background: var(--c-p);
+    height: 100%;
+  }
+}
+
+.ecl-slider__slide {
+  flex-shrink: 0;
+  margin-inline-end: var(--s-xl);
+}
+
+@include breakpoints.up('l') {
+  .ecl-slider__progress-bar {
+    width: 90%;
+  }
+}
+
+// Tags variant
+.ecl-slider--tags {
+  display: flex;
+  align-items: center;
+
+  .ecl-slider__list {
+    margin: 0;
+  }
+
+  .ecl-slider__container {
+    width: 90%;
+    overflow-x: hidden;
+  }
+
+  .ecl-slider__controls {
+    margin-inline-start: var(--s-m);
+  }
+
+  .ecl-slider__slide {
+    margin-inline-end: var(--s-2xs);
+    margin-top: 0;
+  }
+}
