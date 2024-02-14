@@ -301,7 +301,6 @@ Ex:
 
 ### Social media follow
 
-- Icon size is different (`xs` for EC, `m` for EU). This has to be passed as data.
 - The link "Other social media networks" is no longer a popover. This is now a standard link, leading to a dedicated page, and added after the other links. Corresponding twig parameter `popover` has been removed
 - Icon `share` and its variants has been removed from the social media icons. It has been replaced by a new icon `chain`
 

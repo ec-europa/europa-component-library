@@ -43,6 +43,7 @@ $social-media-follow: null !default;
   display: flex;
   margin-inline-end: map.get($social-media-follow, 'item', 'margin');
   margin-top: var(--s-xs);
+  min-height: map.get($theme, 'line-height', 'm');
 
   &:last-child {
     margin-inline-end: 0;
