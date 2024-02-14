@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const path = require('path');
-const program = require('commander');
+const { program } = require('commander');
 const browserslist = require('browserslist');
 const buildScript = require('../scripts/scripts');
 const { buildStyles } = require('../scripts/styles');

@@ -223,11 +223,11 @@ Ex:
 - Toggle link updated (mobile):
   - New twig parameter `toggle` added. It expects an ECL Link structure
   - Twig parameter `menu_link` removed, as it is now part of this structure
-  - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
 - `back` twig parameter has been renamed to `back_label`, to avoid confusion
 - New link added on mobile to improve navigation: `see all`. Corresponding twig parameter is `see_all_label`
 - Menu link are now using the Link twig template directly, with `standalone` variant
 - Menu buttons are now using the Button twig template directly, with the `ghost` variant
+- Option `overlaySelector` is no longer used in the javascript, as click detection outside of the menu is handled differently
 
 ### Message
 
@@ -297,6 +297,7 @@ Ex:
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Twig parameter `close_label` has been removed and replaced by a new one: `close`. It expect an ECL Button
 - A container is added as first child of the root element of the component, with this class: `ecl-site-header__background`, it is needed in EC to handle the background image.
+- The way to tell if the site header has a menu or not has been updated. Instead of using `data-ecl-has-menu`, it now relies on the css class `ecl-site-header--has-menu`. Both twig template and css file have been updated.
 
 ### Social media follow
 

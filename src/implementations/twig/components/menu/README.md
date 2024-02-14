@@ -9,6 +9,7 @@ npm install --save @ecl/twig-component-menu
 ### Parameters
 
 - **"id"** (string) (default: random): Unique id
+- **"variant"**: (string) (default: ''): Alternative display. Can be 'dark'. Only used in EC
 - **"title"** (string) (default: ''): Title of the menu (displayed on mobile)
 - **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
 - **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
@@ -19,6 +20,7 @@ npm install --save @ecl/twig-component-menu
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
+  "external": (boolean) (optional),
   "trigger_aria_label" (string),
   "children": (associative array) (optional): [
   {
@@ -52,11 +54,18 @@ npm install --save @ecl/twig-component-menu
       label: 'Menu',
       path: exampleLink,
     },
-    icon: {
-      path: '/icons.svg',
-      name: 'hamburger',
-      size: 'm',
-    },
+    icon: [
+      {
+        path: '/icons.svg',
+        name: 'hamburger',
+        size: 'm',
+      },
+      {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      }
+    ],
   },
   close: {
     label: 'Close',

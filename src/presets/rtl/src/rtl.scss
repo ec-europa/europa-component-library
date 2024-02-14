@@ -97,13 +97,25 @@ html {
 }
 
 .ecl-menu:not(.ecl-menu--forced-mobile) .ecl-menu__items-previous {
+  border-radius: 0;
   left: auto;
   right: 0;
+
+  &::after {
+    left: -1px;
+    right: auto;
+  }
 }
 
 .ecl-menu:not(.ecl-menu--forced-mobile) .ecl-menu__items-next {
+  border-radius: 0;
   left: 0;
   right: auto;
+
+  &::before {
+    left: auto;
+    right: -1px;
+  }
 }
 
 // Select

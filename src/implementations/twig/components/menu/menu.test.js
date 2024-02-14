@@ -9,6 +9,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import dataShort from '@ecl/specs-component-menu/demo/data--ec';
 import dataLong from '@ecl/specs-component-menu/demo/data--ec-long';
 
+const dataDark = { ...dataLong, variant: 'dark' };
+
 expect.extend(toHaveNoViolations);
 
 describe('Menu', () => {
@@ -20,6 +22,14 @@ describe('Menu', () => {
       expect.assertions(1);
 
       return expect(render(dataShort)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with a external first level menu item', () => {
+      expect.assertions(1);
+      const dataExternal = JSON.parse(JSON.stringify(dataShort));
+      dataExternal.items[2].external = true;
+
+      return expect(render(dataExternal)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {
@@ -57,6 +67,26 @@ describe('Menu', () => {
       expect.assertions(1);
 
       return expect(render(dataLong)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataLong)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Dark', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(dataDark)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataDark)),
+      ).toHaveNoViolations();
     });
   });
 });

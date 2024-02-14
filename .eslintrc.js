@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@babel/eslint-parser',
   root: true,
-  plugins: ['jest'],
+  plugins: ['jest', 'import'],
   extends: ['airbnb-base', 'prettier'],
   globals: {
     ECL: 'writable',
@@ -9,6 +9,13 @@ module.exports = {
   env: {
     node: true,
     browser: true,
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.json', '.svg'],
+      },
+    },
   },
   rules: {
     'import/no-extraneous-dependencies': 'off',
