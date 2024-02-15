@@ -50,7 +50,7 @@ npm install --save @ecl/twig-component-site-header
       - "active" (boolean) (default: false) define if item is the active language.
 - **"basket"** (associative array) (default: {}) format:
   - "id": (string): Id of the basket link
-  - "label": (string): Basket label
+  - "label": (string): Basket link label
   - "href": (string): Url of the link
 - **"search_toggle"** (associative array) format:
   - "label" (string) Label of the element
