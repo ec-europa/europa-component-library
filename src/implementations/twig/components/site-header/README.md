@@ -48,7 +48,7 @@ npm install --save @ecl/twig-component-site-header
       - "label" (string) (default: '') Item language label, eg. 'English', 'Français', etc.
       - "path" (string) (default: '') Item language URL eg. '/example#language_en'.
       - "active" (boolean) (default: false) define if item is the active language.
-- **"basket"** (associate array) (default: {}) format:
+- **"basket"** (associative array) (default: {}) format:
   - "id": (string): Id of the basket link
   - "label": (string): Basket label
   - "href": (string): Url of the link
