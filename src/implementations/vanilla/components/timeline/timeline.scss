@@ -76,6 +76,7 @@ $timeline: null !default;
 
   &::before {
     border-inline-start-style: dashed;
+    height: calc(100% + var(--s-2xs));
     top: calc(-1 * var(--s-2xs));
   }
 
@@ -85,7 +86,7 @@ $timeline: null !default;
     box-sizing: border-box;
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    top: var(--s-2xs) + var(--s-xs);
+    top: calc(var(--s-2xs) + var(--s-xs));
     width: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
   }
