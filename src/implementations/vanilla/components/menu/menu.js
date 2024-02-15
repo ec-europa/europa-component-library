@@ -902,10 +902,9 @@ export class Menu {
     this.isOpen = true;
 
     // Update label
-    if (this.toggleLabel) {
-      this.toggleLabel.innerHTML = this.element.getAttribute(
-        this.labelCloseAttribute,
-      );
+    const closeLabel = this.element.getAttribute(this.labelCloseAttribute);
+    if (this.toggleLabel && closeLabel) {
+      this.toggleLabel.innerHTML = closeLabel;
     }
 
     this.trigger('onOpen', e);
@@ -933,10 +932,9 @@ export class Menu {
     });
 
     // Update label
-    if (this.toggleLabel) {
-      this.toggleLabel.innerHTML = this.element.getAttribute(
-        this.labelOpenAttribute,
-      );
+    const openLabel = this.element.getAttribute(this.labelOpenAttribute);
+    if (this.toggleLabel && openLabel) {
+      this.toggleLabel.innerHTML = openLabel;
     }
 
     // Set focus to hamburger button

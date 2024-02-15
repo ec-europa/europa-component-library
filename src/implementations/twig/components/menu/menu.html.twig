@@ -81,10 +81,10 @@
   data-ecl-menu
   data-ecl-menu-max-lines="{{ _max_lines }}"
   data-ecl-auto-init="Menu"
-  {% if _toggle is not empty %}
+  {% if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty %}
     data-ecl-menu-label-open="{{ _toggle.link.label }}"
   {% endif %}
-  {% if _close is not empty %}
+  {% if _close is not empty and _close.label is defined and _close.label is not empty %}
     data-ecl-menu-label-close="{{ _close.label }}"
   {% endif %}
   aria-expanded="false"
