@@ -58,6 +58,11 @@ $news-ticker: null !default;
   align-items: center;
   display: flex;
   padding: var(--s-2xs) var(--s-xs);
+
+  .ecl-link__icon {
+    height: map.get($theme, 'icon', 'xs');
+    width: map.get($theme, 'icon', 'xs');
+  }
 }
 
 // stylelint-disable value-no-vendor-prefix

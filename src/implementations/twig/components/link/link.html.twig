@@ -73,7 +73,7 @@
   {% set _icons = [_icon|merge({
     name: 'external',
     path: _link.icon_path,
-    size: icon is defined and icon.size is defined ? icon.size : '2xs',
+    size: '2xs',
   })] %}
 
   {% set _link = _link|merge({ icon_position: _link.icon_position|default('after') }) %}
