@@ -6,6 +6,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_icon: 'Error',
   title: 'Error notification',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
