@@ -72,6 +72,10 @@ Inner and negative shadows are also not part of EC styles anymore.
 
 Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2XS to 4XL). Default value is still the same: spacing M is 1rem
 
+### Icons
+
+- Few icons have been renamed: basket is now `shopping-bag`, gear is now `settings` and back is `arrow-left`
+
 ## Component modifications
 
 ### Accordion
@@ -301,7 +305,6 @@ Ex:
 
 ### Social media follow
 
-- Icon size is different (`xs` for EC, `m` for EU). This has to be passed as data.
 - The link "Other social media networks" is no longer a popover. This is now a standard link, leading to a dedicated page, and added after the other links. Corresponding twig parameter `popover` has been removed
 - Icon `share` and its variants has been removed from the social media icons. It has been replaced by a new icon `chain`
 
