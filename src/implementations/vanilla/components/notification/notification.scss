@@ -55,7 +55,8 @@ $notification: null !default;
   grid-column-start: 2;
   grid-row-end: span 2;
   grid-row-start: 1;
-  margin-top: map.get($notification, 'close-offset');
+  margin: map.get($notification, 'close-offset')
+    map.get($notification, 'close-offset') 0 0;
 
   .no-js & {
     display: none;
@@ -135,7 +136,7 @@ $notification: null !default;
     grid-row-end: 4;
     grid-row-start: 3;
     justify-self: end;
-    margin-bottom: map.get($notification, 'close-offset');
+    margin: map.get($notification, 'close-offset') 0;
   }
 
   @include breakpoints.up('m') {
@@ -144,8 +145,7 @@ $notification: null !default;
       grid-column-start: 2;
       grid-row-end: span 2;
       grid-row-start: 1;
-      margin-bottom: 0;
-      margin-top: map.get($notification, 'close-offset');
+      margin: map.get($notification, 'close-offset') 0 0;
       top: auto;
     }
   }
