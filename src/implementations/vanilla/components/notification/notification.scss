@@ -102,6 +102,18 @@ $notification: null !default;
 
   .ecl-notification__icon {
     fill: map.get($notification, 'warning', 'color');
+    position: relative;
+    z-index: 2;
+  }
+
+  .ecl-notification__icon-background {
+    background: map.get($notification, 'warning', 'icon-background-color');
+    height: map.get($notification, 'warning', 'icon-background-height');
+    left: map.get($notification, 'warning', 'icon-background-left');
+    position: absolute;
+    width: var(--s-xs);
+    top: map.get($notification, 'warning', 'icon-background-top');
+    z-index: 1;
   }
 }
 

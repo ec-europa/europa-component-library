@@ -6,6 +6,7 @@ module.exports = {
   id: 'news-ticker-example',
   icon_path: '/icons.svg',
   counter_label: 'of',
+  sr_external: 'External link',
   sr_next: 'Next item',
   sr_previous: 'Previous item',
   sr_pause: 'Pause news ticker',

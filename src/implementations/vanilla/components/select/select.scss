@@ -239,7 +239,7 @@ $select: null !default;
     box-shadow: map.get($select, 'multiple-dropdown-shadow');
     box-sizing: border-box;
     margin-top: map.get($select, 'multiple-dropdown-margin');
-    min-width: map.get($theme, 'form', 'm');
+    min-width: map.get($theme, 'form-width', 's', 'breakpoint-m');
     padding-bottom: var(--s-m);
     position: absolute;
     z-index: map.get($theme, 'z-index', 'dropdown');

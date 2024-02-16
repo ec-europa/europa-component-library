@@ -13,6 +13,7 @@ npm install --save @ecl/twig-component-news-ticker
   - "content" (string)
   - "link" (string) (optional)
 - **"counter_label"** (string) (default: 'of')
+- **"sr_external"** (string) (default: 'External link') screen reader label for external icon
 - **"sr_previous"** (string) (default: 'Previous news') screen reader label for previous button
 - **"sr_next"** (string) (default: 'Next news') screen reader label for next button
 - **"sr_play"** (string) (default: 'Play news ticker') screen reader label for the play button

@@ -6,38 +6,14 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'Twitter',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'twitter-color',
-        size: 'm',
-      },
-    },
-    {
-      link: {
         label: 'Facebook',
         path: exampleLink,
         icon_position: 'before',
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'facebook-color',
-        size: 'm',
-      },
-    },
-    {
-      link: {
-        label: 'Linkedin',
-        path: exampleLink,
-        icon_position: 'before',
-      },
-      icon: {
-        path: '/icon-social-media.svg',
-        name: 'linkedin-color',
-        size: 'm',
+        name: 'facebook',
+        size: 'xs',
       },
     },
     {
@@ -48,8 +24,32 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'instagram-color',
-        size: 'm',
+        name: 'instagram',
+        size: 'xs',
+      },
+    },
+    {
+      link: {
+        label: 'Mastodon',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'mastodon',
+        size: 'xs',
+      },
+    },
+    {
+      link: {
+        label: 'Linkedin',
+        path: exampleLink,
+        icon_position: 'before',
+      },
+      icon: {
+        path: '/icon-social-media.svg',
+        name: 'linkedin',
+        size: 'xs',
       },
     },
     {
@@ -60,20 +60,20 @@ module.exports = {
       },
       icon: {
         path: '/icon-social-media.svg',
-        name: 'telegram-color',
-        size: 'm',
+        name: 'telegram',
+        size: 'xs',
       },
     },
     {
       link: {
-        label: 'Other social networks',
+        label: 'Other',
         path: exampleLink,
         icon_position: 'before',
       },
       icon: {
         path: '/icon-social-media.svg',
         name: 'chain',
-        size: 'm',
+        size: 'xs',
       },
     },
   ],

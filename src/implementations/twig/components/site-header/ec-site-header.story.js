@@ -38,6 +38,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    light: false,
   };
 
   if (data.login_box) {
@@ -195,6 +196,15 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.light = {
+    name: 'light',
+    type: { name: 'boolean' },
+    description: 'Use the light display',
+    table: {
+      category: 'Display',
+    },
+  };
+
   return argTypes;
 };
 
@@ -265,6 +275,14 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+  }
+
+  if (data.menu) {
+    if (args.light) {
+      data.menu.variant = 'light';
+    } else {
+      data.menu.variant = '';
+    }
   }
 
   correctPaths(data);
