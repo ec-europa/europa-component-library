@@ -72,6 +72,14 @@ Inner and negative shadows are also not part of EC styles anymore.
 
 Spacing scale has been enriched for EC, now going from 2XS to 6XL (previously 2XS to 4XL). Default value is still the same: spacing M is 1rem
 
+### Icons
+
+- Few icons have been renamed: basket is now `shopping-bag`, gear is now `settings`, back is `arrow-left`.
+- Play icon has now three different shapes, the old play icon is now `play-outline`, while the new `play` icon has only the play symbol.
+- Close icon has now three different shapes, the old close icon is now `close-outline`, while the new `close` icon has only the close symbol.
+- Few icons have been added, namely `folder`, `document`
+- Some icons have been removed, namely: `generic-lang`, `language`, `video`.
+
 ## Component modifications
 
 ### Accordion
