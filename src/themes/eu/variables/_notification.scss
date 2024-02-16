@@ -3,7 +3,9 @@
 
 $notification: (
   radius: 4px,
-  padding: var(--s-l) var(--s-xs) var(--s-l) var(--s-l),
+  padding: var(--s-l),
+  padding-end: var(--s-xs),
+  padding-start: var(--s-l),
   border-width: 0,
   border-color: transparent,
   font: var(--f-p-m),
@@ -12,7 +14,7 @@ $notification: (
   title-font-weight: map.get($font-weight, 'bold'),
   title-spacing: var(--s-xs),
   close-color: var(--c-p),
-  close-offset: calc(var(--s-s) - var(--s-m)) calc(var(--s-s) - var(--s-m)) 0 0,
+  close-offset: calc(var(--s-s) - var(--s-m)),
   close-override: true,
   info: (
     background: var(--c-in-5),

@@ -19,7 +19,10 @@ $notification: null !default;
   display: flex;
   font: map.get($notification, 'font');
   margin: 0;
-  padding: map.get($notification, 'padding');
+  padding-bottom: map.get($notification, 'padding');
+  padding-inline-start: map.get($notification, 'padding-start');
+  padding-inline-end: map.get($notification, 'padding-end');
+  padding-top: map.get($notification, 'padding');
   position: relative;
 }
 
@@ -55,8 +58,8 @@ $notification: null !default;
   grid-column-start: 2;
   grid-row-end: span 2;
   grid-row-start: 1;
-  margin: map.get($notification, 'close-offset')
-    map.get($notification, 'close-offset') 0 0;
+  margin-inline-end: map.get($notification, 'close-offset');
+  margin-top: map.get($notification, 'close-offset');
 
   .no-js & {
     display: none;
@@ -136,7 +139,9 @@ $notification: null !default;
     grid-row-end: 4;
     grid-row-start: 3;
     justify-self: end;
-    margin: map.get($notification, 'close-offset') 0;
+    margin-bottom: map.get($notification, 'close-offset');
+    margin-inline-end: 0;
+    margin-top: map.get($notification, 'close-offset');
   }
 
   @include breakpoints.up('m') {
@@ -145,7 +150,8 @@ $notification: null !default;
       grid-column-start: 2;
       grid-row-end: span 2;
       grid-row-start: 1;
-      margin: map.get($notification, 'close-offset') 0 0;
+      margin-bottom: 0;
+      margin-top: map.get($notification, 'close-offset');
       top: auto;
     }
   }
