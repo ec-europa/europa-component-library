@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addons } from '@storybook/addons';
+import { addons } from '@storybook/preview-api';
 
 import styled from '@emotion/styled';
 

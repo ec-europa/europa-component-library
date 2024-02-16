@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import { addons } from '@storybook/preview-api';
 import browserUpdate from 'browser-update';
 import { create } from '@storybook/theming';
 
