@@ -250,6 +250,10 @@ Ex:
   - Icon is now different between EC and EU: `close` for EC, `close-filled` for EU.
   - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
 
+### News ticker
+
+- New twig parameter `sr_external` to add a textual indication when the link is external
+
 ### Navigation list
 
 - `border` parameter has been moved to the parent template and then passed to the single items template, so it is set at once for all the items. The default value is set to `true`.

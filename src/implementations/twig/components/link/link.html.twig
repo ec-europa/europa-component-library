@@ -76,7 +76,7 @@
     size: '2xs',
   })] %}
 
-  {% set _link = _link|merge({ icon_position: 'after' }) %}
+  {% set _link = _link|merge({ icon_position: _link.icon_position|default('after') }) %}
 {% else %}
   {% if icon.name is defined and icon.name is not empty %}
     {% set _icons = [icon] %}
@@ -135,7 +135,7 @@
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
 >
-  {%- if _icons is defined and _link.icon_position == 'before' -%}
+  {%- if _link.icon_position == 'before' and (_icons is defined or _link.external) -%}
     {% for icon in _icons %}
       {%- if icon.name is not empty -%}
         {% set _icon_extra_classes = 'ecl-link__icon' %}
@@ -161,7 +161,7 @@
       {{- _link.label -}}
     </span>
   {%- endif -%}
-  {%- if (_icons is defined and _link.icon_position == 'after') or _link.external -%}
+  {%- if _link.icon_position == 'after' and (_icons is defined or _link.external) -%}
     {% for icon in _icons %}
       {%- if icon.name is not empty -%}
         {% set _icon_extra_classes = 'ecl-link__icon' %}
