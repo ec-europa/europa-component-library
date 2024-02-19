@@ -356,6 +356,7 @@ Ex:
 - Renamed twig paramter `default_icon_path` to `icon_path`, to be consistent with other components
 - Tags now wrap on several lines by default. New twig parameter `nowrap` added to force display of the tag on one line.
 - Added possibilty to handle set of tags. Twig template and corresponding css have been added.
+  [>beta.2]: tag set is now using an html list markup
 
 ## Customizing the display
 
