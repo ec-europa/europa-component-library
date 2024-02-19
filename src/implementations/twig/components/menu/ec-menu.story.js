@@ -9,7 +9,7 @@ import notes from './README.md';
 
 const dataShort = dataEc;
 const dataLong = dataEcLong;
-const dataDark = { ...dataEcLong, variant: 'dark' };
+const dataLight = { ...dataEcLong, variant: 'light' };
 
 const getArgs = (data) => ({
   max_lines: data.max_lines || 2,
@@ -64,13 +64,13 @@ Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes();
 Long.parameters = { notes: { markdown: notes, json: dataLong } };
 
-export const Dark = (_, { loaded: { component } }) => component;
+export const Light = (_, { loaded: { component } }) => component;
 
-Dark.render = async (args) => {
-  const renderedMenuDark = await menu(prepareData(dataDark, args));
-  return renderedMenuDark;
+Light.render = async (args) => {
+  const renderedMenuLight = await menu(prepareData(dataLight, args));
+  return renderedMenuLight;
 };
-Dark.storyName = 'dark';
-Dark.args = getArgs(dataDark);
-Dark.argTypes = getArgTypes();
-Dark.parameters = { notes: { markdown: notes, json: dataDark } };
+Light.storyName = 'light';
+Light.args = getArgs(dataLight);
+Light.argTypes = getArgTypes();
+Light.parameters = { notes: { markdown: notes, json: dataLight } };

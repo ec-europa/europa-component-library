@@ -39,7 +39,7 @@ const getArgs = (data) => {
     show_search: true,
     show_notification: false,
     show_basket: false,
-    dark: true,
+    light: true,
   };
 
   if (data.login_box) {
@@ -247,10 +247,10 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.dark = {
-    name: 'dark',
+  argTypes.light = {
+    name: 'light',
     type: { name: 'boolean' },
-    description: 'Use the dark display',
+    description: 'Use the light display',
     table: {
       category: 'Display',
     },
@@ -335,8 +335,8 @@ const prepareData = (data, args) => {
   }
 
   if (data.menu) {
-    if (args.dark) {
-      data.menu.variant = 'dark';
+    if (args.light) {
+      data.menu.variant = 'light';
     } else {
       data.menu.variant = '';
     }

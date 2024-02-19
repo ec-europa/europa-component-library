@@ -15,7 +15,7 @@ const files = glob.sync('**/*.js', {
 const publicDir = path.resolve(__dirname, '../public');
 const apisDir = 'apis';
 const outputDir = path.resolve(publicDir, apisDir);
-const icon = fs.readFileSync(`${publicDir}/gear.svg`, 'utf-8');
+const icon = fs.readFileSync(`${publicDir}/settings.svg`, 'utf-8');
 
 // Create public directory if not exists
 try {
