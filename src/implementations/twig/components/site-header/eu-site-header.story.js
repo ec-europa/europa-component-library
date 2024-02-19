@@ -69,8 +69,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the login box',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'true' },
         category: 'Optional',
       },
       mapping: {
@@ -83,8 +81,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the login box for a logged in user',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
         category: 'Optional',
       },
       mapping: {
@@ -98,8 +94,6 @@ const getArgTypes = (data) => {
     control: { type: 'boolean' },
     description: 'Show the language selector',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: 'true' },
       category: 'Optional',
     },
     mapping: {
@@ -112,8 +106,6 @@ const getArgTypes = (data) => {
     control: { type: 'boolean' },
     description: 'Show the search form',
     table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: 'true' },
       category: 'Optional',
     },
     mapping: {
@@ -127,8 +119,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the notification box',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
         category: 'Optional',
       },
       mapping: {
@@ -143,8 +133,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the basket',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
         category: 'Optional',
       },
       mapping: {
@@ -159,8 +147,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the menu',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'true' },
         category: 'Optional',
       },
       mapping: {
@@ -175,8 +161,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the call to action link',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
         category: 'Optional',
       },
       mapping: {
@@ -191,8 +175,6 @@ const getArgTypes = (data) => {
       control: { type: 'boolean' },
       description: 'Show the site name',
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'true' },
         category: 'Optional',
       },
       mapping: {
