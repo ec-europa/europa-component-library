@@ -1,7 +1,7 @@
 import EventManager from '@ecl/event-manager';
 import getSystem from '@ecl/builder/utils/getSystem';
-import iconBackEc from '@ecl/resources-ec-icons/dist/svg/all/back.svg';
-import iconBackEu from '@ecl/resources-eu-icons/dist/svg/all/back.svg';
+import iconBackEc from '@ecl/resources-ec-icons/dist/svg/all/arrow-left.svg';
+import iconBackEu from '@ecl/resources-eu-icons/dist/svg/all/arrow-left.svg';
 
 const system = getSystem();
 const iconBack = system === 'eu' ? iconBackEu : iconBackEc;
@@ -57,6 +57,7 @@ export class Slider {
     this.total = 0;
     this.current = 0;
     this.allowShift = true;
+    this.translateX = 0;
     this.variant = this.element.getAttribute(this.variantAttr) || '';
     this.showProgress = this.element.hasAttribute(showProgressAttr);
 
@@ -273,7 +274,7 @@ export class Slider {
     const itemsPerSlide = Math.floor(this.itemsToShow / 5);
     const itemWidth = this.slides[0].offsetWidth + 24;
     const slideIndex = this.current - itemsPerSlide;
-    let translateX = -slideIndex * itemWidth;
+    this.translateX = -slideIndex * itemWidth;
 
     // Update translateX value for the 'tags' variant
     if (this.variant === 'tags') {
@@ -287,10 +288,10 @@ export class Slider {
         totalWidthAfterLastVisible +=
           this.slides[i - 1].offsetWidth + this.tagsItemSpacing;
       }
-      translateX = -totalWidthAfterLastVisible;
+      this.translateX = -totalWidthAfterLastVisible;
 
       // Disable next/prev buttons based on the current position for the tag variant
-      if (this.current === this.total) {
+      if (this.findLastVisibleItemIndex() + 1 === this.total) {
         this.nextButton.disabled = true;
       } else if (this.current <= this.lastVisibleIndexInitial) {
         this.prevButton.disabled = true;
@@ -311,7 +312,7 @@ export class Slider {
     }
 
     // Apply the transform to move the slider
-    this.element.style.transform = `translateX(${translateX}px)`;
+    this.element.style.transform = `translateX(${this.translateX}px)`;
     this.trigger('onSlideChange', {
       currentIndex: this.current,
       currentEl: this.slides[this.current],
@@ -336,25 +337,22 @@ export class Slider {
    */
   findLastVisibleItemIndex() {
     const width = this.container.offsetWidth;
-    // It seems there is no way to get the right width in this case, we know it's 90%
-    // and there is 1rem margin
-    const computedWidth = Math.floor((width / 10) * 9) - 16;
+    const computedWidth = width - 44 * 2 - 16;
     let lastVisibleIndex = -1;
     let totalWidth = 0;
 
     for (let i = 0; i < this.slides.length; i += 1) {
       const item = this.slides[i];
       totalWidth += item.offsetWidth + this.tagsItemSpacing;
+      const adjustedWidth = totalWidth + this.translateX;
 
       // Check if item is entirely visible within the container
-      if (totalWidth <= computedWidth) {
+      if (adjustedWidth <= computedWidth) {
         lastVisibleIndex = i;
       } else {
         break;
       }
     }
-    // Store the index of the last visible item and its base width
-    this.lastVisibleIndexInitial = lastVisibleIndex;
 
     return lastVisibleIndex;
   }
@@ -395,7 +393,8 @@ export class Slider {
       this.current = Math.floor(this.itemsToShow / 5);
     } else {
       // Update current for 'tags' variant
-      this.current = this.findLastVisibleItemIndex();
+      this.lastVisibleIndexInitial = this.findLastVisibleItemIndex();
+      this.current = this.lastVisibleIndexInitial;
     }
     if (this.current === this.total) {
       this.controls.style.display = 'none';
