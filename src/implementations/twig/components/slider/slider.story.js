@@ -4,6 +4,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import slider from './slider.html';
 import sliderTags from './slider.tags.html';
 import notes from './README.md';
+import notesTag from './README-tags.md';
 
 export default {
   title: 'Components/Slider',
@@ -23,4 +24,4 @@ Default.parameters = { notes: { markdown: notes } };
 export const Tags = () => sliderTags;
 
 Tags.storyName = 'tags';
-Tags.parameters = { notes: { markdown: notes } };
+Tags.parameters = { notes: { markdown: notesTag } };
