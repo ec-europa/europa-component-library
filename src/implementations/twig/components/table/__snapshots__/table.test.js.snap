@@ -16,26 +16,31 @@ exports[`Table Default renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -238,26 +243,31 @@ exports[`Table Default renders correctly with extra attributes 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -458,26 +468,31 @@ exports[`Table Default renders correctly with extra class names 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -678,26 +693,31 @@ exports[`Table Default renders correctly with row extra attributes 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -908,26 +928,31 @@ exports[`Table Default renders correctly with row extra classes 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -1128,12 +1153,14 @@ exports[`Table Multi renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
             rowspan="2"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
             rowspan="2"
           >
             EFSI finance approved by EIB
@@ -1141,11 +1168,13 @@ exports[`Table Multi renders correctly 1`] = `
           <th
             class="ecl-table__header"
             colspan="2"
+            id="table-id-3"
           >
             Extra information
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
             rowspan="2"
           >
             Location
@@ -1156,11 +1185,15 @@ exports[`Table Multi renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            headers="table-id-3"
+            id="table-id-5"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            headers="table-id-3"
+            id="table-id-6"
           >
             Type of contract
           </th>
@@ -1175,12 +1208,14 @@ exports[`Table Multi renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Competition Law
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1188,18 +1223,21 @@ exports[`Table Multi renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1210,12 +1248,14 @@ exports[`Table Multi renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Economic and Monetary Union Law
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1223,18 +1263,21 @@ exports[`Table Multi renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1245,12 +1288,14 @@ exports[`Table Multi renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Financial rules appliable to the EU budget
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1258,18 +1303,21 @@ exports[`Table Multi renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1280,12 +1328,14 @@ exports[`Table Multi renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Corporate Support Officer
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             FG IV
           </td>
@@ -1293,18 +1343,21 @@ exports[`Table Multi renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Prague (Czech Republic)
           </td>
@@ -1315,12 +1368,14 @@ exports[`Table Multi renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Policy Officer - Clean Energy For All Europeans
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             FG II, FG III, FG IV
           </td>
@@ -1328,18 +1383,21 @@ exports[`Table Multi renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             EU-LISA
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Seconded National Expert (SNE)
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Vigo (Spain)
           </td>
@@ -1366,26 +1424,31 @@ exports[`Table Simple renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>
@@ -1590,6 +1653,7 @@ exports[`Table Sort table renders correctly 1`] = `
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            id="table-id-1"
             rowspan="2"
           >
             Job title
@@ -1597,6 +1661,7 @@ exports[`Table Sort table renders correctly 1`] = `
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            id="table-id-2"
             rowspan="2"
           >
             EFSI finance approved by EIB
@@ -1604,12 +1669,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <th
             class="ecl-table__header"
             colspan="2"
+            id="table-id-3"
           >
             Extra information
           </th>
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            id="table-id-4"
             rowspan="2"
           >
             Location
@@ -1621,12 +1688,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            id="table-id-5"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            id="table-id-6"
           >
             Type of contract
           </th>
@@ -1641,12 +1710,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Competition Law
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1654,18 +1725,21 @@ exports[`Table Sort table renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1676,12 +1750,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Economic and Monetary Union Law
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1689,18 +1765,21 @@ exports[`Table Sort table renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1711,12 +1790,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Administators in Financial rules appliable to the EU budget
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             AD7
           </td>
@@ -1724,18 +1805,21 @@ exports[`Table Sort table renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Brussels (Belgium), Luxembourg (Luxembourg), Strasbourg (France)
           </td>
@@ -1746,12 +1830,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Corporate Support Officer
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             FG IV
           </td>
@@ -1759,18 +1845,21 @@ exports[`Table Sort table renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             European Commission
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Permanent official
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Prague (Czech Republic)
           </td>
@@ -1781,12 +1870,14 @@ exports[`Table Sort table renders correctly 1`] = `
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Job title"
+            headers="table-id-1"
           >
             Policy Officer - Clean Energy For All Europeans
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="EFSI finance approved by EIB"
+            headers="table-id-2"
           >
             FG II, FG III, FG IV
           </td>
@@ -1794,18 +1885,21 @@ exports[`Table Sort table renders correctly 1`] = `
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Organization"
             data-ecl-table-header-group="Extra information"
+            headers="table-id-3 table-id-5"
           >
             EU-LISA
           </td>
           <td
             class="ecl-table__cell ecl-table__cell--group"
             data-ecl-table-header="Type of contract"
+            headers="table-id-3 table-id-6"
           >
             Seconded National Expert (SNE)
           </td>
           <td
             class="ecl-table__cell"
             data-ecl-table-header="Location"
+            headers="table-id-4"
           >
             Vigo (Spain)
           </td>
@@ -1832,26 +1926,31 @@ exports[`Table Zebra renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            id="table-id-1"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-2"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-3"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-4"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            id="table-id-5"
           >
             Type of contract
           </th>

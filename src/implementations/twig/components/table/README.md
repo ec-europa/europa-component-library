@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-table
 
 ### Parameters:
 
+- **"id"** (string) (default: random): unique id for the table; randomly generated if empty
 - **"simple"** (boolean) (default: false)
 - **"zebra"** (boolean) (default: false))
 - **"sortable"** (boolean) (default: false)
@@ -16,11 +17,12 @@ npm install --save @ecl/twig-component-table
   - "colspan" (string) (default: ''),
   - "rowspan" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: ''),
+  - "headers" (string) (default: ''): table headers id
 - **"rows"** (array) (default: [])
   [
   - "extra_attributes": (string) (default: ''),
   - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
-    { - "label" (string or array of string) - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') - "group" (bool) (default: false),
+    { - "label" (string or array of string) , - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') , - "group" (bool) (default: false), - "headers" (string) (default: ''): table headers id
     }
     ],
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
