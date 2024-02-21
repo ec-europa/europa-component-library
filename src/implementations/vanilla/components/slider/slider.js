@@ -58,12 +58,14 @@ export class Slider {
     this.current = 0;
     this.allowShift = true;
     this.translateX = 0;
+    this.itemsPerSlide = 0;
     this.variant = this.element.getAttribute(this.variantAttr) || '';
     this.showProgress = this.element.hasAttribute(showProgressAttr);
 
     this.moveSlides = this.moveSlides.bind(this);
     this.shiftSlide = this.shiftSlide.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.checkButtonsVisibility = this.checkButtonsVisibility.bind(this);
     this.findLastVisibleItemIndex = this.findLastVisibleItemIndex.bind(this);
   }
 
@@ -166,16 +168,16 @@ export class Slider {
     this.controls.appendChild(this.prevButton);
     this.controls.appendChild(this.nextButton);
     this.sliderInfo.appendChild(this.controls);
+    this.container = this.element.parentNode.parentNode;
     // Append progress bar and controls.
     if (this.variant === 'tags') {
       // slider info is a sibling of the slider container, in this case.
-      this.element.parentNode.parentNode.appendChild(this.sliderInfo);
+      this.container.appendChild(this.sliderInfo);
     } else {
       // slider info is in the slider container
       this.element.parentNode.appendChild(this.sliderInfo);
     }
 
-    this.container = this.element.parentNode.parentNode;
     // Calculate total number of slides
     this.total = this.slides.length;
 
@@ -187,6 +189,14 @@ export class Slider {
 
     // Set initial slider dimensions
     this.handleResize();
+
+    if (this.variant === 'tags') {
+      if (this.total === this.current + 1) {
+        this.sliderInfo.style.display = 'none';
+      } else {
+        this.sliderInfo.style.display = 'flex';
+      }
+    }
 
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize.bind(this));
@@ -271,53 +281,35 @@ export class Slider {
    * @fires Slider#onSlideChange
    */
   moveSlides() {
-    const itemsPerSlide = Math.floor(this.itemsToShow / 5);
     const itemWidth = this.slides[0].offsetWidth + 24;
-    const slideIndex = this.current - itemsPerSlide;
+    const slideIndex = this.current - this.itemsPerSlide;
     this.translateX = -slideIndex * itemWidth;
 
-    // Update translateX value for the 'tags' variant
     if (this.variant === 'tags') {
-      // Calculate total width of items after the last initially visible item
+      // Calculate total width of the items after the last initially visible item
       let totalWidthAfterLastVisible = 0;
       for (
         let i = this.lastVisibleIndexInitial + 1;
         i <= this.current;
         i += 1
       ) {
-        totalWidthAfterLastVisible +=
-          this.slides[i - 1].offsetWidth + this.tagsItemSpacing;
+        if (this.slides[i - 1]) {
+          totalWidthAfterLastVisible +=
+            this.slides[i - 1].offsetWidth + this.tagsItemSpacing;
+        }
       }
-      this.translateX = -totalWidthAfterLastVisible;
 
-      // Disable next/prev buttons based on the current position for the tag variant
-      if (this.findLastVisibleItemIndex() + 1 === this.total) {
-        this.nextButton.disabled = true;
-      } else if (this.current <= this.lastVisibleIndexInitial) {
-        this.prevButton.disabled = true;
-      } else {
-        this.nextButton.removeAttribute('disabled');
-        this.prevButton.removeAttribute('disabled');
-      }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (this.current === this.total) {
-        this.nextButton.disabled = true;
-      } else if (this.current === itemsPerSlide) {
-        this.prevButton.disabled = true;
-      } else {
-        this.nextButton.removeAttribute('disabled');
-        this.prevButton.removeAttribute('disabled');
-      }
+      this.translateX = -totalWidthAfterLastVisible;
     }
 
-    // Apply the transform to move the slider
     this.element.style.transform = `translateX(${this.translateX}px)`;
+
     this.trigger('onSlideChange', {
       currentIndex: this.current,
       currentEl: this.slides[this.current],
     });
 
+    this.checkButtonsVisibility();
     // Update progress bar width if enabled
     if (this.showProgress) {
       const progressWidth = `${(this.current / this.total) * 100}%`;
@@ -332,11 +324,48 @@ export class Slider {
   }
 
   /**
+   * Check whether to show/hide each button or the whole container.
+   *
+   */
+  checkButtonsVisibility() {
+    if (this.variant === 'tags') {
+      if (this.current + 1 === this.total) {
+        this.nextButton.disabled = true;
+        this.prevButton.removeAttribute('disabled');
+      } else if (this.translateX === 0) {
+        this.prevButton.disabled = true;
+        this.nextButton.removeAttribute('disabled');
+      } else {
+        this.nextButton.removeAttribute('disabled');
+        this.prevButton.removeAttribute('disabled');
+      }
+    } else {
+      if (this.total < this.itemsPerSlide) {
+        this.sliderInfo.style.display = 'none';
+      } else {
+        this.sliderInfo.style.display = 'flex';
+      }
+
+      if (this.current >= this.total) {
+        this.nextButton.disabled = true;
+        this.prevButton.removeAttribute('disabled');
+      } else if (this.current === this.itemsPerSlide) {
+        this.prevButton.disabled = true;
+        this.nextButton.removeAttribute('disabled');
+      } else {
+        this.nextButton.removeAttribute('disabled');
+        this.prevButton.removeAttribute('disabled');
+      }
+    }
+  }
+
+  /**
    * Finds the index of the last visible item within the slider container.
    * @returns {number} The index of the last visible item
    */
   findLastVisibleItemIndex() {
     const width = this.container.offsetWidth;
+    // 44px is a button, we have two and we have 1rem margin
     const computedWidth = width - 44 * 2 - 16;
     let lastVisibleIndex = -1;
     let totalWidth = 0;
@@ -364,26 +393,28 @@ export class Slider {
   handleResize() {
     const containerWidth = this.container.offsetWidth;
     this.element.style.transform = `translateX(0)`;
-    // Number of items to show (base 5)
-    if (containerWidth > 996) {
-      // 4 + 20% of the 5th
-      this.itemsToShow = 21;
-    } else if (containerWidth > 768) {
-      // 2 + 20% of the 3th
-      this.itemsToShow = 11;
-    } else {
-      // 1 + 20% of the 2th
-      this.itemsToShow = 6;
-    }
-
-    // Calculate width for each item and set width for each slide
     if (this.variant !== 'tags') {
+      // Number of items to show (base 5)
+      if (containerWidth > 996) {
+        // 4 + 20% of the 5th
+        this.itemsToShow = 21;
+      } else if (containerWidth > 768) {
+        // 2 + 20% of the 3th
+        this.itemsToShow = 11;
+      } else {
+        // 1 + 20% of the 2th
+        this.itemsToShow = 6;
+      }
+
+      this.itemsPerSlide = Math.floor(this.itemsToShow / 5);
+
       const itemWidth = Math.floor(
         ((this.element.clientWidth -
           this.defaultItemSpacing * Math.floor(this.itemsToShow / 5)) /
           this.itemsToShow) *
           5,
       );
+
       this.slides.forEach((slide, index) => {
         if (index < this.total) {
           slide.style.width = `${itemWidth}px`;
@@ -392,13 +423,11 @@ export class Slider {
       // Update current
       this.current = Math.floor(this.itemsToShow / 5);
     } else {
-      // Update current for 'tags' variant
       this.lastVisibleIndexInitial = this.findLastVisibleItemIndex();
       this.current = this.lastVisibleIndexInitial;
     }
-    if (this.current === this.total) {
-      this.controls.style.display = 'none';
-    }
+
+    this.checkButtonsVisibility(true);
     // Update progress bar width if enabled
     if (this.showProgress) {
       const progressWidth = `${(this.current / this.total) * 100}%`;
