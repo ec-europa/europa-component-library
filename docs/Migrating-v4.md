@@ -349,6 +349,8 @@ Ex:
 - Markup is using `div` instead of HTML list, to avoid issue reported by accessibility tools
 - Display/hide of elements is now done using the css classes `ecl-tabs__item--hidden` and `ecl-tabs__toggle--hidden` (twig, css and js updated)
 - Order of elements has been changed in the markup; toggle button is now out of the tab list
+- [>beta.2] New twig parameter `id`, to set a unique id for the table (used for accessibility)
+- [>beta.2] New twig parameter `headers` for each table header and table cell. It is used to setup a relation between a cell and one or more header, especially for multi header tables.
 
 ### Tag
 
