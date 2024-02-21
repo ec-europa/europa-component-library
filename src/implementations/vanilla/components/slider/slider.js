@@ -374,7 +374,6 @@ export class Slider {
       const item = this.slides[i];
       totalWidth += item.offsetWidth + this.tagsItemSpacing;
       const adjustedWidth = totalWidth + this.translateX;
-
       // Check if item is entirely visible within the container
       if (adjustedWidth <= computedWidth) {
         lastVisibleIndex = i;
@@ -393,6 +392,7 @@ export class Slider {
   handleResize() {
     const containerWidth = this.container.offsetWidth;
     this.element.style.transform = `translateX(0)`;
+    this.translateX = 0;
     if (this.variant !== 'tags') {
       // Number of items to show (base 5)
       if (containerWidth > 996) {
