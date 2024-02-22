@@ -4,6 +4,15 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'popover-example',
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close',
+      size: 'm',
+    },
+    hide_label: true,
+  },
   toggle: {
     link: {
       label: 'Popover',

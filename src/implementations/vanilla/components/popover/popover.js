@@ -27,6 +27,7 @@ export class Popover {
     element,
     {
       toggleSelector = '[data-ecl-popover-toggle]',
+      closeSelector = '[data-ecl-popover-close]',
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -42,11 +43,13 @@ export class Popover {
 
     // Options
     this.toggleSelector = toggleSelector;
+    this.closeSelector = closeSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
+    this.close = null;
     this.target = null;
     this.container = null;
     this.resizeTimer = null;
@@ -83,6 +86,7 @@ export class Popover {
     ECL.components = ECL.components || new Map();
 
     this.toggle = queryOne(this.toggleSelector, this.element);
+    this.close = queryOne(this.closeSelector, this.element);
     this.container = queryOne('.ecl-popover__container', this.element);
     // Bind global events
     if (this.attachKeyListener) {
@@ -90,6 +94,9 @@ export class Popover {
     }
     if (this.attachClickListener) {
       document.addEventListener('click', this.handleClickGlobal);
+      if (this.close) {
+        this.close.addEventListener('click', this.handleClickOnToggle);
+      }
     }
 
     // Get target element
@@ -124,7 +131,9 @@ export class Popover {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
-
+    if (this.attachClickListener && this.close) {
+      this.close.removeEventListener('click', this.handleClickOnToggle);
+    }
     window.removeEventListener('resize', this.checkPosition);
     document.removeEventListener('scroll', this.checkPosition);
 

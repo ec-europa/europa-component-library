@@ -50,9 +50,11 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover__scrollable {
-  min-width: 250px;
+  min-height: 112px;
+  min-width: 288px;
+  max-width: 288px;
   overflow-y: auto;
-  padding: var(--s-xl);
+  padding: var(--s-3xl);
 }
 
 .ecl-popover__content {
@@ -60,6 +62,21 @@ $_arrow-size: 1rem;
   font: var(--f-m);
   text-align: start;
   width: auto;
+}
+
+.ecl-popover__close {
+  position: absolute;
+  top: var(--s-m);
+  right: var(--s-m);
+
+  + .ecl-popover__content {
+    padding-inline-end: var(--s-xl);
+  }
+}
+
+[dir='rtl'] .ecl-popover__close {
+  left: var(--s-m);
+  right: auto;
 }
 
 .ecl-popover--bottom .ecl-popover__container,
@@ -152,5 +169,23 @@ $_arrow-size: 1rem;
   &::before {
     right: var(--ecl-popover-position);
     left: auto;
+  }
+}
+
+@include breakpoints.up('s') {
+  .ecl-popover__scrollable {
+    max-width: 400px;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-popover__scrollable {
+    max-width: 522px;
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-popover__scrollable {
+    max-width: 648px;
   }
 }
