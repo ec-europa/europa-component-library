@@ -67,7 +67,6 @@ describe('Link', () => {
       link: {
         external: true,
         icon_path: defaultIconPath,
-        icon_position: 'before',
       },
       icon: {
         size: 'fluid',

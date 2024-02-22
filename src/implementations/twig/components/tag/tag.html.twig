@@ -44,9 +44,6 @@
 
 {% if _tag.type == 'removable' %}
   {% set _css_class = _css_class ~ ' ecl-tag--removable' %}
-  {% if _tag.aria_label is defined and _tag.aria_label is not empty %}
-    {% set _extra_attributes = 'aria-label="' ~ _tag.aria_label ~ '"' %}
-  {% endif %}
 {% endif %}
 
 {% if _tag.nowrap %}
@@ -72,12 +69,16 @@
 {# Print the result #}
 
 {% if _tag.type == 'removable' %}
-  <button type="button" aria-label="Dismiss" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <button type="button" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
         icon: { name: 'close-outline', size: 'xs', path: _icon_path },
         extra_classes: 'ecl-tag__icon-close',
+        as_image: true,
+        extra_accessibility: {
+          title: _tag.aria_label|default(''),
+        },
       } only %}
     </span>
   </button>

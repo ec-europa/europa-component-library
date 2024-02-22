@@ -6,6 +6,7 @@ module.exports = {
     name: 'success',
     size: 'l',
   },
+  sr_icon: 'Success',
   title: 'Success notification',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',

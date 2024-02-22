@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 %card {
   align-items: flex-start;
@@ -11,32 +11,32 @@
   flex-grow: 1;
   flex-shrink: 1;
   justify-content: center;
-  margin: map.get(theme.$spacing, 's') map.get(theme.$spacing, 's') 0 0;
+  margin: var(--ws-s-s) var(--ws-s-s) 0 0;
   max-width: 14.5rem;
-  padding: map.get(theme.$spacing, 's');
+  padding: var(--ws-s-s);
 }
 
 .card {
   // stylelint-disable-next-line at-rule-no-unknown
   @extend %card;
 
-  border-color: map.get(theme.$color, 'grey-15');
-  color: map.get(theme.$color, 'grey-100');
+  border-color: var(--ws-c-n-60);
+  color: var(--ws-c-d);
 }
 
 .card--negative {
   // stylelint-disable-next-line at-rule-no-unknown
   @extend %card;
 
-  background-color: map.get(theme.$color, 'grey-100');
-  border-color: map.get(theme.$color, 'grey-15');
-  color: map.get(theme.$color, 'white-100');
+  background-color: var(--ws-c-d);
+  border-color: var(--ws-c-n-60);
+  color: map.get($theme, 'color', 'white');
 }
 
 .title {
-  font: map.get(theme.$font, 'm');
-  font-weight: map.get(theme.$font-weight, 'bold');
-  margin: map.get(theme.$spacing, 's') 0 0;
+  font: var(--ws-f-m);
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin: var(--ws-s-s) 0 0;
   text-align: center;
   width: 100%;
 }

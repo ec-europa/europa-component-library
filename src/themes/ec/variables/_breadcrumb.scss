@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$breadcrumb: (
+  padding-vertical: var(--s-xs),
+  font-mobile: var(--f-m),
+  font-desktop: var(--f-s),
+  line-height: map.get($line-height, 'm'),
+  last-link-color: var(--c-d),
+  icon-color: var(--c-p),
+  icon-spacing: var(--s-m),
+  ellipsis: (
+    background: transparent,
+    background-hover: var(--c-p-20),
+    font-weight: map.get($font-weight, 'regular'),
+    offset-vertical: calc(-1 * var(--s-xs)),
+    offset-horizontal: calc(-1 * var(--s-m)),
+  ),
+);

@@ -4,14 +4,31 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   variant: 'horizontal',
   more_label: 'See all items',
-  visible_items: 0,
+  visible_items: 2,
   items: [
     {
-      term: 'Standard text',
-      definition: `Lorem ipsum dolor sit amet, <a href="${exampleLink}" class="ecl-link">consectetur adipiscing elit</a>. Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis`,
+      term: 'Label 01',
+      definition: `Descriptive text with <a href="${exampleLink}" class="ecl-link">inline link</a>`,
     },
     {
-      term: 'External standalone link',
+      term: 'Label 02',
+      type: 'link',
+      definition: [
+        {
+          link: {
+            label: 'Standalone link',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      term: 'Label 03',
+      definition:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    },
+    {
+      term: 'Label 04',
       type: 'link',
       definition: [
         {
@@ -25,71 +42,84 @@ module.exports = {
       ],
     },
     {
-      term: 'Links inline',
+      term: 'Label 05',
       type: 'link-inline',
       definition: [
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link 1',
             path: exampleLink,
           },
         },
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link 2',
             path: exampleLink,
           },
         },
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link 3',
             path: exampleLink,
           },
         },
         {
           link: {
-            label: 'Lorem ipsum dolor sit amet',
+            label: 'Standalone link 4',
             path: exampleLink,
           },
         },
       ],
     },
     {
-      term: 'Socials',
+      term: 'Label 06',
       type: 'link',
       definition: [
         {
           link: {
-            label: 'facebook',
+            label:
+              'Very very very very very very very very very very very very veryveryveryvery long standalone link that wraps in multiple lines',
+            path: exampleLink,
+          },
+        },
+      ],
+    },
+    {
+      term: 'Label 07',
+      type: 'link',
+      definition: [
+        {
+          link: {
+            label: 'social network 1',
             path: exampleLink,
             icon_position: 'before',
           },
           icon: {
-            name: 'facebook-color',
+            name: 'facebook',
             path: '/icons-social-media.svg',
             size: 's',
           },
         },
         {
           link: {
-            label: 'twitter',
+            label: 'social network 2',
             path: exampleLink,
             icon_position: 'before',
           },
           icon: {
-            name: 'twitter-color',
+            name: 'twitter',
             path: '/icons-social-media.svg',
             size: 's',
           },
         },
         {
           link: {
-            label: 'mastodon',
+            label: 'social network 3',
             path: exampleLink,
             icon_position: 'before',
           },
           icon: {
-            name: 'mastodon-color',
+            name: 'mastodon',
             path: '/icons-social-media.svg',
             size: 's',
           },
@@ -97,14 +127,28 @@ module.exports = {
       ],
     },
     {
-      term: 'Taxonomy list',
+      term: 'Label 08',
+      type: 'tag',
+      definition: [
+        { tag: { label: 'Link tag', path: exampleLink } },
+        { tag: { label: 'Long link tag', path: exampleLink } },
+        { tag: { label: 'Link tag', path: exampleLink } },
+        { tag: { label: 'Link tag', path: exampleLink } },
+        { tag: { label: 'Link tag', path: exampleLink } },
+        { tag: { label: 'Long link tag', path: exampleLink } },
+        { tag: { label: 'Link tag', path: exampleLink } },
+      ],
+    },
+    {
+      term: 'Label 09',
       type: 'taxonomy',
       definition: [
-        'Taxonomy item 1',
-        { link: { label: 'Taxonomy item 2', path: exampleLink } },
-        'Taxonomy item 3',
-        'Taxonomy item 4',
-        { link: { label: 'Taxonomy item 5', path: exampleLink } },
+        'Taxonomy item',
+        { link: { label: 'Taxonomy item', path: exampleLink } },
+        'Taxonomy item',
+        'Taxonomy item',
+        { link: { label: 'Taxonomy item', path: exampleLink } },
+        { link: { label: 'Taxonomy item', path: exampleLink } },
       ],
     },
   ],

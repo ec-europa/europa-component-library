@@ -7,7 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
-import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/data--no-bullet';
+import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/data--unstyled';
 
 expect.extend(toHaveNoViolations);
 

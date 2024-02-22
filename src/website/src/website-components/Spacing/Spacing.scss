@@ -1,29 +1,29 @@
 @use 'sass:map';
-@use '@ecl/theme-ec/theme';
+@use '@ecl/theme-ec/theme' as *;
 
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :global {
   .demo-spacing-line {
     display: flex;
     justify-content: space-between;
-    margin-bottom: map.get(theme.$spacing, 'xs');
-    margin-top: map.get(theme.$spacing, 'xs');
+    margin-bottom: var(--ws-s-xs);
+    margin-top: var(--ws-s-xs);
   }
 
   .demo-spacing-container {
-    background-color: map.get(theme.$color, 'grey-10');
+    background-color: var(--ws-c-n-60);
     display: flex;
   }
 
   .demo-spacing-content {
-    background-color: map.get(theme.$color, 'grey-50');
-    border: 2px solid map.get(theme.$color, 'grey-100');
+    background-color: var(--ws-c-n-80);
+    border: 2px solid var(--ws-c-d);
     display: flex;
-    font: map.get(theme.$font, 's');
+    font: var(--ws-f-s);
   }
 
   .demo-spacing-item {
-    background-color: map.get(theme.$color, 'white-100');
+    background-color: map.get($theme, 'color', 'white');
     display: block;
     text-align: center;
     width: 7rem;

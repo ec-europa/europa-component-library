@@ -1,0 +1,164 @@
+/*
+ * Date block
+ * @define date-block
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
+
+// Exposed variables
+$theme: null !default;
+$date-block: null !default;
+
+.ecl-date-block {
+  background-color: map.get($date-block, 'background-color-default');
+  border-radius: map.get($date-block, 'border-radius');
+  box-shadow: map.get($date-block, 'shadow');
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 0;
+  max-height: map.get($date-block, 'max-height');
+  outline: 1px solid map.get($date-block, 'outline-color-default');
+  outline-offset: -1px;
+  overflow: hidden;
+  padding-top: map.get($date-block, 'padding-top');
+  position: relative;
+  text-align: center;
+  min-width: map.get($date-block, 'width-mobile');
+
+  &::before {
+    background-color: map.get($theme, 'color', 'white');
+    border-radius: 50%;
+    box-shadow: map.get($date-block, 'shadow-decoration');
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: map.get($date-block, 'circle-width');
+    left: var(--s-s);
+    outline: 1px solid map.get($date-block, 'outline-color-default');
+    position: absolute;
+    top: -#{map.get($date-block, 'circle-width') * 0.5};
+    width: map.get($date-block, 'circle-width');
+  }
+
+  &::after {
+    background-color: map.get($theme, 'color', 'white');
+    border-radius: 50%;
+    box-shadow: map.get($date-block, 'shadow-decoration');
+    box-sizing: content-box;
+    content: '';
+    display: block;
+    height: map.get($date-block, 'circle-width');
+    outline: 1px solid map.get($date-block, 'outline-color-default');
+    position: absolute;
+    right: var(--s-s);
+    top: -#{map.get($date-block, 'circle-width') * 0.5};
+    width: map.get($date-block, 'circle-width');
+  }
+}
+
+.ecl-date-block__day {
+  color: map.get($date-block, 'text-color-inverted');
+  font-family: map.get($theme, 'font-family', 'default');
+  font-size: map.get($date-block, 'day', 'text-size');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  line-height: map.get($date-block, 'day', 'line-height');
+  padding: map.get($date-block, 'day', 'padding-mobile');
+  white-space: map.get($date-block, 'text-white-space');
+}
+
+.ecl-date-block__month {
+  color: map.get($date-block, 'text-color-inverted');
+  font-family: map.get($theme, 'font-family', 'default');
+  font-size: map.get($date-block, 'month', 'text-size');
+  line-height: map.get($date-block, 'month', 'line-height');
+  padding: map.get($date-block, 'month', 'padding-mobile');
+  text-decoration: none !important;
+  text-transform: uppercase;
+  white-space: map.get($date-block, 'text-white-space');
+}
+
+.ecl-date-block__year {
+  background-color: map.get($date-block, 'year', 'background-color');
+  color: map.get($date-block, 'year', 'text-color');
+  font: var(--f-s);
+  font-weight: map.get($date-block, 'year', 'weight');
+  padding: map.get($date-block, 'year', 'padding-mobile');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-date-block {
+    min-width: map.get($date-block, 'width-desktop');
+  }
+
+  .ecl-date-block__day {
+    padding: map.get($date-block, 'day', 'padding-desktop');
+  }
+
+  .ecl-date-block__month {
+    padding: map.get($date-block, 'month', 'padding-desktop');
+  }
+
+  .ecl-date-block__year {
+    padding: map.get($date-block, 'year', 'padding-desktop');
+  }
+}
+
+.ecl-date-block__daytime {
+  @include screen-reader.sr-only;
+
+  + .ecl-date-block__day {
+    margin-top: -1px;
+  }
+}
+
+// ongoing
+.ecl-date-block--ongoing {
+  background-color: map.get($date-block, 'background-color-ongoing');
+  outline-color: map.get($date-block, 'outline-color-ongoing');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-ongoing');
+  }
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: map.get($date-block, 'text-color');
+  }
+}
+
+// cancelled
+.ecl-date-block--cancelled {
+  background-color: map.get($date-block, 'background-color-cancelled');
+  outline-color: map.get($date-block, 'outline-color-cancelled');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-cancelled');
+  }
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: map.get($date-block, 'text-color-inverted');
+  }
+}
+
+// past
+.ecl-date-block--past {
+  background-color: map.get($date-block, 'background-color-past');
+  outline-color: map.get($date-block, 'outline-color-past');
+
+  &::before,
+  &::after {
+    outline-color: map.get($date-block, 'outline-color-past');
+  }
+
+  .ecl-date-block__day,
+  .ecl-date-block__month {
+    color: map.get($date-block, 'text-color-inverted');
+  }
+}

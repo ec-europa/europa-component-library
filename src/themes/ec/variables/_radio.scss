@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$radio: (
+  box-background: map.get($color, 'white'),
+  box-border-color-checked: var(--c-p),
+  box-border-color: var(--c-d-80),
+  box-border-color-hover: var(--c-p),
+  box-border-color-checked-hover: var(--c-p),
+  box-border-width: 1px,
+  box-border-width-checked: 1px,
+  box-inner-display: inline-block,
+  box-margin-top: 0,
+  box-size: 1.5rem,
+  help-text-color: var(--c-d),
+  help-text-font: var(--f-s),
+  hover-circle: true,
+  invalid-border-color: var(--c-er),
+  invalid-border-color-hover: var(--c-er),
+  label-color: var(--c-d),
+  label-line-height: 1.75rem,
+);

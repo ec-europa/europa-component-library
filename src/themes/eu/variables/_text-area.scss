@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$textarea: (
+  background: map.get($color, 'white'),
+  border-radius: 4px,
+  border-color: var(--c-d-80),
+  border-color-hover: var(--c-d-80),
+  border-color-focus: var(--c-p),
+  border-color-invalid: var(--c-er),
+  border-color-invalid-hover: var(--c-er-80),
+  border-width: 1px,
+  border-width-focus: 2px,
+  color-input: var(--c-d-140),
+  color-placeholder: var(--c-d-40),
+  shadow: var(--sh-i-1),
+  shadow-hover: var(--sh-i-2),
+  padding-horizontal: var(--s-m),
+  padding-vertical: var(--s-s),
+);

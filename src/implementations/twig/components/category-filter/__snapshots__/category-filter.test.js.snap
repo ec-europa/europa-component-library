@@ -3,6 +3,7 @@
 exports[`Category filter Default renders correctly 1`] = `
 <jest>
   <nav
+    aria-label="Category filter"
     class="ecl-category-filter"
     data-ecl-auto-init="CategoryFilter"
     data-ecl-category-filter=""
@@ -17,22 +18,18 @@ exports[`Category filter Default renders correctly 1`] = `
           class="ecl-category-filter__item ecl-category-filter__item--level-1"
           href="/example"
         >
-          
-        Item 1
-        
+          Item 1
         </a>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-2"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 2 label
-          
+          Item 2 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -42,32 +39,33 @@ exports[`Category filter Default renders correctly 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-2"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-2-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 2.1
-        
-            </a>
+              Item 2.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-2-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -76,33 +74,31 @@ exports[`Category filter Default renders correctly 1`] = `
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.1
-        
+                  Item 2.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-2-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 2.1.2
-        
-                </a>
+                  Item 2.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-2-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -111,9 +107,7 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 a
-        
+                      Item 2.1.2 a
                     </a>
                   </li>
                   <li
@@ -123,9 +117,7 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 b
-        
+                      Item 2.1.2 b
                     </a>
                   </li>
                   <li
@@ -135,132 +127,104 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 c
-        
+                      Item 2.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.3
-        
+                  Item 2.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.4
-        
+                  Item 2.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.2
-        
+              Item 2.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.3
-        
+              Item 2.3
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.4
-        
+              Item 2.4
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.5
-        
+              Item 2.5
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.6
-        
+              Item 2.6
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.7
-        
+              Item 2.7
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-3"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 3 with a very long label
-          
+          Item 3 with a very long label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -270,32 +234,33 @@ exports[`Category filter Default renders correctly 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-3"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-3-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 3.1
-        
-            </a>
+              Item 3.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-3-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -304,33 +269,31 @@ exports[`Category filter Default renders correctly 1`] = `
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.1
-        
+                  Item 3.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-3-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 3.1.2
-        
-                </a>
+                  Item 3.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-3-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -339,9 +302,7 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 a
-        
+                      Item 3.1.2 a
                     </a>
                   </li>
                   <li
@@ -351,9 +312,7 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 b
-        
+                      Item 3.1.2 b
                     </a>
                   </li>
                   <li
@@ -363,80 +322,64 @@ exports[`Category filter Default renders correctly 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 c
-        
+                      Item 3.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.3
-        
+                  Item 3.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.4
-        
+                  Item 3.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.2
-        
+              Item 3.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.3
-        
+              Item 3.3
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-4"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 4 label
-          
+          Item 4 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -446,9 +389,10 @@ exports[`Category filter Default renders correctly 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-4"
         >
           <li
             class="ecl-category-filter__list-item"
@@ -457,9 +401,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.1
-        
+              Item 4.1
             </a>
           </li>
           <li
@@ -469,9 +411,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.2
-        
+              Item 4.2
             </a>
           </li>
           <li
@@ -481,9 +421,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.3 with a very long label going on 2 lines
-        
+              Item 4.3 with a very long label going on 2 lines
             </a>
           </li>
           <li
@@ -493,9 +431,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.4
-        
+              Item 4.4
             </a>
           </li>
           <li
@@ -505,9 +441,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.5
-        
+              Item 4.5
             </a>
           </li>
           <li
@@ -517,9 +451,7 @@ exports[`Category filter Default renders correctly 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.6
-        
+              Item 4.6
             </a>
           </li>
         </ul>
@@ -532,6 +464,7 @@ exports[`Category filter Default renders correctly 1`] = `
 exports[`Category filter Default renders correctly with extra attributes 1`] = `
 <jest>
   <nav
+    aria-label="Category filter"
     class="ecl-category-filter"
     data-ecl-auto-init="CategoryFilter"
     data-ecl-category-filter=""
@@ -548,22 +481,18 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
           class="ecl-category-filter__item ecl-category-filter__item--level-1"
           href="/example"
         >
-          
-        Item 1
-        
+          Item 1
         </a>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-2"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 2 label
-          
+          Item 2 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -573,32 +502,33 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-2"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-2-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 2.1
-        
-            </a>
+              Item 2.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-2-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -607,33 +537,31 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.1
-        
+                  Item 2.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-2-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 2.1.2
-        
-                </a>
+                  Item 2.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-2-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -642,9 +570,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 a
-        
+                      Item 2.1.2 a
                     </a>
                   </li>
                   <li
@@ -654,9 +580,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 b
-        
+                      Item 2.1.2 b
                     </a>
                   </li>
                   <li
@@ -666,132 +590,104 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 c
-        
+                      Item 2.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.3
-        
+                  Item 2.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.4
-        
+                  Item 2.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.2
-        
+              Item 2.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.3
-        
+              Item 2.3
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.4
-        
+              Item 2.4
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.5
-        
+              Item 2.5
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.6
-        
+              Item 2.6
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.7
-        
+              Item 2.7
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-3"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 3 with a very long label
-          
+          Item 3 with a very long label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -801,32 +697,33 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-3"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-3-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 3.1
-        
-            </a>
+              Item 3.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-3-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -835,33 +732,31 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.1
-        
+                  Item 3.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-3-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 3.1.2
-        
-                </a>
+                  Item 3.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-3-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -870,9 +765,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 a
-        
+                      Item 3.1.2 a
                     </a>
                   </li>
                   <li
@@ -882,9 +775,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 b
-        
+                      Item 3.1.2 b
                     </a>
                   </li>
                   <li
@@ -894,80 +785,64 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 c
-        
+                      Item 3.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.3
-        
+                  Item 3.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.4
-        
+                  Item 3.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.2
-        
+              Item 3.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.3
-        
+              Item 3.3
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-4"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 4 label
-          
+          Item 4 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -977,9 +852,10 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-4"
         >
           <li
             class="ecl-category-filter__list-item"
@@ -988,9 +864,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.1
-        
+              Item 4.1
             </a>
           </li>
           <li
@@ -1000,9 +874,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.2
-        
+              Item 4.2
             </a>
           </li>
           <li
@@ -1012,9 +884,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.3 with a very long label going on 2 lines
-        
+              Item 4.3 with a very long label going on 2 lines
             </a>
           </li>
           <li
@@ -1024,9 +894,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.4
-        
+              Item 4.4
             </a>
           </li>
           <li
@@ -1036,9 +904,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.5
-        
+              Item 4.5
             </a>
           </li>
           <li
@@ -1048,9 +914,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.6
-        
+              Item 4.6
             </a>
           </li>
         </ul>
@@ -1063,6 +927,7 @@ exports[`Category filter Default renders correctly with extra attributes 1`] = `
 exports[`Category filter Default renders correctly with extra class names 1`] = `
 <jest>
   <nav
+    aria-label="Category filter"
     class="ecl-category-filter custom-button custom-button--test"
     data-ecl-auto-init="CategoryFilter"
     data-ecl-category-filter=""
@@ -1077,22 +942,18 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
           class="ecl-category-filter__item ecl-category-filter__item--level-1"
           href="/example"
         >
-          
-        Item 1
-        
+          Item 1
         </a>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-2"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 2 label
-          
+          Item 2 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -1102,32 +963,33 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-2"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-2-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 2.1
-        
-            </a>
+              Item 2.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-2-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -1136,33 +998,31 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.1
-        
+                  Item 2.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-2-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 2.1.2
-        
-                </a>
+                  Item 2.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-2-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -1171,9 +1031,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 a
-        
+                      Item 2.1.2 a
                     </a>
                   </li>
                   <li
@@ -1183,9 +1041,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 b
-        
+                      Item 2.1.2 b
                     </a>
                   </li>
                   <li
@@ -1195,132 +1051,104 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 2.1.2 c
-        
+                      Item 2.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.3
-        
+                  Item 2.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 2.1.4
-        
+                  Item 2.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.2
-        
+              Item 2.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.3
-        
+              Item 2.3
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.4
-        
+              Item 2.4
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.5
-        
+              Item 2.5
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.6
-        
+              Item 2.6
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 2.7
-        
+              Item 2.7
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-3"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 3 with a very long label
-          
+          Item 3 with a very long label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -1330,32 +1158,33 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-3"
         >
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
-            <a
+            <button
+              aria-controls="unique-id-3-1"
+              aria-expanded="false"
               class="ecl-category-filter__item ecl-category-filter__item--level-2 ecl-category-filter__item--has-children"
-              href="/example"
             >
               <svg
                 aria-hidden="true"
-                class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                 focusable="false"
               >
                 <use
                   xlink:href="/icons.svg#solid-arrow"
                 />
               </svg>
-                      Item 3.1
-        
-            </a>
+              Item 3.1
+            </button>
             <ul
               class="ecl-category-filter__list"
+              id="unique-id-3-1"
             >
               <li
                 class="ecl-category-filter__list-item"
@@ -1364,33 +1193,31 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.1
-        
+                  Item 3.1.1
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
-                <a
+                <button
+                  aria-controls="unique-id-3-1-2"
+                  aria-expanded="false"
                   class="ecl-category-filter__item ecl-category-filter__item--level-3 ecl-category-filter__item--has-children"
-                  href="/example"
                 >
                   <svg
                     aria-hidden="true"
-                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-category-filter__item-icon"
+                    class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-category-filter__item-icon"
                     focusable="false"
                   >
                     <use
                       xlink:href="/icons.svg#solid-arrow"
                     />
                   </svg>
-                          Item 3.1.2
-        
-                </a>
+                  Item 3.1.2
+                </button>
                 <ul
                   class="ecl-category-filter__list"
+                  id="unique-id-3-1-2"
                 >
                   <li
                     class="ecl-category-filter__list-item"
@@ -1399,9 +1226,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 a
-        
+                      Item 3.1.2 a
                     </a>
                   </li>
                   <li
@@ -1411,9 +1236,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 b
-        
+                      Item 3.1.2 b
                     </a>
                   </li>
                   <li
@@ -1423,80 +1246,64 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
                       class="ecl-category-filter__item ecl-category-filter__item--level-4"
                       href="/example"
                     >
-                      
-        Item 3.1.2 c
-        
+                      Item 3.1.2 c
                     </a>
                   </li>
                 </ul>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.3
-        
+                  Item 3.1.3
                 </a>
               </li>
               <li
-                aria-expanded="false"
                 class="ecl-category-filter__list-item"
               >
                 <a
                   class="ecl-category-filter__item ecl-category-filter__item--level-3"
                   href="/example"
                 >
-                  
-        Item 3.1.4
-        
+                  Item 3.1.4
                 </a>
               </li>
             </ul>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.2
-        
+              Item 3.2
             </a>
           </li>
           <li
-            aria-expanded="false"
             class="ecl-category-filter__list-item"
           >
             <a
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 3.3
-        
+              Item 3.3
             </a>
           </li>
         </ul>
       </li>
       <li
-        aria-expanded="false"
         class="ecl-category-filter__list-item"
       >
-        <a
+        <button
+          aria-controls="unique-id-4"
+          aria-expanded="false"
           class="ecl-category-filter__item ecl-category-filter__item--level-1 ecl-category-filter__item--has-children"
-          href="/example"
         >
-          
-        Item 4 label
-          
+          Item 4 label
           <svg
             aria-hidden="true"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-category-filter__item-icon"
@@ -1506,9 +1313,10 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               xlink:href="/icons.svg#corner-arrow"
             />
           </svg>
-        </a>
+        </button>
         <ul
           class="ecl-category-filter__list"
+          id="unique-id-4"
         >
           <li
             class="ecl-category-filter__list-item"
@@ -1517,9 +1325,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.1
-        
+              Item 4.1
             </a>
           </li>
           <li
@@ -1529,9 +1335,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.2
-        
+              Item 4.2
             </a>
           </li>
           <li
@@ -1541,9 +1345,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.3 with a very long label going on 2 lines
-        
+              Item 4.3 with a very long label going on 2 lines
             </a>
           </li>
           <li
@@ -1553,9 +1355,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.4
-        
+              Item 4.4
             </a>
           </li>
           <li
@@ -1565,9 +1365,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.5
-        
+              Item 4.5
             </a>
           </li>
           <li
@@ -1577,9 +1375,7 @@ exports[`Category filter Default renders correctly with extra class names 1`] = 
               class="ecl-category-filter__item ecl-category-filter__item--level-2"
               href="/example"
             >
-              
-        Item 4.6
-        
+              Item 4.6
             </a>
           </li>
         </ul>

@@ -71,15 +71,15 @@ export class DescriptionList {
     if (this.lists[0] && this.visibleItems > 0 && this.moreItemLabel) {
       this.lists.forEach((list) => {
         if (list.children && list.children.length > this.visibleItems) {
+          const listItem = document.createElement('li');
+          listItem.classList.add('ecl-description-list__see_more');
+
           const button = document.createElement('a');
-          button.classList.add(
-            'ecl-link',
-            'ecl-link--standalone',
-            'ecl-description-list__see_more',
-          );
+          button.classList.add('ecl-link', 'ecl-link--standalone');
           button.href = '#';
           button.innerHTML = this.moreItemLabel;
-          list.appendChild(button);
+          listItem.appendChild(button);
+          list.appendChild(listItem);
 
           this.showHide(
             queryAll('.ecl-description-list__definition-item', list),
@@ -150,9 +150,10 @@ export class DescriptionList {
   handleClickOnMore(e) {
     e.preventDefault();
 
-    const parent = e.target.parentNode;
-    if (this.element.contains(parent)) {
-      const parentChildren = Array.from(parent.children);
+    const listItem = e.target.parentNode;
+    const list = listItem.parentNode;
+    if (this.element.contains(list)) {
+      const parentChildren = Array.from(list.children);
       parentChildren.forEach((item) => {
         item.classList.remove('ecl-description-list__definition-item--hidden');
         item.classList.remove(
@@ -160,7 +161,7 @@ export class DescriptionList {
         );
       });
       // Remove the button
-      e.target.remove();
+      listItem.remove();
     }
   }
 }

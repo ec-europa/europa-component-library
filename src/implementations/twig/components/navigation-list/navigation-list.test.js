@@ -6,6 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
+import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
 expect.extend(toHaveNoViolations);
 
@@ -17,6 +18,11 @@ describe('Navigation list', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataDefault)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with illustrations', () => {
+      expect.assertions(1);
+      return expect(render(dataIllustration)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly without borders', () => {

@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "variant" (string) (default: '') - Can only be "illustration"
     - "border" (boolean) (default: true): Is there an extra border and padding?
     - "picture" (object) (default: {}): picture of the navigation list, following ECL Picture structure
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
@@ -18,6 +19,7 @@
 
 {# Internal properties #}
 
+{% set _variant = variant|default('') %}
 {% set _border = border ?? true %}
 {% set _image = image|default({}) %}
 {% set _title = title|default({}) %}
@@ -25,6 +27,7 @@
 {% set _description = description|default('') %}
 {% set _links = links|default([]) %}
 {% set _css_class = 'ecl-navigation-list__item' %}
+{% set _icon = icon|default('') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -37,6 +40,10 @@
 
 {% if not _border %}
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}
+{% endif %}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-navigation-list__item--illustration' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -55,13 +62,13 @@
 
 {# Print the result #}
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _picture.img is not empty %}
-    {% include '@ecl/picture/picture.html.twig' with {
-      picture: _picture,
-      extra_classes: "ecl-navigation-list__picture",
-      extra_image_classes: 'ecl-navigation-list__image',
-    } only %}
-  {% endif %}
+{% if _picture.img is not empty %}
+  {% include '@ecl/picture/picture.html.twig' with {
+    picture: _picture,
+    extra_classes: "ecl-navigation-list__picture",
+    extra_image_classes: 'ecl-navigation-list__image',
+  } only %}
+{% endif %}
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
     extra_classes: 'ecl-navigation-list__content-block'
   }) only %}

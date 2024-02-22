@@ -1,6 +1,6 @@
 /**
  * Splash page
- * @define splash-page; weak
+ * @define splash-page
  */
 
 @use 'sass:map';
@@ -50,6 +50,10 @@ $language-list: null !default;
   display: flex;
   flex-direction: column;
   margin-top: map.get($language-list, 'content-margin-mobile');
+}
+
+.ecl-splash-page__language-category {
+  flex-grow: 1;
 }
 
 .ecl-splash-page__language-category-title {

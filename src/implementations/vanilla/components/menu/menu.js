@@ -1,6 +1,6 @@
 import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
-
+import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
 
 /**
@@ -9,7 +9,6 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.openSelector Selector for the hamburger button
  * @param {String} options.closeSelector Selector for the close button
  * @param {String} options.backSelector Selector for the back button
- * @param {String} options.overlaySelector Selector for the menu overlay
  * @param {String} options.innerSelector Selector for the menu inner
  * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
@@ -20,6 +19,8 @@ import isMobile from 'mobile-device-detect';
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow). Set it to zero to disable automatic resize.
  * @param {String} options.maxLinesAttribute The data attribute to set the max lines in the markup, if needed
+ * @param {String} options.labelOpenAttribute The data attribute for open label
+ * @param {String} options.labelCloseAttribute The data attribute for close label
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
@@ -42,13 +43,27 @@ export class Menu {
     return menu;
   }
 
+  /**
+   *   @event Menu#onOpen
+   */
+  /**
+   *   @event Menu#onClose
+   */
+
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Menu
+   */
+  supportedEvents = ['onOpen', 'onClose'];
+
   constructor(
     element,
     {
       openSelector = '[data-ecl-menu-open]',
       closeSelector = '[data-ecl-menu-close]',
       backSelector = '[data-ecl-menu-back]',
-      overlaySelector = '[data-ecl-menu-overlay]',
       innerSelector = '[data-ecl-menu-inner]',
       listSelector = '[data-ecl-menu-list]',
       itemSelector = '[data-ecl-menu-item]',
@@ -60,11 +75,15 @@ export class Menu {
       subItemSelector = '[data-ecl-menu-subitem]',
       maxLines = 2,
       maxLinesAttribute = 'data-ecl-menu-max-lines',
+      labelOpenAttribute = 'data-ecl-menu-label-open',
+      labelCloseAttribute = 'data-ecl-menu-label-close',
       attachClickListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
+      onCloseCallback = null,
+      onOpenCallback = null,
     } = {},
   ) {
     // Check element
@@ -75,12 +94,12 @@ export class Menu {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.openSelector = openSelector;
     this.closeSelector = closeSelector;
     this.backSelector = backSelector;
-    this.overlaySelector = overlaySelector;
     this.innerSelector = innerSelector;
     this.listSelector = listSelector;
     this.itemSelector = itemSelector;
@@ -92,18 +111,22 @@ export class Menu {
     this.subItemSelector = subItemSelector;
     this.maxLines = maxLines;
     this.maxLinesAttribute = maxLinesAttribute;
+    this.labelOpenAttribute = labelOpenAttribute;
+    this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.onOpenCallback = onOpenCallback;
+    this.onCloseCallback = onCloseCallback;
 
     // Private variables
     this.direction = 'ltr';
     this.open = null;
     this.close = null;
+    this.toggleLabel = null;
     this.back = null;
-    this.overlay = null;
     this.inner = null;
     this.itemsList = null;
     this.items = null;
@@ -124,11 +147,13 @@ export class Menu {
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
     this.handleClickOnClose = this.handleClickOnClose.bind(this);
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleClickOnBack = this.handleClickOnBack.bind(this);
     this.handleClickOnNextItems = this.handleClickOnNextItems.bind(this);
     this.handleClickOnPreviousItems =
       this.handleClickOnPreviousItems.bind(this);
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
+    this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleFocusIn = this.handleFocusIn.bind(this);
@@ -157,8 +182,8 @@ export class Menu {
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
+    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
-    this.overlay = queryOne(this.overlaySelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.itemsList = queryOne(this.listSelector, this.element);
     this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
@@ -181,7 +206,7 @@ export class Menu {
     if (this.attachClickListener) {
       // Open
       if (this.open) {
-        this.open.addEventListener('click', this.handleClickOnOpen);
+        this.open.addEventListener('click', this.handleClickOnToggle);
       }
 
       // Close
@@ -207,9 +232,9 @@ export class Menu {
         this.btnNext.addEventListener('click', this.handleClickOnNextItems);
       }
 
-      // Overlay
-      if (this.overlay) {
-        this.overlay.addEventListener('click', this.handleClickOnClose);
+      // Global click
+      if (this.attachClickListener) {
+        document.addEventListener('click', this.handleClickGlobal);
       }
     }
 
@@ -311,6 +336,36 @@ export class Menu {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Menu
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onOpen' event
+   * menu.on('onOpen', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Menu
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -320,7 +375,7 @@ export class Menu {
 
     if (this.attachClickListener) {
       if (this.open) {
-        this.open.removeEventListener('click', this.handleClickOnOpen);
+        this.open.removeEventListener('click', this.handleClickOnToggle);
       }
 
       if (this.close) {
@@ -342,8 +397,8 @@ export class Menu {
         this.btnNext.removeEventListener('click', this.handleClickOnNextItems);
       }
 
-      if (this.overlay) {
-        this.overlay.removeEventListener('click', this.handleClickOnClose);
+      if (this.attachClickListener) {
+        document.removeEventListener('click', this.handleClickGlobal);
       }
     }
 
@@ -499,7 +554,8 @@ export class Menu {
     }
 
     // Check if the menu is too large
-    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth;
+    // We take some margin for safety (same margin as the container's padding)
+    this.hasOverflow = this.totalItemsWidth > this.inner.offsetWidth + 16;
     if (!this.hasOverflow || !this.isDesktop) {
       // Reset values related to overflow
       if (this.btnPrevious) {
@@ -835,6 +891,8 @@ export class Menu {
   /**
    * Open menu list.
    * @param {Event} e
+   *
+   * @fires Menu#onOpen
    */
   handleClickOnOpen(e) {
     e.preventDefault();
@@ -843,13 +901,24 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'false');
     this.isOpen = true;
 
+    // Update label
+    const closeLabel = this.element.getAttribute(this.labelCloseAttribute);
+    if (this.toggleLabel && closeLabel) {
+      this.toggleLabel.innerHTML = closeLabel;
+    }
+
+    this.trigger('onOpen', e);
+
     return this;
   }
 
   /**
    * Close menu list.
+   * @param {Event} e
+   *
+   * @fires Menu#onClose
    */
-  handleClickOnClose() {
+  handleClickOnClose(e) {
     this.element.setAttribute('aria-expanded', 'false');
 
     // Remove css class and attribute from inner menu
@@ -862,14 +931,35 @@ export class Menu {
       item.setAttribute('aria-expanded', 'false');
     });
 
+    // Update label
+    const openLabel = this.element.getAttribute(this.labelOpenAttribute);
+    if (this.toggleLabel && openLabel) {
+      this.toggleLabel.innerHTML = openLabel;
+    }
+
     // Set focus to hamburger button
     if (this.open) {
       this.open.focus();
     }
 
     this.isOpen = false;
+    this.trigger('onClose', e);
 
     return this;
+  }
+
+  /**
+   * Toggle menu list.
+   * @param {Event} e
+   */
+  handleClickOnToggle(e) {
+    e.preventDefault();
+
+    if (this.isOpen) {
+      this.handleClickOnClose(e);
+    } else {
+      this.handleClickOnOpen(e);
+    }
   }
 
   /**
@@ -1106,6 +1196,21 @@ export class Menu {
 
         // This is the last item, go back to close button
         this.close.focus();
+      }
+    }
+  }
+
+  /**
+   * Handles global click events, triggered outside of the menu.
+   *
+   * @param {Event} e
+   */
+  handleClickGlobal(e) {
+    // Check if the menu is open
+    if (this.isOpen) {
+      // Check if the click occured in the menu
+      if (!this.inner.contains(e.target) && !this.open.contains(e.target)) {
+        this.handleClickOnClose(e);
       }
     }
   }

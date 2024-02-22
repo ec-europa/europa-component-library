@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$site-header: (
+  background-color: map.get($color, 'white'),
+  logo-height-xs: 1.875rem,
+  logo-width-xs: auto,
+  logo-height-sm: 2.5rem,
+  logo-width-sm: auto,
+  logo-height-lg: 2.75rem,
+  logo-width-lg: auto,
+  search-width-l: 25rem,
+  search-width-xl: 31.5rem,
+  gradient-background: linear-gradient(90deg, var(--c-p-140), var(--c-br)),
+  site-name-mobile-color: map.get($color, 'white'),
+  site-name-desktop-color: var(--c-d-80),
+  language-switcher: (
+    shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    shadow-size: 6px,
+    arrow-size: 1rem,
+    arrow-top: 0,
+    arrow-border: none,
+    arrow-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+    close-right: var(--s-s),
+    close-top: var(--s-xs),
+  ),
+);

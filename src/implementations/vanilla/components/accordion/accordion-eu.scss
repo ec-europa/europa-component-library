@@ -64,7 +64,7 @@ $accordion: null !default;
   color: map.get($accordion, 'text-color');
   font: var(--f-p-m);
   margin-inline-start: 0;
-  max-width: map.get($accordion, 'max-width');
+  max-width: var(--max-w);
   padding: 0 var(--s-l) var(--s-l);
 }
 
@@ -131,7 +131,7 @@ $accordion: null !default;
 }
 
 .ecl-accordion__toggle-title {
-  max-width: map.get($accordion, 'max-width');
+  max-width: var(--max-w);
 }
 
 /* stylelint-disable-next-line order/order */

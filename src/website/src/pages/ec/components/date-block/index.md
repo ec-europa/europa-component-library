@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/components-date-block--default
+  path: /story/components-date-block--ongoing
 ---

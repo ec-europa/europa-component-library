@@ -11,6 +11,7 @@ const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.sortSelector Selector for toggling element
+ * @param {String} options.sortLabelSelector Selector for sorting button label
  * @param {Boolean} options.attachClickListener
  */
 export class Table {
@@ -29,7 +30,13 @@ export class Table {
     return table;
   }
 
-  constructor(element, { sortSelector = '[data-ecl-table-sort-toggle]' } = {}) {
+  constructor(
+    element,
+    {
+      sortSelector = '[data-ecl-table-sort-toggle]',
+      sortLabelSelector = 'data-ecl-table-sort-label',
+    } = {},
+  ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
       throw new TypeError(
@@ -38,8 +45,10 @@ export class Table {
     }
 
     this.element = element;
+
     // Options
     this.sortSelector = sortSelector;
+    this.sortLabelSelector = sortLabelSelector;
 
     // Private variables
     this.sortHeadings = null;
@@ -77,11 +86,18 @@ export class Table {
     ECL.components = ECL.components || new Map();
 
     this.sortHeadings = queryAll(this.sortSelector, this.element);
+
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
       this.sortHeadings.forEach((tr) => {
         const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
+        if (this.element.hasAttribute(this.sortLabelSelector)) {
+          sort.setAttribute(
+            'aria-label',
+            this.element.getAttribute(this.sortLabelSelector),
+          );
+        }
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
         sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
         tr.appendChild(sort);

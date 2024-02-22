@@ -9,6 +9,8 @@ npm install --save @ecl/twig-component-category-filter
 ### Parameters
 
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
+- **"label"**: (string) (default: ''): Aria label provided for accessibility
+- **"id"**: (string) (default: randomized string): Unique id for the category filter
 - **"items"** (associative array) (default: {}): The tree items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')
@@ -26,6 +28,8 @@ npm install --save @ecl/twig-component-category-filter
 ```twig
 {% include '@ecl/category-filter/category-filter.html.twig' with {
   icon_path: '/icons.svg',
+  label: 'Category filter',
+  id: 'unique-id',
   items: [
     {
       label: "Item 1",

@@ -134,44 +134,56 @@ exports[`Content item Default renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--link"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
+              <li
+                class="ecl-description-list__definition-item"
               >
-                <use
-                  xlink:href="/icons.svg#copy"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#copy"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
               >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#download"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -181,18 +193,30 @@ exports[`Content item Default renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Lorem ipsum dolor sit amet
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
-            >
-              Lorem ipsum dolor sit amet
-            </a>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -202,21 +226,25 @@ exports[`Content item Default renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <span
-              class="ecl-description-list__definition-item"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </li>
+            </ul>
           </dd>
         </dl>
       </div>
@@ -361,44 +389,56 @@ exports[`Content item Default renders correctly with extra attributes 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--link"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
+              <li
+                class="ecl-description-list__definition-item"
               >
-                <use
-                  xlink:href="/icons.svg#copy"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#copy"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
               >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#download"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -408,18 +448,30 @@ exports[`Content item Default renders correctly with extra attributes 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Lorem ipsum dolor sit amet
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
-            >
-              Lorem ipsum dolor sit amet
-            </a>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -429,21 +481,25 @@ exports[`Content item Default renders correctly with extra attributes 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <span
-              class="ecl-description-list__definition-item"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </li>
+            </ul>
           </dd>
         </dl>
       </div>
@@ -586,44 +642,56 @@ exports[`Content item Default renders correctly with extra class names 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--link"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
+              <li
+                class="ecl-description-list__definition-item"
               >
-                <use
-                  xlink:href="/icons.svg#copy"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#copy"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
               >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#download"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -633,18 +701,30 @@ exports[`Content item Default renders correctly with extra class names 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Lorem ipsum dolor sit amet
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
-            >
-              Lorem ipsum dolor sit amet
-            </a>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -654,21 +734,25 @@ exports[`Content item Default renders correctly with extra class names 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <span
-              class="ecl-description-list__definition-item"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </li>
+            </ul>
           </dd>
         </dl>
       </div>
@@ -840,44 +924,56 @@ exports[`Content item Event renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--link"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
+              <li
+                class="ecl-description-list__definition-item"
               >
-                <use
-                  xlink:href="/icons.svg#copy"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#copy"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
               >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#download"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -887,18 +983,30 @@ exports[`Content item Event renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Lorem ipsum dolor sit amet
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
-            >
-              Lorem ipsum dolor sit amet
-            </a>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -908,21 +1016,25 @@ exports[`Content item Event renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <span
-              class="ecl-description-list__definition-item"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </li>
+            </ul>
           </dd>
         </dl>
       </div>
@@ -1080,44 +1192,56 @@ exports[`Content item Image renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--link"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
+              <li
+                class="ecl-description-list__definition-item"
               >
-                <use
-                  xlink:href="/icons.svg#copy"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#copy"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
               >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#download"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                Lorem ipsum dolor sit amet
-              </span>
-            </a>
+                <a
+                  class="ecl-link ecl-link--standalone ecl-link--icon"
+                  href="/example"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--s ecl-link__icon"
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#download"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-link__label"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </span>
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -1127,18 +1251,30 @@ exports[`Content item Image renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--inline"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Lorem ipsum dolor sit amet
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-              href="/example"
-            >
-              Lorem ipsum dolor sit amet
-            </a>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                <a
+                  class="ecl-link ecl-link--standalone"
+                  href="/example"
+                >
+                  Lorem ipsum dolor sit amet
+                </a>
+              </li>
+            </ul>
           </dd>
           <dt
             class="ecl-description-list__term"
@@ -1148,21 +1284,25 @@ exports[`Content item Image renders correctly 1`] = `
           <dd
             class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
           >
-            <span
-              class="ecl-description-list__definition-item"
+            <ul
+              class="ecl-description-list__definition-list"
             >
-              Taxonomy item 1
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 2
-            </span>
-            <span
-              class="ecl-description-list__definition-item"
-            >
-              Taxonomy item 3
-            </span>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 1
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 2
+              </li>
+              <li
+                class="ecl-description-list__definition-item"
+              >
+                Taxonomy item 3
+              </li>
+            </ul>
           </dd>
         </dl>
       </div>

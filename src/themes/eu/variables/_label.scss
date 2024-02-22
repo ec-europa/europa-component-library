@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../index' as *;
+
+// stylelint-disable length-zero-no-unit
+$label: (
+  radius: 4px,
+  border-width: 0px,
+  padding-horizontal: var(--s-s),
+  padding-vertical: var(--s-xs),
+  highlight: (
+    background: var(--c-p),
+    color: map.get($color, 'white'),
+    border-color: transparent,
+  ),
+  high: (
+    background: var(--c-s),
+    color: var(--c-d-140),
+    border-color: transparent,
+  ),
+  medium: (
+    background: var(--c-s-10),
+    color: var(--c-d-140),
+    border-color: transparent,
+  ),
+  low: (
+    background: var(--c-p-10),
+    color: var(--c-d-140),
+    border-color: var(--c-p),
+  ),
+);
+$label-print: (
+  padding-horizontal: map.get($spacing-print, 's'),
+  padding-vertical: map.get($spacing-print, 'xs'),
+);
+// stylelint-enable length-zero-no-unit
