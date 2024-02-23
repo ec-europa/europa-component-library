@@ -181,7 +181,7 @@ $_arrow-size: 1rem;
 
 @include breakpoints.up('m') {
   .ecl-popover__content {
-    max-height: 16.5rem;
+    max-height: 264px;
   }
 
   .ecl-popover__scrollable {
@@ -192,5 +192,23 @@ $_arrow-size: 1rem;
 @include breakpoints.up('l') {
   .ecl-popover__scrollable {
     max-width: 648px;
+  }
+}
+
+// Supporting the markup used in v3 for the other social media.
+.ecl-popover__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 188px;
+}
+
+.ecl-popover__link {
+  align-items: center;
+  display: flex;
+  padding: var(--s-s);
+
+  &:focus-visible {
+    outline-offset: -2px;
   }
 }

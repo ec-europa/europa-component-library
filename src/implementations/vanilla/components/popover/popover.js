@@ -269,7 +269,6 @@ export class Popover {
       availableSpace =
         (screenWidth - centerPosition + this.target.offsetWidth / 2) * 0.9;
     }
-
     if (maxWidth + padding < availableSpace) {
       scrollable.style.width = `${maxWidth}px`;
     } else if (availableSpace < minWidth + padding) {
