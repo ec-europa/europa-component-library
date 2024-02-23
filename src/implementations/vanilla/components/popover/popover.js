@@ -211,6 +211,7 @@ export class Popover {
     this.container.style.top = '';
     this.container.style.bottom = '';
     this.container.style.transform = '';
+    this.target.firstElementChild.width = '';
   }
 
   /**
@@ -249,6 +250,33 @@ export class Popover {
 
     this.element.classList.add(`${positioningClass}${direction}`);
     this.handlePushClass(screenWidth, screenHeight, direction);
+
+    // Try to use as much of the available width, respecting the max-width set.
+    const scrollable = this.target.firstElementChild;
+    const styles = window.getComputedStyle(scrollable);
+    const maxWidth = parseInt(styles.getPropertyValue('max-width'), 10);
+    const minWidth = parseInt(styles.getPropertyValue('min-width'), 10);
+    const padding = parseInt(styles.getPropertyValue('padding-left'), 10) * 2;
+
+    let availableSpace = '';
+    if (direction === 'left' || direction === 'right') {
+      availableSpace = (direction === 'left' ? spaceLeft : spaceRight) * 0.9;
+    } else {
+      const centerPosition =
+        (this.toggle.getBoundingClientRect().right -
+          this.toggle.getBoundingClientRect().left) /
+        2;
+      availableSpace =
+        (screenWidth - centerPosition + this.target.offsetWidth / 2) * 0.9;
+    }
+
+    if (maxWidth + padding < availableSpace) {
+      scrollable.style.width = `${maxWidth}px`;
+    } else if (availableSpace < minWidth + padding) {
+      scrollable.style.width = `${minWidth}px`;
+    } else {
+      scrollable.style.width = `${availableSpace - padding}px`;
+    }
   }
 
   handlePushClass(screenWidth, screenHeight, direction) {

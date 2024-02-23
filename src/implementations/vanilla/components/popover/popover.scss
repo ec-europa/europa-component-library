@@ -22,6 +22,7 @@ $_arrow-size: 1rem;
 .ecl-popover__container {
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($popover, 'shadow');
+  min-height: 7rem;
   position: absolute;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'dropdown');
@@ -50,7 +51,6 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover__scrollable {
-  min-height: 112px;
   min-width: 288px;
   max-width: 288px;
   overflow-y: auto;
@@ -60,6 +60,7 @@ $_arrow-size: 1rem;
 .ecl-popover__content {
   background-color: map.get($theme, 'color', 'white');
   font: var(--f-m);
+  max-height: 11rem;
   text-align: start;
   width: auto;
 }
@@ -179,6 +180,10 @@ $_arrow-size: 1rem;
 }
 
 @include breakpoints.up('m') {
+  .ecl-popover__content {
+    max-height: 16.5rem;
+  }
+
   .ecl-popover__scrollable {
     max-width: 522px;
   }
