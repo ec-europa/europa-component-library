@@ -1,5 +1,32 @@
 # Changelog
 
+## 4.0.0-beta-3
+
+#### :rocket: New Feature
+
+- [#3249](https://github.com/ec-europa/europa-component-library/pull/3249) feat(icons): Adding camera icon - FRONT-4272 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3231](https://github.com/ec-europa/europa-component-library/pull/3231) feat(tag): fix accessibility text - FRONT-4261 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3161](https://github.com/ec-europa/europa-component-library/pull/3161) feat(popover): Four directions, scroll and resize detection - FRONT-4159 ([@planctus](https://github.com/planctus))
+- [#3254](https://github.com/ec-europa/europa-component-library/pull/3254) feat(icons): Updating three icons in EU - FRONT-4275 ([@planctus](https://github.com/planctus))
+- [#3242](https://github.com/ec-europa/europa-component-library/pull/3242) feat(notification): add screen reader label - FRONT-4257 ([@emeryro](https://github.com/emeryro))
+- [#3245](https://github.com/ec-europa/europa-component-library/pull/3245) feat(notification): Updating styles - FRONT-4270 ([@planctus](https://github.com/planctus))
+- [#3237](https://github.com/ec-europa/europa-component-library/pull/3237) feat(news-ticker): add text for external icon - FRONT-4258 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3248](https://github.com/ec-europa/europa-component-library/pull/3248) chore(deps): Updates 20-02-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 4.0.0-beta-2
 
 #### :rocket: New Feature
