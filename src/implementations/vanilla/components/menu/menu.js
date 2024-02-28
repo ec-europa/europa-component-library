@@ -166,6 +166,10 @@ export class Menu {
     this.checkMenuItem = this.checkMenuItem.bind(this);
     this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
+    this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
+    this.preventScroll = this.preventScroll.bind(this);
+    this.disableScroll = this.disableScroll.bind(this);
+    this.enableScroll = this.enableScroll.bind(this);
   }
 
   /**
@@ -307,6 +311,8 @@ export class Menu {
         }
       });
     }
+
+    this.positionMenuOverlay();
 
     // Update overflow display
     this.checkMenuOverflow();
@@ -474,6 +480,30 @@ export class Menu {
   }
 
   /**
+   * Used to enable/disable page scrolling
+   */
+  // eslint-disable-next-line class-methods-use-this
+  preventScroll(event) {
+    event.preventDefault();
+  }
+
+  /**
+   * Disable page scrolling
+   */
+  disableScroll() {
+    document.addEventListener('scroll', this.preventScroll, { passive: false });
+  }
+
+  /**
+   * Enable page scrolling
+   */
+  enableScroll() {
+    document.removeEventListener('scroll', this.preventScroll, {
+      passive: false,
+    });
+  }
+
+  /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
    * - not having hamburger menu on screen
@@ -526,12 +556,42 @@ export class Menu {
 
       // Update overflow display
       this.checkMenuOverflow();
+      this.positionMenuOverlay();
 
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
     }, 200);
 
     return this;
+  }
+
+  /**
+   * Dinamically set the position of the menu overlay
+   */
+  positionMenuOverlay() {
+    const menuOverlay = queryOne('.ecl-menu__overlay', this.element);
+    if (!this.isDesktop) {
+      setTimeout(() => {
+        const header = queryOne('.ecl-site-header__header', document);
+        if (header) {
+          const position = header.getBoundingClientRect();
+          const bottomPosition = Math.round(position.bottom);
+          if (menuOverlay) {
+            menuOverlay.style.top = `${bottomPosition}px`;
+          }
+          if (this.inner) {
+            this.inner.style.top = `${bottomPosition}px`;
+          }
+        }
+      }, 500);
+    } else {
+      if (this.inner) {
+        this.inner.style.top = '';
+      }
+      if (menuOverlay) {
+        menuOverlay.style.top = '';
+      }
+    }
   }
 
   /**
@@ -899,6 +959,7 @@ export class Menu {
 
     this.element.setAttribute('aria-expanded', 'true');
     this.inner.setAttribute('aria-hidden', 'false');
+    this.disableScroll();
     this.isOpen = true;
 
     // Update label
@@ -942,6 +1003,7 @@ export class Menu {
       this.open.focus();
     }
 
+    this.enableScroll();
     this.isOpen = false;
     this.trigger('onClose', e);
 
