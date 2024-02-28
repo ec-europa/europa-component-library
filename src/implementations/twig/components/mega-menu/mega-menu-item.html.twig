@@ -1,0 +1,127 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
+  - "icon_path" (string) Path to the icon sprite
+  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
+  - "item" (object)
+    - "is_current" (boolean) Whether the item is currently selected
+    - "label" (string) Label of the menu link
+    - "external" (boolean) External link
+    - "path" (string) Href of the menu link
+    - "trigger_aria_label" (string) Aria label for the trigger button,
+    - "children" (array of object) Array of sub-items
+      - "external": (boolean) External link
+      - "is_current" (boolean) Whether the sub-item is currently selected
+      - "path" (string) Href of the sub-item link
+      - "label" (string) Label of the sub-item link
+#}
+
+{% set _id = id|default('') %}
+{% set _item = item|default({}) %}
+{% set _menu_item_class = 'ecl-mega-menu__link' %}
+{% set _menu_item_attributes = 'data-ecl-mega-menu-link' %}
+{% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
+{% set _menu_list_item_class = 'ecl-mega-menu__item' %}
+{% set _icon_path = icon_path|default('') %}
+{% set _see_all_label = see_all_label|default('') %}
+
+{% if _item.is_current is defined %}
+  {% set _menu_item_class = _menu_item_class ~ ' ecl-mega-menu__link--current' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current' %}
+{% endif %}
+
+{% if item.children is defined and item.children is not empty and item.children is iterable %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+{% endif %}
+
+{% if _item.label is not empty %}
+<li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
+  {% set _sublink_class = 'ecl-mega-menu__sublink' ~ (child.is_current is defined ? ' ecl-mega-menu__sublink--current' : '') %}
+  {% if _item.path is not empty %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: {
+        type: 'standalone',
+        label: _item.label,
+        path: _item.path,
+        icon_path: _icon_path,
+        external: _item.external|default(false),
+      },
+      extra_classes: _menu_item_class,
+      extra_attributes: [
+        { name: _menu_item_attributes },
+        { name: 'id', value: _id ~ "-link" },
+      ],
+    } %}
+  {% else %}
+    <span class="ecl-mega-menu__item-label">{{ _item.label }}</span>
+  {% endif %}
+{% endif %}
+
+{%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+  <div
+    class="ecl-mega-menu__mega"
+    data-ecl-mega-menu-mega
+  >
+    <ul class="ecl-mega-menu__sublist">
+    {% for child in item.children %}
+      {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
+      {% set _subitem_class = 'ecl-mega-menu__subitem' %}
+      {% if child.is_current is defined %}
+        {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current' %}
+      {% endif %}
+      {% if child.children is defined and child.children is not empty %}
+        {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
+      {% endif %}
+      <li
+        class="{{ _subitem_class }}"
+        {{- _subitem_attrs -}}
+      >
+        {% set _sublink_class = 'ecl-mega-menu__sublink' ~ (child.is_current is defined ? ' ecl-mega-menu__sublink--current' : '') %}
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            type: 'standalone',
+            label: child.label,
+            path: child.path,
+            icon_path: _icon_path,
+            external: child.external,
+          },
+          extra_classes: _sublink_class,
+        } %}
+        {% if child.children is defined and child.children is not empty %}
+          {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              item: {
+                children: child.children,
+              },           
+          } %}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+    {% if _see_all_label is not empty %}
+      <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
+        {% include '@ecl/link/link.html.twig' with {
+          link: {
+            type: 'standalone',
+            label: _see_all_label,
+            path: _item.path,
+            icon_path: _icon_path,
+          },
+          icon: {
+            name: 'arrow-left',
+            size: 'xs',
+            path: icon_path,
+            transform: 'rotate-180',
+          },
+          extra_classes: 'ecl-mega-menu__sublink',
+        } %}
+      </li>
+    {% endif %}
+    </ul>
+  </div>
+{% endif %}
+</li>
+
+{% endapply %}
