@@ -42,7 +42,7 @@
   {% endif %}
 {% endif %}
 
-{% if _hide_title and _meta is empty %}
+{% if (_title is empty or _hide_title) and _meta is empty %}
   {% set _info_classes = 'ecl-page-header__info--no-margin' %}
 {% endif %}
 
