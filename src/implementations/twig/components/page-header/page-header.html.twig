@@ -28,6 +28,7 @@
 {% set _picture_background = picture_background|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
+{% set _info_classes = 'ecl-page-header__info' %}
 {% set _overlay = overlay|default('') %}
 {% set _extra_attributes = '' %}
 
@@ -39,6 +40,10 @@
   {% if _overlay is not empty %}
     {% set _css_class = _css_class ~ ' ecl-page-header--overlay-' ~ _overlay %}
   {% endif %}
+{% endif %}
+
+{% if _hide_title and _meta is empty %}
+  {% set _info_classes = 'ecl-page-header__info--no-margin' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -75,7 +80,7 @@
       extra_classes: 'ecl-page-header__breadcrumb',
     }) only -%}
   {% endif %}
-    <div class="ecl-page-header__info">
+    <div class="{{ _info_classes }}">
     {% if _meta is not empty %}
       <div class="ecl-page-header__meta">
         {% for _item in _meta %}
