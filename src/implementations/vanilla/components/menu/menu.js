@@ -167,7 +167,6 @@ export class Menu {
     this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
     this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
-    this.preventScroll = this.preventScroll.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
   }
@@ -479,29 +478,21 @@ export class Menu {
     }
   }
 
-  /**
-   * Used to enable/disable page scrolling
-   */
-  // eslint-disable-next-line class-methods-use-this
-  preventScroll(event) {
-    event.preventDefault();
-  }
-
+  /* eslint-disable class-methods-use-this */
   /**
    * Disable page scrolling
    */
   disableScroll() {
-    document.addEventListener('scroll', this.preventScroll, { passive: false });
+    document.body.classList.add('no-scroll');
   }
 
   /**
    * Enable page scrolling
    */
   enableScroll() {
-    document.removeEventListener('scroll', this.preventScroll, {
-      passive: false,
-    });
+    document.body.classList.remove('no-scroll');
   }
+  /* eslint-enable class-methods-use-this */
 
   /**
    * Check if desktop display has to be used
@@ -535,6 +526,9 @@ export class Menu {
    * Uses a debounce, for performance
    */
   handleResize() {
+    // Scroll to top to ensure the menu is correctly positioned.
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     // Disable transition
     this.element.classList.remove('ecl-menu--transition');
 
@@ -571,6 +565,9 @@ export class Menu {
   positionMenuOverlay() {
     const menuOverlay = queryOne('.ecl-menu__overlay', this.element);
     if (!this.isDesktop) {
+      if (this.isOpen) {
+        this.disableScroll();
+      }
       setTimeout(() => {
         const header = queryOne('.ecl-site-header__header', document);
         if (header) {
@@ -585,6 +582,7 @@ export class Menu {
         }
       }, 500);
     } else {
+      this.enableScroll();
       if (this.inner) {
         this.inner.style.top = '';
       }
