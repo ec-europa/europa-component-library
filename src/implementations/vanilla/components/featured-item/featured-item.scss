@@ -42,7 +42,7 @@ $featured-item: null !default;
   color: map.get($featured-item, 'title-color');
   display: inline-block;
   font: map.get($featured-item, 'title-font');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($featured-item, 'title-font-weight');
   max-width: var(--max-w);
 }
 
