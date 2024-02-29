@@ -16,11 +16,15 @@ $page-header: null !default;
 
 .ecl-page-header__info {
   margin-bottom: var(--s-s);
-  margin-top: var(--s-l);
+  margin-top: calc(var(--s-m) + var(--s-s));
 }
 
 .ecl-page-header__breadcrumb {
   margin-top: var(--s-xs);
+
+  + .ecl-page-header__info {
+    margin-top: var(--s-l);
+  }
 }
 
 .ecl-page-header__meta {
