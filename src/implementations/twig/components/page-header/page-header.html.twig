@@ -75,24 +75,24 @@
       extra_classes: 'ecl-page-header__breadcrumb',
     }) only -%}
   {% endif %}
-
-  {% if _meta is not empty %}
-    <div class="ecl-page-header__meta">
-      {% for _item in _meta %}
-      <span class="ecl-page-header__meta-item">{{- _item -}}</span>
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  {% if _title is not empty %}
-    {% set _title_class = 'ecl-page-header__title' %}
-    {% if _hide_title %}
-      {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
+    <div class="ecl-page-header__info">
+    {% if _meta is not empty %}
+      <div class="ecl-page-header__meta">
+        {% for _item in _meta %}
+        <span class="ecl-page-header__meta-item">{{- _item -}}</span>
+        {% endfor %}
+      </div>
     {% endif %}
 
-    <h1 class="{{ _title_class }}">{{ _title }}</h1>
-  {% endif %}
+    {% if _title is not empty %}
+      {% set _title_class = 'ecl-page-header__title' %}
+      {% if _hide_title %}
+        {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
+      {% endif %}
 
+      <h1 class="{{ _title_class }}">{{ _title }}</h1>
+    {% endif %}
+    </div>
   {% if _description is not empty or _picture_thumbnail.img is not empty %}
     <div class="ecl-page-header__description-container">
     {% if _picture_thumbnail.img is not empty %}
