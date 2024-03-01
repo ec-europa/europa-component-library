@@ -1,5 +1,27 @@
 # Changelog
 
+## 4.0.0
+
+#### :bug: Bug Fix
+
+- [#3257](https://github.com/ec-europa/europa-component-library/pull/3257) fix(menu): Preventing page scrolling when opened in mobile, fixing position in mobile - FRONT-4283 ([@planctus](https://github.com/planctus))
+- [#3256](https://github.com/ec-europa/europa-component-library/pull/3256) feat(multi-select): fix disabled cursor - FRONT-4278 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3260](https://github.com/ec-europa/europa-component-library/pull/3260) feat(list): Changing dash in unordered list - FRONT-4285 ([@planctus](https://github.com/planctus))
+- [#3259](https://github.com/ec-europa/europa-component-library/pull/3259) feat(page-header): Adding wrapper to better handling the spacing - FRONT-4284 ([@planctus](https://github.com/planctus))
+- [#3258](https://github.com/ec-europa/europa-component-library/pull/3258) feat(featured-item): Setting white background in EC and EU - FRONT-4280 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3262](https://github.com/ec-europa/europa-component-library/pull/3262) chore: Usage page updates for the site-wide components ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 4.0.0-beta-3
 
 #### :rocket: New Feature
