@@ -8,11 +8,7 @@ The Page header elements are optional depending on the page, rather than the sit
 
 # Harmonised config.
 
-## Anatomy image
-
-![](/cms-images/eu-page-header-harmonised.png)
-
-## Anatomy table
+### Anatomy table
 
 | No. | Element/component | Usage                          | Description                                                                                                                                                                                                   |
 | --- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

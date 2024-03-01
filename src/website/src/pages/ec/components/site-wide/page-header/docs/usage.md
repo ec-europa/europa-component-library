@@ -8,17 +8,7 @@ The component is available in a positive and a negative version. Harmonised and 
 
 # Standardised & harmonised config.
 
-## Anatomy image
-
-**Standardised**
-
-![](/cms-images/ec-page-header-standardised.png)
-
-**Harmonised**
-
-![](/cms-images/ec-page-header-harmonised.png)
-
-## Anatomy table
+### Anatomy table
 
 | No. | Element/component | Standardised                     | Harmonised                       | Description                                                                                                                                                                                                   |
 | --- | ----------------- | -------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
