@@ -26,15 +26,22 @@
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _see_all_label = see_all_label|default('') %}
+{% set _icon = {} %}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-mega-menu__link--current' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current' %}
 {% endif %}
 
-{% if item.children is defined and item.children is not empty and item.children is iterable %}
+{% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+  {% set _icon = {
+    name: 'corner-arrow',
+    transform: 'rotate-90',
+    path: icon_path,
+    size: '2xs',
+  } %}
 {% endif %}
 
 {% if _item.label is not empty %}
@@ -48,7 +55,9 @@
         path: _item.path,
         icon_path: _icon_path,
         external: _item.external|default(false),
+        icon_position: 'after',
       },
+      icon: _icon,
       extra_classes: _menu_item_class,
       extra_attributes: [
         { name: _menu_item_attributes },
@@ -60,13 +69,13 @@
   {% endif %}
 {% endif %}
 
-{%- if item.children is defined and item.children is not empty and item.children is iterable -%}
+{%- if _item.children is defined and _item.children is not empty and _item.children is iterable -%}
   <div
     class="ecl-mega-menu__mega"
     data-ecl-mega-menu-mega
   >
     <ul class="ecl-mega-menu__sublist">
-    {% for child in item.children %}
+    {% for child in _item.children %}
       {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
       {% set _subitem_class = 'ecl-mega-menu__subitem' %}
       {% if child.is_current is defined %}
@@ -80,6 +89,15 @@
         {{- _subitem_attrs -}}
       >
         {% set _sublink_class = 'ecl-mega-menu__sublink' ~ (child.is_current is defined ? ' ecl-mega-menu__sublink--current' : '') %}
+        {% set _icon = {} %}
+        {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
+          {% set _icon = {
+            name: 'corner-arrow',
+            transform: 'rotate-90',
+            path: icon_path,
+            size: '2xs',
+          } %}
+        {% endif %}
         {% include '@ecl/link/link.html.twig' with {
           link: {
             type: 'standalone',
@@ -88,12 +106,14 @@
             icon_path: _icon_path,
             external: child.external,
           },
+          icon: _icon,
           extra_classes: _sublink_class,
         } %}
         {% if child.children is defined and child.children is not empty %}
           {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
               item: {
                 children: child.children,
+                level: 2,
               },           
           } %}
         {% endif %}

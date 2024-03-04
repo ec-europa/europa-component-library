@@ -36,7 +36,17 @@ module.exports = {
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
-        { label: 'Item 2.1', path: exampleLink },
+        { 
+          label: 'Item 2.1',
+          path: exampleLink,
+          children: [
+            { label: 'Item 2.1 subitem 1', path: exampleLink },
+            { label: 'Item 2.1 subitem 2', path: exampleLink },
+            { label: 'Item 2.1 subitem 3', path: exampleLink },
+            { label: 'Item 2.1 subitem 4', path: exampleLink },
+            { label: 'Item 2.1 subitem 5', path: exampleLink },
+          ], 
+        },
         { label: 'Item 2.2', path: exampleLink },
         { label: 'Item 2.3', path: exampleLink, is_current: true },
         { label: 'Item 2.4', path: exampleLink },
@@ -58,6 +68,22 @@ module.exports = {
     {
       label: 'Key priorities',
       path: exampleLink,
+      children: [
+        { label: 'Aid, Development cooperation, Fundamental rights', path: exampleLink },
+        { label: 'Energy, Climate change, Environment', path: exampleLink },
+        { label: 'Law', path: exampleLink },
+        { label: 'EU regional and urban development', path: exampleLink },
+        {
+          label: 'Research and innovation',
+          path: exampleLink,
+          children: [
+            { label: 'How we provide aid', path: exampleLink },
+            { label: 'Who we work with', path: exampleLink },
+            { label: 'Get involved in EU humanitarian aid', path: exampleLink },
+          ],
+        },
+        { label: 'Food, Farming, Fisheries', path: exampleLink },
+      ],
     },
     {
       label: 'EU Policies',
@@ -97,33 +123,39 @@ module.exports = {
             { label: 'Item 5.1 subitem 27', path: exampleLink },
           ],
         },
-        { label: 'Item 5.2', path: exampleLink },
-        { label: 'Item 5.3', path: exampleLink },
+        {
+          label: 'Item 5.2',
+          path: exampleLink,
+          children: [
+            { label: 'Item 5.2 subitem 1', path: exampleLink },
+            { label: 'Item 5.2 subitem 2', path: exampleLink },
+            { label: 'Item 5.2 subitem 3', path: exampleLink },
+            { label: 'Item 5.2 subitem 4', path: exampleLink },
+            { label: 'Item 5.2 subitem 5', path: exampleLink },
+          ],
+        },
+        { 
+          label: 'Item 5.3',
+          path: exampleLink,
+          children: [
+            { label: 'Item 5.3 subitem 1', path: exampleLink },
+            { label: 'Item 5.3 subitem 2', path: exampleLink },
+            { label: 'Item 5.3 subitem 3', path: exampleLink },
+            { label: 'Item 5.3 subitem 4', path: exampleLink },
+            { label: 'Item 5.3 subitem 5', path: exampleLink },
+            { label: 'Item 5.3 subitem 6', path: exampleLink },
+            { label: 'Item 5.3 subitem 7', path: exampleLink },
+            { label: 'Item 5.3 subitem 8', path: exampleLink },
+            { label: 'Item 5.3 subitem 9', path: exampleLink },
+            { label: 'Item 5.3 subitem 10', path: exampleLink },
+          ],
+        },
         { label: 'Item 5.4', path: exampleLink },
         { label: 'Item 5.5', path: exampleLink },
         { label: 'Item 5.6', path: exampleLink },
         { label: 'Item 5.7', path: exampleLink },
         { label: 'Item 5.8', path: exampleLink },
         { label: 'Item 5.9 with a very long label', path: exampleLink },
-        { label: 'Item 5.10', path: exampleLink },
-        { label: 'Item 5.11', path: exampleLink },
-        { label: 'Item 5.12', path: exampleLink },
-        { label: 'Item 5.13', path: exampleLink },
-        { label: 'Item 5.14', path: exampleLink },
-        { label: 'Item 5.15', path: exampleLink },
-        { label: 'Item 5.16', path: exampleLink },
-        { label: 'Item 5.17', path: exampleLink },
-        { label: 'Item 5.18', path: exampleLink },
-        { label: 'Item 5.19', path: exampleLink },
-        { label: 'Item 5.20', path: exampleLink },
-        { label: 'Item 5.21', path: exampleLink },
-        { label: 'Item 5.22', path: exampleLink },
-        { label: 'Item 5.23', path: exampleLink },
-        { label: 'Item 5.24', path: exampleLink },
-        { label: 'Item 5.25', path: exampleLink },
-        { label: 'Item 5.26', path: exampleLink },
-        { label: 'Item 5.27', path: exampleLink },
-        { label: 'Item 5.28', path: exampleLink },
       ],
     },
     {
@@ -135,8 +167,9 @@ module.exports = {
       path: exampleLink,
     },
   ],
-  featured:
-    `<article class="ecl-card">
+  featured: {
+    title: 'featured column',
+    content:`<article class="ecl-card">
       <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
       <div class="ecl-card__body">
         <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
@@ -144,4 +177,5 @@ module.exports = {
         </div>
       </div>
     </article>`,
+  },
 };

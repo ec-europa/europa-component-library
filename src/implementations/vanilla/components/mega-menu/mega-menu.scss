@@ -107,6 +107,7 @@ $mega-menu: null !default;
     // For the external icon
     .ecl-mega-menu__link .ecl-icon {
       flex-shrink: 0;
+      margin-inline-start: var(--s-2xs);
     }
 
     .ecl-mega-menu__site-name,
@@ -123,13 +124,13 @@ $mega-menu: null !default;
  */
 .ecl-mega-menu__inner {
   background: map.get($mega-menu, 'mobile', 'content-background');
-  // bottom: 0;
+  bottom: 0;
   box-shadow: map.get($mega-menu, 'mobile', 'content-shadow');
   display: none;
   overflow-y: auto;
-  position: static;
-  //right: -100%;
-  // top: 0;
+  position: fixed;
+  right: -100%;
+  top: 0;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal') + 3;
 
@@ -279,6 +280,7 @@ $mega-menu: null !default;
       box-shadow: none;
       display: block;
       overflow-y: visible;
+      position: static;
       //position: relative;
       //right: 0;
       transition: none;
@@ -300,7 +302,7 @@ $mega-menu: null !default;
   box-sizing: border-box;
   clear: right;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
   justify-content: flex-start;
   list-style: none;
@@ -312,10 +314,11 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__item {
-  align-items: center;
   border-top: map.get($mega-menu, 'mobile', 'item-border');
   display: flex;
   flex-direction: column;
+  margin-bottom: var(--s-xs);
+  padding: map.get($mega-menu, 'mobile', 'item-padding');
 }
 
 .ecl-mega-menu__link {
@@ -324,7 +327,6 @@ $mega-menu: null !default;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
   font: map.get($mega-menu, 'mobile', 'item-font');
-  padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
 
   &:hover {
@@ -338,25 +340,16 @@ $mega-menu: null !default;
   &:focus-visible {
     outline-offset: -2px;
   }
+
+  .ecl-icon {
+    margin-inline-start: auto;
+  }
 }
 
 .ecl-mega-menu__item--current .ecl-mega-menu__link {
-  background-color: map.get($mega-menu, 'mobile', 'item-active-background');
+  //background-color: map.get($mega-menu, 'mobile', 'item-active-background');
   box-shadow: inset 4px 0 0 0 map.get($mega-menu, 'mobile', 'item-active-border');
   position: relative;
-
-  &::after {
-    content: "";
-    transform: rotate(-180deg);
-    position: absolute;
-    bottom: 0;
-    left: calc(50% - 10px);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 10px 0 10px;
-    border-color: white transparent transparent transparent;
-  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -365,6 +358,7 @@ $mega-menu: null !default;
     border-top: map.get($mega-menu, 'desktop', 'menu-border');
 
     .ecl-mega-menu__list {
+      flex-direction: row;
       left: 0;
       right: 0;
       transition:
@@ -373,10 +367,11 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__item {
+      align-items: center;
       border-top-width: 0;
       color: map.get($mega-menu, 'desktop', 'item-color');
-      margin-inline-start: -1px;
-      padding-inline-end: 1px;
+      margin-bottom: 0;
+      padding: map.get($mega-menu, 'desktop', 'link-padding');
 
       &:first-of-type {
         margin-inline-start: 0;
@@ -386,8 +381,8 @@ $mega-menu: null !default;
         padding-inline-end: 0;
       }
 
-      &:not(.ecl-menu__items-previous, .ecl-menu__items-next):hover,
-      &:not(.ecl-menu__item--current):focus-within {
+      &:not(.ecl-mega-menu__item--current):hover,
+      &:not(.ecl-mega-menu__item--current):focus-within {
         background-color: map.get($mega-menu, 'desktop', 'item-background-hover');
         box-shadow: map.get($mega-menu, 'desktop', 'item-shadow-hover');
         color: map.get($mega-menu, 'desktop', 'item-color-hover');
@@ -411,7 +406,6 @@ $mega-menu: null !default;
       display: inline-flex;
       font: var(--f-m);
       line-height: map.get($mega-menu, 'desktop', 'link-line-height');
-      padding: map.get($mega-menu, 'desktop', 'link-padding');
       width: auto;
       z-index: 0;
 
@@ -423,8 +417,14 @@ $mega-menu: null !default;
       // stylelint-disable-next-line no-descending-specificity
       &:focus-visible {
         background-color: map.get($mega-menu, 'desktop', 'item-background-focus');
+        border-radius: 0;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
-        outline-offset: -4px;
+        outline-color: map.get($theme, 'color', 'white');
+        outline-offset: 2px;
+      }
+
+      .ecl-icon {
+        transform: rotate(180deg);
       }
     }
 
@@ -433,6 +433,10 @@ $mega-menu: null !default;
       box-shadow: map.get($mega-menu, 'desktop', 'item-current-shadow');
       color: map.get($mega-menu, 'desktop', 'item-current-color');
       margin-top: map.get($mega-menu, 'desktop', 'item-current-margin');
+
+      &:hover {
+        background-color: map.get($mega-menu, 'desktop', 'item-current-background');
+      }
 
       &:focus-within {
         background-color: map.get(
@@ -455,7 +459,7 @@ $mega-menu: null !default;
   .ecl-mega-menu:not(.ecl-mega-menu--forced-mobile, .ecl-mega-menu--forced-close) {
     // stylelint-disable-next-line no-descending-specificity
     .ecl-mega-menu__item {
-      &[aria-expanded='true'] .ecl-button__icon {
+      &[aria-expanded='true'] > .ecl-link .ecl-icon {
         transform: rotate(0);
       }
 
@@ -463,15 +467,7 @@ $mega-menu: null !default;
 
         .ecl-mega-menu__link {
           color: var(--c-d);
-          margin-bottom: -2px;
-          padding: map.get($mega-menu, 'desktop', 'link-expanded-padding');
-          z-index: map.get($theme, 'z-index', 'dropdown') + 1;
-        }
-
-        .ecl-mega-menu__button-caret {
-          background-color: map.get($theme, 'color', 'white');
-          margin-bottom: -2px;
-          padding-bottom: 2px;
+          //padding: map.get($mega-menu, 'desktop', 'link-expanded-padding');
           z-index: map.get($theme, 'z-index', 'dropdown') + 1;
         }
       }
@@ -519,7 +515,7 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__item--expanded,
 .ecl-mega-menu__subitem--expanded {
-  .ecl-mega-menu__mega {
+  > .ecl-mega-menu__mega {
     display: flex;
   }
 }
@@ -528,8 +524,9 @@ $mega-menu: null !default;
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin: 0;
-  overflow-y: scroll;
-  padding: 0;
+  overflow-y: auto;
+  max-width: 17rem;
+  padding: var(--s-s) 0 0;
 }
 
 .ecl-mega-menu__subitem {
@@ -538,7 +535,7 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__sublink {
   color: map.get($mega-menu, 'mobile', 'item-color');
-  display: block;
+  display: flex;
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
@@ -554,11 +551,17 @@ $mega-menu: null !default;
   &:focus-visible {
     outline-offset: -2px;
   }
+
+  .ecl-icon {
+    align-self: center;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
 }
 
 .ecl-mega-menu__subitem--current .ecl-mega-menu__sublink {
   //background-color: map.get($mega-menu, 'mobile', 'item-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($mega-menu, 'mobile', 'item-active-border');
+  //box-shadow: inset 4px 0 0 0 map.get($mega-menu, 'mobile', 'item-active-border');
 }
 
 .ecl-mega-menu__see-all {
@@ -577,7 +580,7 @@ $mega-menu: null !default;
       display: flex;
       left: 0;
       min-height: 100%;
-      padding: map.get($mega-menu, 'desktop', 'mega-padding');
+      //padding: map.get($mega-menu, 'desktop', 'mega-padding');
       position: absolute;
       top: 3.1rem;
       transition-property: visibility;
@@ -585,22 +588,49 @@ $mega-menu: null !default;
       z-index: map.get($theme, 'z-index', 'dropdown');
     }
 
+    .ecl-mega-menu__item[aria-expanded='true'],
+    .ecl-mega-menu__subitem[aria-expanded='true'] { 
+      > .ecl-mega-menu__mega {
+        transition-property: visibility;
+        visibility: visible;
+      }
+
+      .ecl-mega-menu__parent-link {
+        border-bottom: 1px solid map.get($theme, 'color', 'white');
+        color: var(--c-p);
+        line-height: map.get($theme, 'line-height', 'l');
+        padding: map.get($mega-menu, 'desktop', 'sublink-padding');
+
+        .ecl-icon {
+          margin-inline-start: var(--s-m);
+        }
+      }
+    }
+
     .ecl-mega-menu__subitem > .ecl-mega-menu__mega {
       left: 100%;
       top: 0;
       background: map.get($theme, 'color', 'white');
       min-height: 100%;
-      padding: map.get($mega-menu, 'desktop', 'mega-padding');
+      //padding: map.get($mega-menu, 'desktop', 'mega-padding');
       position: absolute;
       visibility: hidden;
       transition-property: visibility;
-    }
 
-    .ecl-mega-menu__item[aria-expanded='true'],
-    .ecl-mega-menu__subitem[aria-expanded='true'] { 
-      .ecl-mega-menu__mega {
-        transition-property: visibility;
-        visibility: visible;
+      .ecl-mega-menu__sublist: {
+        padding-top: var(--s-m);
+      }
+
+      .ecl-mega-menu__sublink {
+        color: var(--c-p);
+      }
+
+      .ecl-mega-menu__parent-link {
+        border-bottom: 1px solid var(--c-n-100);
+        color: var(--c-d);
+        margin-inline-start: var(--s-m);
+        margin-inline-end: var(--s-m);
+        padding-inline-start: 0;
       }
     }
 
@@ -609,9 +639,20 @@ $mega-menu: null !default;
       right: 0;
     }
 
-    .ecl-mega-menu__item--col2 .ecl-mega-menu__sublist {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    .ecl-mega-menu__item--col2 {
+      min-height: 100%;
+
+      .ecl-mega-menu__sublist {
+        align-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        min-width: 35rem;
+      }
+
+      .ecl-mega-menu__subitem {
+        flex: 1 0 50%;
+      }
     }
 
     .ecl-mega-menu__subitem {
@@ -619,7 +660,7 @@ $mega-menu: null !default;
       border-top-width: 0;
       box-sizing: border-box;
       margin: 0;
-      min-width: 13.56rem; // Written in the specs
+      min-width: 17rem; // Written in the specs
       padding: 0;
       width: 100%;
     }
@@ -632,8 +673,9 @@ $mega-menu: null !default;
       white-space: normal;
     }
 
-    .ecl-mega-menu__subitem--current .ecl-mega-menu__sublink {
-      //background-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+    .ecl-mega-menu__subitem--current > .ecl-mega-menu__sublink {
+      background-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+      border-inline-start: 4px solid var(--c-p);
       box-shadow: map.get($mega-menu, 'desktop', 'sublink-current-shadow');
     }
 
@@ -644,12 +686,22 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__featured {
-  background: map.get($theme, 'color', 'white');
+  background: var(--c-n-40);
   display: none;
+  flex-direction: column;
+  min-height: 100%;
   position: absolute;
   left: 100%;
-  min-height: 100%;
-  padding: 2rem;
-  width: 20rem;
+  padding: 0 1rem;
+  width: 17rem;
   top: 0;
+
+  .ecl-mega-menu__featured-title {
+    border-bottom: 1px solid var(--c-n);
+    display: block;
+    text-transform: uppercase;
+    font: var(--f-s);
+    margin-bottom: var(--s-m);
+    padding: var(--s-s) var(--s-m);
+  }
 }

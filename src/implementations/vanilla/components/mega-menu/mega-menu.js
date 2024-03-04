@@ -63,22 +63,19 @@ export class MegaMenu {
     {
       openSelector = '[data-ecl-mega-menu-open]',
       closeSelector = '[data-ecl-mega-menu-close]',
-      backSelector = '[data-ecl-menu-back]',
+      backSelector = '[data-ecl-mega-menu-back]',
       innerSelector = '[data-ecl-mega-menu-inner]',
       listSelector = '[data-ecl-mega-menu-list]',
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
       buttonPreviousSelector = '[data-ecl-mega-menu-items-previous]',
       buttonNextSelector = '[data-ecl-mega-menu-items-next]',
-      caretSelector = '[data-ecl-mega-menu-caret]',
       megaSelector = '[data-ecl-mega-menu-mega]',
       subItemSelector = '[data-ecl-mega-menu-subitem]',
-      maxLines = 2,
       featuredAttribute = '[data-ecl-mega-menu-featured]',
       labelOpenAttribute = 'data-ecl-mega-menu-label-open',
       labelCloseAttribute = 'data-ecl-mega-menu-label-close',
       attachClickListener = true,
-      attachHoverListener = true,
       attachFocusListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
@@ -106,13 +103,11 @@ export class MegaMenu {
     this.linkSelector = linkSelector;
     this.buttonPreviousSelector = buttonPreviousSelector;
     this.buttonNextSelector = buttonNextSelector;
-    this.caretSelector = caretSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.labelOpenAttribute = labelOpenAttribute;
     this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
-    this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
@@ -136,6 +131,7 @@ export class MegaMenu {
     this.resizeTimer = null;
     this.isKeyEvent = false;
     this.isDesktop = false;
+    this.isLarge = false;
     this.hasOverflow = false;
     this.offsetLeft = 0;
     this.lastVisibleItem = null;
@@ -162,6 +158,7 @@ export class MegaMenu {
     this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
     this.checkDropdownHeight = this.checkDropdownHeight.bind(this);
+    this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
   }
 
   /**
@@ -232,7 +229,6 @@ export class MegaMenu {
     if (this.links) {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
-          link.addEventListener('focusin', this.closeOpenDropdown);
           link.addEventListener('focusin', this.handleFocusIn);
           link.addEventListener('focusout', this.handleFocusOut);
         }
@@ -275,8 +271,8 @@ export class MegaMenu {
         this.totalItemsWidth += item.offsetWidth;
 
         if (item.hasAttribute('data-ecl-has-children')) {
-          // Bind hover and focus events on menu items
-          if (this.attachHoverListener) {
+          // Bind click event on menu items
+          if (this.attachClickListener) {
             item.addEventListener('click', this.handleClickOnItem);
           }
         }
@@ -290,7 +286,7 @@ export class MegaMenu {
     setTimeout(() => {
       this.element.classList.add('ecl-mega-menu--transition');
     }, 500);
-
+    this.handleResize();
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
@@ -382,7 +378,6 @@ export class MegaMenu {
     if (this.links) {
       this.links.forEach((link) => {
         if (this.attachFocusListener) {
-          link.removeEventListener('focusin', this.closeOpenDropdown);
           link.removeEventListener('focusin', this.handleFocusIn);
           link.removeEventListener('focusout', this.handleFocusOut);
         }
@@ -452,13 +447,14 @@ export class MegaMenu {
   handleResize() {
     // Disable transition
     this.element.classList.remove('ecl-mega-menu--transition');
-
+    this.positionMenuOverlay();
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
 
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
+      this.isLarge = window.innerWidth > 1140;
 
       // Update items display
       this.totalItemsWidth = 0;
@@ -476,32 +472,70 @@ export class MegaMenu {
     return this;
   }
 
-  checkDropdownHeight(menuItem) {
-    const viewportHeight = window.innerHeight;
-    const dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
-    console.log(dropdown);
-    const dropdownTop = dropdown.getBoundingClientRect().top;
-    console.log(dropdownTop);
-    console.log(viewportHeight);
-    const dropdownHeight = viewportHeight - dropdownTop;
-    dropdown.style.height = `${dropdownHeight}px`;
+  checkDropdownHeight(menuItem, callback = (height) => { }) {
+    setTimeout(() => {
+      const viewportHeight = window.innerHeight;
+      const dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
+      const dropdownTop = dropdown.getBoundingClientRect().top;
+      const dropdownHeight = viewportHeight - dropdownTop;
+      dropdown.style.height = `${dropdownHeight}px`;
+
+      callback(dropdownHeight);
+    }, 100);
+  }
+
+  /**
+   * Dinamically set the position of the menu overlay
+   */
+  positionMenuOverlay() {
+    const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
+    if (!this.isDesktop) {
+      setTimeout(() => {
+        const header = queryOne('.ecl-site-header__header', document);
+        if (header) {
+          const position = header.getBoundingClientRect();
+          const bottomPosition = Math.round(position.bottom);
+          if (menuOverlay) {
+            menuOverlay.style.top = `${bottomPosition}px`;
+          }
+          if (this.inner) {
+            this.inner.style.top = `${bottomPosition}px`;
+          }
+        }
+      }, 500);
+    } else {
+      const siteHeader = queryOne('.ecl-site-header', document);
+      if (siteHeader) {
+        const headerRect = siteHeader.getBoundingClientRect();
+        const headerBottom = headerRect.bottom;
+        console.log(headerBottom);
+        if (menuOverlay) {
+          menuOverlay.style.top = `${headerBottom}px`;
+        }
+      }
+    }
   }
 
   cloneItemInTheDrowdown(menuItem) {
-    const megaList = queryOne('.ecl-mega-menu__sublist', menuItem);
-    const firstItem = menuItem.cloneNode(true);
-    const innerList = queryOne('.ecl-mega-menu__mega', firstItem);
-
-    if (innerList) {
-      innerList.parentNode.removeChild(innerList);
+    if (this.isDesktop) {
+      const firstItemLink = queryOne('.ecl-link', menuItem).cloneNode(true);
+      const svg = queryOne('.ecl-icon use', firstItemLink);
+      const hrefValue = svg.getAttribute('xlink:href');
+      if (hrefValue) {
+        const newHrefValue = hrefValue.replace('corner-arrow', 'arrow-left');
+        svg.parentElement.classList.add('ecl-icon--flip-horizontal', 'ecl-icon--s');
+        svg.parentElement.classList.remove('ecl-icon--2xs', 'ecl-icon--rotate-180');
+        svg.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', newHrefValue);
+      }
+      if (firstItemLink.id) {
+        firstItemLink.id = `${firstItemLink.id}-parent`;
+      }
+      firstItemLink.classList.add('ecl-mega-menu__parent-link');
+      const innerList = queryOne('.ecl-mega-menu__mega', menuItem);
+      if (innerList && !queryOne('.ecl-mega-menu__parent-link', menuItem)) {
+        innerList.prepend(firstItemLink);
+      }
     }
-
-    firstItem.classList.remove('ecl-mega-menu__item--has-children', 'ecl-mega-menu__item', 'ecl-mega-menu__item--current');
-    firstItem.classList.add('ecl-mega-menu__subitem');
-    firstItem.firstElementChild.classList.remove('ecl-mega-menu__link');
-    firstItem.firstElementChild.classList.add('ecl-mega-menu__sublink');
-    const firstChild = megaList.firstChild;
-    megaList.insertBefore(firstItem, firstChild);
   }
 
   /**
@@ -526,32 +560,19 @@ export class MegaMenu {
    */
   checkMegaMenu(menuItem) {
     const menuMega = queryOne(this.megaSelector, menuItem);
-    if (menuMega && this.inner) {
-      // Check number of items and put them in column
-      const subItems = queryAll(this.subItemSelector, menuMega);
-      
-      if (subItems.length < 15) {
-        menuMega.classList.add('ecl-mega-menu__item--col1');
-      } else {
-        menuMega.classList.add('ecl-mega-menu__item--col2');
-        if (this.direction === 'rtl') {
-          menuMega.style.right = `${this.offsetLeft}px`;
-        } 
-      }
+    if (menuMega && this.inner && this.isLarge) {
+      const subItems = queryAll(`${this.subItemSelector} a`, menuMega);
+      let itemsHeight = 0;
+      subItems.forEach((item) => {
+        itemsHeight += item.getBoundingClientRect().height;
+      });
 
-      // Check if there is enough space on the right to display the menu
-      const megaBounding = menuMega.getBoundingClientRect();
       const containerBounding = this.inner.getBoundingClientRect();
-      const menuItemBounding = menuItem.getBoundingClientRect();
+      const containerBottom = containerBounding.bottom;
+      const availableHeight = window.innerHeight - containerBottom;
 
-      const megaWidth = megaBounding.width;
-      const containerWidth = containerBounding.width;
-      const menuItemPosition = menuItemBounding.left - containerBounding.left;
-
-      if (menuItemPosition + megaWidth > containerWidth) {
-        menuMega.classList.add('ecl-mega-menu__mega--rtl');
-      } else {
-        menuMega.classList.remove('ecl-mega-menu__mega--rtl');
+      if (itemsHeight > availableHeight) {
+        menuMega.classList.add('ecl-mega-menu__item--col2');
       }
     }
   }
@@ -648,15 +669,6 @@ export class MegaMenu {
 
           if (prevLink) {
             prevLink.focus();
-          }
-        } else {
-          const caretButton = queryOne(
-            `${this.itemSelector}[aria-expanded="true"] ${this.caretSelector}`,
-            this.element,
-          );
-
-          if (caretButton) {
-            caretButton.focus();
           }
         }
       }
@@ -763,6 +775,7 @@ export class MegaMenu {
    * Get back to previous list (on mobile)
    */
   handleClickOnBack() {
+    console.log('augh');
     // Remove css class from inner menu
     this.inner.classList.remove('ecl-mega-menu__inner--expanded');
 
@@ -780,15 +793,37 @@ export class MegaMenu {
    * @param {Event} e
    */
   handleClickOnItem(e) {
-    const menuItem = e.target.closest(this.itemSelector);
-    if (e.target.classList.contains('ecl-mega-menu__link')) {
-      if (menuItem.hasAttribute('data-ecl-has-children')) {
-        e.preventDefault();
+    e.preventDefault();
+    const menuExpanded = this.element.getAttribute('aria-expanded');
+    if (menuExpanded === 'true') {
+      // Add css class to inner menu
+      this.inner.classList.add('ecl-mega-menu__inner--expanded');
+
+      // Add css class and attribute to current item, and remove it from others
+      const menuItem = e.target.closest(this.itemSelector);
+      this.items.forEach((item) => {
+        if (item === menuItem) {
+          item.classList.add('ecl-mega-menu__item--expanded');
+          item.setAttribute('aria-expanded', 'true');
+        } else {
+          item.classList.remove('ecl-mega-menu__item--expanded');
+          item.setAttribute('aria-expanded', 'false');
+        }
+      });
+      this.checkMegaMenu(menuItem);
+    } else {
+      const menuItem = e.target.closest('li');
+      if (menuItem.classList.contains('ecl-mega-menu__item')) {
         const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
         if (isExpanded) {
           document.body.classList.remove('no-scroll');
-          menuItem.setAttribute('aria-expanded', 'false');
           this.element.removeAttribute('data-expanded');
+          menuItem.setAttribute('aria-expanded', 'false');
+          menuItem.classList.remove('ecl-mega-menu__item--current');
+          this.subItems.forEach((item) => {
+            item.classList.remove('ecl-mega-menu__item--current');
+            item.setAttribute('aria-expanded', 'false');
+          });   
         } else {
           this.cloneItemInTheDrowdown(menuItem);
           this.checkDropdownHeight(menuItem);
@@ -817,10 +852,6 @@ export class MegaMenu {
     const menuItem = e.target.closest(this.itemSelector);
     menuItem.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
-    const caretButton = queryOne(this.caretSelector, menuItem);
-    if (caretButton) {
-      caretButton.setAttribute('aria-expanded', 'false');
-    }
 
     return this;
   }
@@ -830,30 +861,34 @@ export class MegaMenu {
    * @param {Event} e
    */
   handleClickOnSubitem(e) {
+    e.preventDefault();
     const menuItem = e.target.closest(this.subItemSelector);
-    if (e.target.classList.contains('ecl-mega-menu__sublink')) {
-      if (menuItem && menuItem.hasAttribute('aria-expanded')) {
-        e.preventDefault();
-        const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
-        if (isExpanded) {
-          menuItem.setAttribute('aria-expanded', 'false');
-        } else {
-          this.cloneItemInTheDrowdown(menuItem);
-          this.checkDropdownHeight(menuItem);
-          this.subItems.forEach((item) => {
-            if (item === menuItem) {
-              item.setAttribute('aria-expanded', 'true');
-              item.classList.add('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
-            } else {
-              item.classList.remove('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
-              item.setAttribute('aria-expanded', 'false');     
-            }
-          });
-          if (this.featured) {
-            const list = queryOne('.ecl-mega-menu__mega', menuItem);
-            list.appendChild(this.featured);
-            list.lastChild.style.display = 'flex';
+    if (menuItem && menuItem.hasAttribute('aria-expanded')) {
+      e.preventDefault();
+      const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        menuItem.setAttribute('aria-expanded', 'false');
+      } else {
+        this.cloneItemInTheDrowdown(menuItem);
+        this.checkDropdownHeight(menuItem);
+        this.subItems.forEach((item) => {
+          if (item === menuItem) {
+            item.setAttribute('aria-expanded', 'true');
+            item.classList.add('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
+          } else {
+            item.classList.remove('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
+            item.setAttribute('aria-expanded', 'false');     
           }
+        });
+        if (this.featured) {
+          const list = queryOne('.ecl-mega-menu__mega', menuItem);
+          list.appendChild(this.featured);
+          list.lastChild.style.display = 'flex';
+          this.checkDropdownHeight(menuItem, (height) => {
+            const pxHeight = `${height}px`;
+            list.lastChild.style.height = pxHeight;
+          });
+
         }
       }
       this.checkMegaMenu(menuItem);
@@ -870,11 +905,6 @@ export class MegaMenu {
     );
     if (currentItem) {
       currentItem.setAttribute('aria-expanded', 'false');
-
-      const caretButton = queryOne(this.caretSelector, currentItem);
-      if (caretButton) {
-        caretButton.setAttribute('aria-expanded', 'false');
-      }
     }
   }
 

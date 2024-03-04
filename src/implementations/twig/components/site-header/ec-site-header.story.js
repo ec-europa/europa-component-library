@@ -7,13 +7,14 @@ import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--ec';
+import enDataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
-const enMenu = { ...enDataMenu };
+const enMenu = { ...enDataMegaMenu };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -220,7 +221,7 @@ const prepareData = (data, args) => {
   if (!args.show_menu) {
     delete data.menu;
   } else if (args.show_menu && !data.menu) {
-    data.menu = enMenu;
+    data.mega_menu = enDataMegaMenu;
   }
 
   data.logged = args.logged;
