@@ -242,6 +242,7 @@ Ex:
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Close button label is hidden on EC
+- New twig parameter to add label to the icon: `sr_icon`. It expect to be filled with the translated type of notification, for instance "Information", "Success", "Warning" or "Error"
 
 ### Modal
 
@@ -249,6 +250,10 @@ Ex:
   - new `close` twig parameter, expecting an ECL Button structure. It replaces the `close-label` parameter
   - Icon is now different between EC and EU: `close` for EC, `close-filled` for EU.
   - Icon size is different (`m` for EC, `s` for EU). This has to be passed as data.
+
+### News ticker
+
+- New twig parameter `sr_external` to add a textual indication when the link is external
 
 ### Navigation list
 

@@ -4,6 +4,8 @@
 $notification: (
   radius: 0,
   padding: var(--s-xl),
+  padding-end: var(--s-xl),
+  padding-start: var(--s-3xl),
   border-width: 1px,
   border-color: var(--c-n),
   font: var(--f-m),
@@ -12,7 +14,7 @@ $notification: (
   title-font-weight: map.get($font-weight, 'regular'),
   title-spacing: var(--s-s),
   close-color: var(--c-d),
-  close-offset: calc(var(--s-m) - var(--s-2xl)),
+  close-offset: calc(var(--s-m) - var(--s-xl)),
   info: (
     background: var(--c-n-20),
     color: var(--c-in),
