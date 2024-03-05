@@ -12,6 +12,7 @@ Primary button is designed for users to perform the most important task in a web
 
 - make sure the button‘s microcopy represents the action such as “Submit“ or “Register“
 - use an icon only when it is necessary
+- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
 
 ## Don'ts
 
@@ -31,8 +32,6 @@ Primary button is designed for users to perform the most important task in a web
 - do not use for downloads
 - do not use when the primary action is negative - use secondary button
 - do not use when the action can't be undone, such as delete
-
-  
 
 # Secondary Button
 
@@ -61,8 +60,6 @@ It is used to represent the secondary action in a web page. It is paired with a 
 - do not use for navigation
 - do not place it to the left side of the button group
 
-  
-
 # Text Button
 
 Text button is used in a web page with less prominent action. It can be grouped with other buttons or placed independently.
@@ -84,8 +81,6 @@ Text button is used in a web page with less prominent action. It can be grouped 
 ## When not to use
 
 - do not use for navigation purpose
-
-  
 
 # Call to action (CTA) button
 
