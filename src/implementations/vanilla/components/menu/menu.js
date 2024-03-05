@@ -1253,9 +1253,13 @@ export class Menu {
         if (caretButton && element !== caretButton) {
           return;
         }
-
-        // This is the last item, go back to close button
-        this.close.focus();
+        const focusedEl = document.activeElement;
+        const isStillMenu = this.element.contains(focusedEl);
+        if (!isStillMenu) {
+          setTimeout(() => {
+            this.open.focus();
+          }, 0);
+        }
       }
     }
   }
