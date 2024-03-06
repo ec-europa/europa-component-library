@@ -11,6 +11,7 @@
     - "external" (boolean) External link
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
+    - "featured": (object) (default({}))
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
@@ -25,6 +26,8 @@
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _featured = featured|default({}) %}
+{% set _see_all = see_all|default(false) %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _icon = {} %}
 
@@ -111,6 +114,9 @@
         } %}
         {% if child.children is defined and child.children is not empty %}
           {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              see_all_label: _see_all_label,
+              see_all: child.see_all|default(false),
+              featured: child.featured|default({}),
               item: {
                 children: child.children,
                 level: 2,
@@ -119,27 +125,42 @@
         {% endif %}
       </li>
     {% endfor %}
-
-    {% if _see_all_label is not empty %}
-      <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            type: 'standalone',
-            label: _see_all_label,
-            path: _item.path,
-            icon_path: _icon_path,
-          },
-          icon: {
-            name: 'arrow-left',
-            size: 'xs',
-            path: icon_path,
-            transform: 'rotate-180',
-          },
-          extra_classes: 'ecl-mega-menu__sublink',
-        } %}
-      </li>
-    {% endif %}
+    {% if _see_all and _see_all_label is not empty %}
+    <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all ">
+      {% include '@ecl/link/link.html.twig' with {
+        link: {
+          type: 'standalone',
+          label: _see_all_label,
+          path: _item.path,
+          icon_path: _icon_path,
+        },
+        icon: {
+          name: 'arrow-left',
+          size: 'xs',
+          path: icon_path,
+          transform: 'rotate-180',
+        },
+      } %}
+    </li>
+  {% endif %}
     </ul>
+  {% if _featured is not empty %}
+    <div
+      class="ecl-mega-menu__featured"
+      data-ecl-mega-menu-featured
+    >
+    {% if _featured.title is not empty %}
+      <span class="ecl-mega-menu__featured-title">
+        {{  _featured.title }}
+      </span>
+    {% endif %}
+    {% if _featured.content is not empty %}
+      <div class="ecl-mega-menu__featured-content">
+        {{ _featured.content }}
+      </div>
+    {% endif %}
+  </div>
+  {% endif %}
   </div>
 {% endif %}
 </li>

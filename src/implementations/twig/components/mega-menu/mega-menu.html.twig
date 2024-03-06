@@ -51,7 +51,6 @@
 {% set _site_name = site_name|default('') %}
 {% set _cta_link = cta_link|default({}) %}
 {% set _see_all_label = see_all_label|default('') %}
-{% set _featured = featured|default('') %}
 {% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
@@ -158,20 +157,6 @@
         {% endfor %}
       {% endif %}
       </ul>
-      {% if _featured is not empty %}
-        <div class="ecl-mega-menu__featured" data-ecl-mega-menu-featured >
-        {% if _featured.title is not empty %}
-          <span class="ecl-mega-menu__featured-title">
-            {{  _featured.title }}
-          </span>
-        {% endif %}
-        {% if _featured.content is not empty %}
-          <div class="ecl-mega-menu__featured-content">
-            {{ _featured.content }}
-          </div>
-        {% endif %}
-        </div>
-      {% endif %}
     </section>
   </div>
 </nav>

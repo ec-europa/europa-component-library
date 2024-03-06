@@ -39,6 +39,18 @@ module.exports = {
         { 
           label: 'Item 2.1',
           path: exampleLink,
+          see_all: true,
+          featured: {
+            title: 'featured column',
+            content:`<article class="ecl-card">
+                <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
+                <div class="ecl-card__body">
+                  <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
+                    <h1 class="ecl-content-block__title">Delivery on the priorities of items 2.1</h1>
+                  </div>
+                </div>
+              </article>`,
+          },
           children: [
             { label: 'Item 2.1 subitem 1', path: exampleLink },
             { label: 'Item 2.1 subitem 2', path: exampleLink },
@@ -76,6 +88,18 @@ module.exports = {
         {
           label: 'Research and innovation',
           path: exampleLink,
+          see_all: true,
+          featured: {
+            title: 'featured column',
+            content:`<article class="ecl-card">
+                <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
+                <div class="ecl-card__body">
+                  <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
+                    <h1 class="ecl-content-block__title">Delivery on the priorities of research and innovation</h1>
+                  </div>
+                </div>
+              </article>`,
+          },
           children: [
             { label: 'How we provide aid', path: exampleLink },
             { label: 'Who we work with', path: exampleLink },
@@ -93,6 +117,7 @@ module.exports = {
         { 
           label: 'Item 5.1',
           path: exampleLink,
+          see_all: true,
           children: [
             { label: 'Item 5.1 subitem 1', path: exampleLink },
             { label: 'Item 5.1 subitem 2', path: exampleLink },
@@ -137,6 +162,7 @@ module.exports = {
         { 
           label: 'Item 5.3',
           path: exampleLink,
+          see_all: true,
           children: [
             { label: 'Item 5.3 subitem 1', path: exampleLink },
             { label: 'Item 5.3 subitem 2', path: exampleLink },
@@ -167,15 +193,4 @@ module.exports = {
       path: exampleLink,
     },
   ],
-  featured: {
-    title: 'featured column',
-    content:`<article class="ecl-card">
-      <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
-      <div class="ecl-card__body">
-        <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
-          <h1 class="ecl-content-block__title">Delivery on the priorities</h1>
-        </div>
-      </div>
-    </article>`,
-  },
 };
