@@ -17,4 +17,4 @@ For support in building a European Commission website using the ECL, please cont
 
 **Y﻿ou are now visiting ECL v4.**This new version does not have a significant impact in the EU visual identity and is mainly focused in the EC brand. However some minor improvements have been included.
 
-**Were you looking for ECL version 3? Follow this link to reach its latest version.**
+**Were you looking for ECL version 3? Follow this [link](https://ec.europa.eu/component-library/v3.13.0/eu) to reach its latest version.**
