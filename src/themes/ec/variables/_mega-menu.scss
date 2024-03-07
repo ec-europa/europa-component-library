@@ -41,7 +41,7 @@ $mega-menu: (
     caret-color: var(--c-d),
     subtitle-border: 1px solid var(--c-n),
     subtitle-font: var(--f-m),
-    subtitle-font-weight: map.get($font-weight, 'bold'),
+    subtitle-font-weight: map.get($font-weight, 'normal'),
     subitem-padding: var(--s-xs) var(--s-m) var(--s-xs) var(--s-m),
   ),
   desktop: (
@@ -61,7 +61,7 @@ $mega-menu: (
     separator-color: map.get($color, 'white'),
     link-padding: var(--s-s) var(--s-m),
     link-expanded-padding: var(--s-s) var(--s-m),
-    link-line-height: map.get($line-height, 'xs'),
+    link-line-height: map.get($line-height, 'm'),
     caret-padding: 0 var(--s-xs),
     caret-focus-outline: var(--c-p),
     overflow-separator-width: 2px,

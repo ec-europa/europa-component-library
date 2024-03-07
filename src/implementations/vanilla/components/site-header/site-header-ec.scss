@@ -34,7 +34,8 @@ $language-list: null !default;
     background-size: auto 100%;
   }
 
-  .ecl-menu {
+  .ecl-menu,
+  .ecl-mega-menu {
     bottom: 0;
     padding: 0;
     position: absolute;
@@ -258,7 +259,8 @@ $language-list: null !default;
 $menu-top: calc(44px + 2 * var(--s-xs));
 
 // stylelint-disable-next-line no-duplicate-selectors
-.ecl-site-header .ecl-menu {
+.ecl-site-header .ecl-menu,
+.ecl-site-header .ecl-mega-menu {
   bottom: auto;
   padding: 0;
   position: absolute;
@@ -268,7 +270,9 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 .ecl-site-header .ecl-menu__overlay,
-.ecl-site-header .ecl-menu__inner {
+.ecl-site-header .ecl-menu__inner,
+.ecl-site-header .ecl-mega-menu__overlay,
+.ecl-site-header .ecl-mega-menu__inner {
   top: $menu-top;
 }
 
@@ -324,8 +328,16 @@ $menu-top: calc(44px + 2 * var(--s-xs));
       }
     }
 
+    .ecl-mega-menu {
+      position: relative;
+      top: 0;
+      width: 100%;
+    }
+
     .ecl-menu__overlay,
-    .ecl-menu__inner {
+    .ecl-menu__inner,
+    .ecl-mega-menu__overlay,
+    .ecl-mega-menu__inner {
       top: 0;
     }
   }
