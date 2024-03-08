@@ -496,7 +496,6 @@ $mega-menu: null !default;
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-mega-menu__link {
     background-color: transparent;
-    border-bottom: map.get($mega-menu, 'mobile', 'subtitle-border');
     box-shadow: none;
     font: map.get($mega-menu, 'mobile', 'subtitle-font');
     font-weight: map.get($mega-menu, 'mobile', 'subtitle-font-weight');
@@ -528,10 +527,11 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__sublist {
+  border-top: map.get($mega-menu, 'mobile', 'subtitle-border');
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
-  margin: 0 0 var(--s-xl);
-  padding: var(--s-s) 0 0;
+  margin: var(--s-xs) 0 var(--s-xl);
+  padding: var(--s-xs) 0 0;
 
   .ecl-mega-menu__see-all {
     flex: 1 0 100% !important;
@@ -544,6 +544,10 @@ $mega-menu: null !default;
       padding-top: var(--s-m);
     }
   }
+}
+
+.ecl-mega-menu__sublist--no-border {
+  border-top: none;
 }
 
 .ecl-mega-menu__subitem {
@@ -614,10 +618,10 @@ $mega-menu: null !default;
       z-index: map.get($theme, 'z-index', 'dropdown');
     }
 
-    .ecl-mega-menu__inner--expanded .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded) {
+    .ecl-mega-menu__inner--expanded .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded),
+    .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
       display: flex;
     }
-
 
     .ecl-mega-menu__item[aria-expanded='true'],
     .ecl-mega-menu__subitem[aria-expanded='true'] { 
@@ -647,6 +651,8 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__sublist {
+      border-color: map.get($theme, 'color', 'white');
+      margin-top: 0;
       overflow-y: auto;
       max-width: 17rem;
 
@@ -665,7 +671,8 @@ $mega-menu: null !default;
       visibility: hidden;
       transition-property: visibility;
 
-      .ecl-mega-menu__sublist: {
+      .ecl-mega-menu__sublist {
+        border-color: var(--c-n-80);
         padding-top: var(--s-m);
       }
 
@@ -674,7 +681,6 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__parent-link {
-        border-bottom: 1px solid var(--c-n-100);
         color: var(--c-d);
         margin-inline-start: var(--s-m);
         margin-inline-end: var(--s-m);
@@ -735,5 +741,11 @@ $mega-menu: null !default;
     left: 100%;
     width: 17rem;
     top: 0;
+
+    .ecl-mega-menu__featured-title {
+      color: var(--c-d);
+      font: var(--f-m);
+      padding-bottom: var(--s-xs);
+    }
   }
 }
