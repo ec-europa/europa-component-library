@@ -618,6 +618,10 @@ $mega-menu: null !default;
       z-index: map.get($theme, 'z-index', 'dropdown');
     }
 
+    .ecl-mega-menu__mega {
+      width: 16rem;
+    }
+
     .ecl-mega-menu__inner--expanded .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded),
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
       display: flex;
@@ -654,7 +658,6 @@ $mega-menu: null !default;
       border-color: map.get($theme, 'color', 'white');
       margin-top: 0;
       overflow-y: auto;
-      max-width: 17rem;
 
       .ecl-mega-menu__see-all {
         border-top: 1px solid var(--c-n-60);
@@ -695,13 +698,13 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__item--col2 {
       min-height: 100%;
+      min-width: 35rem;
 
       .ecl-mega-menu__sublist {
         align-content: flex-start;
         align-items: flex-start;
         display: flex;
         flex-wrap: wrap;
-        min-width: 35rem;
       }
 
       .ecl-mega-menu__subitem {
@@ -714,7 +717,6 @@ $mega-menu: null !default;
       border-top-width: 0;
       box-sizing: border-box;
       margin: 0;
-      min-width: 17rem; // Written in the specs
       padding: 0;
       width: 100%;
     }
