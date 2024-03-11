@@ -135,6 +135,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'show_mega_menu', truthy: false },
     };
     argTypes.show_mega_menu = {
       name: 'mega menu',
@@ -143,6 +144,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'show_menu', truthy: false },
     };
   }
   if (data.cta_link) {
@@ -228,13 +230,16 @@ const prepareData = (data, args) => {
     data.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (!args.show_menu) {
+  if (!args.show_menu && data.menu) {
     delete data.menu;
-  } else if (!args.show_mega_menu) {
+  }
+  if (args.show_menu && !data.menu) {
+    data.menu = enMenu;
+  }
+  if (!args.show_mega_menu && data.mega_menu) {
     delete data.mega_menu;
-  } else if (args.show_menu && !data.menu) {
-    data.mega_menu = enMenu;
-  } else if (args.show_mega_menu) {
+  }
+  if (args.show_mega_menu && !data.mega_menu) {
     data.mega_menu = enMegaMenu;
   }
 
@@ -292,19 +297,11 @@ const prepareData = (data, args) => {
     data.notification = clonedDataFull.notification;
   }
 
-  if (data.menu && args.show_menu) {
-    if (args.light) {
-      data.menu.variant = 'light';
-    } else {
-      data.menu.variant = '';
-    }
-  }
-
   correctPaths(data);
 
   data.logo.src_desktop = enLogoEC;
   data.logo.src_mobile = enLogoMobileEC;
-  console.log(data);
+
   return data;
 };
 
