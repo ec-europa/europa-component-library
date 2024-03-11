@@ -9,7 +9,6 @@ npm install --save @ecl/twig-component-mega-menu
 ### Parameters
 
 - **"id"** (string) (default: random): Unique id
-- **"variant"**: (string) (default: ''): Alternative display. Can be 'light'. Only used in EC
 - **"title"** (string) (default: ''): Title of the menu (displayed on mobile)
 - **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
 - **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
@@ -32,12 +31,8 @@ npm install --save @ecl/twig-component-mega-menu
   ]
   }
   ],
-- **"max_lines"**: (int) (default: 2): Number of lines for each first level item label. Set it to zero to remove this behavior
 - **"site_name"** (string) (default: ''): Name of the website (used only on mobile)
-- **"cta_link"** (optional) (default: {}): Call to action link compatible with ECL Link component structure (used only on mobile)
 - **"menu_link"** (string) (default: ''): Href attribute of the menu toggler
-- **"button_previous_label"** (string) (default: ''): Label for the button to display previous items, in case of overflow (for screen readers)
-- **"button_next_label"** (string) (default: ''): Label for the button to display next items, in case of overflow (for screen readers)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
@@ -97,7 +92,7 @@ npm install --save @ecl/twig-component-mega-menu
   extra_classes: "ecl-menu-extra-class,
   extra_attributes: [
     {
-      name:"data-ecl-menu",
+      name:"data-ecl-mega-menu",
     },
     ...
     ]

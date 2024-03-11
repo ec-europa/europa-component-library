@@ -14,7 +14,8 @@ import notes from './README.md';
 // Preserve original data.
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
-const enMenu = { ...enDataMegaMenu };
+const enMenu = { ...enDataMenu };
+const enMegaMenu = { ...enDataMegaMenu };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -55,6 +56,7 @@ const getArgs = (data) => {
   }
   if (data.has_menu) {
     defaultArgs.show_menu = true;
+    defaultArgs.show_mega_menu = false;
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -130,6 +132,14 @@ const getArgTypes = (data) => {
       name: 'menu',
       type: { name: 'boolean' },
       description: 'Show the menu',
+      table: {
+        category: 'Optional',
+      },
+    };
+    argTypes.show_mega_menu = {
+      name: 'mega menu',
+      type: { name: 'boolean' },
+      description: 'Show the mega menu',
       table: {
         category: 'Optional',
       },
@@ -220,8 +230,12 @@ const prepareData = (data, args) => {
 
   if (!args.show_menu) {
     delete data.menu;
+  } else if (!args.show_mega_menu) {
+    delete data.mega_menu;
   } else if (args.show_menu && !data.menu) {
-    data.mega_menu = enDataMegaMenu;
+    data.mega_menu = enMenu;
+  } else if (args.show_mega_menu) {
+    data.mega_menu = enMegaMenu;
   }
 
   data.logged = args.logged;
@@ -278,7 +292,7 @@ const prepareData = (data, args) => {
     data.notification = clonedDataFull.notification;
   }
 
-  if (data.menu) {
+  if (data.menu && args.show_menu) {
     if (args.light) {
       data.menu.variant = 'light';
     } else {
@@ -290,7 +304,7 @@ const prepareData = (data, args) => {
 
   data.logo.src_desktop = enLogoEC;
   data.logo.src_mobile = enLogoMobileEC;
-
+  console.log(data);
   return data;
 };
 

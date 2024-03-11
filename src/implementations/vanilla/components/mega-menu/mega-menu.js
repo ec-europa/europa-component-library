@@ -491,15 +491,17 @@ export class MegaMenu {
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
       const dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
-      const megaMenu = dropdown.parentNode;
-      const dropdownTop = dropdown.getBoundingClientRect().top;
-      let dropdownHeight = viewportHeight - dropdownTop;
-      const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
-      if (lastItem) {
-        dropdownHeight = dropdownHeight - 30;
+      if (dropdown) {
+        const megaMenu = dropdown.parentNode;
+        const dropdownTop = dropdown.getBoundingClientRect().top;
+        let dropdownHeight = viewportHeight - dropdownTop;
+        const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
+        if (lastItem) {
+          dropdownHeight = dropdownHeight - 30;
+        }
+        dropdown.style.height = `${dropdownHeight}px`;
+        callback(dropdownHeight);
       }
-      dropdown.style.height = `${dropdownHeight}px`;
-      callback(dropdownHeight);
     }, 0);
   }
 
