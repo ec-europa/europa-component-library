@@ -215,20 +215,14 @@ $list-illustration: null !default;
     margin-bottom: var(--s-m);
   }
 
-  .ecl-list-illustration__description {
-    align-self: center;
-    display: inline-block;
-  }
-
   // stylelint-disable-next-line no-descending-specificity
   .ecl-list-illustration__item {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
 
     * {
-      text-align: center;
+      align-self: center;
     }
 
     .ecl-list-illustration__icon,
