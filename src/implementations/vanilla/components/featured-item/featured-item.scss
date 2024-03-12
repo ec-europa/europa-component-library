@@ -33,7 +33,7 @@ $featured-item: null !default;
 
 .ecl-featured-item__title {
   margin: 0;
-  padding: map.get($featured-item, 'title-spacing');
+  padding: map.get($featured-item, 'title-spacing-mobile');
 }
 
 .ecl-featured-item__title-content {
@@ -47,8 +47,7 @@ $featured-item: null !default;
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
   font: map.get($featured-item, 'description-font');
-  margin: 0;
-  margin: map.get($featured-item, 'description-spacing');
+  margin: map.get($featured-item, 'description-spacing-mobile');
   max-width: var(--max-w);
 
   > *:first-child {
@@ -62,13 +61,17 @@ $featured-item: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
-  margin: map.get($featured-item, 'link-spacing');
+  margin: map.get($featured-item, 'link-spacing-mobile');
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item__container {
     flex-direction: row;
+  }
+
+  .ecl-featured-item__title {
+    margin: map.get($featured-item, 'title-spacing-desktop');
   }
 
   .ecl-featured-item__media_container {
@@ -81,6 +84,14 @@ $featured-item: null !default;
     .ecl-featured-item__media_container {
       padding: map.get($featured-item, 'media-padding-right');
     }
+  }
+
+  .ecl-featured-item__link {
+    margin: map.get($featured-item, 'link-spacing-desktop');
+  }
+
+  .ecl-featured-item__description {
+    margin: map.get($featured-item, 'description-spacing-desktop');
   }
 }
 
@@ -100,17 +111,26 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'padding-mobile');
   }
 
+  .ecl-featured-item__media_container {
+    padding: map.get($featured-item, 'highlight', 'media-padding');
+  }
+
   .ecl-featured-item__item:last-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
   }
 
   .ecl-featured-item__title {
     background-color: map.get($featured-item, 'highlight', 'title-background');
+    margin: 0;
     padding: map.get($featured-item, 'highlight', 'title-spacing');
   }
 
   .ecl-featured-item__description {
     margin: map.get($featured-item, 'highlight', 'description-spacing');
+  }
+
+  .ecl-featured-item__link {
+    margin: map.get($featured-item, 'highlight', 'link-spacing');
   }
 }
 
