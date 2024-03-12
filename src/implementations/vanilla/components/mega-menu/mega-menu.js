@@ -441,6 +441,9 @@ export class MegaMenu {
       }
       // Reset styles for the sublist and subitems
       subLists.forEach((list) => {
+        if (!this.isLarge) {
+          list.parentNode.classList.remove('ecl-mega-menu__item--col2');
+        }
         list.classList.remove('ecl-mega-menu__sublist--no-border');
         list.childNodes.forEach((item) => {
           item.style.display = '';
@@ -502,7 +505,7 @@ export class MegaMenu {
         dropdown.style.height = `${dropdownHeight}px`;
         callback(dropdownHeight);
       }
-    }, 0);
+    }, 100);
   }
 
   /**
@@ -522,6 +525,12 @@ export class MegaMenu {
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
           }
+          const megaMenus = queryAll('.ecl-mega-menu__item > .ecl-mega-menu__mega', this.element);
+          if (megaMenus) {
+            megaMenus.forEach((mega) => {
+              mega.style.top = '';
+            });
+          }
         }
       }, 0);
     } else {
@@ -530,6 +539,15 @@ export class MegaMenu {
         if (siteHeader) {
           const headerRect = siteHeader.getBoundingClientRect();
           const headerBottom = headerRect.bottom;
+          const item = queryOne(this.itemSelector, this.element);
+          const rect = item.getBoundingClientRect();
+          const rectHeight = rect.height + 4;
+          const megaMenus = queryAll('.ecl-mega-menu__item > .ecl-mega-menu__mega', this.element);
+          if (megaMenus) {
+            megaMenus.forEach((mega) => {
+              mega.style.top = `${rectHeight}px`;
+            });
+          }
           if (menuOverlay) {
             menuOverlay.style.top = `${headerBottom}px`;
           }
@@ -728,7 +746,7 @@ export class MegaMenu {
    */
   handleClickOnOpen(e) {
     e.preventDefault();
-
+    document.body.classList.add('no-scroll');
     this.element.setAttribute('aria-expanded', 'true');
     this.inner.setAttribute('aria-hidden', 'false');
     this.isOpen = true;
@@ -751,31 +769,36 @@ export class MegaMenu {
    * @fires Menu#onClose
    */
   handleClickOnClose(e) {
-    this.element.setAttribute('aria-expanded', 'false');
-    this.element.removeAttribute('data-expanded');
-    // Remove css class and attribute from inner menu
-    this.inner.classList.remove('ecl-mega-menu__inner--expanded');
-    this.inner.setAttribute('aria-hidden', 'true');
+    if (this.element.getAttribute('aria-expanded') === 'true') {
+      document.body.classList.remove('no-scroll');
+      this.element.setAttribute('aria-expanded', 'false');
+      this.element.removeAttribute('data-expanded');
+      // Remove css class and attribute from inner menu
+      this.inner.classList.remove('ecl-mega-menu__inner--expanded');
+      this.inner.setAttribute('aria-hidden', 'true');
 
-    // Remove css class and attribute from menu items
-    this.items.forEach((item) => {
-      item.classList.remove('ecl-mega-menu__item--expanded');
-      item.setAttribute('aria-expanded', 'false');
-    });
+      // Remove css class and attribute from menu items
+      this.items.forEach((item) => {
+        item.classList.remove('ecl-mega-menu__item--expanded');
+        item.setAttribute('aria-expanded', 'false');
+      });
 
-    // Update label
-    const openLabel = this.element.getAttribute(this.labelOpenAttribute);
-    if (this.toggleLabel && openLabel) {
-      this.toggleLabel.innerHTML = openLabel;
+      // Update label
+      const openLabel = this.element.getAttribute(this.labelOpenAttribute);
+      if (this.toggleLabel && openLabel) {
+        this.toggleLabel.innerHTML = openLabel;
+      }
+
+      // Set focus to hamburger button
+      if (this.open) {
+        this.open.focus();
+      }
+
+      this.isOpen = false;
+      this.trigger('onClose', e);
+    } else {
+      this.handleClickOnOpen(e);
     }
-
-    // Set focus to hamburger button
-    if (this.open) {
-      this.open.focus();
-    }
-
-    this.isOpen = false;
-    this.trigger('onClose', e);
 
     return this;
   }
@@ -842,7 +865,6 @@ export class MegaMenu {
         this.element.setAttribute('data-expanded', true);
         this.element.setAttribute('aria-expanded', 'true');
         document.body.classList.add('no-scroll');
-        
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
             if (item === menuItem) {
@@ -884,14 +906,18 @@ export class MegaMenu {
     switch (op) {
       case 'expand':
         this.subItems.forEach((item) => {
-          if (item.hasAttribute('aria-expanded')) {
-            if (item === menuItem) {
+          if (item === menuItem) {
+            if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'true');
-              item.classList.add('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
-            } else {
-              item.classList.remove('ecl-mega-menu__subitem--current', 'ecl-mega-menu__subitem--expanded');
-              item.setAttribute('aria-expanded', 'false');     
+              item.classList.add('ecl-mega-menu__subitem--expanded');
             }
+            item.classList.add('ecl-mega-menu__subitem--current');
+          } else {
+            if (item.hasAttribute('aria-expanded')) {
+              item.setAttribute('aria-expanded', 'false');
+              item.classList.remove('ecl-mega-menu__subitem--expanded');
+            }
+            item.classList.remove('ecl-mega-menu__subitem--current');
           }
         });
         this.openPanel = { num: 2, item: menuItem };
@@ -969,7 +995,6 @@ export class MegaMenu {
    */
   handleClickOnSubitem(e) {
     const menuItem = e.target.closest(this.subItemSelector);
-    console.log(menuItem);
     if (menuItem && menuItem.hasAttribute('aria-expanded')) {
       e.preventDefault();
       const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
@@ -1045,11 +1070,13 @@ export class MegaMenu {
     if (this.isOpen) {
       // Check if the click occured in the menu
       if (!this.inner.contains(e.target) && !this.open.contains(e.target)) {
-        this.handleClickOnClose(e);
+        this.element.setAttribute('aria-expanded', 'false');
+        this.closeOpenDropdown();
       }
     }
-    if (e.target.classList.contains('ecl-mega-menu__overlay')) {
+    if (e.target.classList.contains('ecl-mega-menu__overlay') || !this.element.contains(e.target)) {
       this.element.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('no-scroll');
       this.closeOpenDropdown();
     }
   }
