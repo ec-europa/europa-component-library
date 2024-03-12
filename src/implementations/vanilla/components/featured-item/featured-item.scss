@@ -78,20 +78,40 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'media-padding-desktop');
   }
 
-  .ecl-featured-item__container--right {
-    flex-direction: row-reverse;
-
-    .ecl-featured-item__media_container {
-      padding: map.get($featured-item, 'media-padding-right');
-    }
-  }
-
   .ecl-featured-item__link {
     margin: map.get($featured-item, 'link-spacing-desktop');
   }
 
   .ecl-featured-item__description {
     margin: map.get($featured-item, 'description-spacing-desktop');
+  }
+
+  .ecl-featured-item__container--right {
+    flex-direction: row-reverse;
+
+    .ecl-featured-item__title {
+      margin: map.get($featured-item, 'title-spacing-right');
+    }
+
+    .ecl-featured-item__description {
+      margin: map.get($featured-item, 'description-spacing-right');
+    }
+
+    .ecl-featured-item__link {
+      margin: map.get($featured-item, 'link-spacing-right');
+    }
+
+    .ecl-featured-item__media_container {
+      padding: map.get($featured-item, 'media-padding-right');
+    }
+
+    .ecl-featured-item__item:only-child {
+      .ecl-featured-item__description,
+      .ecl-featured-item__link,
+      .ecl-featured-item__title {
+        margin-inline-start: 0;
+      }
+    }
   }
 }
 
