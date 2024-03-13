@@ -169,6 +169,7 @@ $featured-item: null !default;
 .ecl-featured-item__footer {
   justify-content: space-between;
   background-color: var(--c-p);
+  border-radius: 0 0 2px 2px;
   display: flex;
   padding: var(--s-xl);
 }
@@ -192,8 +193,14 @@ $featured-item: null !default;
   img {
     align-self: stretch;
     margin-inline-start: var(--s-xl);
+    max-width: 72px;
+    max-height: 72px;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-featured-item__footer-picture img {
+    max-height: 120px;
     max-width: 210px;
-    max-height: 100%;
-    min-width: 72px;
   }
 }
