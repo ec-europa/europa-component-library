@@ -4,7 +4,7 @@
 $link: (
   color: var(--c-p),
   color-hover: var(--c-p-140),
-  color-visited: var(--c-d),
+  color-visited: var(--c-p),
   color-active: var(--c-d),
   outline-color: var(--c-p),
   outline-width: 2px,
@@ -12,7 +12,7 @@ $link: (
   inverted: (
     color: map.get($color, 'white'),
     color-hover: var(--c-s-60),
-    color-visited: var(--c-s-80),
+    color-visited: map.get($color, 'white'),
     color-active: var(--c-s-80),
     outline-color: map.get($color, 'white'),
   ),
