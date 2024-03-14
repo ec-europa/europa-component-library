@@ -9,8 +9,6 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import dataShort from '@ecl/specs-component-menu/demo/data--ec';
 import dataLong from '@ecl/specs-component-menu/demo/data--ec-long';
 
-const dataLight = { ...dataLong, variant: 'light' };
-
 expect.extend(toHaveNoViolations);
 
 describe('Menu', () => {
@@ -72,20 +70,6 @@ describe('Menu', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataLong)),
-      ).toHaveNoViolations();
-    });
-  });
-
-  describe('Light', () => {
-    test('renders correctly', () => {
-      expect.assertions(1);
-
-      return expect(render(dataLight)).resolves.toMatchSnapshot();
-    });
-
-    test(`passes the accessibility tests`, async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, dataLight)),
       ).toHaveNoViolations();
     });
   });

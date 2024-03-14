@@ -28,8 +28,9 @@ $notification: (
     color: var(--c-wa),
     icon-background-color: var(--c-d),
     icon-background-height: var(--s-m),
-    icon-background-top: 35px,
-    icon-background-left: 36px,
+    icon-background-top: calc(var(--s-xl) + var(--s-s)),
+    icon-background-left:
+      calc(var(--s-3xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
   ),
   error: (
     background: var(--c-n-20),

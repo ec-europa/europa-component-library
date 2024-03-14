@@ -40,7 +40,6 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
-    light: false,
   };
 
   if (data.login_box) {
@@ -208,15 +207,6 @@ const getArgTypes = (data) => {
       if: { arg: 'show_language_selector' },
     };
   }
-
-  argTypes.light = {
-    name: 'light',
-    type: { name: 'boolean' },
-    description: 'Use the light display',
-    table: {
-      category: 'Display',
-    },
-  };
 
   return argTypes;
 };
