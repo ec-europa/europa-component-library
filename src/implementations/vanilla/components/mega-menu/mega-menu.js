@@ -417,6 +417,7 @@ export class MegaMenu {
       subLists.forEach((list) => {
         list.style.height = '';
       });
+
       if (this.openPanel.num === 2) {
         const menuItem = this.openPanel.item;
         // Hide parent link in the first panel
@@ -449,6 +450,15 @@ export class MegaMenu {
           item.style.display = '';
         });
       });
+      // Check if we have an open item, if we don't hide the overlay and enable scroll
+      const current = queryOne('.ecl-mega-menu__item--expanded', this.element);
+      if (current) {
+        this.checkDropdownHeight(current);
+      } else {
+        this.element.setAttribute('aria-expanded', 'false');
+        this.element.setAttribute('data-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+      }
     }
   }
 
@@ -470,7 +480,6 @@ export class MegaMenu {
         this.resetStyles('mobile');
       } else {
         this.resetStyles('desktop');
-        this.checkDropdownHeight();
       }
       this.positionMenuOverlay();
 
@@ -881,6 +890,7 @@ export class MegaMenu {
       case 'collapse':
         document.body.classList.remove('no-scroll');
         this.element.removeAttribute('data-expanded');
+        this.inner.classList.remove('ecl-mega-menu__inner--expanded');
         this.element.setAttribute('aria-expanded', 'false');
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
@@ -948,6 +958,7 @@ export class MegaMenu {
       case 'collapse':
         this.openPanel = { num: 1 };
         menuItem.setAttribute('aria-expanded', 'false');
+        menuItem.classList.remove('ecl-mega-menu__subitem--expanded', 'ecl-mega-menu__subitem--current');
         break;
     }
   }

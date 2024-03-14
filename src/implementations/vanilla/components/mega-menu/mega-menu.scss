@@ -736,6 +736,7 @@ $mega-menu: null !default;
     .ecl-mega-menu__subitem--current > .ecl-mega-menu__sublink {
       background-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
       border-inline-start: 4px solid var(--c-p);
+      padding-inline-start: var(--s-s);
       box-shadow: map.get($mega-menu, 'desktop', 'sublink-current-shadow');
     }
   }
