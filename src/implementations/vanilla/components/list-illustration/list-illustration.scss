@@ -151,12 +151,19 @@ $list-illustration: null !default;
       padding: 0;
     }
 
+    .ecl-list-illustration__picture:not(
+        .ecl-list-illustration__picture--square
+      ) {
+      width: 100%;
+    }
+
     .ecl-list-illustration__image {
       margin-inline-end: 0;
       margin-bottom: var(--s-m);
 
       &:not(.ecl-list-illustration__image--square) {
         width: 100%;
+        object-fit: cover;
       }
     }
   }
