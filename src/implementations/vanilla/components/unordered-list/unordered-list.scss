@@ -16,22 +16,24 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
+  padding-bottom: var(--s-2xs);
   padding-inline-start: var(--s-3xl);
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
   margin-inline-start: var(--s-m);
-  margin-top: var(--s-m);
+  padding-bottom: var(--s-2xs);
+  padding-top: var(--s-2xs);
   max-width: var(--max-w);
   padding-inline-start: var(--s-xs);
 
   &:first-of-type {
-    margin-top: var(--s-xs);
+    padding-top: var(--s-2xs);
   }
 
   &:last-of-type {
-    margin-bottom: var(--s-xs);
+    padding-bottom: 0;
   }
 }
 
@@ -39,10 +41,12 @@ $list: null !default;
 .ecl-unordered-list .ecl-ordered-list,
 %ecl-unordered-list--nested {
   list-style-type: map.get($list, 'unordered', 'sublist-marker');
-  margin-top: var(--s-xs);
+  padding-bottom: 0;
+  padding-top: var(--s-2xs);
   padding-inline-start: calc(var(--s-3xl) - var(--s-m) - var(--s-xs));
 
   .ecl-unordered-list__item {
+    padding-top: var(--s-2xs);
     padding-inline-start: 0;
   }
 }
@@ -94,14 +98,4 @@ $list: null !default;
       padding-inline-start: var(--s-xs);
     }
   }
-}
-
-.ecl-unordered-list
-  .ecl-unordered-list
-  .ecl-unordered-list__item:first-of-type {
-  margin-top: var(--s-m);
-}
-
-.ecl-unordered-list .ecl-unordered-list .ecl-unordered-list__item:last-of-type {
-  margin-bottom: 0;
 }
