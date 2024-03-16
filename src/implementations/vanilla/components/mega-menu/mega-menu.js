@@ -413,7 +413,7 @@ export class MegaMenu {
       subLists.forEach((list) => {
         list.style.height = '';
       });
-
+      // Two panels are opened
       if (this.openPanel.num === 2) {
         const menuItem = this.openPanel.item;
         // Hide parent link in the first panel
@@ -469,7 +469,7 @@ export class MegaMenu {
         });
       } else {
         this.element.setAttribute('aria-expanded', 'false');
-        this.element.setAttribute('data-expanded', 'false');
+        this.element.removeAttribute('data-expanded');
         document.body.classList.remove('no-scroll');
       }
     }
@@ -915,6 +915,7 @@ export class MegaMenu {
     switch (op) {
       case 'expand':
         this.inner.classList.add('ecl-mega-menu__inner--expanded');
+        this.positionMenuOverlay();
         this.cloneItemInTheDrowdown(menuItem);
         this.checkDropdownHeight(menuItem);
         this.element.setAttribute('data-expanded', true);

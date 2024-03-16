@@ -118,6 +118,7 @@
               see_all: child.see_all|default(false),
               featured: child.featured|default({}),
               item: {
+                path: child.path, 
                 children: child.children,
                 level: 2,
               },           
@@ -126,13 +127,12 @@
       </li>
     {% endfor %}
     {% if _see_all and _see_all_label is not empty %}
-    <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all ">
+    <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
       {% include '@ecl/link/link.html.twig' with {
         link: {
           type: 'standalone',
           label: _see_all_label,
           path: _item.path,
-          icon_path: _icon_path,
         },
         icon: {
           name: 'arrow-left',
