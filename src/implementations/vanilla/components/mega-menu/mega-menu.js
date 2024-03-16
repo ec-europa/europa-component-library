@@ -929,15 +929,23 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               item.setAttribute('aria-expanded', 'true');
+              item.setAttribute('aria-current', 'true');
             } else {
               item.setAttribute('aria-expanded', 'false');
               item.classList.remove(
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
               );
+              item.removeAttribute('aria-current');
             }
           }
         });
+        // This is fixing a situation where some items in the second panel
+        // might be hidden. It shouldn't be needed, it means there is a flaw.
+        this.subItems.forEach((item) => {
+          item.style.display = '';
+        });
+
         queryOne('.ecl-mega-menu__parent-link', menuItem).focus();
         break;
 
@@ -966,12 +974,17 @@ export class MegaMenu {
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
             item.classList.add('ecl-mega-menu__subitem--current');
+            item.setAttribute('aria-current', true);
+            item
+              .closest('.ecl-mega-menu__item')
+              .removeAttribute('aria-current');
           } else {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'false');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
             item.classList.remove('ecl-mega-menu__subitem--current');
+            item.removeAttribute('aria-current');
           }
         });
         this.openPanel = { num: 2, item: menuItem };
@@ -1087,6 +1100,7 @@ export class MegaMenu {
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-mega-menu__item--current');
+      item.removeAttribute('aria-current');
       if (item.hasAttribute('aria-expanded')) {
         item.setAttribute('aria-expanded', 'false');
         item.classList.remove('ecl-mega-menu__item--expanded');
@@ -1094,6 +1108,7 @@ export class MegaMenu {
     });
     this.subItems.forEach((item) => {
       item.classList.remove('ecl-mega-menu__subitem--current');
+      item.removeAttribute('aria-current');
       if (item.hasAttribute('aria-expanded')) {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.setAttribute('aria-expanded', 'false');

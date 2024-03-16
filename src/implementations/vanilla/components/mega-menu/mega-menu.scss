@@ -230,7 +230,8 @@ $mega-menu: null !default;
     flex-flow: row;
   }
 
-  .ecl-mega-menu__inner:not(.ecl-mega-menu__inner--expanded) .ecl-mega-menu__inner-header,
+  .ecl-mega-menu__inner:not(.ecl-mega-menu__inner--expanded)
+    .ecl-mega-menu__inner-header,
   .ecl-mega-menu__close {
     display: none;
   }
@@ -252,7 +253,10 @@ $mega-menu: null !default;
   left: 0;
   position: fixed;
   right: 0;
-  top: calc(map.get($mega-menu, 'desktop', 'link-line-height') + var(--s-s) * 2 + 0.25rem);
+  top: calc(
+    map.get($mega-menu, 'desktop', 'link-line-height') + var(--s-s) * 2 +
+      0.25rem
+  );
   width: 100%;
 
   // z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -285,7 +289,6 @@ $mega-menu: null !default;
       width: 100%;
       z-index: map.get($theme, 'z-index', 'modal');
     }
-
 
     .ecl-menu__overlay {
       display: none;
@@ -347,9 +350,11 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__item--current .ecl-mega-menu__link,
-.ecl-mega-menu__subitem--current > .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link) {
+.ecl-mega-menu__subitem--current
+  > .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link) {
   background-color: map.get($mega-menu, 'mobile', 'item-active-background');
-  box-shadow: inset 4px 0 0 0 map.get($mega-menu, 'mobile', 'item-active-border');
+  box-shadow: inset 4px 0 0 0
+    map.get($mega-menu, 'mobile', 'item-active-border');
   position: relative;
 }
 
@@ -362,9 +367,6 @@ $mega-menu: null !default;
       flex-direction: row;
       left: 0;
       right: 0;
-      transition:
-        left 0.5s,
-        right 0.5s;
     }
 
     .ecl-mega-menu__item {
@@ -379,7 +381,11 @@ $mega-menu: null !default;
 
       &:not(.ecl-mega-menu__item--current):hover,
       &:not(.ecl-mega-menu__item--current):focus-within {
-        background-color: map.get($mega-menu, 'desktop', 'item-background-hover');
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'item-background-hover'
+        );
         box-shadow: map.get($mega-menu, 'desktop', 'item-shadow-hover');
         color: map.get($mega-menu, 'desktop', 'item-color-hover');
       }
@@ -413,7 +419,11 @@ $mega-menu: null !default;
       }
 
       &:focus-visible {
-        background-color: map.get($mega-menu, 'desktop', 'item-background-focus');
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'item-background-focus'
+        );
         border-radius: 0;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
@@ -426,13 +436,21 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__item--current {
-      background-color: map.get($mega-menu, 'desktop', 'item-current-background');
+      background-color: map.get(
+        $mega-menu,
+        'desktop',
+        'item-current-background'
+      );
       box-shadow: map.get($mega-menu, 'desktop', 'item-current-shadow');
       color: map.get($mega-menu, 'desktop', 'item-current-color');
       margin-top: map.get($mega-menu, 'desktop', 'item-current-margin');
 
       &:hover {
-        background-color: map.get($mega-menu, 'desktop', 'item-current-background');
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'item-current-background'
+        );
       }
 
       .ecl-mega-menu__link:focus-visible {
@@ -447,7 +465,10 @@ $mega-menu: null !default;
     }
   }
 
-  .ecl-mega-menu:not(.ecl-mega-menu--forced-mobile, .ecl-mega-menu--forced-close) {
+  .ecl-mega-menu:not(
+      .ecl-mega-menu--forced-mobile,
+      .ecl-mega-menu--forced-close
+    ) {
     .ecl-mega-menu__item {
       &[aria-expanded='true'] > .ecl-link .ecl-icon {
         transform: rotate(0);
@@ -494,13 +515,12 @@ $mega-menu: null !default;
   > .ecl-mega-menu__mega {
     display: flex;
   }
-  
+
   > .ecl-mega-menu__link,
   > .ecl-mega-menu__sublink {
     display: none;
   }
 
-  
   .ecl-mega-menu__link {
     background-color: transparent;
     box-shadow: none;
@@ -509,7 +529,8 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu__inner--expanded .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded) {
+.ecl-mega-menu__inner--expanded
+  .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded) {
   display: none;
 }
 
@@ -528,6 +549,7 @@ $mega-menu: null !default;
     flex: 1 0 100% !important;
 
     .ecl-link {
+      border-radius: 0;
       box-sizing: border-box;
       display: block;
       width: calc(100% - var(--s-m) * 2);
@@ -584,7 +606,10 @@ $mega-menu: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
-  .ecl-mega-menu:not(.ecl-mega-menu--forced-mobile, .ecl-mega-menu--forced-close) {
+  .ecl-mega-menu:not(
+      .ecl-mega-menu--forced-mobile,
+      .ecl-mega-menu--forced-close
+    ) {
     .ecl-mega-menu__item > .ecl-mega-menu__mega {
       background-color: var(--c-n-60);
       border: map.get($mega-menu, 'desktop', 'mega-border');
@@ -595,7 +620,10 @@ $mega-menu: null !default;
       left: 0;
       min-height: 100%;
       position: absolute;
-      top: calc(map.get($mega-menu, 'desktop', 'link-line-height') + var(--s-s) * 2 + 0.25rem);
+      top: calc(
+        map.get($mega-menu, 'desktop', 'link-line-height') + var(--s-s) * 2 +
+          0.25rem
+      );
       transition-property: opacity;
       transition-duration: 0.3s;
       transition-timing-function: ease;
@@ -612,7 +640,8 @@ $mega-menu: null !default;
       justify-content: center;
     }
 
-    .ecl-mega-menu__inner--expanded .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded),
+    .ecl-mega-menu__inner--expanded
+      .ecl-mega-menu__item:not(.ecl-mega-menu__item--expanded),
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
       display: flex;
     }
@@ -622,7 +651,7 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__item[aria-expanded='true'],
-    .ecl-mega-menu__subitem[aria-expanded='true'] { 
+    .ecl-mega-menu__subitem[aria-expanded='true'] {
       > .ecl-mega-menu__mega {
         transition-property: opacity;
         opacity: 1;
@@ -684,13 +713,13 @@ $mega-menu: null !default;
       transition-duration: 0.3s;
 
       .ecl-mega-menu__sublist {
-        border: none;  
+        border: none;
         padding-top: var(--s-m);
         position: relative;
 
         &::before {
           background-color: var(--c-n);
-          content: "";
+          content: '';
           display: block;
           width: calc(100% - 2rem);
           height: 1px;
@@ -737,6 +766,7 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__subitem {
         flex: 1 0 50%;
+        flex-grow: 0;
       }
     }
 
@@ -763,7 +793,11 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__subitem--current > .ecl-mega-menu__sublink {
-      background-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+      background-color: map.get(
+        $mega-menu,
+        'desktop',
+        'sublink-current-background'
+      );
       border-inline-start: 4px solid var(--c-p);
       padding-inline-start: var(--s-s);
       box-shadow: map.get($mega-menu, 'desktop', 'sublink-current-shadow');
