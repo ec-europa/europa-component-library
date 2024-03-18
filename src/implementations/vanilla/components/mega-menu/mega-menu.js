@@ -4,6 +4,7 @@ import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
+import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -235,6 +236,7 @@ export class MegaMenu {
     if (seeAllLinks.length > 0) {
       seeAllLinks.forEach((seeAll) => {
         seeAll.addEventListener('keyup', this.handleKeyboard);
+        seeAll.addEventListener('blur', this.handleFocusOut);
       });
     }
 
@@ -265,7 +267,8 @@ export class MegaMenu {
 
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
-
+    // Create a focus trap around the menu
+    this.focusTrap = createFocusTrap(this.element);
     // Hack to prevent css transition to be played on page load on chrome
     setTimeout(() => {
       this.element.classList.add('ecl-mega-menu--transition');
@@ -730,7 +733,10 @@ export class MegaMenu {
       }
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         e.preventDefault();
-        if (element.parentElement.getAttribute('aria-expanded') === 'true') {
+        if (
+          element.parentElement.getAttribute('aria-expanded') === 'true' &&
+          e.key === 'ArrowDown'
+        ) {
           const parentLink = queryOne(
             '.ecl-mega-menu__parent-link',
             element.parentElement,
@@ -781,6 +787,15 @@ export class MegaMenu {
         } else {
           element.parentElement.parentElement.previousSibling.focus();
         }
+      }
+    }
+    if (e.key === 'ArrowRight') {
+      const expanded =
+        element.parentElement.getAttribute('aria-expanded') === 'true';
+      if (expanded) {
+        e.preventDefault();
+        // Focus on the first element in the second panel
+        element.nextSibling.firstElementChild.focus();
       }
     }
   }
@@ -836,6 +851,7 @@ export class MegaMenu {
    */
   handleClickOnClose(e) {
     if (this.element.getAttribute('aria-expanded') === 'true') {
+      this.focusTrap.deactivate();
       this.closeOpenDropdown();
       this.trigger('onClose', e);
     } else {
@@ -1064,6 +1080,7 @@ export class MegaMenu {
     const menuItem = e.target.closest(this.itemSelector);
     menuItem.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
+    this.focusTrap.deactivate();
   }
 
   /**
@@ -1073,7 +1090,6 @@ export class MegaMenu {
    */
   handleClickOnSubitem(e) {
     const menuItem = e.target.closest(this.subItemSelector);
-    console.log(menuItem);
     if (menuItem && menuItem.hasAttribute('aria-expanded')) {
       e.preventDefault();
       const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
@@ -1121,6 +1137,7 @@ export class MegaMenu {
       this.toggleLabel.innerHTML = openLabel;
     }
 
+    this.focusTrap.deactivate();
     this.isOpen = false;
   }
 
@@ -1139,17 +1156,14 @@ export class MegaMenu {
       const nextItem = element.parentElement.nextSibling;
 
       if (!nextItem) {
-        // There are no next menu item, but maybe there is a carret button
-        const caretButton = queryOne(
-          '.ecl-mega-menu__button-caret',
-          element.parentElement,
-        );
-        if (caretButton && element !== caretButton) {
-          return;
+        const nextFocusTarget = e.relatedTarget;
+        if (!this.element.contains(nextFocusTarget)) {
+          // This is the last item, go back to close button
+          this.open.focus();
+        } else {
+          // Activate a focus trap so the focus doesn't get lost
+          this.focusTrap.activate();
         }
-
-        // This is the last item, go back to close button
-        this.close.focus();
       }
     }
   }

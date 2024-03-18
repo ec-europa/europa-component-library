@@ -36,32 +36,36 @@ module.exports = {
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
-        { 
+        {
           label: 'Item 2.1',
           path: exampleLink,
           see_all: true,
           is_current: true,
           featured: {
             title: 'featured column',
-            content:`<article class="ecl-card">
+            content: `<article class="ecl-card">
                 <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
                 <div class="ecl-card__body">
                   <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
-                    <h1 class="ecl-content-block__title">Delivery on the priorities of items 2.1</h1>
+                    <h1 class="ecl-content-block__title"><a class="ecl-link" href="#">Delivery on the priorities of items 2.1</a></h1>
                   </div>
                 </div>
               </article>`,
           },
           children: [
-            { label: 'Item 2.1 subitem 1', path: exampleLink, is_current: true },
+            {
+              label: 'Item 2.1 subitem 1',
+              path: exampleLink,
+              is_current: true,
+            },
             { label: 'Item 2.1 subitem 2', path: exampleLink },
             { label: 'Item 2.1 subitem 3', path: exampleLink },
             { label: 'Item 2.1 subitem 4', path: exampleLink },
             { label: 'Item 2.1 subitem 5', path: exampleLink },
-          ], 
+          ],
         },
         { label: 'Item 2.2', path: exampleLink },
-        { 
+        {
           label: 'Item 2.3',
           path: exampleLink,
           children: [
@@ -90,7 +94,10 @@ module.exports = {
       label: 'Key priorities',
       path: exampleLink,
       children: [
-        { label: 'Aid, Development cooperation, Fundamental rights', path: exampleLink },
+        {
+          label: 'Aid, Development cooperation, Fundamental rights',
+          path: exampleLink,
+        },
         { label: 'Energy, Climate change, Environment', path: exampleLink },
         { label: 'Law', path: exampleLink },
         { label: 'EU regional and urban development', path: exampleLink },
@@ -100,7 +107,7 @@ module.exports = {
           see_all: true,
           featured: {
             title: 'featured column',
-            content:`<article class="ecl-card">
+            content: `<article class="ecl-card">
                 <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
                 <div class="ecl-card__body">
                   <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
@@ -123,13 +130,13 @@ module.exports = {
       path: exampleLink,
       trigger_aria_label: "Access item's children",
       children: [
-        { 
+        {
           label: 'Item 5.1',
           path: exampleLink,
           see_all: true,
           featured: {
             title: 'featured column',
-            content:`<article class="ecl-card">
+            content: `<article class="ecl-card">
                 <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
                 <div class="ecl-card__body">
                   <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
@@ -179,7 +186,7 @@ module.exports = {
             { label: 'Item 5.2 subitem 5', path: exampleLink },
           ],
         },
-        { 
+        {
           label: 'Item 5.3',
           path: exampleLink,
           see_all: true,
