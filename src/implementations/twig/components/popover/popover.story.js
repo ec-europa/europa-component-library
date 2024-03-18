@@ -4,14 +4,15 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-popover/demo/data';
+
 import popover from './popover.html.twig';
 import notes from './README.md';
 
-const lorem = loremIpsum({ count: 20 });
+const lorem = loremIpsum({ count: 10 });
 
 const getArgs = (data) => ({
   label: data.toggle.link.label,
-  content: '',
+  content: data.content,
 });
 
 const getArgTypes = () => ({
@@ -60,9 +61,22 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedPopover = `
+    <div style="text-align: right; max-width: 65ch">${await popover(
+      prepareData({ ...dataDefault, id: 'popover-example4' }, args),
+    )}</div>
     <p class="ecl-u-type-paragraph-m">${lorem}</p>
     ${await popover(prepareData(dataDefault, args))}
-    <p class="ecl-u-type-paragraph-m">${lorem}</p>
+    <p class="ecl-u-type-paragraph-m">
+      ${lorem}
+    </p>
+    <div class="ecl-container">
+      <div class="ecl-u-f-r">${await popover(
+        prepareData({ ...dataDefault, id: 'popover-example3' }, args),
+      )}</div>
+    </div>
+    <div style="text-align: center; max-width: 65ch; margin-bottom: 2rem;">${await popover(
+      prepareData({ ...dataDefault, id: 'popover-example5' }, args),
+    )}</div>
     <div class="ecl-u-d-inline-flex">
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>

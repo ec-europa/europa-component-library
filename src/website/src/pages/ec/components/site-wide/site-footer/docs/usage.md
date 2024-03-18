@@ -13,15 +13,7 @@ The standardised and harmonised configurations share the same structure and guid
 
 # Standardised & Harmonised config.
 
-## Anatomy image(s)
-
-**Standardised**
-
-![](/cms-images/ec-footer-standardised.png)
-
-**Harmonised**
-
-![](/cms-images/ec-footer-harmonised.png)
+### **A﻿natomy table**
 
 | No. | Element/component             | Standardised | Harmonised | Description                                                                    |
 | --- | ----------------------------- | ------------ | ---------- | ------------------------------------------------------------------------------ |

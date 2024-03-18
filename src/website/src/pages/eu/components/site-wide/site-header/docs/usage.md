@@ -2,13 +2,13 @@
 title: Usage
 order: 1
 ---
+The Site header offers easily recognisable elements (such as the logo) and the most essential functionality of every site (such as Language switcher or [Search form](https://ecl-preview-2241--europa-component-library.netlify.app/eu/components/forms/search-form/code/)). Additionally it can host the name of the site, the class name to which it belongs and the main navigation. The header is always placed at the top of the page.
+
+The elements required in the site header are different depending wether it is the corporate, standardised or an harmonised website.
+
 # Harmonised config.
 
-## Anatomy image
-
-![](/cms-images/eu-site-header-harmonised.png)
-
-## Anatomy table
+### Anatomy table
 
 | No. | Element/component  | Usage     | Description                                                                                                                                                                                       |
 | --- | ------------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

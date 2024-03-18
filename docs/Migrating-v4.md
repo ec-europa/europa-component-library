@@ -242,6 +242,7 @@ Ex:
 - Message component has been renamed to `Notification`. This includes the related CSS classes, and javascript
 - Icon for the close button is now different between EC and EU: `close` for EC, `close-filled` for EU. Icon size is also different (`m` for EC, `s` for EU)
 - Close button label is hidden on EC
+- New twig parameter to add label to the icon: `sr_icon`. It expect to be filled with the translated type of notification, for instance "Information", "Success", "Warning" or "Error"
 
 ### Modal
 
@@ -356,7 +357,6 @@ Ex:
 - Renamed twig paramter `default_icon_path` to `icon_path`, to be consistent with other components
 - Tags now wrap on several lines by default. New twig parameter `nowrap` added to force display of the tag on one line.
 - Added possibilty to handle set of tags. Twig template and corresponding css have been added.
-  [>beta.2]: tag set is now using an html list markup
 
 ## Customizing the display
 

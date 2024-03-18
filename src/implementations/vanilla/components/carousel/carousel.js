@@ -94,6 +94,8 @@ export class Carousel {
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
+    this.executionCount = 0;
+    this.maxExecutions = 5;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -157,10 +159,10 @@ export class Carousel {
     // Start initializing carousel
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    this.cloneFirstSLide = firstSlide.cloneNode(true);
-    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
     this.slidesContainer.appendChild(this.cloneFirstSLide);
     this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
@@ -292,40 +294,53 @@ export class Carousel {
    * Set the banners height above the xl breakpoint
    */
   checkBannerHeights() {
+    this.executionCount += 1;
+    if (this.executionCount > this.maxExecutions) {
+      clearInterval(this.intervalId);
+      this.executionCount = 0;
+      return;
+    }
     const heightValues = this.slides.map((slide) => {
       const banner = queryOne('.ecl-banner', slide);
       const height = parseInt(banner.style.height, 10);
-
       if (banner.style.height === 'auto') {
         return 0;
       }
-      if (Number.isNaN(height)) {
-        return undefined;
+      if (Number.isNaN(height) || height === 100) {
+        return 1;
       }
+
       return height;
     });
 
     const elementHeights = heightValues.filter(
       (height) => height !== undefined,
     );
+
     const tallestElementHeight = Math.max(...elementHeights);
-
-    if (elementHeights.length === this.slides.length) {
+    // We stop checking the heights of the banner if we know that all the slides
+    // have height: auto; or if a banner with an height that is not 100% or undefined is found.
+    if (
+      (elementHeights.length === this.slides.length &&
+        tallestElementHeight === 0) ||
+      tallestElementHeight > 1
+    ) {
       clearInterval(this.intervalId);
-    }
 
-    if (tallestElementHeight) {
-      this.slides.forEach((slide) => {
-        let bannerImage = null;
-        const banner = queryOne('.ecl-banner', slide);
-        if (banner) {
-          bannerImage = queryOne('img', banner);
-          banner.style.height = `${tallestElementHeight}px`;
-        }
-        if (bannerImage) {
-          bannerImage.style.aspectRatio = 'auto';
-        }
-      });
+      if (tallestElementHeight > 0) {
+        this.executionCount = 0;
+        this.slides.forEach((slide) => {
+          let bannerImage = null;
+          const banner = queryOne('.ecl-banner', slide);
+          if (banner) {
+            bannerImage = queryOne('img', banner);
+            banner.style.height = `${tallestElementHeight}px`;
+          }
+          if (bannerImage) {
+            bannerImage.style.aspectRatio = 'auto';
+          }
+        });
+      }
     }
   }
 
@@ -337,12 +352,10 @@ export class Carousel {
       const banner = queryOne('.ecl-banner', slide);
       let bannerImage = null;
       if (banner) {
-        banner.style.height = '100%';
+        banner.style.height = '';
         bannerImage = queryOne('img', banner);
         if (bannerImage) {
-          const computedStyle = getComputedStyle(bannerImage);
-          bannerImage.style.aspectRatio =
-            computedStyle.getPropertyValue('--css-aspect-ratio');
+          bannerImage.style.aspectRatio = '';
         }
       }
     });

@@ -6,6 +6,7 @@ module.exports = {
     name: 'warning',
     size: 'm',
   },
+  sr_icon: 'Warning',
   title: 'Warning notification',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',

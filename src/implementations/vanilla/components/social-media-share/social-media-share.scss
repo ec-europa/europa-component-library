@@ -21,10 +21,14 @@ $social-media-share: null !default;
 
 .ecl-social-media-share__description {
   color: map.get($social-media-share, 'title-color');
-  font: map.get($theme, 'font-prolonged', 'm');
+  font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-bottom: map.get($theme, 'spacing', 'xs');
+  margin-bottom: var(--s-xs);
   margin-top: 0;
+}
+
+.ecl-social-media-share .ecl-popover__scrollable {
+  max-width: 108px;
 }
 
 .ecl-social-media-share__list {
@@ -33,14 +37,14 @@ $social-media-share: null !default;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0;
-  margin-top: -#{map.get($theme, 'spacing', 's')};
+  margin-top: calc(-1 * var(--s-s));
   padding-inline-start: 0;
 }
 
 .ecl-social-media-share__item {
   display: flex;
-  margin-inline-end: map.get($theme, 'spacing', 'l');
-  margin-top: map.get($theme, 'spacing', 'l');
+  margin-inline-end: var(--s-l);
+  margin-top: var(--s-l);
 
   &:last-child {
     margin-inline-end: 0;
@@ -50,7 +54,7 @@ $social-media-share: null !default;
 .ecl-social-media-share__link {
   align-items: center;
   display: flex;
-  font: map.get($theme, 'font', 's');
+  font: var(--f-s);
   overflow: hidden; /* Improve rendering on IE */
 }
 
