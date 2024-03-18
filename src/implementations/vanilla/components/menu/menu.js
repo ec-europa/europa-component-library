@@ -534,6 +534,7 @@ export class Menu {
     // Scroll to top to ensure the menu is correctly positioned.
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+
     // Disable transition
     this.element.classList.remove('ecl-menu--transition');
 
@@ -543,7 +544,9 @@ export class Menu {
 
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
-
+      if (this.isDesktop) {
+        this.focusTrap.deactivate();
+      }
       // Update items display
       this.totalItemsWidth = 0;
       if (this.items) {
