@@ -16,7 +16,7 @@ exports[`Popover Collapsed renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--m ecl-link__icon"
         focusable="false"
       >
         <use
@@ -35,196 +35,40 @@ exports[`Popover Collapsed renders correctly 1`] = `
       id="popover-example"
     >
       <div
-        class="ecl-popover__content"
+        class="ecl-popover__scrollable"
       >
-        <ul
-          class="ecl-popover__list"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          data-ecl-popover-close=""
+          type="button"
         >
-          <li
-            class="ecl-popover__item"
+          <span
+            class="ecl-button__container"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 1
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 2
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 3
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 4
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 5
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 6
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 7
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 8
-              </span>
-            </a>
-          </li>
-        </ul>
+              <use
+                xlink:href="/icons.svg#close"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ecl-popover__content"
+        >
+          Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+    Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.
+        </div>
       </div>
     </div>
   </div>
@@ -249,7 +93,7 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--m ecl-link__icon"
         focusable="false"
       >
         <use
@@ -268,196 +112,40 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
       id="popover-example"
     >
       <div
-        class="ecl-popover__content"
+        class="ecl-popover__scrollable"
       >
-        <ul
-          class="ecl-popover__list"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          data-ecl-popover-close=""
+          type="button"
         >
-          <li
-            class="ecl-popover__item"
+          <span
+            class="ecl-button__container"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 1
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 2
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 3
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 4
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 5
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 6
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 7
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 8
-              </span>
-            </a>
-          </li>
-        </ul>
+              <use
+                xlink:href="/icons.svg#close"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ecl-popover__content"
+        >
+          Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+    Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.
+        </div>
       </div>
     </div>
   </div>
@@ -480,7 +168,7 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="ecl-icon ecl-icon--fluid ecl-link__icon"
+        class="ecl-icon ecl-icon--m ecl-link__icon"
         focusable="false"
       >
         <use
@@ -499,196 +187,40 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
       id="popover-example"
     >
       <div
-        class="ecl-popover__content"
+        class="ecl-popover__scrollable"
       >
-        <ul
-          class="ecl-popover__list"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          data-ecl-popover-close=""
+          type="button"
         >
-          <li
-            class="ecl-popover__item"
+          <span
+            class="ecl-button__container"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 1
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 2
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 3
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 4
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 5
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 6
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 7
-              </span>
-            </a>
-          </li>
-          <li
-            class="ecl-popover__item"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__link"
-              href="/example"
-            >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#global"
-                />
-              </svg>
-              <span
-                class="ecl-link__label"
-              >
-                item 8
-              </span>
-            </a>
-          </li>
-        </ul>
+              <use
+                xlink:href="/icons.svg#close"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ecl-popover__content"
+        >
+          Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+    Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.
+        </div>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
   Parameters:
     - "id" (string) (default: '')
     - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link structure
-    - "links" (array) (default: []): Array of ECL Links
+    - "close" (object of type "button") (default: {}): close button (optional)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -25,6 +25,7 @@
 {% set _css_popover_class = 'ecl-popover__content' %}
 {% set _content = content|default('') %}
 {% set _toggle = toggle|default({}) %}
+{% set _close = close|default({}) %}
 {% set _links = links|default([]) %}
 
 {# Internal logic - Process properties #}
@@ -62,23 +63,20 @@
   }) only %}
 
   <div id="{{ _id }}" class="ecl-popover__container" hidden>
-    <div class="{{ _css_popover_class }}">
-      {% if _links is not empty and _links is iterable %}
-        <ul class="ecl-popover__list">
-          {% for _link in _links %}
-            <li class="ecl-popover__item">
-              {% include '@ecl/link/link.html.twig' with _link|merge({
-                link: {
-                  type: 'standalone',
-                  icon_position: 'before',
-                }|merge(_link.link),
-                extra_classes: 'ecl-popover__link',
-              }) only %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-      {%- block content _content -%}
+    <div class="ecl-popover__scrollable">
+    {% if _close is not empty %}
+      {% include '@ecl/button/button.html.twig' with _close|merge({
+        type: 'button',
+        variant: 'tertiary',
+        extra_classes: 'ecl-popover__close',
+        extra_attributes: [{
+          name: 'data-ecl-popover-close',
+        }],
+      }) only %}
+    {% endif %}
+      <div class="{{ _css_popover_class }}">
+        {%- block content _content -%}
+      </div>
     </div>
   </div>
 </div>

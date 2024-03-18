@@ -48,6 +48,13 @@ describe('Page Header Standardised', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when title is hidden and no meta is provided', () => {
+      expect.assertions(1);
+      const noMargin = { ...demoSimple, hide_title: true, meta: [] };
+
+      return expect(render(noMargin)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoSimple, true)),
