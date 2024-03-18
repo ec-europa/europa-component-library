@@ -169,6 +169,11 @@
 .ecl blockquote:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote:is([class*='ecl-u-']) {
   @extend %ecl-blockquote;
+}
+
+.ecl blockquote p:not([class*='ecl-'], [class*='wt-']),
+.ecl blockquote p:is([class*='ecl-u-']) {
+  @extend %ecl-blockquote__citation;
 
   &::before,
   &::after {
