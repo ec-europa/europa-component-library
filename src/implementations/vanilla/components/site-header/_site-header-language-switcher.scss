@@ -136,6 +136,10 @@ $language-list: null !default;
   box-shadow: map.get($language-list, 'item-active-shadow');
   color: map.get($language-list, 'item-active-color');
 
+  &:visited {
+    color: map.get($language-list, 'item-active-color');
+  }
+
   .ecl-site-header__language-link-code {
     font-weight: map.get($language-list, 'code-active-font-weight');
   }

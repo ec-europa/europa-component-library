@@ -4,6 +4,7 @@
   Parameters:
   - "variant" (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
   - "icon" (object of type "icon") (default: {})
+  - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
   - "title" (string) (default: '')
   - "close" (object of type "button") (default: {}): close button (optional)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
@@ -19,6 +20,7 @@
 
 {% set _variant = variant|default('') %}
 {% set _icon = icon|default({}) %}
+{% set _sr_icon = sr_icon|default('') %}
 {% set _title = title|default('') %}
 {% set _close = close|default({}) %}
 {% set _description = description|default('') %}
@@ -53,6 +55,10 @@
 {% endif %}
   {% include '@ecl/icon/icon.html.twig' with {
     icon: _icon,
+    as_image: true,
+    extra_accessibility: not _sr_icon ? {} : {
+      title: _sr_icon,
+    },
     extra_classes: 'ecl-notification__icon',
   } only %}
   <div class="ecl-notification__content">

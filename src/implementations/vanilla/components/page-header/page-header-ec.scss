@@ -14,14 +14,22 @@ $page-header: null !default;
   margin: 0;
 }
 
+.ecl-page-header__info {
+  margin-bottom: var(--s-s);
+  margin-top: calc(var(--s-m) + var(--s-s));
+}
+
 .ecl-page-header__breadcrumb {
-  margin-top: var(--s-m);
+  margin-top: var(--s-xs);
+
+  + .ecl-page-header__info {
+    margin-top: var(--s-l);
+  }
 }
 
 .ecl-page-header__meta {
   color: map.get($page-header, 'meta-color');
   font: map.get($page-header, 'meta-font');
-  margin-top: var(--s-m);
 }
 
 .ecl-page-header__meta-item {
@@ -47,6 +55,9 @@ $page-header: null !default;
   color: map.get($page-header, 'title-color');
   font: map.get($page-header, 'title-font');
   margin-bottom: 0;
+}
+
+.ecl-page-header__meta + .ecl-page-header__title {
   margin-top: var(--s-2xs);
 }
 
@@ -57,7 +68,6 @@ $page-header: null !default;
 }
 
 .ecl-page-header__description-thumbnail {
-  border: 1px solid var(--c-n-20);
   margin-inline-end: var(--s-m);
   max-width: 120px;
 }

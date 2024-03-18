@@ -11,7 +11,6 @@ $featured-item: null !default;
 $featured-item-print: null !default;
 
 .ecl-featured-item__container {
-  border: map.get($featured-item, 'border');
   border-radius: map.get($featured-item, 'border-radius');
   box-shadow: map.get($featured-item, 'shadow');
   display: flex;
@@ -24,40 +23,41 @@ $featured-item-print: null !default;
   flex-grow: 1;
 
   &:last-child {
-    padding-bottom: map.get($featured-item, 'padding');
+    margin-inline-start: map.get($theme, 'spacing-print', 'xl');
+    padding-bottom: map.get($featured-item-print, 'padding');
   }
 }
 
 .ecl-featured-item__media_container {
-  padding: map.get($featured-item, 'media-padding-desktop');
+  padding: map.get($featured-item-print, 'media-padding-desktop');
 }
 
 .ecl-featured-item__container--right {
   flex-direction: row-reverse;
 
   .ecl-featured-item__media_container {
-    padding: map.get($featured-item, 'media-padding-right');
+    padding: map.get($featured-item-print, 'media-padding-right');
   }
 }
 
 .ecl-featured-item__title {
   margin: 0;
-  padding: map.get($featured-item, 'title-spacing');
+  padding: map.get($featured-item-print, 'title-spacing');
 }
 
 .ecl-featured-item__title-content {
   color: map.get($featured-item, 'title-color');
   display: inline-block;
-  font: map.get($featured-item, 'title-font');
+  font: map.get($featured-item-print, 'title-font');
   font-weight: map.get($theme, 'font-weight', 'bold');
   max-width: var(--max-w);
 }
 
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
-  font: map.get($featured-item, 'description-font');
+  font: map.get($featured-item-print, 'description-font');
   margin: 0;
-  margin: map.get($featured-item, 'description-spacing');
+  margin: map.get($featured-item-print, 'description-spacing');
   max-width: var(--max-w);
 
   > *:first-child {
@@ -71,7 +71,7 @@ $featured-item-print: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
-  margin: map.get($featured-item, 'link-spacing');
+  margin: map.get($featured-item-print, 'link-spacing');
 }
 
 /**
@@ -84,22 +84,32 @@ $featured-item-print: null !default;
       'highlight',
       'container-background'
     );
+    border: map.get($featured-item, 'border');
     border-inline-start: map.get($featured-item, 'highlight', 'border-size')
       solid map.get($featured-item, 'highlight', 'border-color');
-    padding: map.get($featured-item, 'highlight', 'padding-desktop');
   }
 
   .ecl-featured-item__item:last-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
+    margin: 0;
+    padding: map.get($featured-item-print, 'highlight', 'item-spacing');
+  }
+
+  .ecl-featured-item__media_container {
+    padding: map.get($theme, 'spacing-print', 'l');
   }
 
   .ecl-featured-item__title {
     background-color: map.get($featured-item, 'highlight', 'title-background');
-    padding: map.get($featured-item, 'highlight', 'title-spacing');
+    padding: map.get($featured-item-print, 'highlight', 'title-spacing');
   }
 
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'highlight', 'description-spacing');
+    margin: map.get($featured-item-print, 'highlight', 'description-spacing');
+  }
+
+  .ecl-featured-item__link {
+    margin: map.get($featured-item-print, 'highlight', 'link-spacing');
   }
 }
 

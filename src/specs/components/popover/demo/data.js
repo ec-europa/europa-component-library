@@ -4,6 +4,15 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'popover-example',
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close',
+      size: 'm',
+    },
+    hide_label: true,
+  },
   toggle: {
     link: {
       label: 'Popover',
@@ -15,97 +24,9 @@ module.exports = {
     icon: {
       path: '/icons.svg',
       name: 'share',
-      size: 'fluid',
+      size: 'm',
     },
   },
-  links: [
-    {
-      link: {
-        label: 'item 1',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 2',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 3',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 4',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 5',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 6',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 7',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-    {
-      link: {
-        label: 'item 8',
-        path: exampleLink,
-      },
-      icon: {
-        path: '/icons.svg',
-        name: 'global',
-        size: 'fluid',
-      },
-    },
-  ],
+  content: `Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+    Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.`,
 };
