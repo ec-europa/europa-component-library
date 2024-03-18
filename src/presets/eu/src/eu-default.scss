@@ -175,6 +175,12 @@
 .ecl blockquote p:is([class*='ecl-u-']) {
   @extend %ecl-blockquote__citation;
 
+  margin-top: map.get(var.$blockquote, 'author', 'margin');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
   &::before,
   &::after {
     display: none;
