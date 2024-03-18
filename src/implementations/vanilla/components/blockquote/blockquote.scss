@@ -26,7 +26,6 @@ $blockquote: null !default;
 %ecl-blockquote {
   color: map.get($blockquote, 'quote', 'color');
   font: map.get($blockquote, 'quote', 'font');
-  font-style: italic;
   margin: 0;
   max-width: var(--max-w);
   quotes: '\201C' '\201D';
