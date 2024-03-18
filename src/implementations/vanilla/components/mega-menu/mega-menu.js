@@ -16,12 +16,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
- * @param {String} options.buttonPreviousSelector Selector for the previous items button (for overflow)
- * @param {String} options.buttonNextSelector Selector for the next items button (for overflow)
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
- * @param {Int} options.maxLines Number of lines maximum for each menu item (for overflow). Set it to zero to disable automatic resize.
- * @param {String} options.maxLinesAttribute The data attribute to set the max lines in the markup, if needed
  * @param {String} options.labelOpenAttribute The data attribute for open label
  * @param {String} options.labelCloseAttribute The data attribute for close label
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
@@ -1122,6 +1118,7 @@ export class MegaMenu {
         item.classList.remove('ecl-mega-menu__item--expanded');
       }
     });
+    // Remove css class and attribute from menu subitems
     this.subItems.forEach((item) => {
       item.classList.remove('ecl-mega-menu__subitem--current');
       item.removeAttribute('aria-current');
@@ -1131,12 +1128,26 @@ export class MegaMenu {
         item.style.display = '';
       }
     });
+    // Remove styles set for the sublists
+    const sublists = queryAll('.ecl-mega-menu__sublist');
+    if (sublists) {
+      sublists.forEach((sublist) => {
+        sublist.classList.remove('ecl-mega-menu__sublist--no-border');
+      });
+    }
+    // Remove styles set for the parent links
+    const parentLinks = queryAll('.ecl-mega-menu__parent-link', this.element);
+    if (parentLinks) {
+      parentLinks.forEach((parent) => {
+        parent.style.display = '';
+      });
+    }
     // Update label
     const openLabel = this.element.getAttribute(this.labelOpenAttribute);
     if (this.toggleLabel && openLabel) {
       this.toggleLabel.innerHTML = openLabel;
     }
-
+    // If the focus trap is active, deactivate it
     this.focusTrap.deactivate();
     this.isOpen = false;
   }
