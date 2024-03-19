@@ -134,7 +134,7 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__media_container {
-    padding: map.get($featured-item, 'highlight', 'media-padding');
+    padding: map.get($featured-item, 'highlight', 'media-padding-mobile');
   }
 
   .ecl-featured-item__item:last-child {
@@ -161,6 +161,14 @@ $featured-item: null !default;
   .ecl-featured-item--highlight {
     .ecl-featured-item__container {
       padding: map.get($featured-item, 'highlight', 'padding-desktop');
+    }
+
+    .ecl-featured-item__media_container {
+      padding: map.get($featured-item, 'highlight', 'media-padding-desktop');
+    }
+
+    .ecl-featured-item__container--right .ecl-featured-item__media_container {
+      padding: map.get($featured-item, 'highlight', 'media-padding-right');
     }
   }
 }
