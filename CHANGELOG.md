@@ -1,5 +1,62 @@
 # Changelog
 
+## 4.0.2
+
+#### :bug: Bug Fix
+
+- [#3294](https://github.com/ec-europa/europa-component-library/pull/3294) fix(featured-item): fix picture spacing - FRONT-4310 ([@emeryro](https://github.com/emeryro))
+- [#3295](https://github.com/ec-europa/europa-component-library/pull/3295) fix(icon): update x/twitter icon size ([@emeryro](https://github.com/emeryro))
+- [#3288](https://github.com/ec-europa/europa-component-library/pull/3288) fix(blockquote): Fixing styles for the cite element - FRONT-4306 ([@planctus](https://github.com/planctus))
+- [#3290](https://github.com/ec-europa/europa-component-library/pull/3290) fix(blockquote): fix blockquote in wysiwyg - FRONT-4307 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3293](https://github.com/ec-europa/europa-component-library/pull/3293) feat(navigation-list): remove background when there is no border - FRONT-4309 ([@emeryro](https://github.com/emeryro))
+- [#3292](https://github.com/ec-europa/europa-component-library/pull/3292) feat(navigation-list): reduce spacing - FRONT-4308 ([@emeryro](https://github.com/emeryro))
+- [#3252](https://github.com/ec-europa/europa-component-library/pull/3252) feat(blockquote): remove italic - FRONT-4273 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+## 4.0.1
+
+#### :rocket: New Feature
+
+- [#3278](https://github.com/ec-europa/europa-component-library/pull/3278) feat(menu): Removing light variant in EC - FRONT-4297 ([@planctus](https://github.com/planctus))
+- [#3209](https://github.com/ec-europa/europa-component-library/pull/3209) feat(icon): Replacing twitter with X icons - FRONT-4061 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3279](https://github.com/ec-europa/europa-component-library/pull/3279) fix(list-illustration): Fixing center alignment - FRONT-4298 ([@planctus](https://github.com/planctus))
+- [#3281](https://github.com/ec-europa/europa-component-library/pull/3281) feat(page-header): Removing padding bottom in EU, fixing no margin - FRONT-4301 ([@planctus](https://github.com/planctus))
+- [#3275](https://github.com/ec-europa/europa-component-library/pull/3275) fix(carousel): Fixing the resetBannerHeight method, avoiding any loop - FRONT-4293 ([@planctus](https://github.com/planctus))
+- [#3273](https://github.com/ec-europa/europa-component-library/pull/3273) fix(notification): Fixing position of the background element for the warning icon - FRONT-4294 ([@planctus](https://github.com/planctus))
+- [#3266](https://github.com/ec-europa/europa-component-library/pull/3266) fix(css): Not including the light variant for the menu in EU - FRONT-4287 ([@planctus](https://github.com/planctus))
+- [#3265](https://github.com/ec-europa/europa-component-library/pull/3265) fix(language-list): Fixing color on :visited for the current item - FRONT-4290 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3285](https://github.com/ec-europa/europa-component-library/pull/3285) feat(navigation-list): Setting 100% height for the items - FRONT-4305 ([@planctus](https://github.com/planctus))
+- [#3282](https://github.com/ec-europa/europa-component-library/pull/3282) feat(featured-item): Revamp of the default variant in EC - FRONT-4300 ([@planctus](https://github.com/planctus))
+- [#3280](https://github.com/ec-europa/europa-component-library/pull/3280) feat(links): Removing color switch for visited links - FRONT-4302 ([@planctus](https://github.com/planctus))
+- [#3283](https://github.com/ec-europa/europa-component-library/pull/3283) feat(images): Removing borders, keeping them only in content-item - FRONT-4303 ([@planctus](https://github.com/planctus))
+- [#3284](https://github.com/ec-europa/europa-component-library/pull/3284) feat(list): Revamp of unordered list - FRONT-4304 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3267](https://github.com/ec-europa/europa-component-library/pull/3267) chore(website): Adding link to v3.13.0 - FRONT-4289 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3286](https://github.com/ec-europa/europa-component-library/pull/3286) chore(deps): green and orange updates 14-03-24 ([@planctus](https://github.com/planctus))
+- [#3264](https://github.com/ec-europa/europa-component-library/pull/3264) chore(deps): Updates 04-03-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 ## 4.0.0
 
 #### :bug: Bug Fix
