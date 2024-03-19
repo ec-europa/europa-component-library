@@ -427,7 +427,7 @@ $mega-menu: null !default;
         border-radius: 0;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
-        outline-offset: -2px;
+        outline-offset: 0;
       }
 
       .ecl-icon {
@@ -552,6 +552,7 @@ $mega-menu: null !default;
       border-radius: 0;
       box-sizing: border-box;
       display: block;
+      font: var(--f-m);
       width: calc(100% - var(--s-m) * 2);
       margin: 0 var(--s-m);
       padding-top: var(--s-m);
@@ -732,9 +733,19 @@ $mega-menu: null !default;
           display: block;
           width: calc(100% - 2rem);
           height: 1px;
-          position: absolute;
-          top: 0;
+          margin-top: calc(-1 * var(--s-m));
+          margin-bottom: var(--s-m);
+          position: sticky;
+          top: calc(-1 * var(--s-m));
           left: var(--s-m);
+        }
+      }
+
+      .ecl-mega-menu__subitem {
+        margin-bottom: var(--s-xs);
+
+        &:last-child {
+          margin-bottom: 0;
         }
       }
 
@@ -749,6 +760,10 @@ $mega-menu: null !default;
           background: transparent;
           box-shadow: none;
           color: var(--c-p-140);
+        }
+
+        &:focus-visible {
+          outline-color: var(--c-p);
         }
       }
 
@@ -795,21 +810,26 @@ $mega-menu: null !default;
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         background-color: map.get($theme, 'color', 'white');
         box-shadow: none;
+        outline-color: map.get($theme, 'color', 'white');
+        text-decoration: none;
       }
     }
 
-    .ecl-mega-menu__subitem--current > .ecl-mega-menu__sublink {
-      background-color: map.get(
-        $mega-menu,
-        'desktop',
-        'sublink-current-background'
-      );
-      border-inline-start: 4px solid var(--c-p);
-      padding-inline-start: var(--s-s);
-      box-shadow: map.get($mega-menu, 'desktop', 'sublink-current-shadow');
+    .ecl-mega-menu__subitem--current {
+      > .ecl-mega-menu__sublink,
+      > .ecl-mega-menu__sublink:hover,
+      > .ecl-mega-menu__sublink:focus-visible {
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'sublink-current-background'
+        );
+        box-shadow: map.get($mega-menu, 'desktop', 'sublink-current-shadow');
+      }
     }
   }
 
@@ -817,11 +837,22 @@ $mega-menu: null !default;
     box-sizing: border-box;
     display: none;
     font: var(--f-m);
-    min-height: 100%;
+    height: 100%;
     position: absolute;
     left: 100%;
     width: 18.125rem;
     top: 0;
+
+    .ecl-mega-menu__featured-content {
+      height: 100%;
+      overflow-y: auto;
+      margin: 0 calc(-1 * var(--s-m));
+      padding: var(--s-m);
+
+      * {
+        height: auto;
+      }
+    }
 
     .ecl-mega-menu__featured-title {
       color: var(--c-d);

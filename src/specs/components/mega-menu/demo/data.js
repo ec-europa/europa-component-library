@@ -53,6 +53,22 @@ module.exports = {
                     <h1 class="ecl-content-block__title"><a class="ecl-link" href="#">Delivery on the priorities of items 2.1</a></h1>
                   </div>
                 </div>
+              </article>
+              <article class="ecl-navigation-list__item ecl-navigation-list__item--no-border">
+                <div class="ecl-content-block ecl-navigation-list__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block="">
+                  <div class="ecl-content-block__link-container">
+                    <ul class="ecl-content-block__link-list">
+                      <li class="ecl-content-block__link-item"><a href="/component-library/example#aw24p" class="ecl-link ecl-link--standalone">Primary link 1</a></li>
+                      <li class="ecl-content-block__link-item"><a href="/component-library/example#5t02k" class="ecl-link ecl-link--standalone">Primary link 2</a></li>
+                      <li class="ecl-content-block__link-item">A simple string</li>
+                      <li class="ecl-content-block__link-item"><a href="/component-library/example#6y5wj" class="ecl-link ecl-link--standalone">Primary link 3</a></li>
+                    </ul>
+                    <ul class="ecl-content-block__link-list">
+                      <li class="ecl-content-block__link-item"><a href="/component-library/example#b2u8v" class="ecl-link ecl-link--standalone">Secondary link 1</a></li>
+                      <li class="ecl-content-block__link-item"><a href="/component-library/example#goyou" class="ecl-link ecl-link--standalone">Secondary link 2</a></li>
+                    </ul>
+                  </div>
+                </div>
               </article>`,
           },
           children: [
