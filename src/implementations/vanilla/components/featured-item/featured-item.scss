@@ -137,6 +137,10 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'media-padding');
   }
 
+  .ecl-featured-item__container--right .ecl-featured-item__media_container {
+    padding: map.get($featured-item, 'highlight', 'media-padding-right');
+  }
+
   .ecl-featured-item__item:last-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
   }
