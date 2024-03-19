@@ -572,6 +572,13 @@ $mega-menu: null !default;
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
 
+  .ecl-link__label {
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   &:hover {
     background: var(--c-n-80);
     box-shadow: inset 4px 0 0 0 var(--c-p);

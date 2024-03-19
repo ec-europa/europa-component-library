@@ -11,6 +11,7 @@
     - "external" (boolean) External link
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
+    - "link_aria_label" (string) Aria label for the parent link
     - "featured": (object) (default({}))
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
@@ -29,6 +30,8 @@
 {% set _featured = featured|default({}) %}
 {% set _see_all = see_all|default(false) %}
 {% set _see_all_label = see_all_label|default('') %}
+{% set _trigger_aria_label = _item.trigger_aria_label|default('') %}
+{% set _link_aria_label = _item.link_aria_label|default('') %}
 {% set _icon = {} %}
 
 {% if _item.is_current is defined %}
@@ -39,6 +42,12 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
+  {% if _trigger_aria_label is not empty %}
+    {% set _menu_list_item_attributes = _menu_list_item_attributes  ~ ' aria-label="' ~ _trigger_aria_label ~ '"' %}
+  {% endif %}
+  {% if _link_aria_label is not empty %}
+    {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _link_aria_label ~ '"' %}
+  {% endif %}
   {% set _icon = {
     name: 'corner-arrow',
     transform: 'rotate-90',

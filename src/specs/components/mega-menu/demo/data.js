@@ -35,12 +35,15 @@ module.exports = {
       label: 'News and media',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
+      link_aria_label: 'Link to News and media page',
       children: [
         {
           label: 'Item 2.1',
           path: exampleLink,
           see_all: true,
           is_current: true,
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to the 2.1 item page',
           featured: {
             title: 'featured column',
             content: `<article class="ecl-card">
@@ -66,8 +69,11 @@ module.exports = {
         },
         { label: 'Item 2.2', path: exampleLink },
         {
-          label: 'Item 2.3',
+          label:
+            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed.',
           path: exampleLink,
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to the 2.3 item page',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
             { label: 'Item 2.3 subitem 2', path: exampleLink },
@@ -84,6 +90,7 @@ module.exports = {
       label: 'About the European Commission',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
+      link_aria_label: 'Link to About the European Commission page',
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
@@ -93,6 +100,8 @@ module.exports = {
     {
       label: 'Key priorities',
       path: exampleLink,
+      trigger_aria_label: "Access item's children",
+      link_aria_label: 'Link to Key priorities page',
       children: [
         {
           label: 'Aid, Development cooperation, Fundamental rights',
@@ -116,6 +125,8 @@ module.exports = {
                 </div>
               </article>`,
           },
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to research and innovation page',
           children: [
             { label: 'How we provide aid', path: exampleLink },
             { label: 'Who we work with', path: exampleLink },
@@ -129,11 +140,14 @@ module.exports = {
       label: 'EU Policies',
       path: exampleLink,
       trigger_aria_label: "Access item's children",
+      link_aria_label: 'Link to the EU Policies page',
       children: [
         {
           label: 'Item 5.1',
           path: exampleLink,
           see_all: true,
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to the Item 5.1 page',
           featured: {
             title: 'featured column',
             content: `<article class="ecl-card">
@@ -178,6 +192,8 @@ module.exports = {
         {
           label: 'Item 5.2',
           path: exampleLink,
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to the Item 5.2 page',
           children: [
             { label: 'Item 5.2 subitem 1', path: exampleLink },
             { label: 'Item 5.2 subitem 2', path: exampleLink },
@@ -190,6 +206,8 @@ module.exports = {
           label: 'Item 5.3',
           path: exampleLink,
           see_all: true,
+          trigger_aria_label: "Access item's children",
+          link_aria_label: 'Link to the Item 5.3 page',
           children: [
             { label: 'Item 5.3 subitem 1', path: exampleLink },
             { label: 'Item 5.3 subitem 2', path: exampleLink },

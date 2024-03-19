@@ -264,7 +264,10 @@ export class MegaMenu {
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
     // Create a focus trap around the menu
-    this.focusTrap = createFocusTrap(this.element);
+    this.focusTrap = createFocusTrap(this.element, {
+      onActivate: () => this.element.classList.add('trap-is-active'),
+      onDeactivate: () => this.element.classList.remove('trap-is-active'),
+    });
     // Hack to prevent css transition to be played on page load on chrome
     setTimeout(() => {
       this.element.classList.add('ecl-mega-menu--transition');
@@ -603,7 +606,10 @@ export class MegaMenu {
       if (firstItemLink.id) {
         firstItemLink.id = `${firstItemLink.id}-parent`;
       }
-
+      const ariaLabel = menuItem.getAttribute('data-ecl-parent-aria-label');
+      if (ariaLabel) {
+        firstItemLink.setAttribute('aria-label', ariaLabel);
+      }
       firstItemLink.classList.add('ecl-mega-menu__parent-link');
       firstItemLink.addEventListener('keyup', this.handleKeyboard);
       const innerList = queryOne('.ecl-mega-menu__mega', menuItem);
@@ -743,12 +749,12 @@ export class MegaMenu {
           }
         }
         const nextItem = element.parentElement.nextSibling;
-
         if (nextItem) {
           const nextLink = queryOne('.ecl-mega-menu__link', nextItem);
 
           if (nextLink) {
             nextLink.focus();
+            return;
           }
         }
       }
@@ -756,6 +762,7 @@ export class MegaMenu {
     // Key actions to navigate between the sub-links
     if (cList.contains('ecl-mega-menu__sublink')) {
       if (e.key === 'ArrowDown') {
+        e.preventDefault();
         const nextItem = element.parentElement.nextSibling;
         let nextLink = '';
         if (nextItem) {
@@ -773,6 +780,7 @@ export class MegaMenu {
         }
       }
       if (e.key === 'ArrowUp') {
+        e.preventDefault();
         const prevItem = element.parentElement.previousSibling;
         if (prevItem) {
           const prevLink = queryOne('.ecl-mega-menu__sublink', prevItem);
@@ -941,7 +949,7 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               item.setAttribute('aria-expanded', 'true');
-              item.setAttribute('aria-current', 'true');
+              item.setAttribute('aria-current', 'page');
             } else {
               item.setAttribute('aria-expanded', 'false');
               item.classList.remove(
@@ -986,7 +994,7 @@ export class MegaMenu {
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
             item.classList.add('ecl-mega-menu__subitem--current');
-            item.setAttribute('aria-current', true);
+            item.setAttribute('aria-current', 'page');
             item
               .closest('.ecl-mega-menu__item')
               .removeAttribute('aria-current');
