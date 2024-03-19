@@ -63,13 +63,10 @@ $navigation-list: null !default;
 
 // No border
 .ecl-navigation-list__item--no-border {
+  background-color: transparent;
   border-radius: 0;
   border-width: 0;
   box-shadow: none;
-
-  .ecl-navigation-list__image {
-    border: 1px solid map.get($navigation-list, 'image-border-color');
-  }
 
   .ecl-navigation-list__content-block {
     padding-inline-start: 0;
