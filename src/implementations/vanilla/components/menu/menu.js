@@ -2,6 +2,7 @@ import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
+import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -329,6 +330,10 @@ export class Menu {
 
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
+    this.focusTrap = createFocusTrap(this.element, {
+      onActivate: () => this.element.classList.add('trap-is-active'),
+      onDeactivate: () => this.element.classList.remove('trap-is-active'),
+    });
 
     // Hack to prevent css transition to be played on page load on chrome
     setTimeout(() => {
@@ -529,6 +534,7 @@ export class Menu {
     // Scroll to top to ensure the menu is correctly positioned.
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+
     // Disable transition
     this.element.classList.remove('ecl-menu--transition');
 
@@ -538,7 +544,9 @@ export class Menu {
 
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
-
+      if (this.isDesktop) {
+        this.focusTrap.deactivate();
+      }
       // Update items display
       this.totalItemsWidth = 0;
       if (this.items) {
@@ -997,11 +1005,9 @@ export class Menu {
     }
 
     // Set focus to hamburger button
-    if (this.open) {
-      this.open.focus();
-    }
 
     this.enableScroll();
+    this.focusTrap.deactivate();
     this.isOpen = false;
     this.trigger('onClose', e);
 
@@ -1253,9 +1259,11 @@ export class Menu {
         if (caretButton && element !== caretButton) {
           return;
         }
-
-        // This is the last item, go back to close button
-        this.close.focus();
+        const focusedEl = document.activeElement;
+        const isStillMenu = this.element.contains(focusedEl);
+        if (!isStillMenu) {
+          this.focusTrap.activate();
+        }
       }
     }
   }
