@@ -44,13 +44,13 @@ $navigation-list: null !default;
   border-radius: map.get($navigation-list, 'border-radius');
   box-shadow: map.get($navigation-list, 'shadow');
   box-sizing: border-box;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
 
 .ecl-navigation-list__image {
   aspect-ratio: 4 / 1;
-  border-bottom: 1px solid map.get($navigation-list, 'image-border-color');
   display: block;
   object-fit: cover;
   width: 100%;
@@ -63,13 +63,10 @@ $navigation-list: null !default;
 
 // No border
 .ecl-navigation-list__item--no-border {
+  background-color: transparent;
   border-radius: 0;
   border-width: 0;
   box-shadow: none;
-
-  .ecl-navigation-list__image {
-    border: 1px solid map.get($navigation-list, 'image-border-color');
-  }
 
   .ecl-navigation-list__content-block {
     padding-inline-start: 0;

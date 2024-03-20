@@ -82,24 +82,28 @@ exports[`Page Header Standardised Background image - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__meta"
+        class="ecl-page-header__info"
       >
-        <span
-          class="ecl-page-header__meta-item"
+        <div
+          class="ecl-page-header__meta"
         >
-          Meta info
-        </span>
-        <span
-          class="ecl-page-header__meta-item"
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            Meta info
+          </span>
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            DD Month YYYY
+          </span>
+        </div>
+        <h1
+          class="ecl-page-header__title"
         >
-          DD Month YYYY
-        </span>
+          Page title
+        </h1>
       </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -198,24 +202,125 @@ exports[`Page Header Standardised Default - renders correctly 1`] = `
         </ol>
       </nav>
       <div
-        class="ecl-page-header__meta"
+        class="ecl-page-header__info"
       >
-        <span
-          class="ecl-page-header__meta-item"
+        <div
+          class="ecl-page-header__meta"
         >
-          Meta info
-        </span>
-        <span
-          class="ecl-page-header__meta-item"
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            Meta info
+          </span>
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            DD Month YYYY
+          </span>
+        </div>
+        <h1
+          class="ecl-page-header__title"
         >
-          DD Month YYYY
-        </span>
+          Page title
+        </h1>
       </div>
-      <h1
-        class="ecl-page-header__title"
+      <div
+        class="ecl-page-header__description-container"
       >
-        Page title
-      </h1>
+        <p
+          class="ecl-page-header__description"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec ullamcorper mi. Morbi interdum fermentum tempus. Nam nec rhoncus risus, 
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            eget dictum elit
+          </a>
+          . Vestibulum gravida tincidunt venenatis.
+        </p>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Page Header Standardised Default renders correctly when title is hidden and no meta is provided 1`] = `
+<jest>
+  <div
+    class="ecl-page-header"
+  >
+    <div
+      class="ecl-container"
+    >
+      <nav
+        aria-label="You are here:"
+        class="ecl-breadcrumb ecl-page-header__breadcrumb"
+        data-ecl-breadcrumb="true"
+      >
+        <ol
+          class="ecl-breadcrumb__container"
+        >
+          <li
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              href="/example"
+            >
+              Home
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            class="ecl-breadcrumb__segment"
+            data-ecl-breadcrumb-item="static"
+          >
+            <a
+              class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-breadcrumb__link"
+              href="/example"
+            >
+              Parent Page label
+            </a>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--fluid ecl-breadcrumb__icon"
+              focusable="false"
+              role="presentation"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
+          </li>
+          <li
+            aria-current="page"
+            class="ecl-breadcrumb__segment ecl-breadcrumb__current-page"
+            data-ecl-breadcrumb-item="static"
+          >
+            Current Page Label
+          </li>
+        </ol>
+      </nav>
+      <div
+        class="ecl-page-header__info--no-margin"
+      >
+        <h1
+          class="ecl-page-header__title ecl-u-sr-only"
+        >
+          Page title
+        </h1>
+      </div>
       <div
         class="ecl-page-header__description-container"
       >
@@ -307,24 +412,28 @@ exports[`Page Header Standardised Default renders correctly with extra attribute
         </ol>
       </nav>
       <div
-        class="ecl-page-header__meta"
+        class="ecl-page-header__info"
       >
-        <span
-          class="ecl-page-header__meta-item"
+        <div
+          class="ecl-page-header__meta"
         >
-          Meta info
-        </span>
-        <span
-          class="ecl-page-header__meta-item"
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            Meta info
+          </span>
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            DD Month YYYY
+          </span>
+        </div>
+        <h1
+          class="ecl-page-header__title"
         >
-          DD Month YYYY
-        </span>
+          Page title
+        </h1>
       </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
       <div
         class="ecl-page-header__description-container"
       >
@@ -414,24 +523,28 @@ exports[`Page Header Standardised Default renders correctly with extra class nam
         </ol>
       </nav>
       <div
-        class="ecl-page-header__meta"
+        class="ecl-page-header__info"
       >
-        <span
-          class="ecl-page-header__meta-item"
+        <div
+          class="ecl-page-header__meta"
         >
-          Meta info
-        </span>
-        <span
-          class="ecl-page-header__meta-item"
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            Meta info
+          </span>
+          <span
+            class="ecl-page-header__meta-item"
+          >
+            DD Month YYYY
+          </span>
+        </div>
+        <h1
+          class="ecl-page-header__title"
         >
-          DD Month YYYY
-        </span>
+          Page title
+        </h1>
       </div>
-      <h1
-        class="ecl-page-header__title"
-      >
-        Page title
-      </h1>
       <div
         class="ecl-page-header__description-container"
       >

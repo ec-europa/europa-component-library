@@ -13,11 +13,7 @@ The harmonised configuration shares the same structure and guidelines, and is or
 
 # Harmonised config.
 
-## Anatomy image
-
-![](/cms-images/eu-harm.png)
-
-## Anatomy table
+### Anatomy table
 
 | No. | Element/component                        | Usage     | Description                                     |
 | --- | ---------------------------------------- | --------- | ----------------------------------------------- |
