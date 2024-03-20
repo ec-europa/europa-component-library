@@ -691,13 +691,13 @@ export class MegaMenu {
     // Handle keyboard on the back button
     if (cList.contains('ecl-mega-menu__back')) {
       if (e.key === 'ArrowDown') {
+        e.preventDefault();
         const expanded = queryOne(
           '[aria-expanded="true"]',
           element.parentElement.nextSibling,
         );
         // We have an opened list
         if (expanded) {
-          e.preventDefault();
           const innerExpanded = queryOne('[aria-expanded="true"]', expanded);
           // We have an opened sub-list
           if (innerExpanded) {
@@ -1178,9 +1178,6 @@ export class MegaMenu {
         const nextFocusTarget = e.relatedTarget;
         if (!this.element.contains(nextFocusTarget)) {
           // This is the last item, go back to close button
-          this.open.focus();
-        } else {
-          // Activate a focus trap so the focus doesn't get lost
           this.focusTrap.activate();
         }
       }

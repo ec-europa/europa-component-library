@@ -27,7 +27,7 @@ module.exports = {
     hide_label: true,
   },
   back_label: 'Back',
-  see_all_label: 'See all pages',
+  see_all_label: 'View all',
   icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
@@ -86,7 +86,7 @@ module.exports = {
         { label: 'Item 2.2', path: exampleLink },
         {
           label:
-            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed.',
+            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.',
           path: exampleLink,
           trigger_aria_label: "Access item's children",
           link_aria_label: 'Link to the 2.3 item page',

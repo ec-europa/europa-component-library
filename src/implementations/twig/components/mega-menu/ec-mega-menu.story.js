@@ -6,8 +6,6 @@ import data from '@ecl/specs-component-mega-menu/demo/data';
 import megaMenu from './mega-menu.html.twig';
 import notes from './README.md';
 
-const dataShort = data;
-
 export default {
   title: 'Components/Navigation/Mega menu',
   decorators: [withNotes, withCode],
@@ -18,7 +16,7 @@ export default {
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
+Default.render = async () => {
   const renderedMenu = await megaMenu(correctPaths(data));
   return renderedMenu;
 };
