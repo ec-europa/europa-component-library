@@ -216,6 +216,10 @@ module.exports = {
     eu_category: 'Official EU languages:',
     non_eu_category: 'Other languages:',
   },
+  basket: {
+    label: 'Basket',
+    href: exampleLink,
+  },
   search_toggle: {
     label: 'Search',
     href: exampleLink,

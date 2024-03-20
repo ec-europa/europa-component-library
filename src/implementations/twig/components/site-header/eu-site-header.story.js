@@ -31,6 +31,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    show_basket: false,
   };
 
   if (data.login_box) {
@@ -65,74 +66,120 @@ const getArgTypes = (data) => {
   if (data.login_box) {
     argTypes.show_login = {
       name: 'login',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the login box',
       table: {
         category: 'Optional',
       },
+      mapping: {
+        0: false,
+        1: true,
+      },
     };
     argTypes.logged = {
       name: 'logged in',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the login box for a logged in user',
       table: {
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   argTypes.show_language_selector = {
     name: 'language selector',
-    type: { name: 'boolean' },
+    control: { type: 'boolean' },
     description: 'Show the language selector',
     table: {
       category: 'Optional',
     },
+    mapping: {
+      0: false,
+      1: true,
+    },
   };
   argTypes.show_search = {
     name: 'search (Europa Search)',
-    type: { name: 'boolean' },
+    control: { type: 'boolean' },
     description: 'Show the search form',
     table: {
       category: 'Optional',
+    },
+    mapping: {
+      0: false,
+      1: true,
     },
   };
   if (data.notification) {
     argTypes.show_notification = {
       name: 'notification',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the notification box',
       table: {
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
+      },
+    };
+  }
+  if (data.basket) {
+    argTypes.show_basket = {
+      name: 'basket',
+      control: { type: 'boolean' },
+      description: 'Show the basket',
+      table: {
+        category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the menu',
       table: {
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.cta_link) {
     argTypes.show_cta_link = {
       name: 'call to action',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the call to action link',
       table: {
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
   }
   if (data.site_name) {
     argTypes.show_site_name = {
       name: 'site name',
-      type: { name: 'boolean' },
+      control: { type: 'boolean' },
       description: 'Show the site name',
       table: {
         category: 'Optional',
+      },
+      mapping: {
+        0: false,
+        1: true,
       },
     };
     argTypes.site_name = {
@@ -237,6 +284,12 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+  }
+
+  if (!args.show_basket) {
+    delete data.basket;
+  } else {
+    data.basket = clonedDataFull.basket;
   }
 
   data.logged = args.logged;

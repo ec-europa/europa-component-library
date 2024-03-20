@@ -95,7 +95,8 @@ $language-list: null !default;
 }
 
 .ecl-site-header__login-toggle,
-.ecl-site-header__search-toggle {
+.ecl-site-header__search-toggle,
+.ecl-site-header__basket_link {
   align-items: center;
   box-sizing: border-box;
   color: map.get($site-header, 'toggle-color');
@@ -275,7 +276,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 @include breakpoints.down('m') {
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
-  .ecl-site-header__language-selector {
+  .ecl-site-header__language-selector,
+  .ecl-site-header__basket_link {
     background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
@@ -386,7 +388,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__login-toggle,
-  .ecl-site-header__language-selector {
+  .ecl-site-header__language-selector,
+  .ecl-site-header__basket_link {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -394,7 +397,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__login-toggle,
-  .ecl-site-header__language-icon {
+  .ecl-site-header__language-icon,
+  .ecl-site-header__basket_link {
     .ecl-site-header__icon {
       flex-shrink: 0;
       height: 1rem;
