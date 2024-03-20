@@ -23,6 +23,25 @@ describe('List with illustration', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when centered', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...dataListIllustrationImage, centered: true }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with squared images', () => {
+      expect.assertions(1);
+
+      const dataSquared = JSON.parse(JSON.stringify(dataListIllustrationImage));
+      dataSquared.items.forEach((item) => {
+        item.square = true;
+      });
+
+      return expect(render(dataSquared)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

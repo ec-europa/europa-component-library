@@ -12,9 +12,6 @@ $popover: null !default;
 
 // Internal variables
 $_arrow-size: 1rem;
-$_item-height: map.get($theme, 'line-height', 'm') +
-  (map.get($theme, 'spacing', 's') * 2);
-$_item-width: 188px;
 
 .ecl-popover {
   display: inline-block;
@@ -25,10 +22,7 @@ $_item-width: 188px;
 .ecl-popover__container {
   background-color: map.get($theme, 'color', 'white');
   box-shadow: map.get($popover, 'shadow');
-  left: 50%;
-  margin-top: calc(
-    #{map.get($theme, 'spacing', 'xs')} + #{map.get($theme, 'spacing', 's')}
-  );
+  min-height: 7rem;
   position: absolute;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'dropdown');
@@ -51,50 +45,58 @@ $_item-width: 188px;
     left: 50%;
     margin-left: calc(-#{$_arrow-size} / 2);
     position: absolute;
-    top: 0;
     transform: translate(0%, -50%) rotate(-45deg);
     width: $_arrow-size;
   }
 }
 
-.ecl-popover__content {
-  font: map.get($theme, 'font', 'm');
-  max-height: #{$_item-height * 4};
-  min-width: $_item-width;
-  padding: map.get($theme, 'spacing', 's');
-  width: auto;
+.ecl-popover__scrollable {
+  min-width: 288px;
+  max-width: 288px;
   overflow-y: auto;
+  padding: var(--s-3xl);
 }
 
-@include breakpoints.up('m') {
-  .ecl-popover__content {
-    max-height: #{$_item-height * 6};
+.ecl-popover__content {
+  background-color: map.get($theme, 'color', 'white');
+  font: var(--f-m);
+  max-height: 11rem;
+  text-align: start;
+  width: auto;
+}
+
+.ecl-popover__close {
+  position: absolute;
+  top: var(--s-m);
+  right: var(--s-m);
+
+  + .ecl-popover__content {
+    padding-inline-end: var(--s-xl);
   }
 }
 
-.ecl-popover__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  width: $_item-width;
+[dir='rtl'] .ecl-popover__close {
+  left: var(--s-m);
+  right: auto;
 }
 
-.ecl-popover__link {
-  align-items: center;
-  display: flex;
-  padding: map.get($theme, 'spacing', 's');
+.ecl-popover--bottom .ecl-popover__container,
+.ecl-popover--top .ecl-popover__container {
+  left: 50%;
+}
 
-  &:focus-visible {
-    outline-offset: -2px;
+.ecl-popover--bottom .ecl-popover__container {
+  margin-top: 1rem;
+
+  &::before {
+    top: 1px;
   }
 }
 
 // Top Popover
 .ecl-popover--top .ecl-popover__container {
   bottom: 100%;
-  margin-bottom: calc(
-    #{map.get($theme, 'spacing', 'xs')} + #{map.get($theme, 'spacing', 's')}
-  );
+  margin-bottom: calc(var(--s-xs) + var(--s-s));
   margin-top: 0;
 
   &::before {
@@ -104,6 +106,51 @@ $_item-width: 188px;
   }
 }
 
+.ecl-popover--right .ecl-popover__container {
+  left: 115%;
+  transform: translateY(-50%);
+  top: 50%;
+
+  &::before {
+    top: var(--ecl-popover-position, 50%);
+    left: 0;
+    transform: translate(0%, -50%) rotate(225deg);
+  }
+}
+
+.ecl-popover--left .ecl-popover__container {
+  right: 115%;
+  transform: translateY(-50%);
+  top: 50%;
+
+  .ecl-popover__scrollable {
+    direction: rtl;
+
+    .ecl-popover__content {
+      direction: ltr;
+    }
+  }
+
+  &::before {
+    top: var(--ecl-popover-position, 50%);
+    left: 100%;
+    margin-left: -1px;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+.ecl-popover--push-bottom .ecl-popover__container {
+  bottom: 0;
+  top: auto;
+  transform: none;
+}
+
+.ecl-popover--push-top .ecl-popover__container {
+  bottom: auto;
+  top: 0;
+  transform: none;
+}
+
 // Horizontal arrow position
 .ecl-popover--push-left .ecl-popover__container {
   left: 0;
@@ -111,6 +158,7 @@ $_item-width: 188px;
 
   &::before {
     left: var(--ecl-popover-position);
+    right: auto;
   }
 }
 
@@ -120,7 +168,47 @@ $_item-width: 188px;
   transform: none;
 
   &::before {
-    left: auto;
     right: var(--ecl-popover-position);
+    left: auto;
+  }
+}
+
+@include breakpoints.up('s') {
+  .ecl-popover__scrollable {
+    max-width: 400px;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-popover__content {
+    max-height: 264px;
+  }
+
+  .ecl-popover__scrollable {
+    max-width: 522px;
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-popover__scrollable {
+    max-width: 648px;
+  }
+}
+
+// Supporting the markup used in v3 for the other social media.
+.ecl-popover__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 188px;
+}
+
+.ecl-popover__link {
+  align-items: center;
+  display: flex;
+  padding: var(--s-s);
+
+  &:focus-visible {
+    outline-offset: -2px;
   }
 }

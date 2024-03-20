@@ -39,7 +39,6 @@ const getArgs = (data) => {
     show_search: true,
     show_notification: false,
     show_basket: false,
-    light: true,
   };
 
   if (data.login_box) {
@@ -247,15 +246,6 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.light = {
-    name: 'light',
-    type: { name: 'boolean' },
-    description: 'Use the light display',
-    table: {
-      category: 'Display',
-    },
-  };
-
   return argTypes;
 };
 
@@ -332,14 +322,6 @@ const prepareData = (data, args) => {
     delete data.basket;
   } else {
     data.basket = clonedDataFull.basket;
-  }
-
-  if (data.menu) {
-    if (args.light) {
-      data.menu.variant = 'light';
-    } else {
-      data.menu.variant = '';
-    }
   }
 
   correctPaths(data);

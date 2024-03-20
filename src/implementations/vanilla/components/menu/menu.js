@@ -2,6 +2,7 @@ import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
+import { createFocusTrap } from 'focus-trap';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -166,6 +167,9 @@ export class Menu {
     this.checkMenuItem = this.checkMenuItem.bind(this);
     this.checkMegaMenu = this.checkMegaMenu.bind(this);
     this.closeOpenDropdown = this.closeOpenDropdown.bind(this);
+    this.positionMenuOverlay = this.positionMenuOverlay.bind(this);
+    this.disableScroll = this.disableScroll.bind(this);
+    this.enableScroll = this.enableScroll.bind(this);
   }
 
   /**
@@ -308,6 +312,8 @@ export class Menu {
       });
     }
 
+    this.positionMenuOverlay();
+
     // Update overflow display
     this.checkMenuOverflow();
 
@@ -324,6 +330,10 @@ export class Menu {
 
     // Init sticky header
     this.stickyInstance = new Stickyfill.Sticky(this.element);
+    this.focusTrap = createFocusTrap(this.element, {
+      onActivate: () => this.element.classList.add('trap-is-active'),
+      onDeactivate: () => this.element.classList.remove('trap-is-active'),
+    });
 
     // Hack to prevent css transition to be played on page load on chrome
     setTimeout(() => {
@@ -473,6 +483,22 @@ export class Menu {
     }
   }
 
+  /* eslint-disable class-methods-use-this */
+  /**
+   * Disable page scrolling
+   */
+  disableScroll() {
+    document.body.classList.add('no-scroll');
+  }
+
+  /**
+   * Enable page scrolling
+   */
+  enableScroll() {
+    document.body.classList.remove('no-scroll');
+  }
+  /* eslint-enable class-methods-use-this */
+
   /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
@@ -505,6 +531,10 @@ export class Menu {
    * Uses a debounce, for performance
    */
   handleResize() {
+    // Scroll to top to ensure the menu is correctly positioned.
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     // Disable transition
     this.element.classList.remove('ecl-menu--transition');
 
@@ -514,7 +544,9 @@ export class Menu {
 
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
-
+      if (this.isDesktop) {
+        this.focusTrap.deactivate();
+      }
       // Update items display
       this.totalItemsWidth = 0;
       if (this.items) {
@@ -526,12 +558,46 @@ export class Menu {
 
       // Update overflow display
       this.checkMenuOverflow();
+      this.positionMenuOverlay();
 
       // Bring transition back
       this.element.classList.add('ecl-menu--transition');
     }, 200);
 
     return this;
+  }
+
+  /**
+   * Dinamically set the position of the menu overlay
+   */
+  positionMenuOverlay() {
+    const menuOverlay = queryOne('.ecl-menu__overlay', this.element);
+    if (!this.isDesktop) {
+      if (this.isOpen) {
+        this.disableScroll();
+      }
+      setTimeout(() => {
+        const header = queryOne('.ecl-site-header__header', document);
+        if (header) {
+          const position = header.getBoundingClientRect();
+          const bottomPosition = Math.round(position.bottom);
+          if (menuOverlay) {
+            menuOverlay.style.top = `${bottomPosition}px`;
+          }
+          if (this.inner) {
+            this.inner.style.top = `${bottomPosition}px`;
+          }
+        }
+      }, 500);
+    } else {
+      this.enableScroll();
+      if (this.inner) {
+        this.inner.style.top = '';
+      }
+      if (menuOverlay) {
+        menuOverlay.style.top = '';
+      }
+    }
   }
 
   /**
@@ -899,6 +965,7 @@ export class Menu {
 
     this.element.setAttribute('aria-expanded', 'true');
     this.inner.setAttribute('aria-hidden', 'false');
+    this.disableScroll();
     this.isOpen = true;
 
     // Update label
@@ -938,10 +1005,9 @@ export class Menu {
     }
 
     // Set focus to hamburger button
-    if (this.open) {
-      this.open.focus();
-    }
 
+    this.enableScroll();
+    this.focusTrap.deactivate();
     this.isOpen = false;
     this.trigger('onClose', e);
 
@@ -1193,9 +1259,11 @@ export class Menu {
         if (caretButton && element !== caretButton) {
           return;
         }
-
-        // This is the last item, go back to close button
-        this.close.focus();
+        const focusedEl = document.activeElement;
+        const isStillMenu = this.element.contains(focusedEl);
+        if (!isStillMenu) {
+          this.focusTrap.activate();
+        }
       }
     }
   }

@@ -9,7 +9,6 @@ import notes from './README.md';
 
 const dataShort = dataEc;
 const dataLong = dataEcLong;
-const dataLight = { ...dataEcLong, variant: 'light' };
 
 const getArgs = (data) => ({
   max_lines: data.max_lines || 2,
@@ -63,14 +62,3 @@ Long.storyName = 'long - with overlay';
 Long.args = getArgs(dataLong);
 Long.argTypes = getArgTypes();
 Long.parameters = { notes: { markdown: notes, json: dataLong } };
-
-export const Light = (_, { loaded: { component } }) => component;
-
-Light.render = async (args) => {
-  const renderedMenuLight = await menu(prepareData(dataLight, args));
-  return renderedMenuLight;
-};
-Light.storyName = 'light';
-Light.args = getArgs(dataLight);
-Light.argTypes = getArgTypes();
-Light.parameters = { notes: { markdown: notes, json: dataLight } };
