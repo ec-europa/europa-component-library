@@ -1,4 +1,5 @@
 module.exports = {
+  id: 'table-id',
   headers: [
     [
       { label: 'Job title' },
