@@ -270,10 +270,7 @@ export class MegaMenu {
       onActivate: () => this.element.classList.add('trap-is-active'),
       onDeactivate: () => this.element.classList.remove('trap-is-active'),
     });
-    // Hack to prevent css transition to be played on page load on chrome
-    setTimeout(() => {
-      this.element.classList.add('ecl-mega-menu--transition');
-    }, 500);
+
     this.handleResize();
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -499,7 +496,6 @@ export class MegaMenu {
    */
   handleResize() {
     // Disable transition
-    this.element.classList.remove('ecl-mega-menu--transition');
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
@@ -513,9 +509,6 @@ export class MegaMenu {
         this.resetStyles('desktop');
       }
       this.positionMenuOverlay();
-
-      // Bring transition back
-      this.element.classList.add('ecl-mega-menu--transition');
     }, 200);
   }
 
