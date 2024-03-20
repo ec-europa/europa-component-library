@@ -148,6 +148,8 @@ export class MegaMenu {
     this.resetStyles = this.resetStyles.bind(this);
     this.handleFirstPanel = this.handleFirstPanel.bind(this);
     this.handleSecondPanel = this.handleSecondPanel.bind(this);
+    this.disableScroll = this.disableScroll.bind(this);
+    this.enableScroll = this.enableScroll.bind(this);
   }
 
   /**
@@ -382,6 +384,20 @@ export class MegaMenu {
   }
 
   /**
+   * Disable page scrolling
+   */
+  disableScroll() {
+    document.body.classList.add('no-scroll');
+  }
+
+  /**
+   * Enable page scrolling
+   */
+  enableScroll() {
+    document.body.classList.remove('no-scroll');
+  }
+
+  /**
    * Check if desktop display has to be used
    * - not using a phone or tablet (whatever the screen size is)
    * - not having hamburger menu on screen
@@ -420,7 +436,7 @@ export class MegaMenu {
         const menuItem = this.openPanel.item;
         // Hide parent link in the first panel
         menuItem.parentNode.parentNode.firstElementChild.style.display = 'none';
-        // REmove duplicated border
+        // Remove duplicated border
         menuItem.parentNode.classList.add('ecl-mega-menu__sublist--no-border');
         // Hide siblings
         const siblings = menuItem.parentNode.childNodes;
@@ -472,7 +488,7 @@ export class MegaMenu {
       } else {
         this.element.setAttribute('aria-expanded', 'false');
         this.element.removeAttribute('data-expanded');
-        document.body.classList.remove('no-scroll');
+        this.enableScroll();
       }
     }
   }
@@ -831,7 +847,7 @@ export class MegaMenu {
       this.handleClickOnClose(e);
     } else {
       e.preventDefault();
-      document.body.classList.add('no-scroll');
+      this.disableScroll();
       this.element.setAttribute('aria-expanded', 'true');
       this.inner.setAttribute('aria-hidden', 'false');
       this.isOpen = true;
@@ -940,7 +956,7 @@ export class MegaMenu {
         this.checkDropdownHeight(menuItem);
         this.element.setAttribute('data-expanded', true);
         this.element.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('no-scroll');
+        this.disableScroll();
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
             if (item === menuItem) {
@@ -1110,7 +1126,7 @@ export class MegaMenu {
    * Deselect any opened menu item
    */
   closeOpenDropdown() {
-    document.body.classList.remove('no-scroll');
+    this.enableScroll();
     this.element.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
     // Remove css class and attribute from inner menu
