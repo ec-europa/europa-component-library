@@ -521,7 +521,8 @@ $mega-menu: null !default;
   }
 
   > .ecl-mega-menu__link,
-  > .ecl-mega-menu__sublink {
+  > .ecl-mega-menu__sublink,
+  > .ecl-mega-menu__sublink.ecl-link--icon {
     display: none;
   }
 
@@ -697,6 +698,7 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__parent-link {
         display: flex;
+        outline-offset: -2px;
         text-align: initial;
 
         .ecl-link__label {
