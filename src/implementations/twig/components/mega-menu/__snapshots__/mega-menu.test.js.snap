@@ -134,9 +134,11 @@ exports[`Menu Default renders correctly 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -264,7 +266,7 @@ exports[`Menu Default renders correctly 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -326,6 +328,83 @@ exports[`Menu Default renders correctly 1`] = `
                             </div>
                           </div>
                         </article>
+                        <article
+                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+                        >
+                          <div
+                            class="ecl-content-block ecl-navigation-list__content-block"
+                            data-ecl-auto-init="ContentBlock"
+                            data-ecl-content-block=""
+                          >
+                            <div
+                              class="ecl-content-block__link-container"
+                            >
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#aw24p"
+                                  >
+                                    Primary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#5t02k"
+                                  >
+                                    Primary link 2
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  A simple string
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#6y5wj"
+                                  >
+                                    Primary link 3
+                                  </a>
+                                </li>
+                              </ul>
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#b2u8v"
+                                  >
+                                    Secondary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#goyou"
+                                  >
+                                    Secondary link 2
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </article>
                       </div>
                     </div>
                   </div>
@@ -353,7 +432,7 @@ exports[`Menu Default renders correctly 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -471,9 +550,11 @@ exports[`Menu Default renders correctly 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -544,9 +625,11 @@ exports[`Menu Default renders correctly 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -696,7 +779,7 @@ exports[`Menu Default renders correctly 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -774,9 +857,11 @@ exports[`Menu Default renders correctly 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to the EU Policies page"
             id="ecl-mega-menu-item-demo-4"
           >
             <a
@@ -1146,7 +1231,7 @@ exports[`Menu Default renders correctly 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -1447,7 +1532,7 @@ exports[`Menu Default renders correctly 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -1482,7 +1567,7 @@ exports[`Menu Default renders correctly 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.5
+                    Item 5.5 with a very long label that will trigger the trimming after the third line also for an item without children
                   </a>
                 </li>
                 <li
@@ -1526,7 +1611,7 @@ exports[`Menu Default renders correctly 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.9 with a very long label
+                    Item 5.9
                   </a>
                 </li>
               </ul>
@@ -1703,9 +1788,11 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -1833,7 +1920,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -1895,6 +1982,83 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                             </div>
                           </div>
                         </article>
+                        <article
+                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+                        >
+                          <div
+                            class="ecl-content-block ecl-navigation-list__content-block"
+                            data-ecl-auto-init="ContentBlock"
+                            data-ecl-content-block=""
+                          >
+                            <div
+                              class="ecl-content-block__link-container"
+                            >
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#aw24p"
+                                  >
+                                    Primary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#5t02k"
+                                  >
+                                    Primary link 2
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  A simple string
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#6y5wj"
+                                  >
+                                    Primary link 3
+                                  </a>
+                                </li>
+                              </ul>
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#b2u8v"
+                                  >
+                                    Secondary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#goyou"
+                                  >
+                                    Secondary link 2
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </article>
                       </div>
                     </div>
                   </div>
@@ -1922,7 +2086,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -2040,9 +2204,11 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -2113,9 +2279,11 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -2265,7 +2433,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -2343,9 +2511,11 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to the EU Policies page"
             id="ecl-mega-menu-item-demo-4"
           >
             <a
@@ -2715,7 +2885,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -3016,7 +3186,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -3051,7 +3221,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.5
+                    Item 5.5 with a very long label that will trigger the trimming after the third line also for an item without children
                   </a>
                 </li>
                 <li
@@ -3095,7 +3265,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.9 with a very long label
+                    Item 5.9
                   </a>
                 </li>
               </ul>
@@ -3270,9 +3440,11 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -3400,7 +3572,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -3462,6 +3634,83 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                             </div>
                           </div>
                         </article>
+                        <article
+                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
+                        >
+                          <div
+                            class="ecl-content-block ecl-navigation-list__content-block"
+                            data-ecl-auto-init="ContentBlock"
+                            data-ecl-content-block=""
+                          >
+                            <div
+                              class="ecl-content-block__link-container"
+                            >
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#aw24p"
+                                  >
+                                    Primary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#5t02k"
+                                  >
+                                    Primary link 2
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  A simple string
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#6y5wj"
+                                  >
+                                    Primary link 3
+                                  </a>
+                                </li>
+                              </ul>
+                              <ul
+                                class="ecl-content-block__link-list"
+                              >
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#b2u8v"
+                                  >
+                                    Secondary link 1
+                                  </a>
+                                </li>
+                                <li
+                                  class="ecl-content-block__link-item"
+                                >
+                                  <a
+                                    class="ecl-link ecl-link--standalone"
+                                    href="/component-library/example#goyou"
+                                  >
+                                    Secondary link 2
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </article>
                       </div>
                     </div>
                   </div>
@@ -3489,7 +3738,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -3607,9 +3856,11 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -3680,9 +3931,11 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -3832,7 +4085,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -3910,9 +4163,11 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
           <li
             aria-expanded="false"
             aria-haspopup=""
+            aria-label="Access item's children"
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
+            data-ecl-parent-aria-label="Link to the EU Policies page"
             id="ecl-mega-menu-item-demo-4"
           >
             <a
@@ -4282,7 +4537,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -4583,7 +4838,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                           <span
                             class="ecl-link__label"
                           >
-                            See all pages
+                            View all
                           </span>
                           <svg
                             aria-hidden="true"
@@ -4618,7 +4873,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.5
+                    Item 5.5 with a very long label that will trigger the trimming after the third line also for an item without children
                   </a>
                 </li>
                 <li
@@ -4662,7 +4917,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                     class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 5.9 with a very long label
+                    Item 5.9
                   </a>
                 </li>
               </ul>

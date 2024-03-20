@@ -238,11 +238,15 @@ module.exports = {
           ],
         },
         { label: 'Item 5.4', path: exampleLink },
-        { label: 'Item 5.5', path: exampleLink },
+        {
+          label:
+            'Item 5.5 with a very long label that will trigger the trimming after the third line also for an item without children',
+          path: exampleLink,
+        },
         { label: 'Item 5.6', path: exampleLink },
         { label: 'Item 5.7', path: exampleLink },
         { label: 'Item 5.8', path: exampleLink },
-        { label: 'Item 5.9 with a very long label', path: exampleLink },
+        { label: 'Item 5.9', path: exampleLink },
       ],
     },
     {

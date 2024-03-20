@@ -330,13 +330,6 @@ $mega-menu: null !default;
     outline-offset: -2px;
   }
 
-  .ecl-link__label {
-    display: -webkit-inline-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
   .ecl-icon {
     margin-inline-start: auto;
   }
@@ -579,16 +572,24 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__sublink {
   color: map.get($mega-menu, 'mobile', 'item-color');
-  display: flex;
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
-  .ecl-link__label {
-    display: -webkit-inline-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  &.ecl-link--icon {
+    display: flex;
+    overflow: visible;
+
+    .ecl-link__label {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 
   &:hover {

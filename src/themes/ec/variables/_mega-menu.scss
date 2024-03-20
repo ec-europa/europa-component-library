@@ -42,7 +42,7 @@ $mega-menu: (
     subtitle-border: 1px solid var(--c-n),
     subtitle-font: var(--f-m),
     subtitle-font-weight: map.get($font-weight, 'normal'),
-    subitem-padding: var(--s-xs) var(--s-m) var(--s-xs) var(--s-m),
+    subitem-padding: var(--s-xs) var(--s-m) calc(var(--s-xs) - 1px) var(--s-m),
   ),
   desktop: (
     menu-background: var(--c-br),
@@ -80,7 +80,7 @@ $mega-menu: (
     mega-padding: var(--s-xl) 0 0,
     mega-column-gap: var(--s-2xl),
     mega-column-border: 1px solid var(--c-n),
-    sublink-padding: var(--s-xs) var(--s-m),
+    sublink-padding: var(--s-xs) var(--s-m) calc(var(--s-xs) - 1px) var(--s-m),
     sublink-current-background: map.get($color, 'white'),
     sublink-current-shadow: inset 4px 0 0 0 var(--c-p),
   ),
