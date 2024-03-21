@@ -4,8 +4,6 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
- * @param {String} options.prevSelector Selector for prev element
- * @param {String} options.nextSelector Selector for next element
  * @param {String} options.contentClass Selector for the content container
  * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
@@ -33,8 +31,6 @@ export class Carousel {
     {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
-      prevSelector = '.ecl-carousel__prev',
-      nextSelector = '.ecl-carousel__next',
       containerClass = '.ecl-carousel__container',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
@@ -57,8 +53,6 @@ export class Carousel {
     // Options
     this.playSelector = playSelector;
     this.pauseSelector = pauseSelector;
-    this.prevSelector = prevSelector;
-    this.nextSelector = nextSelector;
     this.containerClass = containerClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
@@ -73,8 +67,6 @@ export class Carousel {
     this.slides = null;
     this.btnPlay = null;
     this.btnPause = null;
-    this.btnPrev = null;
-    this.btnNext = null;
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
@@ -126,8 +118,6 @@ export class Carousel {
 
     this.btnPlay = queryOne(this.playSelector, this.element);
     this.btnPause = queryOne(this.pauseSelector, this.element);
-    this.btnPrev = queryOne(this.prevSelector, this.element);
-    this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__navigation', this.element);
@@ -141,12 +131,6 @@ export class Carousel {
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
-      if (this.btnNext) {
-        this.btnNext.style.display = 'none';
-      }
-      if (this.btnPrev) {
-        this.btnPrev.style.display = 'none';
-      }
       if (this.controls) {
         this.controls.style.display = 'none';
       }
@@ -197,18 +181,6 @@ export class Carousel {
     if (this.btnPlay) {
       this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
     }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, 'next', true),
-      );
-    }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, 'prev', true),
-      );
-    }
 
     if (this.slidesContainer) {
       // Mouse events
@@ -248,12 +220,6 @@ export class Carousel {
     }
     if (this.btnPause) {
       this.btnPause.replaceWith(this.btnPause.cloneNode(true));
-    }
-    if (this.btnNext) {
-      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
-    }
-    if (this.btnPrev) {
-      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
     }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(

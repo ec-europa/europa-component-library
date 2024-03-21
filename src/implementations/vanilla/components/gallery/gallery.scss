@@ -377,6 +377,8 @@ $_image-height-mobile: 260px;
 
   &:focus-visible {
     background-color: map.get($theme, 'color', 'white');
+    outline: 2px solid map.get($theme, 'color', 'white');
+    outline-offset: 0;
   }
 }
 
