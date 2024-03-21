@@ -13,8 +13,6 @@ npm install --save @ecl/twig-component-carousel
 - **"sr_description"** (string) (default: '') screen reader description of the carousel
 - **"sr_role"** (string) (default: 'carousel') screen reader localized role for the carousel
 - **"sr_slide_role"** (string) (default: 'slide') screen reader localized role for the slides
-- **"sr_previous"** (string) (default: 'Previous slides') screen reader label for previous button
-- **"sr_next"** (string) (default: 'Next slides') screen reader label for next button
 - **"sr_navigation"** (string) (default: 'Go to slide %d') screen reader label for navigation buttons
 - **"sr_play"** (string) (default: 'Play carousel') screen reader label for the play button
 - **"sr_pause"** (string) (default: 'Pause carousel') screen reader label for the pause button
