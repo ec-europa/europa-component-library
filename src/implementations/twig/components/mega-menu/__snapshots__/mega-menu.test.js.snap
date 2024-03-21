@@ -319,7 +319,7 @@ exports[`Menu Default renders correctly 1`] = `
                                 class="ecl-content-block__title"
                               >
                                 <a
-                                  class="ecl-link"
+                                  class="ecl-link ecl-link--standalone"
                                   href="#"
                                 >
                                   Delivery on the priorities of items 2.1
@@ -328,84 +328,51 @@ exports[`Menu Default renders correctly 1`] = `
                             </div>
                           </div>
                         </article>
-                        <article
-                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-                        >
-                          <div
-                            class="ecl-content-block ecl-navigation-list__content-block"
-                            data-ecl-auto-init="ContentBlock"
-                            data-ecl-content-block=""
-                          >
-                            <div
-                              class="ecl-content-block__link-container"
-                            >
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#aw24p"
-                                  >
-                                    Primary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#5t02k"
-                                  >
-                                    Primary link 2
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  A simple string
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#6y5wj"
-                                  >
-                                    Primary link 3
-                                  </a>
-                                </li>
-                              </ul>
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#b2u8v"
-                                  >
-                                    Secondary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#goyou"
-                                  >
-                                    Secondary link 2
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </article>
                       </div>
+                      <ul
+                        class="ecl-mega-menu__featured-list"
+                      >
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 1
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 2
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 3
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 4
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </li>
@@ -525,23 +492,10 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    <span
-                      class="ecl-link__label"
-                    >
-                      Item 2.7
-                    </span>
-                    <svg
-                      aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
-                      focusable="false"
-                    >
-                      <use
-                        xlink:href="/icons.svg#external"
-                      />
-                    </svg>
+                    Item 2.7
                   </a>
                 </li>
               </ul>
@@ -1618,18 +1572,45 @@ exports[`Menu Default renders correctly 1`] = `
             </div>
           </li>
           <li
-            class="ecl-mega-menu__item"
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
+            data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-5"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-mega-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
               href="/example"
               id="ecl-mega-menu-item-demo-5-link"
             >
-              Engage
+              <span
+                class="ecl-link__label"
+                id="ecl-mega-menu-item-demo-5-link-label"
+              >
+                Engage
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-mega-menu__mega-container"
+              data-ecl-mega-menu-mega=""
+            >
+              <div
+                class="ecl-mega-menu__mega-container-scrollable"
+              >
+                <div />
+              </div>
+            </div>
           </li>
           <li
             class="ecl-mega-menu__item"
@@ -1973,7 +1954,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                                 class="ecl-content-block__title"
                               >
                                 <a
-                                  class="ecl-link"
+                                  class="ecl-link ecl-link--standalone"
                                   href="#"
                                 >
                                   Delivery on the priorities of items 2.1
@@ -1982,84 +1963,51 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                             </div>
                           </div>
                         </article>
-                        <article
-                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-                        >
-                          <div
-                            class="ecl-content-block ecl-navigation-list__content-block"
-                            data-ecl-auto-init="ContentBlock"
-                            data-ecl-content-block=""
-                          >
-                            <div
-                              class="ecl-content-block__link-container"
-                            >
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#aw24p"
-                                  >
-                                    Primary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#5t02k"
-                                  >
-                                    Primary link 2
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  A simple string
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#6y5wj"
-                                  >
-                                    Primary link 3
-                                  </a>
-                                </li>
-                              </ul>
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#b2u8v"
-                                  >
-                                    Secondary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#goyou"
-                                  >
-                                    Secondary link 2
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </article>
                       </div>
+                      <ul
+                        class="ecl-mega-menu__featured-list"
+                      >
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 1
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 2
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 3
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 4
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </li>
@@ -2179,23 +2127,10 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    <span
-                      class="ecl-link__label"
-                    >
-                      Item 2.7
-                    </span>
-                    <svg
-                      aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
-                      focusable="false"
-                    >
-                      <use
-                        xlink:href="/icons.svg#external"
-                      />
-                    </svg>
+                    Item 2.7
                   </a>
                 </li>
               </ul>
@@ -3272,18 +3207,45 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             </div>
           </li>
           <li
-            class="ecl-mega-menu__item"
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
+            data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-5"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-mega-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
               href="/example"
               id="ecl-mega-menu-item-demo-5-link"
             >
-              Engage
+              <span
+                class="ecl-link__label"
+                id="ecl-mega-menu-item-demo-5-link-label"
+              >
+                Engage
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-mega-menu__mega-container"
+              data-ecl-mega-menu-mega=""
+            >
+              <div
+                class="ecl-mega-menu__mega-container-scrollable"
+              >
+                <div />
+              </div>
+            </div>
           </li>
           <li
             class="ecl-mega-menu__item"
@@ -3625,7 +3587,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                                 class="ecl-content-block__title"
                               >
                                 <a
-                                  class="ecl-link"
+                                  class="ecl-link ecl-link--standalone"
                                   href="#"
                                 >
                                   Delivery on the priorities of items 2.1
@@ -3634,84 +3596,51 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                             </div>
                           </div>
                         </article>
-                        <article
-                          class="ecl-navigation-list__item ecl-navigation-list__item--no-border"
-                        >
-                          <div
-                            class="ecl-content-block ecl-navigation-list__content-block"
-                            data-ecl-auto-init="ContentBlock"
-                            data-ecl-content-block=""
-                          >
-                            <div
-                              class="ecl-content-block__link-container"
-                            >
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#aw24p"
-                                  >
-                                    Primary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#5t02k"
-                                  >
-                                    Primary link 2
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  A simple string
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#6y5wj"
-                                  >
-                                    Primary link 3
-                                  </a>
-                                </li>
-                              </ul>
-                              <ul
-                                class="ecl-content-block__link-list"
-                              >
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#b2u8v"
-                                  >
-                                    Secondary link 1
-                                  </a>
-                                </li>
-                                <li
-                                  class="ecl-content-block__link-item"
-                                >
-                                  <a
-                                    class="ecl-link ecl-link--standalone"
-                                    href="/component-library/example#goyou"
-                                  >
-                                    Secondary link 2
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </article>
                       </div>
+                      <ul
+                        class="ecl-mega-menu__featured-list"
+                      >
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 1
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 2
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 3
+                          </a>
+                        </li>
+                        <li
+                          class="ecl-mega-menu__featured-list__item"
+                        >
+                          <a
+                            class="ecl-link ecl-link--standalone"
+                            href="/example"
+                          >
+                            Featured link 4
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </li>
@@ -3831,23 +3760,10 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    <span
-                      class="ecl-link__label"
-                    >
-                      Item 2.7
-                    </span>
-                    <svg
-                      aria-hidden="true"
-                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
-                      focusable="false"
-                    >
-                      <use
-                        xlink:href="/icons.svg#external"
-                      />
-                    </svg>
+                    Item 2.7
                   </a>
                 </li>
               </ul>
@@ -4924,18 +4840,45 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             </div>
           </li>
           <li
-            class="ecl-mega-menu__item"
+            aria-expanded="false"
+            aria-haspopup=""
+            class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
+            data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-5"
           >
             <a
-              class="ecl-link ecl-link--standalone ecl-mega-menu__link"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
               href="/example"
               id="ecl-mega-menu-item-demo-5-link"
             >
-              Engage
+              <span
+                class="ecl-link__label"
+                id="ecl-mega-menu-item-demo-5-link-label"
+              >
+                Engage
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
             </a>
+            <div
+              class="ecl-mega-menu__mega-container"
+              data-ecl-mega-menu-mega=""
+            >
+              <div
+                class="ecl-mega-menu__mega-container-scrollable"
+              >
+                <div />
+              </div>
+            </div>
           </li>
           <li
             class="ecl-mega-menu__item"

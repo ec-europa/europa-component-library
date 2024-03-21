@@ -39,6 +39,11 @@
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current' %}
 {% endif %}
 
+{% if _item.container is defined and _item.container is not empty %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-container' %}
+  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-container aria-haspopup aria-expanded="false"' %}
+{% endif %}
+
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
@@ -48,10 +53,12 @@
   {% if _link_aria_label is not empty %}
     {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _link_aria_label ~ '"' %}
   {% endif %}
+{% endif %}
+{% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _icon = {
     name: 'corner-arrow',
     transform: 'rotate-90',
-    path: icon_path,
+    path: _icon_path,
     size: '2xs',
   } %}
 {% endif %}
@@ -65,7 +72,6 @@
         type: 'standalone',
         label: _item.label,
         path: _item.path,
-        icon_path: _icon_path,
         external: _item.external|default(false),
         icon_position: 'after',
       },
@@ -75,12 +81,21 @@
         { name: _menu_item_attributes },
         { name: 'id', value: _id ~ "-link" },
       ],
-    } %}
+    } only %}
   {% else %}
     <span class="ecl-mega-menu__item-label">{{ _item.label }}</span>
   {% endif %}
 {% endif %}
-
+{%- if _item.container is defined and _item.container is not empty %}
+  <div
+    class="ecl-mega-menu__mega-container"
+    data-ecl-mega-menu-mega
+  >
+    <div class="ecl-mega-menu__mega-container-scrollable">
+      {{ _item.container }}
+    </div>
+  </div>
+{% endif %}
 {%- if _item.children is defined and _item.children is not empty and _item.children is iterable -%}
   <div
     class="ecl-mega-menu__mega"
@@ -106,7 +121,7 @@
           {% set _icon = {
             name: 'corner-arrow',
             transform: 'rotate-90',
-            path: icon_path,
+            path: _icon_path,
             size: '2xs',
           } %}
         {% endif %}
@@ -115,23 +130,23 @@
             type: 'standalone',
             label: child.label,
             path: child.path,
-            icon_path: _icon_path,
             external: child.external,
           },
           icon: _icon,
           extra_classes: _sublink_class,
-        } %}
+        } only %}
         {% if child.children is defined and child.children is not empty %}
           {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
               see_all_label: _see_all_label,
               see_all: child.see_all|default(false),
+              icon_path: _icon_path,
               featured: child.featured|default({}),
               item: {
                 path: child.path, 
                 children: child.children,
                 level: 2,
               },           
-          } %}
+          } only %}
         {% endif %}
       </li>
     {% endfor %}
@@ -144,12 +159,12 @@
           path: _item.path,
         },
         icon: {
+          path: _icon_path,
           name: 'arrow-left',
           size: 'xs',
-          path: icon_path,
           transform: 'rotate-180',
         },
-      } %}
+      } only %}
     </li>
   {% endif %}
     </ul>
@@ -168,7 +183,18 @@
         {{ _featured.content }}
       </div>
     {% endif %}
-  </div>
+    {% if _featured.items is not empty and _featured.items is iterable %}
+      <ul class="ecl-mega-menu__featured-list">
+        {% for item in _featured.items %}
+          <li class="ecl-mega-menu__featured-list__item">
+            {% include '@ecl/link/link.html.twig' with {
+              link: item|merge({ type: 'standalone' })
+            } only %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    </div>
   {% endif %}
   </div>
 {% endif %}

@@ -68,6 +68,7 @@ export class MegaMenu {
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
       megaSelector = '[data-ecl-mega-menu-mega]',
+      containerSelector = 'data-ecl-has-container',
       subItemSelector = '[data-ecl-mega-menu-subitem]',
       featuredAttribute = '[data-ecl-mega-menu-featured]',
       labelOpenAttribute = 'data-ecl-mega-menu-label-open',
@@ -98,6 +99,7 @@ export class MegaMenu {
     this.linkSelector = linkSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
+    this.containerSelector = containerSelector;
     this.labelOpenAttribute = labelOpenAttribute;
     this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
@@ -150,6 +152,7 @@ export class MegaMenu {
     this.handleSecondPanel = this.handleSecondPanel.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
+    this.handleContainer = this.handleContainer.bind(this);
   }
 
   /**
@@ -259,6 +262,8 @@ export class MegaMenu {
           if (this.attachClickListener) {
             item.addEventListener('click', this.handleClickOnItem);
           }
+        } else if (item.hasAttribute(this.containerSelector)) {
+          item.addEventListener('click', this.handleContainer);
         }
       });
     }
@@ -519,7 +524,11 @@ export class MegaMenu {
   checkDropdownHeight(menuItem) {
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
-      const dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
+      let dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
+
+      if (!dropdown) {
+        dropdown = queryOne('.ecl-mega-menu__mega-container', menuItem);
+      }
 
       if (dropdown) {
         const dropdownTop = dropdown.getBoundingClientRect().top;
@@ -538,6 +547,14 @@ export class MegaMenu {
    */
   positionMenuOverlay() {
     const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
+    const megaMenus = queryAll(
+      '.ecl-mega-menu__item > .ecl-mega-menu__mega',
+      this.element,
+    );
+    const megaContainers = queryAll(
+      '.ecl-mega-menu__item > .ecl-mega-menu__mega-container',
+      this.element,
+    );
     if (!this.isDesktop) {
       setTimeout(() => {
         const header = queryOne('.ecl-site-header__header', document);
@@ -550,12 +567,13 @@ export class MegaMenu {
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
           }
-          const megaMenus = queryAll(
-            '.ecl-mega-menu__item > .ecl-mega-menu__mega',
-            this.element,
-          );
           if (megaMenus) {
             megaMenus.forEach((mega) => {
+              mega.style.top = '';
+            });
+          }
+          if (megaContainers) {
+            megaContainers.forEach((mega) => {
               mega.style.top = '';
             });
           }
@@ -570,17 +588,34 @@ export class MegaMenu {
           const item = queryOne(this.itemSelector, this.element);
           const rect = item.getBoundingClientRect();
           const rectHeight = rect.height + 4;
-          const megaMenus = queryAll(
-            '.ecl-mega-menu__item > .ecl-mega-menu__mega',
-            this.element,
-          );
+
           if (megaMenus) {
             megaMenus.forEach((mega) => {
               mega.style.top = `${rectHeight}px`;
             });
           }
+          if (megaContainers) {
+            megaContainers.forEach((mega) => {
+              mega.style.top = `${rectHeight}px`;
+            });
+          }
           if (menuOverlay) {
             menuOverlay.style.top = `${headerBottom}px`;
+          }
+        } else {
+          const bottomPosition = this.element.getBoundingClientRect().bottom;
+          if (menuOverlay) {
+            menuOverlay.style.top = `${bottomPosition}px`;
+          }
+          if (megaMenus) {
+            megaMenus.forEach((mega) => {
+              mega.style.top = `${bottomPosition}px`;
+            });
+          }
+          if (megaContainers) {
+            megaContainers.forEach((mega) => {
+              mega.style.top = `${bottomPosition}px`;
+            });
           }
         }
       }, 0);
@@ -621,7 +656,10 @@ export class MegaMenu {
       }
       firstItemLink.classList.add('ecl-mega-menu__parent-link');
       firstItemLink.addEventListener('keyup', this.handleKeyboard);
-      const innerList = queryOne('.ecl-mega-menu__mega', menuItem);
+      let innerList = queryOne('.ecl-mega-menu__mega', menuItem);
+      if (!innerList) {
+        innerList = queryOne('.ecl-mega-menu__mega-container', menuItem);
+      }
       if (innerList && !queryOne('.ecl-mega-menu__parent-link', menuItem)) {
         innerList.prepend(firstItemLink);
       }
@@ -1056,6 +1094,52 @@ export class MegaMenu {
 
       default:
     }
+  }
+
+  /**
+   * Click on a menu item with a container
+   *
+   * @param {Event} e
+   */
+  handleContainer(e) {
+    e.preventDefault();
+    const itemWithContainer = e.target.closest(`[${this.containerSelector}]`);
+    const expanded = itemWithContainer.getAttribute('aria-expanded');
+
+    if (expanded === 'true') {
+      this.inner.classList.remove('ecl-mega-menu__inner--expanded');
+      this.element.setAttribute('aria-expanded', 'false');
+      this.element.removeAttribute('data-expanded');
+    } else {
+      this.inner.classList.add('ecl-mega-menu__inner--expanded');
+      this.cloneItemInTheDrowdown(itemWithContainer);
+      this.element.setAttribute('aria-expanded', 'true');
+      this.element.setAttribute('data-expanded', true);
+    }
+
+    this.items.forEach((item) => {
+      if (expanded === 'true') {
+        if (itemWithContainer === item) {
+          item.classList.remove('ecl-mega-menu__item--expanded');
+          item.classList.remove('ecl-mega-menu__item--current');
+          item.setAttribute('aria-expanded', 'false');
+        }
+      } else {
+        this.element.setAttribute('aria-expanded', 'true');
+        if (itemWithContainer === item) {
+          item.classList.add('ecl-mega-menu__item--expanded');
+          item.classList.add('ecl-mega-menu__item--current');
+          item.setAttribute('aria-expanded', 'true');
+          item.setAttribute('data-expanded', true);
+        } else {
+          item.classList.remove('ecl-mega-menu__item--expanded');
+          item.classList.remove('ecl-mega-menu__item--current');
+          item.setAttribute('aria-expanded', 'false');
+          item.removeAttribute('data-expanded');
+        }
+        this.checkDropdownHeight(itemWithContainer);
+      }
+    });
   }
 
   /**
