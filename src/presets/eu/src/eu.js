@@ -23,6 +23,7 @@ export * from '@ecl/vanilla-component-popover';
 export * from '@ecl/vanilla-component-range';
 export * from '@ecl/vanilla-component-select';
 export * from '@ecl/vanilla-component-site-header';
+export * from '@ecl/vanilla-component-slider';
 export * from '@ecl/vanilla-component-table';
 export * from '@ecl/vanilla-component-tabs';
 export * from '@ecl/vanilla-component-timeline';

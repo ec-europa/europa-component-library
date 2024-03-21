@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 1
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { slider, sliderTags } from '../demo';
+
+<Playground
+  system="eu"
+  selectedKind="components-slider"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={slider} />
+</Playground>
+
+## With Tags
+
+<Playground
+  system="eu"
+  selectedKind="components-slider"
+  selectedStory="tags"
+  showFrame
+>
+  <Html markup={sliderTags} />
+</Playground>

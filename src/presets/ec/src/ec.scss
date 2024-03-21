@@ -181,6 +181,9 @@
   $theme: theme.$theme,
   $search-form: var.$search-form
 );
+@use '@ecl/vanilla-component-slider/slider' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow

@@ -177,6 +177,9 @@
   $theme: theme.$theme,
   $popover: var.$popover
 );
+@use '@ecl/vanilla-component-slider/slider' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-search-form/search-form' with (
   $theme: theme.$theme,
   $search-form: var.$search-form
