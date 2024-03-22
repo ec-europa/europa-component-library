@@ -80,7 +80,11 @@ module.exports = {
           link_aria_label: 'Link to the 2.3 item page',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
-            { label: 'Item 2.3 subitem 2', path: exampleLink },
+            {
+              label: 'Item 2.3 subitem 2',
+              path: exampleLink,
+              is_current: true,
+            },
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],
         },

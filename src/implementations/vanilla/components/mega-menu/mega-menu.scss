@@ -640,6 +640,12 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu__mega--level-2 {
+  .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link) {
+    color: var(--c-p);
+  }
+}
+
 .ecl-mega-menu__featured {
   padding: 0;
   flex-direction: column;
