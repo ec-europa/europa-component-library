@@ -643,6 +643,10 @@ $mega-menu: null !default;
 .ecl-mega-menu__mega--level-2 {
   .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link) {
     color: var(--c-p);
+
+    &:hover {
+      color: var(--c-p-140);
+    }
   }
 }
 
@@ -850,12 +854,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__sublink {
-        color: var(--c-p);
-
         &:hover {
-          background: transparent;
-          box-shadow: none;
-          color: var(--c-p-140);
           text-decoration: underline;
         }
 
