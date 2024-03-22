@@ -146,7 +146,7 @@ const prepareData = (data, args) => {
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
-    data.icon.size = system === 'eu' ? 's' : 'xs';
+    data.icon.size = 'xs';
     data.icon.path = 'icon.svg';
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';
