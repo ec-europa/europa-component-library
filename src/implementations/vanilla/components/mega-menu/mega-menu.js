@@ -133,7 +133,6 @@ export class MegaMenu {
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleClickOnSubitem = this.handleClickOnSubitem.bind(this);
-    this.handleClickOffItem = this.handleClickOffItem.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
@@ -545,10 +544,6 @@ export class MegaMenu {
       '.ecl-mega-menu__item > .ecl-mega-menu__mega',
       this.element,
     );
-    const megaContainers = queryAll(
-      '.ecl-mega-menu__item > .ecl-mega-menu__mega-container',
-      this.element,
-    );
     if (!this.isDesktop) {
       setTimeout(() => {
         const header = queryOne('.ecl-site-header__header', document);
@@ -563,11 +558,6 @@ export class MegaMenu {
           }
           if (megaMenus) {
             megaMenus.forEach((mega) => {
-              mega.style.top = '';
-            });
-          }
-          if (megaContainers) {
-            megaContainers.forEach((mega) => {
               mega.style.top = '';
             });
           }
@@ -588,11 +578,6 @@ export class MegaMenu {
               mega.style.top = `${rectHeight}px`;
             });
           }
-          if (megaContainers) {
-            megaContainers.forEach((mega) => {
-              mega.style.top = `${rectHeight}px`;
-            });
-          }
           if (menuOverlay) {
             menuOverlay.style.top = `${headerBottom}px`;
           }
@@ -603,11 +588,6 @@ export class MegaMenu {
           }
           if (megaMenus) {
             megaMenus.forEach((mega) => {
-              mega.style.top = `${bottomPosition}px`;
-            });
-          }
-          if (megaContainers) {
-            megaContainers.forEach((mega) => {
               mega.style.top = `${bottomPosition}px`;
             });
           }
@@ -1114,19 +1094,6 @@ export class MegaMenu {
         }
       }
     }
-  }
-
-  /**
-   * Deselect a menu item
-   *
-   * @param {Event} e
-   */
-  handleClickOffItem(e) {
-    // Remove attribute to current item
-    const menuItem = e.target.closest(this.itemSelector);
-    menuItem.setAttribute('aria-expanded', 'false');
-    this.element.removeAttribute('data-expanded');
-    this.focusTrap.deactivate();
   }
 
   /**

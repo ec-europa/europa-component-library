@@ -183,22 +183,24 @@
         {{  _featured.title }}
       </span>
     {% endif %}
-    {% if _featured.content is not empty %}
-      <div class="ecl-mega-menu__featured-content">
-        {{ _featured.content }}
+      <div class="ecl-mega-menu__featured-scrollable">
+      {% if _featured.content is not empty %}
+        <div class="ecl-mega-menu__featured-content">
+          {{ _featured.content }}
+        </div>
+      {% endif %}
+      {% if _featured.items is not empty and _featured.items is iterable %}
+        <ul class="ecl-mega-menu__featured-list">
+          {% for item in _featured.items %}
+            <li class="ecl-mega-menu__featured-list__item">
+              {% include '@ecl/link/link.html.twig' with {
+                link: item|merge({ type: 'standalone' })
+              } only %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
       </div>
-    {% endif %}
-    {% if _featured.items is not empty and _featured.items is iterable %}
-      <ul class="ecl-mega-menu__featured-list">
-        {% for item in _featured.items %}
-          <li class="ecl-mega-menu__featured-list__item">
-            {% include '@ecl/link/link.html.twig' with {
-              link: item|merge({ type: 'standalone' })
-            } only %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
     </div>
   {% endif %}
   </div>
