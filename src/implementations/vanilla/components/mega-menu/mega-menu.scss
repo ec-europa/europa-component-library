@@ -575,15 +575,15 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__see-all {
     flex: 1 0 100% !important;
+    margin-bottom: 0;
+    margin-top: var(--s-3xl);
 
     .ecl-link {
       border-radius: 0;
       box-sizing: border-box;
-      display: block;
       font: var(--f-m);
-      width: calc(100% - var(--s-m) * 2);
       margin: 0 var(--s-m);
-      padding-top: var(--s-m);
+      padding: var(--s-xs) 0;
     }
   }
 }
@@ -649,7 +649,7 @@ $mega-menu: null !default;
     color: var(--c-d-80);
     display: block;
     margin: 0 var(--s-m) var(--s-m);
-    padding-top: var(--s-m);
+    padding-top: var(--s-xl);
     text-transform: uppercase;
     font: var(--f-s);
   }
@@ -783,6 +783,7 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__see-all {
         position: relative;
+        padding-top: var(--s-m);
 
         &::before {
           content: '';
