@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
+  title: 'ecl mega menu demo',
   toggle: {
     link: {
       label: 'Menu',
@@ -13,6 +14,14 @@ module.exports = {
     icon: {
       path: '/icons.svg',
       name: 'hamburger',
+      size: 'm',
+    },
+  },
+  close: {
+    label: 'Close',
+    icon: {
+      path: '/icons.svg',
+      name: 'close',
       size: 'm',
     },
   },

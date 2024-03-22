@@ -10,6 +10,8 @@ npm install --save @ecl/twig-component-mega-menu
 
 - **"id"** (string) (default: random): Unique id
 - **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
+- **"title"** (string) (default: ''): Used as the inner container aria-label value
+- **"close"**: (associative array) (default: {}): Object, using ECL Button structure
 - **"back_label"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"**: (array) (default: []): The menu items - format: [

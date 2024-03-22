@@ -262,8 +262,10 @@ export class MegaMenu {
     this.stickyInstance = new Stickyfill.Sticky(this.element);
     // Create a focus trap around the menu
     this.focusTrap = createFocusTrap(this.element, {
-      onActivate: () => this.element.classList.add('trap-is-active'),
-      onDeactivate: () => this.element.classList.remove('trap-is-active'),
+      onActivate: () =>
+        this.element.classList.add('ecl-mega-menu-trap-is-active'),
+      onDeactivate: () =>
+        this.element.classList.remove('ecl-mega-menu-trap-is-active'),
     });
 
     this.handleResize();
@@ -278,7 +280,7 @@ export class MegaMenu {
    * @param {string} eventName - The name of the event to listen for.
    * @param {Function} callback - The callback function to be invoked when the event occurs.
    * @returns {void}
-   * @memberof Menu
+   * @memberof MegaMenu
    * @instance
    *
    * @example
@@ -326,7 +328,10 @@ export class MegaMenu {
 
     if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
-        if (item.hasAttribute('data-ecl-has-children')) {
+        if (
+          item.hasAttribute('data-ecl-has-children') ||
+          item.hasAttribute('data-ecl-has-container')
+        ) {
           if (this.attachClickListener) {
             item.removeEventListener('click', this.handleClickOnItem);
           }
