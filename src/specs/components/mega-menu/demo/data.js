@@ -4,7 +4,6 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
-  title: 'Menu',
   toggle: {
     link: {
       label: 'Menu',
@@ -16,15 +15,6 @@ module.exports = {
       name: 'hamburger',
       size: 'm',
     },
-  },
-  close: {
-    label: 'Close',
-    icon: {
-      path: '/icons.svg',
-      name: 'close',
-      size: 'm',
-    },
-    hide_label: true,
   },
   back_label: 'Back',
   see_all_label: 'View all',
