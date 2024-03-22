@@ -354,7 +354,7 @@ $mega-menu: null !default;
 .ecl-mega-menu__subitem {
   margin-bottom: var(--s-xs);
 
-  .ecl-mega-menu__sublist .ecl-mega-menu__sublink {
+  .ecl-mega-menu__sublink--level-2 {
     background: transparent;
     color: var(--c-p);
 
@@ -511,6 +511,14 @@ $mega-menu: null !default;
             margin-inline-start: var(--s-m);
           }
         }
+
+        .ecl-mega-menu__mega--level-2 .ecl-mega-menu__parent-link {
+          color: var(--c-d);
+
+          &:hover {
+            color: var(--c-d);
+          }
+        }
       }
     }
   }
@@ -620,6 +628,11 @@ $mega-menu: null !default;
     color: map.get($mega-menu, 'mobile', 'item-color');
   }
 
+  &--current {
+    background-color: var(--c-n-80);
+    box-shadow: inset 4px 0 0 0 var(--c-p);
+  }
+
   &:focus-visible {
     outline-offset: -2px;
   }
@@ -639,8 +652,8 @@ $mega-menu: null !default;
     border-top: 1px solid var(--c-n);
     color: var(--c-d-80);
     display: block;
-    margin-bottom: var(--s-m);
-    padding: var(--s-m) var(--s-m) 0;
+    margin: 0 var(--s-m) var(--s-m);
+    padding-top: var(--s-m);
     text-transform: uppercase;
     font: var(--f-s);
   }
@@ -745,6 +758,7 @@ $mega-menu: null !default;
         .ecl-mega-menu__featured-title {
           border-top: none;
           border-bottom: 1px solid var(--c-n);
+          padding-inline-start: 0;
           padding-top: 0;
         }
       }
@@ -787,7 +801,7 @@ $mega-menu: null !default;
       }
     }
 
-    .ecl-mega-menu__subitem > .ecl-mega-menu__mega {
+    .ecl-mega-menu__mega--level-2 {
       left: 100%;
       top: 0;
       background: map.get($theme, 'color', 'white');
@@ -824,14 +838,16 @@ $mega-menu: null !default;
         &:last-child {
           margin-bottom: 0;
         }
+
+        &--current .ecl-mega-menu__sublink {
+          background-color: transparent;
+          box-shadow: none;
+          color: var(--c-d);
+        }
       }
 
       .ecl-mega-menu__sublink {
         color: var(--c-p);
-
-        &--current {
-          color: var(--c-d);
-        }
 
         &:hover {
           background: transparent;
@@ -846,12 +862,6 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__parent-link {
-        color: var(--c-d);
-
-        &:hover {
-          color: var(--c-d);
-        }
-
         .ecl-link__label {
           -webkit-line-clamp: 1;
         }

@@ -41,7 +41,6 @@ module.exports = {
           label: 'Item 2.1',
           path: exampleLink,
           see_all: true,
-          is_current: true,
           trigger_aria_label: "Access item's children",
           link_aria_label: 'Link to the 2.1 item page',
           featured: {
@@ -66,7 +65,6 @@ module.exports = {
             {
               label: 'Item 2.1 subitem 1',
               path: exampleLink,
-              is_current: true,
             },
             { label: 'Item 2.1 subitem 2', path: exampleLink },
             { label: 'Item 2.1 subitem 3', path: exampleLink },
@@ -87,7 +85,7 @@ module.exports = {
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],
         },
-        { label: 'Item 2.4', path: exampleLink },
+        { label: 'Item 2.4', path: exampleLink, is_current: true },
         { label: 'Item 2.5', path: exampleLink },
         { label: 'Item 2.6', path: exampleLink },
         { label: 'Item 2.7', path: exampleLink, external: true },

@@ -152,7 +152,6 @@ export class MegaMenu {
     this.handleSecondPanel = this.handleSecondPanel.bind(this);
     this.disableScroll = this.disableScroll.bind(this);
     this.enableScroll = this.enableScroll.bind(this);
-    this.handleContainer = this.handleContainer.bind(this);
   }
 
   /**
@@ -257,13 +256,14 @@ export class MegaMenu {
         // Check menu item display (right to left, full width, ...)
         this.totalItemsWidth += item.offsetWidth;
 
-        if (item.hasAttribute('data-ecl-has-children')) {
+        if (
+          item.hasAttribute('data-ecl-has-children') ||
+          item.hasAttribute('data-ecl-has-container')
+        ) {
           // Bind click event on menu items
           if (this.attachClickListener) {
             item.addEventListener('click', this.handleClickOnItem);
           }
-        } else if (item.hasAttribute(this.containerSelector)) {
-          item.addEventListener('click', this.handleContainer);
         }
       });
     }
@@ -1097,52 +1097,6 @@ export class MegaMenu {
   }
 
   /**
-   * Click on a menu item with a container
-   *
-   * @param {Event} e
-   */
-  handleContainer(e) {
-    e.preventDefault();
-    const itemWithContainer = e.target.closest(`[${this.containerSelector}]`);
-    const expanded = itemWithContainer.getAttribute('aria-expanded');
-
-    if (expanded === 'true') {
-      this.inner.classList.remove('ecl-mega-menu__inner--expanded');
-      this.element.setAttribute('aria-expanded', 'false');
-      this.element.removeAttribute('data-expanded');
-    } else {
-      this.inner.classList.add('ecl-mega-menu__inner--expanded');
-      this.cloneItemInTheDrowdown(itemWithContainer);
-      this.element.setAttribute('aria-expanded', 'true');
-      this.element.setAttribute('data-expanded', true);
-    }
-
-    this.items.forEach((item) => {
-      if (expanded === 'true') {
-        if (itemWithContainer === item) {
-          item.classList.remove('ecl-mega-menu__item--expanded');
-          item.classList.remove('ecl-mega-menu__item--current');
-          item.setAttribute('aria-expanded', 'false');
-        }
-      } else {
-        this.element.setAttribute('aria-expanded', 'true');
-        if (itemWithContainer === item) {
-          item.classList.add('ecl-mega-menu__item--expanded');
-          item.classList.add('ecl-mega-menu__item--current');
-          item.setAttribute('aria-expanded', 'true');
-          item.setAttribute('data-expanded', true);
-        } else {
-          item.classList.remove('ecl-mega-menu__item--expanded');
-          item.classList.remove('ecl-mega-menu__item--current');
-          item.setAttribute('aria-expanded', 'false');
-          item.removeAttribute('data-expanded');
-        }
-        this.checkDropdownHeight(itemWithContainer);
-      }
-    });
-  }
-
-  /**
    * Click on a menu item
    *
    * @param {Event} e
@@ -1160,6 +1114,7 @@ export class MegaMenu {
           if (isExpandable) {
             this.handleFirstPanel(menuItem, 'collapse');
           } else {
+            this.closeOpenDropdown();
             this.handleFirstPanel(menuItem, 'expand');
           }
         }
@@ -1248,6 +1203,7 @@ export class MegaMenu {
     if (this.toggleLabel && openLabel) {
       this.toggleLabel.innerHTML = openLabel;
     }
+    this.openPanel.num = 0;
     // If the focus trap is active, deactivate it
     this.focusTrap.deactivate();
     this.isOpen = false;
