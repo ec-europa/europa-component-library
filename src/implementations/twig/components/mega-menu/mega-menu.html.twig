@@ -3,9 +3,7 @@
 {#
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
-  - "title": (string) (default: ''): Title of the menu (displayed on mobile)
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
-  - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
@@ -16,6 +14,12 @@
       "external": (boolean) (optional),
       "trigger_aria_label" (string),
       "link_aria_label" (string)
+      "container": (string) Empty container to be filled in with content
+      "featured" (oject) (optional) {
+        "title": (string) Title of the featured panel
+        "content": (string) Top content of the featured panel
+        "items": (associative array) (optional) Object of type ECL link
+      }
       "children": (associative array) (optional): [
         {
           "label": (string) (default: '')
@@ -26,7 +30,6 @@
       ]
     }
   ],
-  - "site_name": (string) (default: ''): Name of the website (used only on mobile)
   - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
@@ -77,6 +80,7 @@
   {% endif %}
   aria-expanded="false"
   role="navigation"
+  id={{ _id }}
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-mega-menu__overlay"></div>
@@ -104,21 +108,8 @@
       }) only %}
     {% endif %}
 
-    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application" aria-label="{{ _title }}">
+    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application">
       <header class="ecl-mega-menu__inner-header">
-        {% if _close is not empty %}
-          {% include '@ecl/button/button.html.twig' with _close|merge({
-            type: 'submit',
-            variant: 'ghost',
-            extra_classes: 'ecl-mega-menu__close',
-            extra_attributes: [{
-              name: 'data-ecl-mega-menu-close',
-            }],
-          }) only %}
-        {% endif %}
-
-        <div class="ecl-mega-menu__title">{{- _title -}}</div>
-
         {% if _back_label is not empty %}
           {% include '@ecl/button/button.html.twig' with ({
             type: 'submit',

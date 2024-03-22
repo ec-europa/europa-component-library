@@ -67,7 +67,7 @@
 
 {% if _item.label is not empty %}
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
-  {% set _sublink_class = 'ecl-mega-menu__sublink' ~ (child.is_current is defined ? ' ecl-mega-menu__sublink--current' : '') %}
+  {% set _sublink_class = 'ecl-mega-menu__sublink' %}
   {% if _item.path is not empty %}
     {% include '@ecl/link/link.html.twig' with {
       link: {

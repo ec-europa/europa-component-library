@@ -10,7 +10,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.openSelector Selector for the hamburger button
- * @param {String} options.closeSelector Selector for the close button
  * @param {String} options.backSelector Selector for the back button
  * @param {String} options.innerSelector Selector for the menu inner
  * @param {String} options.listSelector Selector for the menu items list
@@ -61,7 +60,6 @@ export class MegaMenu {
     element,
     {
       openSelector = '[data-ecl-mega-menu-open]',
-      closeSelector = '[data-ecl-mega-menu-close]',
       backSelector = '[data-ecl-mega-menu-back]',
       innerSelector = '[data-ecl-mega-menu-inner]',
       listSelector = '[data-ecl-mega-menu-list]',
@@ -91,7 +89,6 @@ export class MegaMenu {
 
     // Options
     this.openSelector = openSelector;
-    this.closeSelector = closeSelector;
     this.backSelector = backSelector;
     this.innerSelector = innerSelector;
     this.listSelector = listSelector;
@@ -111,7 +108,6 @@ export class MegaMenu {
     // Private variables
     this.direction = 'ltr';
     this.open = null;
-    this.close = null;
     this.toggleLabel = null;
     this.back = null;
     this.inner = null;
@@ -167,7 +163,6 @@ export class MegaMenu {
 
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
-    this.close = queryOne(this.closeSelector, this.element);
     this.toggleLabel = queryOne('.ecl-link__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
@@ -186,11 +181,6 @@ export class MegaMenu {
       // Open
       if (this.open) {
         this.open.addEventListener('click', this.handleClickOnToggle);
-      }
-
-      // Close
-      if (this.close) {
-        this.close.addEventListener('click', this.handleClickOnClose);
       }
 
       // Back
@@ -325,10 +315,6 @@ export class MegaMenu {
         this.open.removeEventListener('click', this.handleClickOnToggle);
       }
 
-      if (this.close) {
-        this.close.removeEventListener('click', this.handleClickOnClose);
-      }
-
       if (this.back) {
         this.back.removeEventListener('click', this.handleClickOnBack);
       }
@@ -341,8 +327,8 @@ export class MegaMenu {
     if (this.items && this.isDesktop) {
       this.items.forEach((item) => {
         if (item.hasAttribute('data-ecl-has-children')) {
-          if (this.attachHoverListener) {
-            item.removeEventListener('click', this.handleClickrOnItem);
+          if (this.attachClickListener) {
+            item.removeEventListener('click', this.handleClickOnItem);
           }
         }
       });
@@ -379,6 +365,9 @@ export class MegaMenu {
       window.removeEventListener('resize', this.handleResize);
     }
 
+    this.closeOpenDropdown();
+    this.enableScroll();
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
@@ -389,14 +378,14 @@ export class MegaMenu {
    * Disable page scrolling
    */
   disableScroll() {
-    document.body.classList.add('no-scroll');
+    document.body.classList.add('ecl-mega-menu-prevent-scroll');
   }
 
   /**
    * Enable page scrolling
    */
   enableScroll() {
-    document.body.classList.remove('no-scroll');
+    document.body.classList.remove('ecl-mega-menu-prevent-scroll');
   }
 
   /**
@@ -1239,13 +1228,6 @@ export class MegaMenu {
    * @param {Event} e
    */
   handleClickGlobal(e) {
-    // Check if the menu is open
-    if (this.isOpen) {
-      // Check if the click occured in the menu
-      if (!this.inner.contains(e.target) && !this.open.contains(e.target)) {
-        this.closeOpenDropdown();
-      }
-    }
     if (
       e.target.classList.contains('ecl-mega-menu__overlay') ||
       !this.element.contains(e.target)

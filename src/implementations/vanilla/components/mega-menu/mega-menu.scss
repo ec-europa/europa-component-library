@@ -12,10 +12,6 @@
 $theme: null !default;
 $mega-menu: null !default;
 
-.no-scroll {
-  overflow: hidden;
-}
-
 /*
  * Menu structure
  */
@@ -963,4 +959,8 @@ $mega-menu: null !default;
     > .ecl-mega-menu__mega-container {
     width: 72.75rem;
   }
+}
+
+.ecl-mega-menu-prevent-scroll {
+  overflow: hidden;
 }
