@@ -157,8 +157,6 @@ export class MegaMenu {
       throw new TypeError('Called init but ECL is not present');
     }
     ECL.components = ECL.components || new Map();
-    // Check display
-    this.direction = getComputedStyle(this.element).direction;
 
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
@@ -355,6 +353,9 @@ export class MegaMenu {
         if (this.attachKeyListener && subLink) {
           subLink.removeEventListener('keyup', this.handleKeyboard);
         }
+        if (this.attachClickListener && subLink) {
+          subLink.removeEventListener('click', this.handleClickOnSubitem);
+        }
         if (this.attachFocusListener && subLink) {
           subLink.removeEventListener('focusout', this.handleFocusOut);
         }
@@ -497,7 +498,12 @@ export class MegaMenu {
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
-
+      this.direction = getComputedStyle(this.element).direction;
+      if (this.direction === 'rtl') {
+        this.element.classList.add('ecl-mega-menu--rtl');
+      } else {
+        this.element.classList.remove('ecl-mega-menu--rtl');
+      }
       // Check global display
       this.isDesktop = this.useDesktopDisplay();
       this.isLarge = window.innerWidth > 1140;
@@ -1106,6 +1112,7 @@ export class MegaMenu {
     if (menuItem && menuItem.hasAttribute('aria-expanded')) {
       e.preventDefault();
       const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
+
       this.cloneItemInTheDrowdown(menuItem);
       if (isExpanded) {
         this.handleSecondPanel(menuItem, 'collapse');
