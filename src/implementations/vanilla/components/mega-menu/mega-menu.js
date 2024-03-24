@@ -47,6 +47,18 @@ export class MegaMenu {
   /**
    *   @event MegaMenu#onClose
    */
+  /**
+   *   @event MegaMenu#onOpenPanel
+   */
+  /**
+   *   @event MegaMenu#onBack
+   */
+  /**
+   *   @event MegaMenu#onItemClick
+   */
+  /**
+   *   @event MegaMenu#onFocusTrapToggle
+   */
 
   /**
    * An array of supported events for this component.
@@ -851,7 +863,7 @@ export class MegaMenu {
    * Open menu list.
    * @param {Event} e
    *
-   * @fires Menu#onOpen
+   * @fires MegaMenu#onOpen
    */
   handleClickOnOpen(e) {
     if (this.element.getAttribute('aria-expanded') === 'true') {
@@ -906,6 +918,8 @@ export class MegaMenu {
 
   /**
    * Get back to previous list (on mobile)
+   *
+   * @fires MegaMenu#onBack
    */
   handleClickOnBack() {
     const level2 = queryOne('.ecl-mega-menu__subitem--expanded', this.element);
@@ -950,6 +964,8 @@ export class MegaMenu {
       // Move the focus to the first item in the menu
       this.items[0].firstElementChild.focus();
     }
+
+    this.trigger('onBack', { level: level2 ? 2 : 1 });
   }
 
   /**
@@ -957,10 +973,12 @@ export class MegaMenu {
    *
    * @param {Node} menuItem
    * @param {string} op (expand or collapse)
+   *
+   * @fires MegaMenu#onOpenPanel
    */
   handleFirstPanel(menuItem, op) {
     switch (op) {
-      case 'expand':
+      case 'expand': {
         this.inner.classList.add('ecl-mega-menu__inner--expanded');
         this.positionMenuOverlay();
         this.cloneItemInTheDrowdown(menuItem);
@@ -994,7 +1012,10 @@ export class MegaMenu {
         });
 
         queryOne('.ecl-mega-menu__parent-link', menuItem).focus();
+        const details = { panel: 1, item: menuItem };
+        this.trigger('OnOpenPanel', details);
         break;
+      }
 
       case 'collapse':
         this.closeOpenDropdown();
@@ -1009,11 +1030,13 @@ export class MegaMenu {
    *
    * @param {Node} menuItem
    * @param {string} op (expand or collapse)
+   *
+   * @fires MegaMenu#onOpenPanel
    */
   handleSecondPanel(menuItem, op) {
     let siblings;
     switch (op) {
-      case 'expand':
+      case 'expand': {
         this.subItems.forEach((item) => {
           if (item === menuItem) {
             if (item.hasAttribute('aria-expanded')) {
@@ -1061,7 +1084,10 @@ export class MegaMenu {
         }
         queryOne('.ecl-mega-menu__parent-link', menuItem).focus();
         this.checkMegaMenu(menuItem);
+        const details = { panel: 2, item: menuItem };
+        this.trigger('OnOpenPanel', details);
         break;
+      }
 
       case 'collapse':
         this.openPanel = { num: 1 };
@@ -1080,10 +1106,13 @@ export class MegaMenu {
    * Click on a menu item
    *
    * @param {Event} e
+   *
+   * @fires MegaMenu#onItemClick
    */
   handleClickOnItem(e) {
     if (!e.target.parentNode.classList.contains('ecl-mega-menu__parent-link')) {
       const menuItem = e.target.closest('li');
+      this.trigger('onItemClick', { item: menuItem, event: e });
       const hasChildren = menuItem.getAttribute('aria-expanded');
       if (hasChildren && menuItem.classList.contains('ecl-mega-menu__item')) {
         e.preventDefault();
@@ -1124,6 +1153,8 @@ export class MegaMenu {
 
   /**
    * Deselect any opened menu item
+   *
+   * @fires MegaMenu#onFocusTrapToggle
    */
   closeOpenDropdown() {
     this.enableScroll();
@@ -1174,6 +1205,7 @@ export class MegaMenu {
     this.openPanel.num = 0;
     // If the focus trap is active, deactivate it
     this.focusTrap.deactivate();
+    this.trigger('onFocusTrapToggle', { active: false });
     this.isOpen = false;
   }
 
@@ -1181,6 +1213,8 @@ export class MegaMenu {
    * Focus out of a menu link
    *
    * @param {Event} e
+   *
+   * @fires MegaMenu#onFocusTrapToggle
    */
   handleFocusOut(e) {
     const element = e.target;
@@ -1196,6 +1230,10 @@ export class MegaMenu {
         if (!this.element.contains(nextFocusTarget)) {
           // This is the last item, go back to close button
           this.focusTrap.activate();
+          this.trigger('onFocusTrapToggle', {
+            active: true,
+            lastFocusedEl: element.parentElement,
+          });
         }
       }
     }
