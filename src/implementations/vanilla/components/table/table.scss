@@ -76,7 +76,7 @@ $table: null !default;
 .ecl-table__caption {
   caption-side: bottom;
   color: var(--c-d-80);
-  font: var(--f-s);
+  font: map.get($table, 'caption-font');
   margin-top: var(--s-xs);
   text-align: left;
 }
