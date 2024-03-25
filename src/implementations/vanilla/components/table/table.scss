@@ -73,6 +73,14 @@ $table: null !default;
   }
 }
 
+.ecl-table__caption {
+  caption-side: bottom;
+  color: var(--c-d-80);
+  font: var(--f-s);
+  margin-top: var(--s-xs);
+  text-align: left;
+}
+
 // Zebra
 .ecl-table--zebra {
   .ecl-table__row:nth-of-type(even) {
