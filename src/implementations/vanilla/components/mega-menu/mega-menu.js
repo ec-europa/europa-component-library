@@ -506,9 +506,22 @@ export class MegaMenu {
    * Uses a debounce, for performance
    */
   handleResize() {
-    // Disable transition
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {
+      const screenWidth = window.innerWidth;
+
+      if (this.prevScreenWidth !== undefined) {
+        // Check if the transition involves crossing the 996px breakpoint
+        const isTransition =
+          (this.prevScreenWidth <= 996 && screenWidth > 996) ||
+          (this.prevScreenWidth > 996 && screenWidth <= 996);
+        if (isTransition) {
+          this.resetStyles(screenWidth > 996 ? 'desktop' : 'mobile');
+        }
+      }
+
+      // Update previous screen width
+      this.prevScreenWidth = screenWidth;
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
       this.direction = getComputedStyle(this.element).direction;
       if (this.direction === 'rtl') {
@@ -516,14 +529,7 @@ export class MegaMenu {
       } else {
         this.element.classList.remove('ecl-mega-menu--rtl');
       }
-      // Check global display
-      this.isDesktop = this.useDesktopDisplay();
-      this.isLarge = window.innerWidth > 1140;
-      if (!this.isDesktop) {
-        this.resetStyles('mobile');
-      } else {
-        this.resetStyles('desktop');
-      }
+
       this.positionMenuOverlay();
     }, 200);
   }
@@ -950,6 +956,7 @@ export class MegaMenu {
       // Move focus on the parent link of the opened list
       const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
       queryOne('.ecl-mega-menu__parent-link', expanded).focus();
+      this.openPanel({ num: 1 });
     } else {
       // Remove expanded class from inner menu
       this.inner.classList.remove('ecl-mega-menu__inner--expanded');
