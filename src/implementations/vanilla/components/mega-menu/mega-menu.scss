@@ -594,6 +594,11 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu__featured-list {
+  margin: 0;
+  padding: 0;
+}
+
 .ecl-mega-menu__sublist--no-border {
   border-top: none;
   margin-top: 0;
@@ -644,6 +649,10 @@ $mega-menu: null !default;
     flex-shrink: 0;
     margin-inline-start: auto;
   }
+
+  &.ecl-mega-menu__parent-link .ecl-icon {
+    margin-inline-start: var(--s-xs);
+  }
 }
 
 .ecl-mega-menu__mega--level-2 {
@@ -683,7 +692,9 @@ $mega-menu: null !default;
 
       .ecl-link {
         border-radius: 0;
+        box-sizing: border-box;
         display: inline-block;
+        font: var(--f-m);
         width: calc(100% - var(--s-s) * 2);
         outline-offset: -2px;
         padding: var(--s-xs) var(--s-s);
@@ -811,6 +822,7 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__sublist {
       border-color: map.get($theme, 'color', 'white');
+      border-width: 2px;
       margin: 0 0 var(--s-xl) var(--s-2xs);
       overflow-y: auto;
 
@@ -820,7 +832,7 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__see-all {
         position: relative;
-        padding-top: var(--s-m);
+        padding-top: var(--s-3xl);
 
         &::before {
           content: '';
