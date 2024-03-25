@@ -606,6 +606,7 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__sublink {
+  box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
