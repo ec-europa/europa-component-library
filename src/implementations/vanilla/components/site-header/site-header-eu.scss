@@ -36,6 +36,10 @@ $language-list: null !default;
     margin-bottom: 8px;
   }
 
+  .ecl-menu__open:not(:hover, :focus-visible) {
+    color: map.get($theme, 'color', 'white');
+  }
+
   &:not(.ecl-site-header--has-menu) {
     box-shadow: var(--sh-2);
   }
