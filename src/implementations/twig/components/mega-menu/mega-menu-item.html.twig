@@ -13,6 +13,7 @@
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "link_aria_label" (string) Aria label for the parent link
     - "featured": (object) (default({}))
+    - "container": (string) White panel to be filled at will
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
@@ -97,8 +98,7 @@
       {{ _item.container }}
     </div>
   </div>
-{% endif %}
-{%- if _item.children is defined and _item.children is not empty and _item.children is iterable -%}
+{%- elseif _item.children is defined and _item.children is not empty and _item.children is iterable -%}
   {% if _item.level == 2 %}
     {% set _mega_class = _mega_class ~ ' ecl-mega-menu__mega--level-2' %}
   {% endif %}

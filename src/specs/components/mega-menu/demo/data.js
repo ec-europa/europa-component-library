@@ -155,14 +155,13 @@ module.exports = {
           link_aria_label: 'Link to the Item 5.1 page',
           featured: {
             title: 'featured column',
-            content: `<article class="ecl-card">
-                <picture class="ecl-picture ecl-card__picture" aria-label="card image"><img class="ecl-card__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="card image" /></picture>
-                <div class="ecl-card__body">
-                  <div class="ecl-content-block ecl-card__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
-                    <h1 class="ecl-content-block__title">Delivery on the priorities of Item 5.1</h1>
-                  </div>
-                </div>
-              </article>`,
+            content: `<article class="ecl-navigation-list__item">
+    <picture class="ecl-picture ecl-navigation-list__picture"><img class="ecl-navigation-list__image" src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg" alt="Alt text for the image" /></picture>
+    <div class="ecl-content-block ecl-navigation-list__content-block" data-ecl-auto-init="ContentBlock" data-ecl-content-block>
+      <div class="ecl-content-block__title" data-ecl-title-link><a href="/example#qspea" class="ecl-link ecl-link--standalone">Title 1</a></div>
+      <div class="ecl-content-block__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus gravida ipsum ut lorem cursus</div>
+    </div>
+  </article>`,
           },
           children: [
             { label: 'Item 5.1 subitem 1', path: exampleLink },
