@@ -519,7 +519,8 @@ export class MegaMenu {
           this.resetStyles(screenWidth > 996 ? 'desktop' : 'mobile');
         }
       }
-
+      this.isDesktop = this.useDesktopDisplay();
+      this.isLarge = window.innerWidth > 1140;
       // Update previous screen width
       this.prevScreenWidth = screenWidth;
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
