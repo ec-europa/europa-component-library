@@ -342,7 +342,6 @@ Ex:
 - New parameter `rowspan` in the header structure, to allow header on multiple rows.
   It is still possible to have empty headers as previously, but it may trigger a (minor) accessibility warning
 - New parameter `label_sort`, to provide a screen reader label for the sort button
-- New parameter `caption`, to provide an optional title for the table
 
 ### Tabs
 
