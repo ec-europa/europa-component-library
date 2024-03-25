@@ -100,14 +100,17 @@
         <tr class="{{ _row_css_class }}">
           {% for cell in header %}
             {% set _heading_attribute = '' %}
+            {% set _heading_scope = 'col' %}
             {% if cell.rowspan is not empty %}
-              {% set _heading_attribute = _heading_attribute ~ 'rowspan="' ~ cell.rowspan|e('html_attr') ~ '"' %}
+              {% set _heading_attribute = 'rowspan="' ~ cell.rowspan|e('html_attr') ~ '"' %}
             {% endif %}
             {% if cell.colspan is not empty %}
               {% set _heading_attribute = _heading_attribute ~ ' colspan="' ~ cell.colspan|e('html_attr') ~ '"' %}
+              {% set _heading_scope = 'colgroup' %}
             {% elseif cell.label is not empty and _sortable %}
               {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-sort-toggle' %}
             {% endif %}
+            {% set _heading_attribute = _heading_attribute ~ ' scope="' ~ _heading_scope ~ '"' %}
             <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
           {% endfor %}
         </tr>
