@@ -335,6 +335,10 @@ export class Menu {
       onDeactivate: () => this.element.classList.remove('trap-is-active'),
     });
 
+    if (this.direction === 'rtl') {
+      this.element.classList.add('ecl-menu--rtl');
+    }
+
     // Hack to prevent css transition to be played on page load on chrome
     setTimeout(() => {
       this.element.classList.add('ecl-menu--transition');
@@ -537,6 +541,11 @@ export class Menu {
 
     // Disable transition
     this.element.classList.remove('ecl-menu--transition');
+    if (this.direction === 'rtl') {
+      this.element.classList.add('ecl-menu--rtl');
+    } else {
+      this.element.classList.remove('ecl-menu--rtl');
+    }
 
     clearTimeout(this.resizeTimer);
     this.resizeTimer = setTimeout(() => {

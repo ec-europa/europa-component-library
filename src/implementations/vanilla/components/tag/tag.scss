@@ -85,11 +85,17 @@ $tag: null !default;
 
 // Tag set
 .ecl-tag-set {
-  margin-top: calc(-1 * var(--s-xs));
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: calc(-1 * var(--s-xs)) 0 0;
+  padding: 0;
 
-  .ecl-tag {
+  .ecl-tag-set__item {
     margin-inline-end: var(--s-xs);
+    margin-inline-start: 0;
     margin-top: var(--s-xs);
+    padding: 0;
 
     &:last-child {
       margin-inline-end: 0;
