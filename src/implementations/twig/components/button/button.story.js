@@ -153,7 +153,16 @@ const prepareData = (data, args) => {
     data.icon_position = args.icon_position;
   }
   if (args.icon_name === 'none') {
-    delete data.icon;
+    if (args.hide_label) {
+      data.icon = {};
+      data.icon.name = 'close';
+      data.icon.size = 'm';
+      data.icon.path = 'icon.svg';
+      data.icon.transform = '';
+      data.icon_position = 'after';
+    } else {
+      delete data.icon;
+    }
   }
   correctPaths(data);
 
