@@ -97,9 +97,9 @@ $size-icon-only: calc(
   }
 
   .ecl-button__icon {
-    height: map.get($button, 'icon-only-size');
+    height: map.get($theme, 'icon', 'm');
     margin: 0;
-    width: map.get($button, 'icon-only-size');
+    width: map.get($theme, 'icon', 'm');
   }
 }
 
