@@ -267,6 +267,11 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   width: calc(44px + var(--s-m) * 2);
 }
 
+.ecl-site-header .ecl-menu--rtl {
+  left: 0;
+  right: auto;
+}
+
 .ecl-site-header .ecl-menu__overlay,
 .ecl-site-header .ecl-menu__inner {
   top: $menu-top;
@@ -276,7 +281,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
-    background: map.get($site-header, 'background-color');
     font-size: 0;
     line-height: 0;
     padding: var(--s-xs) 0;

@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /**
  * Menu
  * @define menu
@@ -351,7 +353,6 @@ $menu: null !default;
   }
 }
 
-// stylelint-disable-next-line no-descending-specificity
 .ecl-menu__button-caret {
   align-self: stretch;
   background-color: map.get($menu, 'mobile', 'caret-background');
@@ -374,15 +375,28 @@ $menu: null !default;
     transform: rotate(90deg);
   }
 
-  // stylelint-disable-next-line no-descending-specificity
   &:hover {
     background-color: map.get($menu, 'mobile', 'caret-background-hover');
   }
 
-  // stylelint-disable-next-line no-descending-specificity
   &:focus-visible {
     background-color: map.get($menu, 'mobile', 'caret-background');
     color: map.get($menu, 'mobile', 'caret-color');
+  }
+}
+
+.ecl-menu--rtl {
+  .ecl-menu__button-caret .ecl-button__icon {
+    transform: rotate(-90deg);
+  }
+
+  .ecl-menu__see-all .ecl-icon {
+    transform: rotateZ(0);
+  }
+
+  .ecl-menu__item--current .ecl-menu__link,
+  .ecl-menu__subitem--current .ecl-menu__sublink {
+    box-shadow: inset -4px 0 0 0 map.get($menu, 'mobile', 'item-active-border');
   }
 }
 
@@ -442,7 +456,6 @@ $menu: null !default;
     }
 
     // Hide separators in some cases
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-menu__item--current:not(.ecl-menu__items-next)::before,
     .ecl-menu__item--current
       + .ecl-menu__item:not(.ecl-menu__items-next)::before,
@@ -459,7 +472,6 @@ $menu: null !default;
       position: static;
     }
 
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-menu__link {
       box-sizing: border-box;
       box-shadow: none;
@@ -471,12 +483,10 @@ $menu: null !default;
       width: auto;
       z-index: 0;
 
-      // stylelint-disable-next-line no-descending-specificity
       &:hover {
         color: map.get($menu, 'desktop', 'item-color-hover');
       }
 
-      // stylelint-disable-next-line no-descending-specificity
       &:focus-visible {
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
@@ -533,7 +543,6 @@ $menu: null !default;
       }
     }
 
-    /* stylelint-disable-next-line no-descending-specificity */
     .ecl-menu__items-previous,
     .ecl-menu__items-next {
       background-color: map.get($menu, 'desktop', 'overflow-background');
@@ -573,7 +582,6 @@ $menu: null !default;
       padding-right: var(--s-xs);
     }
 
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-menu__button-caret {
       background: transparent;
       border-width: 0;
@@ -590,12 +598,10 @@ $menu: null !default;
         transform: rotate(180deg);
       }
 
-      // stylelint-disable-next-line no-descending-specificity
       &:hover {
         box-shadow: none;
       }
 
-      // stylelint-disable-next-line no-descending-specificity
       &:focus-visible {
         background-color: map.get($menu, 'desktop', 'item-background-focus');
         color: map.get($menu, 'desktop', 'item-color-focus');
@@ -623,7 +629,6 @@ $menu: null !default;
       }
     }
 
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-menu__item--current .ecl-menu__link,
     .ecl-menu__item--current .ecl-menu__button-caret,
     .ecl-menu__link:active {
@@ -633,7 +638,6 @@ $menu: null !default;
   }
 
   .ecl-menu:not(.ecl-menu--forced-mobile, .ecl-menu--forced-close) {
-    // stylelint-disable-next-line no-descending-specificity
     .ecl-menu__item:not(.ecl-menu__items-previous, .ecl-menu__items-next) {
       &[aria-expanded='true'] .ecl-button__icon {
         transform: rotate(0);
@@ -667,7 +671,6 @@ $menu: null !default;
   border-top-width: 0;
   flex-direction: column;
 
-  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu__link {
     background-color: transparent;
     border-bottom: map.get($menu, 'mobile', 'subtitle-border');
@@ -677,7 +680,6 @@ $menu: null !default;
   }
 }
 
-// stylelint-disable-next-line no-descending-specificity
 .ecl-menu__item--expanded .ecl-menu__button-caret {
   display: none;
 }
@@ -843,12 +845,10 @@ $menu: null !default;
 }
 
 // Hack to prevent transition issue on page load on chrome
-/* stylelint-disable-next-line no-descending-specificity */
 .ecl-menu--transition .ecl-menu__inner {
   transition: right 375ms;
 }
 
-/* stylelint-disable-next-line order/order no-descending-specificity */
 @include breakpoints.up('l') {
   .ecl-menu:not(.ecl-menu--forced-mobile).ecl-menu--transition {
     .ecl-menu__item,
@@ -861,129 +861,6 @@ $menu: null !default;
       transition-delay: 0.25s;
     }
   }
-}
-
-/*
- * Light variant
- */
-@if map-has-key($menu, 'light') {
-  // stylelint-disable no-descending-specificity
-  @include breakpoints.up('l') {
-    .ecl-menu--light:not(.ecl-menu--forced-mobile) {
-      background-color: map.get($menu, 'light', 'menu-background');
-      border-top: map.get($menu, 'light', 'menu-border');
-
-      .ecl-menu__item {
-        color: map.get($menu, 'light', 'item-color');
-
-        &:not(.ecl-menu__items-previous, .ecl-menu__items-next):hover,
-        &:not(.ecl-menu__item--current):focus-within {
-          background-color: map.get($menu, 'light', 'item-background-hover');
-          color: map.get($menu, 'light', 'item-color-hover');
-        }
-
-        &:hover .ecl-menu__link,
-        &:hover .ecl-menu__button-caret,
-        &:focus-within .ecl-menu__link,
-        &:focus-within .ecl-menu__button-caret {
-          color: map.get($menu, 'light', 'item-color-hover');
-        }
-      }
-
-      .ecl-menu__item--current {
-        background-color: map.get($menu, 'light', 'item-current-background');
-        box-shadow: map.get($menu, 'light', 'item-current-shadow');
-        color: map.get($menu, 'light', 'item-current-color');
-
-        &:focus-within {
-          background-color: map.get(
-            $menu,
-            'light',
-            'item-current-background-focus'
-          );
-        }
-      }
-
-      .ecl-menu__link {
-        color: map.get($menu, 'light', 'item-color');
-
-        &:hover {
-          background-color: map.get($menu, 'light', 'item-background-hover');
-          color: map.get($menu, 'light', 'item-color-hover');
-        }
-
-        &:focus-visible {
-          background-color: map.get($menu, 'light', 'item-background-focus');
-          color: map.get($menu, 'light', 'item-color-focus');
-        }
-      }
-
-      .ecl-menu__button-caret {
-        color: map.get($menu, 'light', 'item-color');
-
-        &:focus-visible {
-          background-color: map.get($menu, 'light', 'item-background-focus');
-          color: map.get($menu, 'light', 'item-color-focus');
-        }
-      }
-
-      .ecl-menu__item::before,
-      .ecl-menu__item:last-child::after {
-        background-color: map.get($menu, 'light', 'separator-color');
-      }
-
-      .ecl-menu__items-previous:not(.ecl-menu__item--current)::after {
-        height: calc(
-          100% + 2 * #{map.get($menu, 'light', 'overflow-separator-offset')}
-        );
-        right: -#{map.get($menu, 'light', 'overflow-separator-offset')};
-        top: -#{map.get($menu, 'light', 'overflow-separator-offset')};
-      }
-
-      .ecl-menu__items-next:not(.ecl-menu__item--current)::before {
-        height: calc(
-          100% + 2 * #{map.get($menu, 'light', 'overflow-separator-offset')}
-        );
-        left: -#{map.get($menu, 'light', 'overflow-separator-offset')};
-        top: -#{map.get($menu, 'light', 'overflow-separator-offset')};
-      }
-
-      .ecl-menu__items-previous,
-      .ecl-menu__items-next {
-        background-color: map.get($menu, 'light', 'overflow-background');
-        border: map.get($menu, 'light', 'overflow-border');
-        border-radius: map.get($menu, 'global', 'border-radius');
-        color: map.get($menu, 'light', 'overflow-color');
-        margin: 0;
-
-        &:hover {
-          background-color: map.get(
-            $menu,
-            'light',
-            'overflow-background-hover'
-          );
-          border: map.get($menu, 'light', 'overflow-border-hover');
-          color: map.get($menu, 'light', 'overflow-color-hover');
-        }
-
-        &.ecl-menu__item--current {
-          background-color: map.get($menu, 'light', 'item-current-background');
-          box-shadow: map.get($menu, 'light', 'item-current-shadow');
-          color: map.get($menu, 'light', 'item-current-color');
-
-          &:hover {
-            background-color: map.get(
-              $menu,
-              'light',
-              'overflow-background-hover'
-            );
-            color: map.get($menu, 'light', 'overflow-color-hover');
-          }
-        }
-      }
-    }
-  }
-  // stylelint-enable no-descending-specificity
 }
 
 .no-scroll {

@@ -33,6 +33,7 @@ npm install --save @ecl/twig-component-notification
     name: 'info', 
     size: 'l', 
   }, 
+  sr_icon: 'Information',
   title: 'Information notification', 
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
   close: { 
