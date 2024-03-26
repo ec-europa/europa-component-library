@@ -957,7 +957,6 @@ export class MegaMenu {
       // Move focus on the parent link of the opened list
       const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
       queryOne('.ecl-mega-menu__parent-link', expanded).focus();
-      this.openPanel({ num: 1 });
     } else {
       // Remove expanded class from inner menu
       this.inner.classList.remove('ecl-mega-menu__inner--expanded');
