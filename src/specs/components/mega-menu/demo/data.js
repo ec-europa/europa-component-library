@@ -63,7 +63,7 @@ module.exports = {
               label: 'Item 2.1 subitem 1',
               path: exampleLink,
             },
-            { label: 'Item 2.1 subitem 2', path: exampleLink },
+            { label: 'Item 2.1 subitem 2', path: exampleLink, external: true },
             { label: 'Item 2.1 subitem 3', path: exampleLink },
             { label: 'Item 2.1 subitem 4', path: exampleLink },
             { label: 'Item 2.1 subitem 5', path: exampleLink },
@@ -72,7 +72,7 @@ module.exports = {
         { label: 'Item 2.2', path: exampleLink },
         {
           label:
-            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.',
+            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.',
           path: exampleLink,
           trigger_aria_label: "Access item's children",
           link_aria_label: 'Link to the 2.3 item page',

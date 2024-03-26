@@ -611,20 +611,23 @@ $mega-menu: null !default;
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 
-  &.ecl-link--icon {
-    display: flex;
-    overflow: visible;
+  &:not(.ecl-mega-menu__parent-link) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
-    .ecl-link__label {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    &.ecl-link--icon {
+      display: flex;
+      overflow: visible;
+
+      .ecl-link__label {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
     }
   }
 
@@ -663,6 +666,10 @@ $mega-menu: null !default;
     &:hover {
       color: var(--c-p-140);
     }
+  }
+
+  .ecl-mega-menu__sublink .ecl-icon {
+    margin-inline-start: var(--s-xs);
   }
 }
 
@@ -814,10 +821,6 @@ $mega-menu: null !default;
         align-items: center;
         margin-inline-start: var(--s-2xs);
         text-align: initial;
-
-        .ecl-link__label {
-          -webkit-line-clamp: 1;
-        }
       }
     }
 
@@ -833,7 +836,8 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__see-all {
         position: relative;
-        padding-top: var(--s-3xl);
+        margin-top: var(--s-3xl);
+        padding-top: var(--s-m);
 
         &::before {
           content: '';
@@ -900,12 +904,6 @@ $mega-menu: null !default;
 
         &:focus-visible {
           outline-color: var(--c-p);
-        }
-      }
-
-      .ecl-mega-menu__parent-link {
-        .ecl-link__label {
-          -webkit-line-clamp: 1;
         }
       }
     }

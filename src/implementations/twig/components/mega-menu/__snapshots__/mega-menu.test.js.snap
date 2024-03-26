@@ -187,10 +187,23 @@ exports[`Menu Default renders correctly 1`] = `
                         data-ecl-mega-menu-subitem=""
                       >
                         <a
-                          class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                          class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                           href="/example"
                         >
-                          Item 2.1 subitem 2
+                          <span
+                            class="ecl-link__label"
+                          >
+                            Item 2.1 subitem 2
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#external"
+                            />
+                          </svg>
                         </a>
                       </li>
                       <li
@@ -340,10 +353,23 @@ exports[`Menu Default renders correctly 1`] = `
                             class="ecl-mega-menu__featured-list__item"
                           >
                             <a
-                              class="ecl-link ecl-link--standalone"
+                              class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
-                              Featured link 4
+                              <span
+                                class="ecl-link__label"
+                              >
+                                Featured link 4
+                              </span>
+                              <svg
+                                aria-hidden="true"
+                                class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                focusable="false"
+                              >
+                                <use
+                                  xlink:href="/icons.svg#external"
+                                />
+                              </svg>
                             </a>
                           </li>
                         </ul>
@@ -374,7 +400,7 @@ exports[`Menu Default renders correctly 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -467,10 +493,23 @@ exports[`Menu Default renders correctly 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -1817,10 +1856,23 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                         data-ecl-mega-menu-subitem=""
                       >
                         <a
-                          class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                          class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                           href="/example"
                         >
-                          Item 2.1 subitem 2
+                          <span
+                            class="ecl-link__label"
+                          >
+                            Item 2.1 subitem 2
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#external"
+                            />
+                          </svg>
                         </a>
                       </li>
                       <li
@@ -1970,10 +2022,23 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                             class="ecl-mega-menu__featured-list__item"
                           >
                             <a
-                              class="ecl-link ecl-link--standalone"
+                              class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
-                              Featured link 4
+                              <span
+                                class="ecl-link__label"
+                              >
+                                Featured link 4
+                              </span>
+                              <svg
+                                aria-hidden="true"
+                                class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                focusable="false"
+                              >
+                                <use
+                                  xlink:href="/icons.svg#external"
+                                />
+                              </svg>
                             </a>
                           </li>
                         </ul>
@@ -2004,7 +2069,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -2097,10 +2162,23 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -3445,10 +3523,23 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                         data-ecl-mega-menu-subitem=""
                       >
                         <a
-                          class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                          class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                           href="/example"
                         >
-                          Item 2.1 subitem 2
+                          <span
+                            class="ecl-link__label"
+                          >
+                            Item 2.1 subitem 2
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#external"
+                            />
+                          </svg>
                         </a>
                       </li>
                       <li
@@ -3598,10 +3689,23 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                             class="ecl-mega-menu__featured-list__item"
                           >
                             <a
-                              class="ecl-link ecl-link--standalone"
+                              class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
-                              Featured link 4
+                              <span
+                                class="ecl-link__label"
+                              >
+                                Featured link 4
+                              </span>
+                              <svg
+                                aria-hidden="true"
+                                class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                                focusable="false"
+                              >
+                                <use
+                                  xlink:href="/icons.svg#external"
+                                />
+                              </svg>
                             </a>
                           </li>
                         </ul>
@@ -3632,7 +3736,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                     <span
                       class="ecl-link__label"
                     >
-                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, even in mobile where there is more space.
+                      Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.
                     </span>
                     <svg
                       aria-hidden="true"
@@ -3725,10 +3829,23 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-mega-menu-subitem=""
                 >
                   <a
-                    class="ecl-link ecl-link--standalone ecl-mega-menu__sublink"
+                    class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
                     href="/example"
                   >
-                    Item 2.7
+                    <span
+                      class="ecl-link__label"
+                    >
+                      Item 2.7
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="ecl-icon ecl-icon--2xs ecl-link__icon"
+                      focusable="false"
+                    >
+                      <use
+                        xlink:href="/icons.svg#external"
+                      />
+                    </svg>
                   </a>
                 </li>
               </ul>

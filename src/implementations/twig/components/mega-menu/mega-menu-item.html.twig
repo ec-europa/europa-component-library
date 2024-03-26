@@ -75,6 +75,7 @@
         type: 'standalone',
         label: _item.label,
         path: _item.path,
+        icon_path: icon_path,
         external: _item.external|default(false),
         icon_position: 'after',
       },
@@ -136,6 +137,7 @@
             label: child.label,
             path: child.path,
             external: child.external,
+            icon_path: _icon_path,
           },
           icon: _icon,
           extra_classes: _sublink_class,
@@ -194,7 +196,7 @@
           {% for item in _featured.items %}
             <li class="ecl-mega-menu__featured-list__item">
               {% include '@ecl/link/link.html.twig' with {
-                link: item|merge({ type: 'standalone' })
+                link: item|merge({ type: 'standalone', icon_path: _icon_path })
               } only %}
             </li>
           {% endfor %}
