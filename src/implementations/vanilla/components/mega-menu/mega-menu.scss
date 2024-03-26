@@ -82,6 +82,7 @@ $mega-menu: null !default;
 .ecl-mega-menu__mega-container-scrollable {
   border-top: 1px solid var(--c-n);
   font: var(--f-m);
+  margin-top: var(--s-xs);
   padding: var(--s-s) var(--s-m);
 
   * {
@@ -116,6 +117,10 @@ $mega-menu: null !default;
     .ecl-mega-menu__cta {
       display: none;
     }
+  }
+
+  .ecl-mega-menu__mega-container-scrollable {
+    margin-top: 0;
   }
 }
 
