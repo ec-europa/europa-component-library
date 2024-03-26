@@ -185,21 +185,23 @@ class Playground extends Component {
           )}
 
           {fullFrameUrl && (
-            <a
-              href={fullFrameUrl}
-              className={`${styles.link} ${styles['link--icon']} ${styles.fullscreen}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className={styles.link__label}>Fullscreen</span>
-              <svg
-                focusable="false"
-                aria-hidden="true"
-                className={styles.link__icon}
+            <div className={`${styles.more}`}>
+              <a
+                href={fullFrameUrl}
+                className={`${styles.link} ${styles['link--icon']} ${styles.fullscreen}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <use xlinkHref={`${iconSprite}#fullscreen`} />
-              </svg>
-            </a>
+                <span className={styles.link__label}>Fullscreen</span>
+                <svg
+                  focusable="false"
+                  aria-hidden="true"
+                  className={styles.link__icon}
+                >
+                  <use xlinkHref={`${iconSprite}#fullscreen`} />
+                </svg>
+              </a>
+            </div>
           )}
         </div>
 
@@ -211,22 +213,24 @@ class Playground extends Component {
             >
               {markupElement}
             </pre>
-            <button
-              type="button"
-              className={`${styles.link} ${styles['link--icon']} ${styles.toggle}`}
-              onClick={this.handleClickOnToggle}
-            >
-              <div className={styles.toggle__container}>
-                <span className={styles.link__label}>Show more</span>
-                <svg
-                  focusable="false"
-                  aria-hidden="true"
-                  className={styles.link__icon}
-                >
-                  <use xlinkHref={`${iconSprite}#corner-arrow`} />
-                </svg>
-              </div>
-            </button>
+            <div className={`${styles.more}`}>
+              <button
+                type="button"
+                className={`${styles.link} ${styles['link--icon']} ${styles.toggle}`}
+                onClick={this.handleClickOnToggle}
+              >
+                <div className={styles.toggle__container}>
+                  <span className={styles.link__label}>Show more</span>
+                  <svg
+                    focusable="false"
+                    aria-hidden="true"
+                    className={styles.link__icon}
+                  >
+                    <use xlinkHref={`${iconSprite}#corner-arrow`} />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         )}
 

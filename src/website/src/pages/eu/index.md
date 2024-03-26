@@ -3,7 +3,7 @@ title: Europa Component Library
 ---
 # Europa Component Library
 
-## europa.eu
+## european-union.europa.eu
 
 This library contains all available components that you can use to build your own website.
 

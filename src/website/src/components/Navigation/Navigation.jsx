@@ -31,9 +31,7 @@ const Navigation = React.memo(
           sidebarOpen ? 'Close side navigation' : 'Open side navigation'
         }
       >
-        <span className={styles['hamburger-box']}>
-          <span className={styles['hamburger-inner']} />
-        </span>
+        <span className={styles['hamburger-inner']} />
       </button>
       <header className={styles.header}>
         <span className={styles.version}>v{process.env.ECL_VERSION}</span>
@@ -50,7 +48,7 @@ const Navigation = React.memo(
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
         )}
-        <h2 className={styles.title}>Europa Component Library</h2>
+        <div className={styles.title}>Europa Component Library</div>
       </header>
       <ul className={styles['system-list']}>
         <li className={styles['system-list-item']}>

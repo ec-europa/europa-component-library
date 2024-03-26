@@ -25,7 +25,7 @@ function IconCard({ system, name, set }) {
       <svg focusable="false" aria-hidden="true" className={styles.icon}>
         <use xlinkHref={`${iconSet}#${name}`} />
       </svg>
-      <h3 className={styles.title}>{name}</h3>
+      <div className={styles.title}>{name}</div>
     </li>
   );
 }
