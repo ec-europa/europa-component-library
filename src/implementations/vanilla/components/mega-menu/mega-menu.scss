@@ -550,8 +550,8 @@ $mega-menu: null !default;
   }
 
   > .ecl-mega-menu__link,
-  > .ecl-mega-menu__sublink,
-  > .ecl-mega-menu__sublink.ecl-link--icon {
+  > .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link),
+  > .ecl-mega-menu__sublink:not(.ecl-mega-menu__parent-link).ecl-link--icon {
     display: none;
   }
 
@@ -607,6 +607,7 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__sublink {
   box-sizing: border-box;
+  display: flex;
   color: map.get($mega-menu, 'mobile', 'item-color');
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
