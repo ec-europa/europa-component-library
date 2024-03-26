@@ -82,7 +82,6 @@ $mega-menu: null !default;
 .ecl-mega-menu__mega-container-scrollable {
   border-top: 1px solid var(--c-n);
   font: var(--f-m);
-  margin-top: var(--s-xs);
   padding: var(--s-s) var(--s-m);
 
   * {
@@ -702,11 +701,11 @@ $mega-menu: null !default;
       .ecl-link {
         border-radius: 0;
         box-sizing: border-box;
-        display: inline-block;
+        display: block;
         font: var(--f-m);
-        width: calc(100% - var(--s-s) * 2);
         outline-offset: -2px;
         padding: var(--s-xs) var(--s-s);
+        width: 100%;
       }
     }
   }
