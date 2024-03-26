@@ -945,10 +945,17 @@ $mega-menu: null !default;
       width: 100%;
     }
 
+    // When the text gets trimmed after the third line the top part
+    // of the fourth item is visible, so we reduce the padding bottom
     .ecl-mega-menu__sublink {
       break-inside: avoid-column;
       font: var(--f-m);
+
+      // This is to recover the missing pixel
+      line-height: calc(map.get($theme, 'line-height', 'm') + 1px);
       margin: 0;
+
+      // Reduce to padding bottom by 1px to prevent overflowing when trimmed
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
 
