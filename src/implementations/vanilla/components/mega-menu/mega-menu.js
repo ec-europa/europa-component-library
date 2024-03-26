@@ -957,6 +957,7 @@ export class MegaMenu {
       // Move focus on the parent link of the opened list
       const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
       queryOne('.ecl-mega-menu__parent-link', expanded).focus();
+      this.openPanel.num = 1;
     } else {
       // Remove expanded class from inner menu
       this.inner.classList.remove('ecl-mega-menu__inner--expanded');
@@ -970,6 +971,7 @@ export class MegaMenu {
       });
       // Move the focus to the first item in the menu
       this.items[0].firstElementChild.focus();
+      this.openPanel.num = 0;
     }
 
     this.trigger('onBack', { level: level2 ? 2 : 1 });
