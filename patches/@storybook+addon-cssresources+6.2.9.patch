@@ -17,3 +17,14 @@ index 6811b2b..79f45fc 100644
  var changeMediaAttribute = function changeMediaAttribute(element, enabled) {
    var current = element.getAttribute('media');
  
+diff --git a/node_modules/@storybook/addon-cssresources/dist/esm/register.js b/node_modules/@storybook/addon-cssresources/dist/esm/register.js
+index 974ccc8..be7d0f0 100644
+--- a/node_modules/@storybook/addon-cssresources/dist/esm/register.js
++++ b/node_modules/@storybook/addon-cssresources/dist/esm/register.js
+@@ -1,5 +1,5 @@
+ import * as React from 'react';
+-import { addons, types } from '@storybook/addons';
++import { addons, types } from '@storybook/manager-api';
+ import { ADDON_ID, PANEL_ID, PARAM_KEY } from './constants';
+ import { CssResourcePanel } from './css-resource-panel';
+ addons.register(ADDON_ID, function (api) {

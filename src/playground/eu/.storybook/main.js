@@ -11,12 +11,12 @@ const addons = [
   '@storybook/addon-cssresources',
   '@ecl/storybook-addon-notes',
   '@ecl/storybook-addon-code',
-  '@ecl/storybook-addon-system-switcher',
   '@storybook/addon-viewport',
   '@storybook/addon-controls',
   '@storybook/addon-a11y',
   'storybook-dark-mode',
   '@storybook/addon-measure',
+  '@ecl/storybook-addon-system-switcher',
 ];
 
 let staticDirs = [
