@@ -14,7 +14,7 @@ $mega-menu: null !default;
 
 @mixin with-scrollbar {
   overflow-y: auto;
-  scrollbar-color: var(--c-n);
+  scrollbar-color: var(--c-n) rgba(0, 0, 0, 0);
   scrollbar-width: thin;
 }
 
@@ -522,9 +522,7 @@ $mega-menu: null !default;
           padding: map.get($mega-menu, 'desktop', 'sublink-padding');
 
           .ecl-icon {
-            align-self: flex-start;
             margin-inline-start: var(--s-m);
-            margin-top: calc(var(--s-2xs) + 2px);
           }
         }
 
@@ -670,8 +668,6 @@ $mega-menu: null !default;
   }
 
   &.ecl-mega-menu__parent-link .ecl-icon {
-    align-self: flex-start;
-    margin-top: var(--s-2xs);
     margin-inline-start: var(--s-xs);
   }
 }

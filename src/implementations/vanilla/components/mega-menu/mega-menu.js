@@ -634,7 +634,7 @@ export class MegaMenu {
         const newHrefValue = hrefValue.replace('corner-arrow', 'arrow-left');
         svg.parentElement.classList.add(
           'ecl-icon--flip-horizontal',
-          'ecl-icon--s',
+          'ecl-icon--xs',
         );
         svg.parentElement.classList.remove(
           'ecl-icon--2xs',
