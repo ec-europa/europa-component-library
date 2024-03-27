@@ -58,3 +58,10 @@ $file-upload: null !default;
     padding-bottom: var(--s-2xs);
   }
 }
+
+.ecl-file-upload:focus-visible
+  + .ecl-file-upload__button-container
+  .ecl-file-upload__button {
+  outline: 1px solid map.get($theme, 'color', 'white');
+  outline-offset: -3px;
+}
