@@ -1,4 +1,5 @@
 module.exports = {
+  caption: 'Table caption',
   headers: [
     [
       { label: 'Job title' },
