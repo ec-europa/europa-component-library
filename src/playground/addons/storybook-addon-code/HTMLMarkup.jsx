@@ -46,7 +46,7 @@ function HTMLMarkup({ active, channel }) {
         <h1>Live HTML</h1>
         <Button
           type="button"
-          tertiary
+          variant="tertiary"
           onClick={() => {
             const form = document.createElement('form');
             const element1 = document.createElement('input');

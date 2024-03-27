@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addons } from '@storybook/addons';
+import { addons, types } from '@storybook/manager-api';
 
 import styled from '@emotion/styled';
 
@@ -77,9 +77,10 @@ Notes.propTypes = {
 
 addons.register('ecl/notes', (api) => {
   const channel = addons.getChannel();
-  addons.addPanel('ecl/notes/panel', {
+  addons.add('ecl/notes/panel', {
     title: 'Notes',
     paramKey: 'EclNotes',
+    type: types.PANEL,
     // eslint-disable-next-line react/prop-types
     render: ({ active }) => (
       <Notes channel={channel} api={api} active={active} />
