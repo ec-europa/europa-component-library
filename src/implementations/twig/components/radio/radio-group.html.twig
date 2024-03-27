@@ -40,6 +40,7 @@
 {% endif %}
 
 {# Print the result #}
+{# required state is set at the form group level #}
 
 {% if _items is not empty and _items is iterable %}
   {%- for _item in _items %}
@@ -47,7 +48,7 @@
       name: _name,
       invalid: _invalid,
       binary: _binary,
-      required: _required,
+      required: false, 
     }) only %}
   {% endfor -%}
 {% endif %}
