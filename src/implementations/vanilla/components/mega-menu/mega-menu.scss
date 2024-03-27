@@ -12,6 +12,12 @@
 $theme: null !default;
 $mega-menu: null !default;
 
+@mixin with-scrollbar {
+  overflow-y: auto;
+  scrollbar-color: var(--c-n);
+  scrollbar-width: thin;
+}
+
 /*
  * Menu structure
  */
@@ -133,12 +139,13 @@ $mega-menu: null !default;
   box-shadow: map.get($mega-menu, 'mobile', 'content-shadow');
   border-top: 1px solid var(--c-n-60);
   display: none;
-  overflow-y: auto;
   position: fixed;
   right: -100%;
   top: 0;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal') + 3;
+
+  @include with-scrollbar;
 
   /* Force display if JS is disabled */
   .no-js & {
@@ -515,7 +522,9 @@ $mega-menu: null !default;
           padding: map.get($mega-menu, 'desktop', 'sublink-padding');
 
           .ecl-icon {
+            align-self: flex-start;
             margin-inline-start: var(--s-m);
+            margin-top: calc(var(--s-2xs) + 2px);
           }
         }
 
@@ -661,6 +670,8 @@ $mega-menu: null !default;
   }
 
   &.ecl-mega-menu__parent-link .ecl-icon {
+    align-self: flex-start;
+    margin-top: var(--s-2xs);
     margin-inline-start: var(--s-xs);
   }
 }
@@ -776,7 +787,8 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__mega-container-scrollable {
         height: 100%;
-        overflow-y: auto;
+
+        @include with-scrollbar;
       }
     }
 
@@ -833,8 +845,10 @@ $mega-menu: null !default;
     .ecl-mega-menu__sublist {
       border-color: map.get($theme, 'color', 'white');
       border-width: 2px;
-      margin: 0 0 var(--s-xl) var(--s-2xs);
-      overflow-y: auto;
+      margin: 0 0 var(--s-xl);
+      padding-inline-start: var(--s-2xs);
+
+      @include with-scrollbar;
 
       .ecl-mega-menu__sublist {
         margin: 0 var(--s-2xs) var(--s-xl);
@@ -873,6 +887,7 @@ $mega-menu: null !default;
       .ecl-mega-menu__sublist {
         border: none;
         padding-top: var(--s-m);
+        padding-inline-start: 0;
         position: relative;
 
         &::before {
@@ -993,7 +1008,7 @@ $mega-menu: null !default;
     top: 0;
 
     .ecl-mega-menu__featured-scrollable {
-      overflow-y: auto;
+      @include with-scrollbar;
     }
 
     .ecl-mega-menu__featured-content {

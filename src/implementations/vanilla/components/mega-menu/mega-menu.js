@@ -553,7 +553,7 @@ export class MegaMenu {
         let dropdownHeight = viewportHeight - dropdownTop;
         const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
         if (lastItem) {
-          dropdownHeight -= 30;
+          dropdownHeight -= 20;
         }
         dropdown.style.height = `${dropdownHeight}px`;
       }
@@ -1119,8 +1119,23 @@ export class MegaMenu {
    * @fires MegaMenu#onItemClick
    */
   handleClickOnItem(e) {
-    if (!e.target.parentNode.classList.contains('ecl-mega-menu__parent-link')) {
-      const menuItem = e.target.closest('li');
+    let isInTheContainer = false;
+    const menuItem = e.target.closest('li');
+    const container = queryOne(
+      '.ecl-mega-menu__mega-container-scrollable',
+      menuItem,
+    );
+    if (container) {
+      isInTheContainer = container.contains(e.target);
+    }
+
+    if (
+      !e.target.parentNode.classList.contains('ecl-mega-menu__parent-link') &&
+      !e.target.classList.contains(
+        'ecl-mega-menu__mega-container-scrollable',
+      ) &&
+      !isInTheContainer
+    ) {
       this.trigger('onItemClick', { item: menuItem, event: e });
       const hasChildren = menuItem.getAttribute('aria-expanded');
       if (hasChildren && menuItem.classList.contains('ecl-mega-menu__item')) {
@@ -1255,8 +1270,11 @@ export class MegaMenu {
    */
   handleClickGlobal(e) {
     if (
-      e.target.classList.contains('ecl-mega-menu__overlay') ||
-      !this.element.contains(e.target)
+      !e.target.classList.contains(
+        'ecl-mega-menu__mega-container-scrollable',
+      ) &&
+      (e.target.classList.contains('ecl-mega-menu__overlay') ||
+        !this.element.contains(e.target))
     ) {
       this.closeOpenDropdown();
     }
