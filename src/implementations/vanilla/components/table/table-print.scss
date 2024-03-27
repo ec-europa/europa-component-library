@@ -65,6 +65,14 @@ $table: null !default;
   }
 }
 
+.ecl-table__caption {
+  caption-side: bottom;
+  color: var(--c-d-80);
+  font: map.get($theme, 'font-print', 's');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+  text-align: left;
+}
+
 .ecl-table--zebra {
   .ecl-table__row:nth-of-type(even) {
     background-color: map.get($table, 'zebra-background');
