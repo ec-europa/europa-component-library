@@ -3,6 +3,7 @@
   Parameters:
   - "simple" (boolean) (default: false)
   - "sortable" (boolean) (default: false)
+  - "caption" (string) (default: ''): optional caption for the table
   - "label_sort" (string) (default: ''): label used for sorting buttons (screen reader only)
   - "zebra" (boolean) (default: false))
   - "headers" (array) (default: []): format: [
@@ -55,6 +56,7 @@
 {% set _headers = headers|default([]) %}
 {% set _simple = simple|default(false) %}
 {% set _sortable = sortable|default(false) %}
+{% set _caption = caption|default('') %}
 {% set _label_sort = label_sort|default('') %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
@@ -95,6 +97,9 @@
 
 <div class="ecl-table-responsive">
   <table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+    {% if _caption is not empty %}
+    <caption class="ecl-table__caption">{{ _caption }}</caption>
+    {% endif %}
     <thead class="{{ _head_css_class }}">
       {% for header in _headers %}
         <tr class="{{ _row_css_class }}">
