@@ -7,6 +7,7 @@ import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--ec';
+import enDataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
@@ -14,6 +15,7 @@ import notes from './README.md';
 const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
+const enMegaMenu = { ...enDataMegaMenu };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -53,6 +55,7 @@ const getArgs = (data) => {
   }
   if (data.has_menu) {
     defaultArgs.show_menu = true;
+    defaultArgs.show_mega_menu = false;
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -131,6 +134,16 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'show_mega_menu', truthy: false },
+    };
+    argTypes.show_mega_menu = {
+      name: 'mega menu',
+      type: { name: 'boolean' },
+      description: 'Show the mega menu',
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_menu', truthy: false },
     };
   }
   if (data.cta_link) {
@@ -207,10 +220,17 @@ const prepareData = (data, args) => {
     data.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (!args.show_menu) {
+  if (!args.show_menu && data.menu) {
     delete data.menu;
-  } else if (args.show_menu && !data.menu) {
+  }
+  if (args.show_menu && !data.menu) {
     data.menu = enMenu;
+  }
+  if (!args.show_mega_menu && data.mega_menu) {
+    delete data.mega_menu;
+  }
+  if (args.show_mega_menu && !data.mega_menu) {
+    data.mega_menu = enMegaMenu;
   }
 
   data.logged = args.logged;
@@ -300,6 +320,7 @@ Standardised.render = async (args) => {
   );
   return renderedStandardised;
 };
+
 Standardised.storyName = 'standardised';
 Standardised.args = getArgs(dataStandardised);
 Standardised.argTypes = getArgTypes(dataStandardised);
@@ -315,6 +336,7 @@ Harmonised.render = async (args) => {
   );
   return renderedHarmonised;
 };
+
 Harmonised.storyName = 'harmonised';
 Harmonised.args = getArgs(dataHarmonised);
 Harmonised.argTypes = getArgTypes(dataHarmonised);
