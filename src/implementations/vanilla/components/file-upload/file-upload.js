@@ -128,6 +128,7 @@ export class FileUpload {
 
     // Update file list
     this.fileUploadList.innerHTML = fileList;
+    this.fileUploadList.setAttribute('aria-live', 'polite');
 
     // Update button label
     if (this.fileUploadButton.hasAttribute(this.labelReplace)) {
