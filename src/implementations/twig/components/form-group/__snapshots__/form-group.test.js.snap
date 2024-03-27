@@ -4,6 +4,7 @@ exports[`Form group  with Checkbox renders correctly 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -181,6 +182,7 @@ exports[`Form group  with Checkbox renders correctly when invalid 1`] = `
   <fieldset
     aria-describedby="checkbox-default-helper checkbox-default-invalid"
     aria-invalid="true"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -372,6 +374,7 @@ exports[`Form group  with Checkbox renders correctly when required 1`] = `
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -548,6 +551,7 @@ exports[`Form group  with Checkbox renders correctly with extra attributes 1`] =
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
+    aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -726,6 +730,7 @@ exports[`Form group  with Checkbox renders correctly with extra class names 1`] 
 <jest>
   <fieldset
     aria-describedby="checkbox-default-helper"
+    aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
@@ -1679,7 +1684,9 @@ exports[`Form group  with Radio renders correctly 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -1707,7 +1714,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -1736,7 +1742,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -1766,7 +1771,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -1795,7 +1799,6 @@ exports[`Form group  with Radio renders correctly 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -1831,7 +1834,9 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label ecl-form-label--disabled"
@@ -1859,7 +1864,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -1888,7 +1892,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -1918,7 +1921,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -1947,7 +1949,6 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -1984,7 +1985,9 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
   <fieldset
     aria-describedby="radio-default-helper radio-default-invalid"
     aria-invalid="true"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
@@ -2012,7 +2015,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -2041,7 +2043,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -2071,7 +2072,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -2100,7 +2100,6 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -2151,7 +2150,9 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2179,7 +2180,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -2208,7 +2208,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -2238,7 +2237,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -2267,7 +2265,6 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -2303,9 +2300,11 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2333,7 +2332,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -2362,7 +2360,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -2392,7 +2389,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -2421,7 +2417,6 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -2457,7 +2452,9 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2485,7 +2482,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
         class="ecl-radio__input"
         id="radio-default-1"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lu"
       />
@@ -2514,7 +2510,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
         class="ecl-radio__input"
         id="radio-default-2"
         name="radio-group-1"
-        required=""
         type="radio"
         value="be"
       />
@@ -2544,7 +2539,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
         disabled=""
         id="radio-default-3"
         name="radio-group-1"
-        required=""
         type="radio"
         value="fr"
       />
@@ -2573,7 +2567,6 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
         class="ecl-radio__input"
         id="radio-default-4"
         name="radio-group-1"
-        required=""
         type="radio"
         value="lorem"
       />
@@ -2929,6 +2922,7 @@ exports[`Form group  with Rating field renders correctly 1`] = `
 <jest>
   <fieldset
     aria-describedby="rating-field-helper"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -3142,6 +3136,7 @@ exports[`Form group  with Rating field renders correctly when disabled 1`] = `
 <jest>
   <fieldset
     aria-describedby="rating-field-helper"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -3361,6 +3356,7 @@ exports[`Form group  with Rating field renders correctly when invalid 1`] = `
   <fieldset
     aria-describedby="rating-field-helper rating-field-invalid"
     aria-invalid="true"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -3589,6 +3585,7 @@ exports[`Form group  with Rating field renders correctly when required 1`] = `
 <jest>
   <fieldset
     aria-describedby="rating-field-helper"
+    aria-required="true"
     class="ecl-form-group"
   >
     <legend
@@ -3802,6 +3799,7 @@ exports[`Form group  with Rating field renders correctly with extra attributes 1
 <jest>
   <fieldset
     aria-describedby="rating-field-helper"
+    aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
@@ -4017,6 +4015,7 @@ exports[`Form group  with Rating field renders correctly with extra class names 
 <jest>
   <fieldset
     aria-describedby="rating-field-helper"
+    aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
   >
     <legend
