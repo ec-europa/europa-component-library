@@ -451,8 +451,10 @@ export class Carousel {
       this.navigationItems.forEach((nav, index) => {
         if (this.index === index + 1) {
           nav.setAttribute('aria-current', 'true');
+          nav.removeAttribute('tabindex', -1);
         } else {
           nav.removeAttribute('aria-current', 'true');
+          nav.setAttribute('tabindex', -1);
         }
       });
     }
@@ -586,22 +588,6 @@ export class Carousel {
   handleKeyboardOnBullets(e) {
     const focusedEl = document.activeElement;
     switch (e.key) {
-      case 'Tab':
-        if (e.shiftKey) {
-          e.preventDefault();
-          if (focusedEl.previousSibling) {
-            this.shiftSlide('prev', true);
-            setTimeout(() => focusedEl.previousSibling.focus(), 400);
-          } else {
-            this.btnPlay.focus();
-          }
-        } else if (focusedEl.nextSibling) {
-          e.preventDefault();
-          this.shiftSlide('next', true);
-          setTimeout(() => focusedEl.nextSibling.focus(), 400);
-        }
-        break;
-
       case 'ArrowRight':
         if (focusedEl.nextSibling) {
           e.preventDefault();

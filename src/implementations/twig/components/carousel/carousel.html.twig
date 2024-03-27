@@ -77,7 +77,7 @@
           hide_label: true,
           label: _sr_play,
           type: 'button',
-          variant: 'ghost',
+          variant: 'tertiary',
           extra_classes: 'ecl-carousel__play',
           icon: {
             path: _icon_path,
@@ -90,7 +90,7 @@
           hide_label: true,
           label: _sr_pause,
           type: 'button',
-          variant: 'ghost',
+          variant: 'tertiary',
           extra_classes: 'ecl-carousel__pause',
           icon: {
             path: _icon_path,
@@ -100,9 +100,9 @@
           },
         } only %}
       </div>
-      <div class="ecl-carousel__navigation">
+      <div class="ecl-carousel__navigation" role="tablist">
         {% for item in _items %}
-          <button class="ecl-button ecl-button--ghost ecl-carousel__navigation-item">
+          <button class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item" role="tab">
             {{ loop.index }}
           </button>
         {% endfor %}
@@ -115,7 +115,7 @@
     {% for item in _items %}
       <div 
         class="ecl-carousel__slide" 
-        role="group" 
+        role="tabpanel" 
         aria-label="slide {{ loop.index }} {{ _counter_label }} {{ _items|length }}"
         aria-roledescription="{{ _sr_slide_role }}"
       >

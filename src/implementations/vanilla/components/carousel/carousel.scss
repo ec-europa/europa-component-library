@@ -98,7 +98,7 @@ $carousel: null !default;
 .ecl-carousel__navigation-item {
   margin-inline-end: var(--s-xs);
 
-  &[aria-current='true'] {
+  &[aria-current='true']:not(:focus-visible) {
     background-color: map.get($carousel, 'navigation-background-active');
     border-color: map.get($carousel, 'navigation-border-active');
     color: map.get($carousel, 'navigation-color-active');
