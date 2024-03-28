@@ -513,10 +513,14 @@ export class MegaMenu {
       if (this.prevScreenWidth !== undefined) {
         // Check if the transition involves crossing the 996px breakpoint
         const isTransition =
-          (this.prevScreenWidth <= 996 && screenWidth > 996) ||
-          (this.prevScreenWidth > 996 && screenWidth <= 996);
+          (this.prevScreenWidth <= this.breakpointL &&
+            screenWidth > this.breakpointL) ||
+          (this.prevScreenWidth > this.breakpointL &&
+            screenWidth <= this.breakpointL);
         if (isTransition) {
-          this.resetStyles(screenWidth > 996 ? 'desktop' : 'mobile');
+          this.resetStyles(
+            screenWidth > this.breakpointL ? 'desktop' : 'mobile',
+          );
         }
       }
       this.isDesktop = this.useDesktopDisplay();
@@ -537,6 +541,7 @@ export class MegaMenu {
 
   /**
    * Calculate dropdown height dynamically
+   *
    * @param {Node} menuItem
    */
   checkDropdownHeight(menuItem) {
@@ -623,6 +628,7 @@ export class MegaMenu {
 
   /**
    * Clone the selected item to show it on top of the panel.
+   *
    * @param {Node} menuItem
    */
   cloneItemInTheDrowdown(menuItem) {
@@ -666,7 +672,8 @@ export class MegaMenu {
   }
 
   /**
-   * Handle positioning of mega menu
+   * Handle second panel columns
+   *
    * @param {Node} menuItem
    */
   checkMegaMenu(menuItem) {
@@ -677,7 +684,11 @@ export class MegaMenu {
       subItems.forEach((item) => {
         itemsHeight += item.getBoundingClientRect().height;
       });
-
+      const lastItem = queryOne('.ecl-mega-menu__see-all', menuMega);
+      if (lastItem) {
+        // Arbitrary, but does the job.
+        itemsHeight += 150;
+      }
       const containerBounding = this.inner.getBoundingClientRect();
       const containerBottom = containerBounding.bottom;
       const availableHeight = window.innerHeight - containerBottom;
@@ -868,6 +879,7 @@ export class MegaMenu {
 
   /**
    * Open menu list.
+   *
    * @param {Event} e
    *
    * @fires MegaMenu#onOpen
@@ -895,6 +907,7 @@ export class MegaMenu {
 
   /**
    * Close menu list.
+   *
    * @param {Event} e
    *
    * @fires Menu#onClose
@@ -911,6 +924,7 @@ export class MegaMenu {
 
   /**
    * Toggle menu list.
+   *
    * @param {Event} e
    */
   handleClickOnToggle(e) {
@@ -1011,11 +1025,6 @@ export class MegaMenu {
               );
             }
           }
-        });
-        // This is fixing a situation where some items in the second panel
-        // might be hidden. It shouldn't be needed, it means there is a flaw.
-        this.subItems.forEach((item) => {
-          item.style.display = '';
         });
 
         queryOne('.ecl-mega-menu__parent-link', menuItem).focus();
@@ -1121,7 +1130,8 @@ export class MegaMenu {
     if (container) {
       isInTheContainer = container.contains(e.target);
     }
-
+    // We need to ensure that the click doesn't come from a parent link
+    // or from an open container, in that case we do not act.
     if (
       !e.target.parentNode.classList.contains('ecl-mega-menu__parent-link') &&
       !e.target.classList.contains(
