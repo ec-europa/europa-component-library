@@ -4,7 +4,8 @@
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
-  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
+  - "see_all": (boolean) (default: false) Whether to show the see all link
+  - "see_all_label": (string) (default: ''): Label for the "see all" link
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
@@ -12,13 +13,15 @@
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "link_aria_label" (string) Aria label for the parent link
-    - "featured": (object) (default({}))
+    - "featured": (object) (default({})) Featured column 
     - "container": (string) White panel to be filled at will
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
+      - "trigger_aria_label" (string) Aria label for the trigger button,
+      - "link_aria_label" (string) Aria label for the parent link
 #}
 
 {% set _id = id|default('') %}
@@ -28,13 +31,11 @@
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
-{% set _featured = featured|default({}) %}
+{% set _featured = _item.featured|default({}) %}
 {% set _see_all = see_all|default(false) %}
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
 {% set _mega_class = 'ecl-mega-menu__mega' %}
 {% set _see_all_label = see_all_label|default('') %}
-{% set _trigger_aria_label = _item.trigger_aria_label|default('') %}
-{% set _link_aria_label = _item.link_aria_label|default('') %}
 {% set _icon = {} %}
 
 {% if _item.is_current is defined %}
@@ -50,11 +51,11 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
-  {% if _trigger_aria_label is not empty %}
-    {% set _menu_list_item_attributes = _menu_list_item_attributes  ~ ' aria-label="' ~ _trigger_aria_label ~ '"' %}
+  {% if _item.trigger_aria_label is not empty %}
+    {% set _menu_list_item_attributes = _menu_list_item_attributes  ~ ' aria-label="' ~ _item.trigger_aria_label ~ '"' %}
   {% endif %}
-  {% if _link_aria_label is not empty %}
-    {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _link_aria_label ~ '"' %}
+  {% if _item.link_aria_label is not empty %}
+    {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _item.link_aria_label ~ '"' %}
   {% endif %}
 {% endif %}
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
@@ -116,6 +117,12 @@
       {% endif %}
       {% if child.children is defined and child.children is not empty %}
         {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
+        {% if child.trigger_aria_label %}
+          {% set _subitem_attrs = _subitem_attrs ~ ' aria-label="' ~ child.trigger_aria_label ~ '"' %}
+        {% endif %}
+        {% if child.link_aria_label %}
+          {% set _subitem_attrs = _subitem_attrs ~ ' data-ecl-parent-aria-label="' ~ child.link_aria_label ~ '"' %}
+        {% endif %}
       {% endif %}
       <li
         class="{{ _subitem_class }}"
@@ -147,11 +154,14 @@
               see_all_label: _see_all_label,
               see_all: child.see_all|default(false),
               icon_path: _icon_path,
-              featured: child.featured|default({}),
               item: {
+                is_current: child.is_current|default(false),
                 path: child.path, 
                 children: child.children,
                 level: 2,
+                featured: child.featured|default({}),
+                trigger_aria_label: child.trigger_aria_label|default(''),
+                link_aria_label: child.link_aria_label|default(''),
               },           
           } only %}
         {% endif %}
