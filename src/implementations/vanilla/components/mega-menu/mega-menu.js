@@ -1,6 +1,5 @@
 /* eslint-disable  class-methods-use-this */
 
-import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
@@ -267,8 +266,6 @@ export class MegaMenu {
       });
     }
 
-    // Init sticky header
-    this.stickyInstance = new Stickyfill.Sticky(this.element);
     // Create a focus trap around the menu
     this.focusTrap = createFocusTrap(this.element, {
       onActivate: () =>
@@ -317,10 +314,6 @@ export class MegaMenu {
    * Destroy component.
    */
   destroy() {
-    if (this.stickyInstance) {
-      this.stickyInstance.remove();
-    }
-
     if (this.attachClickListener) {
       if (this.open) {
         this.open.removeEventListener('click', this.handleClickOnToggle);
@@ -511,12 +504,13 @@ export class MegaMenu {
       const screenWidth = window.innerWidth;
 
       if (this.prevScreenWidth !== undefined) {
-        // Check if the transition involves crossing the 996px breakpoint
+        // Check if the transition involves crossing the L breakpoint
         const isTransition =
           (this.prevScreenWidth <= this.breakpointL &&
             screenWidth > this.breakpointL) ||
           (this.prevScreenWidth > this.breakpointL &&
             screenWidth <= this.breakpointL);
+        // If we are moving in or out the L breakpoint, reset the styles
         if (isTransition) {
           this.resetStyles(
             screenWidth > this.breakpointL ? 'desktop' : 'mobile',
@@ -528,13 +522,19 @@ export class MegaMenu {
       // Update previous screen width
       this.prevScreenWidth = screenWidth;
       this.element.classList.remove('ecl-mega-menu--forced-mobile');
+      // RTL
       this.direction = getComputedStyle(this.element).direction;
       if (this.direction === 'rtl') {
         this.element.classList.add('ecl-mega-menu--rtl');
       } else {
         this.element.classList.remove('ecl-mega-menu--rtl');
       }
-
+      // Check droopdown height if needed
+      const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
+      if (expanded && this.isDesktop) {
+        this.checkDropdownHeight(expanded);
+      }
+      // Check the menu position
       this.positionMenuOverlay();
     }, 200);
   }
@@ -557,6 +557,7 @@ export class MegaMenu {
         const dropdownTop = dropdown.getBoundingClientRect().top;
         let dropdownHeight = viewportHeight - dropdownTop;
         const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
+        // Arbitrary, but doing this prevents a misalignment between the two panels
         if (lastItem) {
           dropdownHeight -= 20;
         }
@@ -575,6 +576,7 @@ export class MegaMenu {
       this.element,
     );
     if (!this.isDesktop) {
+      // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
         const header = queryOne('.ecl-site-header__header', document);
         if (header) {
@@ -595,13 +597,14 @@ export class MegaMenu {
       }, 0);
     } else {
       setTimeout(() => {
+        // In desktop we get the bottom position of the whole site header
         const siteHeader = queryOne('.ecl-site-header', document);
         if (siteHeader) {
           const headerRect = siteHeader.getBoundingClientRect();
           const headerBottom = headerRect.bottom;
           const item = queryOne(this.itemSelector, this.element);
           const rect = item.getBoundingClientRect();
-          const rectHeight = rect.height + 4;
+          const rectHeight = rect.height + 4; // 4 pixels border
 
           if (megaMenus) {
             megaMenus.forEach((mega) => {

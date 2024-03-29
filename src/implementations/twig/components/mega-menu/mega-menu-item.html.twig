@@ -119,7 +119,7 @@
       {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
       {% set _subitem_class = 'ecl-mega-menu__subitem' %}
       {% if child.is_current is defined %}
-        {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current--page' %}
+        {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
         {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
       {% endif %}
       {% if child.children is defined and child.children is not empty %}

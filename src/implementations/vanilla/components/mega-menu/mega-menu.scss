@@ -907,7 +907,8 @@ $mega-menu: null !default;
           margin-bottom: 0;
         }
 
-        &--current .ecl-mega-menu__sublink {
+        &--current .ecl-mega-menu__sublink,
+        &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
           background-color: transparent;
           box-shadow: none;
           color: var(--c-d);
