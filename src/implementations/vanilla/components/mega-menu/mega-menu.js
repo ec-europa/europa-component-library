@@ -425,6 +425,11 @@ export class MegaMenu {
     return true;
   }
 
+  /**
+   * Reset the styles set by the script
+   *
+   * @param {string} desktop or mobile
+   */
   resetStyles(viewport) {
     const subLists = queryAll('.ecl-mega-menu__sublist', this.element);
     // Remove display:none from the sublists
@@ -533,6 +538,9 @@ export class MegaMenu {
       const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
       if (expanded && this.isDesktop) {
         this.checkDropdownHeight(expanded);
+      }
+      if (this.openPanel.num === 2 && this.openPanel.item) {
+        this.checkMegaMenu(this.openPanel.item);
       }
       // Check the menu position
       this.positionMenuOverlay();
@@ -699,6 +707,8 @@ export class MegaMenu {
       if (itemsHeight > availableHeight) {
         menuMega.classList.add('ecl-mega-menu__item--col2');
       }
+    } else if (menuMega) {
+      menuMega.classList.remove('ecl-mega-menu__item--col2');
     }
   }
 
