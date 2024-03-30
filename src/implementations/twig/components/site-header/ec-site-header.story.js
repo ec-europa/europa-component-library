@@ -54,8 +54,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = true;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = true;
-    defaultArgs.show_mega_menu = false;
+    defaultArgs.show_menu = 'menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -129,21 +128,12 @@ const getArgTypes = (data) => {
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
-      type: { name: 'boolean' },
-      description: 'Show the menu',
+      control: { type: 'radio' },
+      description: 'Show the menu, the mega menu or none of the two',
+      options: ['none', 'menu', 'mega-menu'],
       table: {
         category: 'Optional',
       },
-      if: { arg: 'show_mega_menu', truthy: false },
-    };
-    argTypes.show_mega_menu = {
-      name: 'mega menu',
-      type: { name: 'boolean' },
-      description: 'Show the mega menu',
-      table: {
-        category: 'Optional',
-      },
-      if: { arg: 'show_menu', truthy: false },
     };
   }
   if (data.cta_link) {
@@ -220,17 +210,17 @@ const prepareData = (data, args) => {
     data.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (!args.show_menu && data.menu) {
+  if (args.show_menu === 'none' && (data.menu || data.mega_menu)) {
     delete data.menu;
-  }
-  if (args.show_menu && !data.menu) {
-    data.menu = enMenu;
-  }
-  if (!args.show_mega_menu && data.mega_menu) {
     delete data.mega_menu;
   }
-  if (args.show_mega_menu && !data.mega_menu) {
+  if (args.show_menu === 'menu' && !data.menu) {
+    data.menu = enMenu;
+    delete data.mega_menu;
+  }
+  if (args.show_menu === 'mega-menu' && !data.mega_menu) {
     data.mega_menu = enMegaMenu;
+    delete data.menu;
   }
 
   data.logged = args.logged;
