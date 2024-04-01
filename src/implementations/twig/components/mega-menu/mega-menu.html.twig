@@ -42,7 +42,6 @@
 {# Internal properties #}
 
 {% set _id = id|default(random()) %}
-{% set _variant = variant|default('') %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _toggle = toggle|default({}) %}
@@ -50,7 +49,6 @@
 {% set _items = items|default([{}]) %}
 {% set _css_class = 'ecl-mega-menu' %}
 {% set _extra_attributes = '' %}
-{% set _site_name = site_name|default('') %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _icon_path = icon_path|default('') %}
 
@@ -74,20 +72,20 @@
   class="{{ _css_class }}"
   data-ecl-mega-menu
   data-ecl-auto-init="MegaMenu"
-  {% if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty %}
+  {%- if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty -%}
     data-ecl-mega-menu-label-open="{{ _toggle.link.label }}"
-  {% endif %}
-  {% if _close is not empty and _close.label is defined and _close.label is not empty %}
+  {%- endif -%}
+  {%- if _close is not empty and _close.label is defined and _close.label is not empty -%}
     data-ecl-mega-menu-label-close="{{ _close.label }}"
-  {% endif %}
+  {%- endif -%}
   aria-expanded="false"
   role="navigation"
   id={{ _id }}
-  {{ _extra_attributes|raw }}
+  {{- _extra_attributes|raw -}}
 >
   <div class="ecl-mega-menu__overlay"></div>
   <div class="ecl-container ecl-mega-menu__container">
-    {% if _toggle is not empty %}
+    {%- if _toggle is not empty -%}
       {% set _toggle_icon = {} %}
       {% if _toggle.icon is defined %}
         {% if _close is not empty and _close.icon is not empty %}
@@ -108,11 +106,11 @@
           name: 'data-ecl-mega-menu-open',
         }],
       }) only %}
-    {% endif %}
+    {%- endif -%}
 
     <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application" aria-label="{{ _title }}">
       <header class="ecl-mega-menu__inner-header">
-        {% if _back_label is not empty %}
+        {%- if _back_label is not empty -%}
           {% include '@ecl/button/button.html.twig' with ({
             type: 'submit',
             variant: 'ghost',
@@ -129,20 +127,20 @@
               name: 'data-ecl-mega-menu-back',
             }],
           }) only %}
-        {% endif %}
+        {%- endif -%}
       </header>
       
       <ul class="ecl-mega-menu__list" data-ecl-menu-list>
       {% if _items is not empty and _items is iterable %}
         {% for key, item in _items %}
-        {% if item is defined and item is not empty %}
-          {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
-            item: item,
-            id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
-            icon_path: _icon_path,
-            see_all_label: _see_all_label,
-          } only %}
-        {% endif %}
+          {% if item is defined and item is not empty %}
+            {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              item: item,
+              id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
+              icon_path: _icon_path,
+              see_all_label: _see_all_label,
+            } only %}
+          {% endif %}
         {% endfor %}
       {% endif %}
       </ul>
