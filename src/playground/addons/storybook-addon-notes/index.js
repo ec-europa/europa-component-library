@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { addons, makeDecorator } from '@storybook/addons';
+import { addons, makeDecorator } from '@storybook/preview-api';
 import { marked } from 'marked';
 import Prism from 'prismjs';
 import he from 'he';
