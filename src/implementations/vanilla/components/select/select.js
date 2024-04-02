@@ -594,6 +594,8 @@ export class Select {
         this.form.addEventListener('reset', this.resetForm);
       }
     } else {
+      // Simple select
+      this.#handleOptgroup();
       this.shouldHandleClick = true;
       this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
       this.select.addEventListener('blur', this.handleEsc);
@@ -822,6 +824,23 @@ export class Select {
         'ecl-select-multiple-selections-counter--xxl',
       );
     }
+  }
+
+  /**
+   * Private method to handle optgroup in single select.
+   *
+   * @private
+   */
+  #handleOptgroup() {
+    Array.from(this.select.options).forEach((option) => {
+      if (option.parentNode.tagName === 'OPTGROUP') {
+        const groupLabel = option.parentNode.getAttribute('label');
+        const optionLabel = option.getAttribute('label') || option.textContent;
+        if (groupLabel && optionLabel) {
+          option.setAttribute('aria-label', `${groupLabel}: ${optionLabel}`);
+        }
+      }
+    });
   }
 
   /**
