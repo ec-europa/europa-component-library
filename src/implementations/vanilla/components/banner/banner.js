@@ -45,7 +45,6 @@ export class Banner {
       bannerPicture = '[data-ecl-banner-image]',
       breakpoint = '996',
       attachResizeListener = true,
-      defaultRatio = '4/1',
       maxIterations = 10,
     } = {},
   ) {
@@ -70,7 +69,6 @@ export class Banner {
       ? queryOne('.ecl-banner__cta', this.element)
       : false;
     this.breakpoint = breakpoint;
-    this.defaultRatio = defaultRatio;
     this.attachResizeListener = attachResizeListener;
     this.maxIterations = maxIterations;
 
@@ -92,6 +90,19 @@ export class Banner {
       throw new TypeError('Called init but ECL is not present');
     }
     ECL.components = ECL.components || new Map();
+
+    this.defaultRatio = () => {
+      if (this.element.classList.contains('ecl-banner--xs')) {
+        return '6/1';
+      }
+      if (this.element.classList.contains('ecl-banner--s')) {
+        return '5/1';
+      }
+      if (this.element.classList.contains('ecl-banner--l')) {
+        return '3/1';
+      }
+      return '4/1';
+    };
 
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
@@ -170,7 +181,6 @@ export class Banner {
     );
     const [denominator, numerator] = ratio.split('/').map(Number);
     const currentHeight = (bannerWidth * numerator) / denominator;
-
     if (bannerHeight > currentHeight) {
       if (this.bannerImage) {
         this.bannerImage.style.aspectRatio = 'auto';
@@ -188,7 +198,7 @@ export class Banner {
     if (this.bannerImage) {
       this.waitForAspectRatioToBeDefined();
     } else {
-      this.setHeight(this.defaultRatio);
+      this.setHeight(this.defaultRatio());
     }
   }
 
