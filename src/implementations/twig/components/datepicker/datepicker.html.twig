@@ -15,15 +15,12 @@
     - "invalid_icon" (object of type "icon") (default: {})
     - "type" (string) (default: 'text')
     - "optional_text" (string) (default: '')
-    - "icons_path" (string) (default: '')
+    - "icon_path" (string) (default: '')
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
-        ...
-      ],
+    - "extra_attributes" (array) (default: []) Extra attributes for the datepicker
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
 {# Internal properties #}
@@ -36,10 +33,11 @@
 {% set _name = name|default('') %}
 {% set _type = type|default('text') %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
-{% set _icons_path = icons_path|default('') %}
+{% set _icon_path = icon_path|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -67,10 +65,7 @@
   {% endfor %}
 {% endif %}
 
-  <div
-    class="{{ _css_class }}"
-    {{ _extra_attributes|raw }}
-  >
+  <div class="{{ _css_class }}">
     <input
       autocomplete="off"
       data-ecl-datepicker-toggle
@@ -99,13 +94,14 @@
     {% if _default_value is not empty %}
       value="{{ _default_value }}"
     {% endif %}
+    {{ _extra_attributes|raw }}
     />
-  {% if _icons_path is not empty %}
+  {% if _icon_path is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: {
         name: 'calendar',
         size: 'xs',
-        path: _icons_path,
+        path: _icon_path,
       },
       extra_classes: 'ecl-datepicker__icon',
     } only %}

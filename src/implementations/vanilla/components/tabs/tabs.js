@@ -1,8 +1,10 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
+ * @param {String} options.containerSelector Selector for container element
  * @param {String} options.listSelector Selector for list element
  * @param {String} options.listItemsSelector Selector for tabs element
  * @param {String} options.moreLabelSelector Selector for more list item element
@@ -29,9 +31,18 @@ export class Tabs {
     return tabs;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Select
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
+      containerSelector = '.ecl-tabs__container',
       listSelector = '.ecl-tabs__list',
       listItemsSelector = '.ecl-tabs__item:not(.ecl-tabs__item--more)',
       moreItemSelector = '.ecl-tabs__item--more',
@@ -51,8 +62,10 @@ export class Tabs {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
+    this.containerSelector = containerSelector;
     this.listSelector = listSelector;
     this.listItemsSelector = listItemsSelector;
     this.moreItemSelector = moreItemSelector;
@@ -64,6 +77,7 @@ export class Tabs {
     this.attachResizeListener = attachResizeListener;
 
     // Private variables
+    this.container = null;
     this.list = null;
     this.listItems = null;
     this.moreItem = null;
@@ -72,6 +86,7 @@ export class Tabs {
     this.moreLabel = null;
     this.moreLabelValue = null;
     this.dropdown = null;
+    this.dropdownList = null;
     this.dropdownItems = null;
     this.allowShift = true;
     this.buttonNextSize = 0;
@@ -103,6 +118,7 @@ export class Tabs {
     }
     ECL.components = ECL.components || new Map();
 
+    this.container = queryOne(this.containerSelector, this.element);
     this.list = queryOne(this.listSelector, this.element);
     this.listItems = queryAll(this.listItemsSelector, this.element);
     this.moreItem = queryOne(this.moreItemSelector, this.element);
@@ -115,11 +131,14 @@ export class Tabs {
 
     if (this.moreButton) {
       // Create the "more" dropdown and clone existing list items
-      this.dropdown = document.createElement('ul');
+      this.dropdown = document.createElement('div');
       this.dropdown.classList.add('ecl-tabs__dropdown');
+      this.dropdownList = document.createElement('div');
+      this.dropdownList.classList.add('ecl-tabs__dropdown-list');
       this.listItems.forEach((item) => {
-        this.dropdown.appendChild(item.cloneNode(true));
+        this.dropdownList.appendChild(item.cloneNode(true));
       });
+      this.dropdown.appendChild(this.dropdownList);
       this.moreItem.appendChild(this.dropdown);
       this.dropdownItems = queryAll(
         '.ecl-tabs__dropdown .ecl-tabs__item',
@@ -159,6 +178,37 @@ export class Tabs {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Tabs
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onToggle' event
+   * inpage.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Tabs
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -202,25 +252,33 @@ export class Tabs {
   shiftTabs(dir) {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
     // Show or hide prev or next button based on tab index
-    this.btnPrev.style.display = this.index >= 1 ? 'block' : 'none';
-    this.btnNext.style.display =
-      this.index >= this.total - 1 ? 'none' : 'block';
+    if (this.index >= 1) {
+      this.btnPrev.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--left');
+    } else {
+      this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
+    }
+
+    if (this.index >= this.total - 1) {
+      this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
+    } else {
+      this.btnNext.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--right');
+    }
 
     // Slide tabs
-    const leftMargin =
-      this.index === 0 ? 0 : this.btnPrev.getBoundingClientRect().width + 13;
-
     let newOffset = 0;
     this.direction = getComputedStyle(this.element).direction;
     if (this.direction === 'rtl') {
       newOffset = Math.ceil(
         this.list.offsetWidth -
           this.listItems[this.index].offsetLeft -
-          this.listItems[this.index].offsetWidth -
-          leftMargin,
+          this.listItems[this.index].offsetWidth,
       );
     } else {
-      newOffset = Math.ceil(this.listItems[this.index].offsetLeft - leftMargin);
+      newOffset = Math.ceil(this.listItems[this.index].offsetLeft);
     }
 
     const maxScroll = Math.ceil(
@@ -230,6 +288,7 @@ export class Tabs {
 
     if (newOffset > maxScroll) {
       this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
       newOffset = maxScroll;
     }
 
@@ -245,12 +304,30 @@ export class Tabs {
   /**
    * Toggle the "more" dropdown.
    */
-  handleClickOnToggle() {
+  handleClickOnToggle(e) {
     this.dropdown.classList.toggle('ecl-tabs__dropdown--show');
     this.moreButton.setAttribute(
       'aria-expanded',
       this.dropdown.classList.contains('ecl-tabs__dropdown--show'),
     );
+
+    this.trigger('onToggle', e);
+  }
+
+  /**
+   * Sets the callback function to be executed on toggle.
+   * @param {Function} callback - The callback function to be set.
+   */
+  set onToggle(callback) {
+    this.onToggleCallback = callback;
+  }
+
+  /**
+   * Gets the callback function set for toggle events.
+   * @returns {Function|null} - The callback function, or null if not set.
+   */
+  get onToggle() {
+    return this.onToggleCallback;
   }
 
   /**
@@ -276,16 +353,21 @@ export class Tabs {
       this.list.style.transitionDuration = '0.4s';
       this.shiftTabs(this.index);
       if (this.moreItem) {
-        this.moreItem.setAttribute('aria-hidden', 'true');
+        this.moreItem.classList.add('ecl-tabs__item--hidden');
+      }
+      if (this.moreButton) {
+        this.moreButton.classList.add('ecl-tabs__toggle--hidden');
       }
       let listWidth = 0;
       this.listItems.forEach((item) => {
-        item.setAttribute('aria-hidden', 'false');
+        item.classList.remove('ecl-tabs__item--hidden');
         listWidth += Math.ceil(item.getBoundingClientRect().width);
       });
       this.list.style.width = `${listWidth}px`;
       this.btnNext.style.display = 'block';
+      this.container.classList.add('ecl-tabs__container--right');
       this.btnPrev.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--left');
       this.tabsKeyEvents();
       return;
     }
@@ -293,7 +375,9 @@ export class Tabs {
     this.isMobile = false;
     // Behaviors for Tablet and desktop format (More button)
     this.btnNext.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--right');
     this.btnPrev.style.display = 'none';
+    this.container.classList.remove('ecl-tabs__container--left');
     this.list.style.width = 'auto';
 
     // Hide items that won't fit in the list
@@ -302,14 +386,14 @@ export class Tabs {
     const listWidth = this.list.getBoundingClientRect().width;
     this.moreButtonActive = false;
     this.listItems.forEach((item, i) => {
-      item.setAttribute('aria-hidden', 'false');
+      item.classList.remove('ecl-tabs__item--hidden');
       if (
         listWidth >= stopWidth + item.getBoundingClientRect().width &&
         !hiddenItems.includes(i - 1)
       ) {
         stopWidth += item.getBoundingClientRect().width;
       } else {
-        item.setAttribute('aria-hidden', 'true');
+        item.classList.add('ecl-tabs__item--hidden');
         if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
           this.moreButtonActive = true;
         }
@@ -326,18 +410,20 @@ export class Tabs {
 
     // Toggle the visibility of More button and items in dropdown
     if (!hiddenItems.length) {
-      this.moreItem.setAttribute('aria-hidden', 'true');
+      this.moreItem.classList.add('ecl-tabs__item--hidden');
+      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
     } else {
-      this.moreItem.setAttribute('aria-hidden', 'false');
+      this.moreItem.classList.remove('ecl-tabs__item--hidden');
+      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
       this.moreLabel.textContent = this.moreLabelValue.replace(
         '%d',
         hiddenItems.length,
       );
       this.dropdownItems.forEach((item, i) => {
         if (!hiddenItems.includes(i)) {
-          item.setAttribute('aria-hidden', 'true');
+          item.classList.add('ecl-tabs__item--hidden');
         } else {
-          item.setAttribute('aria-hidden', 'false');
+          item.classList.remove('ecl-tabs__item--hidden');
         }
       });
     }
@@ -352,7 +438,7 @@ export class Tabs {
     this.tabsKey = [];
     this.listItems.forEach((item, index, array) => {
       let tab = null;
-      if (item.getAttribute('aria-hidden') === 'false') {
+      if (!item.classList.contains('ecl-tabs__item--hidden')) {
         tab = queryOne('.ecl-tabs__link', item);
       } else {
         const dropdownItem = this.dropdownItems[index];
@@ -394,10 +480,12 @@ export class Tabs {
 
     switch (e.key) {
       case 'ArrowLeft':
+      case 'ArrowUp':
         this.arrowFocusToTab(tgt, 'prev');
         break;
 
       case 'ArrowRight':
+      case 'ArrowDown':
         this.arrowFocusToTab(tgt, 'next');
         break;
 

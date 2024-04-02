@@ -8,17 +8,7 @@ The elements required in the site header are different depending wether it is th
 
 # Standardised & harmonised config.
 
-## Anatomy image
-
-**Standardised**
-
-![](/cms-images/ec-site-header-standardised.png)
-
-**Harmonised**
-
-![](/cms-images/ec-site-header-harmonised.png)
-
-## Anatomy table
+### Anatomy table
 
 | No. | Element/component  | Standardised | Harmonised | Description                                                                                                                                                                                              |
 | --- | ------------------ | ------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

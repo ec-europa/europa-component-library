@@ -1,0 +1,215 @@
+/**
+ * Description list
+ * @define description-list
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$description-list: null !default;
+
+.ecl-description-list,
+%ecl-description-list {
+  margin: 0;
+}
+
+.ecl-description-list__term,
+%ecl-description-list__term {
+  color: map.get($description-list, 'term-color');
+  font: map.get($description-list, 'term-font');
+  font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-bottom: map.get($description-list, 'term-margin-bottom');
+  margin-top: map.get($description-list, 'term-margin-top');
+  max-width: var(--max-w);
+  overflow-wrap: break-word;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.ecl-description-list__definition-item--hidden {
+  display: none;
+}
+
+.ecl-description-list__term + .ecl-description-list__term {
+  margin-top: var(--s-2xs);
+}
+
+.ecl-description-list__definition,
+%ecl-description-list__definition {
+  color: map.get($description-list, 'definition-color');
+  font: map.get($description-list, 'definition-font');
+  margin-inline-start: 0;
+  margin-top: var(--s-2xs);
+  max-width: var(--max-w);
+}
+
+.ecl-description-list__see_more {
+  display: block;
+  margin-top: var(--s-xs);
+}
+
+// Links
+.ecl-description-list__definition--link {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+
+  .ecl-description-list__see_more {
+    margin-top: var(--s-m);
+  }
+}
+
+.ecl-description-list__definition-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-description-list__definition--link .ecl-description-list__definition-item {
+  margin-top: var(--s-m);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Inline links
+.ecl-description-list__definition--inline {
+  display: inline-block;
+  margin-bottom: calc(-1 * var(--s-xs));
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--inline
+  .ecl-description-list__definition-item {
+  border-inline-end: 1px solid map.get($description-list, 'separator-color');
+  display: inline;
+  margin-inline-end: var(--s-xs);
+  margin-bottom: var(--s-xs);
+  padding-inline-end: var(--s-xs);
+  unicode-bidi: isolate;
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+  }
+}
+
+// Tag
+.ecl-description-list__definition--tag {
+  display: inline-block;
+  margin-bottom: calc(-1 * var(--s-xs));
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--tag .ecl-description-list__definition-item {
+  display: inline-block;
+  margin-inline-end: var(--s-xs);
+  margin-bottom: var(--s-xs);
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &:last-child,
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
+  }
+}
+
+// Taxonomy
+.ecl-description-list__definition--taxonomy {
+  color: map.get($description-list, 'taxonomy-color');
+  display: inline-block;
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-description-list__definition--taxonomy
+  .ecl-description-list__definition-item {
+  display: inline;
+  margin-inline-end: calc(var(--s-xs) + 2px);
+  padding-inline-start: calc(var(--s-xs) + 2px);
+  position: relative;
+
+  &.ecl-description-list__definition-item--hidden {
+    display: none;
+  }
+
+  &::before {
+    background-color: map.get($description-list, 'separator-color');
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 4px;
+    left: -2px;
+    position: absolute;
+    top: 7px;
+    width: 4px;
+  }
+
+  &:first-child {
+    padding-inline-start: 0;
+  }
+
+  &:first-child::before {
+    display: none;
+  }
+
+  &:last-child {
+    margin-inline-start: 0;
+  }
+
+  &.ecl-description-list__definition-item--last-visible {
+    margin-inline-end: 0;
+  }
+}
+
+// Horizontal description lists
+
+@include breakpoints.up('l') {
+  .ecl-description-list--horizontal,
+  %ecl-description-list {
+    display: grid;
+    column-gap: var(--s-xl);
+    grid-template-columns: map.get($description-list, 'term-width') fit-content(
+        var(--max-w)
+      );
+
+    .ecl-description-list__term,
+    %ecl-description-list__term {
+      margin-top: var(--s-xl);
+    }
+
+    .ecl-description-list__term:first-of-type {
+      margin-top: 0;
+    }
+
+    .ecl-description-list__definition,
+    %ecl-description-list__definition {
+      align-items: flex-start;
+      margin-top: var(--s-xl);
+      overflow-wrap: break-word;
+    }
+
+    .ecl-description-list__definition:first-of-type {
+      margin-top: 0;
+    }
+
+    dd:not(.ecl-description-list__definition--link)
+      .ecl-description-list__see_more {
+      display: inline-block;
+      margin-inline-start: var(--s-m);
+      margin-top: 0;
+    }
+  }
+}

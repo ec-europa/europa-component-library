@@ -16,7 +16,7 @@ module.exports = {
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-      alt: 'thumbnail alt',
+      alt: '',
     },
   },
   language: 'English',
@@ -34,7 +34,6 @@ module.exports = {
     link: {
       label: 'Download',
       path: exampleLink,
-      aria_label: 'Download file State of the Union 2018 brochure',
     },
     icon: {
       path: '/icons.svg',
@@ -50,15 +49,12 @@ module.exports = {
     items: [
       {
         title: 'Title bg',
-        description:
-          'Morbi fringilla turpis augue, et interdum ipsum egestas sed. Proin tristique, ante id aliquet malesuada, lorem dolor vulputate magna, a commodo purus ante nec massa.',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
         lang_full: 'български',
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file български',
             path: '/example#bg',
           },
           icon: {
@@ -68,14 +64,12 @@ module.exports = {
       },
       {
         title: 'Title es',
-        description: 'Proin sagittis nisi hendrerit purus porta.',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
         lang_full: 'español',
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file español',
             path: '/example#es',
           },
           icon: {
@@ -85,15 +79,12 @@ module.exports = {
       },
       {
         title: 'Title fr',
-        description:
-          'Duis eget lacinia arcu. Nullam mattis ornare nibh. Proin tristique, ante id aliquet malesuada. Pellentesque porttitor commodo libero sed fringilla. Curabitur varius sodales elit, id tincidunt erat. Aenean tincidunt luctus molestie.',
         meta: '(15.4 MB - PDF)',
         lang: 'fr',
         lang_full: 'français',
         download: {
           link: {
             label: 'Download',
-            aria_label: 'Download file français',
             path: '/example#fr',
           },
           icon: {

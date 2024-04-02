@@ -6,6 +6,7 @@ exports[`File Thumbnail renders correctly 1`] = `
     class="ecl-file ecl-file--thumbnail"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
+    id="ecl-file-with-thumbnail"
   >
     <div
       class="ecl-file__container"
@@ -14,7 +15,7 @@ exports[`File Thumbnail renders correctly 1`] = `
         class="ecl-picture ecl-file__picture"
       >
         <img
-          alt="thumbnail alt"
+          alt=""
           class="ecl-file__image"
           src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
         />
@@ -47,6 +48,7 @@ exports[`File Thumbnail renders correctly 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-with-thumbnail-title"
         >
           <a
             class="ecl-link ecl-link--standalone"
@@ -67,6 +69,7 @@ exports[`File Thumbnail renders correctly 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-with-thumbnail-lang"
       >
         English
       </div>
@@ -76,12 +79,14 @@ exports[`File Thumbnail renders correctly 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-with-thumbnail-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-with-thumbnail-link-label"
         >
           Download
         </span>
@@ -101,6 +106,7 @@ exports[`File Thumbnail renders correctly 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -137,6 +143,7 @@ exports[`File Thumbnail renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-0-lang"
               lang="bg"
             >
               Title bg
@@ -148,14 +155,16 @@ exports[`File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-with-thumbnail-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-0-link-label"
             >
               Download
             </span>
@@ -178,6 +187,7 @@ exports[`File Thumbnail renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-1-lang"
               lang="es"
             >
               Title es
@@ -189,14 +199,16 @@ exports[`File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-with-thumbnail-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-1-link-label"
             >
               Download
             </span>
@@ -219,6 +231,7 @@ exports[`File Thumbnail renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-2-lang"
               lang="fr"
             >
               Title fr
@@ -230,14 +243,16 @@ exports[`File Thumbnail renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-with-thumbnail-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-2-link-label"
             >
               Download
             </span>
@@ -264,10 +279,20 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
     class="ecl-file ecl-file--thumbnail"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
+    id="ecl-file-taxonomy"
   >
     <div
       class="ecl-file__container"
     >
+      <picture
+        class="ecl-picture ecl-file__picture"
+      >
+        <img
+          alt=""
+          class="ecl-file__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
       <div
         class="ecl-file__info"
       >
@@ -296,8 +321,14 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-taxonomy-title"
         >
-          State of the Union 2018 brochure
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            State of the Union 2018 brochure
+          </a>
         </div>
         <div
           class="ecl-file__description"
@@ -318,36 +349,40 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
             >
-              <span
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 4
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 5
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 6
-              </span>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 4
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 5
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 6
+                </li>
+              </ul>
             </dd>
           </dl>
         </div>
@@ -358,6 +393,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-taxonomy-lang"
       >
         English
       </div>
@@ -367,12 +403,14 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-taxonomy-link-label ecl-file-taxonomy-title ecl-file-taxonomy-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-taxonomy-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-taxonomy-link-label"
         >
           Download
         </span>
@@ -392,6 +430,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -428,6 +467,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-taxonomy-translation-0-lang"
               lang="bg"
             >
               Title bg
@@ -439,14 +479,16 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-taxonomy-translation-0-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-taxonomy-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-taxonomy-translation-0-link-label"
             >
               Download
             </span>
@@ -469,6 +511,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-taxonomy-translation-1-lang"
               lang="es"
             >
               Title es
@@ -480,14 +523,16 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-taxonomy-translation-1-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-taxonomy-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-taxonomy-translation-1-link-label"
             >
               Download
             </span>
@@ -510,6 +555,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-taxonomy-translation-2-lang"
               lang="fr"
             >
               Title fr
@@ -521,14 +567,16 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-taxonomy-translation-2-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-taxonomy-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-taxonomy-translation-2-link-label"
             >
               Download
             </span>
@@ -555,6 +603,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
     class="ecl-file ecl-file--thumbnail"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
+    id="ecl-file-with-thumbnail"
   >
     <div
       class="ecl-file__container"
@@ -587,6 +636,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-with-thumbnail-title"
         >
           <a
             class="ecl-link ecl-link--standalone"
@@ -607,6 +657,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-with-thumbnail-lang"
       >
         English
       </div>
@@ -616,12 +667,14 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-with-thumbnail-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-with-thumbnail-link-label"
         >
           Download
         </span>
@@ -641,6 +694,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -677,6 +731,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-0-lang"
               lang="bg"
             >
               Title bg
@@ -688,14 +743,16 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-with-thumbnail-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-0-link-label"
             >
               Download
             </span>
@@ -718,6 +775,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-1-lang"
               lang="es"
             >
               Title es
@@ -729,14 +787,16 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-with-thumbnail-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-1-link-label"
             >
               Download
             </span>
@@ -759,6 +819,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-thumbnail-translation-2-lang"
               lang="fr"
             >
               Title fr
@@ -770,14 +831,16 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-with-thumbnail-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-thumbnail-translation-2-link-label"
             >
               Download
             </span>
@@ -804,6 +867,7 @@ exports[`File With translation renders correctly 1`] = `
     class="ecl-file"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
+    id="ecl-file-with-translation"
   >
     <div
       class="ecl-file__container"
@@ -822,6 +886,7 @@ exports[`File With translation renders correctly 1`] = `
       >
         <div
           class="ecl-file__title"
+          id="ecl-file-with-translation-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -832,6 +897,7 @@ exports[`File With translation renders correctly 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-with-translation-lang"
       >
         English
       </div>
@@ -841,12 +907,14 @@ exports[`File With translation renders correctly 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-with-translation-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-with-translation-link-label"
         >
           Download
         </span>
@@ -866,6 +934,7 @@ exports[`File With translation renders correctly 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -902,6 +971,7 @@ exports[`File With translation renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-0-lang"
               lang="bg"
             >
               български
@@ -913,14 +983,16 @@ exports[`File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
             >
               Download
             </span>
@@ -943,6 +1015,7 @@ exports[`File With translation renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-1-lang"
               lang="es"
             >
               español
@@ -954,14 +1027,16 @@ exports[`File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
             >
               Download
             </span>
@@ -984,6 +1059,7 @@ exports[`File With translation renders correctly 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-2-lang"
               lang="fr"
             >
               français
@@ -995,14 +1071,16 @@ exports[`File With translation renders correctly 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-with-translation-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
             >
               Download
             </span>
@@ -1031,6 +1109,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
     data-ecl-file=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="ecl-file-with-translation"
   >
     <div
       class="ecl-file__container"
@@ -1049,6 +1128,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
       >
         <div
           class="ecl-file__title"
+          id="ecl-file-with-translation-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1059,6 +1139,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-with-translation-lang"
       >
         English
       </div>
@@ -1068,12 +1149,14 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-with-translation-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-with-translation-link-label"
         >
           Download
         </span>
@@ -1093,6 +1176,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -1129,6 +1213,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-0-lang"
               lang="bg"
             >
               български
@@ -1140,14 +1225,16 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
             >
               Download
             </span>
@@ -1170,6 +1257,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-1-lang"
               lang="es"
             >
               español
@@ -1181,14 +1269,16 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
             >
               Download
             </span>
@@ -1211,6 +1301,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-2-lang"
               lang="fr"
             >
               français
@@ -1222,14 +1313,16 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-with-translation-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
             >
               Download
             </span>
@@ -1256,6 +1349,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
     class="ecl-file custom-class custom-class--test"
     data-ecl-auto-init="FileDownload"
     data-ecl-file=""
+    id="ecl-file-with-translation"
   >
     <div
       class="ecl-file__container"
@@ -1274,6 +1368,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
       >
         <div
           class="ecl-file__title"
+          id="ecl-file-with-translation-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1284,6 +1379,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-with-translation-lang"
       >
         English
       </div>
@@ -1293,12 +1389,14 @@ exports[`File With translation renders correctly with extra class names 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-with-translation-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-with-translation-link-label"
         >
           Download
         </span>
@@ -1318,6 +1416,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
       data-ecl-file-translation-container=""
     >
       <button
+        aria-expanded="false"
         class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
         data-ecl-file-translation-toggle=""
         type="button"
@@ -1354,6 +1453,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-0-lang"
               lang="bg"
             >
               български
@@ -1365,14 +1465,16 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file български"
+            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#bg"
             hreflang="bg"
+            id="ecl-file-with-translation-translation-0-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-0-link-label"
             >
               Download
             </span>
@@ -1395,6 +1497,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-1-lang"
               lang="es"
             >
               español
@@ -1406,14 +1509,16 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file español"
+            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#es"
             hreflang="es"
+            id="ecl-file-with-translation-translation-1-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-1-link-label"
             >
               Download
             </span>
@@ -1436,6 +1541,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
           >
             <div
               class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-2-lang"
               lang="fr"
             >
               français
@@ -1447,14 +1553,16 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             </div>
           </div>
           <a
-            aria-label="Download file français"
+            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
             class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
             download=""
             href="/example#fr"
             hreflang="fr"
+            id="ecl-file-with-translation-translation-2-link"
           >
             <span
               class="ecl-link__label"
+              id="ecl-file-with-translation-translation-2-link-label"
             >
               Download
             </span>
@@ -1480,6 +1588,7 @@ exports[`File Without translation renders correctly 1`] = `
   <div
     class="ecl-file"
     data-ecl-file=""
+    id="ecl-file-without-translations"
   >
     <div
       class="ecl-file__container"
@@ -1512,6 +1621,7 @@ exports[`File Without translation renders correctly 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-without-translations-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1522,6 +1632,7 @@ exports[`File Without translation renders correctly 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-without-translations-lang"
       >
         English
       </div>
@@ -1531,12 +1642,14 @@ exports[`File Without translation renders correctly 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-without-translations-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-without-translations-link-label"
         >
           Download
         </span>
@@ -1560,6 +1673,7 @@ exports[`File Without translation renders correctly with a single label 1`] = `
   <div
     class="ecl-file"
     data-ecl-file=""
+    id="ecl-file-without-translations"
   >
     <div
       class="ecl-file__container"
@@ -1601,6 +1715,7 @@ exports[`File Without translation renders correctly with a single label 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-without-translations-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1611,6 +1726,7 @@ exports[`File Without translation renders correctly with a single label 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-without-translations-lang"
       >
         English
       </div>
@@ -1620,12 +1736,14 @@ exports[`File Without translation renders correctly with a single label 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-without-translations-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-without-translations-link-label"
         >
           Download
         </span>
@@ -1651,6 +1769,7 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
     data-ecl-file=""
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    id="ecl-file-without-translations"
   >
     <div
       class="ecl-file__container"
@@ -1683,6 +1802,7 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-without-translations-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1693,6 +1813,7 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-without-translations-lang"
       >
         English
       </div>
@@ -1702,12 +1823,14 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-without-translations-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-without-translations-link-label"
         >
           Download
         </span>
@@ -1731,6 +1854,7 @@ exports[`File Without translation renders correctly with extra class names 1`] =
   <div
     class="ecl-file custom-class custom-class--test"
     data-ecl-file=""
+    id="ecl-file-without-translations"
   >
     <div
       class="ecl-file__container"
@@ -1763,6 +1887,7 @@ exports[`File Without translation renders correctly with extra class names 1`] =
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-without-translations-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1773,6 +1898,7 @@ exports[`File Without translation renders correctly with extra class names 1`] =
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-without-translations-lang"
       >
         English
       </div>
@@ -1782,12 +1908,14 @@ exports[`File Without translation renders correctly with extra class names 1`] =
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-without-translations-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-without-translations-link-label"
         >
           Download
         </span>
@@ -1811,6 +1939,7 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
   <div
     class="ecl-file"
     data-ecl-file=""
+    id="ecl-file-without-translations"
   >
     <div
       class="ecl-file__container"
@@ -1861,6 +1990,7 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
         </div>
         <div
           class="ecl-file__title"
+          id="ecl-file-without-translations-title"
         >
           State of the Union 2018 brochure
         </div>
@@ -1871,6 +2001,7 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
     >
       <div
         class="ecl-file__language"
+        id="ecl-file-without-translations-lang"
       >
         English
       </div>
@@ -1880,12 +2011,14 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
         (16.2 MB - PDF)
       </div>
       <a
-        aria-label="Download file State of the Union 2018 brochure"
+        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
         class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
         href="/example"
+        id="ecl-file-without-translations-link"
       >
         <span
           class="ecl-link__label"
+          id="ecl-file-without-translations-link-label"
         >
           Download
         </span>

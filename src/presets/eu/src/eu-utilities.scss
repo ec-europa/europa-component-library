@@ -1,0 +1,41 @@
+@use '@ecl/theme-eu/theme' as theme;
+@use '@ecl/theme-eu/variables' as var;
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
+  $theme: theme.$theme
+);
+
+// Utilities
+@use '@ecl/vanilla-utility-background/background' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-border/border' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-clearfix/clearfix';
+@use '@ecl/vanilla-utility-dimension/dimension';
+@use '@ecl/vanilla-utility-flex/flex' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-float/float';
+@use '@ecl/vanilla-utility-disablescroll/disablescroll';
+@use '@ecl/vanilla-utility-display/display' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-media/media' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-print/print';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
+@use '@ecl/vanilla-utility-shadow/shadow' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-spacing/spacing' with (
+  $theme: theme.$theme
+);
+@use '@ecl/vanilla-utility-typography/typography' with (
+  $theme: theme.$theme,
+  $typography: var.$typography
+);
+@use '@ecl/vanilla-utility-z-index/z-index' with (
+  $theme: theme.$theme
+);

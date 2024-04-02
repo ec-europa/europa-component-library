@@ -11,12 +11,14 @@ npm install --save @ecl/twig-component-form-group
 - **"label"** (string) (default: '') - Label for the form group
 - **"input"** (object) (default: {
   ...,
-  input_type: 'text' || 'search' || 'file' || 'range' || 'rating-field' || 'datepicker' || 'select' || 'radio'
+  input_type: 'checkbox' || 'datepicker' || 'file' || 'radio' || 'range' || 'rating-field' || 'search' || 'select || 'text' || 'textarea'
   }) - Object of type input
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
+- **"label_aria_required"** (string) (default: ''): aria text for the required field label
+- **"label_aria_optional"** (string) (default: ''): aria text for the optional field label
 - **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -39,7 +41,9 @@ npm install --save @ecl/twig-component-form-group
   helper_text: 'this is a helper text', 
   invalid_text: 'this is an invalid text', 
   required_text: '*', 
-  optional_text: 'this is an optional text', 
+  optional_text: '(optional)',
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   input: {
     input_type: 'file',
     multiple: false, 

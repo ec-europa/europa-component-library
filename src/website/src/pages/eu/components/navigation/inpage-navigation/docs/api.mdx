@@ -3,7 +3,8 @@ title: API
 order: 3
 ---
 
-import InpageNavigationJSDoc from '../../../../_jsdoc/inpagenavigation.md';
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Data attributes
 
@@ -15,10 +16,6 @@ Please pay attention to the following attributes before going further into imple
 - `data-ecl-inpage-navigation-trigger-current`: on the `<span>` within the button ; we use it to inject the title of the currently active section
 - `data-ecl-inpage-navigation-list`: to be applied on the list of links
 - `data-ecl-inpage-navigation-link`: to be applied on each link in the inpage navigation
-
-## API
-
-<InpageNavigationJSDoc />
 
 ## Setup
 
@@ -51,3 +48,7 @@ var elt = document.querySelector('[data-ecl-inpage-navigation]');
 var inpageNavigation = new ECL.InpageNavigation(elt);
 inpageNavigation.init();
 ```
+
+## API
+
+<Iframe url="../../../../../apis/InpageNavigation.html" />

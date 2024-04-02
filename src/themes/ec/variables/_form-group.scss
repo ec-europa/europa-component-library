@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$form-group: (
+  color-label: var(--c-d),
+  color-help: var(--c-d),
+  color-invalid: var(--c-er),
+  color-optional: var(--c-d),
+  color-required: var(--c-er),
+  font-label: var(--f-m),
+  font-weight-label: map.get($font-weight, 'regular'),
+  font-help: var(--f-s),
+  font-invalid: var(--f-s),
+  font-optional: var(--f-s),
+  font-style-optional: 'normal',
+  margin-first-element: var(--s-s),
+  margin-help: var(--s-2xs),
+  margin-invalid: var(--s-2xs),
+  margin-icon: var(--s-2xs),
+);

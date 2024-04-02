@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$splash-page: (
+  logo-background: var(--c-p-5),
+  logo-padding: var(--s-l),
+  logo-height-mobile: 2.5rem,
+  logo-height-desktop: 2.75rem,
+);
+$splash-page-print: (
+  logo-padding: map.get($spacing-print, 'l'),
+);

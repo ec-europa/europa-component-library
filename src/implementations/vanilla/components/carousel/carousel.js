@@ -4,8 +4,6 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.toggleSelector Selector for toggling element
- * @param {String} options.prevSelector Selector for prev element
- * @param {String} options.nextSelector Selector for next element
  * @param {String} options.contentClass Selector for the content container
  * @param {String} options.slidesClass Selector for the slides container
  * @param {String} options.slideClass Selector for the slide items
@@ -33,15 +31,12 @@ export class Carousel {
     {
       playSelector = '.ecl-carousel__play',
       pauseSelector = '.ecl-carousel__pause',
-      prevSelector = '.ecl-carousel__prev',
-      nextSelector = '.ecl-carousel__next',
       containerClass = '.ecl-carousel__container',
       slidesClass = '.ecl-carousel__slides',
       slideClass = '.ecl-carousel__slide',
       currentSlideClass = '.ecl-carousel__current',
       navigationItemsClass = '.ecl-carousel__navigation-item',
       controlsClass = '.ecl-carousel__controls',
-      paginationClass = '.ecl-carousel__pagination',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -58,15 +53,12 @@ export class Carousel {
     // Options
     this.playSelector = playSelector;
     this.pauseSelector = pauseSelector;
-    this.prevSelector = prevSelector;
-    this.nextSelector = nextSelector;
     this.containerClass = containerClass;
     this.slidesClass = slidesClass;
     this.slideClass = slideClass;
     this.currentSlideClass = currentSlideClass;
     this.navigationItemsClass = navigationItemsClass;
     this.controlsClass = controlsClass;
-    this.paginationClass = paginationClass;
     this.attachClickListener = attachClickListener;
     this.attachResizeListener = attachResizeListener;
 
@@ -75,8 +67,6 @@ export class Carousel {
     this.slides = null;
     this.btnPlay = null;
     this.btnPause = null;
-    this.btnPrev = null;
-    this.btnNext = null;
     this.index = 1;
     this.total = 0;
     this.allowShift = true;
@@ -96,6 +86,8 @@ export class Carousel {
     this.direction = 'ltr';
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
+    this.executionCount = 0;
+    this.maxExecutions = 5;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -111,6 +103,8 @@ export class Carousel {
     this.handleFocus = this.handleFocus.bind(this);
     this.handleKeyboardOnPlay = this.handleKeyboardOnPlay.bind(this);
     this.handleKeyboardOnBullets = this.handleKeyboardOnBullets.bind(this);
+    this.checkBannerHeights = this.checkBannerHeights.bind(this);
+    this.resetBannerHeights = this.resetBannerHeights.bind(this);
   }
 
   /**
@@ -124,13 +118,10 @@ export class Carousel {
 
     this.btnPlay = queryOne(this.playSelector, this.element);
     this.btnPause = queryOne(this.pauseSelector, this.element);
-    this.btnPrev = queryOne(this.prevSelector, this.element);
-    this.btnNext = queryOne(this.nextSelector, this.element);
     this.slidesContainer = queryOne(this.slidesClass, this.element);
     this.container = queryOne(this.containerClass, this.element);
     this.navigation = queryOne('.ecl-carousel__navigation', this.element);
     this.navigationItems = queryAll(this.navigationItemsClass, this.element);
-    this.pagination = queryOne(this.paginationClass, this.element);
     this.controls = queryOne(this.controlsClass, this.element);
     this.currentSlide = queryOne(this.currentSlideClass, this.element);
     this.direction = getComputedStyle(this.element).direction;
@@ -140,12 +131,6 @@ export class Carousel {
 
     // If only one slide, don't initialize carousel and hide controls
     if (this.total <= 1) {
-      if (this.btnNext) {
-        this.btnNext.style.display = 'none';
-      }
-      if (this.btnPrev) {
-        this.btnPrev.style.display = 'none';
-      }
       if (this.controls) {
         this.controls.style.display = 'none';
       }
@@ -158,10 +143,10 @@ export class Carousel {
     // Start initializing carousel
     const firstSlide = this.slides[0];
     const lastSlide = this.slides[this.slides.length - 1];
-    this.cloneFirstSLide = firstSlide.cloneNode(true);
-    this.cloneLastSLide = lastSlide.cloneNode(true);
 
     // Clone first and last slide
+    this.cloneFirstSLide = firstSlide.cloneNode(true);
+    this.cloneLastSLide = lastSlide.cloneNode(true);
     this.slidesContainer.appendChild(this.cloneFirstSLide);
     this.slidesContainer.insertBefore(this.cloneLastSLide, firstSlide);
 
@@ -195,18 +180,6 @@ export class Carousel {
     }
     if (this.btnPlay) {
       this.btnPlay.addEventListener('keydown', this.handleKeyboardOnPlay);
-    }
-    if (this.attachClickListener && this.btnNext) {
-      this.btnNext.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, 'next', true),
-      );
-    }
-    if (this.attachClickListener && this.btnPrev) {
-      this.btnPrev.addEventListener(
-        'click',
-        this.shiftSlide.bind(this, 'prev', true),
-      );
     }
 
     if (this.slidesContainer) {
@@ -248,12 +221,6 @@ export class Carousel {
     if (this.btnPause) {
       this.btnPause.replaceWith(this.btnPause.cloneNode(true));
     }
-    if (this.btnNext) {
-      this.btnNext.replaceWith(this.btnNext.cloneNode(true));
-    }
-    if (this.btnPrev) {
-      this.btnPrev.replaceWith(this.btnPrev.cloneNode(true));
-    }
     if (this.slidesContainer) {
       this.slidesContainer.removeEventListener(
         'mouseover',
@@ -287,6 +254,77 @@ export class Carousel {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+  }
+
+  /**
+   * Set the banners height above the xl breakpoint
+   */
+  checkBannerHeights() {
+    this.executionCount += 1;
+    if (this.executionCount > this.maxExecutions) {
+      clearInterval(this.intervalId);
+      this.executionCount = 0;
+      return;
+    }
+    const heightValues = this.slides.map((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      const height = parseInt(banner.style.height, 10);
+      if (banner.style.height === 'auto') {
+        return 0;
+      }
+      if (Number.isNaN(height) || height === 100) {
+        return 1;
+      }
+
+      return height;
+    });
+
+    const elementHeights = heightValues.filter(
+      (height) => height !== undefined,
+    );
+
+    const tallestElementHeight = Math.max(...elementHeights);
+    // We stop checking the heights of the banner if we know that all the slides
+    // have height: auto; or if a banner with an height that is not 100% or undefined is found.
+    if (
+      (elementHeights.length === this.slides.length &&
+        tallestElementHeight === 0) ||
+      tallestElementHeight > 1
+    ) {
+      clearInterval(this.intervalId);
+
+      if (tallestElementHeight > 0) {
+        this.executionCount = 0;
+        this.slides.forEach((slide) => {
+          let bannerImage = null;
+          const banner = queryOne('.ecl-banner', slide);
+          if (banner) {
+            bannerImage = queryOne('img', banner);
+            banner.style.height = `${tallestElementHeight}px`;
+          }
+          if (bannerImage) {
+            bannerImage.style.aspectRatio = 'auto';
+          }
+        });
+      }
+    }
+  }
+
+  /**
+   * Set the banners height below the xl breakpoint
+   */
+  resetBannerHeights() {
+    this.slides.forEach((slide) => {
+      const banner = queryOne('.ecl-banner', slide);
+      let bannerImage = null;
+      if (banner) {
+        banner.style.height = '';
+        bannerImage = queryOne('img', banner);
+        if (bannerImage) {
+          bannerImage.style.aspectRatio = '';
+        }
+      }
+    });
   }
 
   /**
@@ -478,8 +516,24 @@ export class Carousel {
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
     );
+    clearInterval(this.intervalId);
+    clearTimeout(this.resizeTimer);
+    let containerWidth = 0;
+    // We set 250ms delay which is higher than the 200ms delay in the banner.
+    this.resizeTimer = setTimeout(() => {
+      if (vw >= 998) {
+        this.intervalId = setInterval(this.checkBannerHeights, 100);
+      } else {
+        this.resetBannerHeights();
+      }
+    }, 250);
 
-    const containerWidth = this.container.offsetWidth;
+    if (vw >= 768) {
+      containerWidth = this.container.offsetWidth;
+    } else {
+      containerWidth = this.container.offsetWidth + 15;
+    }
+
     this.slidesContainer.style.width = `${
       containerWidth * this.slides.length
     }px`;
@@ -491,21 +545,6 @@ export class Carousel {
       this.container.classList.add('ecl-carousel-container--padded');
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
-    }
-
-    // Move previous and next buttons in or out the control bar
-    if (vw < 1140) {
-      this.pagination.parentNode.insertBefore(this.btnPrev, this.pagination);
-      this.pagination.parentNode.insertBefore(
-        this.btnNext,
-        this.pagination.nextSibling,
-      );
-    } else {
-      this.container.insertBefore(
-        this.btnPrev,
-        this.slidesContainer.nextSibling,
-      );
-      this.container.insertBefore(this.btnNext, this.btnPrev.nextSibling);
     }
 
     // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop

@@ -12,7 +12,7 @@ addons.setConfig({
   isToolshown: true,
   theme: create({
     base: 'light',
-    brandTitle: `ECL v3 EC`,
+    brandTitle: `ECL v4 EC`,
     brandUrl: 'https://github.com/ec-europa/europa-component-library',
     brandImage: undefined,
   }),

@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$tabs: (
+  separator-width: 1px,
+  separator-color: var(--c-d-20),
+  item: (
+    border-radius: 4px 4px 0 0,
+    color: var(--c-d-80),
+    padding: var(--s-m) var(--s-s),
+  ),
+  hover: (
+    color: var(--c-p-140),
+    separator-color: var(--c-d-20),
+  ),
+  active: (
+    separator-color: map.get($color, 'white'),
+    border-width: 1px,
+    highlight-width: 4px,
+    highlight-color: var(--c-p),
+    color: var(--c-p),
+    padding-top: calc(var(--s-m) - 4px),
+  ),
+  more: (
+    font-weight: map.get($font-weight, 'bold'),
+    highlight-width: 4px,
+    highlight-color: var(--c-p),
+    active-separator-color: map.get($color, 'white'),
+    color-open: var(--c-p),
+    background-open: map.get($color, 'white'),
+  ),
+  overflow: (
+    background: var(--c-p),
+    color: map.get($color, 'white'),
+    background-hover: var(--c-p),
+    color-hover: map.get($color, 'white'),
+  ),
+  dropdown: (
+    shadow: var(--sh-1),
+    container-padding: 0,
+    list-margin: 0,
+    item-padding: var(--s-s) var(--s-m),
+    item-color: var(--c-d-140),
+    item-active-background: var(--c-p-10),
+    item-active-color: var(--c-d-140),
+  ),
+);

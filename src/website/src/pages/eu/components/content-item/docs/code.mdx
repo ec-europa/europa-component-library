@@ -7,6 +7,7 @@ import { Playground, Html } from '@ecl/website-components';
 import {
   contentItemImage,
   contentItemImageRight,
+  contentItemImageTop,
   contentItemEvent,
 } from '../demo';
 
@@ -31,6 +32,18 @@ import {
   selectedArgs="image_position:right"
 >
   <Html markup={contentItemImageRight} />
+</Playground>
+
+## Content item with image (top)
+
+<Playground
+  system="eu"
+  selectedKind="components-content-item"
+  selectedStory="image"
+  showFrame
+  selectedArgs="image_position:top"
+>
+  <Html markup={contentItemImageTop} />
 </Playground>
 
 ## Event content item

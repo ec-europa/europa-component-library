@@ -1,5 +1,5 @@
 /**
- * Accordion
+ * Accordion print
  * @define accordion
  */
 
@@ -18,14 +18,14 @@ $accordion-print: null !default;
   }
 }
 
-.ecl-accordion__toggle-icon,
-.ecl-accordion__toggle-label {
+.ecl-accordion__toggle-icon {
   display: none;
 }
 
 .ecl-accordion__title {
   font: map.get($accordion-print, 'toggle-font');
   margin: 0;
+  max-width: var(--max-w);
   page-break-after: avoid;
 }
 
@@ -45,5 +45,6 @@ $accordion-print: null !default;
   display: block;
   font: map.get($accordion-print, 'content-font');
   margin-top: map.get($theme, 'spacing-print', 'm');
+  max-width: var(--max-w);
   page-break-inside: avoid;
 }

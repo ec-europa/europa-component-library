@@ -106,10 +106,10 @@ export class FileDownload {
   handleClickOnToggle(e) {
     e.preventDefault();
 
-    if (this.translationContainer.getAttribute('aria-expanded') === 'true') {
-      this.translationContainer.setAttribute('aria-expanded', 'false');
+    if (this.translationToggle.getAttribute('aria-expanded') === 'true') {
+      this.translationToggle.setAttribute('aria-expanded', 'false');
     } else {
-      this.translationContainer.setAttribute('aria-expanded', 'true');
+      this.translationToggle.setAttribute('aria-expanded', 'true');
     }
 
     return this;

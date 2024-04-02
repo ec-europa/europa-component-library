@@ -30,7 +30,7 @@ export class ContentBlock {
       targetSelector = '[data-ecl-picture-link]',
       titleSelector = '[data-ecl-title-link]',
       attachClickListener = true,
-      maxIterations = 2,
+      maxIterations = 1,
       withTitleAttr = false,
     } = {},
   ) {
@@ -116,6 +116,10 @@ export class ContentBlock {
     const eureka = queryOne(selector, element);
     if (eureka) {
       return eureka;
+    }
+
+    if (element.classList.contains('ecl-card__body')) {
+      maxIterations += 1;
     }
 
     if (element === document.documentElement || maxIterations <= 0) {

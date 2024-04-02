@@ -7,8 +7,10 @@
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "required" (boolean) (default: false)
-  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
-  - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
+  - "label_aria_required" (string) (default: ''): aria text for the required field label
+  - "label_aria_optional" (string) (default: ''): aria text for the optional field label
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the form group
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the form group
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   Blocks:
@@ -27,6 +29,8 @@
 {% set _required = required|default(false) %}
 {% set _required_text = required_text|default('') %}
 {% set _optional_text = optional_text|default('') %}
+{% set _label_aria_required = label_aria_required|default('') %}
+{% set _label_aria_optional = label_aria_optional|default('') %}
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
@@ -36,14 +40,13 @@
 {% set _input = input|default({}) %}
 {% set _width = _input.width|default('') %}
 {% set _id = _input.id|default('') %}
+{% set _input_extra_attributes = _input.extra_attributes|default([]) %}
+{% set _aria_describedby = '' %}
 
 {# Internal logic - Process properties #}
 
+{% set _group_tag = 'div' %}
 {% set _label_tag = 'label' %}
-
-{% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
-  {% set _label_tag = 'legend' %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -53,40 +56,89 @@
   {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
+{% if _input.input_type == 'range' %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-range', value: true },
+    { name: 'data-ecl-auto-init', value: 'Range' },
+  ]) %}
+{% endif %}
+
+{% if _input.input_type == 'file' %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-file-upload-group', value: true },
+    { name: 'data-ecl-autoinit', value: 'FileUpload' },
+  ]) %}
+  {% set _label_tag = 'div' %}
+{% endif %}
+
+{# add status #}
 {% if _disabled %}
   {% set _input = _input|merge({
     disabled: true,
   }) %}
 {% endif %}
+
 {% if _invalid %}
   {% set _input = _input|merge({
     invalid: true,
   }) %}
 {% endif %}
+
 {% if _required %}
   {% set _input = _input|merge({
     required: true,
   }) %}
 {% endif %}
 
-{% if _input.input_type == 'range' %}
-  {% set extra_attributes = [
-    { name: 'data-ecl-range', value: true },
-    { name: 'data-ecl-auto-init', value: 'Range' },
-  ] %}
-{% endif %}
-
-{% if _input.input_type == 'rating-field' and _helper_id is not empty %}
- {% set extra_attributes = [
-  { name: 'aria-describedby', value: _helper_id }
- ] %}
-{% endif %}
-
+{# calculate aria-describedby. It could contain label and/or helper text and/or invalid text #}
 {% if _input.input_type == 'file' %}
-  {% set extra_attributes = [
-    { name: 'data-ecl-file-upload-group', value: true },
-    { name: 'data-ecl-autoinit', value: 'FileUpload' },
-  ] %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-label' : _id ~ '-label' %}
+{% endif %}
+
+{% if _helper_text and _id %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-helper' : _id ~ '-helper' %}
+{% endif %}
+
+{% if _invalid and _id %}
+  {% set _aria_describedby = _aria_describedby ? _aria_describedby ~ ' ' ~ _id ~ '-invalid' : _id ~ '-invalid' %}
+{% endif %}
+
+{# aria-describedby is added to the wrapper for group input, and to the input for the others #}
+{% if _input.input_type == 'radio' or _input.input_type == 'checkbox' or _input.input_type == 'rating-field' %}
+  {# group input, uses extra_attributes #}
+  {% set _group_tag = 'fieldset' %}
+  {% set _label_tag = 'legend' %}
+
+  {% if _aria_describedby is not empty %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'aria-describedby', value: _aria_describedby },
+    ]) %}
+  {% endif %}
+
+  {% if _invalid %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'aria-invalid', value: 'true' },
+    ]) %}
+  {% endif %}
+{% else %}
+  {# single input, uses input.extra_attributes #}
+  {% if _aria_describedby is not empty %}
+    {% set _input_extra_attributes = _input_extra_attributes|merge([
+      { name: 'aria-describedby', value: _aria_describedby }
+    ]) %}
+  {% endif %}
+
+  {% if _invalid %}
+    {% set _input_extra_attributes = _input_extra_attributes|merge([
+      { name: 'aria-invalid', value: 'true' }
+    ]) %}
+  {% endif %}
+
+  {% if _input_extra_attributes is not empty %}
+    {% set _input = _input|merge({
+      extra_attributes: _input_extra_attributes,
+    }) %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -101,14 +153,14 @@
 
 {# Print the result #}
 
-<div 
-  class="{{ _css_class }}"
-  {{- _extra_attributes|raw -}}
->
+<{{ _group_tag }} class="{{ _css_class }}" {{- _extra_attributes|raw -}}>
   {% if _label is not empty %}
     <{{ _label_tag }}
     {% if _id %}
-      for="{{ _id }}"
+      {% if _input.input_type != 'radio' and _input.input_type != 'checkbox' and _input.input_type != 'rating-field' %}
+        for="{{ _id }}"
+      {% endif %}
+      id="{{ _id }}-label"
     {% endif %}
       class="{{- _label_class -}}
       {{- _invalid ? ' ecl-form-label--invalid' -}}
@@ -116,31 +168,33 @@
     >
       {%- block label _label -%}
       {%- if _required and _required_text is not empty -%}
-        <span class="ecl-form-label__required">{{ _required_text }}</span>
+        <span 
+          class="ecl-form-label__required"
+          {%- if _label_aria_required -%}
+            role="note"
+            aria-label="{{ _label_aria_required }}"
+          {%- endif -%}
+        >{{ _required_text }}</span>
       {%- elseif not _required and _optional_text is not empty -%}
-        <span class="ecl-form-label__optional">{{ _optional_text }}</span>
+        <span 
+          class="ecl-form-label__optional"
+          {%- if _label_aria_optional -%}
+            role="note"
+            aria-label="{{ _label_aria_optional }}"
+          {%- endif -%}
+        >{{ _optional_text }}</span>
       {%- endif -%}
     </{{ _label_tag }}>
   {% endif %}
 
   {% if _helper_text is not empty %}
-    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}">
+    <div class="ecl-help-block{{ _disabled ? ' ecl-help-block--disabled' }}"
+      {% if _id %}
+        id="{{ _id }}-helper"
+      {% endif %}
+    >
       {%- block helper_text _helper_text -%}
     </div>
-  {% endif %}
-
-  {% if _invalid and _invalid_text is not empty %}
-    {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}
-    <div class="ecl-feedback-message">
-      {% if _invalid_icon is not empty %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: _invalid_icon,
-        extra_classes: 'ecl-feedback-message__icon',
-      } only %}
-      {% endif %}
-      {%- block invalid_text _invalid_text -%}
-    </div>
-    {% endif %}
   {% endif %}
 
   {%- if _input.input_type == 'text' or _input.input_type == 'search' -%}
@@ -148,6 +202,7 @@
       type: _input.input_type,
     }) only %}
   {%- endif -%}
+  
   {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
@@ -185,6 +240,24 @@
   {%- if _input.input_type == 'file' -%}
     {% include '@ecl/file-upload/file-upload.html.twig' with _input only %}
   {%- endif -%}
-</div>
+
+  {% if _invalid and _invalid_text is not empty %}
+    {% if _input.input_type != 'checkbox' or (_input.items and _input.items|length > 1) %}
+    <div class="ecl-feedback-message"
+      {% if _id %}
+        id="{{ _id }}-invalid"
+      {% endif %}
+    >
+      {%- if _invalid_icon is not empty -%}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: _invalid_icon,
+        extra_classes: 'ecl-feedback-message__icon',
+      } only %}
+      {%- endif -%}
+      {%- block invalid_text _invalid_text -%}
+    </div>
+    {% endif %}
+  {% endif %}
+</{{ _group_tag }}>
 
 {% endapply %}

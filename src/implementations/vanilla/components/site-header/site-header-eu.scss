@@ -1,6 +1,6 @@
 /**
- * Site Header
- * @define site-header; weak
+ * Site Header EU
+ * @define site-header
  */
 
 @use 'sass:map';
@@ -9,10 +9,12 @@
 // Exposed variables
 $theme: null !default;
 $site-header: null !default;
+$language-list: null !default;
 
 @use 'site-header-language-switcher' with (
   $theme: $theme,
-  $language-switcher: map.get($site-header, 'language-switcher')
+  $language-switcher: map.get($site-header, 'language-switcher'),
+  $language-list: $language-list
 );
 
 .ecl-site-header {
@@ -34,7 +36,11 @@ $site-header: null !default;
     margin-bottom: 8px;
   }
 
-  &:not([data-ecl-has-menu='true']) {
+  .ecl-menu__open:not(:hover, :focus-visible) {
+    color: map.get($theme, 'color', 'white');
+  }
+
+  &:not(.ecl-site-header--has-menu) {
     box-shadow: var(--sh-2);
   }
 
@@ -124,7 +130,7 @@ $site-header: null !default;
   border: 1px solid var(--c-p-5);
   box-shadow: var(--sh-3);
   box-sizing: content-box;
-  color: map.get($theme, 'color', 'grey');
+  color: var(--c-d);
   display: none;
   font: var(--f-p-s);
   left: 0;
@@ -141,7 +147,7 @@ $site-header: null !default;
 
 .ecl-site-header__login-description {
   margin: 0;
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-site-header__login-separator {

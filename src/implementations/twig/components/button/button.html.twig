@@ -5,7 +5,23 @@
     - "label" (string) (default: '')
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'cta', 'ghost', 'ghost-inverted', 'tertiaty'
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
-    - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "icon" (associative array) OR (array) of associative arrays : format
+        {
+          name: (string) (default: ''),
+          ...
+        }
+        OR
+        [
+          {
+            name: (string) (default: ''),
+            ....
+          },
+          {
+            name: (string) (default: ''),
+            ...
+          }
+          ...
+        ]
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
     - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
@@ -27,10 +43,14 @@
 {% set _label = label|default('') %}
 {% set _variant = variant|default('primary') %}
 {% set _type = type|default('submit') %}
-{% set _icon = icon|default({}) %}
 {% set _icon_position = icon_position|default('after') %}
 {% set _disabled = disabled|default(false) %}
 {% set _hide_label = hide_label|default(false) %}
+{% set _icon = {
+  name: '',
+  path: '',
+  size: ''
+} %}
 
 {# Internal logic - Process properties #}
 
@@ -50,6 +70,12 @@
   {% endfor %}
 {% endif %}
 
+{% if icon.name is defined and icon.name is not empty %}
+  {% set _icons = [icon] %}
+{% elseif icon[1] is defined and icon[1] is not empty %}
+  {% set _icons = icon %}
+{% endif %}
+
 {% if _hide_label and _icon is not empty %}
   {% set _css_class = _css_class ~ ' ecl-button--icon-only' %}
 {% endif %}
@@ -63,33 +89,45 @@
 {# Print the result #}
 
 <button class="{{ _css_class }}" type="{{ _type }}" {{ _extra_attributes|raw }}>
-  {%- if _icon.name is not empty %}
-    <span class="ecl-button__container">
-      {% if _icon_position == 'before' %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: _icon,
-          extra_classes: 'ecl-button__icon',
-          extra_attributes: [
-            { name: 'data-ecl-icon' }
-          ],
-        } only %}
-      {% endif %}
-      {% if _label %}
-        <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
-      {% endif %}
-      {% if _icon_position == 'after' %}
-        {% include '@ecl/icon/icon.html.twig' with {
-          icon: _icon,
-          extra_classes: 'ecl-button__icon',
-          extra_attributes: [
-            { name: 'data-ecl-icon' }
-          ],
-        } only %}
-      {% endif %}
-    </span>
-  {% else %}
-    {{- block('label') -}}
-  {% endif -%}
+{%- if _icons is defined %}
+  <span class="ecl-button__container">
+  {% if _icon_position == 'before' %}
+    {% for icon in _icons %}
+      {% set _icon_extra_classes = 'ecl-button__icon' %}
+      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- endif -%}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: icon,
+        extra_classes: _icon_extra_classes,
+        extra_attributes: [
+          { name: 'data-ecl-icon' }
+        ],
+      } only %}
+    {% endfor %}
+    {% endif %}
+  {% if _label %}
+    <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
+  {% endif %}
+  {% if _icon_position == 'after' %}
+    {% for icon in _icons %}
+      {% set _icon_extra_classes = 'ecl-button__icon' %}
+      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+      {%- endif -%}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: icon,
+        extra_classes: _icon_extra_classes,
+        extra_attributes: [
+          { name: 'data-ecl-icon' }
+        ],
+      } only %}
+    {% endfor %}
+  {% endif %}
+  </span>
+{% else %}
+  {{- block('label') -}}
+{% endif -%}
 </button>
 
 {% endapply %}

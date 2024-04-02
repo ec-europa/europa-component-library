@@ -2,6 +2,8 @@ module.exports = {
   optional_text: '(optional)',
   required_text: '*',
   required: true,
+  label_aria_required: 'required',
+  label_aria_optional: 'optional',
   label: 'Please Rate',
   helper_text: "This is the group's helper text.",
   invalid_text: 'This is the error message',
@@ -14,7 +16,6 @@ module.exports = {
     input_type: 'rating-field',
     id: 'rating-field',
     name: 'rating-group',
-    helper_id: 'helper-id',
     required: true,
     star_filled_icon: {
       path: '/icons.svg',

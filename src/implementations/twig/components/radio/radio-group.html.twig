@@ -4,9 +4,7 @@
   Parameters:
   - "items" (array) (default: []): array of radio_button
   - "name" (string) (default: '')
-  - "helper_id" (string) (default: '')
   - "invalid" (boolean) (default: false)
-  - "invalid_icon" (object) default({})
   - "binary" (boolean) (default: false)
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
@@ -19,16 +17,9 @@
 
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
-{% set _helper_id = helper_id|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}
 {% set _binary = binary|default(false) %}
-{% set _helper_text = helper_text|default('') %}
-{% set _invalid_icon = invalid_icon|default({}) %}
-{% set _invalid_text = invalid_text|default('') %}
-{% set _required_text = required_text|default('*') %}
-{% set _optional_text = optional_text|default('') %}
-{% set _label = label|default('') %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 

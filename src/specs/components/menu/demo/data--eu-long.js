@@ -3,16 +3,18 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  id: 'demo',
   title: 'Menu',
   toggle: {
     link: {
       label: 'Menu',
       path: exampleLink,
+      hide_label: true,
     },
     icon: {
       path: '/icons.svg',
       name: 'hamburger',
-      size: 's',
+      size: 'm',
     },
   },
   close: {

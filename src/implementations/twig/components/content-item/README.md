@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-content-item
 
 - **picture** (associative array) (default: {}):
   - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
-  - **position** (string) (default: 'left'): Position of the picture (can be 'left' or 'right')
+  - **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
   - **img** (associative array) (default: {}):
     - **src** (string) (default: ''): Path to the default image
     - **alt** (string) (default: ''): Alt text of the default image
@@ -24,6 +24,7 @@ npm install --save @ecl/twig-component-content-item
     ]
 - **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
 - **labels** (array) (default: []): Array of ECL Labels
+- **labels_aria** (strings) (default: ''): Aria label for the labels area
 - **primary_meta** (array of strings) (default: []): Primary meta of the content item
 - **title** (associative array) (default: {}): Title of the content item, following ECL Link structure
 - **description** (string) (default: ''): Description of the content item
@@ -60,6 +61,7 @@ npm install --save @ecl/twig-component-content-item
     { label: 'highlight', variant: 'highlight' },
     { label: 'high importance', variant: 'high' },
   ],
+  labels_aria: 'Labels',
   primary_meta: ['PRIMARY META', 'DD Month Year'],
   title: {
     type: 'standalone',

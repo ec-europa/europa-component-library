@@ -9,9 +9,9 @@ npm install --save @ecl/twig-component-site-header
 ### Parameters
 
 - **"logged"** (boolean) (default: false): Whether the user is logged in or not
-- **"menu"** (boolean) (default: false): Whether the component includes a menu or not
+- **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
 - **"banner_top"** (string) OR (object with Link component in property): Class name
-- **"icon_file_path"** (string) (default: ''): file containing the svg icons
+- **"icon_path"** (string) (default: ''): file containing the svg icons
 - **"site_name"** (string) (default: '') Site name
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
@@ -31,9 +31,8 @@ npm install --save @ecl/twig-component-site-header
   - "href_logged" (string) Link to the logout form
 - **"language_selector"** (associative array) (default: predefined structure): Language switcher settings. format:
   - "href" (string) (default: ''): URL for switcher
-  - "label" (string) (default: ''): Switcher language label, eg. 'English', 'Français', etc.
+  - "label" (string) (default: ''): Switcher language label, eg. 'English' in eu, 'EN' in ec
   - "aria_label" (string) (default: ''): Switcher language aria label
-  - "code" (string) (default: ''): Switcher language code, eg. 'en', 'fr', etc.
   - "eu_category" (string) (default: ''): Label for EU languages
   - "non_eu_category" (string) (default: ''): Label for non-EU languages
   - "overlay" (associative array) (default: predefined structure): Overlay language switcher settings. format:
@@ -65,10 +64,9 @@ npm install --save @ecl/twig-component-site-header
 ```twig
 {% include '@ecl/site-header/site-header.html.twig' with { 
   banner_top: 'Class name', 
-  banner: 'Class name', 
-  menu: true, 
+  banner: 'Class name',
   site_name: 'This site name'
-  icon_file_path: '/icons.svg', 
+  icon_path: '/icons.svg', 
   logo: { 
     title: 'European Commission', 
     alt: 'European Commission logo', 

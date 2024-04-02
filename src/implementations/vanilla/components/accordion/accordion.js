@@ -1,4 +1,5 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -23,13 +24,20 @@ export class Accordion {
     return accordion;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event Accordion#onToggle
+   * @memberof Accordion
+   */
+  supportedEvents = ['onToggle'];
+
   constructor(
     element,
     {
       toggleSelector = '[data-ecl-accordion-toggle]',
       iconSelector = '[data-ecl-accordion-icon]',
-      labelExpanded = 'data-ecl-label-expanded',
-      labelCollapsed = 'data-ecl-label-collapsed',
       attachClickListener = true,
     } = {},
   ) {
@@ -41,19 +49,17 @@ export class Accordion {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.toggleSelector = toggleSelector;
     this.iconSelector = iconSelector;
     this.attachClickListener = attachClickListener;
-    this.labelExpanded = labelExpanded;
-    this.labelCollapsed = labelCollapsed;
 
     // Private variables
     this.toggles = null;
     this.forceClose = false;
     this.target = null;
-    this.label = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -73,8 +79,6 @@ export class Accordion {
 
     this.toggles = queryAll(this.toggleSelector, this.element);
 
-    // Get label, if any
-    this.label = queryOne(this.labelSelector, this.element);
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
@@ -87,6 +91,37 @@ export class Accordion {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Accordion
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'click' event
+   * accordion.on('onToggle', (event) => {
+   *   console.log('Toggle event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Accordion
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -118,8 +153,11 @@ export class Accordion {
 
   /**
    * @param {HTMLElement} toggle Target element to toggle.
+   *
+   * @fires Accordion#onToggle
    */
   handleClickOnToggle(event, toggle) {
+    let isOpening = false;
     // Get target element
     const target = queryOne(
       `#${toggle.getAttribute('aria-controls')}`,
@@ -140,11 +178,16 @@ export class Accordion {
 
     // Toggle the expandable/collapsible
     toggle.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+
     if (isExpanded) {
       target.hidden = true;
     } else {
       target.hidden = false;
+      isOpening = true;
     }
+
+    const eventData = { item: target, isOpening };
+    this.trigger('onToggle', eventData);
 
     // Toggle icon
     const iconElement = queryOne(this.iconSelector, toggle);
@@ -159,16 +202,6 @@ export class Accordion {
           newXlinkHref = originalXlinkHref.replace('plus', 'minus');
         }
         useNode.setAttribute('xlink:href', newXlinkHref);
-      }
-    }
-
-    // Toggle icon label
-    const iconLabelElement = queryOne('.ecl-accordion__toggle-label', toggle);
-    if (iconLabelElement) {
-      if (isExpanded) {
-        iconLabelElement.textContent = toggle.getAttribute(this.labelCollapsed);
-      } else {
-        iconLabelElement.textContent = toggle.getAttribute(this.labelExpanded);
       }
     }
 

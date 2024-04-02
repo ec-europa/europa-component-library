@@ -26,7 +26,7 @@ $accordion: null !default;
 .ecl-accordion__toggle {
   background-color: transparent;
   border-width: 0;
-  color: map.get($theme, 'color', 'grey-100');
+  color: var(--c-d);
   cursor: pointer;
   display: block;
   font: var(--f-m);
@@ -42,30 +42,28 @@ $accordion: null !default;
 
 .ecl-accordion__toggle:focus-visible,
 .ecl-accordion__toggle--active {
-  outline: 2px solid map.get($theme, 'color', 'primary');
+  outline: 2px solid var(--c-p);
   outline-offset: -2px;
 }
 
 .ecl-accordion__toggle-flex {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .ecl-accordion__toggle-indicator {
   display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-inline-start: 0;
-  margin-inline-end: map.get($accordion, 'icon-margin');
-}
-
-.ecl-accordion__toggle-label {
-  display: none;
+  margin-inline-end: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
+  margin-top: 4px;
 }
 
 .ecl-accordion__toggle-title {
-  flex-grow: 1;
+  max-width: var(--max-w);
 }
 
 .ecl-accordion__toggle-icon {
@@ -73,16 +71,13 @@ $accordion: null !default;
 }
 
 .ecl-accordion__content {
-  color: map.get($theme, 'color', 'grey');
+  color: var(--c-d);
   font: var(--f-m);
   margin-inline-start: 0;
-  max-width: 60ch;
-  padding-inline-end: var(--e-s-m);
-  padding-inline-start: calc(
-    map.get($accordion, 'item-padding') + map.get($accordion, 'icon-margin') +
-      1rem + 0.25rem
-  );
-  padding-bottom: var(--e-s-xl);
+  max-width: var(--max-w);
+  padding-inline-end: map.get($accordion, 'item-padding');
+  padding-inline-start: map.get($accordion, 'item-padding');
+  padding-bottom: var(--s-xl);
 }
 
 .no-js .ecl-accordion__content {

@@ -9,7 +9,6 @@
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
     - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
-    - "negative" (boolean) (default: false) apply negative style with a darker background (only for EC)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,6 +28,7 @@
 {% set _picture_background = picture_background|default({}) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
+{% set _info_classes = 'ecl-page-header__info' %}
 {% set _overlay = overlay|default('') %}
 {% set _extra_attributes = '' %}
 
@@ -40,6 +40,10 @@
   {% if _overlay is not empty %}
     {% set _css_class = _css_class ~ ' ecl-page-header--overlay-' ~ _overlay %}
   {% endif %}
+{% endif %}
+
+{% if (_title is empty or _hide_title) and _meta is empty %}
+  {% set _info_classes = 'ecl-page-header__info--no-margin' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -76,24 +80,24 @@
       extra_classes: 'ecl-page-header__breadcrumb',
     }) only -%}
   {% endif %}
-
-  {% if _meta is not empty %}
-    <div class="ecl-page-header__meta">
-      {% for _item in _meta %}
-      <span class="ecl-page-header__meta-item">{{- _item -}}</span>
-      {% endfor %}
-    </div>
-  {% endif %}
-
-  {% if _title is not empty %}
-    {% set _title_class = 'ecl-page-header__title' %}
-    {% if _hide_title %}
-      {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
+    <div class="{{ _info_classes }}">
+    {% if _meta is not empty %}
+      <div class="ecl-page-header__meta">
+        {% for _item in _meta %}
+        <span class="ecl-page-header__meta-item">{{- _item -}}</span>
+        {% endfor %}
+      </div>
     {% endif %}
 
-    <h1 class="{{ _title_class }}">{{ _title }}</h1>
-  {% endif %}
+    {% if _title is not empty %}
+      {% set _title_class = 'ecl-page-header__title' %}
+      {% if _hide_title %}
+        {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
+      {% endif %}
 
+      <h1 class="{{ _title_class }}">{{ _title }}</h1>
+    {% endif %}
+    </div>
   {% if _description is not empty or _picture_thumbnail.img is not empty %}
     <div class="ecl-page-header__description-container">
     {% if _picture_thumbnail.img is not empty %}

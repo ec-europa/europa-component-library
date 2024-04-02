@@ -2,15 +2,15 @@
 
 {#
   Parameters:
-  - "id" (string) (default: '')
+  - "id" (string) (default: ''): id of the checkbox
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "required_text" (boolean) (default: '')
   - "disabled" (boolean) (default: false)
   - "required" (boolean) (default: false)
+  - "label_aria_required" (string) (default: ''): aria text for the required field label
   - "invalid" (boolean) (default: false)
   - "checked" (boolean) (default: false)
-  - "helper_id" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -29,9 +29,9 @@
 {% set _value = value|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
+{% set _label_aria_required = label_aria_required|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _checked = checked|default(false) %}
-{% set _helper_id = helper_id|default('') %}
 {% set _icon_path = icon_path|default('') %}
 {% set _box_css_class = 'ecl-checkbox__box' %}
 {% set _helper_text = helper_text|default('') %}
@@ -108,15 +108,21 @@
     </span>
     {% endif %}
     {%- if _required and _required_text is not empty -%}
-    <span class="ecl-form-label__required">{{ _required_text }}</span>
+    <span 
+      class="ecl-form-label__required"
+      {% if _label_aria_required %}
+        role="note"
+        aria-label="{{ _label_aria_required }}"
+      {% endif %}
+    >{{ _required_text }}</span>
     {%- endif -%}
   </label>
 
   {% if _helper_text is not empty %}
     <div
       class="ecl-checkbox__help{{ _disabled ? " ecl-checkbox__help--disabled" }}"
-      {% if _helper_id is not empty %}
-        id="{{ _helper_id }}"
+      {% if _id is not empty %}
+        id="{{ _id }}-helper"
       {% endif %}
     >
       {%- block helper_text _helper_text -%}

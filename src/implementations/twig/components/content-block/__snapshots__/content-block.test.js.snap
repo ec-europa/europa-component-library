@@ -8,6 +8,7 @@ exports[`Content block Default renders correctly 1`] = `
     data-ecl-content-block=""
   >
     <ul
+      aria-label="Labels"
       class="ecl-content-block__label-container"
     >
       <li
@@ -43,7 +44,7 @@ exports[`Content block Default renders correctly 1`] = `
         DD Month Year
       </li>
     </ul>
-    <h1
+    <div
       class="ecl-content-block__title"
       data-ecl-title-link=""
     >
@@ -53,7 +54,7 @@ exports[`Content block Default renders correctly 1`] = `
       >
         Title
       </a>
-    </h1>
+    </div>
     <div
       class="ecl-content-block__description"
     >
@@ -113,18 +114,30 @@ exports[`Content block Default renders correctly 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--link"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -151,18 +164,30 @@ exports[`Content block Default renders correctly 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--inline"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -172,21 +197,25 @@ exports[`Content block Default renders correctly 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
         >
-          <span
-            class="ecl-description-list__definition-item"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
         </dd>
       </dl>
     </div>
@@ -276,6 +305,7 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
   >
     <ul
+      aria-label="Labels"
       class="ecl-content-block__label-container"
     >
       <li
@@ -311,7 +341,7 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
         DD Month Year
       </li>
     </ul>
-    <h1
+    <div
       class="ecl-content-block__title"
       data-ecl-title-link=""
     >
@@ -321,7 +351,7 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
       >
         Title
       </a>
-    </h1>
+    </div>
     <div
       class="ecl-content-block__description"
     >
@@ -381,18 +411,30 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--link"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -419,18 +461,30 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--inline"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -440,21 +494,25 @@ exports[`Content block Default renders correctly with extra attributes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
         >
-          <span
-            class="ecl-description-list__definition-item"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
         </dd>
       </dl>
     </div>
@@ -542,6 +600,7 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
     data-ecl-content-block=""
   >
     <ul
+      aria-label="Labels"
       class="ecl-content-block__label-container"
     >
       <li
@@ -577,7 +636,7 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
         DD Month Year
       </li>
     </ul>
-    <h1
+    <div
       class="ecl-content-block__title"
       data-ecl-title-link=""
     >
@@ -587,7 +646,7 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
       >
         Title
       </a>
-    </h1>
+    </div>
     <div
       class="ecl-content-block__description"
     >
@@ -647,18 +706,30 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--link"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -685,18 +756,30 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--inline"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -706,21 +789,25 @@ exports[`Content block Default renders correctly with extra class names 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
         >
-          <span
-            class="ecl-description-list__definition-item"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
         </dd>
       </dl>
     </div>
@@ -808,6 +895,7 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
     data-ecl-content-block=""
   >
     <ul
+      aria-label="Labels"
       class="ecl-content-block__label-container"
     >
       <li
@@ -843,7 +931,7 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
         DD Month Year
       </li>
     </ul>
-    <h1
+    <div
       class="ecl-content-block__title"
       data-ecl-title-link=""
     >
@@ -853,7 +941,7 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
       >
         Title
       </a>
-    </h1>
+    </div>
     <div
       class="ecl-content-block__description"
     >
@@ -913,18 +1001,30 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--link"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -951,18 +1051,30 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--inline"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -972,21 +1084,25 @@ exports[`Content block Default renders correctly with list extra classes 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
         >
-          <span
-            class="ecl-description-list__definition-item"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
         </dd>
       </dl>
     </div>
@@ -1074,6 +1190,7 @@ exports[`Content block Default renders correctly with simple title 1`] = `
     data-ecl-content-block=""
   >
     <ul
+      aria-label="Labels"
       class="ecl-content-block__label-container"
     >
       <li
@@ -1109,11 +1226,11 @@ exports[`Content block Default renders correctly with simple title 1`] = `
         DD Month Year
       </li>
     </ul>
-    <h1
+    <div
       class="ecl-content-block__title"
     >
       title
-    </h1>
+    </div>
     <div
       class="ecl-content-block__description"
     >
@@ -1173,18 +1290,30 @@ exports[`Content block Default renders correctly with simple title 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--link"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -1211,18 +1340,30 @@ exports[`Content block Default renders correctly with simple title 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--inline"
         >
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Lorem ipsum dolor sit amet
-          </a>
-          <a
-            class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-            href="/example"
-          >
-            Lorem ipsum dolor sit amet
-          </a>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              <a
+                class="ecl-link ecl-link--standalone"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet
+              </a>
+            </li>
+          </ul>
         </dd>
         <dt
           class="ecl-description-list__term"
@@ -1232,21 +1373,25 @@ exports[`Content block Default renders correctly with simple title 1`] = `
         <dd
           class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
         >
-          <span
-            class="ecl-description-list__definition-item"
+          <ul
+            class="ecl-description-list__definition-list"
           >
-            Taxonomy item 1
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 2
-          </span>
-          <span
-            class="ecl-description-list__definition-item"
-          >
-            Taxonomy item 3
-          </span>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 1
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 2
+            </li>
+            <li
+              class="ecl-description-list__definition-item"
+            >
+              Taxonomy item 3
+            </li>
+          </ul>
         </dd>
       </dl>
     </div>

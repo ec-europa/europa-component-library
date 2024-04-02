@@ -166,16 +166,17 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
-      if: { arg: 'show_image' },
+      if: { arg: 'image_position', neq: 'top' },
     };
     argTypes.image_position = {
       name: 'image position',
       type: 'select',
-      description: "Possible image position ('left' or 'right')",
-      options: ['left', 'right'],
+      description: 'Possible image position',
+      options: ['left', 'right', 'top'],
       mapping: {
         left: 'left',
         right: 'right',
+        top: 'top',
       },
       table: {
         type: 'string',

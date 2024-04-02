@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$news-ticker: (
+  height: 68px,
+  border: 2px solid var(--c-p),
+  border-radius: 4px,
+  padding-horizontal: var(--s-s),
+  font: var(--f-p-m),
+  controls-background: var(--c-p),
+  counter: (
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
+    background-mobile: transparent,
+    color-mobile: map.get($color, 'white'),
+    background-desktop: map.get($color, 'white'),
+    color-desktop: var(--c-d-80),
+  ),
+);

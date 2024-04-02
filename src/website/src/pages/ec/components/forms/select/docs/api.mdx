@@ -3,15 +3,12 @@ title: API
 order: 3
 ---
 
-import SelectJSDoc from '../../../../_jsdoc/select.md';
-
-## API
-
-<SelectJSDoc />
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
 
 ## Setup
 
-There are 2 ways to initialise the select multiple component.
+There are 2 ways to initialise the select and the select multiple components.
 
 ### Automatic
 
@@ -39,3 +36,13 @@ var select = ECL.Select.autoInit(
   { defaultText: 'string', searchText: 'string', selectAllText: 'string' },
 );
 ```
+
+Once created the new instance can be retrieved like this:
+
+```js
+ECL.components.get(document.querySelector('[data-ecl-select-multiple]'));
+```
+
+## API
+
+<Iframe url="../../../../../apis/Select.html" />

@@ -1,0 +1,95 @@
+/**
+ * Fact and figures
+ * @define fact-figures
+ */
+
+@use 'sass:map';
+@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$fact-figures: null !default;
+
+.ecl-fact-figures {
+  background-color: map.get($fact-figures, 'background');
+  box-shadow: map.get($fact-figures, 'shadow');
+  border: map.get($fact-figures, 'border');
+  border-radius: map.get($fact-figures, 'border-radius');
+  margin: 0;
+  padding: map.get($fact-figures, 'padding-mobile');
+}
+
+.ecl-fact-figures__item {
+  color: map.get($fact-figures, 'text-color');
+  margin-top: map.get($fact-figures, 'margin-vertical');
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-fact-figures__icon {
+  color: map.get($fact-figures, 'icon-color');
+  display: block;
+  margin-bottom: map.get($fact-figures, 'icon-margin');
+}
+
+.ecl-fact-figures__value {
+  font: map.get($fact-figures, 'value-font-mobile');
+}
+
+.ecl-fact-figures__title {
+  font: map.get($fact-figures, 'title-font');
+  font-weight: map.get($fact-figures, 'title-font-weight');
+  margin-top: map.get($fact-figures, 'title-margin');
+}
+
+.ecl-fact-figures__description {
+  font: map.get($fact-figures, 'description-font');
+  margin-top: map.get($fact-figures, 'description-margin');
+}
+
+.ecl-fact-figures__view-all {
+  border-top: 1px solid map.get($fact-figures, 'view-all-border-color');
+  font: map.get($fact-figures, 'view-all-font');
+  margin-top: map.get($fact-figures, 'view-all-margin');
+  padding-top: map.get($fact-figures, 'view-all-padding-mobile');
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('l') {
+  .ecl-fact-figures {
+    padding: map.get($fact-figures, 'padding-desktop');
+  }
+
+  .ecl-fact-figures__items {
+    display: grid;
+    grid-column-gap: map.get($fact-figures, 'margin-horizontal');
+    grid-row-gap: map.get($fact-figures, 'margin-vertical');
+
+    .ecl-fact-figures--col-2 & {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ecl-fact-figures--col-3 & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .ecl-fact-figures--col-4 & {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .ecl-fact-figures__item {
+    margin-top: 0;
+    max-width: var(--max-w);
+  }
+
+  .ecl-fact-figures__value {
+    font: map.get($fact-figures, 'value-font-desktop');
+  }
+
+  .ecl-fact-figures__view-all {
+    padding-top: map.get($fact-figures, 'view-all-padding-desktop');
+  }
+}

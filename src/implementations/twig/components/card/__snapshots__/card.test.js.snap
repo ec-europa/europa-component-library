@@ -6,7 +6,6 @@ exports[`Card Default renders correctly 1`] = `
     class="ecl-card"
   >
     <picture
-      aria-label="card image"
       class="ecl-picture ecl-card__picture"
       data-ecl-picture-link=""
     >
@@ -25,6 +24,7 @@ exports[`Card Default renders correctly 1`] = `
         data-ecl-content-block=""
       >
         <ul
+          aria-label="Labels"
           class="ecl-content-block__label-container"
         >
           <li
@@ -60,7 +60,7 @@ exports[`Card Default renders correctly 1`] = `
             DD Month Year
           </li>
         </ul>
-        <h1
+        <div
           class="ecl-content-block__title"
           data-ecl-title-link=""
         >
@@ -70,7 +70,7 @@ exports[`Card Default renders correctly 1`] = `
           >
             Title
           </a>
-        </h1>
+        </div>
         <div
           class="ecl-content-block__description"
         >
@@ -130,18 +130,30 @@ exports[`Card Default renders correctly 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -168,18 +180,30 @@ exports[`Card Default renders correctly 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--inline"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -189,21 +213,25 @@ exports[`Card Default renders correctly 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
             >
-              <span
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </span>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
             </dd>
           </dl>
         </div>
@@ -221,7 +249,6 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
     data-test-1="data-test-value-1"
   >
     <picture
-      aria-label="card image"
       class="ecl-picture ecl-card__picture"
       data-ecl-picture-link=""
     >
@@ -240,6 +267,7 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
         data-ecl-content-block=""
       >
         <ul
+          aria-label="Labels"
           class="ecl-content-block__label-container"
         >
           <li
@@ -275,7 +303,7 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
             DD Month Year
           </li>
         </ul>
-        <h1
+        <div
           class="ecl-content-block__title"
           data-ecl-title-link=""
         >
@@ -285,7 +313,7 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
           >
             Title
           </a>
-        </h1>
+        </div>
         <div
           class="ecl-content-block__description"
         >
@@ -345,18 +373,30 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -383,18 +423,30 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--inline"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -404,21 +456,25 @@ exports[`Card Default renders correctly with extra attributes 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
             >
-              <span
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </span>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
             </dd>
           </dl>
         </div>
@@ -434,7 +490,6 @@ exports[`Card Default renders correctly with extra class names 1`] = `
     class="ecl-card custom-class custom-class--test"
   >
     <picture
-      aria-label="card image"
       class="ecl-picture ecl-card__picture"
       data-ecl-picture-link=""
     >
@@ -453,6 +508,7 @@ exports[`Card Default renders correctly with extra class names 1`] = `
         data-ecl-content-block=""
       >
         <ul
+          aria-label="Labels"
           class="ecl-content-block__label-container"
         >
           <li
@@ -488,7 +544,7 @@ exports[`Card Default renders correctly with extra class names 1`] = `
             DD Month Year
           </li>
         </ul>
-        <h1
+        <div
           class="ecl-content-block__title"
           data-ecl-title-link=""
         >
@@ -498,7 +554,7 @@ exports[`Card Default renders correctly with extra class names 1`] = `
           >
             Title
           </a>
-        </h1>
+        </div>
         <div
           class="ecl-content-block__description"
         >
@@ -558,18 +614,30 @@ exports[`Card Default renders correctly with extra class names 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--link"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -596,18 +664,30 @@ exports[`Card Default renders correctly with extra class names 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--inline"
             >
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Lorem ipsum dolor sit amet
-              </a>
-              <a
-                class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-                href="/example"
-              >
-                Lorem ipsum dolor sit amet
-              </a>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  <a
+                    class="ecl-link ecl-link--standalone"
+                    href="/example"
+                  >
+                    Lorem ipsum dolor sit amet
+                  </a>
+                </li>
+              </ul>
             </dd>
             <dt
               class="ecl-description-list__term"
@@ -617,21 +697,25 @@ exports[`Card Default renders correctly with extra class names 1`] = `
             <dd
               class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
             >
-              <span
-                class="ecl-description-list__definition-item"
+              <ul
+                class="ecl-description-list__definition-list"
               >
-                Taxonomy item 1
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 2
-              </span>
-              <span
-                class="ecl-description-list__definition-item"
-              >
-                Taxonomy item 3
-              </span>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 1
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 2
+                </li>
+                <li
+                  class="ecl-description-list__definition-item"
+                >
+                  Taxonomy item 3
+                </li>
+              </ul>
             </dd>
           </dl>
         </div>

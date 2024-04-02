@@ -14,7 +14,9 @@ import { getPageTitle, getSectionTitle } from './utils/title';
 
 class DocPage extends Component {
   componentDidMount() {
-    Prism.highlightAllUnder(document.querySelector('#main-content'));
+    setTimeout(() => {
+      Prism.highlightAllUnder(document.querySelector('#main-content'));
+    }, 100);
   }
 
   render() {

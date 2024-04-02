@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$card: (
+  border-radius: 0 0 map.get($border-radius, 's') map.get($border-radius, 's'),
+  shadow: var(--sh-1),
+  border: 1px solid var(--c-st),
+  border-bottom: 4px solid var(--c-p),
+  body-padding: var(--s-xl),
+);

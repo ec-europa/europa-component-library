@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-blockquote
 
 - **"citation"** (string) (default: '')
 - **"author"** (string) (default: '')
+- **"lang"** (string) (default: 'en')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"picture"** (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -24,6 +25,7 @@ npm install --save @ecl/twig-component-blockquote
 {% include '@ecl/blockquote/blockquote.html.twig' with { 
   citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.', 
   author: 'Mark Twain',
+  lang: 'el',
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',

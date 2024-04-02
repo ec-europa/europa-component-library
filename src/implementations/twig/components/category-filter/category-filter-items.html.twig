@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "id": (string) (default: randomized string): Unique id for the category filter
   - "items": (associative array) (default: {}): The menu items - format: [
     {
       "label": "Item 1",
@@ -25,54 +26,62 @@
 {% set _items = items|default({}) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _level = level|default(1) %}
-{% set _sub_list_attributes = '' %}
+{% set _sub_list_item_attributes = '' %}
 
 {% if _items is defined and _items is not empty %}
-{% for item in _items %}
-  {% set _has_children = false %}
-  {% set _sub_list_item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
-  {% if item.children is defined and item.children is not empty and item.children is iterable %}
-    {% set _sub_list_attributes = ' aria-expanded="false"' %}
-    {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--has-children' %}
-    {% set _has_children = true %}
-  {% endif %}
-  <li class="ecl-category-filter__list-item"{{ _sub_list_attributes }}>
-    <a href="{{ item.path }}" class="{{ _sub_list_item_class }}">
-    {% if _level != 1 and _has_children %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          name: 'solid-arrow',
-          size: 'm',
-          transform: 'rotate-90',  
-          path: _icon_path,
-        },
-        extra_classes: 'ecl-category-filter__item-icon',
-      } only %}
+  {% for item in _items %}
+    {% set _has_children = false %}
+    {% set _item_id = id ~ '-' ~ loop.index %}
+    {% set _sub_list_item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
+    {% if item.children is defined and item.children is not empty and item.children is iterable %}
+      {% set _sub_list_item_attributes = 'aria-expanded="false" aria-controls="' ~ _item_id ~ '"' %}
+      {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--has-children' %}
+      {% set _has_children = true %}
     {% endif %}
-    {{ item.label }}
-    {% if _level == 1 and _has_children %}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          name: 'corner-arrow',
-          size: 'xs',
-          transform: 'rotate-180',  
-          path: _icon_path,
-        },
-        extra_classes: 'ecl-category-filter__item-icon',
-      } only %}
-    {% endif %}
-    </a>
-    {% if _has_children %}
-    <ul class="ecl-category-filter__list">
-      {% include '@ecl/category-filter/category-filter-items.html.twig' with {
-        items: item.children,
-        icon_path: _icon_path,
-        level: _level + 1,
-      } only %}
-    </ul>
-    {% endif %}
-  </li>
-{% endfor %}
+
+    <li class="ecl-category-filter__list-item">
+      {%- if _has_children -%}
+        <button class="{{ _sub_list_item_class }}" {{ _sub_list_item_attributes }}>
+          {%- if _level != 1 -%}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                name: 'solid-arrow',
+                size: 'xs',
+                transform: 'rotate-90',  
+                path: _icon_path,
+              },
+              extra_classes: 'ecl-category-filter__item-icon',
+            } only %}
+          {%- endif -%}
+          {{- item.label -}}
+          {%- if _level == 1 -%}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: {
+                name: 'corner-arrow',
+                size: 'xs',
+                transform: 'rotate-180',  
+                path: _icon_path,
+              },
+              extra_classes: 'ecl-category-filter__item-icon',
+            } only %}
+          {%- endif -%}
+          </button>
+
+          <ul class="ecl-category-filter__list" id="{{ _item_id }}">
+            {% include '@ecl/category-filter/category-filter-items.html.twig' with {
+              items: item.children,
+              icon_path: _icon_path,
+              level: _level + 1,
+              id: _item_id,
+            } only %}
+          </ul>
+      {%- else -%}
+        <a href="{{ item.path }}" class="{{ _sub_list_item_class }}">
+          {{- item.label -}}
+        </a>
+      {%- endif -%}
+    </li>
+  {% endfor %}
 {% endif %}
 
 {% endapply %}

@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-file
 
 ### Parameters
 
+- **"id"** (string) (default: random string)
 - **"icon"** (object) (default: {}): object of type Icon; file type
 - **"variant"** (string) (default: '') Thumbnail
 - **"title"** (string|object) (default: '') Title as plain text or link object
@@ -30,7 +31,6 @@ npm install --save @ecl/twig-component-file
     - "meta" (string) (default: '')
     - "lang" (string) (default: '')
     - "download" (object) (default to the parent download property) object of type Link
-  - "description (string) (default:'')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -68,7 +68,6 @@ npm install --save @ecl/twig-component-file
         transform: 'rotate-180',
       },
     },
-    description: 'Looking for another language which is not on the list? Find out why.',
     items: [
       {
         title: 'български',

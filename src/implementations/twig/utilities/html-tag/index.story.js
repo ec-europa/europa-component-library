@@ -7,6 +7,7 @@ export default {
   parameters: {
     a11y: { disable: true },
     controls: { disable: true },
+    EclNotes: { disable: true },
   },
 };
 
@@ -72,7 +73,7 @@ export const Default = () => `
     <br />
     <div class="ecl">
       <blockquote>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.</p>
         <cite>Someone</cite>
       </blockquote>
     </div>

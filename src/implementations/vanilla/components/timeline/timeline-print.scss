@@ -1,0 +1,50 @@
+/*
+ * Timeline print
+ * @define timeline
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$timeline-print: null !default;
+
+.ecl-timeline {
+  color: map.get($theme, 'color', 'black');
+  font: map.get($theme, 'font-print', 'm');
+  list-style: disc;
+  margin: 0;
+  padding-left: map.get($theme, 'spacing-print', 'l');
+}
+
+.ecl-timeline__item {
+  margin-top: map.get($theme, 'spacing-print', 'm');
+  max-width: var(--max-w);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.ecl-timeline__label {
+  color: map.get($timeline-print, 'label-color');
+  font: map.get($timeline-print, 'label-font');
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+}
+
+.ecl-timeline__title {
+  color: map.get($timeline-print, 'title-color');
+  font: map.get($timeline-print, 'title-font');
+  font-weight: map.get($theme, 'font-weight-print', 'bold');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-timeline__content {
+  color: map.get($timeline-print, 'content-color');
+  font: map.get($timeline-print, 'content-font');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+}
+
+.ecl-timeline__item--toggle {
+  display: none;
+}

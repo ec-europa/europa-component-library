@@ -40,7 +40,7 @@ instance.destroy();
 instance.init();
 ```
 
-For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v3-dev/src/tools/dom-utils/autoinit/README.md).
+For more details regarding ECL's autoInit method, follow the [package's README.md file](https://github.com/ec-europa/europa-component-library/blob/v4-dev/src/tools/dom-utils/autoinit/README.md).
 
 ## Settings
 

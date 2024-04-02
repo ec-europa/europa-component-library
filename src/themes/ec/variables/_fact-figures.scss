@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$fact-figures: (
+  background: var(--c-n-40),
+  shadow: var(--sh-1),
+  border: 1px solid var(--c-st),
+  border-radius: 2px,
+  padding-mobile: var(--s-3xl),
+  padding-desktop: var(--s-3xl),
+  margin-vertical: var(--s-3xl),
+  margin-horizontal: var(--s-2xl),
+  text-color: var(--c-d),
+  value-font-mobile: var(--f-2xl),
+  value-font-desktop: var(--f-3xl),
+  title-font: var(--f-l),
+  title-font-weight: map.get($font-weight, 'regular'),
+  title-margin: var(--s-s),
+  description-font: var(--f-m),
+  description-margin: var(--s-s),
+  view-all-font: var(--f-m),
+  view-all-border-color: var(--c-n),
+  view-all-margin: var(--s-3xl),
+  view-all-padding-mobile: var(--s-xl),
+  view-all-padding-desktop: var(--s-xl),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
+);

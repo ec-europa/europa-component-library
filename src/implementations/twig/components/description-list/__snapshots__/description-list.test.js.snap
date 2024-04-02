@@ -12,194 +12,393 @@ exports[`Description list Default renders correctly 1`] = `
     <dt
       class="ecl-description-list__term"
     >
-      Standard text
+      Label 01
     </dt>
     <dd
       class="ecl-description-list__definition"
     >
-      Lorem ipsum dolor sit amet, 
+      Descriptive text with 
       <a
         class="ecl-link"
         href="/example"
       >
-        consectetur adipiscing elit
+        inline link
       </a>
-      . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      External standalone link
+      Label 02
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <span
-          class="ecl-link__label"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Standalone link
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--2xs ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Links inline
+      Label 03
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 04
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Standalone link
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--2xs ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#external"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 05
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--inline"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 1
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 2
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 3
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 4
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Socials
+      Label 06
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          <use
-            xlink:href="/icons-social-media.svg#facebook-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          facebook
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#twitter-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          twitter
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#mastodon-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          mastodon
-        </span>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Very very very very very very very very very very very very veryveryveryvery long standalone link that wraps in multiple lines
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Taxonomy list
+      Label 07
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#facebook"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 1
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#twitter"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 2
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#mastodon"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 3
+            </span>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 08
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--tag"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 09
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-      data-ecl-description-list-collapsible=""
     >
-      <span
-        class="ecl-description-list__definition-item"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Taxonomy item 1
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 2
-        </a>
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 3
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 4
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 5
-        </a>
-      </span>
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+      </ul>
     </dd>
   </dl>
 </jest>
@@ -209,194 +408,401 @@ exports[`Description list Default renders correctly in the horizontal variant 1`
 <jest>
   <dl
     class="ecl-description-list ecl-description-list--horizontal"
+    data-ecl-auto-init="DescriptionList"
+    data-ecl-description-list=""
+    data-ecl-description-list-more-label="See all items"
+    data-ecl-description-list-visible-items="2"
   >
     <dt
       class="ecl-description-list__term"
     >
-      Standard text
+      Label 01
     </dt>
     <dd
       class="ecl-description-list__definition"
     >
-      Lorem ipsum dolor sit amet, 
+      Descriptive text with 
       <a
         class="ecl-link"
         href="/example"
       >
-        consectetur adipiscing elit
+        inline link
       </a>
-      . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      External standalone link
+      Label 02
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <span
-          class="ecl-link__label"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Standalone link
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--2xs ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Links inline
+      Label 03
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 04
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Standalone link
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--2xs ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#external"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 05
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--inline"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 1
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 2
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 3
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 4
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Socials
+      Label 06
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          <use
-            xlink:href="/icons-social-media.svg#facebook-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          facebook
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#twitter-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          twitter
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#mastodon-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          mastodon
-        </span>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Very very very very very very very very very very very very veryveryveryvery long standalone link that wraps in multiple lines
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Taxonomy list
+      Label 07
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#facebook"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 1
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#twitter"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 2
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#mastodon"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 3
+            </span>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 08
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--tag"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 09
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
     >
-      <span
-        class="ecl-description-list__definition-item"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Taxonomy item 1
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 2
-        </a>
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 3
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 4
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 5
-        </a>
-      </span>
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+      </ul>
     </dd>
   </dl>
 </jest>
@@ -414,194 +820,393 @@ exports[`Description list Default renders correctly with extra attributes 1`] = 
     <dt
       class="ecl-description-list__term"
     >
-      Standard text
+      Label 01
     </dt>
     <dd
       class="ecl-description-list__definition"
     >
-      Lorem ipsum dolor sit amet, 
+      Descriptive text with 
       <a
         class="ecl-link"
         href="/example"
       >
-        consectetur adipiscing elit
+        inline link
       </a>
-      . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      External standalone link
+      Label 02
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <span
-          class="ecl-link__label"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Standalone link
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--2xs ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Links inline
+      Label 03
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 04
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Standalone link
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--2xs ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#external"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 05
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--inline"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 1
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 2
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 3
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 4
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Socials
+      Label 06
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          <use
-            xlink:href="/icons-social-media.svg#facebook-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          facebook
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#twitter-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          twitter
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#mastodon-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          mastodon
-        </span>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Very very very very very very very very very very very very veryveryveryvery long standalone link that wraps in multiple lines
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Taxonomy list
+      Label 07
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#facebook"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 1
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#twitter"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 2
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#mastodon"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 3
+            </span>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 08
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--tag"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 09
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-      data-ecl-description-list-collapsible=""
     >
-      <span
-        class="ecl-description-list__definition-item"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Taxonomy item 1
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 2
-        </a>
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 3
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 4
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 5
-        </a>
-      </span>
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+      </ul>
     </dd>
   </dl>
 </jest>
@@ -619,194 +1224,393 @@ exports[`Description list Default renders correctly with extra class names 1`] =
     <dt
       class="ecl-description-list__term"
     >
-      Standard text
+      Label 01
     </dt>
     <dd
       class="ecl-description-list__definition"
     >
-      Lorem ipsum dolor sit amet, 
+      Descriptive text with 
       <a
         class="ecl-link"
         href="/example"
       >
-        consectetur adipiscing elit
+        inline link
       </a>
-      . Suspendisse ut sapien condimentum, aliquet turpis sit amet, finibus purus. Donec porttitor iaculis felis ut dapibus. Sed blandit, massa ac suscipit facilisis
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      External standalone link
+      Label 02
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <span
-          class="ecl-link__label"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Standalone link
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--2xs ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#external"
-          />
-        </svg>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Links inline
+      Label 03
+    </dt>
+    <dd
+      class="ecl-description-list__definition"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 04
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <span
+              class="ecl-link__label"
+            >
+              Standalone link
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--2xs ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#external"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 05
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--inline"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-description-list__definition-item"
-        href="/example"
-      >
-        Lorem ipsum dolor sit amet
-      </a>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 1
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 2
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 3
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Standalone link 4
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Socials
+      Label 06
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--link"
-      data-ecl-description-list-collapsible=""
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          <use
-            xlink:href="/icons-social-media.svg#facebook-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          facebook
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#twitter-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          twitter
-        </span>
-      </a>
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-description-list__definition-item"
-        href="/example"
-      >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--s ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons-social-media.svg#mastodon-color"
-          />
-        </svg>
-        <span
-          class="ecl-link__label"
-        >
-          mastodon
-        </span>
-      </a>
+          <a
+            class="ecl-link ecl-link--standalone"
+            href="/example"
+          >
+            Very very very very very very very very very very very very veryveryveryvery long standalone link that wraps in multiple lines
+          </a>
+        </li>
+      </ul>
     </dd>
     <dt
       class="ecl-description-list__term"
     >
-      Taxonomy list
+      Label 07
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--link"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#facebook"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 1
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#twitter"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 2
+            </span>
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link ecl-link--standalone ecl-link--icon"
+            href="/example"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--s ecl-link__icon"
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons-social-media.svg#mastodon"
+              />
+            </svg>
+            <span
+              class="ecl-link__label"
+            >
+              social network 3
+            </span>
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 08
+    </dt>
+    <dd
+      class="ecl-description-list__definition ecl-description-list__definition--tag"
+    >
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
+      >
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Long link tag
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-tag"
+            href="/example"
+          >
+            Link tag
+          </a>
+        </li>
+      </ul>
+    </dd>
+    <dt
+      class="ecl-description-list__term"
+    >
+      Label 09
     </dt>
     <dd
       class="ecl-description-list__definition ecl-description-list__definition--taxonomy"
-      data-ecl-description-list-collapsible=""
     >
-      <span
-        class="ecl-description-list__definition-item"
+      <ul
+        class="ecl-description-list__definition-list"
+        data-ecl-description-list-collapsible=""
       >
-        Taxonomy item 1
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 2
-        </a>
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 3
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        Taxonomy item 4
-      </span>
-      <span
-        class="ecl-description-list__definition-item"
-      >
-        <a
-          class="ecl-link ecl-link--standalone"
-          href="/example"
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
         >
-          Taxonomy item 5
-        </a>
-      </span>
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          Taxonomy item
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+        <li
+          class="ecl-description-list__definition-item"
+        >
+          <a
+            class="ecl-link"
+            href="/example"
+          >
+            Taxonomy item
+          </a>
+        </li>
+      </ul>
     </dd>
   </dl>
 </jest>

@@ -36,6 +36,4 @@ module.exports = {
     path: '/icons.svg',
     name: 'plus',
   },
-  label_expanded: 'Close',
-  label_collapsed: 'Open',
 };

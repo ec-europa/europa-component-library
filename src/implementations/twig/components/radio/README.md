@@ -9,17 +9,15 @@ npm install --save @ecl/twig-component-radio
 ### Parameters:
 
 - **"items"** (array) (default: [])
-  - "id" (string) (default: '')
+  - "id" (string) (default: ''): id of the radio
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "checked" (boolean) (default: false)
   - "required" (boolean) (default: false)
-  - "helper_id" (string) (default: '')
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
 - **"name"** (string) (default: '')
-- **"helper_id"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
 - **"binary"** (boolean) (default: false)
 - **"required"** (boolean) (default: false)
@@ -33,7 +31,6 @@ npm install --save @ecl/twig-component-radio
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/radio/radio-group.html.twig' with { 
-  helper_id: 'radio-default-helper', 
   name: 'radio-default', 
   invalid: false, 
   binary: false, 
@@ -42,7 +39,6 @@ npm install --save @ecl/twig-component-radio
       id: 'radio-default-1', 
       value: 'lu', 
       label: 'Luxembourg', 
-      helper_id: 'helper-default-1', 
       helper_text: 'Help text for option 1', 
       checked: true, 
     }, 
@@ -50,14 +46,12 @@ npm install --save @ecl/twig-component-radio
       id: 'radio-default-2', 
       value: 'be', 
       label: 'Belgium', 
-      helper_id: 'helper-default-2', 
       helper_text: 'Help text for option 2', 
     }, 
     { 
       id: 'radio-default-3', 
       value: 'fr', 
       label: 'France (disabled)', 
-      helper_id: 'helper-default-3', 
       helper_text: 'Help text for option 3', 
       disabled: true, 
     }, 

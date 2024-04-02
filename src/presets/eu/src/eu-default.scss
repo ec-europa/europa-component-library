@@ -6,7 +6,6 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
   $theme: theme.$theme
 );
-
 @use '@ecl/vanilla-component-blockquote/blockquote' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote
@@ -170,6 +169,17 @@
 .ecl blockquote:not([class*='ecl-'], [class*='wt-']),
 .ecl blockquote:is([class*='ecl-u-']) {
   @extend %ecl-blockquote;
+}
+
+.ecl blockquote p:not([class*='ecl-'], [class*='wt-']),
+.ecl blockquote p:is([class*='ecl-u-']) {
+  @extend %ecl-blockquote__citation;
+
+  margin-top: var(--s-m);
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 
   &::before,
   &::after {

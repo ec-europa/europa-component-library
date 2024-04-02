@@ -10,6 +10,7 @@ npm install --save @ecl/twig-component-notification
 
 - **"variant"** (string) (default: ''): could be 'info, 'success', 'warning' or 'error'
 - **"icon"** (object of type "icon") (default: {})
+- **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
 - **"title"** (string) (default: '')
 - **"close"** (object of type "button") (default: {}): close button (optional)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -32,6 +33,7 @@ npm install --save @ecl/twig-component-notification
     name: 'info', 
     size: 'l', 
   }, 
+  sr_icon: 'Information',
   title: 'Information notification', 
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
   close: { 

@@ -22,6 +22,14 @@ describe('Menu', () => {
       return expect(render(dataShort)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a external first level menu item', () => {
+      expect.assertions(1);
+      const dataExternal = JSON.parse(JSON.stringify(dataShort));
+      dataExternal.items[2].external = true;
+
+      return expect(render(dataExternal)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -57,6 +65,12 @@ describe('Menu', () => {
       expect.assertions(1);
 
       return expect(render(dataLong)).resolves.toMatchSnapshot();
+    });
+
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, dataLong)),
+      ).toHaveNoViolations();
     });
   });
 });

@@ -16,12 +16,12 @@ npm install --save @ecl/twig-component-datepicker
 - **"id"** (string) (default: '')
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
-- **"icons_path"**: (string) (default: '')
+- **"icon_path"**: (string) (default: '')
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+- **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker
   - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+  - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 
 ### Example:
 
@@ -32,6 +32,6 @@ npm install --save @ecl/twig-component-datepicker
   name: 'a-name-for-the-input', 
   required: true, 
   type: 'text', 
-  icons_path: '/icons.svg', 
+  icon_path: '/icons.svg', 
 } %} 
 ```

@@ -26,7 +26,6 @@ module.exports = {
     href: exampleLink,
     label: 'English',
     aria_label: 'Change language, current language is English',
-    code: 'en',
     overlay: {
       title: 'Select your language',
       close: {
@@ -272,5 +271,5 @@ module.exports = {
       },
     },
   },
-  icon_file_path: '/icons.svg',
+  icon_path: '/icons.svg',
 };

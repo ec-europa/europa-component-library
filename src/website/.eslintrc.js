@@ -6,7 +6,7 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:react/recommended',
   ],
-  plugins: ['react', 'jsx-a11y'],
+  plugins: ['react', 'jsx-a11y', 'import'],
   env: {
     browser: true,
     node: true,
@@ -26,6 +26,13 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'off',
     'react/no-unstable-nested-components': 'off',
     'react/display-name': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.json', '.svg'],
+      },
+    },
   },
   overrides: [
     {
