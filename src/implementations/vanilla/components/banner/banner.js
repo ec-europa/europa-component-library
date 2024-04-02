@@ -7,7 +7,6 @@ import EventManager from '@ecl/event-manager';
  * @param {String} options.bannerContainer Selector for the banner content
  * @param {String} options.bannerVPadding Optional additional padding
  * @param {String} options.bannerPicture Selector for the banner picture
- * @param {String} options.defaultRatio Set the default aspect ratio
  * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
