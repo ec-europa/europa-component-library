@@ -1145,6 +1145,7 @@ export class Select {
       !this.select.parentNode.contains(e.target)
     ) {
       this.select.classList.remove('ecl-select--active');
+      this.shouldHandleClick = true;
     }
   }
 
