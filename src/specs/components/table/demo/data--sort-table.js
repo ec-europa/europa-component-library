@@ -1,6 +1,7 @@
 module.exports = {
   id: 'table-id',
   sortable: true,
+  caption: 'Table caption',
   label_sort: 'Sort table',
   headers: [
     [

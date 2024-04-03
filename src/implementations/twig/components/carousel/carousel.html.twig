@@ -8,8 +8,6 @@
     - "sr_description" (string) (default: '') screen reader description of the carousel
     - "sr_role" (string) (default: 'carousel') screen reader localized role for the carousel
     - "sr_slide_role" (string) (default: 'slide') screen reader localized role for the slides
-    - "sr_previous" (string) (default: 'Previous slides') screen reader label for previous button
-    - "sr_next" (string) (default: 'Next slides') screen reader label for next button
     - "sr_navigation" (string) (default: 'Go to slide %d') screen reader label for navigation buttons
     - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
     - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
@@ -33,8 +31,6 @@
 {% set _sr_description = sr_description|default('') %}
 {% set _sr_role = sr_role|default('carousel') %}
 {% set _sr_slide_role = sr_slide_role|default('slide') %}
-{% set _sr_previous = sr_previous|default('Previous slides') %}
-{% set _sr_next = sr_next|default('Next slides') %}
 {% set _sr_navigation = sr_navigation|default('Go to slide %d') %}
 {% set _sr_play = sr_play|default('Play carousel') %}
 {% set _sr_pause = sr_pause|default('Pause carousel') %}
@@ -114,20 +110,6 @@
     </div>
   </div>
 
-  {% include '@ecl/button/button.html.twig' with {
-    hide_label: true,
-    label: _sr_previous,
-    type: 'button',
-    variant: 'ghost',
-    extra_classes: 'ecl-carousel__prev',
-    icon: {
-      path: _icon_path,
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-270',
-    },
-  } only %}
-
   <div class="ecl-carousel__container">
     <div class="ecl-carousel__slides" id="ecl-carousel-slider">
     {% for item in _items %}
@@ -144,20 +126,6 @@
     {% endfor %}
     </div>
   </div>
-  
-  {% include '@ecl/button/button.html.twig' with {
-    hide_label: true,
-    label: _sr_next,
-    type: 'button',
-    variant: 'ghost',
-    extra_classes: 'ecl-carousel__next',
-    icon: {
-      path: _icon_path,
-      name: 'corner-arrow',
-      size: 'm',
-      transform: 'rotate-90',
-    },
-  } only %}
 </section>
 {% endif %}
 

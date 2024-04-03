@@ -126,6 +126,7 @@ const getArgTypes = () => {
     type: { name: 'boolean' },
     description:
       'Hide button label, keeping it only for screen readers. This only works if an icon is used',
+    if: { arg: 'icon_name', neq: 'none' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -146,7 +147,7 @@ const prepareData = (data, args) => {
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
-    data.icon.size = system === 'eu' ? 's' : 'xs';
+    data.icon.size = 'xs';
     data.icon.path = 'icon.svg';
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';
