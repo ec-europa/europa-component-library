@@ -1193,6 +1193,7 @@ export class Select {
         if (this.multiple) {
           e.preventDefault();
           this.handleToggle(e);
+          this.search.focus();
         }
         break;
 
