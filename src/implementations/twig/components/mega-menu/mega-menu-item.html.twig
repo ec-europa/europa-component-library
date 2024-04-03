@@ -42,6 +42,7 @@
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
 {% set _mega_class = 'ecl-mega-menu__mega' %}
 {% set _see_all_label = see_all_label|default('') %}
+{% set _can_be_external = true %}
 {% set _icon = {} %}
 
 {# Internal logic - Process properties #}
@@ -53,6 +54,7 @@
 {% endif %}
 
 {% if _item.container is defined and _item.container is not empty %}
+  {% set _can_be_external = false %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-container' %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-container aria-haspopup aria-expanded="false"' %}
 {% endif %}
@@ -73,6 +75,7 @@
 {% endif %}
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
+  {% set _can_be_external = false %}
   {% set _icon = {
     name: 'corner-arrow',
     transform: 'rotate-90',
@@ -89,7 +92,7 @@
       label: _item.label,
       path: _item.path,
       icon_path: icon_path,
-      external: _item.external|default(false),
+      external: _can_be_external ? _item.external|default(false) : false,
       icon_position: 'after',
     },
     icon: _icon,
@@ -119,6 +122,7 @@
   >
     <ul class="{{ _sublist_class }}">
     {% for child in _item.children %}
+      {% set _can_be_external = true %}
       {% set _icon = {} %}
       {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
       {% set _subitem_class = 'ecl-mega-menu__subitem' %}
@@ -137,6 +141,7 @@
         {% endif %}
       {% endif %}
       {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
+        {% set _can_be_external = false %}
         {% set _icon = {
           name: 'corner-arrow',
           transform: 'rotate-90',
@@ -153,7 +158,7 @@
             type: 'standalone',
             label: child.label,
             path: child.path,
-            external: child.external,
+            external: _can_be_external ? child.external|default(false) : false,
             icon_path: _icon_path,
           },
           icon: _icon,

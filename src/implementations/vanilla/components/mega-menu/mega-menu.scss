@@ -456,16 +456,19 @@ $mega-menu: null !default;
         outline-color: map.get($theme, 'color', 'white');
         outline-offset: 0;
       }
-
-      .ecl-icon {
-        transform: rotate(180deg);
-      }
     }
 
     &.ecl-mega-menu--rtl {
       .ecl-mega-menu__parent-link .ecl-icon,
       .ecl-mega-menu__see-all .ecl-icon {
         transform: rotate(0);
+      }
+    }
+
+    .ecl-mega-menu__item--has-children,
+    .ecl-mega-menu__item--has-container {
+      .ecl-mega-menu__link .ecl-icon {
+        transform: rotate(180deg);
       }
     }
 
