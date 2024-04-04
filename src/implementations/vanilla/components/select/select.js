@@ -1140,13 +1140,6 @@ export class Select {
       this.searchContainer.style.display = 'none';
       this.input.classList.remove('ecl-select--active');
       this.input.setAttribute('aria-expanded', false);
-    } else if (
-      e.target &&
-      !this.selectMultiple &&
-      !this.select.parentNode.contains(e.target)
-    ) {
-      this.select.classList.remove('ecl-select--active');
-      this.shouldHandleClick = true;
     }
   }
 
