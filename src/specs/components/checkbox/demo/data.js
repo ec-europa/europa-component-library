@@ -18,6 +18,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   input: {
     id: 'checkbox-default',
     input_type: 'checkbox',
@@ -28,6 +29,7 @@ module.exports = {
       name: 'error',
       size: 'm',
     },
+    sr_invalid_icon: 'Error',
     items: [
       {
         checked: true,

@@ -8,6 +8,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   required_text: '*',
   optional_text: '(optional)',
   icon_path: '/icons.svg',

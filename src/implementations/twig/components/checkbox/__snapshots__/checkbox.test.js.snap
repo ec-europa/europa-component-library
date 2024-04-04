@@ -805,10 +805,14 @@ exports[`Checkbox Default single checkbox renders correctly when invalid 1`] = `
     class="ecl-feedback-message"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden="false"
       class="ecl-icon ecl-icon--m ecl-feedback-message__icon"
       focusable="false"
+      role="img"
     >
+      <title>
+        Error
+      </title>
       <use
         xlink:href="/icons.svg#error"
       />

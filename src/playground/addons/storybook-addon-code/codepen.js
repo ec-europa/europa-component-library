@@ -4,7 +4,7 @@ const system = getSystem();
 
 const baseUrl =
   ['ec.europa.eu', 'localhost'].indexOf(window.location.hostname) !== -1
-    ? `https://v4--europa-component-library.netlify.app/playground/${system}`
+    ? `https://v4-dev--europa-component-library.netlify.app/playground/${system}`
     : window.location.origin + window.location.pathname;
 
 const replaceLogo = (code) =>
