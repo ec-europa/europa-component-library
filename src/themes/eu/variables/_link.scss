@@ -3,17 +3,17 @@
 
 $link: (
   color: var(--c-p),
-  color-hover: var(--c-p-140),
+  color-hover: var(--c-p-130),
   color-visited: var(--c-p),
-  color-active: var(--c-p),
+  color-active: var(--c-d),
   outline-color: var(--c-p),
   outline-width: 2px,
   outline-radius: 2px,
   inverted: (
     color: var(--c-a),
     color-hover: var(--c-a-30),
-    color-visited: vvar(--c-a),
-    color-active: var(--c-a),
+    color-visited: var(--c-a),
+    color-active: map.get($color, 'white'),
     outline-color: var(--c-a),
   ),
   button: (
