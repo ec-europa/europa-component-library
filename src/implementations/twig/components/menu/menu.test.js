@@ -53,6 +53,30 @@ describe('Menu', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra attributes for the items', () => {
+      expect.assertions(1);
+
+      const withItemExtraAttributes = JSON.parse(JSON.stringify(dataShort));
+      withItemExtraAttributes.items[1].extra_attributes = [
+        { name: 'test-item', value: 'testing value' },
+      ];
+
+      return expect(render(withItemExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes for the sub-items', () => {
+      expect.assertions(1);
+
+      const withSubItemExtraAttributes = JSON.parse(JSON.stringify(dataShort));
+      withSubItemExtraAttributes.items[1].children[0].extra_attributes = [
+        { name: 'test-subitem', value: 'testing value' },
+      ];
+
+      return expect(
+        render(withSubItemExtraAttributes),
+      ).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataShort)),
