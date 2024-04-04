@@ -6,6 +6,7 @@
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
+  - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
   - "item_required_text" (string) (default: *)
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
@@ -22,6 +23,7 @@
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _invalid_icon = invalid_icon|default({}) %}
+{% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _required = required|default(false) %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _extra_attributes = extra_attributes|default([{}]) %}
@@ -37,6 +39,10 @@
   {% if _invalid_icon is not empty and _invalid_text is not empty %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: _invalid_icon,
+      as_image: true,
+      extra_accessibility: not _sr_invalid_icon ? {} : {
+        title: _sr_invalid_icon,
+      },
       extra_classes: 'ecl-feedback-message__icon',
     } only %}
   {% endif %}
