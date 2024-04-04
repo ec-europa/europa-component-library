@@ -156,7 +156,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   box-sizing: border-box;
   color: map.get($link, #{$variant}, 'color');
   display: inline-block;
-  font: var(--f-m);
+  font: map.get($link, 'button', 'font');
   min-width: $min-width;
   padding: calc(
       #{map.get($link, 'button', 'padding-vertical')} - #{map.get(
