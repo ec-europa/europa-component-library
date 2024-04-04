@@ -44,6 +44,55 @@ describe('Mega Menu', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra attributes for the fist level items', () => {
+      expect.assertions(1);
+
+      const withItemExtraAttributes = JSON.parse(JSON.stringify(data));
+      withItemExtraAttributes.items[1].extra_attributes = [
+        { name: 'test-item', value: 'testing value' },
+      ];
+
+      return expect(render(withItemExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes for the second level items', () => {
+      expect.assertions(1);
+
+      const withSubItemExtraAttributes = JSON.parse(JSON.stringify(data));
+      withSubItemExtraAttributes.items[1].children[0].extra_attributes = [
+        { name: 'test-subitem', value: 'testing value' },
+      ];
+
+      return expect(
+        render(withSubItemExtraAttributes),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes for the featured columns items', () => {
+      expect.assertions(1);
+
+      const withFeaturedExtraAttributes = JSON.parse(JSON.stringify(data));
+      withFeaturedExtraAttributes.items[1].children[0].featured.items[1].extra_attributes =
+        [{ name: 'test-featured', value: 'testing value' }];
+
+      return expect(
+        render(withFeaturedExtraAttributes),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra attributes for the see all links', () => {
+      expect.assertions(1);
+
+      const withSeeAllExtraAttributes = JSON.parse(JSON.stringify(data));
+      withSeeAllExtraAttributes.items[1].children[0].see_all_attributes = [
+        { name: 'test-see-all', value: 'testing value' },
+      ];
+
+      return expect(
+        render(withSeeAllExtraAttributes),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with external items in the first level', () => {
       expect.assertions(1);
       // We test here the external icon on parent links (1) and items with a container (5)
