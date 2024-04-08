@@ -15,19 +15,29 @@
       "is_current": (boolean) (optional),
       "external": (boolean) (optional),
       "trigger_aria_label" (string),
-      "link_aria_label" (string)
+      "link_aria_label" (string),
+      "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
       "container": (string) Empty container to be filled in with content
       "featured" (oject) (optional) {
-        "title": (string) Title of the featured panel
-        "content": (string) Top content of the featured panel
-        "items": (associative array) (optional) Object of type ECL link
+        - "title": (string) Title of the featured panel
+        - "content": (string) Top content of the featured panel
+        - "items": (associative array) (optional) Object of type ECL link
       }
       "children": (associative array) (optional): [
         {
           "label": (string) (default: '')
           "path": (string) (default: '')
           "is_current": (boolean) (optional),
-          "external": (boolean)
+          "external": (boolean),
+          "see_all" (boolean)
+          "see_all_attributes" (optional) (array) (default: [])
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+          "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
         }
       ]
     }

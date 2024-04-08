@@ -875,9 +875,10 @@ export class Select {
    * Private method to handle the focus switch.
    *
    * @param {upOrDown}
+   * @param {loop}
    * @private
    */
-  #moveFocus(upOrDown) {
+  #moveFocus(upOrDown, loop = true) {
     const activeEl = document.activeElement;
     const hasGroups = activeEl.parentElement.parentElement.classList.contains(
       'ecl-select__multiple-group',
@@ -904,13 +905,15 @@ export class Select {
         nextSiblings[0].focus();
       } else {
         // eslint-disable-next-line no-lonely-if
-        if (
-          this.dropDownToolbar &&
-          this.dropDownToolbar.style.display === 'flex'
-        ) {
-          this.dropDownToolbar.firstChild.focus();
-        } else {
-          this.input.focus();
+        if (loop) {
+          if (
+            this.dropDownToolbar &&
+            this.dropDownToolbar.style.display === 'flex'
+          ) {
+            this.dropDownToolbar.firstChild.focus();
+          } else {
+            this.input.focus();
+          }
         }
       }
     } else {
@@ -1258,7 +1261,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        this.#moveFocus('down');
+        this.#moveFocus('down', false);
         break;
 
       case 'ArrowUp':
