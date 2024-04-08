@@ -3,6 +3,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   icon_path: '/icons.svg',
+  sr_video_label: 'Video',
   items: [
     {
       // Image
