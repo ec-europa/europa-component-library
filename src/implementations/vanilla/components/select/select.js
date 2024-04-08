@@ -14,7 +14,7 @@ const iconSvgAllCornerArrow =
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**
- * This API mostly refers to the multiple select, in the default select only three methods are actually used:
+ * This API mostly refers to the multiple select, in the default select only two methods are actually used:
  * handleKeyboardOnSelect() and handleOptgroup().
  *
  * For the multiple select there are multiple labels contained in this component. You can set them in 2 ways:
@@ -1161,9 +1161,9 @@ export class Select {
 
       case ' ':
       case 'Enter':
-        this.handleToggle(e);
         if (this.multiple) {
           e.preventDefault();
+          this.handleToggle(e);
           this.search.focus();
         }
         break;
