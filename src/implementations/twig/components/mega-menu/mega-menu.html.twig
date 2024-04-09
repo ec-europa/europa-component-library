@@ -1,0 +1,161 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "id": (string) (default: random): Unique id for the menu
+  - "title": (string) (default: ''): Used in the inner container aria label
+  - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
+  - "close": (associative array) (default: {}): Close button, using ECL Button structure
+  - "back_label": (string): (default: ''): Back button label
+  - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "items": (array) (default: []): The menu items - format: [
+    {
+      "label": (string) (default: '')
+      "path": (string) (default: '')
+      "is_current": (boolean) (optional),
+      "external": (boolean) (optional),
+      "trigger_aria_label" (string),
+      "link_aria_label" (string),
+      "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+      "container": (string) Empty container to be filled in with content
+      "featured" (oject) (optional) {
+        - "title": (string) Title of the featured panel
+        - "content": (string) Top content of the featured panel
+        - "items": (associative array) (optional) Object of type ECL link
+      }
+      "children": (associative array) (optional): [
+        {
+          "label": (string) (default: '')
+          "path": (string) (default: '')
+          "is_current": (boolean) (optional),
+          "external": (boolean),
+          "see_all" (boolean)
+          "see_all_attributes" (optional) (array) (default: [])
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+          "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+        }
+      ]
+    }
+  ],
+  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
+  - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
+  - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default(random()) %}
+{% set _title = title|default('') %}
+{% set _back_label = back_label|default('') %}
+{% set _toggle = toggle|default({}) %}
+{% set _close = close|default({}) %}
+{% set _items = items|default([{}]) %}
+{% set _css_class = 'ecl-mega-menu' %}
+{% set _extra_attributes = '' %}
+{% set _see_all_label = see_all_label|default('') %}
+{% set _icon_path = icon_path|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<nav
+  class="{{ _css_class }}"
+  data-ecl-mega-menu
+  data-ecl-auto-init="MegaMenu"
+  {%- if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty -%}
+    data-ecl-mega-menu-label-open="{{ _toggle.link.label }}"
+  {%- endif -%}
+  {%- if _close is not empty and _close.label is defined and _close.label is not empty -%}
+    data-ecl-mega-menu-label-close="{{ _close.label }}"
+  {%- endif -%}
+  aria-expanded="false"
+  role="navigation"
+  id={{ _id }}
+  {{- _extra_attributes|raw -}}
+>
+  <div class="ecl-mega-menu__overlay"></div>
+  <div class="ecl-container ecl-mega-menu__container">
+    {%- if _toggle is not empty -%}
+      {% set _toggle_icon = {} %}
+      {% if _toggle.icon is defined %}
+        {% if _close is not empty and _close.icon is not empty %}
+          {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
+        {% else %}
+          {% set _toggle_icon = _toggle.icon %}
+        {% endif %}
+      {% endif %}
+      {% include '@ecl/link/link.html.twig' with _toggle|merge({
+        link: _toggle.link|merge({
+          type: 'standalone',
+          icon_path: _icon_path,
+          icon_position: 'before',
+        }),
+        icon: _toggle_icon,
+        extra_classes: 'ecl-button ecl-button--tertiary ecl-mega-menu__open',
+        extra_attributes: [{
+          name: 'data-ecl-mega-menu-open',
+        }],
+      }) only %}
+    {%- endif -%}
+
+    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application" aria-label="{{ _title }}">
+      <header class="ecl-mega-menu__inner-header">
+        {%- if _back_label is not empty -%}
+          {% include '@ecl/button/button.html.twig' with ({
+            type: 'submit',
+            variant: 'ghost',
+            label: _back_label,
+            icon: {
+              path: _icon_path,
+              name: 'corner-arrow',
+              size: 'xs',
+              transform: 'rotate-270',
+            },
+            icon_position: 'before',
+            extra_classes: 'ecl-mega-menu__back',
+            extra_attributes: [{
+              name: 'data-ecl-mega-menu-back',
+            }],
+          }) only %}
+        {%- endif -%}
+      </header>
+      
+      <ul class="ecl-mega-menu__list" data-ecl-menu-list>
+      {% if _items is not empty and _items is iterable %}
+        {% for key, item in _items %}
+          {% if item is defined and item is not empty %}
+            {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              item: item,
+              id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
+              icon_path: _icon_path,
+              see_all_label: _see_all_label,
+            } only %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      </ul>
+    </section>
+  </div>
+</nav>
+
+{% endapply %}

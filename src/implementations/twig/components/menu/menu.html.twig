@@ -13,13 +13,20 @@
       "label": (string) (default: '')
       "path": (string) (default: '')
       "is_current": (boolean) (optional),
+      "external": (boolean) (optional),
       "trigger_aria_label" (string),
+      "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
       "children": (associative array) (optional): [
         {
           "label": (string) (default: '')
           "path": (string) (default: '')
           "is_current": (boolean) (optional),
           "external": (boolean)
+          "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+            - "name" (string) Attribute name, eg. 'data-test'
+            - "value" (optional) (string) Attribute value, eg: 'data-test-1'
         }
       ]
     }
@@ -53,6 +60,8 @@
 {% set _icon_path = icon_path|default('') %}
 {% set _max_lines = max_lines|default(2) %}
 
+{# Internal logic - Process properties #}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -72,19 +81,34 @@
   data-ecl-menu
   data-ecl-menu-max-lines="{{ _max_lines }}"
   data-ecl-auto-init="Menu"
+  {% if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty %}
+    data-ecl-menu-label-open="{{ _toggle.link.label }}"
+  {% endif %}
+  {% if _close is not empty and _close.label is defined and _close.label is not empty %}
+    data-ecl-menu-label-close="{{ _close.label }}"
+  {% endif %}
   aria-expanded="false"
   role="navigation"
   {{ _extra_attributes|raw }}
 >
-  <div class="ecl-menu__overlay" data-ecl-menu-overlay></div>
+  <div class="ecl-menu__overlay"></div>
   <div class="ecl-container ecl-menu__container">
     {% if _toggle is not empty %}
+      {% set _toggle_icon = {} %}
+      {% if _toggle.icon is defined %}
+        {% if _close is not empty and _close.icon is defined %}
+          {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
+        {% else %}
+          {% set _toggle_icon = _toggle.icon %}
+        {% endif %}
+      {% endif %}
       {% include '@ecl/link/link.html.twig' with _toggle|merge({
         link: _toggle.link|merge({
           type: 'standalone',
           icon_path: _icon_path,
           icon_position: 'before',
         }),
+        icon: _toggle_icon,
         extra_classes: 'ecl-button ecl-button--tertiary ecl-menu__open',
         extra_attributes: [{
           name: 'data-ecl-menu-open',

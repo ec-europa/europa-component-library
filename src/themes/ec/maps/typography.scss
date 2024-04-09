@@ -16,11 +16,6 @@ $font-size: (
   '2xl': 1.75rem,
   '3xl': 2rem,
   '4xl': 2.5rem,
-
-  // TODO: Old font sizes, to be removed once components are updated
-  '2xs': 0.625rem,
-  '5xl': 2.25rem,
-  '6xl': 2.625rem,
 ) !default;
 $line-height: (
   'xs': 1.25rem,
@@ -31,11 +26,6 @@ $line-height: (
   '2xl': 2.5rem,
   '3xl': 2.75rem,
   '4xl': 3rem,
-
-  // TODO: Old line height, to be removed once components are updated
-  '2xs': 1rem,
-  '5xl': 2.75rem,
-  '6xl': 3.25rem,
 ) !default;
 $font-weight: (
   'regular': 400,
@@ -68,20 +58,6 @@ $font: (
       $font-size,
       '4xl'
     ) + '/' + map.get($line-height, '4xl')} #{map.get($font-family, 'default')},
-
-  // TODO: Old font, to be removed once components are updated
-  '2xs': normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      '2xs'
-    ) + '/' + map.get($line-height, '2xs')} #{map.get($font-family, 'default')},
-  '5xl': normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      '5xl'
-    ) + '/' + map.get($line-height, '5xl')} #{map.get($font-family, 'default')},
-  '6xl': normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      '6xl'
-    ) + '/' + map.get($line-height, '6xl')} #{map.get($font-family, 'default')},
 ) !default;
 
 // Print
@@ -104,11 +80,6 @@ $font-size-print: (
   '2xl': 18.38pt,
   '3xl': 21pt,
   '4xl': 26.5pt,
-
-  // TODO: Old font sizes, to be removed once components are updated
-  '2xs': 6.56pt,
-  '5xl': 23.63pt,
-  '6xl': 27.56pt,
 ) !default;
 $line-height-print: (
   'xs': 15pt,
@@ -119,11 +90,6 @@ $line-height-print: (
   '2xl': 30pt,
   '3xl': 33pt,
   '4xl': 36pt,
-
-  // TODO: Old line height, to be removed once components are updated
-  '2xs': 12pt,
-  '5xl': 33pt,
-  '6xl': 39pt,
 ) !default;
 $font-weight-print: (
   'regular': 400,
@@ -184,113 +150,6 @@ $font-print: (
       '4xl'
     ) + '/' + map.get($line-height-print, '4xl')} #{map.get(
       $font-family-print,
-      'default'
-    )},
-
-  // TODO: Old font, to be removed once components are updated
-  '2xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      '2xs'
-    ) + '/' + map.get($line-height-print, '2xs')} #{map.get(
-      $font-family-print,
-      'default'
-    )},
-  '5xl': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      '5xl'
-    ) + '/' + map.get($line-height-print, '5xl')} #{map.get(
-      $font-family-print,
-      'default'
-    )},
-  '6xl': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      '6xl'
-    ) + '/' + map.get($line-height-print, '6xl')} #{map.get(
-      $font-family-print,
-      'default'
-    )},
-) !default;
-
-// TODO: remove what is below when all components are updated
-$line-height-prolonged: (
-  'xs': 1.25rem,
-  's': 1.25rem,
-  'm': 1.5rem,
-  'l': 1.75rem,
-  'xl': 1.75rem,
-) !default;
-$font-prolonged: (
-  'xs': normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      'xs'
-    ) + '/' + map.get($line-height-prolonged, 'xs')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  's': normal normal map.get($font-weight, 'regular') #{map.get($font-size, 's') +
-    '/' + map.get($line-height-prolonged, 's')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'm': normal normal map.get($font-weight, 'regular') #{map.get($font-size, 'm') +
-    '/' + map.get($line-height-prolonged, 'm')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'l': normal normal map.get($font-weight, 'regular') #{map.get($font-size, 'l') +
-    '/' + map.get($line-height-prolonged, 'l')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'xl': normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      'xl'
-    ) + '/' + map.get($line-height-prolonged, 'xl')} #{map.get(
-      $font-family,
-      'default'
-    )},
-) !default;
-$line-height-prolonged-print: (
-  'xs': 15pt,
-  's': 15pt,
-  'm': 15pt,
-  'l': 18pt,
-  'xl': 21pt,
-) !default;
-$font-prolonged-print: (
-  'xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      'xs'
-    ) + '/' + map.get($line-height-prolonged-print, 'xs')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  's': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      's'
-    ) + '/' + map.get($line-height-prolonged-print, 's')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'm': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      'm'
-    ) + '/' + map.get($line-height-prolonged-print, 'm')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'l': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      'l'
-    ) + '/' + map.get($line-height-prolonged-print, 'l')} #{map.get(
-      $font-family,
-      'default'
-    )},
-  'xl': normal normal map.get($font-weight-print, 'regular') #{map.get(
-      $font-size-print,
-      'xl'
-    ) + '/' + map.get($line-height-prolonged-print, 'xl')} #{map.get(
-      $font-family,
       'default'
     )},
 ) !default;

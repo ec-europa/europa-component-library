@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-popover
 - **"id"** (string) (default: '')
 - **toggle** (associative array) (default: {}): Popover toggle element, following ECL Link structure
 - **links** (array) (default: []): Array of ECL Links
+- **close** (object of type "button") (default: {}): close button (optional)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -39,6 +40,15 @@ npm install --save @ecl/twig-component-popover
       name: 'share',
       size: 'fluid',
     },
+  }, 
+  close: { 
+    label: "Close", 
+    icon: { 
+      path: "/icons.svg", 
+      name: "close", 
+      size: "m" 
+    }, 
+    hide_label: true
   },
   links: [
     {

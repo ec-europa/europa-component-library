@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$social-media-share: (
+  background-color: map.get($color, 'white'),
+  border-radius: 0,
+  main-border: 0,
+  title-color: var(--c-d),
+);

@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -6,7 +7,6 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {String} options.bannerContainer Selector for the banner content
  * @param {String} options.bannerVPadding Optional additional padding
  * @param {String} options.bannerPicture Selector for the banner picture
- * @param {String} options.defaultRatio Set the default aspect ratio
  * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
@@ -27,6 +27,15 @@ export class Banner {
     return banner;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event Banner#onCtaClick
+   * @memberof Banner
+   */
+  supportedEvents = ['onCtaClick'];
+
   constructor(
     element,
     {
@@ -35,7 +44,6 @@ export class Banner {
       bannerPicture = '[data-ecl-banner-image]',
       breakpoint = '996',
       attachResizeListener = true,
-      defaultRatio = '4/1',
       maxIterations = 10,
     } = {},
   ) {
@@ -47,6 +55,8 @@ export class Banner {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
+
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
@@ -54,8 +64,10 @@ export class Banner {
     this.bannerImage = this.bannerPicture
       ? queryOne('img', this.bannerPicture)
       : false;
+    this.bannerCTA = this.bannerPicture
+      ? queryOne('.ecl-banner__cta', this.element)
+      : false;
     this.breakpoint = breakpoint;
-    this.defaultRatio = defaultRatio;
     this.attachResizeListener = attachResizeListener;
     this.maxIterations = maxIterations;
 
@@ -78,12 +90,61 @@ export class Banner {
     }
     ECL.components = ECL.components || new Map();
 
+    this.defaultRatio = () => {
+      if (this.element.classList.contains('ecl-banner--xs')) {
+        return '6/1';
+      }
+      if (this.element.classList.contains('ecl-banner--s')) {
+        return '5/1';
+      }
+      if (this.element.classList.contains('ecl-banner--l')) {
+        return '3/1';
+      }
+      return '4/1';
+    };
+
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+
+    if (this.bannerCTA) {
+      this.bannerCTA.addEventListener('click', (e) => this.handleCtaClick(e));
+    }
+
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Banner
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onCtaClick' event
+   * banner.on('onCtaClick', (event) => {
+   *   console.log('The cta was clicked', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Banner
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -119,7 +180,6 @@ export class Banner {
     );
     const [denominator, numerator] = ratio.split('/').map(Number);
     const currentHeight = (bannerWidth * numerator) / denominator;
-
     if (bannerHeight > currentHeight) {
       if (this.bannerImage) {
         this.bannerImage.style.aspectRatio = 'auto';
@@ -137,7 +197,7 @@ export class Banner {
     if (this.bannerImage) {
       this.waitForAspectRatioToBeDefined();
     } else {
-      this.setHeight(this.defaultRatio);
+      this.setHeight(this.defaultRatio());
     }
   }
 
@@ -177,6 +237,23 @@ export class Banner {
   }
 
   /**
+   * Triggers a custom event when clicking on the cta.
+   *
+   * @param {e} Event
+   * @fires Banner#onCtaClick
+   */
+  handleCtaClick(e) {
+    let href = null;
+    const anchor = e.target.closest('a');
+    if (anchor) {
+      href = anchor.getAttribute('href');
+    }
+
+    const eventData = { item: this.bannerCTA, target: href || e.target };
+    this.trigger('onCtaClick', eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -185,6 +262,9 @@ export class Banner {
     ECL.components.delete(this.element);
     if (this.attachResizeListener) {
       window.removeEventListener('resize', this.handleResize);
+    }
+    if (this.bannerCTA) {
+      this.bannerCTA.removeEventListener('click', this.handleCtaClick);
     }
   }
 }

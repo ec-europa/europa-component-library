@@ -8,6 +8,11 @@ exports[`Table Default renders correctly 1`] = `
     <table
       class="ecl-table"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -16,26 +21,31 @@ exports[`Table Default renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -230,6 +240,11 @@ exports[`Table Default renders correctly with extra attributes 1`] = `
       data-test="data-test-value"
       data-test-1="data-test-value-1"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -238,26 +253,31 @@ exports[`Table Default renders correctly with extra attributes 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -450,6 +470,11 @@ exports[`Table Default renders correctly with extra class names 1`] = `
     <table
       class="ecl-table custom-table--test"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -458,26 +483,31 @@ exports[`Table Default renders correctly with extra class names 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -670,6 +700,11 @@ exports[`Table Default renders correctly with row extra attributes 1`] = `
     <table
       class="ecl-table"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -678,26 +713,31 @@ exports[`Table Default renders correctly with row extra attributes 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -900,6 +940,11 @@ exports[`Table Default renders correctly with row extra classes 1`] = `
     <table
       class="ecl-table"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -908,26 +953,31 @@ exports[`Table Default renders correctly with row extra classes 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -1120,6 +1170,11 @@ exports[`Table Multi renders correctly 1`] = `
     <table
       class="ecl-table"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -1128,22 +1183,29 @@ exports[`Table Multi renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            rowspan="2"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            rowspan="2"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
             colspan="2"
+            scope="colgroup"
           >
             Extra information
           </th>
           <th
             class="ecl-table__header"
+            rowspan="2"
+            scope="col"
           >
             Location
           </th>
@@ -1153,23 +1215,16 @@ exports[`Table Multi renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
-          />
-          <th
-            class="ecl-table__header"
-          />
-          <th
-            class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
-          <th
-            class="ecl-table__header"
-          />
         </tr>
       </thead>
       <tbody
@@ -1364,6 +1419,11 @@ exports[`Table Simple renders correctly 1`] = `
     <table
       class="ecl-table ecl-table--simple"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -1372,26 +1432,31 @@ exports[`Table Simple renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>
@@ -1585,7 +1650,13 @@ exports[`Table Sort table renders correctly 1`] = `
       class="ecl-table"
       data-ecl-auto-init="Table"
       data-ecl-table=""
+      data-ecl-table-sort-label="Sort table"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -1595,24 +1666,31 @@ exports[`Table Sort table renders correctly 1`] = `
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            rowspan="2"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            rowspan="2"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
             colspan="2"
+            scope="colgroup"
           >
             Extra information
           </th>
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            rowspan="2"
+            scope="col"
           >
             Location
           </th>
@@ -1622,25 +1700,18 @@ exports[`Table Sort table renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
-          />
-          <th
-            class="ecl-table__header"
-          />
-          <th
-            class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
             data-ecl-table-sort-toggle=""
+            scope="col"
           >
             Type of contract
           </th>
-          <th
-            class="ecl-table__header"
-          />
         </tr>
       </thead>
       <tbody
@@ -1835,6 +1906,11 @@ exports[`Table Zebra renders correctly 1`] = `
     <table
       class="ecl-table ecl-table--zebra"
     >
+      <caption
+        class="ecl-table__caption"
+      >
+        Table caption
+      </caption>
       <thead
         class="ecl-table__head"
       >
@@ -1843,26 +1919,31 @@ exports[`Table Zebra renders correctly 1`] = `
         >
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Job title
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             EFSI finance approved by EIB
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Location
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Organization
           </th>
           <th
             class="ecl-table__header"
+            scope="col"
           >
             Type of contract
           </th>

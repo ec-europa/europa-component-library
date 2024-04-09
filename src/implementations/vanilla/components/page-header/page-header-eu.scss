@@ -1,6 +1,6 @@
 /**
- * Page header
- * @define page-header; weak
+ * Page header EU
+ * @define page-header
  */
 
 @use 'sass:map';
@@ -14,15 +14,18 @@ $page-header: null !default;
   background-color: map.get($theme, 'color', 'white');
   margin: 0;
 
-  .ecl-container > div:first-of-type,
-  .ecl-container > :first-child:not(.ecl-page-header__breadcrumb) {
-    margin-top: 0;
-    padding-top: var(--s-xl);
-  }
-
   .ecl-container > div:last-of-type {
     margin-bottom: 0;
-    padding-bottom: var(--s-xl);
+  }
+
+  .ecl-container > div:first-of-type:not(.ecl-page-header__info--no-margin),
+  .ecl-container
+    > :first-child:not(
+      .ecl-page-header__breadcrumb,
+      .ecl-page-header__info--no-margin
+    ) {
+    margin-top: 0;
+    padding-top: var(--s-xl);
   }
 }
 
@@ -65,7 +68,6 @@ $page-header: null !default;
 }
 
 .ecl-page-header__description-thumbnail {
-  border: 1px solid var(--c-p-20);
   margin-inline-end: var(--s-m);
   max-width: 120px;
 }

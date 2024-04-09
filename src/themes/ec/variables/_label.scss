@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$label: (
+  radius: 2px,
+  border-width: 2px,
+  padding-horizontal: var(--s-m),
+  padding-vertical: var(--s-2xs),
+  highlight: (
+    background: var(--c-d),
+    color: map.get($color, 'white'),
+    border-color: var(--c-d),
+  ),
+  high: (
+    background: var(--c-s),
+    color: var(--c-d),
+    border-color: var(--c-s),
+  ),
+  medium: (
+    background: var(--c-p),
+    color: map.get($color, 'white'),
+    border-color: var(--c-p),
+  ),
+  low: (
+    background: map.get($color, 'white'),
+    color: var(--c-p),
+    border-color: var(--c-p),
+  ),
+);
+$label-print: (
+  padding-horizontal: map.get($spacing-print, 'm'),
+  padding-vertical: map.get($spacing-print, '2xs'),
+);

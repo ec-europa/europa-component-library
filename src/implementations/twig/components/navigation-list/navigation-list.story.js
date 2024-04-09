@@ -3,36 +3,28 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
+import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
 import navigationList from './navigation-list.html.twig';
 import notes from './README.md';
 
-const getArgs = () => {
+const getArgs = (data) => {
   const args = {};
-
-  args.show_border = true;
   args.show_image = true;
   args.show_description = true;
-  args.show_links = true;
+  if (data.items[0].links) {
+    args.show_border = true;
+    args.show_links = true;
+  }
   args.column = 2;
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
-  argTypes.show_border = {
-    name: 'border',
-    type: 'boolean',
-    description: 'Show border',
-    table: {
-      type: 'boolean',
-      defaultValue: { summary: false },
-      category: 'Optional',
-    },
-  };
   argTypes.show_image = {
     name: 'image',
     type: 'boolean',
@@ -51,15 +43,28 @@ const getArgTypes = () => {
       category: 'Optional',
     },
   };
-  argTypes.show_links = {
-    name: 'links',
-    type: 'boolean',
-    description: 'Show links list',
-    table: {
+
+  if (data.items[0].links) {
+    argTypes.show_border = {
+      name: 'border',
       type: 'boolean',
-      category: 'Optional',
-    },
-  };
+      description: 'Show border',
+      table: {
+        type: 'boolean',
+        defaultValue: { summary: false },
+        category: 'Optional',
+      },
+    };
+    argTypes.show_links = {
+      name: 'links',
+      type: 'boolean',
+      description: 'Show links list',
+      table: {
+        type: 'boolean',
+        category: 'Optional',
+      },
+    };
+  }
 
   // Other controls
   argTypes.column = {
@@ -93,7 +98,7 @@ const prepareData = (data, args) => {
   }
 
   // Other controls
-  clone.border = args.show_border;
+  clone.border = 'show_border' in args ? args.show_border : true;
   clone.column = args.column;
 
   return clone;
@@ -113,6 +118,22 @@ Default.render = async (args) => {
   return renderedNavigationList;
 };
 Default.storyName = 'default';
-Default.args = getArgs();
-Default.argTypes = getArgTypes();
+Default.args = getArgs(dataDefault);
+Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+
+export const Illustration = (_, { loaded: { component } }) => component;
+
+Illustration.render = async (args) => {
+  const renderedNavigationList = await navigationList(
+    prepareData(dataIllustration, args),
+  );
+  return renderedNavigationList;
+};
+
+Illustration.storyName = 'with illustration';
+Illustration.args = getArgs(dataIllustration);
+Illustration.argTypes = getArgTypes(dataIllustration);
+Illustration.parameters = {
+  notes: { markdown: notes, json: dataIllustration },
+};

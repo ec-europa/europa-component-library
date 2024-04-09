@@ -4,7 +4,7 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { spinnerDefault, spinnerNegative } from '../demo';
+import { spinnerDefault, spinnerInverted } from '../demo';
 
 ## Primary
 
@@ -16,12 +16,12 @@ import { spinnerDefault, spinnerNegative } from '../demo';
   <Html markup={spinnerDefault} />
 </Playground>
 
-## Negative
+## Inverted
 
 <Playground
   system="ec"
   selectedKind="components-loading-indicator"
-  selectedStory="negative"
+  selectedStory="inverted"
 >
-  <Html markup={spinnerNegative} />
+  <Html markup={spinnerInverted} />
 </Playground>

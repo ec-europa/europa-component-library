@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$checkbox: (
+  border-color: var(--c-d-80),
+  background: map.get($color, 'white'),
+  box-background-checked-hover: var(--c-p),
+  box-border-color-hover: var(--c-d-80),
+  box-size: 1.5rem,
+  box-margin-top: 0,
+  help-text-font: var(--f-s),
+  help-text-color: var(--c-d),
+  invalid-border-color: var(--c-er),
+  invalid-border-color-hover: var(--c-er),
+  label-color: var(--c-d),
+  label-line-height: 1.75rem,
+  box-border-color-checked: var(--c-p),
+  box-background-checked: var(--c-p),
+  border-width: 1px,
+  border-radius: map.get($border-radius, 's'),
+  checkbox-fill: map.get($color, 'white'),
+  hover-circle: (
+    height: 2.5rem,
+    width: 2.5rem,
+    content: '',
+    display: block,
+    border-radius: 50%,
+    position: absolute,
+    top: 50%,
+    left: 50%,
+    transform: translate(-50%, -50%),
+    background-color: var(--c-p-20),
+    z-index: -1,
+  ),
+);

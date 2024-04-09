@@ -5,5 +5,5 @@ status: ready
 order: 2
 playground:
   system: eu
-  path: /story/components-site-wide-page-headers--core
+  path: /story/components-site-wide-page-headers--default
 ---

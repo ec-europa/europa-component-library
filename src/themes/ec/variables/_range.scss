@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../index' as *;
+
+// stylelint-disable scss/no-global-function-names
+$range: (
+  bar-color: var(--c-n),
+  disabled-color: var(--c-n-60),
+  active-color: var(--c-p-160),
+  invalid-color: var(--c-er),
+  invalid-hover-color: var(--c-er),
+  invalid-active-color: mix(#da1e28, #26324b, 50%),
+  value-color: var(--c-d),
+  value-font: var(--f-s),
+  range-margin-top: var(--s-xs),
+  range-size: 0.25rem,
+  slider-size: 1rem,
+  touch-area: 1.25rem,
+  outline: 8px,
+  outline-color: var(--c-p-20),
+  outline-offset: 0,
+);
+// stylelint-enable scss/no-global-function-names

@@ -58,7 +58,6 @@ exports[`Tag Link renders correctly with extra class names 1`] = `
 exports[`Tag Removable renders correctly 1`] = `
 <jest>
   <button
-    aria-label="Dismiss"
     class="ecl-tag ecl-tag--removable"
     type="button"
   >
@@ -67,10 +66,14 @@ exports[`Tag Removable renders correctly 1`] = `
       class="ecl-tag__icon"
     >
       <svg
-        aria-hidden="true"
+        aria-hidden="false"
         class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
         focusable="false"
+        role="img"
       >
+        <title>
+          Dismiss
+        </title>
         <use
           xlink:href="/icons.svg#close-outline"
         />
@@ -82,323 +85,443 @@ exports[`Tag Removable renders correctly 1`] = `
 
 exports[`Tag Set renders correctly 1`] = `
 <jest>
-  <div
+  <ul
     class="ecl-tag-set"
   >
-    <a
-      class="ecl-tag"
-      href="/example"
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <a
+        class="ecl-tag"
+        href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-  </div>
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
+      >
+        Removable tag
+        <span
+          class="ecl-tag__icon"
+        >
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+  </ul>
 </jest>
 `;
 
 exports[`Tag Set renders correctly with extra attributes 1`] = `
 <jest>
-  <div
+  <ul
     class="ecl-tag-set"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <a
-      class="ecl-tag"
-      href="/example"
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <a
+        class="ecl-tag"
+        href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-  </div>
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
+      >
+        Removable tag
+        <span
+          class="ecl-tag__icon"
+        >
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+  </ul>
 </jest>
 `;
 
 exports[`Tag Set renders correctly with extra class names 1`] = `
 <jest>
-  <div
+  <ul
     class="ecl-tag-set custom-class custom-class--test"
   >
-    <a
-      class="ecl-tag"
-      href="/example"
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <a
+        class="ecl-tag"
+        href="/example"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-    <button
-      aria-label="Dismiss"
-      class="ecl-tag ecl-tag--removable"
-      type="button"
-    >
-      Removable tag
-      <span
-        class="ecl-tag__icon"
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
-          focusable="false"
+        Removable tag
+        <span
+          class="ecl-tag__icon"
         >
-          <use
-            xlink:href="/icons.svg#close-outline"
-          />
-        </svg>
-      </span>
-    </button>
-    <a
-      class="ecl-tag"
-      href="/example"
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
     >
-      Link tag
-    </a>
-  </div>
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <button
+        class="ecl-tag ecl-tag--removable"
+        type="button"
+      >
+        Removable tag
+        <span
+          class="ecl-tag__icon"
+        >
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-tag__icon-close"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Dismiss
+            </title>
+            <use
+              xlink:href="/icons.svg#close-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ecl-tag-set__item"
+    >
+      <a
+        class="ecl-tag"
+        href="/example"
+      >
+        Link tag
+      </a>
+    </li>
+  </ul>
 </jest>
 `;

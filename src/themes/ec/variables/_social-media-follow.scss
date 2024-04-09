@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '../index' as *;
+
+$social-media-follow: (
+  background-color: transparent,
+  border-radius: 0,
+  padding: 0,
+  description: (
+    color: var(--c-d),
+    font: var(--f-m),
+    margin-horizontal: var(--s-2xs),
+    margin-vertical: var(--s-2xs),
+  ),
+  item: (
+    font: var(--f-m),
+    margin: var(--s-xl),
+  ),
+);
+$social-media-follow-print: (
+  description: (
+    font: map.get($font-print, 'm'),
+  ),
+  item: (
+    font: map.get($font-print, 'm'),
+  ),
+);

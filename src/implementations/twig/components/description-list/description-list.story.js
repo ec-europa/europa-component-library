@@ -22,42 +22,30 @@ const getArgs = (data) => {
   return args;
 };
 
-const getArgTypes = (data) => {
-  const argTypes = {
-    term: {
-      name: 'term (first item)',
-      type: { name: 'string', required: true },
-      description: 'The heading of the description list item',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+const getArgTypes = () => {
+  const argTypes = {};
+
+  argTypes.term = {
+    name: 'label',
+    type: { name: 'string', required: true },
+    description: 'The label of the description list item',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
   };
-  if (!Array.isArray(data.items[0].definition)) {
-    argTypes.definition = {
-      name: 'definition (first item)',
-      type: { name: 'string', required: true },
-      description: 'The content of the description list item',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  } else {
-    argTypes.label = {
-      name: 'tag label (first item)',
-      type: { name: 'string', required: true },
-      description: 'The tag label',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
+
+  argTypes.definition = {
+    name: 'content',
+    type: { name: 'string', required: true },
+    description: 'The content of the description list item',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
+    },
+  };
 
   argTypes.visibleItems = {
     name: 'visible items',
@@ -108,7 +96,7 @@ Vertical.render = async (args) => {
 };
 Vertical.storyName = 'description';
 Vertical.args = getArgs(dataDescriptionListDefault);
-Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
+Vertical.argTypes = getArgTypes();
 Vertical.parameters = {
   notes: { markdown: notes, json: dataDescriptionListDefault },
 };
@@ -123,7 +111,7 @@ Horizontal.render = async (args) => {
 };
 Horizontal.storyName = 'description (horizontal)';
 Horizontal.args = getArgs(dataDescriptionListHorizontal);
-Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
+Horizontal.argTypes = getArgTypes();
 Horizontal.parameters = {
   notes: { markdown: notes, json: dataDescriptionListHorizontal },
 };

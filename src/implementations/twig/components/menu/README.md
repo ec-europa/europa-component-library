@@ -19,13 +19,16 @@ npm install --save @ecl/twig-component-menu
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
+  "external": (boolean) (optional),
   "trigger_aria_label" (string),
+  "extra_attributes" (optional) (array)
   "children": (associative array) (optional): [
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
   "external": (boolean)
+  "extra_attributes" (optional) (array)
   }
   ]
   }
@@ -52,11 +55,18 @@ npm install --save @ecl/twig-component-menu
       label: 'Menu',
       path: exampleLink,
     },
-    icon: {
-      path: '/icons.svg',
-      name: 'hamburger',
-      size: 'm',
-    },
+    icon: [
+      {
+        path: '/icons.svg',
+        name: 'hamburger',
+        size: 'm',
+      },
+      {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      }
+    ],
   },
   close: {
     label: 'Close',

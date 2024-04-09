@@ -1,6 +1,6 @@
 /**
- * Site Header
- * @define site-header; weak
+ * Site Header EU
+ * @define site-header
  */
 
 @use 'sass:map';
@@ -36,7 +36,11 @@ $language-list: null !default;
     margin-bottom: 8px;
   }
 
-  &:not([data-ecl-has-menu='true']) {
+  .ecl-menu__open:not(:hover, :focus-visible) {
+    color: map.get($theme, 'color', 'white');
+  }
+
+  &:not(.ecl-site-header--has-menu) {
     box-shadow: var(--sh-2);
   }
 

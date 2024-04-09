@@ -1,5 +1,5 @@
 /**
- * Table component
+ * Table print
  * @define table
  */
 
@@ -21,6 +21,7 @@ $table: null !default;
 
 .ecl-table__header,
 %ecl-table__header {
+  border-inline-end: map.get($table, 'cell-separator');
   border-inline-start: map.get($table, 'cell-separator');
   padding: map.get($theme, 'spacing-print', 's')
     map.get($theme, 'spacing-print', 'xl') map.get($theme, 'spacing-print', 's')
@@ -62,6 +63,14 @@ $table: null !default;
   &:last-child {
     border-inline-end: map.get($table, 'cell-separator');
   }
+}
+
+.ecl-table__caption {
+  caption-side: bottom;
+  color: var(--c-d-80);
+  font: map.get($theme, 'font-print', 's');
+  margin-top: map.get($theme, 'spacing-print', 'xs');
+  text-align: left;
 }
 
 .ecl-table--zebra {

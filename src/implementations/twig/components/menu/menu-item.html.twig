@@ -8,19 +8,26 @@
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
     - "label" (string) Label of the menu link
+    - "external" (boolean) External link
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
+    - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "is_current" (boolean) Whether the sub-item is currently selected
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
+      - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
+        - "name" (string) Attribute name, eg. 'data-test'
+        - "value" (optional) (string) Attribute value, eg: 'data-test-1'
 #}
 
 {% set _id = id|default('') %}
 {% set _item = item|default({}) %}
 {% set _menu_item_class = 'ecl-menu__link' %}
-{% set _menu_item_attributes = 'data-ecl-menu-link' %}
+{% set _menu_item_attribute = 'data-ecl-menu-link' %}
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
@@ -38,18 +45,20 @@
 
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
   {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
+  {% set _menu_item_attributes = _item.extra_attributes|default([])|merge([
+    { name: _menu_item_attribute },
+    { name: 'id', value: _id ~ "-link" },
+  ]) %}
   {% include '@ecl/link/link.html.twig' with {
     link: {
       type: 'standalone',
       label: _item.label,
       path: _item.path,
       icon_path: _icon_path,
+      external: _item.external|default(false),
     },
     extra_classes: _menu_item_class,
-    extra_attributes: [
-      { name: _menu_item_attributes },
-      { name: 'id', value: _id ~ "-link" },
-    ],
+    extra_attributes: _menu_item_attributes,
   } %}
 
 {%- if item.children is defined and item.children is not empty and item.children is iterable -%}
@@ -98,6 +107,7 @@
             external: child.external,
           },
           extra_classes: _sublink_class,
+          extra_attributes: child.extra_attributes|default([]),
         } %}
       </li>
     {% endfor %}
@@ -112,7 +122,7 @@
             icon_path: _icon_path,
           },
           icon: {
-            name: 'back',
+            name: 'arrow-left',
             size: 'xs',
             path: icon_path,
             transform: 'rotate-180',
