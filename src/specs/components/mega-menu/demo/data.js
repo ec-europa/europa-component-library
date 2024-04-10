@@ -165,7 +165,7 @@ module.exports = {
           },
           children: [
             { label: 'Item 5.1 subitem 1', path: exampleLink },
-            { label: 'Item 5.1 subitem 2', path: exampleLink },
+            { label: 'Item 5.1 subitem 2', path: exampleLink, external: true },
             { label: 'Item 5.1 subitem 3', path: exampleLink },
             { label: 'Item 5.1 subitem 4', path: exampleLink },
             { label: 'Item 5.1 subitem 5', path: exampleLink },
@@ -232,7 +232,7 @@ module.exports = {
           path: exampleLink,
         },
         { label: 'Item 5.6', path: exampleLink },
-        { label: 'Item 5.7', path: exampleLink },
+        { label: 'Item 5.7', path: exampleLink, external: true },
         { label: 'Item 5.8', path: exampleLink },
         { label: 'Item 5.9', path: exampleLink },
       ],

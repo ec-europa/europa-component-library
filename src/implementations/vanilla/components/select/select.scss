@@ -144,8 +144,10 @@ $select: null !default;
   background-color: map.get($select, 'arrow-background-color-hover');
 }
 
-.ecl-select__icon .ecl-icon {
+.ecl-select__icon .ecl-button--icon-only .ecl-icon {
   fill: map.get($select, 'icon-fill');
+  height: map.get($select, 'icon-size');
+  width: map.get($select, 'icon-size');
 }
 
 .ecl-select--active {
