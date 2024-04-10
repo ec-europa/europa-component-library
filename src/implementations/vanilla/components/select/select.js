@@ -14,8 +14,8 @@ const iconSvgAllCornerArrow =
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**
- * This API mostly refers to the multiple select, in the default select only three methods are actually used:
- * handleToggle(), handleKeyboardOnSelect() and handleEsc().
+ * This API mostly refers to the multiple select, in the default select only two methods are actually used:
+ * handleKeyboardOnSelect() and handleOptgroup().
  *
  * For the multiple select there are multiple labels contained in this component. You can set them in 2 ways:
  * directly as a string or through data attributes.
@@ -593,17 +593,13 @@ export class Select {
       if (this.form) {
         this.form.addEventListener('reset', this.resetForm);
       }
+
+      document.addEventListener('click', this.handleClickOutside);
     } else {
       // Simple select
       this.#handleOptgroup();
-      this.shouldHandleClick = true;
       this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
-      this.select.addEventListener('blur', this.handleEsc);
-      this.select.addEventListener('click', this.handleToggle, true);
-      this.select.addEventListener('mousedown', this.handleToggle, true);
     }
-
-    document.addEventListener('click', this.handleClickOutside);
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -665,27 +661,16 @@ export class Select {
    * @type {function}
    */
   handleToggle(e) {
-    if (this.multiple) {
-      e.preventDefault();
-      this.input.classList.toggle('ecl-select--active');
-      if (this.searchContainer.style.display === 'none') {
-        this.searchContainer.style.display = 'block';
-        this.input.setAttribute('aria-expanded', true);
-        this.isOpen = true;
-      } else {
-        this.searchContainer.style.display = 'none';
-        this.input.setAttribute('aria-expanded', false);
-        this.isOpen = false;
-      }
-    } else if (e.type === 'click' && !this.shouldHandleClick) {
-      this.shouldHandleClick = true;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'mousedown' && this.shouldHandleClick) {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'keydown') {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
+    e.preventDefault();
+    this.input.classList.toggle('ecl-select--active');
+    if (this.searchContainer.style.display === 'none') {
+      this.searchContainer.style.display = 'block';
+      this.input.setAttribute('aria-expanded', true);
+      this.isOpen = true;
+    } else {
+      this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
+      this.isOpen = false;
     }
 
     const eventData = { opened: this.isOpen, e };
@@ -728,9 +713,11 @@ export class Select {
    * Destroy the component instance.
    */
   destroy() {
+    this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
+
     if (this.multiple) {
+      document.removeEventListener('click', this.handleClickOutside);
       this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
-      this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
       this.input.removeEventListener('click', this.handleToggle);
       this.search.removeEventListener('keyup', this.handleSearch);
       this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
@@ -749,7 +736,7 @@ export class Select {
         checkbox.removeEventListener('click', this.handleClickOption);
         checkbox.removeEventListener('keydown', this.handleKeyboardOnOption);
       });
-      document.removeEventListener('click', this.handleClickOutside);
+
       if (this.closeButton) {
         this.closeButton.removeEventListener('click', this.handleEsc);
         this.closeButton.removeEventListener(
@@ -772,12 +759,7 @@ export class Select {
       }
 
       this.select.parentNode.classList.remove('ecl-select__container--hidden');
-    } else {
-      this.select.removeEventListener('focus', this.handleToggle);
     }
-
-    this.select.removeEventListener('blur', this.handleToggle);
-    document.removeEventListener('click', this.handleClickOutside);
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -1161,12 +1143,6 @@ export class Select {
       this.searchContainer.style.display = 'none';
       this.input.classList.remove('ecl-select--active');
       this.input.setAttribute('aria-expanded', false);
-    } else if (
-      e.target &&
-      !this.selectMultiple &&
-      !this.select.parentNode.contains(e.target)
-    ) {
-      this.select.classList.remove('ecl-select--active');
     }
   }
 
@@ -1185,9 +1161,9 @@ export class Select {
 
       case ' ':
       case 'Enter':
-        this.handleToggle(e);
         if (this.multiple) {
           e.preventDefault();
+          this.handleToggle(e);
           this.search.focus();
         }
         break;
