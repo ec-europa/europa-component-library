@@ -6,10 +6,8 @@ $media-container: (
   shadow: none,
   caption-background-color: transparent,
   caption-color: var(--c-d-80),
-  caption-font: normal normal map.get($font-weight, 'regular') #{map.get(
-      $font-size,
-      's'
-    ) + '/' + map.get($line-height, 'xs')} #{map.get($font-family, 'default')},
+  caption-font: var(--f-s),
+  caption-line-height: map.get($line-height, 'xs'),
   caption-padding: var(--s-s) 0 0,
   expandable-spacing-top: var(--s-xl),
   scrollbar-width: 16px,
