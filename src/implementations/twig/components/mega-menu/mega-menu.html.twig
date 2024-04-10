@@ -32,6 +32,7 @@
           "is_current": (boolean) (optional),
           "external": (boolean),
           "see_all" (boolean)
+          "see_all_label" (string)
           "see_all_attributes" (optional) (array) (default: [])
             - "name" (string) Attribute name, eg. 'data-test'
             - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -42,7 +43,6 @@
       ]
     }
   ],
-  - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the nav element
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for the nav element
     - "name" (string) Attribute name, eg. 'data-test'
@@ -59,7 +59,6 @@
 {% set _items = items|default([{}]) %}
 {% set _css_class = 'ecl-mega-menu' %}
 {% set _extra_attributes = '' %}
-{% set _see_all_label = see_all_label|default('') %}
 {% set _icon_path = icon_path|default('') %}
 
 {# Internal logic - Process properties #}
