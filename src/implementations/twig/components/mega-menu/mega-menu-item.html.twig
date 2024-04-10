@@ -183,7 +183,7 @@
         {# Children, 2nd level #}
         {%- if child.children is defined and child.children is not empty -%}
           {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
-              see_all_label: _see_all_label,
+              see_all_label: child.see_all_label|default(''),
               see_all: child.see_all|default(false),
               see_all_attributes: child.see_all_attributes|default([]),
               icon_path: _icon_path,
