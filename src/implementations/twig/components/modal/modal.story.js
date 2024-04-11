@@ -101,6 +101,7 @@ const prepareData = (data, args) => {
   dataClone.size = args.size;
   dataClone.header = args.header;
   dataClone.body = args.body;
+  dataClone.sr_icon = args.variant;
 
   if (args.footer === 0) {
     delete dataClone.buttons;
