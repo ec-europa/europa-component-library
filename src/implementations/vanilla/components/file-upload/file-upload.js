@@ -9,6 +9,8 @@ import { queryOne, formatBytes } from '@ecl/dom-utils';
  * @param {String} options.labelChoose Label choose state
  * @param {String} options.labelReplace Label replace state
  * @param {Boolean} options.attachChangeListener Whether or not to bind change events on toggle
+ * @param {Boolean} options.attachClickListener Whether or not to bind click events on toggle
+ * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events on toggle
  */
 export class FileUpload {
   /**
@@ -35,6 +37,8 @@ export class FileUpload {
       labelChoose = 'data-ecl-file-upload-label-choose',
       labelReplace = 'data-ecl-file-upload-label-replace',
       attachChangeListener = true,
+      attachClickListener = true,
+      attachKeyListener = true,
     } = {},
   ) {
     // Check element
@@ -53,15 +57,20 @@ export class FileUpload {
     this.labelChoose = labelChoose;
     this.labelReplace = labelReplace;
     this.attachChangeListener = attachChangeListener;
+    this.attachClickListener = attachClickListener;
+    this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.fileUploadGroup = null;
     this.fileUploadInput = null;
     this.fileUploadButton = null;
     this.fileUploadList = null;
+    this.isDisabled = false;
 
     // Bind `this` for use in callbacks
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   /**
@@ -79,8 +88,44 @@ export class FileUpload {
     this.fileUploadList = queryOne(this.listSelector, this.fileUploadGroup);
 
     // Bind events on input
-    if (this.attachChangeListener && this.fileUploadInput) {
-      this.fileUploadInput.addEventListener('change', this.handleChange);
+    if (this.fileUploadInput) {
+      if (this.attachChangeListener) {
+        this.fileUploadInput.addEventListener('change', this.handleChange);
+      }
+      if (this.attachKeyListener) {
+        this.fileUploadInput.addEventListener('keydown', this.handleKeyboard);
+      }
+    }
+
+    // Bind events on button
+    if (this.fileUploadButton) {
+      if (this.attachClickListener) {
+        this.fileUploadButton.addEventListener('click', this.handleClick);
+      }
+      if (this.attachKeyListener) {
+        this.fileUploadButton.addEventListener('keydown', this.handleKeyboard);
+      }
+    }
+
+    // Handle disabled
+    if (this.fileUploadInput) {
+      // Get disabled status
+      this.isDisabled = this.fileUploadInput.getAttribute('aria-disabled');
+
+      // Manually switch between "disabled" and "aria-disabled"
+      if (this.fileUploadInput.hasAttribute('disabled')) {
+        this.isDisabled = true;
+        this.fileUploadInput.removeAttribute('disabled');
+        this.fileUploadInput.setAttribute('aria-disabled', 'true');
+
+        if (
+          this.fileUploadButton &&
+          this.fileUploadButton.hasAttribute('disabled')
+        ) {
+          this.fileUploadButton.removeAttribute('disabled');
+          this.fileUploadButton.setAttribute('aria-disabled', 'true');
+        }
+      }
     }
 
     // Set ecl initialized attribute
@@ -134,6 +179,24 @@ export class FileUpload {
       this.fileUploadButton.innerHTML = this.fileUploadButton.getAttribute(
         this.labelReplace,
       );
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleClick(e) {
+    if (this.isDisabled) {
+      e.preventDefault();
+    }
+  }
+
+  /**
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    if (this.isDisabled && (e.keyCode === 32 || e.key === 'Enter')) {
+      e.preventDefault();
     }
   }
 }
