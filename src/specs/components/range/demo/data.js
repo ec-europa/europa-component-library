@@ -15,6 +15,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   label: 'Range slider',
   helper_text: "This is the input's helper text.",
   optional_text: '(optional)',

@@ -6,6 +6,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   invalid_text: 'This is the error message',
   optional_text: '(optional)',
   required_text: '*',
