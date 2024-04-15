@@ -18,7 +18,7 @@ exports[`Carousel Default renders correctly 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -43,7 +43,7 @@ exports[`Carousel Default renders correctly 1`] = `
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -70,23 +70,27 @@ exports[`Carousel Default renders correctly 1`] = `
         </div>
         <div
           class="ecl-carousel__navigation"
+          role="tablist"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             1
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             2
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             3
@@ -95,31 +99,6 @@ exports[`Carousel Default renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
     <div
       class="ecl-carousel__container"
     >
@@ -131,7 +110,7 @@ exports[`Carousel Default renders correctly 1`] = `
           aria-label="slide 1 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-box ecl-banner--m"
@@ -219,7 +198,7 @@ exports[`Carousel Default renders correctly 1`] = `
           aria-label="slide 2 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -307,7 +286,7 @@ exports[`Carousel Default renders correctly 1`] = `
           aria-label="slide 3 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -393,31 +372,6 @@ exports[`Carousel Default renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Next slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
   </section>
 </jest>
 `;
@@ -442,7 +396,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -467,7 +421,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -494,23 +448,27 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </div>
         <div
           class="ecl-carousel__navigation"
+          role="tablist"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             1
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             2
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             3
@@ -519,31 +477,6 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
     <div
       class="ecl-carousel__container"
     >
@@ -555,7 +488,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           aria-label="slide 1 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-box ecl-banner--m"
@@ -643,7 +576,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           aria-label="slide 2 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -731,7 +664,7 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
           aria-label="slide 3 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -817,31 +750,6 @@ exports[`Carousel Default renders correctly with extra attributes 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Next slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
   </section>
 </jest>
 `;
@@ -864,7 +772,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           class="ecl-carousel__autoplay"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__play ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__play ecl-button--icon-only"
             type="button"
           >
             <span
@@ -889,7 +797,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
             </span>
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__pause ecl-button--icon-only"
+            class="ecl-button ecl-button--tertiary ecl-carousel__pause ecl-button--icon-only"
             type="button"
           >
             <span
@@ -916,23 +824,27 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </div>
         <div
           class="ecl-carousel__navigation"
+          role="tablist"
         >
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             1
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             2
           
           </button>
           <button
-            class="ecl-button ecl-button--ghost ecl-carousel__navigation-item"
+            class="ecl-button ecl-button--tertiary ecl-carousel__navigation-item"
+            role="tab"
           >
             
             3
@@ -941,31 +853,6 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__prev ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Previous slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
     <div
       class="ecl-carousel__container"
     >
@@ -977,7 +864,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           aria-label="slide 1 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-box ecl-banner--m"
@@ -1065,7 +952,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           aria-label="slide 2 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -1153,7 +1040,7 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
           aria-label="slide 3 of 3"
           aria-roledescription="slide"
           class="ecl-carousel__slide"
-          role="group"
+          role="tabpanel"
         >
           <section
             class="ecl-banner ecl-banner--text-overlay ecl-banner--m"
@@ -1239,31 +1126,6 @@ exports[`Carousel Default renders correctly with extra class names 1`] = `
         </div>
       </div>
     </div>
-    <button
-      class="ecl-button ecl-button--ghost ecl-carousel__next ecl-button--icon-only"
-      type="button"
-    >
-      <span
-        class="ecl-button__container"
-      >
-        <span
-          class="ecl-button__label"
-          data-ecl-label="true"
-        >
-          Next slides
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-          data-ecl-icon=""
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#corner-arrow"
-          />
-        </svg>
-      </span>
-    </button>
   </section>
 </jest>
 `;

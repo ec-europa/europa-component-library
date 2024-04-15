@@ -12,6 +12,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   input: {
     input_type: 'rating-field',
     id: 'rating-field',

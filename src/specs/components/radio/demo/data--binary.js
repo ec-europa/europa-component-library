@@ -14,6 +14,7 @@ module.exports = {
     name: 'error',
     size: 'm',
   },
+  sr_invalid_icon: 'Error',
   input: {
     id: 'radio-default',
     input_type: 'radio',
