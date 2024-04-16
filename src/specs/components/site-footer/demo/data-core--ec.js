@@ -177,7 +177,7 @@ module.exports = {
             {
               link: {
                 label: 'Report an IT vulnerability',
-                path: '#',
+                path: 'https://commission.europa.eu/legal-notice/vulnerability-disclosure-policy_en',
                 inverted: true,
               },
             },

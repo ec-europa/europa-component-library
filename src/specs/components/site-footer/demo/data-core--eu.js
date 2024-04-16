@@ -111,7 +111,7 @@ module.exports = {
             {
               link: {
                 label: 'Search all EU institutions and bodies',
-                path: '#',
+                path: 'https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en',
               },
             },
           ],
