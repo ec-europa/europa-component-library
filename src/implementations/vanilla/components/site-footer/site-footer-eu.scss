@@ -59,14 +59,6 @@ $site-footer: null !default;
   }
 }
 
-.ecl-site-footer__section--desktop {
-  display: none;
-}
-
-.ecl-site-footer__section--mobile {
-  padding-top: 0;
-}
-
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
   font: var(--f-2xl);
@@ -146,14 +138,6 @@ $site-footer: null !default;
 
   .ecl-site-footer__section {
     padding-top: var(--s-l);
-  }
-
-  .ecl-site-footer__section--desktop {
-    display: block;
-  }
-
-  .ecl-site-footer__section--mobile {
-    display: none;
   }
 
   .ecl-site-footer__title,
