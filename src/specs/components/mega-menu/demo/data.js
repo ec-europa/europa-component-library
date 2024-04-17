@@ -26,7 +26,6 @@ module.exports = {
     },
   },
   back_label: 'Back',
-  see_all_label: 'View all',
   icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
@@ -40,6 +39,7 @@ module.exports = {
           label: 'Item 2.1',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View all',
           trigger_aria_label: "Access item 2.1's children",
           link_aria_label: "Link to the 2.1 item's page",
           featured: {
@@ -120,6 +120,7 @@ module.exports = {
           label: 'Research and innovation',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View all items',
           featured: {
             title: 'featured column',
             content: `<article class="ecl-navigation-list__item">
@@ -151,6 +152,7 @@ module.exports = {
           label: 'Item 5.1',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View others',
           trigger_aria_label: "Access item 5.1's children",
           link_aria_label: 'Link to the Item 5.1 page',
           featured: {
@@ -210,6 +212,7 @@ module.exports = {
           label: 'Item 5.3',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'See all',
           trigger_aria_label: "Access item 5.3's children",
           link_aria_label: 'Link to the Item 5.3 page',
           children: [
