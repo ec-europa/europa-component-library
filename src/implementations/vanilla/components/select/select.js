@@ -819,7 +819,7 @@ export class Select {
         const groupLabel = option.parentNode.getAttribute('label');
         const optionLabel = option.getAttribute('label') || option.textContent;
         if (groupLabel && optionLabel) {
-          option.setAttribute('aria-label', `${groupLabel}: ${optionLabel}`);
+          option.setAttribute('aria-label', `${optionLabel} - ${groupLabel}`);
         }
       }
     });
