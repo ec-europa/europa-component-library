@@ -16,7 +16,7 @@
     - "counter_separator" (string) (default: '')
     - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
-  - "footer" (object) (default: {}): object 0f type link
+  - "footer" (object) (default: {}): object of type link
   - "items" (array) (default: [])
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
@@ -26,6 +26,7 @@
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -52,6 +53,7 @@
 {% set _overlay_class = '' %}
 {% set _overlay_attrs = [] %}
 {% set _full_width = full_width|default(false) %}
+{% set _sr_video_player = sr_video_player|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -85,7 +87,7 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery data-ecl-gallery-player-label="{{ _sr_video_player }}">
   <ul class="ecl-gallery__list">
     {% for _item in _items %}
       {% set _item_class = '' %}
