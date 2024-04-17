@@ -11,6 +11,8 @@ npm install --save @ecl/twig-component-table
 - **"simple"** (boolean) (default: false)
 - **"zebra"** (boolean) (default: false))
 - **"sortable"** (boolean) (default: false)
+- **"caption"** (string) (default: ''): optional caption for the table
+- **"label_sort"** (string) (default: ''): label used for sorting buttons (screen reader only)
 - **"headers"** (array) (default: [])
   - "label" (string or array of string)
   - "colspan" (string) (default: ''),
