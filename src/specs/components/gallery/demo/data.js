@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   icon_path: '/icons.svg',
   sr_video_label: 'Video',
+  sr_video_player: 'Video player',
   items: [
     {
       // Image
