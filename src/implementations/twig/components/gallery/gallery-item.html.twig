@@ -2,10 +2,13 @@
 
 {#
   Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "item" (object) (default: {})
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "picture" (optional) (object) (default: {}) object of type picture
+    - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
@@ -18,6 +21,7 @@
 
 {# variables #}
 
+{% set _id = id|default('') %}
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
 {% set _use_arial = '' %}
@@ -64,6 +68,7 @@
     href="{{ _media_href ?: _item.picture.img.src }}"
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
+    id="{{ _id }}"
   {%- if _item.alt is not empty or (_item.picture is defined and _item.picture.img is not empty and _item.picture.img.alt is not empty) -%}
     aria-label="{{ _item.alt ?: _item.picture.img.alt }}"
   {%- endif -%}
@@ -102,6 +107,11 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
+      {%- if _item.title is defined and _item.title is not empty -%}
+        <span class="ecl-gallery__title" data-ecl-gallery-title id="{{ _id }}-title">
+          {{- _item.title -}}
+        </span>
+      {%- endif -%}
         {{- _item.description -}}
       {%- if _item.meta is defined and _item.meta is not empty -%}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
