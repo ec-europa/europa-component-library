@@ -5,9 +5,10 @@ $media-container: (
   border-radius: 0,
   shadow: none,
   caption-background-color: transparent,
-  caption-color: var(--c-d),
+  caption-color: var(--c-d-80),
   caption-font: var(--f-s),
-  caption-padding: var(--s-s) 0 0,
+  caption-line-height: map.get($line-height, 'xs'),
+  caption-padding: var(--s-xs) 0 0,
   expandable-spacing-top: var(--s-xl),
   scrollbar-width: 16px,
 );
