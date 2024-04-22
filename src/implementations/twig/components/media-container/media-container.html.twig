@@ -20,7 +20,9 @@
       ...
     ],
   - "image" (string) (default: ''): Image to be used as the video placeholder 
+  - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "ratio" (string) ('')
   - "expandable" (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
   - "extra_classes" (string) (default: ''),
@@ -45,6 +47,8 @@
 {% set _image = image|default('') %}
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
+{% set _title = title|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = embedded_media ? [
@@ -111,6 +115,10 @@
       class="ecl-media-container__media"
       controls
       poster="{{ _image }}"
+      {%- if _title is not empty -%}
+        {% set _video_title = _title ~ ' - ' ~ _sr_video_label %}
+        aria-label="{{ _video_title }}"
+      {%- endif -%}
     >
   {% for source in _sources %}
     <source type="{{ source.type }}" src="{{ source.src }}" />

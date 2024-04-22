@@ -78,7 +78,9 @@
     class="{{ _css_class }}"
   {% if _id %}
     id="{{ _id }}"
-    aria-label="{{ _id }}"
+  {% endif %}
+  {% if _value_text is not empty %}
+    aria-label="{{ _value_text }}"
   {% endif %}
   {% if _name is not empty %}
     name="{{ _name }}"
