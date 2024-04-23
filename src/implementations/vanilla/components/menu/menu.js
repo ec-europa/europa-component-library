@@ -144,6 +144,7 @@ export class Menu {
     this.currentItem = null;
     this.totalItemsWidth = 0;
     this.breakpointL = 996;
+    this.windowWidth = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -292,6 +293,7 @@ export class Menu {
 
     // Bind resize events
     if (this.attachResizeListener) {
+      this.windowWidth = window.innerWidth;
       window.addEventListener('resize', this.handleResize);
     }
 
@@ -535,45 +537,49 @@ export class Menu {
    * Uses a debounce, for performance
    */
   handleResize() {
-    // Scroll to top to ensure the menu is correctly positioned.
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Do not trigger the resize event if not needed (when scrolling on mobile)
+    if (window.innerWidth !== this.windowWidth) {
+      // Scroll to top to ensure the menu is correctly positioned.
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
 
-    // Disable transition
-    this.element.classList.remove('ecl-menu--transition');
-    if (this.direction === 'rtl') {
-      this.element.classList.add('ecl-menu--rtl');
-    } else {
-      this.element.classList.remove('ecl-menu--rtl');
+      // Disable transition
+      this.element.classList.remove('ecl-menu--transition');
+      if (this.direction === 'rtl') {
+        this.element.classList.add('ecl-menu--rtl');
+      } else {
+        this.element.classList.remove('ecl-menu--rtl');
+      }
+
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => {
+        this.element.classList.remove('ecl-menu--forced-mobile');
+
+        // Check global display
+        this.isDesktop = this.useDesktopDisplay();
+        if (this.isDesktop) {
+          this.focusTrap.deactivate();
+        }
+        // Update items display
+        this.totalItemsWidth = 0;
+        if (this.items) {
+          this.items.forEach((item) => {
+            this.checkMenuItem(item);
+            this.totalItemsWidth += item.offsetWidth;
+          });
+        }
+
+        // Update overflow display
+        this.checkMenuOverflow();
+        this.positionMenuOverlay();
+
+        // Bring transition back
+        this.element.classList.add('ecl-menu--transition');
+
+        // Update saved width
+        this.windowWidth = window.innerWidth;
+      }, 200);
     }
-
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(() => {
-      this.element.classList.remove('ecl-menu--forced-mobile');
-
-      // Check global display
-      this.isDesktop = this.useDesktopDisplay();
-      if (this.isDesktop) {
-        this.focusTrap.deactivate();
-      }
-      // Update items display
-      this.totalItemsWidth = 0;
-      if (this.items) {
-        this.items.forEach((item) => {
-          this.checkMenuItem(item);
-          this.totalItemsWidth += item.offsetWidth;
-        });
-      }
-
-      // Update overflow display
-      this.checkMenuOverflow();
-      this.positionMenuOverlay();
-
-      // Bring transition back
-      this.element.classList.add('ecl-menu--transition');
-    }, 200);
-
-    return this;
   }
 
   /**
