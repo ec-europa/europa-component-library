@@ -27,6 +27,7 @@ export class Popover {
     element,
     {
       toggleSelector = '[data-ecl-popover-toggle]',
+      closeSelector = '[data-ecl-popover-close]',
       attachClickListener = true,
       attachKeyListener = true,
     } = {},
@@ -42,12 +43,16 @@ export class Popover {
 
     // Options
     this.toggleSelector = toggleSelector;
+    this.closeSelector = closeSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.toggle = null;
+    this.close = null;
     this.target = null;
+    this.container = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.openPopover = this.openPopover.bind(this);
@@ -56,6 +61,19 @@ export class Popover {
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
+    this.checkPosition = this.checkPosition.bind(this);
+    this.resetStyles = this.resetStyles.bind(this);
+
+    this.POPOVER_CLASSES = {
+      TOP: 'ecl-popover--top',
+      BOTTOM: 'ecl-popover--bottom',
+      LEFT: 'ecl-popover--left',
+      RIGHT: 'ecl-popover--right',
+      PUSH_TOP: 'ecl-popover--push-top',
+      PUSH_BOTTOM: 'ecl-popover--push-bottom',
+      PUSH_LEFT: 'ecl-popover--push-left',
+      PUSH_RIGHT: 'ecl-popover--push-right',
+    };
   }
 
   /**
@@ -68,13 +86,17 @@ export class Popover {
     ECL.components = ECL.components || new Map();
 
     this.toggle = queryOne(this.toggleSelector, this.element);
-
+    this.close = queryOne(this.closeSelector, this.element);
+    this.container = queryOne('.ecl-popover__container', this.element);
     // Bind global events
     if (this.attachKeyListener) {
       document.addEventListener('keyup', this.handleKeyboardGlobal);
     }
     if (this.attachClickListener) {
       document.addEventListener('click', this.handleClickGlobal);
+      if (this.close) {
+        this.close.addEventListener('click', this.handleClickOnToggle);
+      }
     }
 
     // Get target element
@@ -88,6 +110,9 @@ export class Popover {
         'Target has to be provided for popover (aria-controls)',
       );
     }
+
+    window.addEventListener('resize', this.checkPosition);
+    document.addEventListener('scroll', this.checkPosition);
 
     // Bind click event on toggle
     if (this.attachClickListener && this.toggle) {
@@ -106,12 +131,21 @@ export class Popover {
     if (this.attachClickListener && this.toggle) {
       this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
+    if (this.attachClickListener && this.close) {
+      this.close.removeEventListener('click', this.handleClickOnToggle);
+    }
+    window.removeEventListener('resize', this.checkPosition);
+    document.removeEventListener('scroll', this.checkPosition);
 
     if (this.attachKeyListener) {
       document.removeEventListener('keyup', this.handleKeyboardGlobal);
     }
     if (this.attachClickListener) {
       document.removeEventListener('click', this.handleClickGlobal);
+    }
+
+    if (this.toggle.getAttribute('aria-expanded') === 'true') {
+      this.closePopover();
     }
 
     if (this.element) {
@@ -154,47 +188,188 @@ export class Popover {
    */
   closePopover() {
     this.toggle.setAttribute('aria-expanded', 'false');
+    // Reset all the selectors and styles
+    this.resetStyles();
     this.target.hidden = true;
+  }
+
+  /**
+   * Resets the popover selectors and styles.
+   */
+  resetStyles() {
+    Object.keys(this.POPOVER_CLASSES).forEach((className) => {
+      if (
+        Object.prototype.hasOwnProperty.call(this.POPOVER_CLASSES, className)
+      ) {
+        this.element.classList.remove(this.POPOVER_CLASSES[className]);
+      }
+    });
+
+    this.target.style.setProperty('--ecl-popover-position', '');
+    this.container.style.left = '';
+    this.container.style.right = '';
+    this.container.style.top = '';
+    this.container.style.bottom = '';
+    this.container.style.transform = '';
+    this.target.firstElementChild.width = '';
   }
 
   /**
    * Manage popover position.
    */
   positionPopover() {
-    // Check available space
-    this.element.classList.remove('ecl-popover--top');
-    this.element.classList.remove('ecl-popover--push-left');
-    this.element.classList.remove('ecl-popover--push-right');
+    this.resetStyles();
 
     const toggleRect = this.toggle.getBoundingClientRect();
-    const popoverRect = this.target.getBoundingClientRect();
-    const popoverHeight = this.target.clientHeight;
     const screenHeight = window.innerHeight;
     const screenWidth = window.innerWidth;
 
-    if (popoverHeight > 0 && screenHeight - toggleRect.top < popoverHeight) {
-      this.element.classList.add('ecl-popover--top');
+    // Calculate available space in each direction
+    const spaceTop = toggleRect.top;
+    const spaceBottom = screenHeight - toggleRect.bottom;
+    const spaceLeft = toggleRect.left;
+    const spaceRight = screenWidth - toggleRect.right;
+
+    // Find the direction with the most available space
+    const positioningClass = 'ecl-popover--';
+    let direction = '';
+
+    if (
+      spaceTop > spaceBottom &&
+      spaceTop > spaceLeft &&
+      spaceTop > spaceRight
+    ) {
+      direction = 'top';
+    } else if (spaceBottom > spaceLeft && spaceBottom > spaceRight) {
+      direction = 'bottom';
+    } else if (spaceLeft > spaceRight) {
+      direction = 'left';
+    } else {
+      direction = 'right';
     }
 
-    if (popoverRect.left < 0) {
-      this.element.classList.add('ecl-popover--push-left');
+    this.element.classList.add(`${positioningClass}${direction}`);
+    this.handlePushClass(screenWidth, screenHeight, direction);
 
-      // Adapt arrow position
-      this.target.style.setProperty(
-        '--ecl-popover-position',
-        `${toggleRect.width / 2}px`,
-      );
+    // Try to use as much of the available width, respecting the max-width set.
+    const scrollable = this.target.firstElementChild;
+    const styles = window.getComputedStyle(scrollable);
+    const maxWidth = parseInt(styles.getPropertyValue('max-width'), 10);
+    const minWidth = parseInt(styles.getPropertyValue('min-width'), 10);
+    const padding = parseInt(styles.getPropertyValue('padding-left'), 10) * 2;
+
+    let availableSpace = '';
+    if (direction === 'left' || direction === 'right') {
+      availableSpace = (direction === 'left' ? spaceLeft : spaceRight) * 0.9;
+    } else {
+      const centerPosition =
+        (this.toggle.getBoundingClientRect().right -
+          this.toggle.getBoundingClientRect().left) /
+        2;
+      availableSpace =
+        (screenWidth - centerPosition + this.target.offsetWidth / 2) * 0.9;
+    }
+    if (maxWidth + padding < availableSpace) {
+      scrollable.style.width = `${maxWidth}px`;
+    } else if (availableSpace < minWidth + padding) {
+      scrollable.style.width = `${minWidth}px`;
+    } else {
+      scrollable.style.width = `${availableSpace - padding}px`;
+    }
+  }
+
+  handlePushClass(screenWidth, screenHeight, direction) {
+    const toggleRect = this.toggle.getBoundingClientRect();
+    const popoverRect = this.target.getBoundingClientRect();
+
+    if (direction === 'left' || direction === 'right') {
+      if (popoverRect.top < 0) {
+        this.element.classList.add(this.POPOVER_CLASSES.PUSH_TOP);
+        this.container.style.top = `-${Math.round(toggleRect.top)}px`;
+        this.container.style.bottom = '';
+        this.container.style.transform = '';
+      } else if (popoverRect.bottom > screenHeight) {
+        this.element.classList.add(this.POPOVER_CLASSES.PUSH_BOTTOM);
+        // We add 0.5rem to the calculus to avoid vertical scrollbars.
+        this.container.style.bottom = `-${Math.round(
+          screenHeight - (toggleRect.bottom + 8),
+        )}px`;
+        this.container.style.top = '';
+        this.container.style.transform = '';
+      }
+    } else {
+      if (popoverRect.left < 0) {
+        this.element.classList.add(this.POPOVER_CLASSES.PUSH_LEFT);
+        this.container.style.left = `-${toggleRect.left}px`;
+        this.container.style.right = 'auto';
+        this.container.style.transform = 'none';
+      }
+      if (popoverRect.right > screenWidth) {
+        this.element.classList.add(this.POPOVER_CLASSES.PUSH_RIGHT);
+        this.container.style.right = `-${screenWidth - toggleRect.right}px`;
+        this.container.style.left = 'auto';
+        this.container.style.transform = 'none';
+      }
     }
 
-    if (popoverRect.right > screenWidth) {
-      this.element.classList.add('ecl-popover--push-right');
+    this.handleArrowPosition(direction);
+  }
 
-      // Adapt arrow position
-      this.target.style.setProperty(
-        '--ecl-popover-position',
-        `calc(${toggleRect.width / 2}px - 0.5rem)`,
-      );
+  handleArrowPosition(direction) {
+    const toggleRect = this.toggle.getBoundingClientRect();
+    const popoverRect = this.target.getBoundingClientRect();
+
+    if (direction === 'left' || direction === 'right') {
+      if (this.element.classList.contains(this.POPOVER_CLASSES.PUSH_BOTTOM)) {
+        this.target.style.setProperty(
+          '--ecl-popover-position',
+          `${Math.round(
+            toggleRect.top - popoverRect.top + toggleRect.height / 2,
+          )}px`,
+        );
+      } else if (
+        this.element.classList.contains(this.POPOVER_CLASSES.PUSH_TOP)
+      ) {
+        this.target.style.setProperty(
+          '--ecl-popover-position',
+          `${Math.round(
+            popoverRect.top + toggleRect.top + toggleRect.height / 2,
+          )}px`,
+        );
+      }
+    } else {
+      // eslint-disable-next-line no-lonely-if
+      if (this.element.classList.contains(this.POPOVER_CLASSES.PUSH_RIGHT)) {
+        this.target.style.setProperty(
+          '--ecl-popover-position',
+          `${Math.round(
+            popoverRect.right - (toggleRect.right - toggleRect.width / 2),
+          )}px`,
+        );
+      } else if (
+        this.element.classList.contains(this.POPOVER_CLASSES.PUSH_LEFT)
+      ) {
+        this.target.style.setProperty(
+          '--ecl-popover-position',
+          `${Math.round(
+            popoverRect.left + toggleRect.left + toggleRect.width / 2,
+          )}px`,
+        );
+      }
     }
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  checkPosition() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      if (this.toggle.getAttribute('aria-expanded') === 'true') {
+        this.positionPopover();
+      }
+    }, 200);
   }
 
   /**

@@ -29,6 +29,7 @@
 {% set _media_size = media_size|default('m') %}
 {% set _css_class = 'ecl-list-illustration__item' %}
 {% set _image_class =  'ecl-list-illustration__image' %}
+{% set _picture_classes = 'ecl-list-illustration__picture' %}
 {% set _icon_size =  '' %}
 {% set _extra_attributes = '' %}
 
@@ -51,6 +52,7 @@
 {% if _square %}
   {% set _image_class = _image_class ~ ' ecl-list-illustration__image--square' %}
   {% set _image_class = _image_class ~ ' ecl-list-illustration__image--' ~ _media_size %}
+  {% set _picture_classes = _picture_classes ~ ' ecl-list-illustration__picture--square' %}
 {% endif %}
 
 {% if _media_size == 'l' %}
@@ -65,7 +67,7 @@
   {% if _picture.img is not empty %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
-      extra_classes: "ecl-list-illustration__picture",
+      extra_classes: _picture_classes,
       extra_image_classes: _image_class,
     } only %}
   {% endif %}

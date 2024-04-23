@@ -228,6 +228,7 @@ export class Select {
     }
     if (disabled) {
       checkbox.classList.add('ecl-checkbox--disabled');
+      box.classList.add('ecl-checkbox__box--disabled');
       input.setAttribute('disabled', disabled);
     }
 
