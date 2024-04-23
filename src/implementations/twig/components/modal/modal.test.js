@@ -6,6 +6,12 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 import demoData from '@ecl/specs-component-modal/demo/data-ec';
 
+const demoInfo = {
+  ...demoData,
+  variant: 'information',
+  sr_icon: 'Information',
+};
+
 expect.extend(toHaveNoViolations);
 
 describe('Modal', () => {
@@ -16,6 +22,11 @@ describe('Modal', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoData)).resolves.toMatchSnapshot();
+    });
+
+    test('information, renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoInfo)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly with extra class names', () => {

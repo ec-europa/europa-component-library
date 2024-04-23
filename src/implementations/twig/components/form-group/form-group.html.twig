@@ -6,6 +6,7 @@
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
+  - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
   - "required" (boolean) (default: false)
   - "label_aria_required" (string) (default: ''): aria text for the required field label
   - "label_aria_optional" (string) (default: ''): aria text for the optional field label
@@ -32,6 +33,7 @@
 {% set _label_aria_required = label_aria_required|default('') %}
 {% set _label_aria_optional = label_aria_optional|default('') %}
 {% set _invalid_icon = invalid_icon|default({}) %}
+{% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label_class = 'ecl-form-label' %}
@@ -120,6 +122,19 @@
       { name: 'aria-invalid', value: 'true' },
     ]) %}
   {% endif %}
+
+  {% if _input.input_type == 'radio' %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'role', value: 'radiogroup' },
+    ]) %}
+
+    {% if _required %}
+      {% set extra_attributes = extra_attributes|default([])|merge([
+        { name: 'aria-required', value: 'true' },
+      ]) %}
+    {% endif %}
+  {% endif %}
+
 {% else %}
   {# single input, uses input.extra_attributes #}
   {% if _aria_describedby is not empty %}
@@ -226,6 +241,7 @@
     {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
       invalid_text: _invalid_text,
       invalid_icon: _invalid_icon,
+      sr_invalid_icon: _sr_invalid_icon
     }) only %}
   {%- endif -%}
 
@@ -251,6 +267,10 @@
       {%- if _invalid_icon is not empty -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: _invalid_icon,
+        as_image: true,
+        extra_accessibility: not _sr_invalid_icon ? {} : {
+          title: _sr_invalid_icon,
+        },
         extra_classes: 'ecl-feedback-message__icon',
       } only %}
       {%- endif -%}

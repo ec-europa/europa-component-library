@@ -21,7 +21,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   border-width: 0;
   cursor: pointer;
   display: inline-block;
-  font: var(--f-m);
+  font: map.get($button, 'font');
   margin: 0;
   min-width: $min-width;
   padding: calc(
@@ -97,7 +97,9 @@ $size-icon-only: calc(
   }
 
   .ecl-button__icon {
+    height: map.get($theme, 'icon', 'm');
     margin: 0;
+    width: map.get($theme, 'icon', 'm');
   }
 }
 

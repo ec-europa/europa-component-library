@@ -3,15 +3,13 @@ title: Showcase
 order: 2
 ---
 
+import { correctSvgPath } from '@ecl/website-utils';
 import { Playground, Html } from '@ecl/website-components';
 import {
-  linkDefault,
   linkStandalone,
   linkCTA,
   linkPrimary,
   linkSecondary,
-  linkIcon,
-  linkInverted,
 } from '../demo';
 
 ## Default link
@@ -21,10 +19,7 @@ import {
   selectedKind="components-navigation-link"
   selectedStory="default"
 >
-  <p className="ecl-u-type-paragraph">
-    The European Commission is the executive of <Html markup={linkDefault} />{' '}
-    and promotes its general interest.
-  </p>
+  <p className="ecl-u-type-paragraph">The European Commission is the executive of <a href="/example#123123" className="ecl-link">The European Union</a> and promotes its general interest.</p>
 </Playground>
 
 ## Standalone link
@@ -46,10 +41,7 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="default"
 >
-  <p className="ecl-u-type-paragraph">
-    The European Commission is the executive of <Html markup={linkIcon} /> and
-    promotes its general interest.
-  </p>
+  <div dangerouslySetInnerHTML={{ __html: correctSvgPath(`<p class="ecl-u-type-paragraph">The European Commission is the executive of <a href="/example#235231" class="ecl-link ecl-link--default ecl-link--icon"><span class="ecl-link__label">The European Union</span><svg class="ecl-icon ecl-icon--fluid ecl-link__icon" focusable="false" aria-hidden="false" role="img"><title>Links to an external domain</title><use xlink:href="/icons.svg#external"></use></svg></a> and promotes its general interest.</p>`) }} />
 </Playground>
 
 ## Call-to-action link
@@ -89,8 +81,7 @@ Note: all types of links listed on this page can have icons before or after the 
   selectedKind="components-navigation-link"
   selectedStory="inverted"
 >
-  <p className="ecl-u-type-paragraph ecl-u-bg-dark ecl-u-type-color-white">
-    The European Commission is the executive of <Html markup={linkInverted} />{' '}
-    and promotes its general interest.
-  </p>
+
+  <p className="ecl-u-type-paragraph ecl-u-bg-dark ecl-u-type-color-white">The European Commission is the executive of <a href="/example#345252" className="ecl-link ecl-link--inverted">The European Union</a>
+    and promotes its general interest. </p>
 </Playground>

@@ -14,8 +14,8 @@ const iconSvgAllCornerArrow =
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**
- * This API mostly refers to the multiple select, in the default select only three methods are actually used:
- * handleToggle(), handleKeyboardOnSelect() and handleEsc().
+ * This API mostly refers to the multiple select, in the default select only two methods are actually used:
+ * handleKeyboardOnSelect() and handleOptgroup().
  *
  * For the multiple select there are multiple labels contained in this component. You can set them in 2 ways:
  * directly as a string or through data attributes.
@@ -459,6 +459,7 @@ export class Select {
       this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
       this.optionsContainer = document.createElement('div');
       this.optionsContainer.classList.add('ecl-select__multiple-options');
+      this.optionsContainer.setAttribute('aria-live', 'polite');
       this.searchContainer.appendChild(this.optionsContainer);
       // Toolbar
       if (this.clearAllButtonLabel || this.closeButtonLabel) {
@@ -593,15 +594,13 @@ export class Select {
       if (this.form) {
         this.form.addEventListener('reset', this.resetForm);
       }
-    } else {
-      this.shouldHandleClick = true;
-      this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
-      this.select.addEventListener('blur', this.handleEsc);
-      this.select.addEventListener('click', this.handleToggle, true);
-      this.select.addEventListener('mousedown', this.handleToggle, true);
-    }
 
-    document.addEventListener('click', this.handleClickOutside);
+      document.addEventListener('click', this.handleClickOutside);
+    } else {
+      // Simple select
+      this.#handleOptgroup();
+      this.select.addEventListener('keydown', this.handleKeyboardOnSelect);
+    }
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -663,27 +662,16 @@ export class Select {
    * @type {function}
    */
   handleToggle(e) {
-    if (this.multiple) {
-      e.preventDefault();
-      this.input.classList.toggle('ecl-select--active');
-      if (this.searchContainer.style.display === 'none') {
-        this.searchContainer.style.display = 'block';
-        this.input.setAttribute('aria-expanded', true);
-        this.isOpen = true;
-      } else {
-        this.searchContainer.style.display = 'none';
-        this.input.setAttribute('aria-expanded', false);
-        this.isOpen = false;
-      }
-    } else if (e.type === 'click' && !this.shouldHandleClick) {
-      this.shouldHandleClick = true;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'mousedown' && this.shouldHandleClick) {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
-    } else if (e.type === 'keydown') {
-      this.shouldHandleClick = false;
-      this.select.classList.toggle('ecl-select--active');
+    e.preventDefault();
+    this.input.classList.toggle('ecl-select--active');
+    if (this.searchContainer.style.display === 'none') {
+      this.searchContainer.style.display = 'block';
+      this.input.setAttribute('aria-expanded', true);
+      this.isOpen = true;
+    } else {
+      this.searchContainer.style.display = 'none';
+      this.input.setAttribute('aria-expanded', false);
+      this.isOpen = false;
     }
 
     const eventData = { opened: this.isOpen, e };
@@ -726,9 +714,11 @@ export class Select {
    * Destroy the component instance.
    */
   destroy() {
+    this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
+
     if (this.multiple) {
+      document.removeEventListener('click', this.handleClickOutside);
       this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
-      this.input.removeEventListener('keydown', this.handleKeyboardOnSelect);
       this.input.removeEventListener('click', this.handleToggle);
       this.search.removeEventListener('keyup', this.handleSearch);
       this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
@@ -747,7 +737,7 @@ export class Select {
         checkbox.removeEventListener('click', this.handleClickOption);
         checkbox.removeEventListener('keydown', this.handleKeyboardOnOption);
       });
-      document.removeEventListener('click', this.handleClickOutside);
+
       if (this.closeButton) {
         this.closeButton.removeEventListener('click', this.handleEsc);
         this.closeButton.removeEventListener(
@@ -770,12 +760,7 @@ export class Select {
       }
 
       this.select.parentNode.classList.remove('ecl-select__container--hidden');
-    } else {
-      this.select.removeEventListener('focus', this.handleToggle);
     }
-
-    this.select.removeEventListener('blur', this.handleToggle);
-    document.removeEventListener('click', this.handleClickOutside);
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
@@ -825,6 +810,23 @@ export class Select {
   }
 
   /**
+   * Private method to handle optgroup in single select.
+   *
+   * @private
+   */
+  #handleOptgroup() {
+    Array.from(this.select.options).forEach((option) => {
+      if (option.parentNode.tagName === 'OPTGROUP') {
+        const groupLabel = option.parentNode.getAttribute('label');
+        const optionLabel = option.getAttribute('label') || option.textContent;
+        if (groupLabel && optionLabel) {
+          option.setAttribute('aria-label', `${optionLabel} - ${groupLabel}`);
+        }
+      }
+    });
+  }
+
+  /**
    * Private method to update the select value.
    *
    * @fires Select#onSelection
@@ -856,9 +858,10 @@ export class Select {
    * Private method to handle the focus switch.
    *
    * @param {upOrDown}
+   * @param {loop}
    * @private
    */
-  #moveFocus(upOrDown) {
+  #moveFocus(upOrDown, loop = true) {
     const activeEl = document.activeElement;
     const hasGroups = activeEl.parentElement.parentElement.classList.contains(
       'ecl-select__multiple-group',
@@ -885,13 +888,15 @@ export class Select {
         nextSiblings[0].focus();
       } else {
         // eslint-disable-next-line no-lonely-if
-        if (
-          this.dropDownToolbar &&
-          this.dropDownToolbar.style.display === 'flex'
-        ) {
-          this.dropDownToolbar.firstChild.focus();
-        } else {
-          this.input.focus();
+        if (loop) {
+          if (
+            this.dropDownToolbar &&
+            this.dropDownToolbar.style.display === 'flex'
+          ) {
+            this.dropDownToolbar.firstChild.focus();
+          } else {
+            this.input.focus();
+          }
         }
       }
     } else {
@@ -1139,12 +1144,6 @@ export class Select {
       this.searchContainer.style.display = 'none';
       this.input.classList.remove('ecl-select--active');
       this.input.setAttribute('aria-expanded', false);
-    } else if (
-      e.target &&
-      !this.selectMultiple &&
-      !this.select.parentNode.contains(e.target)
-    ) {
-      this.select.classList.remove('ecl-select--active');
     }
   }
 
@@ -1163,9 +1162,9 @@ export class Select {
 
       case ' ':
       case 'Enter':
-        this.handleToggle(e);
         if (this.multiple) {
           e.preventDefault();
+          this.handleToggle(e);
           this.search.focus();
         }
         break;
@@ -1174,6 +1173,7 @@ export class Select {
         if (this.multiple) {
           e.preventDefault();
           this.handleToggle(e);
+          this.search.focus();
         }
         break;
 
@@ -1238,7 +1238,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        this.#moveFocus('down');
+        this.#moveFocus('down', false);
         break;
 
       case 'ArrowUp':
