@@ -14,27 +14,34 @@ const iconPath = system === 'eu' ? iconPathEu : iconPathEc;
  * @param {Object} data
  */
 const correctSvgPath = (data) => {
-  Object.keys(data).forEach((prop) => {
-    if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
-      if (data[prop].includes('social-media')) {
-        data[prop] = iconMediaSocialPath;
-      } else if (data[prop].includes('social')) {
-        data[prop] = iconSocialPath;
-      } else if (data[prop].includes('flag')) {
-        data[prop] = iconFlagPath;
-      } else if (data[prop].includes('xlink:href="/icons.svg#')) {
-        data[prop] = data[prop].replace(
-          'xlink:href="/icons.svg#',
-          `xlink:href="${iconPath}#`,
-        );
-      } else {
-        data[prop] = iconPath;
+  if (typeof data !== 'object') {
+    data = data.replace(
+      /xlink:href="\/icons\.svg#/g,
+      `xlink:href="${iconPath}#`,
+    );
+  } else {
+    Object.keys(data).forEach((prop) => {
+      if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
+        if (data[prop].includes('social-media')) {
+          data[prop] = iconMediaSocialPath;
+        } else if (data[prop].includes('social')) {
+          data[prop] = iconSocialPath;
+        } else if (data[prop].includes('flag')) {
+          data[prop] = iconFlagPath;
+        } else if (data[prop].includes('xlink:href="/icons.svg#')) {
+          data[prop] = data[prop].replace(
+            'xlink:href="/icons.svg#',
+            `xlink:href="${iconPath}#`,
+          );
+        } else {
+          data[prop] = iconPath;
+        }
       }
-    }
-    if (data[prop] !== null && typeof data[prop] === 'object') {
-      data[prop] = correctSvgPath(data[prop]);
-    }
-  });
+      if (data[prop] !== null && typeof data[prop] === 'object') {
+        data[prop] = correctSvgPath(data[prop]);
+      }
+    });
+  }
 
   return data;
 };

@@ -491,6 +491,10 @@ export class Gallery {
       mediaElement.setAttribute('controls', 'controls');
       mediaElement.classList.add('ecl-gallery__slider-video');
 
+      if (this.videoPlayerLabel) {
+        mediaElement.setAttribute('aria-label', this.videoPlayerLabel);
+      }
+
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);

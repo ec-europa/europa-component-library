@@ -27,6 +27,7 @@ npm install --save @ecl/twig-component-gallery
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
+- **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
@@ -49,6 +50,7 @@ npm install --save @ecl/twig-component-gallery
   counter_label: 'Media files in this gallery' , 
   visible_items: 6,
   disable_overlay: false,
+  sr_video_label: 'Video',
   sr_video_player: 'Video player',
   items: [ 
     { 
