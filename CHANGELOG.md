@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.2
+
+#### :bug: Bug Fix
+
+- [#3352](https://github.com/ec-europa/europa-component-library/pull/3352) fix(menu): fix resize on mobile - FRONT-4382 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 4.1.1
 
 #### :warning: Markup Changes
