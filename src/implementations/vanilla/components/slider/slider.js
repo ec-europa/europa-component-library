@@ -250,6 +250,9 @@ export class Slider {
   shiftSlide(direction) {
     if (this.allowShift) {
       this.current += direction;
+      if (direction < 0) {
+        this.nextButton.removeAttribute('disabled');
+      }
       this.moveSlides();
     }
   }
