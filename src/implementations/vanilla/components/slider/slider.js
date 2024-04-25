@@ -1,4 +1,5 @@
 import EventManager from '@ecl/event-manager';
+import { createSvgIcon } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import iconBackEc from '@ecl/resources-ec-icons/dist/svg/all/arrow-left.svg';
 import iconBackEu from '@ecl/resources-eu-icons/dist/svg/all/arrow-left.svg';
@@ -69,26 +70,6 @@ export class Slider {
     this.findLastVisibleItemIndex = this.findLastVisibleItemIndex.bind(this);
   }
 
-  /**
-   * Static method to create an svg icon.
-   *
-   * @static
-   * @private
-   * @returns {HTMLElement}
-   */
-  static #createSvgIcon(icon, classes) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', classes);
-    return svg;
-  }
-
   init() {
     ECL.components = ECL.components || new Map();
 
@@ -139,7 +120,7 @@ export class Slider {
     const prevContainer = document.createElement('span');
     prevContainer.classList = 'ecl-button__container';
     prevContainer.appendChild(
-      Slider.#createSvgIcon(iconBack, 'ecl-icon ecl-icon--m ecl-slider__icon'),
+      createSvgIcon(iconBack, 'ecl-icon ecl-icon--m ecl-slider__icon'),
     );
     this.prevButton.appendChild(prevContainer);
     if (this.attachClickListener) {
@@ -156,7 +137,7 @@ export class Slider {
     const nextContainer = document.createElement('span');
     nextContainer.classList = 'ecl-button__container';
     nextContainer.appendChild(
-      Slider.#createSvgIcon(
+      createSvgIcon(
         iconBack,
         'ecl-icon ecl-icon--m ecl-slider__icon ecl-icon--flip-horizontal',
       ),

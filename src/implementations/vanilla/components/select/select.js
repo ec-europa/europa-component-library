@@ -1,5 +1,5 @@
 /* eslint-disable no-return-assign */
-import { queryOne } from '@ecl/dom-utils';
+import { queryOne, createSvgIcon } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
 import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
@@ -173,26 +173,6 @@ export class Select {
   }
 
   /**
-   * Static method to create an svg icon.
-   *
-   * @static
-   * @private
-   * @returns {HTMLElement}
-   */
-  static #createSvgIcon(icon, classes) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', classes);
-    return svg;
-  }
-
-  /**
    * Static method to create a checkbox element.
    *
    * @static
@@ -245,10 +225,7 @@ export class Select {
     box.classList.add('ecl-checkbox__box');
     box.setAttribute('aria-hidden', true);
     box.appendChild(
-      Select.#createSvgIcon(
-        iconSvgAllCheck,
-        'ecl-icon ecl-icon--s ecl-checkbox__icon',
-      ),
+      createSvgIcon(iconSvgAllCheck, 'ecl-icon ecl-icon--s ecl-checkbox__icon'),
     );
     label.appendChild(box);
     labelText.classList.add('ecl-checkbox__label-text');
@@ -281,7 +258,7 @@ export class Select {
     label.classList.add('ecl-button__label');
     label.textContent = 'Toggle dropdown';
     labelWrapper.appendChild(label);
-    const icon = Select.#createSvgIcon(
+    const icon = createSvgIcon(
       iconSvgAllCornerArrow,
       `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
     );
