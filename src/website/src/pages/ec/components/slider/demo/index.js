@@ -1,5 +1,5 @@
 import template from '@ecl/twig-component-slider/slider.html';
-import templateTags from '@ecl/twig-component-slider/slider.tags.html';
+import templateFluid from '@ecl/twig-component-slider/slider.fluid.html';
 
 export const slider = template;
-export const sliderTags = templateTags;
+export const sliderFluid = templateFluid;
