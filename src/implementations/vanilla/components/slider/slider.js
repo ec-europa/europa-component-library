@@ -12,7 +12,7 @@ const iconBack = system === 'eu' ? iconBackEu : iconBackEc;
  * @param {String} options.showProgressAttr attribute used to toggle the progress bar
  * @param {String} options.variantAttr attribute used to determine the slider variant
  * @param {String} options.defaultItemSpacing Spacing value for the default variant
- * @param {String} options.tagsItemSpacing Spacing value for the tags variant
+ * @param {String} options.fluidItemSpacing Spacing value for the fluid variant
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize event
  */
@@ -35,7 +35,7 @@ export class Slider {
       showProgressAttr = 'data-ecl-slider-progress',
       variantAttr = 'data-ecl-slider-variant',
       defaultItemSpacing = 32,
-      tagsItemSpacing = 4,
+      fluidItemSpacing = 4,
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -52,7 +52,7 @@ export class Slider {
     this.attachResizeListener = attachResizeListener;
     this.variantAttr = variantAttr;
     this.defaultItemSpacing = defaultItemSpacing;
-    this.tagsItemSpacing = tagsItemSpacing;
+    this.fluidItemSpacing = fluidItemSpacing;
     this.slides = null;
     this.total = 0;
     this.current = 0;
@@ -95,8 +95,8 @@ export class Slider {
     this.element.classList.add('ecl-slider__list');
     const wrapper = document.createElement('div');
     wrapper.classList.add('ecl-slider');
-    if (this.variant === 'tags') {
-      wrapper.classList.add('ecl-slider--tags');
+    if (this.variant === 'fluid') {
+      wrapper.classList.add('ecl-slider--fluid');
     }
     const innerWrapper = document.createElement('div');
     innerWrapper.classList.add('ecl-slider__container');
@@ -170,7 +170,7 @@ export class Slider {
     this.sliderInfo.appendChild(this.controls);
     this.container = this.element.parentNode.parentNode;
     // Append progress bar and controls.
-    if (this.variant === 'tags') {
+    if (this.variant === 'fluid') {
       // slider info is a sibling of the slider container, in this case.
       this.container.appendChild(this.sliderInfo);
     } else {
@@ -190,7 +190,7 @@ export class Slider {
     // Set initial slider dimensions
     this.handleResize();
 
-    if (this.variant === 'tags') {
+    if (this.variant === 'fluid') {
       if (this.total === this.current + 1) {
         this.sliderInfo.style.display = 'none';
       } else {
@@ -253,7 +253,6 @@ export class Slider {
 
     const initialMarkup = this.element;
     initialMarkup.removeAttribute('data-ecl-auto-initialized');
-    initialMarkup.removeAttribute('data-ecl-auto-init');
     initialMarkup.classList.remove('ecl-slider__list');
     initialMarkup.style.transform = '';
     Array.from(initialMarkup.children).forEach((slide) => {
@@ -283,26 +282,36 @@ export class Slider {
   moveSlides() {
     const itemWidth = this.slides[0].offsetWidth + 24;
     const slideIndex = this.current - this.itemsPerSlide;
-    this.translateX = -slideIndex * itemWidth;
+    this.translateX = slideIndex * itemWidth;
+    this.direction = getComputedStyle(this.element).direction;
 
-    if (this.variant === 'tags') {
-      // Calculate total width of the items after the last initially visible item
-      let totalWidthAfterLastVisible = 0;
-      for (
-        let i = this.lastVisibleIndexInitial + 1;
-        i <= this.current;
-        i += 1
-      ) {
-        if (this.slides[i - 1]) {
-          totalWidthAfterLastVisible +=
-            this.slides[i - 1].offsetWidth + this.tagsItemSpacing;
-        }
+    if (this.variant === 'fluid') {
+      if (this.direction === 'rtl') {
+        this.translateX = Math.ceil(
+          this.element.offsetWidth -
+            this.slides[this.current].offsetLeft -
+            this.slides[this.current].offsetWidth,
+        );
+      } else {
+        this.translateX = Math.ceil(this.slides[this.current].offsetLeft);
       }
 
-      this.translateX = -totalWidthAfterLastVisible;
+      const totalScroll = Math.ceil(
+        this.element.getBoundingClientRect().width -
+          (this.container.getBoundingClientRect().width - 88 - 16),
+      );
+
+      if (this.translateX > totalScroll) {
+        this.translateX = totalScroll;
+        this.nextButton.disabled = true;
+      }
     }
 
-    this.element.style.transform = `translateX(${this.translateX}px)`;
+    if (this.direction === 'rtl') {
+      this.element.style.transform = `translateX(${this.translateX}px)`;
+    } else {
+      this.element.style.transform = `translateX(-${this.translateX}px)`;
+    }
 
     this.trigger('onSlideChange', {
       currentIndex: this.current,
@@ -328,16 +337,11 @@ export class Slider {
    *
    */
   checkButtonsVisibility() {
-    if (this.variant === 'tags') {
-      if (this.current + 1 === this.total) {
-        this.nextButton.disabled = true;
+    if (this.variant === 'fluid') {
+      if (this.current >= 1) {
         this.prevButton.removeAttribute('disabled');
-      } else if (this.translateX === 0) {
-        this.prevButton.disabled = true;
-        this.nextButton.removeAttribute('disabled');
       } else {
-        this.nextButton.removeAttribute('disabled');
-        this.prevButton.removeAttribute('disabled');
+        this.prevButton.disabled = true;
       }
     } else {
       if (this.total < this.itemsPerSlide) {
@@ -372,13 +376,20 @@ export class Slider {
 
     for (let i = 0; i < this.slides.length; i += 1) {
       const item = this.slides[i];
-      totalWidth += item.offsetWidth + this.tagsItemSpacing;
+      item.style.position = 'absolute';
+      item.style.left = '-9999px';
+
+      const itemWidth =
+        Math.round(parseFloat(window.getComputedStyle(item).width)) + 16;
+      totalWidth += itemWidth + this.fluidItemSpacing;
+      item.style.position = 'static';
+      item.style.left = '';
       const adjustedWidth = totalWidth + this.translateX;
       // Check if item is entirely visible within the container
       if (adjustedWidth <= computedWidth) {
         lastVisibleIndex = i;
       } else {
-        break;
+        this.element.style.width = `${totalWidth}px`;
       }
     }
 
@@ -391,9 +402,9 @@ export class Slider {
    */
   handleResize() {
     const containerWidth = this.container.offsetWidth;
-    this.element.style.transform = `translateX(0)`;
+    this.element.style.transform = `translateX(0px)`;
     this.translateX = 0;
-    if (this.variant !== 'tags') {
+    if (this.variant !== 'fluid') {
       // Number of items to show (base 5)
       if (containerWidth > 996) {
         // 4 + 20% of the 5th
@@ -424,10 +435,11 @@ export class Slider {
       this.current = Math.floor(this.itemsToShow / 5);
     } else {
       this.lastVisibleIndexInitial = this.findLastVisibleItemIndex();
-      this.current = this.lastVisibleIndexInitial;
+      this.current = 0;
     }
 
-    this.checkButtonsVisibility(true);
+    this.nextButton.removeAttribute('disabled');
+    this.prevButton.disabled = true;
     // Update progress bar width if enabled
     if (this.showProgress) {
       const progressWidth = `${(this.current / this.total) * 100}%`;

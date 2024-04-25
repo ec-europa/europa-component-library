@@ -2,9 +2,9 @@ import withCode from '@ecl/storybook-addon-code';
 import { withNotes } from '@ecl/storybook-addon-notes';
 
 import slider from './slider.html';
-import sliderTags from './slider.tags.html';
+import sliderTags from './slider.fluid.html';
 import notes from './README.md';
-import notesTag from './README-tags.md';
+import notesFluid from './README-fluid.md';
 
 export default {
   title: 'Components/Slider',
@@ -23,5 +23,5 @@ Default.parameters = { notes: { markdown: notes } };
 
 export const Tags = () => sliderTags;
 
-Tags.storyName = 'tags';
-Tags.parameters = { notes: { markdown: notesTag } };
+Tags.storyName = 'fluid';
+Tags.parameters = { notes: { markdown: notesFluid } };
