@@ -253,7 +253,7 @@ export class Slider {
       if (direction < 0) {
         this.nextButton.removeAttribute('disabled');
       }
-      this.moveSlides();
+      this.moveSlides(direction);
     }
   }
 
@@ -261,15 +261,21 @@ export class Slider {
    * Moves the slides within the slider.
    * Calculates the translation value based on the current slide position and updates the UI accordingly.
    *
+   * @param {number} direction - The direction to shift the slider (-1 for left, 1 for right).
+   *
    * @fires Slider#onSlideChange
    */
-  moveSlides() {
-    const itemWidth = this.slides[0].offsetWidth + 24;
-    const slideIndex = this.current - this.itemsPerSlide;
-    this.translateX = slideIndex * itemWidth;
-    this.direction = getComputedStyle(this.element).direction;
-
-    if (this.variant === 'fluid') {
+  moveSlides(direction) {
+    if (this.variant !== 'fluid') {
+      const itemWidth = this.slides[0].offsetWidth + 24;
+      const isXl = this.container.offsetWidth > 1140;
+      // Handle Xl viewports differently, we slide the whole row with 4 items
+      if (isXl) {
+        this.current = direction > 0 ? this.current + 3 : this.current - 3;
+      }
+      const slideIndex = this.current - this.itemsPerSlide;
+      this.translateX = slideIndex * itemWidth;
+    } else {
       if (this.direction === 'rtl') {
         this.translateX = Math.ceil(
           this.element.offsetWidth -
@@ -291,6 +297,8 @@ export class Slider {
       }
     }
 
+    this.direction = getComputedStyle(this.element).direction;
+
     if (this.direction === 'rtl') {
       this.element.style.transform = `translateX(${this.translateX}px)`;
     } else {
@@ -305,8 +313,8 @@ export class Slider {
     this.checkButtonsVisibility();
     // Update progress bar width if enabled
     if (this.showProgress) {
-      const progressWidth = `${(this.current / this.total) * 100}%`;
-      this.progress.style.width = progressWidth;
+      // The progress bar is not a progress bar anymore, it only gives an indication of the visible slides position.
+      this.progress.style.marginInlineStart = `${((this.current - this.itemsPerSlide) / this.total) * 100}%`;
     }
 
     // Set a delay to prevent rapid clicking
@@ -389,25 +397,25 @@ export class Slider {
     this.element.style.transform = `translateX(0px)`;
     this.translateX = 0;
     if (this.variant !== 'fluid') {
-      // Number of items to show (base 5)
+      // Number of items to show (base 20)
       if (containerWidth > 996) {
-        // 4 + 20% of the 5th
-        this.itemsToShow = 21;
+        // 4 + 5% of the 5th
+        this.itemsToShow = 81;
       } else if (containerWidth > 768) {
-        // 2 + 20% of the 3th
-        this.itemsToShow = 11;
+        // 2 + 5% of the 3th
+        this.itemsToShow = 41;
       } else {
-        // 1 + 20% of the 2th
-        this.itemsToShow = 6;
+        // 1 + 5% of the 2th
+        this.itemsToShow = 21;
       }
 
-      this.itemsPerSlide = Math.floor(this.itemsToShow / 5);
+      this.itemsPerSlide = Math.floor(this.itemsToShow / 20);
 
       const itemWidth = Math.floor(
         ((this.element.clientWidth -
-          this.defaultItemSpacing * Math.floor(this.itemsToShow / 5)) /
+          this.defaultItemSpacing * Math.floor(this.itemsToShow / 20)) /
           this.itemsToShow) *
-          5,
+          20,
       );
 
       this.slides.forEach((slide, index) => {
@@ -415,8 +423,8 @@ export class Slider {
           slide.style.width = `${itemWidth}px`;
         }
       });
-      // Update current
-      this.current = Math.floor(this.itemsToShow / 5);
+
+      this.current = Math.floor(this.itemsToShow / 20);
     } else {
       this.lastVisibleIndexInitial = this.findLastVisibleItemIndex();
       this.current = 0;
@@ -426,8 +434,10 @@ export class Slider {
     this.prevButton.disabled = true;
     // Update progress bar width if enabled
     if (this.showProgress) {
-      const progressWidth = `${(this.current / this.total) * 100}%`;
+      const progressWidth = `${(this.itemsPerSlide / this.total) * 100}%`;
       this.progress.style.width = progressWidth;
+      // The progress bar is not a progress bar anymore, it only gives an indication of the visible slides position.
+      this.progress.style.marginInlineStart = `${((this.current - this.itemsPerSlide) / this.total) * 100}%`;
     }
   }
 }
