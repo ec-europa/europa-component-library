@@ -9,13 +9,18 @@ var slider = new ECL.Slider(elt);
 slider.init();
 
 It comes with two variants, or actually only one, the default is to slide between items like `cards`, all the slides get the same width and a certain number of items will be visible in relation to the available space.
-The variant is `tags` and can be used to slide in a list of `ecl tags`, or even better an `ecl tag set`, this variant would also work with simple links or buttons, elements that gets their width determined by the text that they contain.
+The variant is `fluid` and can be used to slide in a list of `ecl tags`, or even better an `ecl tag set`, this variant would also work with simple links or buttons, elements that gets their width determined by the text that they contain.
 
 ### Example:
 
 <!-- prettier-ignore -->
 ```html
-<ul data-ecl-auto-init="Slider" data-ecl-slider-progress> 
+<ul
+  data-ecl-auto-init="Slider"
+  data-ecl-slider-progress
+  data-ecl-prev-label="Prev"
+  data-ecl-next-label="Next"
+> 
   <li> 
     <article class="ecl-card"> 
       <div class="ecl-card__body"> 

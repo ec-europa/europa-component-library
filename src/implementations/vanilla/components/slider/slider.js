@@ -37,6 +37,8 @@ export class Slider {
       variantAttr = 'data-ecl-slider-variant',
       defaultItemSpacing = 32,
       fluidItemSpacing = 4,
+      prevLabelSelector = 'data-ecl-prev-label',
+      nextLabelSelector = 'data-ecl-next-label',
       attachClickListener = true,
       attachResizeListener = true,
     } = {},
@@ -54,6 +56,8 @@ export class Slider {
     this.variantAttr = variantAttr;
     this.defaultItemSpacing = defaultItemSpacing;
     this.fluidItemSpacing = fluidItemSpacing;
+    this.prevLabelSelector = prevLabelSelector;
+    this.nextLabelSelector = nextLabelSelector;
     this.slides = null;
     this.total = 0;
     this.current = 0;
@@ -120,6 +124,13 @@ export class Slider {
     this.prevButton.disabled = true;
     const prevContainer = document.createElement('span');
     prevContainer.classList = 'ecl-button__container';
+    const srLabelPrev = this.element.getAttribute(this.prevLabelSelector);
+    if (srLabelPrev) {
+      const srLabelPrevContainer = document.createElement('span');
+      srLabelPrevContainer.classList.add('ecl-button__label');
+      srLabelPrevContainer.textContent = srLabelPrev;
+      prevContainer.appendChild(srLabelPrevContainer);
+    }
     prevContainer.appendChild(
       createSvgIcon(iconBack, 'ecl-icon ecl-icon--m ecl-slider__icon'),
     );
@@ -138,6 +149,14 @@ export class Slider {
     );
     const nextContainer = document.createElement('span');
     nextContainer.classList = 'ecl-button__container';
+    const srLabelNext = this.element.getAttribute(this.nextLabelSelector);
+    console.log(srLabelNext);
+    if (srLabelNext) {
+      const srLabelNextContainer = document.createElement('span');
+      srLabelNextContainer.classList.add('ecl-button__label');
+      srLabelNextContainer.textContent = srLabelNext;
+      nextContainer.appendChild(srLabelNextContainer);
+    }
     nextContainer.appendChild(
       createSvgIcon(
         iconBack,

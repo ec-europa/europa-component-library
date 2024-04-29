@@ -19,6 +19,8 @@ The variant is `fluid` and can be used to slide in a list of `ecl tags`, or even
   class="ecl-tag-set"
   data-ecl-auto-init="Slider"
   data-ecl-slider-variant="fluid"
+  data-ecl-prev-label="Prev"
+  data-ecl-next-label="Next"
 >
   <li class="ecl-tag-set__item">
     <a href="./example#22wqx" class="ecl-tag">Lorem ipsum dolor sit Tag 1</a>
