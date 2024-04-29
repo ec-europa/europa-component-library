@@ -54,12 +54,14 @@ $_arrow-size: 1rem;
   min-width: 288px;
   max-width: 288px;
   overflow-y: auto;
-  padding: var(--s-3xl);
+  padding: map.get($popover, 'padding');
 }
 
 .ecl-popover__content {
   background-color: map.get($theme, 'color', 'white');
+  color: var(--c-d);
   font: var(--f-m);
+  line-height: map.get($popover, 'content-line-height');
   max-height: 11rem;
   text-align: start;
   width: auto;
@@ -71,7 +73,7 @@ $_arrow-size: 1rem;
   right: var(--s-m);
 
   + .ecl-popover__content {
-    padding-inline-end: var(--s-xl);
+    padding-inline-end: map.get($popover, 'content-padding-end');
   }
 }
 

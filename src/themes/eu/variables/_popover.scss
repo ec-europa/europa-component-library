@@ -2,6 +2,9 @@
 @use '../index' as *;
 
 $popover: (
-  shadow: var(--sh-3),
-  shadow-size: 6px,
+  content-line-height: map.get($line-height-prolonged, 'l'),
+  content-padding-end: var(--s-xl),
+  padding: var(--s-l),
+  shadow: var(--sh-4),
+  shadow-size: 4px,
 );
