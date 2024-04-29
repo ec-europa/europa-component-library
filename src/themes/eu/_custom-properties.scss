@@ -49,7 +49,6 @@
   --ecl-color-accent-30: #{map.get($color, 'accent-30')};
   --ecl-color-overlay-light: color-mix(in srgb, var(--c-d) 70%, transparent);
   --ecl-color-overlay-dark: color-mix(in srgb, var(--c-d) 90%, transparent);
-  --ecl-font-2xs: #{map.get($font, '2xs')};
   --ecl-font-xs: #{map.get($font, 'xs')};
   --ecl-font-s: #{map.get($font, 's')};
   --ecl-font-m: #{map.get($font, 'm')};
@@ -59,12 +58,8 @@
   --ecl-font-3xl: #{map.get($font, '3xl')};
   --ecl-font-4xl: #{map.get($font, '4xl')};
   --ecl-font-5xl: #{map.get($font, '5xl')};
-  --ecl-font-6xl: #{map.get($font, '6xl')};
-  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
-  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
-  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
-  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
-  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
+  --ecl-font-ui-s: #{map.get($font-ui, 's')};
+  --ecl-font-ui-m: #{map.get($font-ui, 'm')};
   --ecl-spacing-2xs: #{map.get($spacing, '2xs')};
   --ecl-spacing-xs: #{map.get($spacing, 'xs')};
   --ecl-spacing-s: #{map.get($spacing, 's')};
@@ -136,7 +131,6 @@
   --c-a-30: var(--ecl-color-accent-30);
   --c-ov-l: var(--ecl-color-overlay-light);
   --c-ov-d: var(--ecl-color-overlay-dark);
-  --f-2xs: var(--ecl-font-2xs);
   --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
@@ -146,12 +140,8 @@
   --f-3xl: var(--ecl-font-3xl);
   --f-4xl: var(--ecl-font-4xl);
   --f-5xl: var(--ecl-font-5xl);
-  --f-6xl: var(--ecl-font-6xl);
-  --f-p-xs: var(--ecl-font-prolonged-xs);
-  --f-p-s: var(--ecl-font-prolonged-s);
-  --f-p-m: var(--ecl-font-prolonged-m);
-  --f-p-l: var(--ecl-font-prolonged-l);
-  --f-p-xl: var(--ecl-font-prolonged-xl);
+  --f-ui-s: var(--ecl-font-ui-s);
+  --f-ui-m: var(--ecl-font-ui-m);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
@@ -194,4 +184,18 @@
   --c-v-100: var(--ecl-color-visited-100);
   --ecl-color-visited-40: #{map.get($color, 'visited-40')};
   --c-v-40: var(--ecl-color-visited-40);
+  --ecl-font-2xs: #{map.get($font, '2xs')};
+  --f-2xs: var(--ecl-font-2xs);
+  --ecl-font-6xl: #{map.get($font, '6xl')};
+  --f-6xl: var(--ecl-font-6xl);
+  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
+  --f-p-xs: var(--ecl-font-prolonged-xs);
+  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
+  --f-p-s: var(--ecl-font-prolonged-s);
+  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
+  --f-p-m: var(--ecl-font-prolonged-m);
+  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
+  --f-p-l: var(--ecl-font-prolonged-l);
+  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
+  --f-p-xl: var(--ecl-font-prolonged-xl);
 }
