@@ -78,6 +78,9 @@ export class Datepicker {
       enableSelectionDaysInNextAndPreviousMonths;
     this.reposition = reposition;
     this.direction = 'ltr';
+
+    // Private variables
+    this.toggle = null;
   }
 
   /**
@@ -122,6 +125,14 @@ export class Datepicker {
       };
     }
 
+    const id = this.element.getAttribute('id');
+    if (id) {
+      this.toggle = document.getElementById(`${id}-toggle`);
+    }
+    if (this.toggle) {
+      options.trigger = this.toggle;
+    }
+
     // eslint-disable-next-line no-undef
     this.picker = new Pikaday({
       ...options,
@@ -133,20 +144,25 @@ export class Datepicker {
           document.documentElement.clientWidth || 0,
           window.innerWidth || 0,
         );
-        const elRect = this.el.getBoundingClientRect();
+        // eslint-disable-next-line no-underscore-dangle
+        const elRect = this._o.field.getBoundingClientRect();
 
         if (this.direction === 'rtl') {
           const pickerMargin = vw - elRect.right;
           if (vw < 768) {
             this.el.style.left = `${pickerMargin}px`;
+            this.el.style.right = `${pickerMargin}px`;
           } else {
             this.el.style.left = 'auto';
+            this.el.style.right = `${pickerMargin}px`;
           }
         } else {
           const pickerMargin = elRect.left;
           if (vw < 768) {
+            this.el.style.left = `${pickerMargin}px`;
             this.el.style.right = `${pickerMargin}px`;
           } else {
+            this.el.style.left = `${pickerMargin}px`;
             this.el.style.right = 'auto';
           }
         }

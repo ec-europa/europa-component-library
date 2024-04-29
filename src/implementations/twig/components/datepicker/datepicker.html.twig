@@ -5,6 +5,7 @@
     - "autoinit" (boolean) (default: false)
     - "id" (string) (default: '')
     - "name" (string) (default: '')
+    - "sr_toggle_label" (string) (default: '')
     - "default_value" (default: '')
     - "required" (boolean) (default: false)
     - "required_text" (string) (default: '')
@@ -31,6 +32,7 @@
 {% set _input_class = 'ecl-datepicker__field ecl-text-input ecl-text-input--s' %}
 {% set _id = id|default('') %}
 {% set _name = name|default('') %}
+{% set _sr_toggle_label = sr_toggle_label|default('') %}
 {% set _type = type|default('text') %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _icon_path = icon_path|default('') %}
@@ -73,7 +75,7 @@
       data-ecl-auto-init="Datepicker"
     {% endif %}
     {% if _id is not empty %}
-      id="{{ id }}"
+      id="{{ _id }}"
     {% endif %}
     {% if _name is not empty %}
       name="{{ _name }}"
@@ -96,16 +98,20 @@
     {% endif %}
     {{ _extra_attributes|raw }}
     />
-  {% if _icon_path is not empty %}
-    {% include '@ecl/icon/icon.html.twig' with {
+
+    {% include '@ecl/button/button.html.twig' with {
+      variant: 'tertiary',
+      type: 'button',
+      hide_label: true,
+      label: _sr_toggle_label,
       icon: {
+        path: _icon_path,
         name: 'calendar',
         size: 'xs',
-        path: _icon_path,
       },
       extra_classes: 'ecl-datepicker__icon',
+      extra_attributes: [ { name: 'id', value: _id ~ '-toggle' }],
     } only %}
-  {% endif %}
   </div>
 
 

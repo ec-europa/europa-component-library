@@ -18,6 +18,7 @@ module.exports = {
   input: {
     id: 'example-input-id-1',
     name: 'example-input-id-1',
+    sr_toggle_label: 'Datepicker',
     input_type: 'datepicker',
     placeholder: 'DD-MM-YYYY',
     autoinit: true,
