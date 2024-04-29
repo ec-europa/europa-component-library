@@ -68,6 +68,7 @@ export class Slider {
     this.handleResize = this.handleResize.bind(this);
     this.checkButtonsVisibility = this.checkButtonsVisibility.bind(this);
     this.findLastVisibleItemIndex = this.findLastVisibleItemIndex.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   init() {
@@ -93,7 +94,7 @@ export class Slider {
     this.element.remove();
     // Retrieve the slider inside the new markup.
     this.element = wrapper.firstChild.firstChild;
-
+    this.element.addEventListener('keyup', this.handleKeyboard);
     this.sliderInfo = document.createElement('div');
     this.sliderInfo.classList.add('ecl-slider__info');
     // Progress bar.
@@ -125,6 +126,7 @@ export class Slider {
     this.prevButton.appendChild(prevContainer);
     if (this.attachClickListener) {
       this.prevButton.addEventListener('click', () => this.shiftSlide(-1));
+      this.prevButton.addEventListener('keyup', this.handleKeyboard);
     }
     // Next button.
     this.nextButton = document.createElement('button');
@@ -145,6 +147,7 @@ export class Slider {
     this.nextButton.appendChild(nextContainer);
     if (this.attachClickListener) {
       this.nextButton.addEventListener('click', () => this.shiftSlide(1));
+      this.nextButton.addEventListener('keyup', this.handleKeyboard);
     }
     this.controls.appendChild(this.prevButton);
     this.controls.appendChild(this.nextButton);
@@ -345,9 +348,15 @@ export class Slider {
       if (this.current >= this.total) {
         this.nextButton.disabled = true;
         this.prevButton.removeAttribute('disabled');
+        if (!this.element.parentNode.contains(document.activeElement)) {
+          this.prevButton.focus();
+        }
       } else if (this.current === this.itemsPerSlide) {
         this.prevButton.disabled = true;
         this.nextButton.removeAttribute('disabled');
+        if (!this.element.parentNode.contains(document.activeElement)) {
+          this.nextButton.focus();
+        }
       } else {
         this.nextButton.removeAttribute('disabled');
         this.prevButton.removeAttribute('disabled');
@@ -438,6 +447,78 @@ export class Slider {
       this.progress.style.width = progressWidth;
       // The progress bar is not a progress bar anymore, it only gives an indication of the visible slides position.
       this.progress.style.marginInlineStart = `${((this.current - this.itemsPerSlide) / this.total) * 100}%`;
+    }
+  }
+
+  /**
+   * Handles keyboard navigation.
+   *
+   * Initial Tabbing moves the focus to the first slide (if focusable),
+   * keep tabbing will move the slides forward, shift + Tab can be used to
+   * traverse the slides back.
+   * arrowDown moves the focus to the controls, arrowLeft or arrowRight can
+   * be used to move the focus between the prev and the next button.
+   *
+   * @param {Event} e
+   */
+  handleKeyboard(e) {
+    const { nextSibling } = this.element.parentNode.parentNode;
+    const isFocusable = (element) =>
+      element.tagName &&
+      element.matches(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]',
+      );
+
+    switch (e.key) {
+      case 'Escape':
+        if (nextSibling && isFocusable(nextSibling)) {
+          e.preventDefault();
+          this.element.parentNode.parentNode.nextSibling.focus();
+        }
+        break;
+
+      case 'ArrowLeft':
+        e.preventDefault();
+        if (e.target === this.nextButton) {
+          this.prevButton.focus();
+        }
+        break;
+
+      case 'ArrowRight':
+        e.preventDefault();
+        if (e.target === this.prevButton) {
+          this.nextButton.focus();
+        }
+        break;
+
+      case 'ArrowDown':
+        e.preventDefault();
+        if (e.target !== this.prevButton && e.target !== this.nextButton) {
+          if (!this.nextButton.disabled) {
+            this.nextButton.focus();
+          } else if (!this.prevButton.disabled) {
+            this.prevButton.focus();
+          }
+        }
+        break;
+
+      case 'Tab':
+        if (!e.shiftKey) {
+          if (this.slides[0].contains(document.activeElement)) {
+            break;
+          } else if (this.current < this.total) {
+            e.preventDefault();
+            this.current += 1;
+            this.moveSlides(+1);
+          }
+        } else {
+          e.preventDefault();
+          this.current -= 1;
+          this.moveSlides(-1);
+        }
+        break;
+
+      default:
     }
   }
 }
