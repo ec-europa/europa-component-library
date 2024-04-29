@@ -269,6 +269,7 @@ export class Slider {
    * @fires Slider#onSlideChange
    */
   moveSlides(direction) {
+    console.log(this.variant);
     if (this.variant !== 'fluid') {
       const itemWidth = this.slides[0].offsetWidth + 24;
       const isXl = this.container.offsetWidth > 1140;
@@ -506,7 +507,14 @@ export class Slider {
         if (!e.shiftKey) {
           if (this.slides[0].contains(document.activeElement)) {
             break;
-          } else if (this.current < this.total) {
+          } else if (this.variant !== 'fluid' && this.current < this.total) {
+            e.preventDefault();
+            this.current += 1;
+            this.moveSlides(+1);
+          } else if (
+            this.variant === 'fluid' &&
+            this.current + 1 < this.total
+          ) {
             e.preventDefault();
             this.current += 1;
             this.moveSlides(+1);
