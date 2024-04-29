@@ -269,7 +269,6 @@ export class Slider {
    * @fires Slider#onSlideChange
    */
   moveSlides(direction) {
-    console.log(this.variant);
     if (this.variant !== 'fluid') {
       const itemWidth = this.slides[0].offsetWidth + 24;
       const isXl = this.container.offsetWidth > 1140;
