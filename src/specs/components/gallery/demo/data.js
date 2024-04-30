@@ -245,11 +245,9 @@ module.exports = {
     link: {
       path: exampleLink,
       label: 'Further media items',
-    },
-    icon: {
-      name: 'external',
-      size: 'xs',
-      path: '/icons.svg',
+      external: true,
+      sr_external: 'Link to an external domain',
+      icon_path: '/icons.svg',
     },
   },
   counter_label: 'Media files in this gallery',

@@ -131,13 +131,13 @@
   {% if _footer.link is defined and _footer.link is not empty %}
     <hr class="ecl-gallery__footer-divider" />
     <div class="ecl-gallery__footer-link">
-      {% include '@ecl/link/link.html.twig' with {
+      {% include '@ecl/link/link.html.twig' with _footer|merge({
         link: _footer.link|merge({
           type: 'standalone',
           icon_position: 'after',
         }),
         icon: _footer.icon
-      } only %}
+      }) only %}
     </div>
   {% endif %}
   </div>

@@ -13,6 +13,7 @@
     - "is_current" (boolean) Whether the item links to the current page
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
+    - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
     - "trigger_aria_label" (string) Aria label for the trigger button,
     - "link_aria_label" (string) Aria label for the parent link
@@ -26,12 +27,14 @@
         - "path" (string) Path or Url for the href
         - "label" (string) Label of the item
         - "external" (boolean) Whether the link is external
+        - "sr_external" (string) (default: '') Additional label for the external icon
         - "extra_attributes" (array)
           - "name" (string) Attribute name, eg. 'data-test'
           - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "container": (string) White panel to be filled at will
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
+      - "sr_external" (string) (default: '') Additional label for the external icon
       - "is_current" (boolean) Whether the item links to the current page
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
@@ -110,6 +113,7 @@
       path: _item.path,
       icon_path: icon_path,
       external: _can_be_external ? _item.external|default(false),
+      sr_external: _item.sr_external_label|default(''),
       icon_position: 'after',
     },
     icon: _icon,
@@ -173,6 +177,7 @@
             label: child.label,
             path: child.path,
             external: _can_be_external ? child.external|default(false),
+            sr_external: child.sr_external_label|default(''),
             icon_path: _icon_path,
           },
           icon: _icon,
