@@ -79,13 +79,13 @@
   })] %}
 
   {% set extra_accessibility = {
-      title: _link.sr_external,
-    }
-  %}
+    title: _link.sr_external,
+  } %}
+
+  {% set as_image = true %}
 
   {% set _link = _link|merge({ 
     icon_position: _link.icon_position|default('after'),
-    as_image: true,
   }) %}
 {% else %}
   {% if icon.name is defined and icon.name is not empty %}
