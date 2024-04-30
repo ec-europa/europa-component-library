@@ -43,7 +43,7 @@ $menu: null !default;
   border-radius: map.get($menu, 'global', 'border-radius');
   box-sizing: border-box;
   cursor: pointer;
-  color: currentcolor;
+  color: map.get($menu, 'mobile', 'hamburger-color');
   display: flex;
   flex-direction: column;
   font: var(--f-xs);
