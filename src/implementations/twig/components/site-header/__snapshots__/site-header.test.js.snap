@@ -34,7 +34,7 @@ exports[`Site Header EC renders correctly 1`] = `
                 />
                 <img
                   alt="European Commission logo"
-                  class="ecl-site-header__logo-image"
+                  class="ecl-site-header__logo-image ecl-site-header__logo-image--m"
                   src="/logo-ec--mute.svg"
                 />
               </picture>
@@ -1118,7 +1118,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
                 />
                 <img
                   alt="European Commission logo"
-                  class="ecl-site-header__logo-image"
+                  class="ecl-site-header__logo-image ecl-site-header__logo-image--m"
                   src="/logo-ec--mute.svg"
                 />
               </picture>
@@ -2226,7 +2226,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
                 />
                 <img
                   alt="European Commission logo"
-                  class="ecl-site-header__logo-image"
+                  class="ecl-site-header__logo-image ecl-site-header__logo-image--m"
                   src="/logo-ec--mute.svg"
                 />
               </picture>
@@ -3310,7 +3310,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
                 />
                 <img
                   alt="European Commission logo"
-                  class="ecl-site-header__logo-image"
+                  class="ecl-site-header__logo-image ecl-site-header__logo-image--m"
                   src="/logo-ec--mute.svg"
                 />
               </picture>
@@ -4394,7 +4394,7 @@ exports[`Site Header EU renders correctly 1`] = `
                 />
                 <img
                   alt="European Union flag"
-                  class="ecl-site-header__logo-image"
+                  class="ecl-site-header__logo-image ecl-site-header__logo-image--m"
                   src="/condensed-version/positive/logo-eu--en.svg"
                 />
               </picture>
@@ -4447,14 +4447,14 @@ exports[`Site Header EU renders correctly 1`] = `
                       role="img"
                     >
                       <title>
-                        English
+                        EN
                       </title>
                       <use
                         xlink:href="/icons.svg#global"
                       />
                     </svg>
                   </span>
-                  English
+                  EN
                 </a>
                 <div
                   aria-labelledby="ecl-site-header__language-title"
@@ -5392,6 +5392,20 @@ exports[`Site Header EU renders correctly 1`] = `
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div
+      class="ecl-site-header__banner-top"
+    >
+      <div
+        class="ecl-container"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited"
+          href="/example"
+        >
+          Class name
+        </a>
       </div>
     </div>
     <div
