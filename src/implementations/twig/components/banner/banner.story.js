@@ -62,16 +62,19 @@ const getArgTypes = (data) => {
     size: {
       name: 'banner size',
       type: 'select',
-      description: "Possible banner sizes ('small', 'medium' or 'large')",
-      options: ['s', 'm', 'l'],
+      description:
+        "Possible banner sizes ('extra small', 'small', 'medium' or 'large')",
+      options: ['xs', 's', 'm', 'l'],
       control: {
         labels: {
+          xs: 'extra small',
           s: 'small',
           m: 'medium',
           l: 'large',
         },
       },
       mapping: {
+        'extra small': 'xs',
         small: 's',
         medium: 'm',
         large: 'l',

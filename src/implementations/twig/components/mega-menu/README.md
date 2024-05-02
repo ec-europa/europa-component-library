@@ -14,7 +14,6 @@ npm install --save @ecl/twig-component-mega-menu
 - **"close"**: (associative array) (default: {}): Object, using ECL Button structure
 - **"back_label"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
-- **"see_all_label"** (string) (default: ''): Label to be used for the "view all" link
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
@@ -35,6 +34,9 @@ npm install --save @ecl/twig-component-mega-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
   "external": (boolean)
+  "see_all": (boolean)
+  "see_all_label": (string)
+  "see_all_attributes": (associative array)
   }
   ]
   }

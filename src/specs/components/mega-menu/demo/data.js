@@ -26,7 +26,6 @@ module.exports = {
     },
   },
   back_label: 'Back',
-  see_all_label: 'View all',
   icon_path: '/icons.svg',
   items: [
     { label: 'Home', path: exampleLink },
@@ -40,6 +39,7 @@ module.exports = {
           label: 'Item 2.1',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View all',
           trigger_aria_label: "Access item 2.1's children",
           link_aria_label: "Link to the 2.1 item's page",
           featured: {
@@ -120,6 +120,7 @@ module.exports = {
           label: 'Research and innovation',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View all items',
           featured: {
             title: 'featured column',
             content: `<article class="ecl-navigation-list__item">
@@ -151,6 +152,7 @@ module.exports = {
           label: 'Item 5.1',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'View others',
           trigger_aria_label: "Access item 5.1's children",
           link_aria_label: 'Link to the Item 5.1 page',
           featured: {
@@ -165,11 +167,14 @@ module.exports = {
           },
           children: [
             { label: 'Item 5.1 subitem 1', path: exampleLink },
-            { label: 'Item 5.1 subitem 2', path: exampleLink },
+            { label: 'Item 5.1 subitem 2', path: exampleLink, external: true },
             { label: 'Item 5.1 subitem 3', path: exampleLink },
             { label: 'Item 5.1 subitem 4', path: exampleLink },
             { label: 'Item 5.1 subitem 5', path: exampleLink },
-            { label: 'Item 5.1 subitem 6', path: exampleLink },
+            {
+              label: 'Item 5.1 subitem 6 with a particularly long label',
+              path: exampleLink,
+            },
             { label: 'Item 5.1 subitem 7', path: exampleLink },
             { label: 'Item 5.1 subitem 8', path: exampleLink },
             { label: 'Item 5.1 subitem 9', path: exampleLink },
@@ -179,18 +184,30 @@ module.exports = {
             { label: 'Item 5.1 subitem 13 ', path: exampleLink },
             { label: 'Item 5.1 subitem 14', path: exampleLink },
             { label: 'Item 5.1 subitem 15', path: exampleLink },
-            { label: 'Item 5.1 subitem 16', path: exampleLink },
+            { label: 'Item 5.1 subitem 16 a bit longer', path: exampleLink },
             { label: 'Item 5.1 subitem 17', path: exampleLink },
             { label: 'Item 5.1 subitem 18', path: exampleLink },
             { label: 'Item 5.1 subitem 19', path: exampleLink },
-            { label: 'Item 5.1 subitem 20', path: exampleLink },
+            {
+              label: 'Item 5.1 subitem 20 pretty much longer',
+              path: exampleLink,
+            },
             { label: 'Item 5.1 subitem 21', path: exampleLink },
             { label: 'Item 5.1 subitem 22', path: exampleLink },
             { label: 'Item 5.1 subitem 23', path: exampleLink },
             { label: 'Item 5.1 subitem 24', path: exampleLink },
             { label: 'Item 5.1 subitem 25', path: exampleLink },
-            { label: 'Item 5.1 subitem 26', path: exampleLink },
+            {
+              label:
+                'Item 5.1 subitem 26 which has the longest menu item label ever',
+              path: exampleLink,
+            },
             { label: 'Item 5.1 subitem 27', path: exampleLink },
+            { label: 'Item 5.1 subitem 28', path: exampleLink },
+            { label: 'Item 5.1 subitem 29', path: exampleLink },
+            { label: 'Item 5.1 subitem 30', path: exampleLink },
+            { label: 'Item 5.1 subitem 31', path: exampleLink },
+            { label: 'Item 5.1 subitem 32', path: exampleLink },
           ],
         },
         {
@@ -210,6 +227,7 @@ module.exports = {
           label: 'Item 5.3',
           path: exampleLink,
           see_all: true,
+          see_all_label: 'See all',
           trigger_aria_label: "Access item 5.3's children",
           link_aria_label: 'Link to the Item 5.3 page',
           children: [
@@ -232,7 +250,7 @@ module.exports = {
           path: exampleLink,
         },
         { label: 'Item 5.6', path: exampleLink },
-        { label: 'Item 5.7', path: exampleLink },
+        { label: 'Item 5.7', path: exampleLink, external: true },
         { label: 'Item 5.8', path: exampleLink },
         { label: 'Item 5.9', path: exampleLink },
       ],

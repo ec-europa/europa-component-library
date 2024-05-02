@@ -319,6 +319,11 @@ $_image-height-mobile: 260px;
 .ecl-gallery__close-button {
   color: map.get($theme, 'color', 'white');
   margin: var(--s-xs);
+
+  &:focus-visible {
+    border-color: map.get($theme, 'color', 'white');
+    color: map.get($theme, 'color', 'white');
+  }
 }
 
 .ecl-gallery__slider {

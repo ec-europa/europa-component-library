@@ -1,5 +1,47 @@
 # Changelog
 
+## 4.1.2
+
+#### :bug: Bug Fix
+
+- [#3352](https://github.com/ec-europa/europa-component-library/pull/3352) fix(menu): fix resize on mobile - FRONT-4382 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
+## 4.1.1
+
+#### :warning: Markup Changes
+
+- [#3331](https://github.com/ec-europa/europa-component-library/pull/3331) fix(modal): remove aria-hidden on the icon - FRONT-4356 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Data Changes
+
+- [#3323](https://github.com/ec-europa/europa-component-library/pull/3323) feat(forms): add icon title for error message - FRONT-4330 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3318](https://github.com/ec-europa/europa-component-library/pull/3318) fix(select): Removing buggy animation of the arrow in the default select - FRONT-4348 ([@planctus](https://github.com/planctus))
+- [#3331](https://github.com/ec-europa/europa-component-library/pull/3331) fix(modal): remove aria-hidden on the icon - FRONT-4356 ([@emeryro](https://github.com/emeryro))
+- [#3330](https://github.com/ec-europa/europa-component-library/pull/3330) fix(select): Fixing arrow size - FRONT-4351 ([@planctus](https://github.com/planctus))
+- [#3328](https://github.com/ec-europa/europa-component-library/pull/3328) fix(navigation-list): Setting max-width for the image in the iillustration variant - FRONT-4355 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3322](https://github.com/ec-europa/europa-component-library/pull/3322) feat(multi-select): fix arrow down navigation - FRONT-4335 ([@emeryro](https://github.com/emeryro))
+- [#3329](https://github.com/ec-europa/europa-component-library/pull/3329) feat(menu): Adding support for extra attributes for items and sub-items - FRONT-4357 ([@planctus](https://github.com/planctus))
+- [#3327](https://github.com/ec-europa/europa-component-library/pull/3327) feat(mega-menu): Adding support for extra attributes for every link - FRONT-4353 ([@planctus](https://github.com/planctus))
+- [#3325](https://github.com/ec-europa/europa-component-library/pull/3325) feat(mega-menu): External icon only for standalone items - FRONT-4352 ([@planctus](https://github.com/planctus))
+- [#3323](https://github.com/ec-europa/europa-component-library/pull/3323) feat(forms): add icon title for error message - FRONT-4330 ([@emeryro](https://github.com/emeryro))
+- [#3320](https://github.com/ec-europa/europa-component-library/pull/3320) feat(multi-select): improve keyboard flow - FRONT-4337 ([@emeryro](https://github.com/emeryro))
+- [#3319](https://github.com/ec-europa/europa-component-library/pull/3319) feat(select): add aria-label when using optgroup - FRONT-4334 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 4.1.0
 
 #### :rocket: New Feature

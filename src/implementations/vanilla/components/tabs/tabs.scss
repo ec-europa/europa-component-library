@@ -18,6 +18,7 @@ $button-width: 44px;
   margin: 0 0 var(--s-xl);
   padding: 0;
   position: relative;
+  z-index: map.get($theme, 'z-index', 'dropdown');
 }
 
 .ecl-tabs__container {
