@@ -16,6 +16,12 @@ module.exports = {
     label_logged: 'Logged in',
     href_logged: exampleLink,
   },
+  banner_top: {
+    link: {
+      label: 'Class name',
+      path: exampleLink,
+    },
+  },
   login_box: {
     id: 'login-box-id',
     description: 'Logged in as "last name" "first name"',
@@ -24,7 +30,7 @@ module.exports = {
   },
   language_selector: {
     href: exampleLink,
-    label: 'English',
+    label: 'EN',
     aria_label: 'Change language, current language is English',
     overlay: {
       title: 'Select your language',

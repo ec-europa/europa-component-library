@@ -20,6 +20,7 @@ const dataCore = JSON.parse(JSON.stringify(dataFull));
 delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.cta_link;
+delete dataCore.banner_top;
 dataCore.has_menu = false;
 
 // Harmonised
@@ -31,6 +32,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    logo_size: 'medium',
   };
 
   if (data.login_box) {
@@ -126,6 +128,16 @@ const getArgTypes = (data) => {
       },
     };
   }
+  if (data.banner_top) {
+    argTypes.show_banner_top = {
+      name: 'class name',
+      type: { name: 'boolean' },
+      description: 'Show the class name',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
   if (data.site_name) {
     argTypes.show_site_name = {
       name: 'site name',
@@ -174,6 +186,23 @@ const getArgTypes = (data) => {
       },
     };
   }
+  argTypes.logo_size = {
+    name: 'logo size',
+    description: 'Three sizes for large displays (s, m, l)',
+    control: {
+      type: 'select',
+    },
+    options: ['small', 'medium', 'large'],
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      defaultValue: { summary: 'm' },
+      category: 'Content',
+    },
+  };
 
   return argTypes;
 };
@@ -233,6 +262,12 @@ const prepareData = (data, args) => {
     data.cta_link = clonedDataFull.cta_link;
   }
 
+  if (!args.show_banner_top) {
+    delete data.banner_top;
+  } else {
+    data.banner_top = clonedDataFull.banner_top;
+  }
+
   if (!args.show_notification) {
     delete data.notification;
   } else {
@@ -245,6 +280,7 @@ const prepareData = (data, args) => {
 
   data.logo.src_desktop = enLogoDesktopEU;
   data.logo.src_mobile = enLogoMobileEU;
+  data.logo.size = args.logo_size;
 
   return data;
 };
