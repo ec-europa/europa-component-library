@@ -555,19 +555,24 @@ export class MegaMenu {
   checkDropdownHeight(menuItem) {
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
-      let dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
+      let dropdown = queryOne('.ecl-mega-menu__mega', menuItem);
 
       if (!dropdown) {
         dropdown = queryOne('.ecl-mega-menu__mega-container', menuItem);
       }
 
       if (dropdown) {
+        let parentHeight = 0;
         const dropdownTop = dropdown.getBoundingClientRect().top;
-        let dropdownHeight = viewportHeight - dropdownTop;
+        const parent = queryOne('.ecl-mega-menu__parent-link', dropdown);
+        if (parent) {
+          parentHeight = parent.getBoundingClientRect().height;
+        }
+        let dropdownHeight = viewportHeight - dropdownTop + parentHeight;
         const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
         // Arbitrary, but doing this prevents a misalignment between the two panels
-        if (lastItem) {
-          dropdownHeight -= 20;
+        if (lastItem && lastItem.parentElement.parentElement === dropdown) {
+          dropdownHeight -= 30;
         }
         dropdown.style.height = `${dropdownHeight}px`;
       }

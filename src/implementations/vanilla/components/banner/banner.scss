@@ -286,6 +286,13 @@ $banner: null !default;
     }
   }
 
+  // extra small banner - ratio 6:1
+  .ecl-banner--xs .ecl-banner__image {
+    aspect-ratio: 6/1;
+
+    --css-aspect-ratio: 6/1;
+  }
+
   // small banner - ratio 5:1
   .ecl-banner--s .ecl-banner__image {
     aspect-ratio: 5/1;
@@ -310,6 +317,10 @@ $banner: null !default;
       display: block;
       padding-top: 25%;
       width: 100%;
+    }
+
+    &.ecl-banner--xs::before {
+      padding-top: 16.66%;
     }
 
     &.ecl-banner--s::before {

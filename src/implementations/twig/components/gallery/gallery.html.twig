@@ -28,6 +28,7 @@
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
   - "extra_classes" (optional) (string) (default: '')
@@ -50,6 +51,7 @@
 {% set _visible_items = visible_items|default(8) %}
 {% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
 {% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
@@ -105,6 +107,7 @@
         id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
         item: _item,
         icon_path: _icon_path,
+        sr_video_label: _sr_video_label,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}

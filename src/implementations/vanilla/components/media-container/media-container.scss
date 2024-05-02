@@ -45,6 +45,7 @@ $media-container: null !default;
 .ecl-media-container__caption {
   color: map.get($media-container, 'caption-color');
   font: map.get($media-container, 'caption-font');
+  line-height: map.get($media-container, 'caption-line-height');
   max-width: var(--max-w);
   padding: map.get($media-container, 'caption-padding');
   position: relative;
