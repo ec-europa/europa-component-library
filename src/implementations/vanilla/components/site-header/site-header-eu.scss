@@ -175,6 +175,10 @@ $language-list: null !default;
   }
 }
 
+.ecl-site-header__language-container {
+  margin-top: var(--s-m);
+}
+
 .ecl-site-header__login-description {
   margin: 0;
   max-width: var(--max-w);
@@ -223,6 +227,15 @@ $language-list: null !default;
   .ecl-notification {
     margin-bottom: var(--s-m);
   }
+}
+
+.ecl-site-header__login-toggle:active,
+.ecl-site-header__login-toggle[aria-expanded='true'],
+.ecl-site-header__search-toggle:active,
+.ecl-site-header__search-toggle[aria-expanded='true'],
+.ecl-site-header__language-selector:active,
+.ecl-site-header__language-selector[aria-expanded='true'] {
+  background-color: var(--c-p-20);
 }
 
 // stylelint-disable plugin/selector-bem-pattern
@@ -371,10 +384,6 @@ $language-list: null !default;
     }
   }
 
-  .ecl-site-header__language-container {
-    margin-top: var(--s-m);
-  }
-
   .ecl-site-header__login-toggle,
   .ecl-site-header__language-selector {
     align-items: center;
@@ -451,15 +460,6 @@ $language-list: null !default;
 
   .ecl-site-header__notification .ecl-notification {
     margin-bottom: var(--s-l);
-  }
-
-  .ecl-site-header__login-toggle:active,
-  .ecl-site-header__login-toggle[aria-expanded='true'],
-  .ecl-site-header__search-toggle:active,
-  .ecl-site-header__search-toggle[aria-expanded='true'],
-  .ecl-site-header__language-selector:active,
-  .ecl-site-header__language-selector[aria-expanded='true'] {
-    background-color: var(--c-p-20);
   }
 }
 
