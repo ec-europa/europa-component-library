@@ -493,7 +493,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.up('xl') {
-  .ecl-site-header__search {
-    width: map.get($site-header, 'search-width-l');
+  .ecl-site-header__action .ecl-search-form__text-input {
+    width: map.get($site-header, 'search-width-xl');
   }
 }
