@@ -88,7 +88,7 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover--bottom .ecl-popover__container {
-  margin-top: 1rem;
+  top: calc(100% + var(--s-s));
 
   &::before {
     top: 1px;
@@ -97,8 +97,7 @@ $_arrow-size: 1rem;
 
 // Top Popover
 .ecl-popover--top .ecl-popover__container {
-  bottom: 100%;
-  margin-bottom: calc(var(--s-xs) + var(--s-s));
+  bottom: calc(100% + var(--s-s));
   margin-top: 0;
 
   &::before {
@@ -109,7 +108,7 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover--right .ecl-popover__container {
-  left: 115%;
+  left: calc(100% + var(--s-s) + var(--s-2xs));
   transform: translateY(-50%);
   top: 50%;
 
@@ -121,7 +120,7 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover--left .ecl-popover__container {
-  right: 115%;
+  right: calc(100% + var(--s-s) + var(--s-2xs));
   transform: translateY(-50%);
   top: 50%;
 
