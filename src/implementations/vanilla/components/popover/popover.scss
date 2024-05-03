@@ -69,8 +69,8 @@ $_arrow-size: 1rem;
 
 .ecl-popover__close {
   position: absolute;
-  top: var(--s-m);
-  right: var(--s-m);
+  top: map.get($popover, 'close-button-top');
+  right: map.get($popover, 'close-button-right');
 
   + .ecl-popover__content {
     padding-inline-end: map.get($popover, 'content-padding-end');
