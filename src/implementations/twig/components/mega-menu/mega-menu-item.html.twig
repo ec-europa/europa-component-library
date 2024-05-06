@@ -57,13 +57,16 @@
 {% set _see_all_attributes = see_all_attributes|default([]) %}
 {% set _can_be_external = true %}
 {% set _icon = {} %}
+{% set _menu_item_attributes = _item.extra_attributes|default([]) %}
 
 {# Internal logic - Process properties #}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current  ecl-mega-menu__item--current-page' %}
-  {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' aria-current="page"' %}
+  {% set _menu_item_attributes = _menu_item_attributes|merge([
+    { name: 'aria-current', value: 'page' },
+  ]) %}
 {% endif %}
 
 {% if _item.container is defined and _item.container is not empty %}
@@ -99,7 +102,7 @@
 
 {%- if _item.label is not empty -%}
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
-  {% set _menu_item_attributes = _item.extra_attributes|default([])|merge([
+  {% set _menu_item_attributes = _menu_item_attributes|merge([
     { name: _menu_item_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
@@ -141,9 +144,12 @@
       {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
       {% set _subitem_class = 'ecl-mega-menu__subitem' %}
       {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+      {% set _sublink_attributes = child.extra_attributes|default([]) %}
       {% if child.is_current is defined %}
         {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
-        {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
+        {% set _sublink_attributes = _sublink_attributes|merge([
+          { name: 'aria-current', value: 'page' },
+        ]) %}
       {% endif %}
       {% if child.children is defined and child.children is not empty %}
         {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
@@ -177,7 +183,7 @@
           },
           icon: _icon,
           extra_classes: _sublink_class,
-          extra_attributes: child.extra_attributes|default([]),
+          extra_attributes: _sublink_attributes,
         } only %}
 
         {# Children, 2nd level #}

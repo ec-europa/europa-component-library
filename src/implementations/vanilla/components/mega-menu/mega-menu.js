@@ -1035,8 +1035,16 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               item.setAttribute('aria-expanded', 'true');
+              const link = queryOne(this.linkSelector, item);
+              if (link) {
+                link.setAttribute('aria-current', 'true');
+              }
             } else {
               item.setAttribute('aria-expanded', 'false');
+              const link = queryOne(this.linkSelector, item);
+              if (link) {
+                link.removeAttribute('aria-current');
+              }
               item.classList.remove(
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
