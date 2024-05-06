@@ -274,6 +274,128 @@ exports[`Featured item Highlight renders correctly 1`] = `
           </p>
         </div>
         <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            Call to action
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <footer
+      class="ecl-featured-item__footer"
+    >
+      <div
+        class="ecl-featured-item__footer-content"
+      >
+        <div
+          class="ecl-featured-item__footer-description"
+        >
+          Suspendisse a nisi elit. Integer vulputate egestas ipsum quis dapibus. In hac habitasse platea dictumst.
+        </div>
+        <a
+          class="ecl-link ecl-link--cta ecl-link--icon ecl-featured-item__footer-link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            See more
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </a>
+      </div>
+      <picture
+        class="ecl-picture ecl-featured-item__footer-picture"
+      >
+        <img
+          alt="Image alt text"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+        />
+      </picture>
+    </footer>
+  </article>
+</jest>
+`;
+
+exports[`Featured item Simple renders correctly 1`] = `
+<jest>
+  <article
+    class="ecl-featured-item ecl-featured-item--simple"
+  >
+    <div
+      class="ecl-featured-item__container"
+    >
+      <div
+        class="ecl-featured-item__item"
+      >
+        <div
+          class="ecl-media-container ecl-featured-item__media_container"
+        >
+          <figure
+            class="ecl-media-container__figure"
+          >
+            <picture
+              class="ecl-picture ecl-media-container__picture"
+            >
+              <img
+                alt="Lorem ipsum dolor sit amet"
+                class="ecl-media-container__media"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <figcaption
+              class="ecl-media-container__caption"
+            >
+              Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing.
+              <br />
+              @Copyright
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div
+        class="ecl-featured-item__item"
+      >
+        <div
+          class="ecl-featured-item__title"
+        >
+          <span
+            class="ecl-featured-item__title-content"
+          >
+            Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          </span>
+        </div>
+        <div
+          class="ecl-featured-item__description"
+        >
+          <p
+            class="ecl-u-type-paragraph-m"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+        <a
           class="ecl-link ecl-link--standalone ecl-link--icon ecl-featured-item__link"
           href="/example"
         >
