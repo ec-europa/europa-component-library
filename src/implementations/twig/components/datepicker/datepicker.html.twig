@@ -67,7 +67,7 @@
   {% endfor %}
 {% endif %}
 
-  <div class="{{ _css_class }}">
+  <div class="{{ _css_class }}" role="application">
     <input
       autocomplete="off"
       data-ecl-datepicker-toggle
@@ -113,6 +113,8 @@
       extra_attributes: [ { name: 'id', value: _id ~ '-toggle' }],
     } only %}
   </div>
+<br />
+  <input class="{{ _input_class }}" type="date" id="{{ _id }}2" style="padding-right: 14px">
 
 
 {% endapply %}
