@@ -493,6 +493,11 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.up('xl') {
+  .ecl-site-header__container {
+    padding-inline-start: var(--s-2xl);
+    padding-inline-end: var(--s-2xl);
+  }
+
   .ecl-site-header__action .ecl-search-form__text-input {
     width: map.get($site-header, 'search-width-xl');
   }
