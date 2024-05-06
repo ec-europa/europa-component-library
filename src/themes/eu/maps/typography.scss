@@ -12,8 +12,8 @@ $font-weight: (
   'bold': 700,
 ) !default;
 $font-size: (
-  '2xs': 0.625rem,
   // DEPRECATED
+  '2xs': 0.625rem,
   'xs': 0.75rem,
   's': 0.875rem,
   'm': 1rem,
@@ -23,12 +23,12 @@ $font-size: (
   '3xl': 2rem,
   '4xl': 2.25rem,
   '5xl': 2.625rem,
-  '6xl': 2.625rem,
   // DEPRECATED
+  '6xl': 2.625rem
 ) !default;
 $line-height: (
-  '2xs': 1rem,
   // DEPRECATED
+  '2xs': 1rem,
   'xs': 1.25rem,
   's': 1.25rem,
   'm': 1.5rem,
@@ -38,8 +38,8 @@ $line-height: (
   '3xl': 2.5rem,
   '4xl': 2.75rem,
   '5xl': 3.25rem,
-  '6xl': 3.25rem,
   // DEPRECATED
+  '6xl': 3.25rem
 ) !default;
 $font-size-ui: (
   's': 0.875rem,
@@ -51,11 +51,11 @@ $line-height-ui: (
   'm': 1.75rem,
 ) !default;
 $font: (
+  // DEPRECATED
   '2xs': normal normal map.get($font-weight, 'regular') #{map.get(
       $font-size,
       '2xs'
     ) + '/' + map.get($line-height, '2xs')} #{map.get($font-family, 'default')},
-  // DEPRECATED
   'xs': normal normal map.get($font-weight, 'regular') #{map.get(
       $font-size,
       'xs'
@@ -86,11 +86,11 @@ $font: (
       $font-size,
       '5xl'
     ) + '/' + map.get($line-height, '5xl')} #{map.get($font-family, 'default')},
+  // DEPRECATED
   '6xl': normal normal map.get($font-weight, 'regular') #{map.get(
       $font-size,
       '6xl'
-    ) + '/' + map.get($line-height, '6xl')} #{map.get($font-family, 'default')},
-  // DEPRECATED
+    ) + '/' + map.get($line-height, '6xl')} #{map.get($font-family, 'default')}
 ) !default;
 $font-ui: (
   's': normal normal map.get($font-weight, 'regular') #{map.get(
@@ -119,8 +119,8 @@ $font-weight-print: (
   'bold': 600,
 ) !default;
 $font-size-print: (
-  '2xs': 6pt,
   // DEPRECATED
+  '2xs': 6pt,
   'xs': 7.5pt,
   's': 9pt,
   'm': 10.5pt,
@@ -130,8 +130,8 @@ $font-size-print: (
   '3xl': 18pt,
   '4xl': 21pt,
   '5xl': 24pt,
-  '6xl': 27pt,
   // DEPRECATED
+  '6xl': 27pt
 ) !default;
 $line-height-print: (
   '2xs': 10pt,
@@ -158,6 +158,7 @@ $line-height-ui-print: (
   'm': 18.5pt,
 ) !default;
 $font-print: (
+  // DEPRECATED
   '2xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,
       '2xs'
@@ -165,7 +166,6 @@ $font-print: (
       $font-family-print,
       'default'
     )},
-  // DEPRECATED
   'xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,
       'xs'
@@ -229,14 +229,14 @@ $font-print: (
       $font-family-print,
       'default'
     )},
+  // DEPRECATED
   '6xl': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,
       '6xl'
     ) + '/' + map.get($line-height-print, '6xl')} #{map.get(
       $font-family-print,
       'default'
-    )},
-  // DEPRECATED
+    )}
 ) !default;
 $font-ui-print: (
   's': normal normal map.get($font-weight-print, 'regular') #{map.get(
