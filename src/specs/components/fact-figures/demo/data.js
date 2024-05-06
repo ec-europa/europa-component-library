@@ -7,7 +7,7 @@ module.exports = {
   view_all: {
     link: {
       path: exampleLink,
-      label: 'View all metrics',
+      label: 'View all',
       icon_position: 'after',
     },
     icon: {

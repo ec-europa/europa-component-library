@@ -60,24 +60,12 @@ module.exports = {
               link: {
                 label: 'Lorem ipsum dolor sit amet',
                 path: exampleLink,
-                icon_position: 'before',
-              },
-              icon: {
-                name: 'copy',
-                path: '/icons.svg',
-                size: 's',
               },
             },
             {
               link: {
                 label: 'Lorem ipsum dolor sit amet',
                 path: exampleLink,
-                icon_position: 'before',
-              },
-              icon: {
-                name: 'download',
-                path: '/icons.svg',
-                size: 's',
               },
             },
           ],
