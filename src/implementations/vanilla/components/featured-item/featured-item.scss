@@ -12,7 +12,6 @@ $featured-item: null !default;
 
 .ecl-featured-item__container {
   border-radius: map.get($featured-item, 'border-radius');
-  box-shadow: map.get($featured-item, 'shadow');
   display: flex;
   flex-direction: column;
 }
@@ -121,6 +120,8 @@ $featured-item: null !default;
 * Highlight
 */
 .ecl-featured-item--highlight {
+  box-shadow: map.get($featured-item, 'shadow');
+
   .ecl-featured-item__container {
     background-color: map.get(
       $featured-item,
