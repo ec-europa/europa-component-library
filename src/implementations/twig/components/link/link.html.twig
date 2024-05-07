@@ -78,9 +78,11 @@
     size: '2xs',
   })] %}
 
-  {% set extra_accessibility = {
-    title: _link.sr_external,
-  } %}
+  {% if _link.sr_external is not empty or extra_accessibility.title is not empty %}
+    {% set extra_accessibility = {
+      title: _link.sr_external|default(extra_accessibility.title),
+    } %}
+  {% endif %}
 
   {% set as_image = true %}
 

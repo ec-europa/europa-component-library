@@ -7,5 +7,6 @@ module.exports = {
     type: 'secondary',
     label: 'Secondary link',
     path: exampleLink,
+    sr_external: 'Link to an external domain',
   },
 };

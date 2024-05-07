@@ -7,5 +7,6 @@ module.exports = {
     type: 'primary',
     label: 'Primary link',
     path: exampleLink,
+    sr_external: 'Link to an external domain',
   },
 };

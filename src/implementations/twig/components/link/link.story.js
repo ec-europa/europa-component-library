@@ -176,7 +176,6 @@ const prepareData = (data, args) => {
   if (args.external) {
     data.link.icon_path = 'icons.svg';
     data.as_image = true;
-    data.link.sr_external = 'Link to an external domain';
   }
 
   correctPaths(data);
