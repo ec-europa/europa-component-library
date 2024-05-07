@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-table
 
 - **"id"** (string) (default: random): unique id for the table; randomly generated if empty
 - **"simple"** (boolean) (default: false)
-- **"zebra"** (boolean) (default: false))
+- **"zebra"** (boolean) (default: false)
 - **"sortable"** (boolean) (default: false)
 - **"caption"** (string) (default: ''): optional caption for the table
 - **"label_sort"** (string) (default: ''): label used for sorting buttons (screen reader only)
@@ -19,14 +19,19 @@ npm install --save @ecl/twig-component-table
   - "colspan" (string) (default: ''),
   - "rowspan" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: ''),
-  - "headers" (string) (default: ''): table headers id
-- **"rows"** (array) (default: [])
-  [
-  - "extra_attributes": (string) (default: ''),
-  - "extra_classes": (string) (default: '') Extra classes for the table row (space separated)
-    { - "label" (string or array of string) , - "data-ecl-table-header" (string) (default: ''), - "data-ecl-table-header-group" (string) (default: '') , - "group" (bool) (default: false), - "headers" (string) (default: ''): table headers id
-    }
-    ],
+  - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
+- **"rows"** (array) (default: []): [
+  { - "extra_attributes": (string) (default: ''), - "extra_classes": (string) (default: '') Extra classes for the table row (space separated) - "data: [
+  {
+  - "label" (string or array of string),
+  - "data-ecl-table-header" (string) (default: ''),
+  - "data-ecl-table-header-group" (string) (default: ''),
+  - "group" (bool) (default: false),
+  - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
+  }
+  ]
+  }
+  ],
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

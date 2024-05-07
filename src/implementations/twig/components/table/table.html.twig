@@ -13,20 +13,21 @@
         "colspan" (string) (default: ''),
         "rowspan" (string) (default: ''),
         "data-ecl-table-header-group" (string) (default: ''),
-        "headers" (string) (default: ''): table headers id
+        "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
       },
       ...
     ]
   - "rows" (array) (default: {}): format: [
-    [
-      "extra_attributes": (string) (default: ''),
-      "extra_classes": (string) (default: ''),
       {
-        data: [
-          "label" (string or array of string)
-          "data-ecl-table-header" (string) (default: ''),
-          "group" (bool) (default: false),
-          "headers" (string) (default: ''): table headers id
+        "extra_attributes": (string) (default: ''),
+        "extra_classes": (string) (default: ''),
+        "data": [
+          {
+            "label" (string or array of string)
+            "data-ecl-table-header" (string) (default: ''),
+            "group" (bool) (default: false),
+            "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
+          }
         ],
       },
       ...
@@ -98,7 +99,7 @@
 {# Print the result #}
 
 <div class="ecl-table-responsive">
-  <table class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <table class="{{ _css_class }}" id="{{ _id }}" {{ _extra_attributes|raw }}>
     {% if _caption is not empty %}
     <caption class="ecl-table__caption">{{ _caption }}</caption>
     {% endif %}
@@ -108,11 +109,11 @@
       {% for header in _headers %}
         <tr class="{{ _row_css_class }}">
           {% for cell in header %}
-            {% set _heading_attribute = 'id="' ~ _id  ~ '-' ~ _index ~ '"' %}
+            {% set _heading_attribute = 'id="' ~ _id  ~ '-header-' ~ _index ~ '"' %}
             {% set _index = _index + 1 %}
             {% set _heading_scope = 'col' %}
             {% if cell.rowspan is not empty %}
-              {% set _heading_attribute = 'rowspan="' ~ cell.rowspan|e('html_attr') ~ '"' %}
+              {% set _heading_attribute = _heading_attribute ~ ' rowspan="' ~ cell.rowspan|e('html_attr') ~ '"' %}
             {% endif %}
             {% if cell.colspan is not empty %}
               {% set _heading_attribute = _heading_attribute ~ ' colspan="' ~ cell.colspan|e('html_attr') ~ '"' %}
@@ -121,7 +122,7 @@
               {% set _heading_attribute = _heading_attribute ~ ' data-ecl-table-sort-toggle' %}
             {% endif %}
             {% if cell.headers is not empty %}
-              {% set _heading_attribute = _heading_attribute ~ 'headers="' ~ cell.headers|e('html_attr') ~ '"' %}
+              {% set _heading_attribute = _heading_attribute ~ ' headers="' ~ cell.headers|e('html_attr') ~ '"' %}
             {% endif %}
             {% set _heading_attribute = _heading_attribute ~ ' scope="' ~ _heading_scope ~ '"' %}
             <th {{ _heading_attribute|raw }} class="{{ _header_css_class }}">{{ cell.label }}</th>
