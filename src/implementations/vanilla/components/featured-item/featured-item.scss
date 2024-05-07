@@ -105,7 +105,10 @@ $featured-item: null !default;
     }
   }
 
-  .ecl-featured-item:not(.ecl-featured-item--highlight) {
+  .ecl-featured-item:not(
+      .ecl-featured-item--highlight,
+      .ecl-featured-item--simple
+    ) {
     .ecl-featured-item__item:only-child {
       .ecl-featured-item__description,
       .ecl-featured-item__link,
