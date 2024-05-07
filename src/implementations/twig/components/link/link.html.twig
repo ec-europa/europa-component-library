@@ -57,6 +57,7 @@
   hide_label: false,
   icon_path: '',
 } %}
+{% set _extra_accessibility = extra_accessibility|default({}) %}
 
 {% set _icon = {
   name: '',
@@ -78,10 +79,8 @@
     size: '2xs',
   })] %}
 
-  {% if _link.sr_external is not empty or extra_accessibility.title is not empty %}
-    {% set extra_accessibility = {
-      title: _link.sr_external|default(extra_accessibility.title),
-    } %}
+  {% if _extra_accessibility.title is empty and _link.sr_external is not empty %}
+    {% set _extra_accessibility = _extra_accessibility|merge({ title: _link.sr_external }) %}
   {% endif %}
 
   {% set as_image = true %}
@@ -157,7 +156,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility|default({}),
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
@@ -183,7 +182,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility|default({}),
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
