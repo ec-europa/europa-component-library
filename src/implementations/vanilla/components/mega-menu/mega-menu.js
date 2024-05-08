@@ -1222,7 +1222,6 @@ export class MegaMenu {
     this.element.removeAttribute('data-expanded');
     // Remove css class and attribute from inner menu
     this.inner.classList.remove('ecl-mega-menu__inner--expanded');
-    this.inner.setAttribute('aria-hidden', 'true');
 
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
