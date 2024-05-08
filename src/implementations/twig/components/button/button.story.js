@@ -1,11 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
 import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
 import dataCall from '@ecl/specs-component-button/demo/data--call';
@@ -15,9 +13,6 @@ import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
 
 import button from './button.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;
