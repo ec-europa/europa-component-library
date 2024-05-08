@@ -38,10 +38,7 @@ $typography: (
     'xs': var(--f-xs),
     's': var(--f-s),
     'm': var(--f-m),
-    'l': (
-      'mobile': var(--f-l),
-      'desktop': var(--f-l),
-    ),
+    'l': var(--f-l),
   ),
 );
 $typography-print: (
@@ -49,6 +46,6 @@ $typography-print: (
   heading2: map.get($font-print, '3xl'),
   heading3: map.get($font-print, '2xl'),
   heading4: map.get($font-print, 'xl'),
-  heading5: map.get($font-print, 'm'),
+  heading5: map.get($font-print, 'l'),
   heading6: map.get($font-print, 'm'),
 );
