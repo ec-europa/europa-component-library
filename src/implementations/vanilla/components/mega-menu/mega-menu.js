@@ -121,6 +121,8 @@ export class MegaMenu {
     this.open = null;
     this.toggleLabel = null;
     this.back = null;
+    this.backItemLevel1 = null;
+    this.backItemLevel2 = null;
     this.inner = null;
     this.itemsList = null;
     this.items = null;
@@ -555,19 +557,24 @@ export class MegaMenu {
   checkDropdownHeight(menuItem) {
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
-      let dropdown = queryOne('.ecl-mega-menu__sublist', menuItem);
+      let dropdown = queryOne('.ecl-mega-menu__mega', menuItem);
 
       if (!dropdown) {
         dropdown = queryOne('.ecl-mega-menu__mega-container', menuItem);
       }
 
       if (dropdown) {
+        let parentHeight = 0;
         const dropdownTop = dropdown.getBoundingClientRect().top;
-        let dropdownHeight = viewportHeight - dropdownTop;
+        const parent = queryOne('.ecl-mega-menu__parent-link', dropdown);
+        if (parent) {
+          parentHeight = parent.getBoundingClientRect().height;
+        }
+        let dropdownHeight = viewportHeight - dropdownTop + parentHeight;
         const lastItem = queryOne('.ecl-mega-menu__see-all', dropdown);
         // Arbitrary, but doing this prevents a misalignment between the two panels
-        if (lastItem) {
-          dropdownHeight -= 20;
+        if (lastItem && lastItem.parentElement.parentElement === dropdown) {
+          dropdownHeight -= 30;
         }
         dropdown.style.height = `${dropdownHeight}px`;
       }
@@ -981,9 +988,16 @@ export class MegaMenu {
           sibling.style.display = '';
         });
       }
-      // Move focus on the parent link of the opened list
-      const expanded = queryOne('.ecl-mega-menu__item--expanded', this.element);
-      queryOne('.ecl-mega-menu__parent-link', expanded).focus();
+      // Move the focus to the previously selected item
+      if (this.backItemLevel2) {
+        this.backItemLevel2.firstElementChild.focus();
+      } else {
+        const expanded = queryOne(
+          '.ecl-mega-menu__item--expanded',
+          this.element,
+        );
+        queryOne('.ecl-mega-menu__parent-link', expanded).focus();
+      }
       this.openPanel.num = 1;
     } else {
       // Remove expanded class from inner menu
@@ -996,8 +1010,12 @@ export class MegaMenu {
         );
         item.setAttribute('aria-expanded', 'false');
       });
-      // Move the focus to the first item in the menu
-      this.items[0].firstElementChild.focus();
+      // Move the focus to the previously selected item
+      if (this.backItemLevel1) {
+        this.backItemLevel1.firstElementChild.focus();
+      } else {
+        this.items[0].firstElementChild.focus();
+      }
       this.openPanel.num = 0;
     }
 
@@ -1030,6 +1048,7 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               item.setAttribute('aria-expanded', 'true');
+              this.backItemLevel1 = item;
             } else {
               item.setAttribute('aria-expanded', 'false');
               item.classList.remove(
@@ -1073,6 +1092,7 @@ export class MegaMenu {
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
             item.classList.add('ecl-mega-menu__subitem--current');
+            this.backItemLevel2 = item;
           } else {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'false');

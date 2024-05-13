@@ -459,6 +459,7 @@ export class Select {
       this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
       this.optionsContainer = document.createElement('div');
       this.optionsContainer.classList.add('ecl-select__multiple-options');
+      this.optionsContainer.setAttribute('aria-live', 'polite');
       this.searchContainer.appendChild(this.optionsContainer);
       // Toolbar
       if (this.clearAllButtonLabel || this.closeButtonLabel) {
@@ -819,7 +820,7 @@ export class Select {
         const groupLabel = option.parentNode.getAttribute('label');
         const optionLabel = option.getAttribute('label') || option.textContent;
         if (groupLabel && optionLabel) {
-          option.setAttribute('aria-label', `${groupLabel}: ${optionLabel}`);
+          option.setAttribute('aria-label', `${optionLabel} - ${groupLabel}`);
         }
       }
     });

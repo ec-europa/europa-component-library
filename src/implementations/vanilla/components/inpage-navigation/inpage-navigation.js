@@ -60,7 +60,7 @@ export class InpageNavigation {
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
-      contentClass = 'ecl-inpage-navigation__heading--active',
+      contentClass = 'inpage-navigation__heading--active',
     } = {},
   ) {
     // Check element

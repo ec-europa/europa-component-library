@@ -12,7 +12,6 @@ $featured-item: null !default;
 
 .ecl-featured-item__container {
   border-radius: map.get($featured-item, 'border-radius');
-  box-shadow: map.get($featured-item, 'shadow');
   display: flex;
   flex-direction: column;
 }
@@ -106,7 +105,10 @@ $featured-item: null !default;
     }
   }
 
-  .ecl-featured-item:not(.ecl-featured-item--highlight) {
+  .ecl-featured-item:not(
+      .ecl-featured-item--highlight,
+      .ecl-featured-item--simple
+    ) {
     .ecl-featured-item__item:only-child {
       .ecl-featured-item__description,
       .ecl-featured-item__link,
@@ -118,9 +120,60 @@ $featured-item: null !default;
 }
 
 /**
+* Simple
+*/
+.ecl-featured-item--simple {
+  box-shadow: map.get($featured-item, 'shadow');
+
+  .ecl-featured-item__container {
+    background-color: map.get($featured-item, 'simple', 'container-background');
+    border: map.get($featured-item, 'border');
+    border-inline-start: map.get($featured-item, 'simple', 'border-size') solid
+      map.get($featured-item, 'simple', 'border-color');
+    padding: map.get($featured-item, 'simple', 'padding-mobile');
+  }
+
+  .ecl-featured-item__media_container {
+    padding: map.get($featured-item, 'simple', 'media-padding-mobile');
+  }
+
+  .ecl-featured-item__title {
+    margin: 0;
+    padding: map.get($featured-item, 'simple', 'title-spacing');
+  }
+
+  .ecl-featured-item__description {
+    margin: map.get($featured-item, 'simple', 'description-spacing');
+  }
+
+  .ecl-featured-item__link {
+    margin: map.get($featured-item, 'simple', 'link-spacing');
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('s') {
+  .ecl-featured-item--simple {
+    .ecl-featured-item__container {
+      padding: map.get($featured-item, 'simple', 'padding-desktop');
+    }
+
+    .ecl-featured-item__media_container {
+      padding: map.get($featured-item, 'simple', 'media-padding-desktop');
+    }
+
+    .ecl-featured-item__container--right .ecl-featured-item__media_container {
+      padding: map.get($featured-item, 'simple', 'media-padding-right');
+    }
+  }
+}
+
+/**
 * Highlight
 */
 .ecl-featured-item--highlight {
+  box-shadow: map.get($featured-item, 'shadow');
+
   .ecl-featured-item__container {
     background-color: map.get(
       $featured-item,
