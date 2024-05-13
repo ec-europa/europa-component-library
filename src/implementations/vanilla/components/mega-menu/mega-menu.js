@@ -14,6 +14,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
+ * @param {String} options.subLinkSelector Selector for the menu sub link
  * @param {String} options.megaSelector Selector for the mega menu
  * @param {String} options.subItemSelector Selector for the menu sub items
  * @param {String} options.labelOpenAttribute The data attribute for open label
@@ -76,6 +77,7 @@ export class MegaMenu {
       listSelector = '[data-ecl-mega-menu-list]',
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
+      subLinkSelector = '[data-ecl-mega-menu-sublink]',
       megaSelector = '[data-ecl-mega-menu-mega]',
       containerSelector = 'data-ecl-has-container',
       subItemSelector = '[data-ecl-mega-menu-subitem]',
@@ -105,6 +107,7 @@ export class MegaMenu {
     this.listSelector = listSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
+    this.subLinkSelector = subLinkSelector;
     this.megaSelector = megaSelector;
     this.subItemSelector = subItemSelector;
     this.containerSelector = containerSelector;
@@ -496,6 +499,7 @@ export class MegaMenu {
       } else {
         this.element.setAttribute('aria-expanded', 'false');
         this.element.removeAttribute('data-expanded');
+        this.open.setAttribute('aria-expanded', 'false');
         this.enableScroll();
       }
     }
@@ -911,6 +915,7 @@ export class MegaMenu {
       e.preventDefault();
       this.disableScroll();
       this.element.setAttribute('aria-expanded', 'true');
+      this.open.setAttribute('aria-expanded', 'true');
       this.inner.setAttribute('aria-hidden', 'false');
       this.isOpen = true;
       this.openPanel.num = 1;
@@ -982,6 +987,8 @@ export class MegaMenu {
         'ecl-mega-menu__subitem--expanded',
         'ecl-mega-menu__subitem--current',
       );
+      const itemLink = queryOne(this.subLinkSelector, level2);
+      itemLink.setAttribute('aria-expanded', 'false');
       const siblings = level2.parentElement.childNodes;
       if (siblings) {
         siblings.forEach((sibling) => {
@@ -1009,6 +1016,8 @@ export class MegaMenu {
           'ecl-mega-menu__item--current',
         );
         item.setAttribute('aria-expanded', 'false');
+        const itemLink = queryOne(this.linkSelector, item);
+        itemLink.setAttribute('aria-expanded', 'false');
       });
       // Move the focus to the previously selected item
       if (this.backItemLevel1) {
@@ -1039,18 +1048,22 @@ export class MegaMenu {
         this.checkDropdownHeight(menuItem);
         this.element.setAttribute('data-expanded', true);
         this.element.setAttribute('aria-expanded', 'true');
+        this.open.setAttribute('aria-expanded', 'true');
         this.disableScroll();
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
+            const itemLink = queryOne(this.linkSelector, item);
             if (item === menuItem) {
               item.classList.add(
                 'ecl-mega-menu__item--expanded',
                 'ecl-mega-menu__item--current',
               );
               item.setAttribute('aria-expanded', 'true');
+              itemLink.setAttribute('aria-expanded', 'true');
               this.backItemLevel1 = item;
             } else {
               item.setAttribute('aria-expanded', 'false');
+              itemLink.setAttribute('aria-expanded', 'false');
               item.classList.remove(
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
@@ -1086,9 +1099,11 @@ export class MegaMenu {
     switch (op) {
       case 'expand': {
         this.subItems.forEach((item) => {
+          const itemLink = queryOne(this.subLinkSelector, item);
           if (item === menuItem) {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'true');
+              itemLink.setAttribute('aria-expanded', 'true');
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
             item.classList.add('ecl-mega-menu__subitem--current');
@@ -1096,6 +1111,7 @@ export class MegaMenu {
           } else {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'false');
+              itemLink.setAttribute('aria-expanded', 'false');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
             item.classList.remove('ecl-mega-menu__subitem--current');
@@ -1136,6 +1152,9 @@ export class MegaMenu {
       case 'collapse':
         this.openPanel = { num: 1 };
         menuItem.setAttribute('aria-expanded', 'false');
+        // eslint-disable-next-line no-case-declarations
+        const itemLink = queryOne(this.subLinkSelector, menuItem);
+        itemLink.setAttribute('aria-expanded', 'false');
         menuItem.classList.remove(
           'ecl-mega-menu__subitem--expanded',
           'ecl-mega-menu__subitem--current',
@@ -1220,6 +1239,7 @@ export class MegaMenu {
     this.enableScroll();
     this.element.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
+    this.open.setAttribute('aria-expanded', 'false');
     // Remove css class and attribute from inner menu
     this.inner.classList.remove('ecl-mega-menu__inner--expanded');
 
@@ -1229,6 +1249,8 @@ export class MegaMenu {
       if (item.hasAttribute('aria-expanded')) {
         item.setAttribute('aria-expanded', 'false');
         item.classList.remove('ecl-mega-menu__item--expanded');
+        const itemLink = queryOne(this.linkSelector, item);
+        itemLink.setAttribute('aria-expanded', 'false');
       }
     });
     // Remove css class and attribute from menu subitems
@@ -1238,6 +1260,8 @@ export class MegaMenu {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.setAttribute('aria-expanded', 'false');
         item.style.display = '';
+        const itemLink = queryOne(this.subLinkSelector, item);
+        itemLink.setAttribute('aria-expanded', 'false');
       }
     });
     // Remove styles set for the sublists

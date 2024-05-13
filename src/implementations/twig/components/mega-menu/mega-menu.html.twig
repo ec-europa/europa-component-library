@@ -111,9 +111,10 @@
         }),
         icon: _toggle_icon,
         extra_classes: 'ecl-button ecl-button--tertiary ecl-mega-menu__open',
-        extra_attributes: [{
-          name: 'data-ecl-mega-menu-open',
-        }],
+        extra_attributes: [
+          { name: 'data-ecl-mega-menu-open' },
+          { name: 'aria-expanded', value: 'false' }
+        ],
       }) only %}
     {%- endif -%}
 
