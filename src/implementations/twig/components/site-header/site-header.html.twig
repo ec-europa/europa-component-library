@@ -355,16 +355,16 @@
         </div>
       </div>
     </div>
-
-  {# Notification #}
-  {% if _notification is defined and _notification is not empty %}
-    <div class="ecl-site-header__notification">
-      <div class="ecl-container">
-        {% include '@ecl/notification/notification.html.twig' with _notification only %}
-      </div>
-    </div>
-  {% endif %}
   </div>
+
+{# Notification #}
+{% if _notification is defined and _notification is not empty %}
+  <div class="ecl-site-header__notification">
+    <div class="ecl-container">
+      {% include '@ecl/notification/notification.html.twig' with _notification only %}
+    </div>
+  </div>
+{% endif %}
 
 {# Banner top #}
 {% if banner_top is defined and banner_top is not empty %}

@@ -270,6 +270,7 @@ module.exports = {
     close: {
       variant: 'ghost',
       label: 'Close',
+      hide_label: true,
       icon: {
         path: '/icons.svg',
         name: 'close-filled',

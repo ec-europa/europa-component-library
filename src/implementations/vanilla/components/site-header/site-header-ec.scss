@@ -74,6 +74,11 @@ $language-list: null !default;
   justify-content: space-between;
 }
 
+.ecl-site-header__header {
+  box-shadow: map.get($theme, 'shadow', '6');
+  position: relative;
+}
+
 .ecl-site-header__logo-image {
   display: block;
   height: map.get($site-header, 'logo-height-xs');
@@ -232,13 +237,13 @@ $language-list: null !default;
   display: flex;
 
   .ecl-notification {
-    margin-bottom: var(--s-m);
+    margin: var(--s-m) 0;
   }
 }
 
 .ecl-site-header__banner-top {
   background: var(--c-n-40);
-  border-top-color: var(--c-n);
+  border-top: 1px solid var(--c-n);
   font: var(--f-m);
   padding: var(--s-xs) 0;
 }
@@ -477,10 +482,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     top: 0;
   }
 
-  .ecl-site-header__notification .ecl-notification {
-    margin-bottom: var(--s-xl);
-  }
-
   .ecl-site-header__banner {
     font: var(--f-l);
     min-height: 0;
@@ -493,11 +494,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 }
 
 @include breakpoints.up('xl') {
-  .ecl-site-header__container {
-    padding-inline-start: var(--s-2xl);
-    padding-inline-end: var(--s-2xl);
-  }
-
   .ecl-site-header__action .ecl-search-form__text-input {
     width: map.get($site-header, 'search-width-xl');
   }
