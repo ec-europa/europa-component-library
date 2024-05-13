@@ -59,7 +59,7 @@
 {% if _overlay %}
 <div class="{{ _overlay_classes }}"></div>
 {% endif %}
-<div class="{{ _css_classes }}" {{ _extra_attributes|raw }}>
+<div class="{{ _css_classes }}" {{ _extra_attributes|raw }} role="alert">
   <svg class="ecl-spinner__loader" viewBox="25 25 50 50">
     <circle
       class="ecl-spinner__circle"
