@@ -20,7 +20,6 @@ npm install --save @ecl/twig-component-mega-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
   "external": (boolean) (optional)
-  "trigger_aria_label" (string)
   "link_aria_label" (string)
   "container": (string) Empty container to be filled in with content
   "featured" (oject) (optional) {

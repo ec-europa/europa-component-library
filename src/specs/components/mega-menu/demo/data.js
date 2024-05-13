@@ -32,7 +32,6 @@ module.exports = {
     {
       label: 'News and media',
       path: exampleLink,
-      trigger_aria_label: 'Access news and media children',
       link_aria_label: 'Link to the News and media page',
       children: [
         {
@@ -40,7 +39,6 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'View all',
-          trigger_aria_label: "Access item 2.1's children",
           link_aria_label: "Link to the 2.1 item's page",
           featured: {
             title: 'featured column',
@@ -74,7 +72,6 @@ module.exports = {
           label:
             'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.',
           path: exampleLink,
-          trigger_aria_label: "Access item 2.3's children",
           link_aria_label: 'Link to the 2.3 item page',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
@@ -95,7 +92,6 @@ module.exports = {
     {
       label: 'About the European Commission',
       path: exampleLink,
-      trigger_aria_label: "Access about the european commission's children",
       link_aria_label: 'Link to About the European Commission page',
       children: [
         { label: 'Item 3.1', path: exampleLink },
@@ -106,7 +102,6 @@ module.exports = {
     {
       label: 'Key priorities',
       path: exampleLink,
-      trigger_aria_label: "Access key priorities' children",
       link_aria_label: 'Link to Key priorities page',
       children: [
         {
@@ -131,7 +126,6 @@ module.exports = {
     </div>
   </article>`,
           },
-          trigger_aria_label: "Access research and innovation's children",
           link_aria_label: 'Link to research and innovation page',
           children: [
             { label: 'How we provide aid', path: exampleLink },
@@ -145,7 +139,6 @@ module.exports = {
     {
       label: 'EU Policies',
       path: exampleLink,
-      trigger_aria_label: "Access EU Policies' children",
       link_aria_label: 'Link to the EU Policies page',
       children: [
         {
@@ -153,7 +146,6 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'View others',
-          trigger_aria_label: "Access item 5.1's children",
           link_aria_label: 'Link to the Item 5.1 page',
           featured: {
             title: 'featured column',
@@ -213,7 +205,6 @@ module.exports = {
         {
           label: 'Item 5.2',
           path: exampleLink,
-          trigger_aria_label: "Access item 5.2's children",
           link_aria_label: 'Link to the Item 5.2 page',
           children: [
             { label: 'Item 5.2 subitem 1', path: exampleLink },
@@ -228,7 +219,6 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'See all',
-          trigger_aria_label: "Access item 5.3's children",
           link_aria_label: 'Link to the Item 5.3 page',
           children: [
             { label: 'Item 5.3 subitem 1', path: exampleLink },
