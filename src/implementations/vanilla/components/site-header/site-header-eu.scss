@@ -63,11 +63,6 @@ $language-list: null !default;
   }
 }
 
-.ecl-site-header__header {
-  box-shadow: map.get($theme, 'shadow', '2');
-  position: relative;
-}
-
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
@@ -230,7 +225,7 @@ $language-list: null !default;
   display: flex;
 
   .ecl-notification {
-    margin: var(--s-m) 0;
+    margin: 0 0 var(--s-m);
   }
 }
 
@@ -375,6 +370,10 @@ $language-list: null !default;
 
   .ecl-site-header__login-container {
     position: relative;
+  }
+
+  .ecl-site-header__notification .ecl-notification {
+    margin: 0 0 var(--s-l);
   }
 
   .ecl-site-header__login-box {
