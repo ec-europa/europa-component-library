@@ -20,6 +20,7 @@ npm install --save @ecl/twig-component-mega-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
   "external": (boolean) (optional)
+  "sr_external" (string) (default: '') Additional label for the external icon
   "trigger_aria_label" (string)
   "link_aria_label" (string)
   "container": (string) Empty container to be filled in with content
@@ -34,6 +35,7 @@ npm install --save @ecl/twig-component-mega-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
   "external": (boolean)
+  "sr_external" (string) (default: '') Additional label for the external icon
   "see_all": (boolean)
   "see_all_label": (string)
   "see_all_attributes": (associative array)
