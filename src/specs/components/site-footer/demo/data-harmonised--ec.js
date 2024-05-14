@@ -186,6 +186,13 @@ module.exports = {
                 inverted: true,
               },
             },
+            {
+              link: {
+                label: 'Report an IT vulnerability',
+                path: 'https://commission.europa.eu/legal-notice/vulnerability-disclosure-policy_en',
+                inverted: true,
+              },
+            },
           ],
           section_class_name: 'ecl-site-footer__section--split-list',
         },
