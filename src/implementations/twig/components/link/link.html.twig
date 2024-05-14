@@ -156,7 +156,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: _extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility,
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
@@ -182,7 +182,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: _extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility,
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
