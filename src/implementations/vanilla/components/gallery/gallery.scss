@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -148,14 +149,9 @@ $_image-height-mobile: 260px;
   }
 }
 
-.ecl-gallery__meta,
-.ecl-gallery__title {
-  height: 1px;
-  left: -10000px;
-  overflow: hidden;
-  position: absolute;
-  top: auto;
-  width: 1px;
+.ecl-gallery__list .ecl-gallery__caption,
+.ecl-gallery__list .ecl-gallery__meta {
+  @include screen-reader.sr-only;
 }
 
 .ecl-gallery__info {
@@ -373,7 +369,6 @@ $_image-height-mobile: 260px;
 
 .ecl-gallery__slider-previous,
 .ecl-gallery__slider-next {
-  align-self: flex-end;
   background: map.get($theme, 'color', 'white');
   flex-shrink: 0;
 
@@ -438,6 +433,10 @@ $_image-height-mobile: 260px;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  .ecl-gallery__meta {
+    display: none;
+  }
 }
 
 .ecl-gallery__detail-meta {
@@ -472,15 +471,6 @@ $_image-height-mobile: 260px;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-gallery__slider-previous,
-  .ecl-gallery__slider-next {
-    margin: 0;
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
-
   .ecl-gallery__pager {
     justify-content: flex-end;
   }

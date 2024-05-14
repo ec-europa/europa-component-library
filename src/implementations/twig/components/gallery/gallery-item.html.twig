@@ -122,7 +122,11 @@
           {{- _item.title -}}
         </span>
       {%- endif -%}
-        {{- _item.description -}}
+      {%- if _item.description is defined and _item.description is not empty -%}
+        <span class="ecl-gallery__caption">
+          {{- _item.description -}}
+        </span>
+      {%- endif -%}
       {%- if _item.meta is defined and _item.meta is not empty -%}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>
           {{- _item.meta -}}
