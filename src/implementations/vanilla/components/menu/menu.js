@@ -128,6 +128,7 @@ export class Menu {
     this.close = null;
     this.toggleLabel = null;
     this.back = null;
+    this.backItem = null;
     this.inner = null;
     this.itemsList = null;
     this.items = null;
@@ -1056,6 +1057,14 @@ export class Menu {
       item.setAttribute('aria-expanded', 'false');
     });
 
+    // Focus previously selected item
+    if (this.backItem) {
+      const backItemButton = queryOne(this.caretSelector, this.backItem);
+      if (backItemButton) {
+        backItemButton.focus();
+      }
+    }
+
     return this;
   }
 
@@ -1146,11 +1155,13 @@ export class Menu {
     this.inner.classList.add('ecl-menu__inner--expanded');
 
     // Add css class and attribute to current item, and remove it from others
+    // Also save the current item
     const menuItem = e.target.closest(this.itemSelector);
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'true');
+        this.backItem = item;
       } else {
         item.classList.remove('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'false');

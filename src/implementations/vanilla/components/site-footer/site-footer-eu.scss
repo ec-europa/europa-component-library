@@ -59,14 +59,6 @@ $site-footer: null !default;
   }
 }
 
-.ecl-site-footer__section--desktop {
-  display: none;
-}
-
-.ecl-site-footer__section--mobile {
-  padding-top: 0;
-}
-
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
   font: var(--f-2xl);
@@ -148,20 +140,11 @@ $site-footer: null !default;
     padding-top: var(--s-l);
   }
 
-  .ecl-site-footer__section--desktop {
-    display: block;
-  }
-
-  .ecl-site-footer__section--mobile {
-    display: none;
-  }
-
   .ecl-site-footer__title,
   .ecl-site-footer__title:hover,
   .ecl-site-footer__title:focus,
   .ecl-site-footer__title:visited {
     color: map.get($site-footer, 'color');
-    font: var(--f-3xl);
   }
 
   .ecl-site-footer__logo-image {
