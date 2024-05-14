@@ -59,7 +59,7 @@ $description-list: null !default;
   flex-direction: column;
 
   .ecl-description-list__see_more {
-    margin-top: var(--s-m);
+    margin-top: var(--s-xs);
   }
 }
 
@@ -109,6 +109,10 @@ $description-list: null !default;
 .ecl-description-list__definition--tag {
   display: inline-block;
   margin-bottom: calc(-1 * var(--s-xs));
+
+  .ecl-description-list__see_more {
+    margin-top: 0;
+  }
 }
 
 // stylelint-disable-next-line no-descending-specificity
