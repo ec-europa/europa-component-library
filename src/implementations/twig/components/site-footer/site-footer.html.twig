@@ -116,7 +116,7 @@
           {% if _sections.title_with_separator %}
             {% set _title_class_name = _title_class_name ~ ' ecl-site-footer__title--separator' %}
           {% endif %}
-          <h2 class="{{ _title_class_name }}">
+          <div class="{{ _title_class_name }}">
           {%- if _sections.title.link is defined and _sections.title.link is not empty -%}
             {% include '@ecl/link/link.html.twig' with _sections|merge({
               link: _sections.title.link|merge({ type: 'standalone'}),
@@ -126,7 +126,7 @@
           {%- else -%}
             {{- _sections.title -}}
           {%- endif -%}
-          </h2>
+          </div>
           {%- endif -%}
         {# description #}
         {% if _sections.description is defined and _sections.description is not empty %}

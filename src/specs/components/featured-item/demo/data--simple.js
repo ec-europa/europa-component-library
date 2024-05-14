@@ -2,6 +2,7 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  type: 'simple',
   title:
     'Title: Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo',
   description:
@@ -11,9 +12,12 @@ module.exports = {
       type: 'standalone',
       path: exampleLink,
       label: 'Standalone link',
-      external: true,
-      sr_external: 'Link to an external domain',
-      icon_path: '/icons.svg',
+      icon_position: 'after',
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'external',
+      size: 'xs',
     },
   },
   media_container: {
