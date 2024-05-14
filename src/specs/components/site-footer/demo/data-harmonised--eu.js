@@ -17,7 +17,7 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Accessibility',
+                label: 'Accessibility statement',
                 path: exampleLink,
               },
             },
@@ -134,30 +134,26 @@ module.exports = {
           title_with_separator: true,
           links: [
             {
-              content_before: 'Call us ',
               link: {
-                label: '00 800 6 7 8 9 10 11',
+                label: 'Call us 00 800 6 7 8 9 10 11',
                 path: exampleLink,
               },
             },
             {
-              content_before: 'Use other ',
               link: {
-                label: 'telephone options',
+                label: 'Use other telephone options',
                 path: exampleLink,
               },
             },
             {
-              content_before: 'Write us via our ',
               link: {
-                label: 'contact form',
+                label: 'Write us via our contact form',
                 path: exampleLink,
               },
             },
             {
-              content_before: 'Meet us at one of the ',
               link: {
-                label: 'EU centres',
+                label: 'Meet us at one of the EU centres',
                 path: exampleLink,
               },
             },
@@ -168,9 +164,8 @@ module.exports = {
           title_with_separator: true,
           links: [
             {
-              content_before: 'Search for ',
               link: {
-                label: 'EU social media channels',
+                label: 'Search for EU social media channels',
                 path: exampleLink,
               },
             },
