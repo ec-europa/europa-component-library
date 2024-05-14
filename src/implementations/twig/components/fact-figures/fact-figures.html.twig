@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "column" (integer) (default: 3): Number of columns (1 to 4)
+  - "centered" (boolean) (default: false)
   - "items" (array) (default: []):
     - "icon" (associate array) (default: { size: 'm' })
     - "value" (string) (default: '')
@@ -29,11 +30,17 @@
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
 {% set _extra_classes = extra_classes|default('') %}
+{% set _icon_size = icon_size|default('l') %}
 {% set _display_icons = display_icons ?? true %}
+{% set _centered = centered|default(false) %}
 
 {# Internal logic - Process properties #}
 
 {% set _css_class = _css_class ~ ' ecl-fact-figures--col-' ~ _columns %}
+
+{% if _centered %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %} 
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -58,7 +65,7 @@
     {% if item.icon is defined and item.icon is not empty and _display_icons %}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: item.icon|merge({
-          size: 'l',
+          size: _icon_size,
         }),
         extra_classes: 'ecl-fact-figures__icon',
       } only %}
@@ -90,8 +97,8 @@
         type: 'standalone',
       }),
       icon: view_all.link.external ? {} : view_all.icon|default({})|merge({
-        name: 'corner-arrow',
-        transform: 'rotate-90',
+        name: 'arrow-left',
+        transform: 'flip-horizontal',
         size: 'xs',
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',

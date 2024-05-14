@@ -9,6 +9,7 @@ npm install --save @ecl/twig-component-fact-figures
 ### Parameters:
 
 - **"column"** (integer) (default: 3): Number of columns (1 to 4)
+- **"centered"** (boolean) (default: false)
 - **"items"** (array) (default: []):
   - "icon" (associate array) (default: { size: 'm' })
   - "value" (string) (default: '')
@@ -20,6 +21,7 @@ npm install --save @ecl/twig-component-fact-figures
     - "path" (string) (default: '')
   - "visible" (boolean) (default: true)
 - **"display_icons"** (boolean) (default: true)
+- **"icon_size"** (string) (default: 'l') (l or 2xl)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -32,10 +34,11 @@ npm install --save @ecl/twig-component-fact-figures
 {% include '@ecl/fact-figures/fact-figures.html.twig' with { 
   column: 3, 
   display_icons, true, 
+  icon_size: 'l', 
   items: [ 
     { 
       icon: { 
-        path: "static/media/icons.1dbe9812.svg",
+        path: "/icons.svg",
         name: "digital", 
       }, 
       value: "00.0 million", 
@@ -44,7 +47,7 @@ npm install --save @ecl/twig-component-fact-figures
     }, 
     { 
       icon: { 
-        path: "static/media/icons.1dbe9812.svg",
+        path: "/icons.svg",
         name: "digital", 
       }, 
       value: "00.0 million", 
@@ -54,7 +57,7 @@ npm install --save @ecl/twig-component-fact-figures
   ], 
   view_all: { 
     link: { 
-      label: "View all metrics", 
+      label: "View all", 
       path: "/example" 
     },
   } 

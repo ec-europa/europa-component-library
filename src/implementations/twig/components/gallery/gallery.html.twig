@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "id": (string) (default: random): Unique id for the gallery
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
   - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
@@ -18,6 +19,7 @@
     - "share" (object) (default: {}): object of type link
   - "footer" (object) (default: {}): object of type link
   - "items" (array) (default: [])
+    - "title" (string) (default: '')
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
@@ -37,6 +39,7 @@
 
 {# variables #}
 
+{% set _id = id|default(random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
@@ -91,7 +94,7 @@
 
 <section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery data-ecl-gallery-player-label="{{ _sr_video_player }}">
   <ul class="ecl-gallery__list">
-    {% for _item in _items %}
+    {% for _key, _item in _items %}
       {% set _item_class = '' %}
       {% set _item_attrs = [] %}
       {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
@@ -101,6 +104,7 @@
         {% set _item_attrs = _item.extra_attributes %}
       {% endif %}
       {% include '@ecl/gallery/gallery-item.html.twig' with {
+        id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
         item: _item,
         icon_path: _icon_path,
         sr_video_label: _sr_video_label,

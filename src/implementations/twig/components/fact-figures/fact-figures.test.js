@@ -29,6 +29,22 @@ describe('Fact and figures', () => {
       return expect(render(demo1Col)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly when centerd', () => {
+      expect.assertions(1);
+
+      const centeredData = { ...demo1Col, centered: true };
+
+      return expect(render(centeredData)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly whit large icons', () => {
+      expect.assertions(1);
+
+      const largeIconsData = { ...demo1Col, icon_size: '2xl' };
+
+      return expect(render(largeIconsData)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
