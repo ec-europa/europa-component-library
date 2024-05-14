@@ -28,10 +28,10 @@ npm install --save @ecl/twig-component-table
   - "data-ecl-table-header-group" (string) (default: ''),
   - "group" (bool) (default: false),
   - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
-  }
-  ]
-  }
-  ],
+    }
+    ]
+    }
+    ],
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
