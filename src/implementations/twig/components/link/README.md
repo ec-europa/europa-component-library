@@ -15,6 +15,7 @@ npm install --save @ecl/twig-component-link
   - "label" (string) (default: '') - Content of link
   - "path" (string) (default: '') - Link url (href attribute)
   - "external" (boolean) (default: false) Activates the external link icon
+  - "sr_external" (string) (default: '') Additional label for external icon
   - "aria_label" (string) Aria label attribute value
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
   - "icon_path" (string) (default: '') - Path to the icon sprite in case of external links

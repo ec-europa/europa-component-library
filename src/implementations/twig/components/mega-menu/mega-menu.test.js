@@ -100,9 +100,14 @@ describe('Mega Menu', () => {
       // Finally we test a sublink with children where the external icon should not be shown
       const withExternal = JSON.parse(JSON.stringify(data));
       withExternal.items[1].external = true;
+      withExternal.items[1].sr_external = 'Link to an external domain';
       withExternal.items[5].external = true;
+      withExternal.items[5].sr_external = 'Link to an external domain';
       withExternal.items[6].external = true;
+      withExternal.items[6].sr_external = 'Link to an external domain';
       withExternal.items[1].children[2].external = true;
+      withExternal.items[1].children[2].sr_external =
+        'Link to an external domain';
 
       return expect(render(withExternal)).resolves.toMatchSnapshot();
     });
