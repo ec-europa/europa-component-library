@@ -23,6 +23,18 @@ $featured-item: (
   link-spacing-mobile: var(--s-m) 0 0,
   link-spacing-desktop: var(--s-m) 0 0 var(--s-xl),
   link-spacing-right: var(--s-m) var(--s-xl) 0 0,
+  simple: (
+    container-background: map.get($color, 'white'),
+    media-padding-mobile: var(--s-xl),
+    media-padding-desktop: var(--s-xl),
+    link-spacing: var(--s-m) 0 0 var(--s-xl),
+    padding-mobile: 0,
+    padding-desktop: 0,
+    border-size: 1px,
+    border-color: var(--c-st),
+    title-spacing: var(--s-xl) var(--s-xl) var(--s-s),
+    description-spacing: 0 var(--s-xl),
+  ),
   highlight: (
     container-background: map.get($color, 'white'),
     title-background: var(--c-n-60),
@@ -49,7 +61,16 @@ $featured-item-print: (
   description-font: map.get($font-print, 'm'),
   description-spacing: map.get($spacing-print, 's') 0 0,
   link-spacing: map.get($spacing-print, 'm') 0 0,
+  simple: (
+    media-padding-desktop: map.get($spacing-print, 'xl'),
+    link-spacing: map.get($spacing-print, 'm') 0 0 map.get($spacing-print, 'xl'),
+    padding-desktop: 0,
+    title-spacing: map.get($spacing-print, 'xl') map.get($spacing-print, 'xl')
+      map.get($spacing-print, 's'),
+    description-spacing: 0 map.get($spacing-print, 'xl'),
+  ),
   highlight: (
+    media-padding-desktop: map.get($spacing-print, 'xl'),
     link-spacing: map.get($spacing-print, 'm') 0 0 map.get($spacing-print, 'xl'),
     item-spacing: 0,
     title-spacing: map.get($spacing-print, 'xl'),
