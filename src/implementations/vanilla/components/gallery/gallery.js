@@ -556,7 +556,9 @@ export class Gallery {
     );
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
-      this.overlayShare.setAttribute('aria-describedby', `${id}-title`);
+      if (id) {
+        this.overlayShare.setAttribute('aria-describedby', `${id}-title`);
+      }
       this.overlayShare.hidden = false;
     } else {
       this.overlayShare.hidden = true;
@@ -565,7 +567,9 @@ export class Gallery {
     // Update download link
     if (this.overlayDownload !== null && embeddedVideo === null) {
       this.overlayDownload.href = this.selectedItem.href;
-      this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
+      if (id) {
+        this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
+      }
       this.overlayDownload.hidden = false;
     } else if (this.overlayDownload !== null) {
       this.overlayDownload.hidden = true;
