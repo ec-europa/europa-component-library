@@ -148,13 +148,6 @@ module.exports = {
           links: [
             {
               link: {
-                label: "About the European Commission's web presence",
-                path: 'https://commission.europa.eu/about-european-commissions-web-presence_en',
-                inverted: true,
-              },
-            },
-            {
-              link: {
                 label: 'Contact the European Commission',
                 path: 'https://commission.europa.eu/about-european-commission/contact_en',
                 inverted: true,
@@ -172,13 +165,19 @@ module.exports = {
                 label: 'Follow the European Commission on social media',
                 path: 'https://european-union.europa.eu/contact-eu/social-media-channels_en#/search?page=0&institutions=european_commission',
                 inverted: true,
-                icon_path: '/icons.svg',
               },
             },
             {
               link: {
                 label: 'Resources for partners',
                 path: 'https://commission.europa.eu/resources-partners_en',
+                inverted: true,
+              },
+            },
+            {
+              link: {
+                label: 'Report an IT vulnerability',
+                path: 'https://commission.europa.eu/legal-notice/vulnerability-disclosure-policy_en',
                 inverted: true,
               },
             },
