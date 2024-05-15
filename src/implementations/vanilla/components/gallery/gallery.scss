@@ -288,7 +288,6 @@ $_image-height-mobile: 260px;
 .ecl-gallery__overlay {
   background-color: map.get($gallery, 'overlay-background');
   backdrop-filter: blur(25px);
-  border-radius: map.get($gallery, 'overlay-radius');
   border-width: 0;
   box-shadow: map.get($gallery, 'overlay-shadow');
   display: none;
@@ -367,7 +366,15 @@ $_image-height-mobile: 260px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-end;
+}
+
+.ecl-gallery__slider-previous {
+  margin-inline-start: var(--s-xl);
+}
+
+.ecl-gallery__slider-next {
+  margin-inline-start: var(--s-m);
 }
 
 .ecl-gallery__slider-previous,
@@ -408,8 +415,8 @@ $_image-height-mobile: 260px;
   display: inline-flex;
   font: var(--f-m);
   font-weight: map.get($gallery, 'counter-font-weight');
-  margin: 0 var(--s-xs);
-  padding: 0 var(--s-m);
+  margin: 0;
+  padding: 0 var(--s-xs);
   white-space: pre-wrap;
 }
 
@@ -431,30 +438,14 @@ $_image-height-mobile: 260px;
 .ecl-gallery__detail-description {
   font: var(--f-m);
   margin-top: var(--s-s);
-  max-width: var(--max-w);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+
+  .ecl-gallery__title {
+    display: block;
+    font-weight: map.get($theme, 'font-weight', 'bold');
+  }
 
   .ecl-gallery__meta {
-    display: none;
-  }
-}
-
-.ecl-gallery__detail-meta {
-  color: map.get($theme, 'color', 'white');
-  font: var(--f-m);
-  max-width: var(--max-w);
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-@include breakpoints.up('s') {
-  .ecl-gallery__pager {
-    margin-top: 0;
+    display: block;
   }
 }
 
@@ -474,19 +465,6 @@ $_image-height-mobile: 260px;
 }
 
 @include breakpoints.up('xl') {
-  .ecl-gallery__pager {
-    justify-content: flex-end;
-  }
-
-  .ecl-gallery__slider-previous {
-    left: var(--s-m);
-  }
-
-  .ecl-gallery__slider-next {
-    margin: 0;
-    right: var(--s-m);
-  }
-
   .ecl-gallery__detail {
     height: 200px;
   }

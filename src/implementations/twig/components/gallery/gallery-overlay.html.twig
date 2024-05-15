@@ -63,6 +63,13 @@
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
     <div class="ecl-container">
       <div class="ecl-gallery__pager">
+      {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
+        <div class="ecl-gallery__detail-counter">
+          <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
+            {{- _overlay.counter_separator }}{{- ' ' -}}
+          <span data-ecl-gallery-overlay-counter-max>0</span>
+        </div>
+      {% endif %}
       {% if _overlay.previous is defined and _overlay.previous is not empty %}
         {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
           extra_classes: 'ecl-gallery__slider-previous',
@@ -79,13 +86,6 @@
             { name: 'data-ecl-gallery-overlay-previous' },
           ],
         }) only %}
-      {% endif %}
-      {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
-        <div class="ecl-gallery__detail-counter">
-          <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
-            {{- _overlay.counter_separator }}{{- ' ' -}}
-          <span data-ecl-gallery-overlay-counter-max>0</span>
-        </div>
       {% endif %}
       {% if (_overlay.next is defined and _overlay.next is not empty) and
         (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
@@ -151,11 +151,6 @@
         data-ecl-gallery-overlay-description
       >
         {{- _item.description -}}
-      </div>
-    {% endif %}
-    {% if _item.meta is defined and _item.meta is not empty %}
-      <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
-        {{- _item.meta -}}
       </div>
     {% endif %}
     </div>
