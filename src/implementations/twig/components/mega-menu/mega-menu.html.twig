@@ -15,7 +15,6 @@
       "is_current": (boolean) (optional),
       "external": (boolean) (optional),
       "sr_external" (string) (default: '') Additional label for the external icon
-      "trigger_aria_label" (string),
       "link_aria_label" (string),
       "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
         - "name" (string) Attribute name, eg. 'data-test'
@@ -113,9 +112,10 @@
         }),
         icon: _toggle_icon,
         extra_classes: 'ecl-button ecl-button--tertiary ecl-mega-menu__open',
-        extra_attributes: [{
-          name: 'data-ecl-mega-menu-open',
-        }],
+        extra_attributes: [
+          { name: 'data-ecl-mega-menu-open' },
+          { name: 'aria-expanded', value: 'false' }
+        ],
       }) only %}
     {%- endif -%}
 

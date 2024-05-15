@@ -15,7 +15,6 @@
     - "external" (boolean) External link
     - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
-    - "trigger_aria_label" (string) Aria label for the trigger button,
     - "link_aria_label" (string) Aria label for the parent link
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
       - "name" (string) Attribute name, eg. 'data-test'
@@ -38,7 +37,6 @@
       - "is_current" (boolean) Whether the item links to the current page
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
-      - "trigger_aria_label" (string) Aria label for the trigger button,
       - "link_aria_label" (string) Aria label for the parent link
       - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
         - "name" (string) Attribute name, eg. 'data-test'
@@ -47,8 +45,9 @@
 
 {% set _id = id|default('') %}
 {% set _item = item|default({}) %}
-{% set _menu_item_class = 'ecl-mega-menu__link' %}
-{% set _menu_item_attribute = 'data-ecl-mega-menu-link' %}
+{% set _menu_link_class = 'ecl-mega-menu__link' %}
+{% set _menu_link_attribute = 'data-ecl-mega-menu-link' %}
+{% set _menu_sublink_attribute = 'data-ecl-mega-menu-sublink' %}
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
@@ -64,7 +63,7 @@
 {# Internal logic - Process properties #}
 
 {% if _item.is_current is defined %}
-  {% set _menu_item_class = _menu_item_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
+  {% set _menu_link_class = _menu_link_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current  ecl-mega-menu__item--current-page' %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' aria-current="page"' %}
 {% endif %}
@@ -78,9 +77,6 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
-  {% if _item.trigger_aria_label is not empty %}
-    {% set _menu_list_item_attributes = _menu_list_item_attributes  ~ ' aria-label="' ~ _item.trigger_aria_label ~ '"' %}
-  {% endif %}
   {% if _item.link_aria_label is not empty %}
     {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _item.link_aria_label ~ '"' %}
   {% endif %}
@@ -102,10 +98,15 @@
 
 {%- if _item.label is not empty -%}
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
-  {% set _menu_item_attributes = _item.extra_attributes|default([])|merge([
-    { name: _menu_item_attribute },
+  {% set _menu_link_attributes = _item.extra_attributes|default([])|merge([
+    { name: _menu_link_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
+  {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
+    {% set _menu_link_attributes = _menu_link_attributes|merge([
+      { name: 'aria-expanded', value: 'false' },
+    ]) %}
+  {% endif %}
   {% include '@ecl/link/link.html.twig' with {
     link: {
       type: 'standalone',
@@ -117,8 +118,8 @@
       icon_position: 'after',
     },
     icon: _icon,
-    extra_classes: _menu_item_class,
-    extra_attributes: _menu_item_attributes,
+    extra_classes: _menu_link_class,
+    extra_attributes: _menu_link_attributes,
   } only %}
 {%- endif -%}
 
@@ -145,15 +146,18 @@
       {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
       {% set _subitem_class = 'ecl-mega-menu__subitem' %}
       {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+      {% set _sublink_attrs = child.extra_attributes|default([])|merge([
+        { name: _menu_sublink_attribute },
+      ]) %}
       {% if child.is_current is defined %}
         {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
         {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
       {% endif %}
       {% if child.children is defined and child.children is not empty %}
         {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
-        {% if child.trigger_aria_label %}
-          {% set _subitem_attrs = _subitem_attrs ~ ' aria-label="' ~ child.trigger_aria_label ~ '"' %}
-        {% endif %}
+        {% set _sublink_attrs = _sublink_attrs|merge([
+          { name: 'aria-expanded', value: 'false' },
+        ]) %}
         {% if child.link_aria_label %}
           {% set _subitem_attrs = _subitem_attrs ~ ' data-ecl-parent-aria-label="' ~ child.link_aria_label ~ '"' %}
         {% endif %}
@@ -182,7 +186,7 @@
           },
           icon: _icon,
           extra_classes: _sublink_class,
-          extra_attributes: child.extra_attributes|default([]),
+          extra_attributes: _sublink_attrs,
         } only %}
 
         {# Children, 2nd level #}
@@ -198,7 +202,6 @@
                 children: child.children,
                 level: 2,
                 featured: child.featured|default({}),
-                trigger_aria_label: child.trigger_aria_label|default(''),
                 link_aria_label: child.link_aria_label|default(''),
               },           
           } only %}
