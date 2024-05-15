@@ -20,6 +20,7 @@ npm install --save @ecl/twig-component-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
   "external": (boolean) (optional),
+  "sr_external" (string) (default: '') Additional label for the external icon
   "trigger_aria_label" (string),
   "extra_attributes" (optional) (array)
   "children": (associative array) (optional): [
@@ -28,6 +29,7 @@ npm install --save @ecl/twig-component-menu
   "path": (string) (default: '')
   "is_current": (boolean) (optional),
   "external": (boolean)
+  "sr_external" (string) (default: '') Additional label for the external icon
   "extra_attributes" (optional) (array)
   }
   ]

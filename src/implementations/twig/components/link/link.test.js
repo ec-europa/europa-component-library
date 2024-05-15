@@ -67,15 +67,12 @@ describe('Link', () => {
       link: {
         external: true,
         icon_path: defaultIconPath,
+        sr_external: 'Links to an external url',
       },
       icon: {
         size: 'fluid',
         path: defaultIconPath,
         name: 'test',
-      },
-      as_image: true,
-      extra_accessibility: {
-        title: 'Links to an external url',
       },
     });
 
