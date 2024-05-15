@@ -17,16 +17,15 @@ $list: null !default;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
   padding-bottom: var(--s-xs);
-  padding-inline-start: var(--s-3xl);
+  padding-inline-start: var(--s-2xl);
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
-  margin-inline-start: var(--s-m);
+  margin-inline-start: var(--s-l);
   padding-bottom: var(--s-xs);
   padding-top: var(--s-xs);
   max-width: var(--max-w);
-  padding-inline-start: var(--s-xs);
 
   &:first-of-type {
     padding-top: var(--s-xs);
@@ -47,7 +46,7 @@ $list: null !default;
   list-style-type: map.get($list, 'unordered', 'sublist-marker');
   padding-bottom: 0;
   padding-top: var(--s-xs);
-  padding-inline-start: calc(var(--s-3xl) - var(--s-m) - var(--s-xs));
+  padding-inline-start: calc(var(--s-2xl) - var(--s-m) - var(--s-xs));
 
   .ecl-unordered-list__item {
     padding-top: var(--s-xs);

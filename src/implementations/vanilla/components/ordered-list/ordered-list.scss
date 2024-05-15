@@ -16,14 +16,14 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
-  padding-inline-start: var(--s-3xl);
+  padding-inline-start: var(--s-2xl);
 }
 
 .ecl-ordered-list .ecl-ordered-list,
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
   margin-top: var(--s-xs);
-  padding-inline-start: calc(var(--s-3xl) - var(--s-l) - var(--s-2xs));
+  padding-inline-start: calc(var(--s-2xl) - var(--s-l) - var(--s-2xs));
 }
 
 .ecl-ordered-list__item,
