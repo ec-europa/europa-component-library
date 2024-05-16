@@ -66,8 +66,11 @@ const getArgs = (data, variant) => {
 
   if (variant.includes('horizontal')) {
     args.column = 2;
+  }
+  if (variant !== 'vertical-image') {
     args.centered = false;
-  } else {
+  }
+  if (variant.includes('vertical')) {
     args.zebra = true;
   }
 
@@ -125,6 +128,9 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
+  }
+
+  if (variant !== 'vertical-image') {
     argTypes.centered = {
       name: 'centered',
       type: { name: 'boolean' },
@@ -139,7 +145,9 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
-  } else {
+  }
+
+  if (variant.includes('vertical')) {
     argTypes.zebra = {
       name: 'zebra',
       type: { name: 'boolean' },
