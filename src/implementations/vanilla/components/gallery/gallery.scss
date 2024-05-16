@@ -366,7 +366,7 @@ $_image-height-mobile: 260px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .ecl-gallery__slider-previous {
@@ -467,14 +467,6 @@ $_image-height-mobile: 260px;
     align-items: center;
     overflow: hidden;
   }
-}
-
-@include breakpoints.up('xl') {
-  .ecl-gallery__detail .ecl-container {
-    display: flex;
-    flex-direction: column;
-    width: 1140px;
-  }
 
   .ecl-gallery__detail-actions {
     margin-top: 0;
@@ -487,5 +479,14 @@ $_image-height-mobile: 260px;
 
   .ecl-gallery__pager {
     flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+
+@include breakpoints.up('xl') {
+  .ecl-gallery__detail .ecl-container {
+    display: flex;
+    flex-direction: column;
+    width: 1140px;
   }
 }

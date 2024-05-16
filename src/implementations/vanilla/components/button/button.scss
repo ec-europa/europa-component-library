@@ -77,9 +77,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 // Icon only
 $size-icon-only: calc(
   #{map.get($button, 'padding-vertical')} * 2 + #{map.get(
-      $theme,
-      'line-height',
-      'm'
+      $button,
+      'line-height-icon'
     )} - #{map.get($button, 'border-width')} * 2
 );
 
