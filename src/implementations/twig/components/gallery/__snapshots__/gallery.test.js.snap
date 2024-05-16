@@ -723,120 +723,124 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-container"
         >
           <div
-            class="ecl-gallery__pager"
+            class="ecl-gallery__detail-container"
           >
             <div
-              class="ecl-gallery__detail-counter"
+              class="ecl-gallery__pager"
             >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
+              <div
+                class="ecl-gallery__detail-counter"
               >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
+                <span
+                  data-ecl-gallery-overlay-counter-current=""
+                >
+                  0
+                </span>
+                 of 
+                <span
+                  data-ecl-gallery-overlay-counter-max=""
+                >
+                  0
+                </span>
+              </div>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
-                0
-              </span>
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="icons.svg#corner-arrow"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
+            <div
+              class="ecl-gallery__detail-actions"
             >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="icons.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+                data-ecl-gallery-overlay-download=""
+                href=""
+                target="_blank"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-link__label"
                 >
-                  Next
+                  View original
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#corner-arrow"
+                    xlink:href="/icons.svg#fullscreen"
                   />
                 </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              href=""
-              target="_blank"
-            >
-              <span
-                class="ecl-link__label"
+              </a>
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+                data-ecl-gallery-overlay-share=""
+                href="/example"
               >
-                View original
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#fullscreen"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
+                <span
+                  class="ecl-link__label"
+                >
+                  Share
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#share"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div
             class="ecl-gallery__detail-description"
@@ -1576,120 +1580,124 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-container"
         >
           <div
-            class="ecl-gallery__pager"
+            class="ecl-gallery__detail-container"
           >
             <div
-              class="ecl-gallery__detail-counter"
+              class="ecl-gallery__pager"
             >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
+              <div
+                class="ecl-gallery__detail-counter"
               >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
+                <span
+                  data-ecl-gallery-overlay-counter-current=""
+                >
+                  0
+                </span>
+                 of 
+                <span
+                  data-ecl-gallery-overlay-counter-max=""
+                >
+                  0
+                </span>
+              </div>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
-                0
-              </span>
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="icons.svg#corner-arrow"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
+            <div
+              class="ecl-gallery__detail-actions"
             >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="icons.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+                data-ecl-gallery-overlay-download=""
+                href=""
+                target="_blank"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-link__label"
                 >
-                  Next
+                  View original
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#corner-arrow"
+                    xlink:href="/icons.svg#fullscreen"
                   />
                 </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              href=""
-              target="_blank"
-            >
-              <span
-                class="ecl-link__label"
+              </a>
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+                data-ecl-gallery-overlay-share=""
+                href="/example"
               >
-                View original
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#fullscreen"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
+                <span
+                  class="ecl-link__label"
+                >
+                  Share
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#share"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div
             class="ecl-gallery__detail-description"
@@ -2427,120 +2435,124 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-container"
         >
           <div
-            class="ecl-gallery__pager"
+            class="ecl-gallery__detail-container"
           >
             <div
-              class="ecl-gallery__detail-counter"
+              class="ecl-gallery__pager"
             >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
+              <div
+                class="ecl-gallery__detail-counter"
               >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
+                <span
+                  data-ecl-gallery-overlay-counter-current=""
+                >
+                  0
+                </span>
+                 of 
+                <span
+                  data-ecl-gallery-overlay-counter-max=""
+                >
+                  0
+                </span>
+              </div>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
-                0
-              </span>
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="icons.svg#corner-arrow"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
+            <div
+              class="ecl-gallery__detail-actions"
             >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="icons.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+                data-ecl-gallery-overlay-download=""
+                href=""
+                target="_blank"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-link__label"
                 >
-                  Next
+                  View original
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#corner-arrow"
+                    xlink:href="/icons.svg#fullscreen"
                   />
                 </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              href=""
-              target="_blank"
-            >
-              <span
-                class="ecl-link__label"
+              </a>
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+                data-ecl-gallery-overlay-share=""
+                href="/example"
               >
-                View original
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#fullscreen"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
+                <span
+                  class="ecl-link__label"
+                >
+                  Share
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#share"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div
             class="ecl-gallery__detail-description"
@@ -3278,120 +3290,124 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           class="ecl-container"
         >
           <div
-            class="ecl-gallery__pager"
+            class="ecl-gallery__detail-container"
           >
             <div
-              class="ecl-gallery__detail-counter"
+              class="ecl-gallery__pager"
             >
-              <span
-                data-ecl-gallery-overlay-counter-current=""
+              <div
+                class="ecl-gallery__detail-counter"
               >
-                0
-              </span>
-               of 
-              <span
-                data-ecl-gallery-overlay-counter-max=""
+                <span
+                  data-ecl-gallery-overlay-counter-current=""
+                >
+                  0
+                </span>
+                 of 
+                <span
+                  data-ecl-gallery-overlay-counter-max=""
+                >
+                  0
+                </span>
+              </div>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
+                data-ecl-gallery-overlay-previous=""
+                type="button"
               >
-                0
-              </span>
+                <span
+                  class="ecl-button__container"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="icons.svg#corner-arrow"
+                    />
+                  </svg>
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Previous
+                  </span>
+                </span>
+              </button>
+              <button
+                class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
+                data-ecl-gallery-overlay-next=""
+                type="button"
+              >
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Next
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#corner-arrow"
+                    />
+                  </svg>
+                </span>
+              </button>
             </div>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-previous ecl-button--icon-only"
-              data-ecl-gallery-overlay-previous=""
-              type="button"
+            <div
+              class="ecl-gallery__detail-actions"
             >
-              <span
-                class="ecl-button__container"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-270 ecl-button__icon"
-                  data-ecl-icon=""
-                  focusable="false"
-                >
-                  <use
-                    xlink:href="icons.svg#corner-arrow"
-                  />
-                </svg>
-                <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
-                >
-                  Previous
-                </span>
-              </span>
-            </button>
-            <button
-              class="ecl-button ecl-button--tertiary ecl-gallery__slider-next ecl-button--icon-only"
-              data-ecl-gallery-overlay-next=""
-              type="button"
-            >
-              <span
-                class="ecl-button__container"
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
+                data-ecl-gallery-overlay-download=""
+                href=""
+                target="_blank"
               >
                 <span
-                  class="ecl-button__label"
-                  data-ecl-label="true"
+                  class="ecl-link__label"
                 >
-                  Next
+                  View original
                 </span>
                 <svg
                   aria-hidden="true"
-                  class="ecl-icon ecl-icon--m ecl-icon--rotate-90 ecl-button__icon"
-                  data-ecl-icon=""
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
                   focusable="false"
                 >
                   <use
-                    xlink:href="/icons.svg#corner-arrow"
+                    xlink:href="/icons.svg#fullscreen"
                   />
                 </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            class="ecl-gallery__detail-actions"
-          >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__download"
-              data-ecl-gallery-overlay-download=""
-              href=""
-              target="_blank"
-            >
-              <span
-                class="ecl-link__label"
+              </a>
+              <a
+                class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
+                data-ecl-gallery-overlay-share=""
+                href="/example"
               >
-                View original
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#fullscreen"
-                />
-              </svg>
-            </a>
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--inverted ecl-link--icon ecl-gallery__share"
-              data-ecl-gallery-overlay-share=""
-              href="/example"
-            >
-              <span
-                class="ecl-link__label"
-              >
-                Share
-              </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--fluid ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#share"
-                />
-              </svg>
-            </a>
+                <span
+                  class="ecl-link__label"
+                >
+                  Share
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#share"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div
             class="ecl-gallery__detail-description"
