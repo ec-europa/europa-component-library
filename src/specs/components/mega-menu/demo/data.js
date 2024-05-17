@@ -33,6 +33,23 @@ module.exports = {
       label: 'News and media',
       path: exampleLink,
       link_aria_label: 'Link to the News and media page',
+      info: {
+        title: 'About the News and Media',
+        content: 'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+            type: 'standalone',
+          },
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: '/icons.svg',
+            size: 'xs',
+          },
+          extra_classes: 'ecl-mega-menu__info-link',
+        },
+      },
       children: [
         {
           label: 'Item 2.1',
@@ -108,6 +125,23 @@ module.exports = {
       label: 'About the European Commission',
       path: exampleLink,
       link_aria_label: 'Link to About the European Commission page',
+      info: {
+        title: 'About the European Commission',
+        content: 'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+            type: 'standalone',
+          },
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: '/icons.svg',
+            size: 'xs',
+          },
+          extra_classes: 'ecl-mega-menu__info-link',
+        },
+      },
       children: [
         { label: 'Item 3.1', path: exampleLink },
         { label: 'Item 3.2', path: exampleLink },
@@ -118,6 +152,23 @@ module.exports = {
       label: 'Key priorities',
       path: exampleLink,
       link_aria_label: 'Link to Key priorities page',
+      info: {
+        title: 'About the European Commission',
+        content: 'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+            type: 'standalone',
+          },
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: '/icons.svg',
+            size: 'xs',
+          },
+          extra_classes: 'ecl-mega-menu__info-link',
+        },
+      },
       children: [
         {
           label: 'Aid, Development cooperation, Fundamental rights',
@@ -155,6 +206,23 @@ module.exports = {
       label: 'EU Policies',
       path: exampleLink,
       link_aria_label: 'Link to the EU Policies page',
+      info: {
+        title: 'About the EU Policies',
+        content: 'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        link: {
+          link: {
+            label: 'Discover more',
+            type: 'standalone',
+          },
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: '/icons.svg',
+            size: 'xs',
+          },
+          extra_classes: 'ecl-mega-menu__info-link',
+        },
+      },
       children: [
         {
           label: 'Item 5.1',
