@@ -267,16 +267,6 @@ module.exports = {
     title: 'Information notification',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
-    close: {
-      variant: 'ghost',
-      label: 'Close',
-      hide_label: true,
-      icon: {
-        path: '/icons.svg',
-        name: 'close-filled',
-        size: 'xs',
-      },
-    },
   },
   icon_path: '/icons.svg',
 };

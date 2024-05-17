@@ -111,7 +111,7 @@ $language-list: null !default;
 
   .ecl-button {
     box-sizing: border-box;
-    margin-inline-start: var(--s-xs);
+    margin-inline-start: var(--s-2xs);
   }
 
   > :first-child .ecl-button,
@@ -120,7 +120,7 @@ $language-list: null !default;
   }
 
   .ecl-site-header--has-menu & {
-    margin-inline-end: calc(44px + var(--s-xs));
+    margin-inline-end: calc(44px + var(--s-2xs));
   }
 }
 
@@ -234,6 +234,7 @@ $language-list: null !default;
 }
 
 .ecl-site-header__notification {
+  background-color: var(--c-n-40);
   display: flex;
 
   .ecl-notification {
@@ -373,7 +374,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     align-self: center;
     flex-grow: 1;
     margin-inline-end: 0;
-    padding: var(--s-s) 0;
+    padding: var(--s-m) 0;
   }
 
   .ecl-site-header__top {
@@ -463,7 +464,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
   .ecl-site-header__search-container {
     flex-grow: 1;
-    margin-inline-start: var(--s-3xl);
+    margin-inline-start: var(--s-xl);
 
     .ecl-search-form__button {
       min-width: 100px;
