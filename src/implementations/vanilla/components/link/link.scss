@@ -103,6 +103,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 
   &:hover {
+    color: map.get($link, 'color');
     text-decoration: underline;
   }
 }
