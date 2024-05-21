@@ -13,6 +13,7 @@
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         icon_path: (string) (default: '')
         external: (boolean) (default: false)
+        sr_external (string) (default: '') Additional label for external icon
         hide_label: (boolean) (default: false): hide link label, for screen reader only. Note: requires to have an icon defined
       }
     - "icon" (associative array) OR (array) of associative arrays : format
@@ -52,9 +53,11 @@
   path: '',
   icon_position: 'after',
   external: false,
+  sr_external: '',
   hide_label: false,
   icon_path: '',
 } %}
+{% set _extra_accessibility = extra_accessibility|default({}) %}
 
 {% set _icon = {
   name: '',
@@ -76,7 +79,15 @@
     size: '2xs',
   })] %}
 
-  {% set _link = _link|merge({ icon_position: _link.icon_position|default('after') }) %}
+  {% if _extra_accessibility.title is empty and _link.sr_external is not empty %}
+    {% set _extra_accessibility = _extra_accessibility|merge({ title: _link.sr_external }) %}
+  {% endif %}
+
+  {% set as_image = true %}
+
+  {% set _link = _link|merge({ 
+    icon_position: _link.icon_position|default('after'),
+  }) %}
 {% else %}
   {% if icon.name is defined and icon.name is not empty %}
     {% set _icons = [icon] %}
@@ -145,7 +156,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility,
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
@@ -171,7 +182,7 @@
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
-          extra_accessibility: extra_accessibility|default({}),
+          extra_accessibility: _extra_accessibility,
           as_image: as_image|default(false),
         }) only -%}
       {%- endif -%}
