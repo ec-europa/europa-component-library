@@ -4,9 +4,9 @@
 // stylelint-disable length-zero-no-unit
 $label: (
   radius: 4px,
-  border-width: 0px,
+  border-width: 2px,
   padding-horizontal: var(--s-s),
-  padding-vertical: var(--s-xs),
+  padding-vertical: var(--s-2xs),
   highlight: (
     background: var(--c-p),
     color: map.get($color, 'white'),
@@ -14,17 +14,17 @@ $label: (
   ),
   high: (
     background: var(--c-s),
-    color: var(--c-d-140),
+    color: var(--c-d),
     border-color: transparent,
   ),
   medium: (
-    background: var(--c-s-10),
-    color: var(--c-d-140),
-    border-color: transparent,
+    background: map.get($color, 'white'),
+    color: var(--c-d),
+    border-color: var(--c-d),
   ),
   low: (
-    background: var(--c-p-10),
-    color: var(--c-d-140),
+    background: map.get($color, 'white'),
+    color: var(--c-p),
     border-color: var(--c-p),
   ),
 );
