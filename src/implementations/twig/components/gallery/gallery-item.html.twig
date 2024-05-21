@@ -2,14 +2,18 @@
 
 {#
   Parameters:
+  - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "item" (object) (default: {})
+    - "title" (string) (default: '')
+    - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "picture" (optional) (object) (default: {}) object of type picture
+    - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default '')
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -18,6 +22,7 @@
 
 {# variables #}
 
+{% set _id = id|default('') %}
 {% set _css_class = 'ecl-gallery__item' %}
 {% set _extra_attributes = '' %}
 {% set _use_arial = '' %}
@@ -27,6 +32,7 @@
 {% set _picture = picture|default({}) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _item = item|default({}) %}
+{% set _sr_video_label = sr_video_label|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -64,9 +70,7 @@
     href="{{ _media_href ?: _item.picture.img.src }}"
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
-  {%- if _item.alt is not empty or (_item.picture is defined and _item.picture.img is not empty and _item.picture.img.alt is not empty) -%}
-    aria-label="{{ _item.alt ?: _item.picture.img.alt }}"
-  {%- endif -%}
+    id="{{ _id }}"
   {%- if _media_share_path is not empty -%}
     data-ecl-gallery-item-share="{{ _media_share_path }}"
   {%- endif -%}
@@ -75,25 +79,36 @@
   {%- endif -%}
   >
   {% if _item is not empty %}
+    {% set _image_alt = _item.picture.img.alt|default('') %}
     <figure class="ecl-gallery__image-container">
-    {% if (_item.video is not empty or _item.embedded_video is not empty) and _icon_path is not empty %}
-      <div class="ecl-gallery__item-icon-wrapper">
-      {%- include '@ecl/icon/icon.html.twig' with {
-        icon: {
-          name: 'play-filled',
-          size: 'l',
-          path: _icon_path,
-          color: 'inverted',
-        },
-        extra_classes: 'ecl-gallery__item-icon',
-      } only %}
-      </div>
+    {% if _item.video is not empty or _item.embedded_video is not empty %}
+      {% if _sr_video_label is not empty %}
+        {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
+      {% endif %}
+
+      {% if _icon_path is not empty %}
+        <div class="ecl-gallery__item-icon-wrapper">
+        {%- include '@ecl/icon/icon.html.twig' with {
+          icon: {
+            name: 'play-filled',
+            size: 'l',
+            path: _icon_path,
+            color: 'inverted',
+          },
+          extra_classes: 'ecl-gallery__item-icon',
+        } only %}
+        </div>
+      {% endif %}
     {% endif %}
     {% if _item.video is defined and _item.video is not empty %}
       {% include '@ecl/gallery/gallery-video.html.twig' %}
     {% else %}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _item.picture,
+        picture: _item.picture|merge({
+          img: _item.picture.img|merge({
+            alt: _image_alt,
+          })
+        }),
         extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}
@@ -102,6 +117,11 @@
         class="ecl-gallery__description"
         data-ecl-gallery-description
       >
+      {%- if _item.title is defined and _item.title is not empty -%}
+        <span class="ecl-gallery__title" data-ecl-gallery-title id="{{ _id }}-title">
+          {{- _item.title -}}
+        </span>
+      {%- endif -%}
         {{- _item.description -}}
       {%- if _item.meta is defined and _item.meta is not empty -%}
         <span class="ecl-gallery__meta" data-ecl-gallery-meta>

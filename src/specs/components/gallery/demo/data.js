@@ -2,7 +2,10 @@ const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
+  id: 'gallery-id',
   icon_path: '/icons.svg',
+  sr_video_label: 'Video',
+  sr_video_player: 'Video player',
   items: [
     {
       // Image
@@ -12,6 +15,7 @@ module.exports = {
           alt: 'Image 1',
         },
       },
+      title: 'EU in brief',
       description:
         'The EU in brief, institutions and bodies, countries, symbols, history, facts and figures',
       meta: 'Copyright, Author, Licence for image 1',
@@ -28,7 +32,9 @@ module.exports = {
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
-      description: 'New digital strategy',
+      title: 'New digital strategy',
+      description:
+        'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens.',
       meta: 'Copyright, Author, Licence for embedded media',
       icon: {
         name: 'video',
@@ -44,12 +50,14 @@ module.exports = {
           alt: 'Image 2',
         },
       },
+      title: 'Agriculture and culture',
       description:
         'Information on agriculture, business, culture, health, etc.',
       meta: 'Copyright, Author, Licence for image 2',
       share_path: '/share#example-image2.jpg',
     },
     {
+      // Embedded video
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
@@ -59,12 +67,13 @@ module.exports = {
       embedded_video: {
         src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
       },
+      title: 'In the EU',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
       share_path: '/share#example-image3.jpg',
     },
     {
-      // Image
+      // Embedded video
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
@@ -74,6 +83,7 @@ module.exports = {
       embedded_video: {
         src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
+      title: 'Taxes and business',
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
       meta: 'Copyright, Author, Licence for image 4',
@@ -110,6 +120,7 @@ module.exports = {
         ],
       },
       alt: 'Image 5',
+      title: 'EU law',
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
       icon: {
@@ -130,18 +141,21 @@ module.exports = {
       embedded_video: {
         src: 'https://player.vimeo.com/video/813227141?h=077b905b65',
       },
+      title: 'Lorem ipsum',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',
       meta: 'Copyright, Author, Licence for image 6',
       share_path: '/share#example-image6.jpg',
     },
     {
+      // Image
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
           alt: 'Image 7',
         },
       },
+      title: 'Teaching material',
       description: 'Teaching material about the EU, including books and maps',
       meta: 'Copyright, Author, Licence for image 7',
       share_path: '/share#example-image7.jpg',
@@ -157,6 +171,7 @@ module.exports = {
       embedded_video: {
         src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
       },
+      title: 'Climate change',
       description: 'Climate change and protect nature',
       meta: 'Copyright, Author, Licence for embedded media',
       icon: {
@@ -173,17 +188,20 @@ module.exports = {
           alt: 'Image 9',
         },
       },
+      title: 'About the EU',
       description: 'About the EU',
       meta: 'Copyright, Author, Licence for image 9',
       share_path: '/share#example-imag9e.jpg',
     },
     {
+      // Image
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
           alt: 'Image 10',
         },
       },
+      title: 'EU by topic',
       description: 'EU by topic',
       meta: 'Copyright, Author, Licence for image 10',
       share_path: '/share#example-image10.jpg',
@@ -243,11 +261,9 @@ module.exports = {
     link: {
       path: exampleLink,
       label: 'Further media items',
-    },
-    icon: {
-      name: 'external',
-      size: 'xs',
-      path: '/icons.svg',
+      external: true,
+      sr_external: 'Link to an external domain',
+      icon_path: '/icons.svg',
     },
   },
   counter_label: 'Media files in this gallery',

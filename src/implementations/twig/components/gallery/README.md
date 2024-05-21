@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-gallery
 
 ### Parameters
 
+- **"id"**: (string) (default: random): Unique id for the gallery
 - **"overlay"** (object) (default: {})
   - "close" (object) (default: {}): object of type button
   - "previous" (object) (default: {}): object of type button
@@ -17,6 +18,7 @@ npm install --save @ecl/twig-component-gallery
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
 - **"items"** (array) (default: [])
+  - "title" (string) (default: '')
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
@@ -27,6 +29,8 @@ npm install --save @ecl/twig-component-gallery
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
+- **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
+- **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
 - **"footer"** (object) (default: {}) Footer link
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
@@ -44,10 +48,13 @@ npm install --save @ecl/twig-component-gallery
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/gallery/gallery.html.twig' with {  
+  id: 'my-gallery',
   view_all_label: 'View all', 
   counter_label: 'Media files in this gallery' , 
   visible_items: 6,
   disable_overlay: false,
+  sr_video_label: 'Video',
+  sr_video_player: 'Video player',
   items: [ 
     { 
       picture: {
@@ -56,6 +63,7 @@ npm install --save @ecl/twig-component-gallery
           alt: 'Image 1',
         },
       }, 
+      title: 'The EU in brief',
       description: 
         'The EU in brief, institutions and bodies, countries, symbols, history, facts and figures', 
       meta: 'Copyright, Author, Licence for image 1', 
@@ -68,6 +76,7 @@ npm install --save @ecl/twig-component-gallery
           alt: 'Image 2',
         },
       }, 
+      title: 'Living in the EU',
       description: 'Living, working, travelling in the EU', 
       meta: 'Copyright, Author, Licence for image 2', 
       icon: { 

@@ -8,5 +8,6 @@ module.exports = {
     label: 'Standalone link',
     path: exampleLink,
     icon_position: 'after',
+    sr_external: 'Link to an external domain',
   },
 };

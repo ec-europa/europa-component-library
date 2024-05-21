@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "id": (string) (default: random): Unique id for the gallery
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
   - "view_all_expanded_label" (string) (default: '') Label of the view all button when expanded
@@ -16,8 +17,9 @@
     - "counter_separator" (string) (default: '')
     - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
-  - "footer" (object) (default: {}): object 0f type link
+  - "footer" (object) (default: {}): object of type link
   - "items" (array) (default: [])
+    - "title" (string) (default: '')
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
@@ -26,6 +28,8 @@
     - "embedded_video" (optional) (object) (default: {})
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -35,6 +39,7 @@
 
 {# variables #}
 
+{% set _id = id|default(random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
@@ -46,12 +51,14 @@
 {% set _visible_items = visible_items|default(8) %}
 {% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
 {% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
 {% set _extra_attributes = 'data-ecl-auto-init="Gallery"' %}
 {% set _overlay_class = '' %}
 {% set _overlay_attrs = [] %}
 {% set _full_width = full_width|default(false) %}
+{% set _sr_video_player = sr_video_player|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -85,9 +92,9 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery data-ecl-gallery-player-label="{{ _sr_video_player }}">
   <ul class="ecl-gallery__list">
-    {% for _item in _items %}
+    {% for _key, _item in _items %}
       {% set _item_class = '' %}
       {% set _item_attrs = [] %}
       {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
@@ -97,8 +104,10 @@
         {% set _item_attrs = _item.extra_attributes %}
       {% endif %}
       {% include '@ecl/gallery/gallery-item.html.twig' with {
+        id: "ecl-gallery-item-" ~ _id ~ '-' ~ _key,
         item: _item,
         icon_path: _icon_path,
+        sr_video_label: _sr_video_label,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}
@@ -126,13 +135,13 @@
   {% if _footer.link is defined and _footer.link is not empty %}
     <hr class="ecl-gallery__footer-divider" />
     <div class="ecl-gallery__footer-link">
-      {% include '@ecl/link/link.html.twig' with {
+      {% include '@ecl/link/link.html.twig' with _footer|merge({
         link: _footer.link|merge({
           type: 'standalone',
           icon_position: 'after',
         }),
         icon: _footer.icon
-      } only %}
+      }) only %}
     </div>
   {% endif %}
   </div>

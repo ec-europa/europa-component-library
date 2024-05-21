@@ -1316,6 +1316,7 @@ exports[`Form group  with File Upload renders correctly 1`] = `
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1386,6 +1387,7 @@ exports[`Form group  with File Upload renders correctly when disabled 1`] = `
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1455,6 +1457,7 @@ exports[`Form group  with File Upload renders correctly when invalid 1`] = `
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1542,6 +1545,7 @@ exports[`Form group  with File Upload renders correctly when required 1`] = `
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1612,6 +1616,7 @@ exports[`Form group  with File Upload renders correctly with extra attributes 1`
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1680,6 +1685,7 @@ exports[`Form group  with File Upload renders correctly with extra class names 1
       </span>
     </label>
     <ul
+      aria-live="polite"
       class="ecl-file-upload__list"
       data-ecl-file-upload-list=""
     />
@@ -1691,7 +1697,9 @@ exports[`Form group  with Radio renders correctly 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -1843,7 +1851,9 @@ exports[`Form group  with Radio renders correctly when disabled 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label ecl-form-label--disabled"
@@ -1996,7 +2006,9 @@ exports[`Form group  with Radio renders correctly when invalid 1`] = `
   <fieldset
     aria-describedby="radio-default-helper radio-default-invalid"
     aria-invalid="true"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label ecl-form-label--invalid"
@@ -2167,7 +2179,9 @@ exports[`Form group  with Radio renders correctly when required 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2319,9 +2333,11 @@ exports[`Form group  with Radio renders correctly with extra attributes 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2473,7 +2489,9 @@ exports[`Form group  with Radio renders correctly with extra class names 1`] = `
 <jest>
   <fieldset
     aria-describedby="radio-default-helper"
+    aria-required="true"
     class="ecl-form-group custom-class custom-class--test"
+    role="radiogroup"
   >
     <legend
       class="ecl-form-label"
@@ -2650,7 +2668,7 @@ exports[`Form group  with Range field renders correctly 1`] = `
     </div>
     <input
       aria-describedby="example-range-id-helper"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
@@ -2700,7 +2718,7 @@ exports[`Form group  with Range field renders correctly when disabled 1`] = `
     </div>
     <input
       aria-describedby="example-range-id-helper"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       disabled=""
@@ -2752,7 +2770,7 @@ exports[`Form group  with Range field renders correctly when invalid 1`] = `
     <input
       aria-describedby="example-range-id-helper example-range-id-invalid"
       aria-invalid="true"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--invalid ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
@@ -2821,7 +2839,7 @@ exports[`Form group  with Range field renders correctly when required 1`] = `
     </div>
     <input
       aria-describedby="example-range-id-helper"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
@@ -2874,7 +2892,7 @@ exports[`Form group  with Range field renders correctly with extra attributes 1`
     </div>
     <input
       aria-describedby="example-range-id-helper"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"
@@ -2924,7 +2942,7 @@ exports[`Form group  with Range field renders correctly with extra class names 1
     </div>
     <input
       aria-describedby="example-range-id-helper"
-      aria-label="example-range-id"
+      aria-label="Value: "
       class="ecl-range ecl-range--m"
       data-ecl-range-input=""
       id="example-range-id"

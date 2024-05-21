@@ -63,7 +63,7 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _picture.img is not empty %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,
@@ -92,6 +92,6 @@
     <div class="ecl-list-illustration__description">{{ _description }}</div>
   {% endif %}
   </div>
-</div>
+</li>
 
 {% endapply %}
