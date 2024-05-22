@@ -243,12 +243,17 @@ $language-list: null !default;
   display: block;
   font: var(--f-l);
   min-height: 1.75rem;
-  padding: var(--s-xs) 0;
+  padding: var(--s-m) 0;
 
   .ecl-container {
     display: flex;
     flex-direction: column;
   }
+}
+
+.ecl-site-header__banner--active {
+  background-color: var(--c-n-40);
+  color: var(--c-d);
 }
 
 .ecl-site-header__site-name {

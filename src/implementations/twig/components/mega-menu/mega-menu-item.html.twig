@@ -144,7 +144,7 @@
   {% if _info is not empty %}
     <div
       class="ecl-mega-menu__info"
-      data-ecl-mega-menu-info
+      data-ecl-mega-menu-mega
     >
     {% if _info.title is not empty %}
       <span class="ecl-mega-menu__info-title">{{  _info.title }}</span>
@@ -259,10 +259,19 @@
         class="ecl-mega-menu__featured"
         data-ecl-mega-menu-featured
       >
+        <div class="ecl-mega-menu__featured-scrollable">
+      {% if _featured.picture is not empty %}
+        <span class="ecl-mega-menu__featured-picutre ecl-picture">
+          {% include '@ecl/picture/picture.html.twig' with {
+            picture: _featured.picture,
+            extra_classes: 'ecl-mega-menu__featured-picture',
+            extra_image_classes: 'ecl-mega-menu__featured-image',
+          } only %}
+        </span>
+      {% endif %}
       {% if _featured.title is not empty %}
         <span class="ecl-mega-menu__featured-title">{{  _featured.title }}</span>
       {% endif %}
-        <div class="ecl-mega-menu__featured-scrollable">
         {%- if _featured.content is not empty -%}
           <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
         {%- endif -%}

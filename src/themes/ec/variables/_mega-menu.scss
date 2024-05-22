@@ -50,7 +50,7 @@ $mega-menu: (
     item-background-hover: var(--c-br),
     item-background-focus: var(--c-br),
     item-color: map.get($color, 'white'),
-    item-color-hover: map.get($color, 'white'),
+    item-color-hover: var(--c-d),
     item-color-focus: map.get($color, 'white'),
     item-shadow-hover: none,
     item-current-background: map.get($color, 'white'),
@@ -78,7 +78,8 @@ $mega-menu: (
     mega-padding: var(--s-xl) 0 0,
     mega-column-gap: var(--s-2xl),
     mega-column-border: 1px solid var(--c-n),
-    sublink-padding: var(--s-xs) var(--s-m) calc(var(--s-xs) - 1px) var(--s-m),
+    sublink-padding: calc(var(--s-xs) + 2px) var(--s-l) calc(var(--s-xs) + 2px)
+      var(--s-m),
     sublink-current-background: var(--c-n-40),
   ),
 );
