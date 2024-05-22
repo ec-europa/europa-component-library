@@ -36,6 +36,7 @@ module.exports = {
             label: 'Standalone link',
             path: exampleLink,
             external: true,
+            sr_external: 'Link to an external domain',
             icon_path: '/icons.svg',
           },
         },

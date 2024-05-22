@@ -12,12 +12,9 @@ module.exports = {
       type: 'standalone',
       path: exampleLink,
       label: 'Standalone link',
-      icon_position: 'after',
-    },
-    icon: {
-      path: '/icons.svg',
-      name: 'external',
-      size: 'xs',
+      external: true,
+      sr_external: 'Link to an external domain',
+      icon_path: '/icons.svg',
     },
   },
   media_container: {

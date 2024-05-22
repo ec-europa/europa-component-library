@@ -7,5 +7,6 @@ module.exports = {
     label: 'The European Union',
     path: exampleLink,
     inverted: true,
+    sr_external: 'Link to an external domain',
   },
 };
