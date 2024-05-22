@@ -21,3 +21,23 @@ $theme: null !default;
 .ecl-tag__icon {
   display: none;
 }
+
+// Tag set
+.ecl-tag-set {
+  display: inline-flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: calc(-1 * map.get($theme, 'spacing-print', 'xs')) 0 0;
+  padding: 0;
+
+  .ecl-tag-set__item {
+    margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+    margin-inline-start: 0;
+    margin-top: map.get($theme, 'spacing-print', 'xs');
+    padding: 0;
+
+    &:last-child {
+      margin-inline-end: 0;
+    }
+  }
+}
