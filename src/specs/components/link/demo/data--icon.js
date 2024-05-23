@@ -7,15 +7,8 @@ module.exports = {
     type: 'default',
     label: 'The European Union',
     path: exampleLink,
-    icon_position: 'after',
-  },
-  icon: {
-    path: '/icons.svg',
-    name: 'external',
-    size: 'fluid',
-  },
-  as_image: true,
-  extra_accessibility: {
-    title: 'Links to an external domain',
+    external: true,
+    sr_external: 'Link to an external domain',
+    icon_path: '/icons.svg',
   },
 };

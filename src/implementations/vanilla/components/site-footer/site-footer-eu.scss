@@ -61,7 +61,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
-  font: var(--f-2xl);
+  font: var(--f-l);
   margin: 0;
 }
 
@@ -83,6 +83,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__list {
+  line-height: map.get($site-footer, 'list-line-height');
   list-style: none;
   margin-bottom: 0;
   margin-top: var(--s-s);
