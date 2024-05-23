@@ -167,7 +167,6 @@ $mega-menu: null !default;
   display: flex;
   flex-flow: row-reverse;
   height: map.get($mega-menu, 'mobile', 'header-height');
-  padding: 0;
   position: sticky;
   top: 0;
   z-index: map.get($theme, 'z-index', 'modal') + 2;
@@ -220,7 +219,7 @@ $mega-menu: null !default;
   color: currentcolor;
   display: none;
   font: map.get($mega-menu, 'mobile', 'header-font');
-  margin-inline-start: var(--s-xs);
+  margin: var(--s-l) var(--s-xs) 0;
   position: relative;
   text-decoration: none;
   width: 100%;
@@ -230,9 +229,10 @@ $mega-menu: null !default;
     display: block;
     box-shadow: map.get($theme, 'shadow', '6');
     position: absolute;
-    top: -28px;
-    height: 20px;
-    width: 100%;
+    top: -58px;
+    left: calc(-1 * var(--s-xs));
+    height: 40px;
+    width: calc(100% + var(--s-xs));
   }
 
   &:hover {
@@ -342,7 +342,6 @@ $mega-menu: null !default;
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
-  z-index: map.get($theme, 'z-index', 'modal') + 1;
 }
 
 .ecl-mega-menu__item {
@@ -372,17 +371,32 @@ $mega-menu: null !default;
     outline-offset: -2px;
   }
 
+  &.ecl-mega-menu__parent-link:focus-visible {
+    outline-offset: -8px;
+  }
+
   .ecl-icon {
     margin-inline-start: auto;
   }
 }
 
+.ecl-mega-menu__mega,
+.ecl-mega-menu__info,
+.ecl-mega-menu__mega-container {
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
 .ecl-mega-menu__info {
   background: var(--c-n-40);
+  box-sizing: content-box;
   margin: 0 calc(-1 * var(--s-m)) var(--s-m);
+  width: calc(100% - var(--s-xs));
   padding-inline-start: var(--s-2xl);
   padding-bottom: var(--s-2xl);
-  z-index: 1;
 
   .ecl-mega-menu__info-title {
     font: var(--f-l);
@@ -396,7 +410,14 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__info-link {
+  border-bottom: 1px solid transparent;
   margin-top: var(--s-xs);
+  width: fit-content;
+
+  &:hover {
+    border-color: var(--c-p);
+    text-decoration: none;
+  }
 }
 
 .ecl-mega-menu__subitem {
@@ -552,16 +573,6 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu__mega,
-.ecl-mega-menu__info,
-.ecl-mega-menu__mega-container {
-  box-sizing: border-box;
-  display: none;
-  flex-direction: column;
-  flex-grow: 1;
-  position: relative;
-}
-
 /*
  * Second level
  */
@@ -625,7 +636,15 @@ $mega-menu: null !default;
       margin: 0 calc(-1 * var(--s-xs));
       padding-inline-start: var(--s-xl);
       position: relative;
-      top: -70px;
+      top: -60px;
+
+      &.ecl-mega-menu__parent-link {
+        padding-bottom: var(--s-s);
+
+        &:focus-visible {
+          outline-offset: -8px;
+        }
+      }
 
       .ecl-link__icon {
         display: none;
@@ -636,11 +655,17 @@ $mega-menu: null !default;
       background-color: var(--c-n-40);
       margin-bottom: 0;
       position: relative;
-      top: 38px;
+      top: 45px;
     }
 
     .ecl-mega-menu__info-content {
       display: none;
+    }
+
+    .ecl-mega-menu__info-link {
+      position: relative;
+      top: var(--s-s);
+      z-index: 1;
     }
 
     .ecl-mega-menu__wrapper {
@@ -872,6 +897,7 @@ $mega-menu: null !default;
       margin-left: calc(-1 * var(--s-m));
       padding: 0 0 var(--s-m) var(--s-m);
       position: static;
+      width: auto;
     }
 
     &.ecl-mega-menu--rtl {
@@ -897,6 +923,7 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__item > .ecl-mega-menu__mega-container {
       background-color: map.get($theme, 'color', 'white');
+      top: 100%;
       width: 54.375rem;
 
       .ecl-mega-menu__mega-container-scrollable {
@@ -973,7 +1000,14 @@ $mega-menu: null !default;
         position: relative;
 
         .ecl-link {
+          border-bottom: 1px solid transparent;
           margin: 0 0 0 var(--s-m);
+          padding: var(--s-2xs) 0;
+          outline-offset: 4px;
+
+          &:hover {
+            border-color: var(--c-d);
+          }
         }
 
         &::before {
@@ -1092,7 +1126,7 @@ $mega-menu: null !default;
     height: 100%;
     position: absolute;
     left: calc(100% + var(--s-m));
-    width: 16.25rem;
+    width: 15.75rem;
     top: 0;
 
     .ecl-mega-menu__featured-scrollable {

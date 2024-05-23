@@ -155,7 +155,7 @@
       {%- endif -%}
       </div>
       {%- if _info.link is not empty -%}
-        {% include '@ecl/link/link.html.twig' with _info.link only %}
+        {% include '@ecl/link/link.html.twig' with _info.link|merge({ type: 'standalone' }) only %}
       {%- endif -%}
     </div>
   {% endif %}
