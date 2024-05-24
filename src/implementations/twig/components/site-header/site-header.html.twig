@@ -16,7 +16,7 @@
           "href": (string) (default: ''): Logo URL.
           "src_desktop": (string) (default: ''): Desktop logo image file path
           "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
-          "size": (string) (default: 'm'): Three sizes in desktop (s, m, l)
+          "size": (string) (default: 'l'): Three sizes in desktop (s, m, l)
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
@@ -227,7 +227,7 @@
                 }) %}
               {% endif %}
               {% set image_classes = 'ecl-site-header__logo-image' %}
-              {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('m') %}
+              {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('l') %}
               {% include '@ecl/picture/picture.html.twig' with {
                 picture: _picture,
                 extra_classes: "ecl-site-header__picture",

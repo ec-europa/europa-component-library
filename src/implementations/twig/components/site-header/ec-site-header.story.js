@@ -37,7 +37,7 @@ dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {
-    logo_size: 'medium',
+    logo_size: 'large',
     show_language_selector: true,
     show_search: true,
     show_notification: false,
@@ -52,7 +52,7 @@ const getArgs = (data) => {
     defaultArgs.site_name = data.site_name;
   }
   if (data.banner_top) {
-    defaultArgs.show_banner_top = true;
+    defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'menu';
@@ -211,7 +211,7 @@ const getArgTypes = (data) => {
       large: 'l',
     },
     table: {
-      defaultValue: { summary: 'm' },
+      defaultValue: { summary: 'l' },
       category: 'Content',
     },
   };
