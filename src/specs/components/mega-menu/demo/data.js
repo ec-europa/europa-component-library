@@ -89,8 +89,7 @@ module.exports = {
         },
         { label: 'Item 2.2', path: exampleLink },
         {
-          label:
-            'Item 2.3 that has a very long label by no other mean that showing how after the third line the text will be trimmed, but not if the link is a categroy title.',
+          label: 'Item 2.3 that has a very long label',
           path: exampleLink,
           link_aria_label: 'Link to the 2.3 item page',
           children: [

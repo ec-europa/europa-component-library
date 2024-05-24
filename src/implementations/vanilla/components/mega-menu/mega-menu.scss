@@ -617,7 +617,7 @@ $mega-menu: null !default;
   display: none;
 }
 
-@include breakpoints.down('s') {
+@include breakpoints.down('m') {
   .ecl-mega-menu--one-panel {
     .ecl-mega-menu__item--expanded > .ecl-mega-menu__link {
       font: var(--f-l);
@@ -632,14 +632,14 @@ $mega-menu: null !default;
     .ecl-mega-menu__subitem--expanded > .ecl-mega-menu__sublink {
       background-color: var(--c-n-40);
       display: flex;
-      font: var(--f-l);
       margin: 0 calc(-1 * var(--s-xs));
       padding-inline-start: var(--s-xl);
-      position: relative;
-      top: -60px;
 
       &.ecl-mega-menu__parent-link {
-        padding-bottom: var(--s-s);
+        border: none;
+        font: var(--f-l);
+        position: relative;
+        top: -60px;
 
         &:focus-visible {
           outline-offset: -8px;
