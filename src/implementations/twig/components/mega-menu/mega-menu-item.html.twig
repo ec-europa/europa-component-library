@@ -153,10 +153,11 @@
       {%- if _info.content is not empty -%}
         <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
       {%- endif -%}
-      </div>
       {%- if _info.link is not empty -%}
         {% include '@ecl/link/link.html.twig' with _info.link|merge({ type: 'standalone' }) only %}
       {%- endif -%}
+      </div>
+
     </div>
   {% endif %}
     <div
@@ -261,13 +262,11 @@
       >
         <div class="ecl-mega-menu__featured-scrollable">
       {% if _featured.picture is not empty %}
-        <span class="ecl-mega-menu__featured-picture ecl-picture">
-          {% include '@ecl/picture/picture.html.twig' with {
-            picture: _featured.picture,
-            extra_classes: 'ecl-mega-menu__featured-picture',
-            extra_image_classes: 'ecl-mega-menu__featured-image',
-          } only %}
-        </span>
+        {% include '@ecl/picture/picture.html.twig' with {
+          picture: _featured.picture,
+          extra_classes: 'ecl-mega-menu__featured-picture',
+          extra_image_classes: 'ecl-mega-menu__featured-image',
+        } only %}
       {% endif %}
       {% if _featured.title is not empty %}
         <span class="ecl-mega-menu__featured-title">{{  _featured.title }}</span>
