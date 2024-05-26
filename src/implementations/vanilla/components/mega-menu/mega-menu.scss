@@ -229,9 +229,9 @@ $mega-menu: null !default;
     display: block;
     box-shadow: map.get($theme, 'shadow', '6');
     position: absolute;
-    top: -58px;
+    top: -4rem;
     left: calc(-1 * var(--s-xs));
-    height: 40px;
+    height: 2.5rem;
     width: calc(100% + var(--s-xs));
   }
 
@@ -340,8 +340,12 @@ $mega-menu: null !default;
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: var(--s-m);
   padding: 0;
+
+  .ecl-mega-menu__inner--expanded & {
+    margin-top: 0;
+  }
 }
 
 .ecl-mega-menu__item {
@@ -407,6 +411,7 @@ $mega-menu: null !default;
   .ecl-mega-menu__info-content {
     font: var(--f-m);
     margin-top: var(--s-xs);
+    max-width: var(--max-w);
   }
 }
 
@@ -453,6 +458,7 @@ $mega-menu: null !default;
       flex-direction: row;
       left: 0;
       right: 0;
+      margin-top: 0;
       padding: 0;
     }
 
@@ -763,6 +769,8 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__mega--level-2 {
+  margin-top: var(--s-m);
+
   .ecl-mega-menu__sublink {
     color: var(--c-p);
   }
@@ -1034,6 +1042,7 @@ $mega-menu: null !default;
       top: 0;
       background: var(--c-n-40);
       height: 100%;
+      margin-top: 0;
       position: absolute;
       visibility: hidden;
       opacity: 0;

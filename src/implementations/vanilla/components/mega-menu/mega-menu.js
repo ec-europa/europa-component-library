@@ -446,13 +446,7 @@ export class MegaMenu {
   resetStyles(viewport, compact) {
     const infoPanels = queryAll('.ecl-mega-menu__info', this.element);
     const subLists = queryAll('.ecl-mega-menu__sublist', this.element);
-    if (
-      viewport === 'mobile' &&
-      this.element.getAttribute('aria-expanded') === 'true' &&
-      this.headerBanner
-    ) {
-      this.headerBanner.classList.add('ecl-site-header__banner--active');
-    }
+
     // Remove display:none from the sublists
     if (subLists && viewport === 'mobile') {
       subLists.forEach((list) => {
@@ -504,9 +498,6 @@ export class MegaMenu {
         info.style.top = '';
       });
 
-      if (this.headerBanner) {
-        this.headerBanner.classList.remove('ecl-site-header__banner--active');
-      }
       // Check if we have an open item, if we don't hide the overlay and enable scroll
       const currentItems = [];
       const currentItem = queryOne(
@@ -531,9 +522,6 @@ export class MegaMenu {
           this.checkDropdownHeight(current);
         });
       } else {
-        if (this.headerBanner) {
-          this.headerBanner.classList.remove('ecl-site-header__banner--active');
-        }
         this.element.setAttribute('aria-expanded', 'false');
         this.element.removeAttribute('data-expanded');
         this.open.setAttribute('aria-expanded', 'false');
@@ -994,10 +982,6 @@ export class MegaMenu {
       this.inner.setAttribute('aria-hidden', 'false');
       this.isOpen = true;
 
-      if (this.headerBanner) {
-        this.headerBanner.classList.add('ecl-site-header__banner--active');
-      }
-
       // Update label
       const closeLabel = this.element.getAttribute(this.labelCloseAttribute);
       if (this.toggleLabel && closeLabel) {
@@ -1372,9 +1356,7 @@ export class MegaMenu {
     this.open.setAttribute('aria-expanded', 'false');
     // Remove css class and attribute from inner menu
     this.inner.classList.remove('ecl-mega-menu__inner--expanded');
-    if (this.headerBanner) {
-      this.headerBanner.classList.remove('ecl-site-header__banner--active');
-    }
+
     // Reset heights
     const megaMenus = queryAll(
       '.ecl-mega-menu__item > .ecl-mega-menu__wrapper > .ecl-container > [data-ecl-mega-menu-mega]',
