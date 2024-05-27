@@ -1,17 +1,12 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIconControls } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataAll from '@ecl/specs-component-icon/demo/data';
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 
 import icon from './icon.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
 const iconMapping = iconsAll.reduce((mapping, iconName) => {
   mapping[iconName] = iconName;
