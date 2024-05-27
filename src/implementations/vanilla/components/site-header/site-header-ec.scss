@@ -45,7 +45,7 @@ $language-list: null !default;
 
   .ecl-menu__open {
     position: relative;
-    top: var(--s-s);
+    top: calc(-1 * var(--s-2xs));
   }
 
   .ecl-site-header__cta {
@@ -63,8 +63,8 @@ $language-list: null !default;
 .ecl-site-header__container {
   display: flex;
   flex-direction: column;
-  padding-bottom: var(--s-xl);
-  padding-top: var(--s-2xl);
+  padding-bottom: var(--s-m);
+  padding-top: var(--s-m);
   position: static;
 }
 
@@ -372,6 +372,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   .ecl-site-header__container {
     align-items: flex-end;
     flex-direction: row;
+    padding-bottom: var(--s-xl);
+    padding-top: var(--s-2xl);
   }
 
   .ecl-site-header__site-name {
