@@ -102,7 +102,7 @@ Call to action button (CTA) captures users' attention in a web page. To perform 
 
 - do not use for site navigation purpose
 
-# Icon only button
+# B﻿utton with icon only
 
 All buttons can have their label hidden by using button variant ecl-button--icon-only.
 
