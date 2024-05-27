@@ -3,7 +3,7 @@ module.exports = {
   variant: 'success',
   icon: {
     path: '/icons.svg',
-    name: 'success',
+    name: 'check-filled',
     size: 'm',
   },
   sr_icon: 'Success',

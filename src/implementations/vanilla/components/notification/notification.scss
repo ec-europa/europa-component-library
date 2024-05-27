@@ -11,8 +11,7 @@ $theme: null !default;
 $notification: null !default;
 
 .ecl-notification {
-  border: map.get($notification, 'border-width') solid
-    map.get($notification, 'border-color');
+  border: map.get($notification, 'border-width') solid transparent;
   border-radius: map.get($notification, 'radius');
   box-sizing: border-box;
   color: map.get($notification, 'color');
@@ -82,6 +81,7 @@ $notification: null !default;
 // information
 .ecl-notification--info {
   background: map.get($notification, 'info', 'background');
+  border-color: map.get($notification, 'info', 'border-color');
   border-inline-start: 4px solid map.get($notification, 'info', 'color');
 
   .ecl-notification__icon {
@@ -92,6 +92,7 @@ $notification: null !default;
 // success
 .ecl-notification--success {
   background: map.get($notification, 'success', 'background');
+  border-color: map.get($notification, 'success', 'border-color');
   border-inline-start: 4px solid map.get($notification, 'success', 'color');
 
   .ecl-notification__icon {
@@ -102,6 +103,7 @@ $notification: null !default;
 // warning
 .ecl-notification--warning {
   background: map.get($notification, 'warning', 'background');
+  border-color: map.get($notification, 'warning', 'border-color');
   border-inline-start: 4px solid map.get($notification, 'warning', 'color');
 
   .ecl-notification__icon {
@@ -115,7 +117,7 @@ $notification: null !default;
     height: map.get($notification, 'warning', 'icon-background-height');
     left: map.get($notification, 'warning', 'icon-background-left');
     position: absolute;
-    width: var(--s-xs);
+    width: map.get($notification, 'warning', 'icon-background-width');
     top: map.get($notification, 'warning', 'icon-background-top');
     z-index: 1;
   }
@@ -124,6 +126,7 @@ $notification: null !default;
 // error
 .ecl-notification--error {
   background: map.get($notification, 'error', 'background');
+  border-color: map.get($notification, 'error', 'border-color');
   border-inline-start: 4px solid map.get($notification, 'error', 'color');
 
   .ecl-notification__icon {
