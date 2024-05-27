@@ -12,6 +12,7 @@ $media-container: null !default;
 @use '@ecl/vanilla-utility-media/media' as uMedia with (
   $theme: $theme
 );
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 .ecl-media-container {
   margin: 0;
@@ -58,6 +59,10 @@ $media-container: null !default;
   .ecl-expandable__content {
     margin-bottom: var(--s-m);
   }
+}
+
+.ecl-media-container__media-audio {
+  @include screen-reader.sr-only;
 }
 
 // Manual ratio

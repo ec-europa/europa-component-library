@@ -11,6 +11,7 @@
     - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
+    - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
@@ -76,6 +77,9 @@
   {%- endif -%}
   {%- if _media_href is not empty and _item.embedded_video is not empty -%}
     data-ecl-gallery-item-embed-src="{{ _media_href }}"
+  {%- endif -%}
+  {%- if _item.sr_video_audio is not empty -%}
+    data-ecl-gallery-item-embed-audio="{{ _item.sr_video_audio|e }}"
   {%- endif -%}
   >
   {% if _item is not empty %}

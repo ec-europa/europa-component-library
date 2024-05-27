@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -354,6 +355,10 @@ $_image-height-mobile: 260px;
   object-fit: contain;
   height: 100%;
   width: 100%;
+}
+
+.ecl-gallery__slider-embed-audio {
+  @include screen-reader.sr-only;
 }
 
 .ecl-gallery__slider-embed {

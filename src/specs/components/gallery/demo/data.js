@@ -32,6 +32,8 @@ module.exports = {
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
       title: 'New digital strategy',
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens.',
@@ -67,6 +69,8 @@ module.exports = {
       embedded_video: {
         src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
       title: 'In the EU',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
@@ -83,6 +87,8 @@ module.exports = {
       embedded_video: {
         src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
+      sr_video_audio:
+        '<a href="#example">Audiodescription for the video below</a>',
       title: 'Taxes and business',
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
@@ -131,7 +137,7 @@ module.exports = {
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Image
+      // Embedded video
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
@@ -141,6 +147,8 @@ module.exports = {
       embedded_video: {
         src: 'https://player.vimeo.com/video/813227141?h=077b905b65',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
       title: 'Lorem ipsum',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',
@@ -171,6 +179,8 @@ module.exports = {
       embedded_video: {
         src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
       title: 'Climate change',
       description: 'Climate change and protect nature',
       meta: 'Copyright, Author, Licence for embedded media',
