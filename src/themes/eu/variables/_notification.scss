@@ -12,9 +12,9 @@ $notification: (
   title-font: var(--f-p-m),
   title-font-weight: map.get($font-weight, 'bold'),
   title-spacing: var(--s-xs),
-  close-color: var(--c-p),
-  close-offset: calc(var(--s-s) - var(--s-m)),
-  close-override: true,
+  close-color: var(--c-d),
+  close-offset-top: calc(var(--s-s) - var(--s-l)),
+  close-offset-end: calc(var(--s-s) - var(--s-xs)),
   info: (
     background: var(--c-in-5),
     color: var(--c-in),
