@@ -56,6 +56,7 @@ module.exports = {
         {
           label: 'Item 2.1',
           path: exampleLink,
+          sublink_id: 'item-2-1-id',
           see_all: true,
           see_all_label: 'View all',
           link_aria_label: "Link to the 2.1 item's page",
@@ -164,6 +165,7 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'See all items',
+          sublink_id: 'research-and-innovation-id',
           featured: {
             picture: {
               img: {

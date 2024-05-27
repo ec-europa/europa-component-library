@@ -56,7 +56,6 @@
 {% set _see_all = see_all|default(false) %}
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
 {% set _mega_class = 'ecl-mega-menu__mega' %}
-{% set _sublink_id = sublink_id|default('') %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _see_all_attributes = see_all_attributes|default([]) %}
 {% set _can_be_external = true %}
@@ -193,8 +192,15 @@
           {% endif %}
         {% endif %}
         {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
-          {% set _sublink_id = 'ecl-mega-menu-sublink-' ~ random() %}
-          {% set _sublink_attrs = _sublink_attrs|merge([{ name: 'id', value: _sublink_id }]) %}
+          {%- if child.see_all and child.see_all_label is not empty -%}
+            {% if child.sublink_id is empty %}
+              {% set _sublink_id = 'ecl-mega-menu-sublink-' ~ random() %}
+            {% else %}
+              {% set _sublink_id = child.sublink_id %}
+            {% endif %}
+            {% set _sublink_attrs = _sublink_attrs|merge([{ name: 'id', value: _sublink_id }]) %}
+          {%- endif -%}
+
           {% set _can_be_external = false %}
           {% set _icon = {
             name: 'corner-arrow',
@@ -228,7 +234,7 @@
                 see_all: child.see_all|default(false),
                 see_all_attributes: child.see_all_attributes|default([]),
                 icon_path: _icon_path,
-                sublink_id: _sublink_id,
+                sublink_id: _sublink_id|default(''),
                 item: {
                   is_current: child.is_current|default(false),
                   path: child.path, 
@@ -258,7 +264,7 @@
             },
             extra_attributes: [{
              name: 'aria-describedby',
-             value: _sublink_id,
+             value: sublink_id,
              }]|merge(_see_all_attributes|default([])),
           } only %}
         </li>
