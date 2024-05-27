@@ -529,7 +529,10 @@ $mega-menu: null !default;
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
+        margin-top: var(--s-2xs);
+        height: calc(var(--s-xs) + 2px);
         transform: rotate(180deg);
+        width: calc(var(--s-xs) + 2px);
       }
     }
 
@@ -751,9 +754,14 @@ $mega-menu: null !default;
     display: flex;
     overflow: visible;
 
+    .ecl-link__icon {
+      height: calc(var(--s-s) + 0.5px);
+      padding: 1px 3px;
+    }
+
     .ecl-link__label {
       display: -webkit-box;
-      margin-inline-end: var(--s-xs);
+      margin-inline-end: var(--s-m);
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
@@ -789,6 +797,7 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__sublink {
     color: var(--c-p);
+    padding-inline-start: var(--s-m);
   }
 
   .ecl-mega-menu__sublink .ecl-icon {
@@ -800,6 +809,9 @@ $mega-menu: null !default;
   background-color: var(--c-n-20);
   padding: 0;
   flex-direction: column;
+  margin-inline-start: calc(-1 * var(--s-xs));
+  margin-inline-end: calc(-1 * var(--s-xs));
+  padding-inline-start: var(--s-2xs);
 
   .ecl-mega-menu__featured-picture {
     display: block;
@@ -825,10 +837,10 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__featured-list {
     border-top: none;
-    margin: 0 var(--s-2xs);
+    margin: 0 var(--s-2xs) 0 0;
 
     .ecl-mega-menu__featured-list__item {
-      margin-bottom: var(--s-xs);
+      margin-bottom: 0;
 
       .ecl-link {
         border-radius: 0;
@@ -837,7 +849,8 @@ $mega-menu: null !default;
         display: block;
         font: var(--f-m);
         outline-offset: -2px;
-        padding: var(--s-xs) var(--s-s);
+        margin-inline-start: calc(-1 * var(--s-2xs));
+        padding: var(--s-m) var(--s-l);
         width: 100%;
 
         &:hover {
@@ -959,6 +972,10 @@ $mega-menu: null !default;
       }
     }
 
+    .ecl-mega-menu__info-link {
+      margin-top: 0;
+    }
+
     .ecl-mega-menu__item {
       justify-content: center;
     }
@@ -1008,6 +1025,8 @@ $mega-menu: null !default;
 
         .ecl-mega-menu__featured-list__item .ecl-link {
           border-bottom: none;
+          padding: calc(var(--s-xs) + 2px) var(--s-2xl) calc(var(--s-xs) + 2px)
+            var(--s-m);
         }
       }
     }
@@ -1032,8 +1051,12 @@ $mega-menu: null !default;
         .ecl-link {
           border-bottom: 1px solid transparent;
           margin: 0 0 0 var(--s-m);
-          padding: var(--s-2xs) 0;
-          outline-offset: 4px;
+          padding: calc(var(--s-xs) + 2px) 0;
+          outline-offset: 0;
+
+          .ecl-link__icon {
+            margin-inline-start: var(--s-xs);
+          }
 
           &:hover {
             border-color: var(--c-d);
@@ -1073,12 +1096,6 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__subitem {
-        margin-bottom: var(--s-xs);
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
         &--current .ecl-mega-menu__sublink,
         &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
           background-color: transparent;
@@ -1088,6 +1105,8 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__sublink {
+        padding: map.get($mega-menu, 'desktop', 'sublink-level2-padding');
+
         &:hover {
           text-decoration: underline;
         }
@@ -1112,17 +1131,11 @@ $mega-menu: null !default;
       width: 100%;
     }
 
-    // When the text gets trimmed after the third line the top part
-    // of the fourth item is visible, so we reduce the padding bottom
     .ecl-mega-menu__sublink {
       break-inside: avoid-column;
       font: var(--f-m);
-
-      // This is to recover the missing pixel
       line-height: 137.5%;
       margin: 0;
-
-      // Reduce to padding bottom by 1px to prevent overflowing when trimmed
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
 
@@ -1155,9 +1168,11 @@ $mega-menu: null !default;
     display: none;
     font: var(--f-m);
     height: 100%;
+    margin: 0;
+    padding-inline-start: 0;
     position: absolute;
     left: calc(100% + var(--s-m));
-    width: 15.75rem;
+    width: 14.375rem;
     top: 0;
 
     .ecl-mega-menu__featured-scrollable {
@@ -1170,8 +1185,8 @@ $mega-menu: null !default;
       .ecl-mega-menu__featured-image {
         aspect-ratio: 21/9;
         display: block;
-        margin-inline-start: var(--s-m);
-        max-width: calc(100% - var(--s-m));
+        margin-inline-start: var(--s-s);
+        max-width: calc(100% - var(--s-s));
       }
     }
 
@@ -1181,8 +1196,9 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__featured-title {
       font: var(--f-m);
-      margin-top: var(--s-s);
-      margin-inline-start: var(--s-m);
+      margin-bottom: calc(var(--s-xs) + 2px);
+      margin-top: calc(var(--s-xs) + 2px);
+      margin-inline-start: var(--s-s);
     }
   }
 }
