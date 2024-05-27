@@ -5,6 +5,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   id: 'demo',
   title: 'ecl mega menu demo',
+  aria_label: 'Main navigation',
   toggle: {
     link: {
       label: 'Menu',
