@@ -37,14 +37,14 @@ $language-list: null !default;
   .ecl-menu,
   .ecl-mega-menu {
     bottom: 0;
-    box-shadow: var(--sh-6);
     padding: 0;
     position: absolute;
     right: 0;
     width: 100%;
   }
 
-  .ecl-menu__open {
+  .ecl-menu__open,
+  .ecl-mega-menu__open {
     position: relative;
     top: calc(-1 * var(--s-2xs));
   }
@@ -348,6 +348,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     }
 
     .ecl-menu {
+      box-shadow: var(--sh-6);
       position: static;
       width: 100%;
 
@@ -357,6 +358,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     }
 
     .ecl-mega-menu {
+      box-shadow: var(--sh-6);
       position: relative;
       top: 0;
       width: 100%;
