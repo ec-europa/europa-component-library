@@ -42,6 +42,7 @@ It is used to represent the secondary action in a web page. It is paired with a 
 - ensure the button functions a negative action, such as "Cancel", "Delete," "Remove" or "Replace" as the secondary action next to the primary button
 - follow the order of the button group; right to the primary button
 - use an icon only when it is necessary
+- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
 
 ## Don'ts
 
@@ -67,6 +68,7 @@ Text button is used in a web page with less prominent action. It can be grouped 
 ## Do's
 
 - make sure the button represents a less important action, such as "Show more", "Expand" or "See details"
+- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
 
 ## Don'ts
 
@@ -89,6 +91,7 @@ Call to action button (CTA) captures users' attention in a web page. To perform 
 ## Do's
 
 - ensure the button directs to a pre-defined goal, such as 'Search by priority'
+- when adding an icon to the text button, ensure the label is descriptive enough when used standalone (icon is not described by screen readers)
 
 ## Don'ts
 
