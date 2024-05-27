@@ -102,8 +102,9 @@ Call to action button (CTA) captures users' attention in a web page. To perform 
 
 - do not use for site navigation purpose
 
-# Accessibility
+# Icon only button
 
-**Icon only**
+All buttons can have their label hidden by using button variant ecl-button--icon-only.
 
-- always include the label (e.g. “Secondary button”) in the corresponding span class (e.g. “<span class="ecl-button__label" data-ecl-label="true">Secondary button</span>”) and ensure it is adapted to the selected icon, in order to provide the right context to screen-reader user
+- label requires to be filled nonetheless, in order to provide context to screen readers
+- Ensure you adapt the label (e.g. "Secondary button") in < span class="ecl-button\_\_label" data-ecl-label="true">Secondary button</span> to the selected icon, to provide the right context to screen readers
