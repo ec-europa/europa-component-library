@@ -788,13 +788,51 @@ export class MegaMenu {
       return;
     }
     // Handle Keyboard on the first panel
-    if (element.classList.contains('ecl-mega-menu__info-link')) {
+    if (cList.contains('ecl-mega-menu__info-link')) {
       if (e.key === 'ArrowUp') {
         // Focus on the expanded nav item
         queryOne('.ecl-mega-menu__item--expanded a', this.element).focus();
       }
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        element.parentElement.nextSibling.firstElementChild.firstChild.firstChild.focus();
+        // First item in the open dropdown.
+        element.parentElement.parentElement.nextSibling.firstChild.firstChild.firstChild.focus();
+      }
+    }
+
+    if (cList.contains('ecl-mega-menu__parent-link')) {
+      if (e.key === 'ArrowUp') {
+        const back = queryOne('.ecl-mega-menu__back', this.element);
+        back.focus();
+        return;
+      }
+      if (e.key === 'ArrowDown') {
+        const moreLink = queryOne(
+          '.ecl-mega-menu__info-link',
+          e.target.nextSibling,
+        );
+        if (moreLink) {
+          moreLink.focus();
+        } else if (
+          this.element.classList.contains('ecl-mega-menu--two-panels')
+        ) {
+          // We are in the second panel
+          const mega = e.target.closest('.ecl-mega-menu__mega');
+          const info = queryOne(
+            '.ecl-mega-menu__info--has-link',
+            mega.parentNode,
+          );
+          if (info) {
+            const more = queryOne('.ecl-mega-menu__info-link', info);
+            more.focus();
+          } else {
+            mega.firstElementChild.firstElementChild.firstChild.focus();
+          }
+        } else {
+          // First element in the open dropwdown
+          e.target.nextSibling.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstChild.focus();
+        }
+
+        return;
       }
     }
 
@@ -836,7 +874,10 @@ export class MegaMenu {
         );
         // We have an opened list
         if (expanded) {
-          const innerExpanded = queryOne('[aria-expanded="true"]', expanded);
+          const innerExpanded = queryOne(
+            '.ecl-mega-menu__subitem--expanded',
+            expanded,
+          );
           // We have an opened sub-list
           if (innerExpanded) {
             queryOne('.ecl-mega-menu__parent-link', innerExpanded).focus();

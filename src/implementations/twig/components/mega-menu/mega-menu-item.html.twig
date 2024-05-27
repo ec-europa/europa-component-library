@@ -142,8 +142,12 @@
 {% endif %}
   {# Info #}
   {% if _info is not empty %}
+    {% set _info_classes = 'ecl-mega-menu__info' %}
+    {% if _info.link is not empty %}
+      {% set _info_classes = _info_classes ~ ' ecl-mega-menu__info--has-link' %}
+    {% endif %}
     <div
-      class="ecl-mega-menu__info"
+      class="{{ _info_classes }}"
       data-ecl-mega-menu-mega
     >
     {% if _info.title is not empty %}

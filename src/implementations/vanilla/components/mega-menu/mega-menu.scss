@@ -646,8 +646,6 @@ $mega-menu: null !default;
       &.ecl-mega-menu__parent-link {
         border: none;
         font: var(--f-l);
-        position: relative;
-        top: -60px;
 
         &:focus-visible {
           outline-offset: -8px;
@@ -664,6 +662,10 @@ $mega-menu: null !default;
       margin-bottom: 0;
       position: relative;
       top: 45px;
+
+      &:not(.ecl-mega-menu__info--has-link) {
+        display: none !important;
+      }
     }
 
     .ecl-mega-menu__info-content {
@@ -679,6 +681,20 @@ $mega-menu: null !default;
     .ecl-mega-menu__wrapper {
       top: 0 !important;
     }
+  }
+
+  .ecl-mega-menu__info
+    + .ecl-mega-menu__mega
+    .ecl-mega-menu__subitem--expanded
+    .ecl-mega-menu__parent-link {
+    top: 0;
+  }
+
+  .ecl-mega-menu__info--has-link
+    + .ecl-mega-menu__mega
+    .ecl-mega-menu__subitem--expanded
+    .ecl-mega-menu__parent-link {
+    top: -60px;
   }
 }
 

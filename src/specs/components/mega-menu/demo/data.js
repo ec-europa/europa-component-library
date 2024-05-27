@@ -149,19 +149,6 @@ module.exports = {
         title: 'About the European Commission',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        link: {
-          link: {
-            label: 'Discover more',
-            type: 'standalone',
-          },
-          icon: {
-            name: 'arrow-left',
-            transform: 'flip-horizontal',
-            path: '/icons.svg',
-            size: 'xs',
-          },
-          extra_classes: 'ecl-mega-menu__info-link',
-        },
       },
       children: [
         {
