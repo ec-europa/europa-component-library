@@ -517,3 +517,50 @@ $_image-height-mobile: 260px;
     order: 4;
   }
 }
+
+// stylelint-disable
+
+// TMP
+.ecl-gallery__item {
+  aspect-ratio: 3/2;
+}
+
+.ecl-gallery__image {
+  aspect-ratio: 3/2;
+}
+
+// TMP
+.ecl-gallery {
+  .ecl-gallery__item {
+    flex-grow: 0;
+  }
+}
+
+// TMP
+.ecl-gallery {
+  .ecl-gallery__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    margin-inline-start: 0;
+  }
+
+  .ecl-gallery__item {
+    margin-inline-start: 0;
+    margin-top: 0;
+  }
+
+  .ecl-gallery__item,
+  .ecl-gallery__image {
+    height: auto;
+  }
+
+  .ecl-gallery__image {
+    min-width: auto;
+  }
+
+  .ecl-gallery__image-container {
+    height: auto;
+  }
+}
