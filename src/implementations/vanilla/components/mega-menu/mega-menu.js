@@ -643,21 +643,13 @@ export class MegaMenu {
           menuItem,
         );
         if (expanded) {
-          secondPanel = queryOne(
-            '.ecl-mega-menu__mega--level-2 .ecl-mega-menu__sublist',
-            expanded,
-          );
+          secondPanel = queryOne('.ecl-mega-menu__mega--level-2', expanded);
           if (secondPanel) {
             const subItems = queryAll(`${this.subItemSelector} a`, secondPanel);
             if (subItems.length > 0) {
               subItems.forEach((item) => {
                 subItemsHeight += item.getBoundingClientRect().height;
               });
-              const lastItem = queryOne('.ecl-mega-menu__see-all', secondPanel);
-              if (lastItem) {
-                // Arbitrary, but does the job.
-                subItemsHeight += 80;
-              }
             }
 
             heights.push(subItemsHeight);

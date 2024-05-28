@@ -422,8 +422,8 @@ $mega-menu: null !default;
   width: fit-content;
 
   &:hover {
-    border-color: var(--c-p);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: var(--s-2xs);
   }
 }
 
@@ -1059,7 +1059,8 @@ $mega-menu: null !default;
           }
 
           &:hover {
-            border-color: var(--c-d);
+            text-decoration: underline;
+            text-underline-offset: var(--s-2xs);
           }
         }
 
