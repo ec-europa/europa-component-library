@@ -105,6 +105,7 @@
     {% endif %}
 
     {% set _index = 1 %}
+    {% if _headers is not empty %}
     <thead class="{{ _head_css_class }}">
       {% for header in _headers %}
         <tr class="{{ _row_css_class }}">
@@ -130,6 +131,8 @@
         </tr>
       {% endfor %}
     </thead>
+    {% endif %}
+    
     <tbody class="{{ _body_css_class }}">
       {% for row in _rows %}
         {% set _row_css_class = 'ecl-table__row' %}

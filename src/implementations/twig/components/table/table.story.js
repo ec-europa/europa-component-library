@@ -11,10 +11,22 @@ import notes from './README.md';
 const dataZebra = { ...dataDefault, zebra: true };
 
 const getArgs = () => ({
+  header: true,
   simple: false,
 });
 
 const getArgTypes = () => ({
+  header: {
+    name: 'header',
+    type: { name: 'boolean' },
+    description: 'See table with or without header',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: true },
+      category: 'Optional',
+    },
+  },
+
   simple: {
     name: 'simple display',
     type: { name: 'boolean' },
@@ -28,7 +40,15 @@ const getArgTypes = () => ({
   },
 });
 
-const prepareData = (data, args) => Object.assign(data, args);
+const prepareData = (data, args) => {
+  const dataClone = JSON.parse(JSON.stringify(data));
+
+  if (!args.header) {
+    delete dataClone.headers;
+  }
+
+  return dataClone;
+};
 
 export default {
   title: 'Components/Table',
