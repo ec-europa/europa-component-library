@@ -77,7 +77,6 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
-  box-shadow: map.get($theme, 'shadow', '6');
   position: relative;
 }
 
@@ -238,6 +237,7 @@ $language-list: null !default;
 
 .ecl-site-header__notification {
   background-color: var(--c-bg);
+  border-top: 1px solid var(--c-n-60);
   display: flex;
 
   .ecl-notification {
