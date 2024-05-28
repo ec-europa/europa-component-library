@@ -1077,7 +1077,7 @@ $mega-menu: null !default;
           position: absolute;
           left: var(--s-m);
           top: calc(-1 * var(--s-s));
-          width: calc(100% - (var(--s-m) * 2));
+          width: calc(100% - (var(--s-xl) * 2));
           background: var(--c-n-100);
         }
       }
@@ -1230,16 +1230,16 @@ $mega-menu: null !default;
         padding-inline-start: var(--s-m);
         padding-inline-end: var(--s-xl);
         position: absolute;
-        width: 14.375rem;
+        width: 15.875rem;
         z-index: 16;
 
         &::after {
           content: '';
           position: absolute;
           top: 0;
-          right: 0;
+          right: var(--s-l);
           bottom: 0;
-          width: 20px;
+          width: var(--s-l);
           box-shadow: 4px 0px 10px 0px rgba(224, 229, 245, 0.5);
           pointer-events: none;
         }
