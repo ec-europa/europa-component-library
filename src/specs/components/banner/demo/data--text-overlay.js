@@ -23,6 +23,28 @@ module.exports = {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
       alt: 'aternative text',
     },
+    sources: [
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+        media: '(min-width: 90rem)',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+        media: 'xl',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+        media: 'l',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+        media: 'm',
+      },
+      {
+        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+        media: 's',
+      },
+    ],
   },
   credit: '© Copyright',
   variant: 'text-overlay',

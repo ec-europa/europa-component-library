@@ -66,6 +66,21 @@
 </script>
 <script type="text/javascript" src="./scripts/ecl-ec.js"></script>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const updateCurrentSrc = () => {
+      const imgElement = document.querySelector('.ecl-banner picture img');
+      if (imgElement) {
+        const currentSrc = imgElement.currentSrc;
+        console.log('Current image source:', currentSrc);
+      }
+    };
+
+    // Initial check
+    updateCurrentSrc();
+
+    // Check on window resize
+    window.addEventListener('resize', updateCurrentSrc);
+  });
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {
     ECL.autoInit();
