@@ -110,8 +110,6 @@ module.exports = {
         {
           label: 'Item 2.7',
           path: exampleLink,
-          external: true,
-          sr_external: 'Link to an external domain',
         },
       ],
     },

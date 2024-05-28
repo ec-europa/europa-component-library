@@ -381,7 +381,10 @@ $mega-menu: null !default;
   }
 
   .ecl-icon {
+    height: calc(var(--s-s) + 0.5px);
     margin-inline-start: auto;
+    padding: 1px 3px;
+    width: calc(var(--s-s) + 0.5px);
   }
 }
 
@@ -740,7 +743,7 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__sublink {
   box-sizing: border-box;
-  border-bottom: 1px solid var(--c-n-40);
+  border-bottom: 1.5px solid var(--c-n-40);
   color: map.get($mega-menu, 'mobile', 'item-color');
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
@@ -798,6 +801,10 @@ $mega-menu: null !default;
   .ecl-mega-menu__sublink {
     color: var(--c-p);
     padding-inline-start: var(--s-m);
+
+    .ecl-link__label {
+      margin-inline-end: 0;
+    }
   }
 
   .ecl-mega-menu__sublink .ecl-icon {
@@ -807,11 +814,13 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__featured {
   background-color: var(--c-n-20);
+  border-color: var(--c-n);
+  border-width: 0.5px;
   padding: 0;
   flex-direction: column;
   margin-inline-start: calc(-1 * var(--s-xs));
   margin-inline-end: calc(-1 * var(--s-xs));
-  padding-inline-start: var(--s-2xs);
+  padding-inline-start: var(--s-xs);
 
   .ecl-mega-menu__featured-picture {
     display: block;
@@ -1025,8 +1034,9 @@ $mega-menu: null !default;
 
         .ecl-mega-menu__featured-list__item .ecl-link {
           border-bottom: none;
+          margin: 0;
           padding: calc(var(--s-xs) + 2px) var(--s-2xl) calc(var(--s-xs) + 2px)
-            var(--s-m);
+            var(--s-s);
         }
       }
     }
@@ -1107,6 +1117,10 @@ $mega-menu: null !default;
 
       .ecl-mega-menu__sublink {
         padding: map.get($mega-menu, 'desktop', 'sublink-level2-padding');
+
+        .ecl-link__label {
+          margin-inline-end: 0;
+        }
 
         &:hover {
           text-decoration: underline;
