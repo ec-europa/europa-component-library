@@ -134,7 +134,7 @@ $size-icon-only: calc(
     color: map.get($button, #{$variant}, 'color-active');
   }
 
-  @if map-has-key($button, #{$variant}, 'border-width-hover') {
+  @if map.has-key($button, #{$variant}, 'border-width-hover') {
     &:hover {
       border-width: map.get($button, #{$variant}, 'border-width-hover');
       padding: calc(

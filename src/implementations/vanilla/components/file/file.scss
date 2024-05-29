@@ -318,7 +318,7 @@ $file: null !default;
     padding: map.get($file, 'file-thumbnail-footer-padding');
     position: relative;
 
-    @if map-has-key($file, 'file-thumbnail-border') {
+    @if map.has-key($file, 'file-thumbnail-border') {
       &::before {
         content: '';
         position: absolute;

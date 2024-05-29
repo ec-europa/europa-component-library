@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
@@ -14,8 +13,6 @@ import dataInverted from '@ecl/specs-component-link/demo/data--inverted';
 
 import link from './link.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
 
 // Create 'none' option.
 iconsAll.unshift('none');
