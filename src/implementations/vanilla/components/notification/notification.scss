@@ -131,7 +131,7 @@ $notification: null !default;
   }
 }
 
-@if map-has-key($notification, 'close-override') {
+@if map.has-key($notification, 'close-override') {
   .ecl-notification .ecl-notification__close {
     align-self: self-end;
     bottom: auto;

@@ -171,7 +171,7 @@ $timeline: null !default;
   display: block;
 }
 
-@if map-has-key($timeline, 'tooltip') {
+@if map.has-key($timeline, 'tooltip') {
   .ecl-timeline__label {
     width: auto;
   }
