@@ -62,7 +62,8 @@
 {% set _icon = {
   name: '',
   path: '',
-  size: ''
+  size: '',
+  title: ''
 } %}
 
 {% set _css_class = 'ecl-link' %}
@@ -153,6 +154,10 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
+        {%- if icon.title is not empty -%}
+          {% set _extra_accessibility = _extra_accessibility|merge({ title: icon.title }) %}
+          {% set as_image = true %}
+        {%- endif -%}
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
@@ -178,6 +183,10 @@
         {% set _icon_extra_classes = 'ecl-link__icon' %}
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+        {%- endif -%}
+        {%- if icon.title is not empty -%}
+          {% set _extra_accessibility = _extra_accessibility|merge({ title: icon.title }) %}
+          {% set as_image = true %}
         {%- endif -%}
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),

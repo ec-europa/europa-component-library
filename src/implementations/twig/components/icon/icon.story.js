@@ -18,6 +18,7 @@ const getArgs = (data) => ({
   size: 'm',
   color: 'default',
   transform: 'none',
+  title: '',
 });
 
 const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
@@ -28,6 +29,15 @@ const prepareData = (data, args) => {
   }
   if (args.transformation === 'none') {
     args.transformation = '';
+  }
+  if (args.title) {
+    data.as_image = true;
+    data.extra_accessibility = {
+      title: args.title,
+    };
+  } else {
+    data.as_image = false;
+    data.extra_accessibility = {};
   }
   correctPaths(data);
   data.icon.name = args.name;

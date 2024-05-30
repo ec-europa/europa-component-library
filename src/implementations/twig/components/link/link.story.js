@@ -36,6 +36,7 @@ const getArgs = (data) => ({
   label: data.link.label,
   icon_name: 'none',
   icon_position: 'after',
+  icon_title: '',
   external: false,
   hide_label: false,
 });
@@ -122,6 +123,19 @@ const getArgTypes = () => ({
       category: 'Icon',
     },
   },
+  icon_title: {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    if: { arg: 'external', truthy: false },
+    // eslint-disable-next-line no-dupe-keys
+    if: { arg: 'icon_name', neq: 'none' },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+  },
   hide_label: {
     name: 'hide label',
     type: { name: 'boolean' },
@@ -149,6 +163,7 @@ const prepareData = (data, args) => {
     data.icon.transform = args.icon_transform;
     data.icon.size = 'xs';
     data.icon.path = 'icons.svg';
+    data.icon.title = args.icon_title;
   }
   if (args.icon_name === 'none') {
     delete data.icon;
