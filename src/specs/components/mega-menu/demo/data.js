@@ -42,7 +42,6 @@ module.exports = {
           link: {
             label: 'Discover more',
             type: 'standalone',
-            path: exampleLink,
           },
           icon: {
             name: 'arrow-left',
