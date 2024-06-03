@@ -41,15 +41,7 @@ module.exports = {
         link: {
           link: {
             label: 'Discover more',
-            type: 'standalone',
           },
-          icon: {
-            name: 'arrow-left',
-            transform: 'flip-horizontal',
-            path: '/icons.svg',
-            size: 'xs',
-          },
-          extra_classes: 'ecl-mega-menu__info-link',
         },
       },
       children: [
@@ -124,15 +116,7 @@ module.exports = {
         link: {
           link: {
             label: 'Discover more',
-            type: 'standalone',
           },
-          icon: {
-            name: 'arrow-left',
-            transform: 'flip-horizontal',
-            path: '/icons.svg',
-            size: 'xs',
-          },
-          extra_classes: 'ecl-mega-menu__info-link',
         },
       },
       children: [
@@ -146,7 +130,7 @@ module.exports = {
       path: exampleLink,
       link_aria_label: 'Link to Key priorities page',
       info: {
-        title: 'About the European Commission',
+        title: 'About key priorities',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
