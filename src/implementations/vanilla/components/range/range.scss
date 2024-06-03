@@ -117,6 +117,14 @@ $range: null !default;
   outline-offset: map.get($range, 'outline-offset');
 }
 
+// Bubble
+.ecl-range__bubble {
+  background: red;
+  position: absolute;
+  text-align: center;
+  width: 50px;
+}
+
 // Width
 .ecl-range--s {
   @include mixins.form-width('s');
