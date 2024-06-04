@@ -7,6 +7,7 @@ import { queryOne, queryAll } from '@ecl/dom-utils';
  * @param {String} options.currentValueSelector Selector for the current value area
  * @param {String} options.bubbleSelector Selector for the value bubble
  * @param {Boolean} options.attachChangeListener Whether or not to bind change events on range
+ * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  */
 export class Range {
   /**
@@ -31,6 +32,7 @@ export class Range {
       currentValueSelector = '[data-ecl-range-value-current]',
       bubbleSelector = '[data-ecl-range-bubble]',
       attachChangeListener = true,
+      attachHoverListener = true,
     } = {},
   ) {
     // Check element
@@ -47,6 +49,7 @@ export class Range {
     this.currentValueSelector = currentValueSelector;
     this.bubbleSelector = bubbleSelector;
     this.attachChangeListener = attachChangeListener;
+    this.attachHoverListener = attachHoverListener;
 
     // Private variables
     this.rangeInput = null;
@@ -56,6 +59,8 @@ export class Range {
     // Bind `this` for use in callbacks
     this.placeBubble = this.placeBubble.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleHoverOn = this.handleHoverOn.bind(this);
+    this.handleHoverOff = this.handleHoverOff.bind(this);
   }
 
   /**
@@ -77,14 +82,13 @@ export class Range {
         element.innerHTML = this.rangeInput.value;
       });
 
-      // Place bubble
-      setTimeout(() => {
-        this.placeBubble();
-      }, 500);
-
-      // Bind change event on range
+      // Bind change and hover event on range
       if (this.attachChangeListener) {
         this.rangeInput.addEventListener('input', this.handleChange);
+      }
+      if (this.attachHoverListener) {
+        this.rangeInput.addEventListener('mouseover', this.handleHoverOn);
+        this.rangeInput.addEventListener('mouseout', this.handleHoverOff);
       }
     }
 
@@ -97,9 +101,16 @@ export class Range {
    * Destroy component.
    */
   destroy() {
-    if (this.attachChangeListener && this.rangeInput && this.currentValue) {
-      this.rangeInput.removeEventListener('input', this.handleChange);
+    if (this.rangeInput && this.currentValue) {
+      if (this.attachChangeListener) {
+        this.rangeInput.removeEventListener('input', this.handleChange);
+      }
+      if (this.attachHoverListener) {
+        this.rangeInput.removeEventListener('mouseover', this.handleHoverOn);
+        this.rangeInput.removeEventListener('mouseout', this.handleHoverOff);
+      }
     }
+
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
@@ -133,6 +144,20 @@ export class Range {
     const left = rect.left + valuePxPosition - halfLabelWidth - offset;
 
     this.bubble.style.left = `${left}px`;
+  }
+
+  /**
+   * Handle mouse hover
+   */
+  handleHoverOn() {
+    // Display value bubble
+    this.bubble.classList.add('ecl-range__bubble--visible');
+    this.placeBubble();
+  }
+
+  handleHoverOff() {
+    // Hide value bubble
+    this.bubble.classList.remove('ecl-range__bubble--visible');
   }
 
   /**
