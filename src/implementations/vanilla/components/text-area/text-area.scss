@@ -20,15 +20,24 @@ $textarea: null !default;
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
   display: block;
-  font: var(--f-m);
+  font: var(--f-ui-m);
   margin: 0;
   max-width: 100%;
-  padding: map.get($textarea, 'padding-vertical')
-    map.get($textarea, 'padding-horizontal');
+  padding: calc(
+      #{map.get($textarea, 'padding-vertical')} - #{map.get(
+          $textarea,
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($textarea, 'padding-horizontal')} - #{map.get(
+          $textarea,
+          'border-width'
+        )}
+    );
 
   &::placeholder {
     color: map.get($textarea, 'color-placeholder');
-    font: var(--f-m);
     opacity: 1;
   }
 
@@ -48,13 +57,13 @@ $textarea: null !default;
         #{map.get($textarea, 'padding-vertical')} - (#{map.get(
                 $textarea,
                 'border-width-focus'
-              )} - #{map.get($textarea, 'border-width')})
+              )})
       )
       calc(
         #{map.get($textarea, 'padding-horizontal')} - (#{map.get(
                 $textarea,
                 'border-width-focus'
-              )} - #{map.get($textarea, 'border-width')})
+              )})
       );
   }
 }

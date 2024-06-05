@@ -16,7 +16,6 @@ module.exports = {
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 'm',
   },
   sr_invalid_icon: 'Error',
   input: {
@@ -27,7 +26,6 @@ module.exports = {
     invalid_icon: {
       path: '/icons.svg',
       name: 'error',
-      size: 'm',
     },
     sr_invalid_icon: 'Error',
     items: [
@@ -38,6 +36,7 @@ module.exports = {
         value: 'es',
         icon_path: '/icons.svg',
         required_text: '*',
+        helper_text: 'Helper text for the item',
         label_aria_required: 'required',
       },
       {
@@ -45,6 +44,7 @@ module.exports = {
         label: 'Belgium',
         value: 'be',
         icon_path: '/icons.svg',
+        helper_text: 'Helper text for the item',
       },
       {
         disabled: true,
@@ -52,12 +52,14 @@ module.exports = {
         label: 'France (disabled)',
         value: 'fr',
         icon_path: '/icons.svg',
+        helper_text: 'Helper text for the item',
       },
       {
         id: 'checkbox-default-4',
         label: `Lorem ipsum dolor sit amet, <a href="${exampleLink}">consectetur adipiscing elit</a>`,
         value: 'lorem',
         icon_path: '/icons.svg',
+        helper_text: 'Helper text for the item',
       },
     ],
   },
