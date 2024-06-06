@@ -12,6 +12,7 @@ $blockquote: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
+  background-color: map.get($theme, 'color', 'white');
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
   border-radius: map.get($blockquote, 'border-radius');
@@ -92,7 +93,7 @@ $blockquote: null !default;
 .ecl-blockquote__author,
 %ecl-blockquote__author {
   color: map.get($blockquote, 'author', 'color');
-  font: map.get($blockquote, 'author', 'font-mobile');
+  font: map.get($blockquote, 'author', 'font');
   font-weight: map.get($blockquote, 'author', 'font-weight');
   position: relative;
   padding-inline-start: map.get($blockquote, 'author', 'padding');
@@ -132,12 +133,6 @@ $blockquote: null !default;
     box-shadow: map.get($blockquote, 'shadow');
     justify-content: flex-start;
     padding: map.get($blockquote, 'padding');
-  }
-
-  .ecl-blockquote__author,
-  %ecl-blockquote__author {
-    font: map.get($blockquote, 'author', 'font-desktop');
-    font-weight: map.get($blockquote, 'author', 'font-weight');
   }
 
   .ecl-blockquote__image,
