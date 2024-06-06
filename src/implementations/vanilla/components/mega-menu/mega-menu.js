@@ -703,6 +703,7 @@ export class MegaMenu {
    */
   positionMenuOverlay() {
     const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
+    let parentHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
@@ -715,6 +716,14 @@ export class MegaMenu {
         if (header) {
           const position = header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
+          const parentLink = queryOne(
+            '.ecl-mega-menu__item--expanded',
+            this.element,
+          );
+          if (parentLink) {
+            const parentRect = parentLink.getBoundingClientRect();
+            parentHeight = parentRect.height;
+          }
           if (menuOverlay) {
             menuOverlay.style.top = `${bottomPosition}px`;
           }
@@ -724,7 +733,9 @@ export class MegaMenu {
           const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
           if (wrappers) {
             wrappers.forEach((wrapper) => {
-              wrapper.style.top = `${bottomPosition}px`;
+              wrapper.style.top = parentLink
+                ? `${parentHeight}px`
+                : `${bottomPosition}px`;
             });
           }
         }
