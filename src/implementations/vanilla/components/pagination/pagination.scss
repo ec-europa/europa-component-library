@@ -16,10 +16,10 @@ $pagination: null !default;
   justify-content: center;
   box-sizing: border-box;
   display: flex;
-  height: map.get($pagination, 'item-size');
   margin-inline-end: map.get($pagination, 'item-margin-end');
+  min-height: map.get($pagination, 'item-size');
+  min-width: map.get($pagination, 'item-size');
   padding: map.get($pagination, 'item-padding');
-  width: map.get($pagination, 'item-size');
 
   &:hover {
     color: map.get($pagination, 'item-hover-color');
@@ -43,10 +43,7 @@ $pagination: null !default;
 }
 
 .ecl-pagination {
-  background-color: map.get($pagination, 'background-color');
-  border-top: map.get($pagination, 'border-width') solid
-    map.get($pagination, 'border-color');
-  border-radius: map.get($pagination, 'border-radius');
+  border-top: 1px solid map.get($pagination, 'border-color');
   color: map.get($pagination, 'text-color');
   font: var(--f-m);
   margin: 0;
@@ -72,9 +69,13 @@ $pagination: null !default;
   @include item-styles;
 }
 
-.ecl-pagination__item--truncation:active {
-  background: transparent;
-  color: var(--c-d);
+.ecl-pagination__item--truncation {
+  display: none;
+
+  &:active {
+    background: transparent;
+    color: var(--c-d);
+  }
 }
 
 .ecl-pagination__item--next {
@@ -153,6 +154,10 @@ $pagination: null !default;
     &:last-child {
       margin-inline-end: 0;
     }
+  }
+
+  .ecl-pagination__item--truncation {
+    display: flex;
   }
 
   .ecl-pagination__item--previous,

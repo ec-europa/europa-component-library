@@ -2,10 +2,7 @@
 @use '../index' as *;
 
 $pagination: (
-  background-color: transparent,
   border-color: var(--c-n),
-  border-radius: 0,
-  border-width: 1px,
   current-background: var(--c-p),
   current-border-width: 2px,
   current-font-weight: map.get($font-weight, 'regular'),
@@ -20,7 +17,7 @@ $pagination: (
   item-margin-end: var(--s-2xs),
   item-padding: 0,
   item-border-hover: var(--c-d-80),
-  item-size: 3rem,
+  item-size: 2.75rem,
   padding: var(--s-xl) 0 0,
   prev-next-active-border: var(--c-n-80),
   prev-next-active-background: var(--c-n-80),
