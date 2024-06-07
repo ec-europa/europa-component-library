@@ -674,7 +674,7 @@ $mega-menu: null !default;
       top: 45px;
 
       &:not(.ecl-mega-menu__info--has-link) {
-        display: none !important;
+        min-height: var(--s-2xs);
       }
     }
 
@@ -684,7 +684,6 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__info-link {
       position: relative;
-      top: var(--s-s);
       z-index: 1;
     }
 
@@ -697,14 +696,14 @@ $mega-menu: null !default;
     + .ecl-mega-menu__mega
     .ecl-mega-menu__subitem--expanded
     .ecl-mega-menu__parent-link {
-    top: 0;
+    top: -36px;
   }
 
   .ecl-mega-menu__info--has-link
     + .ecl-mega-menu__mega
     .ecl-mega-menu__subitem--expanded
     .ecl-mega-menu__parent-link {
-    top: -65px;
+    top: -63px;
   }
 }
 
@@ -757,7 +756,7 @@ $mega-menu: null !default;
   -webkit-box-orient: vertical;
   overflow: hidden;
 
-  &.ecl-link--icon {
+  &.ecl-link--icon:not(.ecl-mega-menu__parent-link) {
     display: flex;
     overflow: visible;
 
@@ -1111,7 +1110,6 @@ $mega-menu: null !default;
         &.ecl-mega-menu__subitem--current-page .ecl-mega-menu__sublink {
           background-color: transparent;
           box-shadow: none;
-          color: var(--c-d);
         }
       }
 

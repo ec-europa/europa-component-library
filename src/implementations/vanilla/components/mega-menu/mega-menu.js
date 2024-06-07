@@ -703,6 +703,7 @@ export class MegaMenu {
    */
   positionMenuOverlay() {
     const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
+    let parentLink = null;
     let parentHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
@@ -716,10 +717,17 @@ export class MegaMenu {
         if (header) {
           const position = header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
-          const parentLink = queryOne(
-            '.ecl-mega-menu__item--expanded',
-            this.element,
-          );
+          if (this.openPanel.num === 1) {
+            parentLink = queryOne(
+              '.ecl-mega-menu__item--expanded a',
+              this.element,
+            );
+          } else if (this.openPanel.num === 2) {
+            parentLink = queryOne(
+              '.ecl-mega-menu__subitem--expanded a',
+              this.element,
+            );
+          }
           if (parentLink) {
             const parentRect = parentLink.getBoundingClientRect();
             parentHeight = parentRect.height;
@@ -731,12 +739,20 @@ export class MegaMenu {
             this.inner.style.top = `${bottomPosition}px`;
           }
           const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-          if (wrappers) {
+          if (wrappers && this.openPanel.num < 2) {
             wrappers.forEach((wrapper) => {
               wrapper.style.top = parentLink
                 ? `${parentHeight}px`
                 : `${bottomPosition}px`;
             });
+          } else if (this.openPanel.num === 2 && parentLink) {
+            const infoPanel = queryOne(
+              '.ecl-mega-menu__info',
+              parentLink.closest('.ecl-container'),
+            );
+            if (infoPanel) {
+              infoPanel.style.top = `${parentHeight - 2}px`;
+            }
           }
         }
       }, 0);
@@ -1210,18 +1226,6 @@ export class MegaMenu {
   }
 
   /**
-   * Get the height of the parent link
-   *
-   * @param {Node} item
-   */
-  getParentHeight(item) {
-    const styles = window.getComputedStyle(item);
-    const parentHeight = parseFloat(styles.height);
-
-    return parentHeight;
-  }
-
-  /**
    * Show/hide the second panel
    *
    * @param {Node} menuItem
@@ -1237,7 +1241,6 @@ export class MegaMenu {
     let siblings;
     switch (op) {
       case 'expand': {
-        let parentHeight = 45;
         this.element.classList.remove('ecl-mega-menu--one-panel');
         this.element.classList.add('ecl-mega-menu--two-panels');
         this.subItems.forEach((item) => {
@@ -1249,11 +1252,6 @@ export class MegaMenu {
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
                 itemLink.classList.add('ecl-mega-menu__parent-link');
-                // Second panel in mobile is tricky, elements are relatively positioned.
-                parentHeight = this.getParentHeight(itemLink);
-                if (infoPanel) {
-                  infoPanel.style.top = `${parentHeight}px`;
-                }
               }
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
@@ -1287,7 +1285,7 @@ export class MegaMenu {
             }
           });
         }
-
+        this.positionMenuOverlay();
         const details = { panel: 2, item: menuItem };
         this.trigger('OnOpenPanel', details);
         break;
