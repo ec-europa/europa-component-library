@@ -714,7 +714,7 @@ $mega-menu: null !default;
   padding-inline-start: 0;
 
   .ecl-mega-menu__see-all {
-    margin: var(--s-3xl) 0 var(--s-xl);
+    margin: var(--s-xl) 0 var(--s-xl);
 
     .ecl-link {
       border-radius: 0;
@@ -804,6 +804,10 @@ $mega-menu: null !default;
   .ecl-mega-menu__sublink {
     color: var(--c-p);
     padding-inline-start: var(--s-m);
+
+    &.ecl-mega-menu__sublink--last {
+      border-bottom: none;
+    }
 
     .ecl-link__label {
       margin-inline-end: 0;

@@ -191,6 +191,9 @@
         {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
         {% set _subitem_class = 'ecl-mega-menu__subitem' %}
         {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+        {% if loop.last %}
+          {% set _sublink_class = _sublink_class ~ ' ecl-mega-menu__sublink--last' %}
+        {% endif %}
         {% set _sublink_attrs = child.extra_attributes|default([])|merge([
           { name: _menu_sublink_attribute },
         ]) %}
