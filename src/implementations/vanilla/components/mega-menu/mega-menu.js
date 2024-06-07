@@ -1347,6 +1347,7 @@ export class MegaMenu {
       const hasChildren = menuItem.getAttribute('aria-expanded');
       if (hasChildren && menuItem.classList.contains('ecl-mega-menu__item')) {
         e.preventDefault();
+        e.stopPropagation();
         if (!this.isDesktop) {
           this.handleFirstPanel(menuItem, 'expand');
         } else {
@@ -1375,6 +1376,7 @@ export class MegaMenu {
         return;
       }
       e.preventDefault();
+      e.stopPropagation();
       const isExpanded = menuItem.getAttribute('aria-expanded') === 'true';
 
       if (isExpanded) {
@@ -1470,7 +1472,7 @@ export class MegaMenu {
 
     // Specific focus action for mobile menu
     // Loop through the items and go back to close button
-    if (menuExpanded === 'true') {
+    if (menuExpanded === 'true' && !this.isDesktop) {
       const nextItem = element.parentElement.nextSibling;
 
       if (!nextItem) {
