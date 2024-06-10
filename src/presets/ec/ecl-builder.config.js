@@ -99,7 +99,7 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/resources-ec-icons/dist'),
+      from: path.resolve(nodeModules, '@ecl/resources-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {

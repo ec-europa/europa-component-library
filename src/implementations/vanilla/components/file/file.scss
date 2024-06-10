@@ -132,7 +132,7 @@ $file: null !default;
 
 .ecl-file__download {
   align-self: flex-start;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-top: map.get($file, 'file-download-spacing-mobile');
 }
 
@@ -247,7 +247,7 @@ $file: null !default;
 @include breakpoints.up('s') {
   .ecl-file__download {
     align-self: flex-end;
-    margin-left: auto;
+    margin-inline-start: auto;
     position: map.get($file, 'file-download-position');
     top: map.get($file, 'file-download-position-top');
   }
@@ -318,7 +318,7 @@ $file: null !default;
     padding: map.get($file, 'file-thumbnail-footer-padding');
     position: relative;
 
-    @if map-has-key($file, 'file-thumbnail-border') {
+    @if map.has-key($file, 'file-thumbnail-border') {
       &::before {
         content: '';
         position: absolute;

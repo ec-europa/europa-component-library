@@ -22,7 +22,7 @@ $accordion: null !default;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
-  font: var(--f-l);
+  font: var(--f-m);
   padding: map.get($accordion, 'item-padding');
   position: relative;
   text-align: start;
@@ -132,11 +132,4 @@ $accordion: null !default;
 
 .ecl-accordion__toggle-title {
   max-width: var(--max-w);
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('m') {
-  .ecl-accordion__toggle {
-    font: var(--f-xl);
-  }
 }
