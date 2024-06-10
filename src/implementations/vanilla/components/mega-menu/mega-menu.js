@@ -739,7 +739,7 @@ export class MegaMenu {
             this.inner.style.top = `${bottomPosition}px`;
           }
           const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-          if (wrappers && this.openPanel.num < 2) {
+          if (wrappers) {
             wrappers.forEach((wrapper) => {
               wrapper.style.top = parentLink
                 ? `${parentHeight}px`
