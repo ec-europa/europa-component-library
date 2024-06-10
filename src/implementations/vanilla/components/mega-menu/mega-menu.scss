@@ -30,7 +30,7 @@ $mega-menu: null !default;
   padding-top: var(--s-xs);
 
   .ecl-container {
-    padding: 0 var(--s-xs);
+    padding: 0;
   }
 }
 
@@ -221,6 +221,7 @@ $mega-menu: null !default;
   font: map.get($mega-menu, 'mobile', 'header-font');
   margin: var(--s-l) var(--s-xs) 0;
   position: relative;
+  padding-inline-start: var(--s-xs);
   text-decoration: none;
   width: 100%;
 
@@ -239,6 +240,7 @@ $mega-menu: null !default;
     background-color: map.get($mega-menu, 'mobile', 'header-background-hover');
     border-color: map.get($mega-menu, 'mobile', 'header-border-hover');
     color: map.get($mega-menu, 'mobile', 'header-color-hover');
+    padding-inline-start: calc(var(--s-xs) + 1px);
   }
 
   &:focus-visible {
@@ -324,7 +326,7 @@ $mega-menu: null !default;
   left: 0;
   padding: 0;
   top: 52px;
-  width: 100vw;
+  width: calc(100vw - var(--s-m));
 }
 
 /*
@@ -341,6 +343,8 @@ $mega-menu: null !default;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
   margin-bottom: 0;
   margin-top: var(--s-m);
+  margin-inline-start: var(--s-xs);
+  margin-inline-end: var(--s-xs);
   padding: 0;
 
   .ecl-mega-menu__inner--expanded & {
@@ -389,8 +393,10 @@ $mega-menu: null !default;
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
   border: none;
   box-sizing: border-box;
+  margin-inline-start: calc(-1 * var(--s-xs));
   padding-bottom: var(--s-xs);
   padding-top: var(--s-xs);
+  width: calc(100% + var(--s-m));
 }
 
 .ecl-mega-menu__mega,
@@ -406,9 +412,8 @@ $mega-menu: null !default;
 .ecl-mega-menu__info {
   background: var(--c-n-40);
   box-sizing: content-box;
-  margin: 0 calc(-1 * var(--s-m)) var(--s-m);
-  width: calc(100% - var(--s-xs));
-  padding-inline-start: var(--s-2xl);
+  margin: 0 calc(-1 * var(--s-xs)) var(--s-m);
+  padding-inline-start: var(--s-m);
   padding-bottom: var(--s-2xl);
 
   .ecl-mega-menu__info-title {
@@ -622,7 +627,7 @@ $mega-menu: null !default;
     box-shadow: none;
     font: map.get($mega-menu, 'mobile', 'subtitle-font');
     font-weight: map.get($mega-menu, 'mobile', 'subtitle-font-weight');
-    padding-inline-start: var(--s-xl);
+    padding-inline-start: var(--s-m);
 
     .ecl-link__icon {
       display: none;
@@ -655,7 +660,7 @@ $mega-menu: null !default;
       background-color: var(--c-n-40);
       display: flex;
       margin: 0 calc(-1 * var(--s-xs));
-      padding-inline-start: var(--s-xl);
+      padding-inline-start: var(--s-m);
 
       &.ecl-mega-menu__parent-link {
         border: none;
@@ -671,7 +676,7 @@ $mega-menu: null !default;
       background-color: var(--c-n-40);
       margin-bottom: 0;
       position: relative;
-      top: 45px;
+      top: 43px;
 
       &:not(.ecl-mega-menu__info--has-link) {
         min-height: var(--s-2xs);
@@ -721,7 +726,7 @@ $mega-menu: null !default;
       box-sizing: border-box;
       color: var(--c-d);
       font: var(--f-m);
-      margin: 0 var(--s-m);
+      margin: 0 var(--s-xs);
       padding: var(--s-xs) 0;
 
       &:hover {
@@ -803,7 +808,6 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__sublink {
     color: var(--c-p);
-    padding-inline-start: var(--s-m);
 
     &.ecl-mega-menu__sublink--last {
       border-bottom: none;
@@ -827,7 +831,6 @@ $mega-menu: null !default;
   flex-direction: column;
   margin-inline-start: calc(-1 * var(--s-xs));
   margin-inline-end: calc(-1 * var(--s-xs));
-  padding-inline-start: var(--s-xs);
 
   .ecl-mega-menu__featured-picture {
     display: block;
@@ -892,6 +895,7 @@ $mega-menu: null !default;
     .ecl-mega-menu__wrapper {
       padding-top: var(--s-m);
       min-height: 200px;
+      width: 100vw;
 
       &::before {
         background: #e3e3e3;
@@ -906,6 +910,7 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__list {
+      margin: 0;
       padding: 0;
     }
 
@@ -1019,6 +1024,10 @@ $mega-menu: null !default;
         border-bottom: 0;
       }
 
+      .ecl-mega-menu__info-content {
+        margin-top: var(--s-2xs);
+      }
+
       > .ecl-mega-menu__info {
         box-sizing: border-box;
         box-shadow: 0px 4px 10px 0px rgba(224, 229, 245, 0.42);
@@ -1047,6 +1056,8 @@ $mega-menu: null !default;
     .ecl-mega-menu__sublist {
       border-color: map.get($theme, 'color', 'white');
       border-width: 2px;
+      display: flex;
+      flex-direction: column;
       flex: 1;
       margin: 0;
       padding-inline-start: 0;
@@ -1058,7 +1069,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__see-all {
-        margin-top: var(--s-3xl);
+        margin-top: auto;
         position: relative;
 
         .ecl-link {
