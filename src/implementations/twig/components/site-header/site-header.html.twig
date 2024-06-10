@@ -186,6 +186,8 @@
   {% set extra_classes = _css_class ~ '--has-menu ' ~ extra_classes %}
 {% endif %}
 
+{% set _css_class = _css_class ~ ' ecl-site-header-with-logo-' ~ _logo.size|default('l')  %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}

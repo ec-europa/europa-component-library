@@ -56,6 +56,18 @@ $language-list: null !default;
     margin-bottom: 0;
   }
 
+  &.ecl-site-header-with-logo-s .ecl-menu__open {
+    top: 8px;
+  }
+
+  &.ecl-site-header-with-logo-m .ecl-menu__open {
+    top: 14px;
+  }
+
+  &.ecl-site-header-with-logo-l .ecl-menu__open {
+    top: 20px;
+  }
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-menu__open,
   .ecl-menu[aria-expanded='true'] .ecl-menu__open {
     align-items: center;
@@ -66,7 +78,7 @@ $language-list: null !default;
     height: 44px;
     padding: calc(var(--s-xs) + 1px) 0;
     position: relative;
-    top: 1.25rem;
+
     /* stylelint-disable-next-line no-descending-specificity */
     &:hover {
       background-color: var(--c-p-10);
