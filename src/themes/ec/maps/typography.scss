@@ -114,6 +114,15 @@ $line-height-print: (
   '3xl': 28.9pt,
   '4xl': 31.5pt,
 ) !default;
+$font-size-ui-print: (
+  's': 9.2pt,
+  'm': 10.5pt,
+) !default;
+$line-height-ui-print: (
+  'xs': 14.4pt,
+  's': 15.75pt,
+  'm': 18.4pt,
+) !default;
 $font-print: (
   'xs': normal normal map.get($font-weight-print, 'regular') #{map.get(
       $font-size-print,
@@ -168,6 +177,22 @@ $font-print: (
       $font-size-print,
       '4xl'
     ) + '/' + map.get($line-height-print, '4xl')} #{map.get(
+      $font-family-print,
+      'default'
+    )},
+) !default;
+$font-ui-print: (
+  's': normal normal map.get($font-weight-print, 'regular') #{map.get(
+      $font-size-ui-print,
+      's'
+    ) + '/' + map.get($line-height-ui-print, 's')} #{map.get(
+      $font-family-print,
+      'default'
+    )},
+  'm': normal normal map.get($font-weight-print, 'regular') #{map.get(
+      $font-size-ui-print,
+      'm'
+    ) + '/' + map.get($line-height-ui-print, 'm')} #{map.get(
       $font-family-print,
       'default'
     )},
