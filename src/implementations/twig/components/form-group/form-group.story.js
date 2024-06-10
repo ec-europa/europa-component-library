@@ -31,6 +31,7 @@ const getArgs = (data) => {
     show_label: true,
     show_helper: true,
     show_error: true,
+    width: data.input.width || 'm',
     invalid: data.invalid || false,
     disabled: data.disabled || false,
     required: data.required || false,
@@ -43,10 +44,6 @@ const getArgs = (data) => {
       input_type: data.input.input_type,
     },
   };
-
-  if (data.input.width) {
-    args.width = data.input.width;
-  }
 
   if (data.input.name) {
     args.name = data.input.name;

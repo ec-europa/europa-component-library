@@ -152,6 +152,7 @@ $select: null !default;
 
 .ecl-select--active {
   &:hover {
+    border-color: map.get($select, 'border-color-focus');
     cursor: pointer !important;
   }
 
