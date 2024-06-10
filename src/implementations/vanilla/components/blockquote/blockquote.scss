@@ -98,21 +98,23 @@ $blockquote: null !default;
   position: relative;
   padding-inline-start: map.get($blockquote, 'author', 'padding');
 
-  &::before {
-    align-items: center;
-    color: map.get($blockquote, 'author', 'color');
-    content: '—';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: -6px;
+  @if map.has-key($blockquote, 'author', 'separator') {
+    &::before {
+      color: map.get($blockquote, 'author', 'color');
+      content: '—';
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: -5px;
+    }
   }
 }
 
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
+  display: block;
   height: 120px;
   margin-bottom: map.get($blockquote, 'image', 'margin-mobile');
   object-fit: cover;
