@@ -44,7 +44,7 @@ const getArgs = (data) => {
     defaultArgs.site_name = data.site_name;
   }
   if (data.banner_top) {
-    defaultArgs.show_banner_top = true;
+    defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
     defaultArgs.show_menu = true;

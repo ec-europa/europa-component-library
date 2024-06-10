@@ -56,10 +56,23 @@ $language-list: null !default;
     margin-bottom: 0;
   }
 
-  .ecl-menu__open {
+  .ecl-menu__open,
+  .ecl-menu[aria-expanded='true'] .ecl-menu__open {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid transparent;
     box-sizing: border-box;
-    margin-inline-start: var(--s-xs);
-    padding: calc(var(--s-xs) + 1px) 1px;
+    color: currentcolor;
+    height: 44px;
+    padding: calc(var(--s-xs) + 1px) 0;
+    position: relative;
+    top: 1.25rem;
+    /* stylelint-disable-next-line no-descending-specificity */
+    &:hover {
+      background-color: var(--c-p-10);
+      border-color: var(--c-d);
+      border-width: 1px;
+    }
   }
 }
 
@@ -67,7 +80,7 @@ $language-list: null !default;
   display: flex;
   flex-direction: column;
   padding-bottom: var(--s-m);
-  padding-top: var(--s-m);
+  padding-top: var(--s-l);
   position: static;
 }
 
@@ -84,8 +97,16 @@ $language-list: null !default;
 
 .ecl-site-header__logo-image {
   display: block;
-  height: map.get($site-header, 'logo-height-xs');
+  height: map.get($site-header, 'logo-height-s');
   max-width: 100%;
+
+  &.ecl-site-header__logo-image--m {
+    height: map.get($site-header, 'logo-height-m');
+  }
+
+  &.ecl-site-header__logo-image--l {
+    height: map.get($site-header, 'logo-height-l');
+  }
 }
 
 .ecl-site-header__action {
@@ -94,11 +115,15 @@ $language-list: null !default;
 
   .ecl-button {
     box-sizing: border-box;
-    margin-inline-end: var(--s-xs);
+    height: 44px;
+
+    &:not(.ecl-site-header__search-toggle) {
+      margin-inline-end: var(--s-2xs);
+    }
   }
 
   .ecl-site-header--has-menu & {
-    margin-inline-end: 36px;
+    margin-inline-end: calc(44px + var(--s-2xs));
   }
 
   .ecl-form-group {
@@ -110,6 +135,7 @@ $language-list: null !default;
   .ecl-search-form__text-input {
     box-sizing: border-box;
     flex-grow: 0;
+    height: 44px;
     width: 100%;
   }
 }
@@ -216,9 +242,9 @@ $language-list: null !default;
 
 .ecl-site-header__site-name {
   color: map.get($site-header, 'site-name-mobile-color');
-  font: var(--f-p-xl);
+  font: var(--f-l);
   margin-inline-end: var(--s-3xl);
-  padding: calc(var(--s-xs) + 2px) 0;
+  padding: var(--s-m) 0;
 }
 
 .ecl-site-header__notification {
@@ -272,13 +298,6 @@ $language-list: null !default;
 @include breakpoints.up('s') {
   .ecl-site-header__logo-link {
     flex-grow: 0;
-  }
-
-  .ecl-site-header__logo-image {
-    height: map.get($site-header, 'logo-height-sm');
-    max-height: 100%;
-    max-width: 100%;
-    width: map.get($site-header, 'logo-width-sm');
   }
 }
 
@@ -338,7 +357,7 @@ $language-list: null !default;
     align-items: flex-end;
     flex-direction: row;
     padding-bottom: var(--s-m);
-    padding-top: var(--s-m);
+    padding-top: var(--s-l);
   }
 
   .ecl-site-header__top {
@@ -351,19 +370,14 @@ $language-list: null !default;
 
   .ecl-site-header__logo-image {
     display: block;
-    width: map.get($site-header, 'logo-width-lg');
+
+    &.ecl-site-header__logo-image--l {
+      height: map.get($site-header, 'logo-height-lg-l');
+    }
   }
 
-  .ecl-site-header__logo-image--s {
-    height: map.get($site-header, 'logo-height-lg-s');
-  }
-
-  .ecl-site-header__logo-image--m {
-    height: map.get($site-header, 'logo-height-lg-m');
-  }
-
-  .ecl-site-header__logo-image--l {
-    height: map.get($site-header, 'logo-height-lg-l');
+  .ecl-site-header__action .ecl-form-group {
+    width: map.get($site-header, 'search-width-xl');
   }
 
   .ecl-site-header__login-container {
@@ -371,7 +385,7 @@ $language-list: null !default;
   }
 
   .ecl-site-header__notification .ecl-notification {
-    margin: 0 0 var(--s-l);
+    margin: 0 0 var(--s-m);
   }
 
   .ecl-site-header__login-box {
@@ -430,7 +444,7 @@ $language-list: null !default;
 
   .ecl-site-header__search-container {
     flex-grow: 1;
-    margin-inline-start: var(--s-2xl);
+    margin-inline-start: var(--s-l);
 
     .ecl-site-header__search {
       background-color: map.get($theme, 'color', 'white');
@@ -441,7 +455,7 @@ $language-list: null !default;
       padding: 0;
       position: relative;
       top: 0;
-      width: map.get($site-header, 'search-width-l');
+      width: map.get($site-header, 'search-width-xl');
 
       .ecl-search-form__button {
         margin-inline-end: 0;
@@ -459,10 +473,4 @@ $language-list: null !default;
     display: none;
   }
   // stylelint-enable plugin/selector-bem-pattern
-}
-
-@include breakpoints.up('xl') {
-  .ecl-site-header__action .ecl-search-form__text-input {
-    width: map.get($site-header, 'search-width-xl');
-  }
 }
