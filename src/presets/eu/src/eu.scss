@@ -223,6 +223,10 @@
   $theme: theme.$theme,
   $menu: var.$menu
 );
+@use '@ecl/vanilla-component-mega-menu/mega-menu' with (
+  $theme: theme.$theme,
+  $mega-menu: var.$mega-menu
+);
 @use '@ecl/vanilla-component-site-footer/site-footer-eu' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer

@@ -218,7 +218,7 @@ $menu: null !default;
 }
 
 // Expanded
-@if map-has-key($menu, 'mobile', 'hide-header') {
+@if map.has-key($menu, 'mobile', 'hide-header') {
   .ecl-menu__inner-header {
     flex-flow: row;
   }
