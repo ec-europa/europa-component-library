@@ -4,11 +4,6 @@
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
-  - "see_all": (boolean) (default: false) Whether to show the "view all" link
-  - "see_all_label": (string) (default: ''): Label for the "view all" link
-  - "see_all_attributes" (optional) (array) Custom attributes for the "view all" link
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   - "item" (object)
     - "is_current" (boolean) Whether the item links to the current page
     - "label" (string) Label of the menu link
@@ -19,6 +14,10 @@
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "info" (object) (default: {}) Info column
+      - "title" (string) Title of the info panel
+      - "content" (string) Content of the info panel
+      - "link" (object) Structure for the "discover more" link, following ECL Link
     - "featured": (object) (default({})) Featured column
       - "title" (string) Title of the featured panel
       - "content" (string) Content of the featured panel
@@ -31,6 +30,11 @@
           - "name" (string) Attribute name, eg. 'data-test'
           - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "container": (string) White panel to be filled at will
+    - "see_all": (boolean) (default: false) Whether to show the "view all" link
+    - "see_all_label": (string) (default: ''): Label for the "view all" link
+    - "see_all_attributes" (optional) (array) Custom attributes for the "view all" link
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
       - "sr_external" (string) (default: '') Additional label for the external icon
@@ -89,12 +93,18 @@
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _can_be_external = false %}
-  {% set _icon = {
+  {% set _icon = [{
     name: 'corner-arrow',
     transform: 'rotate-90',
     path: _icon_path,
     size: '2xs',
-  } %}
+  },
+  {
+    name: 'arrow-left',
+    transform: 'flip-horizontal',
+    path: _icon_path,
+    size: 's',
+  }] %}
 {% endif %}
 
 {%- if _item.label is not empty -%}
@@ -113,7 +123,7 @@
       type: 'standalone',
       label: _item.label,
       path: _item.path,
-      icon_path: icon_path,
+      icon_path: _icon_path,
       external: _can_be_external ? _item.external|default(false),
       sr_external: _item.sr_external|default(''),
       icon_position: 'after',
@@ -157,8 +167,20 @@
       {%- if _info.content is not empty -%}
         <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
       {%- endif -%}
-      {%- if _info.link is not empty -%}
-        {% include '@ecl/link/link.html.twig' with _info.link|merge({ type: 'standalone' }) only %}
+      {%- if _info.link is not empty and _item.path is not empty -%}
+        {% include '@ecl/link/link.html.twig' with _info.link|merge({
+          link: _info.link.link|merge({
+            type: 'standalone',
+            path: _item.path,
+          }),
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: _icon_path,
+            size: 'xs',
+          },
+          extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
+        }) only %}
       {%- endif -%}
       </div>
 
@@ -175,6 +197,9 @@
         {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
         {% set _subitem_class = 'ecl-mega-menu__subitem' %}
         {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+        {% if loop.last %}
+          {% set _sublink_class = _sublink_class ~ ' ecl-mega-menu__sublink--last' %}
+        {% endif %}
         {% set _sublink_attrs = child.extra_attributes|default([])|merge([
           { name: _menu_sublink_attribute },
         ]) %}

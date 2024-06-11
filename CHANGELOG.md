@@ -1,5 +1,48 @@
 # Changelog
 
+# 4.2.2
+
+#### :warning: Markup Changes
+
+- [#3426](https://github.com/ec-europa/europa-component-library/pull/3426) feat(mega-menu): Improving menu positioning, some style changes - FRONT-4456 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3426](https://github.com/ec-europa/europa-component-library/pull/3426) feat(mega-menu): Improving menu positioning, some style changes - FRONT-4456 ([@planctus](https://github.com/planctus))
+- [#3428](https://github.com/ec-europa/europa-component-library/pull/3428) feat(icons): add Bluesky icons - FRONT-4441 ([@emeryro](https://github.com/emeryro))
+- [#3422](https://github.com/ec-europa/europa-component-library/pull/3422) feat(date block): update styles - FRONT-4449 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#3412](https://github.com/ec-europa/europa-component-library/pull/3412) feat(icon): update example on website - FRONT-4439 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+## 4.2.1
+
+#### :warning: Data Changes
+
+- [#3418](https://github.com/ec-europa/europa-component-library/pull/3418) feat(mega-menu): update "discover more" link - FRONT-4446 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3413](https://github.com/ec-europa/europa-component-library/pull/3413) fix(site-header): fix z-index - FRONT-4443 ([@emeryro](https://github.com/emeryro))
+- [#3417](https://github.com/ec-europa/europa-component-library/pull/3417) fix(mega-menu): fix link not clickable - FRONT-4444 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3418](https://github.com/ec-europa/europa-component-library/pull/3418) feat(mega-menu): update "discover more" link - FRONT-4446 ([@emeryro](https://github.com/emeryro))
+- [#3392](https://github.com/ec-europa/europa-component-library/pull/3392) feat(fact and figures): improve center and print display - FRONT-4425 ([@emeryro](https://github.com/emeryro))
+- [#3395](https://github.com/ec-europa/europa-component-library/pull/3395) feat(label): update display - FRONT-4416 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 ## 4.2.0
 
 #### :rocket: New Feature
