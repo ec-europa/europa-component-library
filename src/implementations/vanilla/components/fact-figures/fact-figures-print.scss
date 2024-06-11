@@ -7,6 +7,7 @@
 
 // Exposed variables
 $theme: null !default;
+$fact-figures: null !default;
 
 .ecl-fact-figures {
   margin: 0;
@@ -14,16 +15,17 @@ $theme: null !default;
 
 .ecl-fact-figures__item {
   border-bottom: 1px solid map.get($theme, 'color', 'black');
+  display: flex;
+  flex-direction: column;
   max-width: var(--max-w);
   padding-bottom: map.get($theme, 'spacing-print', 'xl');
   padding-top: map.get($theme, 'spacing-print', 'xl');
 }
 
 .ecl-fact-figures__icon {
+  color: map.get($fact-figures, 'icon-color');
   display: block;
-  float: left;
-  margin-right: map.get($theme, 'spacing-print', 'm');
-  margin-top: map.get($theme, 'spacing-print', '2xs');
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-fact-figures__value {
@@ -37,25 +39,11 @@ $theme: null !default;
   font: map.get($theme, 'font-prolonged-print', 'l');
   font-family: #{map.get($theme, 'font-family-print', 'alt')};
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-left: calc(
-    #{map.get($theme, 'icon-print', 'm')} + #{map.get(
-        $theme,
-        'spacing-print',
-        'm'
-      )}
-  );
   margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
 .ecl-fact-figures__description {
   font: map.get($theme, 'font-prolonged-print', 'm');
-  margin-left: calc(
-    #{map.get($theme, 'icon-print', 'm')} + #{map.get(
-        $theme,
-        'spacing-print',
-        'm'
-      )}
-  );
   margin-top: map.get($theme, 'spacing-print', 's');
 }
 
@@ -78,5 +66,19 @@ $theme: null !default;
 
   .ecl-fact-figures--col-4 & {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ecl-fact-figures--centered {
+  .ecl-fact-figures__items {
+    justify-content: center;
+  }
+
+  .ecl-fact-figures__item {
+    align-items: center;
+
+    * {
+      text-align: center;
+    }
   }
 }

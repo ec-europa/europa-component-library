@@ -145,7 +145,7 @@ $checkbox: null !default;
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
   border-color: map.get($checkbox, 'box-border-color-hover');
 
-  @if map-has-key($checkbox, 'hover-circle') {
+  @if map.has-key($checkbox, 'hover-circle') {
     &::before {
       @each $property, $value in map.get($checkbox, 'hover-circle') {
         #{$property}: $value;
@@ -158,7 +158,7 @@ $checkbox: null !default;
 .ecl-checkbox__input:focus-visible {
   ~ .ecl-checkbox__label {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-      @if map-has-key($checkbox, 'hover-circle') {
+      @if map.has-key($checkbox, 'hover-circle') {
         &::before {
           @each $property, $value in map.get($checkbox, 'hover-circle') {
             #{$property}: $value;
@@ -174,7 +174,7 @@ $checkbox: null !default;
   &:checked {
     ~ .ecl-checkbox__label {
       .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-        @if not map-has-key($checkbox, 'hover-circle') {
+        @if not map.has-key($checkbox, 'hover-circle') {
           outline: 2px solid var(--c-p);
           outline-offset: 2px;
         }
