@@ -103,7 +103,7 @@ $navigation-list: null !default;
   }
 }
 
-@if map-has-key($navigation-list, 'yellow-bar') {
+@if map.has-key($navigation-list, 'yellow-bar') {
   .ecl-navigation-list__item:not(.ecl-navigation-list__item--no-border) {
     .ecl-navigation-list__content-block {
       &::before {

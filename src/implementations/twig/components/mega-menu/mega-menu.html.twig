@@ -7,6 +7,7 @@
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
+  - "aria-label" (string) (default: '') Aria label for the main nav
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
     {
@@ -15,12 +16,15 @@
       "is_current": (boolean) (optional),
       "external": (boolean) (optional),
       "sr_external" (string) (default: '') Additional label for the external icon
-      "trigger_aria_label" (string),
       "link_aria_label" (string),
       "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
         - "name" (string) Attribute name, eg. 'data-test'
         - "value" (optional) (string) Attribute value, eg: 'data-test-1'
       "container": (string) Empty container to be filled in with content
+      - "info" (object) (default: {}) Info column
+        - "title" (string) Title of the info panel
+        - "content" (string) Content of the info panel
+        - "link" (object) Structure for the "discover more" link, following ECL Link
       "featured" (oject) (optional) {
         - "title": (string) Title of the featured panel
         - "content": (string) Top content of the featured panel
@@ -56,6 +60,7 @@
 {% set _id = id|default(random()) %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
+{% set _aria_label = aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _items = items|default([{}]) %}
@@ -92,6 +97,9 @@
   aria-expanded="false"
   role="navigation"
   id={{ _id }}
+  {%- if _aria_label is not empty %}
+    aria-label="{{ _aria_label }}"
+  {%- endif -%}
   {{- _extra_attributes|raw -}}
 >
   <div class="ecl-mega-menu__overlay"></div>
@@ -113,9 +121,10 @@
         }),
         icon: _toggle_icon,
         extra_classes: 'ecl-button ecl-button--tertiary ecl-mega-menu__open',
-        extra_attributes: [{
-          name: 'data-ecl-mega-menu-open',
-        }],
+        extra_attributes: [
+          { name: 'data-ecl-mega-menu-open' },
+          { name: 'aria-expanded', value: 'false' }
+        ],
       }) only %}
     {%- endif -%}
 

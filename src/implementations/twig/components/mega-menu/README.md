@@ -21,10 +21,13 @@ npm install --save @ecl/twig-component-mega-menu
   "is_current": (boolean) (optional)
   "external": (boolean) (optional)
   "sr_external" (string) (default: '') Additional label for the external icon
-  "trigger_aria_label" (string)
   "link_aria_label" (string)
   "container": (string) Empty container to be filled in with content
-  "featured" (oject) (optional) {
+  "info" (object) (default: {}) Info column
+  "title" (string) Title of the info panel
+  "content" (string) Content of the info panel
+  "link" (object) Structure for the "discover more" link, following ECL Link
+  "featured" (object) (optional) {
   "title": (string)
   "content": (string)
   "items": (associative array)

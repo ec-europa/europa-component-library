@@ -42,9 +42,6 @@ export const iconImage = template(
     as_image: true,
     extra_accessibility: {
       title: 'Title',
-      title_id: 'example-title',
-      description: 'Description',
-      description_id: 'example-desc',
     },
   }),
 );
