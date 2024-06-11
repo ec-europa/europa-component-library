@@ -26,6 +26,7 @@ describe('Menu', () => {
       expect.assertions(1);
       const dataExternal = JSON.parse(JSON.stringify(dataShort));
       dataExternal.items[2].external = true;
+      dataExternal.items[2].sr_external = 'Link to an external domain';
 
       return expect(render(dataExternal)).resolves.toMatchSnapshot();
     });

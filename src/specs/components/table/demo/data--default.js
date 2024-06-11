@@ -1,4 +1,5 @@
 module.exports = {
+  id: 'table-id',
   caption: 'Table caption',
   headers: [
     [

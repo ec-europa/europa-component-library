@@ -4,7 +4,7 @@
 $featured-item: (
   padding: 0,
   border: none,
-  border-radius: map.get($border-radius, 'm') map.get($border-radius, 'm') 0 0,
+  border-radius: map.get($border-radius, 'm'),
   shadow: none,
   media-padding-mobile: 0 0 var(--s-m) 0,
   media-padding-desktop: 0 var(--s-m) var(--s-m) 0,
@@ -23,6 +23,18 @@ $featured-item: (
   link-spacing-mobile: var(--s-m) 0,
   link-spacing-desktop: var(--s-m) 0,
   link-spacing-right: var(--s-m) 0,
+  simple: (
+    container-background: map.get($color, 'white'),
+    media-padding-mobile: 0 0 var(--s-m),
+    media-padding-desktop: 0 var(--s-m) var(--s-m) 0,
+    padding-mobile: 0,
+    padding-desktop: 0,
+    border-size: 0,
+    border-color: var(--c-p),
+    link-spacing: var(--s-m) 0,
+    title-spacing: 0,
+    description-spacing: var(--s-s) 0 0 0,
+  ),
   highlight: (
     container-background: var(--c-p-10),
     title-background: transparent,
@@ -48,7 +60,15 @@ $featured-item-print: (
   description-font: map.get($font-prolonged-print, 'm'),
   description-spacing: map.get($spacing-print, 's') 0 0 0,
   link-spacing: map.get($spacing-print, 'm') 0 0 0,
+  simple: (
+    media-padding-desktop: 0 0 map.get($spacing-print, 'm') 0,
+    padding-desktop: 0,
+    link-spacing: map.get($spacing-print, 'm') 0,
+    title-spacing: 0,
+    description-spacing: map.get($spacing-print, 's') 0 0 0,
+  ),
   highlight: (
+    media-padding-desktop: 0 map.get($spacing-print, 'm') 0 0,
     item-spacing: map.get($spacing-print, 'l') map.get($spacing-print, 'l') 0 0,
     padding-desktop: map.get($spacing-print, 'm') map.get($spacing-print, 'm')
       map.get($spacing-print, 'm') map.get($spacing-print, 'l'),

@@ -3,6 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-featured-item/demo/data';
+import demoDataSimple from '@ecl/specs-component-featured-item/demo/data--simple';
 import demoDataHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
@@ -12,7 +13,7 @@ const mediaContainer = { ...demoData.media_container };
 const getArgs = (data) => {
   const args = {
     show_media: true,
-    show_footer: true,
+    show_footer: false,
     title: data.title,
     description: data.description,
     position: 'left',
@@ -170,6 +171,21 @@ Default.args = getArgs(demoData);
 Default.argTypes = getArgTypes(demoData);
 Default.parameters = {
   notes: { markdown: notes, json: demoData },
+};
+
+export const Simple = (_, { loaded: { component } }) => component;
+
+Simple.render = async (args) => {
+  const renderedFeaturedItem = await featuredItem(
+    prepareData(demoDataSimple, args),
+  );
+  return renderedFeaturedItem;
+};
+Simple.storyName = 'simple';
+Simple.args = getArgs(demoDataSimple);
+Simple.argTypes = getArgTypes(demoDataSimple);
+Simple.parameters = {
+  notes: { markdown: notes, json: demoDataSimple },
 };
 
 export const Highlight = (_, { loaded: { component } }) => component;

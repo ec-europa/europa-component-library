@@ -11,11 +11,12 @@ $menu: (
   mobile: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     color: var(--c-d),
+    hamburger-color: map.get($color, 'white'),
     content-background: map.get($color, 'white'),
     content-shadow: none,
     overlay-background: rgba(38, 43, 56, 0.7),
     open-padding: var(--s-xs) 0,
-    open-padding-hover: var(--s-xs) 0,
+    open-padding-hover: calc(var(--s-xs) + 1px) 0,
     open-outline-color: map.get($color, 'white'),
     open-background-active: var(--c-p-5),
     header-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
