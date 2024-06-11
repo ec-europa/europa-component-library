@@ -93,12 +93,18 @@
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _can_be_external = false %}
-  {% set _icon = {
+  {% set _icon = [{
     name: 'corner-arrow',
     transform: 'rotate-90',
     path: _icon_path,
     size: '2xs',
-  } %}
+  },
+  {
+    name: 'arrow-left',
+    transform: 'flip-horizontal',
+    path: _icon_path,
+    size: 's',
+  }] %}
 {% endif %}
 
 {%- if _item.label is not empty -%}
@@ -191,6 +197,9 @@
         {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
         {% set _subitem_class = 'ecl-mega-menu__subitem' %}
         {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+        {% if loop.last %}
+          {% set _sublink_class = _sublink_class ~ ' ecl-mega-menu__sublink--last' %}
+        {% endif %}
         {% set _sublink_attrs = child.extra_attributes|default([])|merge([
           { name: _menu_sublink_attribute },
         ]) %}
