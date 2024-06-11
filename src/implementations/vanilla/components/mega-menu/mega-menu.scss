@@ -382,10 +382,16 @@ $mega-menu: null !default;
 
   .ecl-icon {
     flex-shrink: 0;
-    height: calc(var(--s-s) + 0.5px);
+    height: var(--s-l);
     margin-inline-start: auto;
     padding: 1px 3px;
-    width: calc(var(--s-s) + 0.5px);
+    width: var(--s-l);
+
+    &:first-of-type {
+      height: calc(var(--s-s) + 0.5px);
+      width: calc(var(--s-s) + 0.5px);
+      display: none;
+    }
   }
 }
 
@@ -554,6 +560,14 @@ $mega-menu: null !default;
         height: calc(var(--s-xs) + 2px);
         transform: rotate(180deg);
         width: calc(var(--s-xs) + 2px);
+
+        &:first-of-type {
+          display: flex;
+        }
+
+        &:last-of-type {
+          display: none;
+        }
       }
     }
 
