@@ -491,6 +491,10 @@ export class Gallery {
       mediaElement.setAttribute('controls', 'controls');
       mediaElement.classList.add('ecl-gallery__slider-video');
 
+      if (this.videoPlayerLabel) {
+        mediaElement.setAttribute('aria-label', this.videoPlayerLabel);
+      }
+
       if (this.overlayMedia) {
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
@@ -538,6 +542,9 @@ export class Gallery {
       }
     }
 
+    // Get id
+    const id = selectedItem.getAttribute('id');
+
     // Update counter
     this.overlayCounterCurrent.innerHTML =
       +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
@@ -549,6 +556,9 @@ export class Gallery {
     );
     if (shareHref != null) {
       this.overlayShare.href = shareHref;
+      if (id) {
+        this.overlayShare.setAttribute('aria-describedby', `${id}-title`);
+      }
       this.overlayShare.hidden = false;
     } else {
       this.overlayShare.hidden = true;
@@ -557,6 +567,9 @@ export class Gallery {
     // Update download link
     if (this.overlayDownload !== null && embeddedVideo === null) {
       this.overlayDownload.href = this.selectedItem.href;
+      if (id) {
+        this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
+      }
       this.overlayDownload.hidden = false;
     } else if (this.overlayDownload !== null) {
       this.overlayDownload.hidden = true;
@@ -639,11 +652,18 @@ export class Gallery {
       this.hideItems();
       this.viewAll.textContent = this.viewAllLabel;
     } else {
-      this.galleryItems.forEach((item) => {
-        this.viewAll.expanded = true;
-        item.parentNode.classList.remove('ecl-gallery__item--hidden');
-        this.viewAll.textContent = this.viewAllLabelExpanded;
-      });
+      this.viewAll.expanded = true;
+      this.viewAll.textContent = this.viewAllLabelExpanded;
+
+      const hidden = this.galleryItems.filter((item) =>
+        item.parentNode.classList.contains('ecl-gallery__item--hidden'),
+      );
+      if (hidden.length > 0) {
+        hidden.forEach((item) => {
+          item.parentNode.classList.remove('ecl-gallery__item--hidden');
+        });
+        hidden[0].focus();
+      }
     }
   }
 

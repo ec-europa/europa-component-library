@@ -122,6 +122,19 @@
       { name: 'aria-invalid', value: 'true' },
     ]) %}
   {% endif %}
+
+  {% if _input.input_type == 'radio' %}
+    {% set extra_attributes = extra_attributes|default([])|merge([
+      { name: 'role', value: 'radiogroup' },
+    ]) %}
+
+    {% if _required %}
+      {% set extra_attributes = extra_attributes|default([])|merge([
+        { name: 'aria-required', value: 'true' },
+      ]) %}
+    {% endif %}
+  {% endif %}
+
 {% else %}
   {# single input, uses input.extra_attributes #}
   {% if _aria_describedby is not empty %}

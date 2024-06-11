@@ -18,7 +18,6 @@ $language-list: null !default;
 );
 
 .ecl-site-header {
-  box-shadow: var(--sh-6);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -57,6 +56,11 @@ $language-list: null !default;
   .ecl-site-header__cta:only-child {
     margin-top: 0;
   }
+}
+
+.ecl-site-header__header {
+  box-shadow: var(--sh-6);
+  position: relative;
 }
 
 .ecl-site-header__container {
@@ -243,7 +247,7 @@ $language-list: null !default;
   display: block;
   font: var(--f-l);
   min-height: 1.75rem;
-  padding: var(--s-xs) 0;
+  padding: var(--s-m) 0;
 
   .ecl-container {
     display: flex;
@@ -313,8 +317,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
 @include breakpoints.up('l') {
   .ecl-site-header {
-    z-index: 3;
-
     .ecl-site-header__cta {
       align-self: center;
       margin: 0;

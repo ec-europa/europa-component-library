@@ -45,6 +45,7 @@ $media-container: null !default;
 .ecl-media-container__caption {
   color: map.get($media-container, 'caption-color');
   font: map.get($media-container, 'caption-font');
+  line-height: map.get($media-container, 'caption-line-height');
   max-width: var(--max-w);
   padding: map.get($media-container, 'caption-padding');
   position: relative;
@@ -87,7 +88,7 @@ $media-container: null !default;
   width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
 }
 
-@if map-has-key($media-container, 'caption-before') {
+@if map.has-key($media-container, 'caption-before') {
   .ecl-media-container__caption {
     &::before {
       background-color: var(--c-s);

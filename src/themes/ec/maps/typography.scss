@@ -7,6 +7,10 @@ $font-family: (
     sans-serif,
   ),
 ) !default;
+$font-weight: (
+  'regular': 400,
+  'bold': 700,
+) !default;
 $font-size: (
   'xs': 0.75rem,
   's': 0.875rem,
@@ -19,17 +23,22 @@ $font-size: (
 ) !default;
 $line-height: (
   'xs': 1.25rem,
-  's': 1.5rem,
-  'm': 1.75rem,
-  'l': 2rem,
+  's': 1.25rem,
+  'm': 1.5rem,
+  'l': 1.75rem,
   'xl': 2.25rem,
   '2xl': 2.5rem,
   '3xl': 2.75rem,
   '4xl': 3rem,
 ) !default;
-$font-weight: (
-  'regular': 400,
-  'bold': 700,
+$font-size-ui: (
+  's': 0.875rem,
+  'm': 1rem,
+) !default;
+$line-height-ui: (
+  'xs': 1.375rem,
+  's': 1.5rem,
+  'm': 1.75rem,
 ) !default;
 $font: (
   'xs': normal normal map.get($font-weight, 'regular') #{map.get(
@@ -59,6 +68,16 @@ $font: (
       '4xl'
     ) + '/' + map.get($line-height, '4xl')} #{map.get($font-family, 'default')},
 ) !default;
+$font-ui: (
+  's': normal normal map.get($font-weight, 'regular') #{map.get(
+      $font-size-ui,
+      's'
+    ) + '/' + map.get($line-height-ui, 's')} #{map.get($font-family, 'default')},
+  'm': normal normal map.get($font-weight, 'regular') #{map.get(
+      $font-size-ui,
+      'm'
+    ) + '/' + map.get($line-height-ui, 'm')} #{map.get($font-family, 'default')},
+) !default;
 
 // Print
 $font-family-print: (
@@ -71,29 +90,29 @@ $font-family-print: (
     sans-serif,
   ),
 ) !default;
-$font-size-print: (
-  'xs': 7.88pt,
-  's': 9.19pt,
-  'm': 10.5pt,
-  'l': 13.13pt,
-  'xl': 15.75pt,
-  '2xl': 18.38pt,
-  '3xl': 21pt,
-  '4xl': 26.5pt,
-) !default;
-$line-height-print: (
-  'xs': 15pt,
-  's': 18pt,
-  'm': 21pt,
-  'l': 24pt,
-  'xl': 27pt,
-  '2xl': 30pt,
-  '3xl': 33pt,
-  '4xl': 36pt,
-) !default;
 $font-weight-print: (
   'regular': 400,
   'bold': 600,
+) !default;
+$font-size-print: (
+  'xs': 7.9pt,
+  's': 9.2pt,
+  'm': 10.5pt,
+  'l': 13.1pt,
+  'xl': 15.75pt,
+  '2xl': 18.4pt,
+  '3xl': 21pt,
+  '4xl': 26.25pt,
+) !default;
+$line-height-print: (
+  'xs': 13.1pt,
+  's': 13.1pt,
+  'm': 15.75pt,
+  'l': 18.4pt,
+  'xl': 23.6pt,
+  '2xl': 26.25pt,
+  '3xl': 28.9pt,
+  '4xl': 31.5pt,
 ) !default;
 $font-print: (
   'xs': normal normal map.get($font-weight-print, 'regular') #{map.get(

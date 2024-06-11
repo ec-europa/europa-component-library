@@ -35,7 +35,7 @@ $card: null !default;
   padding: map.get($card, 'body-padding');
   position: relative;
 
-  @if map-has-key($card, 'yellow-bar') {
+  @if map.has-key($card, 'yellow-bar') {
     &::before {
       background-color: var(--c-s);
       border-bottom-left-radius: 2px;

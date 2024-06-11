@@ -3,8 +3,9 @@
 
 :root {
   --ecl-color-primary: #{map.get($color, 'primary')};
+  --ecl-color-primary-180: #{map.get($color, 'primary-180')};
+  --ecl-color-primary-160: #{map.get($color, 'primary-160')};
   --ecl-color-primary-140: #{map.get($color, 'primary-140')};
-  --ecl-color-primary-130: #{map.get($color, 'primary-130')};
   --ecl-color-primary-120: #{map.get($color, 'primary-120')};
   --ecl-color-primary-100: #{map.get($color, 'primary-100')};
   --ecl-color-primary-80: #{map.get($color, 'primary-80')};
@@ -14,6 +15,8 @@
   --ecl-color-primary-10: #{map.get($color, 'primary-10')};
   --ecl-color-primary-5: #{map.get($color, 'primary-5')};
   --ecl-color-secondary: #{map.get($color, 'secondary')};
+  --ecl-color-secondary-180: #{map.get($color, 'secondary-180')};
+  --ecl-color-secondary-160: #{map.get($color, 'secondary-160')};
   --ecl-color-secondary-140: #{map.get($color, 'secondary-140')};
   --ecl-color-secondary-120: #{map.get($color, 'secondary-120')};
   --ecl-color-secondary-100: #{map.get($color, 'secondary-100')};
@@ -21,16 +24,14 @@
   --ecl-color-secondary-60: #{map.get($color, 'secondary-60')};
   --ecl-color-secondary-40: #{map.get($color, 'secondary-40')};
   --ecl-color-secondary-20: #{map.get($color, 'secondary-20')};
-  --ecl-color-secondary-10: #{map.get($color, 'secondary-10')};
   --ecl-color-dark: #{map.get($color, 'dark')};
-  --ecl-color-dark-140: #{map.get($color, 'dark-140')};
-  --ecl-color-dark-120: #{map.get($color, 'dark-120')};
   --ecl-color-dark-100: #{map.get($color, 'dark-100')};
   --ecl-color-dark-80: #{map.get($color, 'dark-80')};
   --ecl-color-dark-60: #{map.get($color, 'dark-60')};
   --ecl-color-dark-40: #{map.get($color, 'dark-40')};
   --ecl-color-dark-20: #{map.get($color, 'dark-20')};
   --ecl-color-dark-10: #{map.get($color, 'dark-10')};
+  --ecl-color-dark-5: #{map.get($color, 'dark-5')};
   --ecl-color-info: #{map.get($color, 'info')};
   --ecl-color-info-100: #{map.get($color, 'info-100')};
   --ecl-color-info-5: #{map.get($color, 'info-5')};
@@ -42,16 +43,12 @@
   --ecl-color-warning-5: #{map.get($color, 'warning-5')};
   --ecl-color-error: #{map.get($color, 'error')};
   --ecl-color-error-100: #{map.get($color, 'error-100')};
-  --ecl-color-error-80: #{map.get($color, 'error-80')};
   --ecl-color-error-5: #{map.get($color, 'error-5')};
-  --ecl-color-branding: #{map.get($color, 'branding')};
   --ecl-color-accent: #{map.get($color, 'accent')};
   --ecl-color-accent-100: #{map.get($color, 'accent-100')};
   --ecl-color-accent-30: #{map.get($color, 'accent-30')};
-  --ecl-color-visited: #{map.get($color, 'visited')};
-  --ecl-color-visited-100: #{map.get($color, 'visited-100')};
-  --ecl-color-visited-40: #{map.get($color, 'visited-40')};
-  --ecl-font-2xs: #{map.get($font, '2xs')};
+  --ecl-color-overlay-light: color-mix(in srgb, var(--c-d) 70%, transparent);
+  --ecl-color-overlay-dark: color-mix(in srgb, var(--c-d) 90%, transparent);
   --ecl-font-xs: #{map.get($font, 'xs')};
   --ecl-font-s: #{map.get($font, 's')};
   --ecl-font-m: #{map.get($font, 'm')};
@@ -61,12 +58,8 @@
   --ecl-font-3xl: #{map.get($font, '3xl')};
   --ecl-font-4xl: #{map.get($font, '4xl')};
   --ecl-font-5xl: #{map.get($font, '5xl')};
-  --ecl-font-6xl: #{map.get($font, '6xl')};
-  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
-  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
-  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
-  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
-  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
+  --ecl-font-ui-s: #{map.get($font-ui, 's')};
+  --ecl-font-ui-m: #{map.get($font-ui, 'm')};
   --ecl-spacing-2xs: #{map.get($spacing, '2xs')};
   --ecl-spacing-xs: #{map.get($spacing, 'xs')};
   --ecl-spacing-s: #{map.get($spacing, 's')};
@@ -92,8 +85,9 @@
 
   // Aliases (internal use)
   --c-p: var(--ecl-color-primary);
+  --c-p-180: var(--ecl-color-primary-180);
+  --c-p-160: var(--ecl-color-primary-160);
   --c-p-140: var(--ecl-color-primary-140);
-  --c-p-130: var(--ecl-color-primary-130);
   --c-p-120: var(--ecl-color-primary-120);
   --c-p-100: var(--ecl-color-primary-100);
   --c-p-80: var(--ecl-color-primary-80);
@@ -103,6 +97,8 @@
   --c-p-10: var(--ecl-color-primary-10);
   --c-p-5: var(--ecl-color-primary-5);
   --c-s: var(--ecl-color-secondary);
+  --c-s-180: var(--ecl-color-secondary-180);
+  --c-s-160: var(--ecl-color-secondary-160);
   --c-s-140: var(--ecl-color-secondary-140);
   --c-s-120: var(--ecl-color-secondary-120);
   --c-s-100: var(--ecl-color-secondary-100);
@@ -110,16 +106,14 @@
   --c-s-60: var(--ecl-color-secondary-60);
   --c-s-40: var(--ecl-color-secondary-40);
   --c-s-20: var(--ecl-color-secondary-20);
-  --c-s-10: var(--ecl-color-secondary-10);
   --c-d: var(--ecl-color-dark);
-  --c-d-140: var(--ecl-color-dark-140);
-  --c-d-120: var(--ecl-color-dark-120);
   --c-d-100: var(--ecl-color-dark-100);
   --c-d-80: var(--ecl-color-dark-80);
   --c-d-60: var(--ecl-color-dark-60);
   --c-d-40: var(--ecl-color-dark-40);
   --c-d-20: var(--ecl-color-dark-20);
   --c-d-10: var(--ecl-color-dark-10);
+  --c-d-5: var(--ecl-color-dark-5);
   --c-in: var(--ecl-color-info);
   --c-in-100: var(--ecl-color-info-100);
   --c-in-5: var(--ecl-color-info-5);
@@ -131,16 +125,12 @@
   --c-wa-5: var(--ecl-color-warning-5);
   --c-er: var(--ecl-color-error);
   --c-er-100: var(--ecl-color-error-100);
-  --c-er-80: var(--ecl-color-error-80);
   --c-er-5: var(--ecl-color-error-5);
-  --c-br: var(--ecl-color-branding);
   --c-a: var(--ecl-color-accent);
   --c-a-100: var(--ecl-color-accent-100);
   --c-a-30: var(--ecl-color-accent-30);
-  --c-v: var(--ecl-color-visited);
-  --c-v-100: var(--ecl-color-visited-100);
-  --c-v-40: var(--ecl-color-visited-40);
-  --f-2xs: var(--ecl-font-2xs);
+  --c-ov-l: var(--ecl-color-overlay-light);
+  --c-ov-d: var(--ecl-color-overlay-dark);
   --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
@@ -150,12 +140,8 @@
   --f-3xl: var(--ecl-font-3xl);
   --f-4xl: var(--ecl-font-4xl);
   --f-5xl: var(--ecl-font-5xl);
-  --f-6xl: var(--ecl-font-6xl);
-  --f-p-xs: var(--ecl-font-prolonged-xs);
-  --f-p-s: var(--ecl-font-prolonged-s);
-  --f-p-m: var(--ecl-font-prolonged-m);
-  --f-p-l: var(--ecl-font-prolonged-l);
-  --f-p-xl: var(--ecl-font-prolonged-xl);
+  --f-ui-s: var(--ecl-font-ui-s);
+  --f-ui-m: var(--ecl-font-ui-m);
   --s-2xs: var(--ecl-spacing-2xs);
   --s-xs: var(--ecl-spacing-xs);
   --s-s: var(--ecl-spacing-s);
@@ -178,4 +164,38 @@
   --sh-n-i-1: var(--ecl-shadow-negative-inner-1);
   --sh-n-i-2: var(--ecl-shadow-negative-inner-2);
   --max-w: var(--ecl-max-width);
+
+  // Deprecated
+  --ecl-color-primary-130: #{map.get($color, 'primary-130')};
+  --c-p-130: var(--ecl-color-primary-130);
+  --ecl-color-secondary-10: #{map.get($color, 'secondary-10')};
+  --c-s-10: var(--ecl-color-secondary-10);
+  --ecl-color-dark-140: #{map.get($color, 'dark-140')};
+  --c-d-140: var(--ecl-color-dark-140);
+  --ecl-color-dark-120: #{map.get($color, 'dark-120')};
+  --c-d-120: var(--ecl-color-dark-120);
+  --ecl-color-error-80: #{map.get($color, 'error-80')};
+  --c-er-80: var(--ecl-color-error-80);
+  --ecl-color-branding: #{map.get($color, 'branding')};
+  --c-br: var(--ecl-color-branding);
+  --ecl-color-visited: #{map.get($color, 'visited')};
+  --c-v: var(--ecl-color-visited);
+  --ecl-color-visited-100: #{map.get($color, 'visited-100')};
+  --c-v-100: var(--ecl-color-visited-100);
+  --ecl-color-visited-40: #{map.get($color, 'visited-40')};
+  --c-v-40: var(--ecl-color-visited-40);
+  --ecl-font-2xs: #{map.get($font, '2xs')};
+  --f-2xs: var(--ecl-font-2xs);
+  --ecl-font-6xl: #{map.get($font, '6xl')};
+  --f-6xl: var(--ecl-font-6xl);
+  --ecl-font-prolonged-xs: #{map.get($font-prolonged, 'xs')};
+  --f-p-xs: var(--ecl-font-prolonged-xs);
+  --ecl-font-prolonged-s: #{map.get($font-prolonged, 's')};
+  --f-p-s: var(--ecl-font-prolonged-s);
+  --ecl-font-prolonged-m: #{map.get($font-prolonged, 'm')};
+  --f-p-m: var(--ecl-font-prolonged-m);
+  --ecl-font-prolonged-l: #{map.get($font-prolonged, 'l')};
+  --f-p-l: var(--ecl-font-prolonged-l);
+  --ecl-font-prolonged-xl: #{map.get($font-prolonged, 'xl')};
+  --f-p-xl: var(--ecl-font-prolonged-xl);
 }
