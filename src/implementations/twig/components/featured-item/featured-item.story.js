@@ -13,7 +13,7 @@ const mediaContainer = { ...demoData.media_container };
 const getArgs = (data) => {
   const args = {
     show_media: true,
-    show_footer: true,
+    show_footer: false,
     title: data.title,
     description: data.description,
     position: 'left',
