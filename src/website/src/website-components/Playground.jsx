@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOMServer from 'react-dom/server';
 
-import iconSprite from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import iconSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
 import styles from './Playground.scss';
 import Code from './Code';
