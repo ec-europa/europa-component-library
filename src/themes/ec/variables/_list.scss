@@ -4,10 +4,16 @@
 $list: (
   unordered: (
     marker: '‒',
+    item-margin: var(--s-s),
+    item-padding: var(--s-xs),
+    marker-size: var(--s-s),
+    padding-start: var(--s-3xl),
     sublist-marker: disc,
   ),
   ordered: (
     marker: decimal,
+    item-margin: var(--s-l),
+    padding-start: var(--s-3xl),
     sublist-marker: lower-latin,
   ),
   text-color: var(--c-d),
