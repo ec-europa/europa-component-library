@@ -71,7 +71,7 @@ $breadcrumb: null !default;
   }
 }
 
-@if map-has-key($breadcrumb, 'ghost-override') {
+@if map.has-key($breadcrumb, 'ghost-override') {
   .ecl-breadcrumb .ecl-breadcrumb__ellipsis,
   .ecl-breadcrumb .ecl-breadcrumb__ellipsis:hover {
     border-width: 2px;
