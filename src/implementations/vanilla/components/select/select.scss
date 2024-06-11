@@ -269,14 +269,6 @@ $select: null !default;
     width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
   }
 
-  .ecl-checkbox__label:hover,
-  .ecl-checkbox__label:focus {
-    background-color: map.get(
-      $select,
-      'multiple-checkbox-background-hover-color'
-    );
-  }
-
   .ecl-select__multiple-group {
     border-bottom: 1px solid map.get($select, 'group-separator-color');
     border-left: none;
