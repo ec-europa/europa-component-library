@@ -76,7 +76,7 @@ $radio: null !default;
 .ecl-radio__label:hover .ecl-radio__box {
   border-color: map.get($radio, 'box-border-color-hover');
 
-  @if map-has-key($radio, 'hover-circle') {
+  @if map.has-key($radio, 'hover-circle') {
     outline: map.get($radio, 'outline') solid map.get($radio, 'outline-color');
   }
 }

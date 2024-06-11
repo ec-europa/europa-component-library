@@ -1,10 +1,8 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
-import iconSvgAllArrowEc from '@ecl/resources-ec-icons/dist/svg/all/solid-arrow.svg';
-import iconSvgAllArrowEu from '@ecl/resources-eu-icons/dist/svg/all/solid-arrow.svg';
+import iconSvgAllArrow from '@ecl/resources-icons/dist/svg/all/solid-arrow.svg';
 
 const system = getSystem();
-const iconSvgAllArrow = system === 'eu' ? iconSvgAllArrowEu : iconSvgAllArrowEc;
 const iconSvgAllArrowSize = system === 'eu' ? 'm' : 'xs';
 
 /**
