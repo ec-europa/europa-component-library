@@ -60,10 +60,16 @@ html {
 }
 
 // Description list
-.ecl-description-list__definition--taxonomy::before
+.ecl-description-list__definition--taxonomy
   .ecl-description-list__definition-item::before {
   left: auto;
   right: -2px;
+}
+
+// File
+.ecl-file__footer {
+  padding-inline-end: var(--s-l);
+  margin-inline-end: 0;
 }
 
 // Gallery

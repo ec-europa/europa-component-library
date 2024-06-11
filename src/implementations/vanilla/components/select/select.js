@@ -2,15 +2,10 @@
 import { queryOne } from '@ecl/dom-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
-import iconSvgAllCheckEc from '@ecl/resources-ec-icons/dist/svg/all/check.svg';
-import iconSvgAllCheckEu from '@ecl/resources-eu-icons/dist/svg/all/check.svg';
-import iconSvgAllCornerArrowEc from '@ecl/resources-ec-icons/dist/svg/all/corner-arrow.svg';
-import iconSvgAllCornerArrowEu from '@ecl/resources-eu-icons/dist/svg/all/corner-arrow.svg';
+import iconSvgAllCheck from '@ecl/resources-icons/dist/svg/all/check.svg';
+import iconSvgAllCornerArrow from '@ecl/resources-icons/dist/svg/all/corner-arrow.svg';
 
 const system = getSystem();
-const iconSvgAllCheck = system === 'eu' ? iconSvgAllCheckEu : iconSvgAllCheckEc;
-const iconSvgAllCornerArrow =
-  system === 'eu' ? iconSvgAllCornerArrowEu : iconSvgAllCornerArrowEc;
 const iconSize = system === 'eu' ? 's' : 'xs';
 
 /**

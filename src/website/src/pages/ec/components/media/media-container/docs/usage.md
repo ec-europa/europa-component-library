@@ -11,6 +11,7 @@ A media container is used to display media items (video, audio, image or other d
 - write captions that are short, distinct and indicative and communicate the subject of the media content
 - include ALT tag
 - select appropriate images for video thumbnails, they need to depict what is in the audio or video file
+- w﻿hen adding an embedded video, make sure to write a title that repeats the visible title of the video and also mentions that it is a video (e.g. Speech by President ... - Video)
 
 ## Don'ts
 

@@ -1,11 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import dataDefault from '@ecl/specs-component-link/demo/data--default';
 import dataCta from '@ecl/specs-component-link/demo/data--cta';
 import dataPrimary from '@ecl/specs-component-link/demo/data--primary';
@@ -15,9 +13,6 @@ import dataInverted from '@ecl/specs-component-link/demo/data--inverted';
 
 import link from './link.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
 // Create 'none' option.
 iconsAll.unshift('none');
@@ -39,7 +34,6 @@ const withInverted = (story) => {
 
 const getArgs = (data) => ({
   label: data.link.label,
-  no_visited: data.link.no_visited || false,
   icon_name: 'none',
   icon_position: 'after',
   external: false,
@@ -63,19 +57,6 @@ const getArgTypes = () => ({
   external: {
     type: { name: 'boolean' },
     description: 'External link',
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-      category: 'Content',
-    },
-    control: {
-      type: 'boolean',
-    },
-  },
-  no_visited: {
-    name: 'no visited',
-    type: { name: 'boolean' },
-    description: 'No change of color for visited link',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -159,7 +140,6 @@ const getArgTypes = () => ({
 
 const prepareData = (data, args) => {
   data.link.label = args.label;
-  data.link.no_visited = args.no_visited;
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
@@ -181,15 +161,6 @@ const prepareData = (data, args) => {
   correctPaths(data);
 
   return data;
-};
-
-const prepareDataButtonLink = (data, args) => {
-  const dataCustom = prepareData(data, args);
-  if (dataCustom.icon) {
-    data.icon.size = system === 'eu' ? 's' : 'xs';
-  }
-
-  return dataCustom;
 };
 
 export default {
@@ -223,7 +194,7 @@ Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
 export const Cta = (_, { loaded: { component } }) => component;
 
 Cta.render = async (args) => {
-  const renderedLinkCta = await link(prepareDataButtonLink(dataCta, args));
+  const renderedLinkCta = await link(prepareData(dataCta, args));
   return renderedLinkCta;
 };
 Cta.storyName = 'call to action';
@@ -234,7 +205,7 @@ Cta.parameters = { notes: { markdown: notes, json: dataCta } };
 export const Primary = (_, { loaded: { component } }) => component;
 
 Primary.render = async (args) => {
-  const renderedLinkCta = await link(prepareDataButtonLink(dataPrimary, args));
+  const renderedLinkCta = await link(prepareData(dataPrimary, args));
   return renderedLinkCta;
 };
 Primary.storyName = 'primary';
@@ -245,9 +216,7 @@ Primary.parameters = { notes: { markdown: notes, json: dataPrimary } };
 export const Secondary = (_, { loaded: { component } }) => component;
 
 Secondary.render = async (args) => {
-  const renderedLinkSecondary = await link(
-    prepareDataButtonLink(dataSecondary, args),
-  );
+  const renderedLinkSecondary = await link(prepareData(dataSecondary, args));
   return renderedLinkSecondary;
 };
 Secondary.storyName = 'secondary';
