@@ -43,7 +43,6 @@ $description-list: null !default;
   color: map.get($description-list, 'definition-color');
   font: map.get($description-list, 'definition-font');
   margin-inline-start: 0;
-  margin-top: var(--s-2xs);
   max-width: var(--max-w);
 }
 
@@ -80,7 +79,6 @@ $description-list: null !default;
 // Inline links
 .ecl-description-list__definition--inline {
   display: inline-block;
-  margin-bottom: calc(-1 * var(--s-xs));
 }
 
 // stylelint-disable-next-line no-descending-specificity
@@ -189,9 +187,9 @@ $description-list: null !default;
         var(--max-w)
       );
 
-    .ecl-description-list__term,
-    %ecl-description-list__term {
-      margin-top: var(--s-xl);
+    .ecl-description-list__term {
+      margin-bottom: 0;
+      margin-top: var(--s-l);
     }
 
     .ecl-description-list__term:first-of-type {
@@ -201,7 +199,7 @@ $description-list: null !default;
     .ecl-description-list__definition,
     %ecl-description-list__definition {
       align-items: flex-start;
-      margin-top: var(--s-xl);
+      margin-top: var(--s-l);
       overflow-wrap: break-word;
     }
 
