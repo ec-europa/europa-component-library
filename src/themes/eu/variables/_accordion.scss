@@ -2,16 +2,17 @@
 @use '../index' as *;
 
 $accordion: (
-  item-background: transparent,
-  item-background-hover: var(--c-p-5),
-  border-color: none,
-  item-padding: calc(var(--s-l) - 2px),
-  text-color: var(--c-d-80),
-  title-text-color: var(--c-d-140),
-  icon-color: var(--c-p),
-  icon-margin: var(--s-m),
   radius: var(--s-xs),
   shadow: var(--sh-1),
+  separator: 2px solid var(--c-p-20),
+  title-text-color: var(--c-d-80),
+  item-padding: var(--s-l),
+  item-padding-expanded: var(--s-l) var(--s-l) var(--s-m),
+  item-background-hover: var(--c-p-20),
+  text-color: var(--c-d),
+  icon-color: var(--c-p),
+  icon-margin: var(--s-m),
+  yellow-bar: true,
 );
 $accordion-print: (
   toggle-background: transparent,
