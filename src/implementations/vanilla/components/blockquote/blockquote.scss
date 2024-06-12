@@ -95,20 +95,6 @@ $blockquote: null !default;
   color: map.get($blockquote, 'author', 'color');
   font: map.get($blockquote, 'author', 'font');
   font-weight: map.get($blockquote, 'author', 'font-weight');
-  position: relative;
-  padding-inline-start: map.get($blockquote, 'author', 'padding');
-
-  @if map.has-key($blockquote, 'author', 'separator') {
-    &::before {
-      color: map.get($blockquote, 'author', 'color');
-      content: '—';
-      display: block;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: -5px;
-    }
-  }
 }
 
 .ecl-blockquote__image,
