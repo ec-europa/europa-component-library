@@ -1,11 +1,6 @@
 import EventManager from '@ecl/event-manager';
 import { createSvgIcon } from '@ecl/dom-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
-import iconBackEc from '@ecl/resources-ec-icons/dist/svg/all/arrow-left.svg';
-import iconBackEu from '@ecl/resources-eu-icons/dist/svg/all/arrow-left.svg';
-
-const system = getSystem();
-const iconBack = system === 'eu' ? iconBackEu : iconBackEc;
+import iconBack from '@ecl/resources-icons/dist/svg/all/arrow-left.svg';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope

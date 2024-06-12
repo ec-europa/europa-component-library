@@ -10,6 +10,7 @@ const dir = path.resolve(__dirname, '../../implementations/vanilla/components');
 
 const files = glob.sync('**/*.js', {
   cwd: dir,
+  ignore: '**/node_modules/**',
 });
 
 const publicDir = path.resolve(__dirname, '../public');

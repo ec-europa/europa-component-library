@@ -28,12 +28,14 @@ $theme: null !default;
   justify-content: space-between;
 
   .ecl-slider__controls {
+    display: flex;
+    flex-direction: row;
     margin-inline-start: var(--s-m);
   }
 }
 
 .ecl-slider__progress-bar {
-  background: var(--c-n-80);
+  background: var(--c-p-20);
   height: calc(var(--s-2xs) / 2);
   flex-grow: 1;
 
