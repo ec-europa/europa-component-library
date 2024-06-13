@@ -5,12 +5,17 @@
 $mega-menu: (
   global: (
     border-radius: 0,
+    greysh-background: var(--c-n-40),
     shadow: none,
   ),
   mobile: (
+    arrow-size: var(--s-l),
+    banner-shadow: map.get($shadow, '6'),
     menu-background: transparent,
     color: var(--c-d),
     content-background: map.get($color, 'white'),
+    featured-background: var(--c-n-20),
+    featured-link-border: var(--c-n),
     overlay-background: var(--c-n-40),
     open-padding: var(--s-xs) 0,
     open-padding-hover: calc(var(--s-xs) + 1px) 0,
@@ -29,6 +34,7 @@ $mega-menu: (
     item-font: var(--f-m),
     item-padding: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
     item-active-background: var(--c-n-80),
+    parent-top: -63px,
     subtitle-font: var(--f-m),
     subtitle-font-weight: map.get($font-weight, 'normal'),
     subitem-padding: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
@@ -37,6 +43,7 @@ $mega-menu: (
     menu-background: var(--c-br),
     menu-border: none,
     item-background-focus: var(--c-br),
+    item-background-hover: var(--c-n),
     item-color: map.get($color, 'white'),
     item-color-hover: var(--c-d),
     item-color-focus: map.get($color, 'white'),
@@ -48,6 +55,7 @@ $mega-menu: (
     link-line-height: map.get($line-height, 'm'),
     mega-border: none,
     mega-shadow: none,
+    see-all-divider: var(--c-n-100),
     sublink-padding: calc(var(--s-xs) + 2px) var(--s-l) calc(var(--s-xs) + 2px)
       var(--s-m),
     sublink-level2-padding: calc(var(--s-xs) + 2px) var(--s-2xl)
