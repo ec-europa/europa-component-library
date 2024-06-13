@@ -244,7 +244,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'Site name',
+  site_name: 'Portal to news, policies, information and services',
   cta_link: {
     link: {
       label: 'CTA link',
