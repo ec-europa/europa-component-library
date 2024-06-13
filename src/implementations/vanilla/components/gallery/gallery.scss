@@ -517,3 +517,34 @@ $_image-height-mobile: 260px;
     order: 4;
   }
 }
+
+// Variant: grid
+@include breakpoints.up('m') {
+  .ecl-gallery--grid {
+    .ecl-gallery__item {
+      aspect-ratio: 3/2;
+      flex-grow: 0;
+      height: auto;
+      margin-inline-start: 0;
+      margin-top: 0;
+    }
+
+    .ecl-gallery__image {
+      aspect-ratio: 3/2;
+      height: auto;
+      min-width: auto;
+    }
+
+    .ecl-gallery__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 2rem;
+      column-gap: 2rem;
+      margin-inline-start: 0;
+    }
+
+    .ecl-gallery__image-container {
+      height: auto;
+    }
+  }
+}
