@@ -24,7 +24,8 @@ $language-list: null !default;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
 
-  .ecl-menu {
+  .ecl-menu,
+  .ecl-mega-menu {
     background: transparent;
     box-shadow: none;
     display: flex;
@@ -55,6 +56,10 @@ $language-list: null !default;
 
   &.ecl-site-header-with-logo-s .ecl-menu__open {
     top: 8px;
+
+    .ecl-link__icon:last-of-type {
+      top: 1px;
+    }
   }
 
   &.ecl-site-header-with-logo-m .ecl-menu__open {
