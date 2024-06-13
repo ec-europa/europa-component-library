@@ -605,6 +605,12 @@ export class Gallery {
     // Untrap focus
     this.focusTrap.deactivate();
 
+    // Restore css class on item
+    const image = queryOne('img', this.selectedItem);
+    if (image) {
+      image.classList.add('ecl-gallery__image');
+    }
+
     // Focus item
     this.selectedItem.focus();
 
