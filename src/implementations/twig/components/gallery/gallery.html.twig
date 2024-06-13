@@ -134,7 +134,7 @@
   <div class="ecl-gallery__footer">
   {%- if _expandable -%}
     <div class="ecl-gallery__info">
-      <div class="ecl-gallery__info-total">
+      <div class="ecl-gallery__info-total" id="{{ _id }}-info">
         <strong data-ecl-gallery-count>0</strong> {{- _counter_label -}}
       </div>
         {% include '@ecl/button/button.html.twig' with {
@@ -145,6 +145,7 @@
             { name: 'data-ecl-gallery-all' },
             { name: 'data-ecl-gallery-collapsed-label', value: _view_all_label },
             { name: 'data-ecl-gallery-expanded-label', value: _view_all_expanded_label },
+            { name: 'aria-describedby', value: _id ~ '-info' },
           ],
           extra_classes: 'ecl-gallery__view-all',
         } only %}
