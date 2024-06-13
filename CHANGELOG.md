@@ -1,5 +1,19 @@
 # Changelog
 
+# 4.2.3
+
+#### :warning: Markup Changes
+
+- [#3432](https://github.com/ec-europa/europa-component-library/pull/3432) feat(mega-menu): Container content centered, fixes for EU ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3432](https://github.com/ec-europa/europa-component-library/pull/3432) feat(mega-menu): Container content centered, fixes for EU ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.2.2
 
 #### :warning: Markup Changes
