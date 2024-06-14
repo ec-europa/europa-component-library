@@ -2,12 +2,14 @@
 @use '../index' as *;
 
 $accordion: (
-  item-background: transparent,
-  item-background-hover: var(--c-n-60),
-  border-color: var(--c-n-60),
-  item-padding: var(--s-xl),
-  text-color: var(--c-d),
+  radius: 0,
+  shadow: var(--sh-1),
+  separator: 1px solid var(--c-n),
   title-text-color: var(--c-d),
+  item-padding: var(--s-xl),
+  item-padding-expanded: var(--s-xl) var(--s-xl) var(--s-l),
+  item-background-hover: var(--c-n-60),
+  text-color: var(--c-d),
   icon-color: var(--c-p),
   icon-margin: var(--s-m),
 );

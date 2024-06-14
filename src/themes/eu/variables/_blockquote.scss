@@ -4,19 +4,17 @@
 $blockquote: (
   border-width: 8px,
   border-color: var(--c-p),
-  border-radius: 4px 0 0 4px,
-  shadow: none,
+  border-radius: 4px,
+  shadow: var(--sh-1),
   padding: var(--s-l),
   quote: (
-    font: var(--f-2xl),
+    font: var(--f-l),
     color: var(--c-d-80),
   ),
   author: (
     margin: var(--s-m),
-    padding: var(--s-xl),
-    font-mobile: var(--f-p-m),
-    font-desktop: var(--f-p-l),
-    font-weight: map.get($font-weight, 'regular'),
+    font: var(--f-m),
+    font-weight: map.get($font-weight, 'bold'),
     color: var(--c-d-80),
   ),
   image: (
@@ -26,7 +24,7 @@ $blockquote: (
 );
 $blockquote-print: (
   padding: map.get($spacing-print, 'l'),
-  quote-font: map.get($font-print, '2xl'),
+  quote-font: map.get($font-print, 'l'),
   author-margin: map.get($spacing-print, 'l'),
   author-font: map.get($font-print, 'l'),
   image-margin: map.get($spacing-print, 'l'),
