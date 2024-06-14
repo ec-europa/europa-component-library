@@ -23,7 +23,8 @@ $language-list: null !default;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
 
-  .ecl-menu {
+  .ecl-menu,
+  .ecl-mega-menu {
     background: transparent;
     bottom: 0;
     padding: 0;
@@ -32,8 +33,19 @@ $language-list: null !default;
     width: 100%;
   }
 
-  .ecl-menu__open {
+  .ecl-mega-menu__open {
+    margin-inline-end: var(--s-m);
+  }
+
+  .ecl-menu__open,
+  .ecl-mega-menu__open {
+    color: map.get($theme, 'color', 'white');
     margin-bottom: 8px;
+    margin-inline-start: auto;
+
+    &:hover {
+      color: var(--c-d);
+    }
   }
 
   .ecl-menu__open:not(:hover, :focus-visible) {
@@ -244,6 +256,13 @@ $language-list: null !default;
     .ecl-menu {
       background: map.get($site-header, 'gradient-background');
       position: static;
+      width: 100%;
+    }
+
+    .ecl-mega-menu {
+      background: map.get($site-header, 'gradient-background');
+      position: relative;
+      top: 0;
       width: 100%;
     }
   }
