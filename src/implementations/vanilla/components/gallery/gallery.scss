@@ -426,7 +426,12 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__detail-actions {
+  display: none;
   margin-top: map.get($gallery, 'actions-margin');
+}
+
+.ecl-gallery__detail-actions-mobile {
+  margin-bottom: map.get($gallery, 'actions-margin');
 }
 
 .ecl-gallery__download {
@@ -477,7 +482,12 @@ $_description-height-desktop: 108px;
   }
 
   .ecl-gallery__detail-actions {
+    display: block;
     margin-top: 0;
+  }
+
+  .ecl-gallery__detail-actions-mobile {
+    display: none;
   }
 
   .ecl-gallery__detail-container {
