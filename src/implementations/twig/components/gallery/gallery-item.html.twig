@@ -118,13 +118,17 @@
         data-ecl-gallery-description
       >
       {%- if _item.title is defined and _item.title is not empty -%}
-        <span class="ecl-gallery__title" data-ecl-gallery-title id="{{ _id }}-title">
+        <span class="ecl-gallery__title" id="{{ _id }}-title">
           {{- _item.title -}}
         </span>
       {%- endif -%}
-        {{- _item.description -}}
+      {%- if _item.description is defined and _item.description is not empty -%}
+        <span class="ecl-gallery__caption">
+          {{- _item.description -}}
+        </span>
+      {%- endif -%}
       {%- if _item.meta is defined and _item.meta is not empty -%}
-        <span class="ecl-gallery__meta" data-ecl-gallery-meta>
+        <span class="ecl-gallery__meta">
           {{- _item.meta -}}
         </span>
       {%- endif -%}

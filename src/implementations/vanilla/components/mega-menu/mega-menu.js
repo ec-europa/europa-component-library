@@ -625,7 +625,7 @@ export class MegaMenu {
                 menuItem,
               );
               if (container) {
-                container.style.height = `${viewportHeight - mainTop}px`;
+                container.firstElementChild.style.height = `${viewportHeight - mainTop}px`;
                 return;
               }
             }

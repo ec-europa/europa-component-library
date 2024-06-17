@@ -28,23 +28,26 @@ $page-header: null !default;
 }
 
 .ecl-page-header__meta {
-  color: map.get($page-header, 'meta-color');
-  font: map.get($page-header, 'meta-font');
+  color: var(--c-d);
+  display: inline-block;
+  font: var(--f-ui-m);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .ecl-page-header__meta-item {
-  border-inline-end: 1px solid map.get($page-header, 'meta-separator-color');
+  border-inline-end: 1px solid var(--c-p);
   display: inline;
-  margin-inline-end: calc(var(--s-xs) + 2px);
-  padding-inline-end: calc(var(--s-xs) + 2px);
-  position: relative;
+  margin-inline-end: var(--s-xs);
+  padding-inline-end: var(--s-xs);
   unicode-bidi: isolate;
 
   &:first-of-type {
     text-transform: uppercase;
   }
 
-  &:last-of-type {
+  &:last-child {
     border-inline-end-width: 0;
     margin-inline-end: 0;
     padding-inline-end: 0;
