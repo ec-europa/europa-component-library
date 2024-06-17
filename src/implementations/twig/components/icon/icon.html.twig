@@ -45,7 +45,7 @@
   description_id: '',
   title: _icon.title is not empty ? _icon.title : '',
   title_id: '',
-  role: 'img',
+  role: '',
 }|merge(extra_accessibility|default({})) %}
 
 {% set _as_image = as_image|default(false) %}
@@ -58,6 +58,7 @@
 
 {% if _icon.title is not empty or _extra_accessibility.title is not empty %}
   {% set _as_image = 'true' %}
+  {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
 {% endif %}
 
 {% if _as_image %}
@@ -74,13 +75,14 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_accessibility is defined and extra_accessibility is not empty %}
+{% if _extra_accessibility.role is not empty %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'role', value: _extra_accessibility.role },
   ]) %}
-  {% if extra_accessibility.title_id is not empty or extra_accessibility.description_id is not empty %}
-    {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
-  {% endif %}
+{% endif %}
+  
+{% if _extra_accessibility.title_id is not empty or _extra_accessibility.description_id is not empty %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
