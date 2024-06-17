@@ -30,16 +30,8 @@ const prepareData = (data, args) => {
   if (args.transformation === 'none') {
     args.transformation = '';
   }
-  if (args.title) {
-    data.as_image = true;
-    data.extra_accessibility = {
-      title: args.title,
-    };
-  } else {
-    data.as_image = false;
-    data.extra_accessibility = {};
-  }
   correctPaths(data);
+  data.icon.title = args.title;
   data.icon.name = args.name;
   data.icon.size = args.size;
   data.icon.color = args.color;

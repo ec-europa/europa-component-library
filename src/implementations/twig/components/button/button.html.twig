@@ -98,16 +98,8 @@
       {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
         {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
       {%- endif -%}
-      {% set _icon_extra_accessibility = {} %}
-      {% set _icon_image = false %}
-      {%- if icon.title is not empty -%}
-        {% set _icon_extra_accessibility = { title: icon.title } %}
-        {% set _icon_image = true %}
-      {%- endif -%}
       {% include '@ecl/icon/icon.html.twig' with {
         icon: icon,
-        as_image: _icon_image,
-        extra_accessibility: _icon_extra_accessibility,
         extra_classes: _icon_extra_classes,
         extra_attributes: [
           { name: 'data-ecl-icon' }

@@ -78,11 +78,8 @@
     name: 'external',
     path: _link.icon_path,
     size: '2xs',
+    title: _extra_accessibility.title is empty and _icon.title is empty and _link.sr_external is not empty ? _link.sr_external : '',
   })] %}
-
-  {% if _extra_accessibility.title is empty and _link.sr_external is not empty %}
-    {% set _extra_accessibility = _extra_accessibility|merge({ title: _link.sr_external }) %}
-  {% endif %}
 
   {% set as_image = true %}
 
@@ -154,10 +151,6 @@
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
         {%- endif -%}
-        {%- if icon.title is not empty -%}
-          {% set _extra_accessibility = _extra_accessibility|merge({ title: icon.title }) %}
-          {% set as_image = true %}
-        {%- endif -%}
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
           extra_classes: _icon_extra_classes,
@@ -183,10 +176,6 @@
         {% set _icon_extra_classes = 'ecl-link__icon' %}
         {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
           {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
-        {%- endif -%}
-        {%- if icon.title is not empty -%}
-          {% set _extra_accessibility = _extra_accessibility|merge({ title: icon.title }) %}
-          {% set as_image = true %}
         {%- endif -%}
         {%- include '@ecl/icon/icon.html.twig' with _icon|merge({
           icon: icon|default({}),
