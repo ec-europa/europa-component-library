@@ -106,6 +106,10 @@
     {{ _extra_attributes|raw }}
   />
 
+<div class="ecl-range__bubble" data-ecl-range-bubble>
+  <span class="ecl-range__value-bubble" data-ecl-range-value-current></span>
+</div>
+
 {% if _value_text is not empty %}
   <div class="ecl-range__value">
     {%- block value_text _value_text -%}
