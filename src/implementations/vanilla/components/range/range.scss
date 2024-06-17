@@ -117,6 +117,43 @@ $range: null !default;
   outline-offset: map.get($range, 'outline-offset');
 }
 
+// Bubble
+.ecl-range__bubble {
+  background-color: var(--c-ov-d);
+  border-radius: map.get($theme, 'border-radius', 's');
+  color: map.get($theme, 'color', 'white');
+  display: none;
+  font: var(--f-s);
+  margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
+  padding: var(--s-2xs) var(--s-xs);
+  position: absolute;
+
+  &::before {
+    content: '';
+    border-bottom: 4px solid var(--c-ov-d);
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    display: inline-block;
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: -4px;
+    transform: translateX(-50%);
+    width: 0;
+  }
+
+  .ecl-range:focus-visible + & {
+    display: block;
+    margin-top: calc(
+      #{map.get($range, 'slider-size')} / 2 + 8px + var(--s-2xs)
+    );
+  }
+}
+
+.ecl-range__bubble--visible {
+  display: block;
+}
+
 // Width
 .ecl-range--s {
   @include mixins.form-width('s');
