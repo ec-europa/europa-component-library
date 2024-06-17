@@ -14,38 +14,41 @@ $page-header-print: null !default;
   padding-bottom: map.get($theme, 'spacing-print', 'xl');
 }
 
+.ecl-page-header__info {
+  margin-bottom: map.get($theme, 'spacing-print', 's');
+  margin-top: calc(
+    #{map.get($theme, 'spacing-print', 'm')} + #{map.get(
+        $theme,
+        'spacing-print',
+        's'
+      )}
+  );
+}
+
 .ecl-page-header__meta {
-  color: map.get($page-header, 'meta-color');
-  font: map.get($page-header, 'meta-font');
-  margin-top: map.get($theme, 'spacing-print', 'm');
+  color: var(--c-d);
+  display: inline-block;
+  font: var(--f-ui-m);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .ecl-page-header__meta-item {
+  border-inline-end: 1px solid var(--c-p);
   display: inline;
-  margin-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
-  padding-inline-start: calc(#{map.get($theme, 'spacing-print', 'xs')} + 2px);
-  position: relative;
-
-  &::before {
-    background-color: map.get($page-header, 'meta-separator-color');
-    border-radius: 50%;
-    content: '';
-    display: block;
-    height: 4px;
-    left: -2px;
-    position: absolute;
-    top: 8px;
-    width: 4px;
-  }
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  padding-inline-end: map.get($theme, 'spacing-print', 'xs');
+  unicode-bidi: isolate;
 
   &:first-of-type {
-    margin-inline-start: 0;
     text-transform: uppercase;
-    padding-inline-start: 0;
   }
 
-  &:first-of-type::before {
-    display: none;
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
