@@ -605,11 +605,13 @@ export class Gallery {
     // Untrap focus
     this.focusTrap.deactivate();
 
-    // Restore css class on item
-    const image = queryOne('img', this.selectedItem);
-    if (image) {
-      image.classList.add('ecl-gallery__image');
-    }
+    // Restore css class on items
+    this.galleryItems.forEach((galleryItem) => {
+      const image = queryOne('img', galleryItem);
+      if (image) {
+        image.classList.add('ecl-gallery__image');
+      }
+    });
 
     // Focus item
     this.selectedItem.focus();
