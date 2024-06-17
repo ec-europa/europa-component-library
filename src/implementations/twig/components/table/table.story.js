@@ -47,7 +47,7 @@ const prepareData = (data, args) => {
     delete dataClone.headers;
   }
 
-  return dataClone;
+  return Object.assign(dataClone, args);
 };
 
 export default {
