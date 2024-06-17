@@ -496,11 +496,12 @@ export class Select {
           this.dropDownToolbar.appendChild(this.clearAllButton);
         }
       }
-
-      this.selectAll.addEventListener(
-        'keydown',
-        this.handleKeyboardOnSelectAll,
-      );
+      if (this.selectAll) {
+        this.selectAll.addEventListener(
+          'keydown',
+          this.handleKeyboardOnSelectAll,
+        );
+      }
       this.optionsContainer.addEventListener(
         'keydown',
         this.handleKeyboardOnOptions,
@@ -717,12 +718,17 @@ export class Select {
       this.input.removeEventListener('click', this.handleToggle);
       this.search.removeEventListener('keyup', this.handleSearch);
       this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
-      this.selectAll.removeEventListener('click', this.handleClickSelectAll);
-      this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
-      this.selectAll.removeEventListener(
-        'keydown',
-        this.handleKeyboardOnSelectAll,
-      );
+      if (this.selectAll) {
+        this.selectAll.removeEventListener('click', this.handleClickSelectAll);
+        this.selectAll.removeEventListener(
+          'keypress',
+          this.handleClickSelectAll,
+        );
+        this.selectAll.removeEventListener(
+          'keydown',
+          this.handleKeyboardOnSelectAll,
+        );
+      }
       this.optionsContainer.removeEventListener(
         'keydown',
         this.handleKeyboardOnOptions,
@@ -904,7 +910,7 @@ export class Select {
         previousSiblings[previousSiblings.length - 1].focus();
       } else {
         this.optionsContainer.scrollTop = 0;
-        if (!this.selectAll.querySelector('input').disabled) {
+        if (this.selectAll && !this.selectAll.querySelector('input').disabled) {
           this.selectAll.querySelector('input').focus();
         } else {
           this.search.focus();
@@ -929,7 +935,9 @@ export class Select {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected') || option.selected) {
           option.selected = false;
-          this.selectAll.querySelector('input').checked = false;
+          if (this.selectAll) {
+            this.selectAll.querySelector('input').checked = false;
+          }
         } else {
           option.selected = true;
         }
@@ -949,7 +957,7 @@ export class Select {
   handleClickSelectAll(e) {
     e.preventDefault();
     // Early returns.
-    if (this.selectAll.querySelector('input').disabled) {
+    if (!this.selectAll || this.selectAll.querySelector('input').disabled) {
       return;
     }
     const checked = Select.#checkCheckbox(e);
@@ -1050,12 +1058,14 @@ export class Select {
     const checked = this.visibleOptions.filter(
       (c) => c.querySelector('input').checked,
     );
+
     if (
-      this.visibleOptions.length === 0 ||
-      this.visibleOptions.length !== checked.length
+      this.selectAll &&
+      (this.visibleOptions.length === 0 ||
+        this.visibleOptions.length !== checked.length)
     ) {
       this.selectAll.querySelector('input').checked = false;
-    } else {
+    } else if (this.selectAll) {
       this.selectAll.querySelector('input').checked = true;
     }
     // Display no-results message.
@@ -1097,9 +1107,11 @@ export class Select {
         checkbox.style.display = 'flex';
       });
       // Enable select all checkbox.
-      this.selectAll.classList.remove('ecl-checkbox--disabled');
-      this.selectAll.querySelector('input').disabled = false;
-    } else {
+      if (this.selectAll) {
+        this.selectAll.classList.remove('ecl-checkbox--disabled');
+        this.selectAll.querySelector('input').disabled = false;
+      }
+    } else if (keyword.length !== 0 && this.selectAll) {
       // Disable select all checkbox.
       this.selectAll.classList.add('ecl-checkbox--disabled');
       this.selectAll.querySelector('input').disabled = true;
@@ -1269,7 +1281,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        if (this.selectAll.querySelector('input').disabled) {
+        if (!this.selectAll || this.selectAll.querySelector('input').disabled) {
           if (this.visibleOptions.length > 0) {
             this.visibleOptions[0].querySelector('input').focus();
           } else {
@@ -1460,8 +1472,9 @@ export class Select {
       input.checked = false;
       option.selected = false;
     });
-
-    this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
+    if (this.selectAll) {
+      this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
+    }
     this.update(0);
     this.trigger('onReset', e);
   }

@@ -300,6 +300,12 @@ $select: null !default;
     }
   }
 
+  .ecl-text-input
+    + .ecl-select__multiple-options
+    > .ecl-select__multiple-group:first-child {
+    padding-top: var(--s-xs);
+  }
+
   .ecl-select__multiple-group + .ecl-checkbox {
     margin-top: var(--s-s);
   }
@@ -354,6 +360,7 @@ $select: null !default;
       }
     }
 
+    /* stylelint-disable-next-line no-descending-specificity */
     + .ecl-select__multiple-options > .ecl-select__multiple-group {
       border-top: none;
     }
@@ -363,7 +370,7 @@ $select: null !default;
     display: none;
     left: var(--s-m);
     position: absolute;
-    top: 14%;
+    top: 10%;
 
     * {
       align-items: center;
