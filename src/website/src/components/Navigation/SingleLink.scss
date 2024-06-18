@@ -1,6 +1,6 @@
 .page-list-item {
   align-items: center;
-  background-color: var(--ws-c-n-40);
+  background-color: var(--ws-c-n-20);
   border-width: 0;
   color: var(--ws-c-d);
   display: flex;
@@ -36,7 +36,7 @@
 }
 
 .page-list-item--active {
-  border-left: 4px solid var(--ws-c-s);
+  border-left: 4px solid var(--ws-c-p);
 
   &.level-0 {
     padding-left: calc(var(--ws-s-m) - 4px);
@@ -53,27 +53,4 @@
   &.level-3 {
     padding-left: calc(var(--ws-s-4xl) - 4px);
   }
-}
-
-.page-status {
-  background-color: #000;
-  border-radius: 50%;
-  box-sizing: border-box;
-  display: block;
-  flex-shrink: 0;
-  height: 0.5rem;
-  margin: 0 0.5rem;
-  width: 0.5rem;
-}
-
-.status-ready {
-  background-color: #467a39;
-}
-
-.status-planned {
-  background-color: #006fb4;
-}
-
-.status-wip {
-  background-color: #f29527;
 }

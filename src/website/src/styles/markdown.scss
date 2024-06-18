@@ -5,47 +5,39 @@
 .h1 {
   color: var(--ws-c-d);
   font: var(--ws-f-3xl);
-  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
   padding: 0;
 
   @media screen and (width >= 768px) {
     font: var(--ws-f-4xl);
-    font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h2 {
-  border-bottom: 2px solid var(--ws-c-n-80);
   color: var(--ws-c-d);
   font: var(--ws-f-2xl);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  margin: 0;
-  padding: 0 0 var(--ws-s-m) 0;
 
   @media screen and (width >= 768px) {
     font: var(--ws-f-3xl);
-    font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h3 {
   color: var(--ws-c-d);
   font: var(--ws-f-xl);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  margin: 0;
 
   @media screen and (width >= 768px) {
     font: var(--ws-f-2xl);
-    font-weight: map.get($theme, 'font-weight', 'bold');
   }
 }
 
 .h4 {
   color: var(--ws-c-d);
   font: var(--ws-f-l);
-  margin: 0;
-  padding: 0;
+
+  @media screen and (width >= 768px) {
+    font: var(--ws-f-xl);
+  }
 }
 
 .p {
@@ -225,7 +217,8 @@ img[alt='anatomy'] {
   border: 1px solid var(--ws-c-n-40);
 }
 
-div:not([class^='ecl']):first-child p:not([class^='ecl']):first-child {
+div:not([class^='ecl'], [class^='wt']):first-child
+  p:not([class^='ecl'], [class^='wt']):first-child {
   font: var(--ws-f-l);
   max-width: var(--ws-max-w);
 }
