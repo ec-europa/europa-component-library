@@ -9,8 +9,6 @@ import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-o
 import banner from './banner.html.twig';
 import notes from './README.md';
 
-const cta = { ...bannerDataPlainBackground.link };
-
 const getArgs = (data) => {
   const args = {
     show_title: true,
@@ -19,7 +17,7 @@ const getArgs = (data) => {
     size: 'm',
     title: data.title,
     description: data.description,
-    label: data.link.link.label,
+    label: data.link && data.link.link.label ? data.link.link.label : '',
     left: true,
     full_width: true,
     gridContent: false,
@@ -187,35 +185,34 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.size = args.size;
-  data.title = args.title;
-  data.description = args.description;
-  data.centered = !args.left;
-  data.full_width = args.full_width;
+  const dataClone = JSON.parse(JSON.stringify(data));
 
-  if (data.picture) {
-    data.image = args.image;
+  dataClone.size = args.size;
+  dataClone.title = args.title;
+  dataClone.description = args.description;
+  dataClone.centered = !args.left;
+  dataClone.full_width = args.full_width;
+
+  if (dataClone.picture) {
+    dataClone.image = args.image;
 
     if (!args.show_credit) {
-      data.credit = '';
-    } else {
-      data.credit = args.credit;
+      delete dataClone.credit;
     }
   }
   if (!args.show_title) {
-    data.title = '';
+    delete dataClone.title;
   }
   if (!args.show_description) {
-    data.description = '';
+    delete dataClone.description;
   }
-  if (!args.show_button) {
-    data.link = false;
+  if (!args.show_button || args.label === '') {
+    delete dataClone.link;
   } else {
-    data.link = cta;
-    data.link.link.label = args.label;
+    dataClone.link.link.label = args.label;
   }
 
-  return correctPaths(data);
+  return correctPaths(dataClone);
 };
 
 const renderStory = async (data, args) => {

@@ -8,7 +8,6 @@
     - "sr_description" (string) (default: '') screen reader description of the carousel
     - "sr_role" (string) (default: 'carousel') screen reader localized role for the carousel
     - "sr_slide_role" (string) (default: 'slide') screen reader localized role for the slides
-    - "sr_navigation" (string) (default: 'Go to slide %d') screen reader label for navigation buttons
     - "sr_play" (string) (default: 'Play carousel') screen reader label for the play button
     - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
@@ -31,7 +30,6 @@
 {% set _sr_description = sr_description|default('') %}
 {% set _sr_role = sr_role|default('carousel') %}
 {% set _sr_slide_role = sr_slide_role|default('slide') %}
-{% set _sr_navigation = sr_navigation|default('Go to slide %d') %}
 {% set _sr_play = sr_play|default('Play carousel') %}
 {% set _sr_pause = sr_pause|default('Pause carousel') %}
 {% set _counter_label = counter_label|default('of') %}
