@@ -1,6 +1,6 @@
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
-// Simple content for demo
+
 module.exports = {
   toggle_collapsed: 'Show %d more items',
   toggle_expanded: 'Hide %d items',
