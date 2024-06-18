@@ -189,7 +189,6 @@ export class Breadcrumb {
           ellipsis.setAttribute('aria-hidden', 'false');
         }
         this.expandableElements.forEach((item, index) => {
-          console.log(item);
           item.setAttribute(
             'aria-hidden',
             isItemVisible[index] ? 'false' : 'true',
