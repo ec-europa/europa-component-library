@@ -37,6 +37,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: false },
       category: 'Display',
     },
+    if: { arg: 'header' },
   },
 });
 
@@ -45,6 +46,7 @@ const prepareData = (data, args) => {
 
   if (!args.header) {
     delete dataClone.headers;
+    dataClone.simple = true;
   }
 
   return Object.assign(dataClone, args);
