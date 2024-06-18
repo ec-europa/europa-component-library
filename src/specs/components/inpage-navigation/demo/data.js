@@ -3,7 +3,7 @@ const loremIpsum =
 
 module.exports = {
   title: 'Page contents',
-  trigger_aria_label: 'inpage-navigation trigger',
+  trigger_aria_label: 'Show full page table of contents',
   links: [
     {
       href: '#inline-nav-1',
