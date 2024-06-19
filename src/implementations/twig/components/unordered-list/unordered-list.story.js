@@ -66,55 +66,7 @@ export default {
 export const Text = (_, { loaded: { component } }) => component;
 
 Text.render = async (args) => {
-  const renderedText = `${await renderStory(dataUnorderedListText, args)}<ol class="ecl-ordered-list">
-  <li class="ecl-ordered-list__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit<ol
-      class="ecl-ordered-list">
-      <li class="ecl-ordered-list__item">Duis commodo nibh eget magna tincidunt, in volutpat diam consequat. Nulla in
-        blandit leo. Quisque ultricies molestie porta</li>
-      <li class="ecl-ordered-list__item">Phasellus suscipit eu augue nec suscipit</li>
-    </ol>
-  </li>
-  <li class="ecl-ordered-list__item">Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis
-    feugiat. Vivamus eget turpis a est lacinia blandit. Suspendisse tellus lorem, aliquam at ante quis, dignissim
-    iaculis lectus. Duis pellentesque neque faucibus convallis scelerisque</li>
-  <li class="ecl-ordered-list__item">Vestibulum sed accumsan ipsum. Vestibulum ante ipsum primis in faucibus orci luctus
-    et ultrices posuere cubilia curae<ol class="ecl-ordered-list">
-      <li class="ecl-ordered-list__item">Morbi vitae tortor accumsan</li>
-      <li class="ecl-ordered-list__item">Nulla facilisi</li>
-      <li class="ecl-ordered-list__item">Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus</li>
-    </ol>
-  </li>
-</ol><ul class="ecl-unordered-list">
-  <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
-    <ul class="ecl-unordered-list">
-      <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Duis commodo nibh eget magna</a></li>
-      <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Phasellus suscipit</a></li>
-    </ul>
-  </li>
-  <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit</a></li>
-  <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Vestibulum sed accumsan ipsum</a>
-    <ul class="ecl-unordered-list">
-      <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Morbi vitae tortor accumsan</a></li>
-      <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Nulla facilisi</a></li>
-      <li class="ecl-unordered-list__item"><a class="ecl-link" href="./example">Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus</a></li>
-    </ul>
-  </li>
-</ul><ol class="ecl-ordered-list">
-  <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
-    <ol class="ecl-ordered-list">
-      <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Duis commodo nibh eget magna</a></li>
-      <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Phasellus suscipit</a></li>
-    </ol>
-  </li>
-  <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Nam dignissim condimentum pulvinar. Nullam volutpat tortor vel turpis iaculis feugiat. Vivamus eget turpis a est lacinia blandit</a></li>
-  <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Vestibulum sed accumsan ipsum</a>
-    <ol class="ecl-ordered-list">
-      <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Morbi vitae tortor accumsan</a></li>
-      <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Nulla facilisi</a></li>
-      <li class="ecl-ordered-list__item"><a class="ecl-link" href="./example">Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus</a></li>
-    </ol>
-  </li>
-</ol>`;
+  const renderedText = await renderStory(dataUnorderedListText, args);
   return renderedText;
 };
 Text.storyName = 'text';

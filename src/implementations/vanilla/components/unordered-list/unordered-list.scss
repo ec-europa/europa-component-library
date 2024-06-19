@@ -17,7 +17,7 @@ $list: null !default;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
   padding-bottom: var(--s-xs);
-  padding-inline-start: map.get($list, 'unordered-list', 'padding-start');
+  padding-inline-start: map.get($list, 'unordered', 'padding-start');
 }
 
 .ecl-unordered-list__item,
