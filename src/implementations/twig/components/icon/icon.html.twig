@@ -56,7 +56,7 @@
 
 {# Internal logic - Process properties #}
 
-{% if _icon.title is not empty or _extra_accessibility.title is not empty %}
+{% if _extra_accessibility.title is not empty %}
   {% set _as_image = 'true' %}
   {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
 {% endif %}

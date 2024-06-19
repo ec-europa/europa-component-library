@@ -83,8 +83,6 @@ const getArgTypes = () => ({
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Link icon transform',
-    if: { arg: 'external', truthy: false },
-    // eslint-disable-next-line no-dupe-keys
     if: { arg: 'icon_name', neq: 'none' },
     options: [
       'rotate-90',
@@ -109,8 +107,6 @@ const getArgTypes = () => ({
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
-    if: { arg: 'external', truthy: false },
-    // eslint-disable-next-line no-dupe-keys
     if: { arg: 'icon_name', neq: 'none' },
     options: ['before', 'after'],
     mapping: {
@@ -127,8 +123,6 @@ const getArgTypes = () => ({
     name: 'icon title',
     type: 'string',
     description: 'Textual information for the icon, mostly for screen readers',
-    if: { arg: 'external', truthy: false },
-    // eslint-disable-next-line no-dupe-keys
     if: { arg: 'icon_name', neq: 'none' },
     table: {
       type: { summary: 'string' },
@@ -141,6 +135,7 @@ const getArgTypes = () => ({
     type: { name: 'boolean' },
     description:
       'Hide link label, keeping it only for screen readers. This only works if an icon is used',
+    if: { arg: 'icon_name', neq: 'none' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
