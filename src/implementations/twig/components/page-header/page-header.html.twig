@@ -82,11 +82,11 @@
   {% endif %}
     <div class="{{ _info_classes }}">
     {% if _meta is not empty %}
-      <div class="ecl-page-header__meta">
+      <ul class="ecl-page-header__meta">
         {% for _item in _meta %}
-        <span class="ecl-page-header__meta-item">{{- _item -}}</span>
+        <li class="ecl-page-header__meta-item">{{- _item -}}</li>
         {% endfor %}
-      </div>
+      </ul>
     {% endif %}
 
     {% if _title is not empty %}

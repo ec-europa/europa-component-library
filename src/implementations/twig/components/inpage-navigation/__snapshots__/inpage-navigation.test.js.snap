@@ -23,7 +23,6 @@ exports[`Inpage navigation renders correctly 1`] = `
         <button
           aria-controls="ecl-inpage-navigation-list"
           aria-expanded="false"
-          aria-label="inpage-navigation trigger"
           class="ecl-inpage-navigation__trigger"
           data-ecl-inpage-navigation-trigger="true"
           id="ecl-inpage-navigation-default-trigger"
@@ -32,12 +31,18 @@ exports[`Inpage navigation renders correctly 1`] = `
           <span
             class="ecl-inpage-navigation__trigger-current"
             data-ecl-inpage-navigation-trigger-current="true"
-          />
+          >
+            Page contents
+          </span>
           <svg
-            aria-hidden="true"
+            aria-hidden="false"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
             focusable="false"
+            role="img"
           >
+            <title>
+              Show full page table of contents
+            </title>
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
@@ -124,7 +129,6 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
         <button
           aria-controls="ecl-inpage-navigation-list"
           aria-expanded="false"
-          aria-label="inpage-navigation trigger"
           class="ecl-inpage-navigation__trigger"
           data-ecl-inpage-navigation-trigger="true"
           id="ecl-inpage-navigation-default-trigger"
@@ -133,12 +137,18 @@ exports[`Inpage navigation renders correctly with extra attributes 1`] = `
           <span
             class="ecl-inpage-navigation__trigger-current"
             data-ecl-inpage-navigation-trigger-current="true"
-          />
+          >
+            Page contents
+          </span>
           <svg
-            aria-hidden="true"
+            aria-hidden="false"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
             focusable="false"
+            role="img"
           >
+            <title>
+              Show full page table of contents
+            </title>
             <use
               xlink:href="/icons.svg#corner-arrow"
             />
@@ -223,7 +233,6 @@ exports[`Inpage navigation renders correctly with extra class names 1`] = `
         <button
           aria-controls="ecl-inpage-navigation-list"
           aria-expanded="false"
-          aria-label="inpage-navigation trigger"
           class="ecl-inpage-navigation__trigger"
           data-ecl-inpage-navigation-trigger="true"
           id="ecl-inpage-navigation-default-trigger"
@@ -232,12 +241,18 @@ exports[`Inpage navigation renders correctly with extra class names 1`] = `
           <span
             class="ecl-inpage-navigation__trigger-current"
             data-ecl-inpage-navigation-trigger-current="true"
-          />
+          >
+            Page contents
+          </span>
           <svg
-            aria-hidden="true"
+            aria-hidden="false"
             class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
             focusable="false"
+            role="img"
           >
+            <title>
+              Show full page table of contents
+            </title>
             <use
               xlink:href="/icons.svg#corner-arrow"
             />

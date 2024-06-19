@@ -66,7 +66,9 @@ $timeline: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-timeline {
-    margin-inline-start: map.get($timeline, 'timeline-margin-left');
+    @if map.has-key($timeline, 'timeline-margin-left') {
+      margin-inline-start: map.get($timeline, 'timeline-margin-left');
+    }
   }
 }
 
@@ -122,7 +124,7 @@ $timeline: null !default;
   color: map.get($timeline, 'label-color');
   font: map.get($timeline, 'label-font');
   font-weight: map.get($timeline, 'label-font-weight');
-  margin-bottom: var(--s-2xs);
+  margin-bottom: map.get($timeline, 'label-margin');
 }
 
 .ecl-timeline__content {
@@ -133,28 +135,15 @@ $timeline: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-timeline__label {
-    font: map.get($timeline, 'label-big-font');
-    font-weight: map.get($timeline, 'label-font-weight');
     left: calc(
       -1 * (#{map.get($timeline, 'left-spacing')} + var(--s-m) + #{map.get(
               $timeline,
               'bullet-size'
             )} / 2 + map.get($timeline, 'bullet-border-width'))
     );
-    line-height: map.get($theme, 'line-height', 'm');
-    margin-bottom: map.get($timeline, 'label-margin');
     position: map.get($timeline, 'label-layout');
     text-align: map.get($timeline, 'label-alignment');
     width: map.get($timeline, 'left-spacing');
-  }
-
-  .ecl-timeline__title {
-    font: map.get($timeline, 'title-big-font');
-    font-weight: map.get($timeline, 'title-font-weight');
-  }
-
-  .ecl-timeline__content {
-    font: map.get($timeline, 'content-big-font');
   }
 }
 

@@ -67,18 +67,26 @@ $_image-width: 13.125rem;
 }
 
 .ecl-file__detail-meta {
-  color: var(--c-d-75);
-  display: flex;
+  color: var(--c-d);
+  display: inline-block;
   font: map.get($theme, 'font-print', 's');
+  list-style: none;
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
+  margin-top: 0;
+  padding: 0;
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
+  border-inline-end: 1px solid var(--c-p);
+  display: inline;
+  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  padding-inline-end: map.get($theme, 'spacing-print', 'xs');
+  unicode-bidi: isolate;
 
-  &::before {
-    content: '|';
-    margin-inline-end: map.get($theme, 'spacing-print', 'xs');
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 

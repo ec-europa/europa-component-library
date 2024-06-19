@@ -149,6 +149,10 @@
 .ecl thead:not([class*='ecl-'], [class*='wt-']),
 .ecl thead:is([class*='ecl-u-']) {
   @extend %ecl-table__head;
+
+  & + tbody tr:first-child {
+    border-top-width: 0;
+  }
 }
 
 .ecl th:not([class*='ecl-'], [class*='wt-']),

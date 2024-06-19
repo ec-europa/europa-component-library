@@ -4,13 +4,13 @@
 $_nav-width: 15rem;
 $_nav-logo-height: 2rem;
 $_nav-logo-max-width: 10rem;
-$_nav-toggle-size: 2.5rem;
+$_nav-toggle-size: 2.75rem; // 44px
 $_nav-toggle-bar-width: 1.5rem; // 24px
 $_nav-toggle-bar-height: 0.125rem; // 2px
 $_nav-toggle-bar-spacing-between: 0.375rem;
 
 .nav {
-  background-color: var(--ws-c-n-40);
+  background-color: var(--ws-c-n-20);
   box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
   bottom: 0;
   left: 0;
@@ -19,7 +19,7 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
   top: 0;
   transition: transform 300ms ease;
   width: $_nav-width;
-  z-index: 1000;
+  z-index: 50;
 
   :global(.no-js) & {
     position: static;
@@ -44,16 +44,16 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 .header {
   background-color: map.get($theme, 'color', 'white');
   border-bottom: 2px solid var(--ws-c-n-60);
-  padding: var(--ws-s-m);
+  padding: var(--ws-s-m) var(--ws-s-s) var(--ws-s-m) var(--ws-s-m);
 }
 
 .version {
-  background-color: var(--ws-c-n-40);
-  border-radius: 1rem;
+  background-color: var(--ws-c-p-20);
+  border-radius: 12px;
   color: var(--ws-c-d);
   display: inline-block;
   font: var(--ws-f-s);
-  padding: var(--ws-s-xs) var(--ws-s-s);
+  padding: var(--ws-s-2xs) var(--ws-s-s);
 }
 
 .logo {
@@ -94,11 +94,12 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .system-list-item-link {
+  background-color: var(--ws-c-n-80);
   color: var(--ws-c-d);
   display: block;
   font: var(--ws-f-l);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  padding: var(--ws-s-s) 0 calc(var(--ws-s-s) - 4px);
+  padding: var(--ws-s-s) 0;
   text-decoration: none;
 
   &:hover,
@@ -109,7 +110,7 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .system-list-item-link--selected {
-  border-bottom: 4px solid var(--ws-c-s);
+  background-color: var(--ws-c-n-20);
 }
 
 .loading {
@@ -121,29 +122,33 @@ $_nav-toggle-bar-spacing-between: 0.375rem;
 /* Burger */
 
 .button-toggle {
-  background-color: var(--ws-c-n-60);
-  border-width: 0;
+  align-items: center;
+  background-color: map.get($theme, 'color', 'white');
+  border: 1px solid transparent;
+  color: var(--ws-c-d);
+  display: flex;
+  justify-content: center;
   height: $_nav-toggle-size;
   position: absolute;
   right: 0;
   top: 0;
   transition: transform 300ms;
   width: $_nav-toggle-size;
-  z-index: 1001;
+  z-index: 51;
 
   :global(.no-js) & {
     display: none;
+  }
+
+  &:hover {
+    background-color: var(--ws-c-p-20);
+    border-color: var(--ws-c-d-80);
+    cursor: pointer;
   }
 }
 
 .button-toggle--closed {
   transform: translate($_nav-toggle-size);
-}
-
-.hamburger-box {
-  left: ($_nav-toggle-size - $_nav-toggle-bar-width) * 0.5;
-  position: absolute;
-  top: 50%;
 }
 
 .hamburger-inner {
