@@ -81,6 +81,7 @@ export class Breadcrumb {
     if (!ECL) {
       throw new TypeError('Called init but ECL is not present');
     }
+
     ECL.components = ECL.components || new Map();
 
     this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
@@ -255,9 +256,8 @@ export class Breadcrumb {
             return segmentWidth;
           })
           .reduce((a, b) => a + b);
-
-        // This calculation is not always 100% reliable, we add a 20% to limit the risk.
-        if (allItemsWidth * 1.2 <= wrapperWidth) {
+        // This calculation is not always 100% reliable, we add a 10% to limit the risk.
+        if (allItemsWidth * 1.1 <= wrapperWidth) {
           resolve({ expanded: true });
           return;
         }
