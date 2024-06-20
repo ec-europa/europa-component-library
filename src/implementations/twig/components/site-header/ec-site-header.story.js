@@ -37,6 +37,7 @@ dataHarmonised.has_menu = true;
 
 const getArgs = (data) => {
   const defaultArgs = {
+    logo_size: 'large',
     show_language_selector: true,
     show_search: true,
     show_notification: false,
@@ -51,7 +52,7 @@ const getArgs = (data) => {
     defaultArgs.site_name = data.site_name;
   }
   if (data.banner_top) {
-    defaultArgs.show_banner_top = true;
+    defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
     defaultArgs.show_menu = 'menu';
@@ -197,6 +198,23 @@ const getArgTypes = (data) => {
       if: { arg: 'show_language_selector' },
     };
   }
+  argTypes.logo_size = {
+    name: 'logo size',
+    description: 'Three sizes for large displays (s, m, l)',
+    control: {
+      type: 'select',
+    },
+    options: ['small', 'medium', 'large'],
+    mapping: {
+      small: 's',
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      defaultValue: { summary: 'l' },
+      category: 'Content',
+    },
+  };
 
   return argTypes;
 };
@@ -224,6 +242,7 @@ const prepareData = (data, args) => {
   }
 
   data.logged = args.logged;
+  data.logo.size = args.logo_size;
 
   if (!args.show_language_selector) {
     delete data.language_selector;
