@@ -23,7 +23,7 @@ $list: null !default;
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
   margin-top: var(--s-xs);
-  padding-inline-start: var(--s-l);
+  padding-inline-start: map.get($list, 'ordered', 'sublist-padding');
 }
 
 .ecl-ordered-list__item,
@@ -53,7 +53,7 @@ $list: null !default;
 
   .ecl-ordered-list {
     list-style-type: none;
-    padding-inline-start: map.get($list, 'ordered', 'padding-start');
+    padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
   }
 
   .ecl-ordered-list__item {
@@ -83,7 +83,7 @@ $list: null !default;
   }
 
   .ecl-ordered-list {
-    padding-inline-start: map.get($list, 'ordered', 'padding-start');
+    padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
 
     .ecl-ordered-list__item {
       list-style-type: none;

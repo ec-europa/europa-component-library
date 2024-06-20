@@ -47,7 +47,7 @@ $list: null !default;
   list-style-type: map.get($list, 'unordered', 'sublist-marker');
   padding-bottom: 0;
   padding-top: var(--s-xs);
-  padding-inline-start: 1.75rem;
+  padding-inline-start: map.get($list, 'unordered', 'sublist-padding');
 
   .ecl-unordered-list__item {
     padding-top: var(--s-xs);
@@ -62,7 +62,11 @@ $list: null !default;
 
   .ecl-unordered-list {
     list-style-type: none;
-    padding-inline-start: map.get($list, 'unordered', 'padding-start');
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
   }
 
   .ecl-unordered-list__item {
@@ -93,7 +97,11 @@ $list: null !default;
   }
 
   .ecl-unordered-list {
-    padding-inline-start: map.get($list, 'unordered', 'padding-start');
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
 
     .ecl-unordered-list__item {
       list-style-type: none;
