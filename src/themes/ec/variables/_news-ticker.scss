@@ -2,18 +2,19 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height: 56px,
+  height: 60px,
+  desktop-only-height: 68px,
   border: 1px solid var(--c-n),
   border-radius: 0,
   padding-horizontal: var(--s-m),
   font: var(--f-s),
-  controls-background: var(--c-p),
+  line-height: 22px,
+  controls-background: map.get($color, 'white'),
+  container-background: var(--c-n-20),
   counter: (
-    font: var(--f-s),
+    font: var(--f-m),
     font-weight: map.get($font-weight, 'regular'),
-    background-mobile: var(--c-n-60),
-    color-mobile: var(--c-d),
-    background-desktop: var(--c-n-60),
-    color-desktop: var(--c-d),
+    background: var(--c-p),
+    color: map.get($color, 'white'),
   ),
 );

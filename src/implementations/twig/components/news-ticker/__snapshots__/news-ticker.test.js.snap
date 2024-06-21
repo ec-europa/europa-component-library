@@ -30,17 +30,17 @@ exports[`News ticker Default renders correctly 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis.
             </a>
           </li>
           <li
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-link--icon ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-news-ticker__slide-text"
               href="/example"
             >
               <svg
@@ -59,7 +59,7 @@ exports[`News ticker Default renders correctly 1`] = `
               <span
                 class="ecl-link__label"
               >
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis. Nam condimentum aliquam sem, a bibendum mauris faucibus id. In euismod semper ex et tincidunt. Donec eu augue posuere, feugiat enim ac, faucibus tortor.
               </span>
             </a>
           </li>
@@ -67,7 +67,7 @@ exports[`News ticker Default renders correctly 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
@@ -77,7 +77,7 @@ exports[`News ticker Default renders correctly 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
@@ -87,7 +87,7 @@ exports[`News ticker Default renders correctly 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -97,7 +97,7 @@ exports[`News ticker Default renders correctly 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores
@@ -109,110 +109,114 @@ exports[`News ticker Default renders correctly 1`] = `
     <div
       class="ecl-news-ticker__controls"
     >
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
-        data-ecl-news-ticker-prev=""
-        type="button"
+      <div
+        class="ecl-news-ticker__actions"
       >
-        <span
-          class="ecl-button__container"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__prev ecl-button--icon-only"
+          data-ecl-news-ticker-prev=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Previous item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
-        data-ecl-news-ticker-play=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__play ecl-button--icon-only"
+          data-ecl-news-ticker-play=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Play news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Play news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play-outline"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
-        data-ecl-news-ticker-pause=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__pause ecl-button--icon-only"
+          data-ecl-news-ticker-pause=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Pause news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Pause news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
-        data-ecl-news-ticker-next=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__next ecl-button--icon-only"
+          data-ecl-news-ticker-next=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Next item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
       <div
         class="ecl-news-ticker__counter"
       >
@@ -265,17 +269,17 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis.
             </a>
           </li>
           <li
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-link--icon ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-news-ticker__slide-text"
               href="/example"
             >
               <svg
@@ -294,7 +298,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
               <span
                 class="ecl-link__label"
               >
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis. Nam condimentum aliquam sem, a bibendum mauris faucibus id. In euismod semper ex et tincidunt. Donec eu augue posuere, feugiat enim ac, faucibus tortor.
               </span>
             </a>
           </li>
@@ -302,7 +306,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
@@ -312,7 +316,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
@@ -322,7 +326,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -332,7 +336,7 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores
@@ -344,110 +348,114 @@ exports[`News ticker Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-news-ticker__controls"
     >
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
-        data-ecl-news-ticker-prev=""
-        type="button"
+      <div
+        class="ecl-news-ticker__actions"
       >
-        <span
-          class="ecl-button__container"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__prev ecl-button--icon-only"
+          data-ecl-news-ticker-prev=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Previous item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
-        data-ecl-news-ticker-play=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__play ecl-button--icon-only"
+          data-ecl-news-ticker-play=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Play news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Play news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play-outline"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
-        data-ecl-news-ticker-pause=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__pause ecl-button--icon-only"
+          data-ecl-news-ticker-pause=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Pause news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Pause news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
-        data-ecl-news-ticker-next=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__next ecl-button--icon-only"
+          data-ecl-news-ticker-next=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Next item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
       <div
         class="ecl-news-ticker__counter"
       >
@@ -498,17 +506,17 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis.
             </a>
           </li>
           <li
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-link--icon ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-news-ticker__slide-text"
               href="/example"
             >
               <svg
@@ -527,7 +535,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
               <span
                 class="ecl-link__label"
               >
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis. Nam condimentum aliquam sem, a bibendum mauris faucibus id. In euismod semper ex et tincidunt. Donec eu augue posuere, feugiat enim ac, faucibus tortor.
               </span>
             </a>
           </li>
@@ -535,7 +543,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
@@ -545,7 +553,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum
@@ -555,7 +563,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -565,7 +573,7 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
             class="ecl-news-ticker__slide"
           >
             <a
-              class="ecl-link ecl-news-ticker__slide-text"
+              class="ecl-link ecl-link--standalone ecl-news-ticker__slide-text"
               href="/example"
             >
               Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores
@@ -577,110 +585,114 @@ exports[`News ticker Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-news-ticker__controls"
     >
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__prev ecl-button--icon-only"
-        data-ecl-news-ticker-prev=""
-        type="button"
+      <div
+        class="ecl-news-ticker__actions"
       >
-        <span
-          class="ecl-button__container"
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__prev ecl-button--icon-only"
+          data-ecl-news-ticker-prev=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Previous item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Previous item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-270 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__play ecl-button--icon-only"
-        data-ecl-news-ticker-play=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__play ecl-button--icon-only"
+          data-ecl-news-ticker-play=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Play news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Play news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#play-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#play-outline"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__pause ecl-button--icon-only"
-        data-ecl-news-ticker-pause=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__pause ecl-button--icon-only"
+          data-ecl-news-ticker-pause=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Pause news ticker
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Pause news ticker
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#pause-outline"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#pause"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        class="ecl-button ecl-button--primary ecl-news-ticker__next ecl-button--icon-only"
-        data-ecl-news-ticker-next=""
-        type="button"
-      >
-        <span
-          class="ecl-button__container"
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-news-ticker__next ecl-button--icon-only"
+          data-ecl-news-ticker-next=""
+          type="button"
         >
           <span
-            class="ecl-button__label"
-            data-ecl-label="true"
+            class="ecl-button__container"
           >
-            Next item
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Next item
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#corner-arrow"
+              />
+            </svg>
           </span>
-          <svg
-            aria-hidden="true"
-            class="ecl-icon ecl-icon--l ecl-icon--rotate-90 ecl-button__icon"
-            data-ecl-icon=""
-            focusable="false"
-          >
-            <use
-              xlink:href="/icons.svg#corner-arrow"
-            />
-          </svg>
-        </span>
-      </button>
+        </button>
+      </div>
       <div
         class="ecl-news-ticker__counter"
       >

@@ -86,6 +86,7 @@
           <li class="ecl-news-ticker__slide">
           {% include '@ecl/link/link.html.twig' with {
             link: {
+            type: 'standalone',
               label: _item.content,
               path: _item.link,
               icon_position: 'before',
@@ -105,71 +106,73 @@
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_previous,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'l',
-        transform: 'rotate-270',
-      },
-      extra_classes: 'ecl-news-ticker__prev',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-prev',
-      }],
-    } only %}
+    <div class="ecl-news-ticker__actions">
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_previous,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-270',
+        },
+        extra_classes: 'ecl-news-ticker__prev',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-prev',
+        }],
+      } only %}
 
-{% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_play,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'play-outline',
-        size: 'l',
-      },
-      extra_classes: 'ecl-news-ticker__play',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-play',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_play,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'play-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__play',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-play',
+        }],
+      } only %}
 
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_pause,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'pause',
-        size: 'l',
-      },
-      extra_classes: 'ecl-news-ticker__pause',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-pause',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_pause,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'pause-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__pause',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-pause',
+        }],
+      } only %}
 
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_next,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'l',
-        transform: 'rotate-90',
-      },
-      extra_classes: 'ecl-news-ticker__next',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-next',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_next,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-90',
+        },
+        extra_classes: 'ecl-news-ticker__next',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-next',
+        }],
+      } only %}
+    </div>
 
     <div class="ecl-news-ticker__counter">
       <span class="ecl-news-ticker__counter--current">1</span>

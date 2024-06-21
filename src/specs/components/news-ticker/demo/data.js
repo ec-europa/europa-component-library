@@ -12,12 +12,13 @@ module.exports = {
   sr_pause: 'Pause news ticker',
   items: [
     {
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis.',
       link: exampleLink,
     },
     {
       content:
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et finibus mi. Sed hendrerit velit id ex ornare interdum. Duis suscipit tortor vitae mi feugiat suscipit. Morbi consequat tortor magna, ac malesuada nunc placerat non. Vivamus pulvinar augue tristique lectus lobortis iaculis. Nam condimentum aliquam sem, a bibendum mauris faucibus id. In euismod semper ex et tincidunt. Donec eu augue posuere, feugiat enim ac, faucibus tortor.',
       link: exampleLink,
       external: true,
     },
