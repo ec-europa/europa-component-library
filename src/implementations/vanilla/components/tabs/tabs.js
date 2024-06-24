@@ -253,7 +253,7 @@ export class Tabs {
     this.index = dir === 'next' ? this.index + 1 : this.index - 1;
     // Show or hide prev or next button based on tab index
     if (this.index >= 1) {
-      this.btnPrev.style.display = 'block';
+      this.btnPrev.style.display = 'flex';
       this.container.classList.add('ecl-tabs__container--left');
     } else {
       this.btnPrev.style.display = 'none';
@@ -264,7 +264,7 @@ export class Tabs {
       this.btnNext.style.display = 'none';
       this.container.classList.remove('ecl-tabs__container--right');
     } else {
-      this.btnNext.style.display = 'block';
+      this.btnNext.style.display = 'flex';
       this.container.classList.add('ecl-tabs__container--right');
     }
 
@@ -364,7 +364,7 @@ export class Tabs {
         listWidth += Math.ceil(item.getBoundingClientRect().width);
       });
       this.list.style.width = `${listWidth}px`;
-      this.btnNext.style.display = 'block';
+      this.btnNext.style.display = 'flex';
       this.container.classList.add('ecl-tabs__container--right');
       this.btnPrev.style.display = 'none';
       this.container.classList.remove('ecl-tabs__container--left');

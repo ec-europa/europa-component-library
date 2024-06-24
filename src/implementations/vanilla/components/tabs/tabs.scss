@@ -15,7 +15,7 @@ $tabs: null !default;
 $button-width: 44px;
 
 .ecl-tabs {
-  margin: 0 0 var(--s-xl);
+  margin: 0 0 map.get($tabs, 'margin-bottom');
   padding: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'dropdown');
@@ -50,6 +50,14 @@ $button-width: 44px;
   margin-inline-end: $button-width;
 }
 
+.ecl-tabs__item {
+  margin-inline-end: map.get($tabs, 'item', 'margin-end');
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
 .ecl-tabs__link {
   background-color: map.get($theme, 'color', 'white');
   border-bottom: map.get($tabs, 'separator-width') solid
@@ -57,7 +65,7 @@ $button-width: 44px;
   border-radius: map.get($tabs, 'item', 'border-radius');
   color: map.get($tabs, 'item', 'color');
   display: block;
-  font: var(--f-m);
+  font: map.get($tabs, 'item', 'font');
   margin-bottom: -#{map.get($tabs, 'separator-width')};
   padding: map.get($tabs, 'item', 'padding');
   text-decoration: none;
@@ -107,10 +115,9 @@ $button-width: 44px;
 
 .ecl-tabs__toggle {
   font-weight: map.get($tabs, 'more', 'font-weight');
-  margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 0;
 
   &:hover {
     box-shadow: none;
@@ -212,9 +219,16 @@ $button-width: 44px;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
+  align-items: center;
   background: map.get($theme, 'color', 'white');
   position: absolute;
   top: 0;
+  height: 44px;
+
+  .ecl-icon {
+    height: 1rem;
+    width: 1rem;
+  }
 
   &:focus-visible {
     background: map.get($theme, 'color', 'white');
