@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-site-header
   - "href" (string) (default: ''): Logo URL.
   - "src_desktop" (string) (default: ''): Desktop logo image file path
   - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
+  - "size": (string) (default: 'm'): Three sizes in desktop (s, m, l)
 - **"login_box"** (associative array) format:
   - "id": (string) Id of the box
   - "description" (string) Label for the logged in users

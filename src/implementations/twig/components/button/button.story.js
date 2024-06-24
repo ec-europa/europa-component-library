@@ -30,6 +30,7 @@ const withInverted = (story) => {
 const getArgs = () => ({
   icon_name: 'none',
   icon_position: 'after',
+  icon_title: '',
   disabled: false,
   hide_label: false,
 });
@@ -103,6 +104,17 @@ const getArgTypes = () => {
       category: 'Icon',
     },
   };
+  argTypes.icon_title = {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  };
   argTypes.disabled = {
     name: 'disabled',
     type: { name: 'boolean' },
@@ -147,6 +159,7 @@ const prepareData = (data, args) => {
     data.icon.transform =
       args.icon_transform !== 'none' ? args.icon_transform : '';
     data.icon_position = args.icon_position;
+    data.icon.title = args.icon_title;
   }
   if (args.icon_name === 'none') {
     delete data.icon;
