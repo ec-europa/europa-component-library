@@ -138,6 +138,17 @@ export const getIconControls = (data, icons, mapping) => {
     },
     if: { arg: 'name', neq: 'none' },
   };
+  argTypes.title = {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'name', neq: 'none' },
+  };
 
   return argTypes;
 };

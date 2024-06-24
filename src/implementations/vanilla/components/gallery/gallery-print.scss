@@ -91,6 +91,11 @@ $gallery: null !default;
   display: none;
 }
 
+.ecl-gallery__list .ecl-gallery__caption,
+.ecl-gallery__list .ecl-gallery__meta {
+  display: none;
+}
+
 .ecl-gallery__footer {
   display: none;
 }
@@ -184,4 +189,54 @@ $gallery: null !default;
 .ecl-gallery__overlay[open] {
   display: flex;
   overflow: auto;
+}
+
+// Variant: grid
+.ecl-gallery--grid {
+  .ecl-gallery__item {
+    aspect-ratio: 3/2;
+    flex-grow: 0;
+    height: auto;
+    margin-inline-start: 0;
+    margin-top: 0;
+    min-width: auto;
+  }
+
+  .ecl-gallery__image {
+    aspect-ratio: 3/2;
+    height: auto;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .ecl-gallery__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1rem;
+    column-gap: 1rem;
+    margin-inline-start: 0;
+  }
+
+  .ecl-gallery__image-container {
+    height: auto;
+  }
+}
+
+.ecl-gallery--ratio-3-1 {
+  .ecl-gallery__item,
+  .ecl-gallery__image {
+    aspect-ratio: 3/1;
+  }
+}
+
+.ecl-gallery--col-2 {
+  .ecl-gallery__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ecl-gallery--col-4 {
+  .ecl-gallery__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

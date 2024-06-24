@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -18,7 +17,7 @@ $accordion: null !default;
 
 .ecl-accordion__toggle {
   background-color: transparent;
-  border: 2px solid transparent;
+  border: none;
   color: map.get($accordion, 'title-text-color');
   cursor: pointer;
   display: block;
@@ -32,40 +31,24 @@ $accordion: null !default;
     background-color: map.get($accordion, 'item-background-hover');
   }
 
-  &:focus-visible {
-    border: 2px solid var(--c-p);
-    outline: 0;
+  &[aria-expanded='true'] {
+    padding: map.get($accordion, 'item-padding-expanded');
   }
 }
 
-.ecl-accordion__toggle-indicator {
-  align-items: center;
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-  margin-inline-start: map.get($accordion, 'icon-margin');
-  padding: 2px 0;
-
-  .ecl-accordion__toggle-icon {
-    fill: map.get($accordion, 'icon-color');
-    transform: rotate(180deg);
-    transition-duration: 0s;
-  }
-}
-
-.ecl-accordion__toggle[aria-expanded='true'] {
-  .ecl-accordion__toggle-icon {
-    transform: rotate(0deg);
-    transition-duration: 0s;
-  }
+.ecl-accordion__toggle:focus-visible {
+  outline: 2px solid var(--c-p);
+  outline-offset: -2px;
 }
 
 .ecl-accordion__content {
   color: map.get($accordion, 'text-color');
-  font: var(--f-p-m);
+  font: var(--f-m);
   margin-inline-start: 0;
   max-width: var(--max-w);
-  padding: 0 var(--s-l) var(--s-l);
+  padding-inline-end: map.get($accordion, 'item-padding');
+  padding-inline-start: map.get($accordion, 'item-padding');
+  padding-bottom: var(--s-xl);
 }
 
 .no-js .ecl-accordion__content {
@@ -73,22 +56,23 @@ $accordion: null !default;
 }
 
 .ecl-accordion__item {
-  background-color: map.get($accordion, 'item-background');
-  border-bottom: 2px solid var(--c-p-20);
+  border-bottom: map.get($accordion, 'separator');
   position: relative;
 
   &:first-child {
-    &::before {
-      background-color: var(--c-s);
-      border-end-start-radius: 2px;
-      border-end-end-radius: 2px;
-      content: '';
-      height: 4px;
-      left: var(--s-l);
-      position: absolute;
-      top: 0;
-      width: 32px;
-      z-index: 1;
+    @if map.has-key($accordion, 'yellow-bar') {
+      &::before {
+        background-color: var(--c-s);
+        border-end-start-radius: 2px;
+        border-end-end-radius: 2px;
+        content: '';
+        height: 4px;
+        left: var(--s-l);
+        position: absolute;
+        top: 0;
+        width: 32px;
+        z-index: 1;
+      }
     }
 
     .ecl-accordion__toggle {
@@ -126,10 +110,22 @@ $accordion: null !default;
 .ecl-accordion__toggle-flex {
   align-items: flex-start;
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .ecl-accordion__toggle-title {
   max-width: var(--max-w);
+}
+
+.ecl-accordion__toggle-indicator {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-inline-end: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
+}
+
+.ecl-accordion__toggle-icon {
+  fill: map.get($accordion, 'icon-color');
 }
