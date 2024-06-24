@@ -9,8 +9,13 @@ $list-illustration: (
   value-font-weight-mobile: map.get($font-weight, 'regular'),
   value-font-desktop: var(--f-6xl),
   value-font-weight-desktop: map.get($font-weight, 'regular'),
-  icon-color: var(--c-p),
   title-font: var(--f-l),
+  title-margin: var(--s-s),
+  description-margin: var(--s-s),
+  icon-color: var(--c-p),
+  item-padding: var(--s-m) 0,
+  item-padding-zebra: var(--s-m),
+  item-margin-mobile: var(--s-2xl),
 );
 $list-illustration-print: (
   value-font-mobile: map.get($font-print, '5xl'),

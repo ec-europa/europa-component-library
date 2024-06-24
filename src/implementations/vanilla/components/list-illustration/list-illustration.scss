@@ -19,8 +19,15 @@ $list-illustration: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: column;
-  padding-bottom: var(--s-m);
-  padding-top: var(--s-m);
+  padding: map.get($list-illustration, 'item-padding');
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 }
 
 .ecl-list-illustration__picture {
@@ -54,7 +61,7 @@ $list-illustration: null !default;
 .ecl-list-illustration__title-container {
   display: flex;
   flex-direction: column;
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-list-illustration__icon {
@@ -74,17 +81,17 @@ $list-illustration: null !default;
 }
 
 .ecl-list-illustration__value + .ecl-list-illustration__title {
-  margin-top: var(--s-s);
+  margin-top: map.get($list-illustration, 'title-margin');
 }
 
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description-color');
   font: var(--f-m);
-  max-width: 80ch;
+  max-width: var(--max-w);
 }
 
 .ecl-list-illustration__title-container + .ecl-list-illustration__description {
-  margin-top: var(--s-s);
+  margin-top: map.get($list-illustration, 'description-margin');
 }
 
 @include breakpoints.up('m') {
@@ -121,7 +128,7 @@ $list-illustration: null !default;
 .ecl-list-illustration--col-3,
 .ecl-list-illustration--col-4 {
   .ecl-list-illustration__item {
-    margin-bottom: var(--s-2xl);
+    margin-bottom: map.get($list-illustration, 'item-margin-mobile');
     padding-bottom: 0;
     padding-top: 0;
 
@@ -160,7 +167,7 @@ $list-illustration: null !default;
 
     .ecl-list-illustration__image {
       margin-inline-end: 0;
-      margin-bottom: var(--s-m);
+      margin-bottom: var(--s-l);
 
       &:not(.ecl-list-illustration__image--square) {
         width: 100%;
@@ -190,11 +197,18 @@ $list-illustration: null !default;
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-list-illustration__item {
-    padding-inline-end: var(--s-m);
-    padding-inline-start: var(--s-m);
+    padding: map.get($list-illustration, 'item-padding-zebra');
 
     &:nth-child(even) {
       background-color: map.get($list-illustration, 'background-color');
+    }
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    &:last-of-type:not(:nth-child(even)) {
+      padding-bottom: 0;
     }
   }
 }
@@ -214,6 +228,7 @@ $list-illustration: null !default;
   &.ecl-list-illustration--col-4 {
     align-items: flex-start;
 
+    // stylelint-disable-next-line no-descending-specificity
     .ecl-list-illustration__item {
       text-align: center;
     }
