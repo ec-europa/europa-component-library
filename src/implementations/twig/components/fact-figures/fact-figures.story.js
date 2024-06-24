@@ -133,10 +133,6 @@ const prepareData = (data, args) => {
 
   // Column display
   clone.column = args.column;
-  clone.items =
-    args.column < 3
-      ? clone.items.slice(0, args.column)
-      : clone.items.slice(0, args.column * 2);
 
   // Other controls
   clone.items[0].value = args.value;
