@@ -57,7 +57,7 @@ const getArgTypes = () => ({
   },
   column: {
     description: 'Number of columns',
-    control: { type: 'range', min: 1, max: 4, step: 1 },
+    control: { type: 'range', min: 2, max: 4, step: 1 },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
