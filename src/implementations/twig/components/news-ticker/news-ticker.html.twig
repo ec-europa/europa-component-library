@@ -7,6 +7,7 @@
         {
           "content" (string)
           "link" (string)
+          "icon" (object) Object of type ECL icon
           "external" (boolean)
         },
         ...
@@ -71,19 +72,25 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        path: _icon_path,
-        name: 'information',
-        size: 'm',
-      },
-      extra_classes: 'ecl-news-ticker__icon',
-    } only %}
     <div class="ecl-news-ticker__content">
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
+        {% set _icon = '' %}
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {% set _icon %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: _item.icon|merge({
+                path: _icon_path,
+                name: _item.icon.name,
+                size: 'l',
+              }),
+              extra_classes: 'ecl-news-ticker__icon',
+            } only %}
+          {% endset %}
+        {% endif %}
+        <li class="ecl-news-ticker__slide">
         {% if _item.link is not empty %}
-          <li class="ecl-news-ticker__slide">
+          {{ _icon }}
           {% include '@ecl/link/link.html.twig' with {
             link: {
             type: 'standalone',
@@ -96,10 +103,10 @@
             },
             extra_classes: 'ecl-news-ticker__slide-text',
           } only %}
-          </li>
         {% else %}
-          <li class="ecl-news-ticker__slide">{{ _item.content }}</li>
+          {{ _icon }}{{ _item.content }}
         {% endif %}
+        </li>  
       {% endfor %}
       </ul>
     </div>
