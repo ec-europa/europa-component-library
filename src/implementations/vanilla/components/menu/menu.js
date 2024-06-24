@@ -1165,7 +1165,6 @@ export class Menu {
     this.checkMegaMenu(menuItem);
 
     // Focus first item
-    console.log(menuItem);
     const firstItem = queryOne(
       '.ecl-menu__subitem:first-of-type .ecl-menu__sublink',
       menuItem,
