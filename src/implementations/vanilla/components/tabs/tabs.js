@@ -97,6 +97,7 @@ export class Tabs {
     this.lastTab = null;
     this.direction = 'ltr';
     this.isMobile = false;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
@@ -338,97 +339,99 @@ export class Tabs {
     if (window.getComputedStyle(this.moreButton).display === 'none') {
       this.closeMoreDropdown(this);
     }
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.list.style.transform = `translate3d(0px, 0px, 0px)`;
 
-    this.list.style.transform = `translate3d(0px, 0px, 0px)`;
+      // Behaviors for mobile format
+      const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+      );
 
-    // Behaviors for mobile format
-    const vw = Math.max(
-      document.documentElement.clientWidth || 0,
-      window.innerWidth || 0,
-    );
-
-    if (vw <= 480) {
-      this.isMobile = true;
-      this.index = 1;
-      this.list.style.transitionDuration = '0.4s';
-      this.shiftTabs(this.index);
-      if (this.moreItem) {
-        this.moreItem.classList.add('ecl-tabs__item--hidden');
+      if (vw <= 480) {
+        this.isMobile = true;
+        this.index = 1;
+        this.list.style.transitionDuration = '0.4s';
+        this.shiftTabs(this.index);
+        if (this.moreItem) {
+          this.moreItem.classList.add('ecl-tabs__item--hidden');
+        }
+        if (this.moreButton) {
+          this.moreButton.classList.add('ecl-tabs__toggle--hidden');
+        }
+        let listWidth = 0;
+        this.listItems.forEach((item) => {
+          item.classList.remove('ecl-tabs__item--hidden');
+          listWidth += Math.ceil(item.getBoundingClientRect().width);
+        });
+        this.list.style.width = `${listWidth}px`;
+        this.btnNext.style.display = 'flex';
+        this.container.classList.add('ecl-tabs__container--right');
+        this.btnPrev.style.display = 'none';
+        this.container.classList.remove('ecl-tabs__container--left');
+        this.tabsKeyEvents();
+        return;
       }
-      if (this.moreButton) {
-        this.moreButton.classList.add('ecl-tabs__toggle--hidden');
-      }
-      let listWidth = 0;
-      this.listItems.forEach((item) => {
-        item.classList.remove('ecl-tabs__item--hidden');
-        listWidth += Math.ceil(item.getBoundingClientRect().width);
-      });
-      this.list.style.width = `${listWidth}px`;
-      this.btnNext.style.display = 'flex';
-      this.container.classList.add('ecl-tabs__container--right');
+
+      this.isMobile = false;
+      // Behaviors for Tablet and desktop format (More button)
+      this.btnNext.style.display = 'none';
+      this.container.classList.remove('ecl-tabs__container--right');
       this.btnPrev.style.display = 'none';
       this.container.classList.remove('ecl-tabs__container--left');
-      this.tabsKeyEvents();
-      return;
-    }
+      this.list.style.width = 'auto';
 
-    this.isMobile = false;
-    // Behaviors for Tablet and desktop format (More button)
-    this.btnNext.style.display = 'none';
-    this.container.classList.remove('ecl-tabs__container--right');
-    this.btnPrev.style.display = 'none';
-    this.container.classList.remove('ecl-tabs__container--left');
-    this.list.style.width = 'auto';
-
-    // Hide items that won't fit in the list
-    let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
-    const hiddenItems = [];
-    const listWidth = this.list.getBoundingClientRect().width;
-    this.moreButtonActive = false;
-    this.listItems.forEach((item, i) => {
-      item.classList.remove('ecl-tabs__item--hidden');
-      if (
-        listWidth >= stopWidth + item.getBoundingClientRect().width &&
-        !hiddenItems.includes(i - 1)
-      ) {
-        stopWidth += item.getBoundingClientRect().width;
-      } else {
-        item.classList.add('ecl-tabs__item--hidden');
-        if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
-          this.moreButtonActive = true;
-        }
-        hiddenItems.push(i);
-      }
-    });
-
-    // Add active class to the more button if it contains an active element
-    if (this.moreButtonActive) {
-      this.moreButton.classList.add('ecl-tabs__toggle--active');
-    } else {
-      this.moreButton.classList.remove('ecl-tabs__toggle--active');
-    }
-
-    // Toggle the visibility of More button and items in dropdown
-    if (!hiddenItems.length) {
-      this.moreItem.classList.add('ecl-tabs__item--hidden');
-      this.moreButton.classList.add('ecl-tabs__toggle--hidden');
-    } else {
-      this.moreItem.classList.remove('ecl-tabs__item--hidden');
-      this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
-      this.moreLabel.textContent = this.moreLabelValue.replace(
-        '%d',
-        hiddenItems.length,
-      );
-      this.dropdownItems.forEach((item, i) => {
-        if (!hiddenItems.includes(i)) {
-          item.classList.add('ecl-tabs__item--hidden');
+      // Hide items that won't fit in the list
+      let stopWidth = this.moreButton.getBoundingClientRect().width + 25;
+      const hiddenItems = [];
+      const listWidth = this.list.getBoundingClientRect().width;
+      this.moreButtonActive = false;
+      this.listItems.forEach((item, i) => {
+        item.classList.remove('ecl-tabs__item--hidden');
+        if (
+          listWidth >= stopWidth + item.getBoundingClientRect().width &&
+          !hiddenItems.includes(i - 1)
+        ) {
+          stopWidth += item.getBoundingClientRect().width;
         } else {
-          item.classList.remove('ecl-tabs__item--hidden');
+          item.classList.add('ecl-tabs__item--hidden');
+          if (item.childNodes[0].classList.contains('ecl-tabs__link--active')) {
+            this.moreButtonActive = true;
+          }
+          hiddenItems.push(i);
         }
       });
-    }
 
-    this.tabsKeyEvents();
+      // Add active class to the more button if it contains an active element
+      if (this.moreButtonActive) {
+        this.moreButton.classList.add('ecl-tabs__toggle--active');
+      } else {
+        this.moreButton.classList.remove('ecl-tabs__toggle--active');
+      }
+
+      // Toggle the visibility of More button and items in dropdown
+      if (!hiddenItems.length) {
+        this.moreItem.classList.add('ecl-tabs__item--hidden');
+        this.moreButton.classList.add('ecl-tabs__toggle--hidden');
+      } else {
+        this.moreItem.classList.remove('ecl-tabs__item--hidden');
+        this.moreButton.classList.remove('ecl-tabs__toggle--hidden');
+        this.moreLabel.textContent = this.moreLabelValue.replace(
+          '%d',
+          hiddenItems.length,
+        );
+        this.dropdownItems.forEach((item, i) => {
+          if (!hiddenItems.includes(i)) {
+            item.classList.add('ecl-tabs__item--hidden');
+          } else {
+            item.classList.remove('ecl-tabs__item--hidden');
+          }
+        });
+      }
+
+      this.tabsKeyEvents();
+    }, 100);
   }
 
   /**

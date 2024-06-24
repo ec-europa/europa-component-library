@@ -36,11 +36,16 @@ $button-width: 44px;
   margin: 0;
   padding-inline-start: 0;
   transition-duration: 0.4s;
+
+  .ecl-tabs[data-ecl-auto-initialized] & {
+    flex-wrap: nowrap;
+  }
 }
 
 .ecl-tabs__container--left {
   margin-inline-start: $button-width;
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-tabs__list {
     margin-left: -$button-width;
   }
@@ -51,6 +56,7 @@ $button-width: 44px;
 }
 
 .ecl-tabs__item {
+  flex-shrink: 0;
   margin-inline-end: map.get($tabs, 'item', 'margin-end');
 
   &:last-child {
@@ -189,7 +195,8 @@ $button-width: 44px;
     }
   }
 
-  .ecl-tabs__link--active {
+  .ecl-tabs__link--active,
+  .ecl-tabs__link:active {
     background-color: map.get($tabs, 'dropdown', 'item-active-background');
     color: map.get($tabs, 'dropdown', 'item-active-color');
     font-weight: map.get($theme, 'font-weight', 'regular');
@@ -223,7 +230,12 @@ $button-width: 44px;
   background: map.get($theme, 'color', 'white');
   position: absolute;
   top: 0;
-  height: 44px;
+  height: $button-width;
+
+  .ecl-button__container {
+    height: 100%;
+    width: 100%;
+  }
 
   .ecl-icon {
     height: 1rem;
