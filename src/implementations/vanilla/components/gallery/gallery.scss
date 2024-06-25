@@ -156,6 +156,12 @@ $_description-height-desktop: 108px;
   @include screen-reader.sr-only;
 }
 
+.ecl-gallery__video-title {
+  @include screen-reader.sr-only;
+
+  background-color: map.get($theme, 'color', 'white');
+}
+
 .ecl-gallery__info {
   color: map.get($gallery, 'gallery-info-color');
   display: flex;
