@@ -328,10 +328,6 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .ecl-site-header {
-    .ecl-mega-menu {
-      right: 0;
-    }
-
     .ecl-search-form__text-input {
       width: map.get($site-header, 'search-width');
     }
@@ -364,6 +360,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
     .ecl-mega-menu {
       position: relative;
+      right: 0;
       top: 0;
       width: 100%;
     }
