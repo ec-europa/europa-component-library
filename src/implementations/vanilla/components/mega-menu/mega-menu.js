@@ -625,7 +625,7 @@ export class MegaMenu {
                 menuItem,
               );
               if (container) {
-                container.style.height = `${viewportHeight - mainTop}px`;
+                container.firstElementChild.style.height = `${viewportHeight - mainTop}px`;
                 return;
               }
             }
@@ -1049,6 +1049,12 @@ export class MegaMenu {
         this.toggleLabel.innerHTML = closeLabel;
       }
       this.positionMenuOverlay();
+
+      // Focus first element
+      if (this.links.length > 0) {
+        this.links[0].focus();
+      }
+
       this.trigger('onOpen', e);
     }
   }

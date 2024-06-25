@@ -62,88 +62,94 @@
 
   <footer class="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
     <div class="ecl-container">
-      <div class="ecl-gallery__pager">
-      {% if _overlay.previous is defined and _overlay.previous is not empty %}
-        {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
-          extra_classes: 'ecl-gallery__slider-previous',
-          type: _button_type,
-          variant: 'tertiary',
-          icon_position: 'before',
-          hide_label: true,
-          icon: _overlay.previous.icon|merge({
-            size: 'm',
-            transform: 'rotate-270',
-            name: 'corner-arrow',
-          }),
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-previous' },
-          ],
-        }) only %}
-      {% endif %}
-      {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
-        <div class="ecl-gallery__detail-counter">
-          <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
-            {{- _overlay.counter_separator }}{{- ' ' -}}
-          <span data-ecl-gallery-overlay-counter-max>0</span>
+      <div class="ecl-gallery__detail-container">
+        <div class="ecl-gallery__pager">
+        {% if _overlay.counter_separator is defined and _overlay.counter_separator is not empty %}
+          <div class="ecl-gallery__detail-counter">
+            <span data-ecl-gallery-overlay-counter-current>0</span>{{- ' ' -}}
+              {{- _overlay.counter_separator }}{{- ' ' -}}
+            <span data-ecl-gallery-overlay-counter-max>0</span>
+          </div>
+        {% endif %}
+        {% if _overlay.previous is not empty or _overlay.next is not empty %}
+          <div class="ecl-gallery__controls">
+          {% if _overlay.previous is defined and _overlay.previous is not empty %}
+            {% include '@ecl/button/button.html.twig' with _overlay.previous|merge({
+              extra_classes: 'ecl-gallery__slider-previous',
+              type: _button_type,
+              variant: 'tertiary',
+              icon_position: 'before',
+              hide_label: true,
+              icon: _overlay.previous.icon|merge({
+                size: 'm',
+                transform: 'rotate-270',
+                name: 'corner-arrow',
+              }),
+              extra_attributes: [
+                { name: 'data-ecl-gallery-overlay-previous' },
+              ],
+            }) only %}
+          {% endif %}
+          {% if (_overlay.next is defined and _overlay.next is not empty) and
+            (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
+            {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
+              extra_classes: 'ecl-gallery__slider-next',
+              type: _button_type,
+              variant: 'tertiary',
+              hide_label: true,
+              icon: _overlay.next.icon|merge({
+                size: 'm',
+                transform: 'rotate-90',
+                name: 'corner-arrow',
+              }),
+              extra_attributes: [
+                { name: 'data-ecl-gallery-overlay-next' },
+              ],
+            }) only %}
+          {% endif %}
+          </div>
+        {% endif %}
         </div>
-      {% endif %}
-      {% if (_overlay.next is defined and _overlay.next is not empty) and
-        (_overlay.next.icon is defined and _overlay.next.icon is not empty) %}
-        {% include '@ecl/button/button.html.twig' with _overlay.next|merge({
-          extra_classes: 'ecl-gallery__slider-next',
-          type: _button_type,
-          variant: 'tertiary',
-          hide_label: true,
-          icon: _overlay.next.icon|merge({
-            size: 'm',
-            transform: 'rotate-90',
-            name: 'corner-arrow',
-          }),
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-next' },
-          ],
-        }) only %}
-      {% endif %}
-      </div>
-      <div class="ecl-gallery__detail-actions">
-      {% if _overlay.full_screen_label is not empty %}
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            icon_position: 'after',
-            type: 'standalone',
-            inverted: true,
-            label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
-          },
-          icon: {
-            name: 'fullscreen',
-            size: 'fluid',
-            path: icon_path|default('')
-          },
-          extra_classes: 'ecl-gallery__download',
-          extra_attributes: [
-            { name: 'target', value: '_blank' },
-            { name: 'data-ecl-gallery-overlay-download' },
-          ],
-        } only %}
-      {% endif %}
-      {% if (_overlay.share is defined and _overlay.share is not empty) and
-        (_overlay.share.link is defined and _overlay.share.link is not empty) %}
-        {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
-          link: _overlay.share.link|merge({
-            icon_position: 'after',
-            type: 'standalone',
-            inverted: true,
-          }),
-          icon: _overlay.share.icon|merge({
-            name: 'share',
-            size: 'fluid',
-          }),
-          extra_classes: 'ecl-gallery__share',
-          extra_attributes: [
-            { name: 'data-ecl-gallery-overlay-share' },
-          ],
-        }) only %}
-      {% endif %}
+        <div class="ecl-gallery__detail-actions">
+        {% if _overlay.full_screen_label is not empty %}
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              icon_position: 'after',
+              type: 'standalone',
+              inverted: true,
+              label: _overlay.full_screen_label ?: _overlay.download.link.label|default(''),
+            },
+            icon: {
+              name: 'fullscreen',
+              size: 'fluid',
+              path: icon_path|default('')
+            },
+            extra_classes: 'ecl-gallery__download',
+            extra_attributes: [
+              { name: 'target', value: '_blank' },
+              { name: 'data-ecl-gallery-overlay-download' },
+            ],
+          } only %}
+        {% endif %}
+        {% if (_overlay.share is defined and _overlay.share is not empty) and
+          (_overlay.share.link is defined and _overlay.share.link is not empty) %}
+          {% include '@ecl/link/link.html.twig' with _overlay.share|merge({
+            link: _overlay.share.link|merge({
+              icon_position: 'after',
+              type: 'standalone',
+              inverted: true,
+            }),
+            icon: _overlay.share.icon|merge({
+              name: 'share',
+              size: 'fluid',
+            }),
+            extra_classes: 'ecl-gallery__share',
+            extra_attributes: [
+              { name: 'data-ecl-gallery-overlay-share' },
+            ],
+          }) only %}
+        {% endif %}
+        </div>
       </div>
     {% if _item.description is defined and _item.description is not empty %}
       <div
@@ -151,11 +157,6 @@
         data-ecl-gallery-overlay-description
       >
         {{- _item.description -}}
-      </div>
-    {% endif %}
-    {% if _item.meta is defined and _item.meta is not empty %}
-      <div class="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
-        {{- _item.meta -}}
       </div>
     {% endif %}
     </div>

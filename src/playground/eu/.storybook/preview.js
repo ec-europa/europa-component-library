@@ -69,7 +69,7 @@ export const parameters = {
       hideCode: true,
     },
   ],
-  controls: { expanded: false },
+  controls: { expanded: true },
   layout: 'padded',
   viewport: {
     defaultViewport: 'responsive',
