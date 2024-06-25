@@ -1364,6 +1364,11 @@ export class MegaMenu {
           }
         }
       }
+
+      // Focus on back item
+      if (this.back) {
+        this.back.focus();
+      }
     }
   }
 
@@ -1387,6 +1392,11 @@ export class MegaMenu {
         this.handleSecondPanel(menuItem, 'collapse');
       } else {
         this.handleSecondPanel(menuItem, 'expand');
+      }
+
+      // Focus on back item
+      if (this.back) {
+        this.back.focus();
       }
     }
   }

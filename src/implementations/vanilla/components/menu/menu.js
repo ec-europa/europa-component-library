@@ -1164,13 +1164,9 @@ export class Menu {
     });
     this.checkMegaMenu(menuItem);
 
-    // Focus first item
-    const firstItem = queryOne(
-      '.ecl-menu__subitem:first-of-type .ecl-menu__sublink',
-      menuItem,
-    );
-    if (firstItem) {
-      firstItem.focus();
+    // Focus back item
+    if (this.back) {
+      this.back.focus();
     }
   }
 
