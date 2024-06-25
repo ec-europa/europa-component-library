@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-rating-field
 
 ### Parameters:
 
-- **"id"** (string) (default: 'rating'): unique id for the rating field
+- **"id"** (string) (default: ''): unique id for the rating field
 - **"items"** (array) (default: []): array of radio_button
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)
