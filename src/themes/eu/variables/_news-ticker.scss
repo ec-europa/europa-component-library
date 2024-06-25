@@ -2,10 +2,11 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height: 60px,
-  desktop-only-height: 68px,
+  height: 4rem,
+  desktop-only-height: 5.5rem,
   border: 1px solid var(--c-p-20),
   border-radius: 4px,
+  box-shadow: map.get($shadow, '4'),
   padding-horizontal: var(--s-s),
   font: var(--f-s),
   line-height: 18px,
