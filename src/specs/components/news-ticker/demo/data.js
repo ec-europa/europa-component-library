@@ -25,7 +25,7 @@ module.exports = {
       link: exampleLink,
       external: true,
       icon: {
-        name: 'euro',
+        name: 'global',
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
         'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
       link: exampleLink,
       icon: {
-        name: 'euro',
+        name: 'faq',
       },
     },
     {
@@ -41,7 +41,7 @@ module.exports = {
         'Excepteur sint occaecat cupidatat officia deserunt mollit anim id est laborum',
       link: exampleLink,
       icon: {
-        name: 'euro',
+        name: 'information-outline',
       },
     },
     {
@@ -49,7 +49,7 @@ module.exports = {
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium',
       link: exampleLink,
       icon: {
-        name: 'euro',
+        name: 'livestreaming',
       },
     },
     {

@@ -28,9 +28,9 @@ $news-ticker: null !default;
 .ecl-news-ticker__icon {
   fill: var(--c-p);
   flex-shrink: 0;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin-inline-end: var(--s-xs);
+  height: map.get($theme, 'icon', 'm');
+  width: map.get($theme, 'icon', 'm');
+  margin-inline-end: var(--s-2xs);
 }
 
 .ecl-news-ticker__container {
@@ -67,6 +67,12 @@ $news-ticker: null !default;
 
   .ecl-link {
     line-height: map.get($news-ticker, 'line-height');
+    padding-inline-start: var(--s-2xs);
+    padding-inline-end: var(--s-2xs);
+
+    &:focus-visible {
+      outline-offset: -2px;
+    }
   }
 
   .ecl-link__icon {
