@@ -777,8 +777,13 @@ export class MegaMenu {
     // Handle Keyboard on the first panel
     if (cList.contains('ecl-mega-menu__info-link')) {
       if (e.key === 'ArrowUp') {
-        // Focus on the expanded nav item
-        queryOne('.ecl-mega-menu__item--expanded a', this.element).focus();
+        if (this.isDesktop) {
+          // Focus on the expanded nav item
+          queryOne('.ecl-mega-menu__item--expanded a', this.element).focus();
+        } else if (this.back && !this.isDesktop) {
+          // focus on the back button
+          this.back.focus();
+        }
       }
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         // First item in the open dropdown.
@@ -937,6 +942,15 @@ export class MegaMenu {
           );
           if (moreLink) {
             moreLink.focus();
+          } else if (this.openPanel.num === 2) {
+            const parent = e.target.closest(
+              '.ecl-mega-menu__mega',
+            ).previousSibling;
+            if (parent) {
+              parent.focus();
+            }
+          } else if (this.back) {
+            this.back.focus();
           }
         }
       }
@@ -1130,14 +1144,24 @@ export class MegaMenu {
               );
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
-              if (!this.isDesktop) {
-                itemLink.classList.add('ecl-mega-menu__parent-link');
+              const infoLink = queryOne('.ecl-mega-menu__info-link', item);
+              // Focus on the info link, if present
+              if (infoLink) {
+                infoLink.focus();
+              } else {
+                // Otherwise focus on the first element in the sub-list
+                const firstItem = queryOne(
+                  '.ecl-mega-menu__subitem:first-child .ecl-mega-menu__sublink',
+                  item,
+                );
+                if (firstItem) {
+                  firstItem.focus();
+                }
               }
               this.backItemLevel1 = item;
             } else {
               item.setAttribute('aria-expanded', 'false');
               itemLink.setAttribute('aria-expanded', 'false');
-              itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove(
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
