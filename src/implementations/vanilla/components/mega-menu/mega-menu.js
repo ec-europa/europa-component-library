@@ -460,13 +460,6 @@ export class MegaMenu {
       megaMenus.forEach((menu) => {
         menu.style.height = '';
       });
-      const itemExpanded = queryOne(
-        '.ecl-mega-menu__item--expanded',
-        this.element,
-      );
-      if (itemExpanded) {
-        itemExpanded.firstChild.classList.add('ecl-mega-menu__parent-link');
-      }
       // Two panels are opened
       if (this.openPanel.num === 2) {
         const subItemExpanded = queryOne(
@@ -519,7 +512,6 @@ export class MegaMenu {
 
       if (currentItems.length > 0) {
         currentItems.forEach((current) => {
-          current.firstChild.classList.remove('ecl-mega-menu__parent-link');
           this.checkDropdownHeight(current);
         });
       } else {
@@ -801,32 +793,8 @@ export class MegaMenu {
         return;
       }
       if (e.key === 'ArrowDown') {
-        const moreLink = queryOne(
-          '.ecl-mega-menu__info-link',
-          e.target.nextSibling,
-        );
-        if (moreLink) {
-          moreLink.focus();
-        } else if (
-          this.element.classList.contains('ecl-mega-menu--two-panels')
-        ) {
-          // We are in the second panel
-          const mega = e.target.closest('.ecl-mega-menu__mega');
-          const info = queryOne(
-            '.ecl-mega-menu__info--has-link',
-            mega.parentNode,
-          );
-          if (info) {
-            const more = queryOne('.ecl-mega-menu__info-link', info);
-            more.focus();
-          } else {
-            mega.firstElementChild.firstElementChild.firstChild.focus();
-          }
-        } else {
-          // First element in the open dropwdown
-          e.target.nextSibling.firstElementChild.lastElementChild.firstElementChild.firstElementChild.firstChild.focus();
-        }
-
+        const mega = e.target.nextSibling;
+        mega.firstElementChild.firstElementChild.firstChild.focus();
         return;
       }
     }
@@ -877,7 +845,7 @@ export class MegaMenu {
           if (innerExpanded) {
             queryOne('.ecl-mega-menu__parent-link', innerExpanded).focus();
           } else {
-            queryOne('.ecl-mega-menu__parent-link', expanded).focus();
+            queryOne('.ecl-mega-menu__info-link', expanded).focus();
           }
         }
       }
