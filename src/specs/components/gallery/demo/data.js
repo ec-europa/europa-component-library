@@ -87,8 +87,6 @@ module.exports = {
       embedded_video: {
         src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
-      sr_video_audio:
-        '<a href="#example">Audiodescription for the video below</a>',
       title: 'Taxes and business',
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',

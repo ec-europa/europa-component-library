@@ -67,18 +67,18 @@ const getArgTypes = (data) => {
       type: { name: 'select' },
       description:
         'Information about the video audio description (hidden, reachable by screen readers)',
-      options: ['not needed', 'not yet', 'available'],
+      options: ['empty', 'not needed', 'not yet'],
       control: {
         labels: {
-          'not needed': 'not needed',
-          'not yet': 'not yet',
-          available: 'available',
+          empty: '',
+          'not needed': 'not needed: no information in visuals only',
+          'not yet': 'not available yet',
         },
       },
       mapping: {
-        'not needed': 'not needed',
-        'not yet': 'not yet',
-        available: 'available',
+        '': 'empty',
+        'not needed: no information in visuals only': 'not needed',
+        'not available yet': 'not yet',
       },
       table: {
         type: { summary: 'string' },
@@ -111,20 +111,18 @@ const prepareData = (data, args) => {
 
   if (args.video_audio) {
     switch (args.video_audio) {
-      case 'available':
-        data.sr_video_audio =
-          '<a href="#example">Audiodescription for the video below</a>';
-        break;
-
       case 'not needed':
         data.sr_video_audio =
           'In the video below, there is no audiodescription available because all the content is in the captions and default audio track';
         break;
 
       case 'not yet':
-      default:
         data.sr_video_audio =
           'In the video below, there is no audiodescription available yet';
+        break;
+
+      default:
+        data.sr_video_audio = '';
         break;
     }
   }
