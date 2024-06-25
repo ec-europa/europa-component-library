@@ -400,7 +400,6 @@ $mega-menu: null !default;
   border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
 }
 
-.ecl-mega-menu__parent-link,
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
   border: none;
   box-sizing: border-box;
@@ -409,6 +408,15 @@ $mega-menu: null !default;
   padding-inline-start: 1.75rem;
   padding-top: var(--s-xs);
   width: calc(100% + var(--s-m));
+
+  &:focus-visible {
+    outline: none;
+
+    .ecl-link__label {
+      outline: 2px solid var(--c-p);
+      outline-offset: 4px;
+    }
+  }
 }
 
 .ecl-mega-menu__mega,
