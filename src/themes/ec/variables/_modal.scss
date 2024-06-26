@@ -6,7 +6,6 @@ $modal: (
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-16),
   font: var(--f-m),
-  separator: none,
   header: (
     font: var(--f-l),
     padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
@@ -17,6 +16,7 @@ $modal: (
     padding-mobile: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
     padding-desktop: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
     padding-last-child: var(--s-3xl),
+    margin-fixed: var(--s-m),
   ),
   footer: (
     padding-mobile: 0 var(--s-3xl) var(--s-3xl),

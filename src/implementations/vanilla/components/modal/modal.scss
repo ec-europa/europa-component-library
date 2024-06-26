@@ -58,7 +58,6 @@ $overflow-height: 2rem;
 
 .ecl-modal__header {
   align-items: flex-start;
-  border-bottom: map.get($modal, 'separator');
   display: flex;
   font: map.get($modal, 'header', 'font');
   padding: map.get($modal, 'header', 'padding-mobile');
@@ -122,7 +121,7 @@ $overflow-height: 2rem;
 }
 
 * + .ecl-modal__body-fixed {
-  margin-top: var(--s-m);
+  margin-top: map.get($modal, 'body', 'margin-fixed');
 }
 
 .ecl-modal__footer {
