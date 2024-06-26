@@ -140,14 +140,12 @@ $_description-height-desktop: 108px;
   position: absolute;
 }
 
-.ecl-gallery__item-link:hover,
-.ecl-gallery__item-link:focus-visible {
-  .ecl-gallery__description {
-    display: block;
-  }
-
-  .ecl-gallery__image-icon {
-    display: none;
+.ecl-gallery:not(.ecl-gallery--no-hover) {
+  .ecl-gallery__item-link:hover,
+  .ecl-gallery__item-link:focus-visible {
+    .ecl-gallery__description {
+      display: block;
+    }
   }
 }
 
