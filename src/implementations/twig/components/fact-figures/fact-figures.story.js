@@ -1,17 +1,12 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import demoData from '@ecl/specs-component-fact-figures/demo/data';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';
-
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 
 const iconMapping = iconsAll.reduce((mapping, icon) => {
   mapping[icon] = icon;
@@ -19,16 +14,27 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
 }, {});
 
 const getArgs = (data) => ({
+  centered: false,
   show_view_all: true,
   show_icons: true,
   column: 3,
   icon: data.items[0].icon.name,
+  icon_size: 'medium',
   value: data.items[0].value,
   title: data.items[0].title,
   description: data.items[0].description,
 });
 
 const getArgTypes = () => ({
+  centered: {
+    type: { name: 'boolean' },
+    description: 'Centered content',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+      category: 'Layout',
+    },
+  },
   show_view_all: {
     name: 'view all link',
     type: { name: 'boolean' },
@@ -66,6 +72,21 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Content (first item)',
+    },
+    if: { arg: 'show_icons' },
+  },
+  icon_size: {
+    description: 'Size of the icon',
+    type: 'select',
+    options: ['medium', 'large'],
+    mapping: {
+      medium: 'l',
+      large: '2xl',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'medium' },
       category: 'Content (first item)',
     },
     if: { arg: 'show_icons' },
@@ -108,6 +129,7 @@ const prepareData = (data, args) => {
     delete clone.view_all;
   }
   clone.display_icons = args.show_icons;
+  clone.centered = args.centered;
 
   // Column display
   clone.column = args.column;
@@ -122,6 +144,7 @@ const prepareData = (data, args) => {
   clone.items[0].description = args.description;
   if (args.icon) {
     clone.items[0].icon.name = args.icon;
+    clone.icon_size = args.icon_size;
   }
 
   return clone;

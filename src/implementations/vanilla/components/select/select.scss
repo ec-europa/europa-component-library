@@ -341,7 +341,7 @@ $select: null !default;
     margin-bottom: var(--s-s);
     padding-bottom: var(--s-s);
 
-    @if map-has-key($select, 'multiple-select-all-after') {
+    @if map.has-key($select, 'multiple-select-all-after') {
       &::after {
         content: '';
         display: inline-block;

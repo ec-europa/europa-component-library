@@ -1,0 +1,131 @@
+/**
+ * Accordion
+ * @define accordion
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$accordion: null !default;
+
+.ecl-accordion {
+  border-radius: map.get($accordion, 'radius');
+  box-shadow: map.get($accordion, 'shadow');
+  margin: 0;
+}
+
+.ecl-accordion__toggle {
+  background-color: transparent;
+  border: none;
+  color: map.get($accordion, 'title-text-color');
+  cursor: pointer;
+  display: block;
+  font: var(--f-m);
+  padding: map.get($accordion, 'item-padding');
+  position: relative;
+  text-align: start;
+  width: 100%;
+
+  &:hover {
+    background-color: map.get($accordion, 'item-background-hover');
+  }
+
+  &[aria-expanded='true'] {
+    padding: map.get($accordion, 'item-padding-expanded');
+  }
+}
+
+.ecl-accordion__toggle:focus-visible {
+  outline: 2px solid var(--c-p);
+  outline-offset: -2px;
+}
+
+.ecl-accordion__content {
+  color: map.get($accordion, 'text-color');
+  font: var(--f-m);
+  margin-inline-start: 0;
+  max-width: var(--max-w);
+  padding-inline-end: map.get($accordion, 'item-padding');
+  padding-inline-start: map.get($accordion, 'item-padding');
+  padding-bottom: var(--s-xl);
+}
+
+.no-js .ecl-accordion__content {
+  display: block;
+}
+
+.ecl-accordion__item {
+  border-bottom: map.get($accordion, 'separator');
+  position: relative;
+
+  &:first-child {
+    @if map.has-key($accordion, 'yellow-bar') {
+      &::before {
+        background-color: var(--c-s);
+        border-end-start-radius: 2px;
+        border-end-end-radius: 2px;
+        content: '';
+        height: 4px;
+        left: var(--s-l);
+        position: absolute;
+        top: 0;
+        width: 32px;
+        z-index: 1;
+      }
+    }
+
+    .ecl-accordion__toggle {
+      border-start-start-radius: map.get($accordion, 'radius');
+      border-start-end-radius: map.get($accordion, 'radius');
+    }
+  }
+
+  &:last-child {
+    border-bottom-width: 0;
+
+    .ecl-accordion__toggle {
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
+
+      &[aria-expanded='true'] {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
+    }
+
+    .ecl-accordion__content {
+      border-end-start-radius: map.get($accordion, 'radius');
+      border-end-end-radius: map.get($accordion, 'radius');
+      overflow: hidden;
+    }
+  }
+}
+
+.ecl-accordion__title {
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-accordion__toggle-flex {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ecl-accordion__toggle-title {
+  max-width: var(--max-w);
+}
+
+.ecl-accordion__toggle-indicator {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-inline-end: 0;
+  margin-inline-start: map.get($accordion, 'icon-margin');
+}
+
+.ecl-accordion__toggle-icon {
+  fill: map.get($accordion, 'icon-color');
+}

@@ -128,6 +128,7 @@ export class Menu {
     this.close = null;
     this.toggleLabel = null;
     this.back = null;
+    this.backItem = null;
     this.inner = null;
     this.itemsList = null;
     this.items = null;
@@ -144,6 +145,7 @@ export class Menu {
     this.currentItem = null;
     this.totalItemsWidth = 0;
     this.breakpointL = 996;
+    this.windowWidth = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -158,7 +160,6 @@ export class Menu {
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleFocusIn = this.handleFocusIn.bind(this);
-    this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -248,7 +249,6 @@ export class Menu {
         if (this.attachFocusListener) {
           link.addEventListener('focusin', this.closeOpenDropdown);
           link.addEventListener('focusin', this.handleFocusIn);
-          link.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           link.addEventListener('keyup', this.handleKeyboard);
@@ -261,7 +261,6 @@ export class Menu {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
           caret.addEventListener('focusin', this.handleFocusIn);
-          caret.addEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           caret.addEventListener('keyup', this.handleKeyboard);
@@ -279,9 +278,6 @@ export class Menu {
         if (this.attachKeyListener && subLink) {
           subLink.addEventListener('keyup', this.handleKeyboard);
         }
-        if (this.attachFocusListener && subLink) {
-          subLink.addEventListener('focusout', this.handleFocusOut);
-        }
       });
     }
 
@@ -292,6 +288,7 @@ export class Menu {
 
     // Bind resize events
     if (this.attachResizeListener) {
+      this.windowWidth = window.innerWidth;
       window.addEventListener('resize', this.handleResize);
     }
 
@@ -438,7 +435,6 @@ export class Menu {
         if (this.attachFocusListener) {
           link.removeEventListener('focusin', this.closeOpenDropdown);
           link.removeEventListener('focusin', this.handleFocusIn);
-          link.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           link.removeEventListener('keyup', this.handleKeyboard);
@@ -450,7 +446,6 @@ export class Menu {
       this.carets.forEach((caret) => {
         if (this.attachFocusListener) {
           caret.removeEventListener('focusin', this.handleFocusIn);
-          caret.removeEventListener('focusout', this.handleFocusOut);
         }
         if (this.attachKeyListener) {
           caret.removeEventListener('keyup', this.handleKeyboard);
@@ -466,9 +461,6 @@ export class Menu {
         const subLink = queryOne('.ecl-menu__sublink', subItem);
         if (this.attachKeyListener && subLink) {
           subLink.removeEventListener('keyup', this.handleKeyboard);
-        }
-        if (this.attachFocusListener && subLink) {
-          subLink.removeEventListener('focusout', this.handleFocusOut);
         }
       });
     }
@@ -535,45 +527,49 @@ export class Menu {
    * Uses a debounce, for performance
    */
   handleResize() {
-    // Scroll to top to ensure the menu is correctly positioned.
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Do not trigger the resize event if not needed (when scrolling on mobile)
+    if (window.innerWidth !== this.windowWidth) {
+      // Scroll to top to ensure the menu is correctly positioned.
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
 
-    // Disable transition
-    this.element.classList.remove('ecl-menu--transition');
-    if (this.direction === 'rtl') {
-      this.element.classList.add('ecl-menu--rtl');
-    } else {
-      this.element.classList.remove('ecl-menu--rtl');
+      // Disable transition
+      this.element.classList.remove('ecl-menu--transition');
+      if (this.direction === 'rtl') {
+        this.element.classList.add('ecl-menu--rtl');
+      } else {
+        this.element.classList.remove('ecl-menu--rtl');
+      }
+
+      clearTimeout(this.resizeTimer);
+      this.resizeTimer = setTimeout(() => {
+        this.element.classList.remove('ecl-menu--forced-mobile');
+
+        // Check global display
+        this.isDesktop = this.useDesktopDisplay();
+        if (this.isDesktop) {
+          this.focusTrap.deactivate();
+        }
+        // Update items display
+        this.totalItemsWidth = 0;
+        if (this.items) {
+          this.items.forEach((item) => {
+            this.checkMenuItem(item);
+            this.totalItemsWidth += item.offsetWidth;
+          });
+        }
+
+        // Update overflow display
+        this.checkMenuOverflow();
+        this.positionMenuOverlay();
+
+        // Bring transition back
+        this.element.classList.add('ecl-menu--transition');
+
+        // Update saved width
+        this.windowWidth = window.innerWidth;
+      }, 200);
     }
-
-    clearTimeout(this.resizeTimer);
-    this.resizeTimer = setTimeout(() => {
-      this.element.classList.remove('ecl-menu--forced-mobile');
-
-      // Check global display
-      this.isDesktop = this.useDesktopDisplay();
-      if (this.isDesktop) {
-        this.focusTrap.deactivate();
-      }
-      // Update items display
-      this.totalItemsWidth = 0;
-      if (this.items) {
-        this.items.forEach((item) => {
-          this.checkMenuItem(item);
-          this.totalItemsWidth += item.offsetWidth;
-        });
-      }
-
-      // Update overflow display
-      this.checkMenuOverflow();
-      this.positionMenuOverlay();
-
-      // Bring transition back
-      this.element.classList.add('ecl-menu--transition');
-    }, 200);
-
-    return this;
   }
 
   /**
@@ -976,11 +972,17 @@ export class Menu {
     this.inner.setAttribute('aria-hidden', 'false');
     this.disableScroll();
     this.isOpen = true;
+    this.focusTrap.activate();
 
     // Update label
     const closeLabel = this.element.getAttribute(this.labelCloseAttribute);
     if (this.toggleLabel && closeLabel) {
       this.toggleLabel.innerHTML = closeLabel;
+    }
+
+    // Focus first element
+    if (this.links.length > 0) {
+      this.links[0].focus();
     }
 
     this.trigger('onOpen', e);
@@ -1049,6 +1051,14 @@ export class Menu {
       item.classList.remove('ecl-menu__item--expanded');
       item.setAttribute('aria-expanded', 'false');
     });
+
+    // Focus previously selected item
+    if (this.backItem) {
+      const backItemButton = queryOne(this.caretSelector, this.backItem);
+      if (backItemButton) {
+        backItemButton.focus();
+      }
+    }
 
     return this;
   }
@@ -1140,17 +1150,28 @@ export class Menu {
     this.inner.classList.add('ecl-menu__inner--expanded');
 
     // Add css class and attribute to current item, and remove it from others
+    // Also save the current item
     const menuItem = e.target.closest(this.itemSelector);
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'true');
+        this.backItem = item;
       } else {
         item.classList.remove('ecl-menu__item--expanded');
         item.setAttribute('aria-expanded', 'false');
       }
     });
     this.checkMegaMenu(menuItem);
+
+    // Focus first item
+    const firstItem = queryOne(
+      '.ecl-menu__subitem:first-of-type .ecl-menu__sublink',
+      menuItem,
+    );
+    if (firstItem) {
+      firstItem.focus();
+    }
   }
 
   /**
@@ -1241,37 +1262,6 @@ export class Menu {
           this.handleClickOnNextItems();
         } else {
           this.handleClickOnPreviousItems();
-        }
-      }
-    }
-  }
-
-  /**
-   * Focus out of a menu link
-   * @param {Event} e
-   */
-  handleFocusOut(e) {
-    const element = e.target;
-    const menuExpanded = this.element.getAttribute('aria-expanded');
-
-    // Specific focus action for mobile menu
-    // Loop through the items and go back to close button
-    if (menuExpanded === 'true') {
-      const nextItem = element.parentElement.nextSibling;
-
-      if (!nextItem) {
-        // There are no next menu item, but maybe there is a carret button
-        const caretButton = queryOne(
-          '.ecl-menu__button-caret',
-          element.parentElement,
-        );
-        if (caretButton && element !== caretButton) {
-          return;
-        }
-        const focusedEl = document.activeElement;
-        const isStillMenu = this.element.contains(focusedEl);
-        if (!isStillMenu) {
-          this.focusTrap.activate();
         }
       }
     }

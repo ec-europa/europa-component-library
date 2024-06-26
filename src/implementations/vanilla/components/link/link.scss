@@ -40,6 +40,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 }
 
+// DEPRECATED
 .ecl-link--no-visited:visited {
   color: map.get($link, 'color');
 
@@ -93,6 +94,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 * Standalone
 */
 .ecl-link--standalone {
+  display: inline-block;
+  line-height: map.get($link, 'standalone-line-height');
   text-decoration: none;
 
   &:visited {
@@ -100,6 +103,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 
   &:hover {
+    color: map.get($link, 'color');
     text-decoration: underline;
   }
 }
@@ -134,6 +138,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     }
   }
 
+  // DEPRECATED
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
     color: map.get($link, 'inverted', 'color');
@@ -156,7 +161,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   box-sizing: border-box;
   color: map.get($link, #{$variant}, 'color');
   display: inline-block;
-  font: var(--f-m);
+  font: map.get($link, 'button', 'font');
   min-width: $min-width;
   padding: calc(
       #{map.get($link, 'button', 'padding-vertical')} - #{map.get(

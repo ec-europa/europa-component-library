@@ -2,17 +2,17 @@
 @use '../index' as *;
 
 $tag: (
-  padding: var(--s-xs) var(--s-s),
-  border-radius: calc((2 * var(--s-xs) + var(--s-s)) * 0.5),
+  padding: var(--s-2xs) var(--s-s),
+  border-radius: calc(2 * var(--s-2xs) + #{map.get($line-height-ui, 's')}),
   color: map.get($color, 'white'),
   background-color: var(--c-p),
   color-hover: map.get($color, 'white'),
   background-color-hover: var(--c-p-80),
   color-focus: map.get($color, 'white'),
   background-color-focus: var(--c-p),
-  outline-color: var(--c-p),
-  outline-offset: 2px,
+  outline-color-focus: var(--c-p),
+  outline-offset-focus: 1px,
   color-active: map.get($color, 'white'),
-  background-color-active: var(--c-p),
-  outline-color-active: var(--c-p),
+  background-color-active: var(--c-p-140),
+  outline-color-active: var(--c-p-140),
 );

@@ -11,7 +11,9 @@ $theme: null !default;
 $list-illustration: null !default;
 
 .ecl-list-illustration {
+  list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .ecl-list-illustration__item {
@@ -231,6 +233,12 @@ $list-illustration: null !default;
     display: flex;
     flex-direction: column;
     text-align: center;
+
+    .ecl-list-illustration__detail {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
 
     .ecl-list-illustration__description {
       align-self: center;

@@ -21,7 +21,7 @@ module.exports = {
     label: 'Close',
     icon: {
       path: '/icons.svg',
-      name: 'close-filled',
+      name: 'close',
       size: 's',
     },
   },
@@ -44,7 +44,12 @@ module.exports = {
         { label: 'Item 2.4', path: exampleLink },
         { label: 'Item 2.5', path: exampleLink },
         { label: 'Item 2.6', path: exampleLink },
-        { label: 'Item 2.7', path: exampleLink, external: true },
+        {
+          label: 'Item 2.7',
+          path: exampleLink,
+          external: true,
+          sr_external: 'Link to an external domain',
+        },
       ],
     },
     {

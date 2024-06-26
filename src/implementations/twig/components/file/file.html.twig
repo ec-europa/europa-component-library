@@ -98,7 +98,7 @@
   {% for meta_detail in _detail_meta %}
     {% set _meta_detail_string %}
       {{ _meta_detail_string }}
-      <span class="ecl-file__detail-meta-item">{{ meta_detail }}</span>
+      <li class="ecl-file__detail-meta-item">{{ meta_detail }}</li>
     {% endset %}
   {% endfor %}
 {% endif %}
@@ -130,9 +130,9 @@
       {% endfor %}
     {% endif %}
     {% if  _meta_detail_string is not empty %}
-      <div class="ecl-file__detail-meta">
+      <ul class="ecl-file__detail-meta">
         {{- _meta_detail_string -}}
-      </div>
+      </ul>
     {% endif %}
     {% if _title is not empty %}
       <div class="ecl-file__title" id="{{ _title_id }}">

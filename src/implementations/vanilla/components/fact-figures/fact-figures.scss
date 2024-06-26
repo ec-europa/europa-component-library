@@ -21,10 +21,26 @@ $fact-figures: null !default;
 
 .ecl-fact-figures__item {
   color: map.get($fact-figures, 'text-color');
+  display: flex;
+  flex-direction: column;
   margin-top: map.get($fact-figures, 'margin-vertical');
 
   &:first-of-type {
     margin-top: 0;
+  }
+}
+
+.ecl-fact-figures--centered {
+  .ecl-fact-figures__items {
+    justify-content: center;
+  }
+
+  .ecl-fact-figures__item {
+    align-items: center;
+
+    * {
+      text-align: center;
+    }
   }
 }
 

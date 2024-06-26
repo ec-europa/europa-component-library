@@ -16,6 +16,7 @@
           "href": (string) (default: ''): Logo URL.
           "src_desktop": (string) (default: ''): Desktop logo image file path
           "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
+          "size": (string) (default: 'l'): Three sizes in desktop (s, m, l)
         },
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
@@ -185,6 +186,8 @@
   {% set extra_classes = _css_class ~ '--has-menu ' ~ extra_classes %}
 {% endif %}
 
+{% set _css_class = _css_class ~ ' ecl-site-header-with-logo-' ~ _logo.size|default('l')  %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -225,10 +228,12 @@
                   },
                 }) %}
               {% endif %}
+              {% set image_classes = 'ecl-site-header__logo-image' %}
+              {% set image_classes = image_classes ~ ' ecl-site-header__logo-image--' ~ _logo.size|default('l') %}
               {% include '@ecl/picture/picture.html.twig' with {
                 picture: _picture,
                 extra_classes: "ecl-site-header__picture",
-                extra_image_classes: 'ecl-site-header__logo-image',
+                extra_image_classes: image_classes,
                 extra_attributes: [{ name: 'title', value: _logo.title }],
               } only %}
             {% endset %}
@@ -352,16 +357,16 @@
         </div>
       </div>
     </div>
-
-  {# Notification #}
-  {% if _notification is defined and _notification is not empty %}
-    <div class="ecl-site-header__notification">
-      <div class="ecl-container">
-        {% include '@ecl/notification/notification.html.twig' with _notification only %}
-      </div>
-    </div>
-  {% endif %}
   </div>
+
+{# Notification #}
+{% if _notification is defined and _notification is not empty %}
+  <div class="ecl-site-header__notification">
+    <div class="ecl-container">
+      {% include '@ecl/notification/notification.html.twig' with _notification only %}
+    </div>
+  </div>
+{% endif %}
 
 {# Banner top #}
 {% if banner_top is defined and banner_top is not empty %}

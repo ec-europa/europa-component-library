@@ -4,21 +4,20 @@
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
-  - "see_all": (boolean) (default: false) Whether to show the "view all" link
-  - "see_all_label": (string) (default: ''): Label for the "view all" link
-  - "see_all_attributes" (optional) (array) Custom attributes for the "view all" link
-    - "name" (string) Attribute name, eg. 'data-test'
-    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
   - "item" (object)
     - "is_current" (boolean) Whether the item links to the current page
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
+    - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
-    - "trigger_aria_label" (string) Aria label for the trigger button,
     - "link_aria_label" (string) Aria label for the parent link
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+    - "info" (object) (default: {}) Info column
+      - "title" (string) Title of the info panel
+      - "content" (string) Content of the info panel
+      - "link" (object) Structure for the "discover more" link, following ECL Link
     - "featured": (object) (default({})) Featured column
       - "title" (string) Title of the featured panel
       - "content" (string) Content of the featured panel
@@ -26,16 +25,22 @@
         - "path" (string) Path or Url for the href
         - "label" (string) Label of the item
         - "external" (boolean) Whether the link is external
+        - "sr_external" (string) (default: '') Additional label for the external icon
         - "extra_attributes" (array)
           - "name" (string) Attribute name, eg. 'data-test'
           - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "container": (string) White panel to be filled at will
+    - "see_all": (boolean) (default: false) Whether to show the "view all" link
+    - "see_all_label": (string) (default: ''): Label for the "view all" link
+    - "see_all_attributes" (optional) (array) Custom attributes for the "view all" link
+      - "name" (string) Attribute name, eg. 'data-test'
+      - "value" (optional) (string) Attribute value, eg: 'data-test-1'
     - "children" (array of object) Array of sub-items
       - "external": (boolean) External link
+      - "sr_external" (string) (default: '') Additional label for the external icon
       - "is_current" (boolean) Whether the item links to the current page
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
-      - "trigger_aria_label" (string) Aria label for the trigger button,
       - "link_aria_label" (string) Aria label for the parent link
       - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
         - "name" (string) Attribute name, eg. 'data-test'
@@ -44,12 +49,14 @@
 
 {% set _id = id|default('') %}
 {% set _item = item|default({}) %}
-{% set _menu_item_class = 'ecl-mega-menu__link' %}
-{% set _menu_item_attribute = 'data-ecl-mega-menu-link' %}
+{% set _menu_link_class = 'ecl-mega-menu__link' %}
+{% set _menu_link_attribute = 'data-ecl-mega-menu-link' %}
+{% set _menu_sublink_attribute = 'data-ecl-mega-menu-sublink' %}
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _featured = _item.featured|default({}) %}
+{% set _info = _item.info|default({}) %}
 {% set _see_all = see_all|default(false) %}
 {% set _sublist_class = 'ecl-mega-menu__sublist' %}
 {% set _mega_class = 'ecl-mega-menu__mega' %}
@@ -61,7 +68,7 @@
 {# Internal logic - Process properties #}
 
 {% if _item.is_current is defined %}
-  {% set _menu_item_class = _menu_item_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
+  {% set _menu_link_class = _menu_link_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current  ecl-mega-menu__item--current-page' %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' aria-current="page"' %}
 {% endif %}
@@ -75,9 +82,6 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
-  {% if _item.trigger_aria_label is not empty %}
-    {% set _menu_list_item_attributes = _menu_list_item_attributes  ~ ' aria-label="' ~ _item.trigger_aria_label ~ '"' %}
-  {% endif %}
   {% if _item.link_aria_label is not empty %}
     {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _item.link_aria_label ~ '"' %}
   {% endif %}
@@ -89,32 +93,44 @@
 
 {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
   {% set _can_be_external = false %}
-  {% set _icon = {
+  {% set _icon = [{
     name: 'corner-arrow',
     transform: 'rotate-90',
     path: _icon_path,
     size: '2xs',
-  } %}
+  },
+  {
+    name: 'arrow-left',
+    transform: 'flip-horizontal',
+    path: _icon_path,
+    size: 's',
+  }] %}
 {% endif %}
 
 {%- if _item.label is not empty -%}
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
-  {% set _menu_item_attributes = _item.extra_attributes|default([])|merge([
-    { name: _menu_item_attribute },
+  {% set _menu_link_attributes = _item.extra_attributes|default([])|merge([
+    { name: _menu_link_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
+  {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
+    {% set _menu_link_attributes = _menu_link_attributes|merge([
+      { name: 'aria-expanded', value: 'false' },
+    ]) %}
+  {% endif %}
   {% include '@ecl/link/link.html.twig' with {
     link: {
       type: 'standalone',
       label: _item.label,
       path: _item.path,
-      icon_path: icon_path,
+      icon_path: _icon_path,
       external: _can_be_external ? _item.external|default(false),
+      sr_external: _item.sr_external|default(''),
       icon_position: 'after',
     },
     icon: _icon,
-    extra_classes: _menu_item_class,
-    extra_attributes: _menu_item_attributes,
+    extra_classes: _menu_link_class,
+    extra_attributes: _menu_link_attributes,
   } only %}
 {%- endif -%}
 
@@ -124,131 +140,203 @@
     class="{{ _mega_class }} ecl-mega-menu__mega-container"
     data-ecl-mega-menu-mega
   >
-    <div class="ecl-mega-menu__mega-container-scrollable">
-      {{ _item.container }}
+    <div class="ecl-container">
+      <div class="ecl-mega-menu__mega-container-scrollable">
+        {{ _item.container }}
+      </div>
     </div>
   </div>
 {# Children #}
 {%- elseif _item.children is defined and _item.children is not empty and _item.children is iterable -%}
-  <div
-    class="{{ _mega_class }}"
-    data-ecl-mega-menu-mega
-  >
-    <ul class="{{ _sublist_class }}">
-    {% for child in _item.children %}
-      {% set _can_be_external = true %}
-      {% set _icon = {} %}
-      {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
-      {% set _subitem_class = 'ecl-mega-menu__subitem' %}
-      {% set _sublink_class = 'ecl-mega-menu__sublink' %}
-      {% if child.is_current is defined %}
-        {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
-        {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
-      {% endif %}
-      {% if child.children is defined and child.children is not empty %}
-        {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
-        {% if child.trigger_aria_label %}
-          {% set _subitem_attrs = _subitem_attrs ~ ' aria-label="' ~ child.trigger_aria_label ~ '"' %}
-        {% endif %}
-        {% if child.link_aria_label %}
-          {% set _subitem_attrs = _subitem_attrs ~ ' data-ecl-parent-aria-label="' ~ child.link_aria_label ~ '"' %}
-        {% endif %}
-      {% endif %}
-      {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
-        {% set _can_be_external = false %}
-        {% set _icon = {
-          name: 'corner-arrow',
-          transform: 'rotate-90',
-          path: _icon_path,
-          size: '2xs',
-        } %}
-      {% endif %}
-      <li
-        class="{{ _subitem_class }}"
-        {{- _subitem_attrs|raw -}}
-      >
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            type: 'standalone',
-            label: child.label,
-            path: child.path,
-            external: _can_be_external ? child.external|default(false),
-            icon_path: _icon_path,
-          },
-          icon: _icon,
-          extra_classes: _sublink_class,
-          extra_attributes: child.extra_attributes|default([]),
-        } only %}
-
-        {# Children, 2nd level #}
-        {%- if child.children is defined and child.children is not empty -%}
-          {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
-              see_all_label: child.see_all_label|default(''),
-              see_all: child.see_all|default(false),
-              see_all_attributes: child.see_all_attributes|default([]),
-              icon_path: _icon_path,
-              item: {
-                is_current: child.is_current|default(false),
-                path: child.path, 
-                children: child.children,
-                level: 2,
-                featured: child.featured|default({}),
-                trigger_aria_label: child.trigger_aria_label|default(''),
-                link_aria_label: child.link_aria_label|default(''),
-              },           
-          } only %}
-        {%- endif -%}
-      </li>
-    {% endfor %}
-    {%- if _see_all and _see_all_label is not empty -%}
-      <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
-        {% include '@ecl/link/link.html.twig' with {
-          link: {
-            type: 'standalone',
-            label: _see_all_label,
-            path: _item.path,
-          },
-          icon: {
-            path: _icon_path,
-            name: 'arrow-left',
-            size: 'xs',
-            transform: 'rotate-180',
-          },
-          extra_attributes: _see_all_attributes|default([]),
-        } only %}
-      </li>
-    {%- endif -%}
-    </ul>
-
-  {# Featured #}
-  {% if _featured is not empty %}
-    <div
-      class="ecl-mega-menu__featured"
-      data-ecl-mega-menu-featured
-    >
-    {% if _featured.title is not empty %}
-      <span class="ecl-mega-menu__featured-title">{{  _featured.title }}</span>
+{% if _item.level|default(0) < 2 %}
+  <div class="ecl-mega-menu__wrapper">
+    <div class="ecl-container">
+{% endif %}
+  {# Info #}
+  {% if _info is not empty %}
+    {% set _info_classes = 'ecl-mega-menu__info' %}
+    {% if _info.link is not empty %}
+      {% set _info_classes = _info_classes ~ ' ecl-mega-menu__info--has-link' %}
     {% endif %}
-      <div class="ecl-mega-menu__featured-scrollable">
-      {%- if _featured.content is not empty -%}
-        <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
+    <div
+      class="{{ _info_classes }}"
+      data-ecl-mega-menu-mega
+    >
+    {% if _info.title is not empty %}
+      <span class="ecl-mega-menu__info-title">{{  _info.title }}</span>
+    {% endif %}
+      <div class="ecl-mega-menu__info-scrollable">
+      {%- if _info.content is not empty -%}
+        <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
       {%- endif -%}
-      {%- if _featured.items is not empty and _featured.items is iterable -%}
-        <ul class="ecl-mega-menu__featured-list">
-          {% for item in _featured.items %}
-            <li class="ecl-mega-menu__featured-list__item">
-              {% include '@ecl/link/link.html.twig' with {
-                link: item|merge({ type: 'standalone', icon_path: _icon_path }),
-                extra_attributes: item.extra_attributes|default([]),
-              } only %}
-            </li>
-          {% endfor %}
-        </ul>
+      {%- if _info.link is not empty and _item.path is not empty -%}
+        {% include '@ecl/link/link.html.twig' with _info.link|merge({
+          link: _info.link.link|merge({
+            type: 'standalone',
+            path: _item.path,
+          }),
+          icon: {
+            name: 'arrow-left',
+            transform: 'flip-horizontal',
+            path: _icon_path,
+            size: 'xs',
+          },
+          extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
+        }) only %}
       {%- endif -%}
       </div>
+
     </div>
   {% endif %}
+    <div
+      class="{{ _mega_class }}"
+      data-ecl-mega-menu-mega
+    >
+      <ul class="{{ _sublist_class }}">
+      {% for child in _item.children %}
+        {% set _can_be_external = true %}
+        {% set _icon = {} %}
+        {% set _subitem_attrs = 'data-ecl-mega-menu-subitem' %}
+        {% set _subitem_class = 'ecl-mega-menu__subitem' %}
+        {% set _sublink_class = 'ecl-mega-menu__sublink' %}
+        {% if loop.last %}
+          {% set _sublink_class = _sublink_class ~ ' ecl-mega-menu__sublink--last' %}
+        {% endif %}
+        {% set _sublink_attrs = child.extra_attributes|default([])|merge([
+          { name: _menu_sublink_attribute },
+        ]) %}
+        {% if child.is_current is defined %}
+          {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
+          {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
+        {% endif %}
+        {% if child.children is defined and child.children is not empty %}
+          {% set _subitem_attrs = _subitem_attrs ~ ' aria-expanded="false"' %}
+          {% set _sublink_attrs = _sublink_attrs|merge([
+            { name: 'aria-expanded', value: 'false' },
+          ]) %}
+          {% if child.link_aria_label %}
+            {% set _subitem_attrs = _subitem_attrs ~ ' data-ecl-parent-aria-label="' ~ child.link_aria_label ~ '"' %}
+          {% endif %}
+        {% endif %}
+        {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
+          {%- if child.see_all and child.see_all_label is not empty -%}
+            {% if child.sublink_id is empty %}
+              {% set _sublink_id = 'ecl-mega-menu-sublink-' ~ random() %}
+            {% else %}
+              {% set _sublink_id = child.sublink_id %}
+            {% endif %}
+            {% set _sublink_attrs = _sublink_attrs|merge([{ name: 'id', value: _sublink_id }]) %}
+          {%- endif -%}
+
+          {% set _can_be_external = false %}
+          {% set _icon = {
+            name: 'corner-arrow',
+            transform: 'rotate-90',
+            path: _icon_path,
+            size: '2xs',
+          } %}
+        {% endif %}
+        <li
+          class="{{ _subitem_class }}"
+          {{- _subitem_attrs|raw -}}
+        >
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              label: child.label,
+              path: child.path,
+              external: _can_be_external ? child.external|default(false),
+              sr_external: child.sr_external|default(''),
+              icon_path: _icon_path,
+            },
+            icon: _icon,
+            extra_classes: _sublink_class,
+            extra_attributes: _sublink_attrs,
+          } only %}
+
+          {# Children, 2nd level #}
+          {%- if child.children is defined and child.children is not empty -%}
+            {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+                see_all_label: child.see_all_label|default(''),
+                see_all: child.see_all|default(false),
+                see_all_attributes: child.see_all_attributes|default([]),
+                icon_path: _icon_path,
+                sublink_id: _sublink_id|default(''),
+                item: {
+                  is_current: child.is_current|default(false),
+                  path: child.path, 
+                  children: child.children,
+                  level: 2,
+                  info: child.info|default({}),
+                  featured: child.featured|default({}),
+                  link_aria_label: child.link_aria_label|default(''),
+                },           
+            } only %}
+          {%- endif -%}
+        </li>
+      {% endfor %}
+      {%- if _see_all and _see_all_label is not empty -%}
+        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
+          {% include '@ecl/link/link.html.twig' with {
+            link: {
+              type: 'standalone',
+              label: _see_all_label,
+              path: _item.path,
+            },
+            icon: {
+              path: _icon_path,
+              name: 'arrow-left',
+              size: 'xs',
+              transform: 'rotate-180',
+            },
+            extra_attributes: [{
+             name: 'aria-describedby',
+             value: sublink_id,
+             }]|merge(_see_all_attributes|default([])),
+          } only %}
+        </li>
+      {%- endif -%}
+      </ul>
+
+    {# Featured #}
+    {% if _featured is not empty %}
+      <div
+        class="ecl-mega-menu__featured"
+        data-ecl-mega-menu-featured
+      >
+        <div class="ecl-mega-menu__featured-scrollable">
+      {% if _featured.picture is not empty %}
+        {% include '@ecl/picture/picture.html.twig' with {
+          picture: _featured.picture,
+          extra_classes: 'ecl-mega-menu__featured-picture',
+          extra_image_classes: 'ecl-mega-menu__featured-image',
+        } only %}
+      {% endif %}
+      {% if _featured.title is not empty %}
+        <span class="ecl-mega-menu__featured-title">{{  _featured.title }}</span>
+      {% endif %}
+        {%- if _featured.content is not empty -%}
+          <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
+        {%- endif -%}
+        {%- if _featured.items is not empty and _featured.items is iterable -%}
+          <ul class="ecl-mega-menu__featured-list">
+            {% for item in _featured.items %}
+              <li class="ecl-mega-menu__featured-list__item">
+                {% include '@ecl/link/link.html.twig' with {
+                  link: item|merge({ type: 'standalone', icon_path: _icon_path }),
+                  extra_attributes: item.extra_attributes|default([]),
+                } only %}
+              </li>
+            {% endfor %}
+          </ul>
+        {%- endif -%}
+        </div>
+      </div>
+  {% if _item.level|default(0) < 2 %}
+    </div>
   </div>
+  {% endif %}
+  {% endif %}
 {% endif %}
 </li>
 

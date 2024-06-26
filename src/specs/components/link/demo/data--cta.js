@@ -7,5 +7,6 @@ module.exports = {
     type: 'cta',
     label: 'Call to action link',
     path: exampleLink,
+    sr_external: 'Link to an external domain',
   },
 };

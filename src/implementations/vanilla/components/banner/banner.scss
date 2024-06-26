@@ -99,7 +99,7 @@ $banner: null !default;
   font: map.get($banner, 'font', 'description', 'mobile');
   font-weight: map.get($banner, 'font-weight', 'description');
   margin-bottom: 0;
-  margin-top: var(--s-xs);
+  margin-top: map.get($banner, 'description-margin');
 }
 
 .ecl-banner__cta {
@@ -141,12 +141,7 @@ $banner: null !default;
 .ecl-banner--text-box {
   background: map.get($banner, 'background', 'text-box-mobile');
 
-  // manage ratio 4:1
   .ecl-banner__image {
-    aspect-ratio: 3/1;
-
-    --css-aspect-ratio: 3/1;
-
     border-bottom: map.get($banner, 'border-width', 'bottom') solid
       map.get($banner, 'border-color');
   }
@@ -190,15 +185,11 @@ $banner: null !default;
 .ecl-banner--text-overlay {
   background: map.get($banner, 'background', 'text-overlay');
 
-  // manage ratio 4:1
   .ecl-banner__image {
     border-bottom: map.get($banner, 'border-width', 'bottom') solid
       map.get($banner, 'border-color');
     border-radius: map.get($banner, 'border-radius', 'banner')
       map.get($banner, 'border-radius', 'banner') 0 0;
-    aspect-ratio: 4/1;
-
-    --css-aspect-ratio: 4/1;
   }
 
   .ecl-banner__title {
@@ -208,6 +199,37 @@ $banner: null !default;
   .ecl-banner__description {
     color: map.get($banner, 'text-color', 'inverted');
   }
+}
+
+// medium banner - ratio 4:1
+.ecl-banner,
+.ecl-banner--m {
+  .ecl-banner__image {
+    aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
+  }
+}
+
+// extra small banner - ratio 6:1
+.ecl-banner--xs .ecl-banner__image {
+  aspect-ratio: 6/1;
+
+  --css-aspect-ratio: 6/1;
+}
+
+// small banner - ratio 5:1
+.ecl-banner--s .ecl-banner__image {
+  aspect-ratio: 5/1;
+
+  --css-aspect-ratio: 5/1;
+}
+
+// large banner - ratio 3:1
+.ecl-banner--l .ecl-banner__image {
+  aspect-ratio: 3/1;
+
+  --css-aspect-ratio: 3/1;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -274,37 +296,6 @@ $banner: null !default;
   .ecl-banner__container {
     padding-bottom: var(--s-m);
     padding-top: var(--s-m);
-  }
-
-  // medium banner - ratio 4:1
-  .ecl-banner,
-  .ecl-banner--m {
-    .ecl-banner__image {
-      aspect-ratio: 4/1;
-
-      --css-aspect-ratio: 4/1;
-    }
-  }
-
-  // extra small banner - ratio 6:1
-  .ecl-banner--xs .ecl-banner__image {
-    aspect-ratio: 6/1;
-
-    --css-aspect-ratio: 6/1;
-  }
-
-  // small banner - ratio 5:1
-  .ecl-banner--s .ecl-banner__image {
-    aspect-ratio: 5/1;
-
-    --css-aspect-ratio: 5/1;
-  }
-
-  // large banner - ratio 3:1
-  .ecl-banner--l .ecl-banner__image {
-    aspect-ratio: 3/1;
-
-    --css-aspect-ratio: 3/1;
   }
 
   .ecl-banner__content {

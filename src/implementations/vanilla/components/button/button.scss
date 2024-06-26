@@ -77,13 +77,14 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 // Icon only
 $size-icon-only: calc(
   #{map.get($button, 'padding-vertical')} * 2 + #{map.get(
-      $theme,
-      'line-height',
-      'm'
+      $button,
+      'line-height-icon'
     )} - #{map.get($button, 'border-width')} * 2
 );
 
 .ecl-button--icon-only {
+  display: flex;
+  justify-content: center;
   padding: 0;
 
   .ecl-button__container {
@@ -132,7 +133,7 @@ $size-icon-only: calc(
     color: map.get($button, #{$variant}, 'color-active');
   }
 
-  @if map-has-key($button, #{$variant}, 'border-width-hover') {
+  @if map.has-key($button, #{$variant}, 'border-width-hover') {
     &:hover {
       border-width: map.get($button, #{$variant}, 'border-width-hover');
       padding: calc(
