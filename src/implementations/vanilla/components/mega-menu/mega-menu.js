@@ -499,6 +499,9 @@ export class MegaMenu {
         this.element,
       );
       if (currentItem) {
+        currentItem.firstElementChild.classList.remove(
+          'ecl-mega-menu__parent-link',
+        );
         currentItems.push(currentItem);
       }
 
@@ -521,6 +524,15 @@ export class MegaMenu {
         this.enableScroll();
       }
     } else if (viewport === 'desktop' && compact) {
+      const currentSubItem = queryOne(
+        '.ecl-mega-menu__subitem--expanded',
+        this.element,
+      );
+      if (currentSubItem) {
+        currentSubItem.firstElementChild.classList.remove(
+          'ecl-mega-menu__parent-link',
+        );
+      }
       infoPanels.forEach((info) => {
         info.style.height = '';
       });
@@ -850,7 +862,15 @@ export class MegaMenu {
           if (innerExpanded) {
             queryOne('.ecl-mega-menu__parent-link', innerExpanded).focus();
           } else {
-            queryOne('.ecl-mega-menu__info-link', expanded).focus();
+            const infoLink = queryOne('.ecl-mega-menu__info-link', expanded);
+            if (infoLink) {
+              infoLink.focus();
+            } else {
+              queryOne(
+                '.ecl-mega-menu__subitem:first-child .ecl-mega-menu__sublink',
+                expanded,
+              ).focus();
+            }
           }
         }
       }
@@ -1079,12 +1099,6 @@ export class MegaMenu {
       // Move the focus to the previously selected item
       if (this.backItemLevel2) {
         this.backItemLevel2.firstElementChild.focus();
-      } else {
-        const expanded = queryOne(
-          '.ecl-mega-menu__item--expanded',
-          this.element,
-        );
-        queryOne('.ecl-mega-menu__parent-link', expanded).focus();
       }
       this.openPanel.num = 1;
     } else {
@@ -1100,7 +1114,6 @@ export class MegaMenu {
         item.setAttribute('aria-expanded', 'false');
         const itemLink = queryOne(this.linkSelector, item);
         itemLink.setAttribute('aria-expanded', 'false');
-        itemLink.classList.remove('ecl-mega-menu__parent-link');
       });
       // Move the focus to the previously selected item
       if (this.backItemLevel1) {
