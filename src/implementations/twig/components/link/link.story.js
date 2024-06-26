@@ -36,6 +36,7 @@ const getArgs = (data) => ({
   label: data.link.label,
   icon_name: 'none',
   icon_position: 'after',
+  icon_title: '',
   external: false,
   hide_label: false,
 });
@@ -82,8 +83,6 @@ const getArgTypes = () => ({
     name: 'icon transform',
     type: { name: 'select' },
     description: 'Link icon transform',
-    if: { arg: 'external', truthy: false },
-    // eslint-disable-next-line no-dupe-keys
     if: { arg: 'icon_name', neq: 'none' },
     options: [
       'rotate-90',
@@ -108,8 +107,6 @@ const getArgTypes = () => ({
     name: 'icon position',
     type: { name: 'inline-radio' },
     description: 'Icon position inside the link',
-    if: { arg: 'external', truthy: false },
-    // eslint-disable-next-line no-dupe-keys
     if: { arg: 'icon_name', neq: 'none' },
     options: ['before', 'after'],
     mapping: {
@@ -122,11 +119,23 @@ const getArgTypes = () => ({
       category: 'Icon',
     },
   },
+  icon_title: {
+    name: 'icon title',
+    type: 'string',
+    description: 'Textual information for the icon, mostly for screen readers',
+    if: { arg: 'icon_name', neq: 'none' },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+  },
   hide_label: {
     name: 'hide label',
     type: { name: 'boolean' },
     description:
       'Hide link label, keeping it only for screen readers. This only works if an icon is used',
+    if: { arg: 'icon_name', neq: 'none' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -149,6 +158,7 @@ const prepareData = (data, args) => {
     data.icon.transform = args.icon_transform;
     data.icon.size = 'xs';
     data.icon.path = 'icons.svg';
+    data.icon.title = args.icon_title;
   }
   if (args.icon_name === 'none') {
     delete data.icon;

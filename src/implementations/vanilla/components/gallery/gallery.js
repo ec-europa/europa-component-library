@@ -6,7 +6,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Object} options
  * @param {String} options.galleryItemSelector Selector for gallery element
  * @param {String} options.descriptionSelector Selector for gallery description element
- * @param {String} options.metaSelector Selector for gallery meta info element
  * @param {String} options.closeButtonSelector Selector for close button element
  * @param {String} options.allButtonSelector Selector for view all button element
  * @param {String} options.overlaySelector Selector for gallery overlay element
@@ -18,7 +17,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.overlayDownloadSelector Selector for gallery overlay download element
  * @param {String} options.overlayShareSelector Selector for gallery overlay share element
  * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
- * @param {String} options.overlayMetaSelector Selector for gallery overlay meta info element
  * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
  * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
  * @param {String} options.videoPlayerLabelSelector Selector for video player label
@@ -48,7 +46,6 @@ export class Gallery {
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
       noOverlaySelector = 'data-ecl-gallery-no-overlay',
-      metaSelector = '[data-ecl-gallery-meta]',
       itemsLimitSelector = 'data-ecl-gallery-visible-items',
       closeButtonSelector = '[data-ecl-gallery-close]',
       viewAllSelector = '[data-ecl-gallery-all]',
@@ -64,7 +61,6 @@ export class Gallery {
       overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
       overlayShareSelector = '[data-ecl-gallery-overlay-share]',
       overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
-      overlayMetaSelector = '[data-ecl-gallery-overlay-meta]',
       overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       videoPlayerLabelSelector = 'data-ecl-gallery-player-label',
@@ -85,7 +81,6 @@ export class Gallery {
     // Options
     this.galleryItemSelector = galleryItemSelector;
     this.descriptionSelector = descriptionSelector;
-    this.metaSelector = metaSelector;
     this.closeButtonSelector = closeButtonSelector;
     this.viewAllSelector = viewAllSelector;
     this.countSelector = countSelector;
@@ -100,7 +95,6 @@ export class Gallery {
     this.overlayDownloadSelector = overlayDownloadSelector;
     this.overlayShareSelector = overlayShareSelector;
     this.overlayDescriptionSelector = overlayDescriptionSelector;
-    this.overlayMetaSelector = overlayMetaSelector;
     this.overlayPreviousSelector = overlayPreviousSelector;
     this.overlayNextSelector = overlayNextSelector;
     this.attachClickListener = attachClickListener;
@@ -113,7 +107,6 @@ export class Gallery {
 
     // Private variables
     this.galleryItems = null;
-    this.meta = null;
     this.closeButton = null;
     this.viewAll = null;
     this.count = null;
@@ -126,7 +119,6 @@ export class Gallery {
     this.overlayDownload = null;
     this.overlayShare = null;
     this.overlayDescription = null;
-    this.overlayMeta = null;
     this.overlayPrevious = null;
     this.overlayNext = null;
     this.selectedItem = null;
@@ -207,7 +199,6 @@ export class Gallery {
         this.overlayDescriptionSelector,
         this.overlay,
       );
-      this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
       this.overlayPrevious = queryOne(
         this.overlayPreviousSelector,
         this.overlay,
@@ -461,6 +452,9 @@ export class Gallery {
     const embeddedVideo = selectedItem.getAttribute(
       'data-ecl-gallery-item-embed-src',
     );
+    const embeddedVideoAudio = selectedItem.getAttribute(
+      'data-ecl-gallery-item-embed-audio',
+    );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
 
@@ -469,6 +463,12 @@ export class Gallery {
       // Media is a embedded video
       mediaElement = document.createElement('div');
       mediaElement.classList.add('ecl-gallery__slider-embed');
+
+      const mediaAudio = document.createElement('div');
+      mediaAudio.classList.add('ecl-gallery__slider-embed-audio');
+      if (embeddedVideoAudio) {
+        mediaAudio.innerHTML = embeddedVideoAudio;
+      }
 
       const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', embeddedVideo);
@@ -479,6 +479,9 @@ export class Gallery {
       }
 
       if (this.overlayMedia) {
+        if (embeddedVideoAudio) {
+          mediaElement.appendChild(mediaAudio);
+        }
         mediaElement.appendChild(mediaIframe);
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
@@ -550,6 +553,22 @@ export class Gallery {
       +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
     this.overlayCounterMax.innerHTML = this.galleryItems.length;
 
+    // Prepare display of links for mobile
+    const actionMobile = document.createElement('div');
+    actionMobile.classList.add('ecl-gallery__detail-actions-mobile');
+
+    // Update download link
+    if (this.overlayDownload !== null && embeddedVideo === null) {
+      this.overlayDownload.href = this.selectedItem.href;
+      if (id) {
+        this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
+      }
+      this.overlayDownload.hidden = false;
+      actionMobile.appendChild(this.overlayDownload.cloneNode(true));
+    } else if (this.overlayDownload !== null) {
+      this.overlayDownload.hidden = true;
+    }
+
     // Update share link
     const shareHref = this.selectedItem.getAttribute(
       'data-ecl-gallery-item-share',
@@ -560,28 +579,19 @@ export class Gallery {
         this.overlayShare.setAttribute('aria-describedby', `${id}-title`);
       }
       this.overlayShare.hidden = false;
+      actionMobile.appendChild(this.overlayShare.cloneNode(true));
     } else {
       this.overlayShare.hidden = true;
     }
 
-    // Update download link
-    if (this.overlayDownload !== null && embeddedVideo === null) {
-      this.overlayDownload.href = this.selectedItem.href;
-      if (id) {
-        this.overlayDownload.setAttribute('aria-describedby', `${id}-title`);
-      }
-      this.overlayDownload.hidden = false;
-    } else if (this.overlayDownload !== null) {
-      this.overlayDownload.hidden = true;
-    }
-
-    // Update meta
-    const meta = queryOne(this.metaSelector, selectedItem);
-    this.overlayMeta.innerHTML = meta.innerHTML;
-
     // Update description
     const description = queryOne(this.descriptionSelector, selectedItem);
-    this.overlayDescription.innerHTML = description.innerHTML;
+    if (description) {
+      this.overlayDescription.innerHTML = description.innerHTML;
+    }
+    if (actionMobile.childNodes.length > 0) {
+      this.overlayDescription.prepend(actionMobile);
+    }
   }
 
   /**
@@ -617,6 +627,14 @@ export class Gallery {
 
     // Untrap focus
     this.focusTrap.deactivate();
+
+    // Restore css class on items
+    this.galleryItems.forEach((galleryItem) => {
+      const image = queryOne('img', galleryItem);
+      if (image) {
+        image.classList.add('ecl-gallery__image');
+      }
+    });
 
     // Focus item
     this.selectedItem.focus();

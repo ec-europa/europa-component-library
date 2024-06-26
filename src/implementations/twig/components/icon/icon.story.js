@@ -18,6 +18,7 @@ const getArgs = (data) => ({
   size: 'm',
   color: 'default',
   transform: 'none',
+  title: '',
 });
 
 const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
@@ -30,6 +31,7 @@ const prepareData = (data, args) => {
     args.transformation = '';
   }
   correctPaths(data);
+  data.icon.title = args.title;
   data.icon.name = args.name;
   data.icon.size = args.size;
   data.icon.color = args.color;
