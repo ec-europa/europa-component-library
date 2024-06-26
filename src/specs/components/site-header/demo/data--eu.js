@@ -16,6 +16,12 @@ module.exports = {
     label_logged: 'Logged in',
     href_logged: exampleLink,
   },
+  banner_top: {
+    link: {
+      label: 'Class name',
+      path: exampleLink,
+    },
+  },
   login_box: {
     id: 'login-box-id',
     description: 'Logged in as "last name" "first name"',
@@ -24,7 +30,7 @@ module.exports = {
   },
   language_selector: {
     href: exampleLink,
-    label: 'English',
+    label: 'EN',
     aria_label: 'Change language, current language is English',
     overlay: {
       title: 'Select your language',
@@ -32,7 +38,7 @@ module.exports = {
         label: 'Close',
         icon: {
           path: '/icons.svg',
-          name: 'close-filled',
+          name: 'close',
           size: 's',
         },
         hide_label: true,
@@ -238,7 +244,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'Site name',
+  site_name: 'Portal to news, policies, information and services',
   cta_link: {
     link: {
       label: 'CTA link',
@@ -261,15 +267,6 @@ module.exports = {
     title: 'Information notification',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
-    close: {
-      variant: 'ghost',
-      label: 'Close',
-      icon: {
-        path: '/icons.svg',
-        name: 'close-filled',
-        size: 'xs',
-      },
-    },
   },
   icon_path: '/icons.svg',
 };

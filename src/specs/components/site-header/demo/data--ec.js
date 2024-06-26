@@ -238,7 +238,7 @@ module.exports = {
       },
     ],
   },
-  site_name: 'Site name',
+  site_name: 'News, policies, information and services',
   cta_link: {
     link: {
       label: 'CTA link',
@@ -268,14 +268,5 @@ module.exports = {
     title: 'Information notification',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
-    close: {
-      variant: 'ghost',
-      label: 'Close',
-      icon: {
-        path: '/icons.svg',
-        name: 'close-filled',
-        size: 'xs',
-      },
-    },
   },
 };

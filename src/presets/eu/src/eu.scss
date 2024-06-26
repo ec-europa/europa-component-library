@@ -195,7 +195,7 @@
 );
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion-eu' with (
+@use '@ecl/vanilla-component-accordion/accordion' with (
   $theme: theme.$theme,
   $accordion: var.$accordion
 );
@@ -222,6 +222,10 @@
 @use '@ecl/vanilla-component-menu/menu' with (
   $theme: theme.$theme,
   $menu: var.$menu
+);
+@use '@ecl/vanilla-component-mega-menu/mega-menu' with (
+  $theme: theme.$theme,
+  $mega-menu: var.$mega-menu
 );
 @use '@ecl/vanilla-component-site-footer/site-footer-eu' with (
   $theme: theme.$theme,
