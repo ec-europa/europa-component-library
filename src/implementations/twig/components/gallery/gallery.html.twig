@@ -2,6 +2,9 @@
 
 {#
   Parameters:
+  - "grid" (boolean) (default: false) Display gallery as a grid
+  - "column" (int) (default: 3) Number of columns. Grid display only
+  - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
   - "id": (string) (default: random): Unique id for the gallery
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
@@ -26,6 +29,7 @@
     - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
+    - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
@@ -39,6 +43,9 @@
 
 {# variables #}
 
+{% set _grid = grid|default(false) %}
+{% set _column = column|default(3) %}
+{% set _ratio = ratio|default('3-2') %}
 {% set _id = id|default(random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
@@ -64,6 +71,18 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _grid %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--grid' %}
+
+  {% if _column is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--col-' ~ _column %}
+  {% endif %}
+
+  {% if _ratio is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--ratio-' ~ _ratio %}
+  {% endif %}
 {% endif %}
 
 {% if _full_width %}
