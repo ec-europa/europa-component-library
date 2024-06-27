@@ -58,9 +58,11 @@ const getArgs = (data) => {
 
   if (data.input.input_type === 'select' && data.input.multiple) {
     args.show_select_all = true;
+    args.show_search = true;
   }
 
   Object.assign(args.input, data.input);
+
   return args;
 };
 
@@ -70,6 +72,19 @@ const getArgTypes = (data, type) => ({
     ? {
         show_select_all: {
           name: 'select all',
+          type: { name: 'boolean' },
+          mapping: {
+            0: false,
+            1: true,
+          },
+          table: {
+            type: { summary: 'boolean' },
+            defaultValue: { summary: 'true' },
+            category: 'Optional',
+          },
+        },
+        show_search: {
+          name: 'search field',
           type: { name: 'boolean' },
           mapping: {
             0: false,
@@ -101,18 +116,9 @@ const prepareData = (data, args) => {
   if (args.width) {
     data.input.width = args.width;
   }
-  if (
-    !args.show_select_all &&
-    data.input.input_type === 'select' &&
-    data.input.multiple
-  ) {
-    data.input.multiple_select_all = false;
-  } else if (
-    args.show_select_all &&
-    data.input.input_type === 'select' &&
-    data.input.multiple
-  ) {
-    data.input.multiple_select_all = true;
+  if (data.input.input_type === 'select' && data.input.multiple) {
+    data.input.multiple_select_all = !!args.show_select_all;
+    data.input.multiple_search = !!args.show_search;
   }
 
   return data;

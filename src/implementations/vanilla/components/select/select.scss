@@ -245,21 +245,16 @@ $select: null !default;
     padding-bottom: var(--s-m);
     position: absolute;
     z-index: map.get($theme, 'z-index', 'dropdown');
+
+    // When the select all is present and the search is not
+    .ecl-select__multiple-all:first-child {
+      padding-top: var(--s-m);
+    }
   }
 
   .ecl-text-input {
     margin: map.get($select, 'multiple-dropdown-input-margin');
     width: map.get($select, 'multiple-dropdown-input-width');
-  }
-
-  .ecl-select__multiple-options {
-    box-sizing: border-box;
-    max-height: map.get($select, 'multiple-dropdown-container-max-height');
-    overflow-y: auto;
-  }
-
-  .ecl-checkbox {
-    clear: left;
   }
 
   .ecl-checkbox__label {
@@ -298,6 +293,22 @@ $select: null !default;
       margin-inline-end: calc(-1 * var(--s-m));
       width: 100%;
     }
+  }
+
+  .ecl-select__multiple-options {
+    box-sizing: border-box;
+    max-height: map.get($select, 'multiple-dropdown-container-max-height');
+    overflow-y: auto;
+
+    // When no search and select all are present
+    &:first-child .ecl-select__multiple-group:first-child {
+      border-top: none;
+      padding-top: var(--s-m);
+    }
+  }
+
+  .ecl-checkbox {
+    clear: left;
   }
 
   .ecl-text-input
@@ -341,6 +352,7 @@ $select: null !default;
     }
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-select__multiple-all {
     border-bottom: 1px solid
       map.get($select, 'multiple-dropdown-separator-color');
