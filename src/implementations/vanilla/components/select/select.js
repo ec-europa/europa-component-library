@@ -871,7 +871,7 @@ export class Select {
    * @param {loop}
    * @private
    */
-  #moveFocus(upOrDown, loop = true) {
+  #moveFocus(upOrDown) {
     const activeEl = document.activeElement;
     const hasGroups = activeEl.parentElement.parentElement.classList.contains(
       'ecl-select__multiple-group',
@@ -898,15 +898,11 @@ export class Select {
         nextSiblings[0].focus();
       } else {
         // eslint-disable-next-line no-lonely-if
-        if (loop) {
-          if (
-            this.dropDownToolbar &&
-            this.dropDownToolbar.style.display === 'flex'
-          ) {
-            this.dropDownToolbar.firstChild.focus();
-          } else {
-            this.input.focus();
-          }
+        if (
+          this.dropDownToolbar &&
+          this.dropDownToolbar.style.display === 'flex'
+        ) {
+          this.dropDownToolbar.firstChild.focus();
         }
       }
     } else {
@@ -1197,7 +1193,9 @@ export class Select {
       case 'ArrowDown':
         if (this.multiple) {
           e.preventDefault();
-          this.handleToggle(e);
+          if (!this.isOpen) {
+            this.handleToggle(e);
+          }
           if (this.search) {
             this.search.focus();
           } else if (this.selectAll) {
@@ -1276,7 +1274,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        this.#moveFocus('down', false);
+        this.#moveFocus('down');
         break;
 
       case 'ArrowUp':
