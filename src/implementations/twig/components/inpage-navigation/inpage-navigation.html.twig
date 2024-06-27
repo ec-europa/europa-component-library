@@ -25,7 +25,7 @@
 
 {# Internal properties #}
 
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-inpage-navigation-' ~ random()) %}
 {% set _title = title|default('') %}
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
