@@ -20,6 +20,7 @@ npm install --save @ecl/twig-component-gallery
   - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
+  - "sr_overlay_label" (string) (default: '') aria-label for the overlay
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
   - "description" (string) (default: '')
