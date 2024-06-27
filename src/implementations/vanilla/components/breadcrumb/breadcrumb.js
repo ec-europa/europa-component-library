@@ -81,6 +81,7 @@ export class Breadcrumb {
     if (!ECL) {
       throw new TypeError('Called init but ECL is not present');
     }
+
     ECL.components = ECL.components || new Map();
 
     this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
@@ -137,8 +138,8 @@ export class Breadcrumb {
   /**
    * Apply partial or full expand.
    */
-  check() {
-    const visibilityMap = this.computeVisibilityMap();
+  async check() {
+    const visibilityMap = await this.computeVisibilityMap();
     if (!visibilityMap) return;
 
     if (visibilityMap.expanded === true) {
@@ -230,73 +231,82 @@ export class Breadcrumb {
    * Measure/evaluate which elements can be displayed and toggle those who don't fit.
    */
   computeVisibilityMap() {
-    // Ignore if there are no expandableElements
-    if (!this.expandableElements || this.expandableElements.length === 0) {
-      return { expanded: true };
-    }
+    return new Promise((resolve) => {
+      // Ignore if there are no expandableElements
+      if (!this.expandableElements || this.expandableElements.length === 0) {
+        resolve({ expanded: true });
+        return;
+      }
 
-    const wrapperWidth = Math.floor(this.element.getBoundingClientRect().width);
-
-    // Get the sum of all items' width
-    const allItemsWidth = this.itemsElements
-      .map((breadcrumbSegment) => {
-        let segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
-        // Current page can have a display none set via the css.
-        if (segmentWidth === 0) {
-          breadcrumbSegment.style.display = 'inline-flex';
-          segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
-          breadcrumbSegment.style.cssText = '';
-        }
-        return segmentWidth;
-      })
-      .reduce((a, b) => a + b);
-
-    // This calculation is not always 100% reliable, we add a 20% to limit the risk.
-    if (allItemsWidth * 1.2 <= wrapperWidth) {
-      return { expanded: true };
-    }
-
-    const ellipsisItem = queryOne(this.ellipsisSelector, this.element);
-    const ellipsisItemWidth = ellipsisItem.getBoundingClientRect().width;
-
-    const incompressibleWidth =
-      ellipsisItemWidth +
-      this.staticElements.reduce(
-        (sum, currentItem) => sum + currentItem.getBoundingClientRect().width,
-        0,
+      const wrapperWidth = Math.floor(
+        this.element.getBoundingClientRect().width,
       );
 
-    if (incompressibleWidth >= wrapperWidth) {
-      return {
-        expanded: false,
-        isItemVisible: [...this.expandableElements.map(() => false)],
-      };
-    }
+      setTimeout(() => {
+        // Get the sum of all items' width
+        const allItemsWidth = this.itemsElements
+          .map((breadcrumbSegment) => {
+            let segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
+            // Current page can have a display none set via the css.
+            if (segmentWidth === 0) {
+              breadcrumbSegment.style.display = 'inline-flex';
+              segmentWidth = breadcrumbSegment.getBoundingClientRect().width;
+              breadcrumbSegment.style.cssText = '';
+            }
+            return segmentWidth;
+          })
+          .reduce((a, b) => a + b);
+        // This calculation is not always 100% reliable, we add a 10% to limit the risk.
+        if (allItemsWidth * 1.1 <= wrapperWidth) {
+          resolve({ expanded: true });
+          return;
+        }
 
-    let previousItemsWidth = 0;
-    let isPreviousItemVisible = true;
+        const ellipsisItem = queryOne(this.ellipsisSelector, this.element);
+        const ellipsisItemWidth = ellipsisItem.getBoundingClientRect().width;
 
-    // Careful: reverse() is destructive, that's why we make a copy of the array
-    const isItemVisible = [...this.expandableElements]
-      .reverse()
-      .map((otherSegment) => {
-        if (!isPreviousItemVisible) return false;
+        const incompressibleWidth =
+          ellipsisItemWidth +
+          this.staticElements.reduce(
+            (sum, currentItem) =>
+              sum + currentItem.getBoundingClientRect().width,
+            0,
+          );
 
-        previousItemsWidth += otherSegment.getBoundingClientRect().width;
+        if (incompressibleWidth >= wrapperWidth) {
+          resolve({
+            expanded: false,
+            isItemVisible: [...this.expandableElements.map(() => false)],
+          });
+          return;
+        }
 
-        const isVisible =
-          previousItemsWidth + incompressibleWidth <= wrapperWidth;
+        let previousItemsWidth = 0;
+        let isPreviousItemVisible = true;
 
-        if (!isVisible) isPreviousItemVisible = false;
+        // Careful: reverse() is destructive, that's why we make a copy of the array
+        const isItemVisible = [...this.expandableElements]
+          .reverse()
+          .map((otherSegment) => {
+            if (!isPreviousItemVisible) return false;
 
-        return isVisible;
-      })
-      .reverse();
+            previousItemsWidth += otherSegment.getBoundingClientRect().width;
 
-    return {
-      expanded: false,
-      isItemVisible,
-    };
+            const isVisible =
+              previousItemsWidth + incompressibleWidth <= wrapperWidth;
+
+            if (!isVisible) isPreviousItemVisible = false;
+
+            return isVisible;
+          })
+          .reverse();
+
+        resolve({
+          expanded: false,
+          isItemVisible,
+        });
+      }, 150);
+    });
   }
 }
 

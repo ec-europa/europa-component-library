@@ -156,6 +156,12 @@ $_description-height-desktop: 108px;
   @include screen-reader.sr-only;
 }
 
+.ecl-gallery__video-title {
+  @include screen-reader.sr-only;
+
+  background-color: map.get($theme, 'color', 'white');
+}
+
 .ecl-gallery__info {
   color: map.get($gallery, 'gallery-info-color');
   display: flex;
@@ -360,6 +366,10 @@ $_description-height-desktop: 108px;
   width: 100%;
 }
 
+.ecl-gallery__slider-embed-audio {
+  @include screen-reader.sr-only;
+}
+
 .ecl-gallery__slider-embed {
   align-items: center;
   display: flex;
@@ -426,7 +436,12 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__detail-actions {
+  display: none;
   margin-top: map.get($gallery, 'actions-margin');
+}
+
+.ecl-gallery__detail-actions-mobile {
+  margin-bottom: map.get($gallery, 'actions-margin');
 }
 
 .ecl-gallery__download {
@@ -477,7 +492,12 @@ $_description-height-desktop: 108px;
   }
 
   .ecl-gallery__detail-actions {
+    display: block;
     margin-top: 0;
+  }
+
+  .ecl-gallery__detail-actions-mobile {
+    display: none;
   }
 
   .ecl-gallery__detail-container {
@@ -496,5 +516,64 @@ $_description-height-desktop: 108px;
     display: flex;
     flex-direction: column;
     width: 1140px;
+  }
+}
+
+// Variant: grid
+.ecl-gallery--grid {
+  .ecl-gallery__item {
+    aspect-ratio: 3/2;
+    flex-grow: 0;
+    height: auto;
+    margin-inline-start: 0;
+    margin-top: 0;
+    min-width: auto;
+  }
+
+  .ecl-gallery__image {
+    aspect-ratio: 3/2;
+    height: auto;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .ecl-gallery__list {
+    column-gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-inline-start: 0;
+    row-gap: 1rem;
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-gallery__image-container {
+    height: auto;
+  }
+}
+
+.ecl-gallery--ratio-3-1 {
+  .ecl-gallery__item,
+  .ecl-gallery__image {
+    aspect-ratio: 3/1;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-gallery--grid {
+    .ecl-gallery__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.ecl-gallery--col-2 {
+      .ecl-gallery__list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &.ecl-gallery--col-4 {
+      .ecl-gallery__list {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
   }
 }

@@ -99,7 +99,7 @@ $banner: null !default;
   font: map.get($banner, 'font', 'description', 'mobile');
   font-weight: map.get($banner, 'font-weight', 'description');
   margin-bottom: 0;
-  margin-top: var(--s-xs);
+  margin-top: map.get($banner, 'description-margin');
 }
 
 .ecl-banner__cta {

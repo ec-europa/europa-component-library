@@ -18,6 +18,9 @@ const getArgs = (data) => {
   if (data.image && !data.sources) {
     args.image = data.image;
   }
+  if (data.embedded_media) {
+    args.video_audio = '';
+  }
 
   return args;
 };
@@ -58,6 +61,33 @@ const getArgTypes = (data) => {
     };
   }
 
+  if (data.embedded_media) {
+    argTypes.video_audio = {
+      name: 'audio description',
+      type: { name: 'select' },
+      description:
+        'Information about the video audio description (hidden, reachable by screen readers)',
+      options: ['empty', 'not needed', 'not yet'],
+      control: {
+        labels: {
+          empty: '',
+          'not needed': 'not needed: no information in visuals only',
+          'not yet': 'not available yet',
+        },
+      },
+      mapping: {
+        '': 'empty',
+        'not needed: no information in visuals only': 'not needed',
+        'not available yet': 'not yet',
+      },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+    };
+  }
+
   argTypes.full_width = {
     name: 'full width',
     type: 'boolean',
@@ -77,6 +107,24 @@ const prepareData = (data, args) => {
 
   if (!args.show_description) {
     args.description = '';
+  }
+
+  if (args.video_audio) {
+    switch (args.video_audio) {
+      case 'not needed':
+        data.sr_video_audio =
+          'In the video below, there is no audiodescription available because all the content is in the captions and default audio track';
+        break;
+
+      case 'not yet':
+        data.sr_video_audio =
+          'In the video below, there is no audiodescription available yet';
+        break;
+
+      default:
+        data.sr_video_audio = '';
+        break;
+    }
   }
 
   return Object.assign(data, args);

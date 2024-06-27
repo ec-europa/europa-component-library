@@ -62,7 +62,6 @@ export class Accordion {
     this.target = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
@@ -75,15 +74,13 @@ export class Accordion {
     }
     ECL.components = ECL.components || new Map();
 
-    document.addEventListener('click', this.handleClickOutside);
-
     this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
-        toggle.addEventListener('click', (event) =>
-          this.handleClickOnToggle(event, toggle),
+        toggle.addEventListener('click', () =>
+          this.handleClickOnToggle(toggle),
         );
       });
     }
@@ -128,7 +125,6 @@ export class Accordion {
    * Destroy component.
    */
   destroy() {
-    document.removeEventListener('click', this.handleClickOutside);
     if (this.attachClickListener && this.toggles) {
       this.toggles.forEach((toggle) => {
         toggle.replaceWith(toggle.cloneNode(true));
@@ -141,22 +137,11 @@ export class Accordion {
   }
 
   /**
-   * @param {e} Event
-   */
-  handleClickOutside(e) {
-    if (e.target && this.toggles && !this.element.contains(e.target)) {
-      this.toggles.forEach((item) =>
-        item.classList.remove('ecl-accordion__toggle--active'),
-      );
-    }
-  }
-
-  /**
    * @param {HTMLElement} toggle Target element to toggle.
    *
    * @fires Accordion#onToggle
    */
-  handleClickOnToggle(event, toggle) {
+  handleClickOnToggle(toggle) {
     let isOpening = false;
     // Get target element
     const target = queryOne(
@@ -203,14 +188,6 @@ export class Accordion {
         }
         useNode.setAttribute('xlink:href', newXlinkHref);
       }
-    }
-
-    this.toggles.forEach((item) =>
-      item.classList.remove('ecl-accordion__toggle--active'),
-    );
-    // This is the way we distinguish the click from a press on Enter
-    if (event.detail > 0) {
-      toggle.classList.add('ecl-accordion__toggle--active');
     }
   }
 }

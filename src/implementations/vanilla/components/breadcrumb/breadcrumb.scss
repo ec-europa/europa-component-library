@@ -50,6 +50,15 @@ $breadcrumb: null !default;
   }
 }
 
+// If the component is using js, it will always be on one line
+.ecl-breadcrumb[data-ecl-auto-initialized] .ecl-breadcrumb__container {
+  flex-wrap: nowrap;
+
+  .ecl-breadcrumb__segment {
+    flex-shrink: 0;
+  }
+}
+
 .ecl-breadcrumb__segment--ellipsis {
   &[aria-hidden='false'] {
     /* Force hide if JS is disabled */

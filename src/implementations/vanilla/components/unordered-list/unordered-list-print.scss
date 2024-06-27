@@ -13,7 +13,9 @@ $list: null !default;
 %ecl-unordered-list {
   color: map.get($list, 'text-color');
   font-family: map.get($theme, 'font-family-print', 'default');
+  list-style-position: inside;
   margin: 0;
+  padding: 0;
 }
 
 .ecl-unordered-list__item,
@@ -55,4 +57,5 @@ $list: null !default;
 .ecl-unordered-list .ecl-unordered-list,
 %ecl-unordered-list--nested {
   margin-top: map.get($theme, 'spacing-print', 's');
+  padding-inline-start: map.get($theme, 'spacing-print', 'l');
 }
