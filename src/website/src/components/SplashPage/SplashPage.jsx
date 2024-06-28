@@ -14,8 +14,6 @@ import Col from '../Grid/Col';
 import utilities from '../../styles/utilities.scss';
 import styles from './SplashPage.scss';
 
-console.log(styles);
-
 const SplashPage = React.memo(({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
     <ScrollToTopOnMount />

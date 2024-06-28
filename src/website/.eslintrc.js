@@ -26,7 +26,6 @@ module.exports = {
     'react/jsx-no-useless-fragment': 'off',
     'react/no-unstable-nested-components': 'off',
     'react/display-name': 'off',
-    'no-console': 'off',
   },
   settings: {
     'import/resolver': {
