@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-news-ticker
 - **"items"** (array) (default: []) slide items
   - "content" (string)
   - "link" (string) (optional)
+  - "icon" (object)
 - **"counter_label"** (string) (default: 'of')
 - **"sr_external"** (string) (default: 'External link') screen reader label for external icon
 - **"sr_previous"** (string) (default: 'Previous news') screen reader label for previous button
@@ -35,16 +36,25 @@ npm install --save @ecl/twig-component-news-ticker
   items: [ 
     { 
       content: 'EMA starts rolling review of COVID-19 vaccine Vidprevtyn', 
-      link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn', 
+      link: 'https://www.ema.europa.eu/en/news/ema-starts-rolling-review-covid-19-vaccine-vidprevtyn',
+      icon: { 
+        name: 'euro', 
+      }, 
     }, 
     {
       content:
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August',
       link: 'https://ec.europa.eu/commission/presscorner/detail/en/ip_21_4362',
+      icon: { 
+        name: 'euro', 
+      }, 
     }, 
     { 
       content:
         'President von der Leyen announced that the EU has achieved its goal of fully vaccinating 70% of its adult population on 31 August', 
+      icon: { 
+        name: 'euro', 
+      }, 
     }, 
     ...
   ], 
