@@ -218,7 +218,7 @@ $menu: null !default;
 }
 
 // Expanded
-@if map-has-key($menu, 'mobile', 'hide-header') {
+@if map.has-key($menu, 'mobile', 'hide-header') {
   .ecl-menu__inner-header {
     flex-flow: row;
   }
@@ -370,9 +370,11 @@ $menu: null !default;
   .ecl-button__icon {
     fill: currentcolor;
     flex-shrink: 0;
+    height: map.get($theme, 'icon', 'xs');
     transition: none;
     transition-property: transform, fill;
     transform: rotate(90deg);
+    width: map.get($theme, 'icon', 'xs');
   }
 
   &:hover {

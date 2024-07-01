@@ -11,6 +11,7 @@
     - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
+    - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
@@ -77,6 +78,9 @@
   {%- if _media_href is not empty and _item.embedded_video is not empty -%}
     data-ecl-gallery-item-embed-src="{{ _media_href }}"
   {%- endif -%}
+  {%- if _item.sr_video_audio is not empty -%}
+    data-ecl-gallery-item-embed-audio="{{ _item.sr_video_audio }}"
+  {%- endif -%}
   >
   {% if _item is not empty %}
     {% set _image_alt = _item.picture.img.alt|default('') %}
@@ -118,13 +122,17 @@
         data-ecl-gallery-description
       >
       {%- if _item.title is defined and _item.title is not empty -%}
-        <span class="ecl-gallery__title" data-ecl-gallery-title id="{{ _id }}-title">
+        <span class="ecl-gallery__title" id="{{ _id }}-title">
           {{- _item.title -}}
         </span>
       {%- endif -%}
-        {{- _item.description -}}
+      {%- if _item.description is defined and _item.description is not empty -%}
+        <span class="ecl-gallery__caption">
+          {{- _item.description -}}
+        </span>
+      {%- endif -%}
       {%- if _item.meta is defined and _item.meta is not empty -%}
-        <span class="ecl-gallery__meta" data-ecl-gallery-meta>
+        <span class="ecl-gallery__meta">
           {{- _item.meta -}}
         </span>
       {%- endif -%}

@@ -170,13 +170,13 @@ export default {
 };
 
 export const Paragraph = (args) => `
-    <h2 class="ecl-u-type-heading-2">Lead paragraph</h2>
+    <h3 class="ecl-u-type-heading-3">Lead paragraph</h3>
     <p class="ecl-u-type-paragraph-lead">${args.content}</p>
-    <h2 class="ecl-u-type-heading-2">Medium paragraph</h2>
+    <h3 class="ecl-u-type-heading-3">Medium paragraph</h3>
     <p class="ecl-u-type-paragraph-m">${args.content}</p>
-    <h2 class="ecl-u-type-heading-2">Small paragraph</h2>
+    <h3 class="ecl-u-type-heading-3">Small paragraph</h3>
     <p class="ecl-u-type-paragraph-s">${args.content}</p>
-    <h2 class="ecl-u-type-heading-2">Extra small paragraph</h2>
+    <h3 class="ecl-u-type-heading-3">Extra small paragraph</h3>
     <p class="ecl-u-type-paragraph-xs">${args.content}</p>
   `;
 

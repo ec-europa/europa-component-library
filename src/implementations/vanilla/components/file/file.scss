@@ -75,27 +75,29 @@ $file: null !default;
 
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
-  display: flex;
-  font: var(--f-s);
+  display: inline-block;
+  font: var(--f-ui-s);
+  list-style: none;
   margin-bottom: map.get($file, 'file-meta-margin');
+  margin-top: 0;
+  padding: 0;
 }
 
 .ecl-file__detail-meta-item {
-  margin-inline-start: var(--s-xs);
+  border-inline-end: 1px solid var(--c-p);
+  display: inline;
+  margin-inline-end: var(--s-xs);
+  padding-inline-end: var(--s-xs);
+  unicode-bidi: isolate;
 
-  &::before {
-    color: var(--c-p);
-    content: '|';
-    margin-inline-end: var(--s-xs);
+  &:first-of-type {
+    text-transform: uppercase;
   }
-}
 
-.ecl-file__detail-meta-item:first-of-type {
-  margin-inline-start: 0;
-  text-transform: uppercase;
-
-  &::before {
-    display: none;
+  &:last-child {
+    border-inline-end-width: 0;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -132,7 +134,7 @@ $file: null !default;
 
 .ecl-file__download {
   align-self: flex-start;
-  margin-left: auto;
+  margin-inline-start: auto;
   margin-top: map.get($file, 'file-download-spacing-mobile');
 }
 
@@ -247,7 +249,7 @@ $file: null !default;
 @include breakpoints.up('s') {
   .ecl-file__download {
     align-self: flex-end;
-    margin-left: auto;
+    margin-inline-start: auto;
     position: map.get($file, 'file-download-position');
     top: map.get($file, 'file-download-position-top');
   }
@@ -318,7 +320,7 @@ $file: null !default;
     padding: map.get($file, 'file-thumbnail-footer-padding');
     position: relative;
 
-    @if map-has-key($file, 'file-thumbnail-border') {
+    @if map.has-key($file, 'file-thumbnail-border') {
       &::before {
         content: '';
         position: absolute;

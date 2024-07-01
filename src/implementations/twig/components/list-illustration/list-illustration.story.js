@@ -1,10 +1,8 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
-import iconsAllEc from '@ecl/resources-ec-icons/dist/lists/all.json';
-import iconsAllEu from '@ecl/resources-eu-icons/dist/lists/all.json';
+import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import iconsFlag from '@ecl/resources-flag-icons/dist/lists/members/all.json';
 import dataListIllustrationImage from '@ecl/specs-component-list-illustration/demo/data--image';
 import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/demo/data--icon';
@@ -12,8 +10,6 @@ import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/dem
 import listIllustration from './list-illustration.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
-const iconsAll = system === 'eu' ? iconsAllEu : iconsAllEc;
 const imgDefault = dataListIllustrationImage.items[0].picture;
 const iconDefault = dataListIllustrationIcon.items[0].icon;
 const descDefault = dataListIllustrationIcon.items[0].description;
@@ -66,8 +62,11 @@ const getArgs = (data, variant) => {
 
   if (variant.includes('horizontal')) {
     args.column = 2;
+  }
+  if (variant !== 'vertical-image') {
     args.centered = false;
-  } else {
+  }
+  if (variant.includes('vertical')) {
     args.zebra = true;
   }
 
@@ -125,6 +124,9 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
+  }
+
+  if (variant !== 'vertical-image') {
     argTypes.centered = {
       name: 'centered',
       type: { name: 'boolean' },
@@ -139,7 +141,9 @@ const getArgTypes = (data, variant) => {
         category: 'Layout',
       },
     };
-  } else {
+  }
+
+  if (variant.includes('vertical')) {
     argTypes.zebra = {
       name: 'zebra',
       type: { name: 'boolean' },

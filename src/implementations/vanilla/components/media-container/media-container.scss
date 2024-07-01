@@ -12,6 +12,7 @@ $media-container: null !default;
 @use '@ecl/vanilla-utility-media/media' as uMedia with (
   $theme: $theme
 );
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 .ecl-media-container {
   margin: 0;
@@ -60,6 +61,10 @@ $media-container: null !default;
   }
 }
 
+.ecl-media-container__media-audio {
+  @include screen-reader.sr-only;
+}
+
 // Manual ratio
 .ecl-media-container__media--ratio-16-9 {
   @include uMedia.aspect-ratio(16, 9);
@@ -88,7 +93,7 @@ $media-container: null !default;
   width: calc(100vw - #{map.get($media-container, 'scrollbar-width')});
 }
 
-@if map-has-key($media-container, 'caption-before') {
+@if map.has-key($media-container, 'caption-before') {
   .ecl-media-container__caption {
     &::before {
       background-color: var(--c-s);

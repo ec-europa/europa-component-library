@@ -2,11 +2,14 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import specs from '@ecl/specs-component-gallery/demo/data';
+import dataDefault from '@ecl/specs-component-gallery/demo/data';
 import gallery from './gallery.html.twig';
 import notes from './README.md';
 
 const getArgs = () => ({
+  grid: false,
+  column: 3,
+  ratio: '3-2',
   expandable: true,
   full_width: false,
   visible_items: 8,
@@ -14,6 +17,44 @@ const getArgs = () => ({
 });
 
 const getArgTypes = () => ({
+  grid: {
+    control: { type: 'boolean' },
+    description: 'Grid display',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
+  },
+  column: {
+    name: 'columns',
+    control: {
+      type: 'range',
+      step: 1,
+      min: 2,
+      max: 4,
+    },
+    description: 'Number of columns, for grid display',
+    table: {
+      type: { summary: 'integer' },
+      defaultValue: { summary: '3' },
+    },
+    if: { arg: 'grid' },
+  },
+  ratio: {
+    name: 'Image ratio',
+    type: { name: 'select' },
+    description: 'Image ratio, for grid display',
+    options: ['3-1', '3-2'],
+    mapping: {
+      '3-1': '3-1',
+      '3-2': '3-2',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+    },
+    if: { arg: 'grid' },
+  },
   expandable: {
     control: { type: 'boolean' },
     description: 'expandable gallery',
@@ -71,11 +112,11 @@ export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async (args) => {
   const renderedGallery = `<div class="ecl-container">${await gallery(
-    prepareData(specs, args),
+    prepareData(dataDefault, args),
   )}</div>`;
   return renderedGallery;
 };
 Default.storyName = 'default';
-Default.parameters = { notes: { markdown: notes, json: specs } };
+Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 Default.args = getArgs();
 Default.argTypes = getArgTypes();

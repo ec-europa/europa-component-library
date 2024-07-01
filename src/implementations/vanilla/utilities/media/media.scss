@@ -10,6 +10,7 @@
 $theme: null !default;
 
 @mixin aspect-ratio($width, $height) {
+  display: block; // for safari
   position: relative !important;
 
   /* stylelint-disable-next-line */

@@ -9,6 +9,7 @@
           size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
           transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
           color: 'default' (available options: 'default', 'inverted', 'primary')
+          title: '' (additional title for the icon; shortcut for extra accessibility title)
           extra_classes (string) (default: '')
         }
     - "as_image": false,
@@ -30,29 +31,35 @@
 
 {# Internal properties #}
 
-{% set _as_image = as_image|default(false) %}
-{% set _aria_hidden = 'true' %}
-
 {% set _icon = {
   path: '',
   name: '',
   size: 'm',
   transform: '',
   color: '',
+  title: '',
 }|merge(icon|default({})) %}
 
 {% set _extra_accessibility = {
   description: '',
   description_id: '',
-  title: '',
+  title: _icon.title is not empty ? _icon.title : '',
   title_id: '',
-  role: 'img',
+  role: '',
 }|merge(extra_accessibility|default({})) %}
+
+{% set _as_image = as_image|default(false) %}
+{% set _aria_hidden = 'true' %}
 
 {% set _css_class = 'ecl-icon' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _extra_accessibility.title is not empty %}
+  {% set _as_image = 'true' %}
+  {% set _extra_accessibility = _extra_accessibility|merge({role: 'img'}) %}
+{% endif %}
 
 {% if _as_image %}
   {% set _aria_hidden = 'false' %}
@@ -68,13 +75,14 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_accessibility is defined and extra_accessibility is not empty %}
+{% if _extra_accessibility.role is not empty %}
   {% set extra_attributes = extra_attributes|default([])|merge([
     { name: 'role', value: _extra_accessibility.role },
   ]) %}
-  {% if extra_accessibility.title_id is not empty or extra_accessibility.description_id is not empty %}
-    {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
-  {% endif %}
+{% endif %}
+  
+{% if _extra_accessibility.title_id is not empty or _extra_accessibility.description_id is not empty %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}

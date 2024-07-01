@@ -8,6 +8,9 @@ npm install --save @ecl/twig-component-gallery
 
 ### Parameters
 
+- **"grid"** (boolean) (default: false) Display gallery as a grid
+- **"column"** (int) (default: 3) Number of columns. Grid display only
+- **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid dipslay only
 - **"id"**: (string) (default: random): Unique id for the gallery
 - **"overlay"** (object) (default: {})
   - "close" (object) (default: {}): object of type button
@@ -25,6 +28,7 @@ npm install --save @ecl/twig-component-gallery
   - "picture" (optional) (object) (default: {}) object of type picture
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
+  - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "share_path" (optional) (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery

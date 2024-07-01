@@ -3,12 +3,13 @@
 
 $button: (
   radius: 2px,
-  font: var(--f-m),
+  font: var(--f-ui-m),
   shadow: none,
   border-width: 2px,
   outline-width: 1px,
   padding-horizontal: var(--s-m),
   padding-vertical: var(--s-xs),
+  line-height-icon: map.get($line-height-ui, 'm'),
   primary: (
     background: var(--c-p),
     color: map.get($color, 'white'),

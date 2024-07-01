@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import icons from '@ecl/resources-ec-icons/dist/sprites/icons.svg';
+import icons from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
@@ -28,7 +28,7 @@ const Header = React.memo(({ component, history, location }) => {
     <header className={styles.header}>
       <Container>
         {sectionTitle && (
-          <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
+          <div className={styles['header__section-header']}>{sectionTitle}</div>
         )}
         <h1 className={styles['header__page-title']}>{pageTitle}</h1>
         {component.attributes.isTab && (

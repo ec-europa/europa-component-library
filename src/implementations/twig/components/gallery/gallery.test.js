@@ -8,6 +8,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 // Import data for tests
 import demoData from '@ecl/specs-component-gallery/demo/data';
 
+const demoDataGrid = { ...demoData, grid: true };
+
 expect.extend(toHaveNoViolations);
 
 describe('Gallery', () => {
@@ -58,6 +60,20 @@ describe('Gallery', () => {
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),
+      ).toHaveNoViolations();
+    });
+  });
+
+  describe('Grid', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoDataGrid)).resolves.toMatchSnapshot();
+    });
+
+    jest.setTimeout(15000);
+    test(`passes the accessibility tests`, async () => {
+      expect(
+        await axe(await renderTwigFileAsHtml(template, demoDataGrid, true)),
       ).toHaveNoViolations();
     });
   });
