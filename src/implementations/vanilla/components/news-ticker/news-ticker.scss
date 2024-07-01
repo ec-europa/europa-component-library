@@ -64,6 +64,7 @@ $news-ticker: null !default;
   align-items: center;
   display: flex;
   flex-direction: row;
+  line-height: map.get($news-ticker, 'line-height');
 
   .ecl-link {
     line-height: map.get($news-ticker, 'line-height');
