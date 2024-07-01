@@ -452,6 +452,9 @@ export class Gallery {
     const embeddedVideo = selectedItem.getAttribute(
       'data-ecl-gallery-item-embed-src',
     );
+    const embeddedVideoAudio = selectedItem.getAttribute(
+      'data-ecl-gallery-item-embed-audio',
+    );
     const video = queryOne('video', selectedItem);
     let mediaElement = null;
 
@@ -460,6 +463,12 @@ export class Gallery {
       // Media is a embedded video
       mediaElement = document.createElement('div');
       mediaElement.classList.add('ecl-gallery__slider-embed');
+
+      const mediaAudio = document.createElement('div');
+      mediaAudio.classList.add('ecl-gallery__slider-embed-audio');
+      if (embeddedVideoAudio) {
+        mediaAudio.innerHTML = embeddedVideoAudio;
+      }
 
       const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', embeddedVideo);
@@ -470,6 +479,9 @@ export class Gallery {
       }
 
       if (this.overlayMedia) {
+        if (embeddedVideoAudio) {
+          mediaElement.appendChild(mediaAudio);
+        }
         mediaElement.appendChild(mediaIframe);
         this.overlayMedia.innerHTML = '';
         this.overlayMedia.appendChild(mediaElement);
