@@ -10,5 +10,5 @@ module.exports = {
   ],
   navigation_text: 'You are here:',
   icon_path: '/icons.svg',
-  ellipsis_label: 'Click to expand',
+  ellipsis_label: 'Show more breadcrumb items',
 };
