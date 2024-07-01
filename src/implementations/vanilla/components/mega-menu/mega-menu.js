@@ -460,6 +460,16 @@ export class MegaMenu {
       megaMenus.forEach((menu) => {
         menu.style.height = '';
       });
+
+      // Reset top position and height of the wrappers
+      const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
+      if (wrappers) {
+        wrappers.forEach((wrapper) => {
+          wrapper.style.top = '';
+          wrapper.style.height = '';
+        });
+      }
+
       // Two panels are opened
       if (this.openPanel.num === 2) {
         const subItemExpanded = queryOne(
