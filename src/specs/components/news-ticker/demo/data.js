@@ -32,8 +32,10 @@ module.exports = {
       content:
         'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
       link: exampleLink,
-      icon: {
-        name: 'faq',
+      img: {
+        path: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+        alt: 'Alternative text for the image',
+        title: 'title of the image',
       },
     },
     {

@@ -8,6 +8,9 @@
           "content" (string)
           "link" (string)
           "icon" (object) Object of type ECL icon
+          "img" (object)
+            - "path" (string)
+            - "alt" (string)
           "external" (boolean)
         },
         ...
@@ -76,6 +79,7 @@
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
         {% set _icon = '' %}
+        {% set _image = '' %}
         {% if _item.icon is not empty and _item.icon.name is not empty %}
           {% set _icon %}
             {% include '@ecl/icon/icon.html.twig' with {
@@ -87,10 +91,24 @@
               extra_classes: 'ecl-news-ticker__icon',
             } only %}
           {% endset %}
+        {% elseif _item.img is not empty and _item.img.path is not empty %}
+        {% set _image %} 
+          <img
+            class="ecl-news-ticker__icon"
+            src="{{ _item.img.path }}"
+          {%- if _item.img.alt is not empty -%}
+            alt="{{ _item.img.alt }}"
+          {%- endif -%}
+          {%- if _item.img.title is not empty -%}
+            title="{{ _item.img.title }}"
+          {%- endif -%} 
+          >
+        {% endset %}
         {% endif %}
         <li class="ecl-news-ticker__slide">
         {% if _item.link is not empty %}
-          {{ _icon }}
+          {{- _icon -}}
+          {{- _image -}}
           {% include '@ecl/link/link.html.twig' with {
             link: {
             type: 'standalone',
@@ -104,7 +122,7 @@
             extra_classes: 'ecl-news-ticker__slide-text',
           } only %}
         {% else %}
-          {{ _icon }}{{ _item.content }}
+          {{- _icon -}}{{- _image -}}{{ _item.content }}
         {% endif %}
         </li>  
       {% endfor %}
