@@ -2,14 +2,13 @@
 @use '../index' as *;
 
 $news-ticker: (
-  height: 3.875rem,
-  desktop-only-height: 5.5rem,
+  height: 3.75rem,
+  desktop-only-height: 5.375rem,
   border: 1px solid var(--c-p-20),
   border-radius: 4px,
   box-shadow: map.get($shadow, '4'),
   padding-horizontal: var(--s-xs),
   font: var(--f-s),
-  line-height: 18px,
   container-background: var(--c-in-5),
   controls-background: map.get($color, 'white'),
   counter: (

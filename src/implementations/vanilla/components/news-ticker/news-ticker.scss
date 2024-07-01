@@ -64,10 +64,10 @@ $news-ticker: null !default;
   align-items: center;
   display: flex;
   flex-direction: row;
-  line-height: map.get($news-ticker, 'line-height');
+  line-height: map.get($theme, 'line-height', 'xs');
 
   .ecl-link {
-    line-height: map.get($news-ticker, 'line-height');
+    line-height: map.get($theme, 'line-height', 'xs');
     padding-inline-start: var(--s-2xs);
     padding-inline-end: var(--s-2xs);
 
