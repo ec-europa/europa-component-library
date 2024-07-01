@@ -12,7 +12,12 @@ npm install --save @ecl/twig-component-news-ticker
 - **"items"** (array) (default: []) slide items
   - "content" (string)
   - "link" (string) (optional)
-  - "icon" (object)
+  - "icon" (object) Object of type icon
+    **OR**
+  - "img" (object)
+    - "path" (string) (default: '')
+    - "title" (string) (default: '')
+    - "alt" (string) (default: '')
 - **"counter_label"** (string) (default: 'of')
 - **"sr_external"** (string) (default: 'External link') screen reader label for external icon
 - **"sr_previous"** (string) (default: 'Previous news') screen reader label for previous button
