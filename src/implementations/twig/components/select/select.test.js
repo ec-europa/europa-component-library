@@ -8,8 +8,14 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import specSingle from '@ecl/specs-component-select/demo/data-single';
 import specMultiple from '@ecl/specs-component-select/demo/data-multiple';
 
-const dataSingle = specSingle.input;
-const dataMultiple = specMultiple.input;
+const dataSingle = {
+  ...specSingle.input,
+  extra_attributes: [{ name: 'aria-label', value: 'country' }],
+};
+const dataMultiple = {
+  ...specMultiple.input,
+  extra_attributes: [{ name: 'aria-label', value: 'country' }],
+};
 
 expect.extend(toHaveNoViolations);
 
