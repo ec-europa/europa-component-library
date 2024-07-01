@@ -23,6 +23,7 @@
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "ratio" (string) ('')
   - "expandable" (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
   - "extra_classes" (string) (default: ''),
@@ -49,6 +50,7 @@
 {% set _description = description|default('') %}
 {% set _title = title|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
+{% set _sr_video_audio = sr_video_audio|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = embedded_media ? [
@@ -108,6 +110,9 @@
   <figure class="{{ _figure_class }}">
   {% if _embedded_media is not empty %}
     <div class="{{_embed_class}}">
+      {% if _sr_video_audio is not empty %}
+        <div class="{{_embed_class}}-audio">{{ _sr_video_audio }}</div>
+      {% endif %}
       {%- block embedded_media _embedded_media -%}
     </div>
   {% elseif _sources is not empty and _sources is iterable %}
