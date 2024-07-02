@@ -5,7 +5,8 @@
   - "variant" (string) (default: 'plain-background') Variant of the banner
     (can be 'plain-background', 'text-box', 'text-overlay')
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
-  - "title" (string) (default: '') Title of banner
+  - "font_size" (string) (default: 'l') Size of the title and description (can be 'm', 'l')
+  - "title" (string or Link) (default: '') Title of banner
   - "picture" (associative array) (default: {}): Image for the banner, following ECL Picture structure
   - "credit" (string) (default: '') Credit for the image
   - "description" (string) (default: '') Description of banner
@@ -28,6 +29,7 @@
 {% set _centered = centered ?? false %}
 {% set _full_width = full_width|default(false) %}
 {% set _title = title|default('') %}
+{% set _font_size = font_size|default('l') %}
 {% set _description = description|default('') %}
 {% set _image = image|default('') %}
 {% set _credit = credit|default('') %}
@@ -41,6 +43,10 @@
 
 {% if _size is not empty %}
   {% set _css_class = _css_class ~ ' ecl-banner--' ~ _size %}
+{% endif %}
+
+{% if _font_size != 'l' %}
+  {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
 {% endif %}
 
 {% if _centered %}
@@ -90,7 +96,15 @@
       <div class="ecl-banner__content">
         {% if _title is not empty %}
           <div class="ecl-banner__title">
-            <span class="ecl-banner__title-text">{{ _title }}</span>
+            <span class="ecl-banner__title-text">
+            {%- if _title.link is defined -%}
+              {% include '@ecl/link/link.html.twig' with _title|merge({
+                extra_classes: 'ecl-banner__title-link'
+              }) only %}
+            {%- else -%}
+              {{- _title -}}
+            {%- endif -%}
+            </span>
           </div>
         {% endif %}
         {% if _description is not empty %}

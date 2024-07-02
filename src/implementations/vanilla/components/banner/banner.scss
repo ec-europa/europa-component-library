@@ -91,13 +91,11 @@ $banner: null !default;
 
 .ecl-banner__title {
   font: map.get($banner, 'font', 'title', 'mobile');
-  font-weight: map.get($banner, 'font-weight', 'title');
   margin: 0;
 }
 
 .ecl-banner__description {
   font: map.get($banner, 'font', 'description', 'mobile');
-  font-weight: map.get($banner, 'font-weight', 'description');
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 }
@@ -126,7 +124,8 @@ $banner: null !default;
 .ecl-banner--plain-background {
   background: map.get($banner, 'background', 'plain-background');
 
-  .ecl-banner__title {
+  .ecl-banner__title,
+  .ecl-banner__title-link {
     color: map.get($banner, 'text-color', 'inverted');
   }
 
@@ -147,6 +146,7 @@ $banner: null !default;
   }
 
   .ecl-banner__title,
+  .ecl-banner__title-link,
   .ecl-banner__description {
     color: var(--c-d);
   }
@@ -163,7 +163,8 @@ $banner: null !default;
       color: map.get($banner, 'text-color', 'light');
     }
 
-    .ecl-banner__title {
+    .ecl-banner__title,
+    .ecl-banner__title-link {
       color: map.get($banner, 'text-color', 'dark');
     }
 
@@ -192,7 +193,8 @@ $banner: null !default;
       map.get($banner, 'border-radius', 'banner') 0 0;
   }
 
-  .ecl-banner__title {
+  .ecl-banner__title,
+  .ecl-banner__title-link {
     color: map.get($banner, 'text-color', 'inverted');
   }
 
@@ -274,13 +276,11 @@ $banner: null !default;
   }
 
   .ecl-banner__title {
-    font: map.get($banner, 'font', 'title', 'desktop');
-    font-weight: map.get($banner, 'font-weight', 'title');
+    font: map.get($banner, 'font', 'title', 'tablet');
   }
 
   .ecl-banner__description {
     font: map.get($banner, 'font', 'description', 'desktop');
-    font-weight: map.get($banner, 'font-weight', 'description');
   }
 }
 
@@ -300,6 +300,22 @@ $banner: null !default;
 
   .ecl-banner__content {
     max-width: map.get($banner, 'content-width');
+  }
+
+  .ecl-banner__title {
+    font: map.get($banner, 'font', 'title', 'desktop-l');
+
+    .ecl-banner--font-m & {
+      font: map.get($banner, 'font', 'title', 'desktop-m');
+    }
+  }
+
+  .ecl-banner__description {
+    font: map.get($banner, 'font', 'description', 'desktop-l');
+
+    .ecl-banner--font-m & {
+      font: map.get($banner, 'font', 'description', 'desktop-m');
+    }
   }
 
   .ecl-banner--plain-background {

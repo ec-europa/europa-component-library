@@ -9,15 +9,15 @@ import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-o
 import banner from './banner.html.twig';
 import notes from './README.md';
 
-const cta = { ...bannerDataPlainBackground.link };
-
 const getArgs = (data) => {
   const args = {
     show_title: true,
     show_description: true,
     show_button: true,
     size: 'm',
-    title: data.title,
+    title: data.title.link.label,
+    title_link: true,
+    font_size: 'l',
     description: data.description,
     label: data.link.link.label,
     left: true,
@@ -82,6 +82,38 @@ const getArgTypes = (data) => {
       table: {
         type: 'string',
         defaultValue: { summary: 'm' },
+        category: 'Display',
+      },
+    },
+    title_link: {
+      name: 'title link',
+      type: 'boolean',
+      description: 'Use a link for the title',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Display',
+      },
+      if: { arg: 'show_title' },
+    },
+    font_size: {
+      name: 'font size',
+      type: 'select',
+      description: "Possible font sizes ('medium' or 'large')",
+      options: ['m', 'l'],
+      control: {
+        labels: {
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      mapping: {
+        medium: 'm',
+        large: 'l',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'l' },
         category: 'Display',
       },
     },
@@ -187,35 +219,33 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  data.size = args.size;
-  data.title = args.title;
-  data.description = args.description;
-  data.centered = !args.left;
-  data.full_width = args.full_width;
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
+  Object.assign(clone, args);
 
-  if (data.picture) {
-    data.image = args.image;
+  clone.centered = !args.left;
 
-    if (!args.show_credit) {
-      data.credit = '';
-    } else {
-      data.credit = args.credit;
-    }
+  if (!args.show_credit) {
+    delete clone.credit;
   }
   if (!args.show_title) {
-    data.title = '';
+    delete clone.title;
   }
   if (!args.show_description) {
-    data.description = '';
+    delete clone.description;
   }
   if (!args.show_button) {
-    data.link = false;
-  } else {
-    data.link = cta;
-    data.link.link.label = args.label;
+    delete clone.link;
   }
 
-  return correctPaths(data);
+  if (!args.title_link) {
+    clone.title = args.title;
+  } else {
+    clone.title = data.title;
+    clone.title.link.label = args.title;
+  }
+
+  return clone;
 };
 
 const renderStory = async (data, args) => {

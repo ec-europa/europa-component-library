@@ -34,16 +34,16 @@ $banner: (
   font: (
     'title': (
       'mobile': var(--f-3xl),
-      'desktop': var(--f-6xl),
+      'tablet': var(--f-3xl),
+      'desktop-m': var(--f-6xl),
+      'desktop-l': var(--f-6xl),
     ),
     'description': (
       'mobile': var(--f-l),
-      'desktop': var(--f-p-l),
+      'tablet': var(--f-l),
+      'desktop-m': var(--f-p-l),
+      'desktop-l': var(--f-p-l),
     ),
-  ),
-  font-weight: (
-    'title': map.get($font-weight, 'regular'),
-    'description': map.get($font-weight, 'regular'),
   ),
   description-margin: var(--s-xs),
 );
