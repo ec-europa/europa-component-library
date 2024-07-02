@@ -409,7 +409,6 @@ export class Select {
       this.inputContainer.appendChild(this.selectionCount);
       this.inputContainer.appendChild(this.input);
       this.inputContainer.appendChild(Select.#createSelectIcon());
-
       this.searchContainer = document.createElement('div');
       this.searchContainer.style.display = 'none';
       this.searchContainer.classList.add(
@@ -424,13 +423,16 @@ export class Select {
 
       this.selectMultiple.appendChild(this.searchContainer);
 
-      this.search = document.createElement('input');
-      this.search.classList.add('ecl-text-input');
-      this.search.setAttribute('type', 'search');
-      this.search.setAttribute('placeholder', this.textSearch || '');
-      this.search.addEventListener('keyup', this.handleSearch);
-      this.search.addEventListener('search', this.handleSearch);
-      this.searchContainer.appendChild(this.search);
+      if (this.textSearch) {
+        this.search = document.createElement('input');
+        this.search.classList.add('ecl-text-input');
+        this.search.setAttribute('type', 'search');
+        this.search.setAttribute('placeholder', this.textSearch || '');
+        this.search.addEventListener('keyup', this.handleSearch);
+        this.search.addEventListener('search', this.handleSearch);
+        this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
+        this.searchContainer.appendChild(this.search);
+      }
 
       if (this.textSelectAll) {
         const optionsCount = Array.from(this.select.options).filter(
@@ -451,11 +453,11 @@ export class Select {
         this.searchContainer.appendChild(this.selectAll);
       }
 
-      this.search.addEventListener('keydown', this.handleKeyboardOnSearch);
       this.optionsContainer = document.createElement('div');
       this.optionsContainer.classList.add('ecl-select__multiple-options');
       this.optionsContainer.setAttribute('aria-live', 'polite');
       this.searchContainer.appendChild(this.optionsContainer);
+
       // Toolbar
       if (this.clearAllButtonLabel || this.closeButtonLabel) {
         this.dropDownToolbar = document.createElement('div');
@@ -496,11 +498,12 @@ export class Select {
           this.dropDownToolbar.appendChild(this.clearAllButton);
         }
       }
-
-      this.selectAll.addEventListener(
-        'keydown',
-        this.handleKeyboardOnSelectAll,
-      );
+      if (this.selectAll) {
+        this.selectAll.addEventListener(
+          'keydown',
+          this.handleKeyboardOnSelectAll,
+        );
+      }
       this.optionsContainer.addEventListener(
         'keydown',
         this.handleKeyboardOnOptions,
@@ -657,7 +660,9 @@ export class Select {
    * @type {function}
    */
   handleToggle(e) {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     this.input.classList.toggle('ecl-select--active');
     if (this.searchContainer.style.display === 'none') {
       this.searchContainer.style.display = 'block';
@@ -668,9 +673,10 @@ export class Select {
       this.input.setAttribute('aria-expanded', false);
       this.isOpen = false;
     }
-
-    const eventData = { opened: this.isOpen, e };
-    this.trigger('onToggle', eventData);
+    if (e) {
+      const eventData = { opened: this.isOpen, e };
+      this.trigger('onToggle', eventData);
+    }
   }
 
   /**
@@ -715,14 +721,23 @@ export class Select {
       document.removeEventListener('click', this.handleClickOutside);
       this.selectMultiple.removeEventListener('focusout', this.handleFocusout);
       this.input.removeEventListener('click', this.handleToggle);
-      this.search.removeEventListener('keyup', this.handleSearch);
-      this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
-      this.selectAll.removeEventListener('click', this.handleClickSelectAll);
-      this.selectAll.removeEventListener('keypress', this.handleClickSelectAll);
-      this.selectAll.removeEventListener(
-        'keydown',
-        this.handleKeyboardOnSelectAll,
-      );
+
+      if (this.search) {
+        this.search.removeEventListener('keyup', this.handleSearch);
+        this.search.removeEventListener('keydown', this.handleKeyboardOnSearch);
+      }
+
+      if (this.selectAll) {
+        this.selectAll.removeEventListener('click', this.handleClickSelectAll);
+        this.selectAll.removeEventListener(
+          'keypress',
+          this.handleClickSelectAll,
+        );
+        this.selectAll.removeEventListener(
+          'keydown',
+          this.handleKeyboardOnSelectAll,
+        );
+      }
       this.optionsContainer.removeEventListener(
         'keydown',
         this.handleKeyboardOnOptions,
@@ -856,7 +871,7 @@ export class Select {
    * @param {loop}
    * @private
    */
-  #moveFocus(upOrDown, loop = true) {
+  #moveFocus(upOrDown) {
     const activeEl = document.activeElement;
     const hasGroups = activeEl.parentElement.parentElement.classList.contains(
       'ecl-select__multiple-group',
@@ -883,15 +898,11 @@ export class Select {
         nextSiblings[0].focus();
       } else {
         // eslint-disable-next-line no-lonely-if
-        if (loop) {
-          if (
-            this.dropDownToolbar &&
-            this.dropDownToolbar.style.display === 'flex'
-          ) {
-            this.dropDownToolbar.firstChild.focus();
-          } else {
-            this.input.focus();
-          }
+        if (
+          this.dropDownToolbar &&
+          this.dropDownToolbar.style.display === 'flex'
+        ) {
+          this.dropDownToolbar.firstChild.focus();
         }
       }
     } else {
@@ -904,10 +915,13 @@ export class Select {
         previousSiblings[previousSiblings.length - 1].focus();
       } else {
         this.optionsContainer.scrollTop = 0;
-        if (!this.selectAll.querySelector('input').disabled) {
+        if (this.selectAll && !this.selectAll.querySelector('input').disabled) {
           this.selectAll.querySelector('input').focus();
-        } else {
+        } else if (this.search) {
           this.search.focus();
+        } else {
+          this.input.focus();
+          this.handleToggle();
         }
       }
     }
@@ -929,7 +943,9 @@ export class Select {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
         if (option.getAttribute('selected') || option.selected) {
           option.selected = false;
-          this.selectAll.querySelector('input').checked = false;
+          if (this.selectAll) {
+            this.selectAll.querySelector('input').checked = false;
+          }
         } else {
           option.selected = true;
         }
@@ -949,7 +965,7 @@ export class Select {
   handleClickSelectAll(e) {
     e.preventDefault();
     // Early returns.
-    if (this.selectAll.querySelector('input').disabled) {
+    if (!this.selectAll || this.selectAll.querySelector('input').disabled) {
       return;
     }
     const checked = Select.#checkCheckbox(e);
@@ -1050,12 +1066,14 @@ export class Select {
     const checked = this.visibleOptions.filter(
       (c) => c.querySelector('input').checked,
     );
+
     if (
-      this.visibleOptions.length === 0 ||
-      this.visibleOptions.length !== checked.length
+      this.selectAll &&
+      (this.visibleOptions.length === 0 ||
+        this.visibleOptions.length !== checked.length)
     ) {
       this.selectAll.querySelector('input').checked = false;
-    } else {
+    } else if (this.selectAll) {
       this.selectAll.querySelector('input').checked = true;
     }
     // Display no-results message.
@@ -1097,9 +1115,11 @@ export class Select {
         checkbox.style.display = 'flex';
       });
       // Enable select all checkbox.
-      this.selectAll.classList.remove('ecl-checkbox--disabled');
-      this.selectAll.querySelector('input').disabled = false;
-    } else {
+      if (this.selectAll) {
+        this.selectAll.classList.remove('ecl-checkbox--disabled');
+        this.selectAll.querySelector('input').disabled = false;
+      }
+    } else if (keyword.length !== 0 && this.selectAll) {
       // Disable select all checkbox.
       this.selectAll.classList.add('ecl-checkbox--disabled');
       this.selectAll.querySelector('input').disabled = true;
@@ -1160,15 +1180,29 @@ export class Select {
         if (this.multiple) {
           e.preventDefault();
           this.handleToggle(e);
-          this.search.focus();
+          if (this.search) {
+            this.search.focus();
+          } else if (this.selectAll) {
+            this.selectAll.firstChild.focus();
+          } else {
+            this.checkboxes[0].firstChild.focus();
+          }
         }
         break;
 
       case 'ArrowDown':
         if (this.multiple) {
           e.preventDefault();
-          this.handleToggle(e);
-          this.search.focus();
+          if (!this.isOpen) {
+            this.handleToggle(e);
+          }
+          if (this.search) {
+            this.search.focus();
+          } else if (this.selectAll) {
+            this.selectAll.firstChild.focus();
+          } else {
+            this.checkboxes[0].firstChild.focus();
+          }
         }
         break;
 
@@ -1200,13 +1234,20 @@ export class Select {
 
       case 'ArrowUp':
         e.preventDefault();
-        this.search.focus();
+        if (this.search) {
+          this.search.focus();
+        } else {
+          this.input.focus();
+          this.handleToggle(e);
+        }
         break;
 
       case 'Tab':
         e.preventDefault();
         if (e.shiftKey) {
-          this.search.focus();
+          if (this.search) {
+            this.search.focus();
+          }
         } else if (this.visibleOptions.length > 0) {
           this.visibleOptions[0].querySelector('input').focus();
         } else {
@@ -1233,7 +1274,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        this.#moveFocus('down', false);
+        this.#moveFocus('down');
         break;
 
       case 'ArrowUp':
@@ -1269,7 +1310,7 @@ export class Select {
 
       case 'ArrowDown':
         e.preventDefault();
-        if (this.selectAll.querySelector('input').disabled) {
+        if (!this.selectAll || this.selectAll.querySelector('input').disabled) {
           if (this.visibleOptions.length > 0) {
             this.visibleOptions[0].querySelector('input').focus();
           } else {
@@ -1328,15 +1369,15 @@ export class Select {
       case 'ArrowUp':
         if (this.closeButton) {
           this.closeButton.focus();
+        } else if (this.visibleOptions.length > 0) {
+          this.visibleOptions[this.visibleOptions.length - 1]
+            .querySelector('input')
+            .focus();
+        } else if (this.search) {
+          this.search.focus();
         } else {
-          // eslint-disable-next-line no-lonely-if
-          if (this.visibleOptions.length > 0) {
-            this.visibleOptions[this.visibleOptions.length - 1]
-              .querySelector('input')
-              .focus();
-          } else {
-            this.search.focus();
-          }
+          this.input.focus();
+          this.handleToggle(e);
         }
         break;
 
@@ -1344,15 +1385,15 @@ export class Select {
         if (e.shiftKey) {
           if (this.closeButton) {
             this.closeButton.focus();
+          } else if (this.visibleOptions.length > 0) {
+            this.visibleOptions[this.visibleOptions.length - 1]
+              .querySelector('input')
+              .focus();
+          } else if (this.search) {
+            this.search.focus();
           } else {
-            // eslint-disable-next-line no-lonely-if
-            if (this.visibleOptions.length > 0) {
-              this.visibleOptions[this.visibleOptions.length - 1]
-                .querySelector('input')
-                .focus();
-            } else {
-              this.search.focus();
-            }
+            this.input.focus();
+            this.handleToggle(e);
           }
         } else {
           this.input.focus();
@@ -1460,8 +1501,9 @@ export class Select {
       input.checked = false;
       option.selected = false;
     });
-
-    this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
+    if (this.selectAll) {
+      this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
+    }
     this.update(0);
     this.trigger('onReset', e);
   }
