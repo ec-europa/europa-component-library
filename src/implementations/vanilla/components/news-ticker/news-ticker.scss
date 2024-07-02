@@ -125,6 +125,7 @@ $news-ticker: null !default;
   flex-grow: 1;
   justify-content: center;
   order: 1;
+  margin: 0 0 -1px -1px;
   padding: 0 var(--s-l);
   text-align: end;
   white-space: pre;
@@ -160,12 +161,14 @@ $news-ticker: null !default;
   .ecl-news-ticker__counter {
     order: 4;
     flex-shrink: 0;
+    margin: 0 -1px -1px;
     text-align: initial;
   }
 }
 
 @include breakpoints.up('l') {
   .ecl-news-ticker__container {
+    border-inline-end: none;
     height: map.get($news-ticker, 'height');
   }
 
