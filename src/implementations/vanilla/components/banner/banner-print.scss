@@ -21,7 +21,7 @@ $banner-print: null !default;
 .ecl-banner__title {
   font: map.get($theme, 'font-print', '4xl');
   font-weight: map.get($theme, 'font-weight', 'bold');
-  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-family: var(--ecl-font-family-print-alt);
   margin-bottom: 0;
 }
 
