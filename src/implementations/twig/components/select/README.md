@@ -26,6 +26,8 @@ npm install --save @ecl/twig-component-select
 - **"multiple"** (bolean) (default: false): For the multiple select
 - **"multiple_placeholder"** (string) (default: '') Placeholder for the multiple select
 - **"multiple_all_text"** (string) (default: '') Text for the select all option
+- **"multiple_select_all"** (boolean) (default: true) Show the select all checkbox in the multiple select
+- **"multiple_search"** (boolean) (default: true) Show the text filter in the multiple select
 - **"multiple_search_text"** (string) (default: '') Text for the search box inside the multiple select
 - **"multiple_search_no_results_text"** (string) (default: '') Label label when there is no result by searching for an option
 - **"extra_group_classes"** (optional) (string) (default: '') Extra classes (space separated) for the select group
@@ -52,7 +54,7 @@ npm install --save @ecl/twig-component-select
   disabled: false, 
   id: 'example-id', 
   name: 'example-name', 
-  width: 'm', 
+  width: 'm',
   icon_path: '/static/icons.svg', 
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   extra_attributes: [ 
