@@ -14,9 +14,13 @@ npm install --save @ecl/twig-component-category-filter
 - **"items"** (associative array) (default: {}): The tree items - format:
   "label": (string) (default: '')
   "path": (string) (default: '')
+  "current" (boolean) (default: false)
+  "extra_attributes" (array) (default: [])
   - "children": (associative array) (optional)
     "label": (string) (default: '')
     "path": (string) (default: '')
+    "current" (boolean) (default: false)
+    "extra_attributes" (array) (default: [])
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated) for the nav element
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes for the nav element
   - "name" (string) Attribute name, eg. 'data-test'
