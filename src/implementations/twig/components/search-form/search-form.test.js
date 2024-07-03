@@ -42,6 +42,24 @@ describe('Search Form', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra classes on the input', () => {
+      expect.assertions(1);
+
+      const withInputExtraClasses = JSON.parse(JSON.stringify(data));
+      withInputExtraClasses.text_input.extra_classes = 'input-extra-class';
+
+      return expect(render(withInputExtraClasses)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with extra classes on the button', () => {
+      expect.assertions(1);
+
+      const withButtonExtraClasses = JSON.parse(JSON.stringify(data));
+      withButtonExtraClasses.button.extra_classes = 'button-extra-class';
+
+      return expect(render(withButtonExtraClasses)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra form elements', () => {
       expect.assertions(1);
 
