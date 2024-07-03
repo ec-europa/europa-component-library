@@ -11,12 +11,15 @@ npm install --save @ecl/twig-component-banner
 - **"variant"** (string) (default: 'plain-background') Variant of the banner
   (can be 'plain-background', 'text-box', 'text-overlay')
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
-- **"font_size"** (string) (default: 'l') Size of the title and description (can be 'm', 'l')
+- **"font_size"** (string) (default: 'm') Size of the title and description (can be 'm', 'l')
+- **"font_color"** (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
+- **"background"** (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
 - **"title"** (string or Link) (default: '') Title of banner
 - **"picture"** (associative array) (default: {}): Image for the banner, following ECL Picture structure
 - **"credit"** (string) (default: '') Credit for the image
 - **"description"** (string) (default: '') Description of banner
-- **"centered"** (bool) (default: false) Define if banner should be centered
+- **"horizontal"** (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
+- **"vertical"** (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (associative array) (default: predefined structure) predefined structure for the Link component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

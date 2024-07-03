@@ -2,26 +2,21 @@
 @use '../index' as *;
 
 $banner: (
-  content-width: 42.5rem,
+  background-color: var(--c-n-40),
+  content-width: 37rem,
   border-color: transparent,
   border-radius: (
     'banner': 0,
     'content': 0,
   ),
-  box-shadow: none,
+  box-shadow: var(--sh-6),
   border-width: (
     'left': 0,
     'bottom': 0,
   ),
-  background: (
-    'plain-background': var(--c-p),
-    'text-box-mobile': var(--c-n-40),
-    'text-box-desktop': var(--c-bg),
-    'text-overlay': var(--c-p),
-  ),
   text-color: (
     'dark': var(--c-d),
-    'light': var(--c-d),
+    'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
   font: (
@@ -39,6 +34,14 @@ $banner: (
     ),
   ),
   description-margin: var(--s-s),
+  // DEPRECATED
+  background:
+    (
+      'plain-background': var(--c-p),
+      'text-box-mobile': var(--c-n-40),
+      'text-box-desktop': var(--c-bg),
+      'text-overlay': var(--c-p),
+    ),
 );
 $banner-print: (
   cta-radius: 0,

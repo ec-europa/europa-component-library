@@ -2,6 +2,7 @@
 @use '../index' as *;
 
 $banner: (
+  background-color: map.get($color, 'white'),
   content-width: 42.5rem,
   border-color: var(--c-s),
   border-radius: (
@@ -12,16 +13,6 @@ $banner: (
   border-width: (
     'left': 4px,
     'bottom': 0,
-  ),
-  background: (
-    'plain-background':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-    'text-box-mobile': map.get($color, 'white'),
-    'text-box-desktop': rgba(255, 255, 255, 0.9),
-    'image-overlay':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-    'text-highlight':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
   ),
   overlay: (
     'image-overlay': rgba(0, 0, 0, 0.4),
@@ -46,6 +37,18 @@ $banner: (
     ),
   ),
   description-margin: var(--s-xs),
+  // DEPRECATED
+  background:
+    (
+      'plain-background':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+      'text-box-mobile': map.get($color, 'white'),
+      'text-box-desktop': rgba(255, 255, 255, 0.9),
+      'image-overlay':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+      'text-highlight':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+    ),
 );
 $banner-print: (
   cta-radius: 4px,
