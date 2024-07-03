@@ -3,7 +3,8 @@
 
 $banner: (
   background-color: map.get($color, 'white'),
-  content-width: 42.5rem,
+  content-width: 37rem,
+  content-background: map.get($color, 'white'),
   border-color: var(--c-s),
   border-radius: (
     'banner': 8px,
@@ -14,12 +15,9 @@ $banner: (
     'left': 4px,
     'bottom': 0,
   ),
-  overlay: (
-    'image-overlay': rgba(0, 0, 0, 0.4),
-  ),
   text-color: (
     'dark': var(--c-d-140),
-    'light': var(--c-d-80),
+    'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
   font: (

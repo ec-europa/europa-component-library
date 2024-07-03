@@ -183,7 +183,7 @@ $banner: null !default;
   }
 
   .ecl-banner__content {
-    background-color: var(--c-bg);
+    background-color: map.get($banner, 'content-background');
     max-width: map.get($banner, 'content-width');
     padding: var(--s-l) var(--s-xl);
 
