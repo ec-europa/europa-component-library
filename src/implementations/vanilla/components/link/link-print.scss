@@ -60,7 +60,7 @@ $link: null !default;
 }
 
 .ecl-link--standalone {
-  font-family: #{map.get($theme, 'font-family-print', 'default')};
+  font-family: var(--ecl-font-family-print-default);
   display: inline-block;
   line-height: map.get($link, 'standalone-line-height');
 }

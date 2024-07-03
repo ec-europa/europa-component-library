@@ -16,7 +16,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 .ecl-link,
 %ecl-link {
   color: map.get($link, 'color');
-  font-family: #{map.get($theme, 'font-family', 'default')};
+  font-family: var(--ff-d);
   margin: 0;
   text-decoration: underline;
 
