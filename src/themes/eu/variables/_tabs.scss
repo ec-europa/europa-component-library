@@ -14,9 +14,10 @@ $tabs: (
   ),
   hover: (
     color: var(--c-p-140),
-    separator-color: var(--c-d-20),
+    separator-color: var(--c-p),
   ),
   active: (
+    background: map.get($color, 'white'),
     separator-color: map.get($color, 'white'),
     border-width: 1px,
     highlight-width: 4px,
