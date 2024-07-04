@@ -14,7 +14,7 @@ $description-list: (
 );
 $description-list-print: (
   definition-font: map.get($font-print, 'm'),
-  term-font-family: map.get($font-family-print, 'default'),
+  term-font-family: var(--ecl-font-family-print-default),
   term-width: 32%,
   definition-width: 68%,
 );
