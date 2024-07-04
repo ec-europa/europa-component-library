@@ -3,7 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import bannerData from '@ecl/specs-component-banner/demo/data';
+import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
+import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';
 import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
 import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
 import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
@@ -15,6 +16,8 @@ const getArgs = (data) => {
     show_title: true,
     show_description: true,
     show_button: false,
+    show_credit: true,
+    credit: data.credit || '',
     size: 'm',
     font_size: 'm',
     font_color: 'dark',
@@ -29,8 +32,6 @@ const getArgs = (data) => {
     gridContent: false,
   };
   if (data.picture) {
-    args.show_credit = true;
-    args.credit = data.credit || '';
     args.image = data.picture.img.src || '';
   }
 
@@ -59,6 +60,14 @@ const getArgTypes = (data) => {
       name: 'button',
       type: { name: 'boolean' },
       description: 'Show the cta button',
+      table: {
+        category: 'Optional',
+      },
+    },
+    show_credit: {
+      name: 'credit',
+      type: { name: 'boolean' },
+      description: 'Show the credit',
       table: {
         category: 'Optional',
       },
@@ -254,6 +263,16 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_button' },
     },
+    credit: {
+      type: 'string',
+      description: 'Credit of the image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_credit' },
+    },
     gridContent: {
       name: 'demo grid content',
       type: { name: 'boolean' },
@@ -269,14 +288,6 @@ const getArgTypes = (data) => {
   };
 
   if (data.picture) {
-    argTypes.show_credit = {
-      name: 'credit',
-      type: { name: 'boolean' },
-      description: 'Show the credit',
-      table: {
-        category: 'Optional',
-      },
-    };
     argTypes.image = {
       type: 'string',
       description: 'Path or Url of the background image',
@@ -285,16 +296,6 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
-    };
-    argTypes.credit = {
-      type: 'string',
-      description: 'Credit of the image',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      if: { arg: 'show_credit' },
     };
   }
 
@@ -347,16 +348,27 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const Default = (_, { loaded: { component } }) => component;
+export const Image = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
-  const renderedBannerDefault = await renderStory(bannerData, args);
-  return renderedBannerDefault;
+Image.render = async (args) => {
+  const renderedBannerImage = await renderStory(bannerDataImage, args);
+  return renderedBannerImage;
 };
-Default.storyName = 'default';
-Default.args = getArgs(bannerData);
-Default.argTypes = getArgTypes(bannerData);
-Default.parameters = { notes: { markdown: notes, json: bannerData } };
+Image.storyName = 'image';
+Image.args = getArgs(bannerDataImage);
+Image.argTypes = getArgTypes(bannerDataImage);
+Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
+
+export const Video = (_, { loaded: { component } }) => component;
+
+Video.render = async (args) => {
+  const renderedBannerVideo = await renderStory(bannerDataVideo, args);
+  return renderedBannerVideo;
+};
+Video.storyName = 'video';
+Video.args = getArgs(bannerDataVideo);
+Video.argTypes = getArgTypes(bannerDataVideo);
+Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };
 
 export const TextBox = (_, { loaded: { component } }) => component;
 

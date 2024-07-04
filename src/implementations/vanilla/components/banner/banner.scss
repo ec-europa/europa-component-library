@@ -31,6 +31,13 @@ $banner: null !default;
   width: 100%;
 }
 
+.ecl-banner__video-container {
+  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
 .ecl-banner__credit {
   background: rgba(38, 50, 75, 0.7);
   backdrop-filter: blur(4px);
@@ -75,6 +82,15 @@ $banner: null !default;
   width: 100%;
 }
 
+.ecl-banner__video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  width: 100%;
+}
+
 .ecl-banner__title,
 .ecl-banner__title-link {
   color: map.get($banner, 'text-color', 'dark');
@@ -98,6 +114,30 @@ $banner: null !default;
   margin-top: var(--s-m);
 }
 
+.ecl-banner__play,
+.ecl-banner__pause {
+  background-color: var(--c-d);
+  border: 2px solid var(--c-d);
+  border-radius: 50%;
+  bottom: var(--s-m);
+  color: map.get($theme, 'color', 'white');
+  outline: 2px solid map.get($theme, 'color', 'white');
+  outline-offset: -4px;
+  position: absolute;
+  right: var(--s-m);
+  z-index: 2;
+
+  &:hover,
+  &:active {
+    border: 2px solid map.get($theme, 'color', 'white');
+    outline: 2px solid var(--c-d);
+  }
+
+  &.ecl-button--icon-only {
+    padding: 0;
+  }
+}
+
 .ecl-banner__content > *:first-child {
   margin-top: 0;
 }
@@ -113,7 +153,8 @@ $banner: null !default;
 // Medium banner - ratio 4:1
 .ecl-banner,
 .ecl-banner--m {
-  .ecl-banner__image {
+  .ecl-banner__image,
+  .ecl-banner__video {
     aspect-ratio: 4/1;
 
     --css-aspect-ratio: 4/1;
@@ -121,21 +162,24 @@ $banner: null !default;
 }
 
 // Extra small banner - ratio 6:1
-.ecl-banner--xs .ecl-banner__image {
+.ecl-banner--xs .ecl-banner__image,
+.ecl-banner--xs .ecl-banner__video {
   aspect-ratio: 6/1;
 
   --css-aspect-ratio: 6/1;
 }
 
 // Small banner - ratio 5:1
-.ecl-banner--s .ecl-banner__image {
+.ecl-banner--s .ecl-banner__image,
+.ecl-banner--xs .ecl-banner__video {
   aspect-ratio: 5/1;
 
   --css-aspect-ratio: 5/1;
 }
 
 // Large banner - ratio 3:1
-.ecl-banner--l .ecl-banner__image {
+.ecl-banner--l .ecl-banner__image,
+.ecl-banner--xs .ecl-banner__video {
   aspect-ratio: 3/1;
 
   --css-aspect-ratio: 3/1;
@@ -224,7 +268,8 @@ $banner: null !default;
     }
   }
 
-  .ecl-banner__picture-container {
+  .ecl-banner__picture-container,
+  .ecl-banner__video-container {
     position: static;
   }
 
