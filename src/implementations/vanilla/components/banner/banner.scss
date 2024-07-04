@@ -62,8 +62,8 @@ $banner: null !default;
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: var(--s-xl);
-  padding-top: var(--s-xl);
+  padding-bottom: map.get($banner, 'container-padding-vertical', 'mobile');
+  padding-top: map.get($banner, 'container-padding-vertical', 'mobile');
   width: 100%;
 }
 
@@ -188,21 +188,30 @@ $banner: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
   .ecl-banner .ecl-container {
-    padding-inline-start: var(--s-2xl);
-    padding-inline-end: var(--s-2xl);
+    padding-inline-start: map.get(
+      $banner,
+      'container-padding-horizontal',
+      'tablet'
+    );
+    padding-inline-end: map.get(
+      $banner,
+      'container-padding-horizontal',
+      'tablet'
+    );
   }
 
   .ecl-banner__container {
-    padding-bottom: var(--s-2xl);
-    padding-top: var(--s-2xl);
+    padding-bottom: map.get($banner, 'container-padding-vertical', 'tablet');
+    padding-top: map.get($banner, 'container-padding-vertical', 'tablet');
   }
 
-  .ecl-banner__title {
+  .ecl-banner__title,
+  .ecl-banner__title-link {
     font: map.get($banner, 'font', 'title', 'tablet');
   }
 
   .ecl-banner__description {
-    font: map.get($banner, 'font', 'description', 'desktop');
+    font: map.get($banner, 'font', 'description', 'tablet');
   }
 }
 
@@ -222,14 +231,14 @@ $banner: null !default;
   }
 
   .ecl-banner__container {
-    padding-bottom: var(--s-4xl);
-    padding-top: var(--s-4xl);
+    padding-bottom: map.get($banner, 'container-padding-vertical', 'desktop');
+    padding-top: map.get($banner, 'container-padding-vertical', 'desktop');
   }
 
   .ecl-banner__content {
     background-color: map.get($banner, 'content-background');
     max-width: map.get($banner, 'content-width');
-    padding: var(--s-l) var(--s-xl);
+    padding: map.get($banner, 'content-padding');
 
     .ecl-banner--background-none & {
       background-color: transparent;

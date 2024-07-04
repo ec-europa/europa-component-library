@@ -5,6 +5,15 @@ $banner: (
   background-color: var(--c-n-40),
   content-width: 37rem,
   content-background: var(--c-bg),
+  content-padding: var(--s-l) var(--s-xl),
+  container-padding-vertical: (
+    'mobile': var(--s-xl),
+    'tablet': var(--s-2xl),
+    'desktop': var(--s-4xl),
+  ),
+  container-padding-horizontal: (
+    'tablet': var(--s-2xl),
+  ),
   border-color: transparent,
   border-radius: (
     'banner': 0,

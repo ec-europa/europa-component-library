@@ -2,15 +2,24 @@
 @use '../index' as *;
 
 $banner: (
-  background-color: map.get($color, 'white'),
+  background-color: var(--c-d-5),
   content-width: 37rem,
   content-background: map.get($color, 'white'),
+  content-padding: var(--s-l) var(--s-l),
+  container-padding-vertical: (
+    'mobile': var(--s-l),
+    'tablet': var(--s-xl),
+    'desktop': var(--s-3xl),
+  ),
+  container-padding-horizontal: (
+    'tablet': var(--s-xl),
+  ),
   border-color: var(--c-s),
   border-radius: (
     'banner': 8px,
     'content': 4px,
   ),
-  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  box-shadow: var(--sh-2),
   border-width: (
     'left': 4px,
     'bottom': 0,
@@ -22,19 +31,19 @@ $banner: (
   ),
   font: (
     'title': (
-      'mobile': var(--f-3xl),
-      'tablet': var(--f-3xl),
-      'desktop-m': var(--f-6xl),
-      'desktop-l': var(--f-6xl),
+      'mobile': var(--f-2xl),
+      'tablet': var(--f-5xl),
+      'desktop-m': var(--f-4xl),
+      'desktop-l': var(--f-5xl),
     ),
     'description': (
-      'mobile': var(--f-l),
-      'tablet': var(--f-l),
-      'desktop-m': var(--f-p-l),
-      'desktop-l': var(--f-p-l),
+      'mobile': var(--f-xl),
+      'tablet': var(--f-4xl),
+      'desktop-m': var(--f-2xl),
+      'desktop-l': var(--f-4xl),
     ),
   ),
-  description-margin: var(--s-xs),
+  description-margin: var(--s-s),
   // DEPRECATED
   background:
     (
