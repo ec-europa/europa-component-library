@@ -12,7 +12,7 @@ $list: null !default;
 .ecl-ordered-list,
 %ecl-ordered-list {
   color: map.get($list, 'text-color');
-  font-family: map.get($theme, 'font-family-print', 'default');
+  font-family: var(--ecl-font-family-print-default);
   list-style-position: inside;
   margin: 0;
   padding: 0;
