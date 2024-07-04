@@ -61,7 +61,7 @@ $date-block: null !default;
 
 .ecl-date-block__day {
   color: map.get($date-block, 'text-color-inverted');
-  font-family: map.get($theme, 'font-family', 'default');
+  font-family: var(--ff-d);
   font-size: map.get($date-block, 'day', 'font-size');
   font-weight: map.get($theme, 'font-weight', 'bold');
   line-height: map.get($date-block, 'day', 'line-height');
@@ -71,7 +71,7 @@ $date-block: null !default;
 
 .ecl-date-block__month {
   color: map.get($date-block, 'text-color-inverted');
-  font-family: map.get($theme, 'font-family', 'default');
+  font-family: var(--ff-d);
   font-size: map.get($date-block, 'month', 'font-size');
   line-height: map.get($date-block, 'month', 'line-height');
   padding: map.get($date-block, 'month', 'padding');
@@ -83,7 +83,7 @@ $date-block: null !default;
 .ecl-date-block__year {
   background-color: map.get($date-block, 'year', 'background-color');
   color: map.get($date-block, 'year', 'text-color');
-  font-family: map.get($theme, 'font-family', 'default');
+  font-family: var(--ff-d);
   font-size: map.get($date-block, 'year', 'font-size');
   font-weight: map.get($date-block, 'year', 'font-weight');
   line-height: map.get($date-block, 'year', 'line-height');

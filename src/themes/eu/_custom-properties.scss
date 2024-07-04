@@ -49,6 +49,9 @@
   --ecl-color-accent-30: #{map.get($color, 'accent-30')};
   --ecl-color-overlay-light: color-mix(in srgb, var(--c-d) 70%, transparent);
   --ecl-color-overlay-dark: color-mix(in srgb, var(--c-d) 90%, transparent);
+  --ecl-font-family-default: #{map.get($font-family, 'default')};
+  --ecl-font-family-print-default: #{map.get($font-family-print, 'default')};
+  --ecl-font-family-print-alt: #{map.get($font-family-print, 'alt')};
   --ecl-font-xs: #{map.get($font, 'xs')};
   --ecl-font-s: #{map.get($font, 's')};
   --ecl-font-m: #{map.get($font, 'm')};
@@ -131,6 +134,7 @@
   --c-a-30: var(--ecl-color-accent-30);
   --c-ov-l: var(--ecl-color-overlay-light);
   --c-ov-d: var(--ecl-color-overlay-dark);
+  --ff-d: var(--ecl-font-family-default);
   --f-xs: var(--ecl-font-xs);
   --f-s: var(--ecl-font-s);
   --f-m: var(--ecl-font-m);
