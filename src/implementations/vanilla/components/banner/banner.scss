@@ -116,11 +116,15 @@ $banner: null !default;
 
 .ecl-banner__play,
 .ecl-banner__pause {
+  align-items: center;
   background-color: var(--c-d);
   border: 2px solid var(--c-d);
   border-radius: 50%;
   bottom: var(--s-m);
   color: map.get($theme, 'color', 'white');
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
   outline: 2px solid map.get($theme, 'color', 'white');
   outline-offset: -4px;
   position: absolute;
@@ -131,10 +135,6 @@ $banner: null !default;
   &:active {
     border: 2px solid map.get($theme, 'color', 'white');
     outline: 2px solid var(--c-d);
-  }
-
-  &.ecl-button--icon-only {
-    padding: 0;
   }
 }
 

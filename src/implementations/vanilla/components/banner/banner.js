@@ -123,7 +123,7 @@ export class Banner {
     }
     if (this.bannerPlay) {
       this.bannerPlay.addEventListener('click', (e) => this.handlePlayClick(e));
-      this.bannerPlay.style.display = 'block';
+      this.bannerPlay.style.display = 'flex';
     }
     if (this.bannerPause) {
       this.bannerPause.addEventListener('click', (e) =>
@@ -301,7 +301,7 @@ export class Banner {
 
     this.bannerPlay.style.display = 'none';
     if (this.bannerPause) {
-      this.bannerPause.style.display = 'block';
+      this.bannerPause.style.display = 'flex';
       this.bannerPause.focus();
     }
 
@@ -322,7 +322,7 @@ export class Banner {
 
     this.bannerPause.style.display = 'none';
     if (this.bannerPlay) {
-      this.bannerPlay.style.display = 'block';
+      this.bannerPlay.style.display = 'flex';
       this.bannerPlay.focus();
     }
 
