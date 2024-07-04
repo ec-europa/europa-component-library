@@ -223,7 +223,6 @@ $mega-menu: null !default;
   position: relative;
   padding-inline-start: var(--s-xs);
   text-decoration: none;
-  width: 100%;
 
   &::before {
     content: '';
@@ -233,7 +232,7 @@ $mega-menu: null !default;
     top: -4rem;
     left: calc(-1 * var(--s-xs));
     height: 2.5rem;
-    width: calc(100% + var(--s-xs));
+    width: 100vw;
   }
 
   &:hover {
@@ -267,7 +266,7 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__inner--expanded .ecl-mega-menu__back {
-  display: block;
+  display: inline-block;
 }
 
 .ecl-mega-menu__overlay {
@@ -300,6 +299,10 @@ $mega-menu: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
   .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
+    .ecl-mega-menu__overlay {
+      background-color: map.get($mega-menu, 'desktop', 'overlay-background');
+    }
+
     .ecl-mega-menu__inner {
       background-color: transparent;
       box-shadow: none;
@@ -790,7 +793,6 @@ $mega-menu: null !default;
 
     .ecl-link__label {
       display: -webkit-box;
-      margin-inline-end: var(--s-m);
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
@@ -799,6 +801,7 @@ $mega-menu: null !default;
 
   &:hover {
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
+    text-decoration: none;
   }
 
   &:visited {
@@ -826,6 +829,10 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__sublink {
     color: var(--c-p);
+
+    &:hover {
+      text-decoration: underline;
+    }
 
     &.ecl-mega-menu__sublink--last {
       border-bottom: none;

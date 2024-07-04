@@ -18,7 +18,6 @@ $language-list: null !default;
 );
 
 .ecl-site-header {
-  box-shadow: var(--sh-6);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -255,6 +254,7 @@ $language-list: null !default;
 
 .ecl-site-header__banner {
   background-color: map.get($site-header, 'banner-background');
+  box-shadow: var(--sh-6);
   border-top: 1px solid var(--c-n);
   color: map.get($site-header, 'banner-text-color');
   display: block;
@@ -340,6 +340,8 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
 @include breakpoints.up('l') {
   .ecl-site-header {
+    box-shadow: var(--sh-6);
+
     .ecl-site-header__cta {
       align-self: center;
       margin: 0;
@@ -498,6 +500,7 @@ $menu-top: calc(44px + 2 * var(--s-xs));
   }
 
   .ecl-site-header__banner {
+    box-shadow: none;
     font: var(--f-l);
     min-height: 0;
     padding: 0;
