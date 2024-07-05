@@ -46,6 +46,7 @@ $language-list: null !default;
   .ecl-mega-menu__open {
     position: relative;
     top: calc(-1 * var(--s-2xs));
+    z-index: 54;
   }
 
   .ecl-site-header__cta {
@@ -61,7 +62,9 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
+  box-shadow: var(--sh-6);
   position: relative;
+  z-index: 54;
 }
 
 .ecl-site-header__container {

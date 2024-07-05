@@ -68,8 +68,8 @@
 {# Internal logic - Process properties #}
 
 {% if _item.is_current is defined %}
-  {% set _menu_link_class = _menu_link_class ~ ' ecl-mega-menu__link--current ecl-mega-menu__link--current-page' %}
-  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current  ecl-mega-menu__item--current-page' %}
+  {% set _menu_link_class = _menu_link_class ~ ' ecl-mega-menu__link--current-page' %}
+  {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--current-page' %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' aria-current="page"' %}
 {% endif %}
 
@@ -206,7 +206,7 @@
           { name: _menu_sublink_attribute },
         ]) %}
         {% if child.is_current is defined %}
-          {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page' %}
+          {% set _subitem_class = _subitem_class ~ ' ecl-mega-menu__subitem--current-page' %}
           {% set _subitem_attrs = _subitem_attrs ~ ' aria-current="page"' %}
         {% endif %}
         {% if child.children is defined and child.children is not empty %}
@@ -276,6 +276,7 @@
         </li>
       {% endfor %}
       {%- if _see_all and _see_all_label is not empty -%}
+        <li class="ecl-mega-menu__spacer"></li>
         <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
           {% include '@ecl/link/link.html.twig' with {
             link: {

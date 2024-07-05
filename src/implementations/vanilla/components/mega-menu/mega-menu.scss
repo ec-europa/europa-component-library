@@ -54,6 +54,7 @@ $mega-menu: null !default;
   order: 2;
   padding: map.get($mega-menu, 'mobile', 'open-padding');
   text-decoration: none;
+  z-index: 54;
 
   &:hover,
   &:focus-visible,
@@ -96,6 +97,10 @@ $mega-menu: null !default;
   * {
     height: auto;
   }
+}
+
+.ecl-mega-menu__spacer {
+  flex: 1 0 auto;
 }
 
 /* stylelint-disable-next-line order/order */
@@ -145,12 +150,14 @@ $mega-menu: null !default;
   width: 100%;
   z-index: map.get($theme, 'z-index', 'modal') + 3;
 
-  @include with-scrollbar;
-
   /* Force display if JS is disabled */
   .no-js & {
     display: flex;
   }
+}
+
+.ecl-mega-menu--start-panel .ecl-mega-menu__inner {
+  @include with-scrollbar;
 }
 
 // Expanded
@@ -167,9 +174,6 @@ $mega-menu: null !default;
   display: flex;
   flex-flow: row-reverse;
   height: map.get($mega-menu, 'mobile', 'header-height');
-  position: sticky;
-  top: 0;
-  z-index: map.get($theme, 'z-index', 'modal') + 2;
 }
 
 .ecl-mega-menu__title {
@@ -223,17 +227,6 @@ $mega-menu: null !default;
   position: relative;
   padding-inline-start: var(--s-xs);
   text-decoration: none;
-
-  &::before {
-    content: '';
-    display: block;
-    box-shadow: map.get($mega-menu, 'mobile', 'banner-shadow');
-    position: absolute;
-    top: -4rem;
-    left: calc(-1 * var(--s-xs));
-    height: 2.5rem;
-    width: 100vw;
-  }
 
   &:hover {
     background-color: map.get($mega-menu, 'mobile', 'header-background-hover');
@@ -301,6 +294,7 @@ $mega-menu: null !default;
   .ecl-mega-menu:not(.ecl-menu--forced-mobile) {
     .ecl-mega-menu__overlay {
       background-color: map.get($mega-menu, 'desktop', 'overlay-background');
+      opacity: 0.7;
     }
 
     .ecl-mega-menu__inner {
@@ -374,6 +368,10 @@ $mega-menu: null !default;
 
   &:hover {
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
+  }
+
+  &[aria-expanded]:hover {
+    text-decoration: none;
   }
 
   &:visited {
@@ -529,6 +527,7 @@ $mega-menu: null !default;
       color: map.get($mega-menu, 'desktop', 'item-color');
       display: inline-flex;
       font: var(--f-m);
+      height: 100%;
       line-height: map.get($mega-menu, 'desktop', 'link-line-height');
       padding: map.get($mega-menu, 'desktop', 'link-padding');
       width: auto;
@@ -699,7 +698,11 @@ $mega-menu: null !default;
       &.ecl-mega-menu__parent-link {
         border: none;
         font: var(--f-l);
-        position: relative;
+        margin: 0 calc(-1 * var(--s-xs));
+
+        &:hover {
+          text-decoration: underline;
+        }
 
         &::after {
           background: map.get(
@@ -801,6 +804,9 @@ $mega-menu: null !default;
 
   &:hover {
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
+  }
+
+  &[aria-expanded]:hover {
     text-decoration: none;
   }
 
@@ -824,8 +830,20 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu__sublist--scrollable {
+  @include with-scrollbar;
+}
+
 .ecl-mega-menu__mega--level-2 {
+  @include with-scrollbar;
+
   margin-top: var(--s-2xl);
+  margin-inline-start: calc(-1 * var(--s-xs));
+  margin-inline-end: calc(-1 * var(--s-xs));
+
+  > .ecl-mega-menu__sublist {
+    padding: 0 var(--s-xs);
+  }
 
   .ecl-mega-menu__sublink {
     color: var(--c-p);
@@ -853,8 +871,6 @@ $mega-menu: null !default;
   border-color: var(--c-n);
   border-width: 0.5px;
   flex-direction: column;
-  margin-inline-start: calc(-1 * var(--s-xs));
-  margin-inline-end: calc(-1 * var(--s-xs));
   padding: 0 var(--s-xs);
 
   .ecl-mega-menu__featured-picture {
@@ -919,7 +935,7 @@ $mega-menu: null !default;
     ) {
     .ecl-mega-menu__wrapper {
       padding-top: var(--s-m);
-      min-height: 200px;
+      min-height: 200px !important;
       width: 100vw;
 
       &::before {
@@ -1095,6 +1111,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__see-all {
+        flex-grow: 0;
         margin-top: auto;
         position: relative;
 
@@ -1132,17 +1149,19 @@ $mega-menu: null !default;
       top: 0;
       background: map.get($mega-menu, 'global', 'greysh-background');
       height: 100%;
+      margin-inline-end: 0;
+      margin-inline-start: 0;
       margin-top: 0;
       position: absolute;
       visibility: hidden;
       opacity: 0;
+      overflow-y: visible;
       transition-timing-function: ease;
       transition-property: opacity;
       transition-duration: 0.3s;
 
-      .ecl-mega-menu__sublist {
+      > .ecl-mega-menu__sublist {
         border: none;
-        padding-inline-start: 0;
         position: relative;
       }
 
