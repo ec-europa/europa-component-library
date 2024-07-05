@@ -29,6 +29,11 @@ $mega-menu: null !default;
   padding-bottom: var(--s-xs);
   padding-top: var(--s-xs);
 
+  // We've got to override an EWPP css, yes.
+  a:focus {
+    text-decoration: none;
+  }
+
   .ecl-container {
     padding: 0;
   }
@@ -739,10 +744,11 @@ $mega-menu: null !default;
 .ecl-mega-menu__featured-list {
   list-style: none;
   list-style-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  margin-bottom: var(--s-m);
   padding-inline-start: 0;
 
   .ecl-mega-menu__see-all {
-    margin: var(--s-xl) 0 var(--s-xl);
+    display: none;
 
     .ecl-link {
       border-radius: 0;
@@ -1111,6 +1117,7 @@ $mega-menu: null !default;
       }
 
       .ecl-mega-menu__see-all {
+        display: flex-item;
         flex-grow: 0;
         margin-top: auto;
         position: relative;
