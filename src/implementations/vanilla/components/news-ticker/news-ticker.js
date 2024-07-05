@@ -84,6 +84,7 @@ export class NewsTicker {
     this.resizeTimer = null;
     this.cloneFirstSLide = null;
     this.cloneLastSLide = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -345,7 +346,10 @@ export class NewsTicker {
    * Trigger events on resize.
    */
   handleResize() {
-    this.moveSlides(false);
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.moveSlides(false);
+    }, 100);
   }
 
   /**
