@@ -441,6 +441,7 @@ $mega-menu: null !default;
   margin: 0 calc(-1 * var(--s-xs)) var(--s-m);
   padding-inline-start: 1.75rem;
   padding-bottom: var(--s-2xl);
+  padding-inline-end: 1.75rem;
 
   .ecl-mega-menu__info-title {
     font: var(--f-l);
@@ -460,7 +461,7 @@ $mega-menu: null !default;
   width: fit-content;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
     text-underline-offset: var(--s-2xs);
   }
 

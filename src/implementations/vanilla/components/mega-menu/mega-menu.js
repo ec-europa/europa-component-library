@@ -676,8 +676,8 @@ export class MegaMenu {
         const maxHeight = Math.max(...heights);
         const containerBounding = this.inner.getBoundingClientRect();
         const containerBottom = containerBounding.bottom;
-        // By requirements, limit the height to the 75% of the available space.
-        const availableHeight = (window.innerHeight - containerBottom) * 0.75;
+        // By requirements, limit the height to the 70% of the available space.
+        const availableHeight = (window.innerHeight - containerBottom) * 0.7;
 
         if (maxHeight > availableHeight) {
           height = availableHeight;
