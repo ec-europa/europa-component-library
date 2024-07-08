@@ -5,9 +5,6 @@ import { correctPaths } from '@ecl/story-utils';
 // Import data for demos
 import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
 import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';
-import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
-import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
-import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
@@ -370,43 +367,3 @@ Video.storyName = 'video';
 Video.args = getArgs(bannerDataVideo);
 Video.argTypes = getArgTypes(bannerDataVideo);
 Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };
-
-export const TextBox = (_, { loaded: { component } }) => component;
-
-TextBox.render = async (args) => {
-  const renderedBannerText = await renderStory(bannerDataTextBox, args);
-  return renderedBannerText;
-};
-TextBox.storyName = 'text box';
-TextBox.args = getArgs(bannerDataTextBox);
-TextBox.argTypes = getArgTypes(bannerDataTextBox);
-TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
-
-export const TextOverlay = (_, { loaded: { component } }) => component;
-
-TextOverlay.render = async (args) => {
-  const renderedBannerOverlay = await renderStory(bannerDataTextOverlay, args);
-  return renderedBannerOverlay;
-};
-TextOverlay.storyName = 'text overlay';
-TextOverlay.args = getArgs(bannerDataTextOverlay);
-TextOverlay.argTypes = getArgTypes(bannerDataTextOverlay);
-TextOverlay.parameters = {
-  notes: { markdown: notes, json: bannerDataTextOverlay },
-};
-
-export const PlainBackground = (_, { loaded: { component } }) => component;
-
-PlainBackground.render = async (args) => {
-  const renderedBannerPlain = await renderStory(
-    bannerDataPlainBackground,
-    args,
-  );
-  return renderedBannerPlain;
-};
-PlainBackground.storyName = 'plain background';
-PlainBackground.args = getArgs(bannerDataPlainBackground);
-PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
-PlainBackground.parameters = {
-  notes: { markdown: notes, json: bannerDataPlainBackground },
-};
