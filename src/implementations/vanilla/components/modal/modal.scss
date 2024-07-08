@@ -66,6 +66,8 @@ $overflow-height: 2rem;
 .ecl-modal__icon {
   flex-shrink: 0;
   margin-inline-end: var(--s-xs);
+  position: relative;
+  z-index: 2;
 
   .ecl-modal--information & {
     color: var(--c-in);
@@ -82,6 +84,16 @@ $overflow-height: 2rem;
   .ecl-modal--error & {
     color: var(--c-er);
   }
+}
+
+.ecl-modal__icon-background {
+  background: map.get($modal, 'warning', 'icon-background-color');
+  height: map.get($modal, 'warning', 'icon-background-height');
+  left: map.get($modal, 'warning', 'icon-background-left');
+  position: absolute;
+  width: map.get($modal, 'warning', 'icon-background-width');
+  top: map.get($modal, 'warning', 'icon-background-top');
+  z-index: 1;
 }
 
 .ecl-modal__header-content {
