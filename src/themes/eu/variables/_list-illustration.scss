@@ -5,10 +5,10 @@ $list-illustration: (
   title-color: var(--c-d-140),
   description-color: var(--c-d-80),
   background-color: var(--c-p-5),
-  value-font-mobile-m: var(--f-4xl),
-  value-font-mobile-l: var(--f-5xl),
-  value-font-desktop-m: var(--f-5xl),
-  value-font-desktop-l: var(--f-6xl),
+  value-font-mobile-m: var(--f-2xl),
+  value-font-mobile-l: var(--f-3xl),
+  value-font-desktop-m: var(--f-3xl),
+  value-font-desktop-l: var(--f-4xl),
   title-font: var(--f-l),
   title-margin: var(--s-s),
   description-margin: var(--s-s),
@@ -18,6 +18,6 @@ $list-illustration: (
   item-margin-mobile: var(--s-2xl),
 );
 $list-illustration-print: (
-  value-font-desktop-m: map.get($font-print, '5xl'),
-  value-font-desktop-l: map.get($font-print, '6xl'),
+  value-font-desktop-m: map.get($font-print, '3xl'),
+  value-font-desktop-l: map.get($font-print, '4xl'),
 );
