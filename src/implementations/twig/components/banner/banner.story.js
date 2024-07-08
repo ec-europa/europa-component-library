@@ -20,8 +20,8 @@ const getArgs = (data) => {
     credit: data.credit || '',
     size: 'm',
     font_size: 'm',
-    font_color: 'dark',
     background: 'light',
+    font_color: 'dark',
     title: data.title.link.label,
     title_link: true,
     description: data.description,
@@ -63,6 +63,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'title_link', neq: true },
     },
     show_credit: {
       name: 'credit',

@@ -43,6 +43,7 @@ $banner: null !default;
   backdrop-filter: blur(4px);
   color: map.get($theme, 'color', 'white');
   left: 0;
+  margin-inline-end: calc(var(--s-m) + 32px + var(--s-m));
   padding: var(--s-2xs) var(--s-xs);
   position: absolute;
   bottom: 0;
@@ -97,6 +98,7 @@ $banner: null !default;
   display: block;
   font: map.get($banner, 'font', 'title', 'mobile');
   margin: 0;
+  text-underline-offset: var(--s-2xs);
 
   &:hover {
     color: map.get($banner, 'text-color', 'dark');
@@ -114,17 +116,17 @@ $banner: null !default;
   margin-top: var(--s-m);
 }
 
-.ecl-banner__play,
-.ecl-banner__pause {
+.ecl-banner__play.ecl-button--icon-only,
+.ecl-banner__pause.ecl-button--icon-only {
   align-items: center;
   background-color: var(--c-d);
-  border: 2px solid var(--c-d);
+  border: none;
   border-radius: 50%;
   bottom: var(--s-m);
   color: map.get($theme, 'color', 'white');
   justify-content: center;
-  min-height: 40px;
-  min-width: 40px;
+  min-height: 32px;
+  min-width: 32px;
   outline: 2px solid map.get($theme, 'color', 'white');
   outline-offset: -4px;
   position: absolute;
@@ -133,8 +135,21 @@ $banner: null !default;
 
   &:hover,
   &:active {
-    border: 2px solid map.get($theme, 'color', 'white');
-    outline: 2px solid var(--c-d);
+    background-color: map.get($theme, 'color', 'white');
+    border: none;
+    color: var(--c-d);
+    outline-color: var(--c-d);
+    padding: 0;
+  }
+
+  .ecl-button__container {
+    height: 32px;
+    width: 32px;
+  }
+
+  .ecl-button__icon {
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -208,6 +223,7 @@ $banner: null !default;
   .ecl-banner__title,
   .ecl-banner__title-link {
     font: map.get($banner, 'font', 'title', 'tablet');
+    text-underline-offset: var(--s-xs);
   }
 
   .ecl-banner__description {
@@ -251,13 +267,26 @@ $banner: null !default;
     }
   }
 
+  .ecl-banner__play.ecl-button--icon-only,
+  .ecl-banner__pause.ecl-button--icon-only {
+    min-height: 40px;
+    min-width: 40px;
+
+    .ecl-button__container {
+      height: 40px;
+      width: 40px;
+    }
+  }
+
   .ecl-banner__title,
   .ecl-banner__title-link {
     display: inline;
     font: map.get($banner, 'font', 'title', 'desktop-m');
+    text-underline-offset: var(--s-2xs);
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
+      text-underline-offset: var(--s-xs);
     }
 
     .ecl-banner--color-light & {
@@ -275,6 +304,10 @@ $banner: null !default;
     .ecl-banner--color-light & {
       color: map.get($banner, 'text-color', 'light');
     }
+  }
+
+  .ecl-banner__credit {
+    margin-inline-end: calc(var(--s-m) + 40px + var(--s-m));
   }
 
   .ecl-banner__picture-container,

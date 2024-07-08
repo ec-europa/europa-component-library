@@ -123,13 +123,13 @@ export class Banner {
     }
     if (this.bannerPlay) {
       this.bannerPlay.addEventListener('click', (e) => this.handlePlayClick(e));
-      this.bannerPlay.style.display = 'flex';
+      this.bannerPlay.style.display = 'none';
     }
     if (this.bannerPause) {
       this.bannerPause.addEventListener('click', (e) =>
         this.handlePauseClick(e),
       );
-      this.bannerPause.style.display = 'none';
+      this.bannerPause.style.display = 'flex';
     }
 
     this.checkViewport();

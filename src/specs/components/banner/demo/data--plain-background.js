@@ -4,7 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   title: {
     link: {
-      label: 'Lorem ipsum dolor sit amet consectetuer adipiscing.',
+      label: 'Lorem ipsum dolor sit amet consectetuer adipiscin',
       path: exampleLink,
     },
   },
