@@ -342,21 +342,11 @@ export class MegaMenu {
       }
     }
 
-    if (this.items && this.isDesktop) {
-      this.items.forEach((item) => {
-        if (
-          item.hasAttribute('data-ecl-has-children') ||
-          item.hasAttribute('data-ecl-has-container')
-        ) {
-          if (this.attachClickListener) {
-            item.removeEventListener('click', this.handleClickOnItem);
-          }
-        }
-      });
-    }
-
     if (this.links) {
       this.links.forEach((link) => {
+        if (this.attachClickListener) {
+          link.removeEventListener('click', this.handleClickOnItem);
+        }
         if (this.attachFocusListener) {
           link.removeEventListener('focusout', this.handleFocusOut);
         }
@@ -1380,10 +1370,6 @@ export class MegaMenu {
   handleClickOnItem(e) {
     let isInTheContainer = false;
     const menuItem = e.target.closest('li');
-    const parentLink = queryOne('.ecl-mega-menu__parent-link', menuItem);
-    if (parentLink) {
-      return;
-    }
 
     const container = queryOne(
       '.ecl-mega-menu__mega-container-scrollable',
@@ -1408,8 +1394,8 @@ export class MegaMenu {
         if (!this.isDesktop) {
           this.handleFirstPanel(menuItem, 'expand');
         } else {
-          const isExpandable = hasChildren === 'true';
-          if (isExpandable) {
+          const isOpen = hasChildren === 'true';
+          if (isOpen) {
             this.handleFirstPanel(menuItem, 'collapse');
           } else {
             this.closeOpenDropdown();
