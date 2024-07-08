@@ -143,7 +143,7 @@
     {% set _video_sources = _video.sources|default({}) %}
     {% set _video_tracks = _video.tracks|default({}) %}
     <div class="ecl-banner__video-container">
-      <video class="ecl-banner__video" poster="{{ _video.poster }}" autoplay loop data-ecl-banner-video>
+      <video class="ecl-banner__video" poster="{{ _video.poster }}" autoplay loop muted data-ecl-banner-video>
         {% if _video_sources is not empty and _video_sources is iterable %}
           {% for video in _video_sources %}
             <source src="{{ video.src }}" type="{{ video.type }}">
