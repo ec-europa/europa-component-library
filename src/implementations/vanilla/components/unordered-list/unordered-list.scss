@@ -16,24 +16,28 @@ $list: null !default;
   list-style-position: outside;
   list-style-type: map.get($list, 'unordered', 'marker');
   margin: 0;
-  padding-bottom: var(--s-2xs);
-  padding-inline-start: var(--s-3xl);
+  padding-bottom: var(--s-xs);
+  padding-inline-start: map.get($list, 'unordered', 'padding-start');
 }
 
 .ecl-unordered-list__item,
 %ecl-unordered-list__item {
-  margin-inline-start: var(--s-m);
-  padding-bottom: var(--s-2xs);
-  padding-top: var(--s-2xs);
+  margin-inline-start: map.get($list, 'unordered', 'item-margin');
+  padding-bottom: var(--s-xs);
+  padding-inline-start: map.get($list, 'unordered', 'item-padding');
+  padding-top: var(--s-xs);
   max-width: var(--max-w);
-  padding-inline-start: var(--s-xs);
 
   &:first-of-type {
-    padding-top: var(--s-2xs);
+    padding-top: var(--s-xs);
   }
 
   &:last-of-type {
     padding-bottom: 0;
+  }
+
+  .ecl-link {
+    text-decoration: none;
   }
 }
 
@@ -42,11 +46,11 @@ $list: null !default;
 %ecl-unordered-list--nested {
   list-style-type: map.get($list, 'unordered', 'sublist-marker');
   padding-bottom: 0;
-  padding-top: var(--s-2xs);
-  padding-inline-start: calc(var(--s-3xl) - var(--s-m) - var(--s-xs));
+  padding-top: var(--s-xs);
+  padding-inline-start: map.get($list, 'unordered', 'sublist-padding');
 
   .ecl-unordered-list__item {
-    padding-top: var(--s-2xs);
+    padding-top: var(--s-xs);
     padding-inline-start: 0;
   }
 }
@@ -58,15 +62,14 @@ $list: null !default;
 
   .ecl-unordered-list {
     list-style-type: none;
-    padding-inline-start: var(--s-m);
-
-    .ecl-unordered-list__item {
-      padding-inline-start: var(--s-xs);
-    }
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
   }
 
-  // stylelint-disable-next-line no-descending-specificity
-  > .ecl-unordered-list__item {
+  .ecl-unordered-list__item {
     margin-inline-start: 0;
     padding-inline-start: 0;
   }
@@ -77,13 +80,16 @@ $list: null !default;
   list-style: none;
   padding-inline-start: 0;
 
+  .ecl-unordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+  }
+
   // stylelint-disable-next-line no-descending-specificity
   > .ecl-unordered-list__item {
     border-bottom: 1px solid map.get($list, 'divider-color');
     margin-bottom: var(--s-m);
-    margin-inline-start: 0;
     padding-bottom: var(--s-m);
-    padding-inline-start: 0;
 
     .ecl-link {
       padding: 0;
@@ -91,11 +97,14 @@ $list: null !default;
   }
 
   .ecl-unordered-list {
-    padding-inline-start: var(--s-m);
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
 
     .ecl-unordered-list__item {
       list-style-type: none;
-      padding-inline-start: var(--s-xs);
     }
   }
 }

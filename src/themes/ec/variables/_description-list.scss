@@ -4,7 +4,7 @@
 $description-list: (
   term-color: var(--c-d),
   term-font: var(--f-m),
-  term-margin-bottom: 0,
+  term-margin-bottom: var(--s-2xs),
   term-margin-top: var(--s-xl),
   definition-font: var(--f-m),
   definition-color: var(--c-d),
@@ -14,7 +14,7 @@ $description-list: (
 );
 $description-list-print: (
   definition-font: map.get($font-print, 'm'),
-  term-font-family: map.get($font-family-print, 'default'),
+  term-font-family: var(--ecl-font-family-print-default),
   term-width: 32%,
   definition-width: 68%,
 );

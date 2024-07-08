@@ -3,7 +3,9 @@ import { queryAll } from '@ecl/dom-utils';
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
- * @param {String} options.itemSelector Selector for the tree parent items
+ * @param {String} options.itemSelector Selector for the items
+ * @param {String} options.parentItemSelector Selector for the parent items
+ * @param {String} options.listSelector Selector for the lists
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  */
 export class CategoryFilter {
@@ -25,7 +27,9 @@ export class CategoryFilter {
   constructor(
     element,
     {
-      itemSelector = '.ecl-category-filter__item--has-children',
+      itemSelector = '.ecl-category-filter__item',
+      parentItemSelector = 'ecl-category-filter__item--has-children',
+      listSelector = '.ecl-category-filter__list',
       attachClickListener = true,
     } = {},
   ) {
@@ -40,6 +44,8 @@ export class CategoryFilter {
 
     // Options
     this.itemSelector = itemSelector;
+    this.parentItemSelector = parentItemSelector;
+    this.listSelector = listSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -47,6 +53,7 @@ export class CategoryFilter {
 
     // Bind `this` for use in callbacks
     this.handleClickExpand = this.handleClickExpand.bind(this);
+    this.expandParents = this.expandParents.bind(this);
   }
 
   /**
@@ -59,12 +66,18 @@ export class CategoryFilter {
     ECL.components = ECL.components || new Map();
     // Query elementslur
     this.items = queryAll(this.itemSelector, this.element);
-
+    const e = { preventDefault: () => null };
     // Bind click event on open
     if (this.attachClickListener && this.items) {
-      this.items.forEach((item) =>
-        item.addEventListener('click', this.handleClickExpand),
-      );
+      this.items.forEach((item) => {
+        item.addEventListener('click', this.handleClickExpand);
+        // Epand the needed items if there is a current item set
+        if (item.getAttribute('aria-current')) {
+          e.target = item;
+          this.handleClickExpand(e);
+          this.expandParents.call(this, item);
+        }
+      });
     }
 
     // Set ecl initialized attribute
@@ -88,48 +101,69 @@ export class CategoryFilter {
   }
 
   /**
+   * Expand parents of the given item.
+   * @param {Node} item
+   */
+  expandParents(item) {
+    if (!item) return;
+    const e = { preventDefault: () => null };
+    const parent = item.closest(this.listSelector)?.previousElementSibling;
+    if (parent && parent.classList.contains(this.parentItemSelector)) {
+      e.target = parent;
+      this.handleClickExpand(e);
+      this.expandParents.call(this, parent);
+    }
+  }
+
+  /**
    * Expand tree list item.
    * @param {Event} e
    */
   handleClickExpand(e) {
-    e.preventDefault();
-
     // Get item even if we clicked on the icon
-    const treeItem = e.target.closest('.ecl-category-filter__item');
-
+    const treeItem = e.target.closest(this.itemSelector);
+    const isNotInit = typeof e.stopPropagation === 'function';
     // Toggle current item
-    this.items.forEach((item) => {
-      if (item === treeItem) {
-        item.setAttribute('aria-current', true);
-      } else {
-        item.removeAttribute('aria-current');
-      }
-    });
+    if (isNotInit) {
+      this.items.forEach((item) => {
+        if (item === treeItem) {
+          item.setAttribute('aria-current', true);
+        } else {
+          item.removeAttribute('aria-current');
+        }
+      });
+    }
 
     // Toggle expanded
-    const isExpanded = treeItem.getAttribute('aria-expanded') === 'true';
-    if (isExpanded) {
+    const isExpanded = treeItem.getAttribute('aria-expanded');
+    if (isExpanded && isExpanded === 'true') {
+      e.preventDefault();
       treeItem.setAttribute('aria-expanded', 'false');
       treeItem.parentElement.classList.remove(
         'ecl-category-filter__list-item--open',
       );
-    } else {
+    } else if (isExpanded && isExpanded === 'false') {
+      e.preventDefault();
       treeItem.setAttribute('aria-expanded', 'true');
       treeItem.parentElement.classList.add(
         'ecl-category-filter__list-item--open',
       );
     }
 
-    // For first level, keep only one item open
-    if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
-      this.items.forEach((item) => {
-        if (item !== treeItem) {
-          item.parentElement.classList.remove(
-            'ecl-category-filter__list-item--open',
-          );
-          item.setAttribute('aria-expanded', 'false');
-        }
-      });
+    if (isExpanded && isNotInit) {
+      // For first level, keep only one item open
+      if (treeItem.classList.contains('ecl-category-filter__item--level-1')) {
+        this.items.forEach((item) => {
+          if (item !== treeItem) {
+            item.parentElement.classList.remove(
+              'ecl-category-filter__list-item--open',
+            );
+            if (item.classList.contains(this.parentItemSelector)) {
+              item.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      }
     }
   }
 }

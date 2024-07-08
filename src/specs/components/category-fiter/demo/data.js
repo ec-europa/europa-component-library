@@ -7,7 +7,7 @@ module.exports = {
   label: 'Category filter',
   id: 'unique-id',
   items: [
-    { label: 'Item 1', path: exampleLink },
+    { label: 'Item 1', path: exampleLink, current: true },
     {
       label: 'Item 2 label',
       path: exampleLink,
