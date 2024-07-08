@@ -1213,6 +1213,7 @@ export class MegaMenu {
               );
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
+              itemLink.setAttribute('aria-current', 'true');
               const infoLink = queryOne('.ecl-mega-menu__info-link', item);
               // Focus on the info link, if present
               if (infoLink) {
@@ -1235,6 +1236,7 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
               );
+              itemLink.removeAttribute('aria-current');
             }
           }
         });
@@ -1297,6 +1299,14 @@ export class MegaMenu {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
+              this.items.forEach((mainItem) => {
+                const link = queryOne('a', mainItem);
+                if (link) {
+                  link.removeAttribute('aria-current');
+                }
+              });
+              itemLink.setAttribute('aria-current', 'true');
+
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
                 itemLink.classList.add('ecl-mega-menu__parent-link');
@@ -1309,6 +1319,7 @@ export class MegaMenu {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'false');
               itemLink.setAttribute('aria-expanded', 'false');
+              itemLink.removeAttribute('aria-current');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
@@ -1463,23 +1474,25 @@ export class MegaMenu {
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-mega-menu__item--current');
+      const itemLink = queryOne(this.linkSelector, item);
       if (item.hasAttribute('aria-expanded')) {
         item.setAttribute('aria-expanded', 'false');
         item.classList.remove('ecl-mega-menu__item--expanded');
-        const itemLink = queryOne(this.linkSelector, item);
         itemLink.setAttribute('aria-expanded', 'false');
-        itemLink.classList.remove('ecl-mega-menu__parent-link');
       }
+      itemLink.removeAttribute('aria-current');
     });
     // Remove css class and attribute from menu subitems
     this.subItems.forEach((item) => {
       item.classList.remove('ecl-mega-menu__subitem--current');
+      item.removeAttribute('aria-current');
       item.style.display = '';
+      const itemLink = queryOne(this.subLinkSelector, item);
+      itemLink.removeAttribute('aria-current');
       if (item.hasAttribute('aria-expanded')) {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.setAttribute('aria-expanded', 'false');
         item.style.display = '';
-        const itemLink = queryOne(this.subLinkSelector, item);
         itemLink.setAttribute('aria-expanded', 'false');
         itemLink.classList.remove('ecl-mega-menu__parent-link');
       }
@@ -1488,7 +1501,10 @@ export class MegaMenu {
     const sublists = queryAll('.ecl-mega-menu__sublist');
     if (sublists) {
       sublists.forEach((sublist) => {
-        sublist.classList.remove('ecl-mega-menu__sublist--no-border');
+        sublist.classList.remove(
+          'ecl-mega-menu__sublist--no-border',
+          '.ecl-mega-menu__sublist--scrollable',
+        );
       });
     }
     // Update label
