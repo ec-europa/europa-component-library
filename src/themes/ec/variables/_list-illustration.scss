@@ -6,20 +6,15 @@ $list-illustration: (
   description-color: var(--c-d),
   background-color: var(--c-n-40),
   value-font-mobile: var(--f-2xl),
-  value-font-weight-mobile: map.get($font-weight, 'regular'),
   value-font-desktop: var(--f-3xl),
-  value-font-weight-desktop: map.get($font-weight, 'regular'),
   title-font: var(--f-l),
   title-margin: var(--s-xs),
   description-margin: var(--s-xs),
   icon-color: var(--c-d),
-  item-padding: 0 0 var(--s-3xl),
-  item-padding-zebra: var(--s-3xl),
+  item-padding: 0 0 var(--s-6xl),
+  item-padding-zebra: var(--s-3xl) var(--s-xl),
   item-margin-mobile: var(--s-6xl),
 );
 $list-illustration-print: (
-  value-font-mobile: map.get($font-print, '3xl'),
-  value-font-weight-mobile: map.get($font-weight-print, 'bold'),
-  value-font-desktop: map.get($font-print, '4xl'),
-  value-font-weight-desktop: map.get($font-weight-print, 'bold'),
+  value-font-desktop: map.get($font-print, '3xl'),
 );

@@ -6,9 +6,7 @@ $list-illustration: (
   description-color: var(--c-d-80),
   background-color: var(--c-p-5),
   value-font-mobile: var(--f-5xl),
-  value-font-weight-mobile: map.get($font-weight, 'regular'),
   value-font-desktop: var(--f-6xl),
-  value-font-weight-desktop: map.get($font-weight, 'regular'),
   title-font: var(--f-l),
   title-margin: var(--s-s),
   description-margin: var(--s-s),
@@ -18,8 +16,5 @@ $list-illustration: (
   item-margin-mobile: var(--s-2xl),
 );
 $list-illustration-print: (
-  value-font-mobile: map.get($font-print, '5xl'),
-  value-font-weight-mobile: map.get($font-weight-print, 'regular'),
   value-font-desktop: map.get($font-print, '6xl'),
-  value-font-weight-desktop: map.get($font-weight-print, 'regular'),
 );
