@@ -71,7 +71,11 @@ $list-illustration: null !default;
 
 .ecl-list-illustration__value {
   color: map.get($list-illustration, 'title-color');
-  font: map.get($list-illustration, 'value-font-mobile');
+  font: map.get($list-illustration, 'value-font-mobile-l');
+
+  .ecl-list-illustration--font-m & {
+    font: map.get($list-illustration, 'value-font-mobile-m');
+  }
 }
 
 .ecl-list-illustration__title {
@@ -117,7 +121,11 @@ $list-illustration: null !default;
 
 @include breakpoints.up('l') {
   .ecl-list-illustration__value {
-    font: map.get($list-illustration, 'value-font-desktop');
+    font: map.get($list-illustration, 'value-font-desktop-l');
+
+    .ecl-list-illustration--font-m & {
+      font: map.get($list-illustration, 'value-font-desktop-m');
+    }
   }
 }
 

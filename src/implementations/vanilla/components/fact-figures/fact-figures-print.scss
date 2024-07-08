@@ -31,6 +31,11 @@ $fact-figures: null !default;
 .ecl-fact-figures__value {
   font: map.get($theme, 'font-print', '3xl');
   font-family: var(--ecl-font-family-print-alt);
+
+  .ecl-fact-figures--font-m & {
+    font: map.get($theme, 'font-print', '2xl');
+    font-family: var(--ecl-font-family-print-alt);
+  }
 }
 
 .ecl-fact-figures__title {

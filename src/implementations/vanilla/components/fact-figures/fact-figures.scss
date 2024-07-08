@@ -49,7 +49,11 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__value {
-  font: map.get($fact-figures, 'value-font-mobile');
+  font: map.get($fact-figures, 'value-font-mobile-l');
+
+  .ecl-fact-figures--font-m & {
+    font: map.get($fact-figures, 'value-font-mobile-m');
+  }
 }
 
 .ecl-fact-figures__title {
@@ -102,7 +106,11 @@ $fact-figures: null !default;
   }
 
   .ecl-fact-figures__value {
-    font: map.get($fact-figures, 'value-font-desktop');
+    font: map.get($fact-figures, 'value-font-desktop-l');
+
+    .ecl-fact-figures--font-m & {
+      font: map.get($fact-figures, 'value-font-desktop-m');
+    }
   }
 
   .ecl-fact-figures__view-all {

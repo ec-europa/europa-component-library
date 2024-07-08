@@ -18,6 +18,7 @@ const getArgs = (data) => ({
   show_view_all: true,
   show_icons: true,
   column: 3,
+  font_size: 'l',
   icon: data.items[0].icon.name,
   icon_size: 'medium',
   value: data.items[0].value,
@@ -62,6 +63,27 @@ const getArgTypes = () => ({
       type: { summary: 'string' },
       defaultValue: { summary: '3' },
       category: 'Layout',
+    },
+  },
+  font_size: {
+    name: 'font size',
+    type: 'select',
+    description: 'Change font size',
+    options: ['m', 'l'],
+    control: {
+      labels: {
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'l' },
+      category: 'Display',
     },
   },
   icon: {
@@ -135,6 +157,7 @@ const prepareData = (data, args) => {
   clone.column = args.column;
 
   // Other controls
+  clone.font_size = args.font_size;
   clone.items[0].value = args.value;
   clone.items[0].title = args.title;
   clone.items[0].description = args.description;
