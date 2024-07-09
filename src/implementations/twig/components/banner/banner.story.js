@@ -17,7 +17,7 @@ const getArgs = (data) => {
     credit: data.credit || '',
     size: 'm',
     font_size: 'm',
-    background: 'light',
+    box_background: 'light',
     font_color: 'dark',
     title: data.title.link.label,
     title_link: true,
@@ -136,8 +136,9 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'dark' },
         category: 'Display',
       },
+      if: { arg: 'box_background', eq: 'none' },
     },
-    background: {
+    box_background: {
       name: 'box background',
       type: 'select',
       description: 'Change box background',

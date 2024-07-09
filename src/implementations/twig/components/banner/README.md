@@ -8,12 +8,10 @@ npm install --save @ecl/twig-component-banner
 
 ### Parameters
 
-- **"variant"** (string) (default: 'plain-background') Variant of the banner
-  (can be 'plain-background', 'text-box', 'text-overlay')
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"font_size"** (string) (default: 'm') Size of the title and description (can be 'm', 'l')
 - **"font_color"** (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
-- **"background"** (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
+- **"box_background"** (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
 - **"title"** (string or Link) (default: '') Title of banner
 - **"picture"** (object) (default: {}): Image for the banner, following ECL Picture structure
 - **"video"** (object) (default: {}): Video for the banner
@@ -53,10 +51,14 @@ npm install --save @ecl/twig-component-banner
 <!-- prettier-ignore -->
 ```twig
 {% include '@ecl/banner/banner.html.twig' with {  
-  title: 'EU Budget for the future',  
-  description: 'Innovation, economy, environment and geopolitics',  
-  centered: true,  
-  variant: 'text-overlay',
+  title: {
+    link: {
+      label: 'Lorem ipsum dolor sit amet consectetuer adipiscin',
+      path: '#example',
+    },
+  },
+  description:
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
   picture: {
     img: {
       src: 'url/path-to-image',
@@ -64,15 +66,5 @@ npm install --save @ecl/twig-component-banner
     },
   },
   credit: '© Copyright',
-  link: {  
-    link: {  
-      label: 'Subscribe',  
-      icon_position: 'after',  
-    },  
-    icon: {  
-      path: 'path-to-the-icon-file',  
-      ...  
-    },  
-  },  
 } %}
 ```

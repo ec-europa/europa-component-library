@@ -261,11 +261,11 @@ $banner: null !default;
     max-width: map.get($banner, 'content-width');
     padding: map.get($banner, 'content-padding');
 
-    .ecl-banner--background-none & {
+    .ecl-banner--box-bg-none & {
       background-color: transparent;
     }
 
-    .ecl-banner--background-dark & {
+    .ecl-banner--box-bg-dark & {
       box-decoration-break: clone;
       background: var(--c-ov-l);
       backdrop-filter: blur(2px);

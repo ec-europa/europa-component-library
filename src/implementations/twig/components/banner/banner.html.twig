@@ -2,12 +2,10 @@
 
 {#
   Parameters:
-  - "variant" (string) (default: 'plain-background') Variant of the banner
-    (can be 'plain-background', 'text-box', 'text-overlay')
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "font_size" (string) (default: 'm') Size of the title and description (can be 'm', 'l')
   - "font_color" (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
-  - "background" (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
+  - "box_background" (string) (default: 'light') Color of the box background (can be 'dark', 'light', 'none')
   - "title" (string or Link) (default: '') Title of banner
   - "picture" (object) (default: {}): Image for the banner, following ECL Picture structure
   - "video" (object) (default: {}): Video for the banner
@@ -34,7 +32,6 @@
   - "description" (string) (default: '') Description of banner
   - "horizontal" (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
   - "vertical" (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
-  - "centered" (bool) (default: false) Define if banner should be centered
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (object) (default: predefined structure) predefined structure for the Link component
   - "icon_path" (string) (default: '') Path to the icons file
@@ -42,6 +39,12 @@
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
     - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# DEPRECATED
+- "variant" (string) (default: '') Variant of the banner
+    (can be 'plain-background', 'text-box', 'text-overlay')
+- "centered" (bool) (default: false) Define if banner should be centered
 #}
 
 {# Internal properties #}
@@ -53,7 +56,7 @@
 {% set _size = size|default('m') %}
 {% set _font_size = font_size|default('m') %}
 {% set _font_color = font_color|default('dark') %}
-{% set _background = background|default('light') %}
+{% set _box_background = box_background|default('light') %}
 {% set _horizontal = horizontal|default('left') %}
 {% set _vertical = vertical|default('center') %}
 {% set _full_width = full_width|default(false) %}
@@ -83,16 +86,27 @@
   {% set _css_class = _css_class ~ ' ecl-banner--' ~ _size %}
 {% endif %}
 
-{% if _font_size != 'm' %}
+{% if _font_size is not empty %}
   {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
 {% endif %}
 
-{% if _font_color != 'dark' %}
-  {% set _css_class = _css_class ~ ' ecl-banner--color-' ~ _font_color %}
+{% set _color = '' %}
+{% if _font_color is not empty %}
+  {% set _color = _font_color %}
 {% endif %}
 
-{% if _background != 'light' %}
-  {% set _css_class = _css_class ~ ' ecl-banner--background-' ~ _background %}
+{% if _box_background is not empty %}
+  {% if _box_background == 'light' %}
+    {% set _color = 'dark' %}
+  {% elseif _box_background == 'dark' %}
+    {% set _color = 'light' %}
+  {% endif %}
+
+  {% set _css_class = _css_class ~ ' ecl-banner--box-bg-' ~ _box_background %}
+{% endif %}
+
+{% if _color is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--color-' ~ _color %}
 {% endif %}
 
 {% if _horizontal is not empty %}
@@ -140,8 +154,8 @@
     </figure>
   {% elseif _video is not empty %}
     {# Video #}
-    {% set _video_sources = _video.sources|default({}) %}
-    {% set _video_tracks = _video.tracks|default({}) %}
+    {% set _video_sources = _video.sources|default([]) %}
+    {% set _video_tracks = _video.tracks|default([]) %}
     <div class="ecl-banner__video-container">
       <video class="ecl-banner__video" poster="{{ _video.poster }}" autoplay loop muted data-ecl-banner-video>
         {% if _video_sources is not empty and _video_sources is iterable %}
@@ -202,7 +216,7 @@
             <span class="ecl-banner__title-text">
             {%- if _title.link is defined -%}
               {% include '@ecl/link/link.html.twig' with _title|merge({
-                extra_classes: 'ecl-banner__title-link'
+                extra_classes: _title.extra_classes|default('') ~ ' ecl-banner__title-link'
               }) only %}
             {%- else -%}
               {{- _title -}}
