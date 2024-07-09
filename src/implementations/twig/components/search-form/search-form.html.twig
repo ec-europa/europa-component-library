@@ -50,7 +50,7 @@
       label: _label,
       input: _text_input|merge({
         input_type: 'search',
-        extra_classes: 'ecl-search-form__text-input',
+        extra_classes: 'ecl-search-form__text-input' ~ ( _text_input.extra_classes ? ' ' ~ _text_input.extra_classes : ''),
       }),
       extra_label_classes: 'ecl-search-form__label',
     } only %}
@@ -62,8 +62,7 @@
         name: 'search',
         size: 'xs',
       },
-      extra_classes: 'ecl-search-form__button',
-      extra_attributes: [{name: 'aria-label', value: 'Search'}],
+      extra_classes: 'ecl-search-form__button' ~ ( _button.extra_classes ? ' ' ~ _button.extra_classes : ''),
       }) only %}
   {% endif %}
   {%- block extra_form_elements _extra_form_elements -%}
