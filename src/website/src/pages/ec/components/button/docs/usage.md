@@ -86,7 +86,7 @@ Text button is used in a web page with less prominent action. It can be grouped 
 
 # Call to action (CTA) button
 
-Call to action button (CTA) captures users' attention in a web page. To perform an action or to visit another page for more information. The visual style has bright background colour and a high contrast label to indicate the importance of the action.
+The Call to action button (CTA) draws users' attention to the most important action on a web page. The visual style has bright background colour and a high contrast label to indicate the importance of the action.
 
 ## Do's
 
@@ -99,7 +99,7 @@ Call to action button (CTA) captures users' attention in a web page. To perform 
 
 ## When to use
 
-- for promoting a message, or highly important content you want to draw users' attention
+- only where your goal is to strongly suggest something that the user should do
 
 ## When not to use
 
