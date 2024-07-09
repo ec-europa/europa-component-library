@@ -1187,7 +1187,6 @@ export class MegaMenu {
               );
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
-              itemLink.setAttribute('aria-current', 'true');
               if (!this.isDesktop) {
                 itemLink.classList.add('ecl-mega-menu__parent-link');
               }
@@ -1195,7 +1194,6 @@ export class MegaMenu {
             } else {
               item.setAttribute('aria-expanded', 'false');
               itemLink.setAttribute('aria-expanded', 'false');
-              itemLink.removeAttribute('aria-current');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove(
                 'ecl-mega-menu__item--current',
@@ -1257,7 +1255,6 @@ export class MegaMenu {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
-              itemLink.setAttribute('aria-current', 'true');
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
                 itemLink.classList.add('ecl-mega-menu__parent-link');
@@ -1270,7 +1267,6 @@ export class MegaMenu {
             if (item.hasAttribute('aria-expanded')) {
               item.setAttribute('aria-expanded', 'false');
               itemLink.setAttribute('aria-expanded', 'false');
-              itemLink.removeAttribute('aria-current');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
