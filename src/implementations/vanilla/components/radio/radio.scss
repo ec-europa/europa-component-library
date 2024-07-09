@@ -164,7 +164,7 @@ $radio: null !default;
 .ecl-radio--binary {
   display: inline-flex;
   margin-bottom: 0;
-  margin-inline-end: var(--s-xl);
+  margin-inline-end: map.get($radio, 'binary-margin');
   vertical-align: top;
 }
 
