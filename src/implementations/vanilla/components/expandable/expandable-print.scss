@@ -18,5 +18,5 @@ $theme: null !default;
 
 .ecl-expandable__content {
   display: block;
-  font-family: #{map.get($theme, 'font-family-print', 'default')};
+  font-family: var(--ecl-font-family-print-default);
 }
