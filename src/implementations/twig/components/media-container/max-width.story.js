@@ -1,9 +1,47 @@
+import withCode from '@ecl/storybook-addon-code';
+
+const getArgs = () => ({
+  first_paragraph: '80ch',
+  second_paragraph: '400px',
+  third_paragraph: 'none',
+});
+
+const getArgTypes = () => ({
+  first_paragraph: {
+    name: 'Max width for the first paragraph',
+    type: { name: 'string' },
+    control: {
+      type: 'text',
+    },
+  },
+  second_paragraph: {
+    name: 'Max width for the second paragraph',
+    type: { name: 'string' },
+    control: {
+      type: 'text',
+    },
+  },
+  third_paragraph: {
+    name: 'Max width for the third paragraph',
+    type: { name: 'string' },
+    control: {
+      type: 'text',
+    },
+  },
+});
+
 export default {
   title: 'Components/Max-width',
+  args: getArgs(),
+  argTypes: getArgTypes(),
+  decorators: [withCode],
+  parameters: {
+    EclNotes: { disable: true },
+  },
 };
 
-export const Default = () =>
-  `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non efficitur dui. 
+export const Default = (args) =>
+  `<p style="--max-w: ${args.first_paragraph}"">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non efficitur dui. 
     Pellentesque hendrerit finibus massa, sed tristique ex.
     Donec a lacus faucibus, cursus est non, interdum metus.
     Mauris rutrum lobortis urna, sit amet gravida nulla porttitor et. 
@@ -14,7 +52,8 @@ export const Default = () =>
     Fusce interdum hendrerit enim vel efficitur. Sed ultrices tincidunt metus nec bibendum.
     In sed maximus nisl, feugiat malesuada turpis. Morbi quis est tincidunt, dignissim sem non, dignissim mi.
     Vestibulum sit amet feugiat orci, ut mollis arcu.
-    Nulla vitae purus ut neque ornare pulvinar.</p><div style="--max-w: 400px"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Nulla vitae purus ut neque ornare pulvinar.</p>
+    <div style="--max-w:  ${args.second_paragraph}"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Donec non efficitur dui. Pellentesque hendrerit finibus massa, sed tristique ex. 
     Donec a lacus faucibus, cursus est non, interdum metus. 
     Mauris rutrum lobortis urna, sit amet gravida nulla porttitor et.
@@ -27,7 +66,7 @@ export const Default = () =>
     Fusce interdum hendrerit enim vel efficitur. Sed ultrices tincidunt metus nec bibendum.
     In sed maximus nisl, feugiat malesuada turpis. Morbi quis est tincidunt, dignissim sem non, dignissim mi.
     Vestibulum sit amet feugiat orci, ut mollis arcu. Nulla vitae purus ut neque ornare pulvinar.</p></div>
-    <div style="--max-w: none"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    <div style="--max-w: ${args.third_paragraph}"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Donec non efficitur dui. Pellentesque hendrerit finibus massa, sed tristique ex. 
     Donec a lacus faucibus, cursus est non, interdum metus. 
     Mauris rutrum lobortis urna, sit amet gravida nulla porttitor et.
@@ -41,6 +80,3 @@ export const Default = () =>
     In sed maximus nisl, feugiat malesuada turpis. Morbi quis est tincidunt, dignissim sem non, dignissim mi.
     Vestibulum sit amet feugiat orci, ut mollis arcu. Nulla vitae purus ut neque ornare pulvinar.</p></div>`;
 Default.storyName = 'default';
-
-export const Custom = () => ``;
-Custom.storyName = 'custom';
