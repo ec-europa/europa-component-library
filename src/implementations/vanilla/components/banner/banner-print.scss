@@ -19,13 +19,19 @@ $banner-print: null !default;
 }
 
 .ecl-banner__title {
+  color: var(--c-d);
   font: map.get($theme, 'font-print', '4xl');
   font-weight: map.get($theme, 'font-weight', 'bold');
   font-family: var(--ecl-font-family-print-alt);
   margin-bottom: 0;
 }
 
+.ecl-banner__title-link {
+  color: var(--c-d);
+}
+
 .ecl-banner__description {
+  color: var(--c-d);
   font: map.get($theme, 'font-print', 'l');
   margin-bottom: 0;
   margin-top: map.get($theme, 'spacing-print', 'xs');
