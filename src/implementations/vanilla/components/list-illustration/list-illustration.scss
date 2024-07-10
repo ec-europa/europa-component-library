@@ -19,7 +19,7 @@ $list-illustration: null !default;
 .ecl-list-illustration__item {
   display: flex;
   flex-direction: column;
-  padding: map.get($list-illustration, 'item-padding');
+  padding: map.get($list-illustration, 'item-padding-mobile');
 
   &:first-of-type {
     padding-top: 0;
@@ -38,7 +38,7 @@ $list-illustration: null !default;
   aspect-ratio: 3/2;
   display: block;
   height: auto;
-  margin-bottom: var(--s-m);
+  margin-bottom: var(--s-l);
   max-width: 100%;
   object-fit: contain;
 }
@@ -101,6 +101,7 @@ $list-illustration: null !default;
   .ecl-list-illustration__item {
     flex-direction: row;
     margin-bottom: 0;
+    padding: map.get($list-illustration, 'item-padding-desktop');
   }
 
   .ecl-list-illustration--zebra {
@@ -173,7 +174,7 @@ $list-illustration: null !default;
 
     .ecl-list-illustration__image {
       margin-inline-end: 0;
-      margin-bottom: var(--s-m);
+      margin-bottom: var(--s-l);
 
       &:not(.ecl-list-illustration__image--square) {
         width: 100%;
