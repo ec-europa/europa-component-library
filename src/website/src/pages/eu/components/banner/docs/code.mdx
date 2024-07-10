@@ -4,57 +4,37 @@ order: 2
 ---
 
 import { Html, Playground } from '@ecl/website-components';
-import {
-  bannerTextBox,
-  bannerTextOverlay,
-  bannerPlainBackground,
-} from '../demo';
+import { bannerImage, bannerVideo } from '../demo';
 
-## Image banners
-
-### Text box banner
+## Image banner
 
 <Playground
   system="eu"
   selectedKind="components-banner"
-  selectedStory="text-box"
+  selectedStory="image"
   showFrame
 >
-  <Html markup={bannerTextBox} />
+  <Html markup={bannerImage} />
 </Playground>
 
-### Text overlay banner
+## Video banner
 
 <Playground
   system="eu"
   selectedKind="components-banner"
-  selectedStory="text-overlay"
+  selectedStory="video"
   showFrame
 >
-  <Html markup={bannerTextOverlay} />
-</Playground>
-
-## Plain background banner
-
-<Playground
-  system="eu"
-  selectedKind="components-banner"
-  selectedStory="plain-background"
-  showFrame
->
-  <Html markup={bannerPlainBackground} />
+  <Html markup={bannerVideo} />
 </Playground>
 
 ## Other variants
 
-Note: Variants below can be applied to all kind of banners.  
-Check usage guidelines for more information.
+Several variants are available for all kind of banner: size, font, background and text color, horizontal and vertical alignment, ...
 
-### Centered content
+Check the playground for more information.
 
-Adding class `.ecl-banner--center` will center the text on banner.
-
-### Banner width
+## Banner width
 
 Banners placed inside a grid container (`.ecl-container`) will expand to this container width.
 

@@ -58,9 +58,12 @@ $list-illustration-print: null !default;
 
 .ecl-list-illustration__value {
   color: map.get($list-illustration, 'title-color');
-  font: map.get($list-illustration-print, 'value-font-mobile');
-  font-weight: map.get($list-illustration-print, 'value-font-weight-mobile');
+  font: map.get($list-illustration-print, 'value-font-desktop-l');
   margin-bottom: map.get($theme, 'spacing-print', 'xs');
+
+  .ecl-list-illustration--font-m & {
+    font: map.get($list-illustration-print, 'value-font-desktop-m');
+  }
 }
 
 .ecl-list-illustration__title {
