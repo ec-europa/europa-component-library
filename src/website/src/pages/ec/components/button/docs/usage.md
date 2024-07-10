@@ -110,4 +110,4 @@ The Call to action button (CTA) draws users' attention to the most important act
 All buttons can have their label hidden by using button variant ecl-button--icon-only.
 
 - label requires to be filled nonetheless, in order to provide context to screen readers
-- Ensure you adapt the label (e.g. "Secondary button") in < span class="ecl-button\_\_label" data-ecl-label="true">Secondary button</span> to the selected icon, to provide the right context to screen readers
+- Ensure you adapt the label (e.g. "Secondary button") in < span class="ecl-button\_\_label" data-ecl-label="true">Secondary button</ span> to the selected icon, to provide the right context to screen readers
