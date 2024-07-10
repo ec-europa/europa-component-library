@@ -34,9 +34,13 @@
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _see_all_label = see_all_label|default('') %}
+{% set _menu_item_attributes = _item.extra_attributes|default([]) %}
 
 {% if _item.is_current is defined %}
   {% set _menu_item_class = _menu_item_class ~ ' ecl-menu__link--current' %}
+  {% set _menu_item_attributes = _menu_item_attributes|merge([
+    { name: 'aria-current', value: 'true' },
+  ]) %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-menu__item--current' %}
 {% endif %}
 
@@ -47,7 +51,7 @@
 
 <li class="{{ _menu_list_item_class }}" {{ _menu_list_item_attributes|raw }} id="{{ _id }}">
   {% set _sublink_class = 'ecl-menu__sublink' ~ (child.is_current is defined ? ' ecl-menu__sublink--current' : '') %}
-  {% set _menu_item_attributes = _item.extra_attributes|default([])|merge([
+  {% set _menu_item_attributes = _menu_item_attributes|merge([
     { name: _menu_item_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
@@ -93,8 +97,12 @@
     <ul class="ecl-menu__sublist">
     {% for child in item.children %}
       {% set _subitem_class = 'ecl-menu__subitem' %}
+      {% set _sublink_attributes = child.extra_attributes|default([]) %}
       {% if child.is_current is defined %}
         {% set _subitem_class = _subitem_class ~ ' ecl-menu__subitem--current' %}
+        {% set _sublink_attributes = _sublink_attributes|merge([
+          { name: 'aria-current', value: 'page' },
+        ]) %}
       {% endif %}
       <li
         class="{{ _subitem_class }}"
@@ -111,7 +119,7 @@
             sr_external: child.sr_external|default(''),
           },
           extra_classes: _sublink_class,
-          extra_attributes: child.extra_attributes|default([]),
+          extra_attributes: _sublink_attributes,
         } %}
       </li>
     {% endfor %}
