@@ -49,7 +49,7 @@ $page-header-print: null !default;
 .ecl-page-header__title {
   color: map.get($page-header, 'title-color');
   font: map.get($page-header, 'title-font');
-  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-family: var(--ecl-font-family-print-alt);
   margin-bottom: 0;
   margin-top: map.get($theme, 'spacing-print', 'm');
 }
