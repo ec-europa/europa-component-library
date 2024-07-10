@@ -204,7 +204,7 @@ $list-illustration: null !default;
 
   // stylelint-disable-next-line no-descending-specificity
   .ecl-list-illustration__item {
-    padding: map.get($list-illustration, 'item-padding-zebra');
+    padding: map.get($list-illustration, 'item-padding-zebra-mobile');
 
     &:nth-child(even) {
       background-color: map.get($list-illustration, 'background-color');
@@ -225,6 +225,14 @@ $list-illustration: null !default;
     left: auto;
     margin-inline-start: 0;
     width: auto;
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-list-illustration--zebra {
+    .ecl-list-illustration__item {
+      padding: map.get($list-illustration, 'item-padding-zebra-desktop');
+    }
   }
 }
 
