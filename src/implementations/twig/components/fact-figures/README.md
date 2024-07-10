@@ -10,13 +10,14 @@ npm install --save @ecl/twig-component-fact-figures
 
 - **"column"** (integer) (default: 3): Number of columns (1 to 4)
 - **"centered"** (boolean) (default: false)
+- **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')
 - **"items"** (array) (default: []):
   - "icon" (associate array) (default: { size: 'm' })
   - "value" (string) (default: '')
   - "title" (string) (default: '')
   - "description" (string) (default:'')
 - **"view_all"** (optional) (associative array) (default: {})
-  - "link" (associative array) {
+  - "link" (associative array)
     - "label" (string) (default: ''),
     - "path" (string) (default: '')
   - "visible" (boolean) (default: true)
