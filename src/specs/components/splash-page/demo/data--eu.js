@@ -6,7 +6,6 @@ module.exports = {
     title: 'European Union',
     alt: 'European Union flag',
     path: exampleLink,
-    language: 'en',
     src_desktop: '/standard-version/positive/logo-eu--en.svg',
     src_mobile: '/condensed-version/positive/logo-eu--en.svg',
   },

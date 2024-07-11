@@ -29,7 +29,6 @@ Parameters:
 {% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
 {% set _hide_to = hide.to|default(items|length) %}
-{% set _toggler = false %}
 
 {# Internal logic - Process properties #}
 
@@ -68,11 +67,8 @@ Parameters:
     {% for _item in _items %}
       {# Decide on per item if it should display. #}
       {% set extra_class = (loop.index > _display_amount and loop.revindex > _bottom_amount) ? ' ecl-timeline__item--collapsed' : '' %}
-      <li
-      class="ecl-timeline__item{{ extra_class }}"
-        {% if _item.id is defined and _item.id is not empty %}
-          id="{{ _item.id }}"
-        {% endif %}>
+      {% set _item_id = _item.id is defined and _item.id is not empty ? _item.id : 'ecl-timeline-item-' ~ random() %}
+      <li class="ecl-timeline__item{{ extra_class }}" id="{{ _item_id }}">
         <div class="ecl-timeline__tooltip">
           <div class="ecl-timeline__tooltip-arrow"></div>
           <div class="ecl-timeline__label">{{ _item.label }}</div>
@@ -84,7 +80,6 @@ Parameters:
       </li>
       {# Display the show more button if required. #}
       {% if (_hide_amount > 0 and loop.revindex == _bottom_amount + 1) or (_hide_amount > 0 and _hide_to == 0 and loop.revindex == 1) %}
-        {% set _toggler = true %}
         <li class="ecl-timeline__item ecl-timeline__item--toggle">
           {% include '@ecl/button/button.html.twig' with {
             label: _toggle_collapsed,

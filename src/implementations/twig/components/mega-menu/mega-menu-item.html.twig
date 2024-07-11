@@ -9,7 +9,6 @@
     - "external" (boolean) External link
     - "sr_external" (string) (default: '') Additional label for the external icon
     - "path" (string) Href of the menu link
-    - "link_aria_label" (string) Aria label for the parent link
     - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
       - "name" (string) Attribute name, eg. 'data-test'
       - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -39,7 +38,6 @@
       - "sr_external" (string) (default: '') Additional label for the external icon
       - "path" (string) Href of the sub-item link
       - "label" (string) Label of the sub-item link
-      - "link_aria_label" (string) Aria label for the parent link
       - "extra_attributes" (optional) (array) (default: []) Extra attributes for link
         - "name" (string) Attribute name, eg. 'data-test'
         - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -74,9 +72,6 @@
 {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
   {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-has-children aria-haspopup aria-expanded="false"' %}
   {% set _menu_list_item_class = _menu_list_item_class ~ ' ecl-mega-menu__item--has-children' %}
-  {% if _item.link_aria_label is not empty %}
-    {% set _menu_list_item_attributes = _menu_list_item_attributes ~ ' data-ecl-parent-aria-label="' ~ _item.link_aria_label ~ '"' %}
-  {% endif %}
 {% endif %}
 
 {% if _item.level == 2 %}
@@ -202,9 +197,6 @@
           {% set _sublink_attrs = _sublink_attrs|merge([
             { name: 'aria-expanded', value: 'false' },
           ]) %}
-          {% if child.link_aria_label %}
-            {% set _subitem_attrs = _subitem_attrs ~ ' data-ecl-parent-aria-label="' ~ child.link_aria_label ~ '"' %}
-          {% endif %}
         {% endif %}
         {% if child.children is defined and child.children is not empty and _item.level|default(0) < 2 %}
           {%- if child.see_all and child.see_all_label is not empty -%}
@@ -256,7 +248,6 @@
                   level: 2,
                   info: child.info|default({}),
                   featured: child.featured|default({}),
-                  link_aria_label: child.link_aria_label|default(''),
                 },           
             } only %}
           {%- endif -%}

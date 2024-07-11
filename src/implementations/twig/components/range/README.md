@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-range
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: random)
 - **"min"** (integer) (default: '') Minimum value of the range
 - **"max"** (integer) (default: '') Maxium value of the range
 - **"step"** (integer) (default: '') Granularity of the range
