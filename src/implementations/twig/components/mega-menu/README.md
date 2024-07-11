@@ -20,7 +20,6 @@ npm install --save @ecl/twig-component-mega-menu
   "path": (string) (default: '')
   "external": (boolean) (optional)
   "sr_external" (string) (default: '') Additional label for the external icon
-  "link_aria_label" (string)
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column
   "title" (string) Title of the info panel

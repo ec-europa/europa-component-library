@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-radio
 ### Parameters:
 
 - **"items"** (array) (default: [])
-  - "id" (string) (default: ''): id of the radio
+  - "id" (string) (default: random): id of the radio
   - "name" (string) (default: '')
   - "value" (string) (default: '')
   - "disabled" (boolean) (default: false)

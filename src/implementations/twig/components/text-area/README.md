@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-text-area
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: random)
 - **"disabled"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})

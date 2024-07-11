@@ -48,7 +48,7 @@
 {% set _grid = grid|default(false) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-gallery-' ~ random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}

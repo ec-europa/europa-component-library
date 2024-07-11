@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-checkbox
 ### Parameters:
 
 - **"items"** (array) (default: [])
-  - "id" (string) (default: ''): id of the checkbox
+  - "id" (string) (default: random): id of the checkbox
   - "value" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "disabled" (boolean) (default: false)
