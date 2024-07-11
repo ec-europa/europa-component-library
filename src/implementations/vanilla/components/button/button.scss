@@ -19,23 +19,13 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   background: none;
   border-radius: map.get($button, 'radius');
   border-width: 0;
+  box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
   font: map.get($button, 'font');
   margin: 0;
+  min-height: map.get($button, 'min-height');
   min-width: $min-width;
-  padding: calc(
-      #{map.get($button, 'padding-vertical')} - #{map.get(
-          $button,
-          'border-width'
-        )}
-    )
-    calc(
-      #{map.get($button, 'padding-horizontal')} - #{map.get(
-          $button,
-          'border-width'
-        )}
-    );
   text-decoration: none;
 
   &:hover {
@@ -75,23 +65,11 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 }
 
 // Icon only
-$size-icon-only: calc(
-  #{map.get($button, 'padding-vertical')} * 2 + #{map.get(
-      $button,
-      'line-height-icon'
-    )} - #{map.get($button, 'border-width')} * 2
-);
-
 .ecl-button--icon-only {
+  align-items: center;
   display: flex;
   justify-content: center;
-  padding: 0;
-
-  .ecl-button__container {
-    height: $size-icon-only;
-    justify-content: center;
-    width: $size-icon-only;
-  }
+  padding: 0 !important;
 
   .ecl-button__label {
     @include screen-reader.sr-only;
@@ -109,9 +87,23 @@ $size-icon-only: calc(
 */
 @mixin button($variant: null) {
   background-color: map.get($button, #{$variant}, 'background');
-  border: map.get($button, 'border-width') solid
+  border: map.get($button, #{$variant}, 'border-width') solid
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
+  padding: calc(
+      #{map.get($button, 'padding-vertical')} - #{map.get(
+          $button,
+          #{$variant},
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($button, 'padding-horizontal')} - #{map.get(
+          $button,
+          #{$variant},
+          'border-width'
+        )}
+    );
 
   &:hover {
     background-color: map.get($button, #{$variant}, 'background-hover');
@@ -131,27 +123,6 @@ $size-icon-only: calc(
     background-color: map.get($button, #{$variant}, 'background-active');
     border-color: map.get($button, #{$variant}, 'border-color-active');
     color: map.get($button, #{$variant}, 'color-active');
-  }
-
-  @if map.has-key($button, #{$variant}, 'border-width-hover') {
-    &:hover {
-      border-width: map.get($button, #{$variant}, 'border-width-hover');
-      padding: calc(
-          #{map.get($button, 'padding-vertical')} -
-            #{map.get($button, #{$variant}, 'border-width-hover')}
-        )
-        calc(
-          #{map.get($button, 'padding-horizontal')} -
-            #{map.get($button, #{$variant}, 'border-width-hover')}
-        );
-    }
-
-    &.ecl-button--icon-only:hover {
-      padding: calc(
-        #{map.get($button, 'border-width')} -
-          #{map.get($button, #{$variant}, 'border-width-hover')}
-      );
-    }
   }
 }
 
