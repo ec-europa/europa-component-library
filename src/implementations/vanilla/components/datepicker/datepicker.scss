@@ -92,7 +92,7 @@ $datepicker: null !default;
     display: flex;
     flex-basis: 50%;
     flex-grow: 1;
-    font: var(--f-m);
+    font: var(--f-ui-m);
     justify-content: space-between;
     margin-inline-end: var(--s-xs);
     padding: var(--s-xs) var(--s-m);
@@ -158,7 +158,7 @@ $datepicker: null !default;
     border-width: 0;
     color: map.get($datepicker, 'picker', 'theme-color');
     font: var(--f-m);
-    padding: var(--s-xs);
+    padding: calc(var(--s-xs) + 2px) var(--s-xs);
     text-align: center;
 
     &:hover {

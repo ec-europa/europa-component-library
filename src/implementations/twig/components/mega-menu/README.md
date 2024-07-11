@@ -18,7 +18,6 @@ npm install --save @ecl/twig-component-mega-menu
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
-  "is_current": (boolean) (optional)
   "external": (boolean) (optional)
   "sr_external" (string) (default: '') Additional label for the external icon
   "link_aria_label" (string)
@@ -36,7 +35,6 @@ npm install --save @ecl/twig-component-mega-menu
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
-  "is_current": (boolean) (optional)
   "external": (boolean)
   "sr_external" (string) (default: '') Additional label for the external icon
   "see_all": (boolean)
@@ -84,7 +82,6 @@ npm install --save @ecl/twig-component-mega-menu
     {
       label: "Menu item",
       path: "example",
-      is_current: false,
       children: [
         {
           label: "Item 1.1",

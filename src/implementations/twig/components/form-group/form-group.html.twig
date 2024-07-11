@@ -266,7 +266,9 @@
     >
       {%- if _invalid_icon is not empty -%}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _invalid_icon,
+        icon: _invalid_icon|merge({
+          size: 's',
+        }),
         as_image: true,
         extra_accessibility: not _sr_invalid_icon ? {} : {
           title: _sr_invalid_icon,

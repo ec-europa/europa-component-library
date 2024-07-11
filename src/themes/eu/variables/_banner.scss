@@ -2,50 +2,60 @@
 @use '../index' as *;
 
 $banner: (
-  content-width: 42.5rem,
+  background-color: var(--c-d-5),
+  content-width: 37rem,
+  content-background: map.get($color, 'white'),
+  content-padding: var(--s-l) var(--s-l),
+  container-padding-vertical: (
+    'mobile': var(--s-l),
+    'tablet': var(--s-xl),
+    'desktop': var(--s-3xl),
+  ),
+  container-padding-horizontal: (
+    'tablet': var(--s-xl),
+  ),
   border-color: var(--c-s),
   border-radius: (
     'banner': 8px,
     'content': 4px,
   ),
-  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2),
+  box-shadow: var(--sh-2),
   border-width: (
     'left': 4px,
     'bottom': 0,
   ),
-  background: (
-    'plain-background':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-    'text-box-mobile': map.get($color, 'white'),
-    'text-box-desktop': rgba(255, 255, 255, 0.9),
-    'image-overlay':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-    'text-highlight':
-      linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-  ),
-  overlay: (
-    'image-overlay': rgba(0, 0, 0, 0.4),
-  ),
   text-color: (
     'dark': var(--c-d-140),
-    'light': var(--c-d-80),
+    'light': map.get($color, 'white'),
     'inverted': map.get($color, 'white'),
   ),
   font: (
     'title': (
-      'mobile': var(--f-3xl),
-      'desktop': var(--f-6xl),
+      'mobile': var(--f-2xl),
+      'tablet': var(--f-5xl),
+      'desktop-m': var(--f-4xl),
+      'desktop-l': var(--f-5xl),
     ),
     'description': (
-      'mobile': var(--f-l),
-      'desktop': var(--f-p-l),
+      'mobile': var(--f-xl),
+      'tablet': var(--f-4xl),
+      'desktop-m': var(--f-2xl),
+      'desktop-l': var(--f-4xl),
     ),
   ),
-  font-weight: (
-    'title': map.get($font-weight, 'regular'),
-    'description': map.get($font-weight, 'regular'),
-  ),
-  description-margin: var(--s-xs),
+  description-margin: var(--s-s),
+  // DEPRECATED
+  background:
+    (
+      'plain-background':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+      'text-box-mobile': map.get($color, 'white'),
+      'text-box-desktop': rgba(255, 255, 255, 0.9),
+      'image-overlay':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+      'text-highlight':
+        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+    ),
 );
 $banner-print: (
   cta-radius: 4px,

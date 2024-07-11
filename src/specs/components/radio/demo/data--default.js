@@ -10,12 +10,11 @@ module.exports = {
   disabled: false,
   invalid: false,
   label: 'Select your country',
-  helper_text: "This is the group's helper text.",
+  helper_text: 'Helper text for the group',
   invalid_text: 'This is the error message',
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 'm',
   },
   sr_invalid_icon: 'Error',
   input: {

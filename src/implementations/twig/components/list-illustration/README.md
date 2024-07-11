@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-list-illustration
 - **"column"** (number) (default: 1): number of columns (1 column means vertical display)
 - **"zebra"** (optional) (boolean) (default: false) use alternate background display for vertical list
 - **"centered"** (bool) (default: false) Define if the items should be centered
+- **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

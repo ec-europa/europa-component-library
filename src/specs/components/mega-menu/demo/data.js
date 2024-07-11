@@ -91,7 +91,6 @@ module.exports = {
             {
               label: 'Item 2.3 subitem 2',
               path: exampleLink,
-              is_current: true,
             },
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],

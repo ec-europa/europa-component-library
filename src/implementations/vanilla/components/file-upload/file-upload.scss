@@ -41,22 +41,22 @@ $file-upload: null !default;
 
 .ecl-file-upload__item {
   border-top: 1px solid map.get($file-upload, 'separator-color');
+  margin: 0;
   padding-bottom: var(--s-s);
   padding-top: var(--s-s);
 
-  .ecl-file-upload__item-name {
-    font-weight: map.get($file-upload, 'title-font-weight');
-  }
-
   .ecl-file-upload__item-meta {
-    color: var(--c-d-80);
-    display: map.get($file-upload, 'meta-display');
-    padding-top: map.get($file-upload, 'meta-padding');
+    color: map.get($file-upload, 'meta-color');
+    display: inline-block;
   }
 
   &:last-child {
-    padding-bottom: var(--s-2xs);
+    padding-bottom: 0;
   }
+}
+
+.ecl-file-upload__item-name {
+  display: inline-block;
 }
 
 .ecl-file-upload:focus-visible
