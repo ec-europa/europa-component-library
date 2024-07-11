@@ -3,10 +3,10 @@
 {#
   Parameters:
     - "variant" (string) (default: '')
-    - "day" (integer) (default: '')
+    - "day" (string) (default: '')
     - "month" (string) (default: '')
-    - "year" (integer) (default: '')
-    - "date_time" (date/time) (default: ''): the date in a standard format (yyyy-mm-dd)
+    - "year" (string) (default: '')
+    - "date_time" (string) (default: ''): the date in a standard format (yyyy-mm-dd)
     - "month_full" (string) (default: '')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -48,7 +48,7 @@
   {% endfor %}
 {% endif %}
 
-{% if (_month is not empty or _month_full is not empty) and _year is not empty %}
+{% if _month is not empty or _month_full is not empty or _year is not empty %}
   {% if _month_full is not empty and _month_full != _month %}
     {% set _month_markup = '<abbr title="' ~ _month_full|e('html_attr') ~ '" class="ecl-date-block__month" aria-hidden="true">' ~ _month|e('html') ~ '</abbr>' %}
   {% else %}

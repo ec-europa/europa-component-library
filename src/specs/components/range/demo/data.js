@@ -13,7 +13,6 @@ module.exports = {
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 'm',
   },
   sr_invalid_icon: 'Error',
   label: 'Range slider',

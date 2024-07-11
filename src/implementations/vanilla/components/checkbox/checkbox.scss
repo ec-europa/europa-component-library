@@ -13,7 +13,7 @@ $checkbox: null !default;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin: 0 0 var(--s-xs);
+  margin: 0 0 var(--s-2xs);
   position: relative;
 
   &:last-child,
@@ -34,9 +34,8 @@ $checkbox: null !default;
   color: map.get($checkbox, 'label-color');
   display: inline-flex;
   font: var(--f-m);
-  line-height: map.get($checkbox, 'label-line-height');
   max-width: var(--max-w);
-  padding: var(--s-xs) 0;
+  padding: var(--s-s) 0;
   white-space: pre-wrap;
 }
 
@@ -143,8 +142,6 @@ $checkbox: null !default;
 
 .ecl-checkbox__label:hover
   .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
-  border-color: map.get($checkbox, 'box-border-color-hover');
-
   @if map.has-key($checkbox, 'hover-circle') {
     &::before {
       @each $property, $value in map.get($checkbox, 'hover-circle') {

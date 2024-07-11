@@ -32,6 +32,7 @@ const getArgs = (data, variant) => {
   const args = {
     show_description: true,
     show_value: true,
+    font_size: 'l',
   };
   if (variant.includes('image')) {
     args.show_image = true;
@@ -159,6 +160,28 @@ const getArgTypes = (data, variant) => {
       },
     };
   }
+
+  argTypes.font_size = {
+    name: 'font size',
+    type: 'select',
+    description: 'Change font size',
+    options: ['m', 'l'],
+    control: {
+      labels: {
+        m: 'medium',
+        l: 'large',
+      },
+    },
+    mapping: {
+      medium: 'm',
+      large: 'l',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'l' },
+      category: 'Display',
+    },
+  };
 
   argTypes.value = {
     name: 'value',
@@ -344,6 +367,7 @@ const prepareDataItem = (data, args) => {
 };
 
 const prepareDataList = (data, args) => {
+  data.font_size = args.font_size;
   data.items[0] = prepareDataItem(data.items[0], args);
   if (args.show_image) {
     for (let i = 1; i < data.items.length; i += 1) {

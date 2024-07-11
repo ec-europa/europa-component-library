@@ -46,7 +46,7 @@
 
 {# Internal properties #}
 
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-table-' ~ random()) %}
 {% set _css_class = 'ecl-table' %}
 {% set _extra_attributes = '' %}
 {% set _simple_css_class = 'ecl-table--simple' %}

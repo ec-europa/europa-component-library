@@ -33,7 +33,6 @@ module.exports = {
     {
       label: 'News and media',
       path: exampleLink,
-      link_aria_label: 'Link to the News and media page',
       info: {
         title: 'About the News and Media',
         content:
@@ -51,7 +50,6 @@ module.exports = {
           sublink_id: 'item-2-1-id',
           see_all: true,
           see_all_label: 'View all',
-          link_aria_label: "Link to the 2.1 item's page",
           featured: {
             picture: {
               img: {
@@ -85,13 +83,11 @@ module.exports = {
         {
           label: 'Item 2.3 that has a very long label',
           path: exampleLink,
-          link_aria_label: 'Link to the 2.3 item page',
           children: [
             { label: 'Item 2.3 subitem 1', path: exampleLink },
             {
               label: 'Item 2.3 subitem 2',
               path: exampleLink,
-              is_current: true,
             },
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],
@@ -108,7 +104,6 @@ module.exports = {
     {
       label: 'About the European Commission',
       path: exampleLink,
-      link_aria_label: 'Link to About the European Commission page',
       info: {
         title: 'About the European Commission',
         content:
@@ -128,7 +123,6 @@ module.exports = {
     {
       label: 'Key priorities',
       path: exampleLink,
-      link_aria_label: 'Link to Key priorities page',
       info: {
         title: 'About key priorities',
         content:
@@ -161,7 +155,6 @@ module.exports = {
               { label: 'Featured link 2', path: exampleLink },
             ],
           },
-          link_aria_label: 'Link to research and innovation page',
           children: [
             { label: 'How we provide aid', path: exampleLink },
             { label: 'Who we work with', path: exampleLink },

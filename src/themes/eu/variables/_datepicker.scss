@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use '../index' as *;
 
+// stylelint-disable length-zero-no-unit
 $datepicker: (
   input-icon-color: var(--c-d-80),
   picker: (
@@ -8,7 +9,7 @@ $datepicker: (
     shadow: none,
     theme-color: var(--c-d-140),
     margin-top: var(--s-m),
-    padding: 0,
+    padding: 0px,
     background-color: var(--c-p-10),
     title-padding: var(--s-xs),
     select-border: none,
@@ -22,3 +23,4 @@ $datepicker: (
     day-today-color: var(--c-d),
   ),
 );
+// stylelint-enable length-zero-no-unit

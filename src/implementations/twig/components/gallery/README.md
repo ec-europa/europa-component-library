@@ -20,6 +20,7 @@ npm install --save @ecl/twig-component-gallery
   - "full_screen_label" (string) (default: '')
   - "download" (object) (default: {}): object of type link
   - "share" (object) (default: {}): object of type link
+  - "sr_overlay_label" (string) (default: '') aria-label for the overlay
 - **"items"** (array) (default: [])
   - "title" (string) (default: '')
   - "description" (string) (default: '')
@@ -28,6 +29,7 @@ npm install --save @ecl/twig-component-gallery
   - "picture" (optional) (object) (default: {}) object of type picture
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
+  - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "share_path" (optional) (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
@@ -38,6 +40,7 @@ npm install --save @ecl/twig-component-gallery
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
+- **"disable_hover"** (boolean) (default: false) Disables the title display on hover
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)

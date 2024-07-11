@@ -29,15 +29,19 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__value {
-  font: map.get($theme, 'font-print', '4xl');
-  font-family: #{map.get($theme, 'font-family-print', 'alt')};
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font: map.get($theme, 'font-print', '3xl');
+  font-family: var(--ecl-font-family-print-alt);
+
+  .ecl-fact-figures--font-m & {
+    font: map.get($theme, 'font-print', '2xl');
+    font-family: var(--ecl-font-family-print-alt);
+  }
 }
 
 .ecl-fact-figures__title {
   clear: left;
   font: map.get($theme, 'font-prolonged-print', 'l');
-  font-family: #{map.get($theme, 'font-family-print', 'alt')};
+  font-family: var(--ecl-font-family-print-alt);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-top: map.get($theme, 'spacing-print', 'xs');
 }

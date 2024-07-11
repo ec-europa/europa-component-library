@@ -32,15 +32,12 @@ module.exports = {
       embedded_video: {
         src: 'https://www.youtube.com/embed/fgi-GSCB6ho',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
       title: 'New digital strategy',
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens.',
       meta: 'Copyright, Author, Licence for embedded media',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
     },
     {
       // Image
@@ -67,6 +64,8 @@ module.exports = {
       embedded_video: {
         src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
       title: 'In the EU',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
@@ -99,39 +98,16 @@ module.exports = {
             src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
-          {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-            type: 'video/webm',
-          },
-        ],
-        tracks: [
-          {
-            src: '/captions/bunny-en.vtt',
-            kind: 'captions',
-            src_lang: 'en',
-            label: 'English',
-          },
-          {
-            src: '/captions/bunny-fr.vtt',
-            kind: 'captions',
-            src_lang: 'fr',
-            label: 'français',
-          },
         ],
       },
       alt: 'Image 5',
       title: 'EU law',
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Image
+      // Embedded video
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
@@ -141,6 +117,8 @@ module.exports = {
       embedded_video: {
         src: 'https://player.vimeo.com/video/813227141?h=077b905b65',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
       title: 'Lorem ipsum',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. ',
@@ -171,14 +149,11 @@ module.exports = {
       embedded_video: {
         src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
       },
+      sr_video_audio:
+        'In the video below, there is no audiodescription available yet',
       title: 'Climate change',
       description: 'Climate change and protect nature',
       meta: 'Copyright, Author, Licence for embedded media',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
     },
     {
       // Image
@@ -252,7 +227,7 @@ module.exports = {
         path: '/icons.svg',
       },
     },
-    extra_attributes: [{ name: 'aria-label', value: 'Gallery overlay' }],
+    sr_overlay_label: 'Gallery overlay',
   },
   disable_overlay: false,
   view_all_label: 'See all',

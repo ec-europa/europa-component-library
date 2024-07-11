@@ -11,7 +11,7 @@ npm install --save @ecl/twig-component-splash-page
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
-  - "href" (string) (default: ''): Logo URL.
+  - "path" (string) (default: ''): Logo URL.
   - "src_desktop" (string) (default: ''): Desktop logo image file path
   - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
 - **"title"** (string) (default: ''): Page title, eg. 'Select your language'
@@ -47,7 +47,6 @@ npm install --save @ecl/twig-component-splash-page
     title: 'European Commission',
     alt: 'European Commission logo',
     path: exampleLink,
-    language: 'en',
     src_desktop: '/logo-ec--en.svg',
     src_mobile: '/logo-ec--mute.svg',
   },

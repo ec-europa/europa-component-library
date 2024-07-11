@@ -27,7 +27,7 @@ $expandable: null !default;
 
 .ecl-expandable__content {
   color: map.get($expandable, 'content-color');
-  font-family: #{map.get($theme, 'font-family', 'default')};
+  font-family: var(--ff-d);
   margin-top: map.get($expandable, 'content-margin');
   padding-inline-start: map.get($expandable, 'content-padding');
 

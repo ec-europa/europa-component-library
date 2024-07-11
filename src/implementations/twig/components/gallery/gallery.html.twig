@@ -12,6 +12,7 @@
   - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "visible_items": (integer) (default: 8)
   - "full_width": (boolean) (default: false)
+  - "disable_hover": (boolean) (default: false)
   - "disable_overlay": (boolean) (default: false)
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
@@ -20,6 +21,7 @@
     - "counter_separator" (string) (default: '')
     - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
+    - "sr_overlay_label" (string) (default: '') aria-label for the overlay
   - "footer" (object) (default: {}): object of type link
   - "items" (array) (default: [])
     - "title" (string) (default: '')
@@ -29,6 +31,7 @@
     - "picture" (optional) (object) (default: {}) Object of type picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
+    - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
@@ -45,7 +48,7 @@
 {% set _grid = grid|default(false) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-gallery-' ~ random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}
@@ -55,6 +58,7 @@
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
 {% set _visible_items = visible_items|default(8) %}
+{% set _disable_hover = disable_hover|default(false) %}
 {% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
@@ -86,6 +90,10 @@
 
 {% if _full_width %}
   {% set _css_class = _css_class ~ ' ecl-gallery--full-width' %}
+{% endif %}
+
+{% if _disable_hover %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--no-hover' %}
 {% endif %}
 
 {% if not _expandable %}

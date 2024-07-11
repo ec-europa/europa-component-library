@@ -8,11 +8,11 @@ npm install --save @ecl/twig-component-date-block
 
 ### Parameters
 
-- **"day"** (integer) (default: '') Day of the month
+- **"day"** (string) (default: '') Day of the month
 - **"month"** (string) (default: '') Abbreviated name of the month
-- **"year"** (integer) (default: '') Year in four digits
+- **"year"** (string) (default: '') Year in four digits
 - **"month_full"** (string) (default: '') Full month name
-- **"date_time"** (mandatory) (date/time) (default: '') Machine-readable date/time
+- **"date_time"** (mandatory) (string) (default: '') Machine-readable date/time
 - **"variant"** (string) (default: '') (ongoing, past, canceled) Variant of the component
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
