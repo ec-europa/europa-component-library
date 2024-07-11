@@ -47,7 +47,7 @@ module.exports = {
         src: '/captions/bunny-fr.vtt',
         kind: 'captions',
         src_lang: 'fr',
-        label: 'français',
+        label: 'French',
       },
     ],
   },
