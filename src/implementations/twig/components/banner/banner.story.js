@@ -3,9 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import bannerDataPlainBackground from '@ecl/specs-component-banner/demo/data--plain-background';
-import bannerDataTextBox from '@ecl/specs-component-banner/demo/data--text-box';
-import bannerDataTextOverlay from '@ecl/specs-component-banner/demo/data--text-overlay';
+import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
+import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
@@ -13,18 +12,23 @@ const getArgs = (data) => {
   const args = {
     show_title: true,
     show_description: true,
-    show_button: true,
+    show_button: false,
+    show_credit: true,
+    credit: data.credit || '',
     size: 'm',
-    title: data.title,
+    font_size: 'm',
+    box_background: 'light',
+    font_color: 'dark',
+    title: data.title.link.label,
+    title_link: true,
     description: data.description,
     label: data.link && data.link.link.label ? data.link.link.label : '',
-    left: true,
+    horizontal: 'left',
+    vertical: 'center',
     full_width: true,
     gridContent: false,
   };
   if (data.picture) {
-    args.show_credit = true;
-    args.credit = data.credit || '';
     args.image = data.picture.img.src || '';
   }
 
@@ -56,12 +60,20 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'title_link', neq: true },
+    },
+    show_credit: {
+      name: 'credit',
+      type: { name: 'boolean' },
+      description: 'Show the credit',
+      table: {
+        category: 'Optional',
+      },
     },
     size: {
       name: 'banner size',
       type: 'select',
-      description:
-        "Possible banner sizes ('extra small', 'small', 'medium' or 'large')",
+      description: 'Change banner size',
       options: ['xs', 's', 'm', 'l'],
       control: {
         labels: {
@@ -83,13 +95,115 @@ const getArgTypes = (data) => {
         category: 'Display',
       },
     },
-    left: {
-      name: 'left aligned',
-      type: 'boolean',
-      description: 'Whether the content of the banner is centered or not',
+    font_size: {
+      name: 'font size',
+      type: 'select',
+      description: 'Change font size',
+      options: ['m', 'l'],
+      control: {
+        labels: {
+          m: 'medium',
+          l: 'large',
+        },
+      },
+      mapping: {
+        medium: 'm',
+        large: 'l',
+      },
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
+        type: 'string',
+        defaultValue: { summary: 'm' },
+        category: 'Display',
+      },
+    },
+    font_color: {
+      name: 'font color',
+      type: 'select',
+      description: 'Change font color',
+      options: ['dark', 'light'],
+      control: {
+        labels: {
+          dark: 'dark',
+          light: 'light',
+        },
+      },
+      mapping: {
+        dark: 'dark',
+        light: 'light',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'dark' },
+        category: 'Display',
+      },
+      if: { arg: 'box_background', eq: 'none' },
+    },
+    box_background: {
+      name: 'box background',
+      type: 'select',
+      description: 'Change box background',
+      options: ['none', 'dark', 'light'],
+      control: {
+        labels: {
+          none: 'none',
+          dark: 'dark',
+          light: 'light',
+        },
+      },
+      mapping: {
+        none: 'none',
+        dark: 'dark',
+        light: 'light',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'light' },
+        category: 'Display',
+      },
+    },
+    horizontal: {
+      name: 'horizontal',
+      type: 'select',
+      description: 'Horizontal alignment',
+      options: ['left', 'center', 'right'],
+      control: {
+        labels: {
+          left: 'left',
+          center: 'center',
+          right: 'right',
+        },
+      },
+      mapping: {
+        left: 'left',
+        center: 'center',
+        right: 'right',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'left' },
+        category: 'Display',
+      },
+    },
+    vertical: {
+      name: 'vertical',
+      type: 'select',
+      description: 'Vertical alignment',
+      options: ['top', 'center', 'bottom'],
+      control: {
+        labels: {
+          top: 'top',
+          center: 'center',
+          bottom: 'bottom',
+        },
+      },
+      mapping: {
+        top: 'top',
+        center: 'center',
+        bottom: 'bottom',
+      },
+      table: {
+        type: 'string',
+        defaultValue: { summary: 'center' },
         category: 'Display',
       },
     },
@@ -117,6 +231,17 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_title' },
     },
+    title_link: {
+      name: 'title link',
+      type: 'boolean',
+      description: 'Use a link for the title',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Content',
+      },
+      if: { arg: 'show_title' },
+    },
     description: {
       type: 'string',
       description: 'Sub-heading of the banner',
@@ -137,6 +262,16 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_button' },
     },
+    credit: {
+      type: 'string',
+      description: 'Credit of the image',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+        category: 'Content',
+      },
+      if: { arg: 'show_credit' },
+    },
     gridContent: {
       name: 'demo grid content',
       type: { name: 'boolean' },
@@ -152,14 +287,6 @@ const getArgTypes = (data) => {
   };
 
   if (data.picture) {
-    argTypes.show_credit = {
-      name: 'credit',
-      type: { name: 'boolean' },
-      description: 'Show the credit',
-      table: {
-        category: 'Optional',
-      },
-    };
     argTypes.image = {
       type: 'string',
       description: 'Path or Url of the background image',
@@ -169,50 +296,37 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
     };
-    argTypes.credit = {
-      type: 'string',
-      description: 'Credit of the image',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-      if: { arg: 'show_credit' },
-    };
   }
 
   return argTypes;
 };
 
 const prepareData = (data, args) => {
-  const dataClone = JSON.parse(JSON.stringify(data));
+  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
+  Object.assign(clone, args);
 
-  dataClone.size = args.size;
-  dataClone.title = args.title;
-  dataClone.description = args.description;
-  dataClone.centered = !args.left;
-  dataClone.full_width = args.full_width;
-
-  if (dataClone.picture) {
-    dataClone.image = args.image;
-
-    if (!args.show_credit) {
-      delete dataClone.credit;
-    }
+  if (!args.show_credit) {
+    delete clone.credit;
   }
   if (!args.show_title) {
-    delete dataClone.title;
+    delete clone.title;
   }
   if (!args.show_description) {
-    delete dataClone.description;
+    delete clone.description;
   }
-  if (!args.show_button || args.label === '') {
-    delete dataClone.link;
-  } else {
-    dataClone.link.link.label = args.label;
+  if (!args.show_button) {
+    delete clone.link;
   }
 
-  return correctPaths(dataClone);
+  if (!args.title_link) {
+    clone.title = args.title;
+  } else {
+    clone.title = data.title;
+    clone.title.link.label = args.title;
+  }
+
+  return clone;
 };
 
 const renderStory = async (data, args) => {
@@ -233,42 +347,24 @@ export default {
   parameters: { layout: 'fullscreen' },
 };
 
-export const TextBox = (_, { loaded: { component } }) => component;
+export const Image = (_, { loaded: { component } }) => component;
 
-TextBox.render = async (args) => {
-  const renderedBannerText = await renderStory(bannerDataTextBox, args);
-  return renderedBannerText;
+Image.render = async (args) => {
+  const renderedBannerImage = await renderStory(bannerDataImage, args);
+  return renderedBannerImage;
 };
-TextBox.storyName = 'text box';
-TextBox.args = getArgs(bannerDataTextBox);
-TextBox.argTypes = getArgTypes(bannerDataTextBox);
-TextBox.parameters = { notes: { markdown: notes, json: bannerDataTextBox } };
+Image.storyName = 'image';
+Image.args = getArgs(bannerDataImage);
+Image.argTypes = getArgTypes(bannerDataImage);
+Image.parameters = { notes: { markdown: notes, json: bannerDataImage } };
 
-export const TextOverlay = (_, { loaded: { component } }) => component;
+export const Video = (_, { loaded: { component } }) => component;
 
-TextOverlay.render = async (args) => {
-  const renderedBannerOverlay = await renderStory(bannerDataTextOverlay, args);
-  return renderedBannerOverlay;
+Video.render = async (args) => {
+  const renderedBannerVideo = await renderStory(bannerDataVideo, args);
+  return renderedBannerVideo;
 };
-TextOverlay.storyName = 'text overlay';
-TextOverlay.args = getArgs(bannerDataTextOverlay);
-TextOverlay.argTypes = getArgTypes(bannerDataTextOverlay);
-TextOverlay.parameters = {
-  notes: { markdown: notes, json: bannerDataTextOverlay },
-};
-
-export const PlainBackground = (_, { loaded: { component } }) => component;
-
-PlainBackground.render = async (args) => {
-  const renderedBannerPlain = await renderStory(
-    bannerDataPlainBackground,
-    args,
-  );
-  return renderedBannerPlain;
-};
-PlainBackground.storyName = 'plain background';
-PlainBackground.args = getArgs(bannerDataPlainBackground);
-PlainBackground.argTypes = getArgTypes(bannerDataPlainBackground);
-PlainBackground.parameters = {
-  notes: { markdown: notes, json: bannerDataPlainBackground },
-};
+Video.storyName = 'video';
+Video.args = getArgs(bannerDataVideo);
+Video.argTypes = getArgTypes(bannerDataVideo);
+Video.parameters = { notes: { markdown: notes, json: bannerDataVideo } };

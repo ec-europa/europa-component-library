@@ -8,10 +8,14 @@
     {
       "label": "Item 1",
       "path": "/example",
+      "current": false,
+      "extra_attributes": [],
       "children": [
-        {
+        { 
+          "current": false
           "label": "Item 1.1",
           "path": "/example"
+          "extra_attributes": [], 
         },
         {
           "label": "Item 1.2",
@@ -26,22 +30,38 @@
 {% set _items = items|default({}) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _level = level|default(1) %}
-{% set _sub_list_item_attributes = '' %}
 
 {% if _items is defined and _items is not empty %}
   {% for item in _items %}
+    {% set _extra_attributes = '' %}
     {% set _has_children = false %}
     {% set _item_id = id ~ '-' ~ loop.index %}
-    {% set _sub_list_item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
+    {% set _item_attributes = item.extra_attributes|default([]) %}
+    {% set _item_class = 'ecl-category-filter__item ecl-category-filter__item--level-' ~ _level %}
     {% if item.children is defined and item.children is not empty and item.children is iterable %}
-      {% set _sub_list_item_attributes = 'aria-expanded="false" aria-controls="' ~ _item_id ~ '"' %}
-      {% set _sub_list_item_class = _sub_list_item_class ~ ' ecl-category-filter__item--has-children' %}
+      {% set _item_class = _item_class ~ ' ecl-category-filter__item--has-children' %}
+      {% set _item_attributes = _item_attributes|merge([
+        { name: 'aria-expanded', value: 'false' },
+        { name: 'aria-controls', value: _item_id },
+        ])
+      %}
       {% set _has_children = true %}
     {% endif %}
-
+    {% if item.current %}
+      {% set _item_attributes = _item_attributes|merge([{ name: 'aria-current', value: 'true' }]) %}
+    {% endif %}
+    {% if _item_attributes is not empty %}
+      {% for attr in _item_attributes %}
+        {% if attr.value is defined %}
+          {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+        {% else %}
+          {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     <li class="ecl-category-filter__list-item">
       {%- if _has_children -%}
-        <button class="{{ _sub_list_item_class }}" {{ _sub_list_item_attributes }}>
+        <button class="{{ _item_class }}" {{ _extra_attributes|raw }}>
           {%- if _level != 1 -%}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {
@@ -76,7 +96,11 @@
             } only %}
           </ul>
       {%- else -%}
-        <a href="{{ item.path }}" class="{{ _sub_list_item_class }}">
+        <a 
+          href="{{ item.path }}"
+          class="{{ _item_class }}"
+          {{ _extra_attributes|raw }}
+        >
           {{- item.label -}}
         </a>
       {%- endif -%}

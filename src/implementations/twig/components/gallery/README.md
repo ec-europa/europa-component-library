@@ -40,6 +40,7 @@ npm install --save @ecl/twig-component-gallery
 - **"view_all_label"** (string) (default: '') Label of the view all button
 - **"view_all_expanded_label"** (string) (default: '') Label when the gallery is expanded
 - **"counter_label"** (string) (default: '') Label of the counter
+- **"disable_hover"** (boolean) (default: false) Disables the title display on hover
 - **"disable_overlay"** (boolean) (default: false) Disables the overlay functionality
 - **"full_width"** (boolean) (default: false) Full width gallery for desktop and tablet viewports
 - **"selected_item_id"** (int) (default: 0)

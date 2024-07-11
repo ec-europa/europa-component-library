@@ -12,6 +12,7 @@
   - "expandable": (boolean) (default: true) If false all items will be visible by default
   - "visible_items": (integer) (default: 8)
   - "full_width": (boolean) (default: false)
+  - "disable_hover": (boolean) (default: false)
   - "disable_overlay": (boolean) (default: false)
   - "overlay" (object) (default: {})
     - "close" (object) (default: {}): object of type button
@@ -57,6 +58,7 @@
 {% set _items = items|default([]) %}
 {% set _footer = footer|default({}) %}
 {% set _visible_items = visible_items|default(8) %}
+{% set _disable_hover = disable_hover|default(false) %}
 {% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
@@ -88,6 +90,10 @@
 
 {% if _full_width %}
   {% set _css_class = _css_class ~ ' ecl-gallery--full-width' %}
+{% endif %}
+
+{% if _disable_hover %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--no-hover' %}
 {% endif %}
 
 {% if not _expandable %}

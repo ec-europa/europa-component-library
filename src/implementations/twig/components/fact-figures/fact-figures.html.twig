@@ -4,6 +4,7 @@
   Parameters:
   - "column" (integer) (default: 3): Number of columns (1 to 4)
   - "centered" (boolean) (default: false)
+  - "font_size" (string) (default: 'l') Size of the value (can be 'm', 'l')
   - "items" (array) (default: []):
     - "icon" (associate array) (default: { size: 'm' })
     - "value" (string) (default: '')
@@ -30,6 +31,7 @@
 {% set _css_class = 'ecl-fact-figures' %}
 {% set _extra_attributes = '' %}
 {% set _columns = column|default(3) %}
+{% set _font_size = font_size|default('l') %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon_size = icon_size|default('l') %}
 {% set _display_icons = display_icons ?? true %}
@@ -41,6 +43,10 @@
 
 {% if _centered %}
   {% set _css_class = _css_class ~ ' ecl-fact-figures--centered' %} 
+{% endif %}
+
+{% if _font_size != 'l' %}
+  {% set _css_class = _css_class ~ ' ecl-fact-figures--font-' ~ _font_size %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

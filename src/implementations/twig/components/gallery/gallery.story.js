@@ -13,6 +13,7 @@ const getArgs = () => ({
   expandable: true,
   full_width: false,
   visible_items: 8,
+  disable_hover: false,
   disable_overlay: false,
 });
 
@@ -67,6 +68,15 @@ const getArgTypes = () => ({
     name: 'full width',
     control: { type: 'boolean' },
     description: 'full width gallery (desktop & tablet)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
+  },
+  disable_hover: {
+    name: 'without title',
+    control: { type: 'boolean' },
+    description: 'disable display of title on mouse hover',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },

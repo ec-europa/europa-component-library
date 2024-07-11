@@ -98,24 +98,6 @@ module.exports = {
             src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
-          {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-            type: 'video/webm',
-          },
-        ],
-        tracks: [
-          {
-            src: '/captions/bunny-en.vtt',
-            kind: 'captions',
-            src_lang: 'en',
-            label: 'English',
-          },
-          {
-            src: '/captions/bunny-fr.vtt',
-            kind: 'captions',
-            src_lang: 'fr',
-            label: 'français',
-          },
         ],
       },
       alt: 'Image 5',

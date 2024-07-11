@@ -7,6 +7,9 @@ import EventManager from '@ecl/event-manager';
  * @param {String} options.bannerContainer Selector for the banner content
  * @param {String} options.bannerVPadding Optional additional padding
  * @param {String} options.bannerPicture Selector for the banner picture
+ * @param {String} options.bannerVideo Selector for the banner video
+ * @param {String} options.bannerPlay Selector for the banner play button
+ * @param {String} options.bannerPause Selector for the banner pause button
  * @param {String} options.maxIterations Used to limit the number of iterations when looking for css values
  * @param {String} options.breakpoint Breakpoint from which the script starts operating
  * @param {Boolean} options.attachResizeListener Whether to attach a listener on resize
@@ -32,9 +35,11 @@ export class Banner {
    *
    * @type {Array<string>}
    * @event Banner#onCtaClick
+   * @event Banner#onPlayClick
+   * @event Banner#onPauseClick
    * @memberof Banner
    */
-  supportedEvents = ['onCtaClick'];
+  supportedEvents = ['onCtaClick', 'onPlayClick', 'onPauseClick'];
 
   constructor(
     element,
@@ -42,6 +47,9 @@ export class Banner {
       bannerContainer = '[data-ecl-banner-container]',
       bannerVPadding = '8',
       bannerPicture = '[data-ecl-banner-image]',
+      bannerVideo = '[data-ecl-banner-video]',
+      bannerPlay = '[data-ecl-banner-play]',
+      bannerPause = '[data-ecl-banner-pause]',
       breakpoint = '996',
       attachResizeListener = true,
       maxIterations = 10,
@@ -61,6 +69,9 @@ export class Banner {
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
     this.bannerPicture = queryOne(bannerPicture, this.element);
+    this.bannerVideo = queryOne(bannerVideo, this.element);
+    this.bannerPlay = queryOne(bannerPlay, this.element);
+    this.bannerPause = queryOne(bannerPause, this.element);
     this.bannerImage = this.bannerPicture
       ? queryOne('img', this.bannerPicture)
       : false;
@@ -110,6 +121,16 @@ export class Banner {
     if (this.bannerCTA) {
       this.bannerCTA.addEventListener('click', (e) => this.handleCtaClick(e));
     }
+    if (this.bannerPlay) {
+      this.bannerPlay.addEventListener('click', (e) => this.handlePlayClick(e));
+      this.bannerPlay.style.display = 'none';
+    }
+    if (this.bannerPause) {
+      this.bannerPause.addEventListener('click', (e) =>
+        this.handlePauseClick(e),
+      );
+      this.bannerPause.style.display = 'flex';
+    }
 
     this.checkViewport();
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -152,9 +173,17 @@ export class Banner {
    */
   waitForAspectRatioToBeDefined() {
     this.attemptCounter = (this.attemptCounter || 0) + 1;
-    const aspectRatio = getComputedStyle(this.bannerImage).getPropertyValue(
-      '--css-aspect-ratio',
-    );
+    let aspectRatio = '';
+    if (this.bannerVideo) {
+      // Ensure that the video is loaded (width > 0) before passing the ratio
+      if (this.bannerVideo.videoWidth > 0) {
+        aspectRatio = this.defaultRatio();
+      }
+    } else if (this.bannerImage) {
+      aspectRatio = getComputedStyle(this.bannerImage).getPropertyValue(
+        '--css-aspect-ratio',
+      );
+    }
 
     if (
       (typeof aspectRatio === 'undefined' || aspectRatio === '') &&
@@ -184,6 +213,9 @@ export class Banner {
       if (this.bannerImage) {
         this.bannerImage.style.aspectRatio = 'auto';
       }
+      if (this.bannerVideo) {
+        this.bannerVideo.style.aspectRatio = 'auto';
+      }
       this.element.style.height = `${bannerHeight}px`;
     } else {
       this.resetBannerHeight();
@@ -194,7 +226,7 @@ export class Banner {
    * Prepare to set the banner height
    */
   setBannerHeight() {
-    if (this.bannerImage) {
+    if (this.bannerImage || this.bannerVideo) {
       this.waitForAspectRatioToBeDefined();
     } else {
       this.setHeight(this.defaultRatio());
@@ -209,6 +241,9 @@ export class Banner {
       const computedStyle = getComputedStyle(this.bannerImage);
       this.bannerImage.style.aspectRatio =
         computedStyle.getPropertyValue('--css-aspect-ratio');
+    }
+    if (this.bannerVideo) {
+      this.bannerVideo.style.aspectRatio = this.defaultRatio();
     }
 
     this.element.style.height = 'auto';
@@ -254,6 +289,48 @@ export class Banner {
   }
 
   /**
+   * Triggers a custom event when clicking on the play button.
+   *
+   * @param {e} Event
+   * @fires Banner#onPlayClick
+   */
+  handlePlayClick() {
+    if (this.bannerVideo) {
+      this.bannerVideo.play();
+    }
+
+    this.bannerPlay.style.display = 'none';
+    if (this.bannerPause) {
+      this.bannerPause.style.display = 'flex';
+      this.bannerPause.focus();
+    }
+
+    const eventData = { item: this.bannerPlay };
+    this.trigger('onPlayClick', eventData);
+  }
+
+  /**
+   * Triggers a custom event when clicking on the pause button.
+   *
+   * @param {e} Event
+   * @fires Banner#onPauseClick
+   */
+  handlePauseClick() {
+    if (this.bannerVideo) {
+      this.bannerVideo.pause();
+    }
+
+    this.bannerPause.style.display = 'none';
+    if (this.bannerPlay) {
+      this.bannerPlay.style.display = 'flex';
+      this.bannerPlay.focus();
+    }
+
+    const eventData = { item: this.bannerPause };
+    this.trigger('onPauseClick', eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -265,6 +342,12 @@ export class Banner {
     }
     if (this.bannerCTA) {
       this.bannerCTA.removeEventListener('click', this.handleCtaClick);
+    }
+    if (this.bannerPlay) {
+      this.bannerPlay.removeEventListener('click', this.handlePlayClick);
+    }
+    if (this.bannerPause) {
+      this.bannerPause.removeEventListener('click', this.handlePauseClick);
     }
   }
 }

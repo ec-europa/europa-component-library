@@ -7,6 +7,11 @@
         {
           "content" (string)
           "link" (string)
+          "icon" (object) Object of type ECL icon
+          "img" (object)
+            - "path" (string)
+            - "alt" (string)
+            - "title" (string)
           "external" (boolean)
         },
         ...
@@ -71,21 +76,43 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
-    {% include '@ecl/icon/icon.html.twig' with {
-      icon: {
-        path: _icon_path,
-        name: 'information',
-        size: 'm',
-      },
-      extra_classes: 'ecl-news-ticker__icon',
-    } only %}
     <div class="ecl-news-ticker__content">
       <ul class="ecl-news-ticker__slides" id="{{ _aria_controls }}">
       {% for _item in _items %}
+        {% set _icon = '' %}
+        {% set _image = '' %}
+        {% if _item.icon is not empty and _item.icon.name is not empty %}
+          {% set _icon %}
+            {% include '@ecl/icon/icon.html.twig' with {
+              icon: _item.icon|merge({
+                path: _icon_path,
+                name: _item.icon.name,
+                size: 'l',
+              }),
+              extra_classes: 'ecl-news-ticker__icon',
+            } only %}
+          {% endset %}
+        {% elseif _item.img is not empty and _item.img.path is not empty %}
+        {% set _image %} 
+          <img
+            class="ecl-news-ticker__icon"
+            src="{{ _item.img.path }}"
+          {%- if _item.img.alt is not empty -%}
+            alt="{{ _item.img.alt }}"
+          {%- endif -%}
+          {%- if _item.img.title is not empty -%}
+            title="{{ _item.img.title }}"
+          {%- endif -%} 
+          >
+        {% endset %}
+        {% endif %}
+        <li class="ecl-news-ticker__slide">
         {% if _item.link is not empty %}
-          <li class="ecl-news-ticker__slide">
+          {{- _icon -}}
+          {{- _image -}}
           {% include '@ecl/link/link.html.twig' with {
             link: {
+            type: 'standalone',
               label: _item.content,
               path: _item.link,
               icon_position: 'before',
@@ -95,81 +122,83 @@
             },
             extra_classes: 'ecl-news-ticker__slide-text',
           } only %}
-          </li>
         {% else %}
-          <li class="ecl-news-ticker__slide">{{ _item.content }}</li>
+          {{- _icon -}}{{- _image -}}{{ _item.content }}
         {% endif %}
+        </li>  
       {% endfor %}
       </ul>
     </div>
   </div>
   {% endif %}
   <div class="ecl-news-ticker__controls">
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_previous,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'l',
-        transform: 'rotate-270',
-      },
-      extra_classes: 'ecl-news-ticker__prev',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-prev',
-      }],
-    } only %}
+    <div class="ecl-news-ticker__actions">
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_previous,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-270',
+        },
+        extra_classes: 'ecl-news-ticker__prev',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-prev',
+        }],
+      } only %}
 
-{% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_play,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'play-outline',
-        size: 'l',
-      },
-      extra_classes: 'ecl-news-ticker__play',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-play',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_play,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'play-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__play',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-play',
+        }],
+      } only %}
 
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_pause,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'pause',
-        size: 'l',
-      },
-      extra_classes: 'ecl-news-ticker__pause',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-pause',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_pause,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'pause-outline',
+          size: 'l',
+        },
+        extra_classes: 'ecl-news-ticker__pause',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-pause',
+        }],
+      } only %}
 
-    {% include '@ecl/button/button.html.twig' with {
-      type: 'button',
-      variant: 'primary',
-      label: _sr_next,
-      hide_label: true,
-      icon: {
-        path: _icon_path,
-        name: 'corner-arrow',
-        size: 'l',
-        transform: 'rotate-90',
-      },
-      extra_classes: 'ecl-news-ticker__next',
-      extra_attributes: [{
-        name: 'data-ecl-news-ticker-next',
-      }],
-    } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        type: 'button',
+        variant: 'tertiary',
+        label: _sr_next,
+        hide_label: true,
+        icon: {
+          path: _icon_path,
+          name: 'corner-arrow',
+          size: 'l',
+          transform: 'rotate-90',
+        },
+        extra_classes: 'ecl-news-ticker__next',
+        extra_attributes: [{
+          name: 'data-ecl-news-ticker-next',
+        }],
+      } only %}
+    </div>
 
     <div class="ecl-news-ticker__counter">
       <span class="ecl-news-ticker__counter--current">1</span>

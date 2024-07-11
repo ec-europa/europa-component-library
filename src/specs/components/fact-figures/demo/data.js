@@ -85,7 +85,7 @@ module.exports = {
     },
     {
       icon: {
-        name: 'video',
+        name: 'presentation',
         path: '/icons.svg',
       },
       value: '00.0 million',

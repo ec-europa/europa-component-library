@@ -44,6 +44,18 @@ describe('Category filter', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra attributes on an item', () => {
+      expect.assertions(1);
+
+      const withItemExtraAttrs = JSON.parse(JSON.stringify(demoData));
+      withItemExtraAttrs.items[0].extra_attributes = [
+        { name: 'data-test-item', value: 'data-test-value' },
+        { name: 'data-test-1-item', value: 'data-test-value-1' },
+      ];
+
+      return expect(render(withItemExtraAttrs)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData)),

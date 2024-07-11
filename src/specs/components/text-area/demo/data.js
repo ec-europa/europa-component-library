@@ -5,7 +5,6 @@ module.exports = {
   invalid_icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 'm',
   },
   sr_invalid_icon: 'Error',
   helper_text: "This is the input's helper text.",
