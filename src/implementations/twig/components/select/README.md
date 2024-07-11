@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-select
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: random)
 - **"options"** (array) (default: []):
   - "value" (string) (default: '')
   - "label" (string) (default: '')

@@ -7,7 +7,7 @@
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
-  - "aria-label" (string) (default: '') Aria label for the main nav
+  - "aria_label" (string) (default: '') Aria label for the main nav
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
     {
@@ -15,7 +15,6 @@
       "path": (string) (default: '')
       "external": (boolean) (optional),
       "sr_external" (string) (default: '') Additional label for the external icon
-      "link_aria_label" (string),
       "extra_attributes" (optional) (array) (default: []) Extra attributes for link,
         - "name" (string) Attribute name, eg. 'data-test'
         - "value" (optional) (string) Attribute value, eg: 'data-test-1'
@@ -55,7 +54,7 @@
 
 {# Internal properties #}
 
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-mega-menu-' ~ random()) %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _aria_label = aria_label|default('') %}

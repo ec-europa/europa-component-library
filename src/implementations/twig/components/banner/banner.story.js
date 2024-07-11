@@ -22,7 +22,7 @@ const getArgs = (data) => {
     title: data.title.link.label,
     title_link: true,
     description: data.description,
-    label: data.link.link.label,
+    label: data.link && data.link.link.label ? data.link.link.label : '',
     horizontal: 'left',
     vertical: 'center',
     full_width: true,

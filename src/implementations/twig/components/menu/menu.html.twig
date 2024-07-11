@@ -47,7 +47,7 @@
 
 {# Internal properties #}
 
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-menu-' ~ random()) %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _toggle = toggle|default({}) %}
