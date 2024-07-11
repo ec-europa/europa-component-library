@@ -14,7 +14,7 @@ $radio: null !default;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 0 0 var(--s-xs);
+  margin: 0 0 var(--s-2xs);
 
   &:last-child {
     margin-bottom: 0;
@@ -43,8 +43,7 @@ $radio: null !default;
   color: map.get($radio, 'label-color');
   display: inline-flex;
   font: var(--f-m);
-  line-height: map.get($radio, 'label-line-height');
-  padding: var(--s-xs) 0;
+  padding: var(--s-s) 0;
   position: relative;
   max-width: var(--max-w);
   white-space: pre-wrap;
@@ -74,10 +73,12 @@ $radio: null !default;
 }
 
 .ecl-radio__label:hover .ecl-radio__box {
-  border-color: map.get($radio, 'box-border-color-hover');
-
   @if map.has-key($radio, 'hover-circle') {
-    outline: map.get($radio, 'outline') solid map.get($radio, 'outline-color');
+    &::before {
+      @each $property, $value in map.get($radio, 'hover-circle') {
+        #{$property}: $value;
+      }
+    }
   }
 }
 
@@ -92,8 +93,16 @@ $radio: null !default;
 .ecl-radio__input:focus-visible ~ .ecl-radio__label,
 .ecl-radio__input:active ~ .ecl-radio__label {
   .ecl-radio__box {
-    outline: map.get($radio, 'outline') solid map.get($radio, 'outline-color');
-    outline-offset: map.get($radio, 'outline-offset');
+    @if map.has-key($radio, 'hover-circle') {
+      &::before {
+        @each $property, $value in map.get($radio, 'hover-circle') {
+          #{$property}: $value;
+        }
+      }
+    } @else {
+      outline: 2px solid var(--c-p);
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -155,7 +164,7 @@ $radio: null !default;
 .ecl-radio--binary {
   display: inline-flex;
   margin-bottom: 0;
-  margin-inline-end: var(--s-m);
+  margin-inline-end: map.get($radio, 'binary-margin');
   vertical-align: top;
 }
 
