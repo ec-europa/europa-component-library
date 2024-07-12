@@ -6,7 +6,6 @@ $modal: (
   border-radius: map.get($border-radius, 's'),
   shadow: var(--sh-16),
   font: var(--f-m),
-  separator: none,
   header: (
     font: var(--f-l),
     padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
@@ -17,9 +16,18 @@ $modal: (
     padding-mobile: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
     padding-desktop: 0 var(--s-3xl) var(--s-xl) var(--s-3xl),
     padding-last-child: var(--s-3xl),
+    margin-fixed: var(--s-m),
   ),
   footer: (
     padding-mobile: 0 var(--s-3xl) var(--s-3xl),
     padding-desktop: 0 var(--s-3xl) var(--s-3xl),
+  ),
+  warning: (
+    icon-background-color: var(--c-d),
+    icon-background-height: var(--s-m),
+    icon-background-width: var(--s-xs),
+    icon-background-top: calc(var(--s-3xl) + var(--s-s)),
+    icon-background-left:
+      calc(var(--s-3xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
   ),
 );

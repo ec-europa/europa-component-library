@@ -1,4 +1,4 @@
-import data from '@ecl/specs-component-modal/demo/data-ec';
+import data from '@ecl/specs-component-modal/demo/data';
 import template from '@ecl/twig-component-modal/modal.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
