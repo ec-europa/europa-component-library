@@ -4,7 +4,7 @@ import {
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import demoData from '@ecl/specs-component-modal/demo/data-ec';
+import demoData from '@ecl/specs-component-modal/demo/data';
 
 const demoInfo = {
   ...demoData,
