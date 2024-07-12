@@ -2,11 +2,14 @@
 @use '../index' as *;
 
 $tabs: (
+  margin-bottom: var(--s-xl),
   separator-width: 2px,
   separator-color: var(--c-n-60),
   item: (
     border-radius: 0,
     color: var(--c-d),
+    font: var(--f-m),
+    margin-end: 0,
     padding: var(--s-xs) var(--s-m),
   ),
   hover: (
@@ -14,6 +17,7 @@ $tabs: (
     separator-color: var(--c-d-80),
   ),
   active: (
+    background: transparent,
     separator-color: var(--c-p),
     border-width: 0,
     highlight-width: 0,
