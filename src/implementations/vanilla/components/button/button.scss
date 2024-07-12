@@ -34,7 +34,6 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 
   &:focus-visible {
-    outline-offset: calc(0px - #{map.get($button, 'outline-width')} - 2px);
     text-decoration: none;
   }
 
@@ -115,8 +114,12 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     background-color: map.get($button, #{$variant}, 'background-focus');
     border-color: map.get($button, #{$variant}, 'border-color-focus');
     color: map.get($button, #{$variant}, 'color-focus');
-    outline: map.get($button, 'outline-width') solid
-      map.get($button, #{$variant}, 'outline-color');
+    outline: #{map.get($button, #{$variant}, 'outline-width')} solid #{map.get(
+        $button,
+        #{$variant},
+        'outline-color'
+      )};
+    outline-offset: map.get($button, #{$variant}, 'outline-offset');
   }
 
   &:active {
