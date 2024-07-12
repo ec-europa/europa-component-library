@@ -91,6 +91,9 @@
     <div class="{{ _content_class }}">
       <header class="ecl-modal__header">
         {% if _header_icon is not empty and _icon_path is not empty %}
+          {% if _variant == 'warning' and _header_icon == 'warning' %}
+            <span class="ecl-modal__icon-background"></span>
+          {% endif %}
           {% include '@ecl/icon/icon.html.twig' with {
             icon: {
               path: _icon_path,
