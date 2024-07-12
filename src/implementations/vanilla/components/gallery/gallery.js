@@ -470,8 +470,14 @@ export class Gallery {
         mediaAudio.innerHTML = embeddedVideoAudio;
       }
 
+      const iframeUrl = new URL(embeddedVideo);
+
+      // Youtube
+      if (iframeUrl.host.includes('youtube')) {
+        iframeUrl.searchParams.set('disablekb', 1);
+      }
       const mediaIframe = document.createElement('iframe');
-      mediaIframe.setAttribute('src', embeddedVideo);
+      mediaIframe.setAttribute('src', iframeUrl);
       mediaIframe.setAttribute('frameBorder', '0');
 
       if (this.videoPlayerLabel) {

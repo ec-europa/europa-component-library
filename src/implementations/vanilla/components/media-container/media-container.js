@@ -44,6 +44,7 @@ export class MediaContainer {
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
+    this.handleParameters = this.handleParameters.bind(this);
   }
 
   /**
@@ -61,7 +62,10 @@ export class MediaContainer {
       this.iframe = queryOne(this.iframeSelector, this.element);
 
       // Check if there is an iframe to handle
-      if (this.iframe && this.useAutomaticRatio) this.calculateRatio();
+      if (this.iframe) {
+        this.handleParameters();
+        if (this.useAutomaticRatio) this.calculateRatio();
+      }
     }
 
     // Set ecl initialized attribute
@@ -76,6 +80,19 @@ export class MediaContainer {
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
+    }
+  }
+
+  /**
+   * Handle the parameters of the iframe video.
+   */
+  handleParameters() {
+    const iframeUrl = new URL(this.iframe.src);
+
+    // Youtube
+    if (iframeUrl.host.includes('youtube')) {
+      iframeUrl.searchParams.set('disablekb', 1);
+      this.iframe.src = iframeUrl;
     }
   }
 
