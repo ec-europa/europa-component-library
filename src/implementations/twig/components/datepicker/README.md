@@ -13,7 +13,7 @@ npm install --save @ecl/twig-component-datepicker
 - **"required"** (boolean) (default: false)
 - **"invalid"** (boolean) (default: false)
 - **"disabled"** (boolean) (default: false)
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: random)
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
 - **"icon_path"**: (string) (default: '')

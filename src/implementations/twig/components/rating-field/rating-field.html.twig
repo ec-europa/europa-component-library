@@ -2,9 +2,9 @@
 
 {#
   Parameters:
-  - "id" (string) (default: 'rating'): unique id for the rating field
+  - "id" (string) (default: random): unique id for the rating field
   - "items" (array) (default: []): array of radio_button
-  - "name" (string) (default: 'rating')
+  - "name" (string) (default: '')
   - "disabled" (boolean) (default: false)
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object) default({})
@@ -19,9 +19,9 @@
 
 {# Internal properties #}
 
-{% set _id = id|default('rating') %}
+{% set _id = id|default('ecl-rating-field-' ~ random()) %}
 {% set _items = items|default([]) %}
-{% set _name = name|default('rating') %}
+{% set _name = name|default('') %}
 {% set _disabled = disabled|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _required = required|default(false) %}

@@ -10,7 +10,10 @@ module.exports = {
       { label: 'Extra information', colspan: '2' },
       { label: 'Location', rowspan: '2' },
     ],
-    [{ label: 'Organization' }, { label: 'Type of contract' }],
+    [
+      { label: 'Organization', headers: 'table-id-header-3' },
+      { label: 'Type of contract', headers: 'table-id-header-3' },
+    ],
   ],
   rows: [
     {

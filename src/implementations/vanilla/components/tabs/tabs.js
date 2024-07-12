@@ -7,7 +7,6 @@ import EventManager from '@ecl/event-manager';
  * @param {String} options.containerSelector Selector for container element
  * @param {String} options.listSelector Selector for list element
  * @param {String} options.listItemsSelector Selector for tabs element
- * @param {String} options.moreLabelSelector Selector for more list item element
  * @param {String} options.moreButtonSelector Selector for more button element
  * @param {String} options.moreLabelSelector Selector for more button label element
  * @param {String} options.prevSelector Selector for prev element

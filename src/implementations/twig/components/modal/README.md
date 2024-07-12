@@ -8,8 +8,8 @@ npm install --save @ecl/twig-component-modal
 
 ### Parameters:
 
-- **"id"** (string) (default: '') id of the modal
-- **"toggle_id"** (string) (default: '') id of the element to toggle the modal
+- **"id"** (string) (default: random) id of the modal
+- **"toggle_id"** (string) (default: random) id of the element to toggle the modal
 - **"variant"** (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
 - **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
 - **"icon_path"** (string) (default: '') Path to the icon sprite
