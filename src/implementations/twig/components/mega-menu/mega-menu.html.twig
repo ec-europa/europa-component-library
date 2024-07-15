@@ -3,7 +3,6 @@
 {#
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
-  - "title": (string) (default: ''): Used in the inner container aria label
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
@@ -57,7 +56,6 @@
 {# Internal properties #}
 
 {% set _id = id|default('ecl-mega-menu-' ~ random()) %}
-{% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
 {% set _aria_label = aria_label|default('') %}
 {% set _second_level_aria_label = second_level_aria_label|default('') %}
@@ -129,7 +127,7 @@
       }) only %}
     {%- endif -%}
 
-    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application" aria-label="{{ _title }}">
+    <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application">
       <header class="ecl-mega-menu__inner-header">
         {%- if _back_label is not empty -%}
           {% include '@ecl/button/button.html.twig' with ({
