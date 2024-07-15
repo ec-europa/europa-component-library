@@ -64,7 +64,7 @@ $menu: null !default;
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($menu, 'mobile', 'open-outline-color');
+    outline-offset: -2px;
   }
 
   .ecl-icon:last-of-type {
