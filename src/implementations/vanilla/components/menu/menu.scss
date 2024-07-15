@@ -61,11 +61,10 @@ $menu: null !default;
 
   &:hover {
     text-decoration: underline;
-    padding: map.get($menu, 'mobile', 'open-padding-hover');
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($menu, 'mobile', 'open-outline-color');
+    outline-offset: -2px;
   }
 
   .ecl-icon:last-of-type {
@@ -590,10 +589,6 @@ $menu: null !default;
       color: map.get($menu, 'desktop', 'item-color');
       margin-inline-start: 0;
       padding: map.get($menu, 'desktop', 'caret-padding');
-
-      .ecl-button__container {
-        width: 100%;
-      }
 
       .ecl-button__icon {
         fill: currentcolor;
