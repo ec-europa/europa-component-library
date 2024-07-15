@@ -299,12 +299,8 @@ $language-list: null !default;
   .ecl-site-header__language-selector {
     font-size: 0;
     line-height: 0;
-    padding: calc(var(--s-xs) - 2px) 0;
+    padding: calc(var(--s-xs) - 1px) 0;
     text-align: center;
-
-    &:hover {
-      padding: calc(var(--s-xs) - 1px) 0;
-    }
 
     .ecl-icon {
       width: 1.5rem;
@@ -485,7 +481,6 @@ $language-list: null !default;
 
       .ecl-search-form__button {
         margin-inline-end: 0;
-        padding-top: calc(var(--s-xs) + 1px);
       }
     }
   }
