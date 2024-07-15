@@ -1457,14 +1457,16 @@ export class MegaMenu {
       mega.style.height = '';
       mega.style.top = '';
     });
+    let currentItem = false;
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-mega-menu__item--current');
       const itemLink = queryOne(this.linkSelector, item);
-      if (item.hasAttribute('aria-expanded')) {
+      if (item.getAttribute('aria-expanded') === 'true') {
         item.setAttribute('aria-expanded', 'false');
         item.classList.remove('ecl-mega-menu__item--expanded');
         itemLink.setAttribute('aria-expanded', 'false');
+        currentItem = itemLink;
       }
       itemLink.removeAttribute('aria-current');
     });
@@ -1504,6 +1506,12 @@ export class MegaMenu {
     };
     // If the focus trap is active, deactivate it
     this.focusTrap.deactivate();
+    // Focus on the open button in mobile or on the formerly expanded item in desktop.
+    if (!this.isDesktop && this.open) {
+      this.open.focus();
+    } else if (this.isDesktop && currentItem) {
+      currentItem.focus();
+    }
     this.trigger('onFocusTrapToggle', { active: false });
     this.isOpen = false;
   }
