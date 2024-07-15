@@ -7,6 +7,8 @@
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "aria_label" (string) (default: '') Aria label for the main nav
+  - "second_level_aria_label" (string) (default: '') Aria label for the sub-lists, second level
+  - "third_level_aria_label" (string) (default: '') Aria label for the sub-lists, third level
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
     {
@@ -56,6 +58,8 @@
 {% set _id = id|default('ecl-mega-menu-' ~ random()) %}
 {% set _back_label = back_label|default('') %}
 {% set _aria_label = aria_label|default('') %}
+{% set _second_level_aria_label = second_level_aria_label|default('') %}
+{% set _third_level_aria_label = third_level_aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _items = items|default([{}]) %}
@@ -154,6 +158,8 @@
               id: "ecl-mega-menu-item-" ~ _id ~ '-' ~ key,
               icon_path: _icon_path,
               see_all_label: _see_all_label,
+              second_level_aria_label: _second_level_aria_label,
+              third_level_aria_label: _third_level_aria_label,
             } only %}
           {% endif %}
         {% endfor %}
