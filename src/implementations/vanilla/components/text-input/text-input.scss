@@ -12,7 +12,7 @@ $text-input: null !default;
 
 // Internal variables
 $border-width: 1px;
-$border-width-focus: 2px;
+$outline-width: 2px;
 
 .ecl-text-input {
   appearance: none;
@@ -25,6 +25,7 @@ $border-width-focus: 2px;
   display: block;
   font: var(--f-ui-m);
   margin: 0;
+  height: 2.75rem;
   max-width: 100%;
   padding: calc(#{map.get($text-input, 'padding-vertical')} - #{$border-width})
     calc(#{map.get($text-input, 'padding-horizontal')} - #{$border-width});
@@ -42,16 +43,9 @@ $border-width-focus: 2px;
 
   &:focus-visible,
   &:active {
-    border-color: map.get($text-input, 'border-color-focus');
-    border-width: $border-width-focus;
     box-shadow: map.get($text-input, 'shadow-hover');
-    outline: none;
-    padding: calc(
-        #{map.get($text-input, 'padding-vertical')} - #{$border-width-focus}
-      )
-      calc(
-        #{map.get($text-input, 'padding-horizontal')} - #{$border-width-focus}
-      );
+    outline: $outline-width solid var(--c-p);
+    outline-offset: -#{$outline-width};
   }
 }
 
