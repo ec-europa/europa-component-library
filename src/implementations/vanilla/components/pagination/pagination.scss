@@ -14,6 +14,7 @@ $pagination: null !default;
   align-items: center;
   color: map.get($pagination, 'item-default-color');
   justify-content: center;
+  border-radius: map.get($theme, 'border-radius', 's');
   box-sizing: border-box;
   display: flex;
   margin-inline-end: map.get($pagination, 'item-margin-end');
@@ -30,6 +31,7 @@ $pagination: null !default;
     border: map.get($pagination, 'focus-border');
     border-radius: map.get($pagination, 'focus-radius');
     outline: map.get($pagination, 'focus-outline');
+    outline-offset: 0;
   }
 
   &:active {
@@ -108,7 +110,6 @@ $pagination: null !default;
 .ecl-pagination__item--current {
   color: map.get($pagination, 'current-text-color-mobile');
   display: flex;
-  font-weight: map.get($pagination, 'current-font-weight');
   position: relative;
 }
 
