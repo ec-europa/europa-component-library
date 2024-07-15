@@ -11,6 +11,8 @@ $social-media-follow: null !default;
 $social-media-follow-print: null !default;
 
 .ecl-social-media-follow {
+  display: flex;
+  flex-direction: column;
   margin: 0;
 }
 
@@ -26,6 +28,8 @@ $social-media-follow-print: null !default;
 }
 
 .ecl-social-media-follow__list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   margin-top: map.get($theme, 'spacing-print', 'xs');
   padding-left: 0;
@@ -53,4 +57,13 @@ $social-media-follow-print: null !default;
 .ecl-social-media-follow__icon {
   display: block;
   margin-right: map.get($theme, 'spacing-print', 's');
+}
+
+// Position
+.ecl-social-media-follow--right {
+  align-items: flex-end;
+
+  .ecl-social-media-follow__list {
+    align-items: flex-end;
+  }
 }

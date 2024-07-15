@@ -11,3 +11,9 @@ export const socialMediaHorizontalColor = template(correctSvgPath(demoColor));
 export const socialMediaVerticalColor = template(
   correctSvgPath({ ...demoColor, variant: 'vertical' }),
 );
+export const socialMediaHorizontalColorRight = template(
+  correctSvgPath({ ...demoColor, position: 'right' }),
+);
+export const socialMediaVerticalColorRight = template(
+  correctSvgPath({ ...demoColor, variant: 'vertical', position: 'right' }),
+);

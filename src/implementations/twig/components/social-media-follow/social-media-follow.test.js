@@ -52,6 +52,19 @@ describe('Social Media Follow', () => {
     });
   });
 
+  describe('Align right', () => {
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({
+          ...demoData,
+          position: 'right',
+        }),
+      ).resolves.toMatchSnapshot();
+    });
+  });
+
   describe('Vertical', () => {
     test('renders correctly', () => {
       expect.assertions(1);
