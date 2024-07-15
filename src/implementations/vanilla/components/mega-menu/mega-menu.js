@@ -1030,6 +1030,7 @@ export class MegaMenu {
    */
   handleKeyboardGlobal(e) {
     // Detect press on Escape
+    console.log(this.isOpen);
     if (e.key === 'Escape' || e.key === 'Esc') {
       if (this.isOpen) {
         this.closeOpenDropdown(true);
@@ -1191,6 +1192,7 @@ export class MegaMenu {
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
         this.disableScroll();
+        this.isOpen = true;
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
             const itemLink = queryOne(this.linkSelector, item);
