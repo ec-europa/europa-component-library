@@ -70,11 +70,10 @@ $mega-menu: null !default;
 
   &:hover {
     text-decoration: underline;
-    padding: map.get($mega-menu, 'mobile', 'open-padding-hover');
   }
 
   &:focus-visible {
-    outline: 2px solid map.get($mega-menu, 'mobile', 'open-outline-color');
+    outline-offset: -2px;
   }
 
   .ecl-icon:last-of-type {
