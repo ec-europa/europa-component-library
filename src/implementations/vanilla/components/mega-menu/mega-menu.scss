@@ -230,14 +230,12 @@ $mega-menu: null !default;
   font: map.get($mega-menu, 'mobile', 'header-font');
   margin: var(--s-l) var(--s-m) 0;
   position: relative;
-  padding-inline-start: var(--s-xs);
   text-decoration: none;
 
   &:hover {
     background-color: map.get($mega-menu, 'mobile', 'header-background-hover');
     border-color: map.get($mega-menu, 'mobile', 'header-border-hover');
     color: map.get($mega-menu, 'mobile', 'header-color-hover');
-    padding-inline-start: calc(var(--s-xs) + 1px);
   }
 
   &:focus-visible {
