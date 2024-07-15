@@ -15,8 +15,9 @@ $file-upload: null !default;
 }
 
 .ecl-file-upload__button-container {
-  display: block;
+  display: flex;
   margin-top: var(--s-xs);
+  width: fit-content;
 
   .no-js & {
     display: none;
