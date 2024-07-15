@@ -146,6 +146,7 @@
   {# Info #}
   {% if _info is not empty %}
     {% set _info_classes = 'ecl-mega-menu__info' %}
+    {% set _info_title_id = (_info.title_id|default('') is not empty) ? _info.title_id : 'ecl-mega-menu__info-title-' ~ random() %}
     {% if _info.link is not empty %}
       {% set _info_classes = _info_classes ~ ' ecl-mega-menu__info--has-link' %}
     {% endif %}
@@ -154,7 +155,12 @@
       data-ecl-mega-menu-mega
     >
     {% if _info.title is not empty %}
-      <span class="ecl-mega-menu__info-title">{{  _info.title }}</span>
+      <span
+        class="ecl-mega-menu__info-title"
+        id="{{ _info_title_id }}"
+        >
+          {{-  _info.title -}}
+        </span>
     {% endif %}
       <div class="ecl-mega-menu__info-scrollable">
       {%- if _info.content is not empty -%}
@@ -173,6 +179,9 @@
             size: 'xs',
           },
           extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
+          extra_attributes: [{
+            name: 'aria-describedby', value:  _info_title_id,
+          }],
         }) only %}
       {%- endif -%}
       </div>
