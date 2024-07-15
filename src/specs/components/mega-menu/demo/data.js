@@ -4,7 +4,6 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
-  title: 'ecl mega menu demo',
   aria_label: 'Main navigation',
   second_level_aria_label: 'Pages in this section',
   third_level_aria_label: 'Sub-pages in this section',
