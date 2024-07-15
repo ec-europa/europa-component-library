@@ -280,7 +280,7 @@
             },
             extra_attributes: [{
              name: 'aria-describedby',
-             value: sublink_id,
+             value: _sublink_id,
              }]|merge(_see_all_attributes|default([])),
           } only %}
         </li>
@@ -302,7 +302,12 @@
         } only %}
       {% endif %}
       {% if _featured.title is not empty %}
-        <span class="ecl-mega-menu__featured-title">{{  _featured.title }}</span>
+        <span
+          class="ecl-mega-menu__featured-title"
+          aria-describedby="{{ sublink_id }}"
+        >
+          {{-  _featured.title -}}
+        </span>
       {% endif %}
         {%- if _featured.content is not empty -%}
           <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
