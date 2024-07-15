@@ -58,7 +58,6 @@ $overflow-height: 2rem;
 
 .ecl-modal__header {
   align-items: flex-start;
-  border-bottom: map.get($modal, 'separator');
   display: flex;
   font: map.get($modal, 'header', 'font');
   padding: map.get($modal, 'header', 'padding-mobile');
@@ -67,6 +66,8 @@ $overflow-height: 2rem;
 .ecl-modal__icon {
   flex-shrink: 0;
   margin-inline-end: var(--s-xs);
+  position: relative;
+  z-index: 2;
 
   .ecl-modal--information & {
     color: var(--c-in);
@@ -85,8 +86,22 @@ $overflow-height: 2rem;
   }
 }
 
+.ecl-modal__icon-background {
+  background: map.get($modal, 'warning', 'icon-background-color');
+  height: map.get($modal, 'warning', 'icon-background-height');
+  left: map.get($modal, 'warning', 'icon-background-left');
+  position: absolute;
+  width: map.get($modal, 'warning', 'icon-background-width');
+  top: map.get($modal, 'warning', 'icon-background-top');
+  z-index: 1;
+}
+
 .ecl-modal__header-content {
   flex-grow: 1;
+
+  .ecl-modal__icon + & {
+    margin-top: 2px;
+  }
 }
 
 .ecl-modal__body {
@@ -118,7 +133,7 @@ $overflow-height: 2rem;
 }
 
 * + .ecl-modal__body-fixed {
-  margin-top: var(--s-m);
+  margin-top: map.get($modal, 'body', 'margin-fixed');
 }
 
 .ecl-modal__footer {
@@ -154,8 +169,8 @@ $overflow-height: 2rem;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-modal__content {
-    .ecl-modal--s & {
-      max-height: min(100vh, 502px);
+    .ecl-modal--l & {
+      max-height: min(100vh, 470px);
     }
   }
 }
