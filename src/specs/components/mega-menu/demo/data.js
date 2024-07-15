@@ -4,7 +4,6 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
-  title: 'ecl mega menu demo',
   aria_label: 'Main navigation',
   toggle: {
     link: {
@@ -50,6 +49,9 @@ module.exports = {
           sublink_id: 'item-2-1-id',
           see_all: true,
           see_all_label: 'View all',
+          see_all_attributes: [
+            { name: 'aria-label', value: 'View all sub-pages of this section' },
+          ],
           featured: {
             picture: {
               img: {
@@ -141,6 +143,9 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'See all items',
+          see_all_attributes: [
+            { name: 'aria-label', value: 'View all sub-pages of this section' },
+          ],
           sublink_id: 'research-and-innovation-id',
           featured: {
             picture: {
