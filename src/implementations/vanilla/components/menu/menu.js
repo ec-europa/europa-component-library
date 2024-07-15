@@ -660,7 +660,7 @@ export class Menu {
 
     // First case: overflow to the end
     if (this.offsetLeft === 0) {
-      this.btnNext.style.display = 'block';
+      this.btnNext.style.display = 'flex';
 
       // Get visible items
       if (this.direction === 'rtl') {
@@ -1080,7 +1080,7 @@ export class Menu {
 
     // Update button display
     this.btnPrevious.style.display = 'none';
-    this.btnNext.style.display = 'block';
+    this.btnNext.style.display = 'flex';
 
     // Refresh display
     if (this.items) {
@@ -1104,7 +1104,7 @@ export class Menu {
       return;
 
     // Update button display
-    this.btnPrevious.style.display = 'block';
+    this.btnPrevious.style.display = 'flex';
     this.btnNext.style.display = 'none';
 
     // Calculate left offset
