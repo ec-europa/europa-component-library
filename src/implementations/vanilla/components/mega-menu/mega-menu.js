@@ -1212,6 +1212,10 @@ export class MegaMenu {
           }
         });
 
+        if (!this.isDesktop && this.back) {
+          this.back.focus();
+        }
+
         this.openPanel = {
           num: 1,
           item: menuItem,
