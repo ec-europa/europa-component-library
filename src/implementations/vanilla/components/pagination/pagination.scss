@@ -95,6 +95,7 @@ $pagination: null !default;
 
     &:hover {
       background: map.get($pagination, 'prev-next-hover-background');
+      box-shadow: map.get($pagination, 'prev-next-hover-shadow');
       border: map.get($pagination, 'prev-next-hover-border');
       color: map.get($pagination, 'prev-next-hover-color');
     }
