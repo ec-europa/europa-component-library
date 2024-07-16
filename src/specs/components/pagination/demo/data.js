@@ -13,6 +13,7 @@ module.exports = {
           path: exampleLink,
           label: 'Previous',
           icon_position: 'before',
+          hide_label: true,
         },
         icon: {
           name: 'corner-arrow',
@@ -103,6 +104,7 @@ module.exports = {
           path: exampleLink,
           label: 'Next',
           icon_position: 'after',
+          hide_label: true,
         },
         icon: {
           name: 'corner-arrow',
