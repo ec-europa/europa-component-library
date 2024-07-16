@@ -1211,20 +1211,6 @@ export class MegaMenu {
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-current', 'true');
-              const infoLink = queryOne('.ecl-mega-menu__info-link', item);
-              // Focus on the info link, if present
-              if (infoLink) {
-                infoLink.focus();
-              } else {
-                // Otherwise focus on the first element in the sub-list
-                const firstItem = queryOne(
-                  '.ecl-mega-menu__subitem:first-child .ecl-mega-menu__sublink',
-                  item,
-                );
-                if (firstItem) {
-                  firstItem.focus();
-                }
-              }
               this.backItemLevel1 = item;
             } else {
               item.setAttribute('aria-expanded', 'false');
@@ -1237,6 +1223,10 @@ export class MegaMenu {
             }
           }
         });
+
+        if (!this.isDesktop && this.back) {
+          this.back.focus();
+        }
 
         this.openPanel = {
           num: 1,
