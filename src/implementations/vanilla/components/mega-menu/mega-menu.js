@@ -929,7 +929,7 @@ export class MegaMenu {
         (e.key === 'Space' || e.key === ' ') &&
         element.parentElement.hasAttribute('aria-expanded')
       ) {
-        this.handleFirstPanel(element.parentElement, 'expand');
+        element.click();
 
         return;
       }
@@ -985,7 +985,7 @@ export class MegaMenu {
         (e.key === 'Space' || e.key === ' ') &&
         element.parentElement.hasAttribute('aria-expanded')
       ) {
-        this.handleSecondPanel(element.parentElement, 'expand');
+        element.click();
 
         return;
       }
