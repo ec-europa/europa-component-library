@@ -149,7 +149,7 @@
         {%- endif -%}
       </header>
       
-      <ul class="ecl-mega-menu__list" data-ecl-menu-list>
+      <ul class="ecl-mega-menu__list">
       {% if _items is not empty and _items is iterable %}
         {% for key, item in _items %}
           {% if item is defined and item is not empty %}
