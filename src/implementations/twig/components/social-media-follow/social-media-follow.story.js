@@ -16,6 +16,7 @@ const dataVerticalColor = { ...specsColor, variant: 'vertical' };
 const getArgs = (data) => ({
   show_other: true,
   show_label: true,
+  position: 'left',
   description: data.description,
 });
 
@@ -34,6 +35,27 @@ const getArgTypes = () => ({
     description: 'toggle the visibility of the "other social networks" link',
     table: {
       category: 'Optional',
+    },
+  },
+  position: {
+    name: 'position',
+    type: 'select',
+    description: 'Position',
+    options: ['left', 'right'],
+    control: {
+      labels: {
+        left: 'left',
+        right: 'right',
+      },
+    },
+    mapping: {
+      left: 'left',
+      right: 'right',
+    },
+    table: {
+      type: 'string',
+      defaultValue: { summary: 'left' },
+      category: 'Display',
     },
   },
   description: {

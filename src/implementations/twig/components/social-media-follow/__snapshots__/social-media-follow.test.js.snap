@@ -1,9 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Social Media Follow Align right renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-social-media-follow ecl-social-media-follow--right"
+  >
+    <p
+      class="ecl-social-media-follow__description"
+    >
+      Follow us
+    </p>
+    <ul
+      class="ecl-social-media-follow__list"
+    >
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#facebook"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Facebook
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#instagram"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Instagram
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#mastodon"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Mastodon
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#linkedin"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Linkedin
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#telegram"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Telegram
+          </span>
+        </a>
+      </li>
+      <li
+        class="ecl-social-media-follow__item"
+      >
+        <a
+          class="ecl-link ecl-link--standalone ecl-link--no-visited ecl-link--icon ecl-social-media-follow__link"
+          href="/example"
+        >
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--xs ecl-link__icon ecl-social-media-follow__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icon-social-media.svg#chain"
+            />
+          </svg>
+          <span
+            class="ecl-link__label"
+          >
+            Other
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</jest>
+`;
+
 exports[`Social Media Follow Colored renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-social-media-follow"
+    class="ecl-social-media-follow ecl-social-media-follow--left"
   >
     <p
       class="ecl-social-media-follow__description"
@@ -159,7 +315,7 @@ exports[`Social Media Follow Colored renders correctly 1`] = `
 exports[`Social Media Follow Default renders correctly with extra attributes 1`] = `
 <jest>
   <div
-    class="ecl-social-media-follow"
+    class="ecl-social-media-follow ecl-social-media-follow--left"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
@@ -317,7 +473,7 @@ exports[`Social Media Follow Default renders correctly with extra attributes 1`]
 exports[`Social Media Follow Default renders correctly with extra class names 1`] = `
 <jest>
   <div
-    class="ecl-social-media-follow custom-class custom-class--test"
+    class="ecl-social-media-follow ecl-social-media-follow--left custom-class custom-class--test"
   >
     <p
       class="ecl-social-media-follow__description"
@@ -473,7 +629,7 @@ exports[`Social Media Follow Default renders correctly with extra class names 1`
 exports[`Social Media Follow Horizontal renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-social-media-follow"
+    class="ecl-social-media-follow ecl-social-media-follow--left"
   >
     <p
       class="ecl-social-media-follow__description"
@@ -629,7 +785,7 @@ exports[`Social Media Follow Horizontal renders correctly 1`] = `
 exports[`Social Media Follow Vertical renders correctly 1`] = `
 <jest>
   <div
-    class="ecl-social-media-follow ecl-social-media-follow--vertical"
+    class="ecl-social-media-follow ecl-social-media-follow--vertical ecl-social-media-follow--left"
   >
     <p
       class="ecl-social-media-follow__description"
