@@ -1042,12 +1042,10 @@ export class MegaMenu {
    * @param {Event} e
    */
   handleKeyboardGlobal(e) {
-    const menuExpanded = this.element.getAttribute('aria-expanded');
-
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
-      if (menuExpanded === 'true') {
-        this.closeOpenDropdown();
+      if (this.isOpen) {
+        this.closeOpenDropdown(true);
       }
     }
   }
@@ -1060,7 +1058,7 @@ export class MegaMenu {
    * @fires MegaMenu#onOpen
    */
   handleClickOnOpen(e) {
-    if (this.element.getAttribute('aria-expanded') === 'true') {
+    if (this.isOpen) {
       this.handleClickOnClose(e);
     } else {
       e.preventDefault();
@@ -1206,6 +1204,7 @@ export class MegaMenu {
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
         this.disableScroll();
+        this.isOpen = true;
         this.items.forEach((item) => {
           if (item.hasAttribute('aria-expanded')) {
             const itemLink = queryOne(this.linkSelector, item);
@@ -1217,20 +1216,6 @@ export class MegaMenu {
               item.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-expanded', 'true');
               itemLink.setAttribute('aria-current', 'true');
-              const infoLink = queryOne('.ecl-mega-menu__info-link', item);
-              // Focus on the info link, if present
-              if (infoLink) {
-                infoLink.focus();
-              } else {
-                // Otherwise focus on the first element in the sub-list
-                const firstItem = queryOne(
-                  '.ecl-mega-menu__subitem:first-child .ecl-mega-menu__sublink',
-                  item,
-                );
-                if (firstItem) {
-                  firstItem.focus();
-                }
-              }
               this.backItemLevel1 = item;
             } else {
               item.setAttribute('aria-expanded', 'false');
@@ -1243,6 +1228,10 @@ export class MegaMenu {
             }
           }
         });
+
+        if (!this.isDesktop && this.back) {
+          this.back.focus();
+        }
 
         this.openPanel = {
           num: 1,
@@ -1446,9 +1435,11 @@ export class MegaMenu {
   /**
    * Deselect any opened menu item
    *
+   * @param {boolean} esc, whether the call was originated by a press on Esc
+   *
    * @fires MegaMenu#onFocusTrapToggle
    */
-  closeOpenDropdown() {
+  closeOpenDropdown(esc = false) {
     this.enableScroll();
     this.element.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
@@ -1470,14 +1461,16 @@ export class MegaMenu {
       mega.style.height = '';
       mega.style.top = '';
     });
+    let currentItem = false;
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
       item.classList.remove('ecl-mega-menu__item--current');
       const itemLink = queryOne(this.linkSelector, item);
-      if (item.hasAttribute('aria-expanded')) {
+      if (item.getAttribute('aria-expanded') === 'true') {
         item.setAttribute('aria-expanded', 'false');
         item.classList.remove('ecl-mega-menu__item--expanded');
         itemLink.setAttribute('aria-expanded', 'false');
+        currentItem = itemLink;
       }
       itemLink.removeAttribute('aria-current');
     });
@@ -1517,6 +1510,12 @@ export class MegaMenu {
     };
     // If the focus trap is active, deactivate it
     this.focusTrap.deactivate();
+    // Focus on the open button in mobile or on the formerly expanded item in desktop.
+    if (!this.isDesktop && this.open && esc) {
+      this.open.focus();
+    } else if (this.isDesktop && currentItem && esc) {
+      currentItem.focus();
+    }
     this.trigger('onFocusTrapToggle', { active: false });
     this.isOpen = false;
   }
@@ -1562,7 +1561,8 @@ export class MegaMenu {
         'ecl-mega-menu__mega-container-scrollable',
       ) &&
       (e.target.classList.contains('ecl-mega-menu__overlay') ||
-        !this.element.contains(e.target))
+        !this.element.contains(e.target)) &&
+      this.isOpen
     ) {
       this.closeOpenDropdown();
     }
