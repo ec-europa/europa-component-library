@@ -184,6 +184,19 @@ export class MegaMenu {
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
 
+    // Replace the open/close link with a button
+    if (this.open) {
+      const buttonElement = document.createElement('button');
+      buttonElement.classList =
+        'ecl-button ecl-button--tertiary ecl-button--icon-only ecl-mega-menu__open';
+      buttonElement.type = 'button';
+      const label = queryOne('span', this.open);
+      label.classList.replace('ecl-link__label', 'ecl-button__label');
+      buttonElement.innerHTML = this.open.innerHTML;
+      this.open.parentNode.replaceChild(buttonElement, this.open);
+      this.open = buttonElement;
+    }
+
     // Bind click events on buttons
     if (this.attachClickListener) {
       // Open
