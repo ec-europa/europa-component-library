@@ -36,7 +36,6 @@ module.exports = {
       path: exampleLink,
       info: {
         title: 'About the News and Media',
-        title_id: 'about-the-news-id',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         link: {
@@ -111,7 +110,6 @@ module.exports = {
       path: exampleLink,
       info: {
         title: 'About the European Commission',
-        title_id: 'about-the-ec-title-id',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         link: {
@@ -131,7 +129,6 @@ module.exports = {
       path: exampleLink,
       info: {
         title: 'About key priorities',
-        title_id: 'about-key-priorities-id',
         content:
           'Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       },

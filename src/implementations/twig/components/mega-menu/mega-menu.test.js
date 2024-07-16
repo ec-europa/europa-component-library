@@ -8,6 +8,12 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 // Import data for tests
 import data from '@ecl/specs-component-mega-menu/demo/data';
 
+data.items.forEach((item) => {
+  if (item.info) {
+    item.info.title_id = `id-${Math.random().toString(36).substr(2, 16)}`;
+  }
+});
+
 expect.extend(toHaveNoViolations);
 
 describe('Mega Menu', () => {
