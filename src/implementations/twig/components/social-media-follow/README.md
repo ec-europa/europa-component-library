@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-social-media-follow
 
 - **"variant"** (string) (default: '') Can be 'vertical'
 - **"description"** (string) (default: '')
-- **"position"** (string) (default: 'left') pPosition (can be 'left', 'right')
+- **"position"** (string) (default: 'left') Position (can be 'left', 'right')
 - **"links"** (array) (default: []) Array of links for social media, following ECL Link structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
