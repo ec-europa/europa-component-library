@@ -11,6 +11,8 @@ $theme: null !default;
 $social-media-follow: null !default;
 
 .ecl-social-media-follow {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
 }
@@ -87,4 +89,13 @@ $social-media-follow: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.down('s') {
   @include ecl-social-media-follow-vertical;
+}
+
+// Position
+.ecl-social-media-follow--right {
+  align-items: flex-end;
+
+  .ecl-social-media-follow__list {
+    align-items: flex-end;
+  }
 }

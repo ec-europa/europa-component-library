@@ -171,7 +171,6 @@ export class MegaMenu {
 
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
-    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
@@ -184,6 +183,19 @@ export class MegaMenu {
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
 
+    // Replace the open/close link with a button
+    if (this.open) {
+      const buttonElement = document.createElement('button');
+      buttonElement.classList =
+        'ecl-button ecl-button--tertiary ecl-button--icon-only ecl-mega-menu__open';
+      buttonElement.type = 'button';
+      const label = queryOne('span', this.open);
+      label.classList.add('ecl-button__label');
+      buttonElement.innerHTML = this.open.innerHTML;
+      this.open.parentNode.replaceChild(buttonElement, this.open);
+      this.open = buttonElement;
+    }
+    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     // Bind click events on buttons
     if (this.attachClickListener) {
       // Open
@@ -913,6 +925,15 @@ export class MegaMenu {
     }
     // Key actions to navigate between first level menu items
     if (cList.contains('ecl-mega-menu__link')) {
+      if (
+        (e.key === 'Space' || e.key === ' ') &&
+        element.parentElement.hasAttribute('aria-expanded')
+      ) {
+        element.click();
+
+        return;
+      }
+
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         let prevItem = element.previousSibling;
@@ -960,6 +981,15 @@ export class MegaMenu {
     }
     // Key actions to navigate between the sub-links
     if (cList.contains('ecl-mega-menu__sublink')) {
+      if (
+        (e.key === 'Space' || e.key === ' ') &&
+        element.parentElement.hasAttribute('aria-expanded')
+      ) {
+        element.click();
+
+        return;
+      }
+
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         const nextItem = element.parentElement.nextSibling;
@@ -1060,6 +1090,7 @@ export class MegaMenu {
       if (this.toggleLabel && closeLabel) {
         this.toggleLabel.innerHTML = closeLabel;
       }
+
       this.positionMenuOverlay();
 
       // Focus first element
