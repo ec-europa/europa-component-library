@@ -13,7 +13,6 @@ $search-form: null !default;
 
 // Internal variables
 $button-border-width: 1px;
-$button-padding-horizontal: var(--s-m);
 
 .ecl-search-form {
   background-color: map.get($theme, 'color', 'white');
@@ -52,29 +51,11 @@ $button-padding-horizontal: var(--s-m);
   border-top: $button-border-width solid
     map.get($search-form, 'button-border-color');
   border-start-start-radius: 0;
-  padding: calc(
-      #{map.get($search-form, 'button-padding-vertical-mobile')} - #{$button-border-width}
-    )
-    calc(#{$button-padding-horizontal} - #{$button-border-width});
+  height: 2.75rem;
   position: relative;
 
   &.ecl-button--ghost:not(:hover, :focus-visible) {
     background-color: map.get($theme, 'color', 'white');
-  }
-
-  &:focus-visible {
-    border-width: 2px;
-    padding: calc(
-        #{map.get($search-form, 'button-padding-vertical-mobile')} - 2px
-      )
-      calc(#{$button-padding-horizontal} - 2px);
-  }
-
-  &:hover {
-    padding: calc(
-        #{map.get($search-form, 'button-padding-vertical-mobile')} - #{$button-border-width}
-      )
-      calc(#{$button-padding-horizontal} - #{$button-border-width});
   }
 
   &::before {
@@ -111,25 +92,6 @@ $button-padding-horizontal: var(--s-m);
   }
 
   .ecl-search-form__button {
-    padding: calc(
-        #{map.get($search-form, 'button-padding-vertical-desktop')} - #{$button-border-width}
-      )
-      calc(#{$button-padding-horizontal} - #{$button-border-width});
-
-    &:focus-visible {
-      padding: calc(
-          #{map.get($search-form, 'button-padding-vertical-desktop')} - 2px
-        )
-        calc(#{$button-padding-horizontal} - 2px);
-    }
-
-    &:hover {
-      padding: calc(
-          #{map.get($search-form, 'button-padding-vertical-desktop')} - #{$button-border-width}
-        )
-        calc(#{$button-padding-horizontal} - #{$button-border-width});
-    }
-
     &::before {
       top: map.get($search-form, 'button-padding-vertical-desktop');
     }

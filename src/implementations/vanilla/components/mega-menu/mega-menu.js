@@ -11,7 +11,6 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.openSelector Selector for the hamburger button
  * @param {String} options.backSelector Selector for the back button
  * @param {String} options.innerSelector Selector for the menu inner
- * @param {String} options.listSelector Selector for the menu items list
  * @param {String} options.itemSelector Selector for the menu item
  * @param {String} options.linkSelector Selector for the menu link
  * @param {String} options.subLinkSelector Selector for the menu sub link
@@ -74,7 +73,6 @@ export class MegaMenu {
       openSelector = '[data-ecl-mega-menu-open]',
       backSelector = '[data-ecl-mega-menu-back]',
       innerSelector = '[data-ecl-mega-menu-inner]',
-      listSelector = '[data-ecl-mega-menu-list]',
       itemSelector = '[data-ecl-mega-menu-item]',
       linkSelector = '[data-ecl-mega-menu-link]',
       subLinkSelector = '[data-ecl-mega-menu-sublink]',
@@ -104,7 +102,6 @@ export class MegaMenu {
     this.openSelector = openSelector;
     this.backSelector = backSelector;
     this.innerSelector = innerSelector;
-    this.listSelector = listSelector;
     this.itemSelector = itemSelector;
     this.linkSelector = linkSelector;
     this.subLinkSelector = subLinkSelector;
@@ -127,7 +124,6 @@ export class MegaMenu {
     this.backItemLevel1 = null;
     this.backItemLevel2 = null;
     this.inner = null;
-    this.itemsList = null;
     this.items = null;
     this.links = null;
     this.isOpen = false;
@@ -178,7 +174,6 @@ export class MegaMenu {
     this.toggleLabel = queryOne('.ecl-link__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
-    this.itemsList = queryOne(this.listSelector, this.element);
     this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
     this.btnNext = queryOne(this.buttonNextSelector, this.element);
     this.items = queryAll(this.itemSelector, this.element);
