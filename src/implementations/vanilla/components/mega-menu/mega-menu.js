@@ -925,6 +925,15 @@ export class MegaMenu {
     }
     // Key actions to navigate between first level menu items
     if (cList.contains('ecl-mega-menu__link')) {
+      if (
+        (e.key === 'Space' || e.key === ' ') &&
+        element.parentElement.hasAttribute('aria-expanded')
+      ) {
+        element.click();
+
+        return;
+      }
+
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         let prevItem = element.previousSibling;
@@ -972,6 +981,15 @@ export class MegaMenu {
     }
     // Key actions to navigate between the sub-links
     if (cList.contains('ecl-mega-menu__sublink')) {
+      if (
+        (e.key === 'Space' || e.key === ' ') &&
+        element.parentElement.hasAttribute('aria-expanded')
+      ) {
+        element.click();
+
+        return;
+      }
+
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         const nextItem = element.parentElement.nextSibling;
