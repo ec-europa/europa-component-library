@@ -1,5 +1,71 @@
 # Changelog
 
+# 4.4.0
+
+#### :rocket: New Feature
+
+- [#3471](https://github.com/ec-europa/europa-component-library/pull/3471) feat(flags): Adding new non members flags - FRONT-4498 ([@planctus](https://github.com/planctus))
+- [#3465](https://github.com/ec-europa/europa-component-library/pull/3465) feat(banner): new options and video - FRONT-4488 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Markup Changes
+
+- [#3486](https://github.com/ec-europa/europa-component-library/pull/3486) feat(mega-menu): Adding aria-describedby in info link - FRONT-4520 ([@planctus](https://github.com/planctus))
+- [#3487](https://github.com/ec-europa/europa-component-library/pull/3487) feat(mega-menu): Aria-describedby on featured column title - FRONT-4522 ([@planctus](https://github.com/planctus))
+- [#3484](https://github.com/ec-europa/europa-component-library/pull/3484) feat(mega-menu): Aria-label on view all link - FONT-4516 ([@planctus](https://github.com/planctus))
+- [#3483](https://github.com/ec-europa/europa-component-library/pull/3483) feat(mega-menu): Removing unneded aria-label - FRONT-4521 ([@planctus](https://github.com/planctus))
+- [#3482](https://github.com/ec-europa/europa-component-library/pull/3482) feat(mega-menu): Supporting aria-labels for nested lists - FRONT-4515 ([@planctus](https://github.com/planctus))
+- [#3421](https://github.com/ec-europa/europa-component-library/pull/3421) feat(form): update style of all form elements - FRONT-4432 ([@emeryro](https://github.com/emeryro))
+- [#3372](https://github.com/ec-europa/europa-component-library/pull/3372) feat(menu): add aria-current - FRONT-4405 ([@emeryro](https://github.com/emeryro))
+- [#3465](https://github.com/ec-europa/europa-component-library/pull/3465) feat(banner): new options and video - FRONT-4488 ([@emeryro](https://github.com/emeryro))
+- [#3462](https://github.com/ec-europa/europa-component-library/pull/3462) feat(search-form): Removing aria label, adding support for extra classes for the button and the input - FRONT-4479 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3489](https://github.com/ec-europa/europa-component-library/pull/3489) feat(social-media-follow): add position right - FRONT-4505 ([@emeryro](https://github.com/emeryro))
+- [#3480](https://github.com/ec-europa/europa-component-library/pull/3480) feat(pagination): update EU display - FRONT-4509 ([@emeryro](https://github.com/emeryro))
+- [#3484](https://github.com/ec-europa/europa-component-library/pull/3484) feat(mega-menu): Aria-label on view all link - FONT-4516 ([@planctus](https://github.com/planctus))
+- [#3483](https://github.com/ec-europa/europa-component-library/pull/3483) feat(mega-menu): Removing unneded aria-label - FRONT-4521 ([@planctus](https://github.com/planctus))
+- [#3482](https://github.com/ec-europa/europa-component-library/pull/3482) feat(mega-menu): Supporting aria-labels for nested lists - FRONT-4515 ([@planctus](https://github.com/planctus))
+- [#3431](https://github.com/ec-europa/europa-component-library/pull/3431) feat(modal): update styles - FRONT-4453 ([@emeryro](https://github.com/emeryro))
+- [#3465](https://github.com/ec-europa/europa-component-library/pull/3465) feat(banner): new options and video - FRONT-4488 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3486](https://github.com/ec-europa/europa-component-library/pull/3486) feat(mega-menu): Adding aria-describedby in info link - FRONT-4520 ([@planctus](https://github.com/planctus))
+- [#3489](https://github.com/ec-europa/europa-component-library/pull/3489) feat(social-media-follow): add position right - FRONT-4505 ([@emeryro](https://github.com/emeryro))
+- [#3490](https://github.com/ec-europa/europa-component-library/pull/3490) feat(mega-menu): Making the hamburger a button with javascript - FRONT-4519 ([@planctus](https://github.com/planctus))
+- [#3480](https://github.com/ec-europa/europa-component-library/pull/3480) feat(pagination): update EU display - FRONT-4509 ([@emeryro](https://github.com/emeryro))
+- [#3488](https://github.com/ec-europa/europa-component-library/pull/3488) feat(mega-menu): Not moving the focus when opening the menu - FRONT-4518 ([@planctus](https://github.com/planctus))
+- [#3485](https://github.com/ec-europa/europa-component-library/pull/3485) feat(mega-menu): Handling focus on Esc - FRONT-4517 ([@planctus](https://github.com/planctus))
+- [#3481](https://github.com/ec-europa/europa-component-library/pull/3481) docs(website): update color page - FRONT-4506 ([@emeryro](https://github.com/emeryro))
+- [#3487](https://github.com/ec-europa/europa-component-library/pull/3487) feat(mega-menu): Aria-describedby on featured column title - FRONT-4522 ([@planctus](https://github.com/planctus))
+- [#3484](https://github.com/ec-europa/europa-component-library/pull/3484) feat(mega-menu): Aria-label on view all link - FONT-4516 ([@planctus](https://github.com/planctus))
+- [#3474](https://github.com/ec-europa/europa-component-library/pull/3474) feat(button): setting height, using same values for padding in default and hover - FRONT-4499 ([@planctus](https://github.com/planctus))
+- [#3483](https://github.com/ec-europa/europa-component-library/pull/3483) feat(mega-menu): Removing unneded aria-label - FRONT-4521 ([@planctus](https://github.com/planctus))
+- [#3482](https://github.com/ec-europa/europa-component-library/pull/3482) feat(mega-menu): Supporting aria-labels for nested lists - FRONT-4515 ([@planctus](https://github.com/planctus))
+- [#3478](https://github.com/ec-europa/europa-component-library/pull/3478) fix(file-upload): Button only taking the needed space - FRONT-4493 ([@planctus](https://github.com/planctus))
+- [#3477](https://github.com/ec-europa/europa-component-library/pull/3477) feat(input): Using outline for focus style - FRONT-4504 ([@planctus](https://github.com/planctus))
+- [#3431](https://github.com/ec-europa/europa-component-library/pull/3431) feat(modal): update styles - FRONT-4453 ([@emeryro](https://github.com/emeryro))
+- [#3353](https://github.com/ec-europa/europa-component-library/pull/3353) feat(media container): disable Youtube shortcuts - FRONT-4363 ([@emeryro](https://github.com/emeryro))
+- [#3449](https://github.com/ec-europa/europa-component-library/pull/3449) feat(tabs): EU styles - FRONT-4451 ([@planctus](https://github.com/planctus))
+- [#3473](https://github.com/ec-europa/europa-component-library/pull/3473) feat(inpage-nav): improve mobile keyboard navigation - FRONT-4501 ([@emeryro](https://github.com/emeryro))
+- [#3475](https://github.com/ec-europa/europa-component-library/pull/3475) feat(video): homogenize track name - FRONT-4503 ([@emeryro](https://github.com/emeryro))
+- [#3456](https://github.com/ec-europa/europa-component-library/pull/3456) feat(twig): cleanup and update parameters - FRONT-4438 ([@emeryro](https://github.com/emeryro))
+- [#3421](https://github.com/ec-europa/europa-component-library/pull/3421) feat(form): update style of all form elements - FRONT-4432 ([@emeryro](https://github.com/emeryro))
+- [#3450](https://github.com/ec-europa/europa-component-library/pull/3450) feat(mega-menu): New info in mobile, mobile scroll, limiting element's height - FRONT-4447 ([@planctus](https://github.com/planctus))
+- [#3372](https://github.com/ec-europa/europa-component-library/pull/3372) feat(menu): add aria-current - FRONT-4405 ([@emeryro](https://github.com/emeryro))
+- [#3448](https://github.com/ec-europa/europa-component-library/pull/3448) feat(list with illustration fact and figures): update styles - FRONT-4468 ([@emeryro](https://github.com/emeryro))
+- [#3462](https://github.com/ec-europa/europa-component-library/pull/3462) feat(search-form): Removing aria label, adding support for extra classes for the button and the input - FRONT-4479 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3476](https://github.com/ec-europa/europa-component-library/pull/3476) chore(deps): Updates 12-07-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.3.0
 
 #### :warning: Markup Changes
