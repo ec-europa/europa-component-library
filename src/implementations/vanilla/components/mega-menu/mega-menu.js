@@ -171,7 +171,6 @@ export class MegaMenu {
 
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
-    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.btnPrevious = queryOne(this.buttonPreviousSelector, this.element);
@@ -191,12 +190,12 @@ export class MegaMenu {
         'ecl-button ecl-button--tertiary ecl-button--icon-only ecl-mega-menu__open';
       buttonElement.type = 'button';
       const label = queryOne('span', this.open);
-      label.classList.replace('ecl-link__label', 'ecl-button__label');
+      label.classList.add('ecl-button__label');
       buttonElement.innerHTML = this.open.innerHTML;
       this.open.parentNode.replaceChild(buttonElement, this.open);
       this.open = buttonElement;
     }
-
+    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     // Bind click events on buttons
     if (this.attachClickListener) {
       // Open
@@ -1073,6 +1072,7 @@ export class MegaMenu {
       if (this.toggleLabel && closeLabel) {
         this.toggleLabel.innerHTML = closeLabel;
       }
+
       this.positionMenuOverlay();
 
       // Focus first element
