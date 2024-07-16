@@ -1030,7 +1030,6 @@ export class MegaMenu {
    */
   handleKeyboardGlobal(e) {
     // Detect press on Escape
-    console.log(this.isOpen);
     if (e.key === 'Escape' || e.key === 'Esc') {
       if (this.isOpen) {
         this.closeOpenDropdown(true);
