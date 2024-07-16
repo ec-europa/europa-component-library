@@ -146,7 +146,7 @@
   {# Info #}
   {% if _info is not empty %}
     {% set _info_classes = 'ecl-mega-menu__info' %}
-    {% set _info_title_id = (_info.title_id|default('') is not empty) ? _info.title_id : 'ecl-mega-menu__info-title-' ~ random() %}
+    {% set _info_title_id =  _id ~ '-info-link' %}
     {% if _info.link is not empty %}
       {% set _info_classes = _info_classes ~ ' ecl-mega-menu__info--has-link' %}
     {% endif %}
