@@ -21,5 +21,5 @@ module.exports = {
   required: false,
   label_aria_required: 'required',
   label_aria_optional: 'optional',
-  required_text: '*',
+  required_text: '(required)',
 };

@@ -14,7 +14,7 @@ module.exports = {
   label_aria_optional: 'optional',
   disabled: false,
   invalid: false,
-  required_text: '*',
+  required_text: '(required)',
   input: {
     id: 'example-input-id-1',
     input_type: 'text',

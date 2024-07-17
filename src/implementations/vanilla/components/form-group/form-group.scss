@@ -53,18 +53,11 @@ $form-group: null !default;
   white-space: pre-wrap;
 }
 
+.ecl-form-label__optional,
 .ecl-form-label__required {
-  color: map.get($form-group, 'color-required');
-  font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-inline-start: var(--s-2xs);
-}
-
-.ecl-form-label__optional {
   align-self: center;
-  color: map.get($form-group, 'color-optional');
-  font: map.get($form-group, 'font-optional');
-  font-style: map.get($form-group, 'font-style-optional');
+  color: var(--c-p);
+  font: var(--f-s);
   margin-inline-start: var(--s-2xs);
 }
 
