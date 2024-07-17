@@ -39,7 +39,6 @@ $social-media-follow: null !default;
   display: flex;
   margin-inline-end: map.get($social-media-follow, 'item', 'margin');
   margin-top: var(--s-2xs);
-  min-height: map.get($theme, 'line-height', 'm');
 
   &:last-child {
     margin-inline-end: 0;
@@ -49,7 +48,6 @@ $social-media-follow: null !default;
 .ecl-social-media-follow__link {
   align-items: center;
   display: flex;
-  font: map.get($social-media-follow, 'item', 'font');
   overflow: hidden; /* Improve rendering on IE */
 }
 
