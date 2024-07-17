@@ -2,20 +2,5 @@
 @use '../index' as *;
 
 $social-media-follow: (
-  description: (
-    color: var(--c-d-140),
-    font: var(--f-m),
-    margin: var(--s-xs),
-  ),
-  item: (
-    margin: var(--s-l),
-  ),
-);
-$social-media-follow-print: (
-  description: (
-    font: map.get($font-prolonged-print, 'm'),
-  ),
-  item: (
-    font: map.get($font-prolonged-print, 'm'),
-  ),
+  item-margin: var(--s-l),
 );
