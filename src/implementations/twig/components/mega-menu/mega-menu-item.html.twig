@@ -100,25 +100,35 @@
     { name: _menu_link_attribute },
     { name: 'id', value: _id ~ "-link" },
   ]) %}
-  {% if _item.children is defined and _item.children is not empty and _item.children is iterable %}
+  {% if (_item.children is defined and _item.children is not empty and _item.children is iterable) or _item.container is not empty %}
     {% set _menu_link_attributes = _menu_link_attributes|merge([
       { name: 'aria-expanded', value: 'false' },
     ]) %}
-  {% endif %}
-  {% include '@ecl/link/link.html.twig' with {
-    link: {
-      type: 'standalone',
+    {% include '@ecl/button/button.html.twig' with {
+      type: 'button',
       label: _item.label,
-      path: _item.path,
       icon_path: _icon_path,
-      external: _can_be_external ? _item.external|default(false),
-      sr_external: _item.sr_external|default(''),
       icon_position: 'after',
-    },
-    icon: _icon,
-    extra_classes: _menu_link_class,
-    extra_attributes: _menu_link_attributes,
-  } only %}
+      icon: _icon,
+      extra_classes: _menu_link_class,
+      extra_attributes: _menu_link_attributes,
+    } only %}
+  {% else %}
+    {% include '@ecl/link/link.html.twig' with {
+      link: {
+        type: 'standalone',
+        label: _item.label,
+        path: _item.path,
+        icon_path: _icon_path,
+        external: _can_be_external ? _item.external|default(false),
+        sr_external: _item.sr_external|default(''),
+        icon_position: 'after',
+      },
+      icon: _icon,
+      extra_classes: _menu_link_class,
+      extra_attributes: _menu_link_attributes,
+    } only %}
+  {% endif %}
 {%- endif -%}
 
 {# Container #}
@@ -166,11 +176,12 @@
       {%- if _info.content is not empty -%}
         <div class="ecl-mega-menu__info-content">{{ _info.content }}</div>
       {%- endif -%}
-      {%- if _info.link is not empty and _item.path is not empty -%}
+      {%- if _info.link is not empty -%}
+        {% set _path = (_info.link.link.path is not empty) ? _info.link.link.path : _item.path %}
         {% include '@ecl/link/link.html.twig' with _info.link|merge({
           link: _info.link.link|merge({
             type: 'standalone',
-            path: _item.path,
+            path: _path,
           }),
           icon: {
             name: 'arrow-left',
@@ -180,7 +191,8 @@
           },
           extra_classes: _info.link.extra_classes|default('') ~ ' ecl-mega-menu__info-link',
           extra_attributes: [{
-            name: 'aria-describedby', value:  _info_title_id,
+            name: 'aria-describedby', 
+            value: _info_title_id,
           }],
         }) only %}
       {%- endif -%}
@@ -238,6 +250,32 @@
           class="{{ _subitem_class }}"
           {{- _subitem_attrs|raw -}}
         >
+        {%- if child.children is defined and child.children is not empty -%}
+          {# Children, 2nd level #}
+            {% include '@ecl/button/button.html.twig' with {
+              type: 'button',
+              label: child.label,
+              icon_path: _icon_path,
+              icon: _icon,
+              extra_classes: _sublink_class,
+              extra_attributes: _sublink_attrs,
+          } only %}
+          {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
+              see_all_label: child.see_all_label|default(''),
+              see_all: child.see_all|default(false),
+              third_level_aria_label: third_level_aria_label|default(''), 
+              see_all_attributes: child.see_all_attributes|default([]),
+              icon_path: _icon_path,
+              sublink_id: _sublink_id|default(''),
+              item: {
+                path: child.path, 
+                children: child.children,
+                level: 2,
+                info: child.info|default({}),
+                featured: child.featured|default({}),
+              },           
+          } only %}
+        {%- else -%}
           {% include '@ecl/link/link.html.twig' with {
             link: {
               type: 'standalone',
@@ -250,26 +288,8 @@
             icon: _icon,
             extra_classes: _sublink_class,
             extra_attributes: _sublink_attrs,
-          } only %}
-
-          {# Children, 2nd level #}
-          {%- if child.children is defined and child.children is not empty -%}
-            {% include '@ecl/mega-menu/mega-menu-item.html.twig' with {
-                see_all_label: child.see_all_label|default(''),
-                see_all: child.see_all|default(false),
-                third_level_aria_label: third_level_aria_label|default(''), 
-                see_all_attributes: child.see_all_attributes|default([]),
-                icon_path: _icon_path,
-                sublink_id: _sublink_id|default(''),
-                item: {
-                  path: child.path, 
-                  children: child.children,
-                  level: 2,
-                  info: child.info|default({}),
-                  featured: child.featured|default({}),
-                },           
-            } only %}
-          {%- endif -%}
+        } only %}
+        {% endif %}
         </li>
       {% endfor %}
       {%- if _see_all and _see_all_label is not empty -%}

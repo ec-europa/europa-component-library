@@ -179,23 +179,11 @@ export class MegaMenu {
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
     this.headerBanner = queryOne('.ecl-site-header__banner', document);
+    this.toggleLabel = queryOne('.ecl-button__label', this.open);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
 
-    // Replace the open/close link with a button
-    if (this.open) {
-      const buttonElement = document.createElement('button');
-      buttonElement.classList =
-        'ecl-button ecl-button--tertiary ecl-button--icon-only ecl-mega-menu__open';
-      buttonElement.type = 'button';
-      const label = queryOne('span', this.open);
-      label.classList.add('ecl-button__label');
-      buttonElement.innerHTML = this.open.innerHTML;
-      this.open.parentNode.replaceChild(buttonElement, this.open);
-      this.open = buttonElement;
-    }
-    this.toggleLabel = queryOne('.ecl-link__label', this.open);
     // Bind click events on buttons
     if (this.attachClickListener) {
       // Open
@@ -925,15 +913,6 @@ export class MegaMenu {
     }
     // Key actions to navigate between first level menu items
     if (cList.contains('ecl-mega-menu__link')) {
-      if (
-        (e.key === 'Space' || e.key === ' ') &&
-        element.parentElement.hasAttribute('aria-expanded')
-      ) {
-        element.click();
-
-        return;
-      }
-
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         e.preventDefault();
         let prevItem = element.previousSibling;

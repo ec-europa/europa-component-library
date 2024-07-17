@@ -359,16 +359,24 @@ $mega-menu: null !default;
 .ecl-mega-menu__link,
 .ecl-mega-menu__featured-list__item .ecl-link {
   align-items: center;
+  background: transparent;
   border-bottom: 1px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
-  box-sizing: content-box;
+  box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
   font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
+  width: 100%;
+
+  > span {
+    width: 100%;
+  }
 
   &:hover {
+    background: transparent;
+    border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -381,7 +389,12 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
+    background: transparent;
+    border-color: transparent;
+    color: var(--c-d);
+    outline-color: var(--c-p);
     outline-offset: -2px;
+    outline-width: 2px;
   }
 
   .ecl-icon {
@@ -524,6 +537,7 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__link {
+      background: var(--c-br);
       box-sizing: border-box;
       box-shadow: none;
       border-bottom: none;
@@ -557,6 +571,7 @@ $mega-menu: null !default;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
         outline-offset: -8px;
+        outline-width: 2px;
       }
     }
 
@@ -621,7 +636,7 @@ $mega-menu: null !default;
       .ecl-mega-menu--forced-close
     ) {
     .ecl-mega-menu__item {
-      &.ecl-mega-menu__item--expanded > .ecl-link .ecl-icon {
+      &.ecl-mega-menu__item--expanded > .ecl-button .ecl-icon {
         transform: rotate(0);
       }
 
@@ -700,12 +715,9 @@ $mega-menu: null !default;
 
       &.ecl-mega-menu__parent-link {
         border: none;
+        cursor: default;
         font: var(--f-l);
         margin: 0 calc(-1 * var(--s-xs));
-
-        &:hover {
-          text-decoration: underline;
-        }
 
         &::after {
           background: map.get(
@@ -723,7 +735,7 @@ $mega-menu: null !default;
         }
       }
 
-      .ecl-link__icon {
+      .ecl-button__icon {
         display: none;
       }
     }
@@ -746,8 +758,6 @@ $mega-menu: null !default;
   padding-inline-start: 0;
 
   .ecl-mega-menu__see-all {
-    display: none;
-
     .ecl-link {
       border-radius: 0;
       box-sizing: border-box;
@@ -777,6 +787,7 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__sublink {
+  background: transparent;
   box-sizing: border-box;
   border-bottom: 1.5px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
@@ -788,6 +799,11 @@ $mega-menu: null !default;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  width: 100%;
+
+  > span {
+    width: 100%;
+  }
 
   &.ecl-link--icon:not(.ecl-mega-menu__parent-link) {
     display: flex;
@@ -807,6 +823,8 @@ $mega-menu: null !default;
   }
 
   &:hover {
+    background: transparent;
+    border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -824,7 +842,12 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
+    background: transparent;
+    border-color: transparent;
+    color: var(--c-d);
+    outline-color: var(--c-p);
     outline-offset: -2px;
+    outline-width: 2px;
   }
 
   .ecl-icon {
@@ -854,6 +877,10 @@ $mega-menu: null !default;
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:focus-visible {
+      color: var(--c-p) !important;
     }
 
     &.ecl-mega-menu__sublink--last {
@@ -1210,15 +1237,24 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__sublink {
+      background: transparent;
       break-inside: avoid-column;
       font: var(--f-m);
       line-height: 137.5%;
       margin: 0;
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
+      width: 100%;
 
-      &:focus {
+      > span {
+        width: 100%;
+      }
+
+      &:focus-visible {
+        border-color: transparent;
+        color: var(--c-d);
         outline-color: var(--c-p);
+        outline-width: 2px;
       }
     }
 

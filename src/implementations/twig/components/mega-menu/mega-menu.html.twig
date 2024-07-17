@@ -103,34 +103,32 @@
 >
   <div class="ecl-mega-menu__overlay"></div>
   <div class="ecl-container ecl-mega-menu__container">
-    {%- if _toggle is not empty -%}
-      {% set _toggle_icon = {} %}
-      {% if _toggle.icon is defined %}
-        {% if _close is not empty and _close.icon is not empty %}
-          {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
-        {% else %}
-          {% set _toggle_icon = _toggle.icon %}
-        {% endif %}
+    {% set _toggle_icon = {} %}
+    {% if _toggle.icon is defined %}
+      {% if _close is not empty and _close.icon is not empty %}
+        {% set _toggle_icon = [ _toggle.icon, _close.icon ] %}
+      {% else %}
+        {% set _toggle_icon = _toggle.icon %}
       {% endif %}
-      {% include '@ecl/link/link.html.twig' with _toggle|merge({
-        link: _toggle.link|merge({
-          type: 'standalone',
-          icon_path: _icon_path,
-          icon_position: 'before',
-        }),
-        icon: _toggle_icon,
-        extra_classes: 'ecl-button ecl-button--tertiary ecl-mega-menu__open',
-        extra_attributes: [
-          { name: 'data-ecl-mega-menu-open' },
-          { name: 'aria-expanded', value: 'false' }
-        ],
-      }) only %}
-    {%- endif -%}
+    {% endif %}
+    {% include '@ecl/button/button.html.twig' with _toggle|merge({
+      type: 'button',
+      variant: 'tertiary',
+      icon_path: _icon_path,
+      icon_position: 'before',
+      icon: _toggle_icon,
+      hide_label: true,
+      extra_classes: 'ecl-mega-menu__open',
+      extra_attributes: [
+        { name: 'data-ecl-mega-menu-open' },
+        { name: 'aria-expanded', value: 'false' }
+      ],
+    }) only %}
 
     <section class="ecl-mega-menu__inner" data-ecl-mega-menu-inner role="application">
       <header class="ecl-mega-menu__inner-header">
         {%- if _back_label is not empty -%}
-          {% include '@ecl/button/button.html.twig' with ({
+          {% include '@ecl/button/button.html.twig' with {
             type: 'submit',
             variant: 'ghost',
             label: _back_label,
@@ -145,7 +143,7 @@
             extra_attributes: [{
               name: 'data-ecl-mega-menu-back',
             }],
-          }) only %}
+          } only %}
         {%- endif -%}
       </header>
       
