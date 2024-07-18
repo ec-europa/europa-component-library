@@ -1211,6 +1211,7 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__sublink {
       break-inside: avoid-column;
+      border-inline-start: 4px solid transparent;
       font: var(--f-m);
       line-height: 137.5%;
       margin: 0;
@@ -1237,6 +1238,7 @@ $mega-menu: null !default;
           'desktop',
           'sublink-current-background'
         );
+        border-color: var(--c-p);
       }
     }
   }
