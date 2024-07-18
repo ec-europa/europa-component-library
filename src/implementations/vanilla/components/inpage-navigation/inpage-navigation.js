@@ -93,6 +93,8 @@ export class InpageNavigation {
     this.observer = null;
     this.stickyObserver = null;
     this.isExpanded = false;
+    this.toggleElement = null;
+    this.navLinks = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -319,8 +321,8 @@ export class InpageNavigation {
     }
     ECL.components = ECL.components || new Map();
 
-    const toggleElement = queryOne(this.toggleSelector, this.element);
-    const navLinks = queryAll(this.linksSelector, this.element);
+    this.toggleElement = queryOne(this.toggleSelector, this.element);
+    this.navLinks = queryAll(this.linksSelector, this.element);
 
     this.initSticky(this.element);
     this.initScrollSpy();
@@ -332,15 +334,15 @@ export class InpageNavigation {
       onDeactivate: () => this.closeList(),
     });
 
-    if (this.attachClickListener && toggleElement) {
-      toggleElement.addEventListener('click', this.handleClickOnToggler);
+    if (this.attachClickListener && this.toggleElement) {
+      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
-    if (this.attachClickListener && navLinks) {
-      navLinks.forEach((link) =>
+    if (this.attachClickListener && this.navLinks) {
+      this.navLinks.forEach((link) =>
         link.addEventListener('click', this.handleClickOnLink),
       );
       this.element.addEventListener('keydown', this.handleShiftTab);
-      toggleElement.addEventListener('click', this.handleClickOnToggler);
+      this.toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
 
     document.addEventListener('keydown', this.handleKeyboard);
@@ -413,27 +415,33 @@ export class InpageNavigation {
    * @param {Event} e
    */
   handleClickOnToggler(e) {
-    const togglerElement = queryOne(this.toggleSelector, this.element);
-
     e.preventDefault();
 
-    // Get current status
-    this.isExpanded = togglerElement.getAttribute('aria-expanded') === 'true';
+    if (this.toggleElement) {
+      // Get current status
+      this.isExpanded =
+        this.toggleElement.getAttribute('aria-expanded') === 'true';
 
-    // Toggle the expandable/collapsible
-    togglerElement.setAttribute(
-      'aria-expanded',
-      this.isExpanded ? 'false' : 'true',
-    );
-    if (this.isExpanded) {
-      // Untrap focus
-      this.focusTrap.deactivate();
-    } else {
-      // Trap focus
-      this.focusTrap.activate();
+      // Toggle the expandable/collapsible
+      this.toggleElement.setAttribute(
+        'aria-expanded',
+        this.isExpanded ? 'false' : 'true',
+      );
+      if (this.isExpanded) {
+        // Untrap focus
+        this.focusTrap.deactivate();
+      } else {
+        // Trap focus
+        this.focusTrap.activate();
+
+        // Focus first item
+        if (this.navLinks && this.navLinks.length > 0) {
+          this.navLinks[0].focus();
+        }
+      }
+
+      this.trigger('onToggle', { isExpanded: this.isExpanded });
     }
-
-    this.trigger('onToggle', { isExpanded: this.isExpanded });
   }
 
   /**
@@ -470,28 +478,36 @@ export class InpageNavigation {
 
     if (e.key === 'ArrowUp') {
       e.preventDefault();
-      const prevItem = element.parentElement.previousSibling;
-      if (
-        prevItem &&
-        prevItem.classList.contains('ecl-inpage-navigation__item')
-      ) {
-        const prevLink = queryOne(this.linksSelector, prevItem);
-        if (prevLink) {
-          prevLink.focus();
+      if (element === this.navLinks[0]) {
+        this.handleClickOnToggler(e);
+      } else {
+        const prevItem = element.parentElement.previousSibling;
+        if (
+          prevItem &&
+          prevItem.classList.contains('ecl-inpage-navigation__item')
+        ) {
+          const prevLink = queryOne(this.linksSelector, prevItem);
+          if (prevLink) {
+            prevLink.focus();
+          }
         }
       }
     }
 
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      const nextItem = element.parentElement.nextSibling;
-      if (
-        nextItem &&
-        nextItem.classList.contains('ecl-inpage-navigation__item')
-      ) {
-        const nextLink = queryOne(this.linksSelector, nextItem);
-        if (nextLink) {
-          nextLink.focus();
+      if (element === this.toggleElement) {
+        this.handleClickOnToggler(e);
+      } else {
+        const nextItem = element.parentElement.nextSibling;
+        if (
+          nextItem &&
+          nextItem.classList.contains('ecl-inpage-navigation__item')
+        ) {
+          const nextLink = queryOne(this.linksSelector, nextItem);
+          if (nextLink) {
+            nextLink.focus();
+          }
         }
       }
     }

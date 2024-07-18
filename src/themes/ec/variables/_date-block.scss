@@ -32,11 +32,10 @@ $date-block: (
     font-size: map.get($font-size, 's'),
   ),
   year: (
-    padding: 2px var(--s-2xs) var(--s-2xs),
+    padding: var(--s-2xs) 0,
     background-color: var(--c-d),
     text-color: map.get($color, 'white'),
-    line-height: map.get($line-height, 'xs'),
-    font-size: map.get($font-size, 's'),
+    font: map.get($font, 's'),
     font-weight: map.get($font-weight, 'bold'),
   ),
 );

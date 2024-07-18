@@ -50,7 +50,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -87,7 +86,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -109,7 +107,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -156,6 +153,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -168,6 +166,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -193,13 +192,13 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -229,6 +228,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -309,10 +309,14 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -350,6 +354,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -398,7 +403,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -426,6 +430,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -441,8 +446,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -527,7 +531,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -574,6 +577,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -586,6 +590,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -611,6 +616,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -660,7 +666,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -707,6 +712,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -725,6 +731,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -779,7 +786,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -809,6 +815,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -848,10 +855,14 @@ exports[`Mega Menu Default renders correctly 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -889,6 +900,7 @@ exports[`Mega Menu Default renders correctly 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -1063,7 +1075,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -1100,7 +1111,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -1122,7 +1132,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -1169,6 +1178,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -1181,6 +1191,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -1206,13 +1217,13 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -1242,6 +1253,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -1322,10 +1334,14 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -1363,6 +1379,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -1411,7 +1428,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -1439,6 +1455,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -1454,8 +1471,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -1540,7 +1556,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -1587,6 +1602,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -1599,6 +1615,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -1624,6 +1641,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -1673,7 +1691,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -1720,6 +1737,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -1738,6 +1756,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -1792,7 +1811,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -1822,6 +1840,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -1861,10 +1880,14 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -1902,6 +1925,7 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -2078,7 +2102,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -2115,7 +2138,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -2137,7 +2159,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -2184,6 +2205,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -2196,6 +2218,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -2221,13 +2244,13 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -2257,6 +2280,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -2337,10 +2361,14 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -2378,6 +2406,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -2426,7 +2455,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -2454,6 +2482,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -2469,8 +2498,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -2555,7 +2583,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -2602,6 +2629,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -2614,6 +2642,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -2639,6 +2668,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -2688,7 +2718,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -2735,6 +2764,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -2753,6 +2783,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -2807,7 +2838,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -2837,6 +2867,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -2876,10 +2907,14 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -2917,6 +2952,7 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -3091,7 +3127,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -3128,7 +3163,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -3150,7 +3184,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -3197,6 +3230,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -3209,6 +3243,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -3234,13 +3269,13 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -3270,6 +3305,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -3350,10 +3386,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -3391,6 +3431,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -3440,7 +3481,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -3468,6 +3508,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -3483,8 +3524,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -3569,7 +3609,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -3616,6 +3655,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -3628,6 +3668,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -3653,6 +3694,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -3702,7 +3744,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -3749,6 +3790,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -3767,6 +3809,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -3821,7 +3864,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -3851,6 +3893,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -3890,10 +3933,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -3931,6 +3978,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -4105,7 +4153,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -4142,7 +4189,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -4164,7 +4210,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -4212,6 +4257,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -4224,6 +4270,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -4249,13 +4296,13 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -4285,6 +4332,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -4365,10 +4413,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -4406,6 +4458,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -4454,7 +4507,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -4482,6 +4534,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -4497,8 +4550,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -4583,7 +4635,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -4630,6 +4681,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -4642,6 +4694,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -4667,6 +4720,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -4716,7 +4770,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -4763,6 +4816,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -4781,6 +4835,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -4835,7 +4890,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -4865,6 +4919,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -4904,10 +4959,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -4945,6 +5004,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -5119,7 +5179,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -5156,7 +5215,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -5178,7 +5236,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -5225,6 +5282,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -5237,6 +5295,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -5262,13 +5321,13 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -5299,6 +5358,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -5379,10 +5439,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -5420,6 +5484,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -5468,7 +5533,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -5496,6 +5560,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -5511,8 +5576,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -5597,7 +5661,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -5644,6 +5707,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -5656,6 +5720,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -5681,6 +5746,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -5730,7 +5796,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -5777,6 +5842,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -5795,6 +5861,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -5849,7 +5916,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -5879,6 +5945,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -5918,10 +5985,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -5959,6 +6030,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -6133,7 +6205,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -6170,7 +6241,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -6192,7 +6262,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -6239,6 +6308,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -6251,6 +6321,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -6276,13 +6347,13 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -6312,6 +6383,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -6392,6 +6464,9 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
@@ -6434,6 +6509,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -6482,7 +6558,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -6510,6 +6585,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -6525,8 +6601,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -6611,7 +6686,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -6658,6 +6732,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -6670,6 +6745,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -6695,6 +6771,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -6744,7 +6821,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -6791,6 +6867,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -6809,6 +6886,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -6863,7 +6941,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -6893,6 +6970,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -6932,10 +7010,14 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -6973,6 +7055,7 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -7147,7 +7230,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
         </span>
       </a>
       <section
-        aria-label="ecl mega menu demo"
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
         role="application"
@@ -7184,7 +7266,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
         </header>
         <ul
           class="ecl-mega-menu__list"
-          data-ecl-menu-list=""
         >
           <li
             class="ecl-mega-menu__item"
@@ -7206,7 +7287,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to the News and media page"
             id="ecl-mega-menu-item-demo-1"
           >
             <a
@@ -7253,6 +7333,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-1-info-title"
                   >
                     About the News and Media
                   </span>
@@ -7265,6 +7346,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-1-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -7290,13 +7372,13 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.1 item's page"
                     >
                       <a
                         aria-expanded="false"
@@ -7326,6 +7408,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -7406,10 +7489,14 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="item-2-1-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -7447,6 +7534,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="item-2-1-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items
@@ -7495,7 +7583,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to the 2.3 item page"
                     >
                       <a
                         aria-expanded="false"
@@ -7523,6 +7610,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -7538,8 +7626,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             </a>
                           </li>
                           <li
-                            aria-current="page"
-                            class="ecl-mega-menu__subitem ecl-mega-menu__subitem--current ecl-mega-menu__subitem--current-page"
+                            class="ecl-mega-menu__subitem"
                             data-ecl-mega-menu-subitem=""
                           >
                             <a
@@ -7624,7 +7711,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to About the European Commission page"
             id="ecl-mega-menu-item-demo-2"
           >
             <a
@@ -7671,6 +7757,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-2-info-title"
                   >
                     About the European Commission
                   </span>
@@ -7683,6 +7770,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       Description text, lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </div>
                     <a
+                      aria-describedby="ecl-mega-menu-item-demo-2-info-title"
                       class="ecl-link ecl-link--standalone ecl-link--icon  ecl-mega-menu__info-link"
                       href="/example"
                     >
@@ -7708,6 +7796,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -7757,7 +7846,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
-            data-ecl-parent-aria-label="Link to Key priorities page"
             id="ecl-mega-menu-item-demo-3"
           >
             <a
@@ -7804,6 +7892,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                 >
                   <span
                     class="ecl-mega-menu__info-title"
+                    id="ecl-mega-menu-item-demo-3-info-title"
                   >
                     About key priorities
                   </span>
@@ -7822,6 +7911,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                   data-ecl-mega-menu-mega=""
                 >
                   <ul
+                    aria-label="Pages in this section"
                     class="ecl-mega-menu__sublist"
                   >
                     <li
@@ -7876,7 +7966,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
-                      data-ecl-parent-aria-label="Link to research and innovation page"
                     >
                       <a
                         aria-expanded="false"
@@ -7906,6 +7995,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                         data-ecl-mega-menu-mega=""
                       >
                         <ul
+                          aria-label="Sub-pages in this section"
                           class="ecl-mega-menu__sublist"
                         >
                           <li
@@ -7945,10 +8035,14 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                             </a>
                           </li>
                           <li
+                            class="ecl-mega-menu__spacer"
+                          />
+                          <li
                             class="ecl-mega-menu__subitem ecl-mega-menu__see-all"
                           >
                             <a
                               aria-describedby="research-and-innovation-id"
+                              aria-label="View all sub-pages of this section"
                               class="ecl-link ecl-link--standalone ecl-link--icon"
                               href="/example"
                             >
@@ -7986,6 +8080,7 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                               />
                             </picture>
                             <span
+                              aria-describedby="research-and-innovation-id"
                               class="ecl-mega-menu__featured-title"
                             >
                               Featured items

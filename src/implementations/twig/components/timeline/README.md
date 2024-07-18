@@ -34,7 +34,6 @@ npm install --save @ecl/twig-component-timeline
   hide: {from: 7, to: -2}, 
   items: [ 
     { 
-      id: '1', 
       label: '13 September 2017', 
       title: 'Item title', 
       content: 

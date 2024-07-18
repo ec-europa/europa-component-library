@@ -21,7 +21,7 @@ $select: null !default;
   color: map.get($select, 'color-input');
   cursor: pointer;
   display: block;
-  font: var(--f-m);
+  font: var(--f-ui-m);
   margin: 0;
   overflow: hidden;
   padding-bottom: calc(
@@ -152,6 +152,7 @@ $select: null !default;
 
 .ecl-select--active {
   &:hover {
+    border-color: map.get($select, 'border-color-focus');
     cursor: pointer !important;
   }
 
@@ -258,22 +259,9 @@ $select: null !default;
   }
 
   .ecl-checkbox__label {
-    padding-bottom: map.get(
-      $select,
-      'multiple-checkbox-label-vertical-padding'
-    );
     padding-inline-start: var(--s-m);
     padding-inline-end: var(--s-m);
-    padding-top: map.get($select, 'multiple-checkbox-label-vertical-padding');
     width: calc(100% - #{var(--s-m)} - #{var(--s-m)});
-  }
-
-  .ecl-checkbox__label:hover,
-  .ecl-checkbox__label:focus {
-    background-color: map.get(
-      $select,
-      'multiple-checkbox-background-hover-color'
-    );
   }
 
   .ecl-select__multiple-group {

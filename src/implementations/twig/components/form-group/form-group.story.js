@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import { getFormControls, correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataText from '@ecl/specs-component-text-input/demo/data';
 import dataSingle from '@ecl/specs-component-select/demo/data-single';
@@ -19,7 +18,6 @@ import dataFileUploadMultiple from '@ecl/specs-component-file-upload/demo/data--
 import formGroup from './form-group.html.twig';
 import notes from './README.md';
 
-const system = getSystem();
 const dataStandaloneCheckbox = {
   ...dataCheckbox,
   input: {
@@ -27,8 +25,6 @@ const dataStandaloneCheckbox = {
     items: [dataCheckbox.input.items[0]],
   },
 };
-dataText.invalid_icon.size = system === 'ec' ? 's' : 'm';
-dataSingle.input.icon_size = system === 'ec' ? 'xs' : 's';
 
 const getArgs = (data) => {
   const args = {

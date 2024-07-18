@@ -9,6 +9,7 @@
     - "counter_separator" (string) (default: '')
     - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
+    - "sr_overlay_label" (string) (default: '') aria-label for the overlay
   - "item" (object) (default: {}): object of type gallery-item
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -44,7 +45,11 @@
 
 {# Print the result #}
 
-<dialog class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-gallery-overlay>
+<dialog class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-gallery-overlay
+{% if _overlay.sr_overlay_label is defined and _overlay.sr_overlay_label is not empty %}
+  aria-label="{{ _overlay.sr_overlay_label }}"
+{% endif %}
+>
   <header class="ecl-gallery__close" data-ecl-gallery-overlay-header>
     {% include '@ecl/button/button.html.twig' with _overlay.close|merge({
       extra_classes: 'ecl-gallery__close-button',

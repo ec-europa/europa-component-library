@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-  - "id" (string) (default: '')
+  - "id" (string) (default: random)
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
@@ -27,7 +27,7 @@
 
 {% set _button_choose_label = button_choose_label|default('') %}
 {% set _button_replace_label = button_replace_label|default('') %}
-{% set _id = id|default('') %}
+{% set _id = id|default('ecl-file-upload-' ~ random()) %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}

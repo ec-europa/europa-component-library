@@ -12,16 +12,17 @@ npm install --save @ecl/twig-component-mega-menu
 - **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
 - **"title"** (string) (default: ''): Used as the inner container aria-label value
 - **"close"**: (associative array) (default: {}): Object, using ECL Button structure
+- **"aria_label"** (string): (default: ''): Main list aria label
+- **"second_level_aria_label"** (string): (default: ''): Second level list aria label
+- **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
-  "is_current": (boolean) (optional)
   "external": (boolean) (optional)
   "sr_external" (string) (default: '') Additional label for the external icon
-  "link_aria_label" (string)
   "container": (string) Empty container to be filled in with content
   "info" (object) (default: {}) Info column
   "title" (string) Title of the info panel
@@ -36,7 +37,6 @@ npm install --save @ecl/twig-component-mega-menu
   {
   "label": (string) (default: '')
   "path": (string) (default: '')
-  "is_current": (boolean) (optional)
   "external": (boolean)
   "sr_external" (string) (default: '') Additional label for the external icon
   "see_all": (boolean)
@@ -84,7 +84,6 @@ npm install --save @ecl/twig-component-mega-menu
     {
       label: "Menu item",
       path: "example",
-      is_current: false,
       children: [
         {
           label: "Item 1.1",

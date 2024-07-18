@@ -4,6 +4,7 @@
   Parameters:
     - "variant" (string) (default: ''): can be 'vertical',
     - "description" (string) (default: ''),
+    - "position" (string) (default: 'left') Position (can be 'left', 'right')
     - "links" (array) (default: []): Array of links for social media, following ECL Link structure
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -19,6 +20,7 @@
 {% set _css_class = 'ecl-social-media-follow' %}
 {% set _extra_attributes = '' %}
 {% set _description = description|default('') %}
+{% set _position = position|default('left') %}
 {% set _links = links|default([]) %}
 {% set _variant = variant|default('') %}
 
@@ -26,6 +28,10 @@
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if _position is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-social-media-follow--' ~ _position %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -64,6 +70,7 @@
             no_visited: true,
           }),
           icon: link.icon|default({})|merge({
+            size: 'm',
             extra_classes: _icon_extra_classes,
           }),
           extra_classes: _link_extra_classes,

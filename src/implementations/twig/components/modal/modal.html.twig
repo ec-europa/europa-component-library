@@ -2,8 +2,8 @@
 
 {#
   Parameters:
-    - "id" (string) (default: ''): id of the modal
-    - "toggle_id" (string) (default: ''): id of the element to toggle the modal
+    - "id" (string) (default: random): id of the modal
+    - "toggle_id" (string) (default: random): id of the element to toggle the modal
     - "variant" (string) (default: ''): could be empty, 'information, 'success', 'warning' or 'error'
     - "size" (string) (default: 'l'): Size of the modal. Could be 's' or 'l' 
     - "icon_path" (string) (default: '') Path to the icon sprite
@@ -27,8 +27,8 @@
 
 {# Internal properties #}
 
-{% set _id = id|default('') %}
-{% set _toggle_id = toggle_id|default('') %}
+{% set _id = id|default('ecl-modal-' ~ random()) %}
+{% set _toggle_id = toggle_id|default(_id ~ '-toggle') %}
 {% set _variant = variant|default('') %}
 {% set _size = size|default('l') %}
 {% set _css_class = 'ecl-modal' %}
@@ -91,6 +91,9 @@
     <div class="{{ _content_class }}">
       <header class="ecl-modal__header">
         {% if _header_icon is not empty and _icon_path is not empty %}
+          {% if _variant == 'warning' and _header_icon == 'warning' %}
+            <span class="ecl-modal__icon-background"></span>
+          {% endif %}
           {% include '@ecl/icon/icon.html.twig' with {
             icon: {
               path: _icon_path,

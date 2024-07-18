@@ -21,6 +21,7 @@
     - "counter_separator" (string) (default: '')
     - "full_screen_label" (string) (default: '')
     - "share" (object) (default: {}): object of type link
+    - "sr_overlay_label" (string) (default: '') aria-label for the overlay
   - "footer" (object) (default: {}): object of type link
   - "items" (array) (default: [])
     - "title" (string) (default: '')
@@ -47,7 +48,7 @@
 {% set _grid = grid|default(false) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
-{% set _id = id|default(random()) %}
+{% set _id = id|default('ecl-gallery-' ~ random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
 {% set _overlay = overlay|default({}) %}

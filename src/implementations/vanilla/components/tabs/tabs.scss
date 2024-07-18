@@ -15,7 +15,7 @@ $tabs: null !default;
 $button-width: 44px;
 
 .ecl-tabs {
-  margin: 0 0 var(--s-xl);
+  margin: 0 0 map.get($tabs, 'margin-bottom');
   padding: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'dropdown');
@@ -36,11 +36,16 @@ $button-width: 44px;
   margin: 0;
   padding-inline-start: 0;
   transition-duration: 0.4s;
+
+  .ecl-tabs[data-ecl-auto-initialized] & {
+    flex-wrap: nowrap;
+  }
 }
 
 .ecl-tabs__container--left {
   margin-inline-start: $button-width;
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-tabs__list {
     margin-left: -$button-width;
   }
@@ -50,14 +55,22 @@ $button-width: 44px;
   margin-inline-end: $button-width;
 }
 
+.ecl-tabs__item {
+  flex-shrink: 0;
+  margin-inline-end: map.get($tabs, 'item', 'margin-end');
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+}
+
 .ecl-tabs__link {
-  background-color: map.get($theme, 'color', 'white');
   border-bottom: map.get($tabs, 'separator-width') solid
     map.get($tabs, 'separator-color');
   border-radius: map.get($tabs, 'item', 'border-radius');
   color: map.get($tabs, 'item', 'color');
   display: block;
-  font: var(--f-m);
+  font: map.get($tabs, 'item', 'font');
   margin-bottom: -#{map.get($tabs, 'separator-width')};
   padding: map.get($tabs, 'item', 'padding');
   text-decoration: none;
@@ -78,6 +91,7 @@ $button-width: 44px;
 }
 
 .ecl-tabs__link--active {
+  background-color: map.get($tabs, 'active', 'background');
   border-bottom: map.get($tabs, 'separator-width') solid
     map.get($tabs, 'active', 'separator-color');
   border-inline-start: map.get($tabs, 'active', 'border-width') solid
@@ -89,6 +103,11 @@ $button-width: 44px;
   color: map.get($tabs, 'active', 'color');
   font-weight: map.get($theme, 'font-weight', 'bold');
   padding-top: map.get($tabs, 'active', 'padding-top');
+
+  &:hover {
+    border-bottom: map.get($tabs, 'separator-width') solid
+      map.get($tabs, 'active', 'separator-color');
+  }
 
   &:visited {
     color: map.get($tabs, 'active', 'color');
@@ -107,10 +126,9 @@ $button-width: 44px;
 
 .ecl-tabs__toggle {
   font-weight: map.get($tabs, 'more', 'font-weight');
-  margin-bottom: calc(-#{map.get($tabs, 'separator-width')} - 2px);
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 0;
 
   &:hover {
     box-shadow: none;
@@ -182,7 +200,8 @@ $button-width: 44px;
     }
   }
 
-  .ecl-tabs__link--active {
+  .ecl-tabs__link--active,
+  .ecl-tabs__link:active {
     background-color: map.get($tabs, 'dropdown', 'item-active-background');
     color: map.get($tabs, 'dropdown', 'item-active-color');
     font-weight: map.get($theme, 'font-weight', 'regular');
@@ -212,9 +231,21 @@ $button-width: 44px;
 
 .ecl-tabs__prev,
 .ecl-tabs__next {
+  align-items: center;
   background: map.get($theme, 'color', 'white');
   position: absolute;
   top: 0;
+  height: $button-width;
+
+  .ecl-button__container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .ecl-icon {
+    height: 1rem;
+    width: 1rem;
+  }
 
   &:focus-visible {
     background: map.get($theme, 'color', 'white');

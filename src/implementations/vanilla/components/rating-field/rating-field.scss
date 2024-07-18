@@ -45,7 +45,7 @@ $rating-field: null !default;
       fill: map.get($rating-field, 'hover-stroke-color');
     }
 
-    .ecl-rating-field__input:focus {
+    .ecl-rating-field__input:focus-visible {
       + .ecl-rating-field__label {
         outline: 1px solid map.get($rating-field, 'focus-outline');
         outline-offset: -1px;

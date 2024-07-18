@@ -38,11 +38,6 @@ module.exports = {
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens.',
       meta: 'Copyright, Author, Licence for embedded media',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
     },
     {
       // Image
@@ -103,35 +98,12 @@ module.exports = {
             src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
-          {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-            type: 'video/webm',
-          },
-        ],
-        tracks: [
-          {
-            src: '/captions/bunny-en.vtt',
-            kind: 'captions',
-            src_lang: 'en',
-            label: 'English',
-          },
-          {
-            src: '/captions/bunny-fr.vtt',
-            kind: 'captions',
-            src_lang: 'fr',
-            label: 'français',
-          },
         ],
       },
       alt: 'Image 5',
       title: 'EU law',
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
       share_path: '/share#example-image5.jpg',
     },
     {
@@ -182,11 +154,6 @@ module.exports = {
       title: 'Climate change',
       description: 'Climate change and protect nature',
       meta: 'Copyright, Author, Licence for embedded media',
-      icon: {
-        name: 'video',
-        size: 'l',
-        path: '/icons.svg',
-      },
     },
     {
       // Image
@@ -260,7 +227,7 @@ module.exports = {
         path: '/icons.svg',
       },
     },
-    extra_attributes: [{ name: 'aria-label', value: 'Gallery overlay' }],
+    sr_overlay_label: 'Gallery overlay',
   },
   disable_overlay: false,
   view_all_label: 'See all',

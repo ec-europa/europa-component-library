@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-file-upload
 
 ### Parameters:
 
-- **"id"** (string) (default: '') - Input id
+- **"id"** (string) (default: random) - Input id
 - **"name"** (string) (default: '') - Input id
 - **"invalid"** (boolean) (default: false) - When an error is found
 - **"disabled"** (boolean) (default: false) - Disables the input field

@@ -8,7 +8,7 @@ npm install --save @ecl/twig-component-expandable
 
 ### Parameters:
 
-- **"id"** (string) (default: '')
+- **"id"** (string) (default: random)
 - **"label_expanded"** (string) (default: '')
 - **"label_collapsed"** (string) (default: '')
 - **"button"** (predefined structure) : Button component structure
