@@ -1,6 +1,6 @@
 module.exports = {
   optional_text: '(optional)',
-  required_text: '(required)',
+  required_text: '*',
   required: true,
   label_aria_required: 'required',
   label_aria_optional: 'optional',

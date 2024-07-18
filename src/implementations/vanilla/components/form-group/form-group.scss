@@ -57,8 +57,12 @@ $form-group: null !default;
 .ecl-form-label__required {
   align-self: center;
   color: var(--c-p);
-  font: var(--f-s);
+  font: map.get($form-group, 'font-optional-required');
   margin-inline-start: var(--s-2xs);
+}
+
+.ecl-form-label--invalid .ecl-form-label__required {
+  color: var(--c-er);
 }
 
 .ecl-form-label + {

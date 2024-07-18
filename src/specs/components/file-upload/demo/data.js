@@ -9,7 +9,7 @@ module.exports = {
     name: 'error',
   },
   sr_invalid_icon: 'Error',
-  required_text: '(required)',
+  required_text: '*',
   optional_text: '(optional)',
   required: true,
   label_aria_required: 'required',
