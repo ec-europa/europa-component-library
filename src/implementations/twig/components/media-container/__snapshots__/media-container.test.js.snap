@@ -168,12 +168,14 @@ exports[`Media Container video renders correctly 1`] = `
 <jest>
   <div
     class="ecl-media-container"
+    data-ecl-media-container-player-label="Video player"
+    data-ecl-media-container-title="Big Buck Bunny"
   >
     <figure
       class="ecl-media-container__figure"
     >
       <video
-        aria-label="Big Buck Bunny - Video"
+        aria-label="Big Buck Bunny - Video player"
         class="ecl-media-container__media"
         controls=""
         poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
@@ -215,6 +217,8 @@ exports[`Media Container video with embedded media renders correctly 1`] = `
     class="ecl-media-container"
     data-ecl-auto-init="MediaContainer"
     data-ecl-media-container="true"
+    data-ecl-media-container-player-label="Video player"
+    data-ecl-media-container-title="New digital strategy"
   >
     <figure
       class="ecl-media-container__figure"
@@ -228,7 +232,7 @@ exports[`Media Container video with embedded media renders correctly 1`] = `
           frameborder="0"
           height="197"
           src="https://www.youtube.com/embed/fgi-GSCB6ho"
-          title="Video player"
+          title="New digital strategy - Video player"
           width="350"
         />
       </div>
