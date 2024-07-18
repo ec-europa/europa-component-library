@@ -44,8 +44,10 @@ $inpage-navigation: null !default;
   background: map.get($inpage-navigation, 'trigger', 'background');
   background-origin: border-box;
   border-radius: map.get($inpage-navigation, 'trigger', 'border-radius');
+  box-sizing: border-box;
   color: map.get($inpage-navigation, 'trigger', 'color');
   display: none;
+  height: map.get($inpage-navigation, 'trigger', 'height');
   margin: map.get($inpage-navigation, 'trigger', 'margin');
   padding: map.get($inpage-navigation, 'trigger', 'padding');
   position: relative;
@@ -67,15 +69,16 @@ $inpage-navigation: null !default;
   display: block;
 
   .ecl-inpage-navigation__trigger {
+    align-items: center;
     border: map.get($inpage-navigation, 'trigger', 'border');
-    display: block;
+    display: flex;
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     &:focus-visible {
-      border: map.get($inpage-navigation, 'trigger', 'border-focus');
-      padding: map.get($inpage-navigation, 'trigger', 'padding-focus');
+      outline: map.get($inpage-navigation, 'trigger', 'border-focus');
+      outline-offset: -2px;
     }
 
     /* stylelint-disable-next-line order/order */
@@ -95,9 +98,7 @@ $inpage-navigation: null !default;
 }
 
 .ecl-inpage-navigation__trigger-icon {
-  position: absolute;
-  right: map.get($theme, 'spacing', 's');
-  top: map.get($theme, 'spacing', 's');
+  margin-inline-start: auto;
 
   .ecl-inpage-navigation__trigger[aria-expanded='true'] & {
     transform: rotate(0deg);
@@ -149,7 +150,9 @@ $inpage-navigation: null !default;
 }
 
 .ecl-inpage-navigation__item {
+  box-sizing: border-box;
   border-top: map.get($inpage-navigation, 'item', 'separator', 's');
+  min-height: map.get($inpage-navigation, 'item', 'min-height');
 
   &:first-of-type {
     border-top-width: 0;
@@ -167,6 +170,14 @@ $inpage-navigation: null !default;
 
 .ecl-inpage-navigation__link {
   background-color: map.get($inpage-navigation, 'item', 'background');
+  border-inline-start: map.get(
+    $inpage-navigation,
+    'item',
+    'border',
+    'start',
+    'default',
+    's'
+  );
   color: map.get($inpage-navigation, 'item', 'color', 's');
   display: block;
   font: map.get($theme, 'font', 'm');
@@ -177,6 +188,14 @@ $inpage-navigation: null !default;
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     background-color: map.get($inpage-navigation, 'item', 'background');
+    border-inline-start: map.get(
+      $inpage-navigation,
+      'item',
+      'border',
+      'start',
+      'default',
+      'l'
+    );
     border-inline-end: map.get(
       $inpage-navigation,
       'item',
@@ -191,13 +210,6 @@ $inpage-navigation: null !default;
 
   &:hover {
     background: map.get($inpage-navigation, 'item', 'background-hover');
-    border-inline-start: map.get(
-      $inpage-navigation,
-      'item',
-      'border',
-      'start',
-      'hover'
-    );
     color: map.get($inpage-navigation, 'item', 'color', 's');
     text-decoration: underline;
 
@@ -227,7 +239,6 @@ $inpage-navigation: null !default;
     color: map.get($inpage-navigation, 'item', 'color', 's');
     outline-color: map.get($inpage-navigation, 'outline', 'color');
     outline-offset: map.get($inpage-navigation, 'outline', 'offset');
-    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
 
     /* stylelint-disable-next-line order/order */
     @include breakpoints.up('l') {
@@ -247,7 +258,6 @@ $inpage-navigation: null !default;
         'active'
       );
       color: map.get($inpage-navigation, 'item', 'color', 'l');
-      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
       outline-color: var(--c-p);
       outline-offset: -2px;
     }
@@ -275,7 +285,6 @@ $inpage-navigation: null !default;
       's'
     );
     color: map.get($inpage-navigation, 'item', 'color-active');
-    padding: map.get($inpage-navigation, 'item', 'padding', 'active', 's');
 
     &:focus-visible {
       outline-color: map.get($inpage-navigation, 'outline', 'color-active');
@@ -299,7 +308,7 @@ $inpage-navigation: null !default;
         'end',
         'active'
       );
-      padding: map.get($inpage-navigation, 'item', 'padding', 'active', 'l');
+      padding: map.get($inpage-navigation, 'item', 'padding', 'default', 'l');
 
       &:focus-visible {
         color: map.get($inpage-navigation, 'item', 'color-active');
