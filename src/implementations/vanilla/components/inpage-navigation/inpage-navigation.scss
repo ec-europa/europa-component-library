@@ -77,8 +77,8 @@ $inpage-navigation: null !default;
     white-space: nowrap;
 
     &:focus-visible {
-      outline: map.get($inpage-navigation, 'trigger', 'border-focus');
-      outline-offset: -2px;
+      outline: map.get($inpage-navigation, 'trigger', 'outline');
+      outline-offset: map.get($inpage-navigation, 'trigger', 'outline-offset');
     }
 
     /* stylelint-disable-next-line order/order */
