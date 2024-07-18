@@ -1335,15 +1335,6 @@ $mega-menu: null !default;
 
       > .ecl-mega-menu__mega {
         left: calc(15.875rem + var(--s-xl));
-
-        > .ecl-mega-menu__sublist {
-          direction: rtl;
-          overflow-x: hidden;
-
-          > .ecl-mega-menu__subitem {
-            direction: ltr;
-          }
-        }
       }
     }
 
@@ -1353,14 +1344,6 @@ $mega-menu: null !default;
       > .ecl-container
       > .ecl-mega-menu__mega {
       right: calc(14.375rem + var(--s-xl));
-
-      > .ecl-mega-menu__sublist {
-        direction: ltr;
-
-        > .ecl-mega-menu__subitem {
-          direction: rtl;
-        }
-      }
     }
   }
 }
