@@ -5,6 +5,8 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.iframeSelector Selector for iframe element
  * @param {boolean} options.useAutomaticRatio Toggle automatic ratio calculus
+ * @param {String} options.videoPlayerLabelSelector Selector for video player label
+ * @param {String} options.titleSelector Selector for media title
  */
 export class MediaContainer {
   /**
@@ -24,7 +26,12 @@ export class MediaContainer {
 
   constructor(
     element,
-    { iframeSelector = 'iframe', useAutomaticRatio = true } = {},
+    {
+      iframeSelector = 'iframe',
+      useAutomaticRatio = true,
+      videoPlayerLabelSelector = 'data-ecl-media-container-player-label',
+      titleSelector = 'data-ecl-media-container-title',
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
@@ -38,9 +45,13 @@ export class MediaContainer {
     // Options
     this.iframeSelector = iframeSelector;
     this.useAutomaticRatio = useAutomaticRatio;
+    this.videoPlayerLabelSelector = videoPlayerLabelSelector;
+    this.titleSelector = titleSelector;
 
     // Private variables
     this.iframe = null;
+    this.videoPlayerLabel = null;
+    this.title = '';
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
@@ -55,6 +66,13 @@ export class MediaContainer {
       throw new TypeError('Called init but ECL is not present');
     }
     ECL.components = ECL.components || new Map();
+
+    // Get elements
+    this.videoPlayerLabel = this.element.getAttribute(
+      this.videoPlayerLabelSelector,
+    );
+    this.title = this.element.getAttribute(this.titleSelector);
+
     // Check if a ratio has been set manually
     const media = queryOne('.ecl-media-container__media', this.element);
     if (media && !/ecl-media-container__media--ratio/.test(media.className)) {
@@ -93,6 +111,20 @@ export class MediaContainer {
     if (iframeUrl.host.includes('youtube')) {
       iframeUrl.searchParams.set('disablekb', 1);
       this.iframe.src = iframeUrl;
+    }
+
+    // Update iframe title
+    let videoTitle = '';
+    if (this.title) {
+      videoTitle = this.title;
+    }
+    if (this.videoPlayerLabel) {
+      videoTitle = videoTitle
+        ? `${videoTitle} - ${this.videoPlayerLabel}`
+        : this.videoPlayerLabel;
+    }
+    if (videoTitle) {
+      this.iframe.setAttribute('title', videoTitle);
     }
   }
 

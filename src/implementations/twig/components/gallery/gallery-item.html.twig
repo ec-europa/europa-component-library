@@ -122,7 +122,7 @@
         data-ecl-gallery-description
       >
       {%- if _item.title is defined and _item.title is not empty -%}
-        <span class="ecl-gallery__title" id="{{ _id }}-title">
+        <span class="ecl-gallery__title" id="{{ _id }}-title" data-ecl-gallery-title>
           {{- _item.title -}}
         </span>
       {%- endif -%}

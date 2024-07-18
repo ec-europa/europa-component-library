@@ -6,6 +6,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Object} options
  * @param {String} options.galleryItemSelector Selector for gallery element
  * @param {String} options.descriptionSelector Selector for gallery description element
+ * @param {String} options.titleSelector Selector for gallery title element
  * @param {String} options.closeButtonSelector Selector for close button element
  * @param {String} options.allButtonSelector Selector for view all button element
  * @param {String} options.overlaySelector Selector for gallery overlay element
@@ -45,6 +46,7 @@ export class Gallery {
       expandableSelector = 'data-ecl-gallery-not-expandable',
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
+      titleSelector = '[data-ecl-gallery-title]',
       noOverlaySelector = 'data-ecl-gallery-no-overlay',
       itemsLimitSelector = 'data-ecl-gallery-visible-items',
       closeButtonSelector = '[data-ecl-gallery-close]',
@@ -81,6 +83,7 @@ export class Gallery {
     // Options
     this.galleryItemSelector = galleryItemSelector;
     this.descriptionSelector = descriptionSelector;
+    this.titleSelector = titleSelector;
     this.closeButtonSelector = closeButtonSelector;
     this.viewAllSelector = viewAllSelector;
     this.countSelector = countSelector;
@@ -480,8 +483,19 @@ export class Gallery {
       mediaIframe.setAttribute('src', iframeUrl);
       mediaIframe.setAttribute('frameBorder', '0');
 
+      // Update iframe title
+      let videoTitle = '';
+      const title = queryOne(this.titleSelector, selectedItem);
+      if (title) {
+        videoTitle = title.innerHTML;
+      }
       if (this.videoPlayerLabel) {
-        mediaIframe.setAttribute('title', this.videoPlayerLabel);
+        videoTitle = videoTitle
+          ? `${videoTitle} - ${this.videoPlayerLabel}`
+          : this.videoPlayerLabel;
+      }
+      if (videoTitle) {
+        mediaIframe.setAttribute('title', videoTitle);
       }
 
       if (this.overlayMedia) {
@@ -500,8 +514,19 @@ export class Gallery {
       mediaElement.setAttribute('controls', 'controls');
       mediaElement.classList.add('ecl-gallery__slider-video');
 
+      // Update video title
+      let videoTitle = '';
+      const title = queryOne(this.titleSelector, selectedItem);
+      if (title) {
+        videoTitle = title.innerHTML;
+      }
       if (this.videoPlayerLabel) {
-        mediaElement.setAttribute('aria-label', this.videoPlayerLabel);
+        videoTitle = videoTitle
+          ? `${videoTitle} - ${this.videoPlayerLabel}`
+          : this.videoPlayerLabel;
+      }
+      if (videoTitle) {
+        mediaElement.setAttribute('aria-label', videoTitle);
       }
 
       if (this.overlayMedia) {
