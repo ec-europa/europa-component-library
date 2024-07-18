@@ -399,6 +399,10 @@ $mega-menu: null !default;
   }
 }
 
+.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
+  transform: rotate(0);
+}
+
 .ecl-mega-menu__featured-list__item .ecl-link {
   border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
 }
