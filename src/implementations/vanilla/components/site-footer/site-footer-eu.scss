@@ -101,6 +101,10 @@ $site-footer: null !default;
 .ecl-site-footer__logo-link {
   display: inline-block;
   vertical-align: bottom; // Fix to prevent extra vertical spacing
+
+  & + .ecl-site-footer__list {
+    margin-top: var(--s-m);
+  }
 }
 
 .ecl-site-footer__logo-image {
