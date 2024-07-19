@@ -8,7 +8,6 @@
 // Exposed variables
 $theme: null !default;
 $social-media-follow: null !default;
-$social-media-follow-print: null !default;
 
 .ecl-social-media-follow {
   display: flex;
@@ -21,31 +20,30 @@ $social-media-follow-print: null !default;
 }
 
 .ecl-social-media-follow__description {
-  color: map.get($social-media-follow, 'description', 'color');
-  font: map.get($social-media-follow-print, 'description', 'font');
+  color: var(--c-d);
+  font: map.get($theme, 'font-print', 'm');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
-  margin: 0;
+  margin-bottom: map.get($theme, 'spacing-print', 'xs');
+  margin-top: 0;
 }
 
 .ecl-social-media-follow__list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
-  margin-top: map.get($theme, 'spacing-print', 'xs');
+  margin-top: calc(-1 * #{map.get($theme, 'spacing-print', '2xs')});
   padding-left: 0;
 }
 
 .ecl-social-media-follow__item {
   color: var(--c-d);
-  font: map.get($social-media-follow-print, 'item', 'font');
-  margin-top: map.get($theme, 'spacing-print', 's');
+  font: map.get($theme, 'font-print', 'm');
+  margin-top: map.get($theme, 'spacing-print', '2xs');
+  margin-inline-end: map.get($theme, 'spacing-print', 'l');
 
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  &:last-of-type a:not(.ecl-link--icon) {
-    display: none;
+  &:last-of-type {
+    margin-inline-end: 0;
   }
 }
 
@@ -55,8 +53,24 @@ $social-media-follow-print: null !default;
 }
 
 .ecl-social-media-follow__icon {
+  color: var(--c-d);
   display: block;
   margin-right: map.get($theme, 'spacing-print', 's');
+}
+
+// Vertical
+.ecl-social-media-follow--vertical {
+  .ecl-social-media-follow__list {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .ecl-social-media-follow__item {
+    margin-inline-end: 0;
+    padding-bottom: map.get($theme, 'spacing-print', '2xs');
+    padding-top: map.get($theme, 'spacing-print', '2xs');
+  }
 }
 
 // Position

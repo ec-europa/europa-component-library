@@ -72,46 +72,42 @@
 
 {# Print the result #}
 
-  <input
-    data-ecl-range-input
-    type="range"
-    class="{{ _css_class }}"
-  {% if _id %}
-    id="{{ _id }}"
-  {% endif %}
-  {% if _value_text is not empty %}
-    aria-label="{{ _value_text }}"
-  {% endif %}
-  {% if _name is not empty %}
-    name="{{ _name }}"
-  {% endif %}
-  {% if _min %}
-    min="{{ _min }}"
-  {% endif %}
-  {% if _max %}
-    max="{{ _max }}"
-  {% endif %}
-  {% if _step %}
-    step="{{ _step }}"
-  {% endif %}
-  {% if _value %}
-    value="{{ _value }}"
-  {% endif %}
-  {% if _disabled %}
-    disabled
-  {% endif %}
-  {% if _required %}
-    required
-  {% endif %}
-    {{ _extra_attributes|raw }}
-  />
+<input
+  data-ecl-range-input
+  type="range"
+  class="{{ _css_class }}"
+  id="{{ _id }}"
+  aria-describedby="{{ _id }}-value"
+{% if _name is not empty %}
+  name="{{ _name }}"
+{% endif %}
+{% if _min %}
+  min="{{ _min }}"
+{% endif %}
+{% if _max %}
+  max="{{ _max }}"
+{% endif %}
+{% if _step %}
+  step="{{ _step }}"
+{% endif %}
+{% if _value %}
+  value="{{ _value }}"
+{% endif %}
+{% if _disabled %}
+  disabled
+{% endif %}
+{% if _required %}
+  required
+{% endif %}
+  {{ _extra_attributes|raw }}
+/>
 
 <div class="ecl-range__bubble" data-ecl-range-bubble>
   <span class="ecl-range__value-bubble" data-ecl-range-value-current></span>
 </div>
 
 {% if _value_text is not empty %}
-  <div class="ecl-range__value">
+  <div class="ecl-range__value" id="{{ _id }}-value">
     {%- block value_text _value_text -%}
     <span class="ecl-range__value-current" data-ecl-range-value-current></span>
   </div>
