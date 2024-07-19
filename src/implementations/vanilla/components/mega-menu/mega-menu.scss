@@ -428,7 +428,7 @@ $mega-menu: null !default;
   &:focus-visible {
     outline: none;
 
-    .ecl-link__label {
+    .ecl-button__label {
       outline: 2px solid var(--c-p);
       outline-offset: 4px;
     }
@@ -800,10 +800,6 @@ $mega-menu: null !default;
   -webkit-box-orient: vertical;
   overflow: hidden;
   width: 100%;
-
-  > span {
-    width: 100%;
-  }
 
   &.ecl-link--icon:not(.ecl-mega-menu__parent-link) {
     display: flex;
@@ -1246,7 +1242,7 @@ $mega-menu: null !default;
       white-space: normal;
       width: 100%;
 
-      > span {
+      > .ecl-button__container {
         width: 100%;
       }
 
