@@ -57,13 +57,13 @@
 
 <video
   class="{{ _css_class }}"
-{%- if _poster is not empty -%}
+{% if _poster is not empty %}
   poster="{{ _poster }}"
-{%- endif -%}
-{%- if _title is not empty -%}
+{% endif %}
+{% if _title is not empty %}
   {% set _title = _title ~ ' - ' ~ _sr_video_label %}
   aria-label="{{ _title }}"
-{%- endif -%}
+{% endif %}
   {{- _extra_attributes|raw -}}
 >
 {% if _sources is not empty and _sources is iterable %}
