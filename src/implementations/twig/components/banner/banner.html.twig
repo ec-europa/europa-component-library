@@ -155,15 +155,17 @@
   {% elseif _video is not empty %}
     {# Video #}
     <div class="ecl-banner__video-container">
-      {% include '@ecl/video/video.html.twig' with _video|merge({
-        controls: false,
-        extra_classes: 'ecl-banner__video',
-        extra_attributes: [
+      {% set video_classes = 'ecl-banner__video' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
+      {% set video_attributes = [
           { name: 'autoplay' },
           { name: 'loop' },
           { name: 'muted' },
           { name: 'data-ecl-banner-video' },
-        ],
+        ]|merge(_video.extra_attributes|default([]))  %}
+      {% include '@ecl/video/video.html.twig' with _video|merge({
+        controls: false,
+        extra_classes: video_classes,
+        extra_attributes: video_attributes,
       }) only %}
       {% if _credit is not empty %}
         <div class="ecl-banner__credit"><small>{{ _credit }}</small></div>

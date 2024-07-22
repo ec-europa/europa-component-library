@@ -113,10 +113,11 @@
         {%- endif -%}
       </span>
     {%- endif -%}
+      {% set video_classes = 'ecl-gallery__image' ~ (_item.video.extra_classes ? ' ' ~ _item.video.extra_classes : '') %}
       {% include '@ecl/video/video.html.twig' with _item.video|merge({
         title: _title,
         controls: false,
-        extra_classes: 'ecl-gallery__image',      
+        extra_classes: video_classes,     
       }) only %}
     {% else %}
       {% include '@ecl/picture/picture.html.twig' with {

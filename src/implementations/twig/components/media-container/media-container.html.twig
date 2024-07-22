@@ -124,8 +124,9 @@
       {%- block embedded_media _embedded_media -%}
     </div>
   {% elseif _video is not empty %}
+    {% set video_classes = 'ecl-media-container__media' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
     {% include '@ecl/video/video.html.twig' with _video|merge({
-      extra_classes: _video.extra_classes|default('') ~ 'ecl-media-container__media',
+      extra_classes: video_classes,
     }) only %} 
   {% else %}
     {% include '@ecl/picture/picture.html.twig' with {
