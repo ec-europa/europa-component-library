@@ -6,15 +6,9 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContentImg from '@ecl/specs-component-media-container/demo/data--image';
-import video from '@ecl/specs-component-video/demo/data';
+import demoContentVideo from '@ecl/specs-component-media-container/demo/data--video';
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import demoContentInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
-
-const demoContentVideo = {
-  video,
-  description: `The European Commission has put forward ambitious yet realistic proposals for a modern EU budget.
-  It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.`,
-};
 
 expect.extend(toHaveNoViolations);
 
