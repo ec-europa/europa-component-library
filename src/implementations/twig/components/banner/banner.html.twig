@@ -154,21 +154,17 @@
     </figure>
   {% elseif _video is not empty %}
     {# Video #}
-    {% set _video_sources = _video.sources|default([]) %}
-    {% set _video_tracks = _video.tracks|default([]) %}
     <div class="ecl-banner__video-container">
-      <video class="ecl-banner__video" poster="{{ _video.poster }}" autoplay loop muted data-ecl-banner-video>
-        {% if _video_sources is not empty and _video_sources is iterable %}
-          {% for video in _video_sources %}
-            <source src="{{ video.src }}" type="{{ video.type }}">
-          {% endfor %}
-        {% endif %}
-        {% if _video_tracks is not empty and _video_tracks is iterable %}
-          {% for track in _video_tracks %}
-            <track src="{{ track.src }}" kind="{{ track.kind }}" srclang="{{ track.src_lang }}" label="{{ track.label }}">
-          {% endfor %}
-        {% endif %}
-      </video>
+      {% include '@ecl/video/video.html.twig' with _video|merge({
+        controls: false,
+        extra_classes: 'ecl-banner__video',
+        extra_attributes: [
+          { name: 'autoplay' },
+          { name: 'loop' },
+          { name: 'muted' },
+          { name: 'data-ecl-banner-video' },
+        ],
+      }) only %}
       {% if _credit is not empty %}
         <div class="ecl-banner__credit"><small>{{ _credit }}</small></div>
       {% endif %}

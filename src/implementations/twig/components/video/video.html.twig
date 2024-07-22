@@ -1,0 +1,102 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "poster" (string) (default: '')
+    - "sources" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "type" (string) (default: ''),
+      },
+      ...
+    ],
+    - "tracks" (array) (default: []): format: [
+      {
+        "src" (string) (default: ''),
+        "kind" (string) (default: ''),
+        "src_lang" (string) (default: ''),
+        "label" (string) (default: ''),
+      },
+      ...
+    ],
+  - "controls" (boolean) (default: true)
+  - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
+  - "extra_attributes" (optional) (array) (default: [])
+    - "name" (string) Attribute name, eg. 'data-test'
+    - "value" (optional) (string) Attribute value, eg: 'data-test-1'
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-video' %}
+{% set _sources = sources|default([]) %}
+{% set _tracks = tracks|default([]) %}
+{% set _controls = controls ?? true %}
+{% set _poster = poster|default('') %}
+{% set _title = title|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
+
+{% if _controls %}
+  {% set _extra_attributes = 'controls' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<video
+  class="{{ _css_class }}"
+{%- if _poster is not empty -%}
+  poster="{{ _poster }}"
+{%- endif -%}
+{%- if _title is not empty -%}
+  {% set _title = _title ~ ' - ' ~ _sr_video_label %}
+  aria-label="{{ _title }}"
+{%- endif -%}
+  {{- _extra_attributes|raw -}}
+>
+{% if _sources is not empty and _sources is iterable %}
+  {% for _source in _sources %}
+  <source
+  {% if _source.type is defined and _source.type is not empty %}
+    type="{{ _source.type }}"
+  {% endif %}
+  {% if _source.src is defined and _source.src is not empty %}
+    src="{{ _source.src }}"
+  {% endif %}
+  />
+  {% endfor %}
+{% endif %}
+
+{%- if _tracks is not empty and _tracks is iterable -%}
+  {% for _track in _tracks %}
+  <track
+  {% if _track.kind is defined and _track.kind is not empty %}
+    kind="{{ _track.kind }}"
+  {% endif %}
+  {% if _track.label is defined and _track.label is not empty %}
+    label="{{ _track.label }}"
+  {% endif %}
+  {% if _track.src is defined and _track.src is not empty %}
+    src="{{ _track.src }}"
+  {% endif %}
+  {% if _track.src_lang is defined and _track.src_lang is not empty %}
+    srclang="{{ _track.src_lang }}"
+  {% endif %}
+  />
+
+  {% endfor %}
+{% endif %}
+</video>
+
+{% endapply %}

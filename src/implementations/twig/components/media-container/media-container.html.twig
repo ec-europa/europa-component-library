@@ -49,8 +49,7 @@
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _title = title|default('') %}
-{% set _sr_video_label = sr_video_label|default('') %}
-{% set _sr_video_audio = sr_video_audio|default('') %}
+{% set _video = video|default({}) %}
 {% set _embedded_media = embedded_media|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = embedded_media ? [
@@ -58,8 +57,6 @@
   'data-ecl-auto-init="MediaContainer"']|join(' ') : ''
 %}
 {% set _ratio = ratio|default('') %}
-{% set _sources = sources|default({}) %}
-{% set _tracks = tracks|default({}) %}
 {% set _expandable = expandable|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -71,6 +68,17 @@
       },
     }
   %}
+{% endif %}
+
+{% if _video.sources is empty and sources is not empty %}
+  {% set _video = {
+    sources,
+    tracks,
+    image,
+    title,
+    sr_video_label,
+    sr_video_audio,
+  } %}
 {% endif %}
 
 {% if _full_width %}
@@ -115,30 +123,10 @@
       {% endif %}
       {%- block embedded_media _embedded_media -%}
     </div>
-  {% elseif _sources is not empty and _sources is iterable %}
-    <video
-      class="ecl-media-container__media"
-      controls
-      poster="{{ _image }}"
-      {%- if _title is not empty -%}
-        {% set _video_title = _title ~ ' - ' ~ _sr_video_label %}
-        aria-label="{{ _video_title }}"
-      {%- endif -%}
-    >
-  {% for source in _sources %}
-    <source type="{{ source.type }}" src="{{ source.src }}" />
-  {% endfor %}
-    {% if _tracks is not empty and _tracks is iterable %}
-    {% for track in _tracks %}
-      <track
-        kind="{{ track.kind }}"
-        label="{{ track.label }}"
-        src="{{ track.src }}"
-        srclang="{{ track.src_lang }}"
-      />
-    {% endfor %}
-    {% endif %}
-    </video>
+  {% elseif _video is not empty %}
+    {% include '@ecl/video/video.html.twig' with _video|merge({
+      extra_classes: _video.extra_classes|default('') ~ 'ecl-media-container__media',
+    }) only %} 
   {% else %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,

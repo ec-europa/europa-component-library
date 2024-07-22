@@ -1,10 +1,15 @@
 {
-  "name": "@ecl/specs-component-picture",
+  "name": "@ecl/twig-component-video",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.4.0",
-  "description": "ECL Picture Specs",
-  "private": true,
+  "description": "ECL Video",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@ecl/specs-component-video": "4.4.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
@@ -16,6 +21,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }

@@ -3,11 +3,18 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import dataImg from '@ecl/specs-component-media-container/demo/data--image';
-import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
+import video from '@ecl/specs-component-video/demo/data';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import dataInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
+
+const dataVideo = {
+  video,
+  description: `The European Commission has put forward ambitious yet realistic proposals for a modern EU budget.
+  It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics,
+  amongst others.`,
+};
 
 const getArgs = (data) => {
   const args = {
@@ -48,7 +55,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.image && !data.sources) {
+  if (data.image && !data.video) {
     argTypes.image = {
       name: 'image',
       type: { name: 'string', required: true },
@@ -164,6 +171,7 @@ export const Video = (_, { loaded: { component } }) => component;
 
 Video.render = async (args) => {
   const renderedVideo = await renderStory(dataVideo, args);
+
   return renderedVideo;
 };
 Video.storyName = 'video';

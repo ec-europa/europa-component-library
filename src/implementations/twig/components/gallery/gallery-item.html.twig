@@ -105,7 +105,19 @@
       {% endif %}
     {% endif %}
     {% if _item.video is defined and _item.video is not empty %}
-      {% include '@ecl/gallery/gallery-video.html.twig' %}
+      {%- if _item.title is defined and _item.title is not empty -%}
+      <span class="ecl-gallery__video-title">
+        {{- _item.title -}}
+        {%- if _sr_video_label is not empty -%}
+          {{- ' - ' ~ _sr_video_label -}}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+      {% include '@ecl/video/video.html.twig' with _item.video|merge({
+        title: _title,
+        controls: false,
+        extra_classes: 'ecl-gallery__image',      
+      }) only %}
     {% else %}
       {% include '@ecl/picture/picture.html.twig' with {
         picture: _item.picture|merge({
