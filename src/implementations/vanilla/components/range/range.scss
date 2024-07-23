@@ -71,7 +71,7 @@ $range: null !default;
 .ecl-range__value {
   box-sizing: border-box;
   color: map.get($range, 'value-color');
-  display: block;
+  display: inline-flex;
   font: map.get($range, 'value-font');
 }
 
@@ -85,6 +85,7 @@ $range: null !default;
 
 .ecl-range__value-current {
   font-weight: map.get($theme, 'font-weight', 'bold');
+  margin-inline-start: var(--s-2xs);
 }
 
 .ecl-range::range-thumb {
