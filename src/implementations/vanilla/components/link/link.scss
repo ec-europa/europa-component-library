@@ -95,7 +95,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 */
 .ecl-link--standalone {
   display: inline-block;
-  font: var(--f-ui-link);
+  line-height: map.get($theme, 'line-height-ui', 'xs');
   text-decoration: none;
 
   &:visited {
