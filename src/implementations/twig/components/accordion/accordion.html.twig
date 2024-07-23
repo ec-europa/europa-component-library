@@ -75,7 +75,7 @@
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
                     path: icon.path|default(''),
-                    name: icon.name,
+                    name: icon.name|default(''),
                     size: icon.size|default('s'),
                   },
                   extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
