@@ -896,6 +896,7 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__featured-list {
     .ecl-mega-menu__featured-list__item {
+      line-height: map.get($theme, 'line-height-ui', 'xs');
       margin-bottom: 0;
 
       .ecl-link {
