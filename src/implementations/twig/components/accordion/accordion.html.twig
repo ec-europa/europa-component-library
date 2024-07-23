@@ -13,7 +13,7 @@
       },
       ...
     ]
-    - "icon" (associative array) (default: {}) A predefined structure compatible with Icon component.
+    - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -28,6 +28,11 @@
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
+{% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
+
+{% if _icons|length == 1 and _icons[0].name == 'plus' %}
+  {% set _icons = _icons|merge([{'name': 'minus', 'path': _icons[0].path}]) %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -66,15 +71,17 @@
                 {{- _item.toggle.label -}}
               </span>
               <span class="ecl-accordion__toggle-indicator">
+              {% for icon in _icons %}
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: {
                     path: icon.path|default(''),
-                    name: icon.name|default(''),
+                    name: icon.name,
                     size: icon.size|default('s'),
                   },
                   extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
                   extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),
                 } only %}
+              {% endfor %}
               </span>
               
             </span>
