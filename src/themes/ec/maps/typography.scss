@@ -77,6 +77,13 @@ $font-ui: (
       $font-size-ui,
       'm'
     ) + '/' + map.get($line-height-ui, 'm')} #{map.get($font-family, 'default')},
+  'link': normal normal map.get($font-weight, 'regular') #{map.get(
+      $font-size-ui,
+      'm'
+    ) + '/' + map.get($line-height-ui, 'xs')} #{map.get(
+      $font-family,
+      'default'
+    )},
 ) !default;
 
 // Print

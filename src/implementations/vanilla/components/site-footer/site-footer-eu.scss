@@ -83,7 +83,6 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__list {
-  line-height: map.get($site-footer, 'list-line-height');
   list-style: none;
   margin-bottom: 0;
   margin-top: var(--s-s);
@@ -91,6 +90,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__list-item {
+  line-height: map.get($theme, 'line-height-ui', 'xs');
   margin-top: var(--s-xs);
 
   &:first-of-type {

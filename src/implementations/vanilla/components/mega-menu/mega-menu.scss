@@ -364,7 +364,6 @@ $mega-menu: null !default;
   box-sizing: content-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
-  font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
 
@@ -454,7 +453,6 @@ $mega-menu: null !default;
 .ecl-mega-menu__info-link {
   border-bottom: 1px solid transparent;
   display: inline-block;
-  line-height: 22px;
   width: fit-content;
 
   &:hover {
@@ -468,8 +466,6 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__subitem {
-  line-height: 22px;
-
   .ecl-mega-menu__sublink--level-2 {
     background: transparent;
     color: var(--c-p);
@@ -781,7 +777,6 @@ $mega-menu: null !default;
   border-bottom: 1.5px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
   color: map.get($mega-menu, 'mobile', 'item-color');
-  font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
   display: -webkit-box;
@@ -908,7 +903,6 @@ $mega-menu: null !default;
         box-sizing: border-box;
         color: var(--c-p);
         display: block;
-        font: var(--f-m);
         outline-offset: -2px;
         padding: var(--s-m) var(--s-l);
         width: 100%;
@@ -1211,8 +1205,6 @@ $mega-menu: null !default;
 
     .ecl-mega-menu__sublink {
       break-inside: avoid-column;
-      font: var(--f-m);
-      line-height: 137.5%;
       margin: 0;
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
