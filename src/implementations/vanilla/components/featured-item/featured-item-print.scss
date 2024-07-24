@@ -14,7 +14,7 @@ $featured-item-print: null !default;
   border-radius: map.get($featured-item, 'border-radius');
   box-shadow: map.get($featured-item, 'shadow');
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .ecl-featured-item__item {
@@ -33,7 +33,7 @@ $featured-item-print: null !default;
 }
 
 .ecl-featured-item__container--right {
-  flex-direction: row-reverse;
+  flex-direction: row;
 
   .ecl-featured-item__media_container {
     padding: map.get($featured-item-print, 'media-padding-right');

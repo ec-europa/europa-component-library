@@ -66,7 +66,7 @@ $featured-item: null !default;
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item__container {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 
   .ecl-featured-item__title {
@@ -86,7 +86,7 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__container--right {
-    flex-direction: row-reverse;
+    flex-direction: row;
 
     .ecl-featured-item__title {
       margin: map.get($featured-item, 'title-spacing-right');
