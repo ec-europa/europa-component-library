@@ -17,7 +17,7 @@
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
-    "prepare": "npx husky install",
+    "prepare": "husky",
     "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (lerna run postinstall && lerna run prepublish) || echo \"Bypass prepublish\"",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
     "pretty-write": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
