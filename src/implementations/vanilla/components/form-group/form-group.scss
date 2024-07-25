@@ -46,7 +46,6 @@ $form-group: null !default;
   color: map.get($form-group, 'color-label');
   display: inline-flex;
   font: map.get($form-group, 'font-label');
-  font-weight: map.get($form-group, 'font-weight-label');
   margin: 0;
   max-width: var(--max-w);
   padding: 0;
@@ -56,12 +55,15 @@ $form-group: null !default;
 .ecl-form-label__optional,
 .ecl-form-label__required {
   align-self: center;
-  color: var(--c-p);
-  font: map.get($form-group, 'font-optional-required');
+  font: var(--f-s);
   margin-inline-start: var(--s-2xs);
 }
 
-.ecl-form-label--invalid .ecl-form-label__required {
+.ecl-form-label__optional {
+  color: var(--c-p);
+}
+
+.ecl-form-label__required {
   color: var(--c-er);
 }
 
