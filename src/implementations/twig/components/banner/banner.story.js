@@ -60,7 +60,6 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
-      if: { arg: 'title_link', neq: true },
     },
     show_credit: {
       name: 'credit',
