@@ -38,6 +38,7 @@
 
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _label = _language_selector.label|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -50,10 +51,10 @@
 <div class="ecl-site-header__language">
   <a
     class="ecl-button ecl-button--tertiary ecl-site-header__language-selector"
-    href="{{ _language_selector.href }}"
+    href="{{ _language_selector.href|default('') }}"
     data-ecl-language-selector
     role="button"
-    aria-label="{{ _language_selector.aria_label }}"
+    aria-label="{{ _language_selector.aria_label|default('') ~ ' - ' ~   _label }}"
   {% if _has_overlay is defined %}
     aria-controls="language-list-overlay"
   {% endif %}
@@ -68,11 +69,11 @@
         as_image: true,
         extra_classes: 'ecl-site-header__icon',
         extra_accessibility: {
-          title: _language_selector.label,
+          title: _label,
         },
       } only %}
     </span>
-    {{- _language_selector.label -}}
+    {{- _label -}}
   </a>
 
   {% if _has_overlay is defined %}
@@ -83,7 +84,7 @@
         class="ecl-site-header__language-title"
         id="ecl-site-header__language-title"
       >
-        {{- _language_selector.overlay.title -}}
+        {{- _language_selector.overlay.title|default('') -}}
       </div>
       {% if _language_selector.overlay.close is not empty %}
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
@@ -110,7 +111,7 @@
           <li class="ecl-site-header__language-item">
             {% set _link_label %}
               <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
-              <span class="ecl-site-header__language-link-label">{{ _item.label }}</span>
+              <span class="ecl-site-header__language-link-label">{{ _item.label|default('') }}</span>
             {% endset %}
             {% set _link_classes = 'ecl-site-header__language-link' %}
             {% if _item.active %}
@@ -147,7 +148,7 @@
           <li class="ecl-site-header__language-item">
           {% set _link_label %}
             <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
-            <span class="ecl-site-header__language-link-label">{{ _item.label }}</span>
+            <span class="ecl-site-header__language-link-label">{{ _item.label|default('') }}</span>
           {% endset %}
             {% set _link_classes = 'ecl-site-header__language-link' %}
             {% if _item.active %}
