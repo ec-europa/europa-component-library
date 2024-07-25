@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-site-footer
 - **"rows"** (array of objects) (default: [])
   - "section_class_name" (optional) (string) (default: '')
   - "logo"
+    - "title": (string) (default: ''): Logo title attribute.
     - "alt" (string) alt attribute for the logo link
     - "path" (string) logo link path
     - "language" (string) Language code
@@ -155,8 +156,7 @@ npm install --save @ecl/twig-component-site-footer
             }, 
           }, 
           logo: { 
-            title: 'European Commission', 
-            alt: 'European Commission logo', 
+            alt: 'European Commission', 
             language: 'en', 
             path: exampleLink, 
             src_desktop: '/logo-ec.svg', 

@@ -3,8 +3,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   logo: {
-    title: 'European Commission',
-    alt: 'European Commission logo',
+    alt: 'European Commission',
     path: exampleLink,
     language: 'en',
     src_desktop: '/logo-ec--en.svg',
