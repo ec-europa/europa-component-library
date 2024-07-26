@@ -1162,7 +1162,6 @@ export class MegaMenu {
           'ecl-mega-menu__item--expanded',
           'ecl-mega-menu__item--current',
         );
-        // item.setAttribute('aria-expanded', 'false');
         const itemLink = queryOne(this.linkSelector, item);
         itemLink.setAttribute('aria-expanded', 'false');
       });
