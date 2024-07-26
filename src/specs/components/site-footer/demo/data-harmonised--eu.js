@@ -118,8 +118,7 @@ module.exports = {
       [
         {
           logo: {
-            title: 'European Union',
-            alt: 'European Union logo',
+            alt: 'European Union',
             language: 'en',
             path: exampleLink,
             src_desktop: '/logo-eu.svg',

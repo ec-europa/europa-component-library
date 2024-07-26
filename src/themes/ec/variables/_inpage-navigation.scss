@@ -24,6 +24,10 @@ $inpage-navigation: (
         'active': 4px solid var(--c-p),
       ),
       'start': (
+        'default': (
+          'l': none,
+          's': 4px solid transparent,
+        ),
         'active': (
           'l': none,
           's': 4px solid var(--c-p),
@@ -31,13 +35,10 @@ $inpage-navigation: (
         'hover': none,
       ),
     ),
+    'min-height': 2.5rem,
     'padding': (
       'default': (
-        's': var(--s-xs) var(--s-m),
-        'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
-      ),
-      'active': (
-        's': var(--s-xs) var(--s-m) var(--s-xs) calc(var(--s-m) - 4px),
+        's': var(--s-xs) var(--s-s),
         'l': var(--s-xs) calc(var(--s-m) - 4px) var(--s-xs) var(--s-m),
       ),
     ),
@@ -59,18 +60,15 @@ $inpage-navigation: (
   trigger: (
     'background': map.get($color, 'white'),
     'border': 1px solid var(--c-d-80),
-    'border-focus': 2px solid var(--c-p),
     'border-radius': 2px,
     'color': var(--c-d),
     'font': var(--f-m),
     'font-weight': map.get($font-weight, 'regular'),
+    'height': 2.5rem,
     'margin': 0 auto,
-    'padding': calc(var(--s-xs) - 1px)
-      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 1px)
-      calc(var(--s-m) - 1px),
-    'padding-focus': calc(var(--s-xs) - 2px)
-      calc(#{$inpage-toggle-width} + var(--s-s)) calc(var(--s-xs) - 2px)
-      calc(var(--s-m) - 2px),
+    'outline': 2px solid var(--c-p),
+    'outline-offset': -2px,
+    'padding': calc(var(--s-xs) - 1px) calc(var(--s-m) - 1px),
     'background-wrapper': map.get($color, 'white'),
     'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
     'padding-wrapper': var(--s-s) var(--s-m),

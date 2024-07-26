@@ -49,6 +49,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__list-item {
+  line-height: map.get($theme, 'line-height-ui', 'xs');
   margin-top: var(--s-m);
 
   &:first-of-type {
@@ -90,7 +91,6 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__list {
-  line-height: map.get($site-footer, 'list-line-height');
   list-style: none;
   margin-bottom: 0;
   margin-top: var(--s-m);
@@ -110,10 +110,6 @@ $site-footer: null !default;
       margin-inline-end: 0;
     }
   }
-}
-
-.ecl-site-footer__link {
-  font: var(--f-m);
 }
 
 .ecl-site-footer__logo-link {
