@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import iframeResizer from 'iframe-resizer/js/iframeResizer';
+import iframeResizer from '@iframe-resizer/parent';
 
 import styles from './Iframe.scss';
 
@@ -11,20 +11,15 @@ class Iframe extends PureComponent {
   }
 
   componentDidMount() {
-    const {
-      iframeOptions,
-      disableAutoResize,
-      defaultHeight,
-      maxWidth,
-      heightCalculation,
-    } = this.props;
+    const { iframeOptions, disableAutoResize, defaultHeight, maxWidth } =
+      this.props;
 
     if (!disableAutoResize) {
       const options = {
-        autoResize: true,
+        direction: 'vertical',
         minHeight: defaultHeight,
         maxWidth,
-        heightCalculationMethod: heightCalculation,
+        license: 'GPLv3',
         ...iframeOptions,
       };
       this.iframeResizer = iframeResizer(options, this.frameRef.current);
@@ -59,7 +54,6 @@ class Iframe extends PureComponent {
 Iframe.propTypes = {
   defaultHeight: PropTypes.string,
   maxWidth: PropTypes.string,
-  heightCalculation: PropTypes.string,
   url: PropTypes.string,
   iframeOptions: PropTypes.shape(),
   disableAutoResize: PropTypes.bool,
@@ -68,7 +62,6 @@ Iframe.propTypes = {
 Iframe.defaultProps = {
   defaultHeight: '200px',
   maxWidth: '100%',
-  heightCalculation: 'lowestElement',
   url: '',
   iframeOptions: {},
   disableAutoResize: false,
