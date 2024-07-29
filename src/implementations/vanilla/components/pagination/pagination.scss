@@ -138,11 +138,11 @@ $pagination: null !default;
     flex-grow: 0;
 
     &--current {
-      @include item-styles;
-
       background: map.get($pagination, 'current-background');
       border-radius: map.get($pagination, 'current-radius');
       color: map.get($pagination, 'current-text-color-desktop');
+
+      @include item-styles;
 
       &:hover {
         color: map.get($pagination, 'current-text-color-desktop');
