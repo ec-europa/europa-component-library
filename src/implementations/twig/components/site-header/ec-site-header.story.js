@@ -23,7 +23,7 @@ delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.banner_top;
 delete dataCore.cta_link;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
