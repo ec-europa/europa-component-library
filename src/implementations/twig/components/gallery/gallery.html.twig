@@ -118,7 +118,7 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery data-ecl-gallery-player-label="{{ _sr_video_player }}">
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
   <ul class="ecl-gallery__list">
     {% for _key, _item in _items %}
       {% set _item_class = '' %}
@@ -134,6 +134,7 @@
         item: _item,
         icon_path: _icon_path,
         sr_video_label: _sr_video_label,
+        sr_video_player: _sr_video_player,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}

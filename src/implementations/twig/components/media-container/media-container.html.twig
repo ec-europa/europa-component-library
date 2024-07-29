@@ -91,6 +91,14 @@
   {% set _embed_class = _embed_class ~ ' ecl-media-container__media--ratio-' ~ _ratio %}
 {% endif %}
 
+{% set _video_title = '' %}
+{% if _title is not empty %}
+  {% set _video_title = _title %}
+{% endif %}
+{% if _sr_video_player is not empty %}
+  {% set _video_title = _video_title is not empty ? _video_title ~ ' - ' ~ _sr_video_player : _sr_video_player %}
+{% endif %}
+
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -117,11 +125,8 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }} 
-  {% if _sr_video_player is not empty %}
-    data-ecl-media-container-player-label="{{ _sr_video_player }}"
-  {% endif %}
-  {% if _title is not empty %}
-    data-ecl-media-container-title="{{ _title }}"
+  {% if _video_title is not empty and _embedded_media is not empty %}
+    data-ecl-media-container-video-title="{{ _video_title }}"
   {% endif %}
 >
   <figure class="{{ _figure_class }}">
@@ -137,13 +142,6 @@
       class="ecl-media-container__media"
       controls
       poster="{{ _image }}"
-      {% set _video_title = '' %}
-      {%- if _title is not empty -%}
-        {% set _video_title = _title %}
-      {% endif %}
-      {%- if _sr_video_player is not empty -%}
-        {% set _video_title = _video_title ? _video_title ~ ' - ' ~ _sr_video_player : _sr_video_player %}
-      {% endif %}
       {%- if _video_title is not empty -%}
         aria-label="{{ _video_title }}"
       {%- endif -%}

@@ -5,8 +5,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.iframeSelector Selector for iframe element
  * @param {boolean} options.useAutomaticRatio Toggle automatic ratio calculus
- * @param {String} options.videoPlayerLabelSelector Selector for video player label
- * @param {String} options.titleSelector Selector for media title
+ * @param {String} options.videoTitleSelector Selector for video title
  */
 export class MediaContainer {
   /**
@@ -29,8 +28,7 @@ export class MediaContainer {
     {
       iframeSelector = 'iframe',
       useAutomaticRatio = true,
-      videoPlayerLabelSelector = 'data-ecl-media-container-player-label',
-      titleSelector = 'data-ecl-media-container-title',
+      videoTitleSelector = 'data-ecl-media-container-video-title',
     } = {},
   ) {
     // Check element
@@ -45,13 +43,11 @@ export class MediaContainer {
     // Options
     this.iframeSelector = iframeSelector;
     this.useAutomaticRatio = useAutomaticRatio;
-    this.videoPlayerLabelSelector = videoPlayerLabelSelector;
-    this.titleSelector = titleSelector;
+    this.videoTitleSelector = videoTitleSelector;
 
     // Private variables
     this.iframe = null;
-    this.videoPlayerLabel = null;
-    this.title = '';
+    this.videoTitle = '';
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
@@ -68,10 +64,7 @@ export class MediaContainer {
     ECL.components = ECL.components || new Map();
 
     // Get elements
-    this.videoPlayerLabel = this.element.getAttribute(
-      this.videoPlayerLabelSelector,
-    );
-    this.title = this.element.getAttribute(this.titleSelector);
+    this.videoTitle = this.element.getAttribute(this.videoTitleSelector);
 
     // Check if a ratio has been set manually
     const media = queryOne('.ecl-media-container__media', this.element);
@@ -114,17 +107,8 @@ export class MediaContainer {
     }
 
     // Update iframe title
-    let videoTitle = '';
-    if (this.title) {
-      videoTitle = this.title;
-    }
-    if (this.videoPlayerLabel) {
-      videoTitle = videoTitle
-        ? `${videoTitle} - ${this.videoPlayerLabel}`
-        : this.videoPlayerLabel;
-    }
-    if (videoTitle) {
-      this.iframe.setAttribute('title', videoTitle);
+    if (this.videoTitle) {
+      this.iframe.setAttribute('title', this.videoTitle);
     }
   }
 

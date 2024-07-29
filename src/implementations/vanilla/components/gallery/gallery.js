@@ -20,7 +20,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
  * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
  * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
- * @param {String} options.videoPlayerLabelSelector Selector for video player label
+ * @param {String} options.videoTitleSelector Selector for video title
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyup events
  */
@@ -65,7 +65,7 @@ export class Gallery {
       overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
       overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
-      videoPlayerLabelSelector = 'data-ecl-gallery-player-label',
+      videoTitleSelector = 'data-ecl-gallery-item-video-title',
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
@@ -106,7 +106,7 @@ export class Gallery {
     this.viewAllLabelSelector = viewAllLabelSelector;
     this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
     this.expandableSelector = expandableSelector;
-    this.videoPlayerLabelSelector = videoPlayerLabelSelector;
+    this.videoTitleSelector = videoTitleSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -128,7 +128,6 @@ export class Gallery {
     this.focusTrap = null;
     this.isDesktop = false;
     this.resizeTimer = null;
-    this.videoPlayerLabel = null;
     this.visibleItems = 0;
     this.breakpointMd = 768;
     this.breakpointLg = 996;
@@ -173,9 +172,7 @@ export class Gallery {
         this.viewAllLabel;
     }
     this.count = queryOne(this.countSelector, this.element);
-    this.videoPlayerLabel = this.element.getAttribute(
-      this.videoPlayerLabelSelector,
-    );
+
     // Bind click event on view all (open first item)
     if (this.attachClickListener && this.viewAll) {
       this.viewAll.addEventListener('click', this.handleClickOnViewAll);
@@ -484,16 +481,7 @@ export class Gallery {
       mediaIframe.setAttribute('frameBorder', '0');
 
       // Update iframe title
-      let videoTitle = '';
-      const title = queryOne(this.titleSelector, selectedItem);
-      if (title) {
-        videoTitle = title.innerHTML;
-      }
-      if (this.videoPlayerLabel) {
-        videoTitle = videoTitle
-          ? `${videoTitle} - ${this.videoPlayerLabel}`
-          : this.videoPlayerLabel;
-      }
+      const videoTitle = selectedItem.getAttribute(this.videoTitleSelector);
       if (videoTitle) {
         mediaIframe.setAttribute('title', videoTitle);
       }
@@ -515,16 +503,7 @@ export class Gallery {
       mediaElement.classList.add('ecl-gallery__slider-video');
 
       // Update video title
-      let videoTitle = '';
-      const title = queryOne(this.titleSelector, selectedItem);
-      if (title) {
-        videoTitle = title.innerHTML;
-      }
-      if (this.videoPlayerLabel) {
-        videoTitle = videoTitle
-          ? `${videoTitle} - ${this.videoPlayerLabel}`
-          : this.videoPlayerLabel;
-      }
+      const videoTitle = selectedItem.getAttribute(this.videoTitleSelector);
       if (videoTitle) {
         mediaElement.setAttribute('aria-label', videoTitle);
       }

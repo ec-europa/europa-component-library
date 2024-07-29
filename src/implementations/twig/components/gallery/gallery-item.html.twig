@@ -15,6 +15,7 @@
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -34,6 +35,7 @@
 {% set _icon_path = icon_path|default('') %}
 {% set _item = item|default({}) %}
 {% set _sr_video_label = sr_video_label|default('') %}
+{% set _sr_video_player = sr_video_player|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -42,8 +44,18 @@
 {% endif %}
 
 {# Setting up Video and image variables #}
+{% set _video_title = '' %}
 {% if _item and _item is not empty %}
   {% set _media_share_path = _item.share_path %}
+
+  {% if _item.video is not empty or _item.embedded_video is not empty %}
+    {% if _item.title is not empty %}
+      {% set _video_title = _item.title %}
+    {% endif %}
+    {% if _sr_video_player is not empty %}
+      {% set _video_title = _video_title is not empty ? _video_title ~ ' - ' ~ _sr_video_player : _sr_video_player %}
+    {% endif %}
+  {% endif %}
 
   {% if _item.video is defined and _item.video is not empty %}
     {% set _media_href = _item.video.sources[0].src %}
@@ -81,6 +93,9 @@
   {%- if _item.sr_video_audio is not empty -%}
     data-ecl-gallery-item-embed-audio="{{ _item.sr_video_audio }}"
   {%- endif -%}
+  {% if _video_title is not empty %}
+    data-ecl-gallery-item-video-title="{{ _video_title }}"
+  {% endif %}
   >
   {% if _item is not empty %}
     {% set _image_alt = _item.picture.img.alt|default('') %}
