@@ -21,7 +21,7 @@ delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.cta_link;
 delete dataCore.banner_top;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));

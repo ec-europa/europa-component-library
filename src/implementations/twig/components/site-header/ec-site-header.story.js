@@ -55,7 +55,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = 'menu';
+    defaultArgs.show_menu = 'mega-menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
