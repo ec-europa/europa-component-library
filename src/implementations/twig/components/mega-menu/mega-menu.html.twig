@@ -87,8 +87,8 @@
   class="{{ _css_class }}"
   data-ecl-mega-menu
   data-ecl-auto-init="MegaMenu"
-  {%- if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty -%}
-    data-ecl-mega-menu-label-open="{{ _toggle.link.label }}"
+  {%- if _toggle is not empty and  _toggle.label is not empty -%}
+    data-ecl-mega-menu-label-open="{{ _toggle.label }}"
   {%- endif -%}
   {%- if _close is not empty and _close.label is defined and _close.label is not empty -%}
     data-ecl-mega-menu-label-close="{{ _close.label }}"
