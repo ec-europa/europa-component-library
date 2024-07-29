@@ -9,7 +9,6 @@ exports[`Mega Menu Default renders correctly 1`] = `
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -19,36 +18,43 @@ exports[`Mega Menu Default renders correctly 1`] = `
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -102,45 +108,50 @@ exports[`Mega Menu Default renders correctly 1`] = `
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -196,33 +207,37 @@ exports[`Mega Menu Default renders correctly 1`] = `
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -400,31 +415,36 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -526,45 +546,50 @@ exports[`Mega Menu Default renders correctly 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -661,45 +686,50 @@ exports[`Mega Menu Default renders correctly 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -783,33 +813,37 @@ exports[`Mega Menu Default renders correctly 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -951,44 +985,50 @@ exports[`Mega Menu Default renders correctly 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -1034,7 +1074,6 @@ exports[`Mega Menu Default renders correctly with external items in the first le
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -1044,36 +1083,43 @@ exports[`Mega Menu Default renders correctly with external items in the first le
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -1127,45 +1173,50 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -1221,33 +1272,37 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -1425,31 +1480,36 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -1551,45 +1611,50 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -1686,45 +1751,50 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -1808,33 +1878,37 @@ exports[`Mega Menu Default renders correctly with external items in the first le
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -1976,44 +2050,50 @@ exports[`Mega Menu Default renders correctly with external items in the first le
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -2059,7 +2139,6 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     id="demo"
@@ -2071,36 +2150,43 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -2154,45 +2240,50 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -2248,33 +2339,37 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -2452,31 +2547,36 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -2578,45 +2678,50 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -2713,45 +2818,50 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -2835,33 +2945,37 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -3003,44 +3117,50 @@ exports[`Mega Menu Default renders correctly with extra attributes 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -3086,7 +3206,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -3096,36 +3215,43 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -3179,45 +3305,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -3273,33 +3404,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -3478,31 +3613,36 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -3604,45 +3744,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -3739,45 +3884,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -3861,33 +4011,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -4029,44 +4183,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the featu
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -4112,7 +4272,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -4122,36 +4281,43 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -4205,46 +4371,51 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
               test-item="testing value"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -4300,33 +4471,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -4504,31 +4679,36 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -4630,45 +4810,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -4765,45 +4950,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -4887,33 +5077,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -5055,44 +5249,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the fist 
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -5138,7 +5338,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -5148,36 +5347,43 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -5231,45 +5437,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -5325,34 +5536,38 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
                         test-subitem="testing value"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -5530,31 +5745,36 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -5656,45 +5876,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -5791,45 +6016,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -5913,33 +6143,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -6081,44 +6315,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the secon
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -6164,7 +6404,6 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -6174,36 +6413,43 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -6257,45 +6503,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -6351,33 +6602,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -6555,31 +6810,36 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -6681,45 +6941,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -6816,45 +7081,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -6938,33 +7208,37 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -7106,44 +7380,50 @@ exports[`Mega Menu Default renders correctly with extra attributes for the see a
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
@@ -7189,7 +7469,6 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
     data-ecl-auto-init="MegaMenu"
     data-ecl-mega-menu=""
     data-ecl-mega-menu-label-close="Close"
-    data-ecl-mega-menu-label-open="Menu"
     id="demo"
     role="navigation"
   >
@@ -7199,36 +7478,43 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-container ecl-mega-menu__container"
     >
-      <a
+      <button
         aria-expanded="false"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-link--icon-only"
+        class="ecl-button ecl-button--tertiary ecl-mega-menu__open ecl-button--icon-only"
         data-ecl-mega-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         class="ecl-mega-menu__inner"
         data-ecl-mega-menu-inner=""
@@ -7282,45 +7568,50 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             </a>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-1"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-1-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-1-link-label"
+                class="ecl-button__container"
               >
-                News and media
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  News and media
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -7376,33 +7667,37 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                     class="ecl-mega-menu__sublist"
                   >
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="item-2-1-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="item-2-1-id-label"
+                          class="ecl-button__container"
                         >
-                          Item 2.1
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.1
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -7580,31 +7875,36 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
+                          class="ecl-button__container"
                         >
-                          Item 2.3 that has a very long label
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Item 2.3 that has a very long label
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -7706,45 +8006,50 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-2"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-2-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-2-link-label"
+                class="ecl-button__container"
               >
-                About the European Commission
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  About the European Commission
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -7841,45 +8146,50 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-children"
             data-ecl-has-children=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-3"
           >
-            <a
+            <button
               aria-expanded="false"
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-3-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-3-link-label"
+                class="ecl-button__container"
               >
-                Key priorities
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Key priorities
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__wrapper"
             >
@@ -7963,33 +8273,37 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
                       </a>
                     </li>
                     <li
-                      aria-expanded="false"
                       class="ecl-mega-menu__subitem"
                       data-ecl-mega-menu-subitem=""
                     >
-                      <a
+                      <button
                         aria-expanded="false"
-                        class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__sublink"
+                        class="ecl-button ecl-button--primary ecl-mega-menu__sublink"
                         data-ecl-mega-menu-sublink=""
-                        href="/example"
                         id="research-and-innovation-id"
+                        type="button"
                       >
                         <span
-                          class="ecl-link__label"
-                          id="research-and-innovation-id-label"
+                          class="ecl-button__container"
                         >
-                          Research and innovation
+                          <span
+                            class="ecl-button__label"
+                            data-ecl-label="true"
+                          >
+                            Research and innovation
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                            data-ecl-icon=""
+                            focusable="false"
+                          >
+                            <use
+                              xlink:href="/icons.svg#corner-arrow"
+                            />
+                          </svg>
                         </span>
-                        <svg
-                          aria-hidden="true"
-                          class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                          focusable="false"
-                        >
-                          <use
-                            xlink:href="/icons.svg#corner-arrow"
-                          />
-                        </svg>
-                      </a>
+                      </button>
                       <div
                         class="ecl-mega-menu__mega ecl-mega-menu__mega--level-2"
                         data-ecl-mega-menu-mega=""
@@ -8131,44 +8445,50 @@ exports[`Mega Menu Default renders correctly with extra class names 1`] = `
             </div>
           </li>
           <li
-            aria-expanded="false"
             aria-haspopup=""
             class="ecl-mega-menu__item ecl-mega-menu__item--has-container"
             data-ecl-has-container=""
             data-ecl-mega-menu-item=""
             id="ecl-mega-menu-item-demo-4"
           >
-            <a
-              class="ecl-link ecl-link--standalone ecl-link--icon ecl-mega-menu__link"
+            <button
+              aria-expanded="false"
+              class="ecl-button ecl-button--primary ecl-mega-menu__link"
               data-ecl-mega-menu-link=""
-              href="/example"
               id="ecl-mega-menu-item-demo-4-link"
+              type="button"
             >
               <span
-                class="ecl-link__label"
-                id="ecl-mega-menu-item-demo-4-link-label"
+                class="ecl-button__container"
               >
-                Engage
+                <span
+                  class="ecl-button__label"
+                  data-ecl-label="true"
+                >
+                  Engage
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#corner-arrow"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-button__icon"
+                  data-ecl-icon=""
+                  focusable="false"
+                >
+                  <use
+                    xlink:href="/icons.svg#arrow-left"
+                  />
+                </svg>
               </span>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--2xs ecl-icon--rotate-90 ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#corner-arrow"
-                />
-              </svg>
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--s ecl-icon--flip-horizontal ecl-link__icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#arrow-left"
-                />
-              </svg>
-            </a>
+            </button>
             <div
               class="ecl-mega-menu__mega ecl-mega-menu__mega-container"
               data-ecl-mega-menu-mega=""
