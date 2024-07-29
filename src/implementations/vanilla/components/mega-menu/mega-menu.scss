@@ -376,6 +376,7 @@ $mega-menu: null !default;
 
   &:hover {
     background: transparent;
+    box-shadow: none;
     border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
@@ -478,6 +479,10 @@ $mega-menu: null !default;
     text-underline-offset: var(--s-2xs);
   }
 
+  &:focus-visible {
+    border-radius: 0;
+  }
+
   .ecl-mega-menu__info-content + & {
     margin-top: var(--s-xs);
   }
@@ -538,10 +543,11 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__link {
-      background: var(--c-br);
+      background: map.get($mega-menu, 'desktop', 'item-background');
       box-sizing: border-box;
       box-shadow: none;
       border-bottom: none;
+      border-radius: 0;
       color: map.get($mega-menu, 'desktop', 'item-color');
       display: inline-flex;
       font: var(--f-m);
@@ -572,7 +578,7 @@ $mega-menu: null !default;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
         outline-offset: -8px;
-        outline-width: 2px;
+        outline-width: map.get($mega-menu, 'desktop', 'outline-width');
       }
     }
 
@@ -792,6 +798,7 @@ $mega-menu: null !default;
   box-sizing: border-box;
   border-bottom: 1.5px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
+  border-radius: 0;
   color: map.get($mega-menu, 'mobile', 'item-color');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
@@ -824,6 +831,7 @@ $mega-menu: null !default;
   &:hover {
     background: transparent;
     border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+    box-shadow: none;
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -1075,10 +1083,6 @@ $mega-menu: null !default;
       display: flex;
     }
 
-    .ecl-mega-menu__link {
-      text-align: center;
-    }
-
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
       > .ecl-container,
@@ -1148,9 +1152,9 @@ $mega-menu: null !default;
 
         .ecl-link {
           border-bottom: 1px solid transparent;
-          margin: 0 0 0 var(--s-s);
-          padding: calc(var(--s-xs) + 2px) 0;
-          outline-offset: 0;
+          margin: calc(var(--s-xs) + 2px) 0 calc(var(--s-xs) + 2px) var(--s-s);
+          padding: 0;
+          outline-offset: 2px;
 
           .ecl-link__icon {
             margin-inline-start: var(--s-xs);
