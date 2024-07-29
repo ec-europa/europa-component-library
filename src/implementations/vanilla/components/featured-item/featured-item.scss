@@ -21,8 +21,13 @@ $featured-item: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
-  &:last-child {
+  &:first-child {
+    order: 2;
     padding-bottom: map.get($featured-item, 'padding');
+  }
+
+  &:last-child {
+    order: 1;
   }
 }
 
@@ -67,6 +72,16 @@ $featured-item: null !default;
 @include breakpoints.up('s') {
   .ecl-featured-item__container {
     flex-direction: row-reverse;
+  }
+
+  .ecl-featured-item__item {
+    &:first-child {
+      order: initial;
+    }
+
+    &:last-child {
+      order: initial;
+    }
   }
 
   .ecl-featured-item__title {
@@ -190,7 +205,7 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'media-padding-mobile');
   }
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
   }
 

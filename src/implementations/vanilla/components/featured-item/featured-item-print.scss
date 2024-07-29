@@ -22,7 +22,7 @@ $featured-item-print: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
-  &:last-child {
+  &:first-child {
     margin-inline-start: map.get($theme, 'spacing-print', 'xl');
     padding-bottom: map.get($featured-item-print, 'padding');
   }
@@ -126,7 +126,7 @@ $featured-item-print: null !default;
       solid map.get($featured-item, 'highlight', 'border-color');
   }
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
     margin: 0;
     padding: map.get($featured-item-print, 'highlight', 'item-spacing');
