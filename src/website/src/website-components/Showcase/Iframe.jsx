@@ -11,17 +11,17 @@ class Iframe extends PureComponent {
   }
 
   componentDidMount() {
-    const { iframeOptions, disableAutoResize, defaultHeight, maxWidth } =
-      this.props;
+    const { iframeOptions, license, disableAutoResize } = this.props;
+
+    let options = { license };
 
     if (!disableAutoResize) {
-      const options = {
+      options = {
+        ...options,
         direction: 'vertical',
-        minHeight: defaultHeight,
-        maxWidth,
-        license: 'GPLv3',
         ...iframeOptions,
       };
+
       this.iframeResizer = iframeResizer(options, this.frameRef.current);
     }
   }
@@ -32,19 +32,22 @@ class Iframe extends PureComponent {
       this.iframeResizer.length > 0 &&
       this.iframeResizer[0].iFrameResizer
     ) {
-      this.iframeResizer[0].iFrameResizer.removeListeners();
+      this.iframeResizer[0].iFrameResizer.disconnect();
       this.iframeResizer[0].iFrameResizer.close();
     }
   }
 
   render() {
-    const { defaultHeight, url } = this.props;
+    const { url, defaultHeight, maxWidth } = this.props;
     return (
       <iframe
         title="Showcase"
         src={url}
         className={styles.showcase}
-        height={defaultHeight}
+        style={{
+          minHeight: `${defaultHeight}px`,
+          maxWidth: maxWidth === '100%' ? maxWidth : `${maxWidth}px`,
+        }}
         ref={this.frameRef}
       />
     );
@@ -52,6 +55,7 @@ class Iframe extends PureComponent {
 }
 
 Iframe.propTypes = {
+  license: PropTypes.string,
   defaultHeight: PropTypes.string,
   maxWidth: PropTypes.string,
   url: PropTypes.string,
@@ -60,7 +64,8 @@ Iframe.propTypes = {
 };
 
 Iframe.defaultProps = {
-  defaultHeight: '200px',
+  defaultHeight: '200',
+  license: 'GPLv3',
   maxWidth: '100%',
   url: '',
   iframeOptions: {},
