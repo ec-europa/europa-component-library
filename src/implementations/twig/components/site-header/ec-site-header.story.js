@@ -23,7 +23,7 @@ delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.banner_top;
 delete dataCore.cta_link;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
@@ -55,7 +55,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = 'menu';
+    defaultArgs.show_menu = 'mega-menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
