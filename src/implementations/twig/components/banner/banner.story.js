@@ -20,8 +20,8 @@ const getArgs = (data) => {
     box_background: 'light',
     font_color: 'dark',
     title: data.title.link.label,
-    title_link: true,
-    description: data.description,
+    description: data.description.link.label,
+    title_description_link: 'title',
     label: data.link && data.link.link.label ? data.link.link.label : '',
     horizontal: 'left',
     vertical: 'center',
@@ -230,17 +230,6 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_title' },
     },
-    title_link: {
-      name: 'title link',
-      type: 'boolean',
-      description: 'Use a link for the title',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-        category: 'Content',
-      },
-      if: { arg: 'show_title' },
-    },
     description: {
       type: 'string',
       description: 'Sub-heading of the banner',
@@ -250,6 +239,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
       if: { arg: 'show_description' },
+    },
+    title_description_link: {
+      name: 'link on the title or the description',
+      control: 'radio',
+      options: ['none', 'title', 'description'],
+      description: 'Use a link for the title or the description',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'title' },
+        category: 'Content',
+      },
     },
     label: {
       type: 'string',
@@ -301,28 +301,37 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  const {
+    title_description_link: titleDescriptionLink,
+    show_title: showTitle,
+    show_description: showDescription,
+    show_credit: showCredit,
+    show_button: showButton,
+    title,
+    description,
+  } = args;
+
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
 
-  if (!args.show_credit) {
-    delete clone.credit;
-  }
-  if (!args.show_title) {
-    delete clone.title;
-  }
-  if (!args.show_description) {
-    delete clone.description;
-  }
-  if (!args.show_button) {
-    delete clone.link;
-  }
+  if (!showTitle) delete clone.title;
+  if (!showDescription) delete clone.description;
+  if (!showCredit) delete clone.credit;
+  if (!showButton) delete clone.link;
 
-  if (!args.title_link) {
-    clone.title = args.title;
-  } else {
-    clone.title = data.title;
-    clone.title.link.label = args.title;
+  if (titleDescriptionLink === 'title' && showTitle) {
+    clone.title = { ...data.title, link: { ...data.title.link, label: title } };
+    if (showDescription) clone.description = description;
+  } else if (titleDescriptionLink === 'description' && showDescription) {
+    clone.description = {
+      ...data.description,
+      link: { ...data.description.link, label: description },
+    };
+    if (showTitle) clone.title = title;
+  } else if (titleDescriptionLink === 'none') {
+    if (showTitle) clone.title = title;
+    if (showDescription) clone.description = description;
   }
 
   return clone;

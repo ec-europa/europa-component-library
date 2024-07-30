@@ -29,7 +29,7 @@
   - "sr_play" (string) (default: '') screen reader label for the play button
   - "sr_pause" (string) (default: '') screen reader label for the pause button
   - "credit" (string) (default: '') Credit for the image
-  - "description" (string) (default: '') Description of banner
+  - "description" (string or Link) (default: '') Description of banner
   - "horizontal" (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
   - "vertical" (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
@@ -204,19 +204,20 @@
   {% endif %}
 
   {# Content box #}
+  {% if _title is not empty or _description is not empty or _link is not empty %}
   <div class="ecl-container">
     <div
       class="ecl-banner__container"
       data-ecl-banner-container
     >
-    {% if _title is not empty or _description is not empty or _link is not empty %}
       <div class="ecl-banner__content">
         {% if _title is not empty %}
           <div class="ecl-banner__title">
             <span class="ecl-banner__title-text">
             {%- if _title.link is defined -%}
+              {% set _title_extra_classes = (_title.extra_classes is not empty ? _title.extra_classes ~ ' ' : '') ~ 'ecl-banner__title-link' %}
               {% include '@ecl/link/link.html.twig' with _title|merge({
-                extra_classes: _title.extra_classes|default('') ~ ' ecl-banner__title-link'
+                extra_classes: _title_extra_classes,
               }) only %}
             {%- else -%}
               {{- _title -}}
@@ -226,7 +227,16 @@
         {% endif %}
         {% if _description is not empty %}
           <p class="ecl-banner__description">
-            <span class="ecl-banner__description-text">{{ _description }}</span>
+            <span class="ecl-banner__description-text">
+            {%- if _description.link is defined -%}
+              {% set _description_extra_classes = (_description.extra_classes is not empty ? _description.extra_classes ~ ' ' : '') ~ 'ecl-banner__description-link' %}
+              {% include '@ecl/link/link.html.twig' with _description|merge({
+                extra_classes: _description_extra_classes,
+              }) only %}
+            {%- else -%}
+              {{- _description -}}
+            {%- endif -%}
+            </span>
           </p>
         {% endif %}
         {% if _link is not empty %}
@@ -244,9 +254,9 @@
           </div>
         {% endif %}
       </div>
-    {% endif %}
     </div>
   </div>
+  {% endif %}
 </section>
 
 {% endapply %}
