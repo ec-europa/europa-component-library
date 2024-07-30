@@ -346,7 +346,8 @@
               <li class="ecl-mega-menu__featured-list__item">
                 {% include '@ecl/link/link.html.twig' with {
                   link: item|merge({ type: 'standalone', icon_path: _icon_path }),
-                  extra_attributes: item.extra_attributes|default([]),
+                  extra_attributes: [{ name: 'data-ecl-mega-menu-featured-link' }]|merge(item.extra_attributes|default([])),
+                  extra_classes: item.extra_classes|default(''),
                 } only %}
               </li>
             {% endfor %}
