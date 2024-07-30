@@ -12,7 +12,6 @@ $pagination: null !default;
 
 @mixin item-styles {
   align-items: center;
-  color: map.get($pagination, 'item-default-color');
   justify-content: center;
   border-radius: map.get($theme, 'border-radius', 's');
   box-sizing: border-box;
@@ -64,6 +63,8 @@ $pagination: null !default;
 
 .ecl-pagination__link,
 .ecl-pagination__item--truncation {
+  color: map.get($pagination, 'item-default-color');
+
   @include item-styles;
 }
 
@@ -134,15 +135,16 @@ $pagination: null !default;
   }
 
   .ecl-pagination__item {
+    color: map.get($pagination, 'item-default-color');
     display: flex;
     flex-grow: 0;
 
     &--current {
-      @include item-styles;
-
       background: map.get($pagination, 'current-background');
       border-radius: map.get($pagination, 'current-radius');
       color: map.get($pagination, 'current-text-color-desktop');
+
+      @include item-styles;
 
       &:hover {
         color: map.get($pagination, 'current-text-color-desktop');
