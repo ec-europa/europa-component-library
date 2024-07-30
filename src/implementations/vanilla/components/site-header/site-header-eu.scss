@@ -35,6 +35,11 @@ $language-list: null !default;
     position: absolute;
     right: 0;
     width: calc(44px + var(--s-m) * 2);
+
+    &.ecl-mega-menu--rtl {
+      left: 0;
+      right: auto;
+    }
   }
 
   .ecl-site-header__cta {
@@ -52,10 +57,6 @@ $language-list: null !default;
     .ecl-site-header__site-name
     + .ecl-site-header__cta {
     margin-bottom: var(--s-m);
-  }
-
-  .ecl-mega-menu__open {
-    right: -8px;
   }
 
   &.ecl-site-header-with-logo-s .ecl-menu__open,
@@ -96,6 +97,10 @@ $language-list: null !default;
       border-color: var(--c-d);
       border-width: 1px;
     }
+  }
+
+  .ecl-mega-menu--rtl .ecl-mega-menu__open {
+    margin-inline-start: var(--s-m);
   }
   /* stylelint-enable no-descending-specificity */
 }
