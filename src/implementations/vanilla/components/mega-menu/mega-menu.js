@@ -756,7 +756,8 @@ export class MegaMenu {
         let header = '';
         if (this.openPanel.num === 0) {
           header = queryOne('.ecl-site-header__banner', document);
-        } else {
+        }
+        if (!header) {
           header = queryOne('.ecl-site-header__header', document);
         }
         if (header) {
