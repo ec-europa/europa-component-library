@@ -332,7 +332,7 @@
       {% if _featured.title is not empty %}
         <span
           class="ecl-mega-menu__featured-title"
-          aria-describedby="{{ sublink_id }}"
+          id="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id }}"
         >
           {{-  _featured.title -}}
         </span>
@@ -344,11 +344,14 @@
           <ul class="ecl-mega-menu__featured-list">
             {% for item in _featured.items %}
               <li class="ecl-mega-menu__featured-list__item">
-                {% include '@ecl/link/link.html.twig' with {
-                  link: item|merge({ type: 'standalone', icon_path: _icon_path }),
-                  extra_attributes: [{ name: 'data-ecl-mega-menu-featured-link' }]|merge(item.extra_attributes|default([])),
-                  extra_classes: item.extra_classes|default(''),
-                } only %}
+              {% include '@ecl/link/link.html.twig' with {
+                link: item|merge({ type: 'standalone', icon_path: _icon_path }),
+                extra_attributes: [
+                  { name: 'data-ecl-mega-menu-featured-link' },
+                  { name: 'aria-labelledby', value: 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id },
+                ]|merge(item.extra_attributes|default([])),
+                extra_classes: item.extra_classes|default(''),
+              } only %}
               </li>
             {% endfor %}
           </ul>
