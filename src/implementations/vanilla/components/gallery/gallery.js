@@ -6,6 +6,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Object} options
  * @param {String} options.galleryItemSelector Selector for gallery element
  * @param {String} options.descriptionSelector Selector for gallery description element
+ * @param {String} options.titleSelector Selector for gallery title element
  * @param {String} options.closeButtonSelector Selector for close button element
  * @param {String} options.allButtonSelector Selector for view all button element
  * @param {String} options.overlaySelector Selector for gallery overlay element
@@ -19,7 +20,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.overlayDescriptionSelector Selector for gallery overlay description element
  * @param {String} options.overlayPreviousSelector Selector for gallery overlay previous link element
  * @param {String} options.overlayNextSelector Selector for gallery overlay next link element
- * @param {String} options.videoPlayerLabelSelector Selector for video player label
+ * @param {String} options.videoTitleSelector Selector for video title
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyup events
  */
@@ -45,6 +46,7 @@ export class Gallery {
       expandableSelector = 'data-ecl-gallery-not-expandable',
       galleryItemSelector = '[data-ecl-gallery-item]',
       descriptionSelector = '[data-ecl-gallery-description]',
+      titleSelector = '[data-ecl-gallery-title]',
       noOverlaySelector = 'data-ecl-gallery-no-overlay',
       itemsLimitSelector = 'data-ecl-gallery-visible-items',
       closeButtonSelector = '[data-ecl-gallery-close]',
@@ -63,7 +65,7 @@ export class Gallery {
       overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
       overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector = '[data-ecl-gallery-overlay-next]',
-      videoPlayerLabelSelector = 'data-ecl-gallery-player-label',
+      videoTitleSelector = 'data-ecl-gallery-item-video-title',
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
@@ -81,6 +83,7 @@ export class Gallery {
     // Options
     this.galleryItemSelector = galleryItemSelector;
     this.descriptionSelector = descriptionSelector;
+    this.titleSelector = titleSelector;
     this.closeButtonSelector = closeButtonSelector;
     this.viewAllSelector = viewAllSelector;
     this.countSelector = countSelector;
@@ -103,7 +106,7 @@ export class Gallery {
     this.viewAllLabelSelector = viewAllLabelSelector;
     this.viewAllExpandedLabelSelector = viewAllExpandedLabelSelector;
     this.expandableSelector = expandableSelector;
-    this.videoPlayerLabelSelector = videoPlayerLabelSelector;
+    this.videoTitleSelector = videoTitleSelector;
 
     // Private variables
     this.galleryItems = null;
@@ -125,7 +128,6 @@ export class Gallery {
     this.focusTrap = null;
     this.isDesktop = false;
     this.resizeTimer = null;
-    this.videoPlayerLabel = null;
     this.visibleItems = 0;
     this.breakpointMd = 768;
     this.breakpointLg = 996;
@@ -170,9 +172,7 @@ export class Gallery {
         this.viewAllLabel;
     }
     this.count = queryOne(this.countSelector, this.element);
-    this.videoPlayerLabel = this.element.getAttribute(
-      this.videoPlayerLabelSelector,
-    );
+
     // Bind click event on view all (open first item)
     if (this.attachClickListener && this.viewAll) {
       this.viewAll.addEventListener('click', this.handleClickOnViewAll);
@@ -480,8 +480,10 @@ export class Gallery {
       mediaIframe.setAttribute('src', iframeUrl);
       mediaIframe.setAttribute('frameBorder', '0');
 
-      if (this.videoPlayerLabel) {
-        mediaIframe.setAttribute('title', this.videoPlayerLabel);
+      // Update iframe title
+      const videoTitle = selectedItem.getAttribute(this.videoTitleSelector);
+      if (videoTitle) {
+        mediaIframe.setAttribute('title', videoTitle);
       }
 
       if (this.overlayMedia) {
@@ -500,8 +502,10 @@ export class Gallery {
       mediaElement.setAttribute('controls', 'controls');
       mediaElement.classList.add('ecl-gallery__slider-video');
 
-      if (this.videoPlayerLabel) {
-        mediaElement.setAttribute('aria-label', this.videoPlayerLabel);
+      // Update video title
+      const videoTitle = selectedItem.getAttribute(this.videoTitleSelector);
+      if (videoTitle) {
+        mediaElement.setAttribute('aria-label', videoTitle);
       }
 
       if (this.overlayMedia) {
