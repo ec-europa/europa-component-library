@@ -23,12 +23,12 @@ $theme: null !default;
 ) {
   // Common properties for all breakpoints
   %grid-column {
-    @include grid.make-gutters($gutters);
-
     box-sizing: border-box;
     min-height: 1px; // Prevent columns from collapsing when empty
     position: relative;
     width: 100%;
+
+    @include grid.make-gutters($gutters);
   }
 
   @each $breakpoint in map.keys($breakpoints) {
