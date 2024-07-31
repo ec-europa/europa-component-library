@@ -21,9 +21,6 @@ const getArgs = (data) => {
   if (data.meta) {
     args.meta = data.meta;
   }
-  if (data.background_image_url) {
-    args.overlay = 'none';
-  }
   if (data.description) {
     args.description = data.description;
   }
@@ -117,25 +114,6 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.picture_background.img.src) {
-    argTypes.overlay = {
-      name: 'image overlay',
-      type: 'select',
-      description: 'Overlay on top on background image',
-      options: ['none', 'dark', 'light'],
-      mapping: {
-        none: 'none',
-        dark: 'dark',
-        light: 'light',
-      },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
-    };
-  }
-
   return argTypes;
 };
 
@@ -167,12 +145,6 @@ const prepareData = (data, args) => {
     };
   } else {
     clone.picture_background = {};
-  }
-
-  if (args.overlay === 'none') {
-    delete clone.overlay;
-  } else {
-    clone.overlay = args.overlay;
   }
 
   correctPaths(clone);
