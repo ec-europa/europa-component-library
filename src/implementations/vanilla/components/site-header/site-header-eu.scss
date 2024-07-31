@@ -348,6 +348,10 @@ $language-list: null !default;
       }
     }
 
+    &.ecl-site-header--has-menu .ecl-site-header__header {
+      box-shadow: none;
+    }
+
     .ecl-menu {
       background: map.get($site-header, 'gradient-background');
       min-height: auto;
