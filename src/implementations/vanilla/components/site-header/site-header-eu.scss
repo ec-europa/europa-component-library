@@ -92,7 +92,6 @@ $language-list: null !default;
     z-index: 54;
 
     &:hover {
-      background-color: var(--c-p-10);
       border-color: var(--c-d);
       border-width: 1px;
     }
@@ -105,6 +104,11 @@ $language-list: null !default;
 
   .ecl-mega-menu__open {
     margin-inline-start: var(--s-m);
+  }
+
+  .ecl-menu[aria-expanded='true'] .ecl-menu__open,
+  .ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
+    background-color: var(--c-p-20);
   }
   /* stylelint-enable no-descending-specificity */
 }
