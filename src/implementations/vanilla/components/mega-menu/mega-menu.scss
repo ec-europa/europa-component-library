@@ -1252,6 +1252,14 @@ $mega-menu: null !default;
         width: 100%;
       }
 
+      &:hover {
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'sublink-current-background'
+        );
+      }
+
       &:focus-visible {
         border-color: transparent;
         color: var(--c-d);
