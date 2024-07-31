@@ -558,7 +558,38 @@ $_description-height-desktop: 108px;
 
     &.ecl-gallery--col-2 {
       .ecl-gallery__list {
-        grid-template-columns: repeat(2, 1fr);
+        // grid-template-columns: repeat(2, 1fr);
+
+        // Test grid
+
+        /*
+        grid-template-columns: repeat(4, 1fr);
+
+        .ecl-gallery__item:nth-child(10n + 1),
+        .ecl-gallery__item:nth-child(10n + 2) {
+          grid-area: span 2 / span 2;
+        }
+        */
+
+        grid-template-columns: repeat(12, 1fr);
+
+        .ecl-gallery__item:nth-child(9n + 1),
+        .ecl-gallery__item:nth-child(9n + 2) {
+          grid-area: span 6 / span 6;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 3),
+        .ecl-gallery__item:nth-child(9n + 4),
+        .ecl-gallery__item:nth-child(9n + 5) {
+          grid-area: span 4 / span 4;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 6),
+        .ecl-gallery__item:nth-child(9n + 7),
+        .ecl-gallery__item:nth-child(9n + 8),
+        .ecl-gallery__item:nth-child(9n + 9) {
+          grid-area: span 3 / span 3;
+        }
       }
     }
 
