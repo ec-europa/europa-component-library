@@ -360,6 +360,7 @@ $mega-menu: null !default;
   background: transparent;
   border-bottom: 1px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
+  border-radius: 0;
   box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
@@ -375,6 +376,7 @@ $mega-menu: null !default;
   &:hover {
     background: transparent;
     box-shadow: none;
+    border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
