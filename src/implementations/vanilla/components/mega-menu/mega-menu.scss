@@ -413,12 +413,16 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
-  transform: rotate(0);
-}
-
 .ecl-mega-menu__featured-list__item .ecl-link {
   border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
+
+  &:hover {
+    border-color: map.get($mega-menu, 'mobile', 'featured-link-border');
+  }
+}
+
+.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
+  transform: rotate(0);
 }
 
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
@@ -595,7 +599,6 @@ $mega-menu: null !default;
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
-        margin-top: var(--s-2xs);
         height: calc(var(--s-xs) + 2px);
         transform: rotate(180deg);
         width: calc(var(--s-xs) + 2px);
