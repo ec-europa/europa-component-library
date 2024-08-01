@@ -5,7 +5,7 @@
 $mega-menu: (
   global: (
     border-radius: 0,
-    greysh-background: var(--c-p-10),
+    greysh-background: var(--c-in-5),
     shadow: none,
   ),
   mobile: (
@@ -13,15 +13,15 @@ $mega-menu: (
     banner-shadow: map.get($shadow, '4'),
     menu-background: transparent,
     color: var(--c-d),
-    content-background: map.get($color, 'white'),
+    content-background: transparent,
     featured-background: var(--c-p-5),
     featured-link-border: var(--c-d-20),
-    overlay-background: var(--c-p-10),
+    overlay-background: map.get($color, 'white'),
     open-padding: var(--s-xs) 0,
     hide-header: true,
-    open-background-active: var(--c-p-80),
-    header-background: var(--c-p-10),
-    header-background-hover: var(--c-p-20),
+    open-background-active: var(--c-p-20),
+    header-background: var(--c-in-5),
+    header-background-hover: var(--c-p-10),
     header-font: var(--f-m),
     header-color: var(--c-p),
     header-color-hover: var(--c-d),
@@ -40,8 +40,9 @@ $mega-menu: (
   desktop: (
     menu-background: linear-gradient(90deg, var(--c-p-140), var(--c-p)),
     menu-border: none,
-    item-background-focus: var(--c-br),
-    item-background-hover: var(--c-p-40),
+    item-background: transparent,
+    item-background-focus: transparent,
+    item-background-hover: var(--c-p-20),
     item-color: map.get($color, 'white'),
     item-color-hover: var(--c-d),
     item-color-focus: map.get($color, 'white'),
@@ -53,12 +54,14 @@ $mega-menu: (
     link-line-height: map.get($line-height, 'm'),
     mega-border: none,
     mega-shadow: none,
+    outline-width: 1px,
+    overlay-background: var(--c-p-5),
     see-all-divider: var(--c-p-40),
     sublink-padding: calc(var(--s-xs) + 2px) var(--s-l) calc(var(--s-xs) + 2px)
       var(--s-m),
     sublink-level2-padding: calc(var(--s-xs) + 2px) var(--s-2xl)
       calc(var(--s-xs) + 2px) var(--s-s),
-    sublink-current-background: var(--c-p-10),
+    sublink-current-background: var(--c-in-5),
   ),
 );
 // stylelint-enable length-zero-no-unit
