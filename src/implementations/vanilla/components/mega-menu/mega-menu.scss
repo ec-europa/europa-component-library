@@ -48,7 +48,6 @@ $mega-menu: null !default;
 .ecl-mega-menu__open {
   align-items: center;
   align-self: center;
-  border-radius: map.get($mega-menu, 'global', 'border-radius');
   box-sizing: border-box;
   cursor: pointer;
   color: currentcolor;
@@ -222,7 +221,6 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__back {
-  border-radius: map.get($mega-menu, 'global', 'border-radius');
   cursor: pointer;
   color: currentcolor;
   display: none;
@@ -362,6 +360,7 @@ $mega-menu: null !default;
   background: transparent;
   border-bottom: 1px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
+  border-radius: 0;
   box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
@@ -376,6 +375,7 @@ $mega-menu: null !default;
 
   &:hover {
     background: transparent;
+    box-shadow: none;
     border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
@@ -391,6 +391,7 @@ $mega-menu: null !default;
   &:focus-visible {
     background: transparent;
     border-color: transparent;
+    border-radius: 0px;
     color: var(--c-d);
     outline-color: var(--c-p);
     outline-offset: -2px;
@@ -412,12 +413,16 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
-  transform: rotate(0);
-}
-
 .ecl-mega-menu__featured-list__item .ecl-link {
   border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
+
+  &:hover {
+    border-color: map.get($mega-menu, 'mobile', 'featured-link-border');
+  }
+}
+
+.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
+  transform: rotate(0);
 }
 
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
@@ -476,6 +481,10 @@ $mega-menu: null !default;
   &:hover {
     text-decoration: underline !important;
     text-underline-offset: var(--s-2xs);
+  }
+
+  &:focus-visible {
+    border-radius: 0;
   }
 
   .ecl-mega-menu__info-content + & {
@@ -538,10 +547,11 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__link {
-      background: var(--c-br);
+      background: map.get($mega-menu, 'desktop', 'item-background');
       box-sizing: border-box;
       box-shadow: none;
       border-bottom: none;
+      border-radius: 0;
       color: map.get($mega-menu, 'desktop', 'item-color');
       display: inline-flex;
       font: var(--f-m);
@@ -572,7 +582,7 @@ $mega-menu: null !default;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
         outline-offset: -8px;
-        outline-width: 2px;
+        outline-width: map.get($mega-menu, 'desktop', 'outline-width');
       }
     }
 
@@ -589,7 +599,6 @@ $mega-menu: null !default;
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
-        margin-top: var(--s-2xs);
         height: calc(var(--s-xs) + 2px);
         transform: rotate(180deg);
         width: calc(var(--s-xs) + 2px);
@@ -792,6 +801,7 @@ $mega-menu: null !default;
   box-sizing: border-box;
   border-bottom: 1.5px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
+  border-radius: 0;
   color: map.get($mega-menu, 'mobile', 'item-color');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
@@ -824,6 +834,7 @@ $mega-menu: null !default;
   &:hover {
     background: transparent;
     border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+    box-shadow: none;
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -1075,10 +1086,6 @@ $mega-menu: null !default;
       display: flex;
     }
 
-    .ecl-mega-menu__link {
-      text-align: center;
-    }
-
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
       > .ecl-container,
@@ -1148,9 +1155,9 @@ $mega-menu: null !default;
 
         .ecl-link {
           border-bottom: 1px solid transparent;
-          margin: 0 0 0 var(--s-s);
-          padding: calc(var(--s-xs) + 2px) 0;
-          outline-offset: 0;
+          margin: calc(var(--s-xs) + 2px) 0 calc(var(--s-xs) + 2px) var(--s-s);
+          padding: 0;
+          outline-offset: 2px;
 
           .ecl-link__icon {
             margin-inline-start: var(--s-xs);
@@ -1246,6 +1253,14 @@ $mega-menu: null !default;
 
       > .ecl-button__container {
         width: 100%;
+      }
+
+      &:hover {
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'sublink-current-background'
+        );
       }
 
       &:focus-visible {
