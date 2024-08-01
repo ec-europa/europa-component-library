@@ -32,7 +32,7 @@ const getArgTypes = () => ({
       type: 'range',
       step: 1,
       min: 2,
-      max: 4,
+      max: 5,
     },
     description: 'Number of columns, for grid display',
     table: {

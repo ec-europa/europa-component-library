@@ -555,23 +555,30 @@ $_description-height-desktop: 108px;
   .ecl-gallery--grid {
     .ecl-gallery__list {
       grid-template-columns: repeat(3, 1fr);
+      margin-top: 0;
     }
+
+    // Test image zoom
+    .ecl-gallery__image-container {
+      overflow: hidden;
+    }
+
+    .ecl-gallery__image {
+      transition: transform 0.5s;
+    }
+
+    .ecl-gallery__item-link:hover .ecl-gallery__image,
+    .ecl-gallery__item-link:focus-visible .ecl-gallery__image {
+      transform: scale(1.1);
+    }
+
+    // /Test
 
     &.ecl-gallery--col-2 {
       .ecl-gallery__list {
         // grid-template-columns: repeat(2, 1fr);
 
-        // Test grid
-
-        /*
-        grid-template-columns: repeat(4, 1fr);
-
-        .ecl-gallery__item:nth-child(10n + 1),
-        .ecl-gallery__item:nth-child(10n + 2) {
-          grid-area: span 2 / span 2;
-        }
-        */
-
+        // Test template 1
         grid-template-columns: repeat(12, 1fr);
 
         .ecl-gallery__item:nth-child(9n + 1),
@@ -591,25 +598,82 @@ $_description-height-desktop: 108px;
         .ecl-gallery__item:nth-child(9n + 9) {
           grid-area: span 3 / span 3;
         }
-      }
 
-      .ecl-gallery__image-container {
-        overflow: hidden;
+        // /Test
       }
+    }
 
-      .ecl-gallery__image {
-        transition: transform 0.5s;
-      }
+    &.ecl-gallery--col-3 {
+      .ecl-gallery__list {
+        // grid-template-columns: repeat(3, 1fr);
 
-      .ecl-gallery__item-link:hover .ecl-gallery__image,
-      .ecl-gallery__item-link:focus-visible .ecl-gallery__image {
-        transform: scale(1.1);
+        // Test template 2
+        grid-auto-flow: dense;
+        grid-auto-columns: 1fr;
+
+        .ecl-gallery__item:nth-child(10n + 1) {
+          grid-area: span 2 / span 2;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 2) {
+          grid-column: 3;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 3) {
+          grid-column: 4;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 8) {
+          grid-column: 1;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 9) {
+          grid-column: 2;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 10) {
+          grid-area: span 2 / span 2;
+        }
+
+        // /Test
       }
     }
 
     &.ecl-gallery--col-4 {
       .ecl-gallery__list {
+        // grid-template-columns: repeat(4, 1fr);
+
+        // Test template 3
+        grid-auto-flow: dense;
+        grid-auto-columns: 1fr;
+
+        .ecl-gallery__item:nth-child(9n + 2) {
+          grid-column: 1;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 3) {
+          grid-area: span 2 / span 2;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 5) {
+          grid-column: 4;
+        }
+
+        // /Test
+      }
+    }
+
+    &.ecl-gallery--col-5 {
+      .ecl-gallery__list {
+        // Test template 4
+
         grid-template-columns: repeat(4, 1fr);
+
+        .ecl-gallery__item:nth-child(8n + 1) {
+          grid-area: span 3 / span 3;
+        }
+
+        // /Test
       }
     }
   }
