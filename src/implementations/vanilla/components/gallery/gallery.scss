@@ -61,6 +61,7 @@ $_description-height-desktop: 108px;
   width: 2rem;
   height: 2rem;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .ecl-gallery__item-icon {
@@ -590,6 +591,18 @@ $_description-height-desktop: 108px;
         .ecl-gallery__item:nth-child(9n + 9) {
           grid-area: span 3 / span 3;
         }
+      }
+
+      .ecl-gallery__image-container {
+        overflow: hidden;
+      }
+
+      .ecl-gallery__image {
+        transition: transform 0.5s;
+      }
+
+      .ecl-gallery__item:hover .ecl-gallery__image {
+        transform: scale(1.1);
       }
     }
 
