@@ -19,7 +19,6 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
-  box-shadow: var(--sh-4);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
@@ -35,6 +34,11 @@ $language-list: null !default;
     position: absolute;
     right: 0;
     width: calc(44px + var(--s-m) * 2);
+
+    &.ecl-mega-menu--rtl {
+      left: 0;
+      right: auto;
+    }
   }
 
   .ecl-site-header__cta {
@@ -52,10 +56,6 @@ $language-list: null !default;
     .ecl-site-header__site-name
     + .ecl-site-header__cta {
     margin-bottom: var(--s-m);
-  }
-
-  .ecl-mega-menu__open {
-    right: -8px;
   }
 
   &.ecl-site-header-with-logo-s .ecl-menu__open,
@@ -83,21 +83,40 @@ $language-list: null !default;
   .ecl-menu[aria-expanded='true'] .ecl-menu__open,
   .ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
     align-items: center;
-    background-color: transparent;
     border: 1px solid transparent;
     box-sizing: border-box;
     color: currentcolor;
     height: 44px;
     padding: calc(var(--s-xs) + 1px) 0;
     position: relative;
+    z-index: 54;
 
     &:hover {
-      background-color: var(--c-p-10);
       border-color: var(--c-d);
       border-width: 1px;
     }
   }
+
+  .ecl-menu__open .ecl-icon:last-of-type {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .ecl-mega-menu__open {
+    margin-inline-start: var(--s-m);
+  }
+
+  .ecl-menu[aria-expanded='true'] .ecl-menu__open,
+  .ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
+    background-color: var(--c-p-20);
+  }
   /* stylelint-enable no-descending-specificity */
+}
+
+.ecl-site-header__header {
+  box-shadow: var(--sh-4);
+  position: relative;
+  z-index: 54;
 }
 
 .ecl-site-header__container {
@@ -257,6 +276,7 @@ $language-list: null !default;
 
 .ecl-site-header__banner {
   background: map.get($site-header, 'gradient-background');
+  box-shadow: var(--sh-4);
 }
 
 .ecl-site-header__site-name {
@@ -337,6 +357,10 @@ $language-list: null !default;
       }
     }
 
+    &.ecl-site-header--has-menu .ecl-site-header__header {
+      box-shadow: none;
+    }
+
     .ecl-menu {
       background: map.get($site-header, 'gradient-background');
       min-height: auto;
@@ -361,6 +385,8 @@ $language-list: null !default;
   }
 
   .ecl-site-header__banner {
+    box-shadow: none;
+
     .ecl-container {
       display: flex;
       position: relative;

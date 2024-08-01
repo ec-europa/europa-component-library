@@ -48,7 +48,6 @@ $mega-menu: null !default;
 .ecl-mega-menu__open {
   align-items: center;
   align-self: center;
-  border-radius: map.get($mega-menu, 'global', 'border-radius');
   box-sizing: border-box;
   cursor: pointer;
   color: currentcolor;
@@ -222,7 +221,6 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__back {
-  border-radius: map.get($mega-menu, 'global', 'border-radius');
   cursor: pointer;
   color: currentcolor;
   display: none;
@@ -359,16 +357,26 @@ $mega-menu: null !default;
 .ecl-mega-menu__link,
 .ecl-mega-menu__featured-list__item .ecl-link {
   align-items: center;
+  background: transparent;
   border-bottom: 1px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
-  box-sizing: content-box;
+  border-radius: 0;
+  box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
-  font: map.get($mega-menu, 'mobile', 'item-font');
+  line-height: map.get($theme, 'line-height-ui', 'xs');
   padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
+  width: 100%;
+
+  > span {
+    width: 100%;
+  }
 
   &:hover {
+    background: transparent;
+    box-shadow: none;
+    border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -381,7 +389,13 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
+    background: transparent;
+    border-color: transparent;
+    border-radius: 0px;
+    color: var(--c-d);
+    outline-color: var(--c-p);
     outline-offset: -2px;
+    outline-width: 2px;
   }
 
   .ecl-icon {
@@ -401,6 +415,14 @@ $mega-menu: null !default;
 
 .ecl-mega-menu__featured-list__item .ecl-link {
   border-bottom: 1px solid map.get($mega-menu, 'mobile', 'featured-link-border');
+
+  &:hover {
+    border-color: map.get($mega-menu, 'mobile', 'featured-link-border');
+  }
+}
+
+.ecl-mega-menu--rtl .ecl-icon--flip-horizontal {
+  transform: rotate(0);
 }
 
 .ecl-mega-menu__sublink.ecl-mega-menu__parent-link {
@@ -415,7 +437,7 @@ $mega-menu: null !default;
   &:focus-visible {
     outline: none;
 
-    .ecl-link__label {
+    .ecl-button__label {
       outline: 2px solid var(--c-p);
       outline-offset: 4px;
     }
@@ -454,12 +476,15 @@ $mega-menu: null !default;
 .ecl-mega-menu__info-link {
   border-bottom: 1px solid transparent;
   display: inline-block;
-  line-height: 22px;
   width: fit-content;
 
   &:hover {
     text-decoration: underline !important;
     text-underline-offset: var(--s-2xs);
+  }
+
+  &:focus-visible {
+    border-radius: 0;
   }
 
   .ecl-mega-menu__info-content + & {
@@ -468,8 +493,6 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__subitem {
-  line-height: 22px;
-
   .ecl-mega-menu__sublink--level-2 {
     background: transparent;
     color: var(--c-p);
@@ -524,9 +547,11 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__link {
+      background: map.get($mega-menu, 'desktop', 'item-background');
       box-sizing: border-box;
       box-shadow: none;
       border-bottom: none;
+      border-radius: 0;
       color: map.get($mega-menu, 'desktop', 'item-color');
       display: inline-flex;
       font: var(--f-m);
@@ -557,6 +582,7 @@ $mega-menu: null !default;
         color: map.get($mega-menu, 'desktop', 'item-color-focus');
         outline-color: map.get($theme, 'color', 'white');
         outline-offset: -8px;
+        outline-width: map.get($mega-menu, 'desktop', 'outline-width');
       }
     }
 
@@ -573,7 +599,6 @@ $mega-menu: null !default;
     .ecl-mega-menu__item--has-children,
     .ecl-mega-menu__item--has-container {
       .ecl-mega-menu__link .ecl-icon {
-        margin-top: var(--s-2xs);
         height: calc(var(--s-xs) + 2px);
         transform: rotate(180deg);
         width: calc(var(--s-xs) + 2px);
@@ -621,7 +646,7 @@ $mega-menu: null !default;
       .ecl-mega-menu--forced-close
     ) {
     .ecl-mega-menu__item {
-      &.ecl-mega-menu__item--expanded > .ecl-link .ecl-icon {
+      &.ecl-mega-menu__item--expanded > .ecl-button .ecl-icon {
         transform: rotate(0);
       }
 
@@ -700,12 +725,9 @@ $mega-menu: null !default;
 
       &.ecl-mega-menu__parent-link {
         border: none;
+        cursor: default;
         font: var(--f-l);
         margin: 0 calc(-1 * var(--s-xs));
-
-        &:hover {
-          text-decoration: underline;
-        }
 
         &::after {
           background: map.get(
@@ -723,7 +745,7 @@ $mega-menu: null !default;
         }
       }
 
-      .ecl-link__icon {
+      .ecl-button__icon {
         display: none;
       }
     }
@@ -746,8 +768,6 @@ $mega-menu: null !default;
   padding-inline-start: 0;
 
   .ecl-mega-menu__see-all {
-    display: none;
-
     .ecl-link {
       border-radius: 0;
       box-sizing: border-box;
@@ -777,17 +797,22 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu__sublink {
+  background: transparent;
   box-sizing: border-box;
   border-bottom: 1.5px solid
     map.get($mega-menu, 'desktop', 'sublink-current-background');
+  border-radius: 0;
   color: map.get($mega-menu, 'mobile', 'item-color');
-  font: map.get($mega-menu, 'mobile', 'item-font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
   display: -webkit-box;
+  line-height: map.get($theme, 'line-height-ui', 'xs');
+  min-height: 42px;
+  text-align: left;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  width: 100%;
 
   &.ecl-link--icon:not(.ecl-mega-menu__parent-link) {
     display: flex;
@@ -807,6 +832,9 @@ $mega-menu: null !default;
   }
 
   &:hover {
+    background: transparent;
+    border-color: map.get($mega-menu, 'desktop', 'sublink-current-background');
+    box-shadow: none;
     color: map.get($mega-menu, 'mobile', 'item-color-hover');
   }
 
@@ -824,7 +852,12 @@ $mega-menu: null !default;
   }
 
   &:focus-visible {
+    background: transparent;
+    border-color: transparent;
+    color: var(--c-d);
+    outline-color: var(--c-p);
     outline-offset: -2px;
+    outline-width: 2px;
   }
 
   .ecl-icon {
@@ -854,6 +887,10 @@ $mega-menu: null !default;
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:focus-visible {
+      color: var(--c-p) !important;
     }
 
     &.ecl-mega-menu__sublink--last {
@@ -901,6 +938,7 @@ $mega-menu: null !default;
 
   .ecl-mega-menu__featured-list {
     .ecl-mega-menu__featured-list__item {
+      line-height: map.get($theme, 'line-height-ui', 'xs');
       margin-bottom: 0;
 
       .ecl-link {
@@ -908,7 +946,6 @@ $mega-menu: null !default;
         box-sizing: border-box;
         color: var(--c-p);
         display: block;
-        font: var(--f-m);
         outline-offset: -2px;
         padding: var(--s-m) var(--s-l);
         width: 100%;
@@ -1049,10 +1086,6 @@ $mega-menu: null !default;
       display: flex;
     }
 
-    .ecl-mega-menu__link {
-      text-align: center;
-    }
-
     .ecl-mega-menu__item.ecl-mega-menu__item--expanded
       > .ecl-mega-menu__wrapper
       > .ecl-container,
@@ -1122,9 +1155,9 @@ $mega-menu: null !default;
 
         .ecl-link {
           border-bottom: 1px solid transparent;
-          margin: 0 0 0 var(--s-s);
-          padding: calc(var(--s-xs) + 2px) 0;
-          outline-offset: 0;
+          margin: calc(var(--s-xs) + 2px) 0 calc(var(--s-xs) + 2px) var(--s-s);
+          padding: 0;
+          outline-offset: 2px;
 
           .ecl-link__icon {
             margin-inline-start: var(--s-xs);
@@ -1210,15 +1243,31 @@ $mega-menu: null !default;
     }
 
     .ecl-mega-menu__sublink {
+      background: transparent;
       break-inside: avoid-column;
-      font: var(--f-m);
-      line-height: 137.5%;
+      border-inline-start: 4px solid transparent;
       margin: 0;
       padding: map.get($mega-menu, 'desktop', 'sublink-padding');
       white-space: normal;
+      width: 100%;
 
-      &:focus {
+      > .ecl-button__container {
+        width: 100%;
+      }
+
+      &:hover {
+        background-color: map.get(
+          $mega-menu,
+          'desktop',
+          'sublink-current-background'
+        );
+      }
+
+      &:focus-visible {
+        border-color: transparent;
+        color: var(--c-d);
         outline-color: var(--c-p);
+        outline-width: 2px;
       }
     }
 
@@ -1237,6 +1286,7 @@ $mega-menu: null !default;
           'desktop',
           'sublink-current-background'
         );
+        border-color: var(--c-p);
       }
     }
   }
@@ -1333,15 +1383,6 @@ $mega-menu: null !default;
 
       > .ecl-mega-menu__mega {
         left: calc(15.875rem + var(--s-xl));
-
-        > .ecl-mega-menu__sublist {
-          direction: rtl;
-          overflow-x: hidden;
-
-          > .ecl-mega-menu__subitem {
-            direction: ltr;
-          }
-        }
       }
     }
 
@@ -1351,14 +1392,6 @@ $mega-menu: null !default;
       > .ecl-container
       > .ecl-mega-menu__mega {
       right: calc(14.375rem + var(--s-xl));
-
-      > .ecl-mega-menu__sublist {
-        direction: ltr;
-
-        > .ecl-mega-menu__subitem {
-          direction: rtl;
-        }
-      }
     }
   }
 }

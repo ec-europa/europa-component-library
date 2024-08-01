@@ -11,15 +11,20 @@
 {% set _video_sources = _item.video.sources|default({}) %}
 {% set _video_tracks = _item.video.tracks|default({}) %}
 
-{%- if _item.title is defined and _item.title is not empty -%}
-  <span class="ecl-gallery__video-title">
-    {{- _item.title -}}
-    {% if _sr_video_label is not empty %}
-      {{- ' - ' ~ _sr_video_label -}}
-    {% endif %}
-  </span>
-{%- endif -%}
-<video class="ecl-gallery__image" poster="{{ _item.video.poster }}">
+<video 
+  class="ecl-gallery__image" 
+  poster="{{ _item.video.poster }}"
+  {% set _video_title = '' %}
+  {%- if _item.title is not empty -%}
+    {% set _video_title = _item.title %}
+  {% endif %}
+  {%- if _sr_video_label is not empty -%}
+    {% set _video_title = _video_title ? _video_title ~ ' - ' ~ _sr_video_label : _sr_video_label %}
+  {% endif %}
+  {%- if _video_title is not empty -%}
+    aria-label="{{ _video_title }}"
+  {%- endif -%}  
+>
   {% if _video_sources is defined and _video_sources is not empty and _video_sources is iterable %}
     {% for video in _video_sources %}
       <source src="{{ video.src }}" type="{{ video.type }}">

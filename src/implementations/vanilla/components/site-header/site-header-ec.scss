@@ -49,6 +49,10 @@ $language-list: null !default;
     z-index: 54;
   }
 
+  .ecl-mega-menu--rtl .ecl-mega-menu__open {
+    margin-inline-start: var(--s-m);
+  }
+
   .ecl-site-header__cta {
     margin-top: var(--s-s);
     position: relative;
@@ -379,6 +383,10 @@ $menu-top: calc(44px + 2 * var(--s-xs));
     flex-direction: row;
     padding-bottom: var(--s-xl);
     padding-top: var(--s-2xl);
+  }
+
+  .ecl-site-header__header {
+    box-shadow: none;
   }
 
   .ecl-site-header__site-name {

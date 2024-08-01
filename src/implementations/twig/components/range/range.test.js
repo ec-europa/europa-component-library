@@ -9,7 +9,10 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import specDefault from '@ecl/specs-component-range/demo/data';
 
-const dataDefault = specDefault.input;
+// Add aria label as there is no form label here
+const dataDefault = merge(specDefault.input, {
+  extra_attributes: [{ name: 'aria-label', value: 'range label' }],
+});
 
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
@@ -41,10 +44,10 @@ describe('Range', () => {
       expect.assertions(1);
 
       const withExtraAttributes = merge(dataDefault, {
-        extra_attributes: [
+        extra_attributes: dataDefault.extra_attributes.concat([
           { name: 'data-test', value: 'data-test-value' },
           { name: 'data-test-1', value: 'data-test-value-1' },
-        ],
+        ]),
       });
 
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();

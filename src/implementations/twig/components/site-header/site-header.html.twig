@@ -234,15 +234,14 @@
                 picture: _picture,
                 extra_classes: "ecl-site-header__picture",
                 extra_image_classes: image_classes,
-                extra_attributes: [{ name: 'title', value: _logo.title }],
+                extra_attributes: _logo.title is not empty ? [{ name: 'title', value: _logo.title }] : [],
               } only %}
             {% endset %}
             {% include '@ecl/link/link.html.twig' with {
               link: {
                 path: _logo.path,
                 label: _label,
-                type: 'standalone',
-                aria_label: _logo.title
+                type: 'standalone'
               },
               extra_classes: 'ecl-site-header__logo-link'
             } only %}
@@ -385,7 +384,7 @@
 {% endif %}
 
 {# Site name and call to action (banner) #}
-{% if _site_name is not empty or _cta_link is not empty or _menu is not empty or _mega_menu is not empty %}
+{% if _site_name is not empty or _cta_link is not empty %}
   <div class="ecl-site-header__banner">
     <div class="ecl-container">
       {% if _site_name is not empty %}
