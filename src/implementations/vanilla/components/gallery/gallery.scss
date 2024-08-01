@@ -601,7 +601,8 @@ $_description-height-desktop: 108px;
         transition: transform 0.5s;
       }
 
-      .ecl-gallery__item:hover .ecl-gallery__image {
+      .ecl-gallery__item-link:hover .ecl-gallery__image,
+      .ecl-gallery__item-link:focus-visible .ecl-gallery__image {
         transform: scale(1.1);
       }
     }
