@@ -13,7 +13,6 @@ module.exports = {
   icon_path: '/icons.svg',
   required: true,
   label_aria_required: 'required',
-  label_aria_optional: 'optional',
   input: {
     input_type: 'select',
     width: 'm',

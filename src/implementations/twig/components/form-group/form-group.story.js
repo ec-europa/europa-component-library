@@ -22,6 +22,7 @@ const dataStandaloneCheckbox = {
   ...dataCheckbox,
   input: {
     ...dataCheckbox.input,
+    standalone: true,
     items: [dataCheckbox.input.items[0]],
   },
 };
@@ -97,27 +98,34 @@ const getArgTypes = (data, type) => ({
 });
 
 const prepareData = (data, args) => {
-  Object.assign(data, args);
-  correctPaths(data);
+  const clone = JSON.parse(JSON.stringify(data));
+  Object.assign(clone, args);
+  correctPaths(clone);
 
   if (!args.show_label) {
-    data.label = '';
+    clone.label = '';
   }
   if (!args.show_error) {
-    data.invalid_text = '';
+    clone.invalid_text = '';
   }
   if (!args.show_helper) {
-    data.helper_text = '';
+    clone.helper_text = '';
   }
   if (args.width) {
-    data.input.width = args.width;
+    clone.input.width = args.width;
   }
-  if (data.input.input_type === 'select' && data.input.multiple) {
-    data.input.multiple_select_all = !!args.show_select_all;
-    data.input.multiple_search = !!args.show_search;
+  if (clone.input.input_type === 'select' && clone.input.multiple) {
+    clone.input.multiple_select_all = !!args.show_select_all;
+    clone.input.multiple_search = !!args.show_search;
+  }
+  if (clone.input.input_type === 'checkbox' && clone.input.standalone) {
+    clone.input.items[0].required_text = args.required_text;
+    clone.input.items[0].label_aria_required = clone.label_aria_required;
+    clone.input.items[0].optional_text = args.optional_text;
+    clone.input.items[0].label_aria_optional = clone.label_aria_optional;
   }
 
-  return data;
+  return clone;
 };
 
 export default {
@@ -168,10 +176,8 @@ StandaloneCheckbox.render = async (args) => {
 StandaloneCheckbox.storyName = 'Checkbox';
 StandaloneCheckbox.args = {
   ...getArgs(dataStandaloneCheckbox),
-  required: true,
   show_helper: false,
   show_label: false,
-  required_text: '',
 };
 StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
 StandaloneCheckbox.parameters = {
