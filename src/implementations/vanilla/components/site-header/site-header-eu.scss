@@ -19,9 +19,15 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
+  box-shadow: var(--sh-4);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
+
+  .ecl-site-header__background {
+    background: map.get($theme, 'color', 'white');
+    position: relative;
+  }
 
   .ecl-menu,
   .ecl-mega-menu {
@@ -114,9 +120,13 @@ $language-list: null !default;
 }
 
 .ecl-site-header__header {
-  box-shadow: var(--sh-4);
   position: relative;
   z-index: 54;
+
+  // Shadow with opened menu, first and second panel
+  .ecl-site-header--open-menu:not(.ecl-site-header--open-menu-start) & {
+    box-shadow: var(--sh-4);
+  }
 }
 
 .ecl-site-header__container {
@@ -186,7 +196,7 @@ $language-list: null !default;
   box-sizing: content-box;
   color: var(--c-d);
   display: none;
-  font: var(--f-p-s);
+  font: var(--f-ui-m);
   left: 0;
   margin-top: calc(var(--s-xs) - 1px);
   padding: calc(var(--s-m) - 1px);
@@ -275,15 +285,33 @@ $language-list: null !default;
 }
 
 .ecl-site-header__banner {
-  background: map.get($site-header, 'gradient-background');
-  box-shadow: var(--sh-4);
+  background: map.get($theme, 'color', 'white');
+
+  // Shadow when the menu is opened in mobile
+  .ecl-site-header--open-menu & {
+    box-shadow: var(--sh-4);
+    position: relative;
+
+    // Pseudo element used to cover the upper side of the shadow
+    &::before {
+      border-bottom: 1px solid var(--c-p-20);
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: white;
+      z-index: 1;
+    }
+  }
 }
 
 .ecl-site-header__site-name {
+  border-top: 1px solid var(--c-p-20);
   color: map.get($site-header, 'site-name-mobile-color');
-  font: var(--f-l);
-  margin-inline-end: var(--s-3xl);
-  padding: var(--s-m) 0;
+  font: var(--f-2xl);
+  padding: var(--s-l) 0;
 }
 
 .ecl-site-header__notification {
@@ -397,7 +425,7 @@ $language-list: null !default;
     align-self: center;
     color: map.get($site-header, 'site-name-desktop-color');
     flex-grow: 1;
-    font: var(--f-l);
+    font: var(--f-2xl);
     margin-inline-end: 0;
   }
 
@@ -453,7 +481,7 @@ $language-list: null !default;
     align-items: center;
     display: flex;
     flex-direction: row;
-    font: var(--f-m);
+    font: var(--f-ui-m);
   }
 
   .ecl-site-header__login-toggle,
