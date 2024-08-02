@@ -19,10 +19,13 @@ $language-list: null !default;
 
 .ecl-site-header {
   background-color: map.get($site-header, 'background-color');
-  box-shadow: var(--sh-4);
   margin: 0;
   position: relative;
   z-index: map.get($theme, 'z-index', 'modal');
+
+  .ecl-site-header__inner {
+    box-shadow: var(--sh-4);
+  }
 
   .ecl-site-header__background {
     background: map.get($theme, 'color', 'white');
@@ -58,10 +61,11 @@ $language-list: null !default;
     margin-top: 0;
   }
 
-  &.ecl-site-header--has-menu
-    .ecl-site-header__site-name
-    + .ecl-site-header__cta {
-    margin-bottom: var(--s-m);
+  &.ecl-site-header--has-menu,
+  &.ecl-site-header--has-mega-menu {
+    .ecl-site-header__site-name + .ecl-site-header__cta {
+      margin-bottom: var(--s-m);
+    }
   }
 
   &.ecl-site-header-with-logo-s .ecl-menu__open,
@@ -123,7 +127,6 @@ $language-list: null !default;
   position: relative;
   z-index: 54;
 
-  // Shadow with opened menu, first and second panel
   .ecl-site-header--open-menu:not(.ecl-site-header--open-menu-start) & {
     box-shadow: var(--sh-4);
   }
@@ -170,7 +173,8 @@ $language-list: null !default;
     margin-inline-end: var(--s-2xs);
   }
 
-  .ecl-site-header--has-menu & {
+  .ecl-site-header--has-menu &,
+  .ecl-site-header--has-mega-menu & {
     margin-inline-end: calc(44px + var(--s-2xs));
   }
 
@@ -284,29 +288,6 @@ $language-list: null !default;
   padding: var(--s-xs) 0;
 }
 
-.ecl-site-header__banner {
-  background: map.get($theme, 'color', 'white');
-
-  // Shadow when the menu is opened in mobile
-  .ecl-site-header--open-menu & {
-    box-shadow: var(--sh-4);
-    position: relative;
-
-    // Pseudo element used to cover the upper side of the shadow
-    &::before {
-      border-bottom: 1px solid var(--c-p-20);
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: white;
-      z-index: 1;
-    }
-  }
-}
-
 .ecl-site-header__site-name {
   border-top: 1px solid var(--c-p-20);
   color: map.get($site-header, 'site-name-mobile-color');
@@ -385,7 +366,11 @@ $language-list: null !default;
       }
     }
 
-    &.ecl-site-header--has-menu .ecl-site-header__header {
+    &.ecl-site-header--has-menu {
+      box-shadow: none;
+    }
+
+    &.ecl-site-header--has-mega-menu .ecl-site-header__header {
       box-shadow: none;
     }
 
@@ -403,8 +388,11 @@ $language-list: null !default;
       width: 100%;
     }
 
-    &.ecl-site-header--has-menu .ecl-site-header__action {
-      margin-inline-end: 0;
+    &.ecl-site-header--has-menu,
+    &.ecl-site-header--has-mega-menu {
+      .ecl-site-header__action {
+        margin-inline-end: 0;
+      }
     }
 
     .ecl-site-header__action .ecl-site-header__language-selector {

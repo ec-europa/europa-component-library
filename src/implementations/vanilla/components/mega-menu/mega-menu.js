@@ -183,6 +183,7 @@ export class MegaMenu {
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
+    this.header = queryOne('.ecl-site-header', document);
     this.headerBanner = queryOne('.ecl-site-header__banner', document);
     this.headerNotification = queryOne(
       '.ecl-site-header__notification',
@@ -505,8 +506,10 @@ export class MegaMenu {
       }
 
       if (this.openPanel.num > 0) {
-        if (this.headerBanner) {
-          this.headerBanner.style.display = 'none';
+        if (this.header) {
+          if (this.headerBanner) {
+            this.headerBanner.style.display = 'none';
+          }
           if (this.headerNotification) {
             this.headerNotification.style.display = 'none';
           }
@@ -590,8 +593,10 @@ export class MegaMenu {
       infoPanels.forEach((info) => {
         info.style.height = '';
       });
-    } else if (viewport === 'desktop' && this.headerBanner) {
-      this.headerBanner.style.display = 'flex';
+    } else if (viewport === 'desktop' && this.header) {
+      if (this.headerBanner) {
+        this.headerBanner.style.display = 'flex';
+      }
       if (this.headerNotification) {
         this.headerNotification.style.display = 'flex';
       }
@@ -771,15 +776,8 @@ export class MegaMenu {
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
-        let header = '';
-        if (this.openPanel.num === 0) {
-          header = queryOne('.ecl-site-header__banner', document);
-        }
-        if (!header) {
-          header = queryOne('.ecl-site-header__header', document);
-        }
-        if (header) {
-          const position = header.getBoundingClientRect();
+        if (this.header) {
+          const position = this.header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
 
           if (menuOverlay) {
@@ -1134,8 +1132,8 @@ export class MegaMenu {
       this.inner.setAttribute('aria-hidden', 'false');
       this.isOpen = true;
 
-      if (this.headerBanner) {
-        this.headerBanner.parentElement.classList.add(
+      if (this.header) {
+        this.header.classList.add(
           'ecl-site-header--open-menu',
           'ecl-site-header--open-menu-start',
         );
@@ -1221,10 +1219,8 @@ export class MegaMenu {
           sibling.style.display = '';
         });
       }
-      if (this.headerBanner) {
-        this.headerBanner.parentElement.classList.remove(
-          'ecl-site-header--open-menu-start',
-        );
+      if (this.header) {
+        this.header.classList.remove('ecl-site-header--open-menu-start');
       }
       // Move the focus to the previously selected item
       if (this.backItemLevel2) {
@@ -1232,8 +1228,10 @@ export class MegaMenu {
       }
       this.openPanel.num = 1;
     } else {
-      if (this.headerBanner) {
-        this.headerBanner.style.display = 'flex';
+      if (this.header) {
+        if (this.headerBanner) {
+          this.headerBanner.style.display = 'flex';
+        }
         if (this.headerNotification) {
           this.headerNotification.style.display = 'flex';
         }
@@ -1257,10 +1255,8 @@ export class MegaMenu {
         this.items[0].firstElementChild.focus();
       }
       this.openPanel.num = 0;
-      if (this.headerBanner) {
-        this.headerBanner.parentElement.classList.add(
-          'ecl-site-header--open-menu-start',
-        );
+      if (this.header) {
+        this.header.classList.add('ecl-site-header--open-menu-start');
       }
       this.positionMenuOverlay();
     }
@@ -1287,11 +1283,11 @@ export class MegaMenu {
         this.element.classList.add('ecl-mega-menu--one-panel');
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
-        if (this.headerBanner && !this.isDesktop) {
-          this.headerBanner.parentElement.classList.remove(
-            'ecl-site-header--open-menu-start',
-          );
-          this.headerBanner.style.display = 'none';
+        if (this.header && !this.isDesktop) {
+          this.header.classList.remove('ecl-site-header--open-menu-start');
+          if (this.headerBanner) {
+            this.headerBanner.style.display = 'none';
+          }
           if (this.headerNotification) {
             this.headerNotification.style.display = 'none';
           }
@@ -1533,12 +1529,14 @@ export class MegaMenu {
    * @fires MegaMenu#onFocusTrapToggle
    */
   closeOpenDropdown(esc = false) {
-    if (this.headerBanner) {
-      this.headerBanner.parentElement.classList.remove(
+    if (this.header) {
+      this.header.classList.remove(
         'ecl-site-header--open-menu',
         'ecl-site-header--open-menu-start',
       );
-      this.headerBanner.style.display = 'flex';
+      if (this.headerBanner) {
+        this.headerBanner.style.display = 'flex';
+      }
       if (this.headerNotification) {
         this.headerNotification.style.display = 'flex';
       }
