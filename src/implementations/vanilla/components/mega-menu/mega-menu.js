@@ -593,7 +593,9 @@ export class MegaMenu {
       infoPanels.forEach((info) => {
         info.style.height = '';
       });
-    } else if (viewport === 'desktop' && this.header) {
+    }
+
+    if (viewport === 'desktop' && this.header) {
       if (this.headerBanner) {
         this.headerBanner.style.display = 'flex';
       }
@@ -1283,13 +1285,16 @@ export class MegaMenu {
         this.element.classList.add('ecl-mega-menu--one-panel');
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
-        if (this.header && !this.isDesktop) {
+        if (this.header) {
+          this.header.classList.add('ecl-site-header--open-menu');
           this.header.classList.remove('ecl-site-header--open-menu-start');
-          if (this.headerBanner) {
-            this.headerBanner.style.display = 'none';
-          }
-          if (this.headerNotification) {
-            this.headerNotification.style.display = 'none';
+          if (!this.isDesktop) {
+            if (this.headerBanner) {
+              this.headerBanner.style.display = 'none';
+            }
+            if (this.headerNotification) {
+              this.headerNotification.style.display = 'none';
+            }
           }
         }
         this.disableScroll();
