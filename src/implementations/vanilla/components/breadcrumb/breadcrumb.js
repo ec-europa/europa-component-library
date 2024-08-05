@@ -208,6 +208,7 @@ export class Breadcrumb {
    */
   handleFullExpand() {
     this.element.classList.remove('ecl-breadcrumb--collapsed');
+    this.element.classList.add('ecl-breadcrumb--wrap');
 
     if (this.onFullExpand) {
       this.onFullExpand();
