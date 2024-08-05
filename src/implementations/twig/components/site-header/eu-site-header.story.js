@@ -6,6 +6,7 @@ import withCode from '@ecl/storybook-addon-code';
 import dataFullEU from '@ecl/specs-component-site-header/demo/data--eu';
 import enLogoDesktopEU from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import enLogoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
+import enDataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--eu';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
@@ -14,6 +15,7 @@ import notes from './README.md';
 const dataFull = { ...dataFullEU };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
+const enMegaMenu = { ...enDataMegaMenu };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -47,7 +49,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = true;
+    defaultArgs.show_menu = 'menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -111,8 +113,9 @@ const getArgTypes = (data) => {
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
-      type: { name: 'boolean' },
-      description: 'Show the menu',
+      control: { type: 'radio' },
+      description: 'Show the menu, the mega menu or none of the two',
+      options: ['none', 'menu', 'mega-menu'],
       table: {
         category: 'Optional',
       },
@@ -216,10 +219,17 @@ const prepareData = (data, args) => {
     data.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (!args.show_menu) {
+  if (args.show_menu === 'none' && (data.menu || data.mega_menu)) {
     delete data.menu;
-  } else if (args.show_menu && !data.menu) {
+    delete data.mega_menu;
+  }
+  if (args.show_menu === 'menu' && !data.menu) {
     data.menu = enMenu;
+    delete data.mega_menu;
+  }
+  if (args.show_menu === 'mega-menu' && !data.mega_menu) {
+    data.mega_menu = enMegaMenu;
+    delete data.menu;
   }
 
   if (!args.show_language_selector) {
