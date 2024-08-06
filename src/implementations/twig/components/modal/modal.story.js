@@ -40,22 +40,26 @@ const getArgTypes = () => ({
   size: {
     name: 'size',
     type: { name: 'select' },
-    description: `The width and max height of the modal`,
+    description: `The width of the modal`,
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'l' },
       category: 'Display',
     },
-    options: ['s', 'l'],
+    options: ['s', 'm', 'l', 'full'],
     control: {
       labels: {
         s: 'small',
+        m: 'medium',
         l: 'large',
+        full: 'full width',
       },
     },
     mapping: {
       small: 's',
+      medium: 'm',
       large: 'l',
+      'full width': 'full',
     },
   },
   header: {

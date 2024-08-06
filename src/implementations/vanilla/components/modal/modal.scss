@@ -34,6 +34,7 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__container {
+  margin: 0 var(--s-m);
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -46,14 +47,31 @@ $overflow-height: 2rem;
   display: flex;
   flex-direction: column;
   font: map.get($modal, 'font');
-  overflow: hidden;
   left: 50%;
+  overflow: hidden;
   margin: 0;
-  max-height: min(100vh, 530px);
+  max-height: 80vh;
   padding: 0;
   position: relative;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'modal');
+}
+
+// Sizes
+.ecl-modal--s .ecl-modal__content {
+  max-width: min(443px, 100%);
+}
+
+.ecl-modal--m .ecl-modal__content {
+  max-width: min(633px, 100%);
+}
+
+.ecl-modal--l .ecl-modal__content {
+  max-width: min(823px, 100%);
+}
+
+.ecl-modal--full .ecl-modal__content {
+  max-width: 100%;
 }
 
 .ecl-modal__header {
@@ -167,16 +185,11 @@ $overflow-height: 2rem;
 }
 
 /* stylelint-disable-next-line order/order */
-@include breakpoints.up('s') {
-  .ecl-modal__content {
-    .ecl-modal--l & {
-      max-height: min(100vh, 470px);
-    }
-  }
-}
-
-/* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
+  .ecl-modal__container {
+    margin: 0 var(--s-3xl);
+  }
+
   .ecl-modal__header {
     padding: map.get($modal, 'header', 'padding-desktop');
   }
@@ -189,7 +202,8 @@ $overflow-height: 2rem;
     padding: map.get($modal, 'padding-desktop');
   }
 
-  .ecl-modal:not(.ecl-modal--s) {
+  .ecl-modal--m,
+  .ecl-modal--l {
     .ecl-modal__footer-content {
       flex-direction: row;
       justify-content: space-between;
@@ -197,6 +211,24 @@ $overflow-height: 2rem;
 
     .ecl-modal__button {
       flex-grow: 1;
+      margin-inline-end: var(--s-m);
+      margin-top: 0;
+
+      &:last-of-type {
+        margin-inline-end: 0;
+      }
+    }
+  }
+
+  .ecl-modal--full {
+    .ecl-modal__footer-content {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    .ecl-modal__button {
+      flex-grow: 0;
       margin-inline-end: var(--s-m);
       margin-top: 0;
 
