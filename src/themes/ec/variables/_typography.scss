@@ -43,6 +43,7 @@ $typography: (
   ),
 );
 $typography-print: (
+  heading-margin: map.get($spacing-print, '3xl') 0 map.get($spacing-print, 'm'),
   heading1: map.get($font-print, '4xl'),
   heading2: map.get($font-print, '3xl'),
   heading3: map.get($font-print, '2xl'),

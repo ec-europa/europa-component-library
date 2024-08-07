@@ -18,6 +18,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading1') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 .ecl-u-type-heading-2,
@@ -26,6 +27,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading2') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 .ecl-u-type-heading-3,
@@ -34,6 +36,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading3') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 .ecl-u-type-heading-4,
@@ -42,6 +45,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading4') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 .ecl-u-type-heading-5,
@@ -50,6 +54,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading5') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 .ecl-u-type-heading-6,
@@ -58,6 +63,7 @@ $typography-print: null !default;
   font: map.get($typography-print, 'heading6') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
   font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  margin: map.get($typography-print, 'heading-margin');
 }
 
 /*

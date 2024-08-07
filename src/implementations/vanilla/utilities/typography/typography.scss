@@ -17,7 +17,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading1', 'mobile') !important;
   font-weight: map.get($typography, 'heading1', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading1', 'desktop') !important;
@@ -30,7 +30,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading2', 'mobile') !important;
   font-weight: map.get($typography, 'heading2', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading2', 'desktop') !important;
@@ -43,7 +43,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading3', 'mobile') !important;
   font-weight: map.get($typography, 'heading3', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading3', 'desktop') !important;
@@ -56,7 +56,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading4', 'mobile') !important;
   font-weight: map.get($typography, 'heading4', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading4', 'desktop') !important;
@@ -69,7 +69,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading5', 'mobile') !important;
   font-weight: map.get($typography, 'heading5', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading5', 'desktop') !important;
@@ -82,7 +82,7 @@ $typography: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography, 'heading6', 'mobile') !important;
   font-weight: map.get($typography, 'heading6', 'font-weight') !important;
-  margin: map.get($typography, 'heading-margin') !important;
+  margin: map.get($typography, 'heading-margin');
 
   @include breakpoints.up('m') {
     font: map.get($typography, 'heading6', 'desktop') !important;
