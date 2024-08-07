@@ -98,18 +98,22 @@ $banner: null !default;
   display: block;
   font: map.get($banner, 'font', 'title', 'mobile');
   margin: 0;
-  text-underline-offset: var(--s-2xs);
 
   &:hover {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
 
-.ecl-banner__description {
+.ecl-banner__description,
+.ecl-banner__description-link {
   color: map.get($banner, 'text-color', 'dark');
   font: map.get($banner, 'font', 'description', 'mobile');
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
+
+  &:hover {
+    color: map.get($banner, 'text-color', 'dark');
+  }
 }
 
 .ecl-banner__cta {
@@ -228,10 +232,10 @@ $banner: null !default;
   .ecl-banner__title,
   .ecl-banner__title-link {
     font: map.get($banner, 'font', 'title', 'tablet');
-    text-underline-offset: var(--s-xs);
   }
 
-  .ecl-banner__description {
+  .ecl-banner__description,
+  .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'tablet');
   }
 }
@@ -287,11 +291,9 @@ $banner: null !default;
   .ecl-banner__title-link {
     display: inline;
     font: map.get($banner, 'font', 'title', 'desktop-m');
-    text-underline-offset: var(--s-2xs);
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
-      text-underline-offset: var(--s-xs);
     }
 
     .ecl-banner--color-light & {
@@ -299,7 +301,8 @@ $banner: null !default;
     }
   }
 
-  .ecl-banner__description {
+  .ecl-banner__description,
+  .ecl-banner__description-link {
     font: map.get($banner, 'font', 'description', 'desktop-m');
 
     .ecl-banner--font-l & {
@@ -386,7 +389,8 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'inverted');
   }
 
-  .ecl-banner__description {
+  .ecl-banner__description,
+  .ecl-banner__description-link {
     color: map.get($banner, 'text-color', 'inverted');
   }
 }
@@ -434,7 +438,8 @@ $banner: null !default;
 
   .ecl-banner__title,
   .ecl-banner__title-link,
-  .ecl-banner__description {
+  .ecl-banner__description,
+  .ecl-banner__description-link {
     color: var(--c-d);
   }
 }
@@ -478,7 +483,8 @@ $banner: null !default;
     color: map.get($banner, 'text-color', 'inverted');
   }
 
-  .ecl-banner__description {
+  .ecl-banner__description,
+  .ecl-banner__description-link {
     color: map.get($banner, 'text-color', 'inverted');
   }
 }

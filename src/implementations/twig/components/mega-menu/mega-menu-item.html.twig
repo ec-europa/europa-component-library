@@ -332,7 +332,7 @@
       {% if _featured.title is not empty %}
         <span
           class="ecl-mega-menu__featured-title"
-          aria-describedby="{{ sublink_id }}"
+          id="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id }}"
         >
           {{-  _featured.title -}}
         </span>
@@ -341,13 +341,19 @@
           <div class="ecl-mega-menu__featured-content">{{ _featured.content }}</div>
         {%- endif -%}
         {%- if _featured.items is not empty and _featured.items is iterable -%}
-          <ul class="ecl-mega-menu__featured-list">
+          <ul
+            class="ecl-mega-menu__featured-list"
+            aria-labelledby="{{ 'ecl-mega-menu-featured-title-' ~ sublink_id ~ ' ' ~ sublink_id }}"
+          >
             {% for item in _featured.items %}
               <li class="ecl-mega-menu__featured-list__item">
-                {% include '@ecl/link/link.html.twig' with {
-                  link: item|merge({ type: 'standalone', icon_path: _icon_path }),
-                  extra_attributes: item.extra_attributes|default([]),
-                } only %}
+              {% include '@ecl/link/link.html.twig' with {
+                link: item|merge({ type: 'standalone', icon_path: _icon_path }),
+                extra_attributes: [
+                  { name: 'data-ecl-mega-menu-featured-link' },
+                ]|merge(item.extra_attributes|default([])),
+                extra_classes: item.extra_classes|default(''),
+              } only %}
               </li>
             {% endfor %}
           </ul>

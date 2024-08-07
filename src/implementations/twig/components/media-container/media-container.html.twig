@@ -22,7 +22,7 @@
   - "image" (string) (default: ''): Image to be used as the video placeholder 
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
-  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
   - "ratio" (string) ('')
   - "expandable" (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
@@ -39,6 +39,10 @@
     - "embedded_media"
 #}
 
+{# DEPRECATED 
+  - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+#}
+
 {# Internal properties #}
 
 {% set _css_class = 'ecl-media-container' %}
@@ -49,7 +53,7 @@
 {% set _full_width = full_width|default(false) %}
 {% set _description = description|default('') %}
 {% set _title = title|default('') %}
-{% set _sr_video_label = sr_video_label|default('') %}
+{% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_audio = sr_video_audio|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
 {% set _picture = picture|default({}) %}
@@ -61,6 +65,12 @@
 {% set _sources = sources|default({}) %}
 {% set _tracks = tracks|default({}) %}
 {% set _expandable = expandable|default({}) %}
+
+{# DEPRECATED #}
+{% set _sr_video_label = sr_video_label|default('') %}
+{% if _sr_video_player is empty and _sr_video_label is not empty %}
+  {% set _sr_video_player = _sr_video_label %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -79,6 +89,14 @@
 
 {% if _ratio %}
   {% set _embed_class = _embed_class ~ ' ecl-media-container__media--ratio-' ~ _ratio %}
+{% endif %}
+
+{% set _video_title = '' %}
+{% if _title is not empty %}
+  {% set _video_title = _title %}
+{% endif %}
+{% if _sr_video_player is not empty %}
+  {% set _video_title = _video_title is not empty ? _video_title ~ ' - ' ~ _sr_video_player : _sr_video_player %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -106,7 +124,11 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }} 
+  {% if _video_title is not empty and _embedded_media is not empty %}
+    data-ecl-media-container-video-title="{{ _video_title }}"
+  {% endif %}
+>
   <figure class="{{ _figure_class }}">
   {% if _embedded_media is not empty %}
     <div class="{{_embed_class}}">
@@ -120,8 +142,7 @@
       class="ecl-media-container__media"
       controls
       poster="{{ _image }}"
-      {%- if _title is not empty -%}
-        {% set _video_title = _title ~ ' - ' ~ _sr_video_label %}
+      {%- if _video_title is not empty -%}
         aria-label="{{ _video_title }}"
       {%- endif -%}
     >

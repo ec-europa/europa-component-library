@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-media-container
 
 - **"title"** (string) (default: ''): Media title
 - **"description"** (string) (default: '') - A caption to be shown under the media,
-- **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
+- **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
 - **"sr_video_audio"** (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
 - **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
@@ -41,7 +41,6 @@ npm install --save @ecl/twig-component-media-container
 ```twig
 {% include '@ecl/media-container/media-container.html.twig' with { 
   description: 'A description for this image', 
-  sr_video_label: 'Video',
   extra_classes: 'my-extra-class-1 my-extra-class-2', 
   picture: {
     img: {

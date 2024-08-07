@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
+  aria_label: 'Main navigation',
   title: 'Menu',
   toggle: {
     link: {

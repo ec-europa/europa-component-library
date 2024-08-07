@@ -5,6 +5,7 @@ import { queryOne } from '@ecl/dom-utils';
  * @param {Object} options
  * @param {String} options.iframeSelector Selector for iframe element
  * @param {boolean} options.useAutomaticRatio Toggle automatic ratio calculus
+ * @param {String} options.videoTitleSelector Selector for video title
  */
 export class MediaContainer {
   /**
@@ -24,7 +25,11 @@ export class MediaContainer {
 
   constructor(
     element,
-    { iframeSelector = 'iframe', useAutomaticRatio = true } = {},
+    {
+      iframeSelector = 'iframe',
+      useAutomaticRatio = true,
+      videoTitleSelector = 'data-ecl-media-container-video-title',
+    } = {},
   ) {
     // Check element
     if (!element || element.nodeType !== Node.ELEMENT_NODE) {
@@ -38,9 +43,11 @@ export class MediaContainer {
     // Options
     this.iframeSelector = iframeSelector;
     this.useAutomaticRatio = useAutomaticRatio;
+    this.videoTitleSelector = videoTitleSelector;
 
     // Private variables
     this.iframe = null;
+    this.videoTitle = '';
 
     // Bind `this` for use in callbacks
     this.calculateRatio = this.calculateRatio.bind(this);
@@ -55,6 +62,10 @@ export class MediaContainer {
       throw new TypeError('Called init but ECL is not present');
     }
     ECL.components = ECL.components || new Map();
+
+    // Get elements
+    this.videoTitle = this.element.getAttribute(this.videoTitleSelector);
+
     // Check if a ratio has been set manually
     const media = queryOne('.ecl-media-container__media', this.element);
     if (media && !/ecl-media-container__media--ratio/.test(media.className)) {
@@ -93,6 +104,11 @@ export class MediaContainer {
     if (iframeUrl.host.includes('youtube')) {
       iframeUrl.searchParams.set('disablekb', 1);
       this.iframe.src = iframeUrl;
+    }
+
+    // Update iframe title
+    if (this.videoTitle) {
+      this.iframe.setAttribute('title', this.videoTitle);
     }
   }
 

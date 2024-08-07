@@ -111,7 +111,7 @@
           <li class="ecl-site-header__language-item">
             {% set _link_label %}
               <span class="ecl-site-header__language-link-code">{{ _item.lang|default('') }}</span>
-              <span class="ecl-site-header__language-link-label">{{ _item.label|default('') }}</span>
+              <span class="ecl-site-header__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label|default('') }}</span>
             {% endset %}
             {% set _link_classes = 'ecl-site-header__language-link' %}
             {% if _item.active %}
@@ -125,7 +125,6 @@
               }),
               extra_classes: _link_classes,
               extra_attributes: [
-                { name: 'lang', value: _item.lang|default('')|e('html_attr') },
                 { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
