@@ -124,6 +124,7 @@ export class Breadcrumb {
     }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      this.element.classList.remove('ecl-breadcrumb--wrap');
       ECL.components.delete(this.element);
     }
   }
