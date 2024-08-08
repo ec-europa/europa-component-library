@@ -536,8 +536,8 @@ export class Gallery {
       mediaElement.load();
     } else {
       // Media is an image
-      const image = queryOne('img', selectedItem);
-      const picture = queryOne('picture', selectedItem);
+      const picture = queryOne('.ecl-gallery__picture', selectedItem);
+      const image = queryOne('img', picture);
       if (picture) {
         image.classList.remove('ecl-gallery__image');
         mediaElement = picture.cloneNode(true);

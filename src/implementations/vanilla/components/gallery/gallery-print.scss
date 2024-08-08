@@ -46,11 +46,27 @@ $gallery: null !default;
   margin: 0;
 }
 
+.ecl-gallery__thumbnail {
+  display: none;
+  height: 100%;
+
+  &:not(.ecl-gallery__slider-image) {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  * {
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
 .ecl-gallery__picture {
   display: flex;
   height: 100%;
 
   &:not(.ecl-gallery__slider-image) {
+    display: none;
     flex-grow: 1;
   }
 

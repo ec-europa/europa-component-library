@@ -25,6 +25,15 @@ exports[`Gallery Default renders correctly 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -87,7 +96,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="New digital strategy - Video"
@@ -134,6 +143,15 @@ exports[`Gallery Default renders correctly 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -174,10 +192,10 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
-          href="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           id="ecl-gallery-item-gallery-id-3"
         >
           <figure
@@ -197,7 +215,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 3 - Video"
@@ -259,7 +277,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 4 - Video"
@@ -384,7 +402,7 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 6 - Video"
@@ -423,20 +441,29 @@ exports[`Gallery Default renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-image7.jpg"
-          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+          data-ecl-gallery-item-share="/share#example-image11.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
           id="ecl-gallery-item-gallery-id-7"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 7"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
               />
             </picture>
             <figcaption
@@ -470,33 +497,27 @@ exports[`Gallery Default renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
-          data-ecl-gallery-item-video-title="Climate change - Video player"
-          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-share="/share#example-image8.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
           id="ecl-gallery-item-gallery-id-8"
         >
           <figure
             class="ecl-gallery__image-container"
           >
-            <div
-              class="ecl-gallery__item-icon-wrapper"
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play-filled"
-                />
-              </svg>
-            </div>
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
-                alt="Climate change and protect nature - Video"
+                alt="Climate change and protect nature"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
@@ -532,13 +553,22 @@ exports[`Gallery Default renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          data-ecl-gallery-item-share="/share#example-image9.jpg"
           href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
           id="ecl-gallery-item-gallery-id-9"
         >
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -586,6 +616,15 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -895,6 +934,15 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -957,7 +1005,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="New digital strategy - Video"
@@ -1004,6 +1052,15 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -1044,10 +1101,10 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
-          href="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           id="ecl-gallery-item-gallery-id-3"
         >
           <figure
@@ -1067,7 +1124,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 3 - Video"
@@ -1129,7 +1186,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 4 - Video"
@@ -1254,7 +1311,7 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 6 - Video"
@@ -1293,20 +1350,29 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-image7.jpg"
-          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+          data-ecl-gallery-item-share="/share#example-image11.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
           id="ecl-gallery-item-gallery-id-7"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 7"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
               />
             </picture>
             <figcaption
@@ -1340,33 +1406,27 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
-          data-ecl-gallery-item-video-title="Climate change - Video player"
-          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-share="/share#example-image8.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
           id="ecl-gallery-item-gallery-id-8"
         >
           <figure
             class="ecl-gallery__image-container"
           >
-            <div
-              class="ecl-gallery__item-icon-wrapper"
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play-filled"
-                />
-              </svg>
-            </div>
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
-                alt="Climate change and protect nature - Video"
+                alt="Climate change and protect nature"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
@@ -1402,13 +1462,22 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          data-ecl-gallery-item-share="/share#example-image9.jpg"
           href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
           id="ecl-gallery-item-gallery-id-9"
         >
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1456,6 +1525,15 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1763,6 +1841,15 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -1825,7 +1912,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="New digital strategy - Video"
@@ -1872,6 +1959,15 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -1912,10 +2008,10 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
-          href="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           id="ecl-gallery-item-gallery-id-3"
         >
           <figure
@@ -1935,7 +2031,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 3 - Video"
@@ -1997,7 +2093,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 4 - Video"
@@ -2122,7 +2218,7 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 6 - Video"
@@ -2161,20 +2257,29 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-image7.jpg"
-          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+          data-ecl-gallery-item-share="/share#example-image11.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
           id="ecl-gallery-item-gallery-id-7"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 7"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
               />
             </picture>
             <figcaption
@@ -2208,33 +2313,27 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
-          data-ecl-gallery-item-video-title="Climate change - Video player"
-          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-share="/share#example-image8.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
           id="ecl-gallery-item-gallery-id-8"
         >
           <figure
             class="ecl-gallery__image-container"
           >
-            <div
-              class="ecl-gallery__item-icon-wrapper"
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play-filled"
-                />
-              </svg>
-            </div>
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
-                alt="Climate change and protect nature - Video"
+                alt="Climate change and protect nature"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
@@ -2270,13 +2369,22 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          data-ecl-gallery-item-share="/share#example-image9.jpg"
           href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
           id="ecl-gallery-item-gallery-id-9"
         >
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2324,6 +2432,15 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2631,6 +2748,15 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -2693,7 +2819,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="New digital strategy - Video"
@@ -2740,6 +2866,15 @@ exports[`Gallery Default renders correctly with old data 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -2780,10 +2915,10 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
-          href="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           id="ecl-gallery-item-gallery-id-3"
         >
           <figure
@@ -2803,7 +2938,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 3 - Video"
@@ -2865,7 +3000,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 4 - Video"
@@ -2990,7 +3125,7 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 6 - Video"
@@ -3029,20 +3164,29 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-image7.jpg"
-          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+          data-ecl-gallery-item-share="/share#example-image11.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
           id="ecl-gallery-item-gallery-id-7"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 7"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
               />
             </picture>
             <figcaption
@@ -3076,33 +3220,27 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
-          data-ecl-gallery-item-video-title="Climate change - Video player"
-          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-share="/share#example-image8.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
           id="ecl-gallery-item-gallery-id-8"
         >
           <figure
             class="ecl-gallery__image-container"
           >
-            <div
-              class="ecl-gallery__item-icon-wrapper"
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play-filled"
-                />
-              </svg>
-            </div>
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
-                alt="Climate change and protect nature - Video"
+                alt="Climate change and protect nature"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
@@ -3138,13 +3276,22 @@ exports[`Gallery Default renders correctly with old data 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          data-ecl-gallery-item-share="/share#example-image9.jpg"
           href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
           id="ecl-gallery-item-gallery-id-9"
         >
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3192,6 +3339,15 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3499,6 +3655,15 @@ exports[`Gallery Grid renders correctly 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 1"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -3561,7 +3726,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="New digital strategy - Video"
@@ -3608,6 +3773,15 @@ exports[`Gallery Grid renders correctly 1`] = `
             class="ecl-gallery__image-container"
           >
             <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 2"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+              />
+            </picture>
+            <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
@@ -3648,10 +3822,10 @@ exports[`Gallery Grid renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           data-ecl-gallery-item-share="/share#example-image3.jpg"
           data-ecl-gallery-item-video-title="In the EU - Video player"
-          href="https://archive.org/embed/electricsheep-flock-248-10000-9"
+          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
           id="ecl-gallery-item-gallery-id-3"
         >
           <figure
@@ -3671,7 +3845,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 3 - Video"
@@ -3733,7 +3907,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 4 - Video"
@@ -3858,7 +4032,7 @@ exports[`Gallery Grid renders correctly 1`] = `
               </svg>
             </div>
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 6 - Video"
@@ -3897,20 +4071,29 @@ exports[`Gallery Grid renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-image7.jpg"
-          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+          data-ecl-gallery-item-share="/share#example-image11.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
           id="ecl-gallery-item-gallery-id-7"
         >
           <figure
             class="ecl-gallery__image-container"
           >
             <picture
-              class="ecl-picture ecl-gallery__picture"
+              class="ecl-picture ecl-gallery__thumbnail"
             >
               <img
                 alt="Image 7"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+              />
+            </picture>
+            <picture
+              class="ecl-picture ecl-gallery__picture"
+            >
+              <img
+                alt="Image 7"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg"
               />
             </picture>
             <figcaption
@@ -3944,33 +4127,27 @@ exports[`Gallery Grid renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-embed-audio="In the video below, there is no audiodescription available yet"
-          data-ecl-gallery-item-embed-src="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
-          data-ecl-gallery-item-video-title="Climate change - Video player"
-          href="https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN"
+          data-ecl-gallery-item-share="/share#example-image8.jpg"
+          href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
           id="ecl-gallery-item-gallery-id-8"
         >
           <figure
             class="ecl-gallery__image-container"
           >
-            <div
-              class="ecl-gallery__item-icon-wrapper"
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
             >
-              <svg
-                aria-hidden="true"
-                class="ecl-icon ecl-icon--l ecl-icon--inverted ecl-gallery__item-icon"
-                focusable="false"
-              >
-                <use
-                  xlink:href="/icons.svg#play-filled"
-                />
-              </svg>
-            </div>
+              <img
+                alt="Climate change and protect nature"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
               <img
-                alt="Climate change and protect nature - Video"
+                alt="Climate change and protect nature"
                 class="ecl-gallery__image"
                 src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
               />
@@ -4006,13 +4183,22 @@ exports[`Gallery Grid renders correctly 1`] = `
         <a
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
-          data-ecl-gallery-item-share="/share#example-imag9e.jpg"
+          data-ecl-gallery-item-share="/share#example-image9.jpg"
           href="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
           id="ecl-gallery-item-gallery-id-9"
         >
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 9"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -4060,6 +4246,15 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
+            <picture
+              class="ecl-picture ecl-gallery__thumbnail"
+            >
+              <img
+                alt="Image 10"
+                class="ecl-gallery__image"
+                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+              />
+            </picture>
             <picture
               class="ecl-picture ecl-gallery__picture"
             >

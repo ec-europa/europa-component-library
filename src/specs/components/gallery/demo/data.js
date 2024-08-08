@@ -8,7 +8,7 @@ module.exports = {
   sr_video_player: 'Video player',
   items: [
     {
-      // Image
+      // Image without thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
@@ -22,8 +22,8 @@ module.exports = {
       share_path: '/share#example-image.jpg',
     },
     {
-      // Embedded video
-      picture: {
+      // Embedded video with thumbnail (Youtube)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
           alt: 'New digital strategy',
@@ -40,7 +40,7 @@ module.exports = {
       meta: 'Copyright, Author, Licence for embedded media',
     },
     {
-      // Image
+      // Image without thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
@@ -54,15 +54,15 @@ module.exports = {
       share_path: '/share#example-image2.jpg',
     },
     {
-      // Embedded video
-      picture: {
+      // Embedded video with thumbnail (AV Portal)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
           alt: 'Image 3',
         },
       },
       embedded_video: {
-        src: 'https://archive.org/embed/electricsheep-flock-248-10000-9',
+        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
       },
       sr_video_audio:
         'In the video below, there is no audiodescription available yet',
@@ -72,8 +72,8 @@ module.exports = {
       share_path: '/share#example-image3.jpg',
     },
     {
-      // Embedded video
-      picture: {
+      // Embedded video with thumbnail (Dailymotion)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
@@ -89,7 +89,7 @@ module.exports = {
       share_path: '/share#example-image4.jpg',
     },
     {
-      // Video
+      // HTML video
       video: {
         poster:
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
@@ -107,7 +107,7 @@ module.exports = {
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Embedded video
+      // Embedded video with picture defined instead of thumbnail (Vimeo)
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
@@ -126,37 +126,39 @@ module.exports = {
       share_path: '/share#example-image6.jpg',
     },
     {
-      // Image
-      picture: {
+      // Image with thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+          alt: 'Image 7',
+        },
+      },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
           alt: 'Image 7',
         },
       },
       title: 'Teaching material',
       description: 'Teaching material about the EU, including books and maps',
       meta: 'Copyright, Author, Licence for image 7',
-      share_path: '/share#example-image7.jpg',
+      share_path: '/share#example-image11.jpg',
     },
     {
-      // Embedded AV Portal video
+      // Image without thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
           alt: 'Climate change and protect nature',
         },
       },
-      embedded_video: {
-        src: 'https://audiovisual.ec.europa.eu/embed/index.html?ref=I-223223&lg=EN',
-      },
-      sr_video_audio:
-        'In the video below, there is no audiodescription available yet',
       title: 'Climate change',
       description: 'Climate change and protect nature',
       meta: 'Copyright, Author, Licence for embedded media',
+      share_path: '/share#example-image8.jpg',
     },
     {
-      // Image
+      // Image without thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
@@ -166,10 +168,10 @@ module.exports = {
       title: 'About the EU',
       description: 'About the EU',
       meta: 'Copyright, Author, Licence for image 9',
-      share_path: '/share#example-imag9e.jpg',
+      share_path: '/share#example-image9.jpg',
     },
     {
-      // Image
+      // Image without thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',

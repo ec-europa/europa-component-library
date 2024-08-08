@@ -26,7 +26,8 @@ npm install --save @ecl/twig-component-gallery
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
-  - "picture" (optional) (object) (default: {}) object of type picture
+  - "thumbnail" (optional) (object) (default: {}) object of type Picture; uses "picture" if empty
+  - "picture" (optional) (object) (default: {}) object of type Picture
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
   - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
@@ -63,6 +64,12 @@ npm install --save @ecl/twig-component-gallery
   sr_video_player: 'Video player',
   items: [ 
     { 
+      thumbnail: {
+        img: {
+          src: 'path/to/thumbnail.jpg', 
+          alt: 'Image 1',
+        },
+      }, 
       picture: {
         img: {
           src: 'path/to/image.jpg', 
