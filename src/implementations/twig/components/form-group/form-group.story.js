@@ -118,11 +118,18 @@ const prepareData = (data, args) => {
     clone.input.multiple_select_all = !!args.show_select_all;
     clone.input.multiple_search = !!args.show_search;
   }
-  if (clone.input.input_type === 'checkbox' && clone.input.standalone) {
-    clone.input.items[0].required_text = args.required_text;
-    clone.input.items[0].label_aria_required = clone.label_aria_required;
-    clone.input.items[0].optional_text = args.optional_text;
-    clone.input.items[0].label_aria_optional = clone.label_aria_optional;
+  if (clone.input.input_type === 'checkbox') {
+    if (clone.input.standalone) {
+      clone.input.items[0].required_text = args.required_text;
+      clone.input.items[0].label_aria_required = clone.label_aria_required;
+      clone.input.items[0].optional_text = args.optional_text;
+      clone.input.items[0].label_aria_optional = clone.label_aria_optional;
+    } else {
+      delete clone.input.items[0].required_text;
+      delete clone.input.items[0].label_aria_required;
+      delete clone.input.items[0].optional_text;
+      delete clone.input.items[0].label_aria_optional;
+    }
   }
 
   return clone;
