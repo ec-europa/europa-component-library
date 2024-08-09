@@ -92,7 +92,6 @@ module.exports = {
       // Video
       title: 'Visit the European Commission',
       video: {
-        sr_video_player: 'Video',
         poster:
           'https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg',
         sources: [
