@@ -7,6 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 import demoContentImg from '@ecl/specs-component-media-container/demo/data--image';
 import demoContentVideo from '@ecl/specs-component-media-container/demo/data--video';
+import demoBackwardVideo from '@ecl/specs-component-media-container/demo/old-data--video';
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import demoContentInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
 
@@ -61,6 +62,11 @@ describe('Media Container', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
+    });
+
+    test('with old data renders correctly', () => {
+      expect.assertions(1);
+      return expect(render(demoBackwardVideo)).resolves.toMatchSnapshot();
     });
 
     test('with embedded media renders correctly', () => {

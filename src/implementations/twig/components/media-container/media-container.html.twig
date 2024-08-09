@@ -3,22 +3,7 @@
   Parameters:
   - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
-  - "sources" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "type" (string) (default: ''),
-      },
-      ...
-    ],
-  - "tracks" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "kind" (string) (default: ''),
-        "src_lang" (string) (default: ''),
-        "label" (string) (default: ''),
-      },
-      ...
-    ],
+  - "video": (associative array) (default: {}) Object of type ECL video
   - "image" (string) (default: ''): Image to be used as the video placeholder 
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
@@ -41,6 +26,8 @@
 
 {# DEPRECATED 
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sources" (array) (default: [])
+  - "tracks" (array) (default: [])
 #}
 
 {# Internal properties #}
@@ -86,10 +73,11 @@
   {% set _video = {
     sources,
     tracks,
-    image,
-    title,
-    sr_video_label,
-    sr_video_audio,
+    poster: _image,
+    title: _title,
+    sr_video_label: _sr_video_label,
+    sr_video_audio: _sr_video_audio,
+    sr_video_player: _sr_video_player, 
   } %}
 {% endif %}
 
