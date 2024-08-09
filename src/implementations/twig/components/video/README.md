@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-video
 - **"poster"** (associative array) (default: {}):
 - **"controls"** (boolean) (default: true)
 - **"sr_video_label"** (string) (default: '')
+- **"sr_video_player"** (string) (default: '')
 - **"tracks"** (associative array) (default: {}):
   - "src" (string) (default: '')
   - "type" (string) (default: '')

@@ -122,7 +122,9 @@
     {% if _item.video is defined and _item.video is not empty %}
       {% set video_classes = 'ecl-gallery__image' ~ (_item.video.extra_classes ? ' ' ~ _item.video.extra_classes : '') %}
       {% include '@ecl/video/video.html.twig' with _item.video|merge({
-        title: _video_title,
+        title: _item.title,
+        sr_video_label: _sr_video_label,
+        sr_video_player: _sr_video_player,
         controls: false,
         extra_classes: video_classes,     
       }) only %}

@@ -20,7 +20,8 @@
       ...
     ],
   - "controls" (boolean) (default: true)
-  - "sr_video_player" (string) (default: '')
+  - "sr_video_label" (string) (default: ''): additional label for the video item; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -36,9 +37,16 @@
 {% set _poster = poster|default('') %}
 {% set _title = title|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
+{% set _sr_video_label = sr_video_label|default('') %}
 
 {% if _controls %}
   {% set _extra_attributes = 'controls' %}
+{% endif %}
+
+{% if _title is not empty and _sr_video_label is not empty %}
+  {% set _title = _title ~ ' - ' ~ _sr_video_label %}
+{% elseif _title is not empty and _sr_video_player is not empty %}
+  {% set _title = _title ~ ' - ' ~ _sr_video_player %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -60,8 +68,7 @@
 {% if _poster is not empty %}
   poster="{{ _poster }}"
 {% endif %}
-{% if _title is not empty or _sr_video_player is not empty %}
-  {% set _title = _title ~ ' - ' ~ _sr_video_player %}
+{% if _title is not empty %}
   aria-label="{{ _title }}"
 {% endif %}
   {{- _extra_attributes|raw -}}
