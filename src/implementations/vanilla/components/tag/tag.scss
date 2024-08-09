@@ -21,6 +21,7 @@ $tag: null !default;
   padding: map.get($tag, 'padding');
   text-align: left;
   text-decoration: underline;
+  text-underline-offset: 5px;
 
   &:focus-visible {
     background-color: map.get($tag, 'background-color-focus');

@@ -45,7 +45,7 @@ exports[`Banner Image renders correctly 1`] = `
               class="ecl-banner__title-text"
             >
               <a
-                class="ecl-link  ecl-banner__title-link"
+                class="ecl-link ecl-banner__title-link"
                 href="/example"
               >
                 Lorem ipsum dolor sit amet consectetuer adipiscin
@@ -58,7 +58,12 @@ exports[`Banner Image renders correctly 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
             </span>
           </p>
           <div
@@ -138,7 +143,7 @@ exports[`Banner Image renders correctly with extra attributes 1`] = `
               class="ecl-banner__title-text"
             >
               <a
-                class="ecl-link  ecl-banner__title-link"
+                class="ecl-link ecl-banner__title-link"
                 href="/example"
               >
                 Lorem ipsum dolor sit amet consectetuer adipiscin
@@ -151,7 +156,12 @@ exports[`Banner Image renders correctly with extra attributes 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
             </span>
           </p>
           <div
@@ -229,7 +239,7 @@ exports[`Banner Image renders correctly with extra class names 1`] = `
               class="ecl-banner__title-text"
             >
               <a
-                class="ecl-link  ecl-banner__title-link"
+                class="ecl-link ecl-banner__title-link"
                 href="/example"
               >
                 Lorem ipsum dolor sit amet consectetuer adipiscin
@@ -242,7 +252,12 @@ exports[`Banner Image renders correctly with extra class names 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
             </span>
           </p>
           <div
@@ -275,6 +290,230 @@ exports[`Banner Image renders correctly with extra class names 1`] = `
 </jest>
 `;
 
+exports[`Banner Image renders correctly with extra classes for the description link 1`] = `
+<jest>
+  <section
+    class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
+  >
+    <figure
+      class="ecl-banner__picture-container"
+    >
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <footer
+        class="ecl-banner__credit"
+      >
+        <small>
+          © Copyright
+        </small>
+      </footer>
+    </figure>
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-banner__container"
+        data-ecl-banner-container=""
+      >
+        <div
+          class="ecl-banner__content"
+        >
+          <div
+            class="ecl-banner__title"
+          >
+            <span
+              class="ecl-banner__title-text"
+            >
+              <a
+                class="ecl-link ecl-banner__title-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet consectetuer adipiscin
+              </a>
+            </span>
+          </div>
+          <p
+            class="ecl-banner__description"
+          >
+            <span
+              class="ecl-banner__description-text"
+            >
+              <a
+                class="ecl-link custom-description-link-class ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
+            </span>
+          </p>
+          <div
+            class="ecl-banner__cta"
+          >
+            <a
+              class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                CTA link
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</jest>
+`;
+
+exports[`Banner Image renders correctly with extra classes for the title link 1`] = `
+<jest>
+  <section
+    class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
+  >
+    <figure
+      class="ecl-banner__picture-container"
+    >
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <footer
+        class="ecl-banner__credit"
+      >
+        <small>
+          © Copyright
+        </small>
+      </footer>
+    </figure>
+    <div
+      class="ecl-container"
+    >
+      <div
+        class="ecl-banner__container"
+        data-ecl-banner-container=""
+      >
+        <div
+          class="ecl-banner__content"
+        >
+          <div
+            class="ecl-banner__title"
+          >
+            <span
+              class="ecl-banner__title-text"
+            >
+              <a
+                class="ecl-link custom-title-link-class ecl-banner__title-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet consectetuer adipiscin
+              </a>
+            </span>
+          </div>
+          <p
+            class="ecl-banner__description"
+          >
+            <span
+              class="ecl-banner__description-text"
+            >
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
+            </span>
+          </p>
+          <div
+            class="ecl-banner__cta"
+          >
+            <a
+              class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                CTA link
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</jest>
+`;
+
+exports[`Banner Image renders correctly without title, description and link 1`] = `
+<jest>
+  <section
+    class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
+  >
+    <figure
+      class="ecl-banner__picture-container"
+    >
+      <picture
+        class="ecl-picture ecl-banner__picture"
+        data-ecl-banner-image=""
+      >
+        <img
+          alt="alternative text"
+          class="ecl-banner__image"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+        />
+      </picture>
+      <footer
+        class="ecl-banner__credit"
+      >
+        <small>
+          © Copyright
+        </small>
+      </footer>
+    </figure>
+  </section>
+</jest>
+`;
+
 exports[`Banner Video renders correctly 1`] = `
 <jest>
   <section
@@ -287,7 +526,7 @@ exports[`Banner Video renders correctly 1`] = `
     >
       <video
         autoplay=""
-        class="ecl-video ecl-banner__video"
+        class="ecl-banner__video"
         data-ecl-banner-video=""
         loop=""
         muted=""
@@ -391,7 +630,7 @@ exports[`Banner Video renders correctly 1`] = `
               class="ecl-banner__title-text"
             >
               <a
-                class="ecl-link  ecl-banner__title-link"
+                class="ecl-link ecl-banner__title-link"
                 href="/example"
               >
                 Lorem ipsum dolor sit amet consectetuer adipiscin
@@ -404,7 +643,12 @@ exports[`Banner Video renders correctly 1`] = `
             <span
               class="ecl-banner__description-text"
             >
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
             </span>
           </p>
           <div

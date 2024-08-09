@@ -4,7 +4,8 @@
   Parameters:
   - "rows" (array of objects) (default: [])
     - "section_class_name" (string) (default: '')
-    - "logo" (EU only)
+    - "logo"
+      - "title": (string) (default: ''): Logo title attribute.
       - "alt" (string) alt attribute for the logo link
       - "path" (string) logo link path
       - "language" (string) Language code
@@ -93,15 +94,14 @@
             picture: _picture,
             extra_classes: "ecl-site-footer__picture",
             extra_image_classes: 'ecl-site-footer__logo-image',
-            extra_attributes: [{ name: 'title', value: _sections.logo.title }],
+            extra_attributes: _sections.logo.title is not empty ? [{ name: 'title', value: _sections.logo.title }] : [],
           } only %}
           {% endset %}
           {% include '@ecl/link/link.html.twig' with {
             link: {
               path: _sections.logo.path,
               label: _label,
-              type: 'standalone',
-              aria_label: _sections.logo.title
+              type: 'standalone'
             },
             extra_classes: 'ecl-site-footer__logo-link'
           } only %}

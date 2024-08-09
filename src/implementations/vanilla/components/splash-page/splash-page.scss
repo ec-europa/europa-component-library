@@ -44,6 +44,7 @@ $language-list: null !default;
 
 .ecl-splash-page__language-title {
   font: map.get($language-list, 'header-font-mobile');
+  margin: 0;
 }
 
 .ecl-splash-page__language-content {
@@ -60,6 +61,7 @@ $language-list: null !default;
   font: map.get($language-list, 'category-title-font');
   font-weight: map.get($language-list, 'category-title-font-weight');
   padding: map.get($language-list, 'category-title-padding');
+  margin: 0;
 }
 
 .ecl-splash-page__language-category:first-child {

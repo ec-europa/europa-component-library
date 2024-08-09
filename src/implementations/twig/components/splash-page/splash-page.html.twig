@@ -92,15 +92,14 @@
             picture: _picture,
             extra_classes: "ecl-splash-page__picture",
             extra_image_classes: 'ecl-splash-page__logo-image',
-            extra_attributes: [{ name: 'title', value: _logo.title }],
+            extra_attributes: _logo.title is not empty ? [{ name: 'title', value: _logo.title }] : [],
           } only %}
         {% endset %}
         {% include '@ecl/link/link.html.twig' with {
           link: {
             path: _logo.path,
             label: _label,
-            type: 'standalone',
-            aria_label: _logo.title
+            type: 'standalone'
           },
           extra_classes: 'ecl-splash-page__logo-link'
         } only %}
@@ -110,7 +109,7 @@
 
   <div class="ecl-container ecl-splash-page__language-container">
     {% if _title is not empty %}
-      <div class="ecl-splash-page__language-title">{{ _title }}</div>
+      <h1 class="ecl-splash-page__language-title">{{ _title }}</h1>
     {% endif %}
 
     <div class="ecl-splash-page__language-content">
@@ -118,16 +117,16 @@
       {% if _items is not empty and _items is iterable %}
       <div class="ecl-splash-page__language-category">
         {% if _eu_category is not empty %}
-        <div class="ecl-splash-page__language-category-title">
+        <h2 class="ecl-splash-page__language-category-title">
           {{- _eu_category -}}
-        </div>
+        </h2>
         {% endif %}
         <ul class="ecl-splash-page__language-list">
           {% for _item in _items %}
           <li class="ecl-splash-page__language-item">
             {% set _link_label %}
               <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
-              <span class="ecl-splash-page__language-link-label">{{ _item.label }}</span>
+              <span class="ecl-splash-page__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label }}</span>
             {% endset %}
             {% set _link_classes = 'ecl-splash-page__language-link' %}
             {% if _item.active %}
@@ -140,7 +139,6 @@
               }),
               extra_classes: _link_classes,
               extra_attributes: [
-                { name: 'lang', value: _item.lang|default('')|e('html_attr') },
                 { name: 'hreflang', value: _item.lang|default('')|e('html_attr') },
               ],
             } only %}
@@ -154,16 +152,16 @@
       {% if _non_eu_items is not empty and _non_eu_items is iterable %}
       <div class="ecl-splash-page__language-category">
         {% if _non_eu_category is not empty %}
-        <div class="ecl-splash-page__language-category-title">
+        <h2 class="ecl-splash-page__language-category-title">
           {{- _non_eu_category -}}
-        </div>
+        </h2>
         {% endif %}
         <ul class="ecl-splash-page__language-list">
           {% for _item in _non_eu_items %}
           <li class="ecl-splash-page__language-item">
           {% set _link_label %}
             <span class="ecl-splash-page__language-link-code">{{ _item.lang|default('') }}</span>
-            <span class="ecl-splash-page__language-link-label">{{ _item.label }}</span>
+            <span class="ecl-splash-page__language-link-label" lang="{{ _item.lang|default('') }}">{{ _item.label }}</span>
           {% endset %}
             {% set _link_classes = 'ecl-splash-page__language-link' %}
             {% if _item.active %}
@@ -176,7 +174,6 @@
               }),
               extra_classes: _link_classes,
               extra_attributes: [
-                { name: 'lang', value: _item.lang|default('') },
                 { name: 'hreflang', value: _item.lang|default('') },
               ],
             } only %}

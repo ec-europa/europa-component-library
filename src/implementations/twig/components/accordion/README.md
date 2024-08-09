@@ -14,7 +14,7 @@ npm install --save @ecl/twig-component-accordion
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
   - "content" (string) (default: '')
-- **"icon"** (associative array) (default: {}) A predefined structure compatible with Icon component.
+- **"icon"** (array) OR (object) (default: []) Two icons in an array that will be toggled
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -38,9 +38,13 @@ npm install --save @ecl/twig-component-accordion
     }, 
     ... 
   ], 
-  icon: { 
+  icon: [{ 
     path: 'static/icons.svg', 
     name: 'plus', 
-  }
+  },
+  { 
+    path: 'static/icons.svg', 
+    name: 'minus', 
+  }]
 } %} 
 ```

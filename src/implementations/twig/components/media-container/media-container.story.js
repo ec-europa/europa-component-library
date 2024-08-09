@@ -66,19 +66,19 @@ const getArgTypes = (data) => {
       name: 'audio description',
       type: { name: 'select' },
       description:
-        'Information about the video audio description (hidden, reachable by screen readers)',
-      options: ['empty', 'not needed', 'not yet'],
+        'Verbal depiction of any key information presented only visually in a video (specific alternative sound track reachable by screen readers only)',
+      options: ['not needed', 'not yet', 'available in video'],
       control: {
         labels: {
-          empty: '',
           'not needed': 'not needed: no information in visuals only',
           'not yet': 'not available yet',
+          'available in video': '',
         },
       },
       mapping: {
-        '': 'empty',
         'not needed: no information in visuals only': 'not needed',
         'not available yet': 'not yet',
+        '': 'available in video',
       },
       table: {
         type: { summary: 'string' },
