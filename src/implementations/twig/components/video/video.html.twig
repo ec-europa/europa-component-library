@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "poster" (string) (default: '')
+    - "image" (string) (default: '')
     - "sources" (array) (default: []): format: [
       {
         "src" (string) (default: ''),
@@ -20,7 +20,7 @@
       ...
     ],
   - "controls" (boolean) (default: true)
-  - "sr_video_label" (string) (default: '')
+  - "sr_video_player" (string) (default: '')
   - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -35,7 +35,7 @@
 {% set _controls = controls ?? true %}
 {% set _poster = poster|default('') %}
 {% set _title = title|default('') %}
-{% set _sr_video_label = sr_video_label|default('') %}
+{% set _sr_video_player = sr_video_player|default('') %}
 
 {% if _controls %}
   {% set _extra_attributes = 'controls' %}
@@ -60,8 +60,8 @@
 {% if _poster is not empty %}
   poster="{{ _poster }}"
 {% endif %}
-{% if _title is not empty %}
-  {% set _title = _title ~ ' - ' ~ _sr_video_label %}
+{% if _title is not empty or _sr_video_player is not empty %}
+  {% set _title = _title ~ ' - ' ~ _sr_video_player %}
   aria-label="{{ _title }}"
 {% endif %}
   {{- _extra_attributes|raw -}}

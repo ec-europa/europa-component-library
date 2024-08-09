@@ -1,7 +1,7 @@
 module.exports = {
   poster: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
   title: 'Big Buck Bunny',
-  sr_video_label: 'Video',
+  sr_video_player: 'Video',
   sources: [
     {
       src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',

@@ -56,6 +56,7 @@
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_audio = sr_video_audio|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
+{% set _video = video|default({}) %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = embedded_media ? [
   'data-ecl-media-container="true"',
