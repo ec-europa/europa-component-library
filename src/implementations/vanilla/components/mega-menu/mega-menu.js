@@ -1308,7 +1308,6 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               itemLink.setAttribute('aria-expanded', 'true');
-              itemLink.setAttribute('aria-current', 'true');
               this.backItemLevel1 = item;
             } else {
               itemLink.setAttribute('aria-expanded', 'false');
@@ -1316,7 +1315,6 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
               );
-              itemLink.removeAttribute('aria-current');
             }
           }
         });
@@ -1382,13 +1380,6 @@ export class MegaMenu {
           if (item === menuItem) {
             if (itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'true');
-              this.items.forEach((mainItem) => {
-                const link = queryOne('a', mainItem);
-                if (link) {
-                  link.removeAttribute('aria-current');
-                }
-              });
-              itemLink.setAttribute('aria-current', 'true');
 
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
@@ -1404,7 +1395,6 @@ export class MegaMenu {
           } else {
             if (itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'false');
-              itemLink.removeAttribute('aria-current');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
@@ -1577,15 +1567,12 @@ export class MegaMenu {
         itemLink.setAttribute('aria-expanded', 'false');
         currentItem = itemLink;
       }
-      itemLink.removeAttribute('aria-current');
     });
     // Remove css class and attribute from menu subitems
     this.subItems.forEach((item) => {
       item.classList.remove('ecl-mega-menu__subitem--current');
-      item.removeAttribute('aria-current');
       item.style.display = '';
       const itemLink = queryOne(this.subLinkSelector, item);
-      itemLink.removeAttribute('aria-current');
       if (itemLink.hasAttribute('aria-expanded')) {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.style.display = '';

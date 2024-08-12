@@ -8,7 +8,6 @@
 // Exposed variables
 $theme: null !default;
 $button: null !default;
-$button-print: null !default;
 
 .ecl-button,
 %ecl-button {
@@ -20,18 +19,6 @@ $button-print: null !default;
   display: inline-block;
   font: map.get($theme, 'font-ui-print', 'm');
   margin: 0;
-  padding: calc(
-      #{map.get($button-print, 'padding-vertical')} - #{map.get(
-          $button,
-          'border-width'
-        )}
-    )
-    calc(
-      #{map.get($button-print, 'padding-horizontal')} - #{map.get(
-          $button,
-          'border-width'
-        )}
-    );
   text-decoration: none;
 
   &[disabled] {
@@ -69,9 +56,23 @@ $button-print: null !default;
 */
 @mixin button($variant: null) {
   background-color: map.get($button, #{$variant}, 'background');
-  border: map.get($button, 'border-width') solid
+  border: map.get($button, #{$variant}, 'border-width') solid
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
+  padding: calc(
+      #{map.get($button, 'padding-vertical')} - #{map.get(
+          $button,
+          #{$variant},
+          'border-width'
+        )}
+    )
+    calc(
+      #{map.get($button, 'padding-horizontal')} - #{map.get(
+          $button,
+          #{$variant},
+          'border-width'
+        )}
+    );
 }
 
 .ecl-button--primary {
@@ -85,10 +86,18 @@ $button-print: null !default;
 }
 // stylelint-enable plugin/selector-bem-pattern
 
+.ecl-button--tertiary {
+  @include button(tertiary);
+}
+
 .ecl-button--cta {
   @include button(cta);
 }
 
 .ecl-button--ghost {
   @include button(ghost);
+}
+
+.ecl-button--ghost-inverted {
+  @include button(ghost-inverted);
 }
