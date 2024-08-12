@@ -11,6 +11,12 @@ $language-list: null !default;
   position: static;
 }
 
+@mixin with-scrollbar {
+  overflow-y: auto;
+  scrollbar-color: var(--c-n) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+
 @mixin arrow-up {
   background-color: map.get($theme, 'color', 'white');
   border: map.get($language-switcher, 'arrow-border');
@@ -82,6 +88,8 @@ $language-list: null !default;
 .ecl-site-header__language-content {
   display: flex;
   flex-direction: column;
+
+  @include with-scrollbar;
 }
 
 .ecl-site-header__language-category-title {
