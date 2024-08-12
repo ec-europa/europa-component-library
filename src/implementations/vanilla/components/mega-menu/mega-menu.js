@@ -183,7 +183,12 @@ export class MegaMenu {
     this.items = queryAll(this.itemSelector, this.element);
     this.subItems = queryAll(this.subItemSelector, this.element);
     this.links = queryAll(this.linkSelector, this.element);
+    this.header = queryOne('.ecl-site-header', document);
     this.headerBanner = queryOne('.ecl-site-header__banner', document);
+    this.headerNotification = queryOne(
+      '.ecl-site-header__notification',
+      document,
+    );
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
@@ -500,6 +505,17 @@ export class MegaMenu {
         });
       }
 
+      if (this.openPanel.num > 0) {
+        if (this.header) {
+          if (this.headerBanner) {
+            this.headerBanner.style.display = 'none';
+          }
+          if (this.headerNotification) {
+            this.headerNotification.style.display = 'none';
+          }
+        }
+      }
+
       // Two panels are opened
       if (this.openPanel.num === 2) {
         const subItemExpanded = queryOne(
@@ -577,6 +593,15 @@ export class MegaMenu {
       infoPanels.forEach((info) => {
         info.style.height = '';
       });
+    }
+
+    if (viewport === 'desktop' && this.header) {
+      if (this.headerBanner) {
+        this.headerBanner.style.display = 'flex';
+      }
+      if (this.headerNotification) {
+        this.headerNotification.style.display = 'flex';
+      }
     }
   }
 
@@ -753,15 +778,8 @@ export class MegaMenu {
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
       setTimeout(() => {
-        let header = '';
-        if (this.openPanel.num === 0) {
-          header = queryOne('.ecl-site-header__banner', document);
-        }
-        if (!header) {
-          header = queryOne('.ecl-site-header__header', document);
-        }
-        if (header) {
-          const position = header.getBoundingClientRect();
+        if (this.header) {
+          const position = this.header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
 
           if (menuOverlay) {
@@ -1116,6 +1134,13 @@ export class MegaMenu {
       this.inner.setAttribute('aria-hidden', 'false');
       this.isOpen = true;
 
+      if (this.header) {
+        this.header.classList.add(
+          'ecl-site-header--open-menu',
+          'ecl-site-header--open-menu-start',
+        );
+      }
+
       // Update label
       const closeLabel = this.element.getAttribute(this.labelCloseAttribute);
       if (this.toggleLabel && closeLabel) {
@@ -1196,12 +1221,23 @@ export class MegaMenu {
           sibling.style.display = '';
         });
       }
+      if (this.header) {
+        this.header.classList.remove('ecl-site-header--open-menu-start');
+      }
       // Move the focus to the previously selected item
       if (this.backItemLevel2) {
         this.backItemLevel2.firstElementChild.focus();
       }
       this.openPanel.num = 1;
     } else {
+      if (this.header) {
+        if (this.headerBanner) {
+          this.headerBanner.style.display = 'flex';
+        }
+        if (this.headerNotification) {
+          this.headerNotification.style.display = 'flex';
+        }
+      }
       // Remove expanded class from inner menu
       this.inner.classList.remove('ecl-mega-menu__inner--expanded');
       this.element.classList.remove('ecl-mega-menu--one-panel');
@@ -1221,6 +1257,9 @@ export class MegaMenu {
         this.items[0].firstElementChild.focus();
       }
       this.openPanel.num = 0;
+      if (this.header) {
+        this.header.classList.add('ecl-site-header--open-menu-start');
+      }
       this.positionMenuOverlay();
     }
 
@@ -1246,6 +1285,18 @@ export class MegaMenu {
         this.element.classList.add('ecl-mega-menu--one-panel');
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
+        if (this.header) {
+          this.header.classList.add('ecl-site-header--open-menu');
+          this.header.classList.remove('ecl-site-header--open-menu-start');
+          if (!this.isDesktop) {
+            if (this.headerBanner) {
+              this.headerBanner.style.display = 'none';
+            }
+            if (this.headerNotification) {
+              this.headerNotification.style.display = 'none';
+            }
+          }
+        }
         this.disableScroll();
         this.isOpen = true;
         this.items.forEach((item) => {
@@ -1257,7 +1308,6 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
               );
               itemLink.setAttribute('aria-expanded', 'true');
-              itemLink.setAttribute('aria-current', 'true');
               this.backItemLevel1 = item;
             } else {
               itemLink.setAttribute('aria-expanded', 'false');
@@ -1265,7 +1315,6 @@ export class MegaMenu {
                 'ecl-mega-menu__item--current',
                 'ecl-mega-menu__item--expanded',
               );
-              itemLink.removeAttribute('aria-current');
             }
           }
         });
@@ -1331,13 +1380,6 @@ export class MegaMenu {
           if (item === menuItem) {
             if (itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'true');
-              this.items.forEach((mainItem) => {
-                const link = queryOne('a', mainItem);
-                if (link) {
-                  link.removeAttribute('aria-current');
-                }
-              });
-              itemLink.setAttribute('aria-current', 'true');
 
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
@@ -1353,7 +1395,6 @@ export class MegaMenu {
           } else {
             if (itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'false');
-              itemLink.removeAttribute('aria-current');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
             }
@@ -1483,6 +1524,18 @@ export class MegaMenu {
    * @fires MegaMenu#onFocusTrapToggle
    */
   closeOpenDropdown(esc = false) {
+    if (this.header) {
+      this.header.classList.remove(
+        'ecl-site-header--open-menu',
+        'ecl-site-header--open-menu-start',
+      );
+      if (this.headerBanner) {
+        this.headerBanner.style.display = 'flex';
+      }
+      if (this.headerNotification) {
+        this.headerNotification.style.display = 'flex';
+      }
+    }
     this.enableScroll();
     this.element.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
@@ -1514,15 +1567,12 @@ export class MegaMenu {
         itemLink.setAttribute('aria-expanded', 'false');
         currentItem = itemLink;
       }
-      itemLink.removeAttribute('aria-current');
     });
     // Remove css class and attribute from menu subitems
     this.subItems.forEach((item) => {
       item.classList.remove('ecl-mega-menu__subitem--current');
-      item.removeAttribute('aria-current');
       item.style.display = '';
       const itemLink = queryOne(this.subLinkSelector, item);
-      itemLink.removeAttribute('aria-current');
       if (itemLink.hasAttribute('aria-expanded')) {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.style.display = '';
