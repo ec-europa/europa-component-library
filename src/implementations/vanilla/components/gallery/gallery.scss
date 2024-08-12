@@ -611,8 +611,19 @@ $_description-height-desktop: 108px;
         grid-auto-flow: dense;
         grid-auto-columns: 1fr;
 
-        .ecl-gallery__item:nth-child(10n + 1) {
+        .ecl-gallery__item:nth-child(10n + 1),
+        .ecl-gallery__item:nth-child(10n + 10) {
+          aspect-ratio: auto;
           grid-area: span 2 / span 2;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+
+          .ecl-gallery__image {
+            object-fit: fill;
+          }
         }
 
         .ecl-gallery__item:nth-child(10n + 2) {
@@ -629,10 +640,6 @@ $_description-height-desktop: 108px;
 
         .ecl-gallery__item:nth-child(10n + 9) {
           grid-column: 2;
-        }
-
-        .ecl-gallery__item:nth-child(10n + 10) {
-          grid-area: span 2 / span 2;
         }
 
         // /Test
@@ -652,7 +659,17 @@ $_description-height-desktop: 108px;
         }
 
         .ecl-gallery__item:nth-child(9n + 3) {
+          aspect-ratio: auto;
           grid-area: span 2 / span 2;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+
+          .ecl-gallery__image {
+            object-fit: fill;
+          }
         }
 
         .ecl-gallery__item:nth-child(9n + 5) {
@@ -670,7 +687,17 @@ $_description-height-desktop: 108px;
         grid-template-columns: repeat(4, 1fr);
 
         .ecl-gallery__item:nth-child(8n + 1) {
+          aspect-ratio: auto;
           grid-area: span 3 / span 3;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+
+          .ecl-gallery__image {
+            object-fit: fill;
+          }
         }
 
         // /Test
@@ -679,7 +706,7 @@ $_description-height-desktop: 108px;
   }
 }
 
-// DEPERCATED
+// DEPRECATED
 .ecl-gallery__video-title {
   @include screen-reader.sr-only;
 
