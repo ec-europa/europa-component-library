@@ -41,6 +41,7 @@ export class SiteHeader {
       languageListOverlaySelector = '[data-ecl-language-list-overlay]',
       languageListEuSelector = '[data-ecl-language-list-eu]',
       languageListNonEuSelector = '[data-ecl-language-list-non-eu]',
+      languageListContentSelector = '[data-ecl-language-list-content]',
       closeOverlaySelector = '[data-ecl-language-list-close]',
       searchToggleSelector = '[data-ecl-search-toggle]',
       searchFormSelector = '[data-ecl-search-form]',
@@ -66,6 +67,7 @@ export class SiteHeader {
     this.languageListOverlaySelector = languageListOverlaySelector;
     this.languageListEuSelector = languageListEuSelector;
     this.languageListNonEuSelector = languageListNonEuSelector;
+    this.languageListContentSelector = languageListContentSelector;
     this.closeOverlaySelector = closeOverlaySelector;
     this.searchToggleSelector = searchToggleSelector;
     this.searchFormSelector = searchFormSelector;
@@ -81,6 +83,7 @@ export class SiteHeader {
     this.languageListOverlay = null;
     this.languageListEu = null;
     this.languageListNonEu = null;
+    this.languageListContent = null;
     this.close = null;
     this.focusTrap = null;
     this.searchToggle = null;
@@ -101,6 +104,7 @@ export class SiteHeader {
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
+    this.setLanguageListHeight = this.setLanguageListHeight.bind(this);
   }
 
   /**
@@ -131,6 +135,7 @@ export class SiteHeader {
     this.languageListOverlay = queryOne(this.languageListOverlaySelector);
     this.languageListEu = queryOne(this.languageListEuSelector);
     this.languageListNonEu = queryOne(this.languageListNonEuSelector);
+    this.languageListContent = queryOne(this.languageListContentSelector);
     this.close = queryOne(this.closeOverlaySelector);
 
     // Create focus trap
@@ -374,6 +379,22 @@ export class SiteHeader {
   }
 
   /**
+   * Set a max height for the language list content
+   */
+  setLanguageListHeight() {
+    const viewportHeight = window.innerHeight;
+
+    if (this.languageListContent) {
+      const listTop = this.languageListContent.getBoundingClientRect().top;
+
+      const availableSpace = viewportHeight - listTop;
+      if (availableSpace > 0) {
+        this.languageListContent.style.maxHeight = `${availableSpace}px`;
+      }
+    }
+  }
+
+  /**
    * Shows the modal language list overlay.
    */
   openOverlay() {
@@ -381,6 +402,7 @@ export class SiteHeader {
     this.languageListOverlay.hidden = false;
     this.languageListOverlay.setAttribute('aria-modal', 'true');
     this.languageLink.setAttribute('aria-expanded', 'true');
+    this.setLanguageListHeight();
   }
 
   /**

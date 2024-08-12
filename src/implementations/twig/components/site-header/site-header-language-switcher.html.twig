@@ -97,7 +97,10 @@
       {% endif %}
     </div>
 
-    <div class="ecl-site-header__language-content">
+    <div
+      class="ecl-site-header__language-content"
+      data-ecl-language-list-content
+    >
       {# EU languages #}
       {% if _language_selector.overlay.items is not empty and _language_selector.overlay.items is iterable %}
       <div class="ecl-site-header__language-category" data-ecl-language-list-eu>
