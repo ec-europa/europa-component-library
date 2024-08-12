@@ -8,7 +8,7 @@
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "thumbnail" (optional) (object) (default: {}) Object of type Picture; uses "picture" if empty
+    - "thumbnail" (optional) (string) (default: {}) Path to the thumbnail; uses "picture" path if empty
     - "picture" (optional) (object) (default: {}) Object of type Picture
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
@@ -34,7 +34,7 @@
 {% set _media_iframe_href = '' %}
 {% set _item = item|default({}) %}
 {% set _picture = item.picture|default({}) %}
-{% set _thumbnail = item.thumbnail|default(_picture) %}
+{% set _thumbnail = item.thumbnail|default(_picture.img is defined and _picture.img.src is defined ? _picture.img.src : '') %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
@@ -86,6 +86,9 @@
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
     id="{{ _id }}"
+  {%- if _thumbnail is not empty -%}
+    data-ecl-gallery-item-thumbnail="{{ _thumbnail }}"
+  {%- endif -%}
   {%- if _media_share_path is not empty -%}
     data-ecl-gallery-item-share="{{ _media_share_path }}"
   {%- endif -%}
@@ -100,7 +103,6 @@
   {% endif %}
   >
   {% if _item is not empty %}
-    {% set _image_alt = _thumbnail.img.alt|default('') %}
     <figure class="ecl-gallery__image-container">
 
     {% if _item.video is not empty or _item.embedded_video is not empty %}
@@ -127,12 +129,12 @@
     {% if _item.embedded_video is not empty %}
       {# Embedded video #}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _thumbnail|merge({
-          img: _thumbnail.img|merge({
-            alt: _image_alt,
+        picture: _picture|merge({
+          img: _picture.img|merge({
+            src: _thumbnail,
           })
         }),
-        extra_classes: "ecl-gallery__thumbnail",
+        extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}
     {% elseif _item.video is not empty %}
@@ -141,18 +143,9 @@
     {% else %}
       {# Image #}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _thumbnail|merge({
-          img: _thumbnail.img|merge({
-            alt: _image_alt,
-          })
-        }),
-        extra_classes: "ecl-gallery__thumbnail",
-        extra_image_classes: "ecl-gallery__image",
-      } only %}
-      {% include '@ecl/picture/picture.html.twig' with {
         picture: _picture|merge({
           img: _picture.img|merge({
-            alt: _image_alt,
+            src: _thumbnail,
           })
         }),
         extra_classes: "ecl-gallery__picture",

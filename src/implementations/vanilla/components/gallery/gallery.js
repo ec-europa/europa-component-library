@@ -538,13 +538,18 @@ export class Gallery {
       // Media is an image
       const picture = queryOne('.ecl-gallery__picture', selectedItem);
       const image = queryOne('img', picture);
+
+      // Get full image path from the item
+      const fullSrc = selectedItem.href || image.getAttribute('src');
+
       if (picture) {
         image.classList.remove('ecl-gallery__image');
+        image.setAttribute('src', fullSrc);
         mediaElement = picture.cloneNode(true);
       } else {
         // backward compatibility
         mediaElement = document.createElement('img');
-        mediaElement.setAttribute('src', image.getAttribute('src'));
+        mediaElement.setAttribute('src', fullSrc);
         mediaElement.setAttribute('alt', image.getAttribute('alt'));
       }
       mediaElement.classList.add('ecl-gallery__slider-image');
@@ -638,11 +643,18 @@ export class Gallery {
     // Untrap focus
     this.focusTrap.deactivate();
 
-    // Restore css class on items
+    // Restore css class and thumbnail on items
     this.galleryItems.forEach((galleryItem) => {
       const image = queryOne('img', galleryItem);
       if (image) {
         image.classList.add('ecl-gallery__image');
+
+        const thumbnailSrc = galleryItem.getAttribute(
+          'data-ecl-gallery-item-thumbnail',
+        );
+        if (thumbnailSrc) {
+          image.setAttribute('src', thumbnailSrc);
+        }
       }
     });
 

@@ -26,7 +26,7 @@ npm install --save @ecl/twig-component-gallery
   - "description" (string) (default: '')
   - "meta" (string) (default: '')
   - "icon" (object) (default: {}): object of type icon
-  - "thumbnail" (optional) (object) (default: {}) object of type Picture; uses "picture" if empty
+  - "thumbnail" (optional) (string) (default: {}) Path to the thumbnail; uses "picture" path if empty
   - "picture" (optional) (object) (default: {}) object of type Picture
   - "video" (optional) (object) (default: {})
   - "embedded_video" (optional) (object) (default: {})
@@ -64,12 +64,7 @@ npm install --save @ecl/twig-component-gallery
   sr_video_player: 'Video player',
   items: [ 
     { 
-      thumbnail: {
-        img: {
-          src: 'path/to/thumbnail.jpg', 
-          alt: 'Image 1',
-        },
-      }, 
+      thumbnail: 'path/to/thumbnail.jpg', 
       picture: {
         img: {
           src: 'path/to/image.jpg', 
