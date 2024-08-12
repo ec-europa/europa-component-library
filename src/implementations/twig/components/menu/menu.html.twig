@@ -7,6 +7,7 @@
   - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
+  - "aria_label" (string) (default: '') Aria label for the main nav
   - "icon_path": (string) (default: ''): Path to the icon sprite
   - "items": (array) (default: []): The menu items - format: [
     {
@@ -50,6 +51,7 @@
 {% set _id = id|default('ecl-menu-' ~ random()) %}
 {% set _title = title|default('') %}
 {% set _back_label = back_label|default('') %}
+{% set _aria_label = aria_label|default('') %}
 {% set _toggle = toggle|default({}) %}
 {% set _close = close|default({}) %}
 {% set _css_class = 'ecl-menu' %}
@@ -91,6 +93,9 @@
   {% endif %}
   aria-expanded="false"
   role="navigation"
+  {%- if _aria_label is not empty %}
+    aria-label="{{ _aria_label }}"
+  {%- endif -%}
   {{ _extra_attributes|raw }}
 >
   <div class="ecl-menu__overlay"></div>

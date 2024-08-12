@@ -8,7 +8,6 @@
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
     - "meta" (array) (default: []) Meta of header
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
-    - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -17,6 +16,11 @@
         ...
       ],
 #}
+
+{# DEPRECATED
+  - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
+#}
+{% set _overlay = overlay|default('') %}
 
 {# Internal properties #}
 
@@ -29,7 +33,7 @@
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _info_classes = 'ecl-page-header__info' %}
-{% set _overlay = overlay|default('') %}
+
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -37,6 +41,7 @@
 {% if _picture_background.img is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
 
+  {# DEPRECATED #}
   {% if _overlay is not empty %}
     {% set _css_class = _css_class ~ ' ecl-page-header--overlay-' ~ _overlay %}
   {% endif %}

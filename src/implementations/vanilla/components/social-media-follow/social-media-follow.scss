@@ -21,7 +21,7 @@ $social-media-follow: null !default;
   color: var(--c-d);
   font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
-  margin-bottom: var(--s-xs);
+  margin-bottom: var(--s-s);
   margin-top: 0;
 }
 
@@ -67,8 +67,16 @@ $social-media-follow: null !default;
 
   .ecl-social-media-follow__item {
     margin-inline-end: 0;
-    padding-bottom: var(--s-2xs);
-    padding-top: var(--s-2xs);
+    padding-bottom: var(--s-xs);
+    padding-top: var(--s-xs);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 }
 

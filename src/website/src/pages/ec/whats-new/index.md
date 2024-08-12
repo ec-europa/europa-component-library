@@ -5,6 +5,70 @@ title: What's new
 
 ECL v4 contains changes focused on improving the visual identity of the EC components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 4.5.0
+
+#### :rocket: New Feature
+
+* [#3505](https://github.com/ec-europa/europa-component-library/pull/3505) feat(icons): Adding eye icon in the main sprite - FRONT-4528
+
+#### :warning: Markup Changes
+
+* [#3534](https://github.com/ec-europa/europa-component-library/pull/3534) feat(mega-menu): aria-labelledby for the featured links - FRONT-4543
+* [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526
+* [#3515](https://github.com/ec-europa/europa-component-library/pull/3515) feat(featured-item): change order - FRONT-4476
+* [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353
+* [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514
+* [#3507](https://github.com/ec-europa/europa-component-library/pull/3507) feat(logo): update logo markup - FRONT-4480
+* [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529
+* [#3498](https://github.com/ec-europa/europa-component-library/pull/3498) fix(range): fix aria label - FRONT-4524
+* [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496
+
+#### :warning: Data Changes
+
+* [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526
+* [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353
+* [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514
+* [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529
+* [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496
+
+#### :bug: Bug Fix
+
+* [#3533](https://github.com/ec-europa/europa-component-library/pull/3533) fix(site-header): Preventing rendering of an empty banner - FRONT-4550
+* [#3521](https://github.com/ec-europa/europa-component-library/pull/3521) fix(social-media-follow): add missing tag - FRONT-4536
+* [#3509](https://github.com/ec-europa/europa-component-library/pull/3509) fix(range): fix bubble position on rtl - FRONT-4531
+
+#### :nail_care: Enhancement
+
+* [#3526](https://github.com/ec-europa/europa-component-library/pull/3526) feat(mega-menu): Fixing styles in EU, adding demo in site header - FRONT-4541
+* [#3534](https://github.com/ec-europa/europa-component-library/pull/3534) feat(mega-menu): aria-labelledby for the featured links - FRONT-4543
+* [#3536](https://github.com/ec-europa/europa-component-library/pull/3536) feat(page header): deprecate overlay - FRONT-4548
+* [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526
+* [#3515](https://github.com/ec-europa/europa-component-library/pull/3515) feat(featured-item): change order - FRONT-4476
+* [#3531](https://github.com/ec-europa/europa-component-library/pull/3531) feat(mega-menu): Adding blur handler on featured links - FRONT-4544
+* [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353
+* [#3519](https://github.com/ec-europa/europa-component-library/pull/3519) feat(splash-page): use headings - FRONT-4481
+* [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514
+* [#3525](https://github.com/ec-europa/europa-component-library/pull/3525) feat(site-header): add menu to core site header - FRONT-4535
+* [#3503](https://github.com/ec-europa/europa-component-library/pull/3503) feat(mega-menu): Adding style for the current sub-items in desktop - FRONT-4527
+* [#3499](https://github.com/ec-europa/europa-component-library/pull/3499) feat(form): update required fields - FRONT-4495
+* [#3517](https://github.com/ec-europa/europa-component-library/pull/3517) feat(site-header): Adding language code to the button aria-label - FRONT-4483
+* [#3507](https://github.com/ec-europa/europa-component-library/pull/3507) feat(logo): update logo markup - FRONT-4480
+* [#3510](https://github.com/ec-europa/europa-component-library/pull/3510) feat(footer): 22px line height (from the standalone link) for all the links, EC and EU - FRONT-4511
+* [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529
+* [#3511](https://github.com/ec-europa/europa-component-library/pull/3511) feat(utilities): deprecate ecl-u-sr-only--focusable utilities - FRONT-4500
+* [#3508](https://github.com/ec-europa/europa-component-library/pull/3508) feat(banner): update control - FRONT-4530
+* [#3512](https://github.com/ec-europa/europa-component-library/pull/3512) feat(max-width): Setting values for the --max-w variable in the utilities - FRONT-4532
+* [#3501](https://github.com/ec-europa/europa-component-library/pull/3501) feat(inpage): Consistent border and padding in different states - FRONT-4508
+* [#3495](https://github.com/ec-europa/europa-component-library/pull/3495) feat(textarea): Using outline for focus styles - FRONT-4512
+* [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496
+* [#3492](https://github.com/ec-europa/europa-component-library/pull/3492) feat(social media follow): update icons size and spacing - FRONT-4523
+* [#3479](https://github.com/ec-europa/europa-component-library/pull/3479) feat(date-block): Small adjustments in the year block - FRONT-4510
+
+#### :memo: Documentation
+
+* [#3513](https://github.com/ec-europa/europa-component-library/pull/3513) docs(typography): add accessibility warnings - FRONT-4507
+
+
 ## 4.4.0
 
 #### :rocket: New Feature
