@@ -8,8 +8,8 @@
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "thumbnail" (optional) (object) (default: {}) Object of type Picture; uses "picture" if empty
-    - "picture" (optional) (object) (default: {}) Object of type Picture
+    - "thumbnail" (optional) (string) (default: {}) Path to the thumbnail; uses "picture" path if empty
+    - "picture" (optional) (object) (default: {}) Object of type Picture; always needed, even for video
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
@@ -34,7 +34,7 @@
 {% set _media_iframe_href = '' %}
 {% set _item = item|default({}) %}
 {% set _picture = item.picture|default({}) %}
-{% set _thumbnail = item.thumbnail|default(_picture) %}
+{% set _thumbnail = item.thumbnail|default(_picture.img is defined and _picture.img.src is defined ? _picture.img.src : '') %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
@@ -126,35 +126,15 @@
 
     {% if _item.embedded_video is not empty %}
       {# Embedded video #}
-      {% include '@ecl/picture/picture.html.twig' with {
-        picture: _thumbnail|merge({
-          img: _thumbnail.img|merge({
-            alt: _image_alt,
-          })
-        }),
-        extra_classes: "ecl-gallery__thumbnail",
-        extra_image_classes: "ecl-gallery__image",
-      } only %}
+      <img src="{{ _thumbnail }}" alt="{{ _picture.img.alt|default('') }}" class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image" />
     {% elseif _item.video is not empty %}
       {# HTML video #}
       {% include '@ecl/gallery/gallery-video.html.twig' %}
     {% else %}
       {# Image #}
+      <img src="{{ _thumbnail }}" alt="{{ _picture.img.alt|default('') }}" class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image" />
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _thumbnail|merge({
-          img: _thumbnail.img|merge({
-            alt: _image_alt,
-          })
-        }),
-        extra_classes: "ecl-gallery__thumbnail",
-        extra_image_classes: "ecl-gallery__image",
-      } only %}
-      {% include '@ecl/picture/picture.html.twig' with {
-        picture: _picture|merge({
-          img: _picture.img|merge({
-            alt: _image_alt,
-          })
-        }),
+        picture: _picture,
         extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}

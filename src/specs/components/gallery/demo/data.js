@@ -22,8 +22,8 @@ module.exports = {
       share_path: '/share#example-image.jpg',
     },
     {
-      // Embedded video with thumbnail (Youtube)
-      thumbnail: {
+      // Embedded video (Youtube)
+      picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
           alt: 'New digital strategy',
@@ -54,8 +54,8 @@ module.exports = {
       share_path: '/share#example-image2.jpg',
     },
     {
-      // Embedded video with thumbnail (AV Portal)
-      thumbnail: {
+      // Embedded video (AV Portal)
+      picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
           alt: 'Image 3',
@@ -72,8 +72,8 @@ module.exports = {
       share_path: '/share#example-image3.jpg',
     },
     {
-      // Embedded video with thumbnail (Dailymotion)
-      thumbnail: {
+      // Embedded video (Dailymotion)
+      picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
@@ -92,23 +92,22 @@ module.exports = {
       // HTML video
       video: {
         poster:
-          'https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg',
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
         sources: [
           {
-            src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
             type: 'video/mp4',
           },
         ],
       },
       alt: 'Image 5',
-      title: 'Visit the European Commission',
-      description:
-        "The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.",
+      title: 'EU law',
+      description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Embedded video with picture defined instead of thumbnail (Vimeo)
+      // Embedded video (Vimeo)
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
@@ -128,12 +127,8 @@ module.exports = {
     },
     {
       // Image with thumbnail
-      thumbnail: {
-        img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
-          alt: 'Image 7',
-        },
-      },
+      thumbnail:
+        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
