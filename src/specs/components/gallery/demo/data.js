@@ -22,8 +22,8 @@ module.exports = {
       share_path: '/share#example-image.jpg',
     },
     {
-      // Embedded video (Youtube)
-      picture: {
+      // Embedded video with thumbnail (Youtube)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
           alt: 'New digital strategy',
@@ -54,8 +54,8 @@ module.exports = {
       share_path: '/share#example-image2.jpg',
     },
     {
-      // Embedded video (AV Portal)
-      picture: {
+      // Embedded video with thumbnail (AV Portal)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
           alt: 'Image 3',
@@ -72,8 +72,8 @@ module.exports = {
       share_path: '/share#example-image3.jpg',
     },
     {
-      // Embedded video (Dailymotion)
-      picture: {
+      // Embedded video with thumbnail (Dailymotion)
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
@@ -108,7 +108,7 @@ module.exports = {
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Embedded video (Vimeo)
+      // Embedded video with picture defined instead of thumbnail (Vimeo)
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
@@ -128,8 +128,12 @@ module.exports = {
     },
     {
       // Image with thumbnail
-      thumbnail:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+      thumbnail: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+          alt: 'Image 7',
+        },
+      },
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
