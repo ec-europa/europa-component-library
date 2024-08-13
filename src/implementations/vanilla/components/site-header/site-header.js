@@ -358,13 +358,15 @@ export class SiteHeader {
       );
       this.languageListOverlay.style.setProperty(
         'left',
-        `-${linkRect.left - (containerRect.left + linkRect.width / 2)}px`,
+        `-${linkRect.left - containerRect.left}px`,
       );
       // Adapt arrow position
       const arrowPosition = linkRect.left - containerRect.left;
+      console.log(linkRect.left);
+      console.log(containerRect.left);
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px`,
+        `calc(${arrowPosition}px + ${this.arrowSize})`,
       );
     }
 
