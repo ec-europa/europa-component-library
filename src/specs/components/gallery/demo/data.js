@@ -40,12 +40,18 @@ module.exports = {
       meta: 'Copyright, Author, Licence for embedded media',
     },
     {
-      // Image without thumbnail
+      // Image with sources
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
           alt: 'Image 2',
         },
+        sources: [
+          {
+            src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+            media: 'xl',
+          },
+        ],
       },
       title: 'Agriculture and culture',
       description:

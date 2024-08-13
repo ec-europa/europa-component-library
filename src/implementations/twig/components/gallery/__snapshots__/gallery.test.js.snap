@@ -24,15 +24,11 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 1"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 1"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -95,15 +91,11 @@ exports[`Gallery Default renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="New digital strategy - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-              />
-            </picture>
+            <img
+              alt="New digital strategy"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -142,18 +134,18 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 2"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 2"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
+              <source
+                media="(min-width: 1140px)"
+                srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
               <img
                 alt="Image 2"
                 class="ecl-gallery__image"
@@ -214,15 +206,11 @@ exports[`Gallery Default renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 3 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 3"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -276,15 +264,11 @@ exports[`Gallery Default renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 4 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 4"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -317,8 +301,8 @@ exports[`Gallery Default renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image5.jpg"
-          data-ecl-gallery-item-video-title="Visit the European Commission - Video player"
-          href="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          data-ecl-gallery-item-video-title="EU law - Video player"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
           id="ecl-gallery-item-gallery-id-5"
         >
           <figure
@@ -338,12 +322,12 @@ exports[`Gallery Default renders correctly 1`] = `
               </svg>
             </div>
             <video
-              aria-label="Visit the European Commission - Video"
+              aria-label="EU law - Video"
               class="ecl-gallery__image"
-              poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
             >
               <source
-                src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
                 type="video/mp4"
               />
             </video>
@@ -356,12 +340,12 @@ exports[`Gallery Default renders correctly 1`] = `
                 data-ecl-gallery-title=""
                 id="ecl-gallery-item-gallery-id-5-title"
               >
-                Visit the European Commission
+                EU law
               </span>
               <span
                 class="ecl-gallery__caption"
               >
-                The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+                EU law
               </span>
               <span
                 class="ecl-gallery__meta"
@@ -401,15 +385,11 @@ exports[`Gallery Default renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 6 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 6"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -448,15 +428,11 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 7"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 7"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -504,15 +480,11 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Climate change and protect nature"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-              />
-            </picture>
+            <img
+              alt="Climate change and protect nature"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -560,15 +532,11 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 9"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 9"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -616,15 +584,11 @@ exports[`Gallery Default renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 10"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 10"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -933,15 +897,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 1"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 1"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1004,15 +964,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="New digital strategy - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-              />
-            </picture>
+            <img
+              alt="New digital strategy"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -1051,18 +1007,18 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 2"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 2"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
+              <source
+                media="(min-width: 1140px)"
+                srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
               <img
                 alt="Image 2"
                 class="ecl-gallery__image"
@@ -1123,15 +1079,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 3 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 3"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -1185,15 +1137,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 4 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 4"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -1226,8 +1174,8 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image5.jpg"
-          data-ecl-gallery-item-video-title="Visit the European Commission - Video player"
-          href="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          data-ecl-gallery-item-video-title="EU law - Video player"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
           id="ecl-gallery-item-gallery-id-5"
         >
           <figure
@@ -1247,12 +1195,12 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
               </svg>
             </div>
             <video
-              aria-label="Visit the European Commission - Video"
+              aria-label="EU law - Video"
               class="ecl-gallery__image"
-              poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
             >
               <source
-                src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
                 type="video/mp4"
               />
             </video>
@@ -1265,12 +1213,12 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 data-ecl-gallery-title=""
                 id="ecl-gallery-item-gallery-id-5-title"
               >
-                Visit the European Commission
+                EU law
               </span>
               <span
                 class="ecl-gallery__caption"
               >
-                The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+                EU law
               </span>
               <span
                 class="ecl-gallery__meta"
@@ -1310,15 +1258,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 6 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 6"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -1357,15 +1301,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 7"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 7"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1413,15 +1353,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Climate change and protect nature"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-              />
-            </picture>
+            <img
+              alt="Climate change and protect nature"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1469,15 +1405,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 9"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 9"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1525,15 +1457,11 @@ exports[`Gallery Default renders correctly with extra attributes 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 10"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 10"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1840,15 +1768,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 1"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 1"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -1911,15 +1835,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="New digital strategy - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-              />
-            </picture>
+            <img
+              alt="New digital strategy"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -1958,18 +1878,18 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 2"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 2"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
+              <source
+                media="(min-width: 1140px)"
+                srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
               <img
                 alt="Image 2"
                 class="ecl-gallery__image"
@@ -2030,15 +1950,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 3 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 3"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -2092,15 +2008,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 4 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 4"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -2133,8 +2045,8 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image5.jpg"
-          data-ecl-gallery-item-video-title="Visit the European Commission - Video player"
-          href="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          data-ecl-gallery-item-video-title="EU law - Video player"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
           id="ecl-gallery-item-gallery-id-5"
         >
           <figure
@@ -2154,12 +2066,12 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
               </svg>
             </div>
             <video
-              aria-label="Visit the European Commission - Video"
+              aria-label="EU law - Video"
               class="ecl-gallery__image"
-              poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
             >
               <source
-                src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
                 type="video/mp4"
               />
             </video>
@@ -2172,12 +2084,12 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 data-ecl-gallery-title=""
                 id="ecl-gallery-item-gallery-id-5-title"
               >
-                Visit the European Commission
+                EU law
               </span>
               <span
                 class="ecl-gallery__caption"
               >
-                The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+                EU law
               </span>
               <span
                 class="ecl-gallery__meta"
@@ -2217,15 +2129,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 6 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 6"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -2264,15 +2172,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 7"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 7"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2320,15 +2224,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Climate change and protect nature"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-              />
-            </picture>
+            <img
+              alt="Climate change and protect nature"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2376,15 +2276,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 9"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 9"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2432,15 +2328,11 @@ exports[`Gallery Default renders correctly with extra class names 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 10"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 10"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2747,15 +2639,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 1"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 1"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -2818,15 +2706,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="New digital strategy - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-              />
-            </picture>
+            <img
+              alt="New digital strategy"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -2865,18 +2749,18 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 2"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 2"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
+              <source
+                media="(min-width: 1140px)"
+                srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
               <img
                 alt="Image 2"
                 class="ecl-gallery__image"
@@ -2937,15 +2821,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 3 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 3"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -2999,15 +2879,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 4 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 4"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -3040,8 +2916,8 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image5.jpg"
-          data-ecl-gallery-item-video-title="Visit the European Commission - Video player"
-          href="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          data-ecl-gallery-item-video-title="EU law - Video player"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
           id="ecl-gallery-item-gallery-id-5"
         >
           <figure
@@ -3061,12 +2937,12 @@ exports[`Gallery Default renders correctly with old data 1`] = `
               </svg>
             </div>
             <video
-              aria-label="Visit the European Commission - Video"
+              aria-label="EU law - Video"
               class="ecl-gallery__image"
-              poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
             >
               <source
-                src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
                 type="video/mp4"
               />
             </video>
@@ -3079,12 +2955,12 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 data-ecl-gallery-title=""
                 id="ecl-gallery-item-gallery-id-5-title"
               >
-                Visit the European Commission
+                EU law
               </span>
               <span
                 class="ecl-gallery__caption"
               >
-                The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+                EU law
               </span>
               <span
                 class="ecl-gallery__meta"
@@ -3124,15 +3000,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 6 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 6"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -3171,15 +3043,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 7"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 7"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3227,15 +3095,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Climate change and protect nature"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-              />
-            </picture>
+            <img
+              alt="Climate change and protect nature"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3283,15 +3147,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 9"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 9"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3339,15 +3199,11 @@ exports[`Gallery Default renders correctly with old data 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 10"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 10"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3654,15 +3510,11 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 1"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 1"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -3725,15 +3577,11 @@ exports[`Gallery Grid renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="New digital strategy - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
-              />
-            </picture>
+            <img
+              alt="New digital strategy"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -3772,18 +3620,18 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 2"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 2"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
+              <source
+                media="(min-width: 1140px)"
+                srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+              />
               <img
                 alt="Image 2"
                 class="ecl-gallery__image"
@@ -3844,15 +3692,11 @@ exports[`Gallery Grid renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 3 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 3"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -3906,15 +3750,11 @@ exports[`Gallery Grid renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 4 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 4"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -3947,8 +3787,8 @@ exports[`Gallery Grid renders correctly 1`] = `
           class="ecl-gallery__item-link"
           data-ecl-gallery-item=""
           data-ecl-gallery-item-share="/share#example-image5.jpg"
-          data-ecl-gallery-item-video-title="Visit the European Commission - Video player"
-          href="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          data-ecl-gallery-item-video-title="EU law - Video player"
+          href="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
           id="ecl-gallery-item-gallery-id-5"
         >
           <figure
@@ -3968,12 +3808,12 @@ exports[`Gallery Grid renders correctly 1`] = `
               </svg>
             </div>
             <video
-              aria-label="Visit the European Commission - Video"
+              aria-label="EU law - Video"
               class="ecl-gallery__image"
-              poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+              poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
             >
               <source
-                src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+                src="https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4"
                 type="video/mp4"
               />
             </video>
@@ -3986,12 +3826,12 @@ exports[`Gallery Grid renders correctly 1`] = `
                 data-ecl-gallery-title=""
                 id="ecl-gallery-item-gallery-id-5-title"
               >
-                Visit the European Commission
+                EU law
               </span>
               <span
                 class="ecl-gallery__caption"
               >
-                The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+                EU law
               </span>
               <span
                 class="ecl-gallery__meta"
@@ -4031,15 +3871,11 @@ exports[`Gallery Grid renders correctly 1`] = `
                 />
               </svg>
             </div>
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 6 - Video"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 6"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+            />
             <figcaption
               class="ecl-gallery__description"
               data-ecl-gallery-description=""
@@ -4078,15 +3914,11 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 7"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 7"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -4134,15 +3966,11 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Climate change and protect nature"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
-              />
-            </picture>
+            <img
+              alt="Climate change and protect nature"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -4190,15 +4018,11 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 9"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 9"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
@@ -4246,15 +4070,11 @@ exports[`Gallery Grid renders correctly 1`] = `
           <figure
             class="ecl-gallery__image-container"
           >
-            <picture
-              class="ecl-picture ecl-gallery__thumbnail"
-            >
-              <img
-                alt="Image 10"
-                class="ecl-gallery__image"
-                src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
-              />
-            </picture>
+            <img
+              alt="Image 10"
+              class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image"
+              src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg"
+            />
             <picture
               class="ecl-picture ecl-gallery__picture"
             >
