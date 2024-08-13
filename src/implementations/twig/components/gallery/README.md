@@ -64,7 +64,7 @@ npm install --save @ecl/twig-component-gallery
   sr_video_player: 'Video player',
   items: [ 
     { 
-      picture: {
+      thumbnail: {
         img: {
           src: 'path/to/thumbnail.jpg', 
           alt: 'Image 1',
