@@ -34,12 +34,16 @@
 {% set _media_iframe_href = '' %}
 {% set _item = item|default({}) %}
 {% set _picture = item.picture|default({}) %}
-{% set _thumbnail = item.thumbnail|default(_picture.img is defined and _picture.img.src is defined ? _picture.img.src : '') %}
+{% set _thumbnail = item.thumbnail|default('') %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% if _thumbnail is empty and _picture.img is defined and _picture.img.src is not empty %}
+  {% set _thumbnail = _picture.img.src %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -135,6 +139,7 @@
       <img src="{{ _thumbnail }}" alt="{{ _picture.img.alt|default('') }}" class="ecl-picture ecl-gallery__thumbnail ecl-gallery__image" />
       {% include '@ecl/picture/picture.html.twig' with {
         picture: _picture,
+        lazy: true,
         extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}
