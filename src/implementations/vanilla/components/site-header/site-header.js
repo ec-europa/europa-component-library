@@ -343,7 +343,7 @@ export class SiteHeader {
       );
       this.languageListOverlay.style.setProperty(
         'right',
-        `-${containerRect.right - linkRect.right}px`,
+        `calc(-${containerRect.right}px + ${linkRect.right}px)`,
       );
       // Adapt arrow position
       const arrowPosition =
@@ -358,15 +358,14 @@ export class SiteHeader {
       );
       this.languageListOverlay.style.setProperty(
         'left',
-        `-${linkRect.left - containerRect.left}px`,
+        `calc(-${linkRect.left}px + ${containerRect.left}px)`,
       );
       // Adapt arrow position
-      const arrowPosition = linkRect.left - containerRect.left;
-      console.log(linkRect.left);
-      console.log(containerRect.left);
+      const arrowPosition =
+        linkRect.right - containerRect.left - linkRect.width / 2;
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
-        `calc(${arrowPosition}px + ${this.arrowSize})`,
+        `${arrowPosition}px`,
       );
     }
 
