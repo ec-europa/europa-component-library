@@ -119,7 +119,7 @@ const prepareData = (data, args) => {
     clone.input.multiple_search = !!args.show_search;
   }
   if (clone.input.input_type === 'checkbox') {
-    if (clone.input.standalone) {
+    if (clone.input.standalone && !args.show_label) {
       clone.input.items[0].required_text = args.required_text;
       clone.input.items[0].label_aria_required = clone.label_aria_required;
       clone.input.items[0].optional_text = args.optional_text;
