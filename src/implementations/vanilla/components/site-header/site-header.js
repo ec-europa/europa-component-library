@@ -13,6 +13,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.searchFormSelector
  * @param {String} options.loginToggleSelector
  * @param {String} options.loginBoxSelector
+ * @param {integer} options.tabletBreakpoint
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
  * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
@@ -50,6 +51,7 @@ export class SiteHeader {
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
+      tabletBreakpoint = 768,
     } = {},
   ) {
     // Check element
@@ -76,6 +78,7 @@ export class SiteHeader {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.tabletBreakpoint = tabletBreakpoint;
 
     // Private variables
     this.languageMaxColumnItems = 8;
@@ -91,6 +94,7 @@ export class SiteHeader {
     this.loginToggle = null;
     this.loginBox = null;
     this.resizeTimer = null;
+    this.direction = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -137,6 +141,12 @@ export class SiteHeader {
     this.languageListNonEu = queryOne(this.languageListNonEuSelector);
     this.languageListContent = queryOne(this.languageListContentSelector);
     this.close = queryOne(this.closeOverlaySelector);
+
+    // direction
+    this.direction = getComputedStyle(this.element).direction;
+    if (this.direction === 'rtl') {
+      this.element.classList.add('ecl-site-header--rtl');
+    }
 
     // Create focus trap
     this.focusTrap = createFocusTrap(this.languageListOverlay, {
@@ -222,6 +232,7 @@ export class SiteHeader {
 
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
+      this.element.classList.remove('ecl-site-header--rtl');
       ECL.components.delete(this.element);
     }
   }
@@ -310,6 +321,7 @@ export class SiteHeader {
     // Check available space
     this.languageListOverlay.classList.remove(
       'ecl-site-header__language-container--push-right',
+      'ecl-site-header__language-container--push-left',
     );
     this.languageListOverlay.classList.remove(
       'ecl-site-header__language-container--full',
@@ -318,14 +330,13 @@ export class SiteHeader {
       '--ecl-language-arrow-position',
     );
     this.languageListOverlay.style.removeProperty('right');
+    this.languageListOverlay.style.removeProperty('left');
 
     popoverRect = this.languageListOverlay.getBoundingClientRect();
     const screenWidth = window.innerWidth;
-
+    const linkRect = this.languageLink.getBoundingClientRect();
     // Popover too large
-    if (popoverRect.right > screenWidth) {
-      const linkRect = this.languageLink.getBoundingClientRect();
-
+    if (this.direction === 'ltr' && popoverRect.right > screenWidth) {
       // Push the popover to the right
       this.languageListOverlay.classList.add(
         'ecl-site-header__language-container--push-right',
@@ -334,7 +345,6 @@ export class SiteHeader {
         'right',
         `-${containerRect.right - linkRect.right}px`,
       );
-
       // Adapt arrow position
       const arrowPosition =
         containerRect.right - linkRect.right + linkRect.width / 2;
@@ -342,12 +352,24 @@ export class SiteHeader {
         '--ecl-language-arrow-position',
         `calc(${arrowPosition}px - ${this.arrowSize})`,
       );
+    } else if (this.direction === 'rtl' && popoverRect.left < 0) {
+      this.languageListOverlay.classList.add(
+        'ecl-site-header__language-container--push-left',
+      );
+      this.languageListOverlay.style.setProperty(
+        'left',
+        `-${linkRect.left - (containerRect.left + linkRect.width / 2)}px`,
+      );
+      // Adapt arrow position
+      const arrowPosition = linkRect.left - containerRect.left;
+      this.languageListOverlay.style.setProperty(
+        '--ecl-language-arrow-position',
+        `calc(${arrowPosition}px`,
+      );
     }
 
     // Mobile popover (full width)
-    if (popoverRect.left === 0) {
-      const linkRect = this.languageLink.getBoundingClientRect();
-
+    if (window.innerWidth < this.tabletBreakpoint) {
       // Push the popover to the right
       this.languageListOverlay.classList.add(
         'ecl-site-header__language-container--full',
@@ -357,7 +379,6 @@ export class SiteHeader {
       // Adapt arrow position
       const arrowPosition =
         popoverRect.right - linkRect.right + linkRect.width / 2;
-
       this.languageListOverlay.style.setProperty(
         '--ecl-language-arrow-position',
         `calc(${arrowPosition}px - ${this.arrowSize})`,
