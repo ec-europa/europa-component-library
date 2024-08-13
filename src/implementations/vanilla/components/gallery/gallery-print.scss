@@ -54,11 +54,6 @@ $gallery: null !default;
     display: flex;
     flex-grow: 1;
   }
-
-  * {
-    object-fit: cover;
-    width: 100%;
-  }
 }
 
 .ecl-gallery__picture {
@@ -68,11 +63,6 @@ $gallery: null !default;
   &:not(.ecl-gallery__slider-image) {
     display: none;
     flex-grow: 1;
-  }
-
-  * {
-    object-fit: cover;
-    width: 100%;
   }
 }
 

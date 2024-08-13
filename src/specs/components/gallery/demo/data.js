@@ -8,10 +8,16 @@ module.exports = {
   sr_video_player: 'Video player',
   items: [
     {
-      // Image without thumbnail
-      picture: {
+      // Image with thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+          alt: 'Image 1',
+        },
+      },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
           alt: 'Image 1',
         },
       },
@@ -22,8 +28,8 @@ module.exports = {
       share_path: '/share#example-image.jpg',
     },
     {
-      // Embedded video (Youtube)
-      picture: {
+      // Embedded video (Youtube) with a thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-external-video.jpg',
           alt: 'New digital strategy',
@@ -40,16 +46,22 @@ module.exports = {
       meta: 'Copyright, Author, Licence for embedded media',
     },
     {
-      // Image with sources
-      picture: {
+      // Image with sources and thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
           alt: 'Image 2',
         },
+      },
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+          alt: 'Image 2',
+        },
         sources: [
           {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-            media: 'xl',
+            src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+            media: 'm',
           },
         ],
       },
@@ -60,7 +72,7 @@ module.exports = {
       share_path: '/share#example-image2.jpg',
     },
     {
-      // Embedded video (AV Portal)
+      // Embedded video (AV Portal) with picture instead of thumbnail
       picture: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
@@ -78,8 +90,8 @@ module.exports = {
       share_path: '/share#example-image3.jpg',
     },
     {
-      // Embedded video (Dailymotion)
-      picture: {
+      // Embedded video (Dailymotion) with thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
           alt: 'Image 4',
@@ -113,8 +125,8 @@ module.exports = {
       share_path: '/share#example-image5.jpg',
     },
     {
-      // Embedded video (Vimeo)
-      picture: {
+      // Embedded video (Vimeo) with thumbnail
+      thumbnail: {
         img: {
           src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
           alt: 'Image 6',
@@ -132,12 +144,10 @@ module.exports = {
       share_path: '/share#example-image6.jpg',
     },
     {
-      // Image with thumbnail
-      thumbnail:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
+      // Image without thumbnail
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image7.jpg',
           alt: 'Image 7',
         },
       },
