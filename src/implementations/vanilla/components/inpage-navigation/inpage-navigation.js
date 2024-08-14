@@ -62,6 +62,7 @@ export class InpageNavigation {
       spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
+      attachResizeListener = true,
       attachKeyListener = true,
       contentClass = 'inpage-navigation__heading--active',
     } = {},
@@ -78,6 +79,7 @@ export class InpageNavigation {
 
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
+    this.attachResizeListener = attachResizeListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
     this.toggleSelector = toggleSelector;
@@ -95,6 +97,7 @@ export class InpageNavigation {
     this.isExpanded = false;
     this.toggleElement = null;
     this.navLinks = null;
+    this.resizeTimer = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
@@ -109,6 +112,8 @@ export class InpageNavigation {
     this.destroyObserver = this.destroyObserver.bind(this);
     this.openList = this.openList.bind(this);
     this.closeList = this.closeList.bind(this);
+    this.setListHeight = this.setListHeight.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   // ACTIONS
@@ -323,7 +328,14 @@ export class InpageNavigation {
 
     this.toggleElement = queryOne(this.toggleSelector, this.element);
     this.navLinks = queryAll(this.linksSelector, this.element);
+    this.currentList = queryOne(this.inPageList, this.element);
+    this.direction = getComputedStyle(this.element).direction;
 
+    if (this.direction === 'rtl') {
+      this.element.classList.add('ecl-inpage-navigation--rtl');
+    }
+
+    this.setListHeight();
     this.initSticky(this.element);
     this.initScrollSpy();
     this.initObserver();
@@ -336,6 +348,9 @@ export class InpageNavigation {
 
     if (this.attachClickListener && this.toggleElement) {
       this.toggleElement.addEventListener('click', this.handleClickOnToggler);
+    }
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
@@ -393,20 +408,42 @@ export class InpageNavigation {
    * Open mobile list link.
    */
   openList() {
-    const currentList = queryOne(this.inPageList, this.element);
-    const togglerElement = queryOne(this.toggleSelector, this.element);
-    currentList.classList.add('ecl-inpage-navigation__list--visible');
-    togglerElement.setAttribute('aria-expanded', 'true');
+    this.currentList.classList.add('ecl-inpage-navigation__list--visible');
+    this.toggleElement.setAttribute('aria-expanded', 'true');
   }
 
   /**
    * Close mobile list link.
    */
   closeList() {
-    const currentList = queryOne(this.inPageList, this.element);
-    const togglerElement = queryOne(this.toggleSelector, this.element);
-    currentList.classList.remove('ecl-inpage-navigation__list--visible');
-    togglerElement.setAttribute('aria-expanded', 'false');
+    this.currentList.classList.remove('ecl-inpage-navigation__list--visible');
+    this.toggleElement.setAttribute('aria-expanded', 'false');
+  }
+
+  /**
+   * Calculate the available space for the dropwdown and set a max-height on the list
+   */
+  setListHeight() {
+    const viewportHeight = window.innerHeight;
+    const viewportWidth = window.innerWidth;
+    const listTitle = queryOne('.ecl-inpage-navigation__title', this.element);
+
+    let topPosition = 0;
+    // Mobile
+    if (viewportWidth < 996) {
+      topPosition = this.toggleElement.getBoundingClientRect().bottom + 16;
+    } else if (listTitle) {
+      // If we have a title in desktop
+      topPosition = listTitle.getBoundingClientRect().bottom + 24;
+    } else {
+      // Get the list position if there is no title
+      topPosition = this.element.getBoundingClientRect().top;
+    }
+
+    const availableSpace = viewportHeight - topPosition;
+    if (availableSpace > 0) {
+      this.currentList.style.maxHeight = `${availableSpace}px`;
+    }
   }
 
   /**
@@ -431,6 +468,7 @@ export class InpageNavigation {
         // Untrap focus
         this.focusTrap.deactivate();
       } else {
+        this.setListHeight();
         // Trap focus
         this.focusTrap.activate();
 
@@ -466,6 +504,17 @@ export class InpageNavigation {
 
     const eventData = { target: heading || href, e };
     this.trigger('onClick', eventData);
+  }
+
+  /**
+   * Trigger events on resize
+   * Uses a debounce, for performance
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+    this.resizeTimer = setTimeout(() => {
+      this.setListHeight();
+    }, 100);
   }
 
   /**
@@ -530,6 +579,9 @@ export class InpageNavigation {
     }
     if (this.attachKeyListener) {
       document.removeEventListener('keydown', this.handleKeyboard);
+    }
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
     }
     this.destroyScrollSpy();
     this.destroySticky();
