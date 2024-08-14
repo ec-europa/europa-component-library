@@ -170,7 +170,7 @@ $language-list: null !default;
   align-items: center;
   display: flex;
 
-  .ecl-button {
+  .ecl-button:not(.ecl-search-form__button) {
     margin-inline-start: var(--s-2xs);
   }
 
@@ -246,11 +246,13 @@ $language-list: null !default;
   display: flex;
   margin-top: var(--s-m);
 
-  &::before {
-    @include site-header-language-switcher.arrow-up;
+  @include breakpoints.down('m') {
+    &::before {
+      @include site-header-language-switcher.arrow-up;
 
-    left: auto;
-    right: var(--ecl-search-arrow-position);
+      left: auto;
+      right: var(--ecl-search-arrow-position);
+    }
   }
 }
 
@@ -521,10 +523,6 @@ $language-list: null !default;
       position: relative;
       top: 0;
       width: auto;
-
-      .ecl-search-form__button {
-        margin-inline-start: 0;
-      }
     }
   }
 
