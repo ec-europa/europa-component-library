@@ -187,7 +187,7 @@ export class Menu {
     // Query elements
     this.open = queryOne(this.openSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
-    this.toggleLabel = queryOne('.ecl-link__label', this.open);
+    this.toggleLabel = queryOne('.ecl-button__label', this.open);
     this.back = queryOne(this.backSelector, this.element);
     this.inner = queryOne(this.innerSelector, this.element);
     this.itemsList = queryOne(this.listSelector, this.element);
@@ -961,6 +961,7 @@ export class Menu {
     this.element.setAttribute('aria-expanded', 'true');
     this.inner.setAttribute('aria-hidden', 'false');
     this.disableScroll();
+    this.open.setAttribute('aria-expanded', 'true');
     this.isOpen = true;
     this.focusTrap.activate();
 
@@ -992,6 +993,7 @@ export class Menu {
     // Remove css class and attribute from inner menu
     this.inner.classList.remove('ecl-menu__inner--expanded');
     this.inner.setAttribute('aria-hidden', 'true');
+    this.open.setAttribute('aria-expanded', 'false');
 
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
