@@ -830,14 +830,6 @@ export class Menu {
 
     // Key actions to toggle the caret buttons
     if (cList.contains('ecl-menu__button-caret') && menuExpanded === 'false') {
-      if (e.keyCode === 32 || e.key === 'Enter') {
-        if (menuItem.getAttribute('aria-expanded') === 'true') {
-          this.handleHoverOffItem(e);
-        } else {
-          this.handleHoverOnItem(e);
-        }
-        return;
-      }
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         const firstItem = queryOne(
@@ -898,8 +890,6 @@ export class Menu {
           }
         }
       }
-
-      this.closeOpenDropdown();
     }
 
     // Key actions to navigate between the sub-links
@@ -1140,18 +1130,25 @@ export class Menu {
    * @param {Event} e
    */
   handleClickOnCaret(e) {
-    // Don't execute for desktop display
     const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuItem = e.target.closest(this.itemSelector);
+
+    // Desktop display
     if (menuExpanded === 'false') {
+      if (menuItem.getAttribute('aria-expanded') === 'true') {
+        this.handleHoverOffItem(e);
+      } else {
+        this.handleHoverOnItem(e);
+      }
       return;
     }
 
+    // Mobile display
     // Add css class to inner menu
     this.inner.classList.add('ecl-menu__inner--expanded');
 
     // Add css class and attribute to current item, and remove it from others
     // Also save the current item
-    const menuItem = e.target.closest(this.itemSelector);
     this.items.forEach((item) => {
       if (item === menuItem) {
         item.classList.add('ecl-menu__item--expanded');
