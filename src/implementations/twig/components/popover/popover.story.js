@@ -11,7 +11,7 @@ import notes from './README.md';
 const lorem = loremIpsum({ count: 10 });
 
 const getArgs = (data) => ({
-  label: data.toggle.link.label,
+  label: data.toggle.label,
   content: data.content,
 });
 
@@ -41,7 +41,7 @@ const getArgTypes = () => ({
 const prepareData = (data, args) => {
   const dataClone = global.structuredClone(data);
 
-  dataClone.toggle.link.label = args.label;
+  dataClone.toggle.label = args.label;
   dataClone.content = args.content;
   if (args.content !== '') {
     delete dataClone.links;
