@@ -148,9 +148,11 @@
         extra_image_classes: 'ecl-banner__image',
         extra_attributes: [{ name: 'data-ecl-banner-image' }],
       } only %}
-    {% if _credit is not empty %}
-      <footer class="ecl-banner__credit"><small>{{ _credit }}</small></footer>
-    {% endif %}
+      {% if _credit is not empty %}
+        <footer class="ecl-banner__credit" data-ecl-banner-footer>
+          <div class="ecl-container">{{ _credit }}</div>
+        </footer>
+      {% endif %}
     </figure>
   {% elseif _video is not empty %}
     {# Video #}
@@ -170,7 +172,9 @@
         {% endif %}
       </video>
       {% if _credit is not empty %}
-        <div class="ecl-banner__credit"><small>{{ _credit }}</small></div>
+        <div class="ecl-banner__credit" data-ecl-banner-footer>
+          <div class="ecl-container">{{ _credit }}</div>
+        </div>
       {% endif %}
 
       {# Video controls #}

@@ -66,6 +66,11 @@ $carousel: null !default;
 
 .ecl-carousel__slide .ecl-banner__credit {
   margin-inline-end: var(--s-2xs);
+  width: auto;
+}
+
+.ecl-carousel__slide .ecl-banner__picture-container {
+  padding-bottom: var(--banner-footer-height);
 }
 
 .ecl-carousel__controls {
@@ -163,6 +168,10 @@ $carousel: null !default;
   .ecl-carousel__slide .ecl-banner__credit {
     margin-inline-end: 0;
   }
+
+  .ecl-carousel__slide .ecl-banner__picture-container {
+    padding-bottom: 0;
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -172,6 +181,14 @@ $carousel: null !default;
     .ecl-banner
     .ecl-container {
     margin-inline-start: 120px;
+  }
+
+  .ecl-container
+    .ecl-carousel:not(.ecl-carousel--full-width)
+    .ecl-banner
+    .ecl-banner__credit
+    .ecl-container {
+    margin-inline-start: 60px;
   }
 
   .ecl-carousel__prev {
