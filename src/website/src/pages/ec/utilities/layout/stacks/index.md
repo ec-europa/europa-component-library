@@ -1,5 +1,5 @@
 ---
-title: Stacks
+title: Stacks (Flex)
 defaultTab: usage
 status: ready
 playground:
