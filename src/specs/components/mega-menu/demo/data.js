@@ -9,7 +9,6 @@ module.exports = {
   third_level_aria_label: 'Sub-pages in this section',
   toggle: {
     label: 'Menu',
-    hide_label: true,
     icon: {
       path: '/icons.svg',
       name: 'hamburger',
