@@ -17,12 +17,12 @@ const getArgs = (data) => {
     download_label: data.download.link.label,
   };
 
-  if (data.label) {
-    args.show_label = true;
-  }
   if (data.translation) {
     args.show_translations = true;
     args.toggle_label = data.translation.toggle.label || '';
+  }
+  if (data.label) {
+    args.show_label = true;
   }
   if (data.description) {
     args.show_description = !!data.description;
@@ -36,6 +36,9 @@ const getArgs = (data) => {
     args.show_taxonomy = !!data.lists;
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
+  }
+  if (data.preview) {
+    args.show_preview = true;
   }
 
   return args;
@@ -65,6 +68,18 @@ const getArgTypes = (data) => {
       },
     };
   }
+
+  if (data.preview) {
+    argTypes.show_preview = {
+      name: 'preview',
+      type: { name: 'boolean' },
+      description: 'Show preview',
+      table: {
+        category: 'Optional',
+      },
+    };
+  }
+
   argTypes.title = {
     name: 'title',
     type: { name: 'string', required: true },
@@ -193,6 +208,10 @@ const prepareData = (data, args) => {
 
   if (!args.show_meta) {
     delete clone.detail_meta;
+  }
+
+  if (!args.show_preview) {
+    delete clone.preview;
   }
 
   if (!args.show_description) {

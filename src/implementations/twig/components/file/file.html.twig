@@ -160,6 +160,7 @@
     {% endif %}
     </div>
   </div>
+
   <div class="ecl-file__footer">
   {% if _language is not empty %}
     <div class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</div>
@@ -167,23 +168,25 @@
   {% if _meta is not empty %}
     <div class="ecl-file__meta">{{ _meta }}</div>
   {% endif %}
-  {% if _preview is not empty %}
-    {% include '@ecl/link/link.html.twig' with _preview|merge({
-      link: _preview.link|default({})|merge({
-        type: 'standalone',
-        icon_position: 'after',
-      }),
-      icon: _preview.icon|default({})|merge({
-        name: 'eye',
-        size: 'fluid'
-      }),
-      extra_attributes: [
-       { name: 'id', value: _preview_id },
-       { name: 'aria-labelledby', value: _label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
-      ],
-      extra_classes: 'ecl-file__preview',
-    }) only %}
-  {% endif %}
+    <div class="ecl-file__action">
+    {% if _preview is not empty %}
+      {% include '@ecl/link/link.html.twig' with _preview|merge({
+        link: _preview.link|default({})|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _preview.icon|default({})|merge({
+          name: 'eye',
+          size: 'fluid'
+        }),
+        extra_attributes: [
+        { name: 'id', value: _preview_id },
+        { name: 'aria-labelledby', value: _label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+        ],
+        extra_classes: 'ecl-file__preview',
+      }) only %}
+    {% endif %}
+
     {% include '@ecl/link/link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
         type: 'standalone',
@@ -199,7 +202,9 @@
       ],
       extra_classes: 'ecl-file__download',
     }) only %}
+    </div>
   </div>
+
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
     id: _id,

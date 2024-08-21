@@ -132,10 +132,12 @@ $file: null !default;
   margin-inline-end: var(--s-xs);
 }
 
-.ecl-file__download {
-  align-self: flex-start;
-  margin-inline-start: auto;
+.ecl-file__action {
   margin-top: map.get($file, 'file-download-spacing-mobile');
+}
+
+.ecl-file__preview {
+  margin-inline-end: var(--s-m);
 }
 
 .ecl-file__translation-language {
@@ -239,21 +241,8 @@ $file: null !default;
   }
 }
 
-@include breakpoints.down('xs') {
-  .ecl-file__footer * {
-    margin-top: var(--s-2xs);
-  }
-}
-
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
-  .ecl-file__download {
-    align-self: flex-end;
-    margin-inline-start: auto;
-    position: map.get($file, 'file-download-position');
-    top: map.get($file, 'file-download-position-top');
-  }
-
   .ecl-file__translation-download {
     margin-top: 0;
     width: auto;
@@ -286,8 +275,12 @@ $file: null !default;
     order: map.get($file, 'file-picture-order-desktop');
   }
 
-  .ecl-file__download {
+  .ecl-file__action {
+    align-self: flex-end;
+    margin-inline-start: auto;
     margin-top: map.get($file, 'file-download-spacing-desktop');
+    position: map.get($file, 'file-download-position');
+    top: map.get($file, 'file-download-position-top');
   }
 
   .ecl-file__image {
