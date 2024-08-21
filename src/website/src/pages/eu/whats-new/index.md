@@ -5,7 +5,53 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
-## 4.5.0
+## 4.6.0
+
+#### :rocket: New Feature
+
+* [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565
+
+#### :warning: Markup Changes
+
+* [#3559](https://github.com/ec-europa/europa-component-library/pull/3559) feat(menus): Removing role application from the inner section of the menus - FRONT-4568
+* [#3561](https://github.com/ec-europa/europa-component-library/pull/3561) fix(site-header): fixing language switcher in rtl - FRONT-4569
+* [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565
+* [#3563](https://github.com/ec-europa/europa-component-library/pull/3563) feat(mega-menu): Removing aria label from see all links - FRONT-4572
+* [#3551](https://github.com/ec-europa/europa-component-library/pull/3551) feat(menu/mega-menu): remove aria-current=true - FRONT-4545
+* [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478
+* [#3544](https://github.com/ec-europa/europa-component-library/pull/3544) feat(site-header): Eu revamp, again - FRONT-4556
+* [#3529](https://github.com/ec-europa/europa-component-library/pull/3529) feat(splash-page): change markup for "lang" attribute
+
+#### :warning: Data Changes
+
+* [#3543](https://github.com/ec-europa/europa-component-library/pull/3543) feat(form): update for optional elements - FRONT-4319
+* [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565
+* [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478
+
+#### :bug: Bug Fix
+
+* [#3564](https://github.com/ec-europa/europa-component-library/pull/3564) fix(site-header): Fixing margin reset for search button in EU - FRONT-4575
+* [#3561](https://github.com/ec-europa/europa-component-library/pull/3561) fix(site-header): fixing language switcher in rtl - FRONT-4569
+* [#3546](https://github.com/ec-europa/europa-component-library/pull/3546) fix(breadcrumb): fix wrap when expanding - FRONT-4558
+* [#3547](https://github.com/ec-europa/europa-component-library/pull/3547) fix(button): fix print css - FRONT-4561
+
+#### :nail_care: Enhancement
+
+* [#3535](https://github.com/ec-europa/europa-component-library/pull/3535) feat(logo): update EC logo - FRONT-4547
+* [#3543](https://github.com/ec-europa/europa-component-library/pull/3543) feat(form): update for optional elements - FRONT-4319
+* [#3559](https://github.com/ec-europa/europa-component-library/pull/3559) feat(menus): Removing role application from the inner section of the menus - FRONT-4568
+* [#3562](https://github.com/ec-europa/europa-component-library/pull/3562) feat(utilities): Adding margin-top and margin-bottom auto in the spacing utilities - FRONT-4573
+* [#3563](https://github.com/ec-europa/europa-component-library/pull/3563) feat(mega-menu): Removing aria label from see all links - FRONT-4572
+* [#3556](https://github.com/ec-europa/europa-component-library/pull/3556) feat(inpage): Making the list scrollable, moving scrollbar to the left in EC - FRONT-4563
+* [#3557](https://github.com/ec-europa/europa-component-library/pull/3557) feat(language-list): Making the list scrollable - FRONT-4564
+* [#3551](https://github.com/ec-europa/europa-component-library/pull/3551) feat(menu/mega-menu): remove aria-current=true - FRONT-4545
+* [#3530](https://github.com/ec-europa/europa-component-library/pull/3530) feat(media-container): update control - FRONT-4546
+* [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478
+* [#3545](https://github.com/ec-europa/europa-component-library/pull/3545) feat(link): increase underline offset - FRONT-4555
+* [#3544](https://github.com/ec-europa/europa-component-library/pull/3544) feat(site-header): Eu revamp, again - FRONT-4556
+* [#3539](https://github.com/ec-europa/europa-component-library/pull/3539) feat(social-media-follow): update spacing - FRONT-4552
+* [#3537](https://github.com/ec-europa/europa-component-library/pull/3537) feat(timeline): improve focus after expand - FRONT-4484
+* [#3529](https://github.com/ec-europa/europa-component-library/pull/3529) feat(splash-page): change markup for "lang" attribute
 
 ## 4.5.0
 

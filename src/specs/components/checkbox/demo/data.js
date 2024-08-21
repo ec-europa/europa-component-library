@@ -11,7 +11,6 @@ module.exports = {
   required_text: '*',
   required: true,
   label_aria_required: 'required',
-  label_aria_optional: 'optional',
   name: 'checkbox-default',
   invalid_icon: {
     path: '/icons.svg',
@@ -35,8 +34,6 @@ module.exports = {
         label: 'Spain',
         value: 'es',
         icon_path: '/icons.svg',
-        required_text: '*',
-        label_aria_required: 'required',
       },
       {
         id: 'checkbox-default-2',
