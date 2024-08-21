@@ -33,7 +33,6 @@ $carousel: null !default;
 }
 
 .ecl-carousel__container {
-  background-color: map.get($carousel, 'controls-background');
   box-shadow: inset 0 -4px 12px -9px
     rgba(map.get($theme, 'color', 'black'), 0.6);
   order: 1;
@@ -167,6 +166,7 @@ $carousel: null !default;
 
   .ecl-carousel__slide .ecl-banner__credit {
     margin-inline-end: 0;
+    width: 100%;
   }
 
   .ecl-carousel__slide .ecl-banner__picture-container {
