@@ -12,7 +12,6 @@ $banner: null !default;
 
 .ecl-banner {
   align-items: center;
-  background: map.get($banner, 'background-color');
   border-radius: map.get($banner, 'border-radius', 'banner');
   box-shadow: map.get($banner, 'box-shadow');
   display: flex;
@@ -90,6 +89,10 @@ $banner: null !default;
   object-position: center;
   position: relative;
   width: 100%;
+}
+
+.ecl-banner__info {
+  background-color: map.get($banner, 'background-color');
 }
 
 .ecl-banner__title,
@@ -253,6 +256,10 @@ $banner: null !default;
   .ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
     padding-inline-start: var(--s-2xl);
     padding-inline-end: var(--s-2xl);
+  }
+
+  .ecl-banner__info {
+    background-color: transparent;
   }
 
   .ecl-banner__container {
