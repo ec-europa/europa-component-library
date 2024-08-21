@@ -1,6 +1,6 @@
 ---
 title: Stacks (Flex)
-defaultTab: usage
+defaultTab: code
 status: ready
 playground:
   system: ec
