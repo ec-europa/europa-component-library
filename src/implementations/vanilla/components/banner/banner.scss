@@ -40,7 +40,7 @@ $banner: null !default;
 }
 
 .ecl-banner__credit {
-  background-color: var(--c-n-40);
+  background-color: map.get($banner, 'background-color');
   color: var(--c-d);
   font: var(--f-s);
   padding-bottom: var(--s-2xs);
