@@ -78,10 +78,6 @@ Default.render = async (args) => {
       prepareData({ ...dataDefault, id: 'popover-example5' }, args),
     )}</div>
     <div class="ecl-u-d-inline-flex">
-      <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
-      <a class="ecl-link ecl-link--standalone ecl-u-mr-s" href="#">Link</a>
       ${await popover(
         prepareData({ ...dataDefault, id: 'popover-example2' }, args),
       )}
