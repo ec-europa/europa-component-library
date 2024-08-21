@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-file
 - **"meta"** (string) (default: '')
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
+- **"preview"** (object) (default: {}): object of type Link
 - **"picture"** (associative array) (default: {}): Image, following ECL Picture structure
 - **"label"** (array of objects of type Label) (default: []) labels
   ** also supported as an object with a single label **
@@ -51,12 +52,21 @@ npm install --save @ecl/twig-component-file
     path: 'path/to/icons.svg',
   },
   download: {
-    label: 'Download',
-    path: '/example',
+    link: {
+      label: 'Download',
+      path: '/example',
+    },
     icon: {
-      name: 'download',
-      size: 'fluid',
       path: 'path/to/icons.svg',
+    },
+  },
+  preview: {
+    link: {
+      label: 'Preview',
+      path: exampleLink,
+    },
+    icon: {
+      path: '/icons.svg',
     },
   },
   translation: {

@@ -17,6 +17,7 @@
   - "meta" (string) (default: '')
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
+  - "preview" (object) (default: {}): object of type Link
   - "picture" (object) (default: {}): image for the thumbnail variant
   - "label" (array) (default: {}) array of objects of type
   ** still supported as an object with a single label **
@@ -49,6 +50,7 @@
 {% set _label = label|default({}) %}
 {% set _lists = lists|default([]) %}
 {% set _download = download|default({}) %}
+{% set _preview = preview|default({}) %}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
@@ -63,6 +65,7 @@
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
 {% set _link_id = _id ~ '-link' %}
+{% set _preview_id = _id ~ '-preview' %}
 {% set _label_id = _id ~ '-link-label' %}
 
 {% if _label.label is defined %}
@@ -159,10 +162,27 @@
   </div>
   <div class="ecl-file__footer">
   {% if _language is not empty %}
-    <div class="ecl-file__language" id={{ _lang_id }}>{{ _language }}</div>
+    <div class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</div>
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-file__meta">{{ _meta }}</div>
+  {% endif %}
+  {% if _preview is not empty %}
+    {% include '@ecl/link/link.html.twig' with _preview|merge({
+      link: _preview.link|default({})|merge({
+        type: 'standalone',
+        icon_position: 'after',
+      }),
+      icon: _preview.icon|default({})|merge({
+        name: 'eye',
+        size: 'fluid'
+      }),
+      extra_attributes: [
+       { name: 'id', value: _preview_id },
+       { name: 'aria-labelledby', value: _label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+      ],
+      extra_classes: 'ecl-file__preview',
+    }) only %}
   {% endif %}
     {% include '@ecl/link/link.html.twig' with _download|merge({
       link: _download.link|default({})|merge({
