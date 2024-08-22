@@ -11,7 +11,6 @@ module.exports = {
   required_text: '*',
   required: true,
   label_aria_required: 'required',
-  label_aria_optional: 'optional',
   disabled: false,
   invalid: false,
   input: {

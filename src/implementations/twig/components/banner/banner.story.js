@@ -334,6 +334,10 @@ const prepareData = (data, args) => {
     if (showDescription) clone.description = description;
   }
 
+  if (clone.picture) {
+    clone.picture.img.src = args.image;
+  }
+
   return clone;
 };
 

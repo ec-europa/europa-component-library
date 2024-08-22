@@ -32,17 +32,30 @@ const officialLanguages = [
 ];
 
 function GetLanguageId(path) {
+  if (path.includes('mute')) {
+    return 'muted';
+  }
   return path.split('--').pop().slice(0, 2);
 }
 
-function GetOfficialLogos(logos, isOfficial) {
-  if (isOfficial) {
+function GetColor(path) {
+  if (path.includes('negative')) return 'negative';
+  return 'positive';
+}
+
+function GetLogos(logos, serie) {
+  if (serie === 'muted') {
+    return logos.filter((logo) => GetLanguageId(logo) === 'muted');
+  }
+  if (serie === 'official') {
     return logos.filter(
       (logo) => officialLanguages.indexOf(GetLanguageId(logo)) >= 0,
     );
   }
   return logos.filter(
-    (logo) => officialLanguages.indexOf(GetLanguageId(logo)) < 0,
+    (logo) =>
+      officialLanguages.indexOf(GetLanguageId(logo)) < 0 &&
+      GetLanguageId(logo) !== 'muted',
   );
 }
 
@@ -98,7 +111,7 @@ function LogoList({ system, set, color, language }) {
     // Get logos in folder
     const logosECMuted = require.context(
       '@ecl/preset-ec/dist/images/logo/',
-      false,
+      true,
       /\.svg$/,
     );
     const logosECStandardPositive = require.context(
@@ -127,11 +140,13 @@ function LogoList({ system, set, color, language }) {
   // Split by logo language
   const mapLanguage = (l) =>
     ({
-      official: GetOfficialLogos(logosSet.keys(), true),
-      other: GetOfficialLogos(logosSet.keys(), false),
-      muted: logosSet.keys(),
+      official: GetLogos(logosSet.keys(), 'official'),
+      other: GetLogos(logosSet.keys(), 'other'),
+      muted: GetLogos(logosSet.keys(), 'muted'),
     })[l];
   const logoFinal = mapLanguage(language);
+
+  // For muted logo, check color
 
   return (
     <ul className={styles.logos}>
@@ -141,7 +156,7 @@ function LogoList({ system, set, color, language }) {
           name={set === 'muted' ? set : GetLanguageId(path)}
           key={logosSet(path)}
           set={set}
-          color={color}
+          color={set === 'muted' ? GetColor(path) : color}
         />
       ))}
     </ul>
