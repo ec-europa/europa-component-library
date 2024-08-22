@@ -18,6 +18,22 @@ describe('Popover', () => {
       return expect(render(demoData)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with links as the trigger', () => {
+      expect.assertions(1);
+      return expect(
+        render({
+          ...demoData,
+          toggle: {
+            link: {
+              ...demoData.toggle,
+              aria_label: 'Popover toggle',
+              path: '#test-path',
+            },
+          },
+        }),
+      ).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
