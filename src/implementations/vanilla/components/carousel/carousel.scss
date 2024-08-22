@@ -12,6 +12,7 @@ $carousel: null !default;
 
 .ecl-carousel {
   border-bottom: map.get($carousel, 'separator');
+  box-shadow: map.get($carousel, 'box-shadow');
   display: flex;
   flex-direction: column;
   overflow: hidden;
