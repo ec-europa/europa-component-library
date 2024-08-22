@@ -11,8 +11,9 @@ $theme: null !default;
 $banner: null !default;
 
 .ecl-banner {
+  --banner-footer-height: 0px;
+
   align-items: center;
-  background: map.get($banner, 'background-color');
   border-radius: map.get($banner, 'border-radius', 'banner');
   box-shadow: map.get($banner, 'box-shadow');
   display: flex;
@@ -21,7 +22,6 @@ $banner: null !default;
   margin-bottom: 0;
   margin-inline-end: 0;
   margin-top: 0;
-  overflow: hidden;
   position: relative;
 }
 
@@ -39,19 +39,17 @@ $banner: null !default;
 }
 
 .ecl-banner__credit {
-  background: rgba(38, 50, 75, 0.7);
-  backdrop-filter: blur(4px);
-  color: map.get($theme, 'color', 'white');
-  left: 0;
-  margin-inline-end: calc(var(--s-m) + 32px + var(--s-m));
-  padding: var(--s-2xs) var(--s-xs);
-  position: absolute;
-  bottom: 0;
+  background-color: map.get($banner, 'background-color');
+  color: var(--c-d);
+  font: var(--f-s);
+  padding-bottom: var(--s-2xs);
+  padding-top: var(--s-2xs);
+  position: relative;
+  width: 100%;
   z-index: 1;
 
-  small {
-    font: var(--f-s);
-    line-height: map.get($theme, 'line-height', '2xs');
+  .ecl-banner & .ecl-container {
+    position: relative;
   }
 }
 
@@ -63,8 +61,8 @@ $banner: null !default;
 
 .ecl-banner__container {
   display: flex;
-  padding-bottom: map.get($banner, 'container-padding-vertical', 'mobile');
-  padding-top: map.get($banner, 'container-padding-vertical', 'mobile');
+  padding-bottom: map.get($banner, 'container-padding-bottom', 'mobile');
+  padding-top: map.get($banner, 'container-padding-top', 'mobile');
   width: 100%;
 }
 
@@ -77,6 +75,7 @@ $banner: null !default;
 
 .ecl-banner__image {
   display: block;
+  height: 100%;
   object-fit: cover;
   object-position: top;
   position: relative;
@@ -90,6 +89,10 @@ $banner: null !default;
   object-position: center;
   position: relative;
   width: 100%;
+}
+
+.ecl-banner__info {
+  background-color: map.get($banner, 'background-color');
 }
 
 .ecl-banner__title,
@@ -126,7 +129,7 @@ $banner: null !default;
   background-color: var(--c-d);
   border: none;
   border-radius: 50%;
-  bottom: var(--s-m);
+  bottom: calc(var(--s-m) + var(--banner-footer-height));
   color: map.get($theme, 'color', 'white');
   justify-content: center;
   min-height: 32px;
@@ -225,8 +228,8 @@ $banner: null !default;
   }
 
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-vertical', 'tablet');
-    padding-top: map.get($banner, 'container-padding-vertical', 'tablet');
+    padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
+    padding-top: map.get($banner, 'container-padding-top', 'tablet');
   }
 
   .ecl-banner__title,
@@ -242,6 +245,10 @@ $banner: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-banner {
+    padding-bottom: var(--banner-footer-height);
+  }
+
   .ecl-banner .ecl-container {
     padding-inline-start: var(--s-m);
     padding-inline-end: var(--s-m);
@@ -255,9 +262,13 @@ $banner: null !default;
     padding-inline-end: var(--s-2xl);
   }
 
+  .ecl-banner__info {
+    background-color: transparent;
+  }
+
   .ecl-banner__container {
-    padding-bottom: map.get($banner, 'container-padding-vertical', 'desktop');
-    padding-top: map.get($banner, 'container-padding-vertical', 'desktop');
+    padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
+    padding-top: map.get($banner, 'container-padding-top', 'desktop');
   }
 
   .ecl-banner__content {
@@ -274,6 +285,10 @@ $banner: null !default;
       background: var(--c-ov-l);
       backdrop-filter: blur(2px);
     }
+  }
+
+  .ecl-banner__credit {
+    position: absolute;
   }
 
   .ecl-banner__play.ecl-button--icon-only,
@@ -314,16 +329,15 @@ $banner: null !default;
     }
   }
 
-  .ecl-banner__credit {
-    margin-inline-end: calc(var(--s-m) + 40px + var(--s-m));
-  }
-
   .ecl-banner__picture-container,
   .ecl-banner__video-container {
+    height: 100%;
     position: static;
   }
 
   .ecl-banner__picture {
+    display: block;
+    height: 100%;
     position: relative;
   }
 
