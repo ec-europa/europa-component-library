@@ -52,14 +52,14 @@ const getArgTypes = () => ({
         s: 'small',
         m: 'medium',
         l: 'large',
-        full: 'full width',
+        full: 'full container',
       },
     },
     mapping: {
       small: 's',
       medium: 'm',
       large: 'l',
-      'full width': 'full',
+      'full container': 'full',
     },
   },
   header: {
