@@ -133,7 +133,7 @@ $file: null !default;
 }
 
 .ecl-file__action {
-  margin-top: map.get($file, 'file-download-spacing-mobile');
+  margin-top: map.get($file, 'file-action-spacing-mobile');
 }
 
 .ecl-file__preview {
@@ -278,9 +278,9 @@ $file: null !default;
   .ecl-file__action {
     align-self: flex-end;
     margin-inline-start: auto;
-    margin-top: map.get($file, 'file-download-spacing-desktop');
-    position: map.get($file, 'file-download-position');
-    top: map.get($file, 'file-download-position-top');
+    margin-top: map.get($file, 'file-action-spacing-desktop');
+    position: map.get($file, 'file-action-position');
+    top: map.get($file, 'file-action-position-top');
   }
 
   .ecl-file__image {
