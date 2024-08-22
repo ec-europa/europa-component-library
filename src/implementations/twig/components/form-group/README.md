@@ -17,8 +17,8 @@ npm install --save @ecl/twig-component-form-group
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
-- **"label_aria_required"** (string) (default: ''): aria text for the required field label
-- **"label_aria_optional"** (string) (default: ''): aria text for the optional field label
+- **"label_aria_required"** (string) (default: ''): aria text for the required field label; if the required label is not explicit
+- **"label_aria_optional"** (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
 - **"extra_label_classes"** (optional) (string) (default: '') Extra classes for the label
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

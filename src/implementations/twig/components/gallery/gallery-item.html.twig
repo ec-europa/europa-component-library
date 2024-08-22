@@ -8,7 +8,8 @@
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "picture" (optional) (object) (default: {}) Object of type picture
+    - "thumbnail" (optional) (object) (default: {}) Picture to the thumbnail, type Picture; uses "picture" if empty
+    - "picture" (optional) (object) (default: {}) Object of type Picture; always needed, even for video
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
@@ -31,13 +32,18 @@
 {% set _media_href = '' %}
 {% set _media_share_path = '' %}
 {% set _media_iframe_href = '' %}
-{% set _picture = picture|default({}) %}
-{% set _icon_path = icon_path|default('') %}
 {% set _item = item|default({}) %}
+{% set _picture = item.picture|default({}) %}
+{% set _thumbnail = item.thumbnail|default({}) %}
+{% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% if _thumbnail is empty and _picture is not empty %}
+  {% set _thumbnail = _picture %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -80,7 +86,7 @@
 
 <li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <a
-    href="{{ _media_href ?: _item.picture.img.src }}"
+    href="{{ _media_href ?: _picture.img.src }}"
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
     id="{{ _id }}"
@@ -98,9 +104,11 @@
   {% endif %}
   >
   {% if _item is not empty %}
-    {% set _image_alt = _item.picture.img.alt|default('') %}
+    {% set _image_alt = _thumbnail.img.alt|default('') %}
     <figure class="ecl-gallery__image-container">
+
     {% if _item.video is not empty or _item.embedded_video is not empty %}
+      {# Display video icon #}
       {% if _sr_video_label is not empty %}
         {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
       {% endif %}
@@ -119,15 +127,31 @@
         </div>
       {% endif %}
     {% endif %}
-    {% if _item.video is defined and _item.video is not empty %}
-      {% include '@ecl/gallery/gallery-video.html.twig' %}
-    {% else %}
+
+    {% set _thumbnail_markup %}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _item.picture|merge({
-          img: _item.picture.img|merge({
+        picture: _thumbnail|merge({
+          img: _thumbnail.img|default({})|merge({
             alt: _image_alt,
           })
         }),
+        extra_classes: "ecl-gallery__thumbnail",
+        extra_image_classes: "ecl-gallery__image",
+      } only %}
+    {% endset %} 
+
+    {% if _item.embedded_video is not empty %}
+      {# Embedded video #}
+      {{- _thumbnail_markup -}}
+    {% elseif _item.video is not empty %}
+      {# HTML video #}
+      {% include '@ecl/gallery/gallery-video.html.twig' %}
+    {% else %}
+      {# Image #}
+      {{- _thumbnail_markup -}}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        lazy: true,
         extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}

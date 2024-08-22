@@ -10,7 +10,7 @@ npm install --save @ecl/twig-component-menu
 
 - **"id"** (string) (default: random): Unique id
 - **"title"** (string) (default: ''): Title of the menu (displayed on mobile)
-- **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
+- **"toggle"**: (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
 - **"close"**: (associative array) (default: {}): Close button, using ECL Button structure
 - **"back_label"** (string): (default: ''): Back button label
 - **"aria_label"** (string) (default: '') Aria label for the main nav

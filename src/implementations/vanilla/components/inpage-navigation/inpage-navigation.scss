@@ -10,6 +10,12 @@
 $theme: null !default;
 $inpage-navigation: null !default;
 
+@mixin with-scrollbar {
+  overflow-y: auto;
+  scrollbar-color: var(--c-n) rgba(0, 0, 0, 0);
+  scrollbar-width: thin;
+}
+
 .ecl-inpage-navigation {
   border-radius: map.get($inpage-navigation, 'border-radius');
   box-shadow: map.get($inpage-navigation, 'shadow');
@@ -133,14 +139,34 @@ $inpage-navigation: null !default;
   padding: 0;
   width: map.get($inpage-navigation, 'trigger', 'width');
 
+  @include with-scrollbar;
+
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     background-color: map.get($inpage-navigation, 'list', 'background', 'l');
     border-top-width: 0;
     box-shadow: map.get($inpage-navigation, 'list', 'shadow', 'l');
     display: block;
+
+    @if map.get($inpage-navigation, 'list', 'scrollbar') == 'left' {
+      direction: rtl; // To move the scrollbar on the left
+    } @else {
+      direction: ltr;
+    }
+
+    overflow-x: hidden;
     text-align: map.get($inpage-navigation, 'align');
     width: auto;
+  }
+}
+
+@include breakpoints.up('l') {
+  .ecl-inpage-navigation--rtl .ecl-inpage-navigation__list {
+    @if map.get($inpage-navigation, 'list', 'scrollbar') == 'left' {
+      direction: ltr;
+    } @else {
+      direction: rtl;
+    }
   }
 }
 
@@ -151,8 +177,13 @@ $inpage-navigation: null !default;
 
 .ecl-inpage-navigation__item {
   box-sizing: border-box;
+  direction: ltr;
   border-top: map.get($inpage-navigation, 'item', 'separator', 's');
   min-height: map.get($inpage-navigation, 'item', 'min-height');
+
+  .ecl-inpage-navigation--rtl & {
+    direction: rtl;
+  }
 
   &:first-of-type {
     border-top-width: 0;

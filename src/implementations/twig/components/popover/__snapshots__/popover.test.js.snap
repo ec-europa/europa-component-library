@@ -6,29 +6,34 @@ exports[`Popover Collapsed renders correctly 1`] = `
     class="ecl-popover"
     data-ecl-auto-init="Popover"
   >
-    <a
+    <button
       aria-controls="popover-example"
       aria-expanded="false"
-      aria-label="Popover toggle"
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__toggle"
+      class="ecl-button ecl-button--ghost ecl-popover__toggle"
       data-ecl-popover-toggle=""
-      href="/example"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-link__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#share"
-        />
-      </svg>
       <span
-        class="ecl-link__label"
+        class="ecl-button__container"
       >
-        Popover
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#share"
+          />
+        </svg>
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Popover
+        </span>
       </span>
-    </a>
+    </button>
     <div
       class="ecl-popover__container"
       hidden=""
@@ -83,29 +88,34 @@ exports[`Popover Collapsed renders correctly with extra attributes 1`] = `
     data-test="data-test-value"
     data-test-1="data-test-value-1"
   >
-    <a
+    <button
       aria-controls="popover-example"
       aria-expanded="false"
-      aria-label="Popover toggle"
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__toggle"
+      class="ecl-button ecl-button--ghost ecl-popover__toggle"
       data-ecl-popover-toggle=""
-      href="/example"
+      type="button"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-link__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#share"
-        />
-      </svg>
       <span
-        class="ecl-link__label"
+        class="ecl-button__container"
       >
-        Popover
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#share"
+          />
+        </svg>
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Popover
+        </span>
       </span>
-    </a>
+    </button>
     <div
       class="ecl-popover__container"
       hidden=""
@@ -158,28 +168,95 @@ exports[`Popover Collapsed renders correctly with extra class names 1`] = `
     class="ecl-popover custom-class custom-class--test"
     data-ecl-auto-init="Popover"
   >
+    <button
+      aria-controls="popover-example"
+      aria-expanded="false"
+      class="ecl-button ecl-button--ghost ecl-popover__toggle"
+      data-ecl-popover-toggle=""
+      type="button"
+    >
+      <span
+        class="ecl-button__container"
+      >
+        <svg
+          aria-hidden="true"
+          class="ecl-icon ecl-icon--m ecl-button__icon"
+          data-ecl-icon=""
+          focusable="false"
+        >
+          <use
+            xlink:href="/icons.svg#share"
+          />
+        </svg>
+        <span
+          class="ecl-button__label"
+          data-ecl-label="true"
+        >
+          Popover
+        </span>
+      </span>
+    </button>
+    <div
+      class="ecl-popover__container"
+      hidden=""
+      id="popover-example"
+    >
+      <div
+        class="ecl-popover__scrollable"
+      >
+        <button
+          class="ecl-button ecl-button--tertiary ecl-popover__close ecl-button--icon-only"
+          data-ecl-popover-close=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <span
+              class="ecl-button__label"
+              data-ecl-label="true"
+            >
+              Close
+            </span>
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="/icons.svg#close"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ecl-popover__content"
+        >
+          Nulla est ad excepteur sint officia fugiat aute commodo ullamco amet culpa eiusmod labore.
+    Esse nostrud aliqua pariatur pariatur officia non laboris cillum velit dolore in sit laboris fugiat.
+        </div>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Popover Collapsed renders correctly with links as the trigger 1`] = `
+<jest>
+  <div
+    class="ecl-popover"
+    data-ecl-auto-init="Popover"
+  >
     <a
       aria-controls="popover-example"
       aria-expanded="false"
       aria-label="Popover toggle"
-      class="ecl-link ecl-link--standalone ecl-link--icon ecl-popover__toggle"
+      class="ecl-link ecl-link--button ecl-popover__toggle"
       data-ecl-popover-toggle=""
-      href="/example"
+      href="#test-path"
     >
-      <svg
-        aria-hidden="true"
-        class="ecl-icon ecl-icon--m ecl-link__icon"
-        focusable="false"
-      >
-        <use
-          xlink:href="/icons.svg#share"
-        />
-      </svg>
-      <span
-        class="ecl-link__label"
-      >
-        Popover
-      </span>
+      Popover
     </a>
     <div
       class="ecl-popover__container"
