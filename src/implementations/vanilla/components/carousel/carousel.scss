@@ -115,12 +115,6 @@ $carousel: null !default;
   }
 }
 
-.ecl-carousel-container--padded .ecl-banner {
-  .ecl-container {
-    margin-inline-start: 100px;
-  }
-}
-
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-carousel__navigation {
@@ -177,21 +171,6 @@ $carousel: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
-  .ecl-container
-    .ecl-carousel:not(.ecl-carousel--full-width)
-    .ecl-banner
-    .ecl-container {
-    margin-inline-start: 120px;
-  }
-
-  .ecl-container
-    .ecl-carousel:not(.ecl-carousel--full-width)
-    .ecl-banner
-    .ecl-banner__credit
-    .ecl-container {
-    margin-inline-start: 60px;
-  }
-
   .ecl-carousel__prev {
     left: var(--s-m);
   }
@@ -231,13 +210,4 @@ $carousel: null !default;
   left: 50%;
   margin-inline-start: -50vw;
   width: 100vw;
-}
-
-// stylelint-disable-next-line plugin/selector-bem-pattern, selector-max-compound-selectors
-.ecl-container
-  .ecl-carousel--full-width
-  .ecl-banner:not(.ecl-banner--full-width)
-  .ecl-container {
-  padding-inline-start: var(--s-m);
-  padding-inline-end: var(--s-m);
 }
