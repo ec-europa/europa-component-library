@@ -27,7 +27,7 @@ npm install --save @ecl/twig-component-social-media-follow
   links: [
     {
       link: {
-        label: 'Twitter',
+        label: 'X',
         path: exampleLink,
         icon_position: 'before',
       },
