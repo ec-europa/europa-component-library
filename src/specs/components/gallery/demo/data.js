@@ -118,14 +118,15 @@ module.exports = {
           'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
         sources: [
           {
-            src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
+            src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
             type: 'video/mp4',
           },
         ],
       },
       alt: 'Image 5',
-      title: 'EU law',
-      description: 'EU law. [HTML video]',
+      title: 'Visit the European Commission',
+      description:
+        "The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. [HTML video]",
       meta: 'Copyright, Author, Licence for image 5',
       share_path: '/share#example-image5.jpg',
     },

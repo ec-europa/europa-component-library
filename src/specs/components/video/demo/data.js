@@ -4,26 +4,8 @@ module.exports = {
   sr_video_player: 'Video',
   sources: [
     {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
+      src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
       type: 'video/mp4',
-    },
-    {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-      type: 'video/webm',
-    },
-  ],
-  tracks: [
-    {
-      src: '/captions/bunny-en.vtt',
-      kind: 'captions',
-      src_lang: 'en',
-      label: 'English',
-    },
-    {
-      src: '/captions/bunny-fr.vtt',
-      kind: 'captions',
-      src_lang: 'fr',
-      label: 'French',
     },
   ],
 };
