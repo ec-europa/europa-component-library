@@ -143,9 +143,15 @@
     {% if _item.embedded_video is not empty %}
       {# Embedded video #}
       {{- _thumbnail_markup -}}
-    {% elseif _item.video is not empty %}
-      {# HTML video #}
-      {% include '@ecl/gallery/gallery-video.html.twig' %}
+    {% elseif _item.video is defined and _item.video is not empty %}
+      {% set video_classes = 'ecl-gallery__image' ~ (_item.video.extra_classes ? ' ' ~ _item.video.extra_classes : '') %}
+      {% include '@ecl/video/video.html.twig' with _item.video|merge({
+        title: _item.title,
+        sr_video_label: _sr_video_label,
+        sr_video_player: _sr_video_player,
+        controls: false,
+        extra_classes: video_classes,     
+      }) only %}
     {% else %}
       {# Image #}
       {{- _thumbnail_markup -}}
