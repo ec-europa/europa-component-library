@@ -84,6 +84,15 @@ $typography: null !default;
   }
 }
 
+%ecl-heading-1,
+%ecl-heading-2,
+%ecl-heading-3,
+%ecl-heading-4,
+%ecl-heading-5,
+%ecl-heading-6 {
+  margin: map.get($typography, 'heading-margin');
+}
+
 /*
 * Paragraph
 */
