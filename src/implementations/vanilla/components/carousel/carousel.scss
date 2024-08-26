@@ -137,6 +137,10 @@ $carousel: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('l') {
+  .ecl-carousel__controls .ecl-container {
+    padding-inline-start: var(--s-2xl);
+  }
+
   .ecl-carousel {
     .ecl-banner {
       height: initial;
