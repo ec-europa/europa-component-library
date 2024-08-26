@@ -57,7 +57,7 @@ module.exports = {
             },
             {
               link: {
-                label: 'Twitter',
+                label: 'X',
                 path: exampleLink,
                 inverted: true,
                 icon_position: 'before',
