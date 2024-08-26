@@ -115,7 +115,7 @@ module.exports = {
       // HTML video
       video: {
         poster:
-          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+          'https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg',
         sources: [
           {
             src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
