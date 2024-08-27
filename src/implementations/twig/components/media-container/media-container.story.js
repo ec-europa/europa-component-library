@@ -48,7 +48,7 @@ const getArgTypes = (data) => {
     },
   };
 
-  if (data.image && !data.sources) {
+  if (data.image && !data.video) {
     argTypes.image = {
       name: 'image',
       type: { name: 'string', required: true },

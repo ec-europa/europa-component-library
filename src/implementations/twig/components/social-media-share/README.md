@@ -26,7 +26,7 @@ npm install --save @ecl/twig-component-social-media-share
   links: [
     {
       link: {
-        label: 'Twitter',
+        label: 'X',
         path: exampleLink,
         icon_position: 'before',
       },
