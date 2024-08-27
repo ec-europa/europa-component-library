@@ -545,7 +545,6 @@ export class Carousel {
    * Trigger events on resize.
    */
   handleResize() {
-    this.element.style.opacity = 0;
     const vw = Math.max(
       document.documentElement.clientWidth || 0,
       window.innerWidth || 0,
