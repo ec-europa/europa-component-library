@@ -93,6 +93,10 @@ $site-footer: null !default;
   line-height: map.get($theme, 'line-height-ui', 'xs');
   margin-top: var(--s-xs);
 
+  .ecl-link__label {
+    vertical-align: middle;
+  }
+
   &:first-of-type {
     margin-top: 0;
   }
