@@ -561,7 +561,10 @@ export class Carousel {
         this.resetBannerHeights();
       }
       // Cannot find an explanation for the missing 15 pixels here.
-      this.containerWidth = this.container.offsetWidth + 15;
+      this.containerWidth =
+        this.container.offsetWidth + 15 > vw
+          ? vw
+          : this.container.offsetWidth + 15;
       this.slidesContainer.style.width = `${this.containerWidth * this.slides.length}px`;
       // Initialize position of slides and size of the carousel
       this.slides.forEach((slide) => {
@@ -579,7 +582,7 @@ export class Carousel {
     } else {
       this.container.classList.remove('ecl-carousel-container--padded');
     }
-    // Desactivate autoPlay for mobile or activate autoPlay onLoad for desktop
+    // Deactivate autoPlay for mobile or activate autoPlay onLoad for desktop
     if ((vw <= 768 && this.autoPlay) || (vw > 768 && this.autoPlay === null)) {
       this.handleAutoPlay();
     }

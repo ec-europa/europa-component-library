@@ -54,16 +54,9 @@ $banner: null !default;
 }
 
 // stylelint-disable-next-line plugin/selector-bem-pattern
-.ecl-container .ecl-banner .ecl-container {
+.ecl-container .ecl-banner:not(.ecl-banner--full-width) .ecl-container {
   padding-inline-start: var(--s-m);
   padding-inline-end: var(--s-m);
-}
-
-@include breakpoints.up('s') {
-  .ecl-container .ecl-banner .ecl-container {
-    padding-inline-start: var(--s-2xl);
-    padding-inline-end: var(--s-2xl);
-  }
 }
 
 .ecl-banner__container {
