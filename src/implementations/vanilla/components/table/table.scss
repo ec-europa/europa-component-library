@@ -88,7 +88,7 @@ $table: null !default;
   color: var(--c-d-80);
   font: map.get($table, 'caption-font');
   margin-top: var(--s-xs);
-  text-align: start;
+  text-align: left;
 }
 
 // Zebra
@@ -111,10 +111,6 @@ $table: null !default;
   .ecl-table__header:not(:empty) {
   background-color: map.get($table, 'multi-head-background');
   border-top: map.get($table, 'header-separator-desktop');
-
-  &:last-child {
-    border-inline-end: map.get($table, 'header-separator-desktop');
-  }
 }
 
 // Sort Table
