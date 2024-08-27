@@ -508,7 +508,6 @@ export class Carousel {
       if (isFocus) {
         this.btnPause.focus();
       }
-      console.log(this.autoPlay);
     } else {
       clearInterval(this.autoPlayInterval);
       this.autoPlay = false;
