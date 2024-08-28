@@ -100,7 +100,7 @@ const renderStory = async (data, args) => {
   }
   if (args.grid_content) {
     story +=
-      '<div class="ecl-container"><p class="ecl-u-type-paragraph">Content inside the grid</p></div>';
+      '<div class="ecl-container"><p class="ecl-u-type-paragraph ecl-u-pt-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend auctor libero et scelerisque. Phasellus malesuada sem vel augue egestas facilisis. Curabitur velit nibh, scelerisque in massa vitae, consectetur tempor ligula. Nunc vehicula tellus vel nunc facilisis, ac condimentum nulla lacinia. Integer at vulputate sapien.</p></div>';
   }
 
   return story;
