@@ -233,16 +233,6 @@ $banner: null !default;
     padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
     padding-top: map.get($banner, 'container-padding-top', 'tablet');
   }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link {
-    font: map.get($banner, 'font', 'title', 'tablet');
-  }
-
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'tablet');
-  }
 }
 
 /* stylelint-disable-next-line order/order */
