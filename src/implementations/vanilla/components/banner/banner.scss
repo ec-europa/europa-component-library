@@ -102,7 +102,8 @@ $banner: null !default;
   font: map.get($banner, 'font', 'title', 'mobile');
   margin: 0;
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
@@ -114,7 +115,8 @@ $banner: null !default;
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
