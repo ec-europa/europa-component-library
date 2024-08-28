@@ -1,0 +1,27 @@
+<!-- Site header -->
+{% include '@ecl/site-header/site-header.html.twig' with site_header %}
+
+<main>
+  <div class="ecl-container">
+    <!-- Banner -->
+    {% include '@ecl/banner/banner.html.twig' with banner %}
+
+    <h2 class="ecl-u-type-heading-2">Maecenas sagittis est</h2>
+
+    <!-- Cards -->
+    <div class="ecl-row">
+      <div class="ecl-col-4">
+        {% include '@ecl/card/card.html.twig' with card %}
+      </div>
+      <div class="ecl-col-4">
+        {% include '@ecl/card/card.html.twig' with card %}
+      </div>
+      <div class="ecl-col-4">
+        {% include '@ecl/card/card.html.twig' with card %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+{% include '@ecl/site-footer/site-footer.html.twig' with site_footer %}
