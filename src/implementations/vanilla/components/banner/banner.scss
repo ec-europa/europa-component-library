@@ -102,7 +102,8 @@ $banner: null !default;
   font: map.get($banner, 'font', 'title', 'mobile');
   margin: 0;
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
@@ -114,7 +115,8 @@ $banner: null !default;
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
@@ -398,6 +400,10 @@ $banner: null !default;
 .ecl-banner--plain-background {
   background: map.get($banner, 'background', 'plain-background');
 
+  .ecl-banner__info {
+    background: map.get($banner, 'background', 'plain-background');
+  }
+
   .ecl-banner__title,
   .ecl-banner__title-link {
     color: map.get($banner, 'text-color', 'inverted');
@@ -432,7 +438,8 @@ $banner: null !default;
       padding-top: 33%;
     }
 
-    .ecl-banner__content {
+    .ecl-banner__content,
+    .ecl-banner__info {
       background-color: transparent;
     }
   }
