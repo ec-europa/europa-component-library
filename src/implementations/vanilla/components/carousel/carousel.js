@@ -551,7 +551,8 @@ export class Carousel {
     );
     clearInterval(this.intervalId);
     clearTimeout(this.resizeTimer);
-
+    // Prevent scrollbars from disturbing the calculations.
+    document.body.style.overflow = 'hidden';
     // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
       if (vw >= 998) {
@@ -559,18 +560,18 @@ export class Carousel {
       } else {
         this.resetBannerHeights();
       }
-      // Cannot find an explanation for the missing 15 pixels here.
-      this.containerWidth =
-        this.container.offsetWidth + 15 > vw
-          ? vw
-          : this.container.offsetWidth + 15;
+
+      this.containerWidth = this.container.offsetWidth;
       this.slidesContainer.style.width = `${this.containerWidth * this.slides.length}px`;
       // Initialize position of slides and size of the carousel
       this.slides.forEach((slide) => {
-        slide.style.width = `${this.containerWidth}px`;
+        slide.style.width = `${100 / this.slides.length}%`;
       });
       this.checkIndex();
       setTimeout(() => {
+        // Restore body scroll
+        document.body.style.overflow = '';
+        // Reveal the carousel
         this.element.style.opacity = 1;
       }, 250);
     }, 250);
