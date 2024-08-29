@@ -3,8 +3,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
-describe('Page example - Home', () => {
-  const template = '@ecl/home/home.html.twig';
+describe('Page example - Inner', () => {
+  const template = '@ecl/inner/inner.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   test('renders correctly', () => {

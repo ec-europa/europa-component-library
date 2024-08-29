@@ -6,17 +6,19 @@ import { correctPaths } from '@ecl/story-utils';
 import dataSiteHeaderEC from '@ecl/specs-component-site-header/demo/data--ec';
 import dataSiteFooterEC from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
 import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
-import dataBannerVideo from '@ecl/specs-component-banner/demo/data--video';
-import dataCard from '@ecl/specs-component-card/demo/data';
-import dataContentItem from '@ecl/specs-component-content-item/demo/data--event';
-import dataFeaturedItem from '@ecl/specs-component-featured-item/demo/data--highlight';
-import dataNavigationList from '@ecl/specs-component-navigation-list/demo/data-illustration';
+import dataBreadcrumb from '@ecl/specs-component-breadcrumb/demo/data--long';
+import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
+import dataInpageNavigation from '@ecl/specs-component-inpage-navigation/demo/data';
+import dataAccordion from '@ecl/specs-component-accordion/demo/data';
+import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
+import dataFile from '@ecl/specs-component-file/demo/data--with-translation';
+import dataGallery from '@ecl/specs-component-gallery/demo/data';
 
 import logoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import logoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
 import logoNegativeEC from '@ecl/resources-ec-logo/dist/negative/logo-ec--en.svg';
 
-import home from './home.html.twig';
+import inner from './inner.html.twig';
 import notes from './README.md';
 
 const prepareData = () => {
@@ -29,36 +31,27 @@ const prepareData = () => {
   delete data.site_header.cta_link;
   delete data.site_header.banner_top;
   delete data.site_header.notification;
-  delete data.site_header.site_name;
 
   data.site_footer = dataSiteFooterEC;
 
-  data.banner = dataBannerVideo;
-  data.banner.description = data.banner.description.link.label;
-  data.banner.full_width = true;
-  delete data.banner.link;
+  data.page_header = dataPageHeader;
+  data.page_header.breadcrumb = dataBreadcrumb;
+  delete data.page_header.picture_background;
 
-  data.card = dataCard;
-  delete data.card.description;
-  delete data.card.primary_meta;
-  delete data.card.labels;
-  delete data.card.labels_aria;
-  delete data.card.secondary_meta;
-  delete data.card.lists;
+  data.inpage_navigation = dataInpageNavigation;
+  data.inpage_navigation.links[0].label = 'Donec nec ex condimentum';
+  data.inpage_navigation.links[1].label = 'Curabitur faucibus ex eu';
+  data.inpage_navigation.links[2].label =
+    'Maecenas ultrices mi rutrum urna volutpat';
+  data.inpage_navigation.links[3].label = 'Nullam';
 
-  data.content_item = dataContentItem;
-  delete data.content_item.labels;
-  delete data.content_item.labels_aria;
-  delete data.content_item.lists;
+  data.accordion = dataAccordion;
 
-  data.featured_item = dataFeaturedItem;
-  delete data.featured_item.footer_description;
-  delete data.featured_item.footer_link;
-  delete data.featured_item.footer_picture;
+  data.unordered_list = dataUnorderedList;
 
-  data.navigation_list = dataNavigationList;
-  data.navigation_list.column = 3;
-  data.navigation_list.items.push(...data.navigation_list.items);
+  data.file = dataFile;
+
+  data.gallery = dataGallery;
 
   correctPaths(data);
 
@@ -71,7 +64,7 @@ const prepareData = () => {
 };
 
 export default {
-  title: 'Page examples/Home',
+  title: 'Page examples/Inner',
   decorators: [withNotes, withCode],
   parameters: {
     controls: { disable: true },
@@ -83,8 +76,8 @@ export default {
 export const Default = (_, { loaded: { component } }) => component;
 
 Default.render = async () => {
-  const renderedHome = await home(prepareData());
-  return renderedHome;
+  const renderedInner = await inner(prepareData());
+  return renderedInner;
 };
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };
