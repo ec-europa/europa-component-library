@@ -108,12 +108,12 @@ export class FileUpload {
    * @param {string} eventName - The name of the event to listen for.
    * @param {Function} callback - The callback function to be invoked when the event occurs.
    * @returns {void}
-   * @memberof MegaMenu
+   * @memberof FileUpload
    * @instance
    *
    * @example
-   * // Registering a callback for the 'onOpen' event
-   * megaMenu.on('onOpen', (event) => {
+   * // Registering a callback for the 'onSelection' event
+   * fileUpload.on('onSelection', (event) => {
    *   console.log('Open event occurred!', event);
    * });
    */
@@ -126,7 +126,7 @@ export class FileUpload {
    *
    * @param {string} eventName - The name of the event to trigger.
    * @param {any} eventData - Data associated with the event.
-   * @memberof MegaMenu
+   * @memberof FileUpload
    */
   trigger(eventName, eventData) {
     this.eventManager.trigger(eventName, eventData);
@@ -147,6 +147,8 @@ export class FileUpload {
 
   /**
    * @param {Event} e
+   *
+   * @fires FileUpload#onSelection
    */
   handleChange(e) {
     if (!('files' in e.target)) {
@@ -179,7 +181,7 @@ export class FileUpload {
         this.labelReplace,
       );
     }
-
+    // Trigger custom onSelection event
     const eventDetails = { files: e.target.files, event: e };
     this.trigger('onSelection', eventDetails);
   }
