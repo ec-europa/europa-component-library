@@ -26,6 +26,7 @@ $table: null !default;
 .ecl-table__head,
 %ecl-table__head {
   border-bottom: map.get($table, 'head-border');
+  border-inline-end: 1px solid map.get($table, 'head-background');
   background-color: map.get($table, 'head-background');
   display: table-header-group;
 }
@@ -113,7 +114,7 @@ $table: null !default;
   border-top: map.get($table, 'header-separator-desktop');
 
   &:last-child {
-    border-inline-end: map.get($table, 'header-separator-desktop');
+    border-inline-end: none;
   }
 }
 
