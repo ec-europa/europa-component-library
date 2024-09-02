@@ -1,5 +1,58 @@
 # Changelog
 
+# 4.6.3
+
+#### :bug: Bug Fix
+
+- [#3594](https://github.com/ec-europa/europa-component-library/pull/3594) fix(video): Initializing the \_extra_attributes variable - FRONT-4590 ([@planctus](https://github.com/planctus))
+- [#3595](https://github.com/ec-europa/europa-component-library/pull/3595) fix(banner): Adding check for bannerContainer presence - FRONT-4591 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3597](https://github.com/ec-europa/europa-component-library/pull/3597) feat(banner): Resetting padding for the content in no-box variant - FRONT-4592 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 4.6.2
+
+#### :warning: Markup Changes
+
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+- [#3548](https://github.com/ec-europa/europa-component-library/pull/3548) feat(modal): additional sizes - FRONT-4559 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Data Changes
+
+- [#3579](https://github.com/ec-europa/europa-component-library/pull/3579) feat(social-media): change twitter label - FRONT-4582 ([@emeryro](https://github.com/emeryro))
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3588](https://github.com/ec-europa/europa-component-library/pull/3588) fix(banner): fix background of deprecated banners - FRONT-4585 ([@emeryro](https://github.com/emeryro))
+- [#3584](https://github.com/ec-europa/europa-component-library/pull/3584) fix(banner): Fixing css for video banner size - FRONT-4583 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3589](https://github.com/ec-europa/europa-component-library/pull/3589) feat(site-header): wax-off EC - FRONT-4586 ([@planctus](https://github.com/planctus))
+- [#3590](https://github.com/ec-europa/europa-component-library/pull/3590) feat(banner): content width and tablet font - FRONT-4587 ([@emeryro](https://github.com/emeryro))
+- [#3579](https://github.com/ec-europa/europa-component-library/pull/3579) feat(social-media): change twitter label - FRONT-4582 ([@emeryro](https://github.com/emeryro))
+- [#3548](https://github.com/ec-europa/europa-component-library/pull/3548) feat(modal): additional sizes - FRONT-4559 ([@emeryro](https://github.com/emeryro))
+- [#3580](https://github.com/ec-europa/europa-component-library/pull/3580) fix(content-block): Setting display: inline on the title link - FRONT-4557 ([@planctus](https://github.com/planctus))
+- [#3549](https://github.com/ec-europa/europa-component-library/pull/3549) feat(icons): add and update icons - FRONT-4562 ([@emeryro](https://github.com/emeryro))
+- [#3552](https://github.com/ec-europa/europa-component-library/pull/3552) feat(headings): set spacing - FRONT-4566 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+- [#3585](https://github.com/ec-europa/europa-component-library/pull/3585) chore(deps): Fixing audit issue - 26-08-24 ([@planctus](https://github.com/planctus))
+- [#3581](https://github.com/ec-europa/europa-component-library/pull/3581) chore(deps): Updates 23-08-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.6.1
 
 #### :warning: Markup Changes

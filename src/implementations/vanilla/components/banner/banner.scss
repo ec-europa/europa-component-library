@@ -102,7 +102,8 @@ $banner: null !default;
   font: map.get($banner, 'font', 'title', 'mobile');
   margin: 0;
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
@@ -114,7 +115,8 @@ $banner: null !default;
   margin-bottom: 0;
   margin-top: map.get($banner, 'description-margin');
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: map.get($banner, 'text-color', 'dark');
   }
 }
@@ -231,16 +233,6 @@ $banner: null !default;
     padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
     padding-top: map.get($banner, 'container-padding-top', 'tablet');
   }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link {
-    font: map.get($banner, 'font', 'title', 'tablet');
-  }
-
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    font: map.get($banner, 'font', 'description', 'tablet');
-  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -278,6 +270,7 @@ $banner: null !default;
 
     .ecl-banner--box-bg-none & {
       background-color: transparent;
+      padding: 0;
     }
 
     .ecl-banner--box-bg-dark & {
@@ -398,6 +391,10 @@ $banner: null !default;
 .ecl-banner--plain-background {
   background: map.get($banner, 'background', 'plain-background');
 
+  .ecl-banner__info {
+    background: map.get($banner, 'background', 'plain-background');
+  }
+
   .ecl-banner__title,
   .ecl-banner__title-link {
     color: map.get($banner, 'text-color', 'inverted');
@@ -432,7 +429,8 @@ $banner: null !default;
       padding-top: 33%;
     }
 
-    .ecl-banner__content {
+    .ecl-banner__content,
+    .ecl-banner__info {
       background-color: transparent;
     }
   }

@@ -1,4 +1,5 @@
 import { queryOne, formatBytes } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -26,6 +27,18 @@ export class FileUpload {
     return fileUpload;
   }
 
+  /**
+   *   @event FileUpload#onSelection
+   */
+
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof FileUpload
+   */
+  supportedEvents = ['onSelection'];
+
   constructor(
     element,
     {
@@ -45,6 +58,7 @@ export class FileUpload {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.groupSelector = groupSelector;
@@ -89,6 +103,36 @@ export class FileUpload {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof FileUpload
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onSelection' event
+   * fileUpload.on('onSelection', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof FileUpload
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -103,6 +147,8 @@ export class FileUpload {
 
   /**
    * @param {Event} e
+   *
+   * @fires FileUpload#onSelection
    */
   handleChange(e) {
     if (!('files' in e.target)) {
@@ -135,6 +181,9 @@ export class FileUpload {
         this.labelReplace,
       );
     }
+    // Trigger custom onSelection event
+    const eventDetails = { files: e.target.files, event: e };
+    this.trigger('onSelection', eventDetails);
   }
 }
 
