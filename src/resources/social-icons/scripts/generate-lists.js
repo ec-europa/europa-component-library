@@ -6,11 +6,14 @@ const glob = require('glob');
 const src = path.resolve(__dirname, '../src');
 
 const filesByFolder = {};
-glob.sync('**/*.svg', { cwd: src }).forEach((file) => {
-  const [folder, filename] = file.split('/');
-  if (!filesByFolder[folder]) filesByFolder[folder] = [];
-  filesByFolder[folder].push(filename);
-});
+glob
+  .sync('**/*.svg', { cwd: src })
+  .sort((a, b) => a.localeCompare(b, 'en'))
+  .forEach((file) => {
+    const [folder, filename] = file.split('/');
+    if (!filesByFolder[folder]) filesByFolder[folder] = [];
+    filesByFolder[folder].push(filename);
+  });
 
 Object.keys(filesByFolder).forEach((folder) => {
   const outputFile = path.resolve(__dirname, '../dist/lists', `${folder}.json`);
