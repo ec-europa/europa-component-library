@@ -1,5 +1,20 @@
 # Changelog
 
+# 4.6.3
+
+#### :bug: Bug Fix
+
+- [#3594](https://github.com/ec-europa/europa-component-library/pull/3594) fix(video): Initializing the \_extra_attributes variable - FRONT-4590 ([@planctus](https://github.com/planctus))
+- [#3595](https://github.com/ec-europa/europa-component-library/pull/3595) fix(banner): Adding check for bannerContainer presence - FRONT-4591 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3597](https://github.com/ec-europa/europa-component-library/pull/3597) feat(banner): Resetting padding for the content in no-box variant - FRONT-4592 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.6.2
 
 #### :warning: Markup Changes
