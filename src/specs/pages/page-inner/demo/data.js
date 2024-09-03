@@ -34,6 +34,8 @@ dataInpageNavigation.links[2].label =
   'Maecenas ultrices mi rutrum urna volutpat';
 dataInpageNavigation.links[3].label = 'Nullam';
 
+dataFile.id = 'file-id';
+
 const system = getSystem();
 
 const data = {
