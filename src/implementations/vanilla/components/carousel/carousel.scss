@@ -43,11 +43,18 @@ $carousel: null !default;
 
 .ecl-carousel__slides {
   display: flex;
+  flex-direction: row;
   list-style: none;
   margin: 0;
   padding: 0;
   position: relative;
-  width: 100%;
+  scroll-snap-type: x mandatory;
+
+  .ecl-carousel__slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 100%;
+  }
 }
 
 .ecl-carousel__slide .ecl-banner__credit {

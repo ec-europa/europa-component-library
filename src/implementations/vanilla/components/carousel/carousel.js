@@ -88,7 +88,7 @@ export class Carousel {
     this.cloneLastSLide = null;
     this.executionCount = 0;
     this.maxExecutions = 5;
-    this.containerWidth = 0;
+    this.slideWidth = 0;
 
     // Bind `this` for use in callbacks
     this.handleAutoPlay = this.handleAutoPlay.bind(this);
@@ -424,7 +424,8 @@ export class Carousel {
    * @param {Boolean} transition
    */
   moveSlides(transition) {
-    const newOffset = parseFloat(this.containerWidth) * this.index;
+    const newOffset = this.slideWidth * this.index;
+
     this.slidesContainer.style.transitionDuration = transition ? '0.4s' : '0s';
     if (this.direction === 'rtl') {
       this.slidesContainer.style.right = `-${newOffset}px`;
@@ -551,8 +552,7 @@ export class Carousel {
     );
     clearInterval(this.intervalId);
     clearTimeout(this.resizeTimer);
-    // Prevent scrollbars from disturbing the calculations.
-    document.body.style.overflow = 'hidden';
+
     // We set 250ms delay which is higher than the 200ms delay in the banner.
     this.resizeTimer = setTimeout(() => {
       if (vw >= 998) {
@@ -561,16 +561,9 @@ export class Carousel {
         this.resetBannerHeights();
       }
 
-      this.containerWidth = this.container.offsetWidth;
-      this.slidesContainer.style.width = `${this.containerWidth * this.slides.length}px`;
-      // Initialize position of slides and size of the carousel
-      this.slides.forEach((slide) => {
-        slide.style.width = `${100 / this.slides.length}%`;
-      });
+      this.slideWidth = this.slides[0].scrollWidth;
       this.checkIndex();
       setTimeout(() => {
-        // Restore body scroll
-        document.body.style.overflow = '';
         // Reveal the carousel
         this.element.style.opacity = 1;
       }, 250);
