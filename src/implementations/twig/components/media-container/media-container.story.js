@@ -10,11 +10,19 @@ import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
-  const args = {
+  let args = {
     show_description: true,
     description: data.description,
     full_width: false,
   };
+  if (data.video) {
+    args = {
+      ...args,
+      autoplay: false,
+      muted: false,
+      loop: false,
+    };
+  }
   if (data.image && !data.sources) {
     args.image = data.image;
   }
@@ -57,6 +65,33 @@ const getArgTypes = (data) => {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
+      },
+    };
+  }
+
+  if (data.video) {
+    argTypes.autoplay = {
+      type: 'boolean',
+      description: 'Video will start playing once rendered',
+      table: {
+        defaultValue: { summary: 'false' },
+        category: 'Video',
+      },
+    };
+    argTypes.muted = {
+      type: 'boolean',
+      description: 'Video will play with no sound',
+      table: {
+        defaultValue: { summary: 'false' },
+        category: 'Video',
+      },
+    };
+    argTypes.loop = {
+      type: 'boolean',
+      description: 'Video will play in a loop',
+      table: {
+        defaultValue: { summary: 'false' },
+        category: 'Video',
       },
     };
   }
@@ -125,6 +160,12 @@ const prepareData = (data, args) => {
         data.sr_video_audio = '';
         break;
     }
+  }
+
+  if (data.video) {
+    data.video.autoplay = args.autoplay;
+    data.video.muted = args.muted;
+    data.video.loop = args.loop;
   }
 
   return Object.assign(data, args);
