@@ -329,14 +329,18 @@ $language-list: null !default;
   .ecl-site-header__login-toggle,
   .ecl-site-header__search-toggle,
   .ecl-site-header__language-selector {
+    align-items: center;
+    display: flex;
     font-size: 0;
+    justify-content: center;
     line-height: 0;
     padding: calc(var(--s-xs) - 1px) 0;
     text-align: center;
 
     .ecl-icon {
-      width: 1.5rem;
       height: 1.5rem;
+      margin-bottom: 0;
+      width: 1.5rem;
     }
   }
 }
