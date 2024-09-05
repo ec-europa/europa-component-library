@@ -105,6 +105,7 @@
 
 {% if _disable_overlay %}
   {% set _extra_attributes = _extra_attributes ~ ' data-ecl-gallery-no-overlay' %}
+  {% set _css_class = _css_class ~ ' ecl-gallery--no-overlay' %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -136,6 +137,7 @@
         icon_path: _icon_path,
         sr_video_label: _sr_video_label,
         sr_video_player: _sr_video_player,
+        disable_overlay: _disable_overlay,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}

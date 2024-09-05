@@ -60,11 +60,14 @@
 <article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
 {% if _picture is not empty and _picture.img is not empty %}
   {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
+  {% set _picture_zoom = false %}
   {% if _title.link is defined %}
+    {% set _picture_zoom = true %}
     {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
   {% endif %}
   {% include '@ecl/picture/picture.html.twig' with {
     picture: _picture,
+    zoom: _picture_zoom,
     extra_classes: "ecl-card__picture",
     extra_image_classes: "ecl-card__image",
     extra_attributes: _picture_extra_attrs,

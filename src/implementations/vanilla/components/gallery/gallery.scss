@@ -61,6 +61,7 @@ $_description-height-desktop: 108px;
   width: 2rem;
   height: 2rem;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .ecl-gallery__item-icon {
@@ -73,6 +74,7 @@ $_description-height-desktop: 108px;
   position: relative;
   flex-grow: 1;
   margin: 0;
+  overflow: hidden;
 }
 
 .ecl-gallery__item-link:focus-visible {
@@ -91,6 +93,15 @@ $_description-height-desktop: 108px;
   &:not(.ecl-gallery__slider-image) {
     display: flex;
     flex-grow: 1;
+  }
+}
+
+// Zoom effect on HTML video
+.ecl-gallery:not(.ecl-gallery--no-overlay) .ecl-video.ecl-gallery__image {
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
