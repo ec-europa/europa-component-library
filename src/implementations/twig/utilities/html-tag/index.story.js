@@ -49,7 +49,7 @@ export const Default = () => `
           </ul>
         </li>
       </ul>
-      <br />
+      <hr />
       <ol>
         <li>Ordered list</li>
         <li>Ordered list
