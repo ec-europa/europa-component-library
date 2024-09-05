@@ -164,7 +164,7 @@
         muted: true,
         loop: true,
         extra_classes: video_classes,
-        extra_attributes: video.attributes|default([])|merge([{ name: 'data-ecl-banner-video' }]),
+        extra_attributes: video.extra_attributes|default([])|merge([{ name: 'data-ecl-banner-video' }]),
       }) only %}
       {% if _credit is not empty %}
         <div class="ecl-banner__credit" data-ecl-banner-footer>

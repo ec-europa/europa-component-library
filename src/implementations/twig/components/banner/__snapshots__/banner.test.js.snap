@@ -685,3 +685,158 @@ exports[`Banner Video renders correctly 1`] = `
   </section>
 </jest>
 `;
+
+exports[`Banner Video renders correctly with extra attributes for the video 1`] = `
+<jest>
+  <section
+    class="ecl-banner ecl-banner--m ecl-banner--font-m ecl-banner--box-bg-light ecl-banner--color-dark ecl-banner--h-left ecl-banner--v-center"
+    data-ecl-auto-init="Banner"
+    data-ecl-banner=""
+  >
+    <div
+      class="ecl-banner__video-container"
+    >
+      <video
+        autoplay=""
+        class="ecl-video ecl-banner__video"
+        data-ecl-banner-video=""
+        data-test-extra-attribute=""
+        loop=""
+        muted=""
+        poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+      >
+        <source
+          src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <div
+        class="ecl-banner__credit"
+        data-ecl-banner-footer=""
+      >
+        <div
+          class="ecl-container"
+        >
+          © Copyright
+        </div>
+      </div>
+      <button
+        class="ecl-button ecl-button--tertiary ecl-banner__play ecl-button--icon-only"
+        data-ecl-banner-play=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Play video
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#play-outline"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
+        class="ecl-button ecl-button--tertiary ecl-banner__pause ecl-button--icon-only"
+        data-ecl-banner-pause=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Pause video
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#pause-outline"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="ecl-container ecl-banner__info"
+    >
+      <div
+        class="ecl-banner__container"
+        data-ecl-banner-container=""
+      >
+        <div
+          class="ecl-banner__content"
+        >
+          <div
+            class="ecl-banner__title"
+          >
+            <span
+              class="ecl-banner__title-text"
+            >
+              <a
+                class="ecl-link ecl-banner__title-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet consectetuer adipiscin
+              </a>
+            </span>
+          </div>
+          <p
+            class="ecl-banner__description"
+          >
+            <span
+              class="ecl-banner__description-text"
+            >
+              <a
+                class="ecl-link ecl-banner__description-link"
+                href="/example"
+              >
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+              </a>
+            </span>
+          </p>
+          <div
+            class="ecl-banner__cta"
+          >
+            <a
+              class="ecl-link ecl-link--cta ecl-link--icon ecl-banner__link-cta"
+              href="/example"
+            >
+              <span
+                class="ecl-link__label"
+              >
+                CTA link
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--xs ecl-icon--rotate-90 ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#corner-arrow"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</jest>
+`;
