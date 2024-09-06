@@ -26,7 +26,9 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-separator/separator';
+@use '@ecl/vanilla-component-separator/separator' with (
+  $separator: var.$separator
+);
 @use '@ecl/vanilla-component-table/table' with (
   $theme: theme.$theme,
   $table: var.$table

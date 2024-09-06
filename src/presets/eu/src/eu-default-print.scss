@@ -29,7 +29,8 @@
   $list: var.$list
 );
 @use '@ecl/vanilla-component-separator/separator-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $separator: var.$separator
 );
 @use '@ecl/vanilla-component-table/table-print' with (
   $theme: theme.$theme,

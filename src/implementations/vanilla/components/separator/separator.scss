@@ -5,9 +5,12 @@
 
 @use 'sass:map';
 
+// Exposed variables
+$separator: null !default;
+
 .ecl-separator,
 %ecl-separator {
   border-width: 0;
-  border-top: 1px solid var(--c-n);
+  border-top: 1px solid map.get($separator, 'color');
   margin: var(--s-xs) 0;
 }
