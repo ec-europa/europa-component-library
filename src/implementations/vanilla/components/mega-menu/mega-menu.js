@@ -440,7 +440,10 @@ export class MegaMenu {
    * Disable page scrolling
    */
   disableScroll() {
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
   }
 
   /**
@@ -448,6 +451,7 @@ export class MegaMenu {
    */
   enableScroll() {
     document.body.classList.remove('ecl-mega-menu-prevent-scroll');
+    document.body.style.paddingRight = '';
   }
 
   /**
