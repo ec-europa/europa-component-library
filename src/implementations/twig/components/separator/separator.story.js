@@ -29,6 +29,7 @@ Default.render = async () => {
     <ol class="ecl-ordered-list">
       <li class="ecl-ordered-list__item">Ordered list</li>
       <li class="ecl-ordered-list__item">Ordered list <ol>
+        <ol class="ecl-ordered-list">
           <li class="ecl-ordered-list__item">Nested ordered list</li>
           <li class="ecl-ordered-list__item">Nested ordered list</li>
         </ol>
