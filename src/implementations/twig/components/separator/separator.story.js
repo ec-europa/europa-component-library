@@ -19,7 +19,7 @@ Default.render = async () => {
   const renderedSeparator = `<ul class="ecl-unordered-list">
       <li class="ecl-unordered-list__item">Unordered list</li>
       <li class="ecl-unordered-list__item">Unordered list 
-        <ul>
+        <ul class="ecl-unordered-list">
           <li class="ecl-unordered-list__item">Nested unordered list</li>
           <li class="ecl-unordered-list__item">Nested unordered list</li>
         </ul>
