@@ -28,6 +28,10 @@
   $theme: theme.$theme,
   $list: var.$list
 );
+@use '@ecl/vanilla-component-separator/separator-print' with (
+  $theme: theme.$theme,
+  $separator: var.$separator
+);
 @use '@ecl/vanilla-component-table/table-print' with (
   $theme: theme.$theme,
   $table: var.$table
@@ -92,6 +96,10 @@ html {
 .ecl p:not([class*='ecl-'], [class*='wt-']),
 .ecl p:is([class*='ecl-u-']) {
   @extend %ecl-paragraph;
+}
+
+.ecl hr:not([class*='ecl-']) {
+  @extend %ecl-separator;
 }
 
 .ecl ul:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
