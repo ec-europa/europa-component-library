@@ -52,7 +52,10 @@
 
   {# Print the result #}
   {% if _items is not empty %}
-    <ol class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+    <ol
+      class="{{ _css_class }}"
+      {{ _extra_attributes|raw }}
+    >
       {% for _item in _items %}
         {% set _item_class = 'ecl-ordered-list__item' %}
 
