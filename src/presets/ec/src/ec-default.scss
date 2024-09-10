@@ -55,33 +55,27 @@
   font-family: #{map.get(theme.$font-family, 'default')};
 }
 
-.ecl h1:not([class*='ecl-'], [class*='wt-']),
-.ecl h1:is([class*='ecl-u-']) {
+.ecl h1:not([class*='wt-']) {
   @extend %ecl-heading-1;
 }
 
-.ecl h2:not([class*='ecl-'], [class*='wt-']),
-.ecl h2:is([class*='ecl-u-']) {
+.ecl h2:not([class*='wt-']) {
   @extend %ecl-heading-2;
 }
 
-.ecl h3:not([class*='ecl-'], [class*='wt-']),
-.ecl h3:is([class*='ecl-u-']) {
+.ecl h3:not([class*='wt-']) {
   @extend %ecl-heading-3;
 }
 
-.ecl h4:not([class*='ecl-'], [class*='wt-']),
-.ecl h4:is([class*='ecl-u-']) {
+.ecl h4:not([class*='wt-']) {
   @extend %ecl-heading-4;
 }
 
-.ecl h5:not([class*='ecl-'], [class*='wt-']),
-.ecl h5:is([class*='ecl-u-']) {
+.ecl h5:not([class*='wt-']) {
   @extend %ecl-heading-5;
 }
 
-.ecl h6:not([class*='ecl-'], [class*='wt-']),
-.ecl h6:is([class*='ecl-u-']) {
+.ecl h6:not([class*='wt-']) {
   @extend %ecl-heading-6;
 }
 
