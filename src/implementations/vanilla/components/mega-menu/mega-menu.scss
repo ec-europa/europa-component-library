@@ -1407,5 +1407,7 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu-prevent-scroll {
-  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
 }
