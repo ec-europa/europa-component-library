@@ -1,0 +1,37 @@
+---
+title: API
+order: 3
+---
+
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init` attribute to component's markup
+
+```html
+<nav class="ecl-mega-menu" data-ecl-menu data-ecl-auto-init="MegaMenu">...</nav>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-mega-menu` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-mega-menu]');
+var menu = new ECL.megaMenu(elt);
+menu.init();
+```
+
+## API
+
+<Iframe url="../../../../../apis/MegaMenu.html" />
