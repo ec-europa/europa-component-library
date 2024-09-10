@@ -15,9 +15,9 @@ The Separator component (implemented using the `<hr>` HTML tag) is designed to
 
 ## **When to Use**
 
-- Use when you need to quickly add dividers between components without modifying spacing above or below
-- Use within paragraphs to subtly separate ideas or sections of text that are conceptually distinct
+- use when you need to quickly add dividers between components without modifying spacing above or below
+- use within paragraphs to subtly separate ideas or sections of text that are conceptually distinct
 
 ## **When Not to Use**
 
-- Do not use to separate large blocks of content where more complex visual distinction (such as a background color) is needed
+- do not use to separate large blocks of content where more complex visual distinction (such as a background color) is needed
