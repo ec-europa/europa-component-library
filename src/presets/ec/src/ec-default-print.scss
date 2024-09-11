@@ -93,6 +93,11 @@ html {
   @extend %ecl-heading-6;
 }
 
+.ecl hr:not([class*='ecl-'], [class*='wt-']),
+.ecl hr:is([class*='ecl-u-']) {
+  @extend %ecl-separator;
+}
+
 .ecl p:not([class*='ecl-'], [class*='wt-']),
 .ecl p:is([class*='ecl-u-']) {
   @extend %ecl-paragraph;
@@ -150,10 +155,6 @@ html {
 .ecl dd:not([class*='ecl-'], [class*='wt-']),
 .ecl dd:is([class*='ecl-u-']) {
   @extend %ecl-description-list__definition;
-}
-
-.ecl hr:not([class*='ecl-']) {
-  @extend %ecl-separator;
 }
 
 .ecl table:not([class*='ecl-'], [class*='wt-']),
