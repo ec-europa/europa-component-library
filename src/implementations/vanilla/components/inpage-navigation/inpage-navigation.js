@@ -19,6 +19,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Number} options.spyOffset
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind click events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
  */
 export class InpageNavigation {
   /**
