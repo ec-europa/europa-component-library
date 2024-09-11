@@ -204,24 +204,27 @@ export class Banner {
    * @param {string} aspect ratio
    */
   setHeight(ratio) {
-    const bannerHeight =
-      this.bannerContainer.offsetHeight + 2 * parseInt(this.bannerVPadding, 10);
-    const bannerWidth = parseInt(
-      getComputedStyle(this.element).getPropertyValue('width'),
-      10,
-    );
-    const [denominator, numerator] = ratio.split('/').map(Number);
-    const currentHeight = (bannerWidth * numerator) / denominator;
-    if (bannerHeight > currentHeight) {
-      if (this.bannerImage) {
-        this.bannerImage.style.aspectRatio = 'auto';
+    if (this.bannerContainer) {
+      const bannerHeight =
+        this.bannerContainer.offsetHeight +
+        2 * parseInt(this.bannerVPadding, 10);
+      const bannerWidth = parseInt(
+        getComputedStyle(this.element).getPropertyValue('width'),
+        10,
+      );
+      const [denominator, numerator] = ratio.split('/').map(Number);
+      const currentHeight = (bannerWidth * numerator) / denominator;
+      if (bannerHeight > currentHeight) {
+        if (this.bannerImage) {
+          this.bannerImage.style.aspectRatio = 'auto';
+        }
+        if (this.bannerVideo) {
+          this.bannerVideo.style.aspectRatio = 'auto';
+        }
+        this.element.style.height = `${bannerHeight}px`;
+      } else {
+        this.resetBannerHeight();
       }
-      if (this.bannerVideo) {
-        this.bannerVideo.style.aspectRatio = 'auto';
-      }
-      this.element.style.height = `${bannerHeight}px`;
-    } else {
-      this.resetBannerHeight();
     }
 
     // Add margin to the banner container when there is a footer
