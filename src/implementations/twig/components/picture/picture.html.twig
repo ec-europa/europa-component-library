@@ -15,7 +15,6 @@
         ...
       ]
     - "lazy" (boolean) (default: false): Should the picture be loaded using lazy loading?
-    - "zoom" (boolean) (default: false): Should the picture have a zoom animation?
     - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
     - "extra_attributes" (optional) (array) (default: [])
@@ -27,16 +26,11 @@
 
 {% set _picture = picture|default({}) %}
 {% set _lazy = lazy|default(false) %}
-{% set _zoom = zoom|default(false) %}
 {% set _extra_image_classes = extra_image_classes|default('') %}
 {% set _css_class = 'ecl-picture' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
-
-{% if _zoom %}
-  {% set _css_class = _css_class ~ ' ecl-picture--zoom' %}
-{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -54,10 +48,7 @@
 
 {# Print the result #}
 
-<picture
-  class="{{ _css_class }}"
-  {{ _extra_attributes|raw }}
->
+<picture class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _picture.sources is not empty and _picture.sources is iterable %}
     {% for _source in _picture.sources %}
       {% if _source.media == 's' %}
