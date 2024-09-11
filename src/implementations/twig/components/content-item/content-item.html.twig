@@ -117,7 +117,7 @@
           <source srcset="{{ _source.src }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
         {% endfor %}
       {% endif %}
-      <img class="ecl-content-item__image" src="{{ _picture.img.src }}" alt="{{ _picture.img.alt|default('') }}" />
+      <img class="ecl-content-item__image" src="{{ _picture.img.src }}" alt="{{ _picture.img.alt|default('') }}">
     </picture>
   {% endif %}
   {% if _date is not empty %}
