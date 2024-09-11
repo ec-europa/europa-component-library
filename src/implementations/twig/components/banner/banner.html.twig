@@ -137,7 +137,10 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<section
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {# Media #}
   {% if _picture.img is not empty %}
     {# Image #}

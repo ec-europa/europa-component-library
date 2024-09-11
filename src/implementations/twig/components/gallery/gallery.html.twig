@@ -119,7 +119,11 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
+<section
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-gallery
+>
   <ul class="ecl-gallery__list">
     {% for _key, _item in _items %}
       {% set _item_class = '' %}
