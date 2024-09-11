@@ -79,7 +79,8 @@
   @extend %ecl-heading-6;
 }
 
-.ecl hr:not([class*='ecl-']) {
+.ecl hr:not([class*='ecl-'], [class*='wt-']),
+.ecl hr:is([class*='ecl-u-']) {
   @extend %ecl-separator;
 }
 
