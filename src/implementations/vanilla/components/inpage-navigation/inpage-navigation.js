@@ -19,6 +19,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Number} options.spyOffset
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind click events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
  */
 export class InpageNavigation {
   /**
@@ -63,6 +65,7 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       attachResizeListener = true,
+      attachScrollListener = true,
       attachKeyListener = true,
       contentClass = 'inpage-navigation__heading--active',
     } = {},
@@ -80,6 +83,7 @@ export class InpageNavigation {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.attachScrollListener = attachScrollListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
     this.toggleSelector = toggleSelector;
@@ -351,6 +355,9 @@ export class InpageNavigation {
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
+    }
+    if (this.attachScrollListener) {
+      window.addEventListener('scroll', this.handleResize);
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
