@@ -138,7 +138,8 @@ export class Range {
 
     // Get position from center
     const percentOfRange =
-      this.rangeInput.value / (this.rangeInput.max - this.rangeInput.min);
+      (this.rangeInput.value - this.rangeInput.min) /
+      (this.rangeInput.max - this.rangeInput.min);
     const valuePxPosition = percentOfRange * rect.width;
     const distFromCenter = valuePxPosition - center;
     const percentDistFromCenter = distFromCenter / center;
