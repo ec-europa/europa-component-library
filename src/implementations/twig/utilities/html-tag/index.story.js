@@ -16,13 +16,13 @@ export const Default = () => `
   <p class="ecl-u-type-paragraph">To see the following HTML tags styled with ECL, just activate the optional "ecl-${getSystem()}-default" or "ecl-${getSystem()}-default-print" css file in the "CSS resources" tab.</p>
   <details>
     <summary><strong>Link and button</strong></summary>
-    <br />
+    <br>
     <div class="ecl">
-      <a href="#">Link</a><br /><br />
+      <a href="#">Link</a><br><br>
       <button>Button</button>
     </div>
   </details>
-  <br />
+  <br>
   <details>
     <summary><strong>Typography</strong></summary>
     <div class="ecl">
@@ -35,10 +35,10 @@ export const Default = () => `
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis volutpat diam. Aliquam ac eleifend elit. Vivamus urna orci, vehicula nec sagittis et, facilisis a dolor. Mauris sed justo a sapien venenatis lobortis. Sed eu ornare nunc. Curabitur vitae est suscipit, mattis magna aliquam, scelerisque lorem. Aenean sem ex, dignissim eget justo vitae, fringilla dictum ligula.</p>
     </div>
   </details>
-  <br />
+  <br>
   <details>
     <summary><strong>Lists</strong></summary>
-    <br />
+    <br>
     <div class="ecl">
       <ul>
         <li>Unordered list</li>
@@ -67,10 +67,10 @@ export const Default = () => `
       </dl>
     </div>
   </details>
-  <br />
+  <br>
   <details>
     <summary><strong>Blockquote</strong></summary>
-    <br />
+    <br>
     <div class="ecl">
       <blockquote>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur vulputate venenatis.</p>
@@ -78,10 +78,10 @@ export const Default = () => `
       </blockquote>
     </div>
   </details>
-  <br />
+  <br>
   <details>
     <summary><strong>Table</strong></summary>
-    <br />
+    <br>
     <div class="ecl">
       <table>
         <thead>
