@@ -63,6 +63,7 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       attachResizeListener = true,
+      attachScrollListener = true,
       attachKeyListener = true,
       contentClass = 'inpage-navigation__heading--active',
     } = {},
@@ -80,6 +81,7 @@ export class InpageNavigation {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.attachScrollListener = attachScrollListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
     this.toggleSelector = toggleSelector;
@@ -351,6 +353,9 @@ export class InpageNavigation {
     }
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
+    }
+    if (this.attachScrollListener) {
+      window.addEventListener('scroll', this.handleResize);
     }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
