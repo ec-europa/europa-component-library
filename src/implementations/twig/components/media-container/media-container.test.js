@@ -64,21 +64,14 @@ describe('Media Container', () => {
       return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
     });
 
-    test('with autoplay, loop and muted renders correctly', () => {
+    test('as decorative renders correctly', () => {
       const dataVideo = {
         ...demoContentVideo.video,
-        loop: true,
-        muted: true,
-        autoplay: true,
-      };
-
-      const dataLoop = {
-        ...demoContentVideo,
-        video: dataVideo,
+        decorative: true,
       };
 
       expect.assertions(1);
-      return expect(render(dataLoop)).resolves.toMatchSnapshot();
+      return expect(render(dataVideo)).resolves.toMatchSnapshot();
     });
 
     test('with old data renders correctly', () => {

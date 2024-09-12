@@ -6,6 +6,7 @@ import dataImg from '@ecl/specs-component-media-container/demo/data--image';
 import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import dataInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
+import dataExpandable from '@ecl/specs-component-expandable/demo/data';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
@@ -13,14 +14,13 @@ const getArgs = (data) => {
   let args = {
     show_description: true,
     description: data.description,
+    show_expandable: false,
     full_width: false,
   };
   if (data.video) {
     args = {
       ...args,
-      autoplay: false,
-      muted: false,
-      loop: false,
+      decorative: false,
     };
   }
   if (data.image && !data.sources) {
@@ -39,6 +39,14 @@ const getArgTypes = (data) => {
       name: 'caption',
       type: { name: 'boolean' },
       description: 'Show the caption',
+      table: {
+        category: 'Optional',
+      },
+    },
+    show_expandable: {
+      name: 'expandable',
+      type: { name: 'boolean' },
+      description: 'Show an expandable button',
       table: {
         category: 'Optional',
       },
@@ -70,28 +78,13 @@ const getArgTypes = (data) => {
   }
 
   if (data.video) {
-    argTypes.autoplay = {
+    argTypes.decorative = {
       type: 'boolean',
-      description: 'Video will start playing once rendered',
+      description:
+        'Video will start playing once rendered, muted, in a loop and without controls',
       table: {
         defaultValue: { summary: 'false' },
-        category: 'Video',
-      },
-    };
-    argTypes.muted = {
-      type: 'boolean',
-      description: 'Video will play with no sound',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Video',
-      },
-    };
-    argTypes.loop = {
-      type: 'boolean',
-      description: 'Video will play in a loop',
-      table: {
-        defaultValue: { summary: 'false' },
-        category: 'Video',
+        category: 'Display',
       },
     };
   }
@@ -143,7 +136,11 @@ const prepareData = (data, args) => {
   if (!args.show_description) {
     args.description = '';
   }
-
+  if (args.show_expandable) {
+    data.expandable = dataExpandable;
+  } else {
+    data.expandable = '';
+  }
   if (args.video_audio) {
     switch (args.video_audio) {
       case 'not needed':
