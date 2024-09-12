@@ -8,9 +8,10 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {};
-  if (data.image) {
-    args.show_image = true;
-    args.image = (data.image && data.image.src) || '';
+  if (data.picture) {
+    args.show_picture = true;
+    args.picture = (data.picture.img && data.picture.img.src) || '';
+    args.picture_zoom = false;
   }
   if (data.labels) {
     args.show_labels = true;
@@ -38,11 +39,11 @@ const getArgTypes = (data) => {
   const argTypes = {};
 
   // Optional elements
-  if (data.image) {
-    argTypes.show_image = {
-      name: 'image',
+  if (data.picture) {
+    argTypes.show_picture = {
+      name: 'picture',
       type: { name: 'boolean' },
-      description: 'Show image',
+      description: 'Show picture',
       table: {
         category: 'Optional',
       },
@@ -110,14 +111,24 @@ const getArgTypes = (data) => {
   }
 
   // Other controls
-  if (data.image) {
-    argTypes.image = {
+  if (data.picture) {
+    argTypes.picture = {
       type: 'string',
-      description: 'The url of the card image',
+      description: 'The url of the card picture',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
         category: 'Content',
+      },
+    };
+    argTypes.picture_zoom = {
+      name: 'picture zoom',
+      type: 'boolean',
+      description: 'Should the picture be animated?',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
       },
     };
   }
@@ -159,8 +170,8 @@ const prepareData = (data, args) => {
   if (!args.show_description) {
     delete clone.description;
   }
-  if (!args.show_image) {
-    delete clone.image;
+  if (!args.show_picture) {
+    delete clone.picture;
   }
   if (!args.show_primary_meta) {
     delete clone.primary_meta;
@@ -176,8 +187,9 @@ const prepareData = (data, args) => {
   }
 
   // Other controls
-  if (clone.image) {
-    clone.image.src = args.image;
+  if (clone.picture) {
+    clone.picture.img.src = args.picture;
+    clone.picture_zoom = args.picture_zoom;
   }
   if (clone.description) {
     clone.description = args.description;

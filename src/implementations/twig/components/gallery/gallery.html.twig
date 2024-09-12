@@ -5,6 +5,7 @@
   - "grid" (boolean) (default: false) Display gallery as a grid
   - "column" (int) (default: 3) Number of columns. Grid display only
   - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
+  - "picture_zoom" (bool) (default: false): Should the thumbnail pictures be animated?
   - "id": (string) (default: random): Unique id for the gallery
   - "counter_label" (string) (default: '') Label of the counter
   - "view_all_label" (string) (default: '') Label of the view all button
@@ -49,6 +50,7 @@
 {% set _grid = grid|default(false) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
+{% set _picture_zoom = picture_zoom|default(false) %}
 {% set _id = id|default('ecl-gallery-' ~ random()) %}
 {% set _css_class = 'ecl-gallery' %}
 {% set _extra_attributes = '' %}
@@ -138,6 +140,7 @@
         sr_video_label: _sr_video_label,
         sr_video_player: _sr_video_player,
         disable_overlay: _disable_overlay,
+        picture_zoom: _picture_zoom,
         extra_attributes: _item_attrs,
         extra_classes: _item_class,
       } only %}

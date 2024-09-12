@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-gallery
 - **"grid"** (boolean) (default: false) Display gallery as a grid
 - **"column"** (int) (default: 3) Number of columns. Grid display only
 - **"ratio"** (string) (default: '3-2') Image aspect ratio. Grid dipslay only
+- **"picture_zoom"** (bool) (default: false): Should the thumbnail pictures be animated?
 - **"id"**: (string) (default: random): Unique id for the gallery
 - **"overlay"** (object) (default: {})
   - "close" (object) (default: {}): object of type button

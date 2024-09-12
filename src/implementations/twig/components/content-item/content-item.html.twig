@@ -16,6 +16,7 @@
         },
         ...
       ]
+    - "picture_zoom" (bool) (default: false): Should the picture be animated?
     - "date" (associative array) (default: {}): Predefined structure compatible with ECL Date block component
     - "labels" (array) (default: []): Array of ECL Labels
     - "labels_aria" (strings) (default: ''): Aria label for the labels area
@@ -51,6 +52,7 @@
   },
   sources: [],
 }) %}
+{% set _picture_zoom = picture_zoom|default(false) %}
 {% set _date = date|default({}) %}
 {% set _labels = labels|default([]) %}
 {% set _labels_aria = labels_aria|default('') %}
@@ -100,9 +102,7 @@
   {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
     {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
     {% set _picture_extra_classes = 'ecl-content-item__picture' %}
-    {% set _picture_zoom = false %}
     {% if _title.link is defined %}
-      {% set _picture_zoom = true %}
       {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
     {% endif %}
     {% if _picture.size is not empty %}

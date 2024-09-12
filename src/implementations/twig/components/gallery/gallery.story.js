@@ -15,6 +15,7 @@ const getArgs = () => ({
   visible_items: 8,
   disable_hover: false,
   disable_overlay: false,
+  picture_zoom: false,
 });
 
 const getArgTypes = () => ({
@@ -86,6 +87,15 @@ const getArgTypes = () => ({
     name: 'without overlay',
     control: { type: 'boolean' },
     description: 'make the gallery as just a collection of images',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
+  },
+  picture_zoom: {
+    name: 'picture zoom',
+    control: { type: 'boolean' },
+    description: 'Should the thumbnail pictures be animated?',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
