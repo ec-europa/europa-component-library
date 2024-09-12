@@ -437,20 +437,21 @@ export class InpageNavigation {
 
     let topPosition = 0;
     // Mobile
-    if (viewportWidth < 996) {
-      topPosition = this.toggleElement.getBoundingClientRect().bottom + 16;
-    } else if (listTitle) {
-      // If we have a title in desktop
-      topPosition = listTitle.getBoundingClientRect().bottom + 24;
-    } else {
-      // Get the list position if there is no title
-      topPosition = this.element.getBoundingClientRect().top;
-    }
-
-    const availableSpace = viewportHeight - topPosition;
-    if (availableSpace > 0) {
-      this.currentList.style.maxHeight = `${availableSpace}px`;
-    }
+    setTimeout(() => {
+      if (viewportWidth < 996) {
+        topPosition = this.toggleElement.getBoundingClientRect().bottom + 16;
+      } else if (listTitle) {
+        // If we have a title in desktop
+        topPosition = listTitle.getBoundingClientRect().bottom;
+      } else {
+        // Get the list position if there is no title
+        topPosition = this.element.getBoundingClientRect().top;
+      }
+      const availableSpace = viewportHeight - topPosition;
+      if (availableSpace > 0) {
+        this.currentList.style.maxHeight = `${availableSpace}px`;
+      }
+    }, 100);
   }
 
   /**
