@@ -73,7 +73,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _items is not empty and _items is iterable %}
   <div class="ecl-news-ticker__container">
     <div class="ecl-news-ticker__content">

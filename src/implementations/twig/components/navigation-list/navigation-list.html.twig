@@ -44,7 +44,10 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-  <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
     {%- for _item in _items %}
       {% include '@ecl/navigation-list/navigation-list-item.html.twig' with _item|merge({ border: _border }) only %}
     {% endfor -%}
