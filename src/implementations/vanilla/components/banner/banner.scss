@@ -497,13 +497,10 @@ $banner: null !default;
   }
 
   .ecl-banner__title,
-  .ecl-banner__title-link {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-
+  .ecl-banner__title-link,
   .ecl-banner__description,
   .ecl-banner__description-link {
-    color: map.get($banner, 'text-color', 'inverted');
+    color: var(--c-d);
   }
 }
 
@@ -533,6 +530,13 @@ $banner: null !default;
       margin: 0;
       padding: var(--s-2xs) var(--s-m) var(--s-xs);
       width: 100%;
+    }
+
+    .ecl-banner__title,
+    .ecl-banner__title-link,
+    .ecl-banner__description,
+    .ecl-banner__description-link {
+      color: map.get($theme, 'color', 'white');
     }
 
     .ecl-banner__description {
