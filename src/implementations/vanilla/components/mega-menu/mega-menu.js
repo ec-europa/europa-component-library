@@ -130,6 +130,7 @@ export class MegaMenu {
     this.links = null;
     this.isOpen = false;
     this.resizeTimer = null;
+    this.wrappers = null;
     this.isKeyEvent = false;
     this.isDesktop = false;
     this.isLarge = false;
@@ -185,6 +186,7 @@ export class MegaMenu {
     this.links = queryAll(this.linkSelector, this.element);
     this.header = queryOne('.ecl-site-header', document);
     this.headerBanner = queryOne('.ecl-site-header__banner', document);
+    this.wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
     this.headerNotification = queryOne(
       '.ecl-site-header__notification',
       document,
@@ -443,7 +445,12 @@ export class MegaMenu {
     const scrollBarWidth =
       window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingRight = `${scrollBarWidth}px`;
+    document.body.style.paddingInlineEnd = `${scrollBarWidth}px`;
+    if (this.wrappers) {
+      this.wrappers.forEach((wrapper) => {
+        wrapper.style.width = `calc(100vw - ${scrollBarWidth}px)`;
+      });
+    }
   }
 
   /**
@@ -451,7 +458,12 @@ export class MegaMenu {
    */
   enableScroll() {
     document.body.classList.remove('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingRight = '';
+    document.body.style.paddingInlineEnd = '';
+    if (this.wrappers) {
+      this.wrappers.forEach((wrapper) => {
+        wrapper.style.width = '';
+      });
+    }
   }
 
   /**
@@ -501,9 +513,8 @@ export class MegaMenu {
       });
 
       // Reset top position and height of the wrappers
-      const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-      if (wrappers) {
-        wrappers.forEach((wrapper) => {
+      if (this.wrappers) {
+        this.wrappers.forEach((wrapper) => {
           wrapper.style.top = '';
           wrapper.style.height = '';
         });
@@ -842,9 +853,8 @@ export class MegaMenu {
               }
             }
           }
-          const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-          if (wrappers) {
-            wrappers.forEach((wrapper) => {
+          if (this.wrappers) {
+            this.wrappers.forEach((wrapper) => {
               wrapper.style.top = '';
               wrapper.style.height = '';
             });
@@ -861,10 +871,9 @@ export class MegaMenu {
           const item = queryOne(this.itemSelector, this.element);
           const rect = item.getBoundingClientRect();
           const rectHeight = rect.height;
-          const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
 
-          if (wrappers) {
-            wrappers.forEach((wrapper) => {
+          if (this.wrappers) {
+            this.wrappers.forEach((wrapper) => {
               wrapper.style.top = `${rectHeight}px`;
             });
           }
