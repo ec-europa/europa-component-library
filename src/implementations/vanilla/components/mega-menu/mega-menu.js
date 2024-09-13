@@ -135,6 +135,7 @@ export class MegaMenu {
     this.isDesktop = false;
     this.isLarge = false;
     this.lastVisibleItem = null;
+    this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
     this.breakpointL = 996;
@@ -192,6 +193,7 @@ export class MegaMenu {
       document,
     );
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
+    this.menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
@@ -445,11 +447,16 @@ export class MegaMenu {
     const scrollBarWidth =
       window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingInlineEnd = `${scrollBarWidth}px`;
-    if (this.wrappers) {
-      this.wrappers.forEach((wrapper) => {
-        wrapper.style.width = `calc(100vw - ${scrollBarWidth}px)`;
-      });
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingInlineEnd = `${scrollBarWidth}px`;
+      if (this.wrappers) {
+        this.wrappers.forEach((wrapper) => {
+          wrapper.style.width = `calc(100vw - ${scrollBarWidth}px)`;
+        });
+      }
+      if (this.menuOverlay) {
+        this.menuOverlay.style.width = `calc(100% - ${scrollBarWidth}px)`;
+      }
     }
   }
 
@@ -463,6 +470,9 @@ export class MegaMenu {
       this.wrappers.forEach((wrapper) => {
         wrapper.style.width = '';
       });
+    }
+    if (this.menuOverlay) {
+      this.menuOverlay.style.width = '';
     }
   }
 
@@ -801,7 +811,6 @@ export class MegaMenu {
    * Dinamically set the position of the menu overlay
    */
   positionMenuOverlay() {
-    const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
     let availableHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
@@ -810,8 +819,8 @@ export class MegaMenu {
           const position = this.header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
 
-          if (menuOverlay) {
-            menuOverlay.style.top = `${bottomPosition}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${bottomPosition}px`;
           }
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
@@ -877,13 +886,13 @@ export class MegaMenu {
               wrapper.style.top = `${rectHeight}px`;
             });
           }
-          if (menuOverlay) {
-            menuOverlay.style.top = `${headerBottom}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${headerBottom}px`;
           }
         } else {
           const bottomPosition = this.element.getBoundingClientRect().bottom;
-          if (menuOverlay) {
-            menuOverlay.style.top = `${bottomPosition}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${bottomPosition}px`;
           }
         }
       }, 0);
