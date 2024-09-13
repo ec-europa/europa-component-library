@@ -261,6 +261,12 @@ $banner: null !default;
   .ecl-banner__container {
     padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
     padding-top: map.get($banner, 'container-padding-top', 'desktop');
+
+    .ecl-banner--v-bottom & {
+      padding-bottom: calc(
+        #{map.get($banner, 'container-padding-bottom', 'desktop')} + var(--banner-footer-height)
+      );
+    }
   }
 
   .ecl-banner__content {
