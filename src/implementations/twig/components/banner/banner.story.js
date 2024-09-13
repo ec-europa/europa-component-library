@@ -371,7 +371,11 @@ const prepareData = (data, args) => {
   if (args.oldVariants !== '') {
     clone.extra_classes = args.oldVariants;
     if (args.oldVariants === 'ecl-banner--plain-background') {
-      clone.picture.img = {};
+      if (clone.picture) {
+        clone.picture.img = {};
+      } else {
+        clone.video = {};
+      }
     }
   } else {
     clone.extra_classes = '';
