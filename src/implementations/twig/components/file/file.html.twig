@@ -17,7 +17,6 @@
   - "meta" (string) (default: '')
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
-  - "preview" (object) (default: {}): object of type Link
   - "picture" (object) (default: {}): image for the thumbnail variant
   - "label" (array) (default: {}) array of objects of type
   ** still supported as an object with a single label **
@@ -50,7 +49,6 @@
 {% set _label = label|default({}) %}
 {% set _lists = lists|default([]) %}
 {% set _download = download|default({}) %}
-{% set _preview = preview|default({}) %}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
@@ -66,8 +64,6 @@
 {% set _title_id = _id ~ '-title' %}
 {% set _download_id = _id ~ '-link' %}
 {% set _download_label_id = _id ~ '-link-label' %}
-{% set _preview_id = _id ~ '-preview' %}
-{% set _preview_label_id = _id ~ '-preview-label' %}
 
 {% if _label.label is defined %}
   {% set _labels = [_label] %}
@@ -173,39 +169,21 @@
     <div class="ecl-file__meta">{{ _meta }}</div>
   {% endif %}
     <div class="ecl-file__action">
-    {% if _preview is not empty %}
-      {% include '@ecl/link/link.html.twig' with _preview|merge({
-        link: _preview.link|default({})|merge({
+      {% include '@ecl/link/link.html.twig' with _download|merge({
+        link: _download.link|default({})|merge({
           type: 'standalone',
           icon_position: 'after',
         }),
-        icon: _preview.icon|default({})|merge({
-          name: 'eye',
+        icon: _download.icon|default({})|merge({
+          name: 'download',
           size: 'fluid'
         }),
         extra_attributes: [
-        { name: 'id', value: _preview_id },
-        { name: 'aria-labelledby', value: _preview_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+        { name: 'id', value: _download_id },
+        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
         ],
-        extra_classes: 'ecl-file__preview',
+        extra_classes: 'ecl-file__download',
       }) only %}
-    {% endif %}
-
-    {% include '@ecl/link/link.html.twig' with _download|merge({
-      link: _download.link|default({})|merge({
-        type: 'standalone',
-        icon_position: 'after',
-      }),
-      icon: _download.icon|default({})|merge({
-        name: 'download',
-        size: 'fluid'
-      }),
-      extra_attributes: [
-       { name: 'id', value: _download_id },
-       { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
-      ],
-      extra_classes: 'ecl-file__download',
-    }) only %}
     </div>
   </div>
 

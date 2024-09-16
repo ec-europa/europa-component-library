@@ -136,10 +136,6 @@ $file: null !default;
   margin-top: map.get($file, 'file-action-spacing-mobile');
 }
 
-.ecl-file__preview {
-  margin-inline-end: map.get($file, 'file-action-separator');
-}
-
 .ecl-file__translation-language {
   color: map.get($file, 'file-description-color');
   font: var(--f-s);
@@ -216,10 +212,12 @@ $file: null !default;
   font: map.get($file, 'file-translation-meta-font');
 }
 
-.ecl-file__translation-download {
+.ecl-file__translation-action {
   align-self: map.get($file, 'file-translation-download-alignment');
+}
+
+.ecl-file__translation-download {
   font: var(--f-m);
-  margin-top: var(--s-xs);
 }
 
 .ecl-file__translation-description {

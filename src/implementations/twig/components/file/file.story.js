@@ -37,9 +37,7 @@ const getArgs = (data) => {
     args.image =
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
   }
-  if (data.preview) {
-    args.show_preview = true;
-  }
+  args.show_preview = false;
 
   return args;
 };
@@ -69,16 +67,14 @@ const getArgTypes = (data) => {
     };
   }
 
-  if (data.preview) {
-    argTypes.show_preview = {
-      name: 'preview',
-      type: { name: 'boolean' },
-      description: 'Show preview',
-      table: {
-        category: 'Optional',
-      },
-    };
-  }
+  argTypes.show_preview = {
+    name: 'preview',
+    type: { name: 'boolean' },
+    description: 'Show preview placeholder',
+    table: {
+      category: 'Optional',
+    },
+  };
 
   argTypes.title = {
     name: 'title',
@@ -210,8 +206,33 @@ const prepareData = (data, args) => {
     delete clone.detail_meta;
   }
 
-  if (!args.show_preview) {
-    delete clone.preview;
+  if (args.show_preview) {
+    // Add preview placeholder
+    setTimeout(() => {
+      const downloadAction = Array.prototype.slice.call(
+        document.getElementsByClassName('ecl-file__action'),
+        0,
+      );
+      const translationAction = Array.prototype.slice.call(
+        document.getElementsByClassName('ecl-file__translation-action'),
+        0,
+      );
+      const actions = downloadAction.concat(translationAction);
+
+      if (actions) {
+        for (let i = 0; i < actions.length; i += 1) {
+          const previewLink = document.createElement('a');
+          previewLink.innerHTML = 'Preview (placeholder)';
+          previewLink.setAttribute('href', '#');
+          previewLink.classList.add(
+            'ecl-link',
+            'ecl-link--standalone',
+            'ecl-u-mr-xl',
+          );
+          actions[i].prepend(previewLink);
+        }
+      }
+    }, 500);
   }
 
   if (!args.show_description) {
