@@ -64,10 +64,10 @@ describe('Media Container', () => {
       return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
     });
 
-    test('as decorative renders correctly', () => {
+    test('as autoplay renders correctly', () => {
       const dataVideo = {
         ...demoContentVideo.video,
-        decorative: true,
+        autoplay: true,
       };
 
       expect.assertions(1);

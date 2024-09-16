@@ -3,10 +3,10 @@
   Parameters:
   - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
   - "video": (associative array) (default: {}) Object of type ECL video
-  - "decorative": (boolean) (default: false) For videos, setting this to true will hide the controls and make the video start playing
-  - "sr_play" (string) (default: ''): Label for the play button (for decorative video)
-  - "sr_pause" (string) (default: ''): Label for the pause button (for decorative video)
-  - "icon_path": (string) (default: '') Path to the icon sprite (needed for the decorative video)
+  - "autoplay": (boolean) (default: false) For videos, setting this to true will hide the controls and make the video start playing
+  - "sr_play" (string) (default: ''): Label for the play button (for autoplay video)
+  - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
+  - "icon_path": (string) (default: '') Path to the icon sprite (needed for the autoplay video)
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
@@ -49,11 +49,11 @@
 {% set _sr_play = sr_play|default('') %}
 {% set _sr_pause = sr_pause|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
-{% set _decorative = decorative|default(false) %}
+{% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _picture = picture|default({}) %}
-{% set _extra_attributes = (embedded_media or (decorative and (video or sources))) ? [
+{% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
   'data-ecl-media-container="true"',
   'data-ecl-auto-init="MediaContainer"'
 ]|join(' ') : '' %}
@@ -146,7 +146,7 @@
       {%- block embedded_media _embedded_media -%}
     </div>
   {% elseif _video is not empty %}
-    {% if _decorative %}
+    {% if _autoplay %}
       {% set _video = _video|merge({
         controls: false,
         autoplay: true,
@@ -162,7 +162,7 @@
         name: 'data-ecl-media-container-video',
       }]),
     }) only %}
-    {% if _decorative %}
+    {% if _autoplay %}
       {% include '@ecl/button/button.html.twig' with {
         hide_label: true,
         label: _sr_play,

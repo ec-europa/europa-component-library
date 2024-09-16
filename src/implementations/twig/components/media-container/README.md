@@ -14,10 +14,10 @@ npm install --save @ecl/twig-component-media-container
 - **"sr_video_audio"** (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
 - **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
 - **"video"** (associative array) (default: {}) An ECL video object
-- **"decorative"**: (bool) (default: false) If the media is a video, makes it autoplay, with no sound and in a loop.
-- **"sr_play"** (string) (default: ''): Label for the play button (for the decorative video)
-- **"sr_pause"** (string) (default: ''): Label for the pause button (for the decorative video)
-- **"icon_path"**: (string) (default: '') Path or url to the icons sprite (for decorative video)
+- **"autoplay"**: (bool) (default: false) If the media is a video, makes it autoplay, with no sound and in a loop.
+- **"sr_play"** (string) (default: ''): Label for the play button (for the autoplay video)
+- **"sr_pause"** (string) (default: ''): Label for the pause button (for the autoplay video)
+- **"icon_path"**: (string) (default: '') Path or url to the icons sprite (for autoplay video)
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure

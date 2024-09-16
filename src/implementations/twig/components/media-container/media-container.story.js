@@ -20,7 +20,7 @@ const getArgs = (data) => {
   if (data.video) {
     args = {
       ...args,
-      decorative: false,
+      autoplay: false,
     };
   }
   if (data.image && !data.sources) {
@@ -78,7 +78,7 @@ const getArgTypes = (data) => {
   }
 
   if (data.video) {
-    argTypes.decorative = {
+    argTypes.autoplay = {
       type: 'boolean',
       description:
         'Video will start playing once rendered, muted, in a loop and without controls',
@@ -157,12 +157,6 @@ const prepareData = (data, args) => {
         data.sr_video_audio = '';
         break;
     }
-  }
-
-  if (data.video) {
-    data.video.autoplay = args.autoplay;
-    data.video.muted = args.muted;
-    data.video.loop = args.loop;
   }
 
   return Object.assign(data, args);
