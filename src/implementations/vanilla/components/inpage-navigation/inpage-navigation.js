@@ -439,7 +439,8 @@ export class InpageNavigation {
     // Mobile
     setTimeout(() => {
       if (viewportWidth < 996) {
-        topPosition = this.toggleElement.getBoundingClientRect().bottom + 16;
+        topPosition =
+          this.toggleElement.parentElement.getBoundingClientRect().bottom;
       } else if (listTitle) {
         // If we have a title in desktop
         topPosition = listTitle.getBoundingClientRect().bottom;
