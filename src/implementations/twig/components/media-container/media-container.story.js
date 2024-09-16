@@ -79,6 +79,7 @@ const getArgTypes = (data) => {
 
   if (data.video) {
     argTypes.autoplay = {
+      name: 'auto play',
       type: 'boolean',
       description:
         'Video will start playing once rendered, muted, in a loop and without controls',
