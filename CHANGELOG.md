@@ -1,5 +1,15 @@
 # Changelog
 
+# 4.6.5
+
+#### :bug: Bug Fix
+
+- [#3628](https://github.com/ec-europa/europa-component-library/pull/3628) feat(banner): Fixing styles for the text-overlay deprecated variant - FRONT-4618 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.6.4
 
 #### :nail_care: Enhancement
