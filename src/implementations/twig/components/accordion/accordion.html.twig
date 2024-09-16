@@ -53,7 +53,8 @@
 {# Print the result #}
 
 <div
-  class="{{ _css_class }}" {{ _extra_attributes|raw }}
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
   data-ecl-accordion
 >
   {% if _items is not empty %}

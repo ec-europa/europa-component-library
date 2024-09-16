@@ -261,15 +261,23 @@ $banner: null !default;
   .ecl-banner__container {
     padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
     padding-top: map.get($banner, 'container-padding-top', 'desktop');
+
+    .ecl-banner--v-bottom & {
+      padding-bottom: calc(
+        #{map.get($banner, 'container-padding-bottom', 'desktop')} + var(--banner-footer-height)
+      );
+    }
   }
 
   .ecl-banner__content {
     background-color: map.get($banner, 'content-background');
+    border-radius: map.get($banner, 'content-border-radius');
     max-width: map.get($banner, 'content-width');
     padding: map.get($banner, 'content-padding');
 
     .ecl-banner--box-bg-none & {
       background-color: transparent;
+      border-radius: 0;
       padding: 0;
     }
 

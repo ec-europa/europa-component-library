@@ -51,7 +51,12 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-inpage-navigation="true" aria-labelledby="{{ _id }}">
+<nav
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-inpage-navigation="true"
+  aria-labelledby="{{ _id }}"
+>
   <div class="ecl-inpage-navigation__title" id="{{ _id }}">{{ _title }}</div>
   {% set _button_attributes = '
       type="button"
