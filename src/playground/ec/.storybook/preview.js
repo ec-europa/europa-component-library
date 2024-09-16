@@ -57,6 +57,12 @@ export const parameters = {
       hideCode: true,
     },
     {
+      id: 'ecl-ec-easy-to-read',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-easy-to-read.css" />`,
+      picked: false,
+      hideCode: true,
+    },
+    {
       id: 'ecl-ec-print',
       code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
       picked: false,

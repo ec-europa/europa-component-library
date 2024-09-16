@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+@use '@ecl/theme-ec/custom-properties';
+@use '@ecl/theme-ec/variables' as var;
+
+body {
+  font: var(--f-m);
+  line-height: map.get($theme, 'line-height', 'l');
+}
+
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: var(--s-2xl);
+}
