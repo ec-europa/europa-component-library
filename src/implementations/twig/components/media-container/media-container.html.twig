@@ -122,10 +122,12 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }} 
-  {% if _video_title is not empty and _embedded_media is not empty %}
-    data-ecl-media-container-video-title="{{ _video_title }}"
-  {% endif %}
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }} 
+{% if _video_title is not empty and _embedded_media is not empty %}
+  data-ecl-media-container-video-title="{{ _video_title }}"
+{% endif %}
 >
   <figure class="{{ _figure_class }}">
   {% if _embedded_media is not empty %}

@@ -36,7 +36,10 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-  <ul class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <ul 
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
     {%- for _item in _items %}
       <li class="ecl-tag-set__item">
         {% include '@ecl/tag/tag.html.twig' with _item|merge({
