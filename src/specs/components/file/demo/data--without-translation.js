@@ -20,13 +20,4 @@ module.exports = {
       path: '/icons.svg',
     },
   },
-  preview: {
-    link: {
-      label: 'Preview',
-      path: exampleLink,
-    },
-    icon: {
-      path: '/icons.svg',
-    },
-  },
 };

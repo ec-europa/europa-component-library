@@ -39,15 +39,6 @@ module.exports = {
       path: '/icons.svg',
     },
   },
-  preview: {
-    link: {
-      label: 'Preview',
-      path: exampleLink,
-    },
-    icon: {
-      path: '/icons.svg',
-    },
-  },
   translation: {
     toggle: {
       label: 'Other languages (3)',

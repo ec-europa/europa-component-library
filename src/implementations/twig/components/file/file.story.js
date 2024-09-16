@@ -224,11 +224,7 @@ const prepareData = (data, args) => {
           const previewLink = document.createElement('a');
           previewLink.innerHTML = 'Preview (placeholder)';
           previewLink.setAttribute('href', '#');
-          previewLink.classList.add(
-            'ecl-link',
-            'ecl-link--standalone',
-            'ecl-u-mr-xl',
-          );
+          previewLink.classList.add('ecl-link', 'ecl-link--standalone');
           actions[i].prepend(previewLink);
         }
       }

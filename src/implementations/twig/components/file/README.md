@@ -59,15 +59,6 @@ npm install --save @ecl/twig-component-file
       path: 'path/to/icons.svg',
     },
   },
-  preview: {
-    link: {
-      label: 'Preview',
-      path: exampleLink,
-    },
-    icon: {
-      path: '/icons.svg',
-    },
-  },
   translation: {
     toggle: {
       label: 'Other languages (3)',
