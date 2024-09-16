@@ -26,6 +26,7 @@ $table: null !default;
 .ecl-table__head,
 %ecl-table__head {
   border-bottom: map.get($table, 'head-border');
+  border-inline-end: 1px solid map.get($table, 'head-background');
   background-color: map.get($table, 'head-background');
   display: table-header-group;
 }
@@ -88,7 +89,7 @@ $table: null !default;
   color: var(--c-d-80);
   font: map.get($table, 'caption-font');
   margin-top: var(--s-xs);
-  text-align: left;
+  text-align: start;
 }
 
 // Zebra
@@ -111,6 +112,10 @@ $table: null !default;
   .ecl-table__header:not(:empty) {
   background-color: map.get($table, 'multi-head-background');
   border-top: map.get($table, 'header-separator-desktop');
+
+  &:last-child {
+    border-inline-end: none;
+  }
 }
 
 // Sort Table
