@@ -38,6 +38,7 @@ const getArgs = (data) => {
       'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg';
   }
   args.show_preview = false;
+  args.download_attribute = false;
 
   return args;
 };
@@ -71,6 +72,15 @@ const getArgTypes = (data) => {
     name: 'preview',
     type: { name: 'boolean' },
     description: 'Show preview placeholder',
+    table: {
+      category: 'Optional',
+    },
+  };
+
+  argTypes.download_attribute = {
+    name: 'download attribute',
+    type: { name: 'boolean' },
+    description: 'Add download attribute to the download link',
     table: {
       category: 'Optional',
     },
@@ -196,6 +206,7 @@ const prepareData = (data, args) => {
   clone.title = args.title;
   clone.description = args.description;
   clone.download.link.label = args.download_label;
+  clone.download_attribute = args.download_attribute;
   clone.translation.toggle.label = args.toggle_label;
 
   if (!args.show_label) {

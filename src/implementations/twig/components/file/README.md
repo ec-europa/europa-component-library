@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-file
 - **"meta"** (string) (default: '')
 - **"detail_meta"** (array) (default: []) Meta element for the thumbnail variant
 - **"download"** (object) (default: {}): object of type Link
+- **"download_attribute"** (bool) (default: false): should the download link have the download attribute?
 - **"picture"** (associative array) (default: {}): Image, following ECL Picture structure
 - **"label"** (array of objects of type Label) (default: []) labels
   ** also supported as an object with a single label **
