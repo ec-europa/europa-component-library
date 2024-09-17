@@ -261,15 +261,23 @@ $banner: null !default;
   .ecl-banner__container {
     padding-bottom: map.get($banner, 'container-padding-bottom', 'desktop');
     padding-top: map.get($banner, 'container-padding-top', 'desktop');
+
+    .ecl-banner--v-bottom & {
+      padding-bottom: calc(
+        #{map.get($banner, 'container-padding-bottom', 'desktop')} + var(--banner-footer-height)
+      );
+    }
   }
 
   .ecl-banner__content {
     background-color: map.get($banner, 'content-background');
+    border-radius: map.get($banner, 'content-border-radius');
     max-width: map.get($banner, 'content-width');
     padding: map.get($banner, 'content-padding');
 
     .ecl-banner--box-bg-none & {
       background-color: transparent;
+      border-radius: 0;
       padding: 0;
     }
 
@@ -392,7 +400,7 @@ $banner: null !default;
   background: map.get($banner, 'background', 'plain-background');
 
   .ecl-banner__info {
-    background: map.get($banner, 'background', 'plain-background');
+    background: transparent;
   }
 
   .ecl-banner__title,
@@ -491,13 +499,10 @@ $banner: null !default;
   }
 
   .ecl-banner__title,
-  .ecl-banner__title-link {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-
+  .ecl-banner__title-link,
   .ecl-banner__description,
   .ecl-banner__description-link {
-    color: map.get($banner, 'text-color', 'inverted');
+    color: var(--c-d);
   }
 }
 
@@ -527,6 +532,13 @@ $banner: null !default;
       margin: 0;
       padding: var(--s-2xs) var(--s-m) var(--s-xs);
       width: 100%;
+    }
+
+    .ecl-banner__title,
+    .ecl-banner__title-link,
+    .ecl-banner__description,
+    .ecl-banner__description-link {
+      color: map.get($theme, 'color', 'white');
     }
 
     .ecl-banner__description {

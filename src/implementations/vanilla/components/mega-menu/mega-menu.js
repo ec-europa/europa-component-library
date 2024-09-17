@@ -440,7 +440,10 @@ export class MegaMenu {
    * Disable page scrolling
    */
   disableScroll() {
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
   }
 
   /**
@@ -448,6 +451,7 @@ export class MegaMenu {
    */
   enableScroll() {
     document.body.classList.remove('ecl-mega-menu-prevent-scroll');
+    document.body.style.paddingRight = '';
   }
 
   /**
@@ -658,10 +662,17 @@ export class MegaMenu {
    * @param {Node} menuItem
    */
   checkDropdownHeight(menuItem) {
+    const infoPanel = queryOne('.ecl-mega-menu__info', menuItem);
+    const mainPanel = queryOne('.ecl-mega-menu__mega', menuItem);
+    // Hide the panels while calculating their heights
+    if (mainPanel && this.isDesktop) {
+      mainPanel.style.opacity = 0;
+    }
+    if (infoPanel && this.isDesktop) {
+      infoPanel.style.opacity = 0;
+    }
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
-      const infoPanel = queryOne('.ecl-mega-menu__info', menuItem);
-      const mainPanel = queryOne('.ecl-mega-menu__mega', menuItem);
       let infoPanelHeight = 0;
 
       if (this.isDesktop) {
@@ -765,6 +776,12 @@ export class MegaMenu {
         } else if (featuredPanel && this.isDesktop) {
           featuredPanel.style.height = `${height - infoPanelHeight}px`;
         }
+      }
+      if (mainPanel && this.isDesktop) {
+        mainPanel.style.opacity = 1;
+      }
+      if (infoPanel && this.isDesktop) {
+        infoPanel.style.opacity = 1;
       }
     }, 100);
   }

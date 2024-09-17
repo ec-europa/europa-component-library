@@ -19,6 +19,8 @@ import { createFocusTrap } from 'focus-trap';
  * @param {Number} options.spyOffset
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
  * @param {Boolean} options.attachKeyListener Whether or not to bind click events
+ * @param {Boolean} options.attachResizeListener Whether or not to bind resize events
+ * @param {Boolean} options.attachScrollListener Whether or not to bind scroll events
  */
 export class InpageNavigation {
   /**
@@ -63,6 +65,7 @@ export class InpageNavigation {
       spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
       attachClickListener = true,
       attachResizeListener = true,
+      attachScrollListener = true,
       attachKeyListener = true,
       contentClass = 'inpage-navigation__heading--active',
     } = {},
@@ -80,6 +83,7 @@ export class InpageNavigation {
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
     this.attachResizeListener = attachResizeListener;
+    this.attachScrollListener = attachScrollListener;
     this.stickySelector = stickySelector;
     this.containerSelector = containerSelector;
     this.toggleSelector = toggleSelector;
@@ -352,6 +356,9 @@ export class InpageNavigation {
     if (this.attachResizeListener) {
       window.addEventListener('resize', this.handleResize);
     }
+    if (this.attachScrollListener) {
+      window.addEventListener('scroll', this.handleResize);
+    }
     if (this.attachClickListener && this.navLinks) {
       this.navLinks.forEach((link) =>
         link.addEventListener('click', this.handleClickOnLink),
@@ -430,20 +437,27 @@ export class InpageNavigation {
 
     let topPosition = 0;
     // Mobile
-    if (viewportWidth < 996) {
-      topPosition = this.toggleElement.getBoundingClientRect().bottom + 16;
-    } else if (listTitle) {
-      // If we have a title in desktop
-      topPosition = listTitle.getBoundingClientRect().bottom + 24;
-    } else {
-      // Get the list position if there is no title
-      topPosition = this.element.getBoundingClientRect().top;
-    }
-
-    const availableSpace = viewportHeight - topPosition;
-    if (availableSpace > 0) {
-      this.currentList.style.maxHeight = `${availableSpace}px`;
-    }
+    setTimeout(() => {
+      if (viewportWidth < 996) {
+        const toggleWrapper = this.toggleElement.parentElement;
+        if (toggleWrapper) {
+          // EC has currently a negative margin set on the wrapper.
+          topPosition =
+            toggleWrapper.getBoundingClientRect().bottom +
+            parseFloat(window.getComputedStyle(toggleWrapper).marginBottom);
+        }
+      } else if (listTitle) {
+        // If we have a title in desktop
+        topPosition = listTitle.getBoundingClientRect().bottom;
+      } else {
+        // Get the list position if there is no title
+        topPosition = this.element.getBoundingClientRect().top;
+      }
+      const availableSpace = viewportHeight - topPosition;
+      if (availableSpace > 0) {
+        this.currentList.style.maxHeight = `${availableSpace}px`;
+      }
+    }, 100);
   }
 
   /**

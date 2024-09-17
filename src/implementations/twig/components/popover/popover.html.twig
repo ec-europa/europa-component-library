@@ -46,7 +46,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% set _toggle_attributes = [
     { name: 'aria-controls', value: _id },
     { name: 'data-ecl-popover-toggle' },
