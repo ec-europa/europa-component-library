@@ -55,7 +55,10 @@
 {% endif %}
 
 {# Print the result #}
-<footer class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<footer
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {# Main container #}
   <div class="ecl-container ecl-site-footer__container">
   {% for _row in _rows %}

@@ -62,7 +62,10 @@ Parameters:
 {% endif %}
 
 {# Print the result #}
-<ol class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<ol
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _items is not empty %}
     {% for _item in _items %}
       {# Decide on per item if it should display. #}

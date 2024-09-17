@@ -44,7 +44,11 @@
 
 {# Print the result #}
 
-<form class="{{ _css_class }}" role="search"{{ _extra_attributes|raw }}>
+<form
+  class="{{ _css_class }}"
+  role="search"
+  {{ _extra_attributes|raw }}
+>
   {% if _text_input is not empty %}
     {% include '@ecl/form-group/form-group.html.twig' with {
       label: _label,

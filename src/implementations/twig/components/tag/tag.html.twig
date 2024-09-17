@@ -69,7 +69,11 @@
 {# Print the result #}
 
 {% if _tag.type == 'removable' %}
-  <button type="button" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <button
+    type="button"
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
@@ -83,7 +87,11 @@
     </span>
   </button>
 {% else %}
-  <a href="{{ _tag.path }}" class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <a
+    href="{{ _tag.path }}"
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
     {{- _tag.label -}}
     {%- if _tag.external -%}
       {%- include '@ecl/icon/icon.html.twig' with {

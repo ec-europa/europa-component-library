@@ -13,17 +13,12 @@ npm install --save @ecl/twig-component-media-container
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
 - **"sr_video_audio"** (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
 - **"picture"** (associative array) (default: {}): Image for the media container, following ECL Picture structure
+- **"video"** (associative array) (default: {}) An ECL video object
+- **"autoplay"**: (bool) (default: false) If the media is a video, makes it autoplay, with no sound and in a loop.
+- **"sr_play"** (string) (default: ''): Label for the play button (for the autoplay video)
+- **"sr_pause"** (string) (default: ''): Label for the pause button (for the autoplay video)
+- **"icon_path"**: (string) (default: '') Path or url to the icons sprite (for autoplay video)
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
-- **"sources"** (array) (default: []) Array of Video sources with this structure:
-  - "src" (string) (default: ''),
-  - "type" (string) (default: ''),
-- **"tracks"** (array) (default: []): Array of Video tracks with this structure:
-  - "src" (string) (default: ''),
-  - "kind" (string) (default: ''),
-  - "src_lang" (string) (default: ''),
-  - "label" (string) (default: ''),
-  - "description" (string) (default: ''),
-- **"image"**: (string) (default: '') Path or url to the image used as the video placeholder
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
@@ -34,6 +29,20 @@ npm install --save @ecl/twig-component-media-container
 ### Blocks:
 
 - **"embedded_media"** (optional) (string) (default: '') A block where to set an embed code
+
+### Deprecated:
+
+- **"sources"** (array) (default: []) Array of Video sources with this structure:
+  - "src" (string) (default: ''),
+  - "type" (string) (default: ''),
+- **"tracks"** (array) (default: []): Array of Video tracks with this structure:
+  - "src" (string) (default: ''),
+  - "kind" (string) (default: ''),
+  - "src_lang" (string) (default: ''),
+  - "label" (string) (default: ''),
+  - "description" (string) (default: ''),
+- **"image"** (string) (default: ''): Image to be used as the video placeholder
+- **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 
 ### Example for media container image:
 

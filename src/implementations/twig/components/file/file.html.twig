@@ -105,7 +105,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <div class="ecl-file__container">
   {% if _variant == 'default' %}
     {% include '@ecl/icon/icon.html.twig' with {

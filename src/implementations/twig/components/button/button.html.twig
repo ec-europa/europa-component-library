@@ -89,7 +89,11 @@
 
 {# Print the result #}
 
-<button class="{{ _css_class }}" type="{{ _type }}" {{ _extra_attributes|raw }}>
+<button
+  class="{{ _css_class }}"
+  type="{{ _type }}"
+  {{ _extra_attributes|raw }}
+>
 {%- if _icons is defined %}
   <span class="ecl-button__container">
   {% if _icon_position == 'before' %}

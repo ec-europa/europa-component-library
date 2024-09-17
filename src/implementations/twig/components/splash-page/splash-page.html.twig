@@ -66,7 +66,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {# Logo #}
   {% if _logo is not empty and _logo.src_desktop is not empty %}
     <div class="ecl-splash-page__logo-container">

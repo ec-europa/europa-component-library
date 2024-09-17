@@ -1,5 +1,31 @@
 # Changelog
 
+# 4.6.5
+
+#### :bug: Bug Fix
+
+- [#3628](https://github.com/ec-europa/europa-component-library/pull/3628) feat(banner): Fixing styles for the text-overlay deprecated variant - FRONT-4618 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 4.6.4
+
+#### :nail_care: Enhancement
+
+- [#3624](https://github.com/ec-europa/europa-component-library/pull/3624) fix(inpage): Adding scroll listener and recalculate height when scrolling - FRONT-4615 ([@planctus](https://github.com/planctus))
+- [#3610](https://github.com/ec-europa/europa-component-library/pull/3610) fix(mega-menu): Showing the panels only when ready - FRONT-4604 ([@planctus](https://github.com/planctus))
+- [#3612](https://github.com/ec-europa/europa-component-library/pull/3612) fix(banner): increasing padding bottom in L viewport using the credit's height - FRONT-4608 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3614](https://github.com/ec-europa/europa-component-library/pull/3614) chore(twig): Harmonising syntax when rendering classes and attributes -- FRONT-4609 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.6.3
 
 #### :bug: Bug Fix
