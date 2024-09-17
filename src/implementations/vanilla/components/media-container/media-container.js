@@ -102,7 +102,6 @@ export class MediaContainer {
 
     // Youtube
     if (iframeUrl.host.includes('youtube')) {
-      iframeUrl.searchParams.set('disablekb', 1);
       this.iframe.src = iframeUrl;
     }
 
