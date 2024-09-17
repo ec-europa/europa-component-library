@@ -1,20 +1,19 @@
 @use 'sass:map';
-@use '@ecl/theme-eu/theme' as *;
-@use '@ecl/theme-eu/custom-properties';
-@use '@ecl/theme-eu/variables' as var;
+@use '@ecl/theme-ec/theme' as *;
 
-body {
-  font: var(--f-m);
-  line-height: map.get($theme, 'line-height', 'l');
-}
+.ecl-easy-to-read {
+  --f-m: 18px /#{map.get($theme, 'line-height', 'l')} #{map.get(
+      $theme,
+      'font-family',
+      'default'
+    )} #{map.get($theme, 'font-weight', 'normal')};
 
-p,
-ul,
-ol,
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin-bottom: var(--s-2xl);
+  p {
+    margin-bottom: var(--s-s);
+  }
+
+  ul,
+  ol {
+    margin: 0;
+  }
 }
