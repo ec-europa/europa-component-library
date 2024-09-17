@@ -84,7 +84,10 @@
 
 {# Print the result #}
 
-<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<li
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <a
     href="{{ _media_href ?: _picture.img.src }}"
     data-ecl-gallery-item

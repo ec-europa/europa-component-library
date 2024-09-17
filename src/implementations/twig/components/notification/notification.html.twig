@@ -49,7 +49,12 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" data-ecl-notification role="alert"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  data-ecl-notification
+  role="alert"
+  {{ _extra_attributes|raw }}
+>
 {% if _variant == 'warning' and _icon is not empty and _icon.name is defined and _icon.name == 'warning' %}
   <span class="ecl-notification__icon-background"></span>
 {% endif %}

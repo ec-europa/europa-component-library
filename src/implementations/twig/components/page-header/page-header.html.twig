@@ -67,7 +67,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _picture_background.img is not empty %}
     <div class="ecl-page-header__background-container" aria-hidden="true">
       {% include '@ecl/picture/picture.html.twig' with {
