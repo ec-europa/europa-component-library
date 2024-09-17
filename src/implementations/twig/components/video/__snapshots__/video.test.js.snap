@@ -16,6 +16,25 @@ exports[`Video Default renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Video Default renders correctly with autoplay, loop and muted 1`] = `
+<jest>
+  <video
+    aria-label="Big Buck Bunny - Video"
+    autoplay=""
+    class="ecl-video"
+    controls=""
+    loop=""
+    muted=""
+    poster="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+  >
+    <source
+      src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+      type="video/mp4"
+    />
+  </video>
+</jest>
+`;
+
 exports[`Video Default renders correctly with extra attributes 1`] = `
 <jest>
   <video

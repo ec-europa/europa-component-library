@@ -164,6 +164,78 @@ exports[`Media Container infographic renders correctly 1`] = `
 </jest>
 `;
 
+exports[`Media Container video as autoplay renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+    data-ecl-auto-init="MediaContainer"
+    data-ecl-media-container="true"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <div
+        class="ecl-media-container__video-wrapper"
+      >
+        <video
+          aria-label="Visit the European Commission - Video player"
+          autoplay=""
+          class="ecl-video ecl-media-container__media"
+          data-ecl-media-container-video=""
+          loop=""
+          muted=""
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-media-container__play ecl-button--icon-only"
+          data-ecl-media-container-play=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="#play-outline"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-media-container__pause ecl-button--icon-only"
+          data-ecl-media-container-pause=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="#pause-outline"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </figure>
+  </div>
+</jest>
+`;
+
 exports[`Media Container video renders correctly 1`] = `
 <jest>
   <div
@@ -172,17 +244,22 @@ exports[`Media Container video renders correctly 1`] = `
     <figure
       class="ecl-media-container__figure"
     >
-      <video
-        aria-label="Visit the European Commission - Video player"
-        class="ecl-video ecl-media-container__media"
-        controls=""
-        poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+      <div
+        class="ecl-media-container__video-wrapper"
       >
-        <source
-          src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
-          type="video/mp4"
-        />
-      </video>
+        <video
+          aria-label="Visit the European Commission - Video player"
+          class="ecl-video ecl-media-container__media"
+          controls=""
+          data-ecl-media-container-video=""
+          poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
       <figcaption
         class="ecl-media-container__caption"
       >
@@ -234,17 +311,22 @@ exports[`Media Container video with old data renders correctly 1`] = `
     <figure
       class="ecl-media-container__figure"
     >
-      <video
-        aria-label="Visit the European Commission - Video player"
-        class="ecl-video ecl-media-container__media"
-        controls=""
-        poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+      <div
+        class="ecl-media-container__video-wrapper"
       >
-        <source
-          src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
-          type="video/mp4"
-        />
-      </video>
+        <video
+          aria-label="Visit the European Commission - Video player"
+          class="ecl-video ecl-media-container__media"
+          controls=""
+          data-ecl-media-container-video=""
+          poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
       <figcaption
         class="ecl-media-container__caption"
       >
