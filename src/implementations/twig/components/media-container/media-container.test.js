@@ -64,6 +64,16 @@ describe('Media Container', () => {
       return expect(render(demoContentVideo)).resolves.toMatchSnapshot();
     });
 
+    test('as autoplay renders correctly', () => {
+      const dataVideo = {
+        ...demoContentVideo.video,
+        autoplay: true,
+      };
+
+      expect.assertions(1);
+      return expect(render(dataVideo)).resolves.toMatchSnapshot();
+    });
+
     test('with old data renders correctly', () => {
       expect.assertions(1);
       return expect(render(demoBackwardVideo)).resolves.toMatchSnapshot();
