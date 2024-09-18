@@ -1,0 +1,16 @@
+/**
+ * Separator print
+ * @define separator
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$separator: null !default;
+
+.ecl-separator,
+%ecl-separator {
+  border-top: 1px solid map.get($separator, 'color');
+  margin: map.get($theme, 'spacing-print', 'xs') 0;
+}

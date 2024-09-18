@@ -2,11 +2,17 @@
 @use '../index' as *;
 
 $banner: (
-  background-color: var(--c-d-5),
-  content-width: 37rem,
+  background-color: var(--c-p-5),
+  content-width: 42.5rem,
   content-background: map.get($color, 'white'),
+  content-border-radius: map.get($border-radius, 'm'),
   content-padding: var(--s-l) var(--s-l),
-  container-padding-vertical: (
+  container-padding-bottom: (
+    'mobile': var(--s-l),
+    'tablet': var(--s-xl),
+    'desktop': var(--s-3xl),
+  ),
+  container-padding-top: (
     'mobile': var(--s-l),
     'tablet': var(--s-xl),
     'desktop': var(--s-3xl),
@@ -32,13 +38,11 @@ $banner: (
   font: (
     'title': (
       'mobile': var(--f-2xl),
-      'tablet': var(--f-5xl),
       'desktop-m': var(--f-4xl),
       'desktop-l': var(--f-5xl),
     ),
     'description': (
       'mobile': var(--f-xl),
-      'tablet': var(--f-4xl),
       'desktop-m': var(--f-2xl),
       'desktop-l': var(--f-4xl),
     ),

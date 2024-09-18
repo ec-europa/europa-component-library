@@ -8,9 +8,11 @@ const { execSync } = require('child_process');
 const publicUrl = process.env.PUBLIC_URL || '';
 const dir = path.resolve(__dirname, '../../implementations/vanilla/components');
 
-const files = glob.sync('**/*.js', {
-  cwd: dir,
-});
+const files = glob
+  .sync('**/*.js', {
+    cwd: dir,
+  })
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
 const publicDir = path.resolve(__dirname, '../public');
 const apisDir = 'apis';

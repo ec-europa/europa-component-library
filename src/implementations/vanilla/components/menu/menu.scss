@@ -192,6 +192,7 @@ $menu: null !default;
   &:focus-visible {
     color: currentcolor;
     border-color: currentcolor;
+    outline-color: map.get($menu, 'mobile', 'header-outline-color');
   }
 }
 
@@ -213,6 +214,7 @@ $menu: null !default;
   &:focus-visible {
     color: currentcolor;
     border-color: currentcolor;
+    outline-color: map.get($menu, 'mobile', 'header-outline-color');
   }
 }
 

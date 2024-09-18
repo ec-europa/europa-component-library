@@ -2,24 +2,12 @@
 {#
   Parameters:
   - "picture" (associative array) (default: {}): Image for media container, following ECL Picture structure
+  - "video": (associative array) (default: {}) Object of type ECL video
+  - "autoplay": (boolean) (default: false) For videos, setting this to true will hide the controls and make the video start playing
+  - "sr_play" (string) (default: ''): Label for the play button (for autoplay video)
+  - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
+  - "icon_path": (string) (default: '') Path to the icon sprite (needed for the autoplay video)
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
-  - "sources" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "type" (string) (default: ''),
-      },
-      ...
-    ],
-  - "tracks" (array) (default: []): format: [
-      {
-        "src" (string) (default: ''),
-        "kind" (string) (default: ''),
-        "src_lang" (string) (default: ''),
-        "label" (string) (default: ''),
-      },
-      ...
-    ],
-  - "image" (string) (default: ''): Image to be used as the video placeholder 
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
@@ -41,6 +29,9 @@
 
 {# DEPRECATED 
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sources" (array) (default: [])
+  - "tracks" (array) (default: [])
+  - "image" (string) (default: ''): Image to be used as the video placeholder 
 #}
 
 {# Internal properties #}
@@ -55,15 +46,18 @@
 {% set _title = title|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_audio = sr_video_audio|default('') %}
+{% set _sr_play = sr_play|default('') %}
+{% set _sr_pause = sr_pause|default('') %}
 {% set _embedded_media = embedded_media|default('') %}
+{% set _autoplay = autoplay|default(false) %}
+{% set _video = video|default({}) %}
+{% set _icon_path = icon_path|default('') %}
 {% set _picture = picture|default({}) %}
-{% set _extra_attributes = embedded_media ? [
+{% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
   'data-ecl-media-container="true"',
-  'data-ecl-auto-init="MediaContainer"']|join(' ') : ''
-%}
+  'data-ecl-auto-init="MediaContainer"'
+]|join(' ') : '' %}
 {% set _ratio = ratio|default('') %}
-{% set _sources = sources|default({}) %}
-{% set _tracks = tracks|default({}) %}
 {% set _expandable = expandable|default({}) %}
 
 {# DEPRECATED #}
@@ -81,6 +75,18 @@
       },
     }
   %}
+{% endif %}
+
+{% if _video.sources is empty and sources is not empty %}
+  {% set _video = {
+    sources,
+    tracks,
+    poster: _image,
+    title: _title,
+    sr_video_label: _sr_video_label,
+    sr_video_audio: _sr_video_audio,
+    sr_video_player: _sr_video_player,
+  } %}
 {% endif %}
 
 {% if _full_width %}
@@ -124,10 +130,12 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }} 
-  {% if _video_title is not empty and _embedded_media is not empty %}
-    data-ecl-media-container-video-title="{{ _video_title }}"
-  {% endif %}
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }} 
+{% if _video_title is not empty and _embedded_media is not empty %}
+  data-ecl-media-container-video-title="{{ _video_title }}"
+{% endif %}
 >
   <figure class="{{ _figure_class }}">
   {% if _embedded_media is not empty %}
@@ -137,29 +145,52 @@
       {% endif %}
       {%- block embedded_media _embedded_media -%}
     </div>
-  {% elseif _sources is not empty and _sources is iterable %}
-    <video
-      class="ecl-media-container__media"
-      controls
-      poster="{{ _image }}"
-      {%- if _video_title is not empty -%}
-        aria-label="{{ _video_title }}"
-      {%- endif -%}
-    >
-  {% for source in _sources %}
-    <source type="{{ source.type }}" src="{{ source.src }}" />
-  {% endfor %}
-    {% if _tracks is not empty and _tracks is iterable %}
-    {% for track in _tracks %}
-      <track
-        kind="{{ track.kind }}"
-        label="{{ track.label }}"
-        src="{{ track.src }}"
-        srclang="{{ track.src_lang }}"
-      />
-    {% endfor %}
+  {% elseif _video is not empty %}
+    {% if _autoplay %}
+      {% set _video = _video|merge({
+        controls: false,
+        autoplay: true,
+        muted: true,
+        loop: true,
+      }) %}
     {% endif %}
-    </video>
+    {% set video_classes = 'ecl-media-container__media' ~ (_video.extra_classes ? ' ' ~ _video.extra_classes : '') %}
+    <div class="ecl-media-container__video-wrapper">
+    {% include '@ecl/video/video.html.twig' with _video|merge({
+      extra_classes: video_classes,
+      extra_attributes: _video.extra_attributes|default([])|merge([{
+        name: 'data-ecl-media-container-video',
+      }]),
+    }) only %}
+    {% if _autoplay %}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_play,
+        type: 'button',
+        variant: 'tertiary',
+        extra_classes: 'ecl-media-container__play',
+        extra_attributes: [{ name: 'data-ecl-media-container-play' }],
+        icon: {
+          path: _icon_path,
+          name: 'play-outline',
+          size: 'm',
+        },
+      } only %}
+      {% include '@ecl/button/button.html.twig' with {
+        hide_label: true,
+        label: _sr_pause,
+        type: 'button',
+        variant: 'tertiary',
+        extra_classes: 'ecl-media-container__pause',
+        extra_attributes: [{ name: 'data-ecl-media-container-pause' }],
+        icon: {
+          path: _icon_path,
+          name: 'pause-outline',
+          size: 'm',
+        },
+      } only %}
+    {% endif %}
+    </div>
   {% else %}
     {% include '@ecl/picture/picture.html.twig' with {
       picture: _picture,

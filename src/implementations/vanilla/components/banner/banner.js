@@ -5,6 +5,7 @@ import EventManager from '@ecl/event-manager';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.bannerContainer Selector for the banner content
+ * @param {String} options.bannerFooter Selector for the banner footer
  * @param {String} options.bannerVPadding Optional additional padding
  * @param {String} options.bannerPicture Selector for the banner picture
  * @param {String} options.bannerVideo Selector for the banner video
@@ -45,6 +46,7 @@ export class Banner {
     element,
     {
       bannerContainer = '[data-ecl-banner-container]',
+      bannerFooter = '[data-ecl-banner-footer]',
       bannerVPadding = '8',
       bannerPicture = '[data-ecl-banner-image]',
       bannerVideo = '[data-ecl-banner-video]',
@@ -68,6 +70,7 @@ export class Banner {
     this.bannerVPadding = bannerVPadding;
     this.resizeTimer = null;
     this.bannerContainer = queryOne(bannerContainer, this.element);
+    this.bannerFooter = queryOne(bannerFooter, this.element);
     this.bannerPicture = queryOne(bannerPicture, this.element);
     this.bannerVideo = queryOne(bannerVideo, this.element);
     this.bannerPlay = queryOne(bannerPlay, this.element);
@@ -201,24 +204,36 @@ export class Banner {
    * @param {string} aspect ratio
    */
   setHeight(ratio) {
-    const bannerHeight =
-      this.bannerContainer.offsetHeight + 2 * parseInt(this.bannerVPadding, 10);
-    const bannerWidth = parseInt(
-      getComputedStyle(this.element).getPropertyValue('width'),
-      10,
-    );
-    const [denominator, numerator] = ratio.split('/').map(Number);
-    const currentHeight = (bannerWidth * numerator) / denominator;
-    if (bannerHeight > currentHeight) {
-      if (this.bannerImage) {
-        this.bannerImage.style.aspectRatio = 'auto';
+    if (this.bannerContainer) {
+      const bannerHeight =
+        this.bannerContainer.offsetHeight +
+        2 * parseInt(this.bannerVPadding, 10);
+      const bannerWidth = parseInt(
+        getComputedStyle(this.element).getPropertyValue('width'),
+        10,
+      );
+      const [denominator, numerator] = ratio.split('/').map(Number);
+      const currentHeight = (bannerWidth * numerator) / denominator;
+      if (bannerHeight > currentHeight) {
+        if (this.bannerImage) {
+          this.bannerImage.style.aspectRatio = 'auto';
+        }
+        if (this.bannerVideo) {
+          this.bannerVideo.style.aspectRatio = 'auto';
+        }
+        this.element.style.height = `${bannerHeight}px`;
+      } else {
+        this.resetBannerHeight();
       }
-      if (this.bannerVideo) {
-        this.bannerVideo.style.aspectRatio = 'auto';
-      }
-      this.element.style.height = `${bannerHeight}px`;
-    } else {
-      this.resetBannerHeight();
+    }
+
+    // Add margin to the banner container when there is a footer
+    // This is needed to keep the vertical alignment
+    if (this.bannerFooter) {
+      this.element.style.setProperty(
+        '--banner-footer-height',
+        `${this.bannerFooter.offsetHeight}px`,
+      );
     }
   }
 
@@ -247,6 +262,13 @@ export class Banner {
     }
 
     this.element.style.height = 'auto';
+
+    if (this.bannerFooter) {
+      this.element.style.setProperty(
+        '--banner-footer-height',
+        `${this.bannerFooter.offsetHeight}px`,
+      );
+    }
   }
 
   /**

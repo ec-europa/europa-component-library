@@ -63,7 +63,10 @@
 
 {# Print the result #}
 
-<article class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<article
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <div class="{{ _css_container_class }}">
     <div class="ecl-featured-item__item">
     {% if _title is not empty %}

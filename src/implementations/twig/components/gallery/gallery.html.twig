@@ -28,7 +28,8 @@
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "picture" (optional) (object) (default: {}) Object of type picture
+    - "thumbnail" (optional) (object) (default: {}) Picture to the thumbnail, type Picture; uses "picture" if empty
+    - "picture" (optional) (object) (default: {}) Object of type Picture; always needed, even for video
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
@@ -118,7 +119,11 @@
 
 {# Print the result #}
 
-<section class="{{ _css_class }}" {{ _extra_attributes|raw }} data-ecl-gallery>
+<section
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-gallery
+>
   <ul class="ecl-gallery__list">
     {% for _key, _item in _items %}
       {% set _item_class = '' %}

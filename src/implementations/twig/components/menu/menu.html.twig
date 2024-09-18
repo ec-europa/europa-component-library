@@ -4,7 +4,7 @@
   Parameters:
   - "id": (string) (default: random): Unique id for the menu
   - "title": (string) (default: ''): Title of the menu (displayed on mobile)
-  - "toggle": (associative array) (default: {}): Toggle (hamburger) link, using ECL Link structure
+  - "toggle": (associative array) (default: {}): Toggle (hamburger) button, using ECL Button structure
   - "close": (associative array) (default: {}): Close button, using ECL Button structure
   - "back_label": (string): (default: ''): Back button label
   - "aria_label" (string) (default: '') Aria label for the main nav
@@ -85,8 +85,8 @@
   data-ecl-menu
   data-ecl-menu-max-lines="{{ _max_lines }}"
   data-ecl-auto-init="Menu"
-  {% if _toggle is not empty and _toggle.link is defined and _toggle.link.label is defined and _toggle.link.label is not empty %}
-    data-ecl-menu-label-open="{{ _toggle.link.label }}"
+  {% if _toggle is not empty and _toggle.label is not empty %}
+    data-ecl-menu-label-open="{{ _toggle.label }}"
   {% endif %}
   {% if _close is not empty and _close.label is defined and _close.label is not empty %}
     data-ecl-menu-label-close="{{ _close.label }}"
@@ -109,21 +109,22 @@
           {% set _toggle_icon = _toggle.icon %}
         {% endif %}
       {% endif %}
-      {% include '@ecl/link/link.html.twig' with _toggle|merge({
-        link: _toggle.link|merge({
-          type: 'standalone',
-          icon_path: _icon_path,
-          icon_position: 'before',
-        }),
+      {% include '@ecl/button/button.html.twig' with _toggle|merge({
+        type: 'button',
+        variant: 'tertiary',
+        icon_path: _icon_path,
+        icon_position: 'before',
         icon: _toggle_icon,
-        extra_classes: 'ecl-button ecl-button--tertiary ecl-menu__open',
-        extra_attributes: [{
-          name: 'data-ecl-menu-open',
-        }],
+        hide_label: true,
+        extra_classes: 'ecl-menu__open',
+        extra_attributes: [
+          { name: 'data-ecl-menu-open' },
+          { name: 'aria-expanded', value: 'false' }
+        ],
       }) only %}
     {% endif %}
 
-    <section class="ecl-menu__inner" data-ecl-menu-inner role="application" aria-label="{{ _title }}">
+    <section class="ecl-menu__inner" data-ecl-menu-inner aria-label="{{ _title }}">
       <header class="ecl-menu__inner-header">
         {% if _close is not empty %}
           {% include '@ecl/button/button.html.twig' with _close|merge({

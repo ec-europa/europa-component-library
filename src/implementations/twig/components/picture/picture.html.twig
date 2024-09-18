@@ -14,6 +14,7 @@
         },
         ...
       ]
+    - "lazy" (boolean) (default: false): Should the picture be loaded using lazy loading?
     - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
     - "extra_image_classes" (optional) (string) (default: ''): Extra css classes, added to to the img tag
     - "extra_attributes" (optional) (array) (default: [])
@@ -24,6 +25,7 @@
 {# Internal properties #}
 
 {% set _picture = picture|default({}) %}
+{% set _lazy = lazy|default(false) %}
 {% set _extra_image_classes = extra_image_classes|default('') %}
 {% set _css_class = 'ecl-picture' %}
 {% set _extra_attributes = '' %}
@@ -46,7 +48,10 @@
 
 {# Print the result #}
 
-<picture class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<picture
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% if _picture.sources is not empty and _picture.sources is iterable %}
     {% for _source in _picture.sources %}
       {% if _source.media == 's' %}
@@ -84,7 +89,10 @@
     {% if _picture.img.alt is defined %}
       alt="{{ _picture.img.alt }}"
     {% endif %}
-  />
+    {% if _lazy %}
+      loading="lazy"
+    {% endif %}
+  >
   {% endif %}
 </picture> 
 

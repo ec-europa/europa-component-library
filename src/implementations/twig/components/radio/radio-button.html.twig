@@ -71,7 +71,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <input
   {% if _id %}
     id="{{ _id }}"
@@ -91,7 +94,7 @@
   {% if _required %}
     required
   {% endif %}
-  />
+  >
 
   <label
     class="{{ _label_css_class }}"

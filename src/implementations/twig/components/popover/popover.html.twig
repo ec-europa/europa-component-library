@@ -3,7 +3,7 @@
 {#
   Parameters:
     - "id" (string) (default: random)
-    - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link structure
+    - "toggle" (associative array) (default: {}): Popover toggle element, following ECL Link or ECL button structure
     - "close" (object of type "button") (default: {}): close button (optional)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -46,7 +46,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% set _toggle_attributes = [
     { name: 'aria-controls', value: _id },
     { name: 'data-ecl-popover-toggle' },
@@ -57,11 +60,17 @@
   {% if _toggle.extra_classes is not empty %}
     {% set _toggle_extra_classes = _toggle_extra_classes ~ ' ' ~ _toggle.extra_classes %}
   {% endif %}
-  {% include '@ecl/link/link.html.twig' with _toggle|merge({
-    extra_classes: _toggle_extra_classes,
-    extra_attributes: _toggle_attributes,
-  }) only %}
-
+  {% if _toggle.link is not empty %}
+    {% include '@ecl/link/link.html.twig' with _toggle|merge({
+      extra_classes: _toggle_extra_classes,
+      extra_attributes: _toggle_attributes,
+    }) only %}
+  {% else %}
+    {% include '@ecl/button/button.html.twig' with _toggle|merge({
+      extra_classes: _toggle_extra_classes,
+      extra_attributes: _toggle_attributes,
+    }) only %}
+  {% endif %}
   <div id="{{ _id }}" class="ecl-popover__container" hidden>
     <div class="ecl-popover__scrollable">
     {% if _close is not empty %}
