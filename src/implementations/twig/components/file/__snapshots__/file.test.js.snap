@@ -1078,6 +1078,7 @@ exports[`File With translation renders correctly 1`] = `
             <a
               aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
               href="/example#es"
               hreflang="es"
               id="ecl-file-with-translation-translation-1-link"
@@ -1125,6 +1126,263 @@ exports[`File With translation renders correctly 1`] = `
             <a
               aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-translation-translation-2-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`File With translation renders correctly with download attribute 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-auto-init="FileDownload"
+    data-ecl-file=""
+    id="ecl-file-with-translation"
+  >
+    <div
+      class="ecl-file__container"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#file"
+        />
+      </svg>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+          id="ecl-file-with-translation-title"
+        >
+          State of the Union 2018 brochure
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+        id="ecl-file-with-translation-lang"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
+      </div>
+      <div
+        class="ecl-file__action"
+      >
+        <a
+          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          download=""
+          href="/example"
+          id="ecl-file-with-translation-link"
+        >
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-translation-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container=""
+    >
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
+        data-ecl-file-translation-toggle=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Translations (3)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        class="ecl-file__translation-list"
+      >
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-0-lang"
+              lang="bg"
+            >
+              български
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.7 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-translation-translation-0-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-1-lang"
+              lang="es"
+            >
+              español
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.8 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-translation-translation-1-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-2-lang"
+              lang="fr"
+            >
+              français
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.4 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
               href="/example#fr"
               hreflang="fr"
               id="ecl-file-with-translation-translation-2-link"
@@ -1333,6 +1591,7 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
             <a
               aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
               href="/example#es"
               hreflang="es"
               id="ecl-file-with-translation-translation-1-link"
@@ -1586,6 +1845,7 @@ exports[`File With translation renders correctly with extra class names 1`] = `
             <a
               aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
               class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
               href="/example#es"
               hreflang="es"
               id="ecl-file-with-translation-translation-1-link"

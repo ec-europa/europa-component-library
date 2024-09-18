@@ -8,6 +8,7 @@
   - "id" (string) (default: '')
   - "title_id" (string) (default: '')
   - "download" (object) (default to the parent download property) object of type Link
+  - "download_attribute" (bool) (default to the parent download attribute)
 #}
 
 {# Internal properties #}
@@ -15,7 +16,7 @@
 {% set _lang = lang|default('') %}
 {% set _meta = meta|default('') %}
 {% set _download = download|default({}) %}
-{% set _download_attribute = download_attribute|default(false) %}
+{% set _download_attribute = download_attribute|default(download_attribute_default) %}
 {% set _id = id|default('') %}
 {% set _title_id = title_id|default('') %}
 

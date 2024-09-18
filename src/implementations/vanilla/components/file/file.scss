@@ -133,7 +133,14 @@ $file: null !default;
 }
 
 .ecl-file__action {
-  margin-top: map.get($file, 'file-action-spacing-mobile');
+  margin-top: calc(
+    #{map.get($file, 'file-action-spacing-mobile')} - var(--s-xs)
+  );
+
+  // stylelint-disable-next-line no-descending-specificity
+  > * {
+    margin-top: var(--s-xs);
+  }
 }
 
 .ecl-file__translation-language {
@@ -214,7 +221,12 @@ $file: null !default;
 
 .ecl-file__translation-action {
   align-self: map.get($file, 'file-translation-download-alignment');
-  margin-top: var(--s-xs);
+  margin-top: 0;
+
+  // stylelint-disable-next-line no-descending-specificity
+  > * {
+    margin-top: var(--s-xs);
+  }
 }
 
 .ecl-file__translation-download {
@@ -279,6 +291,10 @@ $file: null !default;
     margin-top: map.get($file, 'file-action-spacing-desktop');
     position: map.get($file, 'file-action-position');
     top: map.get($file, 'file-action-position-top');
+
+    > * {
+      margin-top: 0;
+    }
   }
 
   .ecl-file__image {

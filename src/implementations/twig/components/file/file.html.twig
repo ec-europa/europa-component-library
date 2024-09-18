@@ -204,7 +204,7 @@
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
     id: _id,
-    download_attribute: _download_attribute,
+    download_attribute_default: _download_attribute,
   }) only %}
 {% endif %}
 </div>
