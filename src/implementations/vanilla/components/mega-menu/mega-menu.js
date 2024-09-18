@@ -444,20 +444,7 @@ export class MegaMenu {
    * Disable page scrolling
    */
   disableScroll() {
-    const scrollBarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
-    if (scrollBarWidth > 0) {
-      document.body.style.paddingInlineEnd = `${scrollBarWidth}px`;
-      if (this.wrappers) {
-        this.wrappers.forEach((wrapper) => {
-          wrapper.style.width = `calc(100vw - ${scrollBarWidth}px)`;
-        });
-      }
-      if (this.menuOverlay) {
-        this.menuOverlay.style.width = `calc(100% - ${scrollBarWidth}px)`;
-      }
-    }
   }
 
   /**
@@ -465,15 +452,6 @@ export class MegaMenu {
    */
   enableScroll() {
     document.body.classList.remove('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingInlineEnd = '';
-    if (this.wrappers) {
-      this.wrappers.forEach((wrapper) => {
-        wrapper.style.width = '';
-      });
-    }
-    if (this.menuOverlay) {
-      this.menuOverlay.style.width = '';
-    }
   }
 
   /**
