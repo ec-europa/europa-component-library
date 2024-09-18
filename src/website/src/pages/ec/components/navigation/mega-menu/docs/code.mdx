@@ -4,15 +4,16 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import megaMenu from '../demo';
+import siteHeaderCore from '../demo';
 
 <Playground
   system="ec"
-  selectedKind="components-navigation-mega-menu"
-  selectedStory="default"
+  selectedKind="components-site-wide-site-header"
+  selectedStory="core"
+  selectedArgs="show_menu:mega-menu"
   showFrame
-  frameHeight="850"
   disableAutoResize
+  frameHeight="1800"
 >
-  <Html markup={megaMenu} />
+  <Html markup={siteHeaderCore} />
 </Playground>

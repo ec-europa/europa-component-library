@@ -90,5 +90,15 @@ describe('Banner', () => {
 
       return expect(render(data)).resolves.toMatchSnapshot();
     });
+
+    test(`renders correctly with extra attributes for the video`, () => {
+      expect.assertions(1);
+      const dataVideo = {
+        ...data.video,
+        extra_attributes: [{ name: 'data-test-extra-attribute' }],
+      };
+      const dataAttributes = { ...data, video: dataVideo };
+      return expect(render(dataAttributes)).resolves.toMatchSnapshot();
+    });
   });
 });

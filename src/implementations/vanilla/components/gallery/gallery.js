@@ -472,10 +472,6 @@ export class Gallery {
 
       const iframeUrl = new URL(embeddedVideo);
 
-      // Youtube
-      if (iframeUrl.host.includes('youtube')) {
-        iframeUrl.searchParams.set('disablekb', 1);
-      }
       const mediaIframe = document.createElement('iframe');
       mediaIframe.setAttribute('src', iframeUrl);
       mediaIframe.setAttribute('frameBorder', '0');
