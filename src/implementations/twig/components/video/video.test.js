@@ -20,6 +20,19 @@ describe('Video', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with autoplay, loop and muted', () => {
+      expect.assertions(1);
+
+      const dataLoop = {
+        ...data,
+        loop: true,
+        muted: true,
+        autoplay: true,
+      };
+
+      return expect(render(dataLoop)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
