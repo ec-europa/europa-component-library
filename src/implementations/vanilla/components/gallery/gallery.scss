@@ -557,27 +557,8 @@ $_description-height-desktop: 108px;
       margin-top: 0;
     }
 
-    // Test image zoom
-    .ecl-gallery__image-container {
-      overflow: hidden;
-    }
-
-    .ecl-gallery__image {
-      transition: transform 0.5s;
-    }
-
-    .ecl-gallery__item-link:hover .ecl-gallery__image,
-    .ecl-gallery__item-link:focus-visible .ecl-gallery__image {
-      transform: scale(1.1);
-    }
-
-    // /Test
-
-    &.ecl-gallery--col-2 {
+    &.ecl-gallery--template-1 {
       .ecl-gallery__list {
-        // grid-template-columns: repeat(2, 1fr);
-
-        // Test template 1
         grid-template-columns: repeat(12, 1fr);
 
         .ecl-gallery__item:nth-child(9n + 1),
@@ -597,16 +578,11 @@ $_description-height-desktop: 108px;
         .ecl-gallery__item:nth-child(9n + 9) {
           grid-area: span 3 / span 3;
         }
-
-        // /Test
       }
     }
 
-    &.ecl-gallery--col-3 {
+    &.ecl-gallery--template-2 {
       .ecl-gallery__list {
-        // grid-template-columns: repeat(3, 1fr);
-
-        // Test template 2
         grid-auto-flow: dense;
         grid-auto-columns: 1fr;
 
@@ -636,16 +612,11 @@ $_description-height-desktop: 108px;
         .ecl-gallery__item:nth-child(10n + 9) {
           grid-column: 2;
         }
-
-        // /Test
       }
     }
 
-    &.ecl-gallery--col-4 {
+    &.ecl-gallery--template-3 {
       .ecl-gallery__list {
-        // grid-template-columns: repeat(4, 1fr);
-
-        // Test template 3
         grid-auto-flow: dense;
         grid-auto-columns: 1fr;
 
@@ -666,15 +637,11 @@ $_description-height-desktop: 108px;
         .ecl-gallery__item:nth-child(9n + 5) {
           grid-column: 4;
         }
-
-        // /Test
       }
     }
 
-    &.ecl-gallery--col-5 {
+    &.ecl-gallery--template-4 {
       .ecl-gallery__list {
-        // Test template 4
-
         grid-template-columns: repeat(4, 1fr);
 
         .ecl-gallery__item:nth-child(8n + 1) {
@@ -686,8 +653,26 @@ $_description-height-desktop: 108px;
             height: 100%;
           }
         }
+      }
+    }
 
-        // /Test
+    &.ecl-gallery--template-0 {
+      &.ecl-gallery--col-2 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      &.ecl-gallery--col-3 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      &.ecl-gallery--col-4 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
     }
   }

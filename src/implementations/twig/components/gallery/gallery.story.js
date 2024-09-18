@@ -8,6 +8,7 @@ import notes from './README.md';
 
 const getArgs = () => ({
   grid: false,
+  grid_template: 0,
   column: 3,
   ratio: '3-2',
   expandable: true,
@@ -24,7 +25,24 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+      category: 'Display',
     },
+  },
+  grid_template: {
+    name: 'grid template',
+    control: {
+      type: 'range',
+      step: 1,
+      min: 0,
+      max: 4,
+    },
+    description: 'Grid template',
+    table: {
+      type: { summary: 'integer' },
+      defaultValue: { summary: '0' },
+      category: 'Display',
+    },
+    if: { arg: 'grid' },
   },
   column: {
     name: 'columns',
@@ -32,14 +50,15 @@ const getArgTypes = () => ({
       type: 'range',
       step: 1,
       min: 2,
-      max: 5,
+      max: 4,
     },
     description: 'Number of columns, for grid display',
     table: {
       type: { summary: 'integer' },
       defaultValue: { summary: '3' },
+      category: 'Display',
     },
-    if: { arg: 'grid' },
+    if: { arg: 'grid_template', eq: 0 },
   },
   ratio: {
     name: 'Image ratio',
@@ -53,6 +72,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
+      category: 'Display',
     },
     if: { arg: 'grid' },
   },
@@ -62,6 +82,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'true' },
+      category: 'Behavior',
     },
   },
   full_width: {
@@ -71,6 +92,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+      category: 'Display',
     },
   },
   disable_hover: {
@@ -80,6 +102,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+      category: 'Behavior',
     },
   },
   disable_overlay: {
@@ -89,6 +112,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+      category: 'Behavior',
     },
   },
   visible_items: {
@@ -103,6 +127,7 @@ const getArgTypes = () => ({
     table: {
       type: { summary: 'integer' },
       defaultValue: { summary: '8' },
+      category: 'Display',
     },
     if: { arg: 'expandable' },
   },
