@@ -297,7 +297,17 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Site-wide/Site header',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (storyFn) => {
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'scroll';
+
+      return storyFn();
+    },
+  ],
   parameters: { layout: 'fullscreen' },
 };
 
