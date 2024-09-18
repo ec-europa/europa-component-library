@@ -136,10 +136,6 @@ $file: null !default;
   margin-top: map.get($file, 'file-action-spacing-mobile');
 }
 
-.ecl-file__download:not(:only-child) {
-  margin-inline-start: map.get($file, 'file-action-separator');
-}
-
 .ecl-file__translation-language {
   color: map.get($file, 'file-description-color');
   font: var(--f-s);
@@ -223,10 +219,6 @@ $file: null !default;
 
 .ecl-file__translation-download {
   font: var(--f-m);
-
-  &:not(:only-child) {
-    margin-inline-start: map.get($file, 'file-action-separator');
-  }
 }
 
 .ecl-file__translation-description {

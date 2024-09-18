@@ -218,6 +218,7 @@ const prepareData = (data, args) => {
   }
 
   if (args.show_preview) {
+    clone.download.extra_attributes = [{ name: 'data-wt-preview' }];
     // Add preview placeholder
     setTimeout(() => {
       const downloadAction = Array.prototype.slice.call(
@@ -236,6 +237,7 @@ const prepareData = (data, args) => {
           previewLink.innerHTML = 'Preview (placeholder)';
           previewLink.setAttribute('href', '#');
           previewLink.classList.add('ecl-link', 'ecl-link--standalone');
+          previewLink.style.marginInlineEnd = '24px';
           actions[i].prepend(previewLink);
         }
       }
