@@ -7,6 +7,19 @@ addons.register(ADDON_ID, () => {
   addons.add(PANEL_ID, {
     type: types.PANEL,
     title: 'HTML',
-    render: (props) => <HTMLMarkup channel={addons.getChannel()} {...props} />,
+    render: ({ active }) => {
+      const channel = addons.getChannel();
+      const iframe = document.querySelector('#storybook-preview-iframe');
+      const rootDiv = iframe.contentDocument.querySelector('#storybook-root');
+      const storyMarkup = rootDiv ? rootDiv.innerHTML : '';
+
+      return (
+        <HTMLMarkup
+          active={active}
+          channel={channel}
+          markup={storyMarkup} // Pass the story markup
+        />
+      );
+    },
   });
 });
