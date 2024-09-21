@@ -91,11 +91,9 @@
     }
   };
 
-  setTimeout(() => {
-    const doc = window.parent.document;
-    const open = doc.querySelector('[title="Open addon panel"]');
-    if (open) {
-      open.click();
-    }
-  }, 0);
+  const doc = window.parent.document;
+  const open = doc.querySelector('[title="Open addon panel"]');
+  if (open) {
+    open.click();
+  }
 </script>
