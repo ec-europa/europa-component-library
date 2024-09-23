@@ -1,7 +1,7 @@
 <!-- Site header -->
 {% include '@ecl/site-header/site-header.html.twig' with site_header %}
 
-<main>
+<main class="ecl-u-bg-background ecl-u-pb-3xl">
   <div class="ecl-container">
     <!-- Page header -->
     {% include '@ecl/page-header/page-header.html.twig' with page_header %}
@@ -51,6 +51,4 @@
 </main>
 
 <!-- Footer -->
-{% include '@ecl/site-footer/site-footer.html.twig' with site_footer|merge({
-  extra_classes: 'ecl-u-mt-2xl',
-}) %}
+{% include '@ecl/site-footer/site-footer.html.twig' with site_footer %}
