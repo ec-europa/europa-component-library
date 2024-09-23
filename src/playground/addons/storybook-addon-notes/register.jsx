@@ -69,7 +69,10 @@ Notes.propTypes = {
     emit: PropTypes.func,
     removeListener: PropTypes.func,
     data: PropTypes.shape({
-      'ecl/notes/add_notes': PropTypes.string,
+      'ecl/notes/add_notes': PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+      ]),
     }),
   }).isRequired,
   api: PropTypes.shape({
