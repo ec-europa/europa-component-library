@@ -34,7 +34,49 @@ const prepareData = (data) => {
 
 export default {
   title: 'Page examples/Home',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (story) => {
+      function createLink(href, media) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = href;
+        link.media = media || 'all';
+        return link;
+      }
+      const head = document.head || document.getElementsByTagName('head')[0];
+      head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
+      if (getSystem() === 'eu') {
+        head.appendChild(
+          createLink('./styles/optional/ecl-eu-default.css', 'screen'),
+        );
+        head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
+        head.appendChild(
+          createLink('./styles/optional/ecl-eu-utilities.css', 'screen'),
+        );
+        head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
+        head.appendChild(
+          createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
+        );
+      } else {
+        head.appendChild(
+          createLink('./styles/optional/ecl-ec-default.css', 'screen'),
+        );
+        head.appendChild(createLink('./styles/ecl-ec.css', 'screen'));
+        head.appendChild(
+          createLink('./styles/optional/ecl-ec-utilities.css', 'screen'),
+        );
+        head.appendChild(createLink('./styles/ecl-ec-print.css', 'print'));
+        head.appendChild(
+          createLink('./styles/optional/ecl-ec-default-print.css', 'print'),
+        );
+      }
+
+      return story();
+    },
+  ],
   parameters: {
     controls: { disable: true },
     EclNotes: { disable: true },
@@ -50,3 +92,4 @@ Default.render = async () => {
 };
 Default.storyName = 'default';
 Default.parameters = { notes: { markdown: notes } };
+Default.tags = ['!dev'];
