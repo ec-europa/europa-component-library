@@ -53,7 +53,7 @@ const getArgTypes = () => ({
       max: 4,
     },
     description:
-      'Number of columns, for grid display; only used in the first grod template',
+      'Number of columns, for grid display; only used in the first grid template',
     table: {
       type: { summary: 'integer' },
       defaultValue: { summary: '3' },
