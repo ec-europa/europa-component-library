@@ -40,7 +40,7 @@ module.exports = {
       },
       sr_video_audio:
         'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
-      title: '2',
+      title: 'New digital strategy',
       description:
         'Digital technologies have greatly changed our daily life. Therefore, Europe wants to make sure, that the digital transformation works for all its citizens. [Embedded video (Youtube) with a thumbnail]',
       meta: 'Copyright, Author, Licence for embedded media',
@@ -105,7 +105,7 @@ module.exports = {
       embedded_video: {
         src: 'https://www.dailymotion.com/embed/video/x8m9tp1?',
       },
-      title: '5',
+      title: 'Taxes and business',
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses. [Embedded video (Dailymotion) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 4',
@@ -143,7 +143,7 @@ module.exports = {
       },
       sr_video_audio:
         'In the video below, there is no audiodescription available because all the content is in the captions and default audio track',
-      title: '7',
+      title: 'Lorem ipsum',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus a diam dignissim, suscipit augue in, fermentum nibh. Donec vestibulum justo cursus quam luctus, quis maximus nisi feugiat. Nullam lobortis tellus libero, vitae lobortis nisl suscipit ac. [Embedded video (Vimeo) with thumbnail]',
       meta: 'Copyright, Author, Licence for image 6',
