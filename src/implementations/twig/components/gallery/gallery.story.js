@@ -52,13 +52,14 @@ const getArgTypes = () => ({
       min: 2,
       max: 4,
     },
-    description: 'Number of columns, for grid display',
+    description:
+      'Number of columns, for grid display; only used in the first grod template',
     table: {
       type: { summary: 'integer' },
       defaultValue: { summary: '3' },
       category: 'Display',
     },
-    if: { arg: 'grid_template', eq: 0 },
+    if: { arg: 'grid' },
   },
   ratio: {
     name: 'Image ratio',
