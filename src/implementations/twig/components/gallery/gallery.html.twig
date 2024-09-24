@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "grid" (boolean) (default: false) Display gallery as a grid
+  - "grid_template" (int) (default: 0) Id of the template to be used. Grid display only
   - "column" (int) (default: 3) Number of columns. Grid display only
   - "ratio" (string) (default: '3-2') Image aspect ratio. Grid display only
   - "picture_zoom" (bool) (default: false): Should the thumbnail pictures be animated?
@@ -48,6 +49,7 @@
 {# variables #}
 
 {% set _grid = grid|default(false) %}
+{% set _grid_template = grid_template|default(0) %}
 {% set _column = column|default(3) %}
 {% set _ratio = ratio|default('3-2') %}
 {% set _picture_zoom = picture_zoom|default(false) %}
@@ -82,7 +84,11 @@
 {% if _grid %}
   {% set _css_class = _css_class ~ ' ecl-gallery--grid' %}
 
-  {% if _column is not empty %}
+  {% if _grid_template is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-gallery--template-' ~ _grid_template %}
+  {% endif %}
+
+  {% if _column is not empty and _grid_template == 0 %}
     {% set _css_class = _css_class ~ ' ecl-gallery--col-' ~ _column %}
   {% endif %}
 
