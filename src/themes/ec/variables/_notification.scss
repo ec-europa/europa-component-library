@@ -16,6 +16,8 @@ $notification: (
   title-font-weight: map.get($font-weight, 'regular'),
   title-spacing: 0,
   close-color: var(--c-d),
+  close-offset-top-mobile: calc(var(--s-m) - var(--s-xl)),
+  close-offset-end-mobile: calc(var(--s-m) - var(--s-xl)),
   close-offset-top: calc(var(--s-m) - var(--s-xl)),
   close-offset-end: calc(var(--s-m) - var(--s-xl)),
   info: (
