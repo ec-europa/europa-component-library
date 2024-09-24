@@ -264,8 +264,30 @@ module.exports = {
       name: 'information',
       size: 'l',
     },
-    title: 'Information notification',
+    close: {
+      label: 'Close',
+      icon: {
+        path: '/icons.svg',
+        name: 'close',
+        size: 'm',
+      },
+      hide_label: true,
+    },
+    links: [
+      {
+        link: {
+          label: 'Lorem ipsum',
+          path: '/example',
+        },
+      },
+      {
+        link: {
+          label: 'Nullam accumsan semper lorem',
+          path: '/example',
+        },
+      },
+    ],
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.',
   },
 };

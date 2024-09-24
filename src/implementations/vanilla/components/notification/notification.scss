@@ -130,6 +130,11 @@ $notification: null !default;
     width: map.get($notification, 'warning', 'icon-background-width');
     top: map.get($notification, 'warning', 'icon-background-top-mobile');
     z-index: 1;
+
+    &:dir(rtl) {
+      left: auto;
+      right: map.get($notification, 'warning', 'icon-background-left-mobile');
+    }
   }
 }
 
@@ -137,6 +142,11 @@ $notification: null !default;
   .ecl-notification--warning .ecl-notification__icon-background {
     left: map.get($notification, 'warning', 'icon-background-left');
     top: map.get($notification, 'warning', 'icon-background-top');
+
+    &:dir(rtl) {
+      left: auto;
+      right: map.get($notification, 'warning', 'icon-background-left');
+    }
   }
 }
 
