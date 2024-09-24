@@ -10,7 +10,6 @@ $theme: null !default;
 $page-header: null !default;
 
 .ecl-page-header {
-  background-color: map.get($theme, 'color', 'white');
   margin: 0;
 }
 
@@ -20,7 +19,7 @@ $page-header: null !default;
 }
 
 .ecl-page-header__breadcrumb {
-  margin-top: var(--s-xs);
+  padding-top: var(--s-xs);
 
   + .ecl-page-header__info {
     margin-top: var(--s-l);
