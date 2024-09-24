@@ -17,7 +17,7 @@ module.exports = {
       },
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
           alt: 'Image 1',
         },
       },
@@ -207,6 +207,58 @@ module.exports = {
       title: 'EU by topic',
       description: 'EU by topic. [Image without thumbnail]',
       meta: 'Copyright, Author, Licence for image 10',
+      share_path: '/share#example-image10.jpg',
+    },
+    {
+      // Image
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+          alt: 'Lorem ipsum',
+        },
+      },
+      title: '12',
+      description: 'Lorem ipsum',
+      meta: 'Copyright, Author, Licence for Lorem ipsum',
+      share_path: '/share#example-image10.jpg',
+    },
+    {
+      // Image
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+          alt: 'Lorem ipsum',
+        },
+      },
+      title: '13',
+      description: 'Lorem ipsum',
+      meta: 'Copyright, Author, Licence for Lorem ipsum',
+      share_path: '/share#example-image10.jpg',
+    },
+    {
+      // Image
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+          alt: 'Lorem ipsum',
+        },
+      },
+      title: '14',
+      description: 'Lorem ipsum',
+      meta: 'Copyright, Author, Licence for Lorem ipsum',
+      share_path: '/share#example-image10.jpg',
+    },
+    {
+      // Image
+      picture: {
+        img: {
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image10.jpg',
+          alt: 'Lorem ipsum',
+        },
+      },
+      title: '15',
+      description: 'Lorem ipsum',
+      meta: 'Copyright, Author, Licence for Lorem ipsum',
       share_path: '/share#example-image10.jpg',
     },
   ],
