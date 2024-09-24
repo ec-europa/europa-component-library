@@ -46,6 +46,7 @@ const buildStyles = (entry, dest, options) => {
   const sassResult = sass.renderSync({
     file: entry,
     outFile: dest,
+    silenceDeprecations: ['legacy-js-api'],
     functions: {
       'getsystem()': () => new sass.types.String(getSystem() || ''),
     },
