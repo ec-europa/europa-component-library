@@ -196,7 +196,10 @@ $table: null !default;
         flex-grow: 0;
         flex-shrink: 0;
         font-weight: map.get($theme, 'font-weight', 'bold');
-        margin: map.get($table, 'cell-margin-mobile');
+        margin-bottom: map.get($table, 'cell-margin-mobile', 'bottom');
+        margin-inline-end: map.get($table, 'cell-margin-mobile', 'end');
+        margin-inline-start: map.get($table, 'cell-margin-mobile', 'start');
+        margin-top: map.get($table, 'cell-margin-mobile', 'top');
         padding: map.get($table, 'cell-padding-mobile');
       }
 
