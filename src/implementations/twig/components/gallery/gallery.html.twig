@@ -86,7 +86,7 @@
     {% set _css_class = _css_class ~ ' ecl-gallery--template-' ~ _grid_template %}
   {% endif %}
 
-  {% if _column is not empty %}
+  {% if _column is not empty and _grid_template == 0 %}
     {% set _css_class = _css_class ~ ' ecl-gallery--col-' ~ _column %}
   {% endif %}
 

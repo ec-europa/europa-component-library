@@ -11,13 +11,13 @@ module.exports = {
       // Image with thumbnail
       thumbnail: {
         img: {
-          src: 'https://commission.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/avportal/P-035170/00-08.jpg?',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
           alt: 'Image 1',
         },
       },
       picture: {
         img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image11.jpg',
+          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
           alt: 'Image 1',
         },
       },

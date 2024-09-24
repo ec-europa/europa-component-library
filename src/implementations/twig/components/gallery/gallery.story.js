@@ -8,7 +8,7 @@ import notes from './README.md';
 
 const getArgs = () => ({
   grid: false,
-  grid_template: 0,
+  grid_template: 1,
   column: 3,
   ratio: '3-2',
   expandable: true,
@@ -59,7 +59,7 @@ const getArgTypes = () => ({
       defaultValue: { summary: '3' },
       category: 'Display',
     },
-    if: { arg: 'grid' },
+    if: { arg: 'grid_template', eq: 0 },
   },
   ratio: {
     name: 'Image ratio',
