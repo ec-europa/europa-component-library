@@ -8,6 +8,7 @@ global.Buffer = Buffer;
 import './ECL';
 
 export const parameters = {
+  disableSaveFromUI: true,
   a11y: {
     element: '#storybook-root',
     config: {},
