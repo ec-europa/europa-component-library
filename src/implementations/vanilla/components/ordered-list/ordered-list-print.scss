@@ -24,7 +24,6 @@ $list: null !default;
   max-width: var(--max-w);
 
   .ecl-link {
-    display: inline-block;
     padding-top: map.get($theme, 'spacing-print', 's');
   }
 }
@@ -44,6 +43,13 @@ $list: null !default;
   }
 }
 
+.ecl-ordered-list .ecl-ordered-list,
+%ecl-ordered-list--nested {
+  list-style-type: map.get($list, 'ordered', 'sublist-marker');
+  margin-top: map.get($theme, 'spacing-print', 's');
+  padding-inline-start: map.get($theme, 'spacing-print', 'l');
+}
+
 .ecl-ordered-list--no-marker,
 .ecl-ordered-list--divider {
   list-style-type: none;
@@ -52,11 +58,4 @@ $list: null !default;
   .ecl-ordered-list {
     list-style-type: none;
   }
-}
-
-.ecl-ordered-list .ecl-ordered-list,
-%ecl-ordered-list--nested {
-  list-style-type: map.get($list, 'ordered', 'sublist-marker');
-  margin-top: map.get($theme, 'spacing-print', 's');
-  padding-inline-start: map.get($theme, 'spacing-print', 'l');
 }
