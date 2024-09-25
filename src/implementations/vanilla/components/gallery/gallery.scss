@@ -60,7 +60,9 @@ $_description-height-desktop: 108px;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
+  pointer-events: none;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .ecl-gallery__item-icon {
@@ -73,6 +75,7 @@ $_description-height-desktop: 108px;
   position: relative;
   flex-grow: 1;
   margin: 0;
+  overflow: hidden;
 }
 
 .ecl-gallery__item-link:focus-visible {
@@ -123,20 +126,21 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
+  bottom: 0;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
+  display: none;
   font: var(--f-s);
-  padding: var(--s-2xs) var(--s-xs);
-  text-decoration: none;
-  white-space: nowrap;
+  left: 0;
   overflow: hidden;
+  padding: var(--s-2xs) var(--s-xs);
+  pointer-events: none;
+  position: absolute;
+  text-decoration: none;
   text-overflow: ellipsis;
   vertical-align: text-bottom;
+  white-space: nowrap;
   width: calc(100% - (var(--s-xs) * 2));
-  bottom: 0;
-  display: none;
-  left: 0;
-  position: absolute;
 }
 
 .ecl-gallery:not(.ecl-gallery--no-hover) {
@@ -553,23 +557,131 @@ $_description-height-desktop: 108px;
   .ecl-gallery--grid {
     .ecl-gallery__list {
       grid-template-columns: repeat(3, 1fr);
+      margin-top: 0;
     }
 
-    &.ecl-gallery--col-2 {
+    &.ecl-gallery--template-1 {
       .ecl-gallery__list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(12, 1fr);
+
+        .ecl-gallery__item:nth-child(9n + 1),
+        .ecl-gallery__item:nth-child(9n + 2) {
+          grid-area: span 6 / span 6;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 3),
+        .ecl-gallery__item:nth-child(9n + 4),
+        .ecl-gallery__item:nth-child(9n + 5) {
+          grid-area: span 4 / span 4;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 6),
+        .ecl-gallery__item:nth-child(9n + 7),
+        .ecl-gallery__item:nth-child(9n + 8),
+        .ecl-gallery__item:nth-child(9n + 9) {
+          grid-area: span 3 / span 3;
+        }
       }
     }
 
-    &.ecl-gallery--col-4 {
+    &.ecl-gallery--template-2 {
+      .ecl-gallery__list {
+        grid-auto-flow: dense;
+        grid-auto-columns: 1fr;
+
+        .ecl-gallery__item:nth-child(10n + 1),
+        .ecl-gallery__item:nth-child(10n + 10) {
+          aspect-ratio: auto;
+          grid-area: span 2 / span 2;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+        }
+
+        .ecl-gallery__item:nth-child(10n + 2) {
+          grid-column: 3;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 3) {
+          grid-column: 4;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 8) {
+          grid-column: 1;
+        }
+
+        .ecl-gallery__item:nth-child(10n + 9) {
+          grid-column: 2;
+        }
+      }
+    }
+
+    &.ecl-gallery--template-3 {
+      .ecl-gallery__list {
+        grid-auto-flow: dense;
+        grid-auto-columns: 1fr;
+
+        .ecl-gallery__item:nth-child(9n + 2) {
+          grid-column: 1;
+        }
+
+        .ecl-gallery__item:nth-child(9n + 3) {
+          aspect-ratio: auto;
+          grid-area: span 2 / span 2;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+        }
+
+        .ecl-gallery__item:nth-child(9n + 5) {
+          grid-column: 4;
+        }
+      }
+    }
+
+    &.ecl-gallery--template-4 {
       .ecl-gallery__list {
         grid-template-columns: repeat(4, 1fr);
+
+        .ecl-gallery__item:nth-child(8n + 1) {
+          aspect-ratio: auto;
+          grid-area: span 3 / span 3;
+          height: 100%;
+
+          .ecl-gallery__image-container {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    &.ecl-gallery--template-0 {
+      &.ecl-gallery--col-2 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      &.ecl-gallery--col-3 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      &.ecl-gallery--col-4 {
+        .ecl-gallery__list {
+          grid-template-columns: repeat(4, 1fr);
+        }
       }
     }
   }
 }
 
-// DEPERCATED
+// DEPRECATED
 .ecl-gallery__video-title {
   @include screen-reader.sr-only;
 

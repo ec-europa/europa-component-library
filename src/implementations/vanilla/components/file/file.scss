@@ -11,6 +11,7 @@ $theme: null !default;
 $file: null !default;
 
 .ecl-file {
+  background-color: map.get($file, 'container-background');
   border: map.get($file, 'container-border');
   border-radius: map.get($file, 'border-radius');
   box-shadow: map.get($file, 'shadow');
@@ -21,7 +22,6 @@ $file: null !default;
 
 .ecl-file__container {
   align-items: flex-start;
-  background-color: map.get($file, 'container-background');
   display: flex;
   flex-wrap: nowrap;
   padding: map.get($file, 'container-spacing');
@@ -52,7 +52,6 @@ $file: null !default;
 }
 
 .ecl-file__footer {
-  background-color: map.get($file, 'container-background');
   border-top: map.get($file, 'file-footer-border');
   display: flex;
   flex-direction: column;
