@@ -134,3 +134,36 @@ exports[`Picture Default renders correctly with extra class names 1`] = `
   </picture>
 </jest>
 `;
+
+exports[`Picture Default renders correctly with zoom 1`] = `
+<jest>
+  <picture
+    class="ecl-picture ecl-picture--zoom"
+  >
+    <source
+      media="(min-width: 90rem)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg"
+    />
+    <source
+      media="(min-width: 1140px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg"
+    />
+    <source
+      media="(min-width: 996px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg"
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg"
+    />
+    <source
+      media="(min-width: 480px)"
+      srcset="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+    />
+    <img
+      alt="Image alternative text"
+      src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+    />
+  </picture>
+</jest>
+`;
