@@ -44,10 +44,9 @@ module.exports = {
     },
     items: [
       {
-        title: 'Title bg',
+        title: 'български',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
-        lang_full: 'български',
         download: {
           link: {
             label: 'Download',
@@ -59,10 +58,9 @@ module.exports = {
         },
       },
       {
-        title: 'Title es',
+        title: 'español',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
-        lang_full: 'español',
         download: {
           link: {
             label: 'Download',
@@ -74,10 +72,9 @@ module.exports = {
         },
       },
       {
-        title: 'Title fr',
+        title: 'français',
         meta: '(15.4 MB - PDF)',
         lang: 'fr',
-        lang_full: 'français',
         download: {
           link: {
             label: 'Download',
