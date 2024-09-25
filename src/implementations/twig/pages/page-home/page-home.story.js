@@ -13,11 +13,12 @@ import dataHome from '@ecl/specs-page-home/demo/data';
 import home from './page-home.html.twig';
 import notes from './README.md';
 
+const system = getSystem();
 const prepareData = (data) => {
   correctPaths(data);
 
   // Logo path; to be done after correctPaths
-  if (getSystem() === 'eu') {
+  if (system === 'eu') {
     data.site_header.logo.src_desktop = logoEU;
     data.site_header.logo.src_mobile = logoMobileEU;
     data.site_header.logo.size = 'm';
@@ -48,31 +49,20 @@ export default {
       }
       const head = document.head || document.getElementsByTagName('head')[0];
       head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
-      if (getSystem() === 'eu') {
-        head.appendChild(
-          createLink('./styles/optional/ecl-eu-default.css', 'screen'),
-        );
-        head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
-        head.appendChild(
-          createLink('./styles/optional/ecl-eu-utilities.css', 'screen'),
-        );
-        head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
-        head.appendChild(
-          createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
-        );
-      } else {
-        head.appendChild(
-          createLink('./styles/optional/ecl-ec-default.css', 'screen'),
-        );
-        head.appendChild(createLink('./styles/ecl-ec.css', 'screen'));
-        head.appendChild(
-          createLink('./styles/optional/ecl-ec-utilities.css', 'screen'),
-        );
-        head.appendChild(createLink('./styles/ecl-ec-print.css', 'print'));
-        head.appendChild(
-          createLink('./styles/optional/ecl-ec-default-print.css', 'print'),
-        );
-      }
+      head.appendChild(
+        createLink(`./styles/optional/ecl-${system}-default.css`, 'screen'),
+      );
+      head.appendChild(createLink(`./styles/ecl-${system}.css`, 'screen'));
+      head.appendChild(
+        createLink(`./styles/optional/ecl-${system}-utilities.css`, 'screen'),
+      );
+      head.appendChild(createLink(`./styles/ecl-${system}-print.css`, 'print'));
+      head.appendChild(
+        createLink(
+          `./styles/optional/ecl-${system}-default-print.css`,
+          'print',
+        ),
+      );
 
       return story();
     },
