@@ -16,6 +16,7 @@
         },
         ...
       ]
+    - "picture_zoom" (bool) (default: false): Should the picture be animated?
     - "date" (associative array) (default: {}): Predefined structure compatible with ECL Date block component
     - "labels" (array) (default: []): Array of ECL Labels
     - "labels_aria" (strings) (default: ''): Aria label for the labels area
@@ -51,6 +52,7 @@
   },
   sources: [],
 }) %}
+{% set _picture_zoom = picture_zoom|default(false) %}
 {% set _date = date|default({}) %}
 {% set _labels = labels|default([]) %}
 {% set _labels_aria = labels_aria|default('') %}
@@ -98,28 +100,26 @@
   {{ _extra_attributes|raw }}
 >
   {% if _picture is not empty and _picture.img is not empty and _picture.img.src is not empty %}
-    {% set _picture_class = 'ecl-content-item__picture ecl-picture' %}
+    {% set _picture_extra_attrs = _picture.extra_attributes|default([]) %}
+    {% set _picture_extra_classes = 'ecl-content-item__picture' %}
+    {% if _title.link is defined %}
+      {% set _picture_extra_attrs = _picture_extra_attrs|merge([{ name: 'data-ecl-picture-link' }]) %}
+    {% endif %}
     {% if _picture.size is not empty %}
-      {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.size %}
+      {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.size %}
     {% endif %}
     {% if _picture.position is not empty %}
-      {% set _picture_class = _picture_class ~ ' ecl-content-item__picture--' ~ _picture.position %}
+      {% set _picture_extra_classes = _picture_extra_classes ~ ' ecl-content-item__picture--' ~ _picture.position %}
     {% endif %}
-    {% if _title.link is defined %}
-      {% set _picture_attrs = 'data-ecl-picture-link' %}
-    {% endif %}
-    <picture
-      class="{{ _picture_class }}"
-      {{- _picture_attrs -}}
-    >
-      {% if _picture.sources is not empty and _picture.sources is iterable %}
-        {% for _source in _picture.sources %}
-          <source srcset="{{ _source.src }}" media="{{ _source.media|default('') }}" type="{{ _source.type|default('') }}">
-        {% endfor %}
-      {% endif %}
-      <img class="ecl-content-item__image" src="{{ _picture.img.src }}" alt="{{ _picture.img.alt|default('') }}">
-    </picture>
+    {% include '@ecl/picture/picture.html.twig' with {
+      picture: _picture,
+      zoom: _picture_zoom,
+      extra_classes: _picture_extra_classes,
+      extra_image_classes: "ecl-content-item__image",
+      extra_attributes: _picture_extra_attrs,
+    } only %}
   {% endif %}
+  
   {% if _date is not empty %}
     {% include '@ecl/date-block/date-block.html.twig' with _date|merge({
       extra_classes: 'ecl-content-item__date'

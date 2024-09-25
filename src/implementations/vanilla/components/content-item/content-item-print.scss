@@ -48,7 +48,7 @@ $content-item: null !default;
 
 .ecl-content-item__image {
   border: 1px solid map.get($content-item, 'image-border-color');
-  width: 100%;
+  width: calc(100% - 2px);
 }
 
 .ecl-content-item__picture--right {

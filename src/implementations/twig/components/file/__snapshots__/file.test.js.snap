@@ -78,28 +78,32 @@ exports[`File Thumbnail renders correctly 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-with-thumbnail-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-with-thumbnail-link-label"
+        <a
+          aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-with-thumbnail-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-thumbnail-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -146,7 +150,7 @@ exports[`File Thumbnail renders correctly 1`] = `
               id="ecl-file-with-thumbnail-translation-0-lang"
               lang="bg"
             >
-              Title bg
+              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -154,30 +158,33 @@ exports[`File Thumbnail renders correctly 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-with-thumbnail-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-thumbnail-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -190,7 +197,7 @@ exports[`File Thumbnail renders correctly 1`] = `
               id="ecl-file-with-thumbnail-translation-1-lang"
               lang="es"
             >
-              Title es
+              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -198,30 +205,33 @@ exports[`File Thumbnail renders correctly 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-with-thumbnail-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-thumbnail-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -234,7 +244,7 @@ exports[`File Thumbnail renders correctly 1`] = `
               id="ecl-file-with-thumbnail-translation-2-lang"
               lang="fr"
             >
-              Title fr
+              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -242,30 +252,33 @@ exports[`File Thumbnail renders correctly 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-with-thumbnail-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-thumbnail-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -402,28 +415,32 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-taxonomy-link-label ecl-file-taxonomy-title ecl-file-taxonomy-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-taxonomy-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-taxonomy-link-label"
+        <a
+          aria-labelledby="ecl-file-taxonomy-link-label ecl-file-taxonomy-title ecl-file-taxonomy-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-taxonomy-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-taxonomy-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -470,7 +487,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               id="ecl-file-taxonomy-translation-0-lang"
               lang="bg"
             >
-              Title bg
+              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -478,30 +495,33 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-taxonomy-translation-0-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-taxonomy-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-taxonomy-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-taxonomy-translation-0-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-taxonomy-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-taxonomy-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -514,7 +534,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               id="ecl-file-taxonomy-translation-1-lang"
               lang="es"
             >
-              Title es
+              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -522,30 +542,33 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-taxonomy-translation-1-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-taxonomy-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-taxonomy-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-taxonomy-translation-1-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-taxonomy-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-taxonomy-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -558,7 +581,7 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               id="ecl-file-taxonomy-translation-2-lang"
               lang="fr"
             >
-              Title fr
+              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -566,30 +589,33 @@ exports[`File Thumbnail renders correctly with taxonomies 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-taxonomy-translation-2-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-taxonomy-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-taxonomy-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-taxonomy-translation-2-link-label ecl-file-taxonomy-title ecl-file-taxonomy-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-taxonomy-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-taxonomy-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -666,28 +692,32 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-with-thumbnail-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-with-thumbnail-link-label"
+        <a
+          aria-labelledby="ecl-file-with-thumbnail-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-with-thumbnail-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-thumbnail-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -734,7 +764,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               id="ecl-file-with-thumbnail-translation-0-lang"
               lang="bg"
             >
-              Title bg
+              български
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -742,30 +772,33 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-with-thumbnail-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-0-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-thumbnail-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -778,7 +811,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               id="ecl-file-with-thumbnail-translation-1-lang"
               lang="es"
             >
-              Title es
+              español
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -786,30 +819,33 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-with-thumbnail-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-1-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-thumbnail-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -822,7 +858,7 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               id="ecl-file-with-thumbnail-translation-2-lang"
               lang="fr"
             >
-              Title fr
+              français
             </div>
             <div
               class="ecl-file__translation-meta"
@@ -830,30 +866,33 @@ exports[`File Thumbnail renders correctly without an image 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-with-thumbnail-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-thumbnail-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-with-thumbnail-translation-2-link-label ecl-file-with-thumbnail-title ecl-file-with-thumbnail-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-thumbnail-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-thumbnail-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -906,28 +945,32 @@ exports[`File With translation renders correctly 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-with-translation-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-with-translation-link-label"
+        <a
+          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-with-translation-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-translation-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -982,30 +1025,33 @@ exports[`File With translation renders correctly 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-with-translation-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-translation-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1026,30 +1072,34 @@ exports[`File With translation renders correctly 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-with-translation-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-translation-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1070,30 +1120,290 @@ exports[`File With translation renders correctly 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-with-translation-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-translation-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`File With translation renders correctly with download attribute 1`] = `
+<jest>
+  <div
+    class="ecl-file"
+    data-ecl-auto-init="FileDownload"
+    data-ecl-file=""
+    id="ecl-file-with-translation"
+  >
+    <div
+      class="ecl-file__container"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--2xl ecl-file__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="/icons.svg#file"
+        />
+      </svg>
+      <div
+        class="ecl-file__info"
+      >
+        <div
+          class="ecl-file__title"
+          id="ecl-file-with-translation-title"
+        >
+          State of the Union 2018 brochure
+        </div>
+      </div>
+    </div>
+    <div
+      class="ecl-file__footer"
+    >
+      <div
+        class="ecl-file__language"
+        id="ecl-file-with-translation-lang"
+      >
+        English
+      </div>
+      <div
+        class="ecl-file__meta"
+      >
+        (16.2 MB - PDF)
+      </div>
+      <div
+        class="ecl-file__action"
+      >
+        <a
+          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          download=""
+          href="/example"
+          id="ecl-file-with-translation-link"
+        >
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-translation-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div
+      class="ecl-file__translation-container"
+      data-ecl-file-translation-container=""
+    >
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--ghost ecl-file__translation-toggle"
+        data-ecl-file-translation-toggle=""
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Translations (3)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <ul
+        class="ecl-file__translation-list"
+      >
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-0-lang"
+              lang="bg"
             >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              български
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.7 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-translation-translation-0-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-1-lang"
+              lang="es"
+            >
+              español
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.8 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-translation-translation-1-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
+        </li>
+        <li
+          class="ecl-file__translation-item"
+        >
+          <div
+            class="ecl-file__translation-info"
+          >
+            <div
+              class="ecl-file__translation-title"
+              id="ecl-file-with-translation-translation-2-lang"
+              lang="fr"
+            >
+              français
+            </div>
+            <div
+              class="ecl-file__translation-meta"
+            >
+              (15.4 MB - PDF)
+            </div>
+          </div>
+          <div
+            class="ecl-file__translation-action"
+          >
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-translation-translation-2-link"
+            >
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1148,28 +1458,32 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-with-translation-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-with-translation-link-label"
+        <a
+          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-with-translation-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-translation-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -1224,30 +1538,33 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-with-translation-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-translation-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1268,30 +1585,34 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-with-translation-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-translation-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1312,30 +1633,33 @@ exports[`File With translation renders correctly with extra attributes 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-with-translation-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-translation-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1388,28 +1712,32 @@ exports[`File With translation renders correctly with extra class names 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-with-translation-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-with-translation-link-label"
+        <a
+          aria-labelledby="ecl-file-with-translation-link-label ecl-file-with-translation-title ecl-file-with-translation-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-with-translation-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-with-translation-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
     <div
       class="ecl-file__translation-container"
@@ -1464,30 +1792,33 @@ exports[`File With translation renders correctly with extra class names 1`] = `
               (15.7 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#bg"
-            hreflang="bg"
-            id="ecl-file-with-translation-translation-0-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-0-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-0-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-0-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#bg"
+              hreflang="bg"
+              id="ecl-file-with-translation-translation-0-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-0-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1508,30 +1839,34 @@ exports[`File With translation renders correctly with extra class names 1`] = `
               (15.8 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#es"
-            hreflang="es"
-            id="ecl-file-with-translation-translation-1-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-1-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-1-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-1-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              download=""
+              href="/example#es"
+              hreflang="es"
+              id="ecl-file-with-translation-translation-1-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-1-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
         <li
           class="ecl-file__translation-item"
@@ -1552,30 +1887,33 @@ exports[`File With translation renders correctly with extra class names 1`] = `
               (15.4 MB - PDF)
             </div>
           </div>
-          <a
-            aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
-            class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
-            download=""
-            href="/example#fr"
-            hreflang="fr"
-            id="ecl-file-with-translation-translation-2-link"
+          <div
+            class="ecl-file__translation-action"
           >
-            <span
-              class="ecl-link__label"
-              id="ecl-file-with-translation-translation-2-link-label"
+            <a
+              aria-labelledby="ecl-file-with-translation-translation-2-link-label ecl-file-with-translation-title ecl-file-with-translation-translation-2-lang"
+              class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__translation-download"
+              href="/example#fr"
+              hreflang="fr"
+              id="ecl-file-with-translation-translation-2-link"
             >
-              Download
-            </span>
-            <svg
-              aria-hidden="true"
-              class="ecl-icon ecl-icon--fluid ecl-link__icon"
-              focusable="false"
-            >
-              <use
-                xlink:href="/icons.svg#download"
-              />
-            </svg>
-          </a>
+              <span
+                class="ecl-link__label"
+                id="ecl-file-with-translation-translation-2-link-label"
+              >
+                Download
+              </span>
+              <svg
+                aria-hidden="true"
+                class="ecl-icon ecl-icon--fluid ecl-link__icon"
+                focusable="false"
+              >
+                <use
+                  xlink:href="/icons.svg#download"
+                />
+              </svg>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1641,28 +1979,32 @@ exports[`File Without translation renders correctly 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-without-translations-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-without-translations-link-label"
+        <a
+          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-without-translations-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-without-translations-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </jest>
@@ -1735,28 +2077,32 @@ exports[`File Without translation renders correctly with a single label 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-without-translations-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-without-translations-link-label"
+        <a
+          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-without-translations-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-without-translations-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </jest>
@@ -1822,28 +2168,32 @@ exports[`File Without translation renders correctly with extra attributes 1`] = 
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-without-translations-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-without-translations-link-label"
+        <a
+          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-without-translations-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-without-translations-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </jest>
@@ -1907,28 +2257,32 @@ exports[`File Without translation renders correctly with extra class names 1`] =
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-without-translations-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-without-translations-link-label"
+        <a
+          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-without-translations-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-without-translations-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </jest>
@@ -2010,28 +2364,32 @@ exports[`File Without translation renders correctly with multiple labels 1`] = `
       >
         (16.2 MB - PDF)
       </div>
-      <a
-        aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
-        href="/example"
-        id="ecl-file-without-translations-link"
+      <div
+        class="ecl-file__action"
       >
-        <span
-          class="ecl-link__label"
-          id="ecl-file-without-translations-link-label"
+        <a
+          aria-labelledby="ecl-file-without-translations-link-label ecl-file-without-translations-title ecl-file-without-translations-lang"
+          class="ecl-link ecl-link--standalone ecl-link--icon ecl-file__download"
+          href="/example"
+          id="ecl-file-without-translations-link"
         >
-          Download
-        </span>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--fluid ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#download"
-          />
-        </svg>
-      </a>
+          <span
+            class="ecl-link__label"
+            id="ecl-file-without-translations-link-label"
+          >
+            Download
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-link__icon"
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#download"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </jest>

@@ -51,7 +51,7 @@ $content-item: null !default;
 .ecl-content-item__image {
   border: 1px solid map.get($content-item, 'image-border-color');
   display: block;
-  width: 100%;
+  width: calc(100% - 2px);
 }
 
 @include breakpoints.up('m') {
