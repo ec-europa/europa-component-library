@@ -144,10 +144,13 @@ export const Default = () => `
                     <p>Easy to read is a way<br> to make information easy for everyone<br> to read and understand.</p>
                     <div class="ecl-media-container" data-ecl-media-container="true" data-ecl-auto-init="MediaContainer">
                       <figure class="ecl-media-container__figure">
-                        <picture class="ecl-picture ecl-media-container__picture">
-                          <img class="ecl-media-container__media" src="https://www.inclusion-europe.eu/wp-content/uploads/2019/03/Easy-to-read-logo-150x150.jpg">
+                        <div class="ecl-media-container__media">
+                          <img 
+                            loading="eager"
+                            class="ecl-u-max-width-100 ecl-u-height-auto ecl-media-container__media--ratio-custom"
+                            src="https://european-union.europa.eu/sites/default/files/styles/embed_medium/public/2021-09/symbol-for-easy-to-read.jpg"
+                          >
                         </div>
-                      </picture>
                       </figure>
                     </div>
                     <p>© European Easy-to-Read Logo: Inclusion Europe. More information at&nbsp;
