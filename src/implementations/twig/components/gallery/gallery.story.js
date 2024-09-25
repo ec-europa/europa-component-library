@@ -16,6 +16,7 @@ const getArgs = () => ({
   visible_items: 8,
   disable_hover: false,
   disable_overlay: false,
+  picture_zoom: false,
 });
 
 const getArgTypes = () => ({
@@ -114,6 +115,15 @@ const getArgTypes = () => ({
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
       category: 'Behavior',
+    },
+  },
+  picture_zoom: {
+    name: 'picture zoom',
+    control: { type: 'boolean' },
+    description: 'Should the thumbnail pictures be animated?',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
     },
   },
   visible_items: {
