@@ -60,6 +60,7 @@ $_description-height-desktop: 108px;
   border-radius: 50%;
   width: 2rem;
   height: 2rem;
+  pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -74,6 +75,7 @@ $_description-height-desktop: 108px;
   position: relative;
   flex-grow: 1;
   margin: 0;
+  overflow: hidden;
 }
 
 .ecl-gallery__item-link:focus-visible {
@@ -124,20 +126,21 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
+  bottom: 0;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
+  display: none;
   font: var(--f-s);
-  padding: var(--s-2xs) var(--s-xs);
-  text-decoration: none;
-  white-space: nowrap;
+  left: 0;
   overflow: hidden;
+  padding: var(--s-2xs) var(--s-xs);
+  pointer-events: none;
+  position: absolute;
+  text-decoration: none;
   text-overflow: ellipsis;
   vertical-align: text-bottom;
+  white-space: nowrap;
   width: calc(100% - (var(--s-xs) * 2));
-  bottom: 0;
-  display: none;
-  left: 0;
-  position: absolute;
 }
 
 .ecl-gallery:not(.ecl-gallery--no-hover) {
@@ -421,7 +424,6 @@ $_description-height-desktop: 108px;
   border-right: 1px solid map.get($theme, 'color', 'white');
   display: inline-flex;
   font: var(--f-m);
-  font-weight: map.get($gallery, 'counter-font-weight');
   margin: 0;
   padding: 0 var(--s-xs);
   white-space: pre-wrap;

@@ -11,11 +11,11 @@ $link: (
   outline-radius: 2px,
   standalone-line-height: map.get($line-height-ui, 'xs'),
   inverted: (
-    color: var(--c-a),
+    color: map.get($color, 'white'),
     color-hover: var(--c-a-30),
-    color-visited: var(--c-a),
+    color-visited: map.get($color, 'white'),
     color-active: map.get($color, 'white'),
-    outline-color: var(--c-a),
+    outline-color: map.get($color, 'white'),
   ),
   button: (
     font: var(--f-ui-m),

@@ -20,6 +20,15 @@ describe('Picture', () => {
       return expect(render(data)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with zoom', () => {
+      expect.assertions(1);
+
+      const dataZoom = JSON.parse(JSON.stringify(data));
+      dataZoom.zoom = true;
+
+      return expect(render(dataZoom)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with empty alt attribute', () => {
       expect.assertions(1);
 
