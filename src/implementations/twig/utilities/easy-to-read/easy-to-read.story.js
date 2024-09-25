@@ -1,5 +1,6 @@
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
+import iconsSprite from '@ecl/resources-icons/dist/sprites/icons.svg';
 
 export default {
   title: 'Utilities/Easy to read',
@@ -64,7 +65,7 @@ export const Default = () => `
               <svg class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon" 
                    focusable="false" aria-hidden="false" role="img">
                 <title>Show full page table of contents</title>
-                <use xlink:href="static/media/icons.e3d8f25c.svg#corner-arrow"></use>
+                <use xlink:href="${iconsSprite}#corner-arrow"></use>
               </svg>
             </button>
           </div>
@@ -143,16 +144,17 @@ export const Default = () => `
                     <p>Easy to read is a way<br> to make information easy for everyone<br> to read and understand.</p>
                     <div class="ecl-media-container" data-ecl-media-container="true" data-ecl-auto-init="MediaContainer">
                       <figure class="ecl-media-container__figure">
-                        <div class="ecl-media-container__media">
-                          <img loading="eager" class="ecl-u-max-width-100 ecl-u-height-auto" src="https://www.inclusion-europe.eu/wp-content/uploads/2019/03/Easy-to-read-logo-150x150.jpg">
+                        <picture class="ecl-picture ecl-media-container__picture">
+                          <img class="ecl-media-container__media" src="https://www.inclusion-europe.eu/wp-content/uploads/2019/03/Easy-to-read-logo-150x150.jpg">
                         </div>
+                      </picture>
                       </figure>
                     </div>
                     <p>© European Easy-to-Read Logo: Inclusion Europe. More information at&nbsp;
                       <a href="https://www.inclusion-europe.eu/easy-to-read/" class="ecl-link--icon ecl-link--icon-after">
                         <span class="ecl-link__label">https://www.inclusion-europe.eu/easy-to-read/</span>
                         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="ecl-icon ecl-icon--xs ecl-link__icon" focusable="false" aria-hidden="true">
-                          <use xlink:href="https://european-union.europa.eu/themes/contrib/oe_theme/dist/ec/images/icons/sprites/icons.svg#external"></use>
+                          <use xlink:href="${iconsSprite}#external"></use>
                         </svg>
                       </a>
                     </p>
@@ -162,9 +164,9 @@ export const Default = () => `
                     <p>The European Union is a group of 27 countries in Europe.<br>These countries came together<br>to make things better, easier and safer for people.<br>They agreed to work together and help each other.</p>
                     <div class="ecl-media-container" data-ecl-media-container="true" data-ecl-auto-init="MediaContainer">
                       <figure class="ecl-media-container__figure">
-                        <div class="ecl-media-container__media">
-                          <img loading="eager" class="ecl-u-max-width-100 ecl-u-height-auto" srcset="https://european-union.europa.eu/sites/default/files/styles/embed_large/public/2024-05/european-map_en.jpg?itok=LOOq8mBS" alt="Map with all countries of the European Union">
-                        </div>
+                        <picture class="ecl-picture ecl-media-container__picture">
+                          <img class="ecl-media-container__media" src="https://european-union.europa.eu/sites/default/files/styles/embed_large/public/2024-05/european-map_en.jpg?itok=LOOq8mBS" alt="Map with all countries of the European Union">
+                        </picture>
                       </figure>
                     </div>
                   </div>
@@ -384,9 +386,9 @@ export const Default = () => `
                   <div class="ecl-featured-item__item">
                     <div class="ecl-featured-item__description">
                       <div class="ecl">
-                        <p><a href="/index_en">Click here</a>&nbsp;to find more information<br><br>
-                          about the European Union in your own language.</p><p>If you have questions about the European Union,<br><br>
-                          you can fill this&nbsp;<a href="/contact-eu/write-us_en">online form here</a>.
+                        <p><a href="/example">Click here</a>&nbsp;to find more information<br>
+                          about the European Union in your own language.</p><p>If you have questions about the European Union,<br>
+                          you can fill this&nbsp;<a href="/example">online form here</a>.
                         </p>
                       </div>
                     </div>
