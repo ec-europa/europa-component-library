@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 // Import data for tests
 import dataInfo from '@ecl/specs-component-notification/demo/data--info-ec';

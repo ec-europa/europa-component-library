@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import dataCoreEC from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardisedEC from '@ecl/specs-component-site-footer/demo/data-standardised--ec';

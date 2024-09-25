@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import specSingle from '@ecl/specs-component-select/demo/data-single';
 import specMultiple from '@ecl/specs-component-select/demo/data-multiple';

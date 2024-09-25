@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
 import dataOrderedListNoMarker from '@ecl/specs-component-ordered-list/demo/data--unstyled';

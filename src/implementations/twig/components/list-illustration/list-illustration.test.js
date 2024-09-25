@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import dataListIllustrationImage from '@ecl/specs-component-list-illustration/demo/data--image';
 import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/demo/data--icon';

@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
 import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';

@@ -1,5 +1,5 @@
 import { renderTwigFileAsNode, renderTwigFileAsHtml } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
 import dataNoLanguage from '@ecl/specs-composition-etrans/demo/data--no-languages';
