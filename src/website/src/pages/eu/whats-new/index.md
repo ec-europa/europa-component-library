@@ -5,6 +5,64 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 4.7.0
+
+#### :warning In this version of ECL node 20.9.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
+
+#### :rocket: New Feature
+
+* [#3634](https://github.com/ec-europa/europa-component-library/pull/3634) feat(easy-to-read): Adding optional "easy-to-read" css - FRONT-4598
+* [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 
+* [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 
+* [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 
+* [#3605](https://github.com/ec-europa/europa-component-library/pull/3605) feat(separator): Adding new component - FRONT-4597
+
+#### :warning: Markup Changes
+
+* [#3648](https://github.com/ec-europa/europa-component-library/pull/3648) fix(mega-menu): Improving height calculations for the second panel - FRONT-4633
+* [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 
+* [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 
+* [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 
+* [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600
+
+#### :warning: Data Changes
+
+* [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 
+* [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 
+* [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 
+* [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600
+
+#### :bug: Bug Fix
+
+* [#3644](https://github.com/ec-europa/europa-component-library/pull/3644) fix(file-download): fix transparent background - FRONT-4628 
+* [#3637](https://github.com/ec-europa/europa-component-library/pull/3637) fix(table): fix rtl display on mobile - FRONT-4624 
+* [#3639](https://github.com/ec-europa/europa-component-library/pull/3639) fix(table): Fixing js for the sortable table - FRONT-4625
+* [#3633](https://github.com/ec-europa/europa-component-library/pull/3633) fix(unordered-list): Setting list style position to outside also in print - FRONT-4602
+* [#3621](https://github.com/ec-europa/europa-component-library/pull/3621) fix(menu): fix focus color on EU menu - FRONT-4613 
+* [#3611](https://github.com/ec-europa/europa-component-library/pull/3611) fix(form): Fixing styles for the label - FRONT-4605
+* [#3606](https://github.com/ec-europa/europa-component-library/pull/3606) fix(range): fix bubble position when setting min value - FRONT-4603 
+* [#3601](https://github.com/ec-europa/europa-component-library/pull/3601) fix(site-header): fix icon alignment - FRONT-4596 
+
+#### :nail_care: Enhancement
+
+* [#3615](https://github.com/ec-europa/europa-component-library/pull/3615) fix(mega-menu): Mega menu content position fix - FRONT-4606
+* [#3648](https://github.com/ec-europa/europa-component-library/pull/3648) fix(mega-menu): Improving height calculations for the second panel - FRONT-4633
+* [#3642](https://github.com/ec-europa/europa-component-library/pull/3642) feat(page-header): transparent background on EC - FRONT-4361 
+* [#3638](https://github.com/ec-europa/europa-component-library/pull/3638) feat(link): update EU inverted link color - FRONT-4629 
+* [#3632](https://github.com/ec-europa/europa-component-library/pull/3632) feat(youtube): Removing disablekb parameter - FRONT-4616
+* [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600
+* [#3629](https://github.com/ec-europa/europa-component-library/pull/3629) feat(inpage): Using the right element to determine the top position in mobile - FRONT-4620
+* [#3613](https://github.com/ec-europa/europa-component-library/pull/3613) feat(banner): add rounded corners on EU - FRONT-4607 
+* [#3622](https://github.com/ec-europa/europa-component-library/pull/3622) feat(templates): Removing trailing slashes from void elements - FRONT-4612
+* [#3620](https://github.com/ec-europa/europa-component-library/pull/3620) feat(separator): update default css rules - FRONT-4611 
+* [#3583](https://github.com/ec-europa/europa-component-library/pull/3583) feat(carousel): Styles update - FRONT-4571
+* [#3587](https://github.com/ec-europa/europa-component-library/pull/3587) feat(table): improve border display - FRONT-4584 
+* [#3596](https://github.com/ec-europa/europa-component-library/pull/3596) feat(file-upload): Adding onSelection event - FRONT-4589
+
+#### :memo: Documentation
+
+* [#3617](https://github.com/ec-europa/europa-component-library/pull/3617) docs(menu): remove single menu showcase - FRONT-4494 
+
 ## 4.6.0
 
 #### :rocket: New Feature
