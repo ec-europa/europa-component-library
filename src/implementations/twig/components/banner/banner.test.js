@@ -9,6 +9,7 @@ import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
 import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';
 
 expect.extend(toHaveNoViolations);
+
 const dataClone = JSON.parse(JSON.stringify(bannerDataImage));
 
 describe('Banner', () => {

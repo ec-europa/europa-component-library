@@ -28,7 +28,7 @@
     "start:eu": "(cd src/presets/eu && npm run watch) & cd src/playground/eu && npm run start",
     "start:website": "cd src/website && npm run start",
     "test": "run-p test:*",
-    "test:components": "vitest",
+    "test:components": "vitest --globals --environment='jsdom'",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
   },
@@ -76,7 +76,9 @@
     "stylelint-scss": "6.7.0",
     "svg4everybody": "2.1.9",
     "vitest": "2.1.1",
-    "vitest-axe": "0.1.0"
+    "vitest-axe": "0.1.0",
+    "@testing-library/jest-dom": "6.5.0",
+    "canvas": "2.11.2"
   },
   "resolutions": {
     "serialize-javascript": ">=3.1.0",

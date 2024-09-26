@@ -7,9 +7,9 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import specs from '@ecl/specs-component-text-area/demo/data';
 
-const specDefault = specs.input;
-
 expect.extend(toHaveNoViolations);
+
+const specDefault = specs.input;
 
 const specInvalid = { ...specDefault, invalid: true };
 const specDisabled = { ...specDefault, disabled: true };

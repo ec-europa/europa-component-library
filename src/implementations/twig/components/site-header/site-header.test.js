@@ -8,10 +8,10 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 import dataEC from '@ecl/specs-component-site-header/demo/data--ec';
 import dataEU from '@ecl/specs-component-site-header/demo/data--eu';
 
+expect.extend(toHaveNoViolations);
+
 const template = '@ecl/site-header/site-header.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
-
-expect.extend(toHaveNoViolations);
 
 describe('Site Header', () => {
   describe('EC', () => {

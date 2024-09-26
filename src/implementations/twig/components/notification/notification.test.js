@@ -11,10 +11,10 @@ import dataSuccess from '@ecl/specs-component-notification/demo/data--success-ec
 import dataError from '@ecl/specs-component-notification/demo/data--error-ec';
 import dataWarning from '@ecl/specs-component-notification/demo/data--warning-ec';
 
+expect.extend(toHaveNoViolations);
+
 const template = '@ecl/notification/notification.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
-
-expect.extend(toHaveNoViolations);
 
 ['EC', 'EU'].forEach((system) => {
   describe(`${system} Notification`, () => {

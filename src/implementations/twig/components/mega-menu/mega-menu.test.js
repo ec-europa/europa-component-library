@@ -8,13 +8,13 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 // Import data for tests
 import data from '@ecl/specs-component-mega-menu/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 data.items.forEach((item, i) => {
   if (item.info) {
     item.info.title_id = `info-title-id-${i}`;
   }
 });
-
-expect.extend(toHaveNoViolations);
 
 describe('Mega Menu', () => {
   const template = '@ecl/mega-menu/mega-menu.html.twig';

@@ -9,10 +9,10 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 import specDefault from '@ecl/specs-component-file-upload/demo/data';
 import specMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
 
+expect.extend(toHaveNoViolations);
+
 const dataDefault = specDefault.input;
 const dataMultiple = specMultiple.input;
-
-expect.extend(toHaveNoViolations);
 
 describe('File Upload ', () => {
   const template = '@ecl/file-upload/file-upload.html.twig';

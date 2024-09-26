@@ -8,6 +8,8 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 // Import data for tests
 import demoContent from '@ecl/specs-component-fact-figures/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 const demo1Col = { ...demoContent, column: 1 };
 demo1Col.items = demo1Col.items.slice(0, 1);
 const demo2Col = { ...demoContent, column: 2 };
@@ -15,8 +17,6 @@ demo2Col.items = demo2Col.items.slice(0, 2);
 const demo3Col = { ...demoContent, column: 3 };
 demo3Col.items = demo3Col.items.slice(0, 6);
 const demo4Col = { ...demoContent, column: 4 };
-
-expect.extend(toHaveNoViolations);
 
 describe('Fact and figures', () => {
   const template = '@ecl/fact-figures/fact-figures.html.twig';

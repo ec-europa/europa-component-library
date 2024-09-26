@@ -7,12 +7,12 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import specs from '@ecl/specs-component-text-input/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 const specDefault = specs.input;
 
 const specInvalid = { ...specDefault, invalid: true };
 const specDisabled = { ...specDefault, disabled: true };
-
-expect.extend(toHaveNoViolations);
 
 const testTextField = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/text-input/text-input.html.twig';

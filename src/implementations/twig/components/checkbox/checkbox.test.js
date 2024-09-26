@@ -8,12 +8,12 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 // Import data for tests
 import specs from '@ecl/specs-component-checkbox/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 const data = specs.input;
 
 const dataSingle = { ...data, items: [data.items[0]], invalid: true };
 const dataInvalid = { ...data, invalid: true };
-
-expect.extend(toHaveNoViolations);
 
 describe('Checkbox', () => {
   const template = '@ecl/checkbox/checkbox-group.html.twig';

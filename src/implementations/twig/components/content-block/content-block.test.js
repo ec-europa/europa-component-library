@@ -7,9 +7,9 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import dataImage from '@ecl/specs-component-content-block/demo/data';
 
-const dataSimpleTitle = { ...dataImage, title: 'title' };
-
 expect.extend(toHaveNoViolations);
+
+const dataSimpleTitle = { ...dataImage, title: 'title' };
 
 describe('Content block', () => {
   const template = '@ecl/content-block/content-block.html.twig';

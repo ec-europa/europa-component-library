@@ -10,14 +10,14 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 import specDefault from '@ecl/specs-component-radio/demo/data--default';
 import specBinary from '@ecl/specs-component-radio/demo/data--binary';
 
+expect.extend(toHaveNoViolations);
+
 const dataDefault = specDefault.input;
 const dataBinary = specBinary.input;
 
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
 const dataBinaryInvalid = { ...dataBinary, invalid: true };
-
-expect.extend(toHaveNoViolations);
 
 describe('Radio', () => {
   const template = '@ecl/radio/radio-group.html.twig';

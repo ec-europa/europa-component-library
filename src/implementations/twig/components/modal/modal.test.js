@@ -6,13 +6,13 @@ import {
 import { axe, toHaveNoViolations } from 'vitest-axe';
 import demoData from '@ecl/specs-component-modal/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 const demoInfo = {
   ...demoData,
   variant: 'information',
   sr_icon: 'Information',
 };
-
-expect.extend(toHaveNoViolations);
 
 describe('Modal', () => {
   const template = '@ecl/modal/modal.html.twig';

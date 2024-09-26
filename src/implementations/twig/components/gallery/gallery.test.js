@@ -8,9 +8,9 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 // Import data for tests
 import demoData from '@ecl/specs-component-gallery/demo/data';
 
-const demoDataGrid = { ...demoData, grid: true };
-
 expect.extend(toHaveNoViolations);
+
+const demoDataGrid = { ...demoData, grid: true };
 
 describe('Gallery', () => {
   const template = '@ecl/gallery/gallery.html.twig';

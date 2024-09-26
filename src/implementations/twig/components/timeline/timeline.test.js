@@ -7,11 +7,11 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-timeline/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 demoData.items.forEach((item, index) => {
   item.id = `timeline-item-${index}`;
 });
-
-expect.extend(toHaveNoViolations);
 
 describe('Timeline', () => {
   const template = '@ecl/timeline/timeline.html.twig';

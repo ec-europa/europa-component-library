@@ -4,7 +4,6 @@ import {
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'vitest-axe';
-
 import demoData from '@ecl/specs-component-date-block/demo/data';
 
 expect.extend(toHaveNoViolations);

@@ -9,6 +9,8 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import specDefault from '@ecl/specs-component-range/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 // Add aria label as there is no form label here
 const dataDefault = merge(specDefault.input, {
   extra_attributes: [{ name: 'aria-label', value: 'range label' }],
@@ -16,8 +18,6 @@ const dataDefault = merge(specDefault.input, {
 
 const dataInvalid = { ...dataDefault, invalid: true };
 const dataOptional = { ...dataDefault, required: false };
-
-expect.extend(toHaveNoViolations);
 
 describe('Range', () => {
   const template = '@ecl/range/range.html.twig';

@@ -7,12 +7,12 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 
 import specs from '@ecl/specs-component-datepicker/demo/data';
 
+expect.extend(toHaveNoViolations);
+
 const specDefault = specs.input;
 
 const specInvalid = { ...specDefault, invalid: true };
 const specDisabled = { ...specDefault, disabled: true };
-
-expect.extend(toHaveNoViolations);
 
 const datePickerField = (dataDefault, dataInvalid, dataDisabled) => {
   const template = '@ecl/datepicker/datepicker.html.twig';

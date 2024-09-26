@@ -8,6 +8,8 @@ import { axe, toHaveNoViolations } from 'vitest-axe';
 import specSingle from '@ecl/specs-component-select/demo/data-single';
 import specMultiple from '@ecl/specs-component-select/demo/data-multiple';
 
+expect.extend(toHaveNoViolations);
+
 const dataSingle = {
   ...specSingle.input,
   extra_attributes: [{ name: 'aria-label', value: 'country' }],
@@ -16,8 +18,6 @@ const dataMultiple = {
   ...specMultiple.input,
   extra_attributes: [{ name: 'aria-label', value: 'country' }],
 };
-
-expect.extend(toHaveNoViolations);
 
 describe('Select', () => {
   const template = '@ecl/select/select.html.twig';

@@ -1,4 +1,318 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Inpage navigation > renders correctly 1`] = `
+<jest>
+  <nav
+    aria-labelledby="ecl-inpage-navigation-default"
+    class="ecl-inpage-navigation"
+    data-ecl-auto-init="InpageNavigation"
+    data-ecl-inpage-navigation="true"
+  >
+    <div
+      class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
+    >
+      Page contents
+    </div>
+    <div
+      class="ecl-inpage-navigation__body"
+    >
+      <div
+        class="ecl-inpage-navigation__trigger-wrapper"
+      >
+        <button
+          aria-controls="ecl-inpage-navigation-list"
+          aria-expanded="false"
+          class="ecl-inpage-navigation__trigger"
+          data-ecl-inpage-navigation-trigger="true"
+          id="ecl-inpage-navigation-default-trigger"
+          type="button"
+        >
+          <span
+            class="ecl-inpage-navigation__trigger-current"
+            data-ecl-inpage-navigation-trigger-current="true"
+          >
+            Page contents
+          </span>
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Show full page table of contents
+            </title>
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="ecl-inpage-navigation__list"
+        data-ecl-inpage-navigation-list="true"
+        id="ecl-inpage-navigation-default-list"
+      >
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-1"
+          >
+            Heading 1
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-2"
+          >
+            Heading 2 with a long title going on several lines
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-3"
+          >
+            Heading 3
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-4"
+          >
+            Heading 4
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</jest>
+`;
+
+exports[`Inpage navigation > renders correctly with extra attributes 1`] = `
+<jest>
+  <nav
+    aria-labelledby="ecl-inpage-navigation-default"
+    class="ecl-inpage-navigation"
+    data-ecl-auto-init="InpageNavigation"
+    data-ecl-inpage-navigation="true"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <div
+      class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
+    >
+      Page contents
+    </div>
+    <div
+      class="ecl-inpage-navigation__body"
+    >
+      <div
+        class="ecl-inpage-navigation__trigger-wrapper"
+      >
+        <button
+          aria-controls="ecl-inpage-navigation-list"
+          aria-expanded="false"
+          class="ecl-inpage-navigation__trigger"
+          data-ecl-inpage-navigation-trigger="true"
+          id="ecl-inpage-navigation-default-trigger"
+          type="button"
+        >
+          <span
+            class="ecl-inpage-navigation__trigger-current"
+            data-ecl-inpage-navigation-trigger-current="true"
+          >
+            Page contents
+          </span>
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Show full page table of contents
+            </title>
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="ecl-inpage-navigation__list"
+        data-ecl-inpage-navigation-list="true"
+        id="ecl-inpage-navigation-default-list"
+      >
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-1"
+          >
+            Heading 1
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-2"
+          >
+            Heading 2 with a long title going on several lines
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-3"
+          >
+            Heading 3
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-4"
+          >
+            Heading 4
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</jest>
+`;
+
+exports[`Inpage navigation > renders correctly with extra class names 1`] = `
+<jest>
+  <nav
+    aria-labelledby="ecl-inpage-navigation-default"
+    class="ecl-inpage-navigation custom-class custom-class--test"
+    data-ecl-auto-init="InpageNavigation"
+    data-ecl-inpage-navigation="true"
+  >
+    <div
+      class="ecl-inpage-navigation__title"
+      id="ecl-inpage-navigation-default"
+    >
+      Page contents
+    </div>
+    <div
+      class="ecl-inpage-navigation__body"
+    >
+      <div
+        class="ecl-inpage-navigation__trigger-wrapper"
+      >
+        <button
+          aria-controls="ecl-inpage-navigation-list"
+          aria-expanded="false"
+          class="ecl-inpage-navigation__trigger"
+          data-ecl-inpage-navigation-trigger="true"
+          id="ecl-inpage-navigation-default-trigger"
+          type="button"
+        >
+          <span
+            class="ecl-inpage-navigation__trigger-current"
+            data-ecl-inpage-navigation-trigger-current="true"
+          >
+            Page contents
+          </span>
+          <svg
+            aria-hidden="false"
+            class="ecl-icon ecl-icon--xs ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon"
+            focusable="false"
+            role="img"
+          >
+            <title>
+              Show full page table of contents
+            </title>
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </button>
+      </div>
+      <ul
+        class="ecl-inpage-navigation__list"
+        data-ecl-inpage-navigation-list="true"
+        id="ecl-inpage-navigation-default-list"
+      >
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-1"
+          >
+            Heading 1
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-2"
+          >
+            Heading 2 with a long title going on several lines
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-3"
+          >
+            Heading 3
+          </a>
+        </li>
+        <li
+          class="ecl-inpage-navigation__item"
+        >
+          <a
+            class="ecl-link ecl-inpage-navigation__link"
+            data-ecl-inpage-navigation-link=""
+            href="#inline-nav-4"
+          >
+            Heading 4
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</jest>
+`;
 
 exports[`Inpage navigation renders correctly 1`] = `
 <jest>

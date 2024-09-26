@@ -1,4 +1,341 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Media Container > generic tests > renders correctly with extra attributes 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+    data-test="data-test-value"
+    data-test-1="data-test-value-1"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Jean Monnet banner"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
+        <br />
+        @Copyright
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > generic tests > renders correctly with extra class names 1`] = `
+<jest>
+  <div
+    class="ecl-media-container custom-class custom-class--test"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Jean Monnet banner"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
+        <br />
+        @Copyright
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > image > renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Jean Monnet banner"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
+        <br />
+        @Copyright
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > infographic > renders correctly 1`] = `
+<jest>
+  <div
+    aria-describedby="expandable-example-content"
+    class="ecl-media-container"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <picture
+        class="ecl-picture ecl-media-container__picture"
+      >
+        <img
+          alt="Infographic alt text"
+          class="ecl-media-container__media"
+          src="https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg"
+        />
+      </picture>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        Lorem ipsum dolor sit amet consectetur adipiscing elite tempored incididunt ut labore et dolore magna aliqua lorem ipsum dolor sit amet consectetur adipiscing
+        <br />
+        @Copyright
+      </figcaption>
+    </figure>
+    <div
+      class="ecl-expandable ecl-media-container__expandable"
+      data-ecl-auto-init="Expandable"
+      data-ecl-expandable="true"
+    >
+      <button
+        aria-controls="expandable-example-content"
+        aria-expanded="false"
+        class="ecl-button ecl-button--ghost ecl-expandable__toggle"
+        data-ecl-expandable-toggle=""
+        data-ecl-label-collapsed="Collapsed"
+        data-ecl-label-expanded="Expanded"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Collapsed
+          </span>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--fluid ecl-icon--rotate-180 ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#corner-arrow"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ecl-expandable__content"
+        hidden=""
+        id="expandable-example-content"
+      >
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et varius est. Sed elementum rutrum libero, at vulputate nisl posuere et. Morbi dui sem, rhoncus non fermentum eget, finibus non purus.
+        </p>
+      </div>
+    </div>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > video > as autoplay renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+    data-ecl-auto-init="MediaContainer"
+    data-ecl-media-container="true"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <div
+        class="ecl-media-container__video-wrapper"
+      >
+        <video
+          aria-label="Visit the European Commission - Video player"
+          autoplay=""
+          class="ecl-video ecl-media-container__media"
+          data-ecl-media-container-video=""
+          loop=""
+          muted=""
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-media-container__play ecl-button--icon-only"
+          data-ecl-media-container-play=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="#play-outline"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          class="ecl-button ecl-button--tertiary ecl-media-container__pause ecl-button--icon-only"
+          data-ecl-media-container-pause=""
+          type="button"
+        >
+          <span
+            class="ecl-button__container"
+          >
+            <svg
+              aria-hidden="true"
+              class="ecl-icon ecl-icon--m ecl-button__icon"
+              data-ecl-icon=""
+              focusable="false"
+            >
+              <use
+                xlink:href="#pause-outline"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > video > renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <div
+        class="ecl-media-container__video-wrapper"
+      >
+        <video
+          aria-label="Visit the European Commission - Video player"
+          class="ecl-video ecl-media-container__media"
+          controls=""
+          data-ecl-media-container-video=""
+          poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > video > with embedded media renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+    data-ecl-auto-init="MediaContainer"
+    data-ecl-media-container="true"
+    data-ecl-media-container-video-title="New digital strategy - Video player"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <div
+        class="ecl-media-container__media"
+      >
+        <iframe
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen=""
+          frameborder="0"
+          height="197"
+          src="https://www.youtube.com/embed/fgi-GSCB6ho"
+          width="350"
+        />
+      </div>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others.
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
+
+exports[`Media Container > video > with old data renders correctly 1`] = `
+<jest>
+  <div
+    class="ecl-media-container"
+  >
+    <figure
+      class="ecl-media-container__figure"
+    >
+      <div
+        class="ecl-media-container__video-wrapper"
+      >
+        <video
+          aria-label="Visit the European Commission - Video player"
+          class="ecl-video ecl-media-container__media"
+          controls=""
+          data-ecl-media-container-video=""
+          poster="https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg"
+        >
+          <source
+            src="https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <figcaption
+        class="ecl-media-container__caption"
+      >
+        The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. The Centre welcomes different interest groups to Brussels, or virtually, to help them better understand the role of the European Commission and how it impacts their daily lives. Visitors to the Centre in Brussels can enjoy a digital and multifunctional experience providing access to the latest initiatives.
+      </figcaption>
+    </figure>
+  </div>
+</jest>
+`;
 
 exports[`Media Container generic tests renders correctly with extra attributes 1`] = `
 <jest>
