@@ -130,10 +130,12 @@ export class MegaMenu {
     this.links = null;
     this.isOpen = false;
     this.resizeTimer = null;
+    this.wrappers = null;
     this.isKeyEvent = false;
     this.isDesktop = false;
     this.isLarge = false;
     this.lastVisibleItem = null;
+    this.menuOverlay = null;
     this.currentItem = null;
     this.totalItemsWidth = 0;
     this.breakpointL = 996;
@@ -185,11 +187,13 @@ export class MegaMenu {
     this.links = queryAll(this.linkSelector, this.element);
     this.header = queryOne('.ecl-site-header', document);
     this.headerBanner = queryOne('.ecl-site-header__banner', document);
+    this.wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
     this.headerNotification = queryOne(
       '.ecl-site-header__notification',
       document,
     );
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
+    this.menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
@@ -440,10 +444,7 @@ export class MegaMenu {
    * Disable page scrolling
    */
   disableScroll() {
-    const scrollBarWidth =
-      window.innerWidth - document.documentElement.clientWidth;
     document.body.classList.add('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingRight = `${scrollBarWidth}px`;
   }
 
   /**
@@ -451,7 +452,6 @@ export class MegaMenu {
    */
   enableScroll() {
     document.body.classList.remove('ecl-mega-menu-prevent-scroll');
-    document.body.style.paddingRight = '';
   }
 
   /**
@@ -501,9 +501,8 @@ export class MegaMenu {
       });
 
       // Reset top position and height of the wrappers
-      const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-      if (wrappers) {
-        wrappers.forEach((wrapper) => {
+      if (this.wrappers) {
+        this.wrappers.forEach((wrapper) => {
           wrapper.style.top = '';
           wrapper.style.height = '';
         });
@@ -727,13 +726,12 @@ export class MegaMenu {
         if (expanded) {
           secondPanel = queryOne('.ecl-mega-menu__mega--level-2', expanded);
           if (secondPanel) {
-            const subItems = queryAll(`${this.subItemSelector} a`, secondPanel);
+            const subItems = queryAll(`${this.subItemSelector}`, secondPanel);
             if (subItems.length > 0) {
               subItems.forEach((item) => {
                 subItemsHeight += item.getBoundingClientRect().height;
               });
             }
-
             heights.push(subItemsHeight);
             featuredPanel = queryOne('.ecl-mega-menu__featured', expanded);
             if (featuredPanel) {
@@ -790,7 +788,6 @@ export class MegaMenu {
    * Dinamically set the position of the menu overlay
    */
   positionMenuOverlay() {
-    const menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
     let availableHeight = 0;
     if (!this.isDesktop) {
       // In mobile, we get the bottom position of the site header header
@@ -799,8 +796,8 @@ export class MegaMenu {
           const position = this.header.getBoundingClientRect();
           const bottomPosition = Math.round(position.bottom);
 
-          if (menuOverlay) {
-            menuOverlay.style.top = `${bottomPosition}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${bottomPosition}px`;
           }
           if (this.inner) {
             this.inner.style.top = `${bottomPosition}px`;
@@ -842,9 +839,8 @@ export class MegaMenu {
               }
             }
           }
-          const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
-          if (wrappers) {
-            wrappers.forEach((wrapper) => {
+          if (this.wrappers) {
+            this.wrappers.forEach((wrapper) => {
               wrapper.style.top = '';
               wrapper.style.height = '';
             });
@@ -861,20 +857,19 @@ export class MegaMenu {
           const item = queryOne(this.itemSelector, this.element);
           const rect = item.getBoundingClientRect();
           const rectHeight = rect.height;
-          const wrappers = queryAll('.ecl-mega-menu__wrapper', this.element);
 
-          if (wrappers) {
-            wrappers.forEach((wrapper) => {
+          if (this.wrappers) {
+            this.wrappers.forEach((wrapper) => {
               wrapper.style.top = `${rectHeight}px`;
             });
           }
-          if (menuOverlay) {
-            menuOverlay.style.top = `${headerBottom}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${headerBottom}px`;
           }
         } else {
           const bottomPosition = this.element.getBoundingClientRect().bottom;
-          if (menuOverlay) {
-            menuOverlay.style.top = `${bottomPosition}px`;
+          if (this.menuOverlay) {
+            this.menuOverlay.style.top = `${bottomPosition}px`;
           }
         }
       }, 0);
@@ -1318,7 +1313,7 @@ export class MegaMenu {
         this.isOpen = true;
         this.items.forEach((item) => {
           const itemLink = queryOne(this.linkSelector, item);
-          if (itemLink.hasAttribute('aria-expanded')) {
+          if (itemLink && itemLink.hasAttribute('aria-expanded')) {
             if (item === menuItem) {
               item.classList.add(
                 'ecl-mega-menu__item--expanded',
@@ -1395,7 +1390,7 @@ export class MegaMenu {
         this.subItems.forEach((item) => {
           const itemLink = queryOne(this.subLinkSelector, item);
           if (item === menuItem) {
-            if (itemLink.hasAttribute('aria-expanded')) {
+            if (itemLink && itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'true');
 
               if (!this.isDesktop) {
@@ -1410,7 +1405,7 @@ export class MegaMenu {
             item.classList.add('ecl-mega-menu__subitem--current');
             this.backItemLevel2 = item;
           } else {
-            if (itemLink.hasAttribute('aria-expanded')) {
+            if (itemLink && itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'false');
               itemLink.classList.remove('ecl-mega-menu__parent-link');
               item.classList.remove('ecl-mega-menu__subitem--expanded');
@@ -1590,7 +1585,7 @@ export class MegaMenu {
       item.classList.remove('ecl-mega-menu__subitem--current');
       item.style.display = '';
       const itemLink = queryOne(this.subLinkSelector, item);
-      if (itemLink.hasAttribute('aria-expanded')) {
+      if (itemLink && itemLink.hasAttribute('aria-expanded')) {
         item.classList.remove('ecl-mega-menu__subitem--expanded');
         item.style.display = '';
         itemLink.setAttribute('aria-expanded', 'false');
