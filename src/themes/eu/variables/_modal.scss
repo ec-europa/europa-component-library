@@ -11,7 +11,10 @@ $modal: (
     padding-mobile: var(--s-l) var(--s-l) var(--s-m),
     padding-desktop: var(--s-l) var(--s-l) var(--s-m),
   ),
-  close-margin: calc(-1 * var(--s-s)) calc(-1 * var(--s-s)) 0 0,
+  close: (
+    margin-top: calc(-1 * var(--s-s)),
+    margin-end: calc(-1 * var(--s-s)),
+  ),
   body: (
     padding-mobile: 0 var(--s-l) var(--s-m) var(--s-l),
     padding-desktop: 0 var(--s-l) var(--s-m) var(--s-l),
