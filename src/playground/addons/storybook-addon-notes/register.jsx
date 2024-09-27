@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { addons, types } from '@storybook/manager-api';
-
 import styled from '@emotion/styled';
 
 const Panel = styled.div({
@@ -21,7 +20,9 @@ class Notes extends React.Component {
     const { channel, api } = this.props;
     // Listen to the notes and render it.
     channel.on('ecl/notes/add_notes', this.onAddNotes);
-
+    if (channel.data && channel.data['ecl/notes/add_notes']) {
+      this.onAddNotes(channel.data['ecl/notes/add_notes'].toString());
+    }
     // Clear the current notes on every story change.
     this.stopListeningOnStory = api.on(() => {
       this.onAddNotes('');
@@ -67,6 +68,12 @@ Notes.propTypes = {
     on: PropTypes.func,
     emit: PropTypes.func,
     removeListener: PropTypes.func,
+    data: PropTypes.shape({
+      'ecl/notes/add_notes': PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string),
+      ]),
+    }),
   }).isRequired,
   api: PropTypes.shape({
     on: PropTypes.func,
@@ -77,6 +84,7 @@ Notes.propTypes = {
 
 addons.register('ecl/notes', (api) => {
   const channel = addons.getChannel();
+
   addons.add('ecl/notes/panel', {
     title: 'Notes',
     paramKey: 'EclNotes',

@@ -292,8 +292,8 @@
         </li>
       {% endfor %}
       {%- if _see_all and _see_all_label is not empty -%}
-        <li class="ecl-mega-menu__spacer"></li>
-        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all">
+        <li class="ecl-mega-menu__spacer" data-ecl-mega-menu-subitem></li>
+        <li class="ecl-mega-menu__subitem ecl-mega-menu__see-all" data-ecl-mega-menu-subitem>
           {% include '@ecl/link/link.html.twig' with {
             link: {
               type: 'standalone',
