@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataCard from '@ecl/specs-component-card/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Card', () => {
   const template = '@ecl/card/card.html.twig';

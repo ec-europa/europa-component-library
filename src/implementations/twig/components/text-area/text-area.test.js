@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import specs from '@ecl/specs-component-text-area/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const specDefault = specs.input;
 

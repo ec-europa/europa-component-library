@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
 import dataLong from '@ecl/specs-component-breadcrumb/demo/data--long';
-
-expect.extend(toHaveNoViolations);
 
 describe('Breadcrumb', () => {
   const template = '@ecl/breadcrumb/breadcrumb.html.twig';

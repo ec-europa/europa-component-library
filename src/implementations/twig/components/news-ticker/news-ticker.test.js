@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-news-ticker/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('News ticker', () => {
   const template = '@ecl/news-ticker/news-ticker.html.twig';

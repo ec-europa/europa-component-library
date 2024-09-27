@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import specSingle from '@ecl/specs-component-select/demo/data-single';
 import specMultiple from '@ecl/specs-component-select/demo/data-multiple';
-
-expect.extend(toHaveNoViolations);
 
 const dataSingle = {
   ...specSingle.input,

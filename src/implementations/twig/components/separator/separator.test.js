@@ -1,7 +1,5 @@
 import { renderTwigFileAsNode, renderTwigFileAsHtml } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
-
-expect.extend(toHaveNoViolations);
+import { axe } from 'vitest-axe';
 
 describe('Separator', () => {
   const template = '@ecl/separator/separator.html.twig';

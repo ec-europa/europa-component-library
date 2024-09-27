@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
 import dataOrderedListNoMarker from '@ecl/specs-component-ordered-list/demo/data--unstyled';
 import dataOrderedListDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
-
-expect.extend(toHaveNoViolations);
 
 describe('Ordered list', () => {
   const template = '@ecl/ordered-list/ordered-list.html.twig';

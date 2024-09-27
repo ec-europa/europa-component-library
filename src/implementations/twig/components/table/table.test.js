@@ -3,14 +3,12 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import dataDefault from '@ecl/specs-component-table/demo/data--default';
 import dataMulti from '@ecl/specs-component-table/demo/data--multi';
 import dataSortable from '@ecl/specs-component-table/demo/data--sort-table';
-
-expect.extend(toHaveNoViolations);
 
 describe('Table', () => {
   const template = '@ecl/table/table.html.twig';

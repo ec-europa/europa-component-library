@@ -1,7 +1,5 @@
 import { renderTwigFileAsNode, renderTwigFileAsHtml } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
-
-expect.extend(toHaveNoViolations);
+import { axe } from 'vitest-axe';
 
 describe('File upload status', () => {
   const template = '@ecl/file-upload-status/file-upload-status.html.twig';

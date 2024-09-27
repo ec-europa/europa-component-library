@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import specs from '@ecl/specs-component-skip-link/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Skip Link', () => {
   const template = '@ecl/skip-link/skip-link.html.twig';

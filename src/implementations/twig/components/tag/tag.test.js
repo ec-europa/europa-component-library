@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
 import dataSet from '@ecl/specs-component-tag/demo/data--set';
-
-expect.extend(toHaveNoViolations);
 
 describe('Tag', () => {
   const template = '@ecl/tag/tag.html.twig';

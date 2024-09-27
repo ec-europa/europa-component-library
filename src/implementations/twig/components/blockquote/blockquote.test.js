@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import data from '@ecl/specs-component-blockquote/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Blockquote', () => {
   const template = '@ecl/blockquote/blockquote.html.twig';

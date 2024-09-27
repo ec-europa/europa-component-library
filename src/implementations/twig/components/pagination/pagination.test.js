@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import data from '@ecl/specs-component-pagination/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Pagination', () => {
   const template = '@ecl/pagination/pagination.html.twig';

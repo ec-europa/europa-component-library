@@ -3,10 +3,8 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 import demoData from '@ecl/specs-component-modal/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const demoInfo = {
   ...demoData,

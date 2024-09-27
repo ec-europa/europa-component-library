@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoContent from '@ecl/specs-component-featured-item/demo/data';
 import demoContentSimple from '@ecl/specs-component-featured-item/demo/data--simple';
 import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
-
-expect.extend(toHaveNoViolations);
 
 describe('Featured item', () => {
   const template = '@ecl/featured-item/featured-item.html.twig';

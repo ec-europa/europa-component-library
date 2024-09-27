@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import data from '@ecl/specs-component-carousel/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Carousel', () => {
   const template = '@ecl/carousel/carousel.html.twig';

@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import dataAll from '@ecl/specs-component-icon/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Icon', () => {
   const template = '@ecl/icon/icon.html.twig';

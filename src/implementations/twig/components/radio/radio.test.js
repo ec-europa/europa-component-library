@@ -3,14 +3,12 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 
 import specDefault from '@ecl/specs-component-radio/demo/data--default';
 import specBinary from '@ecl/specs-component-radio/demo/data--binary';
-
-expect.extend(toHaveNoViolations);
 
 const dataDefault = specDefault.input;
 const dataBinary = specBinary.input;

@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
@@ -12,8 +12,6 @@ import dataCall from '@ecl/specs-component-button/demo/data--call';
 import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
 import dataGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
 import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
-
-expect.extend(toHaveNoViolations);
 
 describe('Button', () => {
   const template = '@ecl/button/button.html.twig';

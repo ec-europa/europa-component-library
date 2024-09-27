@@ -3,15 +3,13 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoContentImg from '@ecl/specs-component-media-container/demo/data--image';
 import demoContentVideo from '@ecl/specs-component-media-container/demo/data--video';
 import demoBackwardVideo from '@ecl/specs-component-media-container/demo/old-data--video';
 import demoContentEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import demoContentInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
-
-expect.extend(toHaveNoViolations);
 
 describe('Media Container', () => {
   const template = '@ecl/media-container/media-container.html.twig';

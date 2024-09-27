@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import data from '@ecl/specs-component-mega-menu/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 data.items.forEach((item, i) => {
   if (item.info) {

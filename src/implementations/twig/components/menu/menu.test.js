@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import dataShort from '@ecl/specs-component-menu/demo/data--ec';
 import dataLong from '@ecl/specs-component-menu/demo/data--ec-long';
-
-expect.extend(toHaveNoViolations);
 
 describe('Menu', () => {
   const template = '@ecl/menu/menu.html.twig';

@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import data from '@ecl/specs-component-video/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Video', () => {
   const template = '@ecl/video/video.html.twig';
@@ -56,11 +54,14 @@ describe('Video', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
-    jest.setTimeout(15000);
-    test(`passes the accessibility tests`, async () => {
-      expect(
-        await axe(await renderTwigFileAsHtml(template, data, true)),
-      ).toHaveNoViolations();
-    });
+    test(
+      `passes the accessibility tests`,
+      async () => {
+        expect(
+          await axe(await renderTwigFileAsHtml(template, data, true)),
+        ).toHaveNoViolations();
+      },
+      { timeout: 15000 },
+    );
   });
 });

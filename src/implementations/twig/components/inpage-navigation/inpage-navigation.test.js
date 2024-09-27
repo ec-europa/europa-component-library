@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-inpage-navigation/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Inpage navigation', () => {
   const template = '@ecl/inpage-navigation/inpage-navigation.html.twig';

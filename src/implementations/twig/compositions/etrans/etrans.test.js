@@ -1,10 +1,8 @@
 import { renderTwigFileAsNode, renderTwigFileAsHtml } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
 import dataNoLanguage from '@ecl/specs-composition-etrans/demo/data--no-languages';
-
-expect.extend(toHaveNoViolations);
 
 describe('eTrans EC', () => {
   const template = '@ecl/etrans/etrans-ec.html.twig';

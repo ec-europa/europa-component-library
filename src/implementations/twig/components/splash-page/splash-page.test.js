@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataEC from '@ecl/specs-component-splash-page/demo/data--ec';
 import dataEU from '@ecl/specs-component-splash-page/demo/data--eu';
-
-expect.extend(toHaveNoViolations);
 
 const template = '@ecl/splash-page/splash-page.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);

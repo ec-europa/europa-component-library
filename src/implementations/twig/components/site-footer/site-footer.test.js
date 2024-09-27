@@ -3,15 +3,13 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataCoreEC from '@ecl/specs-component-site-footer/demo/data-core--ec';
 import dataStandardisedEC from '@ecl/specs-component-site-footer/demo/data-standardised--ec';
 import dataHarmonisedEC from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
 import dataCoreEU from '@ecl/specs-component-site-footer/demo/data-core--eu';
 import dataHarmonisedEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
-
-expect.extend(toHaveNoViolations);
 
 describe('Site Footer', () => {
   const template = '@ecl/site-footer/site-footer.html.twig';

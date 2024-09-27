@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import demoContent from '@ecl/specs-component-fact-figures/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const demo1Col = { ...demoContent, column: 1 };
 demo1Col.items = demo1Col.items.slice(0, 1);

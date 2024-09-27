@@ -3,7 +3,7 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import dataText from '@ecl/specs-component-text-input/demo/data';
@@ -15,8 +15,6 @@ import dataCheckbox from '@ecl/specs-component-checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
 import dataFile from '@ecl/specs-component-file-upload/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Form group ', () => {
   const template = '@ecl/form-group/form-group.html.twig';

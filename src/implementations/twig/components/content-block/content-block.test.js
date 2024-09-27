@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataImage from '@ecl/specs-component-content-block/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const dataSimpleTitle = { ...dataImage, title: 'title' };
 

@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataListIllustrationImage from '@ecl/specs-component-list-illustration/demo/data--image';
 import dataListIllustrationIcon from '@ecl/specs-component-list-illustration/demo/data--icon';
-
-expect.extend(toHaveNoViolations);
 
 describe('List with illustration', () => {
   const template = '@ecl/list-illustration/list-illustration.html.twig';

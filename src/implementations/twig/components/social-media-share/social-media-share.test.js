@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-social-media-share/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Social Media Share', () => {
   const template = '@ecl/social-media-share/social-media-share.html.twig';

@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-accordion/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const oldData = JSON.parse(JSON.stringify(demoData));
 oldData.icon.splice(1, 1);
@@ -61,7 +59,7 @@ describe('Accordion', () => {
 
   test(`passes the accessibility tests`, async () => {
     expect(
-      await axe(await renderTwigFileAsHtml(template, demoData)),
+      await axe(await renderTwigFileAsHtml(template, demoData, true)),
     ).toHaveNoViolations();
   });
 });

@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-tabs/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Tabs', () => {
   const template = '@ecl/tabs/tabs.html.twig';

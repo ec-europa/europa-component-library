@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataDefault from '@ecl/specs-component-label/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Label', () => {
   const template = '@ecl/label/label.html.twig';

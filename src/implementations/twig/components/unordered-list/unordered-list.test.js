@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
 import dataUnorderedListNoBullet from '@ecl/specs-component-unordered-list/demo/data--unstyled';
-
-expect.extend(toHaveNoViolations);
 
 describe('Unordered list', () => {
   const template = '@ecl/unordered-list/unordered-list.html.twig';

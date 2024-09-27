@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
 import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
-
-expect.extend(toHaveNoViolations);
 
 describe('Navigation list', () => {
   const template = '@ecl/navigation-list/navigation-list.html.twig';

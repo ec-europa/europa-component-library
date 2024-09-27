@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 
 import specDefault from '@ecl/specs-component-range/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 // Add aria label as there is no form label here
 const dataDefault = merge(specDefault.input, {

@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-social-media-follow/demo/data--monochrome';
 import demoDataColor from '@ecl/specs-component-social-media-follow/demo/data--color';
-
-expect.extend(toHaveNoViolations);
 
 describe('Social Media Follow', () => {
   const template = '@ecl/social-media-follow/social-media-follow.html.twig';

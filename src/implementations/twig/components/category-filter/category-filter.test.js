@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import demoData from '@ecl/specs-component-category-filter/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 describe('Category filter', () => {
   const template = '@ecl/category-filter/category-filter.html.twig';

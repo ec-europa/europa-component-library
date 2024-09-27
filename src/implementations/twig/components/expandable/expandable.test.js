@@ -3,11 +3,9 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import demoData from '@ecl/specs-component-expandable/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 // Add SVG icon path.
 demoData.button.icon.path = 'example';

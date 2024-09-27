@@ -3,15 +3,13 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
 import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
 import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
 import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
-
-expect.extend(toHaveNoViolations);
 
 dataWithoutTranslation.id = 'ecl-file-without-translations';
 dataWithTranslation.id = `ecl-file-with-translation`;

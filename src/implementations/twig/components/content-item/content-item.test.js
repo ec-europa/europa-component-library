@@ -3,13 +3,11 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 import dataDefault from '@ecl/specs-component-content-item/demo/data--default';
 import dataImage from '@ecl/specs-component-content-item/demo/data--image';
 import dataEvent from '@ecl/specs-component-content-item/demo/data--event';
-
-expect.extend(toHaveNoViolations);
 
 describe('Content item', () => {
   const template = '@ecl/content-item/content-item.html.twig';

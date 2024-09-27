@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 
 // Import data for tests
 import specs from '@ecl/specs-component-checkbox/demo/data';
-
-expect.extend(toHaveNoViolations);
 
 const data = specs.input;
 

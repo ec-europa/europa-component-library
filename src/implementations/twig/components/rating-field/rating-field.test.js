@@ -3,12 +3,10 @@ import {
   renderTwigFileAsNode,
   renderTwigFileAsHtml,
 } from '@ecl/test-utils';
-import { axe, toHaveNoViolations } from 'vitest-axe';
+import { axe } from 'vitest-axe';
 import specs from '@ecl/specs-component-rating-field/demo/data';
 
 const data = specs.input;
-
-expect.extend(toHaveNoViolations);
 
 describe('Rating field', () => {
   const template = '@ecl/rating-field/rating-field.html.twig';
