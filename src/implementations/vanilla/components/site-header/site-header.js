@@ -48,6 +48,7 @@ export class SiteHeader {
       searchFormSelector = '[data-ecl-search-form]',
       loginToggleSelector = '[data-ecl-login-toggle]',
       loginBoxSelector = '[data-ecl-login-box]',
+      notificationSelector = '[data-ecl-site-header-notification]',
       attachClickListener = true,
       attachKeyListener = true,
       attachResizeListener = true,
@@ -74,6 +75,7 @@ export class SiteHeader {
     this.searchToggleSelector = searchToggleSelector;
     this.searchFormSelector = searchFormSelector;
     this.loginToggleSelector = loginToggleSelector;
+    this.notificationSelector = notificationSelector;
     this.loginBoxSelector = loginBoxSelector;
     this.attachClickListener = attachClickListener;
     this.attachKeyListener = attachKeyListener;
@@ -109,6 +111,7 @@ export class SiteHeader {
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.setLanguageListHeight = this.setLanguageListHeight.bind(this);
+    this.handleNotificationClose = this.handleNotificationClose.bind(this);
   }
 
   /**
@@ -141,6 +144,7 @@ export class SiteHeader {
     this.languageListNonEu = queryOne(this.languageListNonEuSelector);
     this.languageListContent = queryOne(this.languageListContentSelector);
     this.close = queryOne(this.closeOverlaySelector);
+    this.notification = queryOne(this.notificationSelector);
 
     // direction
     this.direction = getComputedStyle(this.element).direction;
@@ -186,6 +190,16 @@ export class SiteHeader {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+
+    if (this.notification) {
+      setTimeout(() => {
+        const eclNotification = ECL.components.get(this.notification);
+
+        if (eclNotification) {
+          eclNotification.on('onClose', this.handleNotificationClose);
+        }
+      }, 0);
+    }
   }
 
   /**
@@ -397,6 +411,18 @@ export class SiteHeader {
       this.searchForm.classList.contains('ecl-site-header__search--active')
     ) {
       this.setSearchArrow();
+    }
+  }
+
+  /**
+   * Removes the containers of the notification element
+   */
+  handleNotificationClose() {
+    const notificationContainer = this.notification.closest(
+      'ecl-site-header__notification',
+    );
+    if (notificationContainer) {
+      notificationContainer.remove();
     }
   }
 
