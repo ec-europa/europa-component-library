@@ -12,6 +12,10 @@ This means that when you include the `ECL` library in your pages, you will have 
 
 ![ECL library in your browser's console](./assets/ECLjs.png)
 
+## Version in use
+
+You can get the ECL version you are using running `ECL.version` in the console of your devtools.
+
 ## Instantiation
 
 Each component contains `.init()` and `.destroy()` methods.
