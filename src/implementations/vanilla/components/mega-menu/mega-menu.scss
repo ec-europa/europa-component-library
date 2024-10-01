@@ -804,13 +804,9 @@ $mega-menu: null !default;
   color: map.get($mega-menu, 'mobile', 'item-color');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
-  display: -webkit-box;
   line-height: map.get($theme, 'line-height-ui', 'xs');
   min-height: 42px;
-  text-align: left;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  text-align: initial;
   width: 100%;
 
   &.ecl-link--icon:not(.ecl-mega-menu__parent-link) {
@@ -820,13 +816,6 @@ $mega-menu: null !default;
     .ecl-link__icon {
       height: calc(var(--s-s) + 0.5px);
       padding: 1px 3px;
-    }
-
-    .ecl-link__label {
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
   }
 
@@ -1407,5 +1396,7 @@ $mega-menu: null !default;
 }
 
 .ecl-mega-menu-prevent-scroll {
-  overflow: hidden;
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
 }

@@ -21,11 +21,13 @@ const dataInfo = system === 'eu' ? dataInfoEu : dataInfoEc;
 const dataSuccess = system === 'eu' ? dataSuccessEu : dataSuccessEc;
 const dataError = system === 'eu' ? dataErrorEu : dataErrorEc;
 const dataWarning = system === 'eu' ? dataWarningEu : dataWarningEc;
+const dataLinks = [...dataInfo.links];
 
 const getArgs = (data) => ({
   show_close: true,
   show_title: true,
   title: data.title,
+  show_links: true,
   description: data.description,
 });
 
@@ -42,6 +44,14 @@ const getArgTypes = () => ({
     name: 'close',
     type: { name: 'boolean' },
     description: 'Show the close button',
+    table: {
+      category: 'Optional',
+    },
+  },
+  show_links: {
+    name: 'links',
+    type: { name: 'boolean' },
+    description: 'Show the notification links',
     table: {
       category: 'Optional',
     },
@@ -78,6 +88,12 @@ const prepareData = (data, args) => {
   }
   if (!args.show_close) {
     delete clone.close;
+  }
+
+  if (args.show_links) {
+    clone.links = dataLinks;
+  } else {
+    clone.links = [];
   }
 
   // Other controls

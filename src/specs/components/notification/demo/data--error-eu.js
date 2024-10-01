@@ -4,7 +4,7 @@ module.exports = {
   icon: {
     path: '/icons.svg',
     name: 'error',
-    size: 'm',
+    size: 'l',
   },
   sr_icon: 'Error',
   title: 'Error notification',
