@@ -27,7 +27,7 @@ export class Notification {
    * An array of supported events for this component.
    *
    * @type {Array<string>}
-   * @event Notification#onToggle
+   * @event Notification#onClose
    * @memberof Notification
    */
   supportedEvents = ['onClose'];
