@@ -97,6 +97,7 @@ export class SiteHeader {
     this.loginBox = null;
     this.resizeTimer = null;
     this.direction = null;
+    this.notificationContainer = null;
 
     // Bind `this` for use in callbacks
     this.openOverlay = this.openOverlay.bind(this);
@@ -192,6 +193,10 @@ export class SiteHeader {
     ECL.components.set(this.element, this);
 
     if (this.notification) {
+      this.notificationContainer = this.notification.closest(
+        '.ecl-site-header__notification',
+      );
+
       setTimeout(() => {
         const eclNotification = ECL.components.get(this.notification);
 
@@ -418,11 +423,8 @@ export class SiteHeader {
    * Removes the containers of the notification element
    */
   handleNotificationClose() {
-    const notificationContainer = this.notification.closest(
-      'ecl-site-header__notification',
-    );
-    if (notificationContainer) {
-      notificationContainer.remove();
+    if (this.notificationContainer) {
+      this.notificationContainer.remove();
     }
   }
 
