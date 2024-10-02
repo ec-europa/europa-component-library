@@ -706,6 +706,7 @@ export class MegaMenu {
               );
               if (container) {
                 container.firstElementChild.style.height = `${viewportHeight - mainTop}px`;
+                mainPanel.style.opacity = 1;
                 return;
               }
             }
