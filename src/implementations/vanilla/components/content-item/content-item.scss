@@ -12,9 +12,7 @@ $content-item: null !default;
 
 .ecl-content-item {
   align-items: flex-start;
-  box-sizing: border-box;
   display: flex;
-  height: 100%;
   flex-direction: column;
   margin: 0;
 }
@@ -57,8 +55,13 @@ $content-item: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-content-item:not(.ecl-content-item--stack) {
-    flex-direction: row;
+  .ecl-content-item {
+    box-sizing: border-box;
+    height: 100%;
+
+    &:not(.ecl-content-item--stack) {
+      flex-direction: row;
+    }
   }
 
   .ecl-content-item__picture {
