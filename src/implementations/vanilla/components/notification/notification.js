@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -22,6 +23,15 @@ export class Notification {
     return notification;
   }
 
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @event Notification#onClose
+   * @memberof Notification
+   */
+  supportedEvents = ['onClose'];
+
   constructor(
     element,
     {
@@ -37,6 +47,7 @@ export class Notification {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.closeSelector = closeSelector;
@@ -71,6 +82,37 @@ export class Notification {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Notification
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'close' event
+   * notification.on('onClose', (event) => {
+   *   console.log('Close event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   *
+   * @memberof Notification
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -85,12 +127,18 @@ export class Notification {
 
   /**
    * Remove the notification component.
+   *
+   * @param {Event} e
+   *
+   * @fires Notification#onClose
    */
-  handleClickOnClose() {
+  handleClickOnClose(e) {
     // IE way to remove a node...
     if (this.element.parentNode) {
       this.element.parentNode.removeChild(this.element);
     }
+
+    this.trigger('onClose', e);
 
     return this;
   }
