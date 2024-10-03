@@ -12,10 +12,12 @@ jobs:
   chromatic-ec:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
       - name: Install dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
       - name: Run Chromatic for EC
         run: npm run chromatic-EC
         env:
@@ -24,10 +26,12 @@ jobs:
   chromatic-eu:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
       - name: Install dependencies
-        run: npm install
+        run: yarn install --frozen-lockfile
       - name: Run Chromatic for EU
         run: npm run chromatic-EU
         env:
