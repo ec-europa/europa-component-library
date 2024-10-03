@@ -2,10 +2,37 @@ import { withCssResources } from '@storybook/addon-cssresources';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { Buffer } from 'buffer';
 import { themes } from '@storybook/theming';
+import isChromatic from 'chromatic/isChromatic';
 
 global.Buffer = Buffer;
 
 import './ECL';
+
+if (isChromatic() || process.env.STORYBOOK_CHROMATIC) {
+  function createLink(href, media) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = href;
+    link.media = media || 'all';
+    return link;
+  }
+
+  // Manually inject styles
+  var head = document.head || document.getElementsByTagName('head')[0];
+  head.appendChild(createLink('./styles/optional/ecl-reset.css', 'screen'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-eu-default.css', 'screen'),
+  );
+  head.appendChild(createLink('./styles/ecl-eu.css', 'screen'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-eu-utilities.css', 'screen'),
+  );
+  head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
+  head.appendChild(
+    createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
+  );
+}
 
 export const parameters = {
   disableSaveFromUI: true,

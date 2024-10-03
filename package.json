@@ -1,6 +1,8 @@
 {
   "private": true,
-  "author": "European Commission",
+  "author": {
+    "name": "European Commission"
+  },
   "license": "EUPL-1.2",
   "description": "Europa Component Library",
   "scripts": {
@@ -30,7 +32,11 @@
     "test": "run-p test:*",
     "test:components": "jest --verbose",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
-    "update-version": "scripts/update-version.sh"
+    "update-version": "scripts/update-version.sh",
+    "chromatic-eu": "cd src/playground/eu && npm run build",
+    "chromatic-ec": "cd src/playground/ec && npm run build",
+    "chromatic-EU": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-eu",
+    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-ec"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.25.1",
@@ -39,6 +45,7 @@
     "@prettier/plugin-xml": "3.4.1",
     "@size-limit/preset-big-lib": "11.1.6",
     "babel-jest": "29.7.0",
+    "chromatic": "11.11.0",
     "classnames": "2.5.1",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
@@ -159,5 +166,7 @@
       "port": 6007,
       "host": "localhost"
     }
-  }
+  },
+  "name": "",
+  "version": ""
 }

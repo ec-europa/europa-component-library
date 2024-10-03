@@ -149,6 +149,7 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     layout: 'fullscreen',
+    chromatic: { disable: true },
   },
 };
 

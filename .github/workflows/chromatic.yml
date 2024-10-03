@@ -1,0 +1,34 @@
+name: Chromatic CI
+
+on:
+  push:
+    branches:
+      - v*-dev
+  pull_request:
+    branches:
+      - v*-dev
+
+jobs:
+  chromatic-ec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Run Chromatic for EC
+        run: npm run chromatic-EC
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+  chromatic-eu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Run Chromatic for EU
+        run: npm run chromatic-EU
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
