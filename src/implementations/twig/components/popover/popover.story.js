@@ -55,6 +55,11 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Popover',
   decorators: [withNotes, withCode],
+  parameters: {
+    chromatic: {
+      ignoreSelectors: ['.ecl-u-type-paragraph-m'],
+    },
+  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

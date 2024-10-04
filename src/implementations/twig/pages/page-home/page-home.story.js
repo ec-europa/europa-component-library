@@ -71,9 +71,7 @@ export default {
     controls: { disable: true },
     EclNotes: { disable: true },
     layout: 'fullscreen',
-    chromatic: {
-      disable: true,
-    },
+    chromatic: { ignoreSelectors: ['.ecl-u-type-paragraph'] },
   },
 };
 
