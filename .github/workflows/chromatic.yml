@@ -20,11 +20,19 @@ jobs:
           node-version: 20.9.0
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Copy static assets
+        run: |
+          mkdir -p public
+          cp -r src/presets/ec/dist public/
+          cp -r src/presets/reset/dist public/
+          cp -r src/presets/rtl/dist public/
+          cp -r src/playground/ec/public/* public/
       - name: Run Chromatic for EC
-        run: npm run chromatic-EC
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build
+          workingDir: src/playground/ec
   chromatic-eu:
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +44,16 @@ jobs:
           node-version: 20.9.0
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Copy static assets
+        run: |
+          mkdir -p public
+          cp -r srcpresets/eu/dist public/
+          cp -r src/presets/reset/dist public/
+          cp -r src/presets/rtl/dist public/
+          cp -r src/playground/eu/public/* public/
       - name: Run Chromatic for EU
-        run: npm run chromatic-EU
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build
+          workingDir: src/playground/eu
