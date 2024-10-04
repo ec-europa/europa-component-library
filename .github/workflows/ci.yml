@@ -108,7 +108,7 @@ jobs:
       - uses: jpoehnelt/reusable-workspace/restore@v1
       - uses: chromaui/action@latest
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
 
   deploy-release-branch:
