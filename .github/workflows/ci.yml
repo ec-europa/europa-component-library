@@ -95,9 +95,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -111,9 +108,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: jpoehnelt/reusable-workspace/restore@v1
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
