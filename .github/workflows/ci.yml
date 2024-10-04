@@ -99,8 +99,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
-          exitZeroOnChanges: true
-          onlyStoryNames: 'Components/Accordion'
 
   chromatic-eu:
     name: Run Chromatic for EU
@@ -112,8 +110,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/eu
-          exitZeroOnChanges: true
-          onlyStoryNames: 'Components/Accordion'
 
   deploy-release-branch:
     name: Deploy Release Branch
