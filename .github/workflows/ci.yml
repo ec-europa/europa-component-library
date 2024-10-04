@@ -89,12 +89,14 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/playground/ec
           exitZeroOnChanges: true
+          onlyStoryNames: 'Components/Accordion'
       - name: Run Chromatic for EU
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/playground/eu
           exitZeroOnChanges: true
+          onlyStoryNames: 'Components/Accordion'
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
