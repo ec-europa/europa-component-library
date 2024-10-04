@@ -1,0 +1,73 @@
+<!-- Site header -->
+{%- include '@ecl/site-header/site-header.html.twig' with site_header -%}
+
+<main class="ecl-u-bg-background ecl-u-pb-3xl">
+  <div class="ecl-container">
+    <!-- Banner -->
+    {%- include '@ecl/banner/banner.html.twig' with banner -%}
+
+    <h2 class="ecl-u-type-heading-2">Maecenas sagittis est</h2>
+
+    <!-- Cards -->
+    <div class="ecl-row">
+      <div class="ecl-col-4">
+        {%- include '@ecl/card/card.html.twig' with card -%}
+      </div>
+      <div class="ecl-col-4">
+        {%- include '@ecl/card/card.html.twig' with card -%}
+      </div>
+      <div class="ecl-col-4">
+        {%- include '@ecl/card/card.html.twig' with card -%}
+      </div>
+    </div>
+
+    <h2 class="ecl-u-type-heading-2">Orci varius natoque penatibus</h2>
+
+    <!-- Content item -->
+    <div class="ecl-row">
+      <div class="ecl-col-12 ecl-col-l-6 ecl-u-mb-xl">
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          divider: true,
+        }) -%}
+      </div>
+      <div class="ecl-col-12 ecl-col-l-6 ecl-u-mb-xl">
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          divider: true,
+        }) -%}
+      </div>
+      <div class="ecl-col-12 ecl-col-l-6 ecl-u-mb-xl">
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item -%}
+      </div>
+      <div class="ecl-col-12 ecl-col-l-6 ecl-u-mb-xl">
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item -%}
+      </div>
+    </div>
+    {%- include '@ecl/link/link.html.twig' with {
+      link: {
+        type: 'standalone',
+        label: 'View more events',
+        path: '#',
+      },
+      icon: {
+        path: icon_path,
+        name: 'corner-arrow',
+        size: 'xs',
+        transform: 'rotate-90',
+      },
+    } -%}
+
+    <h2 class="ecl-u-type-heading-2">Vivamus et eros</h2>
+
+    <!-- Featured item -->
+    {%- include '@ecl/featured-item/featured-item.html.twig' with featured_item -%}
+
+    <h2 class="ecl-u-type-heading-2">Aliquam massa est, facilisis eget eleifend ut</h2>
+
+    <!-- Navigation list -->
+    {%- include '@ecl/navigation-list/navigation-list.html.twig' with navigation_list -%}
+
+  </div>
+</main>
+
+<!-- Footer -->
+{%- include '@ecl/site-footer/site-footer.html.twig' with site_footer -%}
