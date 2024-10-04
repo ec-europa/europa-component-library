@@ -22,17 +22,18 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Copy static assets
         run: |
-          mkdir -p public
-          cp -r src/presets/ec/dist public/
-          cp -r src/presets/reset/dist public/
-          cp -r src/presets/rtl/dist public/
-          cp -r src/playground/ec/public/* public/
+          mkdir -p chromatic-storybook-ec
+          cp -r src/presets/ec/dist chromatic-storybook-ec
+          cp -r src/presets/reset/dist chromatic-storybook-ec
+          cp -r src/presets/rtl/dist chromatic-storybook-ec
+          cp -r src/playground/ec/public/* chromatic-storybook-ec
       - name: Run Chromatic for EC
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build
           workingDir: src/playground/ec
+          outputDir: chromatic-storybook-ec
   chromatic-eu:
     runs-on: ubuntu-latest
     steps:
@@ -46,14 +47,15 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Copy static assets
         run: |
-          mkdir -p public
-          cp -r srcpresets/eu/dist public/
-          cp -r src/presets/reset/dist public/
-          cp -r src/presets/rtl/dist public/
-          cp -r src/playground/eu/public/* public/
+          mkdir -p chromatic-storybook-eu
+          cp -r src/presets/eu/dist chromatic-storybook-eu
+          cp -r src/presets/reset/dist chromatic-storybook-eu
+          cp -r src/presets/rtl/dist chromatic-storybook-eu
+          cp -r src/playground/eu/public/* chromatic-storybook-eu
       - name: Run Chromatic for EU
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build
           workingDir: src/playground/eu
+          outputDir: chromatic-storybook-eu
