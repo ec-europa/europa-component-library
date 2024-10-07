@@ -24,7 +24,7 @@ export class Datepicker {
     {
       format = '',
       theme = 'ecl-datepicker-theme',
-      yearRange = 40,
+      yearRange = 4,
       reposition = false,
       i18n = {
         previousMonth: 'Previous Month',
