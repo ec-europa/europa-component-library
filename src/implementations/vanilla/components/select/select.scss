@@ -234,6 +234,10 @@ $select: null !default;
   position: relative;
   max-width: 100%;
 
+  .ecl-form-label + .ecl-select__container--hidden + & {
+    margin-top: var(--s-xs);
+  }
+
   .ecl-select__multiple-dropdown {
     background-color: map.get($select, 'multiple-dropdown-background-color');
     border: map.get($select, 'multiple-dropdown-border');
