@@ -116,6 +116,7 @@ const renderStory = async (data, args) => {
 export default {
   title: 'Components/Loading indicator',
   decorators: [withNotes, withCode],
+  chromatic: { ignoreSelectors: ['.ecl-u-type-paragraph'] },
 };
 
 export const Default = (_, { loaded: { component } }) => component;

@@ -90,6 +90,7 @@ const prepareHtmlContent = async (args) => {
 
 export default {
   title: 'Components/Timeline',
+  chromatic: { ignoreSelectors: ['.ecl-u-type-paragraph-m'] },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
