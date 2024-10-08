@@ -140,18 +140,21 @@ $checkbox: null !default;
   background: var(--c-er);
 }
 
-.ecl-checkbox__label:hover
-  .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
+// Hover and default focus state
+.ecl-checkbox__highlight {
+  display: none;
+}
+
+.ecl-checkbox:not(.ecl-checkbox--disabled)
+  .ecl-checkbox__label:hover
+  .ecl-checkbox__highlight {
   @if map.has-key($checkbox, 'hover-circle') {
-    &::before {
-      @each $property, $value in map.get($checkbox, 'hover-circle') {
-        #{$property}: $value;
-      }
+    @each $property, $value in map.get($checkbox, 'hover-circle') {
+      #{$property}: $value;
     }
   }
 }
 
-// Hover and default focus state
 .ecl-checkbox__input:focus-visible {
   ~ .ecl-checkbox__label {
     .ecl-checkbox__box:not(.ecl-checkbox__box--disabled) {
