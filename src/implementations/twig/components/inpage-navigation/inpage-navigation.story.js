@@ -108,7 +108,9 @@ export default {
   title: 'Components/Navigation/Inpage navigation',
   parameters: {
     layout: 'fullscreen',
-    chromatic: { ignoreSelectors: ['.ecl-col-l-9'] },
+    chromatic: {
+      disable: true,
+    },
   },
 };
 

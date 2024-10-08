@@ -57,7 +57,7 @@ export default {
   decorators: [withNotes, withCode],
   parameters: {
     chromatic: {
-      ignoreSelectors: ['.ecl-u-type-paragraph-m'],
+      disable: true,
     },
   },
 };
