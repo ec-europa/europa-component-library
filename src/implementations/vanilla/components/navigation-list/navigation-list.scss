@@ -12,6 +12,7 @@ $navigation-list: null !default;
 
 .ecl-navigation-list {
   margin: 0;
+  grid-row-gap: var(--s-2xl);
 }
 
 .ecl-navigation-list--col-2,
@@ -19,20 +20,33 @@ $navigation-list: null !default;
   display: grid;
   grid-auto-rows: auto;
   grid-column-gap: map.get($theme, 'grid', 'gutter');
-  grid-row-gap: var(--s-2xl);
   width: 100%;
 }
 
-/* stylelint-disable-next-line order/order */
+.ecl-navigation-list--col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.ecl-navigation-list--col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 @include breakpoints.up('l') {
-  .ecl-navigation-list--col-2 {
-    grid-template-columns: repeat(2, 1fr);
+  .ecl-navigation-list {
     grid-row-gap: var(--s-3xl);
   }
+}
 
+@container (width <= 768px) {
   .ecl-navigation-list--col-3 {
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: var(--s-3xl);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (width <= 480px) {
+  .ecl-navigation-list--col-2,
+  .ecl-navigation-list--col-3 {
+    grid-template-columns: auto;
   }
 }
 
