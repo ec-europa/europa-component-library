@@ -981,6 +981,7 @@ exports[`Site Header EC renders correctly 1`] = `
             class="ecl-notification ecl-notification--info"
             data-ecl-auto-init="Notification"
             data-ecl-notification=""
+            data-ecl-site-header-notification=""
             role="alert"
           >
             <svg
@@ -995,15 +996,56 @@ exports[`Site Header EC renders correctly 1`] = `
             <div
               class="ecl-notification__content"
             >
-              <div
-                class="ecl-notification__title"
+              <button
+                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                data-ecl-notification-close=""
+                type="button"
               >
-                Information notification
-              </div>
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Close
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#close"
+                    />
+                  </svg>
+                </span>
+              </button>
               <div
                 class="ecl-notification__description"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Lorem ipsum
+                </a>
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Nullam accumsan semper lorem
+                </a>
               </div>
             </div>
           </div>
@@ -2063,6 +2105,7 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             class="ecl-notification ecl-notification--info"
             data-ecl-auto-init="Notification"
             data-ecl-notification=""
+            data-ecl-site-header-notification=""
             role="alert"
           >
             <svg
@@ -2077,15 +2120,56 @@ exports[`Site Header EC renders correctly when logged in 1`] = `
             <div
               class="ecl-notification__content"
             >
-              <div
-                class="ecl-notification__title"
+              <button
+                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                data-ecl-notification-close=""
+                type="button"
               >
-                Information notification
-              </div>
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Close
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#close"
+                    />
+                  </svg>
+                </span>
+              </button>
               <div
                 class="ecl-notification__description"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Lorem ipsum
+                </a>
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Nullam accumsan semper lorem
+                </a>
               </div>
             </div>
           </div>
@@ -3125,6 +3209,7 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             class="ecl-notification ecl-notification--info"
             data-ecl-auto-init="Notification"
             data-ecl-notification=""
+            data-ecl-site-header-notification=""
             role="alert"
           >
             <svg
@@ -3139,15 +3224,56 @@ exports[`Site Header EC renders correctly with extra attributes 1`] = `
             <div
               class="ecl-notification__content"
             >
-              <div
-                class="ecl-notification__title"
+              <button
+                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                data-ecl-notification-close=""
+                type="button"
               >
-                Information notification
-              </div>
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Close
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#close"
+                    />
+                  </svg>
+                </span>
+              </button>
               <div
                 class="ecl-notification__description"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Lorem ipsum
+                </a>
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Nullam accumsan semper lorem
+                </a>
               </div>
             </div>
           </div>
@@ -4185,6 +4311,7 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             class="ecl-notification ecl-notification--info"
             data-ecl-auto-init="Notification"
             data-ecl-notification=""
+            data-ecl-site-header-notification=""
             role="alert"
           >
             <svg
@@ -4199,15 +4326,56 @@ exports[`Site Header EC renders correctly with extra class names 1`] = `
             <div
               class="ecl-notification__content"
             >
-              <div
-                class="ecl-notification__title"
+              <button
+                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                data-ecl-notification-close=""
+                type="button"
               >
-                Information notification
-              </div>
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Close
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#close"
+                    />
+                  </svg>
+                </span>
+              </button>
               <div
                 class="ecl-notification__description"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Lorem ipsum
+                </a>
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Nullam accumsan semper lorem
+                </a>
               </div>
             </div>
           </div>
@@ -5245,6 +5413,7 @@ exports[`Site Header EU renders correctly 1`] = `
             class="ecl-notification ecl-notification--info"
             data-ecl-auto-init="Notification"
             data-ecl-notification=""
+            data-ecl-site-header-notification=""
             role="alert"
           >
             <svg
@@ -5259,15 +5428,56 @@ exports[`Site Header EU renders correctly 1`] = `
             <div
               class="ecl-notification__content"
             >
-              <div
-                class="ecl-notification__title"
+              <button
+                class="ecl-button ecl-button--tertiary ecl-notification__close ecl-button--icon-only"
+                data-ecl-notification-close=""
+                type="button"
               >
-                Information notification
-              </div>
+                <span
+                  class="ecl-button__container"
+                >
+                  <span
+                    class="ecl-button__label"
+                    data-ecl-label="true"
+                  >
+                    Close
+                  </span>
+                  <svg
+                    aria-hidden="true"
+                    class="ecl-icon ecl-icon--m ecl-button__icon"
+                    data-ecl-icon=""
+                    focusable="false"
+                  >
+                    <use
+                      xlink:href="/icons.svg#close"
+                    />
+                  </svg>
+                </span>
+              </button>
               <div
                 class="ecl-notification__description"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque diam eu tempus fringilla.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan semper lorem.
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Lorem ipsum
+                </a>
+              </div>
+              <div
+                class="ecl-notification__link"
+              >
+                <a
+                  class="ecl-link"
+                  href="/example"
+                >
+                  Nullam accumsan semper lorem
+                </a>
               </div>
             </div>
           </div>

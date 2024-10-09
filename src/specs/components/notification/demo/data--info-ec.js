@@ -6,6 +6,20 @@ module.exports = {
     name: 'information',
     size: 'l',
   },
+  links: [
+    {
+      link: {
+        label: 'Lorem ipsum',
+        path: '/example',
+      },
+    },
+    {
+      link: {
+        label: 'Nullam accumsan semper lorem',
+        path: '/example',
+      },
+    },
+  ],
   sr_icon: 'Information',
   title: 'Information notification',
   description:

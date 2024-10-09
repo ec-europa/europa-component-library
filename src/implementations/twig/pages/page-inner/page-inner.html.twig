@@ -1,0 +1,54 @@
+<!-- Site header -->
+{% include '@ecl/site-header/site-header.html.twig' with site_header %}
+
+<main class="ecl-u-bg-background ecl-u-pb-3xl">
+  <div class="ecl-container">
+    <!-- Page header -->
+    {% include '@ecl/page-header/page-header.html.twig' with page_header %}
+
+    <div class="ecl-row">
+      <div class="ecl-col-12 ecl-col-l-3">
+        <!-- Inpage navigation -->
+        {% include '@ecl/inpage-navigation/inpage-navigation.html.twig' with inpage_navigation|merge({
+          extra_classes: 'ecl-u-mt-2xl',
+        }) %}
+      </div>
+      <div class="ecl-col-12 ecl-col-l-9">
+        <h2 class="ecl-u-type-heading-2" id="inline-nav-1">Donec nec ex condimentum</h2>
+
+        <!-- Paragraph -->
+        <p class="ecl-u-type-paragraph-lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non consequat enim. Donec egestas nulla cursus, convallis urna id, malesuada magna.
+        </p>
+
+        <p class="ecl-u-type-paragraph">
+          Ut maximus euismod velit, et mollis nibh gravida suscipit. Curabitur faucibus ex eu enim consectetur posuere et vitae nisl. Ut rutrum, mauris eget dictum ornare, orci velit elementum nunc, quis ornare urna velit et neque. Integer et ultrices mi. Nullam posuere gravida justo, ornare aliquam sapien interdum vel. Aenean at congue mauris. Vestibulum fermentum nisi bibendum dolor fermentum volutpat.
+        </p>
+
+        <!-- List -->
+        {% include '@ecl/unordered-list/unordered-list.html.twig' with unordered_list %}
+
+        <h2 class="ecl-u-type-heading-2" id="inline-nav-2">Curabitur faucibus ex eu</h2>
+
+        <!-- Accordion -->
+        {% include '@ecl/accordion/accordion.html.twig' with accordion %}
+
+        <h2 class="ecl-u-type-heading-2" id="inline-nav-3">Maecenas ultrices mi rutrum urna volutpat</h2>
+        
+        <!-- File -->
+        {% include '@ecl/file/file.html.twig' with file %}
+        {% include '@ecl/file/file.html.twig' with file|merge({
+          extra_classes: 'ecl-u-mt-l',
+        }) %}
+
+        <h2 class="ecl-u-type-heading-2" id="inline-nav-4">Nullam</h2>
+        
+        <!-- Gallery -->
+        {% include '@ecl/gallery/gallery.html.twig' with gallery %}
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+{% include '@ecl/site-footer/site-footer.html.twig' with site_footer %}

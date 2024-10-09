@@ -55,8 +55,10 @@ $content-item: null !default;
 }
 
 @include breakpoints.up('m') {
-  .ecl-content-item:not(.ecl-content-item--stack) {
-    flex-direction: row;
+  .ecl-content-item {
+    &:not(.ecl-content-item--stack) {
+      flex-direction: row;
+    }
   }
 
   .ecl-content-item__picture {

@@ -180,7 +180,10 @@ $overflow-height: 2rem;
 }
 
 .ecl-modal__close {
-  margin: map.get($modal, 'close-margin');
+  margin-bottom: 0;
+  margin-inline-end: map.get($modal, 'close', 'margin-end');
+  margin-inline-start: 0;
+  margin-top: map.get($modal, 'close', 'margin-top');
 
   .ecl-button__icon {
     margin: 0;
