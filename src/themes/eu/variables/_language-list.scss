@@ -3,18 +3,18 @@
 
 $language-list: (
   color: var(--c-d-140),
-  container-padding: var(--s-2xl) var(--s-l) var(--s-l),
+  container-padding: var(--s-2xl) var(--s-l) var(--s-l) var(--s-s),
   header-font-mobile: var(--f-p-l),
   header-font-desktop: var(--f-p-xl),
   content-margin-mobile: var(--s-m),
   content-margin-desktop: var(--s-m),
   category-title-font: var(--f-p-m),
   category-title-font-weight: map.get($font-weight, 'bold'),
-  category-title-padding: var(--s-l) 0 var(--s-xs),
+  category-title-padding: var(--s-l) 0 var(--s-xs) var(--s-s),
   category-separator: 1px solid var(--c-p-20),
   category-stack-margin: var(--s-s),
-  list-margin: 0 0 0 calc(-1 * var(--s-s)),
-  list-margin-rtl: calc(-1 * var(--s-s)) 0 0 0,
+  list-margin: 0,
+  list-margin-rtl: 0,
   item-padding: var(--s-s),
   code-color: var(--c-d-140),
   code-font-weight: map.get($font-weight, 'bold'),
@@ -25,7 +25,7 @@ $language-list: (
   item-active-shadow: inset 4px 0 0 0 var(--c-p),
   item-width: 188px,
   column-spacing-before: var(--s-m),
-  column-spacing-after: var(--s-xl),
+  column-spacing-after: var(--s-m),
 );
 $language-list-print: (
   container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
