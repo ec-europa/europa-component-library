@@ -32,3 +32,21 @@ export const styled = (stylesObject) =>
       return `${key}:${stylesObject[prop]}`;
     })
     .join(';');
+
+/**
+ * @param {icon} svg icon
+ * @param {string} classes:  css classes
+ * @returns svg element
+ */
+export const createSvgIcon = (icon, classes) => {
+  const tempElement = document.createElement('div');
+  tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
+  const svg = tempElement.children[0];
+  svg.removeAttribute('height');
+  svg.removeAttribute('width');
+  svg.setAttribute('focusable', false);
+  svg.setAttribute('aria-hidden', true);
+  // The following element is <path> which does not support classList API as others.
+  svg.setAttribute('class', classes);
+  return svg;
+};

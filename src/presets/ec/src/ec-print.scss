@@ -129,6 +129,9 @@
   $separator: var.$separator
 );
 @use '@ecl/vanilla-component-search-form/search-form-print';
+@use '@ecl/vanilla-component-slider/slider-print' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-social-media-follow/social-media-follow-print' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow

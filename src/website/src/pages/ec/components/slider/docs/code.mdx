@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 1
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { slider, sliderFluid } from '../demo';
+
+<Playground
+  system="ec"
+  selectedKind="components-slider"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={slider} />
+</Playground>
+
+## Fluid
+
+<Playground
+  system="ec"
+  selectedKind="components-slider"
+  selectedStory="fluid"
+  showFrame
+>
+  <Html markup={sliderFluid} />
+</Playground>

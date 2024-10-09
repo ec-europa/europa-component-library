@@ -1,0 +1,78 @@
+/**
+ * Slider
+ * @define slider
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+
+.ecl-slider {
+  overflow-x: hidden;
+
+  .ecl-slider__list {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin: 0 0 var(--s-m);
+    padding: 0;
+    transition: transform 0.3s ease;
+  }
+}
+
+.ecl-slider__info {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  .ecl-slider__controls {
+    display: flex;
+    flex-direction: row;
+    margin-inline-start: var(--s-m);
+  }
+}
+
+.ecl-slider__progress-bar {
+  background: var(--c-p-20);
+  height: calc(var(--s-2xs) / 2);
+  flex-grow: 1;
+
+  .ecl-slider__progress {
+    background: var(--c-p);
+    height: 100%;
+  }
+}
+
+.ecl-slider__slide {
+  flex-shrink: 0;
+  margin-inline-end: var(--s-xl);
+}
+
+// Tags variant
+.ecl-slider--fluid {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .ecl-slider__list {
+    margin: 0;
+  }
+
+  .ecl-slider__info {
+    flex: 0 0 auto;
+    align-self: flex-end;
+  }
+
+  .ecl-slider__container {
+    overflow-x: hidden;
+    flex: 1;
+  }
+
+  .ecl-slider__slide {
+    margin-inline-end: var(--s-2xs);
+    margin-top: 0;
+  }
+}
