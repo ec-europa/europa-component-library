@@ -27,21 +27,21 @@ $list-illustration-print: null !default;
   object-fit: cover;
 
   &:not(.ecl-list-illustration__image--square) {
-    width: 15.875rem;
+    width: 6.72cm;
   }
 }
 
 // manage ratio 1:1
 .ecl-list-illustration__image--square {
   aspect-ratio: 1/1;
-  width: 100px;
+  width: 2.646cm;
 
   &.ecl-list-illustration__image--s {
-    width: 48px;
+    width: 1.27cm;
   }
 
   &.ecl-list-illustration__image--l {
-    width: 150px;
+    width: 3.969cm;
   }
 }
 
@@ -68,12 +68,12 @@ $list-illustration-print: null !default;
 
 .ecl-list-illustration__title {
   color: map.get($list-illustration, 'title-color');
-  font: map.get($theme, 'font-prolonged-print', 'xl');
+  font: map.get($theme, 'font-print', 'xl');
 }
 
 .ecl-list-illustration__description {
   color: map.get($list-illustration, 'description-color');
-  font: map.get($theme, 'font-prolonged-print', 'm');
+  font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
   max-width: var(--max-w);
 }
@@ -84,7 +84,7 @@ $list-illustration-print: null !default;
 .ecl-list-illustration--col-4 {
   display: grid;
   grid-auto-rows: auto;
-  grid-column-gap: map.get($theme, 'grid', 'gutter');
+  grid-column-gap: map.get($theme, 'grid', 'gutter-print');
   grid-row-gap: map.get($theme, 'spacing-print', '3xl');
   width: 100%;
 

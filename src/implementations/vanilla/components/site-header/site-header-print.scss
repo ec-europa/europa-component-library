@@ -8,11 +8,20 @@
 // Exposed variables
 $theme: null !default;
 
+.ecl-site-header .ecl-site-header__background {
+  background-image: none;
+}
+
+.ecl-site-header__top {
+  display: flex;
+  justify-content: center;
+}
+
 .ecl-site-header__logo-image {
-  height: 1.9cm;
+  height: auto;
   margin-bottom: map.get($theme, 'spacing-print', 's');
   margin-top: map.get($theme, 'spacing-print', 'm');
-  width: 7.2cm;
+  width: 8cm;
 }
 
 .ecl-site-header__action {
@@ -21,7 +30,7 @@ $theme: null !default;
 
 .ecl-site-header__banner-top {
   color: var(--c-d);
-  font: map.get($theme, 'font-prolonged-print', 'm');
+  font: map.get($theme, 'font-print', 'm');
 
   .ecl-link {
     color: var(--c-d);

@@ -24,8 +24,8 @@ $blockquote: (
 );
 $blockquote-print: (
   padding: map.get($spacing-print, '3xl'),
-  quote-font: var(--f-l),
+  quote-font: map.get($font-print, 'l'),
   author-margin: map.get($spacing-print, 'm'),
-  author-font: var(--f-l),
+  author-font: map.get($font-print, 'l'),
   image-margin: map.get($spacing-print, 'xl'),
 );
