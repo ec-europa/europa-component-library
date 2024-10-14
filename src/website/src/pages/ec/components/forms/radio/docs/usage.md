@@ -21,10 +21,10 @@ Radio buttons provides a selection with two or more options. Only one option can
 ## When to use
 
 - when you have under 10 items
-- when users need toselect options or toggle settings, for example
+- when users need to select options or toggle settings, for example
 - in forms with multiple non-exclusive options (e.g. search filters)
 - only one selection can be made
 
 ## When not to use
 
-- avoid when more than one option can be selected - use checkboxes instead
+- avoid when more than one option can be selected - use [checkboxes](https://ec.europa.eu/component-library/ec/components/forms/checkbox/code/) or [multi-select](https://ec.europa.eu/component-library/ec/components/forms/select/code/) instead
