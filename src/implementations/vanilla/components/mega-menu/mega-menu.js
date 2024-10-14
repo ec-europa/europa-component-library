@@ -706,6 +706,7 @@ export class MegaMenu {
               );
               if (container) {
                 container.firstElementChild.style.height = `${viewportHeight - mainTop}px`;
+                mainPanel.style.opacity = 1;
                 return;
               }
             }
@@ -1561,13 +1562,11 @@ export class MegaMenu {
     this.inner.classList.remove('ecl-mega-menu__inner--expanded');
 
     // Reset heights
-    const megaMenus = queryAll(
-      '.ecl-mega-menu__item > .ecl-mega-menu__wrapper > .ecl-container > [data-ecl-mega-menu-mega]',
-      this.element,
-    );
+    const megaMenus = queryAll('[data-ecl-mega-menu-mega]', this.element);
     megaMenus.forEach((mega) => {
       mega.style.height = '';
       mega.style.top = '';
+      mega.style.opacity = '';
     });
     let currentItem = false;
     // Remove css class and attribute from menu items
