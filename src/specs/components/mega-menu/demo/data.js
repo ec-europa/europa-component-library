@@ -171,7 +171,10 @@ module.exports = {
     {
       label: 'Engage',
       path: exampleLink,
-      container: `<div></div>`,
+      container: `<div class="ecl">
+          <h2 class="ecl-u-mt-none ecl-u-mt-l-l">Minimal demo content for the container option</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat magna quis ultricies hendrerit. Suspendisse fermentum elit id hendrerit suscipit.</p>
+        </div>`,
     },
     {
       label: 'Contact',
