@@ -56,9 +56,6 @@ $content-item: null !default;
 
 @include breakpoints.up('m') {
   .ecl-content-item {
-    box-sizing: border-box;
-    height: 100%;
-
     &:not(.ecl-content-item--stack) {
       flex-direction: row;
     }
