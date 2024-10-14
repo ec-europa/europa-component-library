@@ -21,7 +21,7 @@ Radio buttons provides a selection with two or more options. Only one option can
 ## When to use
 
 - when you have under 10 items
-- when users need to select options or toggle settings, for example
+- when users need to select options or toggle settings
 - in forms with multiple non-exclusive options (e.g. search filters)
 - only one selection can be made
 
