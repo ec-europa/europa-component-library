@@ -9,7 +9,7 @@ Radio buttons provides a selection with two or more options. Only one option can
 - use labels as click targets (clicking the label will select that option)
 - group related fields
 - order logically (e.g. ages 18-25, ages 25-35, ages, 35-50, over 65)
-- indicate whether the input group isoptional - *if it's mandatory, have a neutral option (e.g. other, n/a) selected by default*
+- indicate whether the input group is optional - _if it's mandatory, have a neutral option (e.g. other, n/a) selected by default_
 - make use of helper text if there are further directions or hints the users may need in completing their goal
 - write specific and clear error messages, so users understand how to address the error
 
