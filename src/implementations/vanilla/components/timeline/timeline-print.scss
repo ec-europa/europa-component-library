@@ -7,44 +7,156 @@
 
 // Exposed variables
 $theme: null !default;
+$timeline: null !default;
 $timeline-print: null !default;
 
+// Timeline structure
 .ecl-timeline {
-  color: map.get($theme, 'color', 'black');
-  font: map.get($theme, 'font-print', 'm');
-  list-style: disc;
-  margin: 0;
-  padding-left: map.get($theme, 'spacing-print', 'l');
-}
+  list-style: none;
+  margin-bottom: 0;
+  margin-inline-start: calc(
+    #{map.get($theme, 'spacing-print', 'l')} + #{map.get(
+        $timeline,
+        'bullet-size'
+      )} / 2 + map.get($timeline, 'bullet-border-width')
+  );
+  margin-top: 0;
+  padding-inline-start: 0;
 
-.ecl-timeline__item {
-  margin-top: map.get($theme, 'spacing-print', 'm');
-  max-width: var(--max-w);
-
-  &:first-child {
-    margin-top: 0;
+  @if map.has-key($timeline-print, 'timeline-margin-left') {
+    margin-inline-start: map.get($timeline-print, 'timeline-margin-left');
   }
 }
 
-.ecl-timeline__label {
-  color: map.get($timeline-print, 'label-color');
-  font: map.get($timeline-print, 'label-font');
-  font-weight: map.get($theme, 'font-weight-print', 'bold');
+.ecl-timeline__item {
+  max-width: var(--max-w);
+  padding-bottom: map.get($theme, 'spacing-print', 'xl');
+  padding-inline-start: calc(
+    #{map.get($theme, 'spacing-print', 'm')} + (
+        map.get($timeline, 'bullet-size') * 0.5
+      ) + map.get($timeline, 'bullet-border-width')
+  );
+  position: relative;
+
+  // Border
+  &::before {
+    border-inline-start: map.get($timeline, 'border-width') solid
+      map.get($timeline, 'border-color');
+    content: '';
+    height: 100%;
+    left: -#{(map.get($timeline, 'border-width') * 0.5)};
+    position: absolute;
+    top: 0;
+    width: 0;
+  }
+
+  // Bullet
+  &::after {
+    background-color: map.get($timeline, 'bullet-fill-color');
+    border: map.get($timeline, 'bullet-border-width') solid
+      map.get($timeline, 'bullet-border-color');
+    border-radius: 50%;
+    box-shadow: map.get($timeline, 'bullet-shadow');
+    box-sizing: border-box;
+    content: '';
+    height: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+    left: -(#{calc(map.get($timeline, 'bullet-size') / 2) +
+          map.get($timeline, 'bullet-border-width')});
+    position: absolute;
+    top: map.get($timeline, 'bullet-top-position');
+    width: map.get($timeline, 'bullet-size') +
+      (map.get($timeline, 'bullet-border-width') * 2);
+  }
 }
 
+// Toggle button
+.ecl-timeline__item--toggle {
+  display: none;
+}
+
+// Border adjustment
+.ecl-timeline__item:first-child::before {
+  height: map.get($timeline, 'first-item-height');
+  top: map.get($timeline, 'first-item-offset');
+}
+
+.ecl-timeline__item:last-child::before {
+  height: map.get($timeline, 'last-item-height');
+}
+
+// Timeline data
 .ecl-timeline__title {
-  color: map.get($timeline-print, 'title-color');
+  color: map.get($timeline, 'title-color');
   font: map.get($timeline-print, 'title-font');
-  font-weight: map.get($theme, 'font-weight-print', 'bold');
-  margin-top: map.get($theme, 'spacing-print', 'xs');
+  font-weight: map.get($timeline, 'title-font-weight');
+  margin-bottom: map.get($timeline-print, 'title-margin');
+}
+
+.ecl-timeline__label {
+  color: map.get($timeline, 'label-color');
+  font: map.get($timeline-print, 'label-font');
+  font-weight: map.get($timeline, 'label-font-weight');
+  left: calc(
+    -1 * (#{map.get($timeline, 'left-spacing')} + #{map.get(
+            $theme,
+            'spacing-print',
+            'm'
+          )} + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width'))
+  );
+  margin-bottom: map.get($timeline-print, 'label-margin');
+  position: map.get($timeline, 'label-layout');
+  text-align: map.get($timeline, 'label-alignment');
+  width: map.get($timeline, 'left-spacing');
 }
 
 .ecl-timeline__content {
-  color: map.get($timeline-print, 'content-color');
+  color: map.get($timeline, 'content-color');
   font: map.get($timeline-print, 'content-font');
-  margin-top: map.get($theme, 'spacing-print', 'xs');
 }
 
-.ecl-timeline__item--toggle {
-  display: none;
+@if map.has-key($timeline, 'tooltip') {
+  .ecl-timeline__label {
+    width: auto;
+  }
+
+  .ecl-timeline__tooltip {
+    border-radius: 8px;
+    box-shadow: var(--sh-1);
+    padding: var(--s-l);
+    position: relative;
+
+    &::before {
+      background: var(--c-s);
+      border-radius: 0 0 2px 2px;
+      content: '';
+      display: block;
+      height: 0.25rem;
+      position: absolute;
+      top: 0;
+      width: 2rem;
+    }
+  }
+
+  .ecl-timeline__tooltip-arrow {
+    height: 15px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 10%;
+    transform: translateX(-100%) rotate(90deg);
+    width: 15px;
+
+    &::after {
+      background: map.get($theme, 'color', 'white');
+      box-shadow: 0 0 6px rgb(14 71 203 / 0.2);
+      content: '';
+      height: 10px;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      width: 10px;
+    }
+  }
 }

@@ -14,8 +14,6 @@ $blockquote-print: null !default;
 %ecl-blockquote {
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
-  border-radius: map.get($blockquote, 'border-radius');
-  box-shadow: map.get($blockquote, 'shadow');
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -101,8 +99,8 @@ $blockquote-print: null !default;
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
-  height: 120px;
+  height: 3.175cm;
   margin-inline-end: map.get($blockquote-print, 'image-margin');
   object-fit: cover;
-  width: 120px;
+  width: 3.175cm;
 }

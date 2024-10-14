@@ -33,10 +33,9 @@ $timeline: (
   toggle-spacing: true,
 );
 $timeline-print: (
-  content-color: var(--c-d-80),
-  content-font: map.get($font-prolonged-print, 'm'),
-  label-color: var(--c-d-140),
-  label-font: map.get($font-prolonged-print, 'm'),
-  title-color: var(--c-d-140),
-  title-font: map.get($font-prolonged-print, 'm'),
+  title-font: map.get($font-print, 'l'),
+  title-margin: map.get($spacing-print, 's'),
+  label-font: map.get($font-print, '2xl'),
+  label-margin: map.get($spacing-print, 's'),
+  content-font: map.get($font-print, 'm'),
 );

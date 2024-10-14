@@ -1,0 +1,87 @@
+<!-- Site header -->
+{%- include '@ecl/site-header/site-header.html.twig' with site_header -%}
+
+<main class="ecl-u-bg-background ecl-u-pb-3xl">
+  <div class="ecl-container">
+    <!-- Page header -->
+    {% include '@ecl/page-header/page-header.html.twig' with page_header %}
+
+    <!-- Banner -->
+    {%- include '@ecl/banner/banner.html.twig' with banner -%}
+
+    <p class="ecl-u-type-paragraph ecl-u-print-only">Publication date: 00/00/0000</p>
+
+    <h2 class="ecl-u-type-heading-2">Donec nec ex condimentum</h2>
+
+    <!-- Paragraph -->
+    <p class="ecl-u-type-paragraph">
+      Ut maximus euismod velit, et mollis nibh gravida suscipit. Curabitur faucibus ex eu enim consectetur posuere et vitae nisl. Ut rutrum, mauris eget dictum ornare, orci velit elementum nunc, quis ornare urna velit et neque. Integer et ultrices mi. Nullam posuere gravida justo, ornare aliquam sapien interdum vel. Aenean at congue mauris. Vestibulum fermentum nisi bibendum dolor fermentum volutpat.
+    </p>
+
+    <!-- List with illustration image small -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_image_small %}
+    </div>
+
+    <!-- Blockquote -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/blockquote/blockquote.html.twig' with blockquote %}
+    </div>
+
+    <!-- List with illustration image large -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_image_large %}
+    </div>
+
+    <!-- List with illustration icon -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/list-illustration/list-illustration.html.twig' with list_illustration_icon %}
+    </div>
+
+    <h2 class="ecl-u-type-heading-2">Mauris aliquam nibh enim, at tincidunt odio</h2>
+
+    <!-- Featured item -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_left %}
+      {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_right %}
+      {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_left %}
+    </div>
+
+    <!-- Separator -->
+    {% include '@ecl/separator/separator.html.twig' %}
+
+    <h2 class="ecl-u-type-heading-2">Maecenas molestie lorem vel consectetur porttitor</h2>
+
+    <!-- Unordered list -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/unordered-list/unordered-list.html.twig' with unordered_list %}
+    </div>
+
+    <!-- Fact and figures -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/fact-figures/fact-figures.html.twig' with fact_figures %}
+    </div>
+
+    <h2 class="ecl-u-type-heading-2">Nunc placerat maximus</h2>
+
+    <!-- Table -->
+    {% include '@ecl/table/table.html.twig' with table %}  
+
+    <h2 class="ecl-u-type-heading-2">Phasellus accumsan, nulla eget gravida dignissim</h2>
+
+    <!-- Timeline -->
+    {% include '@ecl/timeline/timeline.html.twig' with timeline %}
+
+    <!-- Featured item highlight -->
+    <div class="ecl-u-mt-2xl">
+      {% include '@ecl/featured-item/featured-item.html.twig' with featured_item_highlight %}
+    </div>
+    
+    <p class="ecl-u-type-paragraph">
+      Contact information: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim, sapien eleifend pellentesque pellentesque, nisi sapien facilisis augue, ac semper urna nunc laoreet turpis. Nunc tempor tempor risus sit amet eleifend. Aenean at erat ac erat laoreet tempor. Ut ac felis nunc.
+    </p>
+  </div>
+</main>
+
+<!-- Footer -->
+{%- include '@ecl/site-footer/site-footer.html.twig' with site_footer -%}

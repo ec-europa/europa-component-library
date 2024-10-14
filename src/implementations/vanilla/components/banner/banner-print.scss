@@ -7,49 +7,225 @@
 
 // Exposed variables
 $theme: null !default;
+$banner: null !default;
 $banner-print: null !default;
 
 .ecl-banner {
-  padding: map.get($theme, 'spacing-print', 'm') 0;
+  --banner-footer-height: 0px;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-inline-end: 0;
+  margin-top: 0;
+  padding-bottom: var(--banner-footer-height);
+  position: relative;
 }
 
-.ecl-banner__picture-container,
+.ecl-banner__picture-container {
+  height: 100%;
+  margin: 0;
+  position: static;
+  width: 100%;
+}
+
 .ecl-banner__video-container {
-  display: none;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  position: static;
+  width: 100%;
 }
 
-.ecl-banner__title {
-  color: var(--c-d);
-  font: map.get($theme, 'font-print', '4xl');
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  font-family: var(--ecl-font-family-print-alt);
+.ecl-banner__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: relative;
+  width: 100%;
+}
+
+.ecl-banner__video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  width: 100%;
+}
+
+.ecl-banner .ecl-container {
+  padding-inline-start: map.get($theme, 'spacing-print', 'm');
+  padding-inline-end: map.get($theme, 'spacing-print', 'm');
+  position: absolute;
+  z-index: 1;
+}
+
+.ecl-banner__container {
+  display: flex;
+  padding-bottom: map.get($banner-print, 'container-padding-bottom');
+  padding-top: map.get($banner-print, 'container-padding-top');
+  width: 100%;
+
+  .ecl-banner--v-bottom & {
+    padding-bottom: calc(
+      #{map.get($banner-print, 'container-padding-bottom')} + var(--banner-footer-height)
+    );
+  }
+}
+
+.ecl-banner__content {
+  align-items: flex-start;
+  background-color: map.get($banner, 'content-background');
+  border-radius: map.get($banner, 'content-border-radius');
+  box-sizing: content-box;
+  display: inline-flex;
+  flex-direction: column;
+  max-width: map.get($banner, 'content-width');
+  padding: map.get($banner-print, 'content-padding');
+
+  .ecl-banner--box-bg-none & {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .ecl-banner--box-bg-dark & {
+    box-decoration-break: clone;
+    background: var(--c-ov-l);
+    backdrop-filter: blur(2px);
+  }
+}
+
+.ecl-banner__content > *:first-child {
+  margin-top: 0;
+}
+
+.ecl-banner__title,
+.ecl-banner__title .ecl-banner__title-link {
+  color: map.get($banner, 'text-color', 'dark');
+  display: inline;
+  font: map.get($banner-print, 'font', 'title', 'desktop-m');
+  margin: 0;
+
+  .ecl-banner--font-l & {
+    font: map.get($banner-print, 'font', 'title', 'desktop-l');
+  }
+
+  .ecl-banner--color-light & {
+    color: map.get($banner, 'text-color', 'light');
+  }
+
+  &:visited {
+    color: map.get($banner, 'text-color', 'dark');
+  }
+}
+
+.ecl-banner__description,
+.ecl-banner__description .ecl-banner__description-link {
+  color: map.get($banner, 'text-color', 'dark');
+  font: map.get($banner-print, 'font', 'description', 'desktop-m');
   margin-bottom: 0;
+  margin-top: map.get($theme, 'spacing-print', 's');
+
+  .ecl-banner--font-l & {
+    font: map.get($banner-print, 'font', 'description', 'desktop-l');
+  }
+
+  .ecl-banner--color-light & {
+    color: map.get($banner, 'text-color', 'light');
+  }
+
+  &:visited {
+    color: map.get($banner, 'text-color', 'dark');
+  }
 }
 
-.ecl-banner__title-link,
-.ecl-banner__description-link {
+.ecl-banner__credit {
+  background-color: map.get($banner, 'background-color');
   color: var(--c-d);
+  font: map.get($theme, 'font-print', 's');
+  padding-bottom: map.get($theme, 'spacing-print', '2xs');
+  padding-top: map.get($theme, 'spacing-print', '2xs');
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+
+  .ecl-banner & .ecl-container {
+    position: relative;
+  }
 }
 
-.ecl-banner__description {
-  color: var(--c-d);
-  font: map.get($theme, 'font-print', 'l');
-  margin-bottom: 0;
-  margin-top: map.get($theme, 'spacing-print', 'xs');
+// No full width banner on print
+
+// Medium banner - ratio 4:1
+.ecl-banner,
+.ecl-banner--m {
+  .ecl-banner__image,
+  .ecl-banner__video {
+    aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
+  }
 }
 
-.ecl-banner__description + .ecl-link {
-  margin-top: map.get($theme, 'spacing-print', 'm');
+// Extra small banner - ratio 6:1
+.ecl-banner--xs .ecl-banner__image,
+.ecl-banner--xs .ecl-banner__video {
+  aspect-ratio: 6/1;
+
+  --css-aspect-ratio: 6/1;
 }
 
-.ecl-banner__cta {
-  background: var(--c-s);
-  border-radius: map.get($banner-print, 'cta-radius');
-  display: inline-block;
-  padding: map.get($theme, 'spacing-print', 's');
-  margin-top: map.get($theme, 'spacing-print', 'm');
+// Small banner - ratio 5:1
+.ecl-banner--s .ecl-banner__image,
+.ecl-banner--s .ecl-banner__video {
+  aspect-ratio: 5/1;
+
+  --css-aspect-ratio: 5/1;
 }
 
-.ecl-banner__link-cta.ecl-link {
-  color: map.get($theme, 'color', 'black');
+// Large banner - ratio 3:1
+.ecl-banner--l .ecl-banner__image,
+.ecl-banner--l .ecl-banner__video {
+  aspect-ratio: 3/1;
+
+  --css-aspect-ratio: 3/1;
+}
+
+// Horizontal alignment
+.ecl-banner--h-center {
+  .ecl-banner__container {
+    justify-content: center;
+  }
+
+  .ecl-banner__content {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.ecl-banner--h-right {
+  .ecl-banner__container {
+    justify-content: flex-end;
+  }
+
+  .ecl-banner__content {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+// Vertical alignment
+// stylelint-disable-next-line no-descending-specificity
+.ecl-banner--v-top .ecl-container {
+  top: 0;
+}
+
+// stylelint-disable-next-line no-descending-specificity
+.ecl-banner--v-bottom .ecl-container {
+  bottom: 0;
 }

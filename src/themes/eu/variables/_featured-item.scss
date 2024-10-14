@@ -52,14 +52,20 @@ $featured-item: (
   ),
 );
 $featured-item-print: (
-  media-padding-desktop: 0 0 map.get($spacing-print, 'm'),
+  media-padding-desktop: 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm') 0,
   media-padding-right: 0 0 map.get($spacing-print, 'm')
     map.get($spacing-print, 'm'),
   title-font: map.get($font-prolonged-print, 'l'),
   title-font-weight: map.get($font-weight-print, 'bold'),
+  title-spacing-desktop: 0 map.get($spacing-print, 'm')
+    map.get($spacing-print, 'm') 0,
+  title-spacing-right: 0 map.get($spacing-print, 'xl') 0 0,
   description-font: map.get($font-prolonged-print, 'm'),
-  description-spacing: map.get($spacing-print, 's') 0 0 0,
-  link-spacing: map.get($spacing-print, 'm') 0 0 0,
+  description-spacing-desktop: map.get($spacing-print, 's') 0 0 0,
+  description-spacing-right: map.get($spacing-print, 's') 0 0 0,
+  link-spacing-desktop: map.get($spacing-print, 'm') 0 0 0,
+  link-spacing-right: map.get($spacing-print, 'm') 0 0 0,
   simple: (
     media-padding-desktop: 0 0 map.get($spacing-print, 'm') 0,
     padding-desktop: 0,

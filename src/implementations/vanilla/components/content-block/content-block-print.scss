@@ -69,7 +69,7 @@ $content-block: null !default;
 
 .ecl-content-block__description {
   color: map.get($content-block, 'text-color');
-  font: map.get($theme, 'font-prolonged-width', 'm');
+  font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
   max-width: var(--max-w);
 }
