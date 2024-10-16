@@ -213,6 +213,18 @@ $featured-item: null !default;
         padding: map.get($featured-item, 'simple', 'media-padding-right');
       }
     }
+
+    .ecl-featured-item__item:only-child {
+      .ecl-featured-item__title,
+      .ecl-featured-item__description,
+      .ecl-featured-item__link {
+        margin-inline: map.get(
+          $featured-item,
+          'simple',
+          'text-spacing-only-child'
+        );
+      }
+    }
   }
 }
 

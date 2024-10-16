@@ -38,8 +38,9 @@ $featured-item: (
     border-color: var(--c-st),
     title-spacing: var(--s-xl) var(--s-xl) var(--s-s),
     description-spacing: 0 var(--s-xl),
-    text-spacing-desktop: var(--s-xl),
-    text-spacing-right-desktop: var(--s-xl),
+    text-spacing-desktop: 0 var(--s-xl),
+    text-spacing-only-child: var(--s-xl),
+    text-spacing-right-desktop: var(--s-xl) 0,
   ),
   highlight: (
     container-background: map.get($color, 'white'),
