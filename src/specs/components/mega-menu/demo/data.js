@@ -58,10 +58,6 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
-              { label: 'Featured link 3', path: exampleLink },
-              { label: 'Featured link 4', path: exampleLink },
-              { label: 'Featured link 5', path: exampleLink },
-              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [
@@ -78,6 +74,9 @@ module.exports = {
             { label: 'Item 2.1 subitem 3', path: exampleLink },
             { label: 'Item 2.1 subitem 4', path: exampleLink },
             { label: 'Item 2.1 subitem 5', path: exampleLink },
+            { label: 'Item 2.1 subitem 6', path: exampleLink },
+            { label: 'Item 2.1 subitem 7', path: exampleLink },
+            { label: 'Item 2.1 subitem 8', path: exampleLink },
           ],
         },
         { label: 'Item 2.2', path: exampleLink },
@@ -154,6 +153,10 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
+              { label: 'Featured link 3', path: exampleLink },
+              { label: 'Featured link 4', path: exampleLink },
+              { label: 'Featured link 5', path: exampleLink },
+              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [

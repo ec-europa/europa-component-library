@@ -1358,14 +1358,13 @@ export class MegaMenu {
         if (this.isDesktop) {
           const list = queryOne('.ecl-mega-menu__sublist', menuItem);
           if (list) {
-            // Expand the first item in the sublist if it contains children.
-            const expandedChild = Array.from(
-              list.children,
-            )[0].firstElementChild.hasAttribute('aria-expanded')
-              ? Array.from(list.children)[0]
-              : false;
-            if (expandedChild) {
-              this.handleSecondPanel(expandedChild, 'expand');
+            // Expand the item in the sublist if it contains children.
+            const firstExpandedChild = Array.from(list.children).find((child) =>
+              child.firstElementChild?.hasAttribute('aria-expanded'),
+            );
+
+            if (firstExpandedChild) {
+              this.handleSecondPanel(firstExpandedChild, 'expand');
             }
           }
         }
