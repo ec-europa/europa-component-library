@@ -734,9 +734,22 @@ export class MegaMenu {
               });
             }
             heights.push(subItemsHeight);
+            // Featured panel calculations.
             featuredPanel = queryOne('.ecl-mega-menu__featured', expanded);
             if (featuredPanel) {
-              heights.push(featuredPanel.scrollHeight);
+              let totalHeight = 0;
+              // Get the elements inside the scrollable container and calculate their heights.
+              Array.from(featuredPanel.firstElementChild.children).forEach(
+                (child) => {
+                  const elStyle = window.getComputedStyle(child);
+                  const marginHeight =
+                    parseFloat(elStyle.marginTop) +
+                    parseFloat(elStyle.marginBottom);
+                  totalHeight += child.offsetHeight + marginHeight;
+                },
+              );
+
+              heights.push(totalHeight);
             }
           }
         }
@@ -1568,6 +1581,12 @@ export class MegaMenu {
       mega.style.top = '';
       mega.style.opacity = '';
     });
+
+    if (this.wrappers) {
+      this.wrappers.forEach((wrapper) => {
+        wrapper.style = '';
+      });
+    }
     let currentItem = false;
     // Remove css class and attribute from menu items
     this.items.forEach((item) => {
