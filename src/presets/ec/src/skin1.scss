@@ -1,8 +1,51 @@
-.ecl-site-footer {
-  --background: black;
+:root {
+  --ecl-color-branding: darkred;
+  --ecl-color-primary: red;
+  --ecl-color-primary-40: color-mix(
+    in srgb,
+    var(--ecl-color-primary),
+    #fff 60%
+  );
+  --ecl-color-primary-20: color-mix(
+    in srgb,
+    var(--ecl-color-primary),
+    #fff 80%
+  );
+  --ecl-color-primary-10: color-mix(
+    in srgb,
+    var(--ecl-color-primary),
+    #fff 90%
+  );
+  --ecl-color-secondary: blue;
+  --ecl-color-secondary-140: color-mix(
+    in srgb,
+    var(--ecl-color-secondary),
+    #000 40%
+  );
+  --ecl-color-neutral: silver;
+  --ecl-color-neutral-40: color-mix(
+    in srgb,
+    var(--ecl-color-neutral),
+    #fff 60%
+  );
 }
 
 .ecl-link {
-  --inverted-color: aqua;
-  --inverted-color-hover: antiquewhite;
+  --link-color: var(--ecl-color-secondary);
+  --link-color-hover: var(--ecl-color-secondary-140);
+  --link-inverted-color: var(--ecl-color-primary-10);
+  --link-inverted-color-hover: var(--ecl-color-primary-20);
+}
+
+.ecl-button {
+  --button-border-radius: 6px;
+}
+
+.ecl-text-input {
+  --text-input-border-radius: 6px;
+}
+
+.ecl-fact-figures {
+  --fact-figures-icon-color: var(--ecl-color-secondary);
+  --fact-figures-border-radius: 6px;
 }

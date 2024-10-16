@@ -15,25 +15,25 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 
 .ecl-link,
 %ecl-link {
-  --color: #{map.get($link, 'color')};
-  --color-hover: #{map.get($link, 'color-hover')};
-  --color-active: #{map.get($link, 'color-active')};
-  --inverted-color: #{map.get($link, 'inverted', 'color')};
-  --inverted-color-hover: #{map.get($link, 'inverted', 'color-hover')};
-  --inverted-color-active: #{map.get($link, 'inverted', 'color-active')};
+  --link-color: #{map.get($link, 'color')};
+  --link-color-hover: #{map.get($link, 'color-hover')};
+  --link-color-active: #{map.get($link, 'color-active')};
+  --link-inverted-color: #{map.get($link, 'inverted', 'color')};
+  --link-inverted-color-hover: #{map.get($link, 'inverted', 'color-hover')};
+  --link-inverted-color-active: #{map.get($link, 'inverted', 'color-active')};
 
-  color: var(--color);
+  color: var(--link-color);
   font-family: var(--ff-d);
   margin: 0;
   text-decoration: underline;
   text-underline-offset: 5px;
 
   &:visited {
-    color: var(--color);
+    color: var(--link-color);
   }
 
   &:hover {
-    color: var(--color-hover);
+    color: var(--link-color-hover);
   }
 
   &:focus-visible {
@@ -44,17 +44,17 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 
   &:active {
-    color: var(--color-active);
+    color: var(--link-color-active);
   }
 }
 
 // DEPRECATED
 .ecl-link--no-visited:visited {
-  color: var(--color);
+  color: var(--link-color);
 
   &:hover,
   &:focus-visible {
-    color: var(--color-hover);
+    color: var(--link-color-hover);
   }
 }
 
@@ -107,11 +107,11 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   text-decoration: none;
 
   &:visited {
-    color: var(--color);
+    color: var(--link-color);
   }
 
   &:hover {
-    color: var(--color);
+    color: var(--link-color);
     text-decoration: underline;
   }
 }
@@ -121,39 +121,39 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 */
 .ecl-link--inverted,
 %ecl-link-inverted {
-  color: var(--inverted-color);
+  color: var(--link-inverted-color);
 
   &:visited {
-    color: var(--inverted-color);
+    color: var(--link-inverted-color);
   }
 
   &:hover {
-    color: var(--inverted-color-hover);
+    color: var(--link-inverted-color-hover);
   }
 
   &:focus-visible {
-    outline-color: var(--inverted-color);
+    outline-color: var(--link-inverted-color);
   }
 
   &:active {
-    color: var(--color-active);
+    color: var(--link-color-active);
   }
 
   &.ecl-link--standalone {
     &:hover,
     &:visited {
-      color: var(--inverted-color);
+      color: var(--link-inverted-color);
     }
   }
 
   // DEPRECATED
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   &.ecl-link--no-visited:visited {
-    color: var(--inverted-color);
+    color: var(--link-inverted-color);
 
     /* stylelint-disable-next-line */
     &:hover {
-      color: var(--inverted-color-hover);
+      color: var(--link-inverted-color-hover);
     }
   }
 }
