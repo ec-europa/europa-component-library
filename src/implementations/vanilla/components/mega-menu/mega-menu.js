@@ -681,6 +681,7 @@ export class MegaMenu {
         let featuredPanel = null;
         let itemsHeight = 0;
         let subItemsHeight = 0;
+        let featuredHeight = 0;
 
         if (infoPanel) {
           infoPanelHeight = infoPanel.scrollHeight + 16;
@@ -690,6 +691,7 @@ export class MegaMenu {
         } else if (infoPanel && this.isDesktop) {
           itemsHeight = infoPanelHeight;
           subItemsHeight = infoPanelHeight;
+          featuredHeight = infoPanelHeight;
         }
 
         if (mainPanel) {
@@ -737,7 +739,6 @@ export class MegaMenu {
             // Featured panel calculations.
             featuredPanel = queryOne('.ecl-mega-menu__featured', expanded);
             if (featuredPanel) {
-              let totalHeight = 0;
               // Get the elements inside the scrollable container and calculate their heights.
               Array.from(featuredPanel.firstElementChild.children).forEach(
                 (child) => {
@@ -745,11 +746,11 @@ export class MegaMenu {
                   const marginHeight =
                     parseFloat(elStyle.marginTop) +
                     parseFloat(elStyle.marginBottom);
-                  totalHeight += child.offsetHeight + marginHeight;
+                  featuredHeight += child.offsetHeight + marginHeight;
                 },
               );
 
-              heights.push(totalHeight);
+              heights.push(featuredHeight);
             }
           }
         }
