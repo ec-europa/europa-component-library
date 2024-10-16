@@ -306,8 +306,16 @@ $featured-item: null !default;
 
     .ecl-featured-item__container--right {
       .ecl-featured-item__media_container {
-        margin: 0;
-        padding: map.get($featured-item, 'highlight', 'media-padding-right');
+        padding-block: map.get(
+          $featured-item,
+          'highlight',
+          'media-padding-vertical-right'
+        );
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'media-padding-horizontal-right'
+        );
       }
 
       .ecl-featured-item__title {
