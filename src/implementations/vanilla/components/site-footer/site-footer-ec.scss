@@ -14,8 +14,12 @@ $site-footer: null !default;
  * Global rules
  */
 .ecl-site-footer {
-  background-color: map.get($site-footer, 'background');
-  color: map.get($site-footer, 'color');
+  --footer-background: #{map.get($site-footer, 'background')};
+  --footer-color: #{map.get($site-footer, 'color')};
+  --footer-separator-color: #{map.get($site-footer, 'separator-color')};
+
+  background-color: var(--footer-background);
+  color: var(--footer-color);
   display: flex;
   margin: 0;
   padding-bottom: var(--s-3xl);
@@ -23,7 +27,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__row {
-  border-bottom: 1px solid map.get($site-footer, 'separator-color');
+  border-bottom: 1px solid var(--footer-separator-color);
   font: var(--f-m);
   padding-bottom: var(--s-2xl);
 
@@ -44,7 +48,7 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__section--separator {
-  border-bottom: 1px solid map.get($site-footer, 'separator-color');
+  border-bottom: 1px solid var(--footer-separator-color);
   padding-bottom: var(--s-2xl);
 }
 
@@ -66,12 +70,12 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__title--separator {
-  border-bottom: 1px solid map.get($site-footer, 'separator-color');
+  border-bottom: 1px solid var(--footer-separator-color);
   padding-bottom: var(--s-xs);
 }
 
 .ecl-site-footer__title {
-  color: map.get($site-footer, 'color');
+  color: var(--footer-color);
   font: var(--f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
@@ -82,7 +86,7 @@ $site-footer: null !default;
 .ecl-site-footer__title-link:focus,
 .ecl-site-footer__title-link:active,
 .ecl-site-footer__title-link:visited {
-  color: map.get($site-footer, 'color');
+  color: var(--footer-color);
 }
 
 .ecl-site-footer__description {
@@ -124,7 +128,7 @@ $site-footer: null !default;
 .ecl-site-footer__logo-link:focus-visible,
 .ecl-site-footer__title-link:focus-visible,
 .ecl-site-footer__link:focus-visible {
-  outline: 2px solid map.get($theme, 'color', 'white');
+  outline: 2px solid var(--footer-color);
 }
 
 .ecl-site-footer__section--site-info {

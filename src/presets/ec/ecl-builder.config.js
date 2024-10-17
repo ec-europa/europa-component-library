@@ -79,6 +79,24 @@ module.exports = {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/skin1.scss'),
+      dest: path.resolve(outputFolder, 'styles/skin/skin1.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
+      entry: path.resolve(__dirname, 'src/skin2.scss'),
+      dest: path.resolve(outputFolder, 'styles/skin/skin2.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-default-print.scss'),
       dest: path.resolve(
         outputFolder,

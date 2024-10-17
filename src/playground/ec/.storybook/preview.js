@@ -69,6 +69,18 @@ export const parameters = {
       picked: false,
       hideCode: true,
     },
+    {
+      id: 'skin 1',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/skin/skin1.css" />`,
+      picked: false,
+      hideCode: true,
+    },
+    {
+      id: 'skin 2',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/skin/skin2.css" />`,
+      picked: false,
+      hideCode: true,
+    },
   ],
   controls: { expanded: true },
   layout: 'padded',

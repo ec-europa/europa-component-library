@@ -15,10 +15,12 @@ $border-width: 1px;
 $outline-width: 2px;
 
 .ecl-text-input {
+  --text-input-border-radius: #{map.get($text-input, 'radius')};
+
   appearance: none;
   background-color: map.get($theme, 'color', 'white');
   border: $border-width solid map.get($text-input, 'border-color');
-  border-radius: map.get($text-input, 'radius');
+  border-radius: var(--text-input-border-radius);
   box-shadow: map.get($text-input, 'shadow');
   box-sizing: border-box;
   color: map.get($text-input, 'color-input');

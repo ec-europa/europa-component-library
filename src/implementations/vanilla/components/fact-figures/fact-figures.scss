@@ -11,14 +11,19 @@ $theme: null !default;
 $fact-figures: null !default;
 
 .ecl-fact-figures {
-  background-color: map.get($fact-figures, 'background');
-  border-radius: map.get($fact-figures, 'border-radius');
+  --fact-figures-background: #{map.get($fact-figures, 'background')};
+  --fact-figures-border-radius: #{map.get($fact-figures, 'border-radius')};
+  --fact-figures-icon-color: #{map.get($fact-figures, 'icon-color')};
+  --fact-figures-color: #{map.get($fact-figures, 'text-color')};
+
+  background-color: var(--fact-figures-background);
+  border-radius: var(--fact-figures-border-radius);
   margin: 0;
   padding: map.get($fact-figures, 'padding-mobile');
 }
 
 .ecl-fact-figures__item {
-  color: map.get($fact-figures, 'text-color');
+  color: var(--fact-figures-color);
   display: flex;
   flex-direction: column;
   margin-top: map.get($fact-figures, 'margin-vertical');
@@ -43,7 +48,7 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__icon {
-  color: map.get($fact-figures, 'icon-color');
+  color: var(--fact-figures-icon-color);
   display: block;
   margin-bottom: map.get($fact-figures, 'icon-margin');
 }

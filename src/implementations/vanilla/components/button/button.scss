@@ -15,9 +15,11 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 
 .ecl-button,
 %ecl-button {
+  --button-border-radius: #{map.get($button, 'radius')};
+
   appearance: none;
   background: none;
-  border-radius: map.get($button, 'radius');
+  border-radius: var(--button-border-radius);
   border-width: 0;
   box-sizing: border-box;
   cursor: pointer;
