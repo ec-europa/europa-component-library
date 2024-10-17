@@ -153,6 +153,10 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
+              { label: 'Featured link 3', path: exampleLink },
+              { label: 'Featured link 4', path: exampleLink },
+              { label: 'Featured link 5', path: exampleLink },
+              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [
