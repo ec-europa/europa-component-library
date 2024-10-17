@@ -7,6 +7,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const { uglify } = require('rollup-plugin-uglify');
 const svg = require('rollup-plugin-svg');
 const getSystem = require('../utils/getSystem');
+const pkg = require('../package.json');
 
 module.exports = (input, dest, options) => {
   const uglifyCode =
@@ -32,6 +33,7 @@ module.exports = (input, dest, options) => {
         'getSystem()': JSON.stringify(getSystem()),
         delimiters: ['', ''],
         preventAssignment: true,
+        __VERSION__: JSON.stringify(pkg.version),
       }),
       resolve(),
       commonjs(),
@@ -58,6 +60,7 @@ module.exports = (input, dest, options) => {
     sourcemap: options.sourcemap || options.sourceMap,
     exports: 'named',
     globals: options.globals || {},
+    footer: `ECL.version = "${pkg.version}";`,
   };
 
   rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));

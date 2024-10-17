@@ -23,6 +23,7 @@ import { createFocusTrap } from 'focus-trap';
  * @param {String} options.labelOpenAttribute The data attribute for open label
  * @param {String} options.labelCloseAttribute The data attribute for close label
  * @param {Boolean} options.attachClickListener Whether or not to bind click events
+ * @param {Boolean} options.attachTouchListener Whether or not to bind touch events
  * @param {Boolean} options.attachHoverListener Whether or not to bind hover events
  * @param {Boolean} options.attachFocusListener Whether or not to bind focus events
  * @param {Boolean} options.attachKeyListener Whether or not to bind keyboard events
@@ -79,6 +80,7 @@ export class Menu {
       labelOpenAttribute = 'data-ecl-menu-label-open',
       labelCloseAttribute = 'data-ecl-menu-label-close',
       attachClickListener = true,
+      attachTouchListener = true,
       attachHoverListener = true,
       attachFocusListener = true,
       attachKeyListener = true,
@@ -115,6 +117,7 @@ export class Menu {
     this.labelOpenAttribute = labelOpenAttribute;
     this.labelCloseAttribute = labelCloseAttribute;
     this.attachClickListener = attachClickListener;
+    this.attachTouchListener = attachTouchListener;
     this.attachHoverListener = attachHoverListener;
     this.attachFocusListener = attachFocusListener;
     this.attachKeyListener = attachKeyListener;
@@ -146,6 +149,7 @@ export class Menu {
     this.totalItemsWidth = 0;
     this.breakpointL = 996;
     this.windowWidth = null;
+    this.ignorehover = false;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -157,6 +161,9 @@ export class Menu {
       this.handleClickOnPreviousItems.bind(this);
     this.handleClickOnCaret = this.handleClickOnCaret.bind(this);
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
+    this.openItem = this.openItem.bind(this);
+    this.closeItem = this.closeItem.bind(this);
+    this.handleTouchOnCaret = this.handleTouchOnCaret.bind(this);
     this.handleHoverOnItem = this.handleHoverOnItem.bind(this);
     this.handleHoverOffItem = this.handleHoverOffItem.bind(this);
     this.handleFocusIn = this.handleFocusIn.bind(this);
@@ -268,6 +275,13 @@ export class Menu {
         if (this.attachClickListener) {
           caret.addEventListener('click', this.handleClickOnCaret);
         }
+
+        if (caret.parentElement.hasAttribute('data-ecl-has-children')) {
+          // Bind touch events on caret
+          if (this.attachTouchListener) {
+            caret.addEventListener('touchstart', this.handleTouchOnCaret);
+          }
+        }
       });
     }
 
@@ -300,7 +314,7 @@ export class Menu {
         this.totalItemsWidth += item.offsetWidth;
 
         if (item.hasAttribute('data-ecl-has-children')) {
-          // Bind hover and focus events on menu items
+          // Bind hover events on menu items
           if (this.attachHoverListener) {
             item.addEventListener('mouseover', this.handleHoverOnItem);
             item.addEventListener('mouseout', this.handleHoverOffItem);
@@ -1138,9 +1152,9 @@ export class Menu {
     // Desktop display
     if (menuExpanded === 'false') {
       if (menuItem.getAttribute('aria-expanded') === 'true') {
-        this.handleHoverOffItem(e);
+        this.closeItem(e);
       } else {
-        this.handleHoverOnItem(e);
+        this.openItem(e);
       }
       return;
     }
@@ -1171,13 +1185,16 @@ export class Menu {
     if (firstItem) {
       firstItem.focus();
     }
+
+    // Reactivate hover event
+    this.ignorehover = false;
   }
 
   /**
-   * Hover on a menu item
+   * Open a menu item
    * @param {Event} e
    */
-  handleHoverOnItem(e) {
+  openItem(e) {
     const menuItem = e.target.closest(this.itemSelector);
 
     // Ignore hidden or partially hidden items
@@ -1211,10 +1228,10 @@ export class Menu {
   }
 
   /**
-   * Deselect a menu item
+   * Close a menu item
    * @param {Event} e
    */
-  handleHoverOffItem(e) {
+  closeItem(e) {
     // Remove attribute to current item
     const menuItem = e.target.closest(this.itemSelector);
     menuItem.setAttribute('aria-expanded', 'false');
@@ -1225,6 +1242,36 @@ export class Menu {
     }
 
     return this;
+  }
+
+  /**
+   * Touch on a caret
+   */
+  handleTouchOnCaret() {
+    // Disable hover event, as they are triggered also by touch screens
+    this.ignorehover = true;
+  }
+
+  /**
+   * Hover on a menu item
+   * @param {Event} e
+   */
+  handleHoverOnItem(e) {
+    // Ignore touch screen
+    if (this.ignorehover) return;
+
+    this.openItem(e);
+  }
+
+  /**
+   * Hover off a menu item
+   * @param {Event} e
+   */
+  handleHoverOffItem(e) {
+    // Ignore touch screen
+    if (this.ignorehover) return;
+
+    this.closeItem(e);
   }
 
   /**

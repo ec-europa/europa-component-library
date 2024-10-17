@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@ecl/website",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "scripts": {
     "clean": "rimraf build public/apis/*",
     "start": "npm run prebuild && webpack-dev-server --config webpack.config.dev.js",
@@ -13,12 +13,12 @@
     "serve": "serve build"
   },
   "dependencies": {
-    "@ecl/resources-ec-logo": "4.7.0",
-    "@ecl/resources-eu-logo": "4.7.0",
-    "@ecl/resources-flag-icons": "4.7.0",
-    "@ecl/resources-icons": "4.7.0",
-    "@ecl/resources-social-media-icons": "4.7.0",
-    "@ecl/vanilla-layout-grid": "4.7.0",
+    "@ecl/resources-ec-logo": "4.8.0",
+    "@ecl/resources-eu-logo": "4.8.0",
+    "@ecl/resources-flag-icons": "4.8.0",
+    "@ecl/resources-icons": "4.8.0",
+    "@ecl/resources-social-media-icons": "4.8.0",
+    "@ecl/vanilla-layout-grid": "4.8.0",
     "@hot-loader/react-dom": "17.0.2",
     "@iframe-resizer/child": "5.3.1",
     "@iframe-resizer/parent": "5.3.1",
@@ -45,13 +45,13 @@
     "slugify": "1.6.6"
   },
   "devDependencies": {
-    "@babel/core": "7.25.2",
-    "@babel/plugin-proposal-export-default-from": "7.24.7",
+    "@babel/core": "7.25.8",
+    "@babel/plugin-proposal-export-default-from": "7.25.8",
     "@babel/plugin-proposal-export-namespace-from": "7.18.9",
-    "@babel/preset-env": "7.25.4",
-    "@babel/preset-react": "7.24.7",
-    "@babel/runtime": "7.25.6",
-    "@ecl/twig-ec-storybook": "4.7.0",
+    "@babel/preset-env": "7.25.8",
+    "@babel/preset-react": "7.25.7",
+    "@babel/runtime": "7.25.7",
+    "@ecl/twig-ec-storybook": "4.8.0",
     "@mdx-js/loader": "2.3.0",
     "autoprefixer": "10.4.20",
     "babel-eslint": "10.1.0",
@@ -81,7 +81,7 @@
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-loader": "8.1.1",
     "postcss-prefix-selector": "1.16.1",
-    "postcss-safe-parser": "7.0.0",
+    "postcss-safe-parser": "7.0.1",
     "raw-loader": "4.0.2",
     "react-dev-utils": "12.0.1",
     "react-snap": "1.23.0",
@@ -89,7 +89,7 @@
     "remark-gfm": "1.0.0",
     "remark-unwrap-images": "2.1.0",
     "rimraf": "6.0.1",
-    "sass": "1.79.3",
+    "sass": "1.79.5",
     "sass-loader": "16.0.2",
     "serve": "14.2.3",
     "style-loader": "4.0.0",
@@ -104,6 +104,7 @@
   },
   "reactSnap": {
     "exclude": [
+      "/apis/*",
       "/component-library/**/cms-images/**",
       "/component-library/cms-images/**",
       "/playground/**",

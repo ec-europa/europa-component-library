@@ -3,16 +3,21 @@
 
 $notification: (
   radius: 0,
-  padding: var(--s-xl),
+  padding: var(--s-l),
+  padding-mobile: var(--s-m),
   padding-end: var(--s-xl),
-  padding-start: var(--s-3xl),
+  padding-end-mobile: var(--s-m),
+  padding-start: var(--s-l),
+  padding-start-mobile: var(--s-s),
   border-width: 1px,
   font: var(--f-m),
   color: var(--c-d),
   title-font: var(--f-l),
   title-font-weight: map.get($font-weight, 'regular'),
-  title-spacing: var(--s-s),
+  title-spacing: 0,
   close-color: var(--c-d),
+  close-offset-top-mobile: calc(var(--s-m) - var(--s-xl)),
+  close-offset-end-mobile: calc(var(--s-m) - var(--s-xl)),
   close-offset-top: calc(var(--s-m) - var(--s-xl)),
   close-offset-end: calc(var(--s-m) - var(--s-xl)),
   info: (
@@ -32,9 +37,12 @@ $notification: (
     icon-background-color: var(--c-d),
     icon-background-height: var(--s-m),
     icon-background-width: var(--s-xs),
-    icon-background-top: calc(var(--s-xl) + var(--s-s)),
+    icon-background-top-mobile: calc(var(--s-m) + var(--s-s)),
+    icon-background-top: calc(var(--s-l) + var(--s-s)),
+    icon-background-left-mobile:
+      calc(var(--s-s) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
     icon-background-left:
-      calc(var(--s-3xl) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
+      calc(var(--s-l) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
   ),
   error: (
     background: var(--c-n-20),

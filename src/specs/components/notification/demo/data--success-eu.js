@@ -4,7 +4,7 @@ module.exports = {
   icon: {
     path: '/icons.svg',
     name: 'check-filled',
-    size: 'm',
+    size: 'l',
   },
   sr_icon: 'Success',
   title: 'Success notification',
