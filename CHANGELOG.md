@@ -1,5 +1,18 @@
 # Changelog
 
+# 4.8.1
+
+#### :nail_care: Enhancement
+
+- [#3680](https://github.com/ec-europa/europa-component-library/pull/3680) feat(mega-menu): Improving calculations for the featured panel height - FRONT-4654 ([@planctus](https://github.com/planctus))
+- [#3672](https://github.com/ec-europa/europa-component-library/pull/3672) feat(featured-item): Fixing RTL display, fixing alignment - FRONT-4652 ([@planctus](https://github.com/planctus))
+- [#3657](https://github.com/ec-europa/europa-component-library/pull/3657) feat(js): Adding version propery to the ECL object - FRONT-4638 ([@planctus](https://github.com/planctus)
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.8.0
 
 #### :warning: Markup Changes
