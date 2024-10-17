@@ -1,5 +1,48 @@
 # Changelog
 
+# 4.8.0
+
+#### :warning: Markup Changes
+
+- [#3656](https://github.com/ec-europa/europa-component-library/pull/3656) fix(site-header): Removing containers when removing notification - FRONT-4637 ([@planctus](https://github.com/planctus))
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3668](https://github.com/ec-europa/europa-component-library/pull/3668) fix(datepicker): Parsing user input, use moment for custom formats, handle resize - FRONT-4643 ([@planctus](https://github.com/planctus))
+- [#3670](https://github.com/ec-europa/europa-component-library/pull/3670) fix(language-list): Fixing styles - FRONT-4647 ([@planctus](https://github.com/planctus))
+- [#3660](https://github.com/ec-europa/europa-component-library/pull/3660) fix(mega-menu): Setting opacity: 1 on the container when opened - FRONT-4641 ([@planctus](https://github.com/planctus))
+- [#3666](https://github.com/ec-europa/europa-component-library/pull/3666) fix(content-item): revert height change - FRONT-4645 ([@emeryro](https://github.com/emeryro))
+- [#3661](https://github.com/ec-europa/europa-component-library/pull/3661) fix(multiselect): Setting margin-top when there is a label and no helper text - FRONT-4640 ([@planctus](https://github.com/planctus))
+- [#3656](https://github.com/ec-europa/europa-component-library/pull/3656) fix(site-header): Removing containers when removing notification - FRONT-4637 ([@planctus](https://github.com/planctus))
+- [#3653](https://github.com/ec-europa/europa-component-library/pull/3653) fix(tabs): fix icon position on mobile - FRONT-4321 ([@emeryro](https://github.com/emeryro))
+- [#3647](https://github.com/ec-europa/europa-component-library/pull/3647) fix(menu): fix touch devices - FRONT-4632 ([@emeryro](https://github.com/emeryro))
+- [#3649](https://github.com/ec-europa/europa-component-library/pull/3649) fix(modal): fix close button position on rtl - FRONT-4623 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3654](https://github.com/ec-europa/europa-component-library/pull/3654) feat(content-item): set 100% height - FRONT-4627 ([@emeryro](https://github.com/emeryro))
+- [#3657](https://github.com/ec-europa/europa-component-library/pull/3657) feat(js): Adding version propery to the ECL object - FRONT-4638 ([@planctus](https://github.com/planctus))
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3673](https://github.com/ec-europa/europa-component-library/pull/3673) feat(featured-item): Deprecating footer - FRONT-4650 ([@planctus](https://github.com/planctus))
+- [#3674](https://github.com/ec-europa/europa-component-library/pull/3674) chore(deps): Updates 14-10-24 ([@planctus](https://github.com/planctus))
+- [#3664](https://github.com/ec-europa/europa-component-library/pull/3664) chore(deps): Updates - 07-10-24 ([@planctus](https://github.com/planctus))
+- [#3593](https://github.com/ec-europa/europa-component-library/pull/3593) docs(showcase): provide example of full pages - FRONT-4383 ([@emeryro](https://github.com/emeryro))
+- [#3659](https://github.com/ec-europa/europa-component-library/pull/3659) chore(deps): Updates 01-10-24 ([@planctus](https://github.com/planctus))
+- [#3651](https://github.com/ec-europa/europa-component-library/pull/3651) feat(apis): Adding api docs for media container - FRONT-4635 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.7.0
 
 #### :warning In this version of ECL node 20.9.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
