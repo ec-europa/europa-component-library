@@ -1,5 +1,19 @@
 # Changelog
 
+# 4.7.1
+
+#### :nail_care: Enhancement
+
+- [#3680](https://github.com/ec-europa/europa-component-library/pull/3680) feat(mega-menu): Improving calculations for the featured panel height - FRONT-4654 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3660](https://github.com/ec-europa/europa-component-library/pull/3660) fix(mega-menu): Setting opacity: 1 on the container when opened - FRONT-4641 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.7.0
 
 #### :warning In this version of ECL node 20.9.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
