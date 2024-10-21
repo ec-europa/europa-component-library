@@ -106,7 +106,7 @@ jobs:
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
     steps:
-      - uses: jpoehnelt/resable-workspace/restore@v1
+      - uses: jpoehnelt/reusable-workspace/restore@v1
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
