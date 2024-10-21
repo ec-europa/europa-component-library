@@ -99,7 +99,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
-          storybook-base-dir: src/playground/ec
 
   chromatic-eu:
     name: Run Chromatic for EU
@@ -111,7 +110,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
-          storybook-base-dir: src/playground/eu
 
   deploy-release-branch:
     name: Deploy Release Branch
