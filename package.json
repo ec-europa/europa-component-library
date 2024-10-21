@@ -35,8 +35,8 @@
     "update-version": "scripts/update-version.sh",
     "chromatic-eu": "cd src/playground/eu && npm run build",
     "chromatic-ec": "cd src/playground/ec && npm run build",
-    "chromatic-EU": "STORYBOOK_CHROMATIC=true npx chromatic --storybook-base-dir=src/playground/eu --build-script-name chromatic-eu",
-    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --storybook-base-dir=src/playground/ec --build-script-name chromatic-ec"
+    "chromatic-EU": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-eu",
+    "chromatic-EC": "STORYBOOK_CHROMATIC=true npx chromatic --build-script-name chromatic-ec"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.25.8",
