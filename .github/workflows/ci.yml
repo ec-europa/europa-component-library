@@ -99,17 +99,19 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           storybookBuildDir: dist/website/playground/ec
+          storybook-base-dir: src/playground/ec
 
   chromatic-eu:
     name: Run Chromatic for EU
     needs: deploy-pull-request-preview
     runs-on: ubuntu-latest
     steps:
-      - uses: jpoehnelt/reusable-workspace/restore@v1
+      - uses: jpoehnelt/resable-workspace/restore@v1
       - uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_EU }}
           storybookBuildDir: dist/website/playground/eu
+          storybook-base-dir: src/playground/eu
 
   deploy-release-branch:
     name: Deploy Release Branch
