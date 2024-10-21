@@ -6,7 +6,7 @@
   "version": "4.8.1",
   "description": "Storybook EC Twig",
   "scripts": {
-    "build": "STORYBOOK_SYSTEM=EC sb build -c .storybook -o build",
+    "build": "STORYBOOK_SYSTEM=EC sb build --webpack-stats-json -c .storybook -o build",
     "start": "STORYBOOK_SYSTEM=EC node start.js"
   },
   "devDependencies": {
