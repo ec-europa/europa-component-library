@@ -34,8 +34,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-ec-default.css"
-    integrity="sha256-iW7hhMZXv7yvITW7e+lAtSX3LP2oN+kMfisPvjEFR80= sha384-90cZ0eB/WItWc1lC4uryBB0/aNO84gk9eU2IQHjkTW0MZIs+sz/NUykutVRvkdtW sha512-WsI01nbLVzMIXdluwM+eyr/jhs5UVFrwHKZMcz5NmiakQ0XWzKl/HhTNAH16RHQCVwlxJe5dAtdEJoXLa4lqUw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/optional/ecl-ec-default.css"
+    integrity="sha256-TeuxXHftRR6C3Mwl6ENA5MDCy+beLB/ICZwTvIe48h4= sha384-Dp/9g2FHombY9FoRmtI6AdADWUi1wGR5F3rQC2UcYHerAuRvzSkPNRSZawBv8nlJ sha512-/8BciqitYUacXfKcLu9mwx3lIbhGK8hyEVcn63DYNZ3+7NyCRpkWC1R5T9omOEZpGIi7QU83KhMXBQgTGFXbWQ=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -44,8 +44,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-reset.css"
-    integrity="sha256-EdkdYgVECs2jW/ibm3HHO10jaG0AOeNkDlf/ucMlrbU= sha384-P1sBTcqevL99sC0B1zmBV1lMqsbViU0cqnEN2jAHEQd3VmSNfegxVKv2dxYu9GhUsha512-KzbAuvXUKtELOvX0akYYtBs6bfeIdrKhEo8xwXt9FxLxgQ6YT1EDXC5c+HKsGGDhrfRe736D4BhIzL9a9HETwg=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/optional/ecl-reset.css"
+    integrity="sha256-cB+2gaO93E/6X2XbBX3QuN9+ejz3jKej0sMuijifNoM= sha384-1vuM5dTmA3nkg19AWFmNXAreNq7QcdtzpbgCOviaJdn2/S8KJkcU+yHqg/7dtBWq sha512-4e8LdEHI+dszIbp0Vl6iTtIiU0Urvtxv235RDAtgLws2IVYS8/I5RVXAPyszvRgYRsxJofT0Hi2EhQOXn0lAOw=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -54,8 +54,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec.css"
-    integrity="sha256-GtPoIEuv04ZOW0sGmPFzuKxsg5vg5oKk+c3Jr5/nsDg= sha384-UCzb3Wr61GTH9ni7H9lsXJ2B0dSjXAP+KXSviP1naNe4WX+JPQFB6hfDYhi/AwoL sha512-RelZzdtLiUDJISd764PXYp/BalPoq/JXQXxZz+2IppP+q5wikB4p22uaWXg3dk/28UHsaY7wrP7oFJyMlxhb7w=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/ecl-ec.css"
+    integrity="sha256-oNltnbom13hjNbjf0bOaoEryztGBjIM0dxW+6B6K4u4= sha384-UCzb3Wr61GTH9ni7H9lsXJ2B0dSjXAP+KXSviP1naNe4WX+JPQFB6hfDYhi/AwoL sha384-pht7Ak0/atyGGU+sNdoGMoYPtcq5gJ9eOEiD8jhbqowXOp04VjhqALtBzjQO+xVa sha512-xdo5nJPjpTjayd2nwR14AubkmVzk3rZjqbBOllQqW0JFfmqjbiRiycKVvQ02scSzjRMxJ6gvP4erDhQGX0rc+Q=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -64,8 +64,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec-utilities.css"
-    integrity="sha256-3Vdb4VSfr43FeJCapxuQ5wwcvTAau6fvPO4yyEMCE5Y= sha384-uxtSW7PSydM9Ow3jU25ck+o9xHET/9y1RW5I9Kl2dx5zVkKRX/LS06r82yMuQsfO sha512-blsB5JICQnYY/aj6wUN404YrYCi3OcfGAaQ6bfh5oCttV2+ORUhbFZ9y//IDJlRQLqJ3UCnanSV+mM42LUVKTA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/ecl-ec-utilities.css"
+    integrity="sha256-217C6y16s0jsO4sNoe+I5unypBoaoLYabmrfu29fAWM= sha384-9E7cKdcPqPNWMNmx5Rn9XJO58MGACUQ+rB+yJVxmQm1ED4/hWFF6al7DwUoykrxi sha512-Ml1CkmJYpMt/yPbFoUUqy7Fyhd/xMmLDU5XoGG8Zra5oO5GOJEXGScoSpU+sxu5b4u/onjsFeJeMFyp1S/PxYA=="
     crossorigin="anonymous"
     media="screen"
   />
@@ -74,8 +74,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/ecl-ec-print.css"
-    integrity="sha256-6WGwnimzcT/CCCt4y3uoqZRB2PyvFYbH8a6mKiOzfu8= sha384-gxx+5NguJCcrRIVRDWZDLi53ih7mh2U9rCeIxNJZuINCSEQrJjHUXK4OUVTT/Mxj sha512-yjc+86Pd1po51IU1IJqKCd5GyYSW/TTAHs8ieoCacUAaq0NLWqbD+WuliI7i04ZGde8dK5mTL+oPojQvUpefAQ=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/ecl-ec-print.css"
+    integrity="sha256-AFmDvofMQUkM+cb5fKJCDj3hZGfFZOThrzUTqb76qow= sha384-/uofNQJMnNJCjn/MNbNy/lUoYxxPDSB12tig+dwd2nu49k7j1nFufhV5ivO0fCLO sha512-sC0EIvBeW5/lfXHLbAsr46LzA/sBcCa/zk9QwuNBbwUTs22FRG3buHYY5tT2fP+Pyo7ybyVbcWmu82w+S0pDMw=="
     crossorigin="anonymous"
     media="print"
   />
@@ -84,9 +84,9 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
   ```html
   <link
     rel="stylesheet"
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/styles/optional/ecl-ec-default-print.css"
-    integrity="sha256-94GWM6UMwYIhx3EpBu0gDNUiYXmx4kbfl1qhBkjvDSY= sha384-UbjfSU0KUoc9nhgsAfKdxylzfUEHxvM1k2mYOt8/bLydYrFbL+ERbzqVRrjb9t8b
-    sha512-YBNIoVWgXrfrji4Ux+iN+gW3OfU+euRbbMOApTBdMGxC77592yWlvyKwPYTF6UR5bJwe+rYYz09RBvJRO+q9zw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/styles/optional/ecl-ec-default-print.css"
+    integrity="sha256-e6wiiv5iwhwzmLA3Pcl9A+TB0d9DrG5qWAyg6SnZfLo= sha384-NYnav9ZCqzabkWyUPkAAUQTPxvup6lOi/zJBD/o7z+XSUzHyUxUT2WSAbs95Psoy
+    sha512-gNqfQUCcgOJEfTCjp8OuSCx09scTMOG9cjdwu6aWVSdrC2BNrizsx5EMV96iQppTcyYtveLnKWkPLM0DMTubJA=="
     crossorigin="anonymous"
     media="print"
   />
@@ -94,8 +94,8 @@ The ECL is bundled in various [presets](docs/presets.md) in order to accomodate 
 
   ```html
   <script
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.7.0/ec/scripts/ecl-ec.js"
-    integrity="sha256-t06Aw2x1aXuWl8P4+VrfbbDgzXzG7DgYXNsC07eYKLg= sha384-eEV5mdTXAaDyXMMExBvtkbqvSJTo+H1lMhWpZPTwmJbWZam6rkKWDWSKb+OSl7uI sha512-+6xdwKTXk0w5cYkA7WZiDEw7kdRHqJUvIVQcswuA6h1ixMHY6irJ2KZCDqzaFMgVi0CvtX+njup9+LbNER8M7w=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/scripts/ecl-ec.js"
+    integrity="sha256-VOOznNL01iIXXxHIVxWu0kTfOmdYrW6Un8ngtthsAH0= sha384-91T64v17CucFrrb07DcuKQFzcvyRWybQVoLrqW9MtJgR1aiMC1PU6s/ld3di9Ll9 sha512-UBifZnadnJZR/x1oGsbgKIkDSEx0fB/JdO0aTYLoanC9nZzYRrD6sYvvcDXSRsIKijlCwxYsIPuQbPs7HX4bYA=="
     crossorigin="anonymous"
   ></script>
   ```
