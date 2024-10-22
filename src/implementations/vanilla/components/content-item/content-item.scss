@@ -78,3 +78,16 @@ $content-item: null !default;
     max-width: 100%;
   }
 }
+
+// TMP: container
+@container (width <= 330px) {
+  .ecl-content-item {
+    &:not(.ecl-content-item--stack) {
+      flex-direction: column;
+
+      .ecl-content-item__content-block {
+        margin-top: var(--s-m);
+      }
+    }
+  }
+}
