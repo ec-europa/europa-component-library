@@ -1,22 +1,9 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from '@ecl/specs-component-blockquote/demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
-
-let figmaUrl = '';
-
-const system = getSystem();
-
-if (system === 'ec') {
-  figmaUrl =
-    'https://www.figma.com/design/CZdy869NPeNDmiveR9jFsh/Blockquote?node-id=0-1&node-type=canvas';
-} else {
-  figmaUrl =
-    'https://www.figma.com/design/CZdy869NPeNDmiveR9jFsh/Blockquote?node-id=2-2&node-type=canvas';
-}
 
 const getArgs = (data) => ({
   show_image: false,
@@ -162,12 +149,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Blockquote',
   decorators: [withCode, withNotes],
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaUrl,
-    },
-  },
 };
 
 export const Default = (_, { loaded: { component } }) => component;
