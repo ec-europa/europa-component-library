@@ -69,6 +69,7 @@ module.exports = {
   addons,
   webpackFinal,
   staticDirs,
+  webpackStatsJson: true,
   features: {
     postcss: false,
   },
