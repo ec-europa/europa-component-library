@@ -141,7 +141,24 @@ $language-list: null !default;
   }
 
   .ecl-splash-page__language-category .ecl-splash-page__language-list {
-    column-count: 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ecl-splash-page__language-two-item-category {
+    flex-grow: 0;
+
+    .ecl-splash-page__language-list {
+      grid-template-columns: repeat(2, 33%);
+    }
+  }
+
+  .ecl-splash-page__language-single-item-category {
+    flex-grow: 0;
+
+    .ecl-splash-page__language-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   .ecl-splash-page__language-link {
@@ -150,6 +167,10 @@ $language-list: null !default;
 }
 
 @include breakpoints.up('l') {
+  .ecl-splash-page__language-two-item-category .ecl-splash-page__language-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .ecl-splash-page__language-content {
     margin-top: map.get($language-list, 'content-margin-desktop');
   }
@@ -157,7 +178,7 @@ $language-list: null !default;
   .ecl-splash-page__language-category
     + .ecl-splash-page__language-category
     .ecl-splash-page__language-list {
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   // Horizontal sections
