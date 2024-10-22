@@ -144,6 +144,18 @@ $language-list: null !default;
     column-count: 3;
   }
 
+  .ecl-splash-page__language-two-item-category .ecl-splash-page__language-list {
+    column-count: 2;
+  }
+
+  .ecl-splash-page__language-single-item-category {
+    flex-grow: 0;
+
+    .ecl-splash-page__language-list {
+      column-count: 1;
+    }
+  }
+
   .ecl-splash-page__language-link {
     width: calc(#{map.get($language-list, 'item-width')} - (2 * var(--s-s)));
   }
