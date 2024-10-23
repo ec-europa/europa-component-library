@@ -755,17 +755,12 @@ export class MegaMenu {
           }
         }
 
-        const maxHeight = Math.max(...heights);
         const containerBounding = this.inner.getBoundingClientRect();
         const containerBottom = containerBounding.bottom;
         // By requirements, limit the height to the 70% of the available space.
         const availableHeight = (window.innerHeight - containerBottom) * 0.7;
 
-        if (maxHeight > availableHeight) {
-          height = availableHeight;
-        } else {
-          height = maxHeight;
-        }
+        height = availableHeight;
 
         const wrapper = queryOne('.ecl-mega-menu__wrapper', menuItem);
         if (wrapper) {
@@ -1359,13 +1354,14 @@ export class MegaMenu {
         if (this.isDesktop) {
           const list = queryOne('.ecl-mega-menu__sublist', menuItem);
           if (list) {
-            // Expand the item in the sublist if it contains children.
-            const firstExpandedChild = Array.from(list.children).find((child) =>
-              child.firstElementChild?.hasAttribute('aria-expanded'),
-            );
-
-            if (firstExpandedChild) {
-              this.handleSecondPanel(firstExpandedChild, 'expand');
+            // Expand the first item in the sublist if it contains children.
+            const expandedChild = Array.from(
+              list.children,
+            )[0].firstElementChild.hasAttribute('aria-expanded')
+              ? Array.from(list.children)[0]
+              : false;
+            if (expandedChild) {
+              this.handleSecondPanel(expandedChild, 'expand');
             }
           }
         }
