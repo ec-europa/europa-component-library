@@ -1,5 +1,15 @@
 # Changelog
 
+# 4.7.2
+
+#### :nail_care: Enhancement
+
+- [#3689](https://github.com/ec-europa/europa-component-library/pull/3689) feat(mega-menu): Dropdown height recalculation after each click - FRONT-4664 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
 # 4.7.1
 
 #### :nail_care: Enhancement
