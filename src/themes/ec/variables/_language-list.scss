@@ -3,7 +3,7 @@
 
 $language-list: (
   color: var(--c-d),
-  container-padding: var(--s-3xl) var(--s-3xl) var(--s-3xl) 28px,
+  container-padding: var(--s-3xl) var(--s-xl) var(--s-3xl) var(--s-xl),
   header-font-mobile: var(--f-l),
   header-font-desktop: var(--f-xl),
   content-margin-mobile: var(--s-s),
@@ -13,8 +13,6 @@ $language-list: (
   category-title-padding: var(--s-l) 0 var(--s-xs) var(--s-s),
   category-separator: 1px solid var(--c-n),
   category-stack-margin: var(--s-s),
-  list-margin: 0,
-  list-margin-rtl: 0,
   item-padding: var(--s-xs) var(--s-s),
   code-color: var(--c-d),
   code-font-weight: map.get($font-weight, 'regular'),
@@ -22,8 +20,9 @@ $language-list: (
   code-width: 26px,
   item-active-background: var(--c-n-80),
   item-active-color: var(--c-d),
-  item-active-shadow: none,
-  item-width: 184px,
+  item-active-border-width: 4px,
+  item-active-border-color: var(--c-p),
+  item-width: 196px,
   column-spacing-before: var(--s-m),
   column-spacing-after: var(--s-2xs),
 );
