@@ -51,7 +51,27 @@ $language-list: null !default;
   left: 0;
   height: auto;
   margin-top: var(--s-l);
-  padding: map.get($language-list, 'container-padding');
+  padding-block-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-end'
+  );
+  padding-inline-start: calc(
+    #{map.get($language-list, 'container-padding-mobile', 'inline-start')} - #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
+  padding-inline-end: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'inline-end'
+  );
   position: absolute;
   right: 0;
   width: auto;
@@ -78,7 +98,9 @@ $language-list: null !default;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-inline-start: var(--s-s);
+  padding-inline-start: calc(
+    var(--s-s) + #{map.get($language-list, 'item-active-border-width')}
+  );
 }
 
 .ecl-site-header__language-title {
@@ -106,7 +128,27 @@ $language-list: null !default;
 .ecl-site-header__language-category-title {
   font: map.get($language-list, 'category-title-font');
   font-weight: map.get($language-list, 'category-title-font-weight');
-  padding: map.get($language-list, 'category-title-padding');
+  padding-block-start: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-end'
+  );
+  padding-inline-start: calc(
+    #{map.get($language-list, 'category-title-padding', 'inline-start')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
+  padding-inline-end: map.get(
+    $language-list,
+    'category-title-padding',
+    'inline-end'
+  );
 }
 
 .ecl-site-header__language-category:nth-child(2) {
@@ -184,6 +226,27 @@ $language-list: null !default;
 
   .ecl-site-header__language-container {
     left: 50%;
+    padding-block-start: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-start'
+    );
+    padding-block-end: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-end'
+    );
+    padding-inline-start: calc(
+      #{map.get($language-list, 'container-padding-desktop', 'inline-start')} - #{map.get(
+          $language-list,
+          'item-active-border-width'
+        )}
+    );
+    padding-inline-end: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'inline-end'
+    );
     right: auto;
     transform: translateX(-50%);
   }
@@ -220,7 +283,12 @@ $language-list: null !default;
       border-top: none;
       border-inline-start: map.get($language-list, 'category-separator');
       margin-inline-start: map.get($language-list, 'column-spacing-before');
-      padding-inline-start: map.get($language-list, 'column-spacing-after');
+      padding-inline-start: calc(
+        #{map.get($language-list, 'column-spacing-after')} - #{map.get(
+            $language-list,
+            'item-active-border-width'
+          )}
+      );
     }
 
     .ecl-site-header__language-category-title {
