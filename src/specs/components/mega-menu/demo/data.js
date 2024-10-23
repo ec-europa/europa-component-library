@@ -132,6 +132,7 @@ module.exports = {
         {
           label: 'Aid, Development cooperation, Fundamental rights',
           path: exampleLink,
+          children: [{ label: 'A lonely item', path: exampleLink }],
         },
         { label: 'Energy, Climate change, Environment', path: exampleLink },
         { label: 'Law', path: exampleLink },
