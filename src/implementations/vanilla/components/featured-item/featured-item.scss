@@ -154,7 +154,10 @@ $featured-item: null !default;
   box-shadow: map.get($featured-item, 'shadow');
 
   .ecl-featured-item__container {
-    background-color: map.get($featured-item, 'simple', 'container-background');
+    // background-color: map.get($featured-item, 'simple', 'container-background');
+    background-color: antiquewhite;
+    background-image: url('https://i.ibb.co/dbVS5Hn/graphic.png');
+    background-repeat: no-repeat;
     border: map.get($featured-item, 'border');
     border-inline-start: map.get($featured-item, 'simple', 'border-size') solid
       map.get($featured-item, 'simple', 'border-color');
