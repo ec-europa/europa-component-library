@@ -19,7 +19,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   font-family: var(--ff-d);
   margin: 0;
   text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration-thickness: from-font;
+  text-underline-offset: clamp(3px, 0.245em, 10px);
 
   &:visited {
     color: map.get($link, 'color-visited');
