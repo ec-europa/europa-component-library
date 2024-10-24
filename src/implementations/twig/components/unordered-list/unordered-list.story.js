@@ -6,7 +6,12 @@ import dataUnorderedListText from '@ecl/specs-component-unordered-list/demo/data
 import dataUnorderedListLink from '@ecl/specs-component-unordered-list/demo/data--link';
 import dataUnorderedListDivider from '@ecl/specs-component-unordered-list/demo/data--with-divider';
 import dataUnorderedListUnstyled from '@ecl/specs-component-unordered-list/demo/data--unstyled';
+import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
+import dataOrderedLink from '@ecl/specs-component-ordered-list/demo/data--link';
+import dataOrderedUnstyled from '@ecl/specs-component-ordered-list/demo/data--unstyled';
+import dataOrderedDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
 
+import orderedList from '@ecl/twig-component-ordered-list/ordered-list.html.twig';
 import unorderedList from './unordered-list.html.twig';
 import notes from './README.md';
 
@@ -66,7 +71,14 @@ export default {
 export const Text = (_, { loaded: { component } }) => component;
 
 Text.render = async (args) => {
-  const renderedText = await renderStory(dataUnorderedListText, args);
+  const renderedText = `
+    ${await unorderedList(dataUnorderedListText, args)}
+    ${await orderedList(dataOrderedList, args)}
+    ${await unorderedList(dataUnorderedListDivider, args)}
+    ${await orderedList(dataOrderedUnstyled, args)}
+    ${await unorderedList(dataUnorderedListUnstyled, args)}
+    ${await orderedList(dataOrderedLink, args)}
+    ${await orderedList(dataOrderedDivider, args)}`;
   return renderedText;
 };
 Text.storyName = 'text';
