@@ -51,7 +51,27 @@ $language-list: null !default;
   left: 0;
   height: auto;
   margin-top: var(--s-l);
-  padding: map.get($language-list, 'container-padding');
+  padding-block-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-end'
+  );
+  padding-inline-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'inline-start'
+  );
+  padding-inline-end: calc(
+    #{map.get($language-list, 'container-padding-mobile', 'inline-end')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
   position: absolute;
   right: 0;
   width: auto;
@@ -78,7 +98,9 @@ $language-list: null !default;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-inline-start: var(--s-s);
+  padding-inline-start: calc(
+    var(--s-m) + #{map.get($language-list, 'item-active-border-width')}
+  );
 }
 
 .ecl-site-header__language-title {
@@ -106,7 +128,27 @@ $language-list: null !default;
 .ecl-site-header__language-category-title {
   font: map.get($language-list, 'category-title-font');
   font-weight: map.get($language-list, 'category-title-font-weight');
-  padding: map.get($language-list, 'category-title-padding');
+  padding-block-start: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-end'
+  );
+  padding-inline-start: calc(
+    #{map.get($language-list, 'category-title-padding', 'inline-start')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
+  padding-inline-end: map.get(
+    $language-list,
+    'category-title-padding',
+    'inline-end'
+  );
 }
 
 .ecl-site-header__language-category:nth-child(2) {
@@ -116,18 +158,19 @@ $language-list: null !default;
 
 .ecl-site-header__language-list {
   list-style: none;
-  margin: map.get($language-list, 'list-margin');
+  margin: 0;
   padding: 0;
-}
-
-.ecl-site-header--rtl .ecl-site-header__language-list {
-  margin: map.get($language-list, 'list-margin-rtl');
 }
 
 .ecl-site-header__language-link {
   align-items: baseline;
+  border-inline-start: map.get($language-list, 'item-active-border-width') solid
+    transparent;
   display: flex;
-  padding: map.get($language-list, 'item-padding');
+  padding-block-start: map.get($language-list, 'item-padding', 'block-start');
+  padding-block-end: map.get($language-list, 'item-padding', 'block-end');
+  padding-inline-start: map.get($language-list, 'item-padding', 'inline-start');
+  padding-inline-end: map.get($language-list, 'item-padding', 'inline-end');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -156,7 +199,10 @@ $language-list: null !default;
 
 .ecl-site-header__language-link--active {
   background-color: map.get($language-list, 'item-active-background');
-  box-shadow: map.get($language-list, 'item-active-shadow');
+  border-inline-start-color: map.get(
+    $language-list,
+    'item-active-border-color'
+  );
   color: map.get($language-list, 'item-active-color');
 
   &:visited {
@@ -183,6 +229,27 @@ $language-list: null !default;
 
   .ecl-site-header__language-container {
     left: 50%;
+    padding-block-start: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-start'
+    );
+    padding-block-end: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-end'
+    );
+    padding-inline-start: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'inline-start'
+    );
+    padding-inline-end: calc(
+      #{map.get($language-list, 'container-padding-desktop', 'inline-end')} + #{map.get(
+          $language-list,
+          'item-active-border-width'
+        )}
+    );
     right: auto;
     transform: translateX(-50%);
   }
