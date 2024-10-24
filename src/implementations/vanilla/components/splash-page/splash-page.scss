@@ -39,7 +39,27 @@ $language-list: null !default;
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
   font: var(--f-m);
-  padding: map.get($language-list, 'container-padding-mobile');
+  padding-block-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-end'
+  );
+  padding-inline-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'inline-start'
+  );
+  padding-inline-end: calc(
+    #{map.get($language-list, 'container-padding-mobile', 'inline-end')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
 }
 
 .ecl-splash-page__language-title {
@@ -162,7 +182,27 @@ $language-list: null !default;
 
 @include breakpoints.up('m') {
   .ecl-splash-page__language-container {
-    padding: map.get($language-list, 'container-padding-desktop');
+    padding-block-start: map.get(
+      $language-list,
+      'container-padding-mobile',
+      'block-start'
+    );
+    padding-block-end: map.get(
+      $language-list,
+      'container-padding-mobile',
+      'block-end'
+    );
+    padding-inline-start: map.get(
+      $language-list,
+      'container-padding-mobile',
+      'inline-start'
+    );
+    padding-inline-end: calc(
+      #{map.get($language-list, 'container-padding-mobile', 'inline-end')} + #{map.get(
+          $language-list,
+          'item-active-border-width'
+        )}
+    );
   }
 
   .ecl-splash-page__language-title {

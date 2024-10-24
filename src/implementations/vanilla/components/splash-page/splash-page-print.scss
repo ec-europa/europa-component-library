@@ -34,7 +34,25 @@ $language-list-print: null !default;
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
   font: map.get($theme, 'font-print', 'm');
-  padding: map.get($language-list, 'container-padding-desktop');
+  padding-block-start: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'block-end'
+  );
+  padding-inline-start: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'inline-start'
+  );
+  padding-inline-end: calc(
+    #{map.get($language-list-print, 'container-padding-desktop', 'inline-end')} +
+      #{map.get($language-list, 'item-active-border-width')}
+  );
 }
 
 .ecl-splash-page__language-title {

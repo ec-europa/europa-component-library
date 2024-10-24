@@ -3,8 +3,18 @@
 
 $language-list: (
   color: var(--c-d-140),
-  container-padding-mobile: var(--s-l) var(--s-l) var(--s-m) var(--s-l),
-  container-padding-desktop: var(--s-xl) var(--s-l) var(--s-m) var(--s-l),
+  container-padding-mobile: (
+    block-start: var(--s-l),
+    block-end: var(--s-m),
+    inline-start: var(--s-l),
+    inline-end: var(--s-l),
+  ),
+  container-padding-desktop: (
+    block-start: var(--s-xl),
+    block-end: var(--s-m),
+    inline-start: var(--s-l),
+    inline-end: var(--s-l),
+  ),
   header-font-mobile: var(--f-p-l),
   header-font-desktop: var(--f-p-xl),
   content-margin-mobile: var(--s-s),
@@ -38,8 +48,12 @@ $language-list: (
   column-spacing-after: var(--s-m),
 );
 $language-list-print: (
-  container-padding: map.get($spacing-print, '3xl') map.get($spacing-print, 'l')
-    map.get($spacing-print, 'l'),
+  container-padding-desktop: (
+    block-start: map.get($spacing-print, '3xl'),
+    block-end: map.get($spacing-print, 'l'),
+    inline-start: map.get($spacing-print, 'l'),
+    inline-end: map.get($spacing-print, 'l'),
+  ),
   header-font-desktop: map.get($font-print, 'xl'),
   content-margin-desktop: map.get($spacing-print, 'l'),
   category-title-font: map.get($font-print, 'm'),

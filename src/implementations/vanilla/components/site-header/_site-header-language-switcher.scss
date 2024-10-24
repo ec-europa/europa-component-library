@@ -51,7 +51,27 @@ $language-list: null !default;
   left: 0;
   height: auto;
   margin-top: var(--s-l);
-  padding: map.get($language-list, 'container-padding-mobile');
+  padding-block-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'block-end'
+  );
+  padding-inline-start: map.get(
+    $language-list,
+    'container-padding-mobile',
+    'inline-start'
+  );
+  padding-inline-end: calc(
+    #{map.get($language-list, 'container-padding-mobile', 'inline-end')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
+  );
   position: absolute;
   right: 0;
   width: auto;
@@ -209,7 +229,27 @@ $language-list: null !default;
 
   .ecl-site-header__language-container {
     left: 50%;
-    padding: map.get($language-list, 'container-padding-desktop');
+    padding-block-start: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-start'
+    );
+    padding-block-end: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'block-end'
+    );
+    padding-inline-start: map.get(
+      $language-list,
+      'container-padding-desktop',
+      'inline-start'
+    );
+    padding-inline-end: calc(
+      #{map.get($language-list, 'container-padding-desktop', 'inline-end')} + #{map.get(
+          $language-list,
+          'item-active-border-width'
+        )}
+    );
     right: auto;
     transform: translateX(-50%);
   }
