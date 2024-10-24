@@ -8,7 +8,7 @@ import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import dataBannerVideo from '@ecl/specs-component-banner/demo/data--video';
 import dataCard from '@ecl/specs-component-card/demo/data';
 import dataContentItem from '@ecl/specs-component-content-item/demo/data--event';
-import dataFeaturedItem from '@ecl/specs-component-featured-item/demo/data--highlight';
+import dataFeaturedItem from '@ecl/specs-component-featured-item/demo/data--simple';
 import dataNavigationList from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
@@ -38,6 +38,7 @@ delete dataContentItem.labels;
 delete dataContentItem.labels_aria;
 delete dataContentItem.lists;
 
+dataFeaturedItem.position = 'right';
 delete dataFeaturedItem.footer_description;
 delete dataFeaturedItem.footer_link;
 delete dataFeaturedItem.footer_picture;
