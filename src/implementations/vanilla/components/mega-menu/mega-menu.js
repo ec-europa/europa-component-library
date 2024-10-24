@@ -660,14 +660,14 @@ export class MegaMenu {
    *
    * @param {Node} menuItem
    */
-  checkDropdownHeight(menuItem) {
+  checkDropdownHeight(menuItem, hide = true) {
     const infoPanel = queryOne('.ecl-mega-menu__info', menuItem);
     const mainPanel = queryOne('.ecl-mega-menu__mega', menuItem);
     // Hide the panels while calculating their heights
-    if (mainPanel && this.isDesktop) {
+    if (mainPanel && this.isDesktop && hide) {
       mainPanel.style.opacity = 0;
     }
-    if (infoPanel && this.isDesktop) {
+    if (infoPanel && this.isDesktop && hide) {
       infoPanel.style.opacity = 0;
     }
     setTimeout(() => {
@@ -684,6 +684,7 @@ export class MegaMenu {
         let featuredHeight = 0;
 
         if (infoPanel) {
+          infoPanel.style.height = '';
           infoPanelHeight = infoPanel.scrollHeight + 16;
         }
         if (infoPanel && this.isLarge) {
@@ -695,6 +696,7 @@ export class MegaMenu {
         }
 
         if (mainPanel) {
+          mainPanel.style.height = '';
           const mainTop = mainPanel.getBoundingClientRect().top;
           const list = queryOne('.ecl-mega-menu__sublist', mainPanel);
           if (!list) {
@@ -726,9 +728,11 @@ export class MegaMenu {
           '.ecl-mega-menu__subitem--expanded',
           menuItem,
         );
+
         if (expanded) {
           secondPanel = queryOne('.ecl-mega-menu__mega--level-2', expanded);
           if (secondPanel) {
+            secondPanel.style.height = '';
             const subItems = queryAll(`${this.subItemSelector}`, secondPanel);
             if (subItems.length > 0) {
               subItems.forEach((item) => {
@@ -1365,7 +1369,7 @@ export class MegaMenu {
             );
 
             if (firstExpandedChild) {
-              this.handleSecondPanel(firstExpandedChild, 'expand');
+              this.handleSecondPanel(firstExpandedChild, 'expand', true);
             }
           }
         }
@@ -1388,7 +1392,7 @@ export class MegaMenu {
    *
    * @fires MegaMenu#onOpenPanel
    */
-  handleSecondPanel(menuItem, op) {
+  handleSecondPanel(menuItem, op, noCheck = false) {
     const infoPanel = queryOne(
       '.ecl-mega-menu__info',
       menuItem.closest('.ecl-container'),
@@ -1446,6 +1450,12 @@ export class MegaMenu {
           });
         }
         this.positionMenuOverlay();
+        if (!noCheck) {
+          this.checkDropdownHeight(
+            menuItem.closest('.ecl-mega-menu__item'),
+            false,
+          );
+        }
         const details = { panel: 2, item: menuItem };
         this.trigger('OnOpenPanel', details);
         break;
