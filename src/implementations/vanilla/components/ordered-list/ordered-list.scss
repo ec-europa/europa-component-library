@@ -52,6 +52,7 @@ $list: null !default;
 // No marker
 .ecl-ordered-list--no-marker {
   list-style-type: none;
+  padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
 
   .ecl-ordered-list {
     list-style-type: none;
@@ -78,7 +79,7 @@ $list: null !default;
     border-bottom: 1px solid map.get($list, 'divider-color');
     margin-bottom: var(--s-xs);
     padding-bottom: var(--s-xs);
-    padding-inline-start: var(--s-xl);
+    padding-inline-start: map.get($list, 'ordered', 'divider-item-padding');
 
     .ecl-link {
       padding: 0;
@@ -92,10 +93,6 @@ $list: null !default;
       list-style-type: none;
     }
   }
-}
-
-.ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:first-of-type {
-  margin-top: var(--s-2xs);
 }
 
 .ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:last-of-type {

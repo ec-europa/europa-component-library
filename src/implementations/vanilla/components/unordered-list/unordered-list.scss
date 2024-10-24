@@ -72,8 +72,8 @@ $list: null !default;
   }
 
   .ecl-unordered-list__item {
-    margin-inline-start: var(--s-xl);
-    padding-inline-start: 0;
+    margin-inline-start: 0;
+    padding-inline-start: map.get($list, 'unordered', 'divider-item-padding');
 
     .ecl-unordered-list__item {
       margin-inline-start: 0;
@@ -89,7 +89,7 @@ $list: null !default;
   // stylelint-disable-next-line no-descending-specificity
   .ecl-unordered-list__item {
     margin-inline-start: 0;
-    padding-inline-start: var(--s-xl);
+    padding-inline-start: map.get($list, 'unordered', 'divider-item-padding');
   }
 
   // stylelint-disable-next-line no-descending-specificity
