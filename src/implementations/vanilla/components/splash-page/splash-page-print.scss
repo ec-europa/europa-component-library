@@ -34,27 +34,7 @@ $language-list-print: null !default;
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
   font: map.get($theme, 'font-print', 'm');
-  padding-block-start: map.get(
-    $language-list,
-    'container-padding-desktop',
-    'block-start'
-  );
-  padding-block-end: map.get(
-    $language-list,
-    'container-padding-desktop',
-    'block-end'
-  );
-  padding-inline-start: calc(
-    #{map.get($language-list, 'container-padding-desktop', 'inline-start')} - #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
-  );
-  padding-inline-end: map.get(
-    $language-list,
-    'container-padding-desktop',
-    'inline-end'
-  );
+  padding: map.get($language-list, 'container-padding-desktop');
 }
 
 .ecl-splash-page__language-title {
@@ -108,7 +88,22 @@ $language-list-print: null !default;
   border-inline-start: map.get($language-list, 'item-active-border-width') solid
     transparent;
   display: flex;
-  padding: map.get($language-list-print, 'item-padding');
+  padding-block-start: map.get(
+    $language-list-print,
+    'item-padding',
+    'block-start'
+  );
+  padding-block-end: map.get($language-list-print, 'item-padding', 'block-end');
+  padding-inline-start: map.get(
+    $language-list-print,
+    'item-padding',
+    'inline-start'
+  );
+  padding-inline-end: map.get(
+    $language-list-print,
+    'item-padding',
+    'inline-end'
+  );
 
   &:focus-visible {
     outline-offset: -2px;

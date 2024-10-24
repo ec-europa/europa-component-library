@@ -39,34 +39,14 @@ $language-list: null !default;
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
   font: var(--f-m);
-  padding-block-start: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'block-start'
-  );
-  padding-block-end: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'block-end'
-  );
-  padding-inline-start: calc(
-    #{map.get($language-list, 'container-padding-mobile', 'inline-start')} - #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
-  );
-  padding-inline-end: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'inline-end'
-  );
+  padding: map.get($language-list, 'container-padding-mobile');
 }
 
 .ecl-splash-page__language-title {
   font: map.get($language-list, 'header-font-mobile');
   margin: 0;
   padding-inline-start: calc(
-    var(--s-s) + #{map.get($language-list, 'item-active-border-width')}
+    var(--s-m) + #{map.get($language-list, 'item-active-border-width')}
   );
 }
 
@@ -120,7 +100,7 @@ $language-list: null !default;
 
 .ecl-splash-page__language-list {
   list-style: none;
-  margin: map.get($language-list, 'list-margin');
+  margin: 0;
   padding: 0;
 }
 
@@ -129,7 +109,10 @@ $language-list: null !default;
   border-inline-start: map.get($language-list, 'item-active-border-width') solid
     transparent;
   display: flex;
-  padding: map.get($language-list, 'item-padding');
+  padding-block-start: map.get($language-list, 'item-padding', 'block-start');
+  padding-block-end: map.get($language-list, 'item-padding', 'block-end');
+  padding-inline-start: map.get($language-list, 'item-padding', 'inline-start');
+  padding-inline-end: map.get($language-list, 'item-padding', 'inline-end');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -179,27 +162,7 @@ $language-list: null !default;
 
 @include breakpoints.up('m') {
   .ecl-splash-page__language-container {
-    padding-block-start: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'block-start'
-    );
-    padding-block-end: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'block-end'
-    );
-    padding-inline-start: calc(
-      #{map.get($language-list, 'container-padding-desktop', 'inline-start')} - #{map.get(
-          $language-list,
-          'item-active-border-width'
-        )}
-    );
-    padding-inline-end: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'inline-end'
-    );
+    padding: map.get($language-list, 'container-padding-desktop');
   }
 
   .ecl-splash-page__language-title {

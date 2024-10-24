@@ -51,27 +51,7 @@ $language-list: null !default;
   left: 0;
   height: auto;
   margin-top: var(--s-l);
-  padding-block-start: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'block-start'
-  );
-  padding-block-end: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'block-end'
-  );
-  padding-inline-start: calc(
-    #{map.get($language-list, 'container-padding-mobile', 'inline-start')} - #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
-  );
-  padding-inline-end: map.get(
-    $language-list,
-    'container-padding-mobile',
-    'inline-end'
-  );
+  padding: map.get($language-list, 'container-padding-mobile');
   position: absolute;
   right: 0;
   width: auto;
@@ -99,7 +79,7 @@ $language-list: null !default;
   display: flex;
   justify-content: space-between;
   padding-inline-start: calc(
-    var(--s-s) + #{map.get($language-list, 'item-active-border-width')}
+    var(--s-m) + #{map.get($language-list, 'item-active-border-width')}
   );
 }
 
@@ -167,7 +147,10 @@ $language-list: null !default;
   border-inline-start: map.get($language-list, 'item-active-border-width') solid
     transparent;
   display: flex;
-  padding: map.get($language-list, 'item-padding');
+  padding-block-start: map.get($language-list, 'item-padding', 'block-start');
+  padding-block-end: map.get($language-list, 'item-padding', 'block-end');
+  padding-inline-start: map.get($language-list, 'item-padding', 'inline-start');
+  padding-inline-end: map.get($language-list, 'item-padding', 'inline-end');
 
   &:focus-visible {
     outline-offset: -2px;
@@ -226,27 +209,7 @@ $language-list: null !default;
 
   .ecl-site-header__language-container {
     left: 50%;
-    padding-block-start: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'block-start'
-    );
-    padding-block-end: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'block-end'
-    );
-    padding-inline-start: calc(
-      #{map.get($language-list, 'container-padding-desktop', 'inline-start')} - #{map.get(
-          $language-list,
-          'item-active-border-width'
-        )}
-    );
-    padding-inline-end: map.get(
-      $language-list,
-      'container-padding-desktop',
-      'inline-end'
-    );
+    padding: map.get($language-list, 'container-padding-desktop');
     right: auto;
     transform: translateX(-50%);
   }
@@ -283,12 +246,7 @@ $language-list: null !default;
       border-top: none;
       border-inline-start: map.get($language-list, 'category-separator');
       margin-inline-start: map.get($language-list, 'column-spacing-before');
-      padding-inline-start: calc(
-        #{map.get($language-list, 'column-spacing-after')} - #{map.get(
-            $language-list,
-            'item-active-border-width'
-          )}
-      );
+      padding-inline-start: map.get($language-list, 'column-spacing-after');
     }
 
     .ecl-site-header__language-category-title {
