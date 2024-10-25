@@ -4,12 +4,11 @@
 $list: (
   unordered: (
     marker: disc,
-    item-margin: calc(var(--s-xs) + var(--s-xs)),
+    item-margin: var(--s-l),
     item-padding: 0,
     padding-start: var(--s-l),
-    marker-size: var(--s-xs),
     sublist-marker: circle,
-    sublist-padding: var(--s-xs),
+    sublist-padding: 0,
     unstyled-sublist-padding: var(--s-l),
     divider-item-padding: var(--s-l),
   ),
@@ -17,7 +16,7 @@ $list: (
     divider-item-padding: var(--s-l),
     marker: decimal,
     item-margin: var(--s-l),
-    padding-start: var(--s-m),
+    padding-start: var(--s-l),
     sublist-marker: lower-latin,
     sublist-padding: 0,
     unstyled-sublist-padding: var(--s-l),
