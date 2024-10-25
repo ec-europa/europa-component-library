@@ -230,6 +230,10 @@ $language-list: null !default;
   .ecl-splash-page__language-single-item-category {
     flex-grow: 0;
 
+    + .ecl-splash-page__language-category {
+      flex-grow: 0;
+    }
+
     .ecl-splash-page__language-list {
       grid-template-columns: repeat(1, 1fr);
     }
