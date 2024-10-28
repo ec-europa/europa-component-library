@@ -5,9 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints';
-
-/* stylelint-disable-next-line scss/load-partial-extension, no-invalid-position-at-import-rule */
-@import 'pikaday/scss/pikaday.scss';
+@use 'pikaday/scss/pikaday';
 
 // Exposed variables
 $theme: null !default;
