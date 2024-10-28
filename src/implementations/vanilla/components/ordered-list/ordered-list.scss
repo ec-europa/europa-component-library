@@ -17,39 +17,47 @@ $list: null !default;
   list-style-type: map.get($list, 'ordered', 'marker');
   margin: 0;
   padding-inline-start: map.get($list, 'ordered', 'padding-start');
+  padding-top: var(--s-2xs);
 }
 
 .ecl-ordered-list .ecl-ordered-list,
 %ecl-ordered-list--nested {
   list-style-type: map.get($list, 'ordered', 'sublist-marker');
-  margin-top: var(--s-xs);
   padding-inline-start: map.get($list, 'ordered', 'sublist-padding');
 }
 
 .ecl-ordered-list__item,
 %ecl-ordered-list__item {
   margin-inline-start: map.get($list, 'ordered', 'item-margin');
-  margin-top: var(--s-m);
+  padding-bottom: var(--s-2xs);
+  padding-top: var(--s-2xs);
   max-width: var(--max-w);
   padding-inline-start: 0;
 
   &:first-of-type {
-    margin-top: var(--s-xs);
+    padding-top: var(--s-2xs);
   }
 
   &:last-of-type {
-    margin-bottom: var(--s-xs);
+    padding-bottom: var(--s-2xs);
   }
 
   .ecl-link {
     text-decoration: none;
+
+    &:hover {
+      color: var(--c-p);
+      text-decoration: underline;
+      text-decoration-thickness: from-font;
+      text-underline-offset: clamp(3px, 0.245em, 10px);
+    }
   }
 }
 
 // No marker
 .ecl-ordered-list--no-marker {
   list-style-type: none;
-  padding-inline-start: 0;
+  padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
 
   .ecl-ordered-list {
     list-style-type: none;
@@ -74,8 +82,9 @@ $list: null !default;
 
   > .ecl-ordered-list__item {
     border-bottom: 1px solid map.get($list, 'divider-color');
-    margin-bottom: var(--s-m);
-    padding-bottom: var(--s-m);
+    margin-bottom: var(--s-xs);
+    padding-bottom: var(--s-xs);
+    padding-inline-start: map.get($list, 'ordered', 'divider-item-padding');
 
     .ecl-link {
       padding: 0;
@@ -89,10 +98,6 @@ $list: null !default;
       list-style-type: none;
     }
   }
-}
-
-.ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:first-of-type {
-  margin-top: var(--s-m);
 }
 
 .ecl-ordered-list .ecl-ordered-list .ecl-ordered-list__item:last-of-type {

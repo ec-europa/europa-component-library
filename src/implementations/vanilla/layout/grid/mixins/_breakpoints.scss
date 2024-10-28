@@ -71,7 +71,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
 @mixin up($name, $breakpoints: map.get($theme, 'breakpoint')) {
-  @if map_has_key($breakpoints, $name) {
+  @if map.has-key($breakpoints, $name) {
     $min: ecl-min($name, $breakpoints);
 
     @if $min {
@@ -90,7 +90,7 @@ Breakpoints are defined as a map of (name: minimum width), order from small to l
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin down($name, $breakpoints: map.get($theme, 'breakpoint')) {
-  @if map_has_key($breakpoints, $name) {
+  @if map.has-key($breakpoints, $name) {
     $max: ecl-max($name, $breakpoints);
 
     @if $max {
