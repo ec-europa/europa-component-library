@@ -72,3 +72,9 @@ $form-group: null !default;
     margin-top: var(--s-xs);
   }
 }
+
+.ecl-form-label.ecl-u-sr-only + {
+  * {
+    margin-top: 0;
+  }
+}
