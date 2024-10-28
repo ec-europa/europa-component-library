@@ -189,6 +189,11 @@ $featured-item: null !default;
       'simple',
       'description-spacing-horizontal'
     );
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
   }
 
   .ecl-featured-item__title + .ecl-featured-item__description {
@@ -216,6 +221,22 @@ $featured-item: null !default;
     .ecl-featured-item__link {
       margin-inline: map.get($featured-item, 'simple', 'text-spacing-desktop');
       padding-inline: 0;
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-no-title'
+      );
+    }
+
+    .ecl-featured-item__title + .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-desktop'
+      );
     }
 
     .ecl-featured-item__media_container {
@@ -291,6 +312,11 @@ $featured-item: null !default;
       'highlight',
       'description-spacing-horizontal'
     );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
   }
 
   .ecl-featured-item__title + .ecl-featured-item__description {
@@ -336,6 +362,14 @@ $featured-item: null !default;
         $featured-item,
         'highlight',
         'text-spacing-desktop'
+      );
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'highlight',
+        'description-spacing-vertical-no-title'
       );
     }
 
