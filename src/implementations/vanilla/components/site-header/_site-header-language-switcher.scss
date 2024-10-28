@@ -99,7 +99,10 @@ $language-list: null !default;
   display: flex;
   justify-content: space-between;
   padding-inline-start: calc(
-    var(--s-m) + #{map.get($language-list, 'item-active-border-width')}
+    #{map.get($language-list, 'title-padding-start')} + #{map.get(
+        $language-list,
+        'item-active-border-width'
+      )}
   );
 }
 
