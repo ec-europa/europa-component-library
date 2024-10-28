@@ -51,8 +51,18 @@ $featured-item: null !default;
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
   font: map.get($featured-item, 'description-font');
-  margin: map.get($featured-item, 'description-spacing-mobile');
+  margin-inline: map.get(
+    $featured-item,
+    'description-spacing-horizontal-mobile'
+  );
   max-width: var(--max-w);
+
+  .ecl-featured-item__title + & {
+    margin-block: map.get(
+      $featured-item,
+      'description-spacing-vertical-mobile'
+    );
+  }
 
   > *:first-child {
     margin-top: 0;
@@ -99,10 +109,13 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__description {
-    margin-block: map.get(
-      $featured-item,
-      'description-spacing-vertical-desktop'
-    );
+    .ecl-featured-item__title + & {
+      margin-block: map.get(
+        $featured-item,
+        'description-spacing-vertical-desktop'
+      );
+    }
+
     margin-inline: map.get(
       $featured-item,
       'description-spacing-horizontal-desktop'
@@ -171,7 +184,19 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'simple', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-horizontal'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical'
+    );
   }
 
   .ecl-featured-item__link {
@@ -259,8 +284,21 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'title-spacing');
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'highlight', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-horizontal'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical'
+    );
   }
 
   .ecl-featured-item__link {
@@ -268,7 +306,7 @@ $featured-item: null !default;
   }
 }
 
-/* stylelint-disable-next-line order/order */
+/* stylelint-disable order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item--highlight {
     .ecl-featured-item__container {
@@ -285,7 +323,6 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__title {
-      // To check in EU
       margin-inline: map.get(
         $featured-item,
         'highlight',

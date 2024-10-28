@@ -19,7 +19,8 @@ $featured-item: (
   media-spacing-horizontal-right-desktop: var(--s-m) 0,
   description-color: var(--c-d-80),
   description-font: var(--f-p-m),
-  description-spacing-mobile: var(--s-s) 0 0 0,
+  description-spacing-horizontal-mobile: 0,
+  description-spacing-vertical-mobile: var(--s-s) 0,
   description-spacing-vertical-desktop: var(--s-s) 0,
   description-spacing-horizontal-desktop: var(--s-m) 0,
   description-spacing-right: var(--s-s) 0 0 0,
@@ -41,7 +42,8 @@ $featured-item: (
     text-spacing-only-child: 0,
     text-spacing-right-desktop: 0 var(--s-m),
     title-spacing: 0,
-    description-spacing: var(--s-s) 0 0 0,
+    description-spacing-horizontal: 0,
+    description-spacing-vertical: var(--s-s) 0,
   ),
   highlight: (
     container-background: var(--c-p-10),
@@ -64,7 +66,8 @@ $featured-item: (
     title-spacing: 0,
     title-spacing-desktop: var(--s-xs) 0,
     title-spacing-right-desktop: 0 var(--s-xs),
-    description-spacing: var(--s-s) 0 0 0,
+    description-spacing-horizontal: 0,
+    description-spacing-vertical: var(--s-s) 0,
   ),
 );
 $featured-item-print: (
