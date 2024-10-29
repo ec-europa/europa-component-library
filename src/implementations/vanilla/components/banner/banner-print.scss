@@ -160,6 +160,12 @@ $banner-print: null !default;
 }
 
 // No full width banner on print
+.ecl-banner--full-width {
+  border-radius: 0;
+  left: 50%;
+  margin-inline-start: -50vw;
+  width: 100vw;
+}
 
 // Medium banner - ratio 4:1
 .ecl-banner,
