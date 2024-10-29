@@ -218,14 +218,14 @@ $language-list: null !default;
   }
 
   .ecl-splash-page__language-category .ecl-splash-page__language-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    column-count: 3;
   }
 
   .ecl-splash-page__language-two-item-category {
     flex-grow: 0;
 
     .ecl-splash-page__language-list {
+      display: grid;
       grid-template-columns: repeat(2, 33%);
     }
   }
@@ -238,6 +238,7 @@ $language-list: null !default;
     }
 
     .ecl-splash-page__language-list {
+      display: grid;
       grid-template-columns: repeat(1, 1fr);
     }
   }
@@ -259,7 +260,7 @@ $language-list: null !default;
   .ecl-splash-page__language-category
     + .ecl-splash-page__language-category
     .ecl-splash-page__language-list {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 
   // Horizontal sections
