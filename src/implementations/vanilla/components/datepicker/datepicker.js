@@ -1,3 +1,5 @@
+/* global moment */
+
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
@@ -26,6 +28,7 @@ export class Datepicker {
       theme = 'ecl-datepicker-theme',
       yearRange = 40,
       reposition = false,
+      attachResizeListener = true,
       i18n = {
         previousMonth: 'Previous Month',
         nextMonth: 'Next Month',
@@ -69,6 +72,8 @@ export class Datepicker {
 
     // Options
     this.picker = null;
+    this.resizeTimer = null;
+    this.pikadayEl = null;
     this.format = format;
     this.theme = theme;
     this.yearRange = yearRange;
@@ -78,6 +83,10 @@ export class Datepicker {
       enableSelectionDaysInNextAndPreviousMonths;
     this.reposition = reposition;
     this.direction = 'ltr';
+    this.attachResizeListener = attachResizeListener;
+
+    // Bindings
+    this.handleResize = this.handleResize.bind(this);
   }
 
   /**
@@ -95,6 +104,41 @@ export class Datepicker {
     ECL.components = ECL.components || new Map();
 
     this.direction = getComputedStyle(this.element).direction;
+
+    if (this.attachResizeListener) {
+      window.addEventListener('resize', this.handleResize);
+    }
+
+    /**
+     * Resize logic.
+     *
+     * @param {HTMLElement} el - The pikaday dropdown.
+     */
+    Datepicker.resizeLogic = (el) => {
+      this.pikadayEl = el;
+      const vw = Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0,
+      );
+      const { direction } = getComputedStyle(el);
+      const elRect = el.getBoundingClientRect();
+
+      if (direction === 'rtl') {
+        const pickerMargin = vw - elRect.right;
+        if (vw < 768) {
+          el.style.left = `${pickerMargin}px`;
+        } else {
+          el.style.left = 'auto';
+        }
+      } else {
+        const pickerMargin = elRect.left;
+        if (vw < 768) {
+          el.style.right = `${pickerMargin}px`;
+        } else {
+          el.style.right = 'auto';
+        }
+      }
+    };
 
     const options = {
       field: this.element,
@@ -121,35 +165,30 @@ export class Datepicker {
         return `${day}-${month}-${year}`;
       };
     }
-
     // eslint-disable-next-line no-undef
     this.picker = new Pikaday({
       ...options,
-      onOpen() {
-        this.direction = getComputedStyle(this.el).direction;
+      parse(input, format) {
+        if (!options.format) {
+          // Here we are using the default DD-MM-YYYY
+          const [day, month, year] = input.split('-').map(Number);
+          const fullYear = year < 100 ? 2000 + year : year;
+          return new Date(fullYear, month - 1, day);
+        }
+        // If we have a custom format we rely on moment.js
+        if (typeof moment !== 'undefined' && input !== '') {
+          const parsedDate = moment(input, format, false);
 
-        // Extend picker size on mobile
-        const vw = Math.max(
-          document.documentElement.clientWidth || 0,
-          window.innerWidth || 0,
-        );
-        const elRect = this.el.getBoundingClientRect();
-
-        if (this.direction === 'rtl') {
-          const pickerMargin = vw - elRect.right;
-          if (vw < 768) {
-            this.el.style.left = `${pickerMargin}px`;
-          } else {
-            this.el.style.left = 'auto';
-          }
-        } else {
-          const pickerMargin = elRect.left;
-          if (vw < 768) {
-            this.el.style.right = `${pickerMargin}px`;
-          } else {
-            this.el.style.right = 'auto';
+          if (parsedDate.isValid()) {
+            return parsedDate.toDate();
           }
         }
+
+        return input;
+      },
+      onOpen() {
+        // Call the static method to check styles.
+        Datepicker.resizeLogic(this.el);
       },
     });
 
@@ -168,10 +207,26 @@ export class Datepicker {
       this.picker.destroy();
       this.picker = null;
     }
+    if (this.attachResizeListener) {
+      window.removeEventListener('resize', this.handleResize);
+    }
     if (this.element) {
       this.element.removeAttribute('data-ecl-auto-initialized');
       ECL.components.delete(this.element);
     }
+  }
+
+  /**
+   * Instance method to handle resizing with debouncing
+   */
+  handleResize() {
+    clearTimeout(this.resizeTimer);
+
+    this.resizeTimer = setTimeout(() => {
+      if (this.pikadayEl) {
+        Datepicker.resizeLogic(this.pikadayEl);
+      }
+    }, 150);
   }
 }
 

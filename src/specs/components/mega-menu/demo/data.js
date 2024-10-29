@@ -92,13 +92,6 @@ module.exports = {
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],
         },
-        { label: 'Item 2.4', path: exampleLink },
-        { label: 'Item 2.5', path: exampleLink },
-        { label: 'Item 2.6', path: exampleLink },
-        {
-          label: 'Item 2.7',
-          path: exampleLink,
-        },
       ],
     },
     {
@@ -132,6 +125,7 @@ module.exports = {
         {
           label: 'Aid, Development cooperation, Fundamental rights',
           path: exampleLink,
+          children: [{ label: 'A lonely item', path: exampleLink }],
         },
         { label: 'Energy, Climate change, Environment', path: exampleLink },
         { label: 'Law', path: exampleLink },
@@ -153,6 +147,10 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
+              { label: 'Featured link 3', path: exampleLink },
+              { label: 'Featured link 4', path: exampleLink },
+              { label: 'Featured link 5', path: exampleLink },
+              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [
