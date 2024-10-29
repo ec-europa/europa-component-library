@@ -37,10 +37,7 @@ const environmentModulePath = require.resolve(
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
-let eclVersion = lernaJson.version;
-if (process.env.PULL_REQUEST && process.env.GITHUB_EVENT_NUMBER) {
-  eclVersion += ` - PR ${process.env.GITHUB_EVENT_NUMBER}`;
-}
+const eclVersion = lernaJson.version;
 
 let sri = {};
 if ('CI' in process.env && process.env.GITHUB_REF.includes('refs/tags/')) {
