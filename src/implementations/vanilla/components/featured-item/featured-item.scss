@@ -75,7 +75,12 @@ $featured-item: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
-  margin: map.get($featured-item, 'link-spacing-mobile');
+  margin-inline: map.get($featured-item, 'link-spacing-horiontal-mobile');
+
+  .ecl-featured-item__title + &,
+  .ecl-featured-item__description + & {
+    margin-block: map.get($featured-item, 'link-spacing-vertical-mobile');
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -104,8 +109,12 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
-    margin-block: map.get($featured-item, 'link-spacing-vertical-desktop');
     margin-inline: map.get($featured-item, 'link-spacing-horizontal-desktop');
+
+    .ecl-featured-item__description + &,
+    .ecl-featured-item__title + & {
+      margin-block: map.get($featured-item, 'link-spacing-vertical-desktop');
+    }
   }
 
   .ecl-featured-item__description {
@@ -205,7 +214,17 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'simple', 'link-spacing');
+    margin-inline: map.get($featured-item, 'simple', 'link-spacing-horizontal');
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'simple', 'link-spacing-vertical');
   }
 }
 
@@ -327,8 +346,23 @@ $featured-item: null !default;
     );
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'highlight', 'link-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'link-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'highlight', 'link-spacing-vertical');
   }
 }
 
