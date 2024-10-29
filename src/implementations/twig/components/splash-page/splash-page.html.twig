@@ -125,6 +125,9 @@
         {% if _items|length == 2 %}
           {% set container_class = container_class ~ ' ecl-splash-page__language-two-item-category' %}
         {% endif %}
+        {% if _items|length == 4 %}
+          {% set container_class = container_class ~ ' ecl-splash-page__language-four-item-category' %}
+        {% endif %}
       <div class="{{ container_class }}">
         {% if _eu_category is not empty %}
         <h2 class="ecl-splash-page__language-category-title">

@@ -221,6 +221,11 @@ $language-list: null !default;
     column-count: 3;
   }
 
+  .ecl-splash-page__language-four-item-category
+    .ecl-splash-page__language-list {
+    display: grid;
+  }
+
   .ecl-splash-page__language-two-item-category {
     flex-grow: 0;
 
@@ -251,6 +256,11 @@ $language-list: null !default;
 @include breakpoints.up('l') {
   .ecl-splash-page__language-two-item-category .ecl-splash-page__language-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-splash-page__language-four-item-category
+    .ecl-splash-page__language-list {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .ecl-splash-page__language-content {
