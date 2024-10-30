@@ -4,8 +4,8 @@
 $language-list: (
   color: var(--c-d-140),
   container-padding-mobile: (
-    block-start: var(--s-l),
-    block-end: var(--s-m),
+    block-start: var(--s-2xl),
+    block-end: var(--s-2xl),
     inline-start: var(--s-l),
     inline-end: var(--s-l),
   ),
@@ -19,8 +19,9 @@ $language-list: (
   header-font-desktop: var(--f-p-xl),
   content-margin-mobile: var(--s-s),
   content-margin-desktop: var(--s-s),
+  title-padding-start: var(--s-s),
   category-title-font: var(--f-p-m),
-  category-title-font-weight: map.get($font-weight, 'bold'),
+  category-title-font-weight: map.get($font-weight, 'regular'),
   category-title-padding: (
     block-start: var(--s-l),
     block-end: var(--s-xs),
@@ -36,7 +37,7 @@ $language-list: (
     inline-end: var(--s-s),
   ),
   code-color: var(--c-d-140),
-  code-font-weight: map.get($font-weight, 'bold'),
+  code-font-weight: map.get($font-weight, 'regular'),
   code-active-font-weight: map.get($font-weight, 'bold'),
   code-width: 26px,
   item-active-background: var(--c-p-10),
