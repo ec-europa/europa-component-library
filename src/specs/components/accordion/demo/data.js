@@ -16,7 +16,7 @@ module.exports = {
       level: 3,
       toggle: {
         label:
-          'Spring 2019 Economic Forecast: Growth continues at a more moderate pace',
+          'Spring 2019 Economic Forecast: Growth continues at a more moderate',
       },
       content:
         'The European economy is forecast to continue expanding for the seventh year in a row in 2019, with real GDP expected to grow in all EU Member States. As global uncertainties continue to weigh, domestic dynamics are set to support the European economy. Growth is expected to gather pace again next year.',
@@ -34,11 +34,11 @@ module.exports = {
   ],
   icon: [
     {
-      path: '/icons.svg',
+      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
       name: 'plus',
     },
     {
-      path: '/icons.svg',
+      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
       name: 'minus',
     },
   ],

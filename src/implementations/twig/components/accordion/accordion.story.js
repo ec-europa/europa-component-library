@@ -1,6 +1,5 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
 
 import demoData from '@ecl/specs-component-accordion/demo/data';
 import accordion from './accordion.html.twig';
@@ -51,7 +50,6 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctPaths(data);
   data.items.forEach((item, i) => {
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
