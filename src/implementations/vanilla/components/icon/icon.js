@@ -51,13 +51,13 @@ export class Icon {
         // eslint-disable-next-line func-names
         script.onload = function () {
           // eslint-disable-next-line no-undef
-          svg4everybody();
+          svg4everybody({ polyfill: true });
         };
         document.head.appendChild(script);
       }
     } else {
       // eslint-disable-next-line no-undef
-      svg4everybody();
+      svg4everybody({ polyfill: true });
     }
 
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
