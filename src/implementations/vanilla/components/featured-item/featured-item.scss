@@ -51,8 +51,18 @@ $featured-item: null !default;
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
   font: map.get($featured-item, 'description-font');
-  margin: map.get($featured-item, 'description-spacing-mobile');
+  margin-inline: map.get(
+    $featured-item,
+    'description-spacing-horizontal-mobile'
+  );
   max-width: var(--max-w);
+
+  .ecl-featured-item__title + & {
+    margin-block: map.get(
+      $featured-item,
+      'description-spacing-vertical-mobile'
+    );
+  }
 
   > *:first-child {
     margin-top: 0;
@@ -65,7 +75,12 @@ $featured-item: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
-  margin: map.get($featured-item, 'link-spacing-mobile');
+  margin-inline: map.get($featured-item, 'link-spacing-horiontal-mobile');
+
+  .ecl-featured-item__title + &,
+  .ecl-featured-item__description + & {
+    margin-block: map.get($featured-item, 'link-spacing-vertical-mobile');
+  }
 }
 
 /* stylelint-disable-next-line order/order */
@@ -94,15 +109,22 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
-    margin-block: map.get($featured-item, 'link-spacing-vertical-desktop');
     margin-inline: map.get($featured-item, 'link-spacing-horizontal-desktop');
+
+    .ecl-featured-item__description + &,
+    .ecl-featured-item__title + & {
+      margin-block: map.get($featured-item, 'link-spacing-vertical-desktop');
+    }
   }
 
   .ecl-featured-item__description {
-    margin-block: map.get(
-      $featured-item,
-      'description-spacing-vertical-desktop'
-    );
+    .ecl-featured-item__title + & {
+      margin-block: map.get(
+        $featured-item,
+        'description-spacing-vertical-desktop'
+      );
+    }
+
     margin-inline: map.get(
       $featured-item,
       'description-spacing-horizontal-desktop'
@@ -171,11 +193,38 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'simple', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical'
+    );
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'simple', 'link-spacing');
+    margin-inline: map.get($featured-item, 'simple', 'link-spacing-horizontal');
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'simple', 'link-spacing-vertical');
   }
 }
 
@@ -191,6 +240,22 @@ $featured-item: null !default;
     .ecl-featured-item__link {
       margin-inline: map.get($featured-item, 'simple', 'text-spacing-desktop');
       padding-inline: 0;
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-no-title'
+      );
+    }
+
+    .ecl-featured-item__title + .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-desktop'
+      );
     }
 
     .ecl-featured-item__media_container {
@@ -259,16 +324,49 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'title-spacing');
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'highlight', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
   }
 
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical'
+    );
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'highlight', 'link-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'link-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'highlight', 'link-spacing-vertical');
   }
 }
 
-/* stylelint-disable-next-line order/order */
+/* stylelint-disable order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item--highlight {
     .ecl-featured-item__container {
@@ -285,7 +383,6 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__title {
-      // To check in EU
       margin-inline: map.get(
         $featured-item,
         'highlight',
@@ -299,6 +396,14 @@ $featured-item: null !default;
         $featured-item,
         'highlight',
         'text-spacing-desktop'
+      );
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'highlight',
+        'description-spacing-vertical-no-title'
       );
     }
 
