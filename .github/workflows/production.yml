@@ -63,7 +63,7 @@ jobs:
         uses: joutvhu/get-release@v1
         with:
           latest: true
-          pattern: '^v.*'
+          pattern: '^v*'
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
