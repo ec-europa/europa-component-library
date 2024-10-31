@@ -34,12 +34,12 @@ module.exports = {
   ],
   icon: [
     {
-      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
+      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
       name: 'plus',
       cors: true,
     },
     {
-      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
+      path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
       name: 'minus',
       cors: true,
     },
