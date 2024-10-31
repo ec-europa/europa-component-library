@@ -13,6 +13,8 @@ cd ..
 # Copy builds
 rm -rf ./dist/packages
 mkdir -p ./dist/packages
+mkdir -p ./dist/unversioned
+mv ./src/presets/ec/dist/images/icons/unversioned/* ./dist/unversioned
 cp -r ./src/presets/ec/dist ./dist/packages/ec
 cp -r ./src/presets/reset/dist/styles ./dist/packages/ec
 cp -r ./src/presets/rtl/dist/styles ./dist/packages/ec

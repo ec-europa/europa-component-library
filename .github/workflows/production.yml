@@ -44,6 +44,15 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
+      - name: Deploy to cdn the unversioned files
+        uses: keithweaver/aws-s3-github-action@v1.0.0
+        with:
+          command: cp
+          source: ./dist/unversioned
+          destination: s3://inno-ecl/ecl/unversioned
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Install zip
         uses: montudor/action-zip@v1
       - name: Create the package
