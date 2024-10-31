@@ -6,34 +6,47 @@ on:
       - '!*'
     tags:
       - 'v*'
+
 jobs:
   deploy-release:
     runs-on: ubuntu-latest
     name: build and deploy the release
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20.9.0
+
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
       - name: Build presets
         run: yarn dist:presets
+
       - name: Generate sri file
         run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
+
       - name: Browserstats
         run: npm run browserstats
+
       - name: Build storybook
         run: PUBLIC_URL=/component-library yarn dist:storybook
+
       - name: Build website
         run: PUBLIC_URL=/component-library yarn dist:website
+
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
+
       - name: Set commit
         run: echo ${{ github.sha }} > dist/website/.commit
+
       - name: Deploy to cdn
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
@@ -44,15 +57,19 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
+
       - name: Get Latest Release
+        id: get_latest
         uses: joutvhu/get-release@v1
         with:
           latest: true
           pattern: '^v.*'
           prerelease: false
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Check if this release is the latest
+        id: check_latest
         run: |
           if [[ "${{ steps.get_latest.outputs.tag }}" == "${{ github.ref }}" ]]; then
             echo "This is the latest release. Deploying to CDN."
@@ -73,36 +90,48 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
+
       - name: Install zip
         uses: montudor/action-zip@v1
+
       - name: Create the package
         run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/website
+
       - name: Create the EC preset package
         run: zip -r -qq ec-preset-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/packages/ec
+
       - name: Create the EU preset package
         run: zip -r -qq eu-preset-${{ steps.tag.outputs.tag }}.zip .
         working-directory: dist/packages/eu
+
       - name: Create the list of packages
         run: sh ./scripts/packagesList.sh
+
       - name: Deploy packages to github
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/website/europa-component-library-*.zip;dist/packages/europa-component-library-*-sri.json;dist/packages/ec/*.zip;dist/packages/eu/*.zip;ECL-npm-packages'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
+
       - name: Build the archive
         run: PUBLIC_URL=/component-library/${{ steps.tag.outputs.tag }} yarn dist
+
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
+
       - name: Set commit
         run: echo ${{ github.sha }} > dist/website/.commit
+
       - name: Install zip
         uses: montudor/action-zip@v1
+
       - name: Create the package for the archive
         run: zip -r -qq europa-component-library-${{ steps.tag.outputs.tag }}-archive.zip .
         working-directory: dist/website
+
       - name: Deploy archive to github
         uses: AButler/upload-release-assets@v2.0
         with:
