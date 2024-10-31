@@ -31,6 +31,8 @@
 
 {# Internal properties #}
 
+{% set extra_attributes = extra_attributes|default([{}]) %}
+
 {% set _icon = {
   path: '',
   name: '',
@@ -38,6 +40,7 @@
   transform: '',
   color: '',
   title: '',
+  cors: false,
 }|merge(icon|default({})) %}
 
 {% set _extra_accessibility = {
@@ -48,8 +51,8 @@
   role: '',
 }|merge(extra_accessibility|default({})) %}
 
-{% if _icon.path is not empty and _icon.path matches '/^https?:\/\//' %}
-  {% set extra_attributes = [{ name: 'data-ecl-auto-init', value: 'Icon' }] %}
+{% if _icon.cors %}
+  {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Icon' }]) %}
 {% endif %}
 
 {% set _as_image = as_image|default(false) %}

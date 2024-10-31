@@ -36,10 +36,12 @@ module.exports = {
     {
       path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
       name: 'plus',
+      cors: true,
     },
     {
       path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/v4.8.1/ec/images/icons/sprites/icons.svg',
       name: 'minus',
+      cors: true,
     },
   ],
 };
