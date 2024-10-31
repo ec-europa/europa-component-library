@@ -72,7 +72,7 @@ jobs:
         id: check_latest
         run: |
           # Get the latest release tag from the get latest release step
-          LATEST_TAG="${{ steps.get_latest.outputs.tag }}"
+          LATEST_TAG="${{ steps.get_latest.outputs.tag_name }}"
           CURRENT_TAG="${{ steps.tag.outputs.tag }}"
 
           echo "Latest Tag: $LATEST_TAG"
