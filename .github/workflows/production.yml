@@ -44,7 +44,26 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           flags: --recursive
-      - name: Deploy to cdn the unversioned files
+      - name: Get Latest Release
+        uses: joutvhu/get-release@v1
+        with:
+          latest: true
+          pattern: '^v.*'
+          prerelease: false
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check if this release is the latest
+        run: |
+          if [[ "${{ steps.get_latest.outputs.tag }}" == "${{ github.ref }}" ]]; then
+            echo "This is the latest release. Deploying to CDN."
+            echo "deploy=true" >> $GITHUB_ENV
+          else
+            echo "This is not the latest release. Not uploading the sprite file."
+            echo "deploy=false" >> $GITHUB_ENV
+          fi
+
+      - name: Deploy to CDN the unversioned files
+        if: env.deploy == 'true'
         uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
           command: cp
