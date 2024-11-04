@@ -50,10 +50,10 @@ export class Icon {
    * Method used to inline the svg.
    */
   inlineSVG = async () => {
-    const useElement = this.element.querySelector('use');
-    if (!useElement) return;
+    const imageElement = this.element.querySelector('image');
+    if (!imageElement) return;
 
-    const iconUrl = useElement.getAttribute('xlink:href');
+    const iconUrl = imageElement.getAttribute('href');
     const [url, symbolId] = iconUrl.split('#');
 
     if (this.cache.has(url)) {
@@ -72,14 +72,14 @@ export class Icon {
 
       if (symbolElement) {
         const viewBox = symbolElement.getAttribute('viewBox');
-        const parentSVG = useElement.parentElement;
+        const parentSVG = imageElement.parentElement;
 
         const fragment = document.createDocumentFragment();
         Array.from(symbolElement.childNodes).forEach((node) =>
           fragment.appendChild(node.cloneNode(true)),
         );
 
-        parentSVG.replaceChild(fragment, useElement);
+        parentSVG.replaceChild(fragment, imageElement);
 
         if (viewBox) {
           parentSVG.setAttribute('viewBox', viewBox);

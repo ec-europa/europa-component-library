@@ -130,7 +130,11 @@
     {{- _extra_accessibility.description -}}
   </desc>
 {% endif %}
+{% if _icon.cors %}
+   <image href="{{ _icon.path }}#{{ _icon.name }}">
+{% else %}
   <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
+{% endif %}
 </svg>
 
 {% endapply %}
