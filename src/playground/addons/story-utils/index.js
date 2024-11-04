@@ -7,6 +7,9 @@ import iconFlagPath from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg'
 export const correctPaths = (data) => {
   Object.keys(data).forEach((prop) => {
     if (typeof data[prop] === 'string' && data[prop].includes('.svg')) {
+      if (data[prop].startsWith('https://cdn')) {
+        return;
+      }
       if (data[prop].includes('social-media')) {
         data[prop] = iconMediaSocialPath;
       } else if (data[prop].includes('social')) {

@@ -18,7 +18,8 @@ module.exports = {
     {
       icon: {
         name: 'infographic',
-        path: '/icons.svg',
+        path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
+        cors: true,
       },
       value: '00.0 million',
       title: 'Lorem ipsum',
@@ -86,7 +87,8 @@ module.exports = {
     {
       icon: {
         name: 'presentation',
-        path: '/icons.svg',
+        path: 'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
+        cors: true,
       },
       value: '00.0 million',
       title: 'Aenean dapibus',
