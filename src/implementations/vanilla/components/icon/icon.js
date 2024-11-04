@@ -53,7 +53,7 @@ export class Icon {
     const imageElement = this.element.querySelector('image');
     if (!imageElement) return;
 
-    const iconUrl = imageElement.getAttribute('href');
+    const iconUrl = imageElement.getAttribute('xlink:href');
     const [url, symbolId] = iconUrl.split('#');
 
     if (this.cache.has(url)) {
