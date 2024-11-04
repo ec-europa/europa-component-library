@@ -152,6 +152,28 @@ export const getIconControls = (data, icons, mapping) => {
     },
     if: { arg: 'name', neq: 'none' },
   };
+  argTypes.path = {
+    name: 'icon path',
+    type: 'select',
+    description: 'When selecting remote, the svg will be inlined',
+    options: ['local', 'remote'],
+    labels: {
+      local: '/icons.svg',
+      remote:
+        'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
+    },
+    mapping: {
+      local: '/icons.svg',
+      remote:
+        'https://cdn1.fpfis.tech.ec.europa.eu/ecl/unversioned/icons-current.svg',
+    },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Icon',
+    },
+    if: { arg: 'name', neq: 'none' },
+  };
 
   return argTypes;
 };

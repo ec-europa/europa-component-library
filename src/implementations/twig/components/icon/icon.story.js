@@ -19,6 +19,7 @@ const getArgs = (data) => ({
   color: 'default',
   transform: 'none',
   title: '',
+  path: 'local',
 });
 
 const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
@@ -30,6 +31,8 @@ const prepareData = (data, args) => {
   if (args.transformation === 'none') {
     args.transformation = '';
   }
+  data.icon.path = args.path;
+
   correctPaths(data);
   data.icon.title = args.title;
   data.icon.name = args.name;
@@ -37,6 +40,10 @@ const prepareData = (data, args) => {
   data.icon.color = args.color;
   data.extra_classes = data.icon.color === 'inverted' ? 'ecl-u-bg-dark' : '';
   data.icon.transform = args.transform;
+  if (args.path !== 'local') {
+    data.icon.cors = true;
+  }
+
   return data;
 };
 

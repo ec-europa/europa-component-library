@@ -8,7 +8,7 @@ export class Icon {
    *
    * @param {HTMLElement} root DOM element for component instantiation and scope
    *
-   * @return {MediaContainer} An instance of Icon.
+   * @return {Icon} An instance of Icon.
    */
   static autoInit(root, { ICON: defaultOptions = {} } = {}) {
     const icon = new Icon(root, defaultOptions);
@@ -46,6 +46,9 @@ export class Icon {
     ECL.components.set(this.element, this);
   }
 
+  /**
+   * Method used to inline the svg.
+   */
   inlineSVG = async () => {
     const useElement = this.element.querySelector('use');
     if (!useElement) return;

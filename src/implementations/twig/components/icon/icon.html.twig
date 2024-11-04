@@ -52,7 +52,10 @@
 }|merge(extra_accessibility|default({})) %}
 
 {% if _icon.cors %}
-  {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Icon' }]) %}
+  {% set extra_attributes = extra_attributes|merge([
+    { name: 'data-ecl-auto-init', value: 'Icon' },
+    { name: 'data-ecl-icon' },
+  ]) %}
 {% endif %}
 
 {% set _as_image = as_image|default(false) %}
