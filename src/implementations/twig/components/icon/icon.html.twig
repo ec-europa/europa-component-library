@@ -131,7 +131,10 @@
   </desc>
 {% endif %}
 {% if _icon.cors %}
-   <image xlink:href="{{ _icon.path }}#{{ _icon.name }}">
+  <image
+    crossorigin="anonymous"
+    href="{{ _icon.path }}#{{ _icon.name }}"
+  >
 {% else %}
   <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
 {% endif %}
