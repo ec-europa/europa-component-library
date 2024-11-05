@@ -4,6 +4,8 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   id: 'gallery-id',
   icon_path: '/icons.svg',
+  sr_gallery_label:
+    'Open gallery items to view images in original size, watch videos and share them',
   sr_video_label: 'Video',
   sr_video_player: 'Video player',
   items: [
