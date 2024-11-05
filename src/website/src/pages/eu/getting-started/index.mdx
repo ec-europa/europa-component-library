@@ -4,6 +4,7 @@ title: Getting started
 ---
 
 import { Link } from '@ecl/website-components';
+import { ECL_VERSION } from '../../../preval/getVersion';
 
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
 
@@ -91,7 +92,14 @@ There are also other optional css files distributed that can be used, moment.js 
 ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach them:
 `https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
 
-Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/eu/styles/optional/ecl-eu-default.css
+Ex:
+
+<a
+  className="ecl-link"
+  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+>
+  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+</a>
 
 Download a `preset-eu` package to see all the files available to know how to reach them in the CDN, the file system is the same.
 
