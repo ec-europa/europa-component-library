@@ -155,13 +155,13 @@ export const getIconControls = (data, icons, mapping) => {
 
 export const getFormControls = (data, type) => {
   const argTypes = {};
-  argTypes.show_label = {
-    name: 'label',
+  argTypes.hide_label = {
+    name: 'hide label',
     type: 'boolean',
-    description: `Show ${type} label`,
+    description: `Hide ${type} label on screen, keeping it only for screen readers`,
     table: {
       type: { summary: 'boolean' },
-      defaultValue: { summary: true },
+      defaultValue: { summary: false },
       category: 'Optional',
     },
   };
@@ -234,7 +234,6 @@ export const getFormControls = (data, type) => {
       defaultValue: { summary: '' },
       category: 'Content',
     },
-    if: { arg: 'show_label' },
   };
   argTypes.helper_text = {
     name: 'helper text',

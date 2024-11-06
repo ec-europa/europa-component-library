@@ -3,6 +3,7 @@
  */
 
 @use 'sass:map';
+@use '@ecl/vanilla-utility-screen-reader/screen-reader';
 
 // Exposed variables
 $theme: null !default;
@@ -67,8 +68,15 @@ $form-group: null !default;
   color: var(--c-er);
 }
 
-.ecl-form-label + {
-  *:not(.ecl-help-block, .ecl-feedback-message) {
-    margin-top: var(--s-xs);
-  }
+.ecl-form-label--hidden {
+  @include screen-reader.sr-only;
+}
+
+.ecl-form-label.ecl-form-label--hidden + * {
+  margin-top: 0;
+}
+
+.ecl-form-label:not(.ecl-form-label--hidden)
+  + *:not(.ecl-help-block, .ecl-feedback-message) {
+  margin-top: var(--s-xs);
 }
