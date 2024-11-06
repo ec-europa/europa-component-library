@@ -43,8 +43,9 @@ delete pageHeader.picture_thumbnail;
 const banner = JSON.parse(JSON.stringify(dataBanner));
 banner.full_width = true;
 banner.horizontal = 'center';
+banner.size = 'l';
+banner.description = banner.description.link.label;
 delete banner.link;
-delete banner.description;
 
 const illustrationListIcon = JSON.parse(
   JSON.stringify(dataListIllustrationIcon),
