@@ -15,6 +15,7 @@ $fact-figures: null !default;
 
 .ecl-fact-figures__item {
   border-bottom: 1px solid var(--c-n);
+  color: map.get($fact-figures, 'text-color');
   display: flex;
   flex-direction: column;
   max-width: var(--max-w);
@@ -29,18 +30,18 @@ $fact-figures: null !default;
 }
 
 .ecl-fact-figures__value {
-  font: map.get($theme, 'font-print', '3xl');
+  font: map.get($theme, 'font-print', 'xl');
   font-family: var(--ecl-font-family-print-alt);
 
   .ecl-fact-figures--font-m & {
-    font: map.get($theme, 'font-print', '2xl');
+    font: map.get($theme, 'font-print', 'l');
     font-family: var(--ecl-font-family-print-alt);
   }
 }
 
 .ecl-fact-figures__title {
   clear: left;
-  font: map.get($theme, 'font-print', 'l');
+  font: map.get($theme, 'font-print', 'm');
   font-family: var(--ecl-font-family-print-alt);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin-top: map.get($theme, 'spacing-print', 'xs');

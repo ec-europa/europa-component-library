@@ -77,8 +77,9 @@ $featured-item: (
   ),
 );
 $featured-item-print: (
+  padding: map.get($spacing-print, 'l'),
   media-padding-desktop: 0 map.get($spacing-print, 'm')
-    map.get($spacing-print, 'm') 0,
+    map.get($spacing-print, 'l') 0,
   media-padding-right: 0 0 map.get($spacing-print, 'm')
     map.get($spacing-print, 'm'),
   title-font: map.get($font-print, 'l'),

@@ -36,6 +36,7 @@ $featured-item-print: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
+  font: map.get($featured-item-print, 'description-font');
   margin: map.get($featured-item-print, 'link-spacing-desktop');
 }
 
