@@ -8,12 +8,12 @@ npm install --save @ecl/twig-component-form-group
 
 ### Parameters:
 
-- **"label"** (string) (default: '') - Label for the form group
 - **"input"** (object) (default: {
   ...,
   input_type: 'checkbox' || 'datepicker' || 'file' || 'radio' || 'range' || 'rating-field' || 'search' || 'select || 'text' || 'textarea'
   }) - Object of type input
 - **"disabled"** (boolean) (default: false)
+- **"hide_label"** (bool) (default: false): hide form element label, for screen reader only
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
 - **"required"** (boolean) (default: false)
