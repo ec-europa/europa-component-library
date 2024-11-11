@@ -44,7 +44,7 @@ export const Default = () => `
         <li>Unordered list</li>
         <li>Unordered list
           <ul>
-            <li>Nested unordered list</li>
+            <li><a href="#">Nested unordered list</a></li>
             <li>Nested unordered list</li>
           </ul>
         </li>
@@ -54,7 +54,7 @@ export const Default = () => `
         <li>Ordered list</li>
         <li>Ordered list
           <ol>
-            <li>Nested ordered list</li>
+            <li><a class="ecl-link">Nested ordered list</a></li>
             <li>Nested ordered list</li>
           </ol>
         </li>
