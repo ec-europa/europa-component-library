@@ -74,6 +74,25 @@ $navigation-list: null !default;
   }
 }
 
+.ecl-navigation-list__item--image-as-illustration {
+  .ecl-navigation-list__picture {
+    position: absolute;
+    top: var(--s-xs);
+    right: var(--s-xs);
+    height: 60px;
+    width: 60px;
+
+    .ecl-navigation-list__image {
+      aspect-ratio: 1/1;
+    }
+  }
+
+  .ecl-content-block__title,
+  .ecl-content-block__description {
+    margin-right: 3.25rem;
+  }
+}
+
 .ecl-navigation-list__item--illustration .ecl-navigation-list__picture {
   position: absolute;
   border-radius: 100px 0 100px 100px;

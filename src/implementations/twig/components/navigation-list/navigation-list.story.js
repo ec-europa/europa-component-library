@@ -117,10 +117,32 @@ Default.render = async (args) => {
   );
   return renderedNavigationList;
 };
+
 Default.storyName = 'default';
 Default.args = getArgs(dataDefault);
 Default.argTypes = getArgTypes(dataDefault);
 Default.parameters = { notes: { markdown: notes, json: dataDefault } };
+
+export const AsIllustration = (_, { loaded: { component } }) => component;
+
+const dataAsIllustration = JSON.parse(JSON.stringify(dataDefault));
+dataAsIllustration.items.forEach((item) => {
+  item.variant = 'image-as-illustration';
+});
+
+AsIllustration.render = async (args) => {
+  const renderedNavigationList = await navigationList(
+    prepareData(dataAsIllustration, args),
+  );
+  return renderedNavigationList;
+};
+
+AsIllustration.storyName = 'image as illustration';
+AsIllustration.args = getArgs(dataAsIllustration);
+AsIllustration.argTypes = getArgTypes(dataAsIllustration);
+AsIllustration.parameters = {
+  notes: { markdown: notes, json: dataAsIllustration },
+};
 
 export const Illustration = (_, { loaded: { component } }) => component;
 

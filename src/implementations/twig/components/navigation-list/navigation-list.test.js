@@ -8,6 +8,11 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
 import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
+const dataAsIllustration = JSON.parse(JSON.stringify(dataDefault));
+dataAsIllustration.items.forEach((item) => {
+  item.variant = 'image-as-illustration';
+});
+
 expect.extend(toHaveNoViolations);
 
 describe('Navigation list', () => {
@@ -23,6 +28,11 @@ describe('Navigation list', () => {
     test('renders correctly with illustrations', () => {
       expect.assertions(1);
       return expect(render(dataIllustration)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with images as illustrations', () => {
+      expect.assertions(1);
+      return expect(render(dataAsIllustration)).resolves.toMatchSnapshot();
     });
 
     test('renders correctly without borders', () => {
