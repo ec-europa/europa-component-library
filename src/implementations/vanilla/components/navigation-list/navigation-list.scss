@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /**
  * Navigation list
  * @define navigation-list
@@ -88,18 +90,27 @@ $navigation-list: null !default;
     }
   }
 
+  .ecl-content-block__description,
   .ecl-content-block__title {
-    margin-bottom: var(--s-m);
-    margin-inline-end: 3.25rem;
-  }
-
-  .ecl-content-block__description {
-    margin-inline-end: 3.25rem;
     margin-top: 0;
   }
 
+  // Description margin when there is a title
   .ecl-content-block__title + .ecl-content-block__description {
-    margin-inline-end: 0;
+    margin-top: var(--s-m);
+  }
+
+  .ecl-navigation-list__picture + .ecl-navigation-list__content-block {
+    // 24px from the image
+    .ecl-content-block__description,
+    .ecl-content-block__title {
+      margin-inline-end: 4rem;
+    }
+
+    // Description margin end when there is an image and a title
+    .ecl-content-block__title + .ecl-content-block__description {
+      margin-inline-end: var(--s-m);
+    }
   }
 }
 
@@ -126,19 +137,27 @@ $navigation-list: null !default;
     }
   }
 
-  /* stylelint-disable-next-line no-descending-specificity */
-  .ecl-content-block__description {
-    margin-inline-end: 3.25rem;
+  .ecl-content-block__description,
+  .ecl-content-block__title {
     margin-top: 0;
   }
 
-  .ecl-content-block__title {
-    margin-bottom: var(--s-m);
-    margin-inline-end: 3.25rem;
+  // Description margin when there is a title
+  .ecl-content-block__title + .ecl-content-block__description {
+    margin-top: var(--s-m);
   }
 
-  .ecl-content-block__title + .ecl-content-block__description {
-    margin-inline-end: 0;
+  .ecl-navigation-list__picture + .ecl-navigation-list__content-block {
+    .ecl-content-block__description,
+    .ecl-content-block__title {
+      // 24px from the image
+      margin-inline-end: 4rem;
+    }
+
+    // Description margin end when there is an image and a title
+    .ecl-content-block__title + .ecl-content-block__description {
+      margin-inline-end: var(--s-m);
+    }
   }
 }
 
