@@ -44,6 +44,8 @@ const getArgs = (data) => ({
   icon_title: '',
   external: false,
   hide_label: false,
+  indicator: false,
+  indicator_content: '',
 });
 
 const getArgTypes = () => ({
@@ -150,6 +152,34 @@ const getArgTypes = () => ({
       type: 'boolean',
     },
   },
+  indicator: {
+    name: 'indicator',
+    type: { name: 'boolean' },
+    description: 'Display indicator',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'boolean',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  },
+  indicator_content: {
+    name: 'indicator_content',
+    type: { name: 'string' },
+    description: 'Indicator content',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -157,6 +187,8 @@ const prepareData = (data, args) => {
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
+  data.link.indicator = args.indicator;
+  data.link.indicator_content = args.indicator_content;
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;

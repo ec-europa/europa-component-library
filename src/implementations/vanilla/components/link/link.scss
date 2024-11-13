@@ -74,10 +74,33 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 }
 
-// stylelint-disable-next-line no-descending-specificity
-.ecl-link__icon ~ .ecl-link__label,
-.ecl-link__label ~ .ecl-link__icon {
-  margin-inline-start: var(--s-xs);
+// Indicator
+.ecl-link__icon-container {
+  display: inline;
+  position: relative;
+}
+
+.ecl-link__indicator {
+  align-items: center;
+  background-color: var(--c-er);
+  border-radius: 50%;
+  color: map.get($theme, 'color', 'white');
+  content: '';
+  display: flex;
+  font: var(--f-xs);
+  height: 12px;
+  justify-content: center;
+  position: absolute;
+  right: -8px;
+  top: -10px;
+  width: 12px;
+
+  &:not(:empty) {
+    height: 22px;
+    right: -18px;
+    top: -16px;
+    width: 22px;
+  }
 }
 
 // Icon only
@@ -87,10 +110,20 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     @include screen-reader.sr-only;
   }
 
-  .ecl-link__icon {
+  .ecl-link__icon,
+  .ecl-link__icon-container {
     margin: 0;
   }
 }
+
+// stylelint-disable no-descending-specificity
+.ecl-link__icon ~ .ecl-link__label,
+.ecl-link__icon-container ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon,
+.ecl-link__label ~ .ecl-link__icon-container {
+  margin-inline-start: var(--s-xs);
+}
+// stylelint-enable no-descending-specificity
 
 /**
 * Standalone

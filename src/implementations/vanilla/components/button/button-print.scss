@@ -41,14 +41,15 @@ $button: null !default;
   flex-shrink: 0;
 }
 
-.ecl-button__icon--before,
-.ecl-button__icon + .ecl-button__label {
+.ecl-button__icon ~ .ecl-button__label,
+.ecl-button__icon-container ~ .ecl-button__label,
+.ecl-button__label ~ .ecl-button__icon,
+.ecl-button__label ~ .ecl-button__icon-container {
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
-.ecl-button__icon--after,
-.ecl-button__label + .ecl-button__icon {
-  margin-inline-start: map.get($theme, 'spacing-print', 'xs');
+.ecl-button__indicator {
+  display: none;
 }
 
 /**

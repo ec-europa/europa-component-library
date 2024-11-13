@@ -27,12 +27,15 @@ const withInverted = (story) => {
   return `<div class="ecl-u-bg-dark ecl-u-type-color-white ecl-u-pa-xs">${demo}</div>`;
 };
 
-const getArgs = () => ({
+const getArgs = (data) => ({
+  label: data.label,
   icon_name: 'none',
   icon_position: 'after',
   icon_title: '',
   disabled: false,
   hide_label: false,
+  indicator: false,
+  indicator_content: '',
 });
 
 const getArgTypes = () => {
@@ -143,6 +146,34 @@ const getArgTypes = () => {
       type: 'boolean',
     },
   };
+  argTypes.indicator = {
+    name: 'indicator',
+    type: { name: 'boolean' },
+    description: 'Display indicator',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'boolean',
+    },
+    if: { arg: 'icon_name', neq: 'none' },
+  };
+  argTypes.indicator_content = {
+    name: 'indicator_content',
+    type: { name: 'string' },
+    description: 'Indicator content',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  };
 
   return argTypes;
 };
@@ -151,6 +182,8 @@ const prepareData = (data, args) => {
   data.label = args.label;
   data.disabled = args.disabled;
   data.hide_label = args.hide_label;
+  data.indicator = args.indicator;
+  data.indicator_content = args.indicator_content;
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;
@@ -172,7 +205,6 @@ const prepareData = (data, args) => {
 export default {
   title: 'Components/Button',
   argTypes: getArgTypes(),
-  args: getArgs(),
   decorators: [withCode, withNotes],
 };
 export const Primary = (_, { loaded: { component } }) => component;
@@ -181,9 +213,7 @@ Primary.render = async (args) => {
   const renderedButton = await button(prepareData(dataPrimary, args));
   return renderedButton;
 };
-Primary.args = {
-  label: dataPrimary.label,
-};
+Primary.args = getArgs(dataPrimary);
 Primary.storyName = 'primary';
 Primary.parameters = {
   notes: { markdown: notes, json: dataPrimary },
@@ -197,9 +227,7 @@ Secondary.render = async (args) => {
   );
   return renderedButtonSecondary;
 };
-Secondary.args = {
-  label: dataSecondary.label,
-};
+Secondary.args = getArgs(dataSecondary);
 Secondary.storyName = 'secondary';
 Secondary.parameters = {
   notes: { markdown: notes, json: dataSecondary },
@@ -211,9 +239,7 @@ Tertiary.render = async (args) => {
   const renderedCta = await button(prepareData(dataTertiary, args));
   return renderedCta;
 };
-Tertiary.args = {
-  label: dataTertiary.label,
-};
+Tertiary.args = getArgs(dataTertiary);
 Tertiary.storyName = 'tertiary';
 Tertiary.parameters = {
   notes: { markdown: notes, json: dataTertiary },
@@ -225,9 +251,7 @@ CallToAction.render = async (args) => {
   const renderedCta = await button(prepareData(dataCall, args));
   return renderedCta;
 };
-CallToAction.args = {
-  label: dataCall.label,
-};
+CallToAction.args = getArgs(dataCall);
 CallToAction.storyName = 'call to action';
 CallToAction.parameters = {
   notes: { markdown: notes, json: dataCall },
@@ -239,9 +263,7 @@ Ghost.render = async (args) => {
   const renderedCta = await button(prepareData(dataGhost, args));
   return renderedCta;
 };
-Ghost.args = {
-  label: dataGhost.label,
-};
+Ghost.args = getArgs(dataGhost);
 Ghost.storyName = 'ghost';
 Ghost.parameters = {
   notes: { markdown: notes, json: dataGhost },
@@ -253,9 +275,7 @@ GhostInverted.render = async (args) => {
   const renderedCta = await button(prepareData(dataGhostInverted, args));
   return renderedCta;
 };
-GhostInverted.args = {
-  label: dataGhostInverted.label,
-};
+GhostInverted.args = getArgs(dataGhostInverted);
 GhostInverted.storyName = 'ghost inverted';
 GhostInverted.decorators = [withNotes, withCode, withInverted];
 GhostInverted.parameters = {
