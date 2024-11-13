@@ -125,9 +125,10 @@ Default.parameters = { notes: { markdown: notes, json: dataDefault } };
 
 export const AsIllustration = (_, { loaded: { component } }) => component;
 
-const dataAsIllustration = JSON.parse(JSON.stringify(dataDefault));
+const dataAsIllustration = JSON.parse(JSON.stringify(dataIllustration));
 dataAsIllustration.items.forEach((item) => {
   item.variant = 'image-as-illustration';
+  item.picture.img.src = dataDefault.items[0].picture.img.src;
 });
 
 AsIllustration.render = async (args) => {

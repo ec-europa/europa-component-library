@@ -8,9 +8,10 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
 import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
-const dataAsIllustration = JSON.parse(JSON.stringify(dataDefault));
+const dataAsIllustration = JSON.parse(JSON.stringify(dataIllustration));
 dataAsIllustration.items.forEach((item) => {
   item.variant = 'image-as-illustration';
+  item.picture.img.src = dataDefault.items[0].picture.img.src;
 });
 
 expect.extend(toHaveNoViolations);
