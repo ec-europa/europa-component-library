@@ -1,6 +1,9 @@
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
 
+const publicUrl = process.env.PUBLIC_URL || '';
+const exampleLink = `${publicUrl}/example`;
+
 export default {
   title: 'Utilities/HTML tag styling',
   decorators: [withCode],
@@ -18,7 +21,7 @@ export const Default = () => `
     <summary><strong>Link and button</strong></summary>
     <br>
     <div class="ecl">
-      <a href="#">Link</a><br><br>
+      <a href="${exampleLink}">Link</a><br><br>
       <button>Button</button>
     </div>
   </details>
@@ -44,7 +47,7 @@ export const Default = () => `
         <li>Unordered list</li>
         <li>Unordered list
           <ul>
-            <li><a href="#">Nested unordered list</a></li>
+            <li><a href="${exampleLink}">Nested unordered list</a></li>
             <li>Nested unordered list</li>
           </ul>
         </li>
@@ -54,7 +57,7 @@ export const Default = () => `
         <li>Ordered list</li>
         <li>Ordered list
           <ol>
-            <li><a class="ecl-link">Nested ordered list</a></li>
+            <li><a href="${exampleLink}"class="ecl-link">Nested ordered list</a></li>
             <li>Nested ordered list</li>
           </ol>
         </li>
