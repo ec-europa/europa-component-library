@@ -74,34 +74,23 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 }
 
-// Indicator
 .ecl-link__icon-container {
   display: inline;
   position: relative;
 }
 
 .ecl-link__indicator {
-  align-items: center;
-  background-color: var(--c-er);
-  border-radius: 50%;
-  color: map.get($theme, 'color', 'white');
-  content: '';
-  display: flex;
-  font: var(--f-xs);
-  height: 12px;
-  justify-content: center;
-  position: absolute;
-  right: -8px;
-  top: -10px;
-  width: 12px;
-
-  &:not(:empty) {
-    height: 22px;
-    right: -18px;
-    top: -16px;
-    width: 22px;
-  }
+  display: none;
 }
+
+// stylelint-disable no-descending-specificity
+.ecl-link__icon ~ .ecl-link__label,
+.ecl-link__icon-container ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon,
+.ecl-link__label ~ .ecl-link__icon-container {
+  margin-inline-start: var(--s-xs);
+}
+// stylelint-enable no-descending-specificity
 
 // Icon only
 .ecl-link--icon-only {
@@ -115,15 +104,6 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     margin: 0;
   }
 }
-
-// stylelint-disable no-descending-specificity
-.ecl-link__icon ~ .ecl-link__label,
-.ecl-link__icon-container ~ .ecl-link__label,
-.ecl-link__label ~ .ecl-link__icon,
-.ecl-link__label ~ .ecl-link__icon-container {
-  margin-inline-start: var(--s-xs);
-}
-// stylelint-enable no-descending-specificity
 
 /**
 * Standalone

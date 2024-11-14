@@ -64,6 +64,9 @@
   $theme: theme.$theme,
   $date-block: var.$date-block
 );
+@use '@ecl/vanilla-component-indicator/indicator' with (
+  $theme: theme.$theme
+);
 @use '@ecl/vanilla-component-label/label' with (
   $theme: theme.$theme,
   $label: var.$label

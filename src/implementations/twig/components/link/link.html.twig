@@ -14,10 +14,9 @@
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         icon_path: (string) (default: '')
         external: (boolean) (default: false)
-        sr_external (string) (default: '') Additional label for external icon
-        hide_label: (boolean) (default: false): hide link label, for screen reader only. Note: requires to have an icon defined
-        indicator (bool) (default: false): defines if indicator should be displayed or not. Only displayed if there is an icon
-        indicator_content (string) (default: ''): content of the indicator, if any
+        sr_external: (string) (default: '') Additional label for external icon
+        hide_label: (boolean) (default: false) hide link label, for screen reader only. Note: requires to have an icon defined
+        indicator: (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
       }
     - "icon" (associative array) OR (array) of associative arrays : format
       {
@@ -59,8 +58,7 @@
   sr_external: '',
   hide_label: false,
   icon_path: '',
-  indicator: false,
-  indicator_content: ''
+  indicator: {}
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
 {% set _as_image = false %}
@@ -155,7 +153,7 @@
         {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
       {%- endif -%}
 
-      {% if _link.indicator %}
+      {% if _link.indicator is not empty %}
         <span class="ecl-link__icon-container">
           {%- include '@ecl/icon/icon.html.twig' with icon|merge({
             icon: icon|default({}),
@@ -163,11 +161,7 @@
             extra_accessibility: _extra_accessibility,
             as_image: _as_image,
           }) only -%}
-          <span class="ecl-link__indicator">
-            {% if _link.indicator_content is not empty -%}
-              {{- _link.indicator_content -}}
-            {%- endif %}
-          </span>
+          {% include '@ecl/indicator/indicator.html.twig' with _link.indicator only %}
         </span>
       {% else %}
         {%- include '@ecl/icon/icon.html.twig' with icon|merge({

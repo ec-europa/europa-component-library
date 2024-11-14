@@ -58,33 +58,20 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   flex-shrink: 0;
 }
 
-// Indicator
 .ecl-button__icon-container {
   display: flex;
   position: relative;
 }
 
 .ecl-button__indicator {
-  align-items: center;
-  background-color: var(--c-er);
-  border-radius: 50%;
-  color: map.get($theme, 'color', 'white');
-  content: '';
-  display: flex;
-  font: var(--f-xs);
-  height: 12px;
-  justify-content: center;
-  position: absolute;
-  right: -8px;
-  top: -10px;
-  width: 12px;
+  display: none;
+}
 
-  &:not(:empty) {
-    height: 22px;
-    right: -18px;
-    top: -16px;
-    width: 22px;
-  }
+.ecl-button__icon ~ .ecl-button__label,
+.ecl-button__icon-container ~ .ecl-button__label,
+.ecl-button__label ~ .ecl-button__icon,
+.ecl-button__label ~ .ecl-button__icon-container {
+  margin-inline-start: var(--s-xs);
 }
 
 // Icon only
@@ -107,13 +94,6 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     height: map.get($theme, 'icon', 'm');
     width: map.get($theme, 'icon', 'm');
   }
-}
-
-.ecl-button__icon ~ .ecl-button__label,
-.ecl-button__icon-container ~ .ecl-button__label,
-.ecl-button__label ~ .ecl-button__icon,
-.ecl-button__label ~ .ecl-button__icon-container {
-  margin-inline-start: var(--s-xs);
 }
 
 /**

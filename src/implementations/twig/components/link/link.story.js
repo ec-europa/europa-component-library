@@ -45,7 +45,7 @@ const getArgs = (data) => ({
   external: false,
   hide_label: false,
   indicator: false,
-  indicator_content: '',
+  indicator_value: '',
 });
 
 const getArgTypes = () => ({
@@ -155,7 +155,7 @@ const getArgTypes = () => ({
   indicator: {
     name: 'indicator',
     type: { name: 'boolean' },
-    description: 'Display indicator',
+    description: 'Display indicator. This only works if the label is hidden',
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -164,12 +164,12 @@ const getArgTypes = () => ({
     control: {
       type: 'boolean',
     },
-    if: { arg: 'icon_name', neq: 'none' },
+    if: { arg: 'hide_label', eq: true },
   },
-  indicator_content: {
-    name: 'indicator_content',
+  indicator_value: {
+    name: 'indicator_value',
     type: { name: 'string' },
-    description: 'Indicator content',
+    description: 'Indicator value',
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
@@ -187,8 +187,10 @@ const prepareData = (data, args) => {
   data.link.hide_label = args.hide_label;
   data.link.icon_position = args.icon_position;
   data.link.external = args.external;
-  data.link.indicator = args.indicator;
-  data.link.indicator_content = args.indicator_content;
+  data.link.indicator = args.indicator ? { value: '' } : {};
+  if (args.indicator && args.indicator_value !== '') {
+    data.link.indicator.value = args.indicator_value;
+  }
   if (args.icon_name && args.icon_name !== 'none') {
     data.icon = {};
     data.icon.name = args.icon_name;

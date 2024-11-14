@@ -26,8 +26,7 @@
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
     - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
-    - "indicator" (bool) (default: false): defines if indicator should be displayed or not. Only displayed if there is an icon
-    - "indicator_content" (string) (default: ''): content of the indicator, if any
+    - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -55,8 +54,7 @@
   size: '',
   title: ''
 } %}
-{% set _indicator = indicator|default(false) %}
-{% set _indicator_content = indicator_content|default('') %}
+{% set _indicator = indicator|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -109,7 +107,7 @@
       {% set _icon_image = true %}
     {%- endif -%}
 
-    {% if _indicator %}
+    {% if _indicator is not empty %}
       <span class="ecl-button__icon-container">
         {% include '@ecl/icon/icon.html.twig' with {
           icon: icon,
@@ -120,11 +118,7 @@
             { name: 'data-ecl-icon' }
           ],
         } only %}
-        <span class="ecl-button__indicator">
-          {% if _indicator_content is not empty -%}
-            {{- _indicator_content -}}
-          {%- endif %}
-        </span>
+        {% include '@ecl/indicator/indicator.html.twig' with _indicator only %}
       </span>
     {% else %}
       {% include '@ecl/icon/icon.html.twig' with {
