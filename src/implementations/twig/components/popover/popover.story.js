@@ -13,6 +13,8 @@ const lorem = loremIpsum({ count: 10 });
 const getArgs = (data) => ({
   label: data.toggle.label,
   content: data.content,
+  indicator: false,
+  indicator_value: '',
 });
 
 const getArgTypes = () => ({
@@ -36,6 +38,33 @@ const getArgTypes = () => ({
       category: 'Content',
     },
   },
+  indicator: {
+    name: 'indicator',
+    type: { name: 'boolean' },
+    description: 'Display indicator. This only works if the label is hidden',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'boolean',
+    },
+  },
+  indicator_value: {
+    name: 'indicator_value',
+    type: { name: 'string' },
+    description: 'Indicator value',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Indicator',
+    },
+    control: {
+      type: 'text',
+    },
+    if: { arg: 'indicator', eq: true },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -45,6 +74,14 @@ const prepareData = (data, args) => {
   dataClone.content = args.content;
   if (args.content !== '') {
     delete dataClone.links;
+  }
+  if (args.indicator) {
+    dataClone.toggle.hide_label = true;
+    dataClone.toggle.indicator = { value: '' };
+
+    if (args.indicator_value !== '') {
+      dataClone.toggle.indicator.value = args.indicator_value;
+    }
   }
 
   correctPaths(dataClone);
