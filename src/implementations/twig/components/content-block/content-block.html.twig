@@ -91,7 +91,7 @@
     {%- if _title.link is defined -%}
       {% set _title_attrs = 'data-ecl-title-link' %}
     {%- endif -%}
-    <div class="ecl-content-block__title"{{ _title_attrs }}>
+    <div class="ecl-content-block__title" {{ _title_attrs }}>
     {%- if _title.link is defined -%}
       {% include '@ecl/link/link.html.twig' with _title only %}
     {%- else -%}
