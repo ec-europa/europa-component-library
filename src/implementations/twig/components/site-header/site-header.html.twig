@@ -257,6 +257,36 @@
 
             {# Header actions #}
             <div class="ecl-site-header__action">
+
+            {% include '@ecl/button/button.html.twig' with {
+              label: 'Shopping cart',
+              variant: 'tertiaty',
+              type: 'button',
+              icon: {
+                name: 'notification',
+                size: 'xs',
+                path: _icon_path,
+              },
+              hide_label: true,
+              indicator: {
+                value: '',
+              }
+            } only %}
+            {% include '@ecl/button/button.html.twig' with {
+              label: 'Notification',
+              variant: 'tertiaty',
+              type: 'button',
+              icon: {
+                name: 'shopping-bag',
+                size: 'xs',
+                path: _icon_path,
+              },
+              hide_label: true,
+              indicator: {
+                value: '5',
+              }
+            } only %}
+
             {% if _login_toggle is not empty and _login_box is not empty %}
               {# Login #}
               <div class="ecl-site-header__login-container">
