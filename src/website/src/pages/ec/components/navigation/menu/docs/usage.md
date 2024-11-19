@@ -19,3 +19,4 @@ The horizontal menu is used as a primary navigation and it can display up to 2 l
 ## When not to use
 
 - when you only have a one-page or a content shallow web site
+- for sites with multiple levels of content or complex architecture, requiring clear organisation or when a horizontal menu would be insufficient -- use a [Megamenu component](https://ec.europa.eu/component-library/ec/components/navigation/mega-menu/code/) instead
