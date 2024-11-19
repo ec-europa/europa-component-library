@@ -2,7 +2,7 @@
 title: Usage
 order: 1
 ---
-The Megamenu is an advanced navigation component designed for complex sites with deep hierarchies. Unlike the [horizontal menu](https://ec.europa.eu/component-library/ec/components/navigation/menu/code/), which supports up to two levels, the Megamenu can provide descriptive text for first level items, accommodate up to three levels of navigation, and additionally allows a featured column that can be used to either promote parent-page specific or site-wide pages, hidden deep into the lower levels of the hierarchy.
+The Megamenu is an advanced navigation component designed for complex sites with deep hierarchies. Unlike the [Horizontal menu](https://ec.europa.eu/component-library/ec/components/navigation/menu/code/), which supports up to two levels, the Megamenu can provide descriptive text for first level items, accommodate up to three levels of navigation, and additionally allows a featured column that can be used to either promote parent-page specific or site-wide pages, hidden deep into the lower levels of the hierarchy.
 
 Currently, it offers two display options on 2nd level items, specifically:
 
@@ -28,4 +28,4 @@ Currently, it offers two display options on 2nd level items, specifically:
 ## When not to use
 
 - when you only have a one-page or a content shallow web site
-- do not use for simple websites with only one or two levels of navigation — opt for the horizontal menu instead
+- do not use for simple websites with only one or two levels of navigation — opt for a [Horizontal menu component](https://ec.europa.eu/component-library/ec/components/navigation/menu/code/) instead
