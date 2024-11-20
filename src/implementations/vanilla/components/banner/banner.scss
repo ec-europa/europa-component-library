@@ -143,17 +143,13 @@ $banner: null !default;
   z-index: 2;
 
   &:hover,
-  &:active {
+  &:active,
+  &:focus-visible {
     background-color: map.get($theme, 'color', 'white');
     border: none;
     color: var(--c-d);
     outline-color: var(--c-d);
     padding: 0;
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--c-p);
-    outline-offset: 2px;
   }
 
   .ecl-button__container {
