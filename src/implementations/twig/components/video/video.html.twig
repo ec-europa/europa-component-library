@@ -20,8 +20,12 @@
       ...
     ],
   - "controls" (boolean) (default: true)
+  - "autoplay" (boolean) (default: false)
+  - "muted" (boolean) (default: false)
+  - "loop" (boolean) (default: false)
   - "sr_video_label" (string) (default: ''): additional label for the video item; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
+  - "zoom" (boolean) (default: false): Should the poster picture have a zoom animation?
   - "extra_classes" (optional) (string) (default: ''): Extra css classes, added to the root picture tag
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -36,12 +40,32 @@
 {% set _controls = controls ?? true %}
 {% set _poster = poster|default('') %}
 {% set _title = title|default('') %}
+{% set _autoplay = autoplay|default(false) %}
+{% set _muted = muted|default(false) %}
+{% set _loop = loop|default(false) %}
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
+{% set _zoom = zoom|default(false) %}
 {% set _extra_attributes = '' %}
+
+{% if _zoom %}
+  {% set _css_class = _css_class ~ ' ecl-video--zoom' %}
+{% endif %}
 
 {% if _controls %}
   {% set _extra_attributes = 'controls' %}
+{% endif %}
+
+{% if _autoplay %}
+  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' autoplay' : 'autoplay' %}
+{% endif %}
+
+{% if _muted %}
+  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' muted' : 'muted' %}
+{% endif %}
+
+{% if _loop %}
+  {% set _extra_attributes = _extra_attributes ? _extra_attributes ~ ' loop' : 'loop' %}
 {% endif %}
 
 {% if _title is not empty and _sr_video_label is not empty %}
