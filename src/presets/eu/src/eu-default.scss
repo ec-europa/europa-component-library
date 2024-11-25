@@ -26,6 +26,9 @@
   $theme: theme.$theme,
   $list: var.$list
 );
+@use '@ecl/vanilla-component-separator/separator' with (
+  $separator: var.$separator
+);
 @use '@ecl/vanilla-component-table/table' with (
   $theme: theme.$theme,
   $table: var.$table
@@ -80,6 +83,11 @@
 .ecl h6:not([class*='ecl-'], [class*='wt-']),
 .ecl h6:is([class*='ecl-u-']) {
   @extend %ecl-heading-6;
+}
+
+.ecl hr:not([class*='ecl-'], [class*='wt-']),
+.ecl hr:is([class*='ecl-u-']) {
+  @extend %ecl-separator;
 }
 
 .ecl p:not([class*='ecl-'], [class*='wt-']),

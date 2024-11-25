@@ -5,7 +5,9 @@ const glob = require('glob');
 const SVGSpriter = require('svg-sprite');
 
 const src = path.resolve(__dirname, '../dist/svg');
-const files = glob.sync('**/*.svg', { cwd: src });
+const files = glob
+  .sync('**/*.svg', { cwd: src })
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
 const filesByFolder = {};
 files.forEach((file) => {

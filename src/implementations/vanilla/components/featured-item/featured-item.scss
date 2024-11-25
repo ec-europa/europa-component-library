@@ -21,8 +21,13 @@ $featured-item: null !default;
   flex-basis: 50%;
   flex-grow: 1;
 
-  &:last-child {
+  &:first-child {
+    order: 2;
     padding-bottom: map.get($featured-item, 'padding');
+  }
+
+  &:last-child {
+    order: 1;
   }
 }
 
@@ -46,8 +51,18 @@ $featured-item: null !default;
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
   font: map.get($featured-item, 'description-font');
-  margin: map.get($featured-item, 'description-spacing-mobile');
+  margin-inline: map.get(
+    $featured-item,
+    'description-spacing-horizontal-mobile'
+  );
   max-width: var(--max-w);
+
+  .ecl-featured-item__title + & {
+    margin-block: map.get(
+      $featured-item,
+      'description-spacing-vertical-mobile'
+    );
+  }
 
   > *:first-child {
     margin-top: 0;
@@ -60,17 +75,33 @@ $featured-item: null !default;
 
 .ecl-featured-item__link {
   display: inline-block;
-  margin: map.get($featured-item, 'link-spacing-mobile');
+  margin-inline: map.get($featured-item, 'link-spacing-horiontal-mobile');
+
+  .ecl-featured-item__title + &,
+  .ecl-featured-item__description + & {
+    margin-block: map.get($featured-item, 'link-spacing-vertical-mobile');
+  }
 }
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item__container {
-    flex-direction: row;
+    flex-direction: row-reverse;
+  }
+
+  .ecl-featured-item__item {
+    &:first-child {
+      order: initial;
+    }
+
+    &:last-child {
+      order: initial;
+    }
   }
 
   .ecl-featured-item__title {
-    margin: map.get($featured-item, 'title-spacing-desktop');
+    margin-block: map.get($featured-item, 'title-spacing-vertical-desktop');
+    margin-inline: map.get($featured-item, 'title-spacing-horizontal-desktop');
   }
 
   .ecl-featured-item__media_container {
@@ -78,18 +109,33 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'link-spacing-desktop');
+    margin-inline: map.get($featured-item, 'link-spacing-horizontal-desktop');
+
+    .ecl-featured-item__description + &,
+    .ecl-featured-item__title + & {
+      margin-block: map.get($featured-item, 'link-spacing-vertical-desktop');
+    }
   }
 
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'description-spacing-desktop');
+    .ecl-featured-item__title + & {
+      margin-block: map.get(
+        $featured-item,
+        'description-spacing-vertical-desktop'
+      );
+    }
+
+    margin-inline: map.get(
+      $featured-item,
+      'description-spacing-horizontal-desktop'
+    );
   }
 
   .ecl-featured-item__container--right {
-    flex-direction: row-reverse;
+    flex-direction: row;
 
     .ecl-featured-item__title {
-      margin: map.get($featured-item, 'title-spacing-right');
+      margin: 0;
     }
 
     .ecl-featured-item__description {
@@ -101,6 +147,10 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__media_container {
+      margin-inline: map.get(
+        $featured-item,
+        'media-spacing-horizontal-right-desktop'
+      );
       padding: map.get($featured-item, 'media-padding-right');
     }
   }
@@ -143,11 +193,38 @@ $featured-item: null !default;
   }
 
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'simple', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical'
+    );
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'simple', 'link-spacing');
+    margin-inline: map.get($featured-item, 'simple', 'link-spacing-horizontal');
+    margin-block: map.get(
+      $featured-item,
+      'simple',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'simple', 'link-spacing-vertical');
   }
 }
 
@@ -158,12 +235,60 @@ $featured-item: null !default;
       padding: map.get($featured-item, 'simple', 'padding-desktop');
     }
 
+    .ecl-featured-item__title,
+    .ecl-featured-item__description,
+    .ecl-featured-item__link {
+      margin-inline: map.get($featured-item, 'simple', 'text-spacing-desktop');
+      padding-inline: 0;
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-no-title'
+      );
+    }
+
+    .ecl-featured-item__title + .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'simple',
+        'description-spacing-vertical-desktop'
+      );
+    }
+
     .ecl-featured-item__media_container {
       padding: map.get($featured-item, 'simple', 'media-padding-desktop');
     }
 
-    .ecl-featured-item__container--right .ecl-featured-item__media_container {
-      padding: map.get($featured-item, 'simple', 'media-padding-right');
+    .ecl-featured-item__container--right {
+      .ecl-featured-item__title,
+      .ecl-featured-item__description,
+      .ecl-featured-item__link {
+        margin-inline: map.get(
+          $featured-item,
+          'simple',
+          'text-spacing-right-desktop'
+        );
+      }
+
+      .ecl-featured-item__media_container {
+        margin: 0;
+        padding: map.get($featured-item, 'simple', 'media-padding-right');
+      }
+    }
+
+    .ecl-featured-item__item:only-child {
+      .ecl-featured-item__title,
+      .ecl-featured-item__description,
+      .ecl-featured-item__link {
+        margin-inline: map.get(
+          $featured-item,
+          'simple',
+          'text-spacing-only-child'
+        );
+      }
     }
   }
 }
@@ -190,38 +315,142 @@ $featured-item: null !default;
     padding: map.get($featured-item, 'highlight', 'media-padding-mobile');
   }
 
-  .ecl-featured-item__item:last-child {
+  .ecl-featured-item__item:first-child {
     background-color: map.get($featured-item, 'highlight', 'item-background');
   }
 
   .ecl-featured-item__title {
     background-color: map.get($featured-item, 'highlight', 'title-background');
-    margin: 0;
     padding: map.get($featured-item, 'highlight', 'title-spacing');
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__description {
-    margin: map.get($featured-item, 'highlight', 'description-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
   }
 
+  .ecl-featured-item__title + .ecl-featured-item__description {
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical'
+    );
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__link {
-    margin: map.get($featured-item, 'highlight', 'link-spacing');
+    margin-inline: map.get(
+      $featured-item,
+      'highlight',
+      'link-spacing-horizontal'
+    );
+    margin-block: map.get(
+      $featured-item,
+      'highlight',
+      'description-spacing-vertical-no-title'
+    );
+  }
+
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block: map.get($featured-item, 'highlight', 'link-spacing-vertical');
   }
 }
 
-/* stylelint-disable-next-line order/order */
+/* stylelint-disable order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item--highlight {
     .ecl-featured-item__container {
-      padding: map.get($featured-item, 'highlight', 'padding-desktop');
+      padding-block: map.get(
+        $featured-item,
+        'highlight',
+        'padding-vertical-desktop'
+      );
+      padding-inline: map.get(
+        $featured-item,
+        'highlight',
+        'padding-horizontal-desktop'
+      );
+    }
+
+    .ecl-featured-item__title {
+      margin-inline: map.get(
+        $featured-item,
+        'highlight',
+        'title-spacing-desktop'
+      );
+    }
+
+    .ecl-featured-item__description,
+    .ecl-featured-item__link {
+      margin-inline-start: map.get(
+        $featured-item,
+        'highlight',
+        'text-spacing-desktop'
+      );
+    }
+
+    .ecl-featured-item__description {
+      margin-block: map.get(
+        $featured-item,
+        'highlight',
+        'description-spacing-vertical-no-title'
+      );
     }
 
     .ecl-featured-item__media_container {
+      margin-block: map.get(
+        $featured-item,
+        'highlight',
+        'media-spacing-vertical-desktop'
+      );
+      margin-inline: map.get(
+        $featured-item,
+        'highlight',
+        'media-spacing-horizontal-desktop'
+      );
       padding: map.get($featured-item, 'highlight', 'media-padding-desktop');
     }
 
-    .ecl-featured-item__container--right .ecl-featured-item__media_container {
-      padding: map.get($featured-item, 'highlight', 'media-padding-right');
+    .ecl-featured-item__container--right {
+      .ecl-featured-item__media_container {
+        padding-block: map.get(
+          $featured-item,
+          'highlight',
+          'media-padding-vertical-right'
+        );
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'media-padding-horizontal-right'
+        );
+      }
+
+      .ecl-featured-item__title {
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'title-spacing-right-desktop'
+        );
+      }
+
+      .ecl-featured-item__description,
+      .ecl-featured-item__link {
+        margin-inline: map.get(
+          $featured-item,
+          'highlight',
+          'text-spacing-right-desktop'
+        );
+      }
     }
   }
 }

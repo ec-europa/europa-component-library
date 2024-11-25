@@ -8,8 +8,13 @@ module.exports = {
       path: exampleLink,
     },
   },
-  description:
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+  description: {
+    link: {
+      label:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+      path: exampleLink,
+    },
+  },
   link: {
     link: {
       label: 'CTA link',

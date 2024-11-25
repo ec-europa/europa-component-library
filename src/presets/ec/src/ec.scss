@@ -80,6 +80,10 @@
   $theme: theme.$theme,
   $notification: var.$notification
 );
+@use '@ecl/vanilla-component-picture/picture';
+@use '@ecl/vanilla-component-separator/separator' with (
+  $separator: var.$separator
+);
 @use '@ecl/vanilla-component-spinner/spinner' with (
   $theme: theme.$theme,
   $spinner: var.$spinner
@@ -99,6 +103,7 @@
   $theme: theme.$theme,
   $tag: var.$tag
 );
+@use '@ecl/vanilla-component-video/video';
 
 // Molecules
 @use '@ecl/vanilla-component-banner/banner' with (

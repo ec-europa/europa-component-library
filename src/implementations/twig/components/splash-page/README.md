@@ -44,8 +44,7 @@ npm install --save @ecl/twig-component-splash-page
 ```twig
 {% include '@ecl/splash-page/splash-page.html.twig' with { 
   logo: {
-    title: 'European Commission',
-    alt: 'European Commission logo',
+    alt: 'European Commission',
     path: exampleLink,
     src_desktop: '/logo-ec--en.svg',
     src_mobile: '/logo-ec--mute.svg',

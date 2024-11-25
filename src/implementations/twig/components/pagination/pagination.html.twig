@@ -41,7 +41,11 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }} aria-label="{{ _label }}">
+<nav
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  aria-label="{{ _label }}"
+>
   <ul class="ecl-pagination__list">
     {% for _item in _items %}
       <li class="ecl-pagination__item{{ _item.type ? ' ecl-pagination__item--' ~ _item.type }}">

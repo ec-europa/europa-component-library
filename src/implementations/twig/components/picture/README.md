@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-picture
   - **"img"** (associative array) (default: {}):
     - "src" (string) (default: ''): Path to the image
     - "alt" (string) (default: ''): Alt text of the image
+    - "lazy" (boolean) (default: false): Should the image be loaded using lazy loading?
   - **"sources"** (array) (default: []): format: [
     {
     "src" (string) (default: ''): Path to the source image

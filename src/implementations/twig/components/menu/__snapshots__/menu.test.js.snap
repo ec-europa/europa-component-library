@@ -4,6 +4,7 @@ exports[`Menu Default renders correctly 1`] = `
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -18,40 +19,47 @@ exports[`Menu Default renders correctly 1`] = `
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -195,7 +203,6 @@ exports[`Menu Default renders correctly 1`] = `
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -864,6 +871,7 @@ exports[`Menu Default renders correctly with a external first level menu item 1`
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -878,40 +886,47 @@ exports[`Menu Default renders correctly with a external first level menu item 1`
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -1055,7 +1070,6 @@ exports[`Menu Default renders correctly with a external first level menu item 1`
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -1742,6 +1756,7 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -1758,40 +1773,47 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -1935,7 +1957,6 @@ exports[`Menu Default renders correctly with extra attributes 1`] = `
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -2604,6 +2625,7 @@ exports[`Menu Default renders correctly with extra attributes for the items 1`] 
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -2618,40 +2640,47 @@ exports[`Menu Default renders correctly with extra attributes for the items 1`] 
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -2795,7 +2824,6 @@ exports[`Menu Default renders correctly with extra attributes for the items 1`] 
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -3465,6 +3493,7 @@ exports[`Menu Default renders correctly with extra attributes for the sub-items 
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -3479,40 +3508,47 @@ exports[`Menu Default renders correctly with extra attributes for the sub-items 
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -3656,7 +3692,6 @@ exports[`Menu Default renders correctly with extra attributes for the sub-items 
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -4326,6 +4361,7 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu custom-button custom-button--test"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -4340,40 +4376,47 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -4517,7 +4560,6 @@ exports[`Menu Default renders correctly with extra class names 1`] = `
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"
@@ -5186,6 +5228,7 @@ exports[`Menu Long renders correctly 1`] = `
 <jest>
   <nav
     aria-expanded="false"
+    aria-label="Main navigation"
     class="ecl-menu"
     data-ecl-auto-init="Menu"
     data-ecl-menu=""
@@ -5200,40 +5243,47 @@ exports[`Menu Long renders correctly 1`] = `
     <div
       class="ecl-container ecl-menu__container"
     >
-      <a
-        class="ecl-link ecl-link--standalone ecl-link--icon ecl-button ecl-button--tertiary ecl-menu__open ecl-link--icon-only"
+      <button
+        aria-expanded="false"
+        class="ecl-button ecl-button--tertiary ecl-menu__open ecl-button--icon-only"
         data-ecl-menu-open=""
-        href="/example"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#hamburger"
-          />
-        </svg>
-        <svg
-          aria-hidden="true"
-          class="ecl-icon ecl-icon--m ecl-link__icon"
-          focusable="false"
-        >
-          <use
-            xlink:href="/icons.svg#close"
-          />
-        </svg>
         <span
-          class="ecl-link__label"
+          class="ecl-button__container"
         >
-          Menu
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#hamburger"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="ecl-icon ecl-icon--m ecl-button__icon"
+            data-ecl-icon=""
+            focusable="false"
+          >
+            <use
+              xlink:href="/icons.svg#close"
+            />
+          </svg>
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Menu
+          </span>
         </span>
-      </a>
+      </button>
       <section
         aria-label="Menu"
         class="ecl-menu__inner"
         data-ecl-menu-inner=""
-        role="application"
       >
         <header
           class="ecl-menu__inner-header"
@@ -5377,7 +5427,6 @@ exports[`Menu Long renders correctly 1`] = `
             id="ecl-menu-item-demo-1"
           >
             <a
-              aria-current="true"
               class="ecl-link ecl-link--standalone ecl-menu__link ecl-menu__link--current"
               data-ecl-menu-link=""
               href="/example"

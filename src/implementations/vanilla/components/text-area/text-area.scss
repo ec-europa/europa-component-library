@@ -49,22 +49,9 @@ $textarea: null !default;
 
   &:focus-visible,
   &:active {
-    border-color: map.get($textarea, 'border-color-focus');
-    border-width: map.get($textarea, 'border-width-focus');
     box-shadow: map.get($textarea, 'shadow-hover');
-    outline: none;
-    padding: calc(
-        #{map.get($textarea, 'padding-vertical')} - (#{map.get(
-                $textarea,
-                'border-width-focus'
-              )})
-      )
-      calc(
-        #{map.get($textarea, 'padding-horizontal')} - (#{map.get(
-                $textarea,
-                'border-width-focus'
-              )})
-      );
+    outline: 2px solid var(--c-p);
+    outline-offset: -2px;
   }
 }
 

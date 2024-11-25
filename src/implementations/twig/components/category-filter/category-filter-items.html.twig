@@ -61,7 +61,10 @@
     {% endif %}
     <li class="ecl-category-filter__list-item">
       {%- if _has_children -%}
-        <button class="{{ _item_class }}" {{ _extra_attributes|raw }}>
+        <button
+          class="{{ _item_class }}"
+          {{ _extra_attributes|raw }}
+        >
           {%- if _level != 1 -%}
             {% include '@ecl/icon/icon.html.twig' with {
               icon: {

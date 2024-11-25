@@ -6,6 +6,7 @@ import withCode from '@ecl/storybook-addon-code';
 import dataFullEU from '@ecl/specs-component-site-header/demo/data--eu';
 import enLogoDesktopEU from '@ecl/resources-eu-logo/dist/standard-version/positive/logo-eu--en.svg';
 import enLogoMobileEU from '@ecl/resources-eu-logo/dist/condensed-version/positive/logo-eu--en.svg';
+import enDataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import enDataMenu from '@ecl/specs-component-menu/demo/data--eu';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
@@ -14,6 +15,8 @@ import notes from './README.md';
 const dataFull = { ...dataFullEU };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
+const enMegaMenu = { ...enDataMegaMenu };
+const closeButton = { ...dataFull.notification.close };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -21,7 +24,7 @@ delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.cta_link;
 delete dataCore.banner_top;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Harmonised
 const dataHarmonised = JSON.parse(JSON.stringify(dataFull));
@@ -32,6 +35,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    show_notification_close: true,
     logo_size: 'medium',
   };
 
@@ -47,7 +51,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = true;
+    defaultArgs.show_menu = 'menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -107,12 +111,22 @@ const getArgTypes = (data) => {
         category: 'Optional',
       },
     };
+    argTypes.show_notification_close = {
+      name: 'notification close button',
+      type: { name: 'boolean' },
+      description: 'Show the notification close button',
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_notification' },
+    };
   }
   if (data.has_menu) {
     argTypes.show_menu = {
       name: 'menu',
-      type: { name: 'boolean' },
-      description: 'Show the menu',
+      control: { type: 'radio' },
+      description: 'Show the menu, the mega menu or none of the two',
+      options: ['none', 'menu', 'mega-menu'],
       table: {
         category: 'Optional',
       },
@@ -216,10 +230,17 @@ const prepareData = (data, args) => {
     data.login_toggle = clonedDataFull.login_toggle;
   }
 
-  if (!args.show_menu) {
+  if (args.show_menu === 'none' && (data.menu || data.mega_menu)) {
     delete data.menu;
-  } else if (args.show_menu && !data.menu) {
+    delete data.mega_menu;
+  }
+  if (args.show_menu === 'menu' && !data.menu) {
     data.menu = enMenu;
+    delete data.mega_menu;
+  }
+  if (args.show_menu === 'mega-menu' && !data.mega_menu) {
+    data.mega_menu = enMegaMenu;
+    delete data.menu;
   }
 
   if (!args.show_language_selector) {
@@ -272,6 +293,11 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+    if (!args.show_notification_close) {
+      delete clonedDataFull.notification.close;
+    } else {
+      clonedDataFull.notification.close = closeButton;
+    }
   }
 
   data.logged = args.logged;
@@ -287,7 +313,17 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Site-wide/Site header',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (storyFn) => {
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'scroll';
+
+      return storyFn();
+    },
+  ],
   parameters: { layout: 'fullscreen' },
 };
 

@@ -173,22 +173,6 @@ export class Accordion {
 
     const eventData = { item: target, isOpening };
     this.trigger('onToggle', eventData);
-
-    // Toggle icon
-    const iconElement = queryOne(this.iconSelector, toggle);
-    if (iconElement) {
-      const useNode = queryOne('use', iconElement);
-      if (useNode) {
-        const originalXlinkHref = useNode.getAttribute('xlink:href');
-        let newXlinkHref = '';
-        if (isExpanded) {
-          newXlinkHref = originalXlinkHref.replace('minus', 'plus');
-        } else {
-          newXlinkHref = originalXlinkHref.replace('plus', 'minus');
-        }
-        useNode.setAttribute('xlink:href', newXlinkHref);
-      }
-    }
   }
 }
 

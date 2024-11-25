@@ -55,6 +55,7 @@ export class Range {
     this.rangeInput = null;
     this.currentValue = null;
     this.bubble = null;
+    this.direction = 'ltr';
 
     // Bind `this` for use in callbacks
     this.placeBubble = this.placeBubble.bind(this);
@@ -91,6 +92,9 @@ export class Range {
         this.rangeInput.addEventListener('mouseout', this.handleHoverOff);
       }
     }
+
+    // RTL
+    this.direction = getComputedStyle(this.element).direction;
 
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
@@ -134,16 +138,22 @@ export class Range {
 
     // Get position from center
     const percentOfRange =
-      this.rangeInput.value / (this.rangeInput.max - this.rangeInput.min);
+      (this.rangeInput.value - this.rangeInput.min) /
+      (this.rangeInput.max - this.rangeInput.min);
     const valuePxPosition = percentOfRange * rect.width;
     const distFromCenter = valuePxPosition - center;
     const percentDistFromCenter = distFromCenter / center;
 
     // Calculate bubble position
     const offset = percentDistFromCenter * halfThumbWidth;
-    const left = rect.left + valuePxPosition - halfLabelWidth - offset;
+    let pos = 0;
+    if (this.direction === 'rtl') {
+      pos = rect.right - valuePxPosition - halfLabelWidth + offset;
+    } else {
+      pos = rect.left + valuePxPosition - halfLabelWidth - offset;
+    }
 
-    this.bubble.style.left = `${left}px`;
+    this.bubble.style.left = `${pos}px`;
   }
 
   /**

@@ -18,10 +18,10 @@ $notification: null !default;
   display: flex;
   font: map.get($notification, 'font');
   margin: 0;
-  padding-bottom: map.get($notification, 'padding');
-  padding-inline-start: map.get($notification, 'padding-start');
-  padding-inline-end: map.get($notification, 'padding-end');
-  padding-top: map.get($notification, 'padding');
+  padding-bottom: map.get($notification, 'padding-mobile');
+  padding-inline-start: map.get($notification, 'padding-start-mobile');
+  padding-inline-end: map.get($notification, 'padding-end-mobile');
+  padding-top: map.get($notification, 'padding-mobile');
   position: relative;
 }
 
@@ -46,8 +46,12 @@ $notification: null !default;
 
 .ecl-notification__description {
   grid-column-start: 1;
-  margin: 0 0 var(--s-xs);
+  margin: 0;
   max-width: var(--max-w);
+}
+
+.ecl-notification__link {
+  grid-column-start: 1;
 }
 
 .ecl-notification__close {
@@ -67,6 +71,17 @@ $notification: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('m') {
+  .ecl-notification {
+    padding-bottom: map.get($notification, 'padding');
+    padding-inline-end: map.get($notification, 'padding-end');
+    padding-inline-start: map.get($notification, 'padding-start');
+    padding-top: map.get($notification, 'padding');
+  }
+
+  .ecl-notification__icon {
+    margin-inline-end: var(--s-m);
+  }
+
   .ecl-notification__description {
     margin-bottom: 0;
     padding-bottom: 0;
@@ -110,11 +125,28 @@ $notification: null !default;
   .ecl-notification__icon-background {
     background: map.get($notification, 'warning', 'icon-background-color');
     height: map.get($notification, 'warning', 'icon-background-height');
-    left: map.get($notification, 'warning', 'icon-background-left');
+    left: map.get($notification, 'warning', 'icon-background-left-mobile');
     position: absolute;
     width: map.get($notification, 'warning', 'icon-background-width');
-    top: map.get($notification, 'warning', 'icon-background-top');
+    top: map.get($notification, 'warning', 'icon-background-top-mobile');
     z-index: 1;
+
+    &:dir(rtl) {
+      left: auto;
+      right: map.get($notification, 'warning', 'icon-background-left-mobile');
+    }
+  }
+}
+
+@include breakpoints.up('m') {
+  .ecl-notification--warning .ecl-notification__icon-background {
+    left: map.get($notification, 'warning', 'icon-background-left');
+    top: map.get($notification, 'warning', 'icon-background-top');
+
+    &:dir(rtl) {
+      left: auto;
+      right: map.get($notification, 'warning', 'icon-background-left');
+    }
   }
 }
 

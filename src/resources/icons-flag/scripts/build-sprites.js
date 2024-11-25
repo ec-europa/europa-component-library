@@ -5,7 +5,9 @@ const writeSprite = require('./write-sprite');
 
 let src = path.resolve(__dirname, '../dist/svg/members');
 let dest = path.resolve(__dirname, '../dist/sprites');
-let files = glob.sync('*.svg', { cwd: src });
+let files = glob
+  .sync('*.svg', { cwd: src })
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
 /* Generate 1 sprite with all icons and organize icons per folder */
 

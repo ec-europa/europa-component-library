@@ -58,7 +58,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   {% set _label = _label_collapsed %}
   {% set _button_attributes = [
     { name: 'aria-controls', value: _aria_controls },

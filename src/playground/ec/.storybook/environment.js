@@ -9,6 +9,10 @@ const compositionsAbsPath = path.resolve(
   __dirname,
   '../../../implementations/twig/compositions',
 );
+const pageAbsPath = path.resolve(
+  __dirname,
+  '../../../implementations/twig/pages',
+);
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
 
@@ -18,6 +22,7 @@ if (typeof loader.addPath === 'function') {
   // Add namespace.
   loader.addPath(componentAbsPath, 'ecl');
   loader.addPath(compositionsAbsPath, 'ecl');
+  loader.addPath(pageAbsPath, 'ecl');
 }
 
 module.exports = new TwingEnvironment(loader, { autoescape: false });

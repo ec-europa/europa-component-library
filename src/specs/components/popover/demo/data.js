@@ -1,7 +1,4 @@
 // Simple content for demo
-const publicUrl = process.env.PUBLIC_URL || '';
-const exampleLink = `${publicUrl}/example`;
-
 module.exports = {
   id: 'popover-example',
   close: {
@@ -14,13 +11,10 @@ module.exports = {
     hide_label: true,
   },
   toggle: {
-    link: {
-      label: 'Popover',
-      path: exampleLink,
-      type: 'standalone',
-      aria_label: 'Popover toggle',
-      icon_position: 'before',
-    },
+    label: 'Popover',
+    type: 'button',
+    variant: 'ghost',
+    icon_position: 'before',
     icon: {
       path: '/icons.svg',
       name: 'share',

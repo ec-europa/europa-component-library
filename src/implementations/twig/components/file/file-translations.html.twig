@@ -16,6 +16,7 @@
 {% set _items = items|default([]) %}
 {% set _toggle = toggle|default({}) %}
 {% set _id = id|default('') %}
+{% set _download_attribute_default = download_attribute_default|default(false) %}
 
 {% if _items is not empty %}
   <div
@@ -42,6 +43,7 @@
       {% include '@ecl/file/file-translation-item.html.twig' with _item|merge({
           id:  _id ~ '-translation-' ~ key,
           title_id: _id ~ '-title',
+          download_attribute_default: _download_attribute_default,
       }) only %}
     {% endfor %}
     </ul>

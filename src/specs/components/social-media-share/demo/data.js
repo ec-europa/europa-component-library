@@ -6,7 +6,7 @@ module.exports = {
   links: [
     {
       link: {
-        label: 'Twitter',
+        label: 'X',
         path: exampleLink,
         icon_position: 'before',
       },

@@ -13,7 +13,6 @@ const mediaContainer = { ...demoData.media_container };
 const getArgs = (data) => {
   const args = {
     show_media: true,
-    show_footer: false,
     title: data.title,
     description: data.description,
     position: 'left',
@@ -28,6 +27,8 @@ const getArgs = (data) => {
     args.footer_description = data.footer_description;
   }
 
+  args.show_footer = false;
+
   return args;
 };
 
@@ -38,15 +39,6 @@ const getArgTypes = (data) => {
     type: 'boolean',
     name: 'show media',
     description: 'Toggle media visility',
-    table: {
-      category: 'Optional',
-    },
-  };
-
-  argTypes.show_footer = {
-    type: 'boolean',
-    name: 'show footer',
-    description: 'Toggle footer visility',
     table: {
       category: 'Optional',
     },
@@ -85,6 +77,15 @@ const getArgTypes = (data) => {
     };
   }
 
+  argTypes.show_footer = {
+    type: 'boolean',
+    name: 'show footer',
+    description: 'Toggle footer visility',
+    table: {
+      category: 'Deprecated',
+    },
+  };
+
   if (data.footer_link.link.label) {
     argTypes.footer_link_label = {
       name: 'footer link label',
@@ -93,7 +94,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Content',
+        category: 'Deprecated',
       },
       if: { arg: 'show_footer' },
     };
@@ -107,7 +108,7 @@ const getArgTypes = (data) => {
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
-        category: 'Content',
+        category: 'Deprecated',
       },
       if: { arg: 'show_footer' },
     };

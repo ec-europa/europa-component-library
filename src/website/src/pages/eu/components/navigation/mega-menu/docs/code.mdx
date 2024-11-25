@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import siteHeaderCore from '../demo';
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-site-header"
+  selectedStory="core"
+  selectedArgs="show_menu:mega-menu"
+  showFrame
+  disableAutoResize
+  frameHeight="1800"
+>
+  <Html markup={siteHeaderCore} />
+</Playground>

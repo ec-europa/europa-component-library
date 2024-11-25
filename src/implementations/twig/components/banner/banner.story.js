@@ -20,13 +20,14 @@ const getArgs = (data) => {
     box_background: 'light',
     font_color: 'dark',
     title: data.title.link.label,
-    title_link: true,
-    description: data.description,
+    description: data.description.link.label,
+    title_description_link: 'title',
     label: data.link && data.link.link.label ? data.link.link.label : '',
     horizontal: 'left',
     vertical: 'center',
     full_width: true,
     gridContent: false,
+    oldVariants: '',
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
@@ -60,7 +61,6 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
-      if: { arg: 'title_link', neq: true },
     },
     show_credit: {
       name: 'credit',
@@ -231,17 +231,6 @@ const getArgTypes = (data) => {
       },
       if: { arg: 'show_title' },
     },
-    title_link: {
-      name: 'title link',
-      type: 'boolean',
-      description: 'Use a link for the title',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: true },
-        category: 'Content',
-      },
-      if: { arg: 'show_title' },
-    },
     description: {
       type: 'string',
       description: 'Sub-heading of the banner',
@@ -251,6 +240,17 @@ const getArgTypes = (data) => {
         category: 'Content',
       },
       if: { arg: 'show_description' },
+    },
+    title_description_link: {
+      name: 'link on the title or the description',
+      control: 'radio',
+      options: ['none', 'title', 'description'],
+      description: 'Use a link for the title or the description',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'title' },
+        category: 'Content',
+      },
     },
     label: {
       type: 'string',
@@ -284,6 +284,35 @@ const getArgTypes = (data) => {
         type: 'boolean',
       },
     },
+    oldVariants: {
+      name: 'Test the old variants',
+      type: { name: 'select' },
+      description: 'Test the layout with deprecated markup',
+      table: {
+        category: 'Backward compatibility',
+      },
+      options: [
+        '',
+        'ecl-banner--plain-background',
+        'ecl-banner--text-box',
+        'ecl-banner--text-overlay',
+      ],
+      mapping: {
+        none: '',
+        'plain background': 'ecl-banner--plain-background',
+        'text overlay': 'ecl-banner--text-overlay',
+        'text box': 'ecl-banner--text-box',
+      },
+      control: {
+        labels: {
+          '': 'none',
+          'ecl-banner--plain-background': 'plain background',
+          'ecl-banner--text-box': 'text box',
+          'ecl-banner--text-overlay': 'text overlay',
+        },
+        type: 'select',
+      },
+    },
   };
 
   if (data.picture) {
@@ -302,28 +331,54 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
+  const {
+    title_description_link: titleDescriptionLink,
+    show_title: showTitle,
+    show_description: showDescription,
+    show_credit: showCredit,
+    show_button: showButton,
+    title,
+    description,
+  } = args;
+
   correctPaths(data);
   const clone = JSON.parse(JSON.stringify(data));
   Object.assign(clone, args);
 
-  if (!args.show_credit) {
-    delete clone.credit;
-  }
-  if (!args.show_title) {
-    delete clone.title;
-  }
-  if (!args.show_description) {
-    delete clone.description;
-  }
-  if (!args.show_button) {
-    delete clone.link;
+  if (!showTitle) delete clone.title;
+  if (!showDescription) delete clone.description;
+  if (!showCredit) delete clone.credit;
+  if (!showButton) delete clone.link;
+
+  if (titleDescriptionLink === 'title' && showTitle) {
+    clone.title = { ...data.title, link: { ...data.title.link, label: title } };
+    if (showDescription) clone.description = description;
+  } else if (titleDescriptionLink === 'description' && showDescription) {
+    clone.description = {
+      ...data.description,
+      link: { ...data.description.link, label: description },
+    };
+    if (showTitle) clone.title = title;
+  } else if (titleDescriptionLink === 'none') {
+    if (showTitle) clone.title = title;
+    if (showDescription) clone.description = description;
   }
 
-  if (!args.title_link) {
-    clone.title = args.title;
+  if (clone.picture) {
+    clone.picture.img.src = args.image;
+  }
+
+  if (args.oldVariants !== '') {
+    clone.extra_classes = args.oldVariants;
+    if (args.oldVariants === 'ecl-banner--plain-background') {
+      if (clone.picture) {
+        clone.picture.img = {};
+      } else {
+        clone.video = {};
+      }
+    }
   } else {
-    clone.title = data.title;
-    clone.title.link.label = args.title;
+    clone.extra_classes = '';
   }
 
   return clone;

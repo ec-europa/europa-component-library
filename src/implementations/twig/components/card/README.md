@@ -9,6 +9,7 @@ npm install --save @ecl/twig-component-card
 ### Parameters
 
 - **picture** (associative array) (default: {}): Image for the card, following ECL Picture structure
+- **"picture_zoom"** (bool) (default: false): Should the picture be animated?
 - **labels** (array) (default: []): Array of ECL Labels
 - **labels_aria** (strings) (default: ''): Aria label for the labels area
 - **primary_meta** (array of strings) (default: []): Primary meta of the card

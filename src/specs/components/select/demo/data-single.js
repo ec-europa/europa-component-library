@@ -11,7 +11,6 @@ module.exports = {
   optional_text: '(optional)',
   required: true,
   label_aria_required: 'required',
-  label_aria_optional: 'optional',
   input: {
     input_type: 'select',
     width: 'm',

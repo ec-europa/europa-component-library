@@ -1,6 +1,6 @@
 ---
-title: Stacks
-defaultTab: usage
+title: Stacks (Flex)
+defaultTab: code
 status: ready
 playground:
   system: eu

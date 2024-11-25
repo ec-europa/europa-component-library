@@ -28,8 +28,6 @@ module.exports = {
         },
       },
       credit: '© Copyright or credit',
-      variant: 'text-box',
-      centered: false,
     },
     {
       title: 'Duis vitae pulvinar turpis',
@@ -55,8 +53,7 @@ module.exports = {
         },
       },
       credit: '© Copyright or credit',
-      variant: 'text-overlay',
-      centered: false,
+      box_background: 'dark',
     },
     {
       title: 'Donec maximus pharetra ex a ultricies',
@@ -82,8 +79,7 @@ module.exports = {
         },
       },
       credit: '© Copyright or credit',
-      variant: 'text-overlay',
-      centered: false,
+      box_background: 'dark',
     },
   ],
   icon_path: '/icons.svg',

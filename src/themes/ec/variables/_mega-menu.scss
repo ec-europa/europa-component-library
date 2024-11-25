@@ -29,7 +29,6 @@ $mega-menu: (
     header-shadow: none,
     item-color: var(--c-d),
     item-color-hover: var(--c-d),
-    item-font: var(--f-m),
     item-padding: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
     item-active-background: var(--c-n-80),
     parent-top: -63px,
@@ -38,6 +37,7 @@ $mega-menu: (
     subitem-padding: var(--s-m) var(--s-m) var(--s-m) var(--s-l),
   ),
   desktop: (
+    item-background: var(--c-br),
     menu-background: var(--c-br),
     menu-border: none,
     item-background-focus: var(--c-br),
@@ -54,6 +54,7 @@ $mega-menu: (
     mega-border: none,
     mega-shadow: none,
     overlay-background: var(--c-n-40),
+    outline-width: 2px,
     see-all-divider: var(--c-n-100),
     sublink-padding: calc(var(--s-xs) + 2px) var(--s-l) calc(var(--s-xs) + 2px)
       var(--s-m),

@@ -13,9 +13,10 @@ const getArgs = (data) => {
   const args = {};
 
   if (data.picture) {
-    args.show_image = true;
-    args.image_size = 'large';
-    args.image_position = 'left';
+    args.show_picture = true;
+    args.picture_size = 'large';
+    args.picture_position = 'left';
+    args.picture_zoom = false;
   }
   if (data.date) {
     args.show_date = true;
@@ -50,10 +51,10 @@ const getArgTypes = (data) => {
 
   // Optional elements
   if (data.picture) {
-    argTypes.show_image = {
-      name: 'image',
+    argTypes.show_picture = {
+      name: 'picture',
       type: 'boolean',
-      description: 'Show image',
+      description: 'Show picture',
       table: {
         type: 'boolean',
         defaultValue: { summary: true },
@@ -146,10 +147,10 @@ const getArgTypes = (data) => {
 
   // Other controls
   if (data.picture) {
-    argTypes.image_size = {
-      name: 'image size',
+    argTypes.picture_size = {
+      name: 'picture size',
       type: 'select',
-      description: "Possible image sizes ('small' or 'large')",
+      description: "Possible picture sizes ('small' or 'large')",
       options: ['small', 'large'],
       control: {
         labels: {
@@ -166,12 +167,12 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
-      if: { arg: 'image_position', neq: 'top' },
+      if: { arg: 'picture_position', neq: 'top' },
     };
-    argTypes.image_position = {
-      name: 'image position',
+    argTypes.picture_position = {
+      name: 'picture position',
       type: 'select',
-      description: 'Possible image position',
+      description: 'Possible picture position',
       options: ['left', 'right', 'top'],
       mapping: {
         left: 'left',
@@ -183,7 +184,17 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Display',
       },
-      if: { arg: 'show_image' },
+      if: { arg: 'show_picture' },
+    };
+    argTypes.picture_zoom = {
+      name: 'picture zoom',
+      type: 'boolean',
+      description: 'Should the picture be animated?',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+        category: 'Display',
+      },
     };
   }
   if (data.title) {
@@ -233,7 +244,7 @@ const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
-  if (!args.show_image) {
+  if (!args.show_picture) {
     delete clone.picture;
   }
   if (!args.show_date) {
@@ -258,13 +269,14 @@ const prepareData = (data, args) => {
 
   // Other controls
   if (clone.picture) {
-    clone.picture.size = args.image_size;
-    if (args.image_size === 'small') {
+    clone.picture.size = args.picture_size;
+    if (args.picture_size === 'small') {
       clone.picture.img.src =
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image-square.jpg';
       clone.picture.sources[0].src = clone.picture.img.src;
     }
-    clone.picture.position = args.image_position;
+    clone.picture.position = args.picture_position;
+    clone.picture_zoom = args.picture_zoom;
   }
   if (clone.title) {
     if (clone.title.link) {

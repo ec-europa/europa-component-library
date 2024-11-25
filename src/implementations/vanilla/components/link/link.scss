@@ -19,6 +19,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   font-family: var(--ff-d);
   margin: 0;
   text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: clamp(3px, 0.245em, 10px);
 
   &:visited {
     color: map.get($link, 'color-visited');
@@ -95,7 +97,7 @@ $min-width: 44px; // According to COMM every interactive element should be at le
 */
 .ecl-link--standalone {
   display: inline-block;
-  line-height: map.get($link, 'standalone-line-height');
+  line-height: map.get($theme, 'line-height-ui', 'xs');
   text-decoration: none;
 
   &:visited {

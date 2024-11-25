@@ -8,8 +8,13 @@ module.exports = {
       path: exampleLink,
     },
   },
-  description:
-    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+  description: {
+    link: {
+      label:
+        'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
+      path: exampleLink,
+    },
+  },
   link: {
     link: {
       label: 'CTA link',
@@ -25,29 +30,11 @@ module.exports = {
   },
   video: {
     poster:
-      'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+      'https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg',
     sources: [
       {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.mp4',
+        src: 'https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4',
         type: 'video/mp4',
-      },
-      {
-        src: 'https://inno-ecl.s3.amazonaws.com/media/videos/big_buck_bunny.webm',
-        type: 'video/webm',
-      },
-    ],
-    tracks: [
-      {
-        src: '/captions/bunny-en.vtt',
-        kind: 'captions',
-        src_lang: 'en',
-        label: 'English',
-      },
-      {
-        src: '/captions/bunny-fr.vtt',
-        kind: 'captions',
-        src_lang: 'fr',
-        label: 'French',
       },
     ],
   },

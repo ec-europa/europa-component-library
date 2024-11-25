@@ -124,8 +124,26 @@ $accordion: null !default;
   flex-shrink: 0;
   margin-inline-end: 0;
   margin-inline-start: map.get($accordion, 'icon-margin');
-}
 
-.ecl-accordion__toggle-icon {
-  fill: map.get($accordion, 'icon-color');
+  .ecl-accordion__toggle-icon {
+    fill: map.get($accordion, 'icon-color');
+
+    &:last-child {
+      display: none;
+    }
+
+    &:first-child,
+    &:only-child {
+      display: flex;
+    }
+
+    [aria-expanded='true'] &:first-child {
+      display: none;
+    }
+
+    [aria-expanded='true'] &:last-child,
+    [aria-expanded='true'] &:only-child {
+      display: block;
+    }
+  }
 }

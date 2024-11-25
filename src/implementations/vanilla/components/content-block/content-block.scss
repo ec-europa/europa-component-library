@@ -61,6 +61,11 @@ $content-block: null !default;
   font-weight: map.get($content-block, 'title-font-weight');
   margin: map.get($content-block, 'title-margin');
   max-width: var(--max-w);
+
+  // FRONT-4557 - Fixing webtools widget placement
+  .ecl-link {
+    display: inline;
+  }
 }
 
 .ecl-content-block__description {

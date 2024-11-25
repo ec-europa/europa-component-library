@@ -9,7 +9,7 @@ npm install --save @ecl/twig-component-mega-menu
 ### Parameters
 
 - **"id"** (string) (default: random): Unique id
-- **"toggle"**: (associative array) (default: {}): Toggle (hambrger) link, using ECL Link structure
+- **"toggle"**: (associative array) (default: {}): Toggle (hamburger) button, using ECL button structure
 - **"title"** (string) (default: ''): Used as the inner container aria-label value
 - **"close"**: (associative array) (default: {}): Object, using ECL Button structure
 - **"aria_label"** (string): (default: ''): Main list aria label

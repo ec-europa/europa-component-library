@@ -51,12 +51,14 @@ $content-item: null !default;
 .ecl-content-item__image {
   border: 1px solid map.get($content-item, 'image-border-color');
   display: block;
-  width: 100%;
+  width: calc(100% - 2px);
 }
 
 @include breakpoints.up('m') {
-  .ecl-content-item:not(.ecl-content-item--stack) {
-    flex-direction: row;
+  .ecl-content-item {
+    &:not(.ecl-content-item--stack) {
+      flex-direction: row;
+    }
   }
 
   .ecl-content-item__picture {

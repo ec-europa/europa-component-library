@@ -8,11 +8,7 @@ module.exports = {
   second_level_aria_label: 'Pages in this section',
   third_level_aria_label: 'Sub-pages in this section',
   toggle: {
-    link: {
-      label: 'Menu',
-      path: exampleLink,
-      hide_label: true,
-    },
+    label: 'Menu',
     icon: {
       path: '/icons.svg',
       name: 'hamburger',
@@ -51,9 +47,6 @@ module.exports = {
           sublink_id: 'item-2-1-id',
           see_all: true,
           see_all_label: 'View all',
-          see_all_attributes: [
-            { name: 'aria-label', value: 'View all sub-pages of this section' },
-          ],
           featured: {
             picture: {
               img: {
@@ -81,6 +74,9 @@ module.exports = {
             { label: 'Item 2.1 subitem 3', path: exampleLink },
             { label: 'Item 2.1 subitem 4', path: exampleLink },
             { label: 'Item 2.1 subitem 5', path: exampleLink },
+            { label: 'Item 2.1 subitem 6', path: exampleLink },
+            { label: 'Item 2.1 subitem 7', path: exampleLink },
+            { label: 'Item 2.1 subitem 8', path: exampleLink },
           ],
         },
         { label: 'Item 2.2', path: exampleLink },
@@ -95,13 +91,6 @@ module.exports = {
             },
             { label: 'Item 2.3 subitem 3', path: exampleLink },
           ],
-        },
-        { label: 'Item 2.4', path: exampleLink },
-        { label: 'Item 2.5', path: exampleLink },
-        { label: 'Item 2.6', path: exampleLink },
-        {
-          label: 'Item 2.7',
-          path: exampleLink,
         },
       ],
     },
@@ -136,6 +125,7 @@ module.exports = {
         {
           label: 'Aid, Development cooperation, Fundamental rights',
           path: exampleLink,
+          children: [{ label: 'A lonely item', path: exampleLink }],
         },
         { label: 'Energy, Climate change, Environment', path: exampleLink },
         { label: 'Law', path: exampleLink },
@@ -145,9 +135,6 @@ module.exports = {
           path: exampleLink,
           see_all: true,
           see_all_label: 'See all items',
-          see_all_attributes: [
-            { name: 'aria-label', value: 'View all sub-pages of this section' },
-          ],
           sublink_id: 'research-and-innovation-id',
           featured: {
             picture: {
@@ -160,6 +147,10 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
+              { label: 'Featured link 3', path: exampleLink },
+              { label: 'Featured link 4', path: exampleLink },
+              { label: 'Featured link 5', path: exampleLink },
+              { label: 'Featured link 6', path: exampleLink },
             ],
           },
           children: [
@@ -174,7 +165,10 @@ module.exports = {
     {
       label: 'Engage',
       path: exampleLink,
-      container: `<div></div>`,
+      container: `<div class="ecl">
+          <h2 class="ecl-u-mt-none ecl-u-mt-l-l">Minimal demo content for the container option</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat magna quis ultricies hendrerit. Suspendisse fermentum elit id hendrerit suscipit.</p>
+        </div>`,
     },
     {
       label: 'Contact',

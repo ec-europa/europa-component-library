@@ -14,6 +14,11 @@ import dataInverted from '@ecl/specs-component-link/demo/data--inverted';
 import link from './link.html.twig';
 import notes from './README.md';
 
+const dataInvertedStandalone = {
+  ...dataInverted,
+  link: { ...dataInverted.link, type: 'standalone' },
+};
+
 // Create 'none' option.
 iconsAll.unshift('none');
 
@@ -237,11 +242,27 @@ Secondary.parameters = { notes: { markdown: notes, json: dataSecondary } };
 export const Inverted = (_, { loaded: { component } }) => component;
 
 Inverted.render = async (args) => {
-  const renderedLinkSecondary = await link(prepareData(dataInverted, args));
-  return renderedLinkSecondary;
+  const renderedLinkInverted = await link(prepareData(dataInverted, args));
+  return renderedLinkInverted;
 };
 Inverted.storyName = 'inverted';
 Inverted.decorators = [withNotes, withCode, withParagraph, withInverted];
 Inverted.args = getArgs(dataInverted);
 Inverted.argTypes = getArgTypes();
 Inverted.parameters = { notes: { markdown: notes, json: dataInverted } };
+
+export const InvertedStandalone = (_, { loaded: { component } }) => component;
+
+InvertedStandalone.render = async (args) => {
+  const renderedLinkInvertedStandalone = await link(
+    prepareData(dataInvertedStandalone, args),
+  );
+  return renderedLinkInvertedStandalone;
+};
+InvertedStandalone.storyName = 'inverted standalone';
+InvertedStandalone.decorators = [withNotes, withCode, withInverted];
+InvertedStandalone.args = getArgs(dataInvertedStandalone);
+InvertedStandalone.argTypes = getArgTypes();
+InvertedStandalone.parameters = {
+  notes: { markdown: notes, json: dataInvertedStandalone },
+};

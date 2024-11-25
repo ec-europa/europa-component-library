@@ -58,7 +58,10 @@
     {% set _extra_attributes = _extra_attributes ~ ' datetime="' ~ _date_time|e('html_attr') ~ '"' %}
   {% endif %}
 
-  <time class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <time
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
   {% if _date_time is not empty %}
     <span class="ecl-date-block__daytime">{{ _date_time }}</span>
   {% endif %}

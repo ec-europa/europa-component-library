@@ -1,0 +1,18 @@
+/**
+ * Picture
+ * @define picture
+ */
+
+.ecl-picture--zoom {
+  display: block;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.5s;
+  }
+
+  &:hover img,
+  &:focus-visible img {
+    transform: scale(1.1);
+  }
+}

@@ -45,7 +45,10 @@
 
 {# Print the result #}
 
-<dialog class="{{ _css_class }}"{{ _extra_attributes|raw }} data-ecl-gallery-overlay
+<dialog
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+  data-ecl-gallery-overlay
 {% if _overlay.sr_overlay_label is defined and _overlay.sr_overlay_label is not empty %}
   aria-label="{{ _overlay.sr_overlay_label }}"
 {% endif %}
