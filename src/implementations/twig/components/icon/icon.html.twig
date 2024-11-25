@@ -12,6 +12,7 @@
           title: '' (additional title for the icon; shortcut for extra accessibility title)
         }
     - "as_image": false,
+    - "wt_markup" (bool) (default: false): should the icon use the Webtools markup?
     - "extra_accessibility" : {
         description: '' (desc tag)
         description_id: '' (desc tag id)
@@ -38,6 +39,7 @@
   color: '',
   title: '',
 }|merge(icon|default({})) %}
+{% set _wt_markup = wt_markup|default(false) %}
 
 {% set _extra_accessibility = {
   description: '',
@@ -65,7 +67,7 @@
 {% endif %}
 
 {% for property in ['size', 'transform', 'color'] %}
-  {% if _icon[property] is defined and _icon[property] is not empty %}
+  {% if _icon[property] is defined and _icon[property] is not empty and _icon[property] != 'none' %}
     {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon[property] %}
   {% endif %}
 {% endfor %}
@@ -96,30 +98,51 @@
 
 {# Print the result #}
 
-<svg
-  class="{{ _css_class }}"
-  focusable="false"
-  aria-hidden="{{ _aria_hidden }}"
-  {{ _extra_attributes|raw }}>
-{% if _extra_accessibility.title is not empty %}
-  <title
-  {% if _extra_accessibility.title_id is not empty %}
-    id="{{ _extra_accessibility.title_id }}"
+{% if _wt_markup %}
+  {% set _wt_classes = '' %}
+  {% for property in ['name', 'size'] %}
+    {% if _icon[property] is defined and _icon[property] is not empty %}
+      {% set _wt_classes = _wt_classes is empty ? 'wt-icon--' ~ _icon[property] : _wt_classes ~ ' wt-icon--' ~ _icon[property] %}
+    {% endif %}
+  {% endfor %}
+
+  {% if _icon.name is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon.name %}
   {% endif %}
-  >
-    {{- _extra_accessibility.title -}}
-  </title>
+
+  <span 
+    class="{{ _wt_classes }} {{ _css_class }}"
+    focusable="false"
+    aria-hidden="{{ _aria_hidden }}"
+    {{ _extra_attributes|raw }}>
+  </span>
+
+{% else %}
+  <svg
+    class="{{ _css_class }}"
+    focusable="false"
+    aria-hidden="{{ _aria_hidden }}"
+    {{ _extra_attributes|raw }}>
+  {% if _extra_accessibility.title is not empty %}
+    <title
+    {% if _extra_accessibility.title_id is not empty %}
+      id="{{ _extra_accessibility.title_id }}"
+    {% endif %}
+    >
+      {{- _extra_accessibility.title -}}
+    </title>
+    {% endif %}
+  {% if _extra_accessibility.description is not empty %}
+    <desc
+    {% if _extra_accessibility.description_id is not empty %}
+      id="{{ _extra_accessibility.description_id }}"
+    {% endif %}
+    >
+      {{- _extra_accessibility.description -}}
+    </desc>
   {% endif %}
-{% if _extra_accessibility.description is not empty %}
-  <desc
-  {% if _extra_accessibility.description_id is not empty %}
-    id="{{ _extra_accessibility.description_id }}"
-  {% endif %}
-  >
-    {{- _extra_accessibility.description -}}
-  </desc>
+    <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
+  </svg>
 {% endif %}
-  <use xlink:href="{{ _icon.path }}#{{ _icon.name }}"></use>
-</svg>
 
 {% endapply %}

@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-icon
   - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
   - "title": '' (string) (default: '') Additional title for the icon; shortcut for extra accessibility title
 - **"as_image"**: (boolean) (default: false) Whether the icon is used as an image
+- **"wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_accessibility"** (optional) (object) Extra tags for accessibility when used as an image
   - description: '' (desc tag)
   - description_id: '' (desc tag id)
