@@ -13,9 +13,13 @@ $table: (
   row-border: 1px solid var(--c-p-20),
   cell-separator: none,
   cell-padding-mobile: var(--s-s),
-  cell-padding-desktop: var(--s-s) var(--s-xl) var(--s-s) var(--s-m),
-  cell-margin-mobile: calc(-1 * var(--s-s)) var(--s-s) calc(-1 * var(--s-s))
-    calc(-1 * var(--s-s)),
+  cell-padding-desktop: var(--s-s) var(--s-m),
+  cell-margin-mobile: (
+    top: calc(-1 * var(--s-s)),
+    end: var(--s-s),
+    bottom: calc(-1 * var(--s-s)),
+    start: calc(-1 * var(--s-s)),
+  ),
   zebra-background: var(--c-p-5),
   multi-head-background: var(--c-p-5),
   multi-head-background-empty: map.get($color, 'white'),

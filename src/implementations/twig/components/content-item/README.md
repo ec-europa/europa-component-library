@@ -22,6 +22,7 @@ npm install --save @ecl/twig-component-content-item
     },
     ...
     ]
+- **"picture_zoom"** (bool) (default: false): Should the picture be animated?
 - **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
 - **labels** (array) (default: []): Array of ECL Labels
 - **labels_aria** (strings) (default: ''): Aria label for the labels area

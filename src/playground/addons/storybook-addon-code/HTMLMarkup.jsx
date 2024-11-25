@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { decode } from 'html-entities';
 import {
@@ -8,12 +8,10 @@ import {
 } from '@storybook/components';
 import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
-
-import { ADD_CODE } from './constants';
 import prefillPen from './codepen';
 
 const TitleBar = styled.div`
-  align-items: center; /* stylelint-disable-line */
+  align-items: center;
   display: flex;
   justify-content: space-between;
 `;
@@ -24,14 +22,8 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   flexShrink: '1',
 }));
 
-function HTMLMarkup({ active, channel }) {
-  const [code, setCode] = useState('');
-  useEffect(() => {
-    channel.on(ADD_CODE, (html) => setCode(html));
-    return channel.removeListener(ADD_CODE);
-  }, []);
-
-  const beautifiedCode = beautify(code, {
+function HTMLMarkup({ active, markup }) {
+  const beautifiedCode = beautify(markup, {
     indent_size: 2,
     max_preserve_newlines: -1,
     preserve_newlines: false,
@@ -57,7 +49,7 @@ function HTMLMarkup({ active, channel }) {
 
             element1.type = 'hidden';
             element1.name = 'data';
-            element1.value = prefillPen(code);
+            element1.value = prefillPen(unescapedCode);
 
             form.appendChild(element1);
 
@@ -78,10 +70,7 @@ function HTMLMarkup({ active, channel }) {
 
 HTMLMarkup.propTypes = {
   active: PropTypes.bool.isRequired,
-  channel: PropTypes.shape({
-    on: PropTypes.func,
-    removeListener: PropTypes.func,
-  }).isRequired,
+  markup: PropTypes.string.isRequired, // Accept the markup prop
 };
 
 export default HTMLMarkup;

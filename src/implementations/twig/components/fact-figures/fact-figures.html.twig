@@ -63,7 +63,10 @@
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
 
 {% if items is defined and items is not empty and items is iterable %}
   <div class="ecl-fact-figures__items">

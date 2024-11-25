@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
+.ecl-easy-to-read {
+  --f-m: 18px /#{map.get($theme, 'line-height', 'l')} #{map.get(
+      $theme,
+      'font-family',
+      'default'
+    )} #{map.get($theme, 'font-weight', 'normal')};
+
+  font: var(--f-m);
+
+  p {
+    margin-bottom: var(--s-s);
+  }
+
+  a:visited,
+  .ecl-link:visited {
+    color: revert;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+  }
+}

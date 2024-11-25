@@ -5,7 +5,12 @@ order: 2
 
 import { Playground } from '@ecl/website-components';
 
-To start using the stack utilities, make sure the container has `display: flex` or `display: inline-flex`. You can use the `.ecl-u-d-inline-flex` or `.ecl-u-d-inline-flex` classes for this.
+Stacks consist in a set of utilites leveraging the power of [CSS flexbox](https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/) in order to give you the ability to build complex layouts.
+A stack can be nested inside another stack, making it possible to create a wide range of layouts.
+
+Notice: Don't use stacks when the layout you're aiming for depends on the grid, use the grid itself.
+
+To start using the stack utilities, make sure the container has `display: flex` or `display: inline-flex`. You can use the `.ecl-u-d-flex` or `.ecl-u-d-inline-flex` classes for this.
 
 <Playground>
   <div className="demo-container ecl-u-d-flex">Flex container</div>

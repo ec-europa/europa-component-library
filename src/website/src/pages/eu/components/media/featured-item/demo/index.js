@@ -4,6 +4,19 @@ import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--
 import template from '@ecl/twig-component-featured-item/featured-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
+// Footer is deprecated FRONT-4650
+delete demoContent.footer_description;
+delete demoContent.footer_link;
+delete demoContent.footer_picture;
+
+delete demoContentSimple.footer_description;
+delete demoContentSimple.footer_link;
+delete demoContentSimple.footer_picture;
+
+delete demoContentHighlight.footer_description;
+delete demoContentHighlight.footer_link;
+delete demoContentHighlight.footer_picture;
+
 export const featuredItem = template(correctSvgPath(demoContent));
 export const featuredItemRightAlignement = template(
   correctSvgPath({

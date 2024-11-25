@@ -117,15 +117,21 @@ module.exports = {
     [
       [
         {
-          description: `Discover more on <a href="${exampleLink}" class="ecl-link ecl-link--standalone">europa.eu</a>`,
           logo: {
-            title: 'European Union',
-            alt: 'European Union logo',
+            alt: 'European Union',
             language: 'en',
             path: exampleLink,
             src_desktop: '/logo-eu.svg',
             src_mobile: '/logo-mobile-eu.svg',
           },
+          links: [
+            {
+              link: {
+                label: 'Discover more on europa.eu',
+                path: exampleLink,
+              },
+            },
+          ],
         },
       ],
       [

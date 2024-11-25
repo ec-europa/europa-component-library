@@ -1,9 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/react';
-import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
+import { hot } from 'react-hot-loader';
 
 // Global styles
 import 'normalize.css/normalize.css';
@@ -14,7 +13,6 @@ import styles from './styles/markdown.scss';
 // Static routes
 import MainRoutes from './routes/MainRoutes';
 
-/* eslint-disable react/prop-types */
 const customComponents = {
   h1: ({ children, className, ...props }) => (
     <h1 className={className || styles.h1} {...props}>
@@ -110,33 +108,26 @@ const customComponents = {
     </a>
   ),
 };
-/* eslint-enable react/prop-types */
 
-class App extends React.Component {
-  componentDidMount() {
-    svg4everybody();
-  }
-
-  render() {
-    return (
-      <MDXProvider components={customComponents}>
-        <Router basename={process.env.PUBLIC_URL}>
-          <>
-            <Helmet
-              titleTemplate="%s - ECL v4"
-              defaultTitle="Europa Component Library"
-            >
-              <meta
-                name="Description"
-                content="Europa Component Library (ECL) documentation website"
-              />
-            </Helmet>
-            <MainRoutes />
-          </>
-        </Router>
-      </MDXProvider>
-    );
-  }
+function App() {
+  return (
+    <MDXProvider components={customComponents}>
+      <Router basename={process.env.PUBLIC_URL}>
+        <>
+          <Helmet
+            titleTemplate="%s - ECL v4"
+            defaultTitle="Europa Component Library"
+          >
+            <meta
+              name="Description"
+              content="Europa Component Library (ECL) documentation website"
+            />
+          </Helmet>
+          <MainRoutes />
+        </>
+      </Router>
+    </MDXProvider>
+  );
 }
 
 export default hot(module)(App);

@@ -112,6 +112,14 @@ export class Timeline {
       this.button.focus();
     } else {
       this.element.setAttribute('data-ecl-timeline-expanded', 'true');
+
+      // Focus first expanded item
+      const item = queryOne('.ecl-timeline__item--collapsed', this.element);
+      if (item) {
+        item.setAttribute('tabindex', '-1');
+        item.focus({ focusVisible: false });
+        item.removeAttribute('tabindex');
+      }
     }
 
     // Toggle label if possible

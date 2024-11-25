@@ -61,11 +61,14 @@
 {# Print the result #}
 
 {% if _items is not empty and _items is iterable %}
-  <ul class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    {%- for _item in _items %}
-      {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item only %}
-    {% endfor -%}
-  </ul>
+<ul
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {%- for _item in _items %}
+    {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item only %}
+  {% endfor -%}
+</ul>
 {% endif %}
 
 {% endapply %}

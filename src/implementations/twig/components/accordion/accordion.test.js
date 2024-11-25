@@ -9,6 +9,9 @@ import demoData from '@ecl/specs-component-accordion/demo/data';
 
 expect.extend(toHaveNoViolations);
 
+const oldData = JSON.parse(JSON.stringify(demoData));
+oldData.icon.splice(1, 1);
+
 describe('Accordion', () => {
   const template = '@ecl/accordion/accordion.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
@@ -17,6 +20,20 @@ describe('Accordion', () => {
     expect.assertions(1);
 
     return expect(render(demoData)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly with old data', () => {
+    expect.assertions(1);
+
+    return expect(render(oldData)).resolves.toMatchSnapshot();
+  });
+
+  test('renders correctly with a single icon', () => {
+    expect.assertions(1);
+
+    oldData.icon[0].name = 'corner-arrow';
+
+    return expect(render(oldData)).resolves.toMatchSnapshot();
   });
 
   test('renders correctly with extra class names', () => {

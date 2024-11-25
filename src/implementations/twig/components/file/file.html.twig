@@ -17,6 +17,7 @@
   - "meta" (string) (default: '')
   - "detail_meta" (array) (default: []) Meta element(s) for the thumbnail variant
   - "download" (object) (default: {}): object of type Link
+  - "download_attribute" (bool) (default: false): should the download link have the download attribute?
   - "picture" (object) (default: {}): image for the thumbnail variant
   - "label" (array) (default: {}) array of objects of type
   ** still supported as an object with a single label **
@@ -49,6 +50,7 @@
 {% set _label = label|default({}) %}
 {% set _lists = lists|default([]) %}
 {% set _download = download|default({}) %}
+{% set _download_attribute = download_attribute|default(false) %}
 {% set _detail_meta = detail_meta|default([]) %}
 {% set _translation = translation|default([]) %}
 {% set _css_class = 'ecl-file' %}
@@ -62,8 +64,8 @@
 {% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
 {% set _lang_id = _id ~ '-lang' %}
 {% set _title_id = _id ~ '-title' %}
-{% set _link_id = _id ~ '-link' %}
-{% set _label_id = _id ~ '-link-label' %}
+{% set _download_id = _id ~ '-link' %}
+{% set _download_label_id = _id ~ '-link-label' %}
 
 {% if _label.label is defined %}
   {% set _labels = [_label] %}
@@ -105,7 +107,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <div class="ecl-file__container">
   {% if _variant == 'default' %}
     {% include '@ecl/icon/icon.html.twig' with {
@@ -157,33 +162,49 @@
     {% endif %}
     </div>
   </div>
+
   <div class="ecl-file__footer">
   {% if _language is not empty %}
-    <div class="ecl-file__language" id={{ _lang_id }}>{{ _language }}</div>
+    <div class="ecl-file__language" id="{{ _lang_id }}">{{ _language }}</div>
   {% endif %}
   {% if _meta is not empty %}
     <div class="ecl-file__meta">{{ _meta }}</div>
   {% endif %}
-    {% include '@ecl/link/link.html.twig' with _download|merge({
-      link: _download.link|default({})|merge({
-        type: 'standalone',
-        icon_position: 'after',
-      }),
-      icon: _download.icon|default({})|merge({
-        name: 'download',
-        size: 'fluid'
-      }),
-      extra_attributes: [
-       { name: 'id', value: _link_id },
-       { name: 'aria-labelledby', value: _label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
-      ],
-      extra_classes: 'ecl-file__download',
-    }) only %}
+    <div class="ecl-file__action">
+      {% set _download_link_attributes = _download.extra_attributes|default([])|merge([
+        { name: 'id', value: _download_id },
+        { name: 'aria-labelledby', value: _download_label_id ~ ' ' ~ _title_id ~ ' ' ~ _lang_id },
+      ]) %}
+      {% if _download_attribute %}
+        {% set _download_link_attributes = _download_link_attributes|merge([
+          { name: 'download' },
+        ]) %}
+      {% endif %}
+
+      {% set _download_link_classes = 'ecl-file__download' %}
+      {% if _download.extra_classes is not empty %}
+        {% set _download_link_classes = _download_link_classes ~ ' ' ~ _download.extra_classes %}
+      {% endif %}
+
+      {% include '@ecl/link/link.html.twig' with _download|merge({
+        link: _download.link|default({})|merge({
+          type: 'standalone',
+          icon_position: 'after',
+        }),
+        icon: _download.icon|default({})|merge({
+          name: 'download',
+          size: 'fluid'
+        }),
+        extra_attributes: _download_link_attributes,
+        extra_classes: _download_link_classes,
+      }) only %}
+    </div>
   </div>
+
 {% if _translation is not empty %}
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
     id: _id,
-    variant: _variant,
+    download_attribute_default: _download_attribute,
   }) only %}
 {% endif %}
 </div>

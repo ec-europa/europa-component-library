@@ -6,10 +6,12 @@ const glob = require('glob');
 
 const dir = '../pages/eu';
 
-const files = glob.sync('**/*.@(md|mdx)', {
-  cwd: resolve(__dirname, dir),
-  ignore: '**/_jsdoc/**',
-});
+const files = glob
+  .sync('**/*.@(md|mdx)', {
+    cwd: resolve(__dirname, dir),
+    ignore: '**/_jsdoc/**',
+  })
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
 const getUrl = (file) =>
   `/eu/${file

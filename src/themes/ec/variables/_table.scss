@@ -14,8 +14,12 @@ $table: (
   cell-separator: 1px solid var(--c-n-60),
   cell-padding-mobile: var(--s-m),
   cell-padding-desktop: var(--s-m),
-  cell-margin-mobile: calc(-1 * var(--s-m)) var(--s-m)
-    calc(-1 * var(--s-m) - 1px) calc(-1 * var(--s-m)),
+  cell-margin-mobile: (
+    top: calc(-1 * var(--s-m)),
+    end: var(--s-m),
+    bottom: calc(-1 * var(--s-m) - 1px),
+    start: calc(-1 * var(--s-m)),
+  ),
   zebra-background: var(--c-n-40),
   multi-head-background: var(--c-n),
   multi-head-background-empty: var(--c-n),

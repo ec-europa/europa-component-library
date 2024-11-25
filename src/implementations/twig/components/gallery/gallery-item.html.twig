@@ -8,13 +8,16 @@
     - "description" (string) (default: '')
     - "meta" (string) (default: '')
     - "icon" (object) (default: {}): object of type icon
-    - "picture" (optional) (object) (default: {}) Object of type picture
+    - "thumbnail" (optional) (object) (default: {}) Picture to the thumbnail, type Picture; uses "picture" if empty
+    - "picture" (optional) (object) (default: {}) Object of type Picture; always needed, even for video
     - "video" (optional) (object) (default: {})
     - "embedded_video" (optional) (object) (default: {})
     - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default '')
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
+  - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
+  - "picture_zoom" (bool) (default: false): Should the thumbnail pictures be animated?
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -30,20 +33,37 @@
 {% set _media_href = '' %}
 {% set _media_share_path = '' %}
 {% set _media_iframe_href = '' %}
-{% set _picture = picture|default({}) %}
-{% set _icon_path = icon_path|default('') %}
 {% set _item = item|default({}) %}
+{% set _picture = item.picture|default({}) %}
+{% set _thumbnail = item.thumbnail|default({}) %}
+{% set _icon_path = icon_path|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
+{% set _sr_video_player = sr_video_player|default('') %}
+{% set _picture_zoom = picture_zoom|default(false) %}
 
 {# Internal logic - Process properties #}
+
+{% if _thumbnail is empty and _picture is not empty %}
+  {% set _thumbnail = _picture %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {# Setting up Video and image variables #}
+{% set _video_title = '' %}
 {% if _item and _item is not empty %}
   {% set _media_share_path = _item.share_path %}
+
+  {% if _item.video is not empty or _item.embedded_video is not empty %}
+    {% if _item.title is not empty %}
+      {% set _video_title = _item.title %}
+    {% endif %}
+    {% if _sr_video_player is not empty %}
+      {% set _video_title = _video_title is not empty ? _video_title ~ ' - ' ~ _sr_video_player : _sr_video_player %}
+    {% endif %}
+  {% endif %}
 
   {% if _item.video is defined and _item.video is not empty %}
     {% set _media_href = _item.video.sources[0].src %}
@@ -66,9 +86,12 @@
 
 {# Print the result #}
 
-<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<li
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <a
-    href="{{ _media_href ?: _item.picture.img.src }}"
+    href="{{ _media_href ?: _picture.img.src }}"
     data-ecl-gallery-item
     class="ecl-gallery__item-link"
     id="{{ _id }}"
@@ -81,11 +104,16 @@
   {%- if _item.sr_video_audio is not empty -%}
     data-ecl-gallery-item-embed-audio="{{ _item.sr_video_audio }}"
   {%- endif -%}
+  {% if _video_title is not empty %}
+    data-ecl-gallery-item-video-title="{{ _video_title }}"
+  {% endif %}
   >
   {% if _item is not empty %}
-    {% set _image_alt = _item.picture.img.alt|default('') %}
+    {% set _image_alt = _thumbnail.img.alt|default('') %}
     <figure class="ecl-gallery__image-container">
+
     {% if _item.video is not empty or _item.embedded_video is not empty %}
+      {# Display video icon #}
       {% if _sr_video_label is not empty %}
         {% set _image_alt = _image_alt ~ ' - ' ~ _sr_video_label %}
       {% endif %}
@@ -104,15 +132,39 @@
         </div>
       {% endif %}
     {% endif %}
-    {% if _item.video is defined and _item.video is not empty %}
-      {% include '@ecl/gallery/gallery-video.html.twig' %}
-    {% else %}
+
+    {% set _thumbnail_markup %}
       {% include '@ecl/picture/picture.html.twig' with {
-        picture: _item.picture|merge({
-          img: _item.picture.img|merge({
+        picture: _thumbnail|merge({
+          img: _thumbnail.img|default({})|merge({
             alt: _image_alt,
           })
         }),
+        zoom: _picture_zoom,
+        extra_classes: "ecl-gallery__thumbnail",
+        extra_image_classes: "ecl-gallery__image",
+      } only %}
+    {% endset %} 
+
+    {% if _item.embedded_video is not empty %}
+      {# Embedded video #}
+      {{- _thumbnail_markup -}}
+    {% elseif _item.video is defined and _item.video is not empty %}
+      {% set video_classes = 'ecl-gallery__image' ~ (_item.video.extra_classes ? ' ' ~ _item.video.extra_classes : '') %}
+      {% include '@ecl/video/video.html.twig' with _item.video|merge({
+        title: _item.title,
+        sr_video_label: _sr_video_label,
+        sr_video_player: _sr_video_player,
+        zoom: _picture_zoom,
+        controls: false,
+        extra_classes: video_classes,     
+      }) only %}
+    {% else %}
+      {# Image #}
+      {{- _thumbnail_markup -}}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture,
+        lazy: true,
         extra_classes: "ecl-gallery__picture",
         extra_image_classes: "ecl-gallery__image",
       } only %}
@@ -122,7 +174,7 @@
         data-ecl-gallery-description
       >
       {%- if _item.title is defined and _item.title is not empty -%}
-        <span class="ecl-gallery__title" id="{{ _id }}-title">
+        <span class="ecl-gallery__title" id="{{ _id }}-title" data-ecl-gallery-title>
           {{- _item.title -}}
         </span>
       {%- endif -%}

@@ -1,0 +1,74 @@
+<!-- Site header -->
+{% include '@ecl/site-header/site-header.html.twig' with site_header %}
+
+<main class="ecl-u-bg-background ecl-u-pb-3xl">
+  <div class="ecl-container">
+    <!-- Page header -->
+    {% include '@ecl/page-header/page-header.html.twig' with page_header %}
+
+    <div class="ecl-row">
+      <div class="ecl-col-12 ecl-col-l-3">
+        <h2 class="ecl-u-type-heading-2">Filters</h2>
+
+        <form>
+          {%- include '@ecl/form-group/form-group.html.twig' with text_input|merge({
+            extra_classes: 'ecl-u-mb-xl',
+          }) -%}
+          {%- include '@ecl/form-group/form-group.html.twig' with select_multiple|merge({
+            extra_classes: 'ecl-u-mb-xl',
+          }) -%}
+          {%- include '@ecl/form-group/form-group.html.twig' with checkbox|merge({
+            extra_classes: 'ecl-u-mb-xl',
+          }) -%}
+
+          <div class="ecl-u-d-flex ecl-u-flex-row ecl-u-flex-l-column">
+            {%- include '@ecl/button/button.html.twig' with button_primary -%}
+            <div class="ecl-u-mt-none ecl-u-mt-l-m ecl-u-ml-m ecl-u-ml-l-none ecl-u-d-flex ecl-u-flex-column">
+              {%- include '@ecl/button/button.html.twig' with button_secondary -%}
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ecl-col-12 ecl-col-l-9">
+        <h2 class="ecl-u-type-heading-2">Search results</h2>
+        <h3 class="ecl-u-type-heading-3">Showing results 30 to 40</h2>
+
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+        {%- include '@ecl/content-item/content-item.html.twig' with content_item|merge({
+          extra_classes: 'ecl-u-mb-2xl',
+        }) -%}
+
+        {%- include '@ecl/pagination/pagination.html.twig' with pagination -%}
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+{% include '@ecl/site-footer/site-footer.html.twig' with site_footer %}

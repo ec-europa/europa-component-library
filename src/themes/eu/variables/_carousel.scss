@@ -2,8 +2,9 @@
 @use '../index' as *;
 
 $carousel: (
+  box-shadow: var(--sh-2),
   separator: none,
-  controls-background: var(--c-p-5),
+  controls-background: map.get($color, 'white'),
   controls-padding: var(--s-xs) 0,
   navigation-color: var(--c-d-80),
   navigation-background-active: var(--c-p-20),

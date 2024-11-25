@@ -6,6 +6,8 @@
   - "icon" (object of type "icon") (default: {})
   - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
   - "title" (string) (default: '')
+  - "description" (string) (default: '')
+  - "links" (array): An array of ECL links objects
   - "close" (object of type "button") (default: {}): close button (optional)
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the select
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for select
@@ -23,6 +25,7 @@
 {% set _sr_icon = sr_icon|default('') %}
 {% set _title = title|default('') %}
 {% set _close = close|default({}) %}
+{% set _links = links|default([]) %}
 {% set _description = description|default('') %}
 {% set _css_class = 'ecl-notification' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Notification"' %}
@@ -49,7 +52,12 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}" data-ecl-notification role="alert"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  data-ecl-notification
+  role="alert"
+  {{ _extra_attributes|raw }}
+>
 {% if _variant == 'warning' and _icon is not empty and _icon.name is defined and _icon.name == 'warning' %}
   <span class="ecl-notification__icon-background"></span>
 {% endif %}
@@ -62,23 +70,29 @@
     extra_classes: 'ecl-notification__icon',
   } only %}
   <div class="ecl-notification__content">
-    {% if _close is not empty %}
-      {% include '@ecl/button/button.html.twig' with _close|merge({
-        type: 'button',
-        variant: 'tertiary',
-        extra_classes: 'ecl-notification__close',
-        extra_attributes: [{
-          name: 'data-ecl-notification-close',
-        }],
-      }) only %}
-    {% endif %}
-
-    {% if _title is not empty %}
-      <div class="ecl-notification__title">{{ _title }}</div>
-    {% endif %}
-    {% if _description is not empty %}
-      <div class="ecl-notification__description">{{ _description }}</div>
-    {% endif %}  
+  {% if _close is not empty %}
+    {% include '@ecl/button/button.html.twig' with _close|merge({
+      type: 'button',
+      variant: 'tertiary',
+      extra_classes: 'ecl-notification__close',
+      extra_attributes: [{
+        name: 'data-ecl-notification-close',
+      }],
+    }) only %}
+  {% endif %}
+  {% if _title is not empty %}
+    <div class="ecl-notification__title">{{ _title }}</div>
+  {% endif %}
+  {% if _description is not empty %}
+    <div class="ecl-notification__description">{{ _description }}</div>
+  {% endif %}  
+  {% if _links is not empty and _links is iterable %}
+    {% for _link in _links %}
+    <div class="ecl-notification__link">
+      {% include '@ecl/link/link.html.twig' with _link only %}
+    </div>
+    {% endfor %}
+  {% endif %}
   </div>
 </div>
 

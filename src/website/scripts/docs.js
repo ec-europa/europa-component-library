@@ -8,9 +8,11 @@ const { execSync } = require('child_process');
 const publicUrl = process.env.PUBLIC_URL || '';
 const dir = path.resolve(__dirname, '../../implementations/vanilla/components');
 
-const files = glob.sync('**/*.js', {
-  cwd: dir,
-});
+const files = glob
+  .sync('**/*.js', {
+    cwd: dir,
+  })
+  .sort((a, b) => a.localeCompare(b, 'en'));
 
 const publicDir = path.resolve(__dirname, '../public');
 const apisDir = 'apis';
@@ -79,7 +81,7 @@ files.forEach((file) => {
         '<head>',
         `<head>\n
           <base target="_top">\n
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.9/iframeResizer.contentWindow.js" integrity="sha512-hBWsS94l8+snzSPo759jDKZ3z3jn3WT4snJZTBaeMPbrCGzDrYdl2pN9EaXjh6IqEZC7wF10qcmp42TPRVgAYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>`,
+          <script src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child@latest" crossorigin="anonymous" referrerpolicy="no-referrer"></script>`,
       );
 
       // Replace the incorrect "Home" link with the correct one
@@ -87,6 +89,22 @@ files.forEach((file) => {
         '<a href="index.html">Home</a>',
         `<a href="${publicUrl}/apis/index.html">Home</a>`,
       );
+
+      const lastTagRegex = /<(\w+)([^>]*)>([\s\S]*?)<\/\1>(?!.*<\/\1>)/;
+      const match = content.match(lastTagRegex);
+
+      if (match) {
+        // Extract the entire last tag
+        const lastTag = match[0];
+        const tagName = match[1]; // The tag name (e.g., div, span)
+        const attributes = match[2]; // The attributes part of the tag
+
+        // Create the new tag with the added attribute
+        const newLastTag = `<${tagName}${attributes} data-iframe-size>${match[3]}</${tagName}>`;
+
+        // Replace the last tag in the original data
+        content = content.replace(lastTag, newLastTag);
+      }
 
       fs.writeFileSync(outputFile, content, 'utf-8');
       componentNames.push(namespace());

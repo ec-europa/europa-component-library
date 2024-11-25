@@ -76,7 +76,10 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<nav
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <ol class="ecl-breadcrumb__container">
   {% if _links is not empty %}
     {% for key, link in _links %}

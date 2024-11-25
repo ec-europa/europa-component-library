@@ -35,7 +35,7 @@ npm install --save @ecl/twig-component-banner
 - **"sr_play"** (string) (default: '') screen reader label for the play button
 - **"sr_pause"** (string) (default: '') screen reader label for the pause button
 - **"credit"** (string) (default: '') Credit for the image
-- **"description"** (string) (default: '') Description of banner
+- **"description"** (string or Link) (default: '') Description of the banner
 - **"horizontal"** (string) (default: 'left') Horizontal box alignment (can be 'left', 'center', 'right')
 - **"vertical"** (string) (default: 'center') Vertical box alignment (can be 'top', 'center', 'bottom')
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid

@@ -24,6 +24,11 @@ $_image-width: 13.125rem;
   flex-wrap: wrap;
   margin-bottom: map.get($theme, 'spacing-print', 'm');
   padding-bottom: map.get($theme, 'spacing-print', 'm');
+
+  > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }
 
 .ecl-file__icon {
@@ -41,6 +46,7 @@ $_image-width: 13.125rem;
 
 .ecl-file__language {
   color: map.get($theme, 'color', 'black');
+  display: inline-block;
   font: map.get($theme, 'font-print', 's');
   font-weight: map.get($theme, 'font-weight-print', 'bold');
   margin-inline-end: map.get($theme, 'spacing-print', '2xs');
@@ -48,14 +54,19 @@ $_image-width: 13.125rem;
 
 .ecl-file__meta {
   color: map.get($theme, 'color', 'black');
+  display: inline-block;
   font: map.get($theme, 'font-print', 's');
 }
 
-.ecl-file__download {
+.ecl-file__action {
   border-width: 0;
   clear: start;
   font: map.get($theme, 'font-print', 's');
   font-weight: map.get($theme, 'font-weight-print', 'regular');
+
+  & > :first-child:not(:only-child) {
+    display: none;
+  }
 }
 
 .ecl-file__detail {
@@ -174,6 +185,10 @@ $_image-width: 13.125rem;
   font-weight: map.get($theme, 'font-weight-print', 'bold');
 }
 
-.ecl-file__translation-download {
+.ecl-file__translation-action {
   font: map.get($theme, 'font-print', 's');
+
+  & > :first-child:not(:only-child) {
+    display: none;
+  }
 }

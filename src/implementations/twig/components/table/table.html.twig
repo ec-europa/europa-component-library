@@ -99,7 +99,11 @@
 {# Print the result #}
 
 <div class="ecl-table-responsive">
-  <table class="{{ _css_class }}" id="{{ _id }}" {{ _extra_attributes|raw }}>
+  <table
+    class="{{ _css_class }}"
+    id="{{ _id }}"
+    {{ _extra_attributes|raw }}
+  >
     {% if _caption is not empty %}
     <caption class="ecl-table__caption">{{ _caption }}</caption>
     {% endif %}

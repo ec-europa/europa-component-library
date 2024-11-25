@@ -1,0 +1,52 @@
+---
+title: API
+order: 3
+---
+
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="MediaContainer"` attribute to component's markup:
+
+```html
+<div
+  class="ecl-media-container"
+  data-ecl-media-container
+  data-ecl-auto-init="MediaContainer"
+>
+  ...
+</div>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-media-container` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-media-container]');
+var mediaContainer = new ECL.MediaContainer(elt);
+mediaContainer.init();
+```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-media-container]');
+var instance = ECL.components.get(elt);
+```
+
+## API
+
+<Iframe url="../../../../../apis/MediaContainer.html" />

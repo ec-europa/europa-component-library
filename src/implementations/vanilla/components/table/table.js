@@ -161,7 +161,7 @@ export class Table {
     if (order === 'descending') {
       // If current order is 'descending' reset column filter sort rows by default order.
       [...queryAll('tr', tbody)].forEach((tr, index) => {
-        const defaultTr = queryOne(`[data-ecl-table-order='${index}']`);
+        const defaultTr = queryOne(`[data-ecl-table-order='${index}']`, tbody);
         tbody.appendChild(defaultTr);
       });
       order = null;

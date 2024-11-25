@@ -12,6 +12,8 @@ npm install --save @ecl/twig-component-notification
 - **"icon"** (object of type "icon") (default: {})
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
 - **"title"** (string) (default: '')
+- **"description"** (string) (default: '')
+- **"links"** (array) (default: [])
 - **"close"** (object of type "button") (default: {}): close button (optional)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

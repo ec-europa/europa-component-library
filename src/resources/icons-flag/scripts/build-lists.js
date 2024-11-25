@@ -8,6 +8,7 @@ const destMembers = path.resolve(__dirname, '../dist/lists/members');
 
 const filesMembers = glob
   .sync('*.svg', { cwd: srcMembers })
+  .sort((a, b) => a.localeCompare(b, 'en'))
   .filter((file) => !file.includes('/_')); // ignore files prepended with "_"
 
 /* Write list of all icons */
@@ -19,6 +20,7 @@ const destNonMembers = path.resolve(__dirname, '../dist/lists/non-members');
 
 const filesNonMembers = glob
   .sync('*.svg', { cwd: srcNonMembers })
+  .sort((a, b) => a.localeCompare(b, 'en'))
   .filter((file) => !file.includes('/_')); // ignore files prepended with "_"
 
 /* Write list of all icons */

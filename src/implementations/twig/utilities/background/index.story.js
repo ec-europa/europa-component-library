@@ -58,7 +58,7 @@ export const Custom = (args) => {
   }
   return `<p class='ecl-u-type-paragraph ${background}'>
       Sample text regular
-      <br />
+      <br>
       <strong>Sample text bold</strong>
     </p>
   `;

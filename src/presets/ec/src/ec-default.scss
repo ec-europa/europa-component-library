@@ -26,6 +26,9 @@
   $theme: theme.$theme,
   $list: var.$list
 );
+@use '@ecl/vanilla-component-separator/separator' with (
+  $separator: var.$separator
+);
 @use '@ecl/vanilla-component-table/table' with (
   $theme: theme.$theme,
   $table: var.$table
@@ -82,6 +85,11 @@
   @extend %ecl-heading-6;
 }
 
+.ecl hr:not([class*='ecl-'], [class*='wt-']),
+.ecl hr:is([class*='ecl-u-']) {
+  @extend %ecl-separator;
+}
+
 .ecl p:not([class*='ecl-'], [class*='wt-']),
 .ecl p:is([class*='ecl-u-']) {
   @extend %ecl-paragraph;
@@ -102,6 +110,10 @@
 .ecl ul li:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
 .ecl ul li:is([class*='ecl-u-']) {
   @extend %ecl-unordered-list__item;
+
+  a {
+    @extend %ecl-unordered-list-link;
+  }
 }
 
 .ecl ul ol li:not([class*='ecl-'], [class*='wt-'], [class*='highcharts-']),
@@ -124,6 +136,10 @@
 .ecl ol li:not([class*='ecl-'], [class*='wt-']),
 .ecl ol li:is([class*='ecl-u-']) {
   @extend %ecl-ordered-list__item;
+
+  a {
+    @extend %ecl-ordered-list-link;
+  }
 }
 
 .ecl dl:not([class*='ecl-'], [class*='wt-']),

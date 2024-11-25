@@ -1,5 +1,389 @@
 # Changelog
 
+# 4.8.1
+
+#### :nail_care: Enhancement
+
+- [#3680](https://github.com/ec-europa/europa-component-library/pull/3680) feat(mega-menu): Improving calculations for the featured panel height - FRONT-4654 ([@planctus](https://github.com/planctus))
+- [#3672](https://github.com/ec-europa/europa-component-library/pull/3672) feat(featured-item): Fixing RTL display, fixing alignment - FRONT-4652 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.8.0
+
+#### :warning: Markup Changes
+
+- [#3656](https://github.com/ec-europa/europa-component-library/pull/3656) fix(site-header): Removing containers when removing notification - FRONT-4637 ([@planctus](https://github.com/planctus))
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3668](https://github.com/ec-europa/europa-component-library/pull/3668) fix(datepicker): Parsing user input, use moment for custom formats, handle resize - FRONT-4643 ([@planctus](https://github.com/planctus))
+- [#3670](https://github.com/ec-europa/europa-component-library/pull/3670) fix(language-list): Fixing styles - FRONT-4647 ([@planctus](https://github.com/planctus))
+- [#3660](https://github.com/ec-europa/europa-component-library/pull/3660) fix(mega-menu): Setting opacity: 1 on the container when opened - FRONT-4641 ([@planctus](https://github.com/planctus))
+- [#3666](https://github.com/ec-europa/europa-component-library/pull/3666) fix(content-item): revert height change - FRONT-4645 ([@emeryro](https://github.com/emeryro))
+- [#3661](https://github.com/ec-europa/europa-component-library/pull/3661) fix(multiselect): Setting margin-top when there is a label and no helper text - FRONT-4640 ([@planctus](https://github.com/planctus))
+- [#3656](https://github.com/ec-europa/europa-component-library/pull/3656) fix(site-header): Removing containers when removing notification - FRONT-4637 ([@planctus](https://github.com/planctus))
+- [#3653](https://github.com/ec-europa/europa-component-library/pull/3653) fix(tabs): fix icon position on mobile - FRONT-4321 ([@emeryro](https://github.com/emeryro))
+- [#3647](https://github.com/ec-europa/europa-component-library/pull/3647) fix(menu): fix touch devices - FRONT-4632 ([@emeryro](https://github.com/emeryro))
+- [#3649](https://github.com/ec-europa/europa-component-library/pull/3649) fix(modal): fix close button position on rtl - FRONT-4623 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3654](https://github.com/ec-europa/europa-component-library/pull/3654) feat(content-item): set 100% height - FRONT-4627 ([@emeryro](https://github.com/emeryro))
+- [#3657](https://github.com/ec-europa/europa-component-library/pull/3657) feat(js): Adding version propery to the ECL object - FRONT-4638 ([@planctus](https://github.com/planctus))
+- [#3645](https://github.com/ec-europa/europa-component-library/pull/3645) feat(notification): Adding links, updating styles - FRONT-4630 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3673](https://github.com/ec-europa/europa-component-library/pull/3673) feat(featured-item): Deprecating footer - FRONT-4650 ([@planctus](https://github.com/planctus))
+- [#3674](https://github.com/ec-europa/europa-component-library/pull/3674) chore(deps): Updates 14-10-24 ([@planctus](https://github.com/planctus))
+- [#3664](https://github.com/ec-europa/europa-component-library/pull/3664) chore(deps): Updates - 07-10-24 ([@planctus](https://github.com/planctus))
+- [#3593](https://github.com/ec-europa/europa-component-library/pull/3593) docs(showcase): provide example of full pages - FRONT-4383 ([@emeryro](https://github.com/emeryro))
+- [#3659](https://github.com/ec-europa/europa-component-library/pull/3659) chore(deps): Updates 01-10-24 ([@planctus](https://github.com/planctus))
+- [#3651](https://github.com/ec-europa/europa-component-library/pull/3651) feat(apis): Adding api docs for media container - FRONT-4635 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.7.0
+
+#### :warning In this version of ECL node 20.9.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
+
+#### :rocket: New Feature
+
+- [#3634](https://github.com/ec-europa/europa-component-library/pull/3634) feat(easy-to-read): Adding optional "easy-to-read" css - FRONT-4598 ([@planctus](https://github.com/planctus))
+- [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 ([@emeryro](https://github.com/emeryro))
+- [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 ([@emeryro](https://github.com/emeryro))
+- [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 ([@emeryro](https://github.com/emeryro))
+- [#3605](https://github.com/ec-europa/europa-component-library/pull/3605) feat(separator): Adding new component - FRONT-4597 ([@planctus](https://github.com/planctus))
+
+#### :warning: Markup Changes
+
+- [#3648](https://github.com/ec-europa/europa-component-library/pull/3648) fix(mega-menu): Improving height calculations for the second panel - FRONT-4633 ([@planctus](https://github.com/planctus))
+- [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 ([@emeryro](https://github.com/emeryro))
+- [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 ([@emeryro](https://github.com/emeryro))
+- [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 ([@emeryro](https://github.com/emeryro))
+- [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3577](https://github.com/ec-europa/europa-component-library/pull/3577) feat(file-download): add preview link - FRONT-4574 ([@emeryro](https://github.com/emeryro))
+- [#3604](https://github.com/ec-europa/europa-component-library/pull/3604) feat(picture): zoom effect - FRONT-4599 ([@emeryro](https://github.com/emeryro))
+- [#3538](https://github.com/ec-europa/europa-component-library/pull/3538) feat(gallery): grid templates - FRONT-4622 ([@emeryro](https://github.com/emeryro))
+- [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3644](https://github.com/ec-europa/europa-component-library/pull/3644) fix(file-download): fix transparent background - FRONT-4628 ([@emeryro](https://github.com/emeryro))
+- [#3637](https://github.com/ec-europa/europa-component-library/pull/3637) fix(table): fix rtl display on mobile - FRONT-4624 ([@emeryro](https://github.com/emeryro))
+- [#3639](https://github.com/ec-europa/europa-component-library/pull/3639) fix(table): Fixing js for the sortable table - FRONT-4625 ([@planctus](https://github.com/planctus))
+- [#3633](https://github.com/ec-europa/europa-component-library/pull/3633) fix(unordered-list): Setting list style position to outside also in print - FRONT-4602 ([@planctus](https://github.com/planctus))
+- [#3621](https://github.com/ec-europa/europa-component-library/pull/3621) fix(menu): fix focus color on EU menu - FRONT-4613 ([@emeryro](https://github.com/emeryro))
+- [#3611](https://github.com/ec-europa/europa-component-library/pull/3611) fix(form): Fixing styles for the label - FRONT-4605 ([@planctus](https://github.com/planctus))
+- [#3606](https://github.com/ec-europa/europa-component-library/pull/3606) fix(range): fix bubble position when setting min value - FRONT-4603 ([@emeryro](https://github.com/emeryro))
+- [#3601](https://github.com/ec-europa/europa-component-library/pull/3601) fix(site-header): fix icon alignment - FRONT-4596 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3615](https://github.com/ec-europa/europa-component-library/pull/3615) fix(mega-menu): Mega menu content position fix - FRONT-4606 ([@planctus](https://github.com/planctus))
+- [#3648](https://github.com/ec-europa/europa-component-library/pull/3648) fix(mega-menu): Improving height calculations for the second panel - FRONT-4633 ([@planctus](https://github.com/planctus))
+- [#3642](https://github.com/ec-europa/europa-component-library/pull/3642) feat(page-header): transparent background on EC - FRONT-4361 ([@emeryro](https://github.com/emeryro))
+- [#3638](https://github.com/ec-europa/europa-component-library/pull/3638) feat(link): update EU inverted link color - FRONT-4629 ([@emeryro](https://github.com/emeryro))
+- [#3632](https://github.com/ec-europa/europa-component-library/pull/3632) feat(youtube): Removing disablekb parameter - FRONT-4616 ([@planctus](https://github.com/planctus))
+- [#3603](https://github.com/ec-europa/europa-component-library/pull/3603) feat(video): Adding support for muted, autoplay and loop - Media container adding autoplay video option - FRONT-4600 ([@planctus](https://github.com/planctus))
+- [#3629](https://github.com/ec-europa/europa-component-library/pull/3629) feat(inpage): Using the right element to determine the top position in mobile - FRONT-4620 ([@planctus](https://github.com/planctus))
+- [#3613](https://github.com/ec-europa/europa-component-library/pull/3613) feat(banner): add rounded corners on EU - FRONT-4607 ([@emeryro](https://github.com/emeryro))
+- [#3622](https://github.com/ec-europa/europa-component-library/pull/3622) feat(templates): Removing trailing slashes from void elements - FRONT-4612 ([@planctus](https://github.com/planctus))
+- [#3620](https://github.com/ec-europa/europa-component-library/pull/3620) feat(separator): update default css rules - FRONT-4611 ([@emeryro](https://github.com/emeryro))
+- [#3583](https://github.com/ec-europa/europa-component-library/pull/3583) feat(carousel): Styles update - FRONT-4571 ([@planctus](https://github.com/planctus))
+- [#3587](https://github.com/ec-europa/europa-component-library/pull/3587) feat(table): improve border display - FRONT-4584 ([@emeryro](https://github.com/emeryro))
+- [#3596](https://github.com/ec-europa/europa-component-library/pull/3596) feat(file-upload): Adding onSelection event - FRONT-4589 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3617](https://github.com/ec-europa/europa-component-library/pull/3617) docs(menu): remove single menu showcase - FRONT-4494 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3636](https://github.com/ec-europa/europa-component-library/pull/3636) fix(storybook): Fixing storybook for mobile devices ([@planctus](https://github.com/planctus))
+- [#3646](https://github.com/ec-europa/europa-component-library/pull/3646) chore(deps): Storybook 8.3.3 ([@planctus](https://github.com/planctus))
+- [#3643](https://github.com/ec-europa/europa-component-library/pull/3643) chore(deps): Updates - 24-09-24 ([@planctus](https://github.com/planctus))
+- [#3641](https://github.com/ec-europa/europa-component-library/pull/3641) chore(storybook): Adding param to disable edit/create story from the interface ([@planctus](https://github.com/planctus))
+- [#3631](https://github.com/ec-europa/europa-component-library/pull/3631) chore(deps): Updates - 17-09-24 ([@planctus](https://github.com/planctus))
+- [#3627](https://github.com/ec-europa/europa-component-library/pull/3627) chore(deps): Updates 13-09-24 ([@planctus](https://github.com/planctus))
+- [#3623](https://github.com/ec-europa/europa-component-library/pull/3623) chore(deps): Fixing audit issues ([@planctus](https://github.com/planctus))
+- [#3616](https://github.com/ec-europa/europa-component-library/pull/3616) chore(deps): Updates 10-09-24 ([@planctus](https://github.com/planctus))
+- [#3607](https://github.com/ec-europa/europa-component-library/pull/3607) chore(deps-dev): bump webpack from 5.93.0 to 5.94.0 in /src/website ([@dependabot[bot]](https://github.com/apps/dependabot))
+- [#3599](https://github.com/ec-europa/europa-component-library/pull/3599) fix(sorting): Adding sorting to glob.sync - FRONT-4594 ([@planctus](https://github.com/planctus))
+- [#3600](https://github.com/ec-europa/europa-component-library/pull/3600) chore(deps): Updates 03-09-24 ([@planctus](https://github.com/planctus))
+- [#3586](https://github.com/ec-europa/europa-component-library/pull/3586) chore: Node 20.9.0 and rimraf upgrade ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.6.5
+
+#### :bug: Bug Fix
+
+- [#3628](https://github.com/ec-europa/europa-component-library/pull/3628) feat(banner): Fixing styles for the text-overlay deprecated variant - FRONT-4618 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 4.6.4
+
+#### :nail_care: Enhancement
+
+- [#3624](https://github.com/ec-europa/europa-component-library/pull/3624) fix(inpage): Adding scroll listener and recalculate height when scrolling - FRONT-4615 ([@planctus](https://github.com/planctus))
+- [#3610](https://github.com/ec-europa/europa-component-library/pull/3610) fix(mega-menu): Showing the panels only when ready - FRONT-4604 ([@planctus](https://github.com/planctus))
+- [#3612](https://github.com/ec-europa/europa-component-library/pull/3612) fix(banner): increasing padding bottom in L viewport using the credit's height - FRONT-4608 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3614](https://github.com/ec-europa/europa-component-library/pull/3614) chore(twig): Harmonising syntax when rendering classes and attributes -- FRONT-4609 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 4.6.3
+
+#### :bug: Bug Fix
+
+- [#3594](https://github.com/ec-europa/europa-component-library/pull/3594) fix(video): Initializing the \_extra_attributes variable - FRONT-4590 ([@planctus](https://github.com/planctus))
+- [#3595](https://github.com/ec-europa/europa-component-library/pull/3595) fix(banner): Adding check for bannerContainer presence - FRONT-4591 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3597](https://github.com/ec-europa/europa-component-library/pull/3597) feat(banner): Resetting padding for the content in no-box variant - FRONT-4592 ([@planctus](https://github.com/planctus))
+
+#### Committers: 1
+
+- [@planctus](https://github.com/planctus)
+
+# 4.6.2
+
+#### :warning: Markup Changes
+
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+- [#3548](https://github.com/ec-europa/europa-component-library/pull/3548) feat(modal): additional sizes - FRONT-4559 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Data Changes
+
+- [#3579](https://github.com/ec-europa/europa-component-library/pull/3579) feat(social-media): change twitter label - FRONT-4582 ([@emeryro](https://github.com/emeryro))
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3588](https://github.com/ec-europa/europa-component-library/pull/3588) fix(banner): fix background of deprecated banners - FRONT-4585 ([@emeryro](https://github.com/emeryro))
+- [#3584](https://github.com/ec-europa/europa-component-library/pull/3584) fix(banner): Fixing css for video banner size - FRONT-4583 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3589](https://github.com/ec-europa/europa-component-library/pull/3589) feat(site-header): wax-off EC - FRONT-4586 ([@planctus](https://github.com/planctus))
+- [#3590](https://github.com/ec-europa/europa-component-library/pull/3590) feat(banner): content width and tablet font - FRONT-4587 ([@emeryro](https://github.com/emeryro))
+- [#3579](https://github.com/ec-europa/europa-component-library/pull/3579) feat(social-media): change twitter label - FRONT-4582 ([@emeryro](https://github.com/emeryro))
+- [#3548](https://github.com/ec-europa/europa-component-library/pull/3548) feat(modal): additional sizes - FRONT-4559 ([@emeryro](https://github.com/emeryro))
+- [#3580](https://github.com/ec-europa/europa-component-library/pull/3580) fix(content-block): Setting display: inline on the title link - FRONT-4557 ([@planctus](https://github.com/planctus))
+- [#3549](https://github.com/ec-europa/europa-component-library/pull/3549) feat(icons): add and update icons - FRONT-4562 ([@emeryro](https://github.com/emeryro))
+- [#3552](https://github.com/ec-europa/europa-component-library/pull/3552) feat(headings): set spacing - FRONT-4566 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3506](https://github.com/ec-europa/europa-component-library/pull/3506) feat(video): Adding template for video, using it in different components - FRONT-4497 ([@planctus](https://github.com/planctus))
+- [#3585](https://github.com/ec-europa/europa-component-library/pull/3585) chore(deps): Fixing audit issue - 26-08-24 ([@planctus](https://github.com/planctus))
+- [#3581](https://github.com/ec-europa/europa-component-library/pull/3581) chore(deps): Updates 23-08-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.6.1
+
+#### :warning: Markup Changes
+
+- [#3571](https://github.com/ec-europa/europa-component-library/pull/3571) feat(banner): copyright position, background and image height - FRONT-4570 ([@emeryro](https://github.com/emeryro))
+- [#3568](https://github.com/ec-europa/europa-component-library/pull/3568) feat(menu): Using button for the toggle - FRONT-4542 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3568](https://github.com/ec-europa/europa-component-library/pull/3568) feat(menu): Using button for the toggle - FRONT-4542 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3571](https://github.com/ec-europa/europa-component-library/pull/3571) feat(banner): copyright position, background and image height - FRONT-4570 ([@emeryro](https://github.com/emeryro))
+- [#3569](https://github.com/ec-europa/europa-component-library/pull/3569) feat(popover): Adding support for buttons as triggers - FRONT-4350 ([@planctus](https://github.com/planctus))
+- [#3568](https://github.com/ec-europa/europa-component-library/pull/3568) feat(menu): Using button for the toggle - FRONT-4542 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3572](https://github.com/ec-europa/europa-component-library/pull/3572) docs(website): update stack documentation - FRONT-4577 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3576](https://github.com/ec-europa/europa-component-library/pull/3576) chore(deps): Rollup ([@planctus](https://github.com/planctus))
+- [#3574](https://github.com/ec-europa/europa-component-library/pull/3574) chore(deps): Updates - 21-08-24 ([@planctus](https://github.com/planctus))
+- [#3570](https://github.com/ec-europa/europa-component-library/pull/3570) chore(deps): Upgrading sass-loader ([@planctus](https://github.com/planctus))
+- [#3567](https://github.com/ec-europa/europa-component-library/pull/3567) chore(deps): Updates 16-08-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.6.0
+
+#### :rocket: New Feature
+
+- [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Markup Changes
+
+- [#3559](https://github.com/ec-europa/europa-component-library/pull/3559) feat(menus): Removing role application from the inner section of the menus - FRONT-4568 ([@planctus](https://github.com/planctus))
+- [#3561](https://github.com/ec-europa/europa-component-library/pull/3561) fix(site-header): fixing language switcher in rtl - FRONT-4569 ([@planctus](https://github.com/planctus))
+- [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565 ([@emeryro](https://github.com/emeryro))
+- [#3563](https://github.com/ec-europa/europa-component-library/pull/3563) feat(mega-menu): Removing aria label from see all links - FRONT-4572 ([@planctus](https://github.com/planctus))
+- [#3551](https://github.com/ec-europa/europa-component-library/pull/3551) feat(menu/mega-menu): remove aria-current=true - FRONT-4545 ([@emeryro](https://github.com/emeryro))
+- [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478 ([@emeryro](https://github.com/emeryro))
+- [#3544](https://github.com/ec-europa/europa-component-library/pull/3544) feat(site-header): Eu revamp, again - FRONT-4556 ([@planctus](https://github.com/planctus))
+- [#3529](https://github.com/ec-europa/europa-component-library/pull/3529) feat(splash-page): change markup for "lang" attribute ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Data Changes
+
+- [#3543](https://github.com/ec-europa/europa-component-library/pull/3543) feat(form): update for optional elements - FRONT-4319 ([@emeryro](https://github.com/emeryro))
+- [#3553](https://github.com/ec-europa/europa-component-library/pull/3553) feat(gallery): add thumbnail - FRONT-4565 ([@emeryro](https://github.com/emeryro))
+- [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3564](https://github.com/ec-europa/europa-component-library/pull/3564) fix(site-header): Fixing margin reset for search button in EU - FRONT-4575 ([@planctus](https://github.com/planctus))
+- [#3561](https://github.com/ec-europa/europa-component-library/pull/3561) fix(site-header): fixing language switcher in rtl - FRONT-4569 ([@planctus](https://github.com/planctus))
+- [#3546](https://github.com/ec-europa/europa-component-library/pull/3546) fix(breadcrumb): fix wrap when expanding - FRONT-4558 ([@emeryro](https://github.com/emeryro))
+- [#3547](https://github.com/ec-europa/europa-component-library/pull/3547) fix(button): fix print css - FRONT-4561 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3535](https://github.com/ec-europa/europa-component-library/pull/3535) feat(logo): update EC logo - FRONT-4547 ([@emeryro](https://github.com/emeryro))
+- [#3543](https://github.com/ec-europa/europa-component-library/pull/3543) feat(form): update for optional elements - FRONT-4319 ([@emeryro](https://github.com/emeryro))
+- [#3559](https://github.com/ec-europa/europa-component-library/pull/3559) feat(menus): Removing role application from the inner section of the menus - FRONT-4568 ([@planctus](https://github.com/planctus))
+- [#3562](https://github.com/ec-europa/europa-component-library/pull/3562) feat(utilities): Adding margin-top and margin-bottom auto in the spacing utilities - FRONT-4573 ([@planctus](https://github.com/planctus))
+- [#3563](https://github.com/ec-europa/europa-component-library/pull/3563) feat(mega-menu): Removing aria label from see all links - FRONT-4572 ([@planctus](https://github.com/planctus))
+- [#3556](https://github.com/ec-europa/europa-component-library/pull/3556) feat(inpage): Making the list scrollable, moving scrollbar to the left in EC - FRONT-4563 ([@planctus](https://github.com/planctus))
+- [#3557](https://github.com/ec-europa/europa-component-library/pull/3557) feat(language-list): Making the list scrollable - FRONT-4564 ([@planctus](https://github.com/planctus))
+- [#3551](https://github.com/ec-europa/europa-component-library/pull/3551) feat(menu/mega-menu): remove aria-current=true - FRONT-4545 ([@emeryro](https://github.com/emeryro))
+- [#3530](https://github.com/ec-europa/europa-component-library/pull/3530) feat(media-container): update control - FRONT-4546 ([@emeryro](https://github.com/emeryro))
+- [#3540](https://github.com/ec-europa/europa-component-library/pull/3540) feat(menu): add aria-label on main nav - FRONT-4478 ([@emeryro](https://github.com/emeryro))
+- [#3545](https://github.com/ec-europa/europa-component-library/pull/3545) feat(link): increase underline offset - FRONT-4555 ([@emeryro](https://github.com/emeryro))
+- [#3544](https://github.com/ec-europa/europa-component-library/pull/3544) feat(site-header): Eu revamp, again - FRONT-4556 ([@planctus](https://github.com/planctus))
+- [#3539](https://github.com/ec-europa/europa-component-library/pull/3539) feat(social-media-follow): update spacing - FRONT-4552 ([@emeryro](https://github.com/emeryro))
+- [#3537](https://github.com/ec-europa/europa-component-library/pull/3537) feat(timeline): improve focus after expand - FRONT-4484 ([@emeryro](https://github.com/emeryro))
+- [#3529](https://github.com/ec-europa/europa-component-library/pull/3529) feat(splash-page): change markup for "lang" attribute ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3565](https://github.com/ec-europa/europa-component-library/pull/3565) chore(deps): Fixing audit issue ([@planctus](https://github.com/planctus))
+- [#3558](https://github.com/ec-europa/europa-component-library/pull/3558) chore(deps): Updates 12-08-24 ([@planctus](https://github.com/planctus))
+- [#3554](https://github.com/ec-europa/europa-component-library/pull/3554) feat(video): replace demo video - FRONT-4567 ([@emeryro](https://github.com/emeryro))
+- [#3550](https://github.com/ec-europa/europa-component-library/pull/3550) chore(deps): Updates 07-08-24 ([@planctus](https://github.com/planctus))
+- [#3542](https://github.com/ec-europa/europa-component-library/pull/3542) chore(deps): Updates 01-08-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
+# 4.5.0
+
+#### :rocket: New Feature
+
+- [#3505](https://github.com/ec-europa/europa-component-library/pull/3505) feat(icons): Adding eye icon in the main sprite - FRONT-4528 ([@planctus](https://github.com/planctus))
+
+#### :warning: Markup Changes
+
+- [#3534](https://github.com/ec-europa/europa-component-library/pull/3534) feat(mega-menu): aria-labelledby for the featured links - FRONT-4543 ([@planctus](https://github.com/planctus))
+- [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526 ([@emeryro](https://github.com/emeryro))
+- [#3515](https://github.com/ec-europa/europa-component-library/pull/3515) feat(featured-item): change order - FRONT-4476 ([@emeryro](https://github.com/emeryro))
+- [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353 ([@planctus](https://github.com/planctus))
+- [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514 ([@planctus](https://github.com/planctus))
+- [#3507](https://github.com/ec-europa/europa-component-library/pull/3507) feat(logo): update logo markup - FRONT-4480 ([@emeryro](https://github.com/emeryro))
+- [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529 ([@planctus](https://github.com/planctus))
+- [#3498](https://github.com/ec-europa/europa-component-library/pull/3498) fix(range): fix aria label - FRONT-4524 ([@emeryro](https://github.com/emeryro))
+- [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496 ([@emeryro](https://github.com/emeryro))
+
+#### :warning: Data Changes
+
+- [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526 ([@emeryro](https://github.com/emeryro))
+- [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353 ([@planctus](https://github.com/planctus))
+- [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514 ([@planctus](https://github.com/planctus))
+- [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529 ([@planctus](https://github.com/planctus))
+- [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3533](https://github.com/ec-europa/europa-component-library/pull/3533) fix(site-header): Preventing rendering of an empty banner - FRONT-4550 ([@planctus](https://github.com/planctus))
+- [#3521](https://github.com/ec-europa/europa-component-library/pull/3521) fix(social-media-follow): add missing tag - FRONT-4536 ([@emeryro](https://github.com/emeryro))
+- [#3509](https://github.com/ec-europa/europa-component-library/pull/3509) fix(range): fix bubble position on rtl - FRONT-4531 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3526](https://github.com/ec-europa/europa-component-library/pull/3526) feat(mega-menu): Fixing styles in EU, adding demo in site header - FRONT-4541 ([@planctus](https://github.com/planctus))
+- [#3534](https://github.com/ec-europa/europa-component-library/pull/3534) feat(mega-menu): aria-labelledby for the featured links - FRONT-4543 ([@planctus](https://github.com/planctus))
+- [#3536](https://github.com/ec-europa/europa-component-library/pull/3536) feat(page header): deprecate overlay - FRONT-4548 ([@emeryro](https://github.com/emeryro))
+- [#3504](https://github.com/ec-europa/europa-component-library/pull/3504) feat(gallery, media container): add title to videos - FRONT-4526 ([@emeryro](https://github.com/emeryro))
+- [#3515](https://github.com/ec-europa/europa-component-library/pull/3515) feat(featured-item): change order - FRONT-4476 ([@emeryro](https://github.com/emeryro))
+- [#3531](https://github.com/ec-europa/europa-component-library/pull/3531) feat(mega-menu): Adding blur handler on featured links - FRONT-4544 ([@planctus](https://github.com/planctus))
+- [#3522](https://github.com/ec-europa/europa-component-library/pull/3522) feat(banner): Description as a link, some fixes - FRONT-4353 ([@planctus](https://github.com/planctus))
+- [#3519](https://github.com/ec-europa/europa-component-library/pull/3519) feat(splash-page): use headings - FRONT-4481 ([@emeryro](https://github.com/emeryro))
+- [#3494](https://github.com/ec-europa/europa-component-library/pull/3494) feat(mega-menu): Using buttons for parent elements - FRONT-4514 ([@planctus](https://github.com/planctus))
+- [#3525](https://github.com/ec-europa/europa-component-library/pull/3525) feat(site-header): add menu to core site header - FRONT-4535 ([@emeryro](https://github.com/emeryro))
+- [#3503](https://github.com/ec-europa/europa-component-library/pull/3503) feat(mega-menu): Adding style for the current sub-items in desktop - FRONT-4527 ([@planctus](https://github.com/planctus))
+- [#3499](https://github.com/ec-europa/europa-component-library/pull/3499) feat(form): update required fields - FRONT-4495 ([@emeryro](https://github.com/emeryro))
+- [#3517](https://github.com/ec-europa/europa-component-library/pull/3517) feat(site-header): Adding language code to the button aria-label - FRONT-4483 ([@planctus](https://github.com/planctus))
+- [#3507](https://github.com/ec-europa/europa-component-library/pull/3507) feat(logo): update logo markup - FRONT-4480 ([@emeryro](https://github.com/emeryro))
+- [#3510](https://github.com/ec-europa/europa-component-library/pull/3510) feat(footer): 22px line height (from the standalone link) for all the links, EC and EU - FRONT-4511 ([@planctus](https://github.com/planctus))
+- [#3514](https://github.com/ec-europa/europa-component-library/pull/3514) feat(accordion): Rendering two icons, toggling them via css - FRONT-4529 ([@planctus](https://github.com/planctus))
+- [#3511](https://github.com/ec-europa/europa-component-library/pull/3511) feat(utilities): deprecate ecl-u-sr-only--focusable utilities - FRONT-4500 ([@emeryro](https://github.com/emeryro))
+- [#3508](https://github.com/ec-europa/europa-component-library/pull/3508) feat(banner): update control - FRONT-4530 ([@emeryro](https://github.com/emeryro))
+- [#3512](https://github.com/ec-europa/europa-component-library/pull/3512) feat(max-width): Setting values for the --max-w variable in the utilities - FRONT-4532 ([@planctus](https://github.com/planctus))
+- [#3501](https://github.com/ec-europa/europa-component-library/pull/3501) feat(inpage): Consistent border and padding in different states - FRONT-4508 ([@planctus](https://github.com/planctus))
+- [#3495](https://github.com/ec-europa/europa-component-library/pull/3495) feat(textarea): Using outline for focus styles - FRONT-4512 ([@planctus](https://github.com/planctus))
+- [#3500](https://github.com/ec-europa/europa-component-library/pull/3500) fix(footer): fix accessibility issue in link - FRONT-4496 ([@emeryro](https://github.com/emeryro))
+- [#3492](https://github.com/ec-europa/europa-component-library/pull/3492) feat(social media follow): update icons size and spacing - FRONT-4523 ([@emeryro](https://github.com/emeryro))
+- [#3479](https://github.com/ec-europa/europa-component-library/pull/3479) feat(date-block): Small adjustments in the year block - FRONT-4510 ([@planctus](https://github.com/planctus))
+
+#### :memo: Documentation
+
+- [#3513](https://github.com/ec-europa/europa-component-library/pull/3513) docs(typography): add accessibility warnings - FRONT-4507 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#3532](https://github.com/ec-europa/europa-component-library/pull/3532) chore(website): Fixing height of the iframe for the popopver example - FRONT-4549 ([@planctus](https://github.com/planctus))
+- [#3523](https://github.com/ec-europa/europa-component-library/pull/3523) chore(deps): Upgrading iframe-resizer, removing usage of svg4everybody - FRONT-4539 ([@planctus](https://github.com/planctus))
+- [#3527](https://github.com/ec-europa/europa-component-library/pull/3527) chore(sass): Declarations before nested rules - FRONT-4540 ([@planctus](https://github.com/planctus))
+- [#3528](https://github.com/ec-europa/europa-component-library/pull/3528) chore(deps): Updates 29-07-24 ([@planctus](https://github.com/planctus))
+- [#3518](https://github.com/ec-europa/europa-component-library/pull/3518) chore(deps): Storybook - 25-07-24 ([@planctus](https://github.com/planctus))
+- [#3516](https://github.com/ec-europa/europa-component-library/pull/3516) chore(deps): Updates - 27-07-24 ([@planctus](https://github.com/planctus))
+- [#3493](https://github.com/ec-europa/europa-component-library/pull/3493) chore(deps): Updates - 16-07-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.4.0
 
 #### :rocket: New Feature

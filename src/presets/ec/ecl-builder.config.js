@@ -67,6 +67,18 @@ module.exports = {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/ec-easy-to-read.scss'),
+      dest: path.resolve(
+        outputFolder,
+        'styles/optional/ecl-ec-easy-to-read.css',
+      ),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: false,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-default-print.scss'),
       dest: path.resolve(
         outputFolder,

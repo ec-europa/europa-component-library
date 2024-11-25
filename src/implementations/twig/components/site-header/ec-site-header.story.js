@@ -16,6 +16,7 @@ const dataFull = { ...dataFullEC };
 const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
 const enMegaMenu = { ...enDataMegaMenu };
+const closeButton = { ...dataFull.notification.close };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -23,7 +24,7 @@ delete dataCore.login_box;
 delete dataCore.site_name;
 delete dataCore.banner_top;
 delete dataCore.cta_link;
-dataCore.has_menu = false;
+dataCore.has_menu = true;
 
 // Standardised
 const dataStandardised = JSON.parse(JSON.stringify(dataFull));
@@ -41,6 +42,7 @@ const getArgs = (data) => {
     show_language_selector: true,
     show_search: true,
     show_notification: false,
+    show_notification_close: true,
   };
 
   if (data.login_box) {
@@ -55,7 +57,7 @@ const getArgs = (data) => {
     defaultArgs.show_banner_top = false;
   }
   if (data.has_menu) {
-    defaultArgs.show_menu = 'menu';
+    defaultArgs.show_menu = 'mega-menu';
   }
   if (data.cta_link) {
     defaultArgs.show_cta_link = false;
@@ -114,6 +116,15 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+    };
+    argTypes.show_notification_close = {
+      name: 'notification close button',
+      type: { name: 'boolean' },
+      description: 'Show the notification close button',
+      table: {
+        category: 'Optional',
+      },
+      if: { arg: 'show_notification' },
     };
   }
   if (data.banner_top) {
@@ -294,6 +305,11 @@ const prepareData = (data, args) => {
     delete data.notification;
   } else {
     data.notification = clonedDataFull.notification;
+    if (!args.show_notification_close) {
+      delete clonedDataFull.notification.close;
+    } else {
+      clonedDataFull.notification.close = closeButton;
+    }
   }
 
   correctPaths(data);
@@ -306,7 +322,17 @@ const prepareData = (data, args) => {
 
 export default {
   title: 'Components/Site-wide/Site header',
-  decorators: [withNotes, withCode],
+  decorators: [
+    withNotes,
+    withCode,
+    (storyFn) => {
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'scroll';
+
+      return storyFn();
+    },
+  ],
   parameters: { layout: 'fullscreen' },
 };
 

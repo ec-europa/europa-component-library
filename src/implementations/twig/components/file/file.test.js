@@ -29,6 +29,16 @@ describe('File', () => {
       return expect(render(dataWithTranslation)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with download attribute', () => {
+      expect.assertions(1);
+
+      const withDownload = merge(dataWithTranslation, {
+        download_attribute: true,
+      });
+
+      return expect(render(withDownload)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 

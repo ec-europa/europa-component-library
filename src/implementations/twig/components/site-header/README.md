@@ -68,9 +68,8 @@ npm install --save @ecl/twig-component-site-header
   banner: 'Class name',
   site_name: 'This site name'
   icon_path: '/icons.svg', 
-  logo: { 
-    title: 'European Commission', 
-    alt: 'European Commission logo', 
+  logo: {
+    alt: 'European Commission', 
     href: '/example', 
     src: '/logo-ec--en.svg', 
   }, 

@@ -4,13 +4,10 @@ const exampleLink = `${publicUrl}/example`;
 
 module.exports = {
   id: 'demo',
+  aria_label: 'Main navigation',
   title: 'Menu',
   toggle: {
-    link: {
-      label: 'Menu',
-      path: exampleLink,
-      hide_label: true,
-    },
+    label: 'Menu',
     icon: {
       path: '/icons.svg',
       name: 'hamburger',

@@ -57,7 +57,7 @@ module.exports = {
             },
             {
               link: {
-                label: 'Twitter',
+                label: 'X',
                 path: exampleLink,
                 inverted: true,
                 icon_position: 'before',
@@ -153,8 +153,7 @@ module.exports = {
       [
         {
           logo: {
-            title: 'European Commission',
-            alt: 'European Commission logo',
+            alt: 'European Commission',
             language: 'en',
             path: 'https://commission.europa.eu/index_en',
             src_desktop: '/logo-ec.svg',

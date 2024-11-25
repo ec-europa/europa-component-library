@@ -40,6 +40,7 @@ module.exports = {
             path: '/icons.svg',
           },
         },
+        download_attribute: false,
       },
       {
         title: 'español',
@@ -54,6 +55,7 @@ module.exports = {
             path: '/icons.svg',
           },
         },
+        download_attribute: true,
       },
       {
         title: 'français',

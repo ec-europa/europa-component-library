@@ -13,8 +13,8 @@ $banner-print: null !default;
   padding: map.get($theme, 'spacing-print', 'm') 0;
 }
 
-.ecl-banner__picture,
-.ecl-banner__credit {
+.ecl-banner__picture-container,
+.ecl-banner__video-container {
   display: none;
 }
 
@@ -26,7 +26,8 @@ $banner-print: null !default;
   margin-bottom: 0;
 }
 
-.ecl-banner__title-link {
+.ecl-banner__title-link,
+.ecl-banner__description-link {
   color: var(--c-d);
 }
 

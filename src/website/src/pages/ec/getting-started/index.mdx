@@ -4,6 +4,7 @@ title: Getting started
 ---
 
 import { Link } from '@ecl/website-components';
+import { ECL_VERSION } from '../../../preval/getVersion';
 
 The Europa Component Library is a design system defining the visual identity of the European Commission on the web.
 
@@ -92,7 +93,14 @@ There are also other optional css files distributed that can be used, pikaday is
 ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available there, this is the pattern to reach them:
 `https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
 
-Ex: https://cdn1.fpfis.tech.ec.europa.eu/ecl/v3.9.1/ec/styles/optional/ecl-ec-default.css
+Ex:
+
+<a
+  className="ecl-link"
+  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/optional/ecl-ec-default.css`}
+>
+  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/ec/styles/optional/ecl-ec-default.css`}
+</a>
 
 Download a `preset-ec` package from the release page to see all the files available so to know how to reach them in the CDN, the file system is the same.
 
@@ -158,6 +166,8 @@ Then, in the footer of the document (or whenever the document is ready), call `E
   </body>
 </html>
 ```
+
+You can get the ECL version you are using running `ECL.version` in the console of your devtools.
 
 ### Datepicker
 

@@ -47,7 +47,7 @@ $button-width: 44px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-tabs__list {
-    margin-left: -$button-width;
+    margin-inline-start: -$button-width;
   }
 }
 
@@ -236,11 +236,6 @@ $button-width: 44px;
   position: absolute;
   top: 0;
   height: $button-width;
-
-  .ecl-button__container {
-    height: 100%;
-    width: 100%;
-  }
 
   .ecl-icon {
     height: 1rem;

@@ -4,15 +4,16 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import menu from '../demo';
+import siteHeaderCore from '../demo';
 
 <Playground
   system="ec"
-  selectedKind="components-navigation-menu"
-  selectedStory="default"
+  selectedKind="components-site-wide-site-header"
+  selectedStory="core"
+  selectedArgs="show_menu:menu"
   showFrame
-  frameHeight="350"
   disableAutoResize
+  frameHeight="1800"
 >
-  <Html markup={menu} />
+  <Html markup={siteHeaderCore} />
 </Playground>

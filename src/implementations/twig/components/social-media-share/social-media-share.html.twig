@@ -46,7 +46,10 @@
 
 {# Print the result #}
 
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
   <p class="ecl-social-media-share__description">{{ _description }}</p>
   {% if _links is not empty %}
     <ul class="ecl-social-media-share__list">
