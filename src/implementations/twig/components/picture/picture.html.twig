@@ -69,7 +69,6 @@
       {% elseif _source.media == 'xl' %}
         {% set _source = _source|merge({'media': '(min-width: 1140px)'}) %}
       {% endif %}
-
       <source 
         {% if _source.src is not empty %}
           srcset="{{ _source.src }}"
