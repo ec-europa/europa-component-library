@@ -3,10 +3,23 @@
 exports[`Icon ECL markup - icon arrow-left renders correctly 1`] = `
 <jest>
   <svg
-    aria-hidden="true"
-    class="ecl-icon ecl-icon--m"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
+    class="ecl-icon ecl-icon--m test"
     focusable="false"
+    id="test"
+    role="img"
   >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
     <use
       xlink:href="/icons.svg#arrow-left"
     />
@@ -19,8 +32,9 @@ exports[`Icon ECL markup - renders correctly with accessibility content 1`] = `
   <svg
     aria-hidden="false"
     aria-labelledby="example-title example-desc"
-    class="ecl-icon ecl-icon--m"
+    class="ecl-icon ecl-icon--m test"
     focusable="false"
+    id="test"
     role="img"
   >
     <title
@@ -43,12 +57,25 @@ exports[`Icon ECL markup - renders correctly with accessibility content 1`] = `
 exports[`Icon ECL markup - renders correctly with extra attributes 1`] = `
 <jest>
   <svg
-    aria-hidden="true"
-    class="ecl-icon ecl-icon--m"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
+    class="ecl-icon ecl-icon--m test"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     focusable="false"
+    id="test"
+    role="img"
   >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
     <use
       xlink:href="/icons.svg#arrow-left"
     />
@@ -59,10 +86,23 @@ exports[`Icon ECL markup - renders correctly with extra attributes 1`] = `
 exports[`Icon ECL markup - renders correctly with extra class names 1`] = `
 <jest>
   <svg
-    aria-hidden="true"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
     class="ecl-icon ecl-icon--m custom-class custom-class--test"
     focusable="false"
+    id="test"
+    role="img"
   >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
     <use
       xlink:href="/icons.svg#arrow-left"
     />
@@ -73,10 +113,24 @@ exports[`Icon ECL markup - renders correctly with extra class names 1`] = `
 exports[`Icon WT markup - icon arrow-left renders correctly 1`] = `
 <jest>
   <span
-    aria-hidden="true"
-    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m ecl-icon--arrow-left"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
+    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m test ecl-icon--arrow-left"
     focusable="false"
-  />
+    id="test"
+    role="img"
+  >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
+  </span>
 </jest>
 `;
 
@@ -85,31 +139,71 @@ exports[`Icon WT markup - renders correctly with accessibility content 1`] = `
   <span
     aria-hidden="false"
     aria-labelledby="example-title example-desc"
-    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m ecl-icon--arrow-left"
+    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m test ecl-icon--arrow-left"
     focusable="false"
+    id="test"
     role="img"
-  />
+  >
+    <title
+      id="example-title"
+    >
+      Title
+    </title>
+    <desc
+      id="example-desc"
+    >
+      Description
+    </desc>
+  </span>
 </jest>
 `;
 
 exports[`Icon WT markup - renders correctly with extra attributes 1`] = `
 <jest>
   <span
-    aria-hidden="true"
-    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m ecl-icon--arrow-left"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
+    class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m test ecl-icon--arrow-left"
     data-test="data-test-value"
     data-test-1="data-test-value-1"
     focusable="false"
-  />
+    id="test"
+    role="img"
+  >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
+  </span>
 </jest>
 `;
 
 exports[`Icon WT markup - renders correctly with extra class names 1`] = `
 <jest>
   <span
-    aria-hidden="true"
+    aria-hidden="false"
+    aria-labelledby="title-id desc-id"
     class="wt-icon--arrow-left wt-icon--m ecl-icon ecl-icon--m custom-class custom-class--test ecl-icon--arrow-left"
     focusable="false"
-  />
+    id="test"
+    role="img"
+  >
+    <title
+      id="title-id"
+    >
+      title
+    </title>
+    <desc
+      id="desc-id"
+    >
+      additional description
+    </desc>
+  </span>
 </jest>
 `;

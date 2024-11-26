@@ -4,7 +4,7 @@ module.exports = {
     name: 'audio',
     size: 'm',
   },
-  wt_markup: true,
+  wt_markup: false,
   extra_classes: 'test',
   extra_attributes: [
     {
