@@ -35,7 +35,10 @@ const prepareData = (data, args) => {
   data.icon.name = args.name;
   data.icon.size = args.size;
   data.icon.color = args.color;
-  data.extra_classes = data.icon.color === 'inverted' ? 'ecl-u-bg-dark' : '';
+  data.extra_classes =
+    data.icon.color === 'inverted'
+      ? `ecl-u-bg-dark ${data.extra_classes}`
+      : data.extra_classes;
   data.icon.transform = args.transform;
   return data;
 };

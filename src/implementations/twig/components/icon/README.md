@@ -8,24 +8,34 @@ npm install --save @ecl/twig-component-icon
 
 ### Parameters
 
-- **"icon"** (associative array) (default: 'predefined structure below')
-  - "path" (string) (default: '') - path/url to general icon file (eg. /path-to-icon/icon.svg)
-  - "name" (string) (default: '') - name of icon, eg. 'facebook', 'twitter'.
-  - "size" (string) (default: 'm') size of icon. Available sizes are 'xs','s','m','l','xl','2xl','fluid'
-  - "transform" (string) (default: '') Transformation of icon. Available transformations are 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical')
-  - "color" (string) (default: '') Color of icon. Available colors are 'default', 'inverted', 'primary'
-  - "title": '' (string) (default: '') Additional title for the icon; shortcut for extra accessibility title
-- **"as_image"**: (boolean) (default: false) Whether the icon is used as an image
+- **"icon"** (associative array) (default: predefined structure):
+  {
+  path (string) (default: ''): path to the icon file,
+  name (string) (default: ''): name of the icon,
+  size (string) (default: 'm'): icon size (available options: '2xs', 'xs','s','m','l','xl','2xl','fluid'),
+  transform (string) (default: ''): icon transformation (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
+  color (string) (default: ''): icon color (available options: 'default', 'inverted', 'primary')
+  title (string) (default: ''): additional title for the icon; shortcut for extra accessibility title parameter
+  }
+- **"as_image"** (boolean) (default: false): should the icon be dipslayed as an image?
 - **"wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
-- **"extra_accessibility"** (optional) (object) Extra tags for accessibility when used as an image
-  - description: '' (desc tag)
-  - description_id: '' (desc tag id)
-  - title: '' (title tag)
-  - title_id: '' (title tag id)
-- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
-- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
-  - "name" (string) Attribute name, eg. 'data-test'
-  - "value" (string) Attribute value, eg: 'data-test-1'
+- **"extra_accessibility"** (associative array) (default: {}):
+  {
+  description (string) (default: ''): additional description
+  description_id (string) (default: ''): unique id for the description
+  title (string) (default: ''): additional title
+  title_id (string) (default: ''): unique id for the title
+  role (string) (default: ''): role attribute
+  }
+- **"extra_classes"** (string) (default: ''): additional classes (space separated)
+- **"extra_attributes"** (array) (default: []):
+  [
+  {
+  name (string) (default: ''),
+  value (string) (default: ''),
+  }
+  ...
+  ],
 
 ### Example:
 

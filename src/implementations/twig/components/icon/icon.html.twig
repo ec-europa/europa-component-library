@@ -3,28 +3,31 @@
 {#
   Parameters:
     - "icon" (associative array) (default: predefined structure): format:
+      {
+        path (string) (default: ''): path to the icon file,
+        name (string) (default: ''): name of the icon,
+        size (string) (default: 'm'): icon size (available options: '2xs', 'xs','s','m','l','xl','2xl','fluid'),
+        transform (string) (default: ''): icon transformation (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
+        color (string) (default: ''): icon color (available options: 'default', 'inverted', 'primary')
+        title (string) (default: ''): additional title for the icon; shortcut for extra accessibility title parameter
+      }
+    - "as_image" (boolean) (default: false): should the icon be dipslayed as an image?
+    - "wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
+    - "extra_accessibility" (associative array) (default: {}):
+      {
+        description (string) (default: ''): additional description
+        description_id (string) (default: ''): unique id for the description
+        title (string) (default: ''): additional title
+        title_id (string) (default: ''): unique id for the title
+        role (string) (default: ''): role attribute
+      }
+    - "extra_classes" (string) (default: ''): additional classes (space separated)
+    - "extra_attributes" (array) (default: []): 
+      [
         {
-          path: '/static/media/icons.cbfd6efe.svg',
-          name: '',
-          size: 'm' (available options: 'xs','s','m','l','xl','2xl','fluid'),
-          transform: 'rotate-0' (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
-          color: 'default' (available options: 'default', 'inverted', 'primary')
-          title: '' (additional title for the icon; shortcut for extra accessibility title)
+          name (string) (default: ''),
+          value (string) (default: ''),
         }
-    - "as_image": false,
-    - "wt_markup" (bool) (default: false): should the icon use the Webtools markup?
-    - "extra_accessibility" : {
-        description: '' (desc tag)
-        description_id: '' (desc tag id)
-        title: '' (title tag)
-        title_id: '' (title tag id)
-        role: 'image' (role attribute)
-    }
-    - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: []): format: [
-        {
-          "name" (string) (default: ''),
-          "value" (optional) (string)
         ...
       ],
 #}
@@ -115,9 +118,30 @@
     focusable="false"
     aria-hidden="{{ _aria_hidden }}"
     {{ _extra_attributes|raw }}>
+
+{% if _extra_accessibility.title is not empty %}
+    <title
+    {% if _extra_accessibility.title_id is not empty %}
+      id="{{ _extra_accessibility.title_id }}"
+    {% endif %}
+    >
+      {{- _extra_accessibility.title -}}
+    </title>
+    {% endif %}
+  {% if _extra_accessibility.description is not empty %}
+    <desc
+    {% if _extra_accessibility.description_id is not empty %}
+      id="{{ _extra_accessibility.description_id }}"
+    {% endif %}
+    >
+      {{- _extra_accessibility.description -}}
+    </desc>
+  {% endif %}
+
   </span>
 
 {% else %}
+
   <svg
     class="{{ _css_class }}"
     focusable="false"
