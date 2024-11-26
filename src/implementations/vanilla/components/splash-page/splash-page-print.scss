@@ -34,7 +34,25 @@ $language-list-print: null !default;
 .ecl-splash-page__language-container {
   color: map.get($language-list, 'color');
   font: map.get($theme, 'font-print', 'm');
-  padding: map.get($language-list-print, 'container-padding');
+  padding-block-start: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'block-end'
+  );
+  padding-inline-start: map.get(
+    $language-list-print,
+    'container-padding-desktop',
+    'inline-start'
+  );
+  padding-inline-end: calc(
+    #{map.get($language-list-print, 'container-padding-desktop', 'inline-end')} +
+      #{map.get($language-list, 'item-active-border-width')}
+  );
 }
 
 .ecl-splash-page__language-title {
@@ -51,7 +69,18 @@ $language-list-print: null !default;
 .ecl-splash-page__language-category-title {
   font: map.get($language-list-print, 'category-title-font');
   font-weight: map.get($language-list, 'category-title-font-weight');
-  padding: map.get($language-list-print, 'category-title-padding');
+  padding-block-start: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-start'
+  );
+  padding-block-end: map.get(
+    $language-list,
+    'category-title-padding',
+    'block-end'
+  );
+  padding-inline-start: 0;
+  padding-inline-end: 0;
   margin: 0;
 }
 
@@ -74,8 +103,25 @@ $language-list-print: null !default;
 
 .ecl-splash-page__language-link {
   align-items: baseline;
+  border-inline-start: map.get($language-list, 'item-active-border-width') solid
+    transparent;
   display: flex;
-  padding: map.get($language-list-print, 'item-padding');
+  padding-block-start: map.get(
+    $language-list-print,
+    'item-padding',
+    'block-start'
+  );
+  padding-block-end: map.get($language-list-print, 'item-padding', 'block-end');
+  padding-inline-start: map.get(
+    $language-list-print,
+    'item-padding',
+    'inline-start'
+  );
+  padding-inline-end: map.get(
+    $language-list-print,
+    'item-padding',
+    'inline-end'
+  );
 
   &:focus-visible {
     outline-offset: -2px;
@@ -104,7 +150,10 @@ $language-list-print: null !default;
 
 .ecl-splash-page__language-link--active {
   background-color: map.get($language-list, 'item-active-background');
-  box-shadow: map.get($language-list, 'item-active-shadow');
+  border-inline-start-color: map.get(
+    $language-list,
+    'item-active-border-color'
+  );
   color: map.get($language-list, 'item-active-color');
 
   .ecl-splash-page__language-link-code {

@@ -29,7 +29,7 @@ const dataStandaloneCheckbox = {
 
 const getArgs = (data) => {
   const args = {
-    show_label: true,
+    hide_label: false,
     show_helper: true,
     show_error: true,
     invalid: data.invalid || false,
@@ -102,9 +102,6 @@ const prepareData = (data, args) => {
   Object.assign(clone, args);
   correctPaths(clone);
 
-  if (!args.show_label) {
-    clone.label = '';
-  }
   if (!args.show_error) {
     clone.invalid_text = '';
   }
@@ -119,7 +116,7 @@ const prepareData = (data, args) => {
     clone.input.multiple_search = !!args.show_search;
   }
   if (clone.input.input_type === 'checkbox') {
-    if (clone.input.standalone && !args.show_label) {
+    if (clone.input.standalone && args.hide_label) {
       clone.input.items[0].required_text = args.required_text;
       clone.input.items[0].label_aria_required = clone.label_aria_required;
       clone.input.items[0].optional_text = args.optional_text;
@@ -184,7 +181,7 @@ StandaloneCheckbox.storyName = 'Checkbox';
 StandaloneCheckbox.args = {
   ...getArgs(dataStandaloneCheckbox),
   show_helper: false,
-  show_label: false,
+  hide_label: true,
 };
 StandaloneCheckbox.argTypes = getArgTypes(dataStandaloneCheckbox, 'group');
 StandaloneCheckbox.parameters = {

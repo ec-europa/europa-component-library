@@ -37,6 +37,7 @@
     - "sr_video_audio" (string) (default: ''): additional text to indicate if there is an audio description; for screen readers
     - "share_path" (optional) (string) (default: '')
   - "icon_path": (string) (default: '')
+  - "sr_gallery_label" (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "selected_item_id" (int) (default: 0)
@@ -66,6 +67,7 @@
 {% set _disable_hover = disable_hover|default(false) %}
 {% set _disable_overlay = disable_overlay|default(false) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _sr_gallery_label = sr_gallery_label|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _expandable = expandable ?? true %}
 {% set _selected_item_id = selected_item_id|default(0) %}
@@ -130,6 +132,9 @@
 
 <section
   class="{{ _css_class }}"
+  {% if _sr_gallery_label is not empty and not _disable_overlay %}
+    aria-label="{{ _sr_gallery_label }}"
+  {% endif %}
   {{ _extra_attributes|raw }}
   data-ecl-gallery
 >

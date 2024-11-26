@@ -2,7 +2,7 @@
 
 {#
   Parameters:
-    - "variant" (string) (default: '') - Can only be "illustration"
+    - "variant" (string) (default: '') - Can  be "illustration" or "image-as-illustration"
     - "border" (boolean) (default: true): Is there an extra border and padding?
     - "picture" (object) (default: {}): picture of the navigation list, following ECL Picture structure
     - "title" (associative array) (default: {}): Predefined structure compatible with Link component
@@ -42,8 +42,12 @@
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--no-border' %}
 {% endif %}
 
-{% if _variant is not empty %}
+{% if _variant == 'illustration' %}
   {% set _css_class = _css_class ~ ' ecl-navigation-list__item--illustration' %}
+{% endif %}
+
+{% if _variant == 'image-as-illustration' %}
+  {% set _css_class = _css_class ~ ' ecl-navigation-list__item--image-as-illustration' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
