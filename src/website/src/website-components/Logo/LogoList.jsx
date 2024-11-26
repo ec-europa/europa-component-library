@@ -44,19 +44,22 @@ function GetColor(path) {
 }
 
 function GetLogos(logos, serie) {
-  if (serie === 'muted') {
-    return logos.filter((logo) => GetLanguageId(logo) === 'muted');
-  }
-  if (serie === 'official') {
-    return logos.filter(
-      (logo) => officialLanguages.indexOf(GetLanguageId(logo)) >= 0,
-    );
-  }
-  return logos.filter(
-    (logo) =>
-      officialLanguages.indexOf(GetLanguageId(logo)) < 0 &&
-      GetLanguageId(logo) !== 'muted',
-  );
+  return logos.filter((logo) => {
+    const languageId = GetLanguageId(logo);
+
+    // Exclude Japanese logos with 'jp' language code
+    if (languageId === 'jp') {
+      return false;
+    }
+
+    if (serie === 'muted') {
+      return languageId === 'muted';
+    }
+    if (serie === 'official') {
+      return officialLanguages.includes(languageId);
+    }
+    return !officialLanguages.includes(languageId) && languageId !== 'muted';
+  });
 }
 
 function LogoList({ system, set, color, language }) {

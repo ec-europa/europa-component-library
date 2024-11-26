@@ -1,14 +1,14 @@
 @use 'sass:map';
+@use 'sass:color';
 @use '../index' as *;
 
-// stylelint-disable scss/no-global-function-names
 $range: (
   bar-color: var(--c-n),
   disabled-color: var(--c-n-60),
   active-color: var(--c-p-160),
   invalid-color: var(--c-er),
   invalid-hover-color: var(--c-er),
-  invalid-active-color: mix(#da1e28, #26324b, 50%),
+  invalid-active-color: color.mix(#da1e28, #26324b, 50%),
   value-color: var(--c-d),
   value-font: var(--f-s),
   range-margin-top: var(--s-xs),
@@ -19,4 +19,3 @@ $range: (
   outline-color: var(--c-p-20),
   outline-offset: 0,
 );
-// stylelint-enable scss/no-global-function-names

@@ -117,8 +117,18 @@
 
     <div class="ecl-splash-page__language-content">
       {# EU languages #}
+      {% set container_class = 'ecl-splash-page__language-category' %}
       {% if _items is not empty and _items is iterable %}
-      <div class="ecl-splash-page__language-category">
+        {% if _items|length == 1 %}
+          {% set container_class = container_class ~ ' ecl-splash-page__language-single-item-category' %}
+        {% endif %}
+        {% if _items|length == 2 %}
+          {% set container_class = container_class ~ ' ecl-splash-page__language-two-item-category' %}
+        {% endif %}
+        {% if _items|length == 4 %}
+          {% set container_class = container_class ~ ' ecl-splash-page__language-four-item-category' %}
+        {% endif %}
+      <div class="{{ container_class }}">
         {% if _eu_category is not empty %}
         <h2 class="ecl-splash-page__language-category-title">
           {{- _eu_category -}}
