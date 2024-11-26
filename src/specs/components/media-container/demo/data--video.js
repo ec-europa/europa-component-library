@@ -9,10 +9,10 @@ module.exports = {
     title: 'Visit the European Commission',
     sr_video_player: 'Video player',
     poster:
-      'https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg',
+      'https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg',
     sources: [
       {
-        src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
+        src: 'https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4',
         type: 'video/mp4',
       },
     ],

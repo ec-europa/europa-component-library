@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+
 /**
  * Navigation list
  * @define navigation-list
@@ -74,31 +76,87 @@ $navigation-list: null !default;
   }
 }
 
-.ecl-navigation-list__item--illustration .ecl-navigation-list__picture {
-  position: absolute;
-  border-radius: 100px 0 100px 100px;
-  top: var(--s-xs);
-  right: var(--s-xs);
-  background: var(--c-n-60, #e0e5f5);
-  height: 60px;
-  width: 60px;
-
-  .ecl-navigation-list__image {
-    border: none;
-    object-fit: contain;
-    max-width: 100%;
-    width: auto;
+// Image as illustration variant
+.ecl-navigation-list__item--image-as-illustration {
+  .ecl-navigation-list__picture {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: var(--s-xs);
+    right: var(--s-xs);
+    height: 60px;
+    width: 60px;
+
+    .ecl-navigation-list__image {
+      aspect-ratio: 1/1;
+    }
   }
 
-  + .ecl-navigation-list__content-block .ecl-content-block__title {
-    margin-right: 3.25rem;
+  .ecl-content-block__description,
+  .ecl-content-block__title {
+    margin-top: 0;
+  }
 
-    + .ecl-content-block__description {
-      margin-right: var(--s-m);
+  // Description margin when there is a title
+  .ecl-content-block__title + .ecl-content-block__description {
+    margin-top: var(--s-m);
+  }
+
+  .ecl-navigation-list__picture + .ecl-navigation-list__content-block {
+    // 24px from the image
+    .ecl-content-block__description,
+    .ecl-content-block__title {
+      margin-inline-end: 4rem;
+    }
+
+    // Description margin end when there is an image and a title
+    .ecl-content-block__title + .ecl-content-block__description {
+      margin-inline-end: var(--s-m);
+    }
+  }
+}
+
+// Illustration variant
+.ecl-navigation-list__item--illustration {
+  .ecl-navigation-list__picture {
+    position: absolute;
+    border-radius: 100px 0 100px 100px;
+    top: var(--s-xs);
+    right: var(--s-xs);
+    background: var(--c-n-60, #e0e5f5);
+    height: 60px;
+    width: 60px;
+
+    .ecl-navigation-list__image {
+      border: none;
+      object-fit: contain;
+      max-width: 100%;
+      width: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .ecl-content-block__description,
+  .ecl-content-block__title {
+    margin-top: 0;
+  }
+
+  // Description margin when there is a title
+  .ecl-content-block__title + .ecl-content-block__description {
+    margin-top: var(--s-m);
+  }
+
+  .ecl-navigation-list__picture + .ecl-navigation-list__content-block {
+    .ecl-content-block__description,
+    .ecl-content-block__title {
+      // 24px from the image
+      margin-inline-end: 4rem;
+    }
+
+    // Description margin end when there is an image and a title
+    .ecl-content-block__title + .ecl-content-block__description {
+      margin-inline-end: var(--s-m);
     }
   }
 }
