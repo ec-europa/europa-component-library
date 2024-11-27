@@ -126,10 +126,9 @@ $_description-height-desktop: 108px;
 
 .ecl-gallery__description {
   align-items: center;
-  bottom: 0;
+  bottom: -100%;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
-  visibility: hidden;
   font: var(--f-s);
   left: 0;
   overflow: hidden;
@@ -147,7 +146,7 @@ $_description-height-desktop: 108px;
   .ecl-gallery__item-link:hover,
   .ecl-gallery__item-link:focus-visible {
     .ecl-gallery__description {
-      visibility: visible;
+      bottom: 0;
     }
   }
 }
