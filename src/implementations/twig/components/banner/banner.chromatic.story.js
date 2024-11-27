@@ -20,6 +20,7 @@ States.render = async () => {
     `;
   return renderedBannerStates;
 };
+States.tags = ['!dev'];
 States.parameters = {
   storybook: { disable: true },
   chromatic: {
@@ -41,6 +42,7 @@ Sizes.render = async () => {
     `;
   return renderedBannerSizes;
 };
+Sizes.tags = ['!dev'];
 Sizes.parameters = {
   storybook: { disable: true },
   chromatic: {
@@ -68,6 +70,7 @@ Displays.render = async () => {
     `;
   return renderedBannerDisplays;
 };
+Displays.tags = ['!dev'];
 Displays.parameters = {
   storybook: { disable: true },
   chromatic: {
