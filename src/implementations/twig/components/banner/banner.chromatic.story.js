@@ -2,7 +2,7 @@ import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
 import banner from './banner.html.twig';
 
 export default {
-  title: 'Components/Banner/UI-tests',
+  title: 'Components/Banner',
   parameters: { layout: 'fullscreen' },
 };
 
@@ -22,7 +22,6 @@ States.render = async () => {
 };
 States.tags = ['!dev'];
 States.parameters = {
-  storybook: { disable: true },
   chromatic: {
     viewports: [480, 768, 1024, 1200],
   },
@@ -44,7 +43,6 @@ Sizes.render = async () => {
 };
 Sizes.tags = ['!dev'];
 Sizes.parameters = {
-  storybook: { disable: true },
   chromatic: {
     viewports: [480, 768, 1024, 1200],
   },
@@ -72,7 +70,6 @@ Displays.render = async () => {
 };
 Displays.tags = ['!dev'];
 Displays.parameters = {
-  storybook: { disable: true },
   chromatic: {
     viewports: [480, 768, 1024, 1200],
   },
