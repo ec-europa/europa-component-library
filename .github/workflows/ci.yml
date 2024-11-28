@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20.9.0
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Test
         run: ./scripts/audit.sh
   tests:
