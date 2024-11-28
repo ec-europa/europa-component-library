@@ -11,8 +11,8 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build storybook
-yarn --cwd "./src/playground/ec" build
-yarn --cwd "./src/playground/eu" build
+pnpm --cwd "./src/playground/ec" build
+pnpm --cwd "./src/playground/eu" build
 
 # Copy builds
 rm -rf ./dist/playground
