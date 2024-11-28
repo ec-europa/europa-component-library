@@ -35,13 +35,13 @@ jobs:
         with:
           node-version: 20.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Build presets
-        run: yarn build:presets
+        run: pnpm build:presets
       - name: Test
-        run: yarn test
+        run: pnpm test
   size:
     name: size
     runs-on: ubuntu-latest
@@ -51,11 +51,11 @@ jobs:
         with:
           node-version: 20.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build presets
-        run: yarn dist:presets
+        run: pnpm dist:presets
       - name: Test
-        run: yarn size-limit
+        run: pnpm size-limit
   deploy-pull-request-preview:
     name: deploy preview
     runs-on: ubuntu-latest
@@ -66,11 +66,11 @@ jobs:
         with:
           node-version: 20.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Package application
-        run: yarn dist
+        run: pnpm dist
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
@@ -91,11 +91,11 @@ jobs:
         with:
           node-version: 20.9.0
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build icons
-        run: yarn build:icons
+        run: pnpm build:icons
       - name: Package application
-        run: yarn dist
+        run: pnpm dist
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:

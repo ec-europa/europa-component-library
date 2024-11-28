@@ -7,18 +7,18 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "browserstats": "./src/tools/builder/bin/build.js browsers",
-    "build:icons": "lerna --scope \"@ecl/resources-*\" run dist",
-    "build:presets": "lerna --scope \"@ecl/preset-*\" run dist",
-    "build:themes": "lerna --scope \"@ecl/theme-*\" run build",
+    "build:icons": "pnpm --filter \"@ecl/resources-*\" run dist",
+    "build:presets": "pnpm --filter \"@ecl/preset-*\" run dist",
+    "build:themes": "pnpm --filter \"@ecl/theme-*\" run build",
     "dist:presets": "npm run build:presets && ./scripts/dist-presets.sh",
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:website": "./scripts/dist-website.sh",
     "dist": "npm run clean && npm run browserstats && npm run dist:presets && npm run dist:storybook && npm run dist:website",
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
-    "lint": "npm-run-all --parallel lint:* -cln",
+    "lint": "pnpm recursive lint:* -cln",
     "prepare": "husky",
-    "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (lerna run postinstall && lerna run prepublish) || echo \"Bypass prepublish\"",
+    "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (pnpm recursive run postinstall && pnpm recursive run prepublish) || echo \"Bypass prepublish\"",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
     "pretty-write": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
     "publish": "scripts/publish.sh",
@@ -27,7 +27,7 @@
     "start:ec": "(cd src/presets/ec && npm run watch) & cd src/playground/ec && npm run start",
     "start:eu": "(cd src/presets/eu && npm run watch) & cd src/playground/eu && npm run start",
     "start:website": "cd src/website && npm run start",
-    "test": "run-p test:*",
+    "test": "pnpm recursive run test:*",
     "test:components": "jest --verbose",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
     "update-version": "scripts/update-version.sh"
@@ -41,6 +41,7 @@
     "@size-limit/preset-big-lib": "11.1.6",
     "babel-jest": "29.7.0",
     "classnames": "2.5.1",
+    "cross-env": "7.0.3",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-airbnb-base": "15.0.0",
@@ -55,8 +56,6 @@
     "jest": "29.7.0",
     "jest-axe": "9.0.0",
     "jest-environment-jsdom": "29.7.0",
-    "lerna": "8.1.9",
-    "lerna-changelog": "2.2.0",
     "lint-staged": "15.2.10",
     "npm-run-all": "4.1.5",
     "patch-package": "8.0.0",
@@ -117,8 +116,7 @@
     "path-to-regexp": "0.1.10"
   },
   "engines": {
-    "node": ">=12.0.0",
-    "yarn": ">=1.0.0"
+    "node": ">=12.0.0"
   },
   "lint-staged": {
     "*.{md,mdx,html,json,yml,svg}": [
@@ -133,17 +131,6 @@
       "stylelint"
     ]
   },
-  "workspaces": [
-    "src/implementations/**",
-    "src/playground/**",
-    "src/playground/**/!(build)/",
-    "src/resources/*",
-    "src/specs/**",
-    "src/themes/*",
-    "src/presets/*",
-    "src/tools/*",
-    "src/website"
-  ],
   "jest": {
     "verbose": true,
     "testEnvironment": "jsdom"
