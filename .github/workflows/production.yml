@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     name: build and deploy the release
     steps:
+      - name: Install pnpm
+        run: npm install -g pnpm
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20.9.0
+          cache: 'pnpm'
       - name: Get tag
         id: tag
         uses: dawidd6/action-get-tag@v1
