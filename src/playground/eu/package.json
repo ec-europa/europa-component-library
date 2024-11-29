@@ -6,7 +6,7 @@
   "version": "4.8.1",
   "description": "Storybook EU Twig",
   "scripts": {
-    "build": "STORYBOOK_SYSTEM=EU sb build -c .storybook -o build",
+    "build": "cross-env STORYBOOK_SYSTEM=EC pnpm exec sb build -c .storybook -o build",
     "start": "STORYBOOK_SYSTEM=EU node start.js"
   },
   "devDependencies": {
@@ -27,6 +27,7 @@
     "browser-update": "3.3.55",
     "buffer": "6.0.3",
     "core-js": "3.39.0",
+    "cross-env": "7.0.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "storybook-dark-mode": "4.0.2",
