@@ -40,8 +40,6 @@ jobs:
         run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Search for Storybook Binary
-        run: find ./node_modules -name "sb" -type f
       - name: Build icons
         run: pnpm build:icons
       - name: Build presets
