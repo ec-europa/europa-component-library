@@ -26,10 +26,7 @@ const correctCmsImagesPath = require('./src/utils/correctCmsImagesPath')({
   replace: `${publicPath}cms-images`,
 });
 
-const includePaths = [
-  path.resolve(__dirname, '../../node_modules'),
-  './node_modules',
-];
+const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 const environmentModulePath = require.resolve(
@@ -123,7 +120,6 @@ module.exports = {
     publicPath,
   },
   resolve: {
-    modules: [path.resolve(__dirname, 'node_modules'), './node_modules'],
     // These are the reasonable defaults supported by the Node ecosystem.
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:

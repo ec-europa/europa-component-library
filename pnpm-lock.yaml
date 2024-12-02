@@ -2696,7 +2696,7 @@ importers:
 
   src/specs/components/carousel: {}
 
-  src/specs/components/category-fiter: {}
+  src/specs/components/category-filter: {}
 
   src/specs/components/checkbox: {}
 
@@ -2981,7 +2981,16 @@ importers:
 
   src/website:
     dependencies:
+      '@ecl/preset-ec':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)(svg4everybody@2.1.9)
+      '@ecl/preset-eu':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)(svg4everybody@2.1.9)
       '@ecl/resources-ec-logo':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/resources-ec-social-icons':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/resources-eu-logo':
@@ -2996,6 +3005,351 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/specs-component-accordion':
+        specifier: file://../specs/components/accordion
+        version: link:../specs/components/accordion
+      '@ecl/specs-component-banner':
+        specifier: file://../specs/components/banner
+        version: link:../specs/components/banner
+      '@ecl/specs-component-blockquote':
+        specifier: file://../specs/components/blockquote
+        version: link:../specs/components/blockquote
+      '@ecl/specs-component-breadcrumb':
+        specifier: file://../specs/components/breadcrumb
+        version: link:../specs/components/breadcrumb
+      '@ecl/specs-component-button':
+        specifier: file://../specs/components/button
+        version: link:../specs/components/button
+      '@ecl/specs-component-card':
+        specifier: file://../specs/components/card
+        version: link:../specs/components/card
+      '@ecl/specs-component-carousel':
+        specifier: file://../specs/components/carousel
+        version: link:../specs/components/carousel
+      '@ecl/specs-component-category-filter':
+        specifier: file://../specs/components/category-filter
+        version: link:../specs/components/category-filter
+      '@ecl/specs-component-checkbox':
+        specifier: file://../specs/components/checkbox
+        version: link:../specs/components/checkbox
+      '@ecl/specs-component-content-block':
+        specifier: file://../specs/components/content-block
+        version: link:../specs/components/content-block
+      '@ecl/specs-component-content-item':
+        specifier: file://../specs/components/content-item
+        version: link:../specs/components/content-item
+      '@ecl/specs-component-date-block':
+        specifier: file://../specs/components/date-block
+        version: link:../specs/components/date-block
+      '@ecl/specs-component-datepicker':
+        specifier: file://../specs/components/datepicker
+        version: link:../specs/components/datepicker
+      '@ecl/specs-component-description-list':
+        specifier: file://../specs/components/description-list
+        version: link:../specs/components/description-list
+      '@ecl/specs-component-expandable':
+        specifier: file://../specs/components/expandable
+        version: link:../specs/components/expandable
+      '@ecl/specs-component-fact-figures':
+        specifier: file://../specs/components/fact-figures
+        version: link:../specs/components/fact-figures
+      '@ecl/specs-component-featured-item':
+        specifier: file://../specs/components/featured-item
+        version: link:../specs/components/featured-item
+      '@ecl/specs-component-file':
+        specifier: file://../specs/components/file
+        version: link:../specs/components/file
+      '@ecl/specs-component-file-upload':
+        specifier: file://../specs/components/file-upload
+        version: link:../specs/components/file-upload
+      '@ecl/specs-component-gallery':
+        specifier: file://../specs/components/gallery
+        version: link:../specs/components/gallery
+      '@ecl/specs-component-icon':
+        specifier: file://../specs/components/icon
+        version: link:../specs/components/icon
+      '@ecl/specs-component-inpage-navigation':
+        specifier: file://../specs/components/inpage-navigation
+        version: link:../specs/components/inpage-navigation
+      '@ecl/specs-component-label':
+        specifier: file://../specs/components/label
+        version: link:../specs/components/label
+      '@ecl/specs-component-link':
+        specifier: file://../specs/components/link
+        version: link:../specs/components/link
+      '@ecl/specs-component-list-illustration':
+        specifier: file://../specs/components/list-illustration
+        version: link:../specs/components/list-illustration
+      '@ecl/specs-component-media-container':
+        specifier: file://../specs/components/media-container
+        version: link:../specs/components/media-container
+      '@ecl/specs-component-mega-menu':
+        specifier: file://../specs/components/mega-menu
+        version: link:../specs/components/mega-menu
+      '@ecl/specs-component-menu':
+        specifier: file://../specs/components/menu
+        version: link:../specs/components/menu
+      '@ecl/specs-component-modal':
+        specifier: file://../specs/components/modal
+        version: link:../specs/components/modal
+      '@ecl/specs-component-navigation-list':
+        specifier: file://../specs/components/navigation-list
+        version: link:../specs/components/navigation-list
+      '@ecl/specs-component-news-ticker':
+        specifier: file://../specs/components/news-ticker
+        version: link:../specs/components/news-ticker
+      '@ecl/specs-component-notification':
+        specifier: file://../specs/components/notification
+        version: link:../specs/components/notification
+      '@ecl/specs-component-ordered-list':
+        specifier: file://../specs/components/ordered-list
+        version: link:../specs/components/ordered-list
+      '@ecl/specs-component-page-header':
+        specifier: file://../specs/components/page-header
+        version: link:../specs/components/page-header
+      '@ecl/specs-component-pagination':
+        specifier: file://../specs/components/pagination
+        version: link:../specs/components/pagination
+      '@ecl/specs-component-popover':
+        specifier: file://../specs/components/popover
+        version: link:../specs/components/popover
+      '@ecl/specs-component-radio':
+        specifier: file://../specs/components/radio
+        version: link:../specs/components/radio
+      '@ecl/specs-component-range':
+        specifier: file://../specs/components/range
+        version: link:../specs/components/range
+      '@ecl/specs-component-rating-field':
+        specifier: file://../specs/components/rating-field
+        version: link:../specs/components/rating-field
+      '@ecl/specs-component-search-form':
+        specifier: file://../specs/components/search-form
+        version: link:../specs/components/search-form
+      '@ecl/specs-component-select':
+        specifier: file://../specs/components/select
+        version: link:../specs/components/select
+      '@ecl/specs-component-site-footer':
+        specifier: file://../specs/components/site-footer
+        version: link:../specs/components/site-footer
+      '@ecl/specs-component-site-header':
+        specifier: file://../specs/components/site-header
+        version: link:../specs/components/site-header
+      '@ecl/specs-component-skip-link':
+        specifier: file://../specs/components/skip-link
+        version: link:../specs/components/skip-link
+      '@ecl/specs-component-social-media-follow':
+        specifier: file://../specs/components/social-media-follow
+        version: link:../specs/components/social-media-follow
+      '@ecl/specs-component-social-media-share':
+        specifier: file://../specs/components/social-media-share
+        version: link:../specs/components/social-media-share
+      '@ecl/specs-component-spinner':
+        specifier: file://../specs/components/spinner
+        version: link:../specs/components/spinner
+      '@ecl/specs-component-splash-page':
+        specifier: file://../specs/components/splash-page
+        version: link:../specs/components/splash-page
+      '@ecl/specs-component-table':
+        specifier: file://../specs/components/table
+        version: link:../specs/components/table
+      '@ecl/specs-component-tabs':
+        specifier: file://../specs/components/tabs
+        version: link:../specs/components/tabs
+      '@ecl/specs-component-tag':
+        specifier: file://../specs/components/tag
+        version: link:../specs/components/tag
+      '@ecl/specs-component-text-area':
+        specifier: file://../specs/components/text-area
+        version: link:../specs/components/text-area
+      '@ecl/specs-component-text-input':
+        specifier: file://../specs/components/text-input
+        version: link:../specs/components/text-input
+      '@ecl/specs-component-timeline':
+        specifier: file://../specs/components/timeline
+        version: link:../specs/components/timeline
+      '@ecl/specs-component-unordered-list':
+        specifier: file://../specs/components/unordered-list
+        version: link:../specs/components/unordered-list
+      '@ecl/specs-utils-typography':
+        specifier: file://../specs/utilities/typography
+        version: link:../specs/utilities/typography
+      '@ecl/theme-ec':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/theme-eu':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-accordion':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-banner':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-blockquote':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-breadcrumb':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-button':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-card':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-carousel':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-category-filter':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-checkbox':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-content-block':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-content-item':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-date-block':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-datepicker':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-description-list':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-expandable':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-fact-figures':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-featured-item':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-file':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-file-upload':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-form-group':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-gallery':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-icon':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-inpage-navigation':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-label':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-link':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-list-illustration':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-media-container':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-mega-menu':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-modal':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-navigation-list':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-news-ticker':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-notification':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-ordered-list':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-page-header':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-pagination':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-popover':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-radio':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-range':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-rating-field':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-search-form':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-select':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-separator':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-site-footer':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-site-header':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-skip-link':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-social-media-follow':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-social-media-share':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-spinner':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-splash-page':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-table':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-tabs':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-tag':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-text-area':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-text-input':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-timeline':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-component-unordered-list':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/twig-layout-grid':
+        specifier: file://../implementations/twig/layout/grid
+        version: link:../implementations/twig/layout/grid
       '@ecl/vanilla-layout-grid':
         specifier: 4.8.1
         version: 4.8.1
@@ -3998,6 +4352,12 @@ packages:
   '@ecl/dom-utils@4.8.1':
     resolution: {integrity: sha512-dssLyzG8cXdLF9+iSzGRc/li2KAQC7+ORinmtZ+z58ZE6nxUX9/NsGJunFnb/ZjssjQxP2QUe7GT1CIU2P8c0w==}
 
+  '@ecl/preset-ec@4.8.1':
+    resolution: {integrity: sha512-PaJn6FszhW8Y3xQz5SimnVOELvQf8WCdEyk2Rvh7WgP8rwXRl7R5jgVhp9t1L2XvxfJvYNt1H7jnaaF+EhXFNQ==}
+
+  '@ecl/preset-eu@4.8.1':
+    resolution: {integrity: sha512-K+oohbemUCFm2k7Q0UptLeUg7epKhOarxVbUWlR7YwJx9CaS5tGRZZ4aGHtwAVoe5fpbockrsB9t6xLnQwrt0A==}
+
   '@ecl/preset-reset@4.8.1':
     resolution: {integrity: sha512-/1KnkdPb3MuRBiXa4dV5PeMQ5BPLJeh1xCjTCKXmGcPwhRIThvGGTCauxIbwfMxaa1Ih8/FqPISXDhgV4CiQpg==}
 
@@ -4205,6 +4565,9 @@ packages:
   '@ecl/twig-component-banner@4.8.1':
     resolution: {integrity: sha512-stPvKFzxrY+qxyiolm4UjbQLaSJhelM9QZVmdkxM22zYahhUppPE6VSMat4UgqpT7TI6Kxm8a/6GcaasxLDykw==}
 
+  '@ecl/twig-component-blockquote@4.8.1':
+    resolution: {integrity: sha512-dhxCiFqUt3fr/dyg/mPfth9cWOdQMN/7T1OyXegFlBvwo+Trmru0TddP2UnDcwLy2a1oh1wncmajO2s/76GwWA==}
+
   '@ecl/twig-component-breadcrumb@4.8.1':
     resolution: {integrity: sha512-ImEnR9t2UIQriSUXYeI+G9qz9Ddfy26iT2pWA7Fn8ue4XGzMKOe2ePQlHfHbFOq5viIrTYECS1YVtkYa/Syarw==}
 
@@ -4213,6 +4576,12 @@ packages:
 
   '@ecl/twig-component-card@4.8.1':
     resolution: {integrity: sha512-HvpQMSHP1M9huTPAm0MdrMiheOs31uXrHI3VCn5qefsXxMsF+9qrA0+RbLQKHCMzGCE/0LAqinihslAxko/Tog==}
+
+  '@ecl/twig-component-carousel@4.8.1':
+    resolution: {integrity: sha512-+z4gyotksirkgH4+77FyJ3KKKNbfRjKXBLnQIs/ULrC8ScQmKUdPzU6gESp63Ix86ieA+DDDCO8OD93WT16kZQ==}
+
+  '@ecl/twig-component-category-filter@4.8.1':
+    resolution: {integrity: sha512-y4tU43Mf34LAyY9qtNxNpRcadSid9k7ztgolVjFARGkovqduIXKH9tctEJuPOMe/kqLMKgSEMQE+pV6stbsjNg==}
 
   '@ecl/twig-component-checkbox@4.8.1':
     resolution: {integrity: sha512-AaGockTb0ZC94IqtZy1a8sMAI9Jnn4GvL4pGu3NYy9o1IqkZym4LI8mJGbxBHtMSbO5NCNSgb3/2kIga8Gxk/w==}
@@ -4234,6 +4603,9 @@ packages:
 
   '@ecl/twig-component-expandable@4.8.1':
     resolution: {integrity: sha512-jjzl0A5i/2PQ2A/pRsUOUV0KoRoHBk9t6xvblBU1ym+O0RNIPSHH5YCaZDRCdppWf+N81Qwls0iSBPEcZZZoQQ==}
+
+  '@ecl/twig-component-fact-figures@4.8.1':
+    resolution: {integrity: sha512-lHYwa1Bz0rskYKjels0dmzkBjwvxsci5Vqi7Lp3ASCs2f9qwxrs22gEqZJrb/Yd+HHiuN5mwK9/fWKsRygRxRQ==}
 
   '@ecl/twig-component-featured-item@4.8.1':
     resolution: {integrity: sha512-rZtTE5KUxfpOJZ/WtRSGfzhg8f9/ZDeyoClg7No8J3uGnjdfYqXsM3r+g7lEMkf+hUT5p6Y1pF5247I7ooxkAg==}
@@ -4262,17 +4634,32 @@ packages:
   '@ecl/twig-component-link@4.8.1':
     resolution: {integrity: sha512-WcuUsNJO871uAOVNp1UlExLdInOp1pGlYPxG+TuD37rIuSMS0RBhroB2rpdhV7zGyFR8f0l/2AVJht1LNfq5qg==}
 
+  '@ecl/twig-component-list-illustration@4.8.1':
+    resolution: {integrity: sha512-OV9L1743vHYt+Aj8K5aszcZfbLL5i1K6L3CZfmIzkNWv/NPhuR/uMlKfwQ61HEZvUcdQbPLB3nyAPOrAXxFtLQ==}
+
   '@ecl/twig-component-media-container@4.8.1':
     resolution: {integrity: sha512-7ceW3j4IwtGNfp4wgznWNvyBDY7g8sX97E4P4N9FBLHWXA54Vv05cm8fVdB7sM5NrG6JEpu25gNz1TXKaNT7gg==}
+
+  '@ecl/twig-component-mega-menu@4.8.1':
+    resolution: {integrity: sha512-1dVgqEbGMFCVP7TLvS/QUHyE2xHtW+QREwlLt4T6jR7xh2IcW0rLQfEd3URvOi3Ym9GjHvT63zUS7wSfOsY/3A==}
 
   '@ecl/twig-component-menu@4.8.1':
     resolution: {integrity: sha512-m+D/6aKemvJW5aIXBx+967ob7+YhVgfoHAhwjaqnNjkikC/9WpcEB7FRZKJCR8kbpQSt6nyM792dlsx55zcWdw==}
 
+  '@ecl/twig-component-modal@4.8.1':
+    resolution: {integrity: sha512-Da/1Hb/bHMjqc3UHjgHUIZ8uNAM9yJilWp3jn22W1ChB5YeWCSiFke2T3iERlSoesqKHIAan2DOW7yREpYdXrw==}
+
   '@ecl/twig-component-navigation-list@4.8.1':
     resolution: {integrity: sha512-dljJtU4eAwDQh5khtNVBqnZbW98Cx1D15QXHK2a+TvVC5etYC3AZ06MaLl0+F3cfQ/TaFlvESoF4Eu+WDbPUkQ==}
 
+  '@ecl/twig-component-news-ticker@4.8.1':
+    resolution: {integrity: sha512-OhR3Ps1R0smQk1BvlL0Lgk61BAoGaqUOo0Ayq6rD1izlnRKZQAbf6IqyppoJQOQvrqzdvgo3WZjlLe1GRRXyDw==}
+
   '@ecl/twig-component-notification@4.8.1':
     resolution: {integrity: sha512-iTOx470y96vhL0GJwYbm12MdSEvnJpTLUzlAK7nFr1HjCQfwW8e3+Rq4v1yCx/nj2ZOJiGCW36HLK7tMSVBPtQ==}
+
+  '@ecl/twig-component-ordered-list@4.8.1':
+    resolution: {integrity: sha512-kHGHCkcWsmA2dOAoqwVBrhgcqWXABinkQIMz3Qv2DcltonVPZf0sNwe+qlitgkAJIAx/9OCm4y7Gh1yewe1eZQ==}
 
   '@ecl/twig-component-page-header@4.8.1':
     resolution: {integrity: sha512-WSr7lAi1CVPDk3mdvMhYEVxUpgVLC+I+BNBhebGsvFrqR2Ey2UcEsJHsnpucXW5Pjj3R2EDRftA/znsXi8UpUw==}
@@ -4301,14 +4688,35 @@ packages:
   '@ecl/twig-component-select@4.8.1':
     resolution: {integrity: sha512-bX6zwB4wOcaPEDqoXDwpUbelIleuWzhJpUcErQm15+A3veUA/DCkWhLrTXF60/wDAJ3m/ZkPiWq8CrjMk+inlg==}
 
+  '@ecl/twig-component-separator@4.8.1':
+    resolution: {integrity: sha512-cVQ6tzCC1pyBt7qgq7Rn5hl+OV7qiOp2jTZa8d4hvCLJewuPp9UW/E5UFwougC6Wn1fFzW9hM2iGP3i8urDB9A==}
+
   '@ecl/twig-component-site-footer@4.8.1':
     resolution: {integrity: sha512-x5aNgMAfIJT5dJRbhFmVWxl+/MXQZCGExHF22U6p/fESIKsSlrBNvtv7lxPh1YDanXM+0AY5QwG5pjSvbd1ikQ==}
 
   '@ecl/twig-component-site-header@4.8.1':
     resolution: {integrity: sha512-LBzMThF59fBKIz9HMwL1ApzDtEYZT1MMml3x63cAA3lN0Hf+7sNV5aDrw+QmNrgYWbMpsZNw6BkUvX7hWwcs8w==}
 
+  '@ecl/twig-component-skip-link@4.8.1':
+    resolution: {integrity: sha512-At5jaAAW0DOKxdCT1kPrmXAd8HAT+sNY6T1kH1wW0Rwo5KwttJYsgo8VD4nodc8p2SBpme5ITIErdxK2hfhfxA==}
+
+  '@ecl/twig-component-social-media-follow@4.8.1':
+    resolution: {integrity: sha512-Q3rAoA3AxQWX+bCCNxG/cP5iSMA8yA6Q77BBQUtMhndFd7YqjoyjmblnJUQ9rexXgAyFL5zhiwC5pFdyrS88jA==}
+
+  '@ecl/twig-component-social-media-share@4.8.1':
+    resolution: {integrity: sha512-TMO8ptKX2PboNCMxRKTlPk7m/5ROf4OuZ7BsmCbU13A8NbpQLyCUGW5bJfa0c919+ChnD9qcY1qGH4sNjANGfw==}
+
   '@ecl/twig-component-spinner@4.8.1':
     resolution: {integrity: sha512-wwMwlqBmNYl5OZ2tGMJRbTyRTbrtbCqXP+X8mzTNo5LeppqZgC+WTI2Oupf9vvOkgIAqERnjEkUrdsxUmC3dbw==}
+
+  '@ecl/twig-component-splash-page@4.8.1':
+    resolution: {integrity: sha512-GiOqxm8h8sLy310n0y88GPVFFoe34gwsqqQZr+1uQoVEGdWUdvpciGC6YxhuKF8QxakIRzLTk59xNurBkSC50g==}
+
+  '@ecl/twig-component-table@4.8.1':
+    resolution: {integrity: sha512-gSsdajovq9fwX8A5ksUUz3NggTDZ012LqOYdGgg0cL9o3/oE1AL+BTQZDEUxkJ753mU9gIyDSfWdncFAjaFmdw==}
+
+  '@ecl/twig-component-tabs@4.8.1':
+    resolution: {integrity: sha512-MFdqnaH2pbQY/HYTCHRL7HO3YMlWEWDUGtmRNCdmiIzoj9l3/mGm6vB+kmuz24sdNkNvQWx22VToloYQo1439w==}
 
   '@ecl/twig-component-tag@4.8.1':
     resolution: {integrity: sha512-xiNPK4HeNZKMfjEcnwtiLBmEcbUYu+fjwSwnMiGd1qyn6vNiEZXuGp0U/zGgqxLhZxwsQZTLb9gFkN2eMdpT4Q==}
@@ -4318,6 +4726,9 @@ packages:
 
   '@ecl/twig-component-text-input@4.8.1':
     resolution: {integrity: sha512-sMd7x117ZgzQQAPm2WhLrbdsy5FAASGJUVOekWAip56oa3FUD5J7WwOMNvxdd+jMWf3Oznu0UasqBUuhaAOyyA==}
+
+  '@ecl/twig-component-timeline@4.8.1':
+    resolution: {integrity: sha512-W8wSObvs7oFFXzLRKaMoVPt1EfUpBKGPK6ATqj492faYjC0PfpksBTi3o7+ImiyvTarOBHX9xcb+T5hGsp3rtQ==}
 
   '@ecl/twig-component-unordered-list@4.8.1':
     resolution: {integrity: sha512-A+EkHsV/jjMPlIe5DJYLEiKq/ot8FuX4jRMYjW6lzftRQexio3Ul1XCmKAgpXMkS5sWZNAIEO9CN+/X8Gyavlg==}
@@ -14119,6 +14530,172 @@ snapshots:
 
   '@ecl/dom-utils@4.8.1': {}
 
+  '@ecl/preset-ec@4.8.1(eslint@8.57.0)(svg4everybody@2.1.9)':
+    dependencies:
+      '@ecl/dom-utils': 4.8.1
+      '@ecl/vanilla-component-accordion': 4.8.1
+      '@ecl/vanilla-component-banner': 4.8.1
+      '@ecl/vanilla-component-blockquote': 4.8.1
+      '@ecl/vanilla-component-breadcrumb': 4.8.1
+      '@ecl/vanilla-component-button': 4.8.1
+      '@ecl/vanilla-component-card': 4.8.1
+      '@ecl/vanilla-component-carousel': 4.8.1
+      '@ecl/vanilla-component-category-filter': 4.8.1
+      '@ecl/vanilla-component-checkbox': 4.8.1
+      '@ecl/vanilla-component-content-block': 4.8.1
+      '@ecl/vanilla-component-content-item': 4.8.1
+      '@ecl/vanilla-component-date-block': 4.8.1
+      '@ecl/vanilla-component-datepicker': 4.8.1
+      '@ecl/vanilla-component-description-list': 4.8.1
+      '@ecl/vanilla-component-expandable': 4.8.1
+      '@ecl/vanilla-component-fact-figures': 4.8.1
+      '@ecl/vanilla-component-featured-item': 4.8.1
+      '@ecl/vanilla-component-file': 4.8.1
+      '@ecl/vanilla-component-file-upload': 4.8.1
+      '@ecl/vanilla-component-form-group': 4.8.1
+      '@ecl/vanilla-component-gallery': 4.8.1
+      '@ecl/vanilla-component-icon': 4.8.1(svg4everybody@2.1.9)
+      '@ecl/vanilla-component-inpage-navigation': 4.8.1
+      '@ecl/vanilla-component-label': 4.8.1
+      '@ecl/vanilla-component-link': 4.8.1
+      '@ecl/vanilla-component-list-illustration': 4.8.1
+      '@ecl/vanilla-component-media-container': 4.8.1
+      '@ecl/vanilla-component-menu': 4.8.1
+      '@ecl/vanilla-component-modal': 4.8.1
+      '@ecl/vanilla-component-navigation-list': 4.8.1
+      '@ecl/vanilla-component-news-ticker': 4.8.1
+      '@ecl/vanilla-component-notification': 4.8.1
+      '@ecl/vanilla-component-ordered-list': 4.8.1
+      '@ecl/vanilla-component-page-header': 4.8.1
+      '@ecl/vanilla-component-pagination': 4.8.1
+      '@ecl/vanilla-component-popover': 4.8.1
+      '@ecl/vanilla-component-radio': 4.8.1
+      '@ecl/vanilla-component-range': 4.8.1
+      '@ecl/vanilla-component-rating-field': 4.8.1
+      '@ecl/vanilla-component-search-form': 4.8.1
+      '@ecl/vanilla-component-select': 4.8.1(eslint@8.57.0)
+      '@ecl/vanilla-component-separator': 4.8.1
+      '@ecl/vanilla-component-site-footer': 4.8.1
+      '@ecl/vanilla-component-site-header': 4.8.1
+      '@ecl/vanilla-component-skip-link': 4.8.1
+      '@ecl/vanilla-component-social-media-follow': 4.8.1
+      '@ecl/vanilla-component-social-media-share': 4.8.1
+      '@ecl/vanilla-component-spinner': 4.8.1
+      '@ecl/vanilla-component-splash-page': 4.8.1
+      '@ecl/vanilla-component-table': 4.8.1(eslint@8.57.0)
+      '@ecl/vanilla-component-tabs': 4.8.1
+      '@ecl/vanilla-component-tag': 4.8.1
+      '@ecl/vanilla-component-text-area': 4.8.1
+      '@ecl/vanilla-component-text-input': 4.8.1
+      '@ecl/vanilla-component-timeline': 4.8.1
+      '@ecl/vanilla-component-unordered-list': 4.8.1
+      '@ecl/vanilla-component-video': 4.8.1
+      '@ecl/vanilla-utility-background': 4.8.1
+      '@ecl/vanilla-utility-border': 4.8.1
+      '@ecl/vanilla-utility-clearfix': 4.8.1
+      '@ecl/vanilla-utility-dimension': 4.8.1
+      '@ecl/vanilla-utility-disablescroll': 4.8.1
+      '@ecl/vanilla-utility-display': 4.8.1
+      '@ecl/vanilla-utility-flex': 4.8.1
+      '@ecl/vanilla-utility-float': 4.8.1
+      '@ecl/vanilla-utility-media': 4.8.1
+      '@ecl/vanilla-utility-print': 4.8.1
+      '@ecl/vanilla-utility-screen-reader': 4.8.1
+      '@ecl/vanilla-utility-shadow': 4.8.1
+      '@ecl/vanilla-utility-spacing': 4.8.1
+      '@ecl/vanilla-utility-typography': 4.8.1
+      '@ecl/vanilla-utility-z-index': 4.8.1
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - eslint
+      - supports-color
+      - svg4everybody
+      - utf-8-validate
+
+  '@ecl/preset-eu@4.8.1(eslint@8.57.0)(svg4everybody@2.1.9)':
+    dependencies:
+      '@ecl/dom-utils': 4.8.1
+      '@ecl/vanilla-component-accordion': 4.8.1
+      '@ecl/vanilla-component-banner': 4.8.1
+      '@ecl/vanilla-component-blockquote': 4.8.1
+      '@ecl/vanilla-component-breadcrumb': 4.8.1
+      '@ecl/vanilla-component-button': 4.8.1
+      '@ecl/vanilla-component-card': 4.8.1
+      '@ecl/vanilla-component-carousel': 4.8.1
+      '@ecl/vanilla-component-category-filter': 4.8.1
+      '@ecl/vanilla-component-checkbox': 4.8.1
+      '@ecl/vanilla-component-content-block': 4.8.1
+      '@ecl/vanilla-component-content-item': 4.8.1
+      '@ecl/vanilla-component-date-block': 4.8.1
+      '@ecl/vanilla-component-datepicker': 4.8.1
+      '@ecl/vanilla-component-description-list': 4.8.1
+      '@ecl/vanilla-component-expandable': 4.8.1
+      '@ecl/vanilla-component-fact-figures': 4.8.1
+      '@ecl/vanilla-component-featured-item': 4.8.1
+      '@ecl/vanilla-component-file': 4.8.1
+      '@ecl/vanilla-component-file-upload': 4.8.1
+      '@ecl/vanilla-component-form-group': 4.8.1
+      '@ecl/vanilla-component-gallery': 4.8.1
+      '@ecl/vanilla-component-icon': 4.8.1(svg4everybody@2.1.9)
+      '@ecl/vanilla-component-inpage-navigation': 4.8.1
+      '@ecl/vanilla-component-label': 4.8.1
+      '@ecl/vanilla-component-link': 4.8.1
+      '@ecl/vanilla-component-list-illustration': 4.8.1
+      '@ecl/vanilla-component-media-container': 4.8.1
+      '@ecl/vanilla-component-menu': 4.8.1
+      '@ecl/vanilla-component-modal': 4.8.1
+      '@ecl/vanilla-component-navigation-list': 4.8.1
+      '@ecl/vanilla-component-news-ticker': 4.8.1
+      '@ecl/vanilla-component-notification': 4.8.1
+      '@ecl/vanilla-component-ordered-list': 4.8.1
+      '@ecl/vanilla-component-page-header': 4.8.1
+      '@ecl/vanilla-component-pagination': 4.8.1
+      '@ecl/vanilla-component-popover': 4.8.1
+      '@ecl/vanilla-component-radio': 4.8.1
+      '@ecl/vanilla-component-range': 4.8.1
+      '@ecl/vanilla-component-rating-field': 4.8.1
+      '@ecl/vanilla-component-search-form': 4.8.1
+      '@ecl/vanilla-component-select': 4.8.1(eslint@8.57.0)
+      '@ecl/vanilla-component-separator': 4.8.1
+      '@ecl/vanilla-component-site-footer': 4.8.1
+      '@ecl/vanilla-component-site-header': 4.8.1
+      '@ecl/vanilla-component-skip-link': 4.8.1
+      '@ecl/vanilla-component-social-media-follow': 4.8.1
+      '@ecl/vanilla-component-social-media-share': 4.8.1
+      '@ecl/vanilla-component-spinner': 4.8.1
+      '@ecl/vanilla-component-splash-page': 4.8.1
+      '@ecl/vanilla-component-table': 4.8.1(eslint@8.57.0)
+      '@ecl/vanilla-component-tabs': 4.8.1
+      '@ecl/vanilla-component-tag': 4.8.1
+      '@ecl/vanilla-component-text-area': 4.8.1
+      '@ecl/vanilla-component-text-input': 4.8.1
+      '@ecl/vanilla-component-timeline': 4.8.1
+      '@ecl/vanilla-component-unordered-list': 4.8.1
+      '@ecl/vanilla-component-video': 4.8.1
+      '@ecl/vanilla-utility-background': 4.8.1
+      '@ecl/vanilla-utility-border': 4.8.1
+      '@ecl/vanilla-utility-clearfix': 4.8.1
+      '@ecl/vanilla-utility-dimension': 4.8.1
+      '@ecl/vanilla-utility-disablescroll': 4.8.1
+      '@ecl/vanilla-utility-display': 4.8.1
+      '@ecl/vanilla-utility-flex': 4.8.1
+      '@ecl/vanilla-utility-float': 4.8.1
+      '@ecl/vanilla-utility-media': 4.8.1
+      '@ecl/vanilla-utility-print': 4.8.1
+      '@ecl/vanilla-utility-screen-reader': 4.8.1
+      '@ecl/vanilla-utility-shadow': 4.8.1
+      '@ecl/vanilla-utility-spacing': 4.8.1
+      '@ecl/vanilla-utility-typography': 4.8.1
+      '@ecl/vanilla-utility-z-index': 4.8.1
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - eslint
+      - supports-color
+      - svg4everybody
+      - utf-8-validate
+
   '@ecl/preset-reset@4.8.1': {}
 
   '@ecl/preset-rtl@4.8.1': {}
@@ -14270,6 +14847,10 @@ snapshots:
       '@ecl/twig-component-picture': 4.8.1
       '@ecl/twig-component-video': 4.8.1
 
+  '@ecl/twig-component-blockquote@4.8.1':
+    dependencies:
+      '@ecl/twig-component-picture': 4.8.1
+
   '@ecl/twig-component-breadcrumb@4.8.1':
     dependencies:
       '@ecl/twig-component-button': 4.8.1
@@ -14284,6 +14865,15 @@ snapshots:
     dependencies:
       '@ecl/twig-component-content-block': 4.8.1
       '@ecl/twig-component-picture': 4.8.1
+
+  '@ecl/twig-component-carousel@4.8.1':
+    dependencies:
+      '@ecl/twig-component-banner': 4.8.1
+      '@ecl/twig-component-button': 4.8.1
+
+  '@ecl/twig-component-category-filter@4.8.1':
+    dependencies:
+      '@ecl/twig-component-icon': 4.8.1
 
   '@ecl/twig-component-checkbox@4.8.1':
     dependencies:
@@ -14316,6 +14906,11 @@ snapshots:
   '@ecl/twig-component-expandable@4.8.1':
     dependencies:
       '@ecl/twig-component-button': 4.8.1
+
+  '@ecl/twig-component-fact-figures@4.8.1':
+    dependencies:
+      '@ecl/twig-component-icon': 4.8.1
+      '@ecl/twig-component-link': 4.8.1
 
   '@ecl/twig-component-featured-item@4.8.1':
     dependencies:
@@ -14368,26 +14963,49 @@ snapshots:
     dependencies:
       '@ecl/twig-component-icon': 4.8.1
 
+  '@ecl/twig-component-list-illustration@4.8.1':
+    dependencies:
+      '@ecl/twig-component-icon': 4.8.1
+      '@ecl/twig-component-picture': 4.8.1
+
   '@ecl/twig-component-media-container@4.8.1':
     dependencies:
       '@ecl/twig-component-expandable': 4.8.1
       '@ecl/twig-component-picture': 4.8.1
       '@ecl/twig-component-video': 4.8.1
 
+  '@ecl/twig-component-mega-menu@4.8.1':
+    dependencies:
+      '@ecl/twig-component-button': 4.8.1
+      '@ecl/twig-component-link': 4.8.1
+
   '@ecl/twig-component-menu@4.8.1':
     dependencies:
       '@ecl/twig-component-button': 4.8.1
       '@ecl/twig-component-link': 4.8.1
+
+  '@ecl/twig-component-modal@4.8.1':
+    dependencies:
+      '@ecl/twig-component-button': 4.8.1
+      '@ecl/twig-component-icon': 4.8.1
 
   '@ecl/twig-component-navigation-list@4.8.1':
     dependencies:
       '@ecl/twig-component-content-block': 4.8.1
       '@ecl/twig-component-picture': 4.8.1
 
+  '@ecl/twig-component-news-ticker@4.8.1':
+    dependencies:
+      '@ecl/twig-component-button': 4.8.1
+      '@ecl/twig-component-icon': 4.8.1
+      '@ecl/twig-component-link': 4.8.1
+
   '@ecl/twig-component-notification@4.8.1':
     dependencies:
       '@ecl/twig-component-button': 4.8.1
       '@ecl/twig-component-icon': 4.8.1
+
+  '@ecl/twig-component-ordered-list@4.8.1': {}
 
   '@ecl/twig-component-page-header@4.8.1':
     dependencies:
@@ -14421,6 +15039,8 @@ snapshots:
     dependencies:
       '@ecl/twig-component-button': 4.8.1
 
+  '@ecl/twig-component-separator@4.8.1': {}
+
   '@ecl/twig-component-site-footer@4.8.1':
     dependencies:
       '@ecl/twig-component-link': 4.8.1
@@ -14436,7 +15056,33 @@ snapshots:
       '@ecl/twig-component-picture': 4.8.1
       '@ecl/twig-component-search-form': 4.8.1
 
+  '@ecl/twig-component-skip-link@4.8.1':
+    dependencies:
+      '@ecl/twig-component-link': 4.8.1
+
+  '@ecl/twig-component-social-media-follow@4.8.1':
+    dependencies:
+      '@ecl/twig-component-link': 4.8.1
+
+  '@ecl/twig-component-social-media-share@4.8.1':
+    dependencies:
+      '@ecl/twig-component-link': 4.8.1
+      '@ecl/twig-component-popover': 4.8.1
+
   '@ecl/twig-component-spinner@4.8.1': {}
+
+  '@ecl/twig-component-splash-page@4.8.1':
+    dependencies:
+      '@ecl/twig-component-icon': 4.8.1
+      '@ecl/twig-component-link': 4.8.1
+      '@ecl/twig-component-picture': 4.8.1
+
+  '@ecl/twig-component-table@4.8.1': {}
+
+  '@ecl/twig-component-tabs@4.8.1':
+    dependencies:
+      '@ecl/twig-component-button': 4.8.1
+      '@ecl/twig-component-link': 4.8.1
 
   '@ecl/twig-component-tag@4.8.1':
     dependencies:
@@ -14445,6 +15091,10 @@ snapshots:
   '@ecl/twig-component-text-area@4.8.1': {}
 
   '@ecl/twig-component-text-input@4.8.1': {}
+
+  '@ecl/twig-component-timeline@4.8.1':
+    dependencies:
+      '@ecl/twig-component-button': 4.8.1
 
   '@ecl/twig-component-unordered-list@4.8.1': {}
 
