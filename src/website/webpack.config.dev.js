@@ -13,7 +13,10 @@ const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
-const includePaths = [path.resolve(__dirname, '../../node_modules')];
+const includePaths = [
+  path.resolve(__dirname, '../../node_modules'),
+  './node_modules',
+];
 const publicUrl = process.env.PUBLIC_URL || '';
 const publicPath = `${publicUrl}/`;
 

@@ -26,7 +26,10 @@ const correctCmsImagesPath = require('./src/utils/correctCmsImagesPath')({
   replace: `${publicPath}cms-images`,
 });
 
-const includePaths = [path.resolve(__dirname, '../../node_modules')];
+const includePaths = [
+  path.resolve(__dirname, '../../node_modules'),
+  './node_modules',
+];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 const environmentModulePath = require.resolve(
