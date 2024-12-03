@@ -12,6 +12,17 @@ $typography: null !default;
 /*
 * Headings
 */
+.ecl-u-type-display {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography, 'display', 'mobile') !important;
+  font-weight: map.get($typography, 'display', 'font-weight') !important;
+
+  @include breakpoints.up('m') {
+    font: map.get($typography, 'display', 'desktop') !important;
+    font-weight: map.get($typography, 'display', 'font-weight') !important;
+  }
+}
+
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
   color: map.get($typography, 'heading-color');
@@ -130,48 +141,10 @@ $typography: null !default;
 /*
 * Font size
 */
-.ecl-u-type-xs {
-  font: var(--f-xs) !important;
-}
-
-.ecl-u-type-s {
-  font: var(--f-s) !important;
-}
-
-.ecl-u-type-m {
-  font: var(--f-m) !important;
-}
-
-.ecl-u-type-l {
-  font: var(--f-l) !important;
-}
-
-.ecl-u-type-xl {
-  font: var(--f-xl) !important;
-}
-
-.ecl-u-type-2xl {
-  font: var(--f-2xl) !important;
-}
-
-.ecl-u-type-3xl {
-  font: var(--f-3xl) !important;
-}
-
-.ecl-u-type-4xl {
-  font: var(--f-4xl) !important;
-}
-
-.ecl-u-type-5xl {
-  font: var(--f-5xl) !important;
-}
-
-.ecl-u-type-ui-s {
-  font: var(--f-ui-s) !important;
-}
-
-.ecl-u-type-ui-m {
-  font: var(--f-ui-m) !important;
+@each $key, $value in map.get($theme, 'font') {
+  .ecl-u-type-#{$key} {
+    font: var(--f-#{$key}) !important;
+  }
 }
 
 /*
@@ -190,16 +163,17 @@ $typography: null !default;
 }
 
 /*
+* Font weight
+*/
+@each $key, $value in map.get($theme, 'font-weight') {
+  .ecl-u-type-weight-#{$key} {
+    font-weight: $value !important;
+  }
+}
+
+/*
 * Font style
 */
-.ecl-u-type-regular {
-  font-weight: map.get($theme, 'font-weight', 'regular') !important;
-}
-
-.ecl-u-type-bold {
-  font-weight: map.get($theme, 'font-weight', 'bold') !important;
-}
-
 .ecl-u-type-capitalize {
   text-transform: capitalize !important;
 }
@@ -241,29 +215,4 @@ $typography: null !default;
 
 .ecl-u-type-align-center {
   text-align: center !important;
-}
-
-// DEPRECATED
-.ecl-u-type-6xl {
-  font: var(--f-6xl) !important;
-}
-
-.ecl-u-type-prolonged-xs {
-  font: var(--f-p-xs) !important;
-}
-
-.ecl-u-type-prolonged-s {
-  font: var(--f-p-s) !important;
-}
-
-.ecl-u-type-prolonged-m {
-  font: var(--f-p-m) !important;
-}
-
-.ecl-u-type-prolonged-l {
-  font: var(--f-p-l) !important;
-}
-
-.ecl-u-type-prolonged-xl {
-  font: var(--f-p-xl) !important;
 }

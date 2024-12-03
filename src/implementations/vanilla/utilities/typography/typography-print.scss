@@ -12,12 +12,20 @@ $typography-print: null !default;
 /*
 * Headings
 */
+.ecl-u-type-display {
+  color: map.get($typography, 'heading-color');
+  font: map.get($typography-print, 'display') !important;
+  font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
+  font-weight: map.get($typography, 'display', 'font-weight') !important;
+  margin: map.get($typography-print, 'heading-margin');
+}
+
 .ecl-u-type-heading-1,
 %ecl-heading-1 {
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading1') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight', 'bold') !important;
+  font-weight: map.get($typography, 'heading1', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -26,7 +34,7 @@ $typography-print: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading2') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  font-weight: map.get($typography, 'heading2', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -35,7 +43,7 @@ $typography-print: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading3') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  font-weight: map.get($typography, 'heading3', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -44,7 +52,7 @@ $typography-print: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading4') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  font-weight: map.get($typography, 'heading4', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -53,7 +61,7 @@ $typography-print: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading5') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  font-weight: map.get($typography, 'heading5', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -62,7 +70,7 @@ $typography-print: null !default;
   color: map.get($typography, 'heading-color');
   font: map.get($typography-print, 'heading6') !important;
   font-family: #{map.get($theme, 'font-family-print', 'alt')} !important;
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
+  font-weight: map.get($typography, 'heading6', 'font-weight') !important;
   margin: map.get($typography-print, 'heading-margin');
 }
 
@@ -94,64 +102,10 @@ $typography-print: null !default;
 /*
 * Font size
 */
-.ecl-u-type-xs {
-  font: map.get($theme, 'font-print', 'xs') !important;
-}
-
-.ecl-u-type-s {
-  font: map.get($theme, 'font-print', 's') !important;
-}
-
-.ecl-u-type-m {
-  font: map.get($theme, 'font-print', 'm') !important;
-}
-
-.ecl-u-type-l {
-  font: map.get($theme, 'font-print', 'l') !important;
-}
-
-.ecl-u-type-xl {
-  font: map.get($theme, 'font-print', 'xl') !important;
-}
-
-.ecl-u-type-2xl {
-  font: map.get($theme, 'font-print', '2xl') !important;
-}
-
-.ecl-u-type-3xl {
-  font: map.get($theme, 'font-print', '3xl') !important;
-}
-
-.ecl-u-type-4xl {
-  font: map.get($theme, 'font-print', '4xl') !important;
-}
-
-.ecl-u-type-5xl {
-  font: map.get($theme, 'font-print', '5xl') !important;
-}
-
-.ecl-u-type-6xl {
-  font: map.get($theme, 'font-print', '6xl') !important;
-}
-
-.ecl-u-type-prolonged-xs {
-  font: map.get($theme, 'font-prolonged-print', 'xs') !important;
-}
-
-.ecl-u-type-prolonged-s {
-  font: map.get($theme, 'font-prolonged-print', 's') !important;
-}
-
-.ecl-u-type-prolonged-m {
-  font: map.get($theme, 'font-prolonged-print', 'm') !important;
-}
-
-.ecl-u-type-prolonged-l {
-  font: map.get($theme, 'font-prolonged-print', 'l') !important;
-}
-
-.ecl-u-type-prolonged-xl {
-  font: map.get($theme, 'font-prolonged-print', 'xl') !important;
+@each $key, $value in map.get($theme, 'font-print') {
+  .ecl-u-type-#{$key} {
+    font: map.get($theme, 'font-print', $key) !important;
+  }
 }
 
 /*
@@ -170,16 +124,17 @@ $typography-print: null !default;
 }
 
 /*
+* Font weight
+*/
+@each $key, $value in map.get($theme, 'font-weight') {
+  .ecl-u-type-weight-#{$key} {
+    font-weight: $value !important;
+  }
+}
+
+/*
 * Font style
 */
-.ecl-u-type-regular {
-  font-weight: map.get($theme, 'font-weight-print', 'regular') !important;
-}
-
-.ecl-u-type-bold {
-  font-weight: map.get($theme, 'font-weight-print', 'bold') !important;
-}
-
 .ecl-u-type-capitalize {
   text-transform: capitalize !important;
 }
