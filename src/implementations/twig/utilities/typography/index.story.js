@@ -187,6 +187,7 @@ const getArgTypes = (story) => {
       type: 'select',
       options: [
         'ecl-u-type-none',
+        'ecl-u-type-italic',
         'ecl-u-type-lowercase',
         'ecl-u-type-uppercase',
         'ecl-u-type-capitalize',
@@ -197,6 +198,7 @@ const getArgTypes = (story) => {
       control: {
         labels: {
           'ecl-u-type-none': 'default',
+          'ecl-u-type-italic': 'italic',
           'ecl-u-type-lowercase': 'lowercase',
           'ecl-u-type-uppercase': 'uppercase',
           'ecl-u-type-capitalize': 'capitalize',
@@ -212,6 +214,7 @@ const getArgTypes = (story) => {
       },
       mapping: {
         default: 'ecl-u-type-none',
+        italic: 'ecl-u-type-italic',
         lowercase: 'ecl-u-type-lowercase',
         uppercase: 'ecl-u-type-uppercase',
         capitalize: 'ecl-u-type-capitalize',
