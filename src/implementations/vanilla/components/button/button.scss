@@ -58,8 +58,19 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   flex-shrink: 0;
 }
 
+.ecl-button__icon-container {
+  display: flex;
+  position: relative;
+}
+
+.ecl-button__indicator {
+  display: none;
+}
+
 .ecl-button__icon ~ .ecl-button__label,
-.ecl-button__label ~ .ecl-button__icon {
+.ecl-button__icon-container ~ .ecl-button__label,
+.ecl-button__label ~ .ecl-button__icon,
+.ecl-button__label ~ .ecl-button__icon-container {
   margin-inline-start: var(--s-xs);
 }
 
@@ -74,9 +85,13 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     @include screen-reader.sr-only;
   }
 
+  .ecl-button__icon,
+  .ecl-button__icon-container {
+    margin: 0;
+  }
+
   .ecl-button__icon {
     height: map.get($theme, 'icon', 'm');
-    margin: 0;
     width: map.get($theme, 'icon', 'm');
   }
 }
