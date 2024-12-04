@@ -111,6 +111,10 @@ module.exports = {
   ],
   copy: [
     {
+      from: path.resolve(nodeModules, '@ecl/resources-fonts/dist'),
+      to: path.resolve(outputFolder, 'fonts'),
+    },
+    {
       from: path.resolve(nodeModules, '@ecl/resources-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
