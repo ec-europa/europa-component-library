@@ -74,11 +74,23 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   }
 }
 
-// stylelint-disable-next-line no-descending-specificity
+.ecl-link__icon-container {
+  display: inline;
+  position: relative;
+}
+
+.ecl-link__indicator {
+  display: none;
+}
+
+// stylelint-disable no-descending-specificity
 .ecl-link__icon ~ .ecl-link__label,
-.ecl-link__label ~ .ecl-link__icon {
+.ecl-link__icon-container ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon,
+.ecl-link__label ~ .ecl-link__icon-container {
   margin-inline-start: var(--s-xs);
 }
+// stylelint-enable no-descending-specificity
 
 // Icon only
 .ecl-link--icon-only {
@@ -87,7 +99,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     @include screen-reader.sr-only;
   }
 
-  .ecl-link__icon {
+  .ecl-link__icon,
+  .ecl-link__icon-container {
     margin: 0;
   }
 }
