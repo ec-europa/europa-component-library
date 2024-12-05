@@ -5,6 +5,48 @@ title: What's new
 
 ECL v4 contains changes focused on improving the visual identity of the EC components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+# 4.9.0
+
+#### :rocket: New Feature
+
+* [#3714](https://github.com/ec-europa/europa-component-library/pull/3714) feat(button, link): add indicator - FRONT-4677 
+* [#3712](https://github.com/ec-europa/europa-component-library/pull/3712) feat(navigation-list): Adding image-as-illustration variant - FRONT-4678
+
+#### :warning: Markup Changes
+
+* [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 
+* [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 
+* [#3687](https://github.com/ec-europa/europa-component-library/pull/3687) feat(splash-page): Column display whith a low amout of items, fixing EU styles - FRONT-4662
+
+#### :warning: Data Changes
+
+* [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 
+* [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 
+
+#### :bug: Bug Fix
+
+* [#3737](https://github.com/ec-europa/europa-component-library/pull/3737) fix(showcase): Including menu markup in the showcase examples - FRONT-4689
+* [#3711](https://github.com/ec-europa/europa-component-library/pull/3711) fix(default-css): Fixing rules for links inside lists, fixing description list - FRONT-4676
+* [#3694](https://github.com/ec-europa/europa-component-library/pull/3694) feat(logos): Adding japanese logo files with correct file name, hiding the others - FRONT-4670
+* [#3684](https://github.com/ec-europa/europa-component-library/pull/3684) fix(tabs): fix rtl mobile - FRONT-4659 
+
+#### :nail_care: Enhancement
+
+* [#3721](https://github.com/ec-europa/europa-component-library/pull/3721) feat(list): update indentation - FRONT-4682 
+* [#3719](https://github.com/ec-europa/europa-component-library/pull/3719) feat(banner): improve focus for video banner - FRONT-4681 
+* [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 
+* [#3700](https://github.com/ec-europa/europa-component-library/pull/3700) chore(website): Using the existing ECL_VERSION to dynamically refer to the proper url of the CDN - FRONT-4671
+* [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 
+* [#3687](https://github.com/ec-europa/europa-component-library/pull/3687) feat(splash-page): Column display whith a low amout of items, fixing EU styles - FRONT-4662
+* [#3697](https://github.com/ec-europa/europa-component-library/pull/3697) feat(featured-item): Styles adapted to support no title use case - FRONT-4669
+* [#3692](https://github.com/ec-europa/europa-component-library/pull/3692) feat(lists): Another round on unordered and ordered list in EC and EU - FRONT-4656
+* [#3691](https://github.com/ec-europa/europa-component-library/pull/3691) feat(language-list): update active state and spacing - FRONT-4661 
+* [#3686](https://github.com/ec-europa/europa-component-library/pull/3686) feat(link): dynamic underline offset 
+
+#### :memo: Documentation
+
+* [#3720](https://github.com/ec-europa/europa-component-library/pull/3720) fix(docs): Fix wrong API name class for Menu and MegaMenu - FRONT-4685
+
 ## 4.8.0
 
 #### :warning: Markup Changes
