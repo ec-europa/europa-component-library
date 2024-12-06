@@ -58,7 +58,7 @@ $list: null !default;
 // No marker
 .ecl-ordered-list--no-marker {
   list-style-type: none;
-  padding-inline-start: map.get($list, 'ordered', 'unstyled-sublist-padding');
+  padding-inline-start: map.get($list, 'ordered', 'divider-sublist-padding');
 
   .ecl-ordered-list {
     list-style-type: none;
