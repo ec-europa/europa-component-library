@@ -16,9 +16,9 @@ npm install --save @ecl/twig-component-icon
   transform (string) (default: ''): icon transformation (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
   color (string) (default: ''): icon color (available options: 'default', 'inverted', 'primary')
   title (string) (default: ''): additional title for the icon; shortcut for extra accessibility title parameter
+  wt_markup (boolean) (default: false): should the icon use the Webtools markup?
   }
-- **"as_image"** (boolean) (default: false): should the icon be dipslayed as an image?
-- **"wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
+- **"as_image"** (boolean) (default: false): should the icon be displayed as an image?
 - **"extra_accessibility"** (associative array) (default: {}):
   {
   description (string) (default: ''): additional description

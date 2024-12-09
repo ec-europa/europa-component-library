@@ -19,28 +19,36 @@ const getArgs = (data) => ({
   color: 'default',
   transform: 'none',
   title: '',
+  description: '',
 });
 
 const getArgTypes = (data, icons) => getIconControls(data, icons, iconMapping);
 
 const prepareData = (data, args) => {
+  const clone = JSON.parse(JSON.stringify(data));
+
   if (args.color === 'default') {
     args.color = '';
   }
   if (args.transformation === 'none') {
     args.transformation = '';
   }
-  correctPaths(data);
-  data.icon.title = args.title;
-  data.icon.name = args.name;
-  data.icon.size = args.size;
-  data.icon.color = args.color;
-  data.extra_classes =
-    data.icon.color === 'inverted'
-      ? `ecl-u-bg-dark ${data.extra_classes}`
-      : data.extra_classes;
-  data.icon.transform = args.transform;
-  return data;
+  correctPaths(clone);
+  clone.icon.title = args.title;
+  clone.icon.name = args.name;
+  clone.icon.size = args.size;
+  clone.icon.color = args.color;
+  clone.extra_classes =
+    clone.icon.color === 'inverted'
+      ? `ecl-u-bg-dark ${clone.extra_classes}`
+      : clone.extra_classes;
+  clone.icon.transform = args.transform;
+  clone.extra_accessibility = {
+    ...clone.extra_accessibility,
+    description: args.description,
+  };
+
+  return clone;
 };
 
 export default {

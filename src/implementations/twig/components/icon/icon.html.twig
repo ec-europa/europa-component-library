@@ -10,9 +10,9 @@
         transform (string) (default: ''): icon transformation (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
         color (string) (default: ''): icon color (available options: 'default', 'inverted', 'primary')
         title (string) (default: ''): additional title for the icon; shortcut for extra accessibility title parameter
+        wt_markup (boolean) (default: false): should the icon use the Webtools markup?
       }
-    - "as_image" (boolean) (default: false): should the icon be dipslayed as an image?
-    - "wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
+    - "as_image" (boolean) (default: false): should the icon be displayed as an image?
     - "extra_accessibility" (associative array) (default: {}):
       {
         description (string) (default: ''): additional description
@@ -41,8 +41,8 @@
   transform: '',
   color: '',
   title: '',
+  wt_markup: false,
 }|merge(icon|default({})) %}
-{% set _wt_markup = wt_markup|default(false) %}
 
 {% set _extra_accessibility = {
   description: '',
@@ -85,8 +85,17 @@
   ]) %}
 {% endif %}
   
-{% if _extra_accessibility.title_id is not empty or _extra_accessibility.description_id is not empty %}
-  {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
+{% if _icon.wt_markup %}
+  {% if _extra_accessibility.title is not empty %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'data-title', value: _extra_accessibility.title }]) %}
+  {% endif %}
+  {% if _extra_accessibility.description is not empty %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'data-desc', value: _extra_accessibility.description }]) %}
+  {% endif %}
+{% else %}
+  {% if _extra_accessibility.title_id is not empty or _extra_accessibility.description_id is not empty %}
+    {% set extra_attributes = extra_attributes|merge([{ name: 'aria-labelledby', value: _extra_accessibility.title_id ~ ' ' ~ _extra_accessibility.description_id }]) %}
+  {% endif %}
 {% endif %}
 
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
@@ -101,43 +110,16 @@
 
 {# Print the result #}
 
-{% if _wt_markup %}
+{% if _icon.wt_markup %}
   {% set _wt_classes = '' %}
-  {% for property in ['name', 'size'] %}
-    {% if _icon[property] is defined and _icon[property] is not empty %}
-      {% set _wt_classes = _wt_classes is empty ? 'wt-icon--' ~ _icon[property] : _wt_classes ~ ' wt-icon--' ~ _icon[property] %}
-    {% endif %}
-  {% endfor %}
-
   {% if _icon.name is not empty %}
-    {% set _css_class = _css_class ~ ' ecl-icon--' ~ _icon.name %}
+    {% set _wt_classes = 'wt-icon--' ~ _icon.name %}
+    {% set _css_class = _css_class  ~ ' ecl-icon--' ~ _icon.name %}
   {% endif %}
 
   <span 
     class="{{ _wt_classes }} {{ _css_class }}"
-    focusable="false"
-    aria-hidden="{{ _aria_hidden }}"
     {{ _extra_attributes|raw }}>
-
-{% if _extra_accessibility.title is not empty %}
-    <title
-    {% if _extra_accessibility.title_id is not empty %}
-      id="{{ _extra_accessibility.title_id }}"
-    {% endif %}
-    >
-      {{- _extra_accessibility.title -}}
-    </title>
-    {% endif %}
-  {% if _extra_accessibility.description is not empty %}
-    <desc
-    {% if _extra_accessibility.description_id is not empty %}
-      id="{{ _extra_accessibility.description_id }}"
-    {% endif %}
-    >
-      {{- _extra_accessibility.description -}}
-    </desc>
-  {% endif %}
-
   </span>
 
 {% else %}
