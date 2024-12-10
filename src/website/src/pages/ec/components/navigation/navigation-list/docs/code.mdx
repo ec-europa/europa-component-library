@@ -4,7 +4,11 @@ order: 2
 ---
 
 import { Playground, Html } from '@ecl/website-components';
-import { navigationList, navigationListIllustration } from '../demo';
+import {
+  navigationList,
+  navigationListIllustration,
+  navigationListImageAsIllustration,
+} from '../demo';
 
 <Playground
   system="ec"
@@ -24,4 +28,15 @@ import { navigationList, navigationListIllustration } from '../demo';
   showFrame
 >
   <Html markup={navigationListIllustration} />
+</Playground>
+
+## With images as illustrations
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="as-illustration"
+  showFrame
+>
+  <Html markup={navigationListImageAsIllustration} />
 </Playground>
