@@ -16,7 +16,8 @@ $timeline: null !default;
   list-style: none;
   margin-bottom: 0;
   margin-inline-start: calc(
-    var(--s-l) + #{map.get($timeline, 'bullet-size')} / 2 + map.get($timeline, 'bullet-border-width')
+    var(--s-l) + #{map.get($timeline, 'bullet-size')} / 2 +
+      map.get($timeline, 'bullet-border-width')
   );
   margin-top: 0;
   padding-inline-start: 0;
@@ -54,8 +55,10 @@ $timeline: null !default;
     content: '';
     height: map.get($timeline, 'bullet-size') +
       (map.get($timeline, 'bullet-border-width') * 2);
-    left: -(#{calc(map.get($timeline, 'bullet-size') / 2) +
-          map.get($timeline, 'bullet-border-width')});
+    left: -(
+        #{calc(map.get($timeline, 'bullet-size') / 2) +
+          map.get($timeline, 'bullet-border-width')}
+      );
     position: absolute;
     top: map.get($timeline, 'bullet-top-position');
     width: map.get($timeline, 'bullet-size') +
@@ -136,10 +139,12 @@ $timeline: null !default;
 @include breakpoints.up('l') {
   .ecl-timeline__label {
     left: calc(
-      -1 * (#{map.get($timeline, 'left-spacing')} + var(--s-m) + #{map.get(
-              $timeline,
-              'bullet-size'
-            )} / 2 + map.get($timeline, 'bullet-border-width'))
+      -1 *
+        (
+          #{map.get($timeline, 'left-spacing')} + var(--s-m) +
+            #{map.get($timeline, 'bullet-size')} / 2 +
+            map.get($timeline, 'bullet-border-width')
+        )
     );
     position: map.get($timeline, 'label-layout');
     text-align: map.get($timeline, 'label-alignment');
