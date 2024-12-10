@@ -37,11 +37,8 @@ $content-block: null !default;
   flex-wrap: wrap;
   font: map.get($theme, 'font-print', 's');
   list-style: none;
-  margin: map.get($theme, 'spacing-print', 'xs') 0 -#{map.get(
-      $theme,
-      'spacing-print',
-      'xs'
-    )};
+  margin: map.get($theme, 'spacing-print', 'xs')
+    0 -#{map.get($theme, 'spacing-print', 'xs')};
   padding: 0;
   width: 100%;
 }
@@ -105,11 +102,8 @@ $content-block: null !default;
   display: inline-flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: map.get($theme, 'spacing-print', 'l') 0 -#{map.get(
-      $theme,
-      'spacing-print',
-      'xs'
-    )};
+  margin: map.get($theme, 'spacing-print', 'l')
+    0 -#{map.get($theme, 'spacing-print', 'xs')};
   padding: 0;
   width: 100%;
 }

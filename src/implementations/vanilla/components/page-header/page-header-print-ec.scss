@@ -17,11 +17,8 @@ $page-header-print: null !default;
 .ecl-page-header__info {
   margin-bottom: map.get($theme, 'spacing-print', 's');
   margin-top: calc(
-    #{map.get($theme, 'spacing-print', 'm')} + #{map.get(
-        $theme,
-        'spacing-print',
-        's'
-      )}
+    #{map.get($theme, 'spacing-print', 'm')} +
+      #{map.get($theme, 'spacing-print', 's')}
   );
 }
 
