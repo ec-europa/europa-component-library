@@ -61,18 +61,12 @@ $button: null !default;
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
   padding: calc(
-      #{map.get($button, 'padding-vertical')} - #{map.get(
-          $button,
-          #{$variant},
-          'border-width'
-        )}
+      #{map.get($button, 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     )
     calc(
-      #{map.get($button, 'padding-horizontal')} - #{map.get(
-          $button,
-          #{$variant},
-          'border-width'
-        )}
+      #{map.get($button, 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     );
 }
 
