@@ -67,10 +67,8 @@ $language-list: null !default;
     'inline-start'
   );
   padding-inline-end: calc(
-    #{map.get($language-list, 'container-padding-mobile', 'inline-end')} + #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
+    #{map.get($language-list, 'container-padding-mobile', 'inline-end')} +
+      #{map.get($language-list, 'item-active-border-width')}
   );
   position: absolute;
   right: 0;
@@ -99,10 +97,8 @@ $language-list: null !default;
   display: flex;
   justify-content: space-between;
   padding-inline-start: calc(
-    #{map.get($language-list, 'title-padding-start')} + #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
+    #{map.get($language-list, 'title-padding-start')} +
+      #{map.get($language-list, 'item-active-border-width')}
   );
 }
 
@@ -142,10 +138,8 @@ $language-list: null !default;
     'block-end'
   );
   padding-inline-start: calc(
-    #{map.get($language-list, 'category-title-padding', 'inline-start')} + #{map.get(
-        $language-list,
-        'item-active-border-width'
-      )}
+    #{map.get($language-list, 'category-title-padding', 'inline-start')} +
+      #{map.get($language-list, 'item-active-border-width')}
   );
   padding-inline-end: map.get(
     $language-list,
@@ -248,10 +242,8 @@ $language-list: null !default;
       'inline-start'
     );
     padding-inline-end: calc(
-      #{map.get($language-list, 'container-padding-desktop', 'inline-end')} + #{map.get(
-          $language-list,
-          'item-active-border-width'
-        )}
+      #{map.get($language-list, 'container-padding-desktop', 'inline-end')} +
+        #{map.get($language-list, 'item-active-border-width')}
     );
     right: auto;
     transform: translateX(-50%);
