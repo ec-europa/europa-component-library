@@ -1,3 +1,4 @@
+{% import _self as button %}
 {% apply spaceless %}
 
 {#
@@ -25,6 +26,7 @@
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
     - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
+    - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -52,6 +54,7 @@
   size: '',
   title: ''
 } %}
+{% set _indicator = indicator|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -87,6 +90,51 @@
   {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
+{# Define icon macro #}
+
+{% macro icon(_icons, _indicator, _indicator_content) %}{% apply spaceless %}
+  {% import _self as button %}
+
+  {% for icon in _icons %}
+    {% set _icon_extra_classes = 'ecl-button__icon' %}
+    {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
+      {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
+    {%- endif -%}
+    {% set _icon_extra_accessibility = {} %}
+    {% set _icon_image = false %}
+    {%- if icon.title is not empty -%}
+      {% set _icon_extra_accessibility = { title: icon.title } %}
+      {% set _icon_image = true %}
+    {%- endif -%}
+
+    {% if _indicator is not empty %}
+      <span class="ecl-button__icon-container">
+        {% include '@ecl/icon/icon.html.twig' with {
+          icon: icon,
+          as_image: _icon_image,
+          extra_accessibility: _icon_extra_accessibility,
+          extra_classes: _icon_extra_classes,
+          extra_attributes: [
+            { name: 'data-ecl-icon' }
+          ],
+        } only %}
+        {% include '@ecl/indicator/indicator.html.twig' with _indicator only %}
+      </span>
+    {% else %}
+      {% include '@ecl/icon/icon.html.twig' with {
+        icon: icon,
+        as_image: _icon_image,
+        extra_accessibility: _icon_extra_accessibility,
+        extra_classes: _icon_extra_classes,
+        extra_attributes: [
+          { name: 'data-ecl-icon' }
+        ],
+      } only %}
+    {% endif %}    
+  {% endfor %}
+
+{% endapply %}{% endmacro %}
+
 {# Print the result #}
 
 <button
@@ -97,45 +145,13 @@
 {%- if _icons is defined %}
   <span class="ecl-button__container">
   {% if _icon_position == 'before' %}
-    {% for icon in _icons %}
-      {% set _icon_extra_classes = 'ecl-button__icon' %}
-      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
-        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
-      {%- endif -%}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: icon,
-        extra_classes: _icon_extra_classes,
-        extra_attributes: [
-          { name: 'data-ecl-icon' }
-        ],
-      } only %}
-    {% endfor %}
-    {% endif %}
+    {{ button.icon(_icons, _indicator, _indicator_content) }}
+  {% endif %}
   {% if _label %}
     <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
   {% endif %}
   {% if _icon_position == 'after' %}
-    {% for icon in _icons %}
-      {% set _icon_extra_classes = 'ecl-button__icon' %}
-      {%- if icon.extra_classes is defined and icon.extra_classes is not empty -%}
-        {% set _icon_extra_classes = _icon_extra_classes ~ ' ' ~ icon.extra_classes %}
-      {%- endif -%}
-      {% set _icon_extra_accessibility = {} %}
-      {% set _icon_image = false %}
-      {%- if icon.title is not empty -%}
-        {% set _icon_extra_accessibility = { title: icon.title } %}
-        {% set _icon_image = true %}
-      {%- endif -%}
-      {% include '@ecl/icon/icon.html.twig' with {
-        icon: icon,
-        as_image: _icon_image,
-        extra_accessibility: _icon_extra_accessibility,
-        extra_classes: _icon_extra_classes,
-        extra_attributes: [
-          { name: 'data-ecl-icon' }
-        ],
-      } only %}
-    {% endfor %}
+    {{ button.icon(_icons, _indicator, _indicator_content) }}
   {% endif %}
   </span>
 {% else %}

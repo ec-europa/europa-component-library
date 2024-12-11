@@ -1,3 +1,5 @@
+const iconPath = require('@ecl/resources-icons/dist/sprites/icons.svg');
+
 const publicUrl = process.env.PUBLIC_URL || '';
 const exampleLink = `${publicUrl}/example`;
 
@@ -24,7 +26,13 @@ module.exports = {
           label: `<a class="ecl-link" href="${exampleLink}">Morbi vitae tortor accumsan</a>`,
         },
         {
-          label: `<a class="ecl-link" href="${exampleLink}">Nulla facilisi</a>`,
+          label: `<a href="${exampleLink}" class="ecl-link ecl-link--icon">
+            <span class="ecl-link__label">Phasellus suscipit</span>
+            <svg class="ecl-icon ecl-icon--2xs ecl-link__icon" focusable="false" aria-hidden="false" role="img">
+              <title>Link to an external domain</title>
+              <use xlink:href="${iconPath}#external"></use>
+            </svg>
+          </a>`,
         },
         {
           label: `<a class="ecl-link" href="${exampleLink}">Phasellus in metus et libero scelerisque sagittis sollicitudin at lectus</a>`,
