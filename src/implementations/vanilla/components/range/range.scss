@@ -47,7 +47,9 @@ $range: null !default;
   .ecl-range {
     margin: calc(
         -#{map.get($range, 'touch-area')} +
-          (#{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}) /
+          (
+            #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
+          ) /
           2
       )
       0 -#{map.get($range, 'touch-area')};
@@ -56,12 +58,12 @@ $range: null !default;
   .ecl-form-label + *:not(.ecl-help-block, .ecl-feedback-message) {
     /* eslint-disable-next-line no-math-div */
     margin: calc(
-        -#{map.get($range, 'touch-area')} + #{map.get(
-            $range,
-            'range-margin-top'
-          )} + (
+        -#{map.get($range, 'touch-area')} +
+          #{map.get($range, 'range-margin-top')} +
+          (
             #{map.get($range, 'slider-size')} - #{map.get($range, 'range-size')}
-          ) / 2
+          ) /
+          2
       )
       0 -#{map.get($range, 'touch-area')};
   }
