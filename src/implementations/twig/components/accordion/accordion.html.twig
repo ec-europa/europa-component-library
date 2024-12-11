@@ -13,6 +13,7 @@
       },
       ...
     ]
+    - "color_mode" (string) ["light", "dark", "carnival"]
     - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -28,6 +29,7 @@
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
+{% set _color_mode = color_mode|default('') %}
 {% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
 
 {% if _icons|length == 1 and _icons[0].name == 'plus' %}
@@ -35,6 +37,10 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

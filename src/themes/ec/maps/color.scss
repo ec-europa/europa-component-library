@@ -62,3 +62,20 @@ $color: (
   'overlay-light': color.adjust(#26324b, $alpha: -0.3),
   'overlay-dark': color.adjust(#26324b, $alpha: -0.1)
 ) !default;
+$color-modes: (
+  'light': (
+    '--background': '#ffffff',
+    '--text-color': '#000000',
+    '--border-color': '#dddddd',
+  ),
+  'dark': (
+    '--background': '#000000',
+    '--text-color': '#ffffff',
+    '--border-color': '#444444',
+  ),
+  'carnival': (
+    '--background': '#ffcc00',
+    '--text-color': '#0033ff',
+    '--border-color': '#ff0000',
+  ),
+) !default;

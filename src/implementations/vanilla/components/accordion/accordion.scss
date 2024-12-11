@@ -10,15 +10,19 @@ $theme: null !default;
 $accordion: null !default;
 
 .ecl-accordion {
+  --background: transparent;
+  --border: transparent;
+  --text-color: map.get($accordion, 'title-text-color');
+
   border-radius: map.get($accordion, 'radius');
   box-shadow: map.get($accordion, 'shadow');
   margin: 0;
 }
 
 .ecl-accordion__toggle {
-  background-color: transparent;
-  border: none;
-  color: map.get($accordion, 'title-text-color');
+  background-color: var(--background);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
   cursor: pointer;
   display: block;
   font: var(--f-m);
@@ -144,6 +148,14 @@ $accordion: null !default;
     [aria-expanded='true'] &:last-child,
     [aria-expanded='true'] &:only-child {
       display: block;
+    }
+  }
+}
+
+@each $mode, $properties in map.get($theme, 'color-modes') {
+  .ecl-accordion--#{$mode} {
+    @each $prop, $value in $properties {
+      #{$prop}: #{$value};
     }
   }
 }
