@@ -16,7 +16,7 @@
     "dist": "npm run clean && npm run browserstats && npm run dist:presets && npm run dist:storybook && npm run dist:website",
     "lint:js": "eslint . --ext .js --ext .jsx",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
-    "lint": "pnpm recursive lint:* -cln",
+    "lint": "run-p lint:* -cln",
     "prepare": "husky",
     "postinstall": "patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (pnpm recursive run postinstall && pnpm recursive run prepublish) || echo \"Bypass prepublish\"",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",

@@ -1265,6 +1265,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
       '@ecl/vanilla-layout-grid':
         specifier: 4.8.1
         version: 4.8.1
@@ -1272,6 +1275,9 @@ importers:
   src/implementations/vanilla/components/banner:
     dependencies:
       '@ecl/dom-utils':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/event-manager':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/vanilla-layout-grid':
@@ -1369,6 +1375,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
 
   src/implementations/vanilla/components/fact-figures:
     dependencies:
@@ -1394,6 +1403,9 @@ importers:
   src/implementations/vanilla/components/file-upload:
     dependencies:
       '@ecl/dom-utils':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/event-manager':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/vanilla-utility-screen-reader':
@@ -1432,6 +1444,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
       '@ecl/vanilla-layout-grid':
         specifier: 4.8.1
         version: 4.8.1
@@ -1464,6 +1479,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
       '@ecl/vanilla-utility-media':
         specifier: 4.8.1
         version: 4.8.1
@@ -1476,9 +1494,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
       '@ecl/vanilla-layout-grid':
         specifier: 4.8.1
         version: 4.8.1
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
       mobile-device-detect:
         specifier: 0.4.3
         version: 0.4.3
@@ -1488,9 +1512,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.8.1
         version: 4.8.1
+      '@ecl/event-manager':
+        specifier: 4.8.1
+        version: 4.8.1
       '@ecl/vanilla-layout-grid':
         specifier: 4.8.1
         version: 4.8.1
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
       mobile-device-detect:
         specifier: 0.4.3
         version: 0.4.3
@@ -1528,6 +1558,9 @@ importers:
   src/implementations/vanilla/components/notification:
     dependencies:
       '@ecl/dom-utils':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/event-manager':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/vanilla-layout-grid':
@@ -1587,7 +1620,13 @@ importers:
 
   src/implementations/vanilla/components/select:
     dependencies:
+      '@ecl/builder':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)
       '@ecl/dom-utils':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/event-manager':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/resources-icons':
@@ -1661,6 +1700,9 @@ importers:
   src/implementations/vanilla/components/tabs:
     dependencies:
       '@ecl/dom-utils':
+        specifier: 4.8.1
+        version: 4.8.1
+      '@ecl/event-manager':
         specifier: 4.8.1
         version: 4.8.1
       '@ecl/vanilla-layout-grid':
@@ -2829,6 +2871,10 @@ importers:
       '@ecl/specs-component-site-header':
         specifier: 4.8.1
         version: 4.8.1
+    devDependencies:
+      '@ecl/builder':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)
 
   src/specs/pages/page-inner:
     dependencies:
@@ -2862,6 +2908,10 @@ importers:
       '@ecl/specs-component-unordered-list':
         specifier: 4.8.1
         version: 4.8.1
+    devDependencies:
+      '@ecl/builder':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)
 
   src/specs/pages/page-search:
     dependencies:
@@ -2898,6 +2948,10 @@ importers:
       '@ecl/specs-component-text-input':
         specifier: 4.8.1
         version: 4.8.1
+    devDependencies:
+      '@ecl/builder':
+        specifier: 4.8.1
+        version: 4.8.1(eslint@8.57.0)
 
   src/specs/utilities/typography: {}
 
@@ -2980,6 +3034,9 @@ importers:
 
   src/tools/test-utils:
     devDependencies:
+      '@ecl/twig-ec-storybook':
+        specifier: workspace:*
+        version: link:../../playground/ec
       deepmerge:
         specifier: 4.3.1
         version: 4.3.1
@@ -4356,6 +4413,9 @@ packages:
 
   '@ecl/dom-utils@4.8.1':
     resolution: {integrity: sha512-dssLyzG8cXdLF9+iSzGRc/li2KAQC7+ORinmtZ+z58ZE6nxUX9/NsGJunFnb/ZjssjQxP2QUe7GT1CIU2P8c0w==}
+
+  '@ecl/event-manager@4.8.1':
+    resolution: {integrity: sha512-ZQxCEqry7oHbJS4DgIDFEcEyCcol7K7oV8dHeA5HOX5GSaG5+E19z35RKgXSolWDaMU1Fs2/KW16+90ky48agQ==}
 
   '@ecl/preset-ec@4.8.1':
     resolution: {integrity: sha512-PaJn6FszhW8Y3xQz5SimnVOELvQf8WCdEyk2Rvh7WgP8rwXRl7R5jgVhp9t1L2XvxfJvYNt1H7jnaaF+EhXFNQ==}
@@ -15511,6 +15571,8 @@ snapshots:
 
   '@ecl/dom-utils@4.8.1': {}
 
+  '@ecl/event-manager@4.8.1': {}
+
   '@ecl/preset-ec@4.8.1(eslint@8.57.0)(svg4everybody@2.1.9)':
     dependencies:
       '@ecl/dom-utils': 4.8.1
@@ -21453,7 +21515,7 @@ snapshots:
     dependencies:
       basic-ftp: 5.0.5
       data-uri-to-buffer: 6.0.2
-      debug: 4.3.4
+      debug: 4.3.7
       fs-extra: 11.2.0
     transitivePeerDependencies:
       - supports-color
@@ -24881,7 +24943,7 @@ snapshots:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
       get-uri: 6.0.3
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.5
@@ -25471,7 +25533,7 @@ snapshots:
   proxy-agent@6.4.0:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.4
+      debug: 4.3.7
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.5
       lru-cache: 7.18.3
