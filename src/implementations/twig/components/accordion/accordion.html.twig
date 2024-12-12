@@ -39,7 +39,7 @@
 {# Internal logic - Process properties #}
 
 {% if _color_mode is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _color_mode %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

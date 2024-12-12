@@ -249,3 +249,8 @@
   $splash-page: var.$splash-page,
   $language-list: var.$language-list
 );
+
+// Color modes
+@use '@ecl/vanilla-color-modes/color-modes' with (
+  $theme: theme.$theme
+);

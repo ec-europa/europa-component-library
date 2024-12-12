@@ -10,19 +10,15 @@ $theme: null !default;
 $accordion: null !default;
 
 .ecl-accordion {
-  --background: transparent;
-  --border: transparent;
-  --text-color: map.get($accordion, 'title-text-color');
-
   border-radius: map.get($accordion, 'radius');
   box-shadow: map.get($accordion, 'shadow');
   margin: 0;
 }
 
 .ecl-accordion__toggle {
-  background-color: var(--background);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
+  background-color: var(--background, transparent);
+  border: none;
+  color: var(--text-color, map.get($accordion, 'title-text-color'));
   cursor: pointer;
   display: block;
   font: var(--f-m);
@@ -46,7 +42,7 @@ $accordion: null !default;
 }
 
 .ecl-accordion__content {
-  color: map.get($accordion, 'text-color');
+  color: var(--text-color);
   font: var(--f-m);
   margin-inline-start: 0;
   max-width: var(--max-w);
@@ -60,7 +56,7 @@ $accordion: null !default;
 }
 
 .ecl-accordion__item {
-  border-bottom: map.get($accordion, 'separator');
+  border-bottom: 1px solid var(--border-color, map.get($accordion, 'separator'));
   position: relative;
 
   &:first-child {
@@ -148,14 +144,6 @@ $accordion: null !default;
     [aria-expanded='true'] &:last-child,
     [aria-expanded='true'] &:only-child {
       display: block;
-    }
-  }
-}
-
-@each $mode, $properties in map.get($theme, 'color-modes') {
-  .ecl-accordion--#{$mode} {
-    @each $prop, $value in $properties {
-      #{$prop}: #{$value};
     }
   }
 }

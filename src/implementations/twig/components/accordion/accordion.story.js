@@ -8,7 +8,7 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {};
-  args.color_mode = '';
+  args.color_mode = 'none';
   data.items.forEach((item, i) => {
     args[`toggle${i + 1}`] = item.toggle.label;
     args[`content${i + 1}`] = item.content;
@@ -23,7 +23,7 @@ const getArgTypes = (data) => {
     name: 'color mode',
     description: 'Choose color mode',
     type: { name: 'select' },
-    options: ['light', 'dark', 'carnival'],
+    options: ['none', 'light', 'dark', 'carnival'],
   };
   data.items.forEach((item, i) => {
     argTypes[`toggle${i + 1}`] = {
@@ -63,7 +63,12 @@ const prepareData = (data, args) => {
     item.toggle.label = args[`toggle${i + 1}`];
     item.content = args[`content${i + 1}`];
   });
-  data.color_mode = args.color_mode;
+
+  if (args.color_mode === 'none') {
+    data.color_mode = '';
+  } else {
+    data.color_mode = args.color_mode;
+  }
 
   return data;
 };
