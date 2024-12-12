@@ -393,6 +393,11 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 
   .ecl-site-header__action {
     align-items: center;
+
+    .ecl-button--icon-only .ecl-button__icon {
+      height: map.get($theme, 'icon', 'xs');
+      width: map.get($theme, 'icon', 'xs');
+    }
   }
 
   .ecl-site-header--has-menu,

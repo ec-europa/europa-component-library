@@ -426,8 +426,15 @@ $language-list: null !default;
     }
   }
 
-  .ecl-site-header__action .ecl-form-group {
-    width: map.get($site-header, 'search-width-l');
+  .ecl-site-header__action {
+    .ecl-button--icon-only .ecl-button__icon {
+      height: map.get($theme, 'icon', 'xs');
+      width: map.get($theme, 'icon', 'xs');
+    }
+
+    .ecl-form-group {
+      width: map.get($site-header, 'search-width-l');
+    }
   }
 
   .ecl-site-header__login-container {

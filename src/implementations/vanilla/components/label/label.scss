@@ -16,16 +16,12 @@ $label: null !default;
   font: var(--f-ui-s);
   margin: 0;
   padding: calc(
-      #{map.get($label, 'padding-vertical')} - #{map.get(
-          $label,
-          'border-width'
-        )}
+      #{map.get($label, 'padding-vertical')} -
+        #{map.get($label, 'border-width')}
     )
     calc(
-      #{map.get($label, 'padding-horizontal')} - #{map.get(
-          $label,
-          'border-width'
-        )}
+      #{map.get($label, 'padding-horizontal')} -
+        #{map.get($label, 'border-width')}
     );
   text-transform: uppercase;
 }

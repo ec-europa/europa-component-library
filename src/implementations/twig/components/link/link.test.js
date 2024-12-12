@@ -246,4 +246,29 @@ describe('Link', () => {
       return expect(render(options)).resolves.toMatchSnapshot();
     });
   });
+
+  describe('with indicator', () => {
+    const options = merge(dataCta, {
+      link: {
+        label: 'Call to action link',
+        icon_position: 'after',
+        hide_label: true,
+        indicator: {
+          value: 10,
+        },
+      },
+      icon: {
+        name: 'corner-arrow',
+        size: 'fluid',
+        path: defaultIconPath,
+        transform: 'rotate-90',
+      },
+    });
+
+    test('renders correctly', () => {
+      expect.assertions(1);
+
+      return expect(render(options)).resolves.toMatchSnapshot();
+    });
+  });
 });

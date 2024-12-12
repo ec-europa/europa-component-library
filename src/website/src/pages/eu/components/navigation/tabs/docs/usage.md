@@ -16,7 +16,7 @@ Tabs display easy to scan labels of the relevant information, indicative of th
 
 ## When to use
 
-- when users can benefit from alternating between views/content within the same context, not to navigate to different areas
+- when users can benefit from alternating between views/content within the same context
 - when users can benefit from easy scanning and shortening of the page
 
 ## When not to use
