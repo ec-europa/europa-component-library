@@ -30,7 +30,8 @@ $modal: (
     icon-background-height: var(--s-m),
     icon-background-width: var(--s-2xs),
     icon-background-top: calc(var(--s-l) + var(--s-s)),
-    icon-background-left:
-      calc(var(--s-l) + (map.get($icon, 'l') / 2) - var(--s-2xs) + 1px),
+    icon-background-left: calc(
+        var(--s-l) + (map.get($icon, 'l') / 2) - var(--s-2xs) + 1px
+      ),
   ),
 );

@@ -24,16 +24,12 @@ $textarea: null !default;
   margin: 0;
   max-width: 100%;
   padding: calc(
-      #{map.get($textarea, 'padding-vertical')} - #{map.get(
-          $textarea,
-          'border-width'
-        )}
+      #{map.get($textarea, 'padding-vertical')} -
+        #{map.get($textarea, 'border-width')}
     )
     calc(
-      #{map.get($textarea, 'padding-horizontal')} - #{map.get(
-          $textarea,
-          'border-width'
-        )}
+      #{map.get($textarea, 'padding-horizontal')} -
+        #{map.get($textarea, 'border-width')}
     );
 
   &::placeholder {

@@ -1,5 +1,68 @@
 # Changelog
 
+# 4.9.0
+
+#### :rocket: New Feature
+
+- [#3714](https://github.com/ec-europa/europa-component-library/pull/3714) feat(button, link): add indicator - FRONT-4677 ([@emeryro](https://github.com/emeryro))
+- [#3712](https://github.com/ec-europa/europa-component-library/pull/3712) feat(navigation-list): Adding image-as-illustration variant - FRONT-4678 ([@planctus](https://github.com/planctus))
+
+#### :warning: Markup Changes
+
+- [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 ([@emeryro](https://github.com/emeryro))
+- [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 ([@emeryro](https://github.com/emeryro))
+- [#3687](https://github.com/ec-europa/europa-component-library/pull/3687) feat(splash-page): Column display whith a low amout of items, fixing EU styles - FRONT-4662 ([@planctus](https://github.com/planctus))
+
+#### :warning: Data Changes
+
+- [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 ([@emeryro](https://github.com/emeryro))
+- [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#3737](https://github.com/ec-europa/europa-component-library/pull/3737) fix(showcase): Including menu markup in the showcase examples - FRONT-4689 ([@planctus](https://github.com/planctus))
+- [#3711](https://github.com/ec-europa/europa-component-library/pull/3711) fix(default-css): Fixing rules for links inside lists, fixing description list - FRONT-4676 ([@planctus](https://github.com/planctus))
+- [#3694](https://github.com/ec-europa/europa-component-library/pull/3694) feat(logos): Adding japanese logo files with correct file name, hiding the others - FRONT-4670 ([@planctus](https://github.com/planctus))
+- [#3684](https://github.com/ec-europa/europa-component-library/pull/3684) fix(tabs): fix rtl mobile - FRONT-4659 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#3721](https://github.com/ec-europa/europa-component-library/pull/3721) feat(list): update indentation - FRONT-4682 ([@emeryro](https://github.com/emeryro))
+- [#3719](https://github.com/ec-europa/europa-component-library/pull/3719) feat(banner): improve focus for video banner - FRONT-4681 ([@emeryro](https://github.com/emeryro))
+- [#3699](https://github.com/ec-europa/europa-component-library/pull/3699) feat(forms): add option to hide label - FRONT-4668 ([@emeryro](https://github.com/emeryro))
+- [#3700](https://github.com/ec-europa/europa-component-library/pull/3700) chore(website): Using the existing ECL_VERSION to dynamically refer to the proper url of the CDN - FRONT-4671 ([@planctus](https://github.com/planctus))
+- [#3701](https://github.com/ec-europa/europa-component-library/pull/3701) feat(gallery): add gallery label with instruction - FRONT-4372 ([@emeryro](https://github.com/emeryro))
+- [#3687](https://github.com/ec-europa/europa-component-library/pull/3687) feat(splash-page): Column display whith a low amout of items, fixing EU styles - FRONT-4662 ([@planctus](https://github.com/planctus))
+- [#3697](https://github.com/ec-europa/europa-component-library/pull/3697) feat(featured-item): Styles adapted to support no title use case - FRONT-4669 ([@planctus](https://github.com/planctus))
+- [#3692](https://github.com/ec-europa/europa-component-library/pull/3692) feat(lists): Another round on unordered and ordered list in EC and EU - FRONT-4656 ([@planctus](https://github.com/planctus))
+- [#3691](https://github.com/ec-europa/europa-component-library/pull/3691) feat(language-list): update active state and spacing - FRONT-4661 ([@emeryro](https://github.com/emeryro))
+- [#3686](https://github.com/ec-europa/europa-component-library/pull/3686) feat(link): dynamic underline offset ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#3720](https://github.com/ec-europa/europa-component-library/pull/3720) fix(docs): Fix wrong API name class for Menu and MegaMenu - FRONT-4685 ([@joarod-eu](https://github.com/joarod-eu))
+
+#### :house: Internal
+
+- [#3742](https://github.com/ec-europa/europa-component-library/pull/3742) chore(deps): Updates 04-12-24 ([@planctus](https://github.com/planctus))
+- [#3735](https://github.com/ec-europa/europa-component-library/pull/3735) chore(form): Manually reintroducing wrongly deleted code ([@planctus](https://github.com/planctus))
+- [#3734](https://github.com/ec-europa/europa-component-library/pull/3734) chore(deps): Fix deps, updates 25-11-24 ([@planctus](https://github.com/planctus))
+- [#3732](https://github.com/ec-europa/europa-component-library/pull/3732) chore(build): fix build issue - FRONT-4686 ([@emeryro](https://github.com/emeryro))
+- [#3722](https://github.com/ec-europa/europa-component-library/pull/3722) docs(splash-page): add usage page - FRONT-4684 ([@emeryro](https://github.com/emeryro))
+- [#3715](https://github.com/ec-europa/europa-component-library/pull/3715) chore(deps): Updates - 13-11-24 ([@planctus](https://github.com/planctus))
+- [#3710](https://github.com/ec-europa/europa-component-library/pull/3710) chore(deps): Updates - 11-11-24 ([@planctus](https://github.com/planctus))
+- [#3707](https://github.com/ec-europa/europa-component-library/pull/3707) fix(search-form): add missing label - FRONT-4667 ([@emeryro](https://github.com/emeryro))
+- [#3696](https://github.com/ec-europa/europa-component-library/pull/3696) chore(deps): Updates 28-10-24 ([@planctus](https://github.com/planctus))
+- [#3695](https://github.com/ec-europa/europa-component-library/pull/3695) chore(sass): Removing warnings by updating the code ([@planctus](https://github.com/planctus))
+- [#3693](https://github.com/ec-europa/europa-component-library/pull/3693) chore(deps): Updates - 25-10-24 ([@planctus](https://github.com/planctus))
+- [#3683](https://github.com/ec-europa/europa-component-library/pull/3683) chore: using the right pattern for react-snap, hopefully ([@planctus](https://github.com/planctus))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@joarod-eu](https://github.com/joarod-eu)
+- [@planctus](https://github.com/planctus)
+
 # 4.8.1
 
 #### :nail_care: Enhancement

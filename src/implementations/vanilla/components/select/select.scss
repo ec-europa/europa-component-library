@@ -25,23 +25,17 @@ $select: null !default;
   margin: 0;
   overflow: hidden;
   padding-bottom: calc(
-    #{map.get($select, 'padding-vertical')} - #{map.get(
-        $select,
-        'border-width'
-      )}
+    #{map.get($select, 'padding-vertical')} -
+      #{map.get($select, 'border-width')}
   );
   padding-inline-end: calc(
-    var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
-        $select,
-        'border-width'
-      )}
+    var(--s-m) + #{map.get($select, 'arrow-width')} -
+      #{map.get($select, 'border-width')}
   );
   padding-inline-start: calc(var(--s-m) - #{map.get($select, 'border-width')});
   padding-top: calc(
-    #{map.get($select, 'padding-vertical')} - #{map.get(
-        $select,
-        'border-width'
-      )}
+    #{map.get($select, 'padding-vertical')} -
+      #{map.get($select, 'border-width')}
   );
   text-align: left;
   text-overflow: ellipsis;
@@ -70,25 +64,19 @@ $select: null !default;
     box-shadow: map.get($select, 'shadow-hover');
     outline: none;
     padding-bottom: calc(
-      #{map.get($select, 'padding-vertical')} - #{map.get(
-          $select,
-          'border-width-focus'
-        )}
+      #{map.get($select, 'padding-vertical')} -
+        #{map.get($select, 'border-width-focus')}
     );
     padding-inline-end: calc(
-      var(--s-m) + #{map.get($select, 'arrow-width')} - #{map.get(
-          $select,
-          'border-width-focus'
-        )}
+      var(--s-m) + #{map.get($select, 'arrow-width')} -
+        #{map.get($select, 'border-width-focus')}
     );
     padding-inline-start: calc(
       var(--s-m) - #{map.get($select, 'border-width-focus')}
     );
     padding-top: calc(
-      #{map.get($select, 'padding-vertical')} - #{map.get(
-          $select,
-          'border-width-focus'
-        )}
+      #{map.get($select, 'padding-vertical')} -
+        #{map.get($select, 'border-width-focus')}
     );
   }
 }
