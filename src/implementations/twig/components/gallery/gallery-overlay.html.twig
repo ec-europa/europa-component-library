@@ -11,6 +11,7 @@
     - "share" (object) (default: {}): object of type link
     - "sr_overlay_label" (string) (default: '') aria-label for the overlay
   - "item" (object) (default: {}): object of type gallery-item
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -26,6 +27,7 @@
 {% set _button_variant = 'ghost' %}
 {% set _overlay = overlay|default({}) %}
 {% set _item = item|default({}) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -58,6 +60,9 @@
       extra_classes: 'ecl-gallery__close-button',
       variant: _button_variant,
       type: 'submit',
+      icon: _overlay.close.icon|merge({
+        wt_markup: _overlay.close.icon|default(_icon_wt_markup),
+      }),
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
       ],
@@ -92,6 +97,7 @@
                 size: 'm',
                 transform: 'rotate-270',
                 name: 'corner-arrow',
+                wt_markup: _overlay.previous.icon.wt_markup|default(_icon_wt_markup),
               }),
               extra_attributes: [
                 { name: 'data-ecl-gallery-overlay-previous' },
@@ -109,6 +115,7 @@
                 size: 'm',
                 transform: 'rotate-90',
                 name: 'corner-arrow',
+                wt_markup: _overlay.next.icon.wt_markup|default(_icon_wt_markup),
               }),
               extra_attributes: [
                 { name: 'data-ecl-gallery-overlay-next' },
@@ -130,7 +137,8 @@
             icon: {
               name: 'fullscreen',
               size: 'fluid',
-              path: icon_path|default('')
+              path: icon_path|default(''),
+              wt_markup: _icon_wt_markup,
             },
             extra_classes: 'ecl-gallery__download',
             extra_attributes: [
@@ -150,6 +158,7 @@
             icon: _overlay.share.icon|merge({
               name: 'share',
               size: 'fluid',
+              wt_markup: _overlay.share.icon.wt_markup|default(_icon_wt_markup),
             }),
             extra_classes: 'ecl-gallery__share',
             extra_attributes: [

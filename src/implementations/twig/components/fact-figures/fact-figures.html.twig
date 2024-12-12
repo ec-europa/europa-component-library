@@ -16,6 +16,7 @@
       - "path" (string) (default: '')
   - "display_icons" (boolean) (default: true)
   - "icon_size" (string) (default: 'l'): l or 2xl
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format: [
         {
@@ -34,6 +35,7 @@
 {% set _font_size = font_size|default('l') %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _icon_size = icon_size|default('l') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _display_icons = display_icons ?? true %}
 {% set _centered = centered|default(false) %}
 
@@ -76,6 +78,7 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: item.icon|merge({
           size: _icon_size,
+          wt_markup: item.icon.wt_markup|default(_icon_wt_markup),
         }),
         extra_classes: 'ecl-fact-figures__icon',
       } only %}
@@ -110,6 +113,7 @@
         name: 'arrow-left',
         transform: 'flip-horizontal',
         size: 'xs',
+        wt_markup: view_all.icon.wt_markup|default(_icon_wt_markup),
       }),
       extra_classes: 'ecl-fact-figures__view-all-link',
     }) only %}

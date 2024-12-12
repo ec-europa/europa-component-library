@@ -31,6 +31,7 @@
         ...
       ]
     - "lists" (array) (default: []): Array of ECL Description list
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "divider" (boolean) (default: false): Optional divider below the content item
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -61,6 +62,7 @@
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default(_infos) %}
 {% set _lists = lists|default([]) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _css_class = 'ecl-content-item' %}
 {% set _extra_attributes = '' %}
 {% set _picture_attrs = '' %}
@@ -134,6 +136,7 @@
     description: _description,
     secondary_meta: _secondary_meta,
     lists: _lists,
+    icon_wt_markup: _icon_wt_markup,
   } %}
   {% include '@ecl/content-block/content-block.html.twig' with _content_block|merge({
     extra_classes: 'ecl-content-item__content-block'

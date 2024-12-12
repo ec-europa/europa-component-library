@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-expandable
 - **"label_expanded"** (string) (default: '')
 - **"label_collapsed"** (string) (default: '')
 - **"button"** (predefined structure) : Button component structure
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_dropdown_classes"** (optional) (string) (default: '') Extra dropdown classes (space separated)
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes

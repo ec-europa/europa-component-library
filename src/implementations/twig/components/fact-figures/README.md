@@ -23,6 +23,7 @@ npm install --save @ecl/twig-component-fact-figures
   - "visible" (boolean) (default: true)
 - **"display_icons"** (boolean) (default: true)
 - **"icon_size"** (string) (default: 'l') (l or 2xl)
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

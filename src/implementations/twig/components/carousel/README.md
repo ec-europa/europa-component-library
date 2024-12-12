@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-carousel
 - **"sr_pause"** (string) (default: 'Pause carousel') screen reader label for the pause button
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"icon_path"** (string) ) (default: '')
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

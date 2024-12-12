@@ -26,6 +26,7 @@
     - "disabled" (bool) (default: false): defined if button should be active or not (HTML disabled attribute)
     - "hide_label" (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
     - "icon_position" (string) (default: after): define icon position, can be 'before' or 'after'
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -46,14 +47,10 @@
 {% set _variant = variant|default('primary') %}
 {% set _type = type|default('submit') %}
 {% set _icon_position = icon_position|default('after') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _hide_label = hide_label|default(false) %}
-{% set _icon = {
-  name: '',
-  path: '',
-  size: '',
-  title: ''
-} %}
+{% set _icon = icon|default({}) %}
 {% set _indicator = indicator|default({}) %}
 
 {# Internal logic - Process properties #}
@@ -74,10 +71,10 @@
   {% endfor %}
 {% endif %}
 
-{% if icon.name is defined and icon.name is not empty %}
-  {% set _icons = [icon] %}
-{% elseif icon[1] is defined and icon[1] is not empty %}
-  {% set _icons = icon %}
+{% if _icon.name is defined and _icon.name is not empty %}
+  {% set _icons = [_icon] %}
+{% elseif _icon[1] is defined and _icon[1] is not empty %}
+  {% set _icons = _icon %}
 {% endif %}
 
 {% if _hide_label and _icon is not empty %}
@@ -92,7 +89,7 @@
 
 {# Define icon macro #}
 
-{% macro icon(_icons, _indicator, _indicator_content) %}{% apply spaceless %}
+{% macro icon(_icons, _indicator, _indicator_content, _icon_wt_markup) %}{% apply spaceless %}
   {% import _self as button %}
 
   {% for icon in _icons %}
@@ -110,7 +107,9 @@
     {% if _indicator is not empty %}
       <span class="ecl-button__icon-container">
         {% include '@ecl/icon/icon.html.twig' with {
-          icon: icon,
+          icon: icon|merge({
+            wt_markup: icon.wt_markup|default(_icon_wt_markup),
+          }),
           as_image: _icon_image,
           extra_accessibility: _icon_extra_accessibility,
           extra_classes: _icon_extra_classes,
@@ -122,7 +121,9 @@
       </span>
     {% else %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: icon,
+        icon: icon|merge({
+          wt_markup: icon.wt_markup|default(_icon_wt_markup),
+        }),
         as_image: _icon_image,
         extra_accessibility: _icon_extra_accessibility,
         extra_classes: _icon_extra_classes,
@@ -145,13 +146,13 @@
 {%- if _icons is defined %}
   <span class="ecl-button__container">
   {% if _icon_position == 'before' %}
-    {{ button.icon(_icons, _indicator, _indicator_content) }}
+    {{ button.icon(_icons, _indicator, _indicator_content, _icon_wt_markup) }}
   {% endif %}
   {% if _label %}
     <span class="ecl-button__label" data-ecl-label="true">{% block label _label %}</span>
   {% endif %}
   {% if _icon_position == 'after' %}
-    {{ button.icon(_icons, _indicator, _indicator_content) }}
+    {{ button.icon(_icons, _indicator, _indicator_content, _icon_wt_markup) }}
   {% endif %}
   </span>
 {% else %}

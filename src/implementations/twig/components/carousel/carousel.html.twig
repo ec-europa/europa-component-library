@@ -12,6 +12,7 @@
     - "sr_pause" (string) (default: 'Pause carousel') screen reader label for the pause button
     - "full_width": (bool) (default: false) Full width banner (inside the grid)
     - "icon_path" (string) (default: '') Path to the icons file
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -35,6 +36,7 @@
 {% set _counter_label = counter_label|default('of') %}
 {% set _full_width = full_width|default(false) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -82,6 +84,7 @@
             name: 'play-outline',
             size: 'm',
             extra_classes: 'ecl-carousel__icon-default',
+            wt_markup: _icon_wt_markup,
           },
         } only %}
         {% include '@ecl/button/button.html.twig' with {
@@ -95,6 +98,7 @@
             name: 'pause-outline',
             size: 'm',
             extra_classes: 'ecl-carousel__icon-default',
+            wt_markup: _icon_wt_markup,
           },
         } only %}
       </div>

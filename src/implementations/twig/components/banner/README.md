@@ -41,6 +41,7 @@ npm install --save @ecl/twig-component-banner
 - **"full_width"** (bools) (default: false) Extends the banner to whole viewport when used inside the grid
 - **"link"** (object) (default: predefined structure) predefined structure for the Link component
 - **"icon_path"** (string) (default: '') Path to the icons file
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

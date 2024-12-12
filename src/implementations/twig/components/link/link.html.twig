@@ -13,6 +13,7 @@
         aria_label: '' (string) Aria label attribute value
         icon_position: 'after' (string) (Can be 'before' or 'after'. Is required only if Icon is specified)
         icon_path: (string) (default: '')
+        icon_wt_markup (boolean) (default: false): should the icon use the Webtools markup?
         external: (boolean) (default: false)
         sr_external: (string) (default: '') Additional label for external icon
         hide_label: (boolean) (default: false) hide link label, for screen reader only. Note: requires to have an icon defined
@@ -58,6 +59,7 @@
   sr_external: '',
   hide_label: false,
   icon_path: '',
+  icon_wt_markup: false,
   indicator: {}
 } %}
 {% set _extra_accessibility = extra_accessibility|default({}) %}
@@ -67,7 +69,8 @@
   name: '',
   path: '',
   size: '',
-  title: ''
+  title: '',
+  wt_markup: false,
 } %}
 
 {% set _css_class = 'ecl-link' %}
@@ -77,10 +80,11 @@
   {% set _link = _link|merge(link) %}
 {% endif %}
 
-{% if _link.external and _link.icon_path is not empty %}
+{% if _link.external and (_link.icon_path is not empty or _link.icon_wt_markup) %}
   {% set _icons = [_icon|merge({
     name: 'external',
     path: _link.icon_path,
+    wt_markup: _link.icon_wt_markup,
     size: '2xs',
     title: _extra_accessibility.title is empty and _icon.title is empty and _link.sr_external is not empty ? _link.sr_external : '',
   })] %}

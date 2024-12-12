@@ -36,6 +36,7 @@ npm install --save @ecl/twig-component-gallery
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
 - **"icon_path"** (string) (default: '') Path to the icon sprite
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers

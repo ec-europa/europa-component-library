@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-checkbox
   - "helper_text" (block) (default: '')
   - "label" (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "item_required_text" (string) (default: '')
 - **"name"** (string) (default: '')
 - **"invalid"** (boolean) (default: false)

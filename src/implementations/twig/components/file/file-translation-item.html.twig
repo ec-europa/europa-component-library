@@ -9,6 +9,7 @@
   - "title_id" (string) (default: '')
   - "download" (object) (default to the parent download property) object of type Link
   - "download_attribute" (bool) (default to the parent download attribute)
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
 #}
 
 {# Internal properties #}
@@ -19,6 +20,7 @@
 {% set _download_attribute = download_attribute|default(download_attribute_default) %}
 {% set _id = id|default('') %}
 {% set _title_id = title_id|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {% set _link_id = _id ~ '-link' %}
 {% set _label_id = _link_id ~ '-label' %}
@@ -70,7 +72,8 @@
         }),
         icon: _download.icon|default(_download.icon|default({}))|merge({
           name: 'download',
-          size: 'fluid'
+          size: 'fluid',
+          wt_markup: _download.icon.wt_markup|default(_icon_wt_markup),
         }),
         extra_classes: _download_link_classes,
         extra_attributes: _download_link_attributes,

@@ -23,6 +23,7 @@ npm install --save @ecl/twig-component-card
   ...
   ]
 - **lists** (array) (default: []): Array of ECL Description list
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **extra_classes** (string) (default: '')
 - **extra_attributes** (array) (default: []): format: [
   {

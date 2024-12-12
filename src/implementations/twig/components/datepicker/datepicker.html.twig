@@ -16,6 +16,7 @@
     - "type" (string) (default: 'text')
     - "optional_text" (string) (default: '')
     - "icon_path" (string) (default: '')
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "placeholder" (string) (default: 'DD-MM-YYYY')
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []) Extra attributes for the datepicker
@@ -34,6 +35,7 @@
 {% set _type = type|default('text') %}
 {% set _placeholder = placeholder|default('DD-MM-YYYY') %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _invalid = invalid|default(false) %}
 {% set _disabled = disabled|default(false) %}
 {% set _required = required|default(false) %}
@@ -96,12 +98,13 @@
     {% endif %}
     {{ _extra_attributes|raw }}
     />
-  {% if _icon_path is not empty %}
+  {% if _icon_path is not empty or _icon_wt_markup %}
     {% include '@ecl/icon/icon.html.twig' with {
       icon: {
         name: 'calendar',
         size: 'xs',
         path: _icon_path,
+        wt_markup: _icon_wt_markup,
       },
       extra_classes: 'ecl-datepicker__icon',
     } only %}

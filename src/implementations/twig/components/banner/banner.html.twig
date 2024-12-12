@@ -35,6 +35,7 @@
   - "full_width": (bool) (default: false) Full width banner (inside the grid)
   - "link" (object) (default: predefined structure) predefined structure for the Link component
   - "icon_path" (string) (default: '') Path to the icons file
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -68,6 +69,7 @@
 {% set _sr_play = sr_play|default('') %}
 {% set _sr_pause = sr_pause|default('') %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# DEPRECATED #}
 {% set _variant = variant|default('') %}
@@ -187,6 +189,7 @@
           path: _icon_path,
           name: 'play-outline',
           size: 'm',
+          wt_markup: _icon_wt_markup,
         },
       } only %}
       {% include '@ecl/button/button.html.twig' with {
@@ -200,6 +203,7 @@
           path: _icon_path,
           name: 'pause-outline',
           size: 'm',
+          wt_markup: _icon_wt_markup,
         },
       } only %}
     </div>

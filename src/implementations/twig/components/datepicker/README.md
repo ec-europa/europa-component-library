@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-datepicker
 - **"type"**: (string) (default: 'text')
 - **"name"** (string) (default: '')
 - **"icon_path"**: (string) (default: '')
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"placeholder"**: (string) (default: 'DD-MM-YYYY')
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes for the datepicker

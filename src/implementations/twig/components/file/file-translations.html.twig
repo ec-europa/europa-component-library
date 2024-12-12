@@ -4,6 +4,7 @@
   Parameters:
     - "toggle" (object) (default: {}): object of type Button
     - "id" (string) (default: '')
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "items" (array) (default: []):
       - "title" (string) (default: '')
       - "meta" (string) (default: '')
@@ -17,6 +18,7 @@
 {% set _toggle = toggle|default({}) %}
 {% set _id = id|default('') %}
 {% set _download_attribute_default = download_attribute_default|default(false) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {% if _items is not empty %}
   <div
@@ -29,7 +31,8 @@
       icon: _toggle.icon|default({})|merge({
         name: 'corner-arrow',
         size: 'fluid',
-        transform: 'rotate-180'
+        transform: 'rotate-180',
+        wt_markup: _toggle.icon.wt_markup|default(_icon_wt_markup),
       }),
       extra_classes: 'ecl-file__translation-toggle',
       extra_attributes: [
@@ -44,6 +47,7 @@
           id:  _id ~ '-translation-' ~ key,
           title_id: _id ~ '-title',
           download_attribute_default: _download_attribute_default,
+          icon_wt_markup: _icon_wt_markup,
       }) only %}
     {% endfor %}
     </ul>

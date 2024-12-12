@@ -15,6 +15,7 @@ npm install --save @ecl/twig-component-breadcrumb
 - **"ellipsis_label"** (string) (default: ''): Label of the ellipsis, e.g. "Click to expand"
 - **"ellipsis_text"** (string) (default: '...'): Text of the ellipsis
 - **"icon_path"** (string) (default: ''): URL to icons file
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

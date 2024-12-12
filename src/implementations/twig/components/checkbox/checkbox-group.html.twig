@@ -5,6 +5,7 @@
   - "items" (array) (default: []): array of checkbox_button
   - "name" (string) (default: '')
   - "invalid" (boolean) (default: false)
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "invalid_icon" (object of type "icon") (default: {})
   - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
   - "item_required_text" (string) (default: *)
@@ -22,6 +23,7 @@
 {% set _items = items|default([]) %}
 {% set _name = name|default('') %}
 {% set _invalid = invalid|default(false) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _sr_invalid_icon = sr_invalid_icon|default('') %}
 {% set _required = required|default(false) %}
@@ -40,6 +42,7 @@
     {% include '@ecl/icon/icon.html.twig' with {
       icon: _invalid_icon|merge({
         size: 's',
+        wt_markup: _icon_wt_markup,
       }),
       as_image: true,
       extra_accessibility: not _sr_invalid_icon ? {} : {
@@ -65,6 +68,7 @@
       invalid: _item.invalid|default(_invalid),
       required: _item.required|default(_required),
       required_text: _item_required_text,
+      icon_wt_markup: _icon_wt_markup,
       extra_classes: _item.extra_classes|default(_item_extra_classes|default('')),
       extra_attributes: _item.extra_attributes|default(_extra_attributes),
     }) only %}

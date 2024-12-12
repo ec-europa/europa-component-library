@@ -3,6 +3,7 @@
 {#
   Parameters:
   - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "id": (string) (default: randomized string): Unique id for the category filter
   - "items": (associative array) (default: {}): The menu items - format: [
     {
@@ -29,6 +30,7 @@
 
 {% set _items = items|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _level = level|default(1) %}
 
 {% if _items is defined and _items is not empty %}
@@ -72,6 +74,7 @@
                 size: 'xs',
                 transform: 'rotate-90',  
                 path: _icon_path,
+                wt_markup: _icon_wt_markup,
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}
@@ -84,6 +87,7 @@
                 size: 'xs',
                 transform: 'rotate-180',  
                 path: _icon_path,
+                wt_markup: _icon_wt_markup,
               },
               extra_classes: 'ecl-category-filter__item-icon',
             } only %}
@@ -94,6 +98,7 @@
             {% include '@ecl/category-filter/category-filter-items.html.twig' with {
               items: item.children,
               icon_path: _icon_path,
+              icon_wt_markup: _icon_wt_markup,
               level: _level + 1,
               id: _item_id,
             } only %}

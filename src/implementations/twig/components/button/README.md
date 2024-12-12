@@ -14,6 +14,7 @@ npm install --save @ecl/twig-component-button
 - **"disabled"** (bool) (default: false): define if button should be disabled (HTML disabled attribute)
 - **"hide_label"** (bool) (default: false): hide button label, for screen reader only. Note: requires to have an icon defined
 - **"icon_position"** (string, optional) (default: after): Define icon position, can be 'before' or 'after'
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component with extra_classes as an internal key.
 - **"indicator"** (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

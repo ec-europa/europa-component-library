@@ -14,6 +14,7 @@
       ...
     ]
     - "icon" (array) OR (object) (default: []) Two icons in an array that will be toggled.
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -29,6 +30,7 @@
 {% set _extra_attributes = 'data-ecl-auto-init="Accordion"' %}
 {% set _items = items|default([]) %}
 {% set _icons = icon is iterable and icon|keys is not empty ? icon : [icon] %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {% if _icons|length == 1 and _icons[0].name == 'plus' %}
   {% set _icons = _icons|merge([{'name': 'minus', 'path': _icons[0].path}]) %}
@@ -76,6 +78,7 @@
                 {% include '@ecl/icon/icon.html.twig' with {
                   icon: icon|merge({
                     size: icon.size|default('s'),
+                    wt_markup: icon.wt_markup|default(_icon_wt_markup),
                   }),
                   extra_classes: 'ecl-accordion__toggle-icon' ~ icon.extra_classes|default(''),
                   extra_attributes: icon.extra_attributes|default([{}])|merge([{ name: "data-ecl-accordion-icon" }]),

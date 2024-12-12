@@ -32,6 +32,7 @@
       - "meta" (string) (default: '')
       - "lang" (string) (default: '')
       - "download" (object) (default to the parent download property) object of type Link
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: []) [{
     - "name" (string) Attribute name, eg. 'data-test'
@@ -60,6 +61,7 @@
 {% set _variant = variant|default('default') %}
 {% set _description = description|default('') %}
 {% set _id = id|default('ecl-file-' ~ random()) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {% set _extra_attributes = 'data-ecl-file id="' ~ _id ~ '"' %}
 {% set _lang_id = _id ~ '-lang' %}
@@ -114,7 +116,9 @@
   <div class="ecl-file__container">
   {% if _variant == 'default' %}
     {% include '@ecl/icon/icon.html.twig' with {
-      icon: _icon,
+      icon: _icon|merge({
+        wt_markup: _icon.wt_markup|default(_icon_wt_markup),
+      }),
       extra_classes: 'ecl-file__icon',
     } only %}
   {% else %}
@@ -193,7 +197,8 @@
         }),
         icon: _download.icon|default({})|merge({
           name: 'download',
-          size: 'fluid'
+          size: 'fluid',
+          wt_markup: _download.icon.wt_markup|default(_icon_wt_markup),
         }),
         extra_attributes: _download_link_attributes,
         extra_classes: _download_link_classes,
@@ -205,6 +210,7 @@
   {% include '@ecl/file/file-translations.html.twig' with _translation|merge({
     id: _id,
     download_attribute_default: _download_attribute,
+    icon_wt_markup: _icon_wt_markup,
   }) only %}
 {% endif %}
 </div>

@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-link
   - "aria_label" (string) Aria label attribute value
   - "icon_position" (string) (default: 'after') - Position of link icon (can be 'before' or 'after') if icon is available
   - "icon_path" (string) (default: '') - Path to the icon sprite in case of external links
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "indicator" (object) (default: {}) object of type Indicator. To be displayed it should be defined and not empty (should contain at least an empty value), and only if there is an icon and no label
 - **"icon"** (optional) (associative array) OR (array) of associate arrays - Default structure of the icon component, but extra_classes is an internal key.
   The name has to be non empty for the icon to be printed.
