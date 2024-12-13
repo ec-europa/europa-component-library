@@ -22,7 +22,7 @@ module.exports = (input, dest, options) => {
 
   const inputOptions = {
     input,
-    external: options.external || [/@babel\/runtime/],
+    external: options.external || [],
     plugins: [
       replace({
         'getSystem()': JSON.stringify(getSystem()),
@@ -33,8 +33,7 @@ module.exports = (input, dest, options) => {
       resolve(),
       commonjs(),
       babel({
-        plugins: ['@babel/plugin-transform-runtime'],
-        babelHelpers: 'runtime',
+        babelHelpers: 'bundled',
         presets: [
           [
             babelPresetEnv,
@@ -56,18 +55,7 @@ module.exports = (input, dest, options) => {
     name: options.name || options.moduleName,
     sourcemap: options.sourcemap || options.sourceMap,
     exports: 'named',
-    globals: options.globals || {
-      // Mapping @babel/runtime helpers to global variable names
-      '@babel/runtime/helpers/objectWithoutPropertiesLoose':
-        '_objectWithoutPropertiesLoose',
-      '@babel/runtime/helpers/extends': '_extends',
-      '@babel/runtime/helpers/asyncToGenerator': '_asyncToGenerator',
-      '@babel/runtime/regenerator': '_regeneratorRuntime',
-      '@babel/runtime/helpers/classPrivateFieldLooseBase':
-        '_classPrivateFieldLooseBase',
-      '@babel/runtime/helpers/classPrivateFieldLooseKey':
-        '_classPrivateFieldLooseKey',
-    },
+    globals: options.globals || {},
     footer: `ECL.version = "${pkg.version}";`,
   };
 
