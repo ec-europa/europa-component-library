@@ -4,7 +4,7 @@ const babel = require('@rollup/plugin-babel');
 const replace = require('@rollup/plugin-replace');
 const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
-const { terser } = require('@rollup/plugin-terser');
+const terser = require('@rollup/plugin-terser');
 const svg = require('rollup-plugin-svg');
 const getSystem = require('../utils/getSystem');
 const pkg = require('../package.json');
@@ -22,7 +22,7 @@ module.exports = (input, dest, options) => {
 
   const inputOptions = {
     input,
-    external: options.external || [],
+    external: options.external || [/@babel\/runtime/],
     plugins: [
       replace({
         'getSystem()': JSON.stringify(getSystem()),
@@ -33,6 +33,8 @@ module.exports = (input, dest, options) => {
       resolve(),
       commonjs(),
       babel({
+        plugins: ['@babel/plugin-transform-runtime'],
+        babelHelpers: 'runtime',
         presets: [
           [
             babelPresetEnv,
@@ -54,7 +56,18 @@ module.exports = (input, dest, options) => {
     name: options.name || options.moduleName,
     sourcemap: options.sourcemap || options.sourceMap,
     exports: 'named',
-    globals: options.globals || {},
+    globals: options.globals || {
+      // Mapping @babel/runtime helpers to global variable names
+      '@babel/runtime/helpers/objectWithoutPropertiesLoose':
+        '_objectWithoutPropertiesLoose',
+      '@babel/runtime/helpers/extends': '_extends',
+      '@babel/runtime/helpers/asyncToGenerator': '_asyncToGenerator',
+      '@babel/runtime/regenerator': '_regeneratorRuntime',
+      '@babel/runtime/helpers/classPrivateFieldLooseBase':
+        '_classPrivateFieldLooseBase',
+      '@babel/runtime/helpers/classPrivateFieldLooseKey':
+        '_classPrivateFieldLooseKey',
+    },
     footer: `ECL.version = "${pkg.version}";`,
   };
 
