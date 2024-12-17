@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import { queryOne } from '@ecl/dom-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
+import * as getSystem from '@ecl/builder/utils/getSystem';
 import EventManager from '@ecl/event-manager';
 import iconSvgAllCheck from '@ecl/resources-icons/dist/svg/all/check.svg';
 import iconSvgAllCornerArrow from '@ecl/resources-icons/dist/svg/all/corner-arrow.svg';

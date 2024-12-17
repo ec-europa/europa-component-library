@@ -28,6 +28,16 @@ module.exports = {
         sourceMap: isProd ? false : 'inline',
       },
     },
+    {
+      entry: path.resolve(__dirname, 'src/eu-esm.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-esm-eu.js'),
+      options: {
+        format: 'es',
+        banner,
+        moduleName: 'ECL',
+        sourceMap: isProd ? false : 'inline',
+      },
+    },
   ],
   styles: [
     {
