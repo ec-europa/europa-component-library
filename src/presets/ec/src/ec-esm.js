@@ -64,7 +64,6 @@ const ECL = {
 export { ECL };
 
 if (typeof globalThis !== 'undefined') {
-  // eslint-disable-next-line no-undef
   globalThis.ECL = ECL;
 } else if (typeof window !== 'undefined') {
   window.ECL = ECL;
