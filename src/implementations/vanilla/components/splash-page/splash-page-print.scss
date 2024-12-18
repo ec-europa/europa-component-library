@@ -50,7 +50,11 @@ $language-list-print: null !default;
     'inline-start'
   );
   padding-inline-end: calc(
-    #{map.get($language-list-print, 'container-padding-desktop', 'inline-end')} +
+    #{map.get(
+        $language-list-print,
+        'container-padding-desktop',
+        'inline-end'
+      )} +
       #{map.get($language-list, 'item-active-border-width')}
   );
 }

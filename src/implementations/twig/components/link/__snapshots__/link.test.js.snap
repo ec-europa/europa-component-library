@@ -292,3 +292,38 @@ exports[`Link With two icons before renders correctly with extra class names 1`]
   </a>
 </jest>
 `;
+
+exports[`Link with indicator renders correctly 1`] = `
+<jest>
+  <a
+    class="ecl-link ecl-link--cta ecl-link--icon ecl-link--icon-only"
+    href="/example"
+  >
+    <span
+      class="ecl-link__label"
+    >
+      Call to action link
+    </span>
+    <span
+      class="ecl-link__icon-container"
+    >
+      <svg
+        aria-hidden="true"
+        class="ecl-icon ecl-icon--fluid ecl-icon--rotate-90 ecl-link__icon"
+        focusable="false"
+      >
+        <use
+          xlink:href="static/icons.svg#corner-arrow"
+        />
+      </svg>
+      <span
+        class="ecl-indicator"
+        data-ecl-auto-init="Indicator"
+        data-ecl-indicator=""
+      >
+        10
+      </span>
+    </span>
+  </a>
+</jest>
+`;

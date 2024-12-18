@@ -260,7 +260,8 @@ $banner: null !default;
 
     .ecl-banner--v-bottom & {
       padding-bottom: calc(
-        #{map.get($banner, 'container-padding-bottom', 'desktop')} + var(--banner-footer-height)
+        #{map.get($banner, 'container-padding-bottom', 'desktop')} +
+          var(--banner-footer-height)
       );
     }
   }
