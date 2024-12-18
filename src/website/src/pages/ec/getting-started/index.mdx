@@ -84,7 +84,9 @@ Once you have the `preset-ec` you're ready to setup the ECL integration in your 
 
 This assumes your `preset-ec` package is directly accessible in the root of your project, change the path according to your environment.
 
-In this example the main ECL css and js are defined and in addition a css for print and the reset css are added.
+In this example the main ECL css and js are defined and in addition a css for print and the reset css are added. The example here demonstrates using the CommonJS version of the JavaScript. If you prefer or need to use the ESM version instead, you can load it like this:
+`<script type="module" src="/scripts/ecl-esm-ec.js"></script>`.
+The ECL object will be available globally, either on the window object in the browser or on globalThis in environments that support it.
 
 There are also other optional css files distributed that can be used, pikaday is added because it's needed for the ECL datepicker, see below for further information.
 
