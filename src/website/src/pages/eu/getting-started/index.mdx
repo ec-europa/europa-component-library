@@ -96,12 +96,36 @@ Ex:
 
 <a
   className="ecl-link"
-  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-eu-default.css`}
 >
-  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-eu-default.css`}
 </a>
 
 Download a `preset-eu` package to see all the files available to know how to reach them in the CDN, the file system is the same.
+
+For more security, use the SRI hashes corresponding to the files when using them from the CDN.
+They can be found in the [release page](https://github.com/ec-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+
+<details>
+  <summary>SRI hashes (click to expand)</summary>
+
+  <ul>
+    <li>
+      for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code>
+    </li>
+    <li>
+      for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code>
+    </li>
+    <li>
+      {' '}
+      for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code>
+    </li>
+    <li>
+      {' '}
+      for `ecl-esm-eu.js`: <code>{process.env.ECL_ESM_EU_JS}</code>
+    </li>
+  </ul>
+</details>
 
 When using the CDN for icons and logos, be aware that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
 
@@ -174,11 +198,11 @@ ECL releases npm packages for:
 
   <ul>
     <li>builder (used to compile css and js) `@ecl/builder`</li>
-    <li>presets (EC and EU) `@ecl/preset-eu`</li>
+    <li>presets (EU) `@ecl/preset-eu`</li>
     <li>vanilla components (css and js) `@ecl/vanilla-component-{name}`</li>
     <li>twig components (twig template) `@ecl/twig-component-{name}`</li>
     <li>spec packages (data used in the demos) `@ecl/specs-component-{name}`</li>
-    <li>resources packages `@ecl/resources-ec-{name}`</li>
+    <li>resources packages `@ecl/resources-eu-{name}`</li>
   </ul>
 </details>
 

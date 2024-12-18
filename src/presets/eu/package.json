@@ -5,7 +5,14 @@
   "version": "4.9.0",
   "description": "ECL EU preset",
   "main": "dist/scripts/ecl-eu.js",
+  "module": "dist/scripts/ecl-esm-eu.js",
   "style": "dist/styles/ecl-eu.css",
+  "exports": {
+    ".": {
+      "require": "./dist/scripts/ecl-eu.js",
+      "import": "./dist/scripts/ecl-esm-eu.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
