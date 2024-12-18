@@ -86,11 +86,11 @@ jobs:
       - name: Run Storybook tests in EC
         run: yarn test-storybook
         env:
-          TARGET_URL: ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/ec
+          TARGET_URL: https://ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/ec
       - name: Run Storybook tests in EU
         run: yarn test-storybook
         env:
-          TARGET_URL: ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/eu
+          TARGET_URL: https://ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/eu
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
