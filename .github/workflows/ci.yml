@@ -81,6 +81,16 @@ jobs:
           NETLIFY: true
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run Storybook tests in EC
+        run: yarn test-storybook
+        env:
+          TARGET_URL: ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/ec
+      - name: Run Storybook tests in EU
+        run: yarn test-storybook
+        env:
+          TARGET_URL: ecl-preview-${{ github.event.number }}--europa-component-library.netlify.app/playground/eu
   deploy-release-branch:
     name: deploy release branch
     runs-on: ubuntu-latest
