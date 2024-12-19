@@ -10,6 +10,7 @@
   flex-grow: 1;
   height: 4.5rem;
   justify-content: space-between;
+  position: relative;
   margin: 0;
   padding: var(--ws-s-m);
 }
@@ -42,6 +43,8 @@
 }
 
 .title {
+  background-color: transparent;
+  border: none;
   font: var(--ws-f-s);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
@@ -52,6 +55,10 @@
 
   .item--dark & {
     color: #000;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -68,44 +75,91 @@
     border-color: #fff;
     color: #fff;
 
-    /* stylelint-disable-next-line */
     &:focus {
       background-color: rgba(#fff, 0.1);
     }
 
-    /* stylelint-disable-next-line */
     &:hover {
       background-color: #fff;
       color: #000;
     }
   }
 
-  /* stylelint-disable-next-line */
+  // stylelint-disable-next-line no-descending-specificity
   .item--dark & {
     border-color: var(--ws-c-d);
     color: #000;
 
-    /* stylelint-disable-next-line */
     &:focus {
       background-color: color-mix(in srgb, var(--ws-c-d) 10%, transparent);
     }
 
-    /* stylelint-disable-next-line */
     &:hover {
       background-color: var(--ws-c-d);
       color: #fff;
     }
   }
+
+  .buttonHoverHidden {
+    display: inline;
+  }
+
+  .buttonHoverOnly {
+    display: none;
+  }
+
+  &:hover .buttonHoverHidden {
+    display: none;
+  }
+
+  &:hover .buttonHoverOnly {
+    display: inline;
+  }
 }
 
-.button:hover .button-hover-hidden {
-  display: none;
+.nameWrapper {
+  position: relative;
+
+  .nameHoverHidden {
+    display: inline;
+  }
+
+  .nameHoverOnly {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  &:hover .nameHoverHidden {
+    display: none;
+  }
+
+  &:hover .nameHoverOnly {
+    display: inline;
+  }
 }
 
-.button-hover-only {
-  display: none;
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 6rem;
+  transform: translateX(-50%);
+  background-color: #333;
+  font: var(--ws-f-s);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  pointer-events: none;
 }
 
-.button:hover .button-hover-only {
-  display: inline;
+.item .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
