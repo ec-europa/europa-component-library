@@ -2,11 +2,9 @@
 @use '@ecl/theme-ec/theme' as *;
 
 .ecl-easy-to-read {
-  --f-m: 18px /#{map.get($theme, 'line-height', 'l')} #{map.get(
-      $theme,
-      'font-family',
-      'default'
-    )} #{map.get($theme, 'font-weight', 'normal')};
+  --f-m: 18px /#{map.get($theme, 'line-height', 'l')}
+    #{map.get($theme, 'font-family', 'default')}
+    #{map.get($theme, 'font-weight', 'normal')};
 
   font: var(--f-m);
 

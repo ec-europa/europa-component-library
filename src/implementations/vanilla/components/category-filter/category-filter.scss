@@ -134,10 +134,8 @@ $category-filter: null !default;
 
   &.ecl-category-filter__item--has-children {
     padding-inline-start: calc(
-      var(--s-m) + #{$level - 2} * #{map.get(
-          $category-filter,
-          'subitem-spacing'
-        )}
+      var(--s-m) + #{$level - 2} *
+        #{map.get($category-filter, 'subitem-spacing')}
     );
   }
 }
