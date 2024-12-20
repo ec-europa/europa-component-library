@@ -14,6 +14,7 @@ npm install --save @ecl/twig-component-modal
 - **"size"** (string) (default: 'l'): Size of the modal. Could be 's' or 'l'
 - **"icon_path"** (string) (default: '') Path to the icon sprite
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"close"** (object of type "button") (default: {}): close button; label has to be provided for screen reader
 - **"header_icon"** (associative array) (default: {}): Optional icon in the header, following ECL Icon structure
 - **"buttons"** (array) (default: {}) Array of ECL Button, displayed in the modal footer

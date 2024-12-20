@@ -5,6 +5,7 @@
   - "variant" (string) (default: 'info'): could be 'info, 'success', 'warning' or 'error'
   - "icon" (object of type "icon") (default: {})
   - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "title" (string) (default: '')
   - "description" (string) (default: '')
   - "links" (array): An array of ECL links objects
@@ -23,6 +24,7 @@
 {% set _variant = variant|default('info') %}
 {% set _icon = icon|default({}) %}
 {% set _sr_icon = sr_icon|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _title = title|default('') %}
 {% set _close = close|default({}) %}
 {% set _links = links|default([]) %}
@@ -62,7 +64,9 @@
   <span class="ecl-notification__icon-background"></span>
 {% endif %}
   {% include '@ecl/icon/icon.html.twig' with {
-    icon: _icon,
+    icon: _icon|merge({
+      wt_markup: _icon.wt_markup|default(_icon_wt_markup),
+    }),
     as_image: true,
     extra_accessibility: not _sr_icon ? {} : {
       title: _sr_icon,
@@ -74,6 +78,7 @@
     {% include '@ecl/button/button.html.twig' with _close|merge({
       type: 'button',
       variant: 'tertiary',
+      icon_wt_markup: _close.icon_wt_markup|default(_icon_wt_markup),
       extra_classes: 'ecl-notification__close',
       extra_attributes: [{
         name: 'data-ecl-notification-close',
@@ -89,7 +94,11 @@
   {% if _links is not empty and _links is iterable %}
     {% for _link in _links %}
     <div class="ecl-notification__link">
-      {% include '@ecl/link/link.html.twig' with _link only %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        link: _link.link|merge({
+          icon_wt_markup: _link.link.icon_wt_markup|default(_icon_wt_markup),
+        })
+      }) only %}
     </div>
     {% endfor %}
   {% endif %}

@@ -27,6 +27,7 @@ npm install --save @ecl/twig-component-site-footer
     - "content_after" (string) Optional text after the link
   - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
 - **"split_columns"** (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

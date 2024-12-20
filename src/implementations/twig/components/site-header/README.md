@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-site-header
 - **"menu"** (associative array): Menu content, if any. Uses ECL Menu structure
 - **"banner_top"** (string) OR (object with Link component in property): Class name
 - **"icon_path"** (string) (default: ''): file containing the svg icons
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"site_name"** (string) (default: '') Site name
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.

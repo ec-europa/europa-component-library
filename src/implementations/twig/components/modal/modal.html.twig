@@ -8,6 +8,7 @@
     - "size" (string) (default: 'l'): Size of the modal. Could be 's' or 'l' 
     - "icon_path" (string) (default: '') Path to the icon sprite
     - "sr_icon" (string) (default: ''): additional label for the icon; for screen readers
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "close" (object of type "button") (default: {}): close button; label has to be provided for screen reader
     - "buttons" (array) (default: {}) Array of ECL Button, displayed in the modal footer
     - "extra_classes" (string) (default: '')
@@ -34,6 +35,7 @@
 {% set _css_class = 'ecl-modal' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _sr_icon = sr_icon|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _close = close|default({}) %}
 {% set _header = header|default('') %}
 {% set _header_icon = '' %}
@@ -101,6 +103,7 @@
               path: _icon_path,
               name: _header_icon,
               size: 'l',
+              wt_markup: _icon_wt_markup,
             },
             as_image: true,
             extra_accessibility: not _sr_icon ? {} : {
@@ -121,6 +124,7 @@
             type: 'button',
             variant: 'tertiary',
             hide_label: true,
+            icon_wt_markup: _close.icon_wt_markup|default(_icon_wt_markup),
             extra_classes: 'ecl-modal__close',
             extra_attributes: [{
               name: 'data-ecl-modal-close',
@@ -159,6 +163,7 @@
                 {% set _button_extra_classes = _button_extra_classes ~ ' ' ~ _button.extra_classes %}
               {% endif %}
               {% include '@ecl/button/button.html.twig' with _button|merge({
+                icon_wt_markup: _button.icon_wt_markup|default(_icon_wt_markup),
                 extra_classes: _button_extra_classes,
               }) only %}
             {% endfor %}

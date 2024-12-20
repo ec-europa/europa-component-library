@@ -6,6 +6,7 @@
     - "description" (string) (default: ''),
     - "position" (string) (default: 'left') Position (can be 'left', 'right')
     - "links" (array) (default: []): Array of links for social media, following ECL Link structure
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -22,6 +23,7 @@
 {% set _description = description|default('') %}
 {% set _position = position|default('left') %}
 {% set _links = links|default([]) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
@@ -71,10 +73,12 @@
           link: link.link|merge({
             type: 'standalone',
             no_visited: true,
+            icon_wt_markup: link.link.icon_wt_markup|default(_icon_wt_markup),
           }),
           icon: link.icon|default({})|merge({
             size: 'm',
             extra_classes: _icon_extra_classes,
+            category: 'networks',
           }),
           extra_classes: _link_extra_classes,
         } only %}

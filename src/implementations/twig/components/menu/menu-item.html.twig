@@ -4,6 +4,7 @@
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "see_all_label": (string) (default: ''): Label for the "see all" link (mobile only)
   - "item" (object)
     - "is_current" (boolean) Whether the item is currently selected
@@ -33,6 +34,7 @@
 {% set _menu_list_item_attributes = 'data-ecl-menu-item' %}
 {% set _menu_list_item_class = 'ecl-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _see_all_label = see_all_label|default('') %}
 {% set _menu_item_attributes = _item.extra_attributes|default([]) %}
 
@@ -58,6 +60,7 @@
       label: _item.label,
       path: _item.path,
       icon_path: _icon_path,
+      icon_wt_markup: _icon_wt_markup,
       external: _item.external|default(false),
       sr_external: _item.sr_external|default(''),
     },
@@ -78,6 +81,7 @@
     variant: 'ghost',
     type: 'button',
     hide_label: true,
+    icon_wt_markup: _icon_wt_markup,
     icon: {
       name: 'corner-arrow',
       size: 'xs',
@@ -112,6 +116,7 @@
             label: child.label,
             path: child.path,
             icon_path: _icon_path,
+            icon_wt_markup: _icon_wt_markup,
             external: child.external,
             sr_external: child.sr_external|default(''),
           },
@@ -129,6 +134,7 @@
             label: _see_all_label,
             path: _item.path,
             icon_path: _icon_path,
+            icon_wt_markup: _icon_wt_markup,
           },
           icon: {
             name: 'arrow-left',

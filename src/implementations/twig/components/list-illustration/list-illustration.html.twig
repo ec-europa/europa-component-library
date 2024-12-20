@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "items" (array) (default: []): array of list_illustration_item
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "column" (number) (default: 1): number of columns (1 column means vertical display)
     - "zebra" (boolean) (default: true): use alternate background display for vertical list
     - "centered" (bool) (default: false) Define if the items should be centered
@@ -23,6 +24,7 @@
 {% set _centered = centered|default(false) %}
 {% set _font_size = font_size|default('l') %}
 {% set _column = column|default(1) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _css_class = 'ecl-list-illustration' %}
 {% set _extra_attributes = '' %}
 
@@ -66,7 +68,9 @@
   {{ _extra_attributes|raw }}
 >
   {%- for _item in _items %}
-    {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item only %}
+    {% include '@ecl/list-illustration/list-illustration-item.html.twig' with _item|merge({
+      icon_wt_markup: _icon_wt_markup,
+    }) only %}
   {% endfor -%}
 </ul>
 {% endif %}

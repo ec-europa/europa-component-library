@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "icon_path" (string) (default: ''): URL to icons file
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "banner_top" (object): Object of type link (link : { label, path })
     - "logged" (boolean): Whether the user is logged in or not
     - "menu" (associative array): Menu content, if any. Uses ECL Menu structure
@@ -87,6 +88,7 @@
 {% set _login_toggle = login_toggle|default({}) %}
 {% set _search_toggle = search_toggle|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _menu = menu|default(false) %}
 {% set _mega_menu = mega_menu|default(false) %}
 {% set _site_name = site_name|default('') %}
@@ -164,6 +166,7 @@
       extra_attributes: _search_input_extra_attributes,
     }),
     button: search_form.button|default({})|merge({
+      icon_wt_markup: search_form.button.icon_wt_markup|default(_icon_wt_markup),
       label: _search_button_label,
       icon: {
         name: 'search',
@@ -273,7 +276,8 @@
                     icon: {
                       path: _icon_path,
                       name: 'logged-in',
-                      size: 's'
+                      size: 's',
+                      wt_markup: _icon_wt_markup,
                     },
                     as_image: true,
                     extra_classes: 'ecl-site-header__icon',
@@ -297,6 +301,7 @@
                       label: _login_box.label,
                       path: _login_box.href,
                       type: 'standalone',
+                      icon_wt_markup: _icon_wt_markup,
                     }
                   } only %}
                 </div>
@@ -310,7 +315,8 @@
                     icon: {
                       path: _icon_path,
                       name: 'log-in',
-                      size: 's'
+                      size: 's',
+                      wt_markup: _icon_wt_markup,
                     },
                     as_image: true,
                     extra_classes: 'ecl-site-header__icon',
@@ -329,6 +335,7 @@
               {% include '@ecl/site-header/site-header-language-switcher.html.twig' with {
                 language_selector: _language_selector,
                 icon_path: _icon_path,
+                icon_wt_markup: _icon_wt_markup,
               } only %}
             {% endif %}
 
@@ -348,6 +355,7 @@
                     name: 'search',
                     path: _icon_path,
                     size: 's',
+                    wt_markup: _icon_wt_markup,
                   },
                   as_image: true,
                   extra_classes: 'ecl-site-header__icon',
@@ -372,6 +380,7 @@
     <div class="ecl-site-header__notification">
       <div class="ecl-container">
         {% include '@ecl/notification/notification.html.twig' with _notification|merge({
+          icon_wt_markup: _icon_wt_markup,
           extra_attributes: _notification.extra_attributes|default([])|merge([{
             name: 'data-ecl-site-header-notification',
           }]),
@@ -386,7 +395,11 @@
       <div class="ecl-container">
       {%- if banner_top.link is defined and banner_top.link is not empty %}
         {% include '@ecl/link/link.html.twig' with banner_top|merge({
-          link: banner_top.link|merge({ type: 'standalone', no_visited: true}),
+          link: banner_top.link|merge({ 
+            type: 'standalone', 
+            no_visited: true,
+            icon_wt_markup: banner_top.link.icon_wt_markup|default(_icon_wt_markup),
+          }),
           icon_path: _icon_path
         }) only %}
       {% else %}
@@ -407,6 +420,7 @@
         {% include '@ecl/link/link.html.twig' with _cta_link|merge({
           link: _cta_link.link|merge({
             type: 'cta',
+            icon_wt_markup: _cta_link.link.icon_wt_markup|default(_icon_wt_markup),
           }),
           extra_classes: 'ecl-site-header__cta',
         }) only %}
@@ -421,12 +435,14 @@
   {% include '@ecl/menu/menu.html.twig' with _menu|merge({
     site_name: _site_name,
     icon_path: _icon_path,
+    icon_wt_markup: _menu.icon_wt_markup|default(_icon_wt_markup),
   }) only %}
 {% endif %}
 {% if _mega_menu is defined and _mega_menu is not empty %}
   {% include '@ecl/mega-menu/mega-menu.html.twig' with _mega_menu|merge({
     site_name: _site_name,
     icon_path: _icon_path,
+    icon_wt_markup: _mega_menu.icon_wt_markup|default(_icon_wt_markup),
   }) only %}
 {% endif %}
 </header>

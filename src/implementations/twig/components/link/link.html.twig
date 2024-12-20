@@ -70,7 +70,6 @@
   path: '',
   size: '',
   title: '',
-  wt_markup: false,
 } %}
 
 {% set _css_class = 'ecl-link' %}
@@ -160,7 +159,9 @@
       {% if _link.indicator is not empty %}
         <span class="ecl-link__icon-container">
           {%- include '@ecl/icon/icon.html.twig' with icon|merge({
-            icon: icon|default({}),
+            icon: icon|default({})|merge({
+              wt_markup: icon.wt_markup|default(_link.icon_wt_markup),
+            }),
             extra_classes: _icon_extra_classes,
             extra_accessibility: _extra_accessibility,
             as_image: _as_image,
@@ -169,7 +170,9 @@
         </span>
       {% else %}
         {%- include '@ecl/icon/icon.html.twig' with icon|merge({
-          icon: icon|default({}),
+          icon: icon|default({})|merge({
+            wt_markup: icon.wt_markup|default(_link.icon_wt_markup),
+          }),
           extra_classes: _icon_extra_classes,
           extra_accessibility: _extra_accessibility,
           as_image: _as_image,

@@ -8,6 +8,7 @@
     - "picture" (associative array) (default: {}): Image for item, following ECL Picture structure
     - "square" (boolean) (default: false): true if the image is squared, otherwise ratio is 3:2
     - "icon" (associative array) (default: {}): predefined structure for Icon component
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "media_size" (string) (default: 'm'): size of the media (square picture or icon). Could be 's', 'm' or 'l'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -26,6 +27,7 @@
 {% set _picture = picture|default({}) %}
 {% set _square = square|default(false) %}
 {% set _icon = icon|default({}) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _media_size = media_size|default('m') %}
 {% set _css_class = 'ecl-list-illustration__item' %}
 {% set _image_class =  'ecl-list-illustration__image' %}
@@ -77,9 +79,12 @@
   <div class="ecl-list-illustration__detail">
   {% if _title is not empty or _icon is not empty or _value is not empty %}
     <div class="ecl-list-illustration__title-container">
-    {% if _icon is not empty and _icon.path is defined %}
+    {% if _icon is not empty and (_icon.path is defined or _icon_wt_markup) %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _icon|merge({ size: _icon_size }),
+        icon: _icon|merge({ 
+          size: _icon_size,
+          wt_markup: _icon.wt_markup|default(_icon_wt_markup), 
+        }),
         extra_classes: 'ecl-list-illustration__icon',
       } only %}
     {% endif %}

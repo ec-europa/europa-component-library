@@ -10,6 +10,7 @@
   - "invalid_icon" (object) default({})
   - "star_filled_icon" (object) default({})
   - "star_outline_icon" (object) default({})
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "required" (boolean) (default: false)
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
@@ -27,6 +28,7 @@
 {% set _required = required|default(false) %}
 {% set _star_filled_icon = star_filled_icon|default({}) %}
 {% set _star_outline_icon = star_outline_icon|default({}) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _css_class = 'ecl-form-group' %}
 {% set _extra_attributes = '' %}
 
@@ -76,11 +78,15 @@
       <span class="ecl-u-sr-only">{{ _item.label }}</span>
     {% endif %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _star_filled_icon,
+        icon: _star_filled_icon|merge({
+          wt_markup: _star_filled_icon.wt_markup|default(_icon_wt_markup),
+        }),
         extra_classes: 'ecl-rating-field__icon-filled',
       } only %}
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: _star_outline_icon,
+        icon: _star_outline_icon|merge({
+          wt_markup: _star_outline_icon.wt_markup|default(_icon_wt_markup),
+        }),
         extra_classes: 'ecl-rating-field__icon-outline',
       } only %}
     </label>

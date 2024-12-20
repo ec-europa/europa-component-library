@@ -17,6 +17,7 @@ npm install --save @ecl/twig-component-mega-menu
 - **"third_level_aria_label"** (string): (default: ''): Third level list aria label
 - **"back_label"** (string): (default: ''): Back button label
 - **"icon_path"** (string) (default: ''): Path to the icon sprite
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"items"**: (array) (default: []): The menu items - format: [
   {
   "label": (string) (default: '')

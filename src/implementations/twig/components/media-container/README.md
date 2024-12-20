@@ -18,6 +18,7 @@ npm install --save @ecl/twig-component-media-container
 - **"sr_play"** (string) (default: ''): Label for the play button (for the autoplay video)
 - **"sr_pause"** (string) (default: ''): Label for the pause button (for the autoplay video)
 - **"icon_path"**: (string) (default: '') Path or url to the icons sprite (for autoplay video)
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"full_width"**: (bool) (default: false) Full width media container (inside the grid container)
 - **"ratio"** (string) ('') Ratio of the embedded media, if empty the ratio will be set by the js
 - **"expandable"** (associative array) (default: {}): Optional expandable block, following ECL Expandable structure

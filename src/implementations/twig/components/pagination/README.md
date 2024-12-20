@@ -9,6 +9,8 @@ npm install --save @ecl/twig-component-pagination
 ### Parameters
 
 - **"label"** (string) (default: ''): for screen reader
+- **"icon_path"** (string) (default: '') Path to the icons file
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"items"** (array) (default: []):
   - "type" (string) (default: ''): could be 'previous', 'current', 'next', 'truncation' (previous and next are always visible)
   - "label" (string) (default: ''): label used when the item is not a link

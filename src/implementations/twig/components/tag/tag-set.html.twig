@@ -4,6 +4,7 @@
   Parameters:
   - "items" (array) (default: []): array of Tag
   - "icon_path" (string) Path to the icons sprite. If provided here, it will be used for every tag in the set
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (optional) (string) (default: '')
   - "extra_attributes" (optional) (array) (default: [])
     - "name" (string) Attribute name, eg. 'data-test'
@@ -14,6 +15,7 @@
 
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _css_class = 'ecl-tag-set' %}
 {% set _extra_attributes = '' %}
 
@@ -44,6 +46,7 @@
       <li class="ecl-tag-set__item">
         {% include '@ecl/tag/tag.html.twig' with _item|merge({
           icon_path: _item.icon_path|default(_icon_path),
+          icon_wt_markup: _item.icon_wt_markup|default(_icon_wt_markup),
         }) only %}
       </li>
     {% endfor -%}

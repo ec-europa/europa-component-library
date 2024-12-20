@@ -9,6 +9,7 @@
   - "back_label": (string): (default: ''): Back button label
   - "aria_label" (string) (default: '') Aria label for the main nav
   - "icon_path": (string) (default: ''): Path to the icon sprite
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "items": (array) (default: []): The menu items - format: [
     {
       "label": (string) (default: '')
@@ -62,6 +63,7 @@
 {% set _button_previous_label = button_previous_label|default('') %}
 {% set _button_next_label = button_next_label|default('') %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _max_lines = max_lines|default(2) %}
 
 {# Internal logic - Process properties #}
@@ -115,6 +117,7 @@
         icon_path: _icon_path,
         icon_position: 'before',
         icon: _toggle_icon,
+        icon_wt_markup: _toggle.icon_wt_markup|default(_icon_wt_markup),
         hide_label: true,
         extra_classes: 'ecl-menu__open',
         extra_attributes: [
@@ -130,6 +133,7 @@
           {% include '@ecl/button/button.html.twig' with _close|merge({
             type: 'submit',
             variant: 'ghost',
+            icon_wt_markup: _close.icon_wt_markup|default(_icon_wt_markup),
             extra_classes: 'ecl-menu__close',
             extra_attributes: [{
               name: 'data-ecl-menu-close',
@@ -144,6 +148,7 @@
             type: 'submit',
             variant: 'ghost',
             label: _back_label,
+            icon_wt_markup: _icon_wt_markup,
             icon: {
               path: _icon_path,
               name: 'corner-arrow',
@@ -159,11 +164,12 @@
         {% endif %}
       </header>
 
-      {% if _icon_path is not empty %}
+      {% if _icon_path is not empty or _icon_wt_markup %}
         {% include '@ecl/button/button.html.twig' with {
           type: 'button',
           variant: 'ghost',
           icon_position: 'before',
+          icon_wt_markup: _icon_wt_markup,
           icon: {
             path: _icon_path,
             size: 's',
@@ -183,6 +189,7 @@
           type: 'button',
           variant: 'ghost',
           icon_position: 'before',
+          icon_wt_markup: _icon_wt_markup,
           icon: {
             path: _icon_path,
             size: 's',
@@ -207,6 +214,7 @@
             item: item,
             id: "ecl-menu-item-" ~ _id ~ '-' ~ key,
             icon_path: _icon_path,
+            icon_wt_markup: _icon_wt_markup,
             see_all_label: _see_all_label,
           } only %}
         {% endif %}

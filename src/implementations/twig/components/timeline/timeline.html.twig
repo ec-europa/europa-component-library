@@ -13,6 +13,7 @@ Parameters:
     - "title": (string) (default: '')
     - "content": (block) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "extra_classes" (string) (default: '')
   - "extra_attributes" (array) (default: []): format:
     - "name" (string) (default: '')
@@ -25,6 +26,7 @@ Parameters:
 {% set _extra_attributes = 'data-ecl-auto-init="Timeline" data-ecl-timeline' %}
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _toggle_collapsed = toggle_collapsed|default('') %}
 {% set _toggle_expanded = toggle_expanded|default('') %}
 {% set _hide_from = hide.from|default(items|length) %}
@@ -88,6 +90,7 @@ Parameters:
             label: _toggle_collapsed,
             variant: 'secondary',
             type: 'button',
+            icon_wt_markup: _icon_wt_markup,
             icon: {
               path: _icon_path,
               name: 'corner-arrow',

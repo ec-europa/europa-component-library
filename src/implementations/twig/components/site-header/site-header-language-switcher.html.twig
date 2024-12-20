@@ -3,6 +3,7 @@
 {#
   Parameters:
     - "icon_path" (string) (default: ''): URL to icons file
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "language_selector" (associative array) (default: predefined structure): Language switcher settings. format:
         {
           "href": (string) (default: ''): URL for switcher
@@ -38,6 +39,7 @@
 
 {% set _language_selector = language_selector|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _label = _language_selector.label|default('') %}
 
 {# Internal logic - Process properties #}
@@ -64,7 +66,8 @@
         icon: {
           path: _icon_path,
           name: 'global',
-          size: 's'
+          size: 's',
+          wt_markup: _icon_wt_markup,
         },
         as_image: true,
         extra_classes: 'ecl-site-header__icon',
@@ -88,6 +91,7 @@
       </div>
       {% if _language_selector.overlay.close is not empty %}
         {% include '@ecl/button/button.html.twig' with _language_selector.overlay.close|merge({
+          icon_wt_markup: _language_selector.overlay.close.icon_wt_markup|default(_icon_wt_markup),
           variant: 'tertiary',
           extra_classes: 'ecl-site-header__language-close',
           extra_attributes: [{
@@ -124,7 +128,8 @@
               link: _item|merge({
                 label: _link_label,
                 type: 'standalone',
-                no_visited: true
+                no_visited: true,
+                icon_wt_markup: _item.icon_wt_markup|default(_icon_wt_markup),
               }),
               extra_classes: _link_classes,
               extra_attributes: [
@@ -160,7 +165,8 @@
               link: _item|merge({
                 label: _link_label,
                 type: 'standalone',
-                no_visited: true
+                no_visited: true,
+                icon_wt_markup: _item.icon_wt_markup|default(_icon_wt_markup),
               }),
               extra_classes: _link_classes,
               extra_attributes: [

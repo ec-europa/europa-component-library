@@ -12,6 +12,7 @@ npm install --save @ecl/twig-component-popover
 - **toggle** (associative array) (default: {}): Popover toggle element, following ECL Link or ECL button structure
 - **links** (array) (default: []): Array of ECL Links
 - **close** (object of type "button") (default: {}): close button (optional)
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

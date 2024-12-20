@@ -12,6 +12,7 @@
         nowrap: boolean (default: false) force the tag to stay on one line
       }
     - "icon_path" (string) Path to the icons sprite
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '') Extra classes
     - "extra_attributes" (array) (default: []): Extra attributes, format: [
         {
@@ -39,6 +40,7 @@
 {% set _css_class = 'ecl-tag' %}
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -77,7 +79,12 @@
     {{- _tag.label -}}
     <span class="ecl-tag__icon">
       {% include '@ecl/icon/icon.html.twig' with {
-        icon: { name: 'close-outline', size: 'xs', path: _icon_path },
+        icon: { 
+          name: 'close-outline', 
+          size: 'xs', 
+          path: _icon_path,
+          wt_markup: _icon_wt_markup, 
+        },
         extra_classes: 'ecl-tag__icon-close',
         as_image: true,
         extra_accessibility: {
@@ -99,6 +106,7 @@
             name: 'external',
             size: '2xs',
             path: _icon_path,
+            wt_markup: _icon_wt_markup,
           },
           extra_classes: 'ecl-tag__icon ecl-tag__icon--external',
       } only -%}

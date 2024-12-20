@@ -11,6 +11,7 @@ npm install --save @ecl/twig-component-notification
 - **"variant"** (string) (default: 'info'): could be 'info, 'success', 'warning' or 'error'
 - **"icon"** (object of type "icon") (default: {})
 - **"sr_icon"** (string) (default: ''): additional label for the icon; for screen readers
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"title"** (string) (default: '')
 - **"description"** (string) (default: '')
 - **"links"** (array) (default: [])

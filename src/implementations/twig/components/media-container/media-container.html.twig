@@ -7,6 +7,7 @@
   - "sr_play" (string) (default: ''): Label for the play button (for autoplay video)
   - "sr_pause" (string) (default: ''): Label for the pause button (for autoplay video)
   - "icon_path": (string) (default: '') Path to the icon sprite (needed for the autoplay video)
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "full_width": (bool) (default: false) Full width media container (inside the grid container)
   - "title" (string) (default: ''): Media title
   - "description" (string) (default: ''),
@@ -52,6 +53,7 @@
 {% set _autoplay = autoplay|default(false) %}
 {% set _video = video|default({}) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _picture = picture|default({}) %}
 {% set _extra_attributes = (embedded_media or (autoplay and (video or sources))) ? [
   'data-ecl-media-container="true"',
@@ -174,6 +176,7 @@
           path: _icon_path,
           name: 'play-outline',
           size: 'm',
+          wt_markup: _icon_wt_markup,
         },
       } only %}
       {% include '@ecl/button/button.html.twig' with {
@@ -187,6 +190,7 @@
           path: _icon_path,
           name: 'pause-outline',
           size: 'm',
+          wt_markup: _icon_wt_markup,
         },
       } only %}
     {% endif %}

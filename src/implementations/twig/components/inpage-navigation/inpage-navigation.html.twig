@@ -14,6 +14,7 @@
       ]
     - "icon_path" (string) (default: ''): path to the icons svg
     - "icon_size" (string) (default: 'xs') EC: xs, EU: s
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -30,6 +31,7 @@
 {% set _css_class = 'ecl-inpage-navigation' %}
 {% set _icon_path = icon_path|default('') %}
 {% set _icon_size = icon_size|default('xs') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _trigger_aria_label = trigger_aria_label|default('') %}
 {% set _extra_attributes = 'data-ecl-auto-init="InpageNavigation"' %}
 
@@ -79,6 +81,7 @@
             path: _icon_path,
             name: "corner-arrow",
             size: _icon_size,
+            wt_markup: _icon_wt_markup,
           },
           as_image: true,
           extra_classes: 'ecl-icon--rotate-180 ecl-inpage-navigation__trigger-icon',

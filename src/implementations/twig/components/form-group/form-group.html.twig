@@ -8,6 +8,7 @@
   - "invalid" (boolean) (default: false)
   - "invalid_icon" (object of type "icon") (default: {})
   - "sr_invalid_icon" (string) (default: ''): additional label for the invalid icon; for screen readers
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "required" (boolean) (default: false)
   - "label_aria_required" (string) (default: ''): aria text for the required field label; if the required label is not explicit
   - "label_aria_optional" (string) (default: ''): aria text for the optional field label; if the optional label is not explicit
@@ -36,6 +37,7 @@
 {% set _label_aria_optional = label_aria_optional|default('') %}
 {% set _invalid_icon = invalid_icon|default({}) %}
 {% set _sr_invalid_icon = sr_invalid_icon|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _helper_text = helper_text|default('') %}
 {% set _invalid_text = invalid_text|default('') %}
 {% set _label_class = 'ecl-form-label' %}
@@ -244,7 +246,8 @@
     {% include '@ecl/checkbox/checkbox-group.html.twig' with _input|merge({
       invalid_text: _invalid_text,
       invalid_icon: _invalid_icon,
-      sr_invalid_icon: _sr_invalid_icon
+      sr_invalid_icon: _sr_invalid_icon,
+      icon_wt_markup: _icon_wt_markup,
     }) only %}
   {%- endif -%}
 
@@ -271,6 +274,7 @@
       {% include '@ecl/icon/icon.html.twig' with {
         icon: _invalid_icon|merge({
           size: 's',
+          wt_markup: _invalid_icon.wt_markup|default(_icon_wt_markup),
         }),
         as_image: true,
         extra_accessibility: not _sr_invalid_icon ? {} : {

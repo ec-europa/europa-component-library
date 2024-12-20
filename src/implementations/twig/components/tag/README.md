@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-tag
   - aria_label: (string) (default: '') (optional) aria label for removable tag as a string
   - nowrap: boolean (default: false) force the tag to stay on one line
 - **"icon_path"** (string ) (default: '') - path for the icon image (need to render Icon component if tag type is 'removable')
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'

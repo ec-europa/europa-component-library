@@ -16,6 +16,7 @@ npm install --save @ecl/twig-component-list-illustration
   - "square" (boolean) (default: false): Squared image (100x100px)
   - "icon" (associative array) (default: {}): predefined structure for Icon component
   - "media_size" (string) (default: 'm'): size of the media (square picture or icon). Could be 's', 'm' or 'l'
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"column"** (number) (default: 1): number of columns (1 column means vertical display)
 - **"zebra"** (optional) (boolean) (default: false) use alternate background display for vertical list
 - **"centered"** (bool) (default: false) Define if the items should be centered

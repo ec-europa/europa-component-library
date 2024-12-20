@@ -4,6 +4,7 @@
   Parameters:
   - "id" (string) Unique id for this item. Needed for accessibility. Generated automatically
   - "icon_path" (string) Path to the icon sprite
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "item" (object)
     - "label" (string) Label of the menu link
     - "external" (boolean) External link
@@ -51,6 +52,7 @@
 {% set _menu_list_item_attributes = 'data-ecl-mega-menu-item' %}
 {% set _menu_list_item_class = 'ecl-mega-menu__item' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _featured = _item.featured|default({}) %}
 {% set _info = _item.info|default({}) %}
 {% set _see_all = see_all|default(false) %}
@@ -85,12 +87,14 @@
     transform: 'rotate-90',
     path: _icon_path,
     size: '2xs',
+    wt_markup: _icon_wt_markup,
   },
   {
     name: 'arrow-left',
     transform: 'flip-horizontal',
     path: _icon_path,
     size: 's',
+    wt_markup: _icon_wt_markup,
   }] %}
 {% endif %}
 
@@ -110,6 +114,7 @@
       icon_path: _icon_path,
       icon_position: 'after',
       icon: _icon,
+      icon_wt_markup: _icon_wt_markup,
       extra_classes: _menu_link_class,
       extra_attributes: _menu_link_attributes,
     } only %}
@@ -123,6 +128,7 @@
         external: _can_be_external ? _item.external|default(false),
         sr_external: _item.sr_external|default(''),
         icon_position: 'after',
+        icon_wt_markup: _icon_wt_markup,
       },
       icon: _icon,
       extra_classes: _menu_link_class,
@@ -182,6 +188,7 @@
           link: _info.link.link|merge({
             type: 'standalone',
             path: _path,
+            icon_wt_markup: _info.link.icon_wt_markup|default(_icon_wt_markup),
           }),
           icon: {
             name: 'arrow-left',
@@ -256,6 +263,7 @@
               label: child.label,
               icon_path: _icon_path,
               icon: _icon,
+              icon_wt_markup: _icon_wt_markup,
               extra_classes: _sublink_class,
               extra_attributes: _sublink_attrs,
           } only %}
@@ -265,6 +273,7 @@
               third_level_aria_label: third_level_aria_label|default(''), 
               see_all_attributes: child.see_all_attributes|default([]),
               icon_path: _icon_path,
+              icon_wt_markup: _icon_wt_markup,
               sublink_id: _sublink_id|default(''),
               item: {
                 path: child.path, 
@@ -283,6 +292,7 @@
               external: _can_be_external ? child.external|default(false),
               sr_external: child.sr_external|default(''),
               icon_path: _icon_path,
+              icon_wt_markup: _icon_wt_markup,
             },
             icon: _icon,
             extra_classes: _sublink_class,
@@ -299,6 +309,7 @@
               type: 'standalone',
               label: _see_all_label,
               path: _item.path,
+              icon_wt_markup: _icon_wt_markup,
             },
             icon: {
               path: _icon_path,
@@ -348,7 +359,11 @@
             {% for item in _featured.items %}
               <li class="ecl-mega-menu__featured-list__item">
               {% include '@ecl/link/link.html.twig' with {
-                link: item|merge({ type: 'standalone', icon_path: _icon_path }),
+                link: item|merge({ 
+                  type: 'standalone', 
+                  icon_path: _icon_path,
+                  icon_wt_markup: _icon_wt_markup, 
+                }),
                 extra_attributes: [
                   { name: 'data-ecl-mega-menu-featured-link' },
                 ]|merge(item.extra_attributes|default([])),

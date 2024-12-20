@@ -10,6 +10,7 @@
         transform (string) (default: ''): icon transformation (available options: 'rotate-0', 'rotate-90', 'rotate-180', 'rotate-270', 'flip-horizontal', 'flip-vertical'),
         color (string) (default: ''): icon color (available options: 'default', 'inverted', 'primary')
         title (string) (default: ''): additional title for the icon; shortcut for extra accessibility title parameter
+        category (string) (default: ''): icon category; only used for webtools markup
         wt_markup (boolean) (default: false): should the icon use the Webtools markup?
       }
     - "as_image" (boolean) (default: false): should the icon be displayed as an image?
@@ -41,6 +42,7 @@
   transform: '',
   color: '',
   title: '',
+  category: '',
   wt_markup: false,
 }|merge(icon|default({})) %}
 
@@ -112,10 +114,15 @@
 
 {% if _icon.wt_markup %}
   {% set _wt_classes = '' %}
-  {% if _icon.name is not empty %}
-    {% set _wt_classes = 'wt-icon--' ~ _icon.name %}
-    {% set _css_class = _css_class  ~ ' ecl-icon--' ~ _icon.name %}
+  {% set _full_name = '' %}
+  {% if _icon.category is not empty %}
+    {% set _full_name = _full_name ~ '-' ~ _icon.category %}
   {% endif %}
+  {% if _icon.name is not empty %}
+    {% set _full_name = _full_name ~ '--' ~ _icon.name %}
+  {% endif %}
+  {% set _wt_classes = 'wt-icon' ~ _full_name %}
+  {% set _css_class = _css_class  ~ ' ecl-icon' ~ _full_name %}
 
   <span 
     class="{{ _wt_classes }} {{ _css_class }}"

@@ -16,6 +16,8 @@ npm install --save @ecl/twig-component-form-group
 - **"hide_label"** (bool) (default: false): hide form element label, for screen reader only
 - **"invalid"** (boolean) (default: false)
 - **"invalid_icon"** (object of type "icon") (default: {})
+- **"sr_invalid_icon"** (string) (default: ''): additional label for the invalid icon; for screen readers
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"required"** (boolean) (default: false)
 - **"label_aria_required"** (string) (default: ''): aria text for the required field label; if the required label is not explicit
 - **"label_aria_optional"** (string) (default: ''): aria text for the optional field label; if the optional label is not explicit

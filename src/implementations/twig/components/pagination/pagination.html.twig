@@ -4,6 +4,7 @@
   Parameters:
   - "label" (string) (default: ''): for screen reader
   - "icon_path" (string) (default: '') Path to the icons file
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "items" (array) (default: []):
     - "type" (string) (default: ''): can be 'previous', 'current', 'next' or 'truncation'
     - "label" (string) (default: ''): label used when the item is not a link
@@ -22,6 +23,7 @@
 {% set _css_class = 'ecl-pagination' %}
 {% set _extra_attributes = '' %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -59,7 +61,9 @@
             {% set _icon = _icon_path is not empty ? _item.link.icon|merge({ path: _icon_path }) : _item.link.icon %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with {
-            link: _link|default({}),
+            link: _link|default({})|merge({
+              icon_wt_markup: _icon_wt_markup,
+            }),
             icon: _icon,
             extra_classes: "ecl-pagination__link",
           } only %}

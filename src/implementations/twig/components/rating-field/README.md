@@ -15,6 +15,7 @@ npm install --save @ecl/twig-component-rating-field
 - **"invalid_icon"** (object) default({})
 - **"star_filled_icon"** (object) default({})
 - **"star_outline_icon"** (object) default({})
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"required"** (boolean) (default: false)
 - **"extra_classes"** (optional) (string) (default: '')
 - **"extra_attributes"** (optional) (array) (default: [])

@@ -23,6 +23,7 @@
     - "sr_play" (string) (default: 'Play news ticker') screen reader label for play button
     - "sr_pause" (string) (default: 'Pause news ticker') screen reader label for pause button
     - "icon_path" (string) (default: '') Path to the icons file
+    - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -37,6 +38,7 @@
 
 {% set _id = id|default('ecl-news-ticker-' ~ random()) %}
 {% set _icon_path = icon_path|default('') %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _counter_label = counter_label|default('of') %}
 {% set _items = items|default([]) %}
 {% set _aria_controls = _id ~ '-content' %}
@@ -91,6 +93,7 @@
                 path: _icon_path,
                 name: _item.icon.name,
                 size: 'l',
+                wt_markup: _icon_wt_markup,
               }),
               extra_classes: 'ecl-news-ticker__icon',
             } only %}
@@ -115,11 +118,12 @@
           {{- _image -}}
           {% include '@ecl/link/link.html.twig' with {
             link: {
-            type: 'standalone',
+              type: 'standalone',
               label: _item.content,
               path: _item.link,
               icon_position: 'before',
               icon_path: _icon_path,
+              icon_wt_markup: _icon_wt_markup,
               external: _item.external,
               sr_external: _sr_external
             },
@@ -141,6 +145,7 @@
         variant: 'tertiary',
         label: _sr_previous,
         hide_label: true,
+        icon_wt_markup: _icon_wt_markup,
         icon: {
           path: _icon_path,
           name: 'corner-arrow',
@@ -158,6 +163,7 @@
         variant: 'tertiary',
         label: _sr_play,
         hide_label: true,
+        icon_wt_markup: _icon_wt_markup,
         icon: {
           path: _icon_path,
           name: 'play-outline',
@@ -174,6 +180,7 @@
         variant: 'tertiary',
         label: _sr_pause,
         hide_label: true,
+        icon_wt_markup: _icon_wt_markup,
         icon: {
           path: _icon_path,
           name: 'pause-outline',
@@ -190,6 +197,7 @@
         variant: 'tertiary',
         label: _sr_next,
         hide_label: true,
+        icon_wt_markup: _icon_wt_markup,
         icon: {
           path: _icon_path,
           name: 'corner-arrow',

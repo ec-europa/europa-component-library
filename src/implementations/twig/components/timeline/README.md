@@ -19,6 +19,7 @@ npm install --save @ecl/twig-component-timeline
   - "title": (string) (default: '')
   - "content": (block) (default: '')
 - **"icon_path"** (string) (default: ''): file containing the svg icons
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
