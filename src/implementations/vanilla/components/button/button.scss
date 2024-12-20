@@ -58,8 +58,19 @@ $min-width: 44px; // According to COMM every interactive element should be at le
   flex-shrink: 0;
 }
 
+.ecl-button__icon-container {
+  display: flex;
+  position: relative;
+}
+
+.ecl-button__indicator {
+  display: none;
+}
+
 .ecl-button__icon ~ .ecl-button__label,
-.ecl-button__label ~ .ecl-button__icon {
+.ecl-button__icon-container ~ .ecl-button__label,
+.ecl-button__label ~ .ecl-button__icon,
+.ecl-button__label ~ .ecl-button__icon-container {
   margin-inline-start: var(--s-xs);
 }
 
@@ -74,9 +85,13 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     @include screen-reader.sr-only;
   }
 
+  .ecl-button__icon,
+  .ecl-button__icon-container {
+    margin: 0;
+  }
+
   .ecl-button__icon {
     height: map.get($theme, 'icon', 'm');
-    margin: 0;
     width: map.get($theme, 'icon', 'm');
   }
 }
@@ -90,18 +105,12 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     map.get($button, #{$variant}, 'border-color');
   color: map.get($button, #{$variant}, 'color');
   padding: calc(
-      #{map.get($button, 'padding-vertical')} - #{map.get(
-          $button,
-          #{$variant},
-          'border-width'
-        )}
+      #{map.get($button, 'padding-vertical')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     )
     calc(
-      #{map.get($button, 'padding-horizontal')} - #{map.get(
-          $button,
-          #{$variant},
-          'border-width'
-        )}
+      #{map.get($button, 'padding-horizontal')} -
+        #{map.get($button, #{$variant}, 'border-width')}
     );
 
   &:hover {
@@ -114,11 +123,8 @@ $min-width: 44px; // According to COMM every interactive element should be at le
     background-color: map.get($button, #{$variant}, 'background-focus');
     border-color: map.get($button, #{$variant}, 'border-color-focus');
     color: map.get($button, #{$variant}, 'color-focus');
-    outline: #{map.get($button, #{$variant}, 'outline-width')} solid #{map.get(
-        $button,
-        #{$variant},
-        'outline-color'
-      )};
+    outline: #{map.get($button, #{$variant}, 'outline-width')} solid
+      #{map.get($button, #{$variant}, 'outline-color')};
     outline-offset: map.get($button, #{$variant}, 'outline-offset');
   }
 

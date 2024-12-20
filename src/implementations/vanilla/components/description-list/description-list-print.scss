@@ -175,11 +175,8 @@ $description-list-print: null !default;
     margin-top: map.get($theme, 'spacing-print', 'm');
     overflow-wrap: break-word;
     width: calc(
-      #{map.get($description-list-print, 'definition-width')} - #{map.get(
-          $theme,
-          'spacing-print',
-          'xl'
-        )}
+      #{map.get($description-list-print, 'definition-width')} -
+        #{map.get($theme, 'spacing-print', 'xl')}
     );
   }
 
