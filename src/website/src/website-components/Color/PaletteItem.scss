@@ -1,6 +1,22 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as *;
 
+.nameWrapper {
+  position: relative;
+
+  .nameHoverHidden {
+    display: inline;
+  }
+
+  .nameHoverOnly {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+  }
+}
+
 .item {
   align-items: center;
   box-sizing: border-box;
@@ -13,6 +29,14 @@
   position: relative;
   margin: 0;
   padding: var(--ws-s-m);
+
+  &:hover .nameHoverHidden {
+    display: none;
+  }
+
+  &:hover .nameHoverOnly {
+    display: inline;
+  }
 }
 
 .item--main {
@@ -113,30 +137,6 @@
   }
 
   &:hover .buttonHoverOnly {
-    display: inline;
-  }
-}
-
-.nameWrapper {
-  position: relative;
-
-  .nameHoverHidden {
-    display: inline;
-  }
-
-  .nameHoverOnly {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-  }
-
-  &:hover .nameHoverHidden {
-    display: none;
-  }
-
-  &:hover .nameHoverOnly {
     display: inline;
   }
 }
