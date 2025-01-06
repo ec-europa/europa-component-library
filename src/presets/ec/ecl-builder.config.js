@@ -5,7 +5,7 @@ const rootPkg = require('../../../package.json');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(__dirname, '../../../node_modules');
+const nodeModules = path.resolve(__dirname, './node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -91,7 +91,7 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(nodeModules, '@ecl/preset-reset/src/reset.scss'),
+      entry: path.resolve('../reset', 'src/reset.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-reset.css'),
       options: {
         banner,
@@ -100,7 +100,7 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(nodeModules, '@ecl/preset-rtl/src/rtl.scss'),
+      entry: path.resolve('../rtl', 'src/rtl.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-rtl.css'),
       options: {
         banner,

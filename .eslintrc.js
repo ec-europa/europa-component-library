@@ -23,6 +23,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['src/**/*.story.js', 'src/**/*.test.js'],
+      rules: {
+        'import/no-unresolved': 'off',
+      },
+    },
+    {
       files: '**/scripts/**/*.js',
       rules: {
         'no-console': 'off',

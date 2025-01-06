@@ -2,4 +2,4 @@
 
 set +e
 
-yarn audit; [[ $? -ge 4 ]] && exit 1 || exit 0
+pnpm audit; [[ $? -ge 4 ]] && exit 1 || exit 0
