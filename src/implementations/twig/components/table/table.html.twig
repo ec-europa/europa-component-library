@@ -7,6 +7,7 @@
   - "caption" (string) (default: ''): optional caption for the table
   - "label_sort" (string) (default: ''): label used for sorting buttons (screen reader only)
   - "zebra" (boolean) (default: false))
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "headers" (array) (default: []): format: [
       {
         "label" (string or array of string)
@@ -63,6 +64,7 @@
 {% set _label_sort = label_sort|default('') %}
 {% set _rows = rows|default([]) %}
 {% set _zebra = zebra|default(false) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 
 {# Internal logic - Process properties #}
 
@@ -75,6 +77,12 @@
     { name: 'data-ecl-table' },
     { name: 'data-ecl-auto-init', value: 'Table' },
     { name: 'data-ecl-table-sort-label', value: _label_sort }
+  ]) %}
+{% endif %}
+
+{% if _icon_wt_markup %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-icon-wt-markup' },
   ]) %}
 {% endif %}
 

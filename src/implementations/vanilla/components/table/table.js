@@ -58,20 +58,31 @@ export class Table {
   /**
    * @returns {HTMLElement}
    */
-  static createSortIcon(customClass) {
-    const tempElement = document.createElement('span');
-    tempElement.innerHTML = iconSvgAllArrow; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute(
-      'class',
-      `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
-    );
-    return svg;
+  static createSortIcon(customClass, wtMarkup) {
+    let icon = '';
+    if (wtMarkup) {
+      icon = document.createElement('span');
+      icon.setAttribute(
+        'class',
+        `ecl-table__icon wt-icon--solid-arrow ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      );
+    } else {
+      const tempElement = document.createElement('span');
+      tempElement.innerHTML = iconSvgAllArrow; // avoiding the use of not-so-stable createElementNs
+      // eslint-disable-next-line prefer-destructuring
+      icon = tempElement.children[0];
+      icon.removeAttribute('height');
+      icon.removeAttribute('width');
+      icon.setAttribute('focusable', false);
+      icon.setAttribute('aria-hidden', true);
+      // The following element is <path> which does not support classList API as others.
+      icon.setAttribute(
+        'class',
+        `ecl-table__icon ecl-icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+      );
+    }
+
+    return icon;
   }
 
   /**
@@ -96,8 +107,11 @@ export class Table {
             this.element.getAttribute(this.sortLabelSelector),
           );
         }
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-up'));
-        sort.appendChild(Table.createSortIcon('ecl-table__icon-down'));
+        const wtMarkup = this.element.hasAttribute('data-ecl-icon-wt-markup');
+        sort.appendChild(Table.createSortIcon('ecl-table__icon-up', wtMarkup));
+        sort.appendChild(
+          Table.createSortIcon('ecl-table__icon-down', wtMarkup),
+        );
         tr.appendChild(sort);
         tr.addEventListener('click', (e) => this.handleClickOnSort(tr)(e));
       });

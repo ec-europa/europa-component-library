@@ -20,6 +20,7 @@ npm install --save @ecl/twig-component-table
   - "rowspan" (string) (default: ''),
   - "data-ecl-table-header-group" (string) (default: ''),
   - "headers" (string) (default: ''): headers attribute to reference the relevant table headers ids (for multi headers table)
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"rows"** (array) (default: []): [
   { - "extra_attributes": (string) (default: ''), - "extra_classes": (string) (default: '') Extra classes for the table row (space separated) - "data: [
   {
