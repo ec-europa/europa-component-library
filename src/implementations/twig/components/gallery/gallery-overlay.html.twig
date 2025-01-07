@@ -61,7 +61,7 @@
       variant: _button_variant,
       type: 'submit',
       icon: _overlay.close.icon|merge({
-        wt_markup: _overlay.close.icon|default(_icon_wt_markup),
+        wt_markup: _overlay.close.icon.wt_markup|default(_icon_wt_markup),
       }),
       extra_attributes: [
         { name: 'data-ecl-gallery-close' },
