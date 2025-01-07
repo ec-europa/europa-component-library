@@ -64,7 +64,7 @@ export class Table {
       icon = document.createElement('span');
       icon.setAttribute(
         'class',
-        `ecl-table__icon wt-icon--solid-arrow ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
+        `wt-icon--solid-arrow ecl-table__icon ecl-icon--${iconSvgAllArrowSize} ${customClass}`,
       );
     } else {
       const tempElement = document.createElement('span');
@@ -98,6 +98,7 @@ export class Table {
 
     // Add sort arrows and bind click event on toggles.
     if (this.sortHeadings) {
+      const wtMarkup = this.element.hasAttribute('data-ecl-icon-wt-markup');
       this.sortHeadings.forEach((tr) => {
         const sort = document.createElement('button');
         sort.classList.add('ecl-table__arrow');
@@ -107,7 +108,6 @@ export class Table {
             this.element.getAttribute(this.sortLabelSelector),
           );
         }
-        const wtMarkup = this.element.hasAttribute('data-ecl-icon-wt-markup');
         sort.appendChild(Table.createSortIcon('ecl-table__icon-up', wtMarkup));
         sort.appendChild(
           Table.createSortIcon('ecl-table__icon-down', wtMarkup),

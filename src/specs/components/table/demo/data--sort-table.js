@@ -135,7 +135,7 @@ module.exports = {
           headers: 'table-id-header-3 table-id-header-5',
         },
         {
-          label: 'Permanent official',
+          label: 'Temporary',
           'data-ecl-table-header': 'Type of contract',
           group: true,
           headers: 'table-id-header-3 table-id-header-6',
