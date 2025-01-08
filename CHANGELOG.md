@@ -1,5 +1,37 @@
 # Changelog
 
+# 4.10.0
+
+#### :rocket: New Feature
+
+- [#3739](https://github.com/ec-europa/europa-component-library/pull/3739) feat(icons): Adding vimeo icons - FRONT-4695 ([@planctus](https://github.com/planctus))
+
+#### :bug: Bug Fix
+
+- [#3758](https://github.com/ec-europa/europa-component-library/pull/3758) fix(navigation-list): fix image size on safari - FRONT-4705 ([@emeryro](https://github.com/emeryro))
+- [#3759](https://github.com/ec-europa/europa-component-library/pull/3759) fix(icon): fix vimeo color ([@emeryro](https://github.com/emeryro))
+- [#3754](https://github.com/ec-europa/europa-component-library/pull/3754) fix(mega-menu): Hiding in print css - FRONT-4704 ([@planctus](https://github.com/planctus))
+- [#3744](https://github.com/ec-europa/europa-component-library/pull/3744) fix(file download): fix link position - FRONT-4694 ([@emeryro](https://github.com/emeryro))
+- [#3746](https://github.com/ec-europa/europa-component-library/pull/3746) fix(lists): Fixing style of links with icons - FRONT-4700 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3753](https://github.com/ec-europa/europa-component-library/pull/3753) feat(website): Showing custom properties hovering on color name in website showcase - FRONT-4703 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3761](https://github.com/ec-europa/europa-component-library/pull/3761) chore(deps): Updates 07-01-25 ([@planctus](https://github.com/planctus))
+- [#3757](https://github.com/ec-europa/europa-component-library/pull/3757) chore(deps): Updates 03-01-25 ([@planctus](https://github.com/planctus))
+- [#3756](https://github.com/ec-europa/europa-component-library/pull/3756) chore: yarn.lock regenerated, adding esbuild resolution ([@planctus](https://github.com/planctus))
+- [#3755](https://github.com/ec-europa/europa-component-library/pull/3755) fix(audit): Using nanoid 3.3.8 ([@planctus](https://github.com/planctus))
+- [#3752](https://github.com/ec-europa/europa-component-library/pull/3752) chore(deps): Updates 17-12-24 ([@planctus](https://github.com/planctus))
+- [#3747](https://github.com/ec-europa/europa-component-library/pull/3747) chore(deps): Updates - 10-12-24 ([@planctus](https://github.com/planctus))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- [@planctus](https://github.com/planctus)
+
 # 4.9.0
 
 #### :rocket: New Feature
