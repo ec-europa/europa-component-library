@@ -5,6 +5,24 @@ title: What's new
 
 Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+# 4.10.0
+
+#### :rocket: New Feature
+
+* [#3739](https://github.com/ec-europa/europa-component-library/pull/3739) feat(icons): Adding vimeo icons - FRONT-4695 
+
+#### :bug: Bug Fix
+
+* [#3758](https://github.com/ec-europa/europa-component-library/pull/3758) fix(navigation-list): fix image size on safari - FRONT-4705
+* [#3759](https://github.com/ec-europa/europa-component-library/pull/3759) fix(icon): fix vimeo color
+* [#3754](https://github.com/ec-europa/europa-component-library/pull/3754) fix(mega-menu): Hiding in print css - FRONT-4704 
+* [#3744](https://github.com/ec-europa/europa-component-library/pull/3744) fix(file download): fix link position - FRONT-4694
+* [#3746](https://github.com/ec-europa/europa-component-library/pull/3746) fix(lists): Fixing style of links with icons - FRONT-4700 
+
+#### :nail_care: Enhancement
+
+* [#3753](https://github.com/ec-europa/europa-component-library/pull/3753) feat(website): Showing custom properties hovering on color name in website showcase - FRONT-4703 
+
 # 4.9.0
 
 #### :rocket: New Feature
