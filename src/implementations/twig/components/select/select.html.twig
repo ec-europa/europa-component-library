@@ -17,6 +17,7 @@
   - "toggle_label": (default: 'Toggle dropdown')
   - "width" (string) (default: '')
   - "icon_path" (string) (default: ''): file containing the svg icons
+  - "icon_wt_markup" (boolean) (default: false): should the icon use the Webtools markup?
   - "multiple" (boolean) (optional) (default: false) For the multiple select
   - "multiple_placeholder" (string)(default: '') Label for the multiple select placeholder
   - "multiple_all_text" (string)(default: '') Label for the select all option
@@ -43,6 +44,7 @@
 {% set _required = required|default(false) %}
 {% set _name = name|default('') %}
 {% set _icon_path = icon_path|default(false) %}
+{% set _icon_wt_markup = icon_wt_markup|default(false) %}
 {% set _icon_size = icon_size|default('xs') %}
 {% set _width = width|default('m') %}
 {% set _helper_text = helper_text|default('') %}
@@ -63,6 +65,9 @@
 {% set _css_class = 'ecl-select' %}
 {% set _extra_attributes = '' %}
 {% set extra_attributes = extra_attributes|default([])|merge([{ name: 'data-ecl-auto-init', value: 'Select' }]) %}
+
+{# Internal logic - Process properties #}
+
 {% if _multiple %}
   {% set extra_attributes = extra_attributes|merge([
     { name: 'multiple' },
@@ -85,7 +90,11 @@
   {% endif %}
 {% endif %}
 
-{# Internal logic - Process properties #}
+{% if _icon_wt_markup %}
+  {% set extra_attributes = extra_attributes|default([])|merge([
+    { name: 'data-ecl-icon-wt-markup' },
+  ]) %}
+{% endif %}
 
 {% if extra_group_classes is defined and extra_group_classes is not empty %}
   {% set _css_group_class = _css_group_class ~ ' ' ~ extra_group_classes %}
@@ -157,6 +166,7 @@
   </select>
   <div class="ecl-select__icon">
     {% include '@ecl/button/button.html.twig' with {
+      icon_wt_markup: _icon_wt_markup,
       hide_label: true,
       type: 'button',
       variant: 'ghost',

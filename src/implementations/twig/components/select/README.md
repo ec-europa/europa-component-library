@@ -23,6 +23,7 @@ npm install --save @ecl/twig-component-select
 - **"toggle_label"** (string) (default: 'Toggle dropdown')
 - **"width"** (string) (default: '') Input width size (s, m or l)
 - **"icon_path"** (string) (default: ''): file containing the svg icons
+- **"icon_wt_markup"** (boolean) (default: false): should the icon use the Webtools markup?
 - **"multiple"** (bolean) (default: false): For the multiple select
 - **"multiple_placeholder"** (string) (default: '') Placeholder for the multiple select
 - **"multiple_all_text"** (string) (default: '') Text for the select all option

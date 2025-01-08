@@ -174,17 +174,25 @@ export class Select {
    * @private
    * @returns {HTMLElement}
    */
-  static #createSvgIcon(icon, classes) {
-    const tempElement = document.createElement('div');
-    tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
-    const svg = tempElement.children[0];
-    svg.removeAttribute('height');
-    svg.removeAttribute('width');
-    svg.setAttribute('focusable', false);
-    svg.setAttribute('aria-hidden', true);
-    // The following element is <path> which does not support classList API as others.
-    svg.setAttribute('class', classes);
-    return svg;
+  static #createSvgIcon(icon, name, classes, wtMarkup) {
+    let result = '';
+    if (wtMarkup) {
+      result = document.createElement('span');
+      result.setAttribute('class', `wt-icon--${name} ${classes}`);
+    } else {
+      const tempElement = document.createElement('div');
+      tempElement.innerHTML = icon; // avoiding the use of not-so-stable createElementNs
+      // eslint-disable-next-line prefer-destructuring
+      result = tempElement.children[0];
+      result.removeAttribute('height');
+      result.removeAttribute('width');
+      result.setAttribute('focusable', false);
+      result.setAttribute('aria-hidden', true);
+      // The following element is <path> which does not support classList API as others.
+      result.setAttribute('class', classes);
+    }
+
+    return result;
   }
 
   /**
@@ -198,10 +206,11 @@ export class Select {
    * @param {String} [options.disabled] - relevant when re-creating an option
    * @param {String} [options.selected] - relevant when re-creating an option
    * @param {String} ctx
+   * @param {String} wtMarkup
    * @private
    * @returns {HTMLElement}
    */
-  static #createCheckbox(options, ctx) {
+  static #createCheckbox(options, ctx, wtMarkup) {
     // Early returns.
     if (!options || !ctx) return '';
     const { id, text, disabled, selected, extraClass } = options;
@@ -242,7 +251,9 @@ export class Select {
     box.appendChild(
       Select.#createSvgIcon(
         iconSvgAllCheck,
+        'check',
         'ecl-icon ecl-icon--s ecl-checkbox__icon',
+        wtMarkup,
       ),
     );
     label.appendChild(box);
@@ -257,10 +268,11 @@ export class Select {
    * Static method to generate the select icon
    *
    * @static
+   * @param {String} wtMarkup
    * @private
    * @returns {HTMLElement}
    */
-  static #createSelectIcon() {
+  static #createSelectIcon(wtMarkup) {
     const wrapper = document.createElement('div');
     wrapper.classList.add('ecl-select__icon');
     const button = document.createElement('button');
@@ -276,13 +288,18 @@ export class Select {
     label.classList.add('ecl-button__label');
     label.textContent = 'Toggle dropdown';
     labelWrapper.appendChild(label);
+
     const icon = Select.#createSvgIcon(
       iconSvgAllCornerArrow,
+      'corner-arrow',
       `ecl-icon ecl-icon--${iconSize} ecl-icon--rotate-180`,
+      wtMarkup,
     );
+
     labelWrapper.appendChild(icon);
     button.appendChild(labelWrapper);
     wrapper.appendChild(button);
+
     return wrapper;
   }
 
@@ -321,6 +338,7 @@ export class Select {
     ECL.components = ECL.components || new Map();
 
     this.select = this.element;
+    const wtMarkup = this.element.hasAttribute('data-ecl-icon-wt-markup');
 
     if (this.multiple) {
       const containerClasses = Array.from(this.select.parentElement.classList);
@@ -408,7 +426,7 @@ export class Select {
 
       this.inputContainer.appendChild(this.selectionCount);
       this.inputContainer.appendChild(this.input);
-      this.inputContainer.appendChild(Select.#createSelectIcon());
+      this.inputContainer.appendChild(Select.#createSelectIcon(wtMarkup));
       this.searchContainer = document.createElement('div');
       this.searchContainer.style.display = 'none';
       this.searchContainer.classList.add(
@@ -446,6 +464,7 @@ export class Select {
             extraClass: 'ecl-select__multiple-all',
           },
           this.selectMultipleId,
+          wtMarkup,
         );
         this.selectAll.addEventListener('click', this.handleClickSelectAll);
         this.selectAll.addEventListener('keypress', this.handleClickSelectAll);
@@ -558,6 +577,7 @@ export class Select {
               selected: option.selected,
             },
             this.selectMultipleId,
+            wtMarkup,
           );
 
           checkbox.setAttribute('data-visible', true);

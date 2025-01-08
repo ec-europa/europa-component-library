@@ -226,7 +226,9 @@
   {%- if _input.input_type == 'select' -%}
     <div class="ecl-select__container{{ _disabled ? ' ecl-select__container--disabled' }}{{ _invalid ? ' ecl-select__container--invalid' }}{{ _width ? ' ecl-select__container--' ~ _width }}"
     >
-    {% include '@ecl/select/select.html.twig' with _input only %}
+    {% include '@ecl/select/select.html.twig' with _input|merge({
+      icon_wt_markup: _icon_wt_markup,
+    }) only %}
     </div>
   {%- endif -%}
 
