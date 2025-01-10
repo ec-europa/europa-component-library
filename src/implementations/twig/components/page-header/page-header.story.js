@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import demoContent from '@ecl/specs-component-page-header/demo/data';
-import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long';
+import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
 
 import pageHeader from './page-header.html.twig';
 import notes from './README.md';

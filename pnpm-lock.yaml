@@ -207,9 +207,36 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
+      '@ecl/twig-component-button':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/button
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+      '@ecl/twig-component-video':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/video
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/grid
+
+  src/components/breadcrumb:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-button':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/button
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
 
   src/implementations/twig/components/blockquote:
     dependencies:
@@ -223,25 +250,6 @@ importers:
       '@ecl/vanilla-component-blockquote':
         specifier: 4.9.0
         version: link:../../../vanilla/components/blockquote
-
-  src/implementations/twig/components/breadcrumb:
-    dependencies:
-      '@ecl/twig-component-button':
-        specifier: 4.9.0
-        version: link:../button
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-    devDependencies:
-      '@ecl/specs-component-breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/breadcrumb
-      '@ecl/vanilla-component-breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/breadcrumb
 
   src/implementations/twig/components/button:
     dependencies:
@@ -783,16 +791,13 @@ importers:
 
   src/implementations/twig/components/page-header:
     dependencies:
-      '@ecl/twig-component-breadcrumb':
+      '@ecl/breadcrumb':
         specifier: 4.9.0
-        version: link:../breadcrumb
+        version: link:../../../../components/breadcrumb
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
     devDependencies:
-      '@ecl/specs-component-breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/breadcrumb
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../../../../specs/components/page-header
@@ -1269,15 +1274,6 @@ importers:
 
   src/implementations/vanilla/components/blockquote:
     dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/breadcrumb:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../layout/grid
@@ -2040,6 +2036,9 @@ importers:
       '@ecl/banner':
         specifier: 4.9.0
         version: link:../../components/banner
+      '@ecl/breadcrumb':
+        specifier: 4.9.0
+        version: link:../../components/breadcrumb
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2049,9 +2048,6 @@ importers:
       '@ecl/vanilla-component-blockquote':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/blockquote
-      '@ecl/vanilla-component-breadcrumb':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/breadcrumb
       '@ecl/vanilla-component-button':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/button
@@ -2320,6 +2316,9 @@ importers:
       '@ecl/banner':
         specifier: 4.9.0
         version: link:../../components/banner
+      '@ecl/breadcrumb':
+        specifier: 4.9.0
+        version: link:../../components/breadcrumb
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2329,9 +2328,6 @@ importers:
       '@ecl/vanilla-component-blockquote':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/blockquote
-      '@ecl/vanilla-component-breadcrumb':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/breadcrumb
       '@ecl/vanilla-component-button':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/button
@@ -2728,8 +2724,6 @@ importers:
 
   src/specs/components/blockquote: {}
 
-  src/specs/components/breadcrumb: {}
-
   src/specs/components/button: {}
 
   src/specs/components/card: {}
@@ -2880,7 +2874,7 @@ importers:
         version: 4.9.0
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
-        version: link:../../components/breadcrumb
+        version: 4.9.0
       '@ecl/specs-component-file':
         specifier: 4.9.0
         version: link:../../components/file
@@ -2914,7 +2908,7 @@ importers:
     dependencies:
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
-        version: link:../../components/breadcrumb
+        version: 4.9.0
       '@ecl/specs-component-button':
         specifier: 4.9.0
         version: link:../../components/button
@@ -3078,7 +3072,7 @@ importers:
         version: link:../specs/components/blockquote
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
-        version: link:../specs/components/breadcrumb
+        version: 4.9.0
       '@ecl/specs-component-button':
         specifier: 4.9.0
         version: link:../specs/components/button
@@ -3252,7 +3246,7 @@ importers:
         version: link:../implementations/twig/components/blockquote
       '@ecl/twig-component-breadcrumb':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/breadcrumb
+        version: 4.9.0
       '@ecl/twig-component-button':
         specifier: 4.9.0
         version: link:../implementations/twig/components/button
@@ -4391,6 +4385,9 @@ packages:
   '@ecl/specs-component-banner@4.9.0':
     resolution: {integrity: sha512-C2EfhRCNFjntF7lSfocQ7axPdiS+Uuw4bUmILV4cgRhxXSwtJGkzwZX86pzUa9vxGycoEI0RblJ+quHEkGJDoA==}
 
+  '@ecl/specs-component-breadcrumb@4.9.0':
+    resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
@@ -4399,6 +4396,9 @@ packages:
 
   '@ecl/twig-component-banner@4.9.0':
     resolution: {integrity: sha512-1eueXWueTO5qf86RLhOlZEPWD91jJpYSdfsgaYEbCBk2/Zu8e5Wlnbsg5uPr1VlYVlXL3eHJLINi8q25vOiITQ==}
+
+  '@ecl/twig-component-breadcrumb@4.9.0':
+    resolution: {integrity: sha512-OJ0JOJfFD+AbqsD4iIV1B28p1G0UIWD1Q9PD9XOyOVwjfpcxHO+t1hL5Q8eyz/4izPQwoDbK9YDehuq/x1tumw==}
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
@@ -14542,6 +14542,8 @@ snapshots:
 
   '@ecl/specs-component-banner@4.9.0': {}
 
+  '@ecl/specs-component-breadcrumb@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
@@ -14552,6 +14554,12 @@ snapshots:
       '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
       '@ecl/twig-component-video': link:src/implementations/twig/components/video
+
+  '@ecl/twig-component-breadcrumb@4.9.0':
+    dependencies:
+      '@ecl/twig-component-button': link:src/implementations/twig/components/button
+      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
+      '@ecl/twig-component-link': link:src/implementations/twig/components/link
 
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:

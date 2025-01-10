@@ -1,19 +1,21 @@
 {
-  "name": "@ecl/vanilla-component-breadcrumb",
-  "version": "4.9.0",
-  "description": "ECL Breadcrumb",
-  "main": "breadcrumb.js",
-  "module": "breadcrumb.js",
-  "style": "breadcrumb.scss",
-  "sass": "breadcrumb.scss",
+  "name": "@ecl/breadcrumb",
   "author": "European Commission",
   "license": "EUPL-1.2",
-  "dependencies": {
-    "@ecl/dom-utils": "4.9.0",
-    "@ecl/vanilla-layout-grid": "4.9.0"
-  },
+  "version": "4.9.0",
+  "description": "ECL Breadcrumb",
+  "style": "breadcrumb.scss",
+  "sass": "breadcrumb.scss",
+  "main": "breadcrumb.js",
+  "module": "breadcrumb.js",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ecl/twig-component-button": "4.9.0",
+    "@ecl/twig-component-icon": "4.9.0",
+    "@ecl/twig-component-link": "4.9.0",
+    "@ecl/dom-utils": "4.9.0"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }

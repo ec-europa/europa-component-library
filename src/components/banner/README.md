@@ -1,9 +1,9 @@
 # ECL Banner
 
-npm package: `@ecl/twig-component-banner`
+npm package: `@ecl/banner`
 
 ```shell
-npm install --save @ecl/twig-component-banner
+npm install --save @ecl/banner
 ```
 
 ### Parameters

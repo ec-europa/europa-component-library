@@ -1,9 +1,9 @@
 # ECL Breadcrumb component
 
-npm package: `@ecl/twig-component-breadcrumb`
+npm package: `@ecl/breadcrumb`
 
 ```shell
-npm install --save @ecl/twig-component-breadcrumb
+npm install --save @ecl/breadcrumb
 ```
 
 ### Parameters

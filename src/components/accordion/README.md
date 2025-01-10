@@ -1,9 +1,9 @@
 # ECL Accordion component
 
-npm package: `@ecl/twig-component-accordion`
+npm package: `@ecl/accordion`
 
 ```shell
-npm install --save @ecl/twig-component-accordion
+npm install --save @ecl/accordion
 ```
 
 ### Parameters
