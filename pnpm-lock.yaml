@@ -223,6 +223,12 @@ importers:
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/grid
 
+  src/components/blockquote:
+    dependencies:
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+
   src/components/breadcrumb:
     dependencies:
       '@ecl/dom-utils':
@@ -237,19 +243,6 @@ importers:
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/link
-
-  src/implementations/twig/components/blockquote:
-    dependencies:
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-blockquote':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/blockquote
-      '@ecl/vanilla-component-blockquote':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/blockquote
 
   src/implementations/twig/components/button:
     dependencies:
@@ -1272,12 +1265,6 @@ importers:
         specifier: 4.9.0
         version: link:../../components/site-header
 
-  src/implementations/vanilla/components/blockquote:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
   src/implementations/vanilla/components/button:
     dependencies:
       '@ecl/vanilla-utility-screen-reader':
@@ -2036,6 +2023,9 @@ importers:
       '@ecl/banner':
         specifier: 4.9.0
         version: link:../../components/banner
+      '@ecl/blockquote':
+        specifier: 4.9.0
+        version: link:../../components/blockquote
       '@ecl/breadcrumb':
         specifier: 4.9.0
         version: link:../../components/breadcrumb
@@ -2045,9 +2035,6 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-blockquote':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/blockquote
       '@ecl/vanilla-component-button':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/button
@@ -2316,6 +2303,9 @@ importers:
       '@ecl/banner':
         specifier: 4.9.0
         version: link:../../components/banner
+      '@ecl/blockquote':
+        specifier: 4.9.0
+        version: link:../../components/blockquote
       '@ecl/breadcrumb':
         specifier: 4.9.0
         version: link:../../components/breadcrumb
@@ -2325,9 +2315,6 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-blockquote':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/blockquote
       '@ecl/vanilla-component-button':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/button
@@ -2722,8 +2709,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/blockquote: {}
-
   src/specs/components/button: {}
 
   src/specs/components/card: {}
@@ -3069,7 +3054,7 @@ importers:
         version: 4.9.0
       '@ecl/specs-component-blockquote':
         specifier: 4.9.0
-        version: link:../specs/components/blockquote
+        version: 4.9.0
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
         version: 4.9.0
@@ -3243,7 +3228,7 @@ importers:
         version: 4.9.0
       '@ecl/twig-component-blockquote':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/blockquote
+        version: 4.9.0
       '@ecl/twig-component-breadcrumb':
         specifier: 4.9.0
         version: 4.9.0
@@ -4385,6 +4370,9 @@ packages:
   '@ecl/specs-component-banner@4.9.0':
     resolution: {integrity: sha512-C2EfhRCNFjntF7lSfocQ7axPdiS+Uuw4bUmILV4cgRhxXSwtJGkzwZX86pzUa9vxGycoEI0RblJ+quHEkGJDoA==}
 
+  '@ecl/specs-component-blockquote@4.9.0':
+    resolution: {integrity: sha512-nWhyO5pMlS+h7CFziCB0c89OqH/B/pRV07hF1k31rUAzqWbF4TReE9PmGUcGkJ8EqyWwvhXZXi8daLj1OIBtrg==}
+
   '@ecl/specs-component-breadcrumb@4.9.0':
     resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
 
@@ -4396,6 +4384,9 @@ packages:
 
   '@ecl/twig-component-banner@4.9.0':
     resolution: {integrity: sha512-1eueXWueTO5qf86RLhOlZEPWD91jJpYSdfsgaYEbCBk2/Zu8e5Wlnbsg5uPr1VlYVlXL3eHJLINi8q25vOiITQ==}
+
+  '@ecl/twig-component-blockquote@4.9.0':
+    resolution: {integrity: sha512-EoyRfcHNya/JoCh7eNfWEq9LC7rz8OZrfi16hoNFMtaISAtl5OQWMV+YXnwQu3q59LMbuQrvK/c5y4KpS5osgQ==}
 
   '@ecl/twig-component-breadcrumb@4.9.0':
     resolution: {integrity: sha512-OJ0JOJfFD+AbqsD4iIV1B28p1G0UIWD1Q9PD9XOyOVwjfpcxHO+t1hL5Q8eyz/4izPQwoDbK9YDehuq/x1tumw==}
@@ -14542,6 +14533,8 @@ snapshots:
 
   '@ecl/specs-component-banner@4.9.0': {}
 
+  '@ecl/specs-component-blockquote@4.9.0': {}
+
   '@ecl/specs-component-breadcrumb@4.9.0': {}
 
   '@ecl/specs-component-picture@4.6.1': {}
@@ -14554,6 +14547,10 @@ snapshots:
       '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
       '@ecl/twig-component-video': link:src/implementations/twig/components/video
+
+  '@ecl/twig-component-blockquote@4.9.0':
+    dependencies:
+      '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
 
   '@ecl/twig-component-breadcrumb@4.9.0':
     dependencies:

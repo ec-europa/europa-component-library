@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import defaultData from '@ecl/specs-component-blockquote/demo/data';
+import defaultData from './demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 

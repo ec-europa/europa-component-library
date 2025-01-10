@@ -24,7 +24,7 @@
 @use '@ecl/vanilla-component-text-input/text-input-print';
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+@use '@ecl/blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,
   $blockquote-print: var.$blockquote-print
@@ -85,7 +85,7 @@
   $list-illustration: var.$list-illustration,
   $list-illustration-print: var.$list-illustration-print
 );
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
+@use '@ecl/breadcrumb/breadcrumb-print';
 @use '@ecl/vanilla-component-card/card-print' with (
   $theme: theme.$theme
 );

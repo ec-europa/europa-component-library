@@ -1,9 +1,9 @@
 # ECL Blockquote component
 
-npm package: `@ecl/twig-component-blockquote`
+npm package: `@ecl/blockquote`
 
 ```shell
-npm install --save @ecl/twig-component-blockquote
+npm install --save @ecl/blockquote
 ```
 
 ## Parameters
