@@ -4,12 +4,12 @@ import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
-import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
-import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
-import dataCall from '@ecl/specs-component-button/demo/data--call';
-import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
-import dataGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
-import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
+import dataPrimary from './demo/data--primary';
+import dataSecondary from './demo/data--secondary';
+import dataCall from './demo/data--call';
+import dataGhost from './demo/data--ghost';
+import dataGhostInverted from './demo/data--ghost-inverted';
+import dataTertiary from './demo/data--tertiary';
 
 import button from './button.html.twig';
 import notes from './README.md';
