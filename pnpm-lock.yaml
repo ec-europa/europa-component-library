@@ -201,15 +201,15 @@ importers:
 
   src/components/banner:
     dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
-      '@ecl/twig-component-button':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/link
@@ -231,12 +231,12 @@ importers:
 
   src/components/breadcrumb:
     dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-button':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
@@ -398,9 +398,9 @@ importers:
 
   src/implementations/twig/components/expandable:
     dependencies:
-      '@ecl/twig-component-button':
+      '@ecl/button':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/button
     devDependencies:
       '@ecl/specs-component-expandable':
         specifier: 4.9.0
@@ -701,9 +701,9 @@ importers:
 
   src/implementations/twig/components/modal:
     dependencies:
-      '@ecl/twig-component-button':
+      '@ecl/button':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/button
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
@@ -733,9 +733,9 @@ importers:
 
   src/implementations/twig/components/news-ticker:
     dependencies:
-      '@ecl/twig-component-button':
+      '@ecl/button':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/button
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
@@ -3007,6 +3007,21 @@ importers:
 
   src/website:
     dependencies:
+      '@ecl/accordion':
+        specifier: 4.9.0
+        version: link:../components/accordion
+      '@ecl/banner':
+        specifier: 4.9.0
+        version: link:../components/banner
+      '@ecl/blockquote':
+        specifier: 4.9.0
+        version: link:../components/blockquote
+      '@ecl/breadcrumb':
+        specifier: 4.9.0
+        version: link:../components/breadcrumb
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../components/button
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3031,21 +3046,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-accordion':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-banner':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-blockquote':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-breadcrumb':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-button':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/specs-component-card':
         specifier: 4.9.0
         version: link:../specs/components/card
@@ -3205,21 +3205,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-accordion':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-banner':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-blockquote':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-breadcrumb':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-button':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-card':
         specifier: 4.9.0
         version: link:../implementations/twig/components/card
@@ -4355,9 +4340,6 @@ packages:
   '@ecl/specs-component-banner@4.9.0':
     resolution: {integrity: sha512-C2EfhRCNFjntF7lSfocQ7axPdiS+Uuw4bUmILV4cgRhxXSwtJGkzwZX86pzUa9vxGycoEI0RblJ+quHEkGJDoA==}
 
-  '@ecl/specs-component-blockquote@4.9.0':
-    resolution: {integrity: sha512-nWhyO5pMlS+h7CFziCB0c89OqH/B/pRV07hF1k31rUAzqWbF4TReE9PmGUcGkJ8EqyWwvhXZXi8daLj1OIBtrg==}
-
   '@ecl/specs-component-breadcrumb@4.9.0':
     resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
 
@@ -4369,18 +4351,6 @@ packages:
 
   '@ecl/twig-component-accordion@4.9.0':
     resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
-
-  '@ecl/twig-component-banner@4.9.0':
-    resolution: {integrity: sha512-1eueXWueTO5qf86RLhOlZEPWD91jJpYSdfsgaYEbCBk2/Zu8e5Wlnbsg5uPr1VlYVlXL3eHJLINi8q25vOiITQ==}
-
-  '@ecl/twig-component-blockquote@4.9.0':
-    resolution: {integrity: sha512-EoyRfcHNya/JoCh7eNfWEq9LC7rz8OZrfi16hoNFMtaISAtl5OQWMV+YXnwQu3q59LMbuQrvK/c5y4KpS5osgQ==}
-
-  '@ecl/twig-component-breadcrumb@4.9.0':
-    resolution: {integrity: sha512-OJ0JOJfFD+AbqsD4iIV1B28p1G0UIWD1Q9PD9XOyOVwjfpcxHO+t1hL5Q8eyz/4izPQwoDbK9YDehuq/x1tumw==}
-
-  '@ecl/twig-component-button@4.9.0':
-    resolution: {integrity: sha512-Gy9Un6/S+EyJDmyvJyNOnwluIYHB+LEEAX0f3Tw6pjDULj365XrxD1wdFMO6K2+vREh0HTJ8M/7NTFv84C/Lrg==}
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
@@ -14524,8 +14494,6 @@ snapshots:
 
   '@ecl/specs-component-banner@4.9.0': {}
 
-  '@ecl/specs-component-blockquote@4.9.0': {}
-
   '@ecl/specs-component-breadcrumb@4.9.0': {}
 
   '@ecl/specs-component-button@4.9.0': {}
@@ -14533,28 +14501,6 @@ snapshots:
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
-
-  '@ecl/twig-component-banner@4.9.0':
-    dependencies:
-      '@ecl/twig-component-button': 4.9.0
-      '@ecl/twig-component-link': link:src/implementations/twig/components/link
-      '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
-      '@ecl/twig-component-video': link:src/implementations/twig/components/video
-
-  '@ecl/twig-component-blockquote@4.9.0':
-    dependencies:
-      '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
-
-  '@ecl/twig-component-breadcrumb@4.9.0':
-    dependencies:
-      '@ecl/twig-component-button': 4.9.0
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-      '@ecl/twig-component-link': link:src/implementations/twig/components/link
-
-  '@ecl/twig-component-button@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-      '@ecl/twig-component-indicator': link:src/implementations/twig/components/indicator
 
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:

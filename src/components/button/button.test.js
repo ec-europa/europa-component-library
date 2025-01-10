@@ -6,12 +6,12 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataPrimary from '@ecl/specs-component-button/demo/data--primary';
-import dataSecondary from '@ecl/specs-component-button/demo/data--secondary';
-import dataCall from '@ecl/specs-component-button/demo/data--call';
-import dataGhost from '@ecl/specs-component-button/demo/data--ghost';
-import dataGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
-import dataTertiary from '@ecl/specs-component-button/demo/data--tertiary';
+import dataPrimary from './demo/data--primary';
+import dataSecondary from './demo/data--secondary';
+import dataCall from './demo/data--call';
+import dataGhost from './demo/data--ghost';
+import dataGhostInverted from './demo/data--ghost-inverted';
+import dataTertiary from './demo/data--tertiary';
 
 expect.extend(toHaveNoViolations);
 

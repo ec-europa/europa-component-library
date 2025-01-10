@@ -5,8 +5,8 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataSimple from '@ecl/specs-component-breadcrumb/demo/data--simple';
-import dataLong from '@ecl/specs-component-breadcrumb/demo/data--long';
+import dataSimple from './demo/data--simple';
+import dataLong from './demo/data--long';
 
 expect.extend(toHaveNoViolations);
 
