@@ -3,8 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 // Import data for demos
-import bannerDataImage from '@ecl/specs-component-banner/demo/data--image';
-import bannerDataVideo from '@ecl/specs-component-banner/demo/data--video';
+import bannerDataImage from './demo/data--image';
+import bannerDataVideo from './demo/data--video';
 import banner from './banner.html.twig';
 import notes from './README.md';
 
