@@ -2,7 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import demoData from '@ecl/specs-component-accordion/demo/data';
+import demoData from './demo/data';
 import accordion from './accordion.html.twig';
 import notes from './README.md';
 

@@ -187,14 +187,14 @@ importers:
         specifier: 5.0.0
         version: 5.0.0
 
-  src/implementations/twig/components/accordion:
-    devDependencies:
-      '@ecl/specs-component-accordion':
+  src/components/accordion:
+    dependencies:
+      '@ecl/dom-utils':
         specifier: 4.9.0
-        version: link:../../../../specs/components/accordion
-      '@ecl/vanilla-component-accordion':
+        version: link:../../tools/dom-utils
+      '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
-        version: link:../../../vanilla/components/accordion
+        version: link:../../implementations/vanilla/layout/grid
 
   src/implementations/twig/components/banner:
     dependencies:
@@ -1227,7 +1227,7 @@ importers:
     dependencies:
       '@ecl/twig-component-accordion':
         specifier: 4.9.0
-        version: link:../../components/accordion
+        version: 4.9.0
       '@ecl/twig-component-file':
         specifier: 4.9.0
         version: link:../../components/file
@@ -1273,18 +1273,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/accordion:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/banner:
     dependencies:
@@ -2065,15 +2053,15 @@ importers:
 
   src/presets/ec:
     dependencies:
+      '@ecl/accordion':
+        specifier: 4.9.0
+        version: link:../../components/accordion
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-accordion':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/accordion
       '@ecl/vanilla-component-banner':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/banner
@@ -2353,7 +2341,7 @@ importers:
         version: link:../../themes/ec
       '@ecl/vanilla-component-accordion':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/accordion
+        version: 4.9.0
       '@ecl/vanilla-component-banner':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/banner
@@ -2757,8 +2745,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/accordion: {}
-
   src/specs/components/banner: {}
 
   src/specs/components/blockquote: {}
@@ -2912,7 +2898,7 @@ importers:
     dependencies:
       '@ecl/specs-component-accordion':
         specifier: 4.9.0
-        version: link:../../components/accordion
+        version: 4.9.0
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
         version: link:../../components/breadcrumb
@@ -3104,7 +3090,7 @@ importers:
         version: link:../resources/icons-social-media
       '@ecl/specs-component-accordion':
         specifier: 4.9.0
-        version: link:../specs/components/accordion
+        version: 4.9.0
       '@ecl/specs-component-banner':
         specifier: 4.9.0
         version: link:../specs/components/banner
@@ -3278,7 +3264,7 @@ importers:
         version: link:../themes/eu
       '@ecl/twig-component-accordion':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/accordion
+        version: 4.9.0
       '@ecl/twig-component-banner':
         specifier: 4.9.0
         version: link:../implementations/twig/components/banner
@@ -4420,8 +4406,17 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
+  '@ecl/specs-component-accordion@4.9.0':
+    resolution: {integrity: sha512-AumU0LaBjN5zcbEqp8WGw2dKJOCyjZW4hza/PB1ivaMAvalrDFJ6m4KsTxrGh0ipPeirn892DENhHdKN5o4Z3w==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
+
+  '@ecl/twig-component-accordion@4.9.0':
+    resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
+
+  '@ecl/vanilla-component-accordion@4.9.0':
+    resolution: {integrity: sha512-LafwcSthKHRRKagN4dQGrGXlpEy4+KjXCRCKQ+Aj2M9fwXM4+PaSASWTqD3u6ySotIJSdn4BebMYxgv3mNZE0Q==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14558,7 +14553,16 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
+  '@ecl/specs-component-accordion@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
+
+  '@ecl/twig-component-accordion@4.9.0': {}
+
+  '@ecl/vanilla-component-accordion@4.9.0':
+    dependencies:
+      '@ecl/dom-utils': link:src/tools/dom-utils
+      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
 
   '@emnapi/core@1.3.1':
     dependencies:

@@ -1,18 +1,19 @@
 {
-  "name": "@ecl/twig-component-accordion",
+  "name": "@ecl/accordion",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
   "description": "ECL Accordion",
+  "style": "accordion.scss",
+  "sass": "accordion.scss",
+  "main": "accordion.js",
+  "module": "accordion.js",
+  "dependencies": {
+    "@ecl/dom-utils": "4.9.0",
+    "@ecl/vanilla-layout-grid": "4.9.0"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "dependecies": {
-    "@ecl/twig-component-icon": "^3.0.0"
-  },
-  "devDependencies": {
-    "@ecl/specs-component-accordion": "4.9.0",
-    "@ecl/vanilla-component-accordion": "4.9.0"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,6 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system",
-    "twig"
+    "design-system"
   ]
 }
