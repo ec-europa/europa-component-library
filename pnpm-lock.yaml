@@ -757,9 +757,9 @@ importers:
 
   src/implementations/twig/components/media-container:
     dependencies:
-      '@ecl/twig-component-expandable':
+      '@ecl/expandable':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/expandable
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -3085,6 +3085,18 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../components/button
+      '@ecl/date-block':
+        specifier: 4.9.0
+        version: link:../components/date-block
+      '@ecl/datepicker':
+        specifier: 4.9.0
+        version: link:../components/datepicker
+      '@ecl/description-list':
+        specifier: 4.9.0
+        version: link:../components/description-list
+      '@ecl/expandable':
+        specifier: 4.9.0
+        version: link:../components/expandable
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3127,18 +3139,6 @@ importers:
       '@ecl/specs-component-content-item':
         specifier: 4.9.0
         version: link:../specs/components/content-item
-      '@ecl/specs-component-date-block':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-datepicker':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-description-list':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-expandable':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/specs-component-fact-figures':
         specifier: 4.9.0
         version: link:../specs/components/fact-figures
@@ -3286,18 +3286,6 @@ importers:
       '@ecl/twig-component-content-item':
         specifier: 4.9.0
         version: link:../implementations/twig/components/content-item
-      '@ecl/twig-component-date-block':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-datepicker':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-description-list':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-expandable':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-fact-figures':
         specifier: 4.9.0
         version: link:../implementations/twig/components/fact-figures
@@ -4409,38 +4397,11 @@ packages:
   '@ecl/specs-component-button@4.9.0':
     resolution: {integrity: sha512-Qi69MspG/T0TOts0ckUxTnzQaFqfPvKx0DDb0uRfFk1PvceqXxN96FxpiBh5MgvYz89O5IQxQLwSGLGnzGDScA==}
 
-  '@ecl/specs-component-date-block@4.9.0':
-    resolution: {integrity: sha512-H9H09ZjmwppkdpQGQ0rJwEkTQxxhlOO5rdREmGx5Qxolx7oH1kgl+OjWP0j2aV2VyqXXzYyG/SM9Sa7GyCqqwA==}
-
-  '@ecl/specs-component-datepicker@4.9.0':
-    resolution: {integrity: sha512-6QYBi/EJSTW090vLvxtopcPlISkEvCKo6RRe90DFMQHteG8lAg15H31X4KuhZNyJvF/na9ArImJj/FeecXyoqQ==}
-
-  '@ecl/specs-component-description-list@4.9.0':
-    resolution: {integrity: sha512-8zyrhzXyPg+9I3BmMGxqYj0QSTB8WQXV1J4weqjkAse2SV+OGJl8t/slSpTUJiSs72hhSS0sret/O2kIJoJL9g==}
-
-  '@ecl/specs-component-expandable@4.9.0':
-    resolution: {integrity: sha512-5NrPPjlamkiuZ75J/FJIFXjjYllW1oWnikCQ0Ji5z1IVd/U2FwYx7BJmePNZbqJSvPE9qSKLGi6cvBgx+FJkyA==}
-
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
   '@ecl/twig-component-accordion@4.9.0':
     resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
-
-  '@ecl/twig-component-button@4.9.0':
-    resolution: {integrity: sha512-Gy9Un6/S+EyJDmyvJyNOnwluIYHB+LEEAX0f3Tw6pjDULj365XrxD1wdFMO6K2+vREh0HTJ8M/7NTFv84C/Lrg==}
-
-  '@ecl/twig-component-date-block@4.9.0':
-    resolution: {integrity: sha512-AO0ppPbtBxHb3v+6qzAFbRRMs6Qkk4bPPsvM9qD1NxOsxw7BguaNcFK8EmjTc34DTGOOYP9s3SeCt7fChZGS5Q==}
-
-  '@ecl/twig-component-datepicker@4.9.0':
-    resolution: {integrity: sha512-AM2zCT+HBj8MUPrpb+e1pRChDeBp/WNvymVUUeYOocyzAG9wbZsma0Xl3X6+7UFXwkomfHfPLQwXS/yAobwauQ==}
-
-  '@ecl/twig-component-description-list@4.9.0':
-    resolution: {integrity: sha512-dxJr6A85kvIdfAfChxuxyKZhl94EJGhU7QNmpIt3OJYB6mIE24F6tBoo3n6resAYOmZT/puJXLdNnEvEAcpzAg==}
-
-  '@ecl/twig-component-expandable@4.9.0':
-    resolution: {integrity: sha512-F38ncWRk5MmntYzBxkvOMAooblO0mYoxLCxLA5d3zGOCN6+XOA28sP9v6dAbpPpEKsqAf12/UrIaaDMiEmmOBw==}
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
@@ -14588,37 +14549,9 @@ snapshots:
 
   '@ecl/specs-component-button@4.9.0': {}
 
-  '@ecl/specs-component-date-block@4.9.0': {}
-
-  '@ecl/specs-component-datepicker@4.9.0': {}
-
-  '@ecl/specs-component-description-list@4.9.0': {}
-
-  '@ecl/specs-component-expandable@4.9.0': {}
-
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
-
-  '@ecl/twig-component-button@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-      '@ecl/twig-component-indicator': link:src/implementations/twig/components/indicator
-
-  '@ecl/twig-component-date-block@4.9.0': {}
-
-  '@ecl/twig-component-datepicker@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-
-  '@ecl/twig-component-description-list@4.9.0':
-    dependencies:
-      '@ecl/twig-component-link': link:src/implementations/twig/components/link
-      '@ecl/twig-component-tag': link:src/implementations/twig/components/tag
-
-  '@ecl/twig-component-expandable@4.9.0':
-    dependencies:
-      '@ecl/twig-component-button': 4.9.0
 
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:
