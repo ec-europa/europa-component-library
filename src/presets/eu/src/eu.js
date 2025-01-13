@@ -1,12 +1,12 @@
 import '@ecl/dom-utils/polyfills';
 
 export * from '@ecl/dom-utils/autoinit';
-export * from '@ecl/vanilla-component-accordion';
-export * from '@ecl/vanilla-component-banner';
+export * from '@ecl/accordion';
+export * from '@ecl/banner';
 export * from '@ecl/vanilla-component-carousel';
 export * from '@ecl/vanilla-component-category-filter';
 export * from '@ecl/vanilla-component-datepicker';
-export * from '@ecl/vanilla-component-breadcrumb';
+export * from '@ecl/breadcrumb';
 export * from '@ecl/vanilla-component-content-block';
 export * from '@ecl/vanilla-component-description-list';
 export * from '@ecl/vanilla-component-expandable';
