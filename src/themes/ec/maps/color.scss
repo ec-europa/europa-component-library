@@ -66,9 +66,7 @@ $color: (
 ) !default;
 $color-default: (
   // Base
-  'white': #fff,
-  'black': #000,
-  'dark-variant': #002a99,
+  'harmonised': #004494,
 
   // Main
   'primary-50': #e6edff,
@@ -341,11 +339,45 @@ $color-palette: (
 ) !default;
 $color-modes: (
   'mode1': (
-    '--cm-background1': map.get($color-palette, 'green-dark-100'),
-    '--cm-background1-hover': map.get($color-palette, 'green-dark-300'),
+    '--cm-surface-lowest': color-mix(
+        in srgb,
+        map.get($color-palette, 'green-dark-100') 50%,
+        transparent
+      ),
+    '--cm-surface-lowest-variant': color-mix(
+        in srgb,
+        map.get($color-palette, 'green-lemon-100') 50%,
+        transparent
+      ),
+    '--cm-surface-low': map.get($color-palette, 'green-dark-100'),
+    '--cm-surface-medium': map.get($color-palette, 'green-dark-300'),
+    '--cm-surface': map.get($color-palette, 'green-dark-500'),
+    '--cm-on-surface': map.get($color-palette, 'green-dark-500'),
+    '--cm-on-surface-variant-1': map.get($color-palette, 'green-lemon-500'),
+    '--cm-on-surface-variant-2': map.get($color-palette, 'green-dark-500'),
+    '--cm-border-medium': map.get($color-palette, 'green-dark-400'),
+    '--cm-border': map.get($color-palette, 'green-dark-500'),
+    '--cm-border-low': map.get($color-palette, 'green-dark-100'),
   ),
   'mode2': (
-    '--cm-background1': map.get($color-palette, 'orange-100'),
-    '--cm-background1-hover': map.get($color-palette, 'orange-300'),
+    '--cm-surface-lowest': color-mix(
+        in srgb,
+        map.get($color-palette, 'orange-100') 50%,
+        transparent
+      ),
+    '--cm-surface-lowest-variant': color-mix(
+        in srgb,
+        map.get($color-palette, 'blue-ocean-100') 50%,
+        transparent
+      ),
+    '--cm-surface-low': map.get($color-palette, 'orange-100'),
+    '--cm-surface-medium': map.get($color-palette, 'orange-300'),
+    '--cm-surface': map.get($color-palette, 'orange-500'),
+    '--cm-on-surface': map.get($color-palette, 'orange-500'),
+    '--cm-on-surface-variant-1': map.get($color-palette, 'blue-ocean-300'),
+    '--cm-on-surface-variant-2': map.get($color-palette, 'orange-500'),
+    '--cm-border-medium': map.get($color-palette, 'orange-400'),
+    '--cm-border': map.get($color-palette, 'orange-500'),
+    '--cm-border-low': map.get($color-palette, 'orange-100'),
   ),
 ) !default;

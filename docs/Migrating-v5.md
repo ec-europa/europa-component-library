@@ -17,11 +17,30 @@ Dark and neutral colors have been merged into two new palettes: `neutral-dark` a
 
 TODO
 
+- provide mapping between v4 and v5 colors, if possible
+- update the components to use the new color properties instead of the v4 ones
+- remove old colors
+- update utilities
+- update documentation
+
 ### Color modes
 
 A color mode is a set of color, applied to different elements, and giving a distinct identity to a specific page or site.
 
+Every color mode is defined in a new file, called `ecl-ec|eu-color-modes.css`. If this file is omitted, the default EC or EU display is used.
+
+Components can use on mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`.
+
+How it works:
+
+- several colors are defined to be part of the color modes, via the use of new css proporties. It includes background (surface), content and borders
+- each component has a new parameter `color-mode` to switch from one color mode to the other, and is using these new css color mode properties where needed, with a fallback to previously defined color
+- EC css defines a default value for these color mode properties; EU does not use color mode currently, and so relies on the fallback
+- the new color modes css simply override the value of some properties
+
 TODO
+
+- when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
 
 ## Js modifications
 
