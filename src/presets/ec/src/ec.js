@@ -8,7 +8,7 @@ export * from '@ecl/vanilla-component-category-filter';
 export * from '@ecl/datepicker';
 export * from '@ecl/breadcrumb';
 export * from '@ecl/vanilla-component-content-block';
-export * from '@ecl/vanilla-component-description-list';
+export * from '@ecl/description-list';
 export * from '@ecl/vanilla-component-expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';

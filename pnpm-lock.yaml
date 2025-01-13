@@ -335,9 +335,6 @@ importers:
 
   src/components/date-block:
     devDependencies:
-      '@ecl/story-utils':
-        specifier: 4.9.0
-        version: link:../../playground/addons/story-utils
       '@ecl/storybook-addon-code':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-code
@@ -366,6 +363,31 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/form-group
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/description-list:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+      '@ecl/twig-component-tag':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/tag
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
       jest-axe:
         specifier: 9.0.0
         version: 9.0.0
@@ -433,9 +455,9 @@ importers:
 
   src/implementations/twig/components/content-block:
     dependencies:
-      '@ecl/twig-component-description-list':
+      '@ecl/description-list':
         specifier: 4.9.0
-        version: link:../description-list
+        version: link:../../../../components/description-list
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
@@ -471,22 +493,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../../vanilla/components/content-item
-
-  src/implementations/twig/components/description-list:
-    dependencies:
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-      '@ecl/twig-component-tag':
-        specifier: 4.9.0
-        version: link:../tag
-    devDependencies:
-      '@ecl/specs-component-description-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/description-list
-      '@ecl/vanilla-component-description-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/description-list
 
   src/implementations/twig/components/expandable:
     dependencies:
@@ -541,9 +547,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-description-list':
+      '@ecl/description-list':
         specifier: 4.9.0
-        version: link:../description-list
+        version: link:../../../../components/description-list
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
@@ -1385,15 +1391,6 @@ importers:
         specifier: 4.9.0
         version: link:../../layout/grid
 
-  src/implementations/vanilla/components/description-list:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
   src/implementations/vanilla/components/expandable:
     dependencies:
       '@ecl/dom-utils':
@@ -2096,6 +2093,9 @@ importers:
       '@ecl/datepicker':
         specifier: 4.9.0
         version: link:../../components/datepicker
+      '@ecl/description-list':
+        specifier: 4.9.0
+        version: link:../../components/description-list
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2120,9 +2120,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/content-item
-      '@ecl/vanilla-component-description-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/description-list
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
@@ -2376,6 +2373,9 @@ importers:
       '@ecl/datepicker':
         specifier: 4.9.0
         version: link:../../components/datepicker
+      '@ecl/description-list':
+        specifier: 4.9.0
+        version: link:../../components/description-list
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2400,9 +2400,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/content-item
-      '@ecl/vanilla-component-description-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/description-list
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
@@ -2779,8 +2776,6 @@ importers:
 
   src/specs/components/content-item: {}
 
-  src/specs/components/description-list: {}
-
   src/specs/components/expandable: {}
 
   src/specs/components/fact-figures: {}
@@ -3139,7 +3134,7 @@ importers:
         version: 4.9.0
       '@ecl/specs-component-description-list':
         specifier: 4.9.0
-        version: link:../specs/components/description-list
+        version: 4.9.0
       '@ecl/specs-component-expandable':
         specifier: 4.9.0
         version: link:../specs/components/expandable
@@ -3298,7 +3293,7 @@ importers:
         version: 4.9.0
       '@ecl/twig-component-description-list':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/description-list
+        version: 4.9.0
       '@ecl/twig-component-expandable':
         specifier: 4.9.0
         version: link:../implementations/twig/components/expandable
@@ -4419,6 +4414,9 @@ packages:
   '@ecl/specs-component-datepicker@4.9.0':
     resolution: {integrity: sha512-6QYBi/EJSTW090vLvxtopcPlISkEvCKo6RRe90DFMQHteG8lAg15H31X4KuhZNyJvF/na9ArImJj/FeecXyoqQ==}
 
+  '@ecl/specs-component-description-list@4.9.0':
+    resolution: {integrity: sha512-8zyrhzXyPg+9I3BmMGxqYj0QSTB8WQXV1J4weqjkAse2SV+OGJl8t/slSpTUJiSs72hhSS0sret/O2kIJoJL9g==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
@@ -4430,6 +4428,9 @@ packages:
 
   '@ecl/twig-component-datepicker@4.9.0':
     resolution: {integrity: sha512-AM2zCT+HBj8MUPrpb+e1pRChDeBp/WNvymVUUeYOocyzAG9wbZsma0Xl3X6+7UFXwkomfHfPLQwXS/yAobwauQ==}
+
+  '@ecl/twig-component-description-list@4.9.0':
+    resolution: {integrity: sha512-dxJr6A85kvIdfAfChxuxyKZhl94EJGhU7QNmpIt3OJYB6mIE24F6tBoo3n6resAYOmZT/puJXLdNnEvEAcpzAg==}
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
@@ -14581,6 +14582,8 @@ snapshots:
 
   '@ecl/specs-component-datepicker@4.9.0': {}
 
+  '@ecl/specs-component-description-list@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
@@ -14590,6 +14593,11 @@ snapshots:
   '@ecl/twig-component-datepicker@4.9.0':
     dependencies:
       '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
+
+  '@ecl/twig-component-description-list@4.9.0':
+    dependencies:
+      '@ecl/twig-component-link': link:src/implementations/twig/components/link
+      '@ecl/twig-component-tag': link:src/implementations/twig/components/tag
 
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:
