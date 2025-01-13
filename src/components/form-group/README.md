@@ -1,9 +1,9 @@
 # ECL Form group component
 
-npm package: `@ecl/twig-component-form-group`
+npm package: `@ecl/form-group`
 
 ```shell
-npm install --save @ecl/twig-component-form-group
+npm install --save @ecl/form-group
 ```
 
 ### Parameters:
