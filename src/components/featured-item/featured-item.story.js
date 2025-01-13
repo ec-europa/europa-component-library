@@ -2,9 +2,9 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import demoData from '@ecl/specs-component-featured-item/demo/data';
-import demoDataSimple from '@ecl/specs-component-featured-item/demo/data--simple';
-import demoDataHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
+import demoData from './demo/data';
+import demoDataSimple from './demo/data--simple';
+import demoDataHighlight from './demo/data--highlight';
 import featuredItem from './featured-item.html.twig';
 import notes from './README.md';
 

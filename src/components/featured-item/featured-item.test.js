@@ -5,9 +5,9 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import demoContent from '@ecl/specs-component-featured-item/demo/data';
-import demoContentSimple from '@ecl/specs-component-featured-item/demo/data--simple';
-import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
+import demoContent from './demo/data';
+import demoContentSimple from './demo/data--simple';
+import demoContentHighlight from './demo/data--highlight';
 
 expect.extend(toHaveNoViolations);
 

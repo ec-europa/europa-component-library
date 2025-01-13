@@ -1,9 +1,9 @@
 # ECL Featured item component
 
-npm package: `@ecl/twig-component-featured-item`
+npm package: `@ecl/featured-item`
 
 ```shell
-npm install --save @ecl/twig-component-featured-item
+npm install --save @ecl/featured-item
 ```
 
 ### Parameters
