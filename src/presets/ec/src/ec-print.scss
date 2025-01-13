@@ -24,12 +24,12 @@
 @use '@ecl/vanilla-component-text-input/text-input-print';
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+@use '@ecl/blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,
   $blockquote-print: var.$blockquote-print
 );
-@use '@ecl/vanilla-component-button/button-print' with (
+@use '@ecl/button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button
 );
@@ -66,7 +66,7 @@
 );
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner-print' with (
+@use '@ecl/banner/banner-print' with (
   $theme: theme.$theme,
   $banner-print: var.$banner-print
 );
@@ -85,7 +85,7 @@
   $list-illustration: var.$list-illustration,
   $list-illustration-print: var.$list-illustration-print
 );
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb-print';
+@use '@ecl/breadcrumb/breadcrumb-print';
 @use '@ecl/vanilla-component-card/card-print' with (
   $theme: theme.$theme
 );
@@ -141,7 +141,7 @@
 );
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion-print' with (
+@use '@ecl/accordion/accordion-print' with (
   $theme: theme.$theme,
   $accordion-print: var.$accordion-print
 );

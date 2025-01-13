@@ -4,7 +4,13 @@ const webpack = require('webpack');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 const publicUrl = process.env.PUBLIC_URL || '';
-const stories = ['../../../implementations/twig/**/!(eu*).story.js'];
+const stories = [
+  '../../../components/**/!(eu*).story.js',
+  '../../../utilities/**/!(eu*).story.js',
+  '../../../compositions/**/!(eu*).story.js',
+  '../../../layout/**/!(eu*).story.js',
+  '../../../implementations/twig/**/!(eu*).story.js',
+];
 
 const addons = [
   '@storybook/addon-docs',

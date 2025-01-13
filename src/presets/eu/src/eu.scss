@@ -52,11 +52,11 @@
 );
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote' with (
+@use '@ecl/blockquote/blockquote' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote
 );
-@use '@ecl/vanilla-component-button/button' with (
+@use '@ecl/button/button' with (
   $theme: theme.$theme,
   $button: var.$button
 );
@@ -109,7 +109,7 @@
 @use '@ecl/vanilla-component-video/video';
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner' with (
+@use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
 );
@@ -125,7 +125,7 @@
   $theme: theme.$theme,
   $list-illustration: var.$list-illustration
 );
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
+@use '@ecl/breadcrumb/breadcrumb' with (
   $theme: theme.$theme,
   $breadcrumb: var.$breadcrumb
 );
@@ -203,7 +203,7 @@
 );
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion' with (
+@use '@ecl/accordion/accordion' with (
   $theme: theme.$theme,
   $accordion: var.$accordion
 );
