@@ -303,6 +303,18 @@ importers:
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
 
+  src/components/date-block:
+    devDependencies:
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+
   src/implementations/twig/components/card:
     dependencies:
       '@ecl/twig-component-content-block':
@@ -393,7 +405,7 @@ importers:
         version: link:../content-block
       '@ecl/twig-component-date-block':
         specifier: 4.9.0
-        version: link:../date-block
+        version: 4.9.0
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -404,15 +416,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../../vanilla/components/content-item
-
-  src/implementations/twig/components/date-block:
-    devDependencies:
-      '@ecl/specs-component-date-block':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/date-block
-      '@ecl/vanilla-component-date-block':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/date-block
 
   src/implementations/twig/components/datepicker:
     dependencies:
@@ -1346,15 +1349,6 @@ importers:
         specifier: 4.9.0
         version: link:../../layout/grid
 
-  src/implementations/vanilla/components/date-block:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
   src/implementations/vanilla/components/datepicker:
     dependencies:
       '@ecl/vanilla-layout-grid':
@@ -2095,7 +2089,7 @@ importers:
         version: link:../../implementations/vanilla/components/content-item
       '@ecl/vanilla-component-date-block':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/date-block
+        version: 4.9.0
       '@ecl/vanilla-component-datepicker':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/datepicker
@@ -2375,7 +2369,7 @@ importers:
         version: link:../../implementations/vanilla/components/content-item
       '@ecl/vanilla-component-date-block':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/date-block
+        version: 4.9.0
       '@ecl/vanilla-component-datepicker':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/datepicker
@@ -2758,8 +2752,6 @@ importers:
 
   src/specs/components/content-item: {}
 
-  src/specs/components/date-block: {}
-
   src/specs/components/datepicker: {}
 
   src/specs/components/description-list: {}
@@ -3116,7 +3108,7 @@ importers:
         version: link:../specs/components/content-item
       '@ecl/specs-component-date-block':
         specifier: 4.9.0
-        version: link:../specs/components/date-block
+        version: 4.9.0
       '@ecl/specs-component-datepicker':
         specifier: 4.9.0
         version: link:../specs/components/datepicker
@@ -3275,7 +3267,7 @@ importers:
         version: link:../implementations/twig/components/content-item
       '@ecl/twig-component-date-block':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/date-block
+        version: 4.9.0
       '@ecl/twig-component-datepicker':
         specifier: 4.9.0
         version: link:../implementations/twig/components/datepicker
@@ -4396,14 +4388,23 @@ packages:
   '@ecl/specs-component-button@4.9.0':
     resolution: {integrity: sha512-Qi69MspG/T0TOts0ckUxTnzQaFqfPvKx0DDb0uRfFk1PvceqXxN96FxpiBh5MgvYz89O5IQxQLwSGLGnzGDScA==}
 
+  '@ecl/specs-component-date-block@4.9.0':
+    resolution: {integrity: sha512-H9H09ZjmwppkdpQGQ0rJwEkTQxxhlOO5rdREmGx5Qxolx7oH1kgl+OjWP0j2aV2VyqXXzYyG/SM9Sa7GyCqqwA==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
   '@ecl/twig-component-accordion@4.9.0':
     resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
 
+  '@ecl/twig-component-date-block@4.9.0':
+    resolution: {integrity: sha512-AO0ppPbtBxHb3v+6qzAFbRRMs6Qkk4bPPsvM9qD1NxOsxw7BguaNcFK8EmjTc34DTGOOYP9s3SeCt7fChZGS5Q==}
+
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
+
+  '@ecl/vanilla-component-date-block@4.9.0':
+    resolution: {integrity: sha512-0THWNC+NDkdZvYhNTAprdS2DsL8a5o00ldjAXLxtA+tPGIc3SqiCv/+pZcftf3+l5N1BjQJf8HAt5wkRq+7bag==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14548,14 +14549,23 @@ snapshots:
 
   '@ecl/specs-component-button@4.9.0': {}
 
+  '@ecl/specs-component-date-block@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
+
+  '@ecl/twig-component-date-block@4.9.0': {}
 
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:
       '@ecl/dom-utils': link:src/tools/dom-utils
       '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
+
+  '@ecl/vanilla-component-date-block@4.9.0':
+    dependencies:
+      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
+      '@ecl/vanilla-utility-screen-reader': link:src/implementations/vanilla/utilities/screen-reader
 
   '@emnapi/core@1.3.1':
     dependencies:

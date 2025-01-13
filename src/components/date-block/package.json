@@ -1,17 +1,20 @@
 {
-  "name": "@ecl/vanilla-component-date-block",
+  "name": "@ecl/date-block",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
   "description": "ECL Date Block",
-  "style": "date-block.scss",
-  "sass": "date-block.scss",
-  "dependencies": {
-    "@ecl/vanilla-layout-grid": "4.9.0",
-    "@ecl/vanilla-utility-screen-reader": "4.9.0"
-  },
   "publishConfig": {
     "access": "public"
+  },
+  "style": "date-block.scss",
+  "sass": "date-block.scss",
+  "devDependencies": {
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }
