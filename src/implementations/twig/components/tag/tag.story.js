@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
@@ -11,6 +11,7 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {};
 
+  args.color_mode = 'default';
   args.label = data.tag.label;
   args.nowrap = false;
   if (data.tag.type === 'link') {
@@ -21,26 +22,26 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {
-    nowrap: {
-      name: 'no wrap',
-      type: { name: 'boolean' },
-      description: 'Keep the tag on one line (no label wrap)',
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        category: 'Display',
-      },
+  const argTypes = getColorModeControls();
+
+  argTypes.nowrap = {
+    name: 'no wrap',
+    type: { name: 'boolean' },
+    description: 'Keep the tag on one line (no label wrap)',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+      category: 'Display',
     },
-    label: {
-      name: 'label',
-      type: { name: 'string', required: true },
-      description: 'The label of the tag',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  };
+  argTypes.label = {
+    name: 'label',
+    type: { name: 'string', required: true },
+    description: 'The label of the tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
   };
 
@@ -63,6 +64,7 @@ const prepareData = (data, args) => {
   data.tag.label = args.label;
   data.tag.nowrap = args.nowrap;
   data.tag.external = args.external;
+  data.color_mode = args.color_mode;
 
   correctPaths(data);
 

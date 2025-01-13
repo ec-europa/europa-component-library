@@ -1,6 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
 
 import dataSet from '@ecl/specs-component-tag/demo/data--set';
 
@@ -10,6 +10,7 @@ import notes from './README-tag-set.md';
 const getArgs = (data) => {
   const args = {};
 
+  args.color_mode = 'default';
   args.label = data.items[0].tag.label;
   args.external = false;
 
@@ -17,16 +18,16 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = () => {
-  const argTypes = {
-    label: {
-      name: 'label',
-      type: { name: 'string', required: true },
-      description: 'The label of the first tag',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Content',
-      },
+  const argTypes = getColorModeControls();
+
+  argTypes.label = {
+    name: 'label',
+    type: { name: 'string', required: true },
+    description: 'The label of the first tag',
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: '' },
+      category: 'Content',
     },
   };
 
@@ -49,6 +50,8 @@ const prepareData = (data, args) => {
   data.items.forEach((item) => {
     item.tag.external = args.external;
   });
+
+  data.color_mode = args.color_mode;
 
   correctPaths(data);
 

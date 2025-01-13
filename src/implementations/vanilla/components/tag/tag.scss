@@ -11,7 +11,7 @@ $tag: null !default;
 
 .ecl-tag {
   align-items: center;
-  background-color: map.get($tag, 'background-color');
+  background-color: var(--cm-background1, #{map.get($tag, 'background-color')});
   border-radius: map.get($tag, 'border-radius');
   border-width: 0;
   box-sizing: border-box;
@@ -31,7 +31,10 @@ $tag: null !default;
   }
 
   &:hover {
-    background-color: map.get($tag, 'background-color-hover');
+    background-color: var(
+      --cm-background1-hover,
+      #{map.get($tag, 'background-color-hover')}
+    );
     color: map.get($tag, 'color-hover');
   }
 

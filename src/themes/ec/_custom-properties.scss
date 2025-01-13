@@ -2,22 +2,19 @@
 @use 'index' as *;
 
 :root {
-  --ecl-color-primary: #{map.get($color, 'primary')};
+  // old colors
   --ecl-color-primary-180: #{map.get($color, 'primary-180')};
   --ecl-color-primary-160: #{map.get($color, 'primary-160')};
   --ecl-color-primary-140: #{map.get($color, 'primary-140')};
   --ecl-color-primary-120: #{map.get($color, 'primary-120')};
-  --ecl-color-primary-100: #{map.get($color, 'primary-100')};
   --ecl-color-primary-80: #{map.get($color, 'primary-80')};
   --ecl-color-primary-60: #{map.get($color, 'primary-60')};
   --ecl-color-primary-40: #{map.get($color, 'primary-40')};
   --ecl-color-primary-20: #{map.get($color, 'primary-20')};
-  --ecl-color-secondary: #{map.get($color, 'secondary')};
   --ecl-color-secondary-180: #{map.get($color, 'secondary-180')};
   --ecl-color-secondary-160: #{map.get($color, 'secondary-160')};
   --ecl-color-secondary-140: #{map.get($color, 'secondary-140')};
   --ecl-color-secondary-120: #{map.get($color, 'secondary-120')};
-  --ecl-color-secondary-100: #{map.get($color, 'secondary-100')};
   --ecl-color-secondary-80: #{map.get($color, 'secondary-80')};
   --ecl-color-secondary-60: #{map.get($color, 'secondary-60')};
   --ecl-color-secondary-40: #{map.get($color, 'secondary-40')};
@@ -83,23 +80,44 @@
   --ecl-shadow-16: #{map.get($shadow, '16')};
   --ecl-max-width: #{$max-width};
 
+  // new colors
+  --ecl-color-primary: #{map.get($color-default, 'primary-500')};
+  --ecl-color-primary-900: #{map.get($color-default, 'primary-900')};
+  --ecl-color-primary-800: #{map.get($color-default, 'primary-800')};
+  --ecl-color-primary-700: #{map.get($color-default, 'primary-700')};
+  --ecl-color-primary-600: #{map.get($color-default, 'primary-600')};
+  --ecl-color-primary-500: #{map.get($color-default, 'primary-500')};
+  --ecl-color-primary-400: #{map.get($color-default, 'primary-400')};
+  --ecl-color-primary-300: #{map.get($color-default, 'primary-300')};
+  --ecl-color-primary-200: #{map.get($color-default, 'primary-200')};
+  --ecl-color-primary-100: #{map.get($color-default, 'primary-100')};
+  --ecl-color-primary-50: #{map.get($color-default, 'primary-50')};
+  --ecl-color-secondary: #{map.get($color-default, 'secondary-500')};
+  --ecl-color-secondary-900: #{map.get($color-default, 'secondary-900')};
+  --ecl-color-secondary-800: #{map.get($color-default, 'secondary-800')};
+  --ecl-color-secondary-700: #{map.get($color-default, 'secondary-700')};
+  --ecl-color-secondary-600: #{map.get($color-default, 'secondary-600')};
+  --ecl-color-secondary-500: #{map.get($color-default, 'secondary-500')};
+  --ecl-color-secondary-400: #{map.get($color-default, 'secondary-400')};
+  --ecl-color-secondary-300: #{map.get($color-default, 'secondary-300')};
+  --ecl-color-secondary-200: #{map.get($color-default, 'secondary-200')};
+  --ecl-color-secondary-100: #{map.get($color-default, 'secondary-100')};
+  --ecl-color-secondary-50: #{map.get($color-default, 'secondary-50')};
+
   // Aliases (internal use)
-  --c-p: var(--ecl-color-primary);
+  // old colors
   --c-p-180: var(--ecl-color-primary-180);
   --c-p-160: var(--ecl-color-primary-160);
   --c-p-140: var(--ecl-color-primary-140);
   --c-p-120: var(--ecl-color-primary-120);
-  --c-p-100: var(--ecl-color-primary-100);
   --c-p-80: var(--ecl-color-primary-80);
   --c-p-60: var(--ecl-color-primary-60);
   --c-p-40: var(--ecl-color-primary-40);
   --c-p-20: var(--ecl-color-primary-20);
-  --c-s: var(--ecl-color-secondary);
   --c-s-180: var(--ecl-color-secondary-180);
   --c-s-160: var(--ecl-color-secondary-160);
   --c-s-140: var(--ecl-color-secondary-140);
   --c-s-120: var(--ecl-color-secondary-120);
-  --c-s-100: var(--ecl-color-secondary-100);
   --c-s-80: var(--ecl-color-secondary-80);
   --c-s-60: var(--ecl-color-secondary-60);
   --c-s-40: var(--ecl-color-secondary-40);
@@ -162,4 +180,28 @@
   --sh-12: var(--ecl-shadow-12);
   --sh-16: var(--ecl-shadow-16);
   --max-w: var(--ecl-max-width);
+
+  // new colors
+  --c-p: var(--ecl-color-primary);
+  --c-p-900: var(--ecl-color-primary-900);
+  --c-p-800: var(--ecl-color-primary-800);
+  --c-p-700: var(--ecl-color-primary-700);
+  --c-p-600: var(--ecl-color-primary-600);
+  --c-p-500: var(--ecl-color-primary-500);
+  --c-p-400: var(--ecl-color-primary-400);
+  --c-p-300: var(--ecl-color-primary-300);
+  --c-p-200: var(--ecl-color-primary-200);
+  --c-p-100: var(--ecl-color-primary-100);
+  --c-p-50: var(--ecl-color-primary-50);
+  --c-s: var(--ecl-color-secondary);
+  --c-s-900: var(--ecl-color-secondary-900);
+  --c-s-800: var(--ecl-color-secondary-800);
+  --c-s-700: var(--ecl-color-secondary-700);
+  --c-s-600: var(--ecl-color-secondary-600);
+  --c-s-500: var(--ecl-color-secondary-500);
+  --c-s-400: var(--ecl-color-secondary-400);
+  --c-s-300: var(--ecl-color-secondary-300);
+  --c-s-200: var(--ecl-color-secondary-200);
+  --c-s-100: var(--ecl-color-secondary-100);
+  --c-s-50: var(--ecl-color-secondary-50);
 }

@@ -331,3 +331,21 @@ export const getFormControls = (data, type) => {
 
   return argTypes;
 };
+
+export const getColorModeControls = () => {
+  const argTypes = {
+    color_mode: {
+      name: 'color mode',
+      description: 'Choose color mode',
+      type: { name: 'select' },
+      options: ['default', 'mode1', 'mode2'],
+      mapping: {
+        default: '',
+        mode1: 'mode1',
+        mode2: 'mode2',
+      },
+    },
+  };
+
+  return argTypes;
+};
