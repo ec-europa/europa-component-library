@@ -1,9 +1,9 @@
 # ECL Fact and figures component
 
-npm package: `@ecl/twig-component-fact-figures`
+npm package: `@ecl/fact-figures`
 
 ```shell
-npm install --save @ecl/twig-component-fact-figures
+npm install --save @ecl/fact-figures
 ```
 
 ### Parameters:

@@ -3,7 +3,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
-import demoData from '@ecl/specs-component-fact-figures/demo/data';
+import demoData from './demo/data';
 
 import factFigures from './fact-figures.html.twig';
 import notes from './README.md';

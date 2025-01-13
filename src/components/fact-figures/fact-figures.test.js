@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import demoContent from '@ecl/specs-component-fact-figures/demo/data';
+import demoContent from './demo/data';
 
 const demo1Col = { ...demoContent, column: 1 };
 demo1Col.items = demo1Col.items.slice(0, 1);

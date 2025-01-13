@@ -303,6 +303,31 @@ importers:
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
 
+  src/components/fact-figures:
+    dependencies:
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+    devDependencies:
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/components/form-group:
     dependencies:
       '@ecl/twig-component-checkbox':
@@ -519,22 +544,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../../vanilla/components/expandable
-
-  src/implementations/twig/components/fact-figures:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-    devDependencies:
-      '@ecl/specs-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/fact-figures
-      '@ecl/vanilla-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/fact-figures
 
   src/implementations/twig/components/featured-item:
     dependencies:
@@ -1379,12 +1388,6 @@ importers:
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
 
-  src/implementations/vanilla/components/fact-figures:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
   src/implementations/vanilla/components/featured-item:
     dependencies:
       '@ecl/vanilla-layout-grid':
@@ -2063,6 +2066,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+      '@ecl/fact-figures':
+        specifier: 4.9.0
+        version: link:../../components/fact-figures
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2099,9 +2105,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
-      '@ecl/vanilla-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/fact-figures
       '@ecl/vanilla-component-featured-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/featured-item
@@ -2343,6 +2346,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+      '@ecl/fact-figures':
+        specifier: 4.9.0
+        version: link:../../components/fact-figures
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2379,9 +2385,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
-      '@ecl/vanilla-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/fact-figures
       '@ecl/vanilla-component-featured-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/featured-item
@@ -2757,8 +2760,6 @@ importers:
 
   src/specs/components/expandable: {}
 
-  src/specs/components/fact-figures: {}
-
   src/specs/components/featured-item: {}
 
   src/specs/components/file: {}
@@ -3063,6 +3064,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../components/button
+      '@ecl/fact-figures':
+        specifier: 4.9.0
+        version: link:../components/fact-figures
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
@@ -3120,9 +3124,6 @@ importers:
       '@ecl/specs-component-expandable':
         specifier: 4.9.0
         version: link:../specs/components/expandable
-      '@ecl/specs-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../specs/components/fact-figures
       '@ecl/specs-component-featured-item':
         specifier: 4.9.0
         version: link:../specs/components/featured-item
@@ -3279,9 +3280,6 @@ importers:
       '@ecl/twig-component-expandable':
         specifier: 4.9.0
         version: link:../implementations/twig/components/expandable
-      '@ecl/twig-component-fact-figures':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/fact-figures
       '@ecl/twig-component-featured-item':
         specifier: 4.9.0
         version: link:../implementations/twig/components/featured-item
