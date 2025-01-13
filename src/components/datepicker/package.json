@@ -1,19 +1,24 @@
 {
-  "name": "@ecl/vanilla-component-datepicker",
+  "name": "@ecl/datepicker",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
   "description": "ECL Datepicker",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "datepicker.js",
   "module": "datepicker.js",
   "style": "datepicker.scss",
   "sass": "datepicker.scss",
   "dependencies": {
-    "@ecl/vanilla-layout-grid": "4.9.0",
+    "@ecl/twig-component-icon": "4.9.0",
     "pikaday": "1.8.2"
   },
-  "publishConfig": {
-    "access": "public"
+  "devDependencies": {
+    "@ecl/vanilla-component-form-group": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }

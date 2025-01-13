@@ -211,6 +211,12 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/components/banner:
     dependencies:
@@ -245,6 +251,12 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/components/blockquote:
     dependencies:
@@ -258,6 +270,12 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/components/breadcrumb:
     dependencies:
@@ -283,6 +301,12 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/components/button:
     dependencies:
@@ -302,6 +326,12 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/components/date-block:
     devDependencies:
@@ -314,6 +344,31 @@ importers:
       '@ecl/storybook-addon-notes':
         specifier: 4.9.0
         version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/datepicker:
+    dependencies:
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      pikaday:
+        specifier: 1.8.2
+        version: 1.8.2
+    devDependencies:
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      '@ecl/vanilla-component-form-group':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/components/form-group
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
 
   src/implementations/twig/components/card:
     dependencies:
@@ -400,12 +455,12 @@ importers:
 
   src/implementations/twig/components/content-item:
     dependencies:
+      '@ecl/date-block':
+        specifier: 4.9.0
+        version: link:../../../../components/date-block
       '@ecl/twig-component-content-block':
         specifier: 4.9.0
         version: link:../content-block
-      '@ecl/twig-component-date-block':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -416,22 +471,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../../vanilla/components/content-item
-
-  src/implementations/twig/components/datepicker:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-datepicker':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/datepicker
-      '@ecl/vanilla-component-datepicker':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/datepicker
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/form-group
 
   src/implementations/twig/components/description-list:
     dependencies:
@@ -539,12 +578,12 @@ importers:
 
   src/implementations/twig/components/form-group:
     dependencies:
+      '@ecl/datepicker':
+        specifier: 4.9.0
+        version: link:../../../../components/datepicker
       '@ecl/twig-component-checkbox':
         specifier: 4.9.0
         version: link:../checkbox
-      '@ecl/twig-component-datepicker':
-        specifier: 4.9.0
-        version: link:../datepicker
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
         version: link:../file-upload
@@ -573,9 +612,6 @@ importers:
       '@ecl/specs-component-checkbox':
         specifier: 4.9.0
         version: link:../../../../specs/components/checkbox
-      '@ecl/specs-component-datepicker':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/datepicker
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
         version: link:../../../../specs/components/file-upload
@@ -1349,15 +1385,6 @@ importers:
         specifier: 4.9.0
         version: link:../../layout/grid
 
-  src/implementations/vanilla/components/datepicker:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      pikaday:
-        specifier: 1.8.2
-        version: 1.8.2
-
   src/implementations/vanilla/components/description-list:
     dependencies:
       '@ecl/dom-utils':
@@ -2063,6 +2090,12 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../components/button
+      '@ecl/date-block':
+        specifier: 4.9.0
+        version: link:../../components/date-block
+      '@ecl/datepicker':
+        specifier: 4.9.0
+        version: link:../../components/datepicker
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2087,12 +2120,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/content-item
-      '@ecl/vanilla-component-date-block':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/vanilla-component-datepicker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/datepicker
       '@ecl/vanilla-component-description-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/description-list
@@ -2343,6 +2370,12 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../components/button
+      '@ecl/date-block':
+        specifier: 4.9.0
+        version: link:../../components/date-block
+      '@ecl/datepicker':
+        specifier: 4.9.0
+        version: link:../../components/datepicker
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -2367,12 +2400,6 @@ importers:
       '@ecl/vanilla-component-content-item':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/content-item
-      '@ecl/vanilla-component-date-block':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/vanilla-component-datepicker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/datepicker
       '@ecl/vanilla-component-description-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/description-list
@@ -2752,8 +2779,6 @@ importers:
 
   src/specs/components/content-item: {}
 
-  src/specs/components/datepicker: {}
-
   src/specs/components/description-list: {}
 
   src/specs/components/expandable: {}
@@ -3111,7 +3136,7 @@ importers:
         version: 4.9.0
       '@ecl/specs-component-datepicker':
         specifier: 4.9.0
-        version: link:../specs/components/datepicker
+        version: 4.9.0
       '@ecl/specs-component-description-list':
         specifier: 4.9.0
         version: link:../specs/components/description-list
@@ -3270,7 +3295,7 @@ importers:
         version: 4.9.0
       '@ecl/twig-component-datepicker':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/datepicker
+        version: 4.9.0
       '@ecl/twig-component-description-list':
         specifier: 4.9.0
         version: link:../implementations/twig/components/description-list
@@ -4391,6 +4416,9 @@ packages:
   '@ecl/specs-component-date-block@4.9.0':
     resolution: {integrity: sha512-H9H09ZjmwppkdpQGQ0rJwEkTQxxhlOO5rdREmGx5Qxolx7oH1kgl+OjWP0j2aV2VyqXXzYyG/SM9Sa7GyCqqwA==}
 
+  '@ecl/specs-component-datepicker@4.9.0':
+    resolution: {integrity: sha512-6QYBi/EJSTW090vLvxtopcPlISkEvCKo6RRe90DFMQHteG8lAg15H31X4KuhZNyJvF/na9ArImJj/FeecXyoqQ==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
@@ -4400,11 +4428,11 @@ packages:
   '@ecl/twig-component-date-block@4.9.0':
     resolution: {integrity: sha512-AO0ppPbtBxHb3v+6qzAFbRRMs6Qkk4bPPsvM9qD1NxOsxw7BguaNcFK8EmjTc34DTGOOYP9s3SeCt7fChZGS5Q==}
 
+  '@ecl/twig-component-datepicker@4.9.0':
+    resolution: {integrity: sha512-AM2zCT+HBj8MUPrpb+e1pRChDeBp/WNvymVUUeYOocyzAG9wbZsma0Xl3X6+7UFXwkomfHfPLQwXS/yAobwauQ==}
+
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
-
-  '@ecl/vanilla-component-date-block@4.9.0':
-    resolution: {integrity: sha512-0THWNC+NDkdZvYhNTAprdS2DsL8a5o00ldjAXLxtA+tPGIc3SqiCv/+pZcftf3+l5N1BjQJf8HAt5wkRq+7bag==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14551,21 +14579,22 @@ snapshots:
 
   '@ecl/specs-component-date-block@4.9.0': {}
 
+  '@ecl/specs-component-datepicker@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
 
   '@ecl/twig-component-date-block@4.9.0': {}
 
+  '@ecl/twig-component-datepicker@4.9.0':
+    dependencies:
+      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
+
   '@ecl/vanilla-component-banner@4.9.0':
     dependencies:
       '@ecl/dom-utils': link:src/tools/dom-utils
       '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
-
-  '@ecl/vanilla-component-date-block@4.9.0':
-    dependencies:
-      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
-      '@ecl/vanilla-utility-screen-reader': link:src/implementations/vanilla/utilities/screen-reader
 
   '@emnapi/core@1.3.1':
     dependencies:
@@ -17292,7 +17321,7 @@ snapshots:
     dependencies:
       ansi-align: 3.0.1
       camelcase: 7.0.1
-      chalk: 5.0.1
+      chalk: 5.4.1
       cli-boxes: 3.0.0
       string-width: 5.1.2
       type-fest: 2.19.0
