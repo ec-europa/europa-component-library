@@ -1310,51 +1310,6 @@ importers:
 
   src/implementations/vanilla/color-modes: {}
 
-  src/implementations/vanilla/components/accordion:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/banner:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/blockquote:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/breadcrumb:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/button:
-    dependencies:
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
   src/implementations/vanilla/components/card:
     dependencies:
       '@ecl/vanilla-layout-grid':
@@ -15583,7 +15538,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/helper-module-imports': 7.25.9
-      '@rollup/pluginutils': 5.1.4(rollup@4.30.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.30.1)
     optionalDependencies:
       '@types/babel__core': 7.20.5
       rollup: 4.30.1
@@ -15592,7 +15547,7 @@ snapshots:
 
   '@rollup/plugin-commonjs@28.0.2(rollup@4.30.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.30.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.30.1)
       commondir: 1.0.1
       estree-walker: 2.0.2
       fdir: 6.4.2(picomatch@4.0.2)
@@ -15604,7 +15559,7 @@ snapshots:
 
   '@rollup/plugin-node-resolve@15.3.0(rollup@4.30.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.30.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.30.1)
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-module: 1.0.0
@@ -15614,7 +15569,7 @@ snapshots:
 
   '@rollup/plugin-replace@6.0.2(rollup@4.30.1)':
     dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.30.0)
+      '@rollup/pluginutils': 5.1.4(rollup@4.30.1)
       magic-string: 0.30.17
     optionalDependencies:
       rollup: 4.30.1
@@ -15627,7 +15582,7 @@ snapshots:
     optionalDependencies:
       rollup: 4.30.1
 
-  '@rollup/pluginutils@5.1.4(rollup@4.30.0)':
+  '@rollup/pluginutils@5.1.4(rollup@4.30.1)':
     dependencies:
       '@types/estree': 1.0.6
       estree-walker: 2.0.2
