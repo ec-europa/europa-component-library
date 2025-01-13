@@ -9,7 +9,7 @@ export * from '@ecl/datepicker';
 export * from '@ecl/breadcrumb';
 export * from '@ecl/vanilla-component-content-block';
 export * from '@ecl/description-list';
-export * from '@ecl/vanilla-component-expandable';
+export * from '@ecl/expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';
 export * from '@ecl/vanilla-component-gallery';

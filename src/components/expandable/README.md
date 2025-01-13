@@ -1,9 +1,9 @@
 # ECL Expandable component
 
-npm package: `@ecl/twig-component-expandable`
+npm package: `@ecl/expandable`
 
 ```shell
-npm install --save @ecl/twig-component-expandable
+npm install --save @ecl/expandable
 ```
 
 ### Parameters:
