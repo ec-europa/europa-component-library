@@ -46,7 +46,7 @@
       <li class="ecl-tag-set__item">
         {% include '@ecl/tag/tag.html.twig' with _item|merge({
           icon_path: _item.icon_path|default(_icon_path),
-          color_mode: _color_mode,
+          color_mode: _item.color_mode|default(_color_mode),
         }) only %}
       </li>
     {% endfor -%}
