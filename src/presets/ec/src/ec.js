@@ -13,7 +13,7 @@ export * from '@ecl/expandable';
 export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';
 export * from '@ecl/gallery';
-export * from '@ecl/vanilla-component-indicator';
+export * from '@ecl/indicator';
 export * from '@ecl/vanilla-component-inpage-navigation';
 export * from '@ecl/vanilla-component-media-container';
 export * from '@ecl/vanilla-component-mega-menu';

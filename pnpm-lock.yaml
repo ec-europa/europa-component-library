@@ -310,12 +310,12 @@ importers:
 
   src/components/button:
     dependencies:
+      '@ecl/indicator':
+        specifier: 4.9.0
+        version: link:../indicator
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-indicator':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/indicator
     devDependencies:
       '@ecl/story-utils':
         specifier: 4.9.0
@@ -601,6 +601,8 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/indicator: {}
+
   src/implementations/twig/components/fact-figures:
     dependencies:
       '@ecl/twig-component-icon':
@@ -745,12 +747,6 @@ importers:
       '@ecl/vanilla-component-icon':
         specifier: 4.9.0
         version: link:../../../vanilla/components/icon
-
-  src/implementations/twig/components/indicator:
-    devDependencies:
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/indicator
 
   src/implementations/twig/components/inpage-navigation:
     dependencies:
@@ -1464,8 +1460,6 @@ importers:
         specifier: ^2.1.9
         version: 2.1.9
 
-  src/implementations/vanilla/components/indicator: {}
-
   src/implementations/vanilla/components/inpage-navigation:
     dependencies:
       '@ecl/dom-utils':
@@ -2127,6 +2121,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/indicator':
+        specifier: 4.9.0
+        version: link:../../components/indicator
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2148,9 +2145,6 @@ importers:
       '@ecl/vanilla-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/icon
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/indicator
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
@@ -2407,6 +2401,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/indicator':
+        specifier: 4.9.0
+        version: link:../../components/indicator
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2428,9 +2425,6 @@ importers:
       '@ecl/vanilla-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/icon
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/indicator
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
