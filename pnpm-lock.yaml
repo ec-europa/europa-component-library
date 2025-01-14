@@ -195,9 +195,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/grid
@@ -285,9 +285,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/link
@@ -310,12 +310,12 @@ importers:
 
   src/components/button:
     dependencies:
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../icon
       '@ecl/indicator':
         specifier: 4.9.0
         version: link:../indicator
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
     devDependencies:
       '@ecl/story-utils':
         specifier: 4.9.0
@@ -385,9 +385,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
     devDependencies:
       '@ecl/storybook-addon-code':
         specifier: 4.9.0
@@ -404,9 +404,9 @@ importers:
 
   src/components/checkbox:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
     devDependencies:
       '@ecl/storybook-addon-code':
         specifier: 4.9.0
@@ -432,9 +432,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/twig-component-label':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/label
@@ -497,9 +497,9 @@ importers:
 
   src/components/datepicker:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       pikaday:
         specifier: 1.8.2
         version: 1.8.2
@@ -572,9 +572,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/link
@@ -601,13 +601,22 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/icon:
+    devDependencies:
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: 'link:'
+      '@ecl/resources-icons':
+        specifier: 4.9.0
+        version: link:../../resources/icons
+
   src/components/indicator: {}
 
   src/implementations/twig/components/fact-figures:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../link
@@ -646,9 +655,9 @@ importers:
       '@ecl/description-list':
         specifier: 4.9.0
         version: link:../../../../components/description-list
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-label':
         specifier: 4.9.0
         version: link:../label
@@ -686,12 +695,12 @@ importers:
       '@ecl/datepicker':
         specifier: 4.9.0
         version: link:../../../../components/datepicker
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../../../../components/icon
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
         version: link:../file-upload
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
       '@ecl/twig-component-radio':
         specifier: 4.9.0
         version: link:../radio
@@ -736,23 +745,11 @@ importers:
         specifier: 4.9.0
         version: link:../../../vanilla/components/form-group
 
-  src/implementations/twig/components/icon:
-    devDependencies:
-      '@ecl/resources-icons':
-        specifier: 4.9.0
-        version: link:../../../../resources/icons
-      '@ecl/specs-component-icon':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/icon
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/icon
-
   src/implementations/twig/components/inpage-navigation:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../link
@@ -778,9 +775,9 @@ importers:
 
   src/implementations/twig/components/link:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-link':
         specifier: 4.9.0
@@ -791,9 +788,9 @@ importers:
 
   src/implementations/twig/components/list-illustration:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -861,9 +858,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-modal':
         specifier: 4.9.0
@@ -893,9 +890,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../link
@@ -912,9 +909,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-notification':
         specifier: 4.9.0
@@ -1006,9 +1003,9 @@ importers:
 
   src/implementations/twig/components/rating-field:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
@@ -1088,9 +1085,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../link
@@ -1173,9 +1170,9 @@ importers:
 
   src/implementations/twig/components/splash-page:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../link
@@ -1223,9 +1220,9 @@ importers:
 
   src/implementations/twig/components/tag:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-tag':
         specifier: 4.9.0
@@ -1453,12 +1450,6 @@ importers:
       '@ecl/vanilla-utility-screen-reader':
         specifier: 4.9.0
         version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/icon:
-    dependencies:
-      svg4everybody:
-        specifier: ^2.1.9
-        version: 2.1.9
 
   src/implementations/vanilla/components/inpage-navigation:
     dependencies:
@@ -2121,6 +2112,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../../components/icon
       '@ecl/indicator':
         specifier: 4.9.0
         version: link:../../components/indicator
@@ -2142,9 +2136,6 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/form-group
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/icon
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
@@ -2401,6 +2392,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../../components/icon
       '@ecl/indicator':
         specifier: 4.9.0
         version: link:../../components/indicator
@@ -2422,9 +2416,6 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/form-group
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/icon
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
@@ -2770,8 +2761,6 @@ importers:
 
   src/specs/components/file-upload: {}
 
-  src/specs/components/icon: {}
-
   src/specs/components/inpage-navigation: {}
 
   src/specs/components/label: {}
@@ -3099,6 +3088,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../components/icon
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3135,9 +3127,6 @@ importers:
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
         version: link:../specs/components/file-upload
-      '@ecl/specs-component-icon':
-        specifier: 4.9.0
-        version: link:../specs/components/icon
       '@ecl/specs-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../specs/components/inpage-navigation
@@ -3264,9 +3253,6 @@ importers:
       '@ecl/twig-component-form-group':
         specifier: 4.9.0
         version: link:../implementations/twig/components/form-group
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/icon
       '@ecl/twig-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../implementations/twig/components/inpage-navigation
@@ -12658,10 +12644,6 @@ packages:
 
   svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
-
-  svg4everybody@2.1.9:
-    resolution: {integrity: sha512-AS9WORVV/vk520ZHxGTlQzyDBizp/h6WyAYUbKhze/kwvQr43DwJpkIIPBomsUyKqN7N+h1deF92N9PmW+o+9A==}
-    engines: {node: '>=0.8.0'}
 
   svgo@2.8.0:
     resolution: {integrity: sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==}
@@ -25473,8 +25455,6 @@ snapshots:
       yargs: 17.7.2
 
   svg-tags@1.0.0: {}
-
-  svg4everybody@2.1.9: {}
 
   svgo@2.8.0:
     dependencies:

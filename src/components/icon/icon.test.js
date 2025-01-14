@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
-import dataAll from '@ecl/specs-component-icon/demo/data';
+import dataAll from '@ecl/icon/demo/data';
 
 expect.extend(toHaveNoViolations);
 
