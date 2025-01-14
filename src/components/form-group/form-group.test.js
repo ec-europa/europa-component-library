@@ -14,7 +14,7 @@ import dataDatepicker from '@ecl/specs-component-datepicker/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
-import dataFile from '@ecl/specs-component-file-upload/demo/data';
+import dataFile from '@ecl/file-upload/demo/data';
 
 expect.extend(toHaveNoViolations);
 
