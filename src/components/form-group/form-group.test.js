@@ -10,7 +10,7 @@ import dataText from '@ecl/specs-component-text-input/demo/data';
 import dataSingle from '@ecl/specs-component-select/demo/data-single';
 import dataDefault from '@ecl/specs-component-radio/demo/data--default';
 import dataTextarea from '@ecl/specs-component-text-area/demo/data';
-import dataDatepicker from '@ecl/specs-component-datepicker/demo/data';
+import dataDatepicker from '@ecl/datepicker/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';

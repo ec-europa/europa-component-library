@@ -1,9 +1,9 @@
 # ECL Datepicker
 
-npm package: `@ecl/twig-component-datepicker`
+npm package: `@ecl/datepicker`
 
 ```shell
-npm install --save @ecl/twig-component-datepicker
+npm install --save @ecl/datepicker
 ```
 
 ### Parameters

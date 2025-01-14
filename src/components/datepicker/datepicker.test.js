@@ -5,7 +5,7 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import specs from '@ecl/specs-component-datepicker/demo/data';
+import specs from './demo/data';
 
 const specDefault = specs.input;
 

@@ -1,9 +1,9 @@
 # ECL Description list component
 
-npm package: `@ecl/twig-component-description-list`
+npm package: `@ecl/description-list`
 
 ```shell
-npm install --save @ecl/twig-component-description-list
+npm install --save @ecl/description-list
 ```
 
 ### Parameters

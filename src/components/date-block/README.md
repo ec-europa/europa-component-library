@@ -1,9 +1,9 @@
 # ECL Date block
 
-npm package: `@ecl/twig-component-date-block`
+npm package: `@ecl/date-block`
 
 ```shell
-npm install --save @ecl/twig-component-date-block
+npm install --save @ecl/date-block
 ```
 
 ### Parameters
