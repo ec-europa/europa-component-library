@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-checkbox/demo/data';
+import demoContentDefault from '@ecl/checkbox/demo/data';
 import template from '@ecl/twig-component-form-group/form-group.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 

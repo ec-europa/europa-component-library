@@ -1,21 +1,23 @@
 {
-  "name": "@ecl/twig-page-home",
+  "name": "@ecl/checkbox",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
-  "description": "ECL Example page - Home",
+  "description": "ECL Checkbox",
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
+  "style": "checkbox.scss",
+  "scss": "checkbox.scss",
   "dependencies": {
-    "@ecl/banner": "4.9.0",
-    "@ecl/card": "4.9.0",
-    "@ecl/content-item": "4.9.0",
-    "@ecl/twig-component-featured-item": "4.9.0",
-    "@ecl/twig-component-link": "4.9.0",
-    "@ecl/twig-component-navigation-list": "4.9.0",
-    "@ecl/twig-component-site-footer": "4.9.0",
-    "@ecl/twig-component-site-header": "4.9.0"
+    "@ecl/twig-component-icon": "4.9.0"
+  },
+  "devDependencies": {
+    "@ecl/vanilla-component-form-group": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
