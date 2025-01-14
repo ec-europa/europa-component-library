@@ -14,10 +14,10 @@
 );
 
 // Forms
-@use '@ecl/vanilla-component-form-group/form-group-print';
+@use '@ecl/form-group/form-group-print';
 @use '@ecl/checkbox/checkbox-print';
 @use '@ecl/datepicker/datepicker-print';
-@use '@ecl/vanilla-component-file-upload/file-upload-print';
+@use '@ecl/file-upload/file-upload-print';
 @use '@ecl/vanilla-component-radio/radio-print';
 @use '@ecl/vanilla-component-select/select-print';
 @use '@ecl/vanilla-component-text-area/text-area-print';
@@ -75,7 +75,7 @@
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-print' with (
+@use '@ecl/featured-item/featured-item-print' with (
   $theme: theme.$theme,
   $featured-item: var.$featured-item,
   $featured-item-print: var.$featured-item-print
@@ -100,11 +100,11 @@
 @use '@ecl/expandable/expandable-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures-print' with (
+@use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures
 );
-@use '@ecl/vanilla-component-file/file-print' with (
+@use '@ecl/file/file-print' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
