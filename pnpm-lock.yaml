@@ -660,12 +660,12 @@ importers:
         specifier: 4.9.0
         version: link:../../tools/event-manager
     devDependencies:
+      '@ecl/description-list':
+        specifier: 4.9.0
+        version: link:../description-list
       '@ecl/test-utils':
         specifier: 4.9.0
         version: link:../../tools/test-utils
-      '@ecl/twig-component-description-list':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
@@ -1371,9 +1371,9 @@ importers:
       '@ecl/content-item':
         specifier: 4.9.0
         version: link:../../../../components/content-item
-      '@ecl/twig-component-featured-item':
+      '@ecl/featured-item':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/featured-item
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../components/link
@@ -1422,9 +1422,9 @@ importers:
       '@ecl/content-item':
         specifier: 4.9.0
         version: link:../../../../components/content-item
-      '@ecl/twig-component-form-group':
+      '@ecl/form-group':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/twig-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -4347,26 +4347,11 @@ packages:
   '@ecl/twig-component-button@4.9.0':
     resolution: {integrity: sha512-Gy9Un6/S+EyJDmyvJyNOnwluIYHB+LEEAX0f3Tw6pjDULj365XrxD1wdFMO6K2+vREh0HTJ8M/7NTFv84C/Lrg==}
 
-  '@ecl/twig-component-checkbox@4.9.0':
-    resolution: {integrity: sha512-kyy26ZRS13cI5FMAu+onz4pCMV3F7QhfeRs0ULjKxLCtWF2eJ94H/l759NPdbFbuJs9yp7GpP9AyBIyxMenIyQ==}
-
-  '@ecl/twig-component-datepicker@4.9.0':
-    resolution: {integrity: sha512-AM2zCT+HBj8MUPrpb+e1pRChDeBp/WNvymVUUeYOocyzAG9wbZsma0Xl3X6+7UFXwkomfHfPLQwXS/yAobwauQ==}
-
   '@ecl/twig-component-description-list@4.9.0':
     resolution: {integrity: sha512-dxJr6A85kvIdfAfChxuxyKZhl94EJGhU7QNmpIt3OJYB6mIE24F6tBoo3n6resAYOmZT/puJXLdNnEvEAcpzAg==}
 
-  '@ecl/twig-component-featured-item@4.9.0':
-    resolution: {integrity: sha512-XjdfwG/OjAYQS0xenBeqXpQeeRhmLa62urHiDIH4ZGLi3vcTj/Ym8t2aQsus+hEcuBicGqr60MVZXQn8AZLouA==}
-
-  '@ecl/twig-component-file-upload@4.9.0':
-    resolution: {integrity: sha512-kqMdZj5MbIl+tVN+vo+AAipahu/pgBg/SNsBf+aPXLcf1Gl0IN/p+EWR+q4sVbgRRslLOT29QmYeex6Vo1Z9zg==}
-
   '@ecl/twig-component-file@4.9.0':
     resolution: {integrity: sha512-DXSMpk0ZAn4CGO4iaQpomx7khdgFfGqxxYTLHaTv/W2g3BzGc0W0JWjffJk5W2QEmIz8n854dzDVUL1CPOQfAg==}
-
-  '@ecl/twig-component-form-group@4.9.0':
-    resolution: {integrity: sha512-4RVSHH899rUR+E6z81INRnKzq+3pGyOFVKUUffK4c4apB+44eH225kp7jX37XdwYUTiIKCpIMHvY9s3ZZo/L4g==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14335,26 +14320,10 @@ snapshots:
       '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
       '@ecl/twig-component-indicator': link:src/implementations/twig/components/indicator
 
-  '@ecl/twig-component-checkbox@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-
-  '@ecl/twig-component-datepicker@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-
   '@ecl/twig-component-description-list@4.9.0':
     dependencies:
       '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-tag': link:src/implementations/twig/components/tag
-
-  '@ecl/twig-component-featured-item@4.9.0':
-    dependencies:
-      '@ecl/twig-component-link': link:src/implementations/twig/components/link
-      '@ecl/twig-component-media-container': link:src/implementations/twig/components/media-container
-      '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
-
-  '@ecl/twig-component-file-upload@4.9.0': {}
 
   '@ecl/twig-component-file@4.9.0':
     dependencies:
@@ -14364,19 +14333,6 @@ snapshots:
       '@ecl/twig-component-label': link:src/implementations/twig/components/label
       '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
-
-  '@ecl/twig-component-form-group@4.9.0':
-    dependencies:
-      '@ecl/twig-component-checkbox': 4.9.0
-      '@ecl/twig-component-datepicker': 4.9.0
-      '@ecl/twig-component-file-upload': 4.9.0
-      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
-      '@ecl/twig-component-radio': link:src/implementations/twig/components/radio
-      '@ecl/twig-component-range': link:src/implementations/twig/components/range
-      '@ecl/twig-component-rating-field': link:src/implementations/twig/components/rating-field
-      '@ecl/twig-component-select': link:src/implementations/twig/components/select
-      '@ecl/twig-component-text-area': link:src/implementations/twig/components/text-area
-      '@ecl/twig-component-text-input': link:src/implementations/twig/components/text-input
 
   '@emnapi/core@1.3.1':
     dependencies:
