@@ -5,9 +5,9 @@ import dataSiteFooterEC from '@ecl/specs-component-site-footer/demo/data-harmoni
 import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
-import dataBannerVideo from '@ecl/specs-component-banner/demo/data--video';
-import dataCard from '@ecl/specs-component-card/demo/data';
-import dataContentItem from '@ecl/specs-component-content-item/demo/data--event';
+import dataBannerVideo from '@ecl/banner/demo/data--video';
+import dataCard from '@ecl/card/demo/data';
+import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/specs-component-featured-item/demo/data--highlight';
 import dataNavigationList from '@ecl/specs-component-navigation-list/demo/data-illustration';
 
