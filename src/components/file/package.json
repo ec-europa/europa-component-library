@@ -1,5 +1,5 @@
 {
-  "name": "@ecl/twig-component-file",
+  "name": "@ecl/file",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
@@ -7,8 +7,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "style": "file.scss",
+  "scss": "file.scss",
+  "main": "file.js",
+  "module": "file.js",
   "dependencies": {
     "@ecl/button": "4.9.0",
+    "@ecl/dom-utils": "4.9.0",
     "@ecl/twig-component-description-list": "4.9.0",
     "@ecl/twig-component-icon": "4.9.0",
     "@ecl/twig-component-label": "4.9.0",
@@ -16,8 +21,11 @@
     "@ecl/twig-component-picture": "4.9.0"
   },
   "devDependencies": {
-    "@ecl/specs-component-file": "4.9.0",
-    "@ecl/vanilla-component-file": "4.9.0"
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",

@@ -3,8 +3,8 @@ import { correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-component-file/demo/data--with-translation';
-import dataThumbnailTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
+import dataDefault from './demo/data--with-translation';
+import dataThumbnailTaxonomy from './demo/data--taxonomy';
 
 import file from './file.html.twig';
 import notes from './README.md';

@@ -6,10 +6,10 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataWithTranslation from '@ecl/specs-component-file/demo/data--with-translation';
-import dataWithoutTranslation from '@ecl/specs-component-file/demo/data--without-translation';
-import dataThumbnail from '@ecl/specs-component-file/demo/data--thumbnail';
-import dataTaxonomy from '@ecl/specs-component-file/demo/data--taxonomy';
+import dataWithTranslation from './demo/data--with-translation';
+import dataWithoutTranslation from './demo/data--without-translation';
+import dataThumbnail from './demo/data--thumbnail';
+import dataTaxonomy from './demo/data--taxonomy';
 
 dataWithoutTranslation.id = 'ecl-file-without-translations';
 dataWithTranslation.id = `ecl-file-with-translation`;

@@ -1,9 +1,9 @@
 # ECL File component
 
-npm package: `@ecl/twig-component-file`
+npm package: `@ecl/file`
 
 ```shell
-npm install --save @ecl/twig-component-file
+npm install --save @ecl/file
 ```
 
 ### Parameters

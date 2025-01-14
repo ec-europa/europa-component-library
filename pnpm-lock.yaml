@@ -356,6 +356,46 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/file:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-description-list':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/description-list
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-label':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/label
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+    devDependencies:
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/components/form-group:
     dependencies:
       '@ecl/twig-component-checkbox':
@@ -572,34 +612,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../../vanilla/components/expandable
-
-  src/implementations/twig/components/file:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-description-list':
-        specifier: 4.9.0
-        version: link:../description-list
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-file':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/file
-      '@ecl/vanilla-component-file':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/file
 
   src/implementations/twig/components/file-upload:
     devDependencies:
@@ -1279,7 +1291,7 @@ importers:
         version: 4.9.0
       '@ecl/twig-component-file':
         specifier: 4.9.0
-        version: link:../../components/file
+        version: 4.9.0
       '@ecl/twig-component-gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
@@ -1396,15 +1408,6 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
-
-  src/implementations/vanilla/components/file:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/file-upload:
     dependencies:
@@ -2075,6 +2078,9 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../components/featured-item
+      '@ecl/file':
+        specifier: 4.9.0
+        version: link:../../components/file
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2111,12 +2117,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
-      '@ecl/vanilla-component-file':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/file
-      '@ecl/vanilla-component-file-upload':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/file-upload
       '@ecl/vanilla-component-gallery':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/gallery
@@ -2393,7 +2393,7 @@ importers:
         version: link:../../implementations/vanilla/components/expandable
       '@ecl/vanilla-component-file':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/file
+        version: 4.9.0
       '@ecl/vanilla-component-file-upload':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/file-upload
@@ -2763,8 +2763,6 @@ importers:
 
   src/specs/components/expandable: {}
 
-  src/specs/components/file: {}
-
   src/specs/components/file-upload: {}
 
   src/specs/components/gallery: {}
@@ -2890,7 +2888,7 @@ importers:
         version: 4.9.0
       '@ecl/specs-component-file':
         specifier: 4.9.0
-        version: link:../../components/file
+        version: 4.9.0
       '@ecl/specs-component-gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
@@ -3068,6 +3066,12 @@ importers:
       '@ecl/fact-figures':
         specifier: 4.9.0
         version: link:../components/fact-figures
+      '@ecl/featured-item':
+        specifier: 4.9.0
+        version: link:../components/featured-item
+      '@ecl/file':
+        specifier: 4.9.0
+        version: link:../components/file
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
@@ -3125,12 +3129,6 @@ importers:
       '@ecl/specs-component-expandable':
         specifier: 4.9.0
         version: link:../specs/components/expandable
-      '@ecl/specs-component-featured-item':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-file':
-        specifier: 4.9.0
-        version: link:../specs/components/file
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
         version: link:../specs/components/file-upload
@@ -3281,12 +3279,6 @@ importers:
       '@ecl/twig-component-expandable':
         specifier: 4.9.0
         version: link:../implementations/twig/components/expandable
-      '@ecl/twig-component-featured-item':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/twig-component-file':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/file
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
         version: link:../implementations/twig/components/file-upload
@@ -4389,20 +4381,32 @@ packages:
   '@ecl/specs-component-featured-item@4.9.0':
     resolution: {integrity: sha512-EXwLGOLMOeMfOzcoWBaeJuzWDJpl4uL8ZEcdHtTiBmX1Ssqv1lsivKqnYYobDPxkfn78aiiljaCJVtaOItbVlA==}
 
+  '@ecl/specs-component-file@4.9.0':
+    resolution: {integrity: sha512-V7Q4dv23Ob/3PHIx5MHcYdFRf94V5EEJcpJkdAlojFL05WJ81Rp2tpAzJ28GA8pSIjhx0qaoRGmwpvgnjeS8yQ==}
+
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
 
   '@ecl/twig-component-accordion@4.9.0':
     resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
 
+  '@ecl/twig-component-button@4.9.0':
+    resolution: {integrity: sha512-Gy9Un6/S+EyJDmyvJyNOnwluIYHB+LEEAX0f3Tw6pjDULj365XrxD1wdFMO6K2+vREh0HTJ8M/7NTFv84C/Lrg==}
+
   '@ecl/twig-component-featured-item@4.9.0':
     resolution: {integrity: sha512-XjdfwG/OjAYQS0xenBeqXpQeeRhmLa62urHiDIH4ZGLi3vcTj/Ym8t2aQsus+hEcuBicGqr60MVZXQn8AZLouA==}
+
+  '@ecl/twig-component-file@4.9.0':
+    resolution: {integrity: sha512-DXSMpk0ZAn4CGO4iaQpomx7khdgFfGqxxYTLHaTv/W2g3BzGc0W0JWjffJk5W2QEmIz8n854dzDVUL1CPOQfAg==}
 
   '@ecl/twig-component-form-group@4.9.0':
     resolution: {integrity: sha512-4RVSHH899rUR+E6z81INRnKzq+3pGyOFVKUUffK4c4apB+44eH225kp7jX37XdwYUTiIKCpIMHvY9s3ZZo/L4g==}
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
+
+  '@ecl/vanilla-component-file@4.9.0':
+    resolution: {integrity: sha512-KNr01Isia6lvofA6czsStTx8+DL49ZF243szybksA3RYTTqgKvPh+aCEJkvBJlFAwNJWUv6g8Z32xPBmYQMqxg==}
 
   '@ecl/vanilla-component-form-group@4.9.0':
     resolution: {integrity: sha512-h7RaQj5LLKqHTD4PclJ/960LDCvOn7dKNCW/n1wJCS6MGrfOiHqX6NGfMc+6nCzROdax83WTd+NS7c/+SXeYsA==}
@@ -14552,14 +14556,30 @@ snapshots:
 
   '@ecl/specs-component-featured-item@4.9.0': {}
 
+  '@ecl/specs-component-file@4.9.0': {}
+
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
+
+  '@ecl/twig-component-button@4.9.0':
+    dependencies:
+      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
+      '@ecl/twig-component-indicator': link:src/implementations/twig/components/indicator
 
   '@ecl/twig-component-featured-item@4.9.0':
     dependencies:
       '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-media-container': link:src/implementations/twig/components/media-container
+      '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
+
+  '@ecl/twig-component-file@4.9.0':
+    dependencies:
+      '@ecl/twig-component-button': 4.9.0
+      '@ecl/twig-component-description-list': link:src/implementations/twig/components/description-list
+      '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
+      '@ecl/twig-component-label': link:src/implementations/twig/components/label
+      '@ecl/twig-component-link': link:src/implementations/twig/components/link
       '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
 
   '@ecl/twig-component-form-group@4.9.0':
@@ -14576,6 +14596,11 @@ snapshots:
       '@ecl/twig-component-text-input': link:src/implementations/twig/components/text-input
 
   '@ecl/vanilla-component-banner@4.9.0':
+    dependencies:
+      '@ecl/dom-utils': link:src/tools/dom-utils
+      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
+
+  '@ecl/vanilla-component-file@4.9.0':
     dependencies:
       '@ecl/dom-utils': link:src/tools/dom-utils
       '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
