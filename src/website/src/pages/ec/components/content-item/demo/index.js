@@ -1,7 +1,7 @@
-import demoImage from '@ecl/specs-component-content-item/demo/data--image';
-import demoEvent from '@ecl/specs-component-content-item/demo/data--event';
+import demoImage from '@ecl/content-item/demo/data--image';
+import demoEvent from '@ecl/content-item/demo/data--event';
 
-import template from '@ecl/twig-component-content-item/content-item.html.twig';
+import template from '@ecl/content-item/content-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataImageRight = JSON.parse(JSON.stringify(demoImage));

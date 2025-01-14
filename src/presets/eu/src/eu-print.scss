@@ -15,7 +15,7 @@
 
 // Forms
 @use '@ecl/vanilla-component-form-group/form-group-print';
-@use '@ecl/vanilla-component-checkbox/checkbox-print';
+@use '@ecl/checkbox/checkbox-print';
 @use '@ecl/vanilla-component-datepicker/datepicker-print';
 @use '@ecl/vanilla-component-file-upload/file-upload-print';
 @use '@ecl/vanilla-component-radio/radio-print';
@@ -86,14 +86,14 @@
   $list-illustration-print: var.$list-illustration-print
 );
 @use '@ecl/breadcrumb/breadcrumb-print';
-@use '@ecl/vanilla-component-card/card-print' with (
+@use '@ecl/card/card-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-content-block/content-block-print' with (
+@use '@ecl/content-block/content-block-print' with (
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item-print' with (
+@use '@ecl/content-item/content-item-print' with (
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
@@ -145,8 +145,8 @@
   $theme: theme.$theme,
   $accordion-print: var.$accordion-print
 );
-@use '@ecl/vanilla-component-carousel/carousel-print';
-@use '@ecl/vanilla-component-category-filter/category-filter-print';
+@use '@ecl/carousel/carousel-print';
+@use '@ecl/category-filter/category-filter-print';
 @use '@ecl/vanilla-component-gallery/gallery-print' with (
   $theme: theme.$theme,
   $gallery: var.$gallery
