@@ -542,15 +542,15 @@ importers:
         specifier: 4.9.0
         version: link:../icon
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-checkbox':
         specifier: 4.9.0
         version: link:../../../../specs/components/checkbox
       '@ecl/vanilla-component-checkbox':
         specifier: 4.9.0
         version: link:../../../vanilla/components/checkbox
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
 
   src/implementations/twig/components/content-block:
     dependencies:
@@ -608,15 +608,15 @@ importers:
         specifier: 4.9.0
         version: link:../icon
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-datepicker':
         specifier: 4.9.0
         version: link:../../../../specs/components/datepicker
       '@ecl/vanilla-component-datepicker':
         specifier: 4.9.0
         version: link:../../../vanilla/components/datepicker
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
 
   src/implementations/twig/components/description-list:
     dependencies:
@@ -924,24 +924,24 @@ importers:
 
   src/implementations/twig/components/radio:
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-radio':
         specifier: 4.9.0
         version: link:../../../../specs/components/radio
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-radio':
         specifier: 4.9.0
         version: link:../../../vanilla/components/radio
 
   src/implementations/twig/components/range:
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-range':
         specifier: 4.9.0
         version: link:../../../../specs/components/range
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-range':
         specifier: 4.9.0
         version: link:../../../vanilla/components/range
@@ -952,12 +952,12 @@ importers:
         specifier: 4.9.0
         version: link:../icon
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
         version: link:../../../../specs/components/rating-field
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-rating-field':
         specifier: 4.9.0
         version: link:../../../vanilla/components/rating-field
@@ -971,12 +971,12 @@ importers:
         specifier: 4.9.0
         version: 4.9.0
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-search-form':
         specifier: 4.9.0
         version: link:../../../../specs/components/search-form
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-search-form':
         specifier: 4.9.0
         version: link:../../../vanilla/components/search-form
@@ -987,12 +987,12 @@ importers:
         specifier: 4.9.0
         version: link:../../../../components/button
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-select':
         specifier: 4.9.0
         version: link:../../../../specs/components/select
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-select':
         specifier: 4.9.0
         version: link:../../../vanilla/components/select
@@ -1178,24 +1178,24 @@ importers:
 
   src/implementations/twig/components/text-area:
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-text-area':
         specifier: 4.9.0
         version: link:../../../../specs/components/text-area
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-text-area':
         specifier: 4.9.0
         version: link:../../../vanilla/components/text-area
 
   src/implementations/twig/components/text-input:
     devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../../../components/form-group
       '@ecl/specs-component-text-input':
         specifier: 4.9.0
         version: link:../../../../specs/components/text-input
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-text-input':
         specifier: 4.9.0
         version: link:../../../vanilla/components/text-input
@@ -2368,6 +2368,9 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../components/featured-item
+      '@ecl/file':
+        specifier: 4.9.0
+        version: link:../../components/file
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../../components/file-upload
@@ -2407,9 +2410,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/expandable
-      '@ecl/vanilla-component-file':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/vanilla-component-gallery':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/gallery
@@ -3083,6 +3083,9 @@ importers:
       '@ecl/file':
         specifier: 4.9.0
         version: link:../components/file
+      '@ecl/file-upload':
+        specifier: 4.9.0
+        version: link:../components/file-upload
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
@@ -3140,9 +3143,6 @@ importers:
       '@ecl/specs-component-expandable':
         specifier: 4.9.0
         version: link:../specs/components/expandable
-      '@ecl/specs-component-file-upload':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/specs-component-gallery':
         specifier: 4.9.0
         version: link:../specs/components/gallery
@@ -3290,9 +3290,6 @@ importers:
       '@ecl/twig-component-expandable':
         specifier: 4.9.0
         version: link:../implementations/twig/components/expandable
-      '@ecl/twig-component-file-upload':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-gallery':
         specifier: 4.9.0
         version: link:../implementations/twig/components/gallery
@@ -4421,12 +4418,6 @@ packages:
 
   '@ecl/vanilla-component-banner@4.9.0':
     resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
-
-  '@ecl/vanilla-component-file@4.9.0':
-    resolution: {integrity: sha512-KNr01Isia6lvofA6czsStTx8+DL49ZF243szybksA3RYTTqgKvPh+aCEJkvBJlFAwNJWUv6g8Z32xPBmYQMqxg==}
-
-  '@ecl/vanilla-component-form-group@4.9.0':
-    resolution: {integrity: sha512-h7RaQj5LLKqHTD4PclJ/960LDCvOn7dKNCW/n1wJCS6MGrfOiHqX6NGfMc+6nCzROdax83WTd+NS7c/+SXeYsA==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14620,15 +14611,6 @@ snapshots:
     dependencies:
       '@ecl/dom-utils': link:src/tools/dom-utils
       '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
-
-  '@ecl/vanilla-component-file@4.9.0':
-    dependencies:
-      '@ecl/dom-utils': link:src/tools/dom-utils
-      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
-
-  '@ecl/vanilla-component-form-group@4.9.0':
-    dependencies:
-      '@ecl/vanilla-utility-screen-reader': link:src/implementations/vanilla/utilities/screen-reader
 
   '@emnapi/core@1.3.1':
     dependencies:
