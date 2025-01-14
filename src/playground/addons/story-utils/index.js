@@ -3,6 +3,7 @@ import iconPath from '@ecl/resources-icons/dist/sprites/icons.svg';
 import iconSocialPath from '@ecl/resources-ec-social-icons/dist/sprites/icons-social.svg';
 import iconMediaSocialPath from '@ecl/resources-social-media-icons/dist/sprites/icons-social-media.svg';
 import iconFlagPath from '@ecl/resources-flag-icons/dist/sprites/icons-flag.svg';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 export const correctPaths = (data) => {
   Object.keys(data).forEach((prop) => {
@@ -333,19 +334,23 @@ export const getFormControls = (data, type) => {
 };
 
 export const getColorModeControls = () => {
-  const argTypes = {
-    color_mode: {
-      name: 'color mode',
-      description: 'Choose color mode',
-      type: { name: 'select' },
-      options: ['default', 'mode1', 'mode2'],
-      mapping: {
-        default: '',
-        mode1: 'mode1',
-        mode2: 'mode2',
+  let argTypes = {};
+
+  if (getSystem() === 'ec') {
+    argTypes = {
+      color_mode: {
+        name: 'color mode',
+        description: 'Choose color mode',
+        type: { name: 'select' },
+        options: ['default', 'mode1', 'mode2'],
+        mapping: {
+          default: '',
+          mode1: 'mode1',
+          mode2: 'mode2',
+        },
       },
-    },
-  };
+    };
+  }
 
   return argTypes;
 };

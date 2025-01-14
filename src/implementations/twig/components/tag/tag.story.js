@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataLink from '@ecl/specs-component-tag/demo/data--link';
 import dataRemovable from '@ecl/specs-component-tag/demo/data--removable';
@@ -11,7 +12,9 @@ import notes from './README.md';
 const getArgs = (data) => {
   const args = {};
 
-  args.color_mode = 'default';
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
   args.label = data.tag.label;
   args.nowrap = false;
   if (data.tag.type === 'link') {
@@ -64,7 +67,6 @@ const prepareData = (data, args) => {
   data.tag.label = args.label;
   data.tag.nowrap = args.nowrap;
   data.tag.external = args.external;
-  data.color_mode = args.color_mode;
 
   correctPaths(data);
 

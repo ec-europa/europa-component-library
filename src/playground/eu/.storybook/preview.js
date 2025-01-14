@@ -46,12 +46,6 @@ export const parameters = {
       hideCode: true,
     },
     {
-      id: 'ecl-eu-color-modes',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-color-modes.css" />`,
-      picked: true,
-      hideCode: true,
-    },
-    {
       id: 'ecl-eu-utlities',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-utilities.css" />`,
       picked: true,
