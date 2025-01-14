@@ -1389,12 +1389,12 @@ importers:
 
   src/implementations/twig/pages/page-inner:
     dependencies:
+      '@ecl/accordion':
+        specifier: 4.9.0
+        version: link:../../../../components/accordion
       '@ecl/file':
         specifier: 4.9.0
         version: link:../../../../components/file
-      '@ecl/twig-component-accordion':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/twig-component-gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
@@ -2856,9 +2856,9 @@ importers:
       '@ecl/content-item':
         specifier: 4.9.0
         version: link:../../../components/content-item
-      '@ecl/specs-component-featured-item':
+      '@ecl/featured-item':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../components/featured-item
       '@ecl/specs-component-mega-menu':
         specifier: 4.9.0
         version: link:../../components/mega-menu
@@ -2878,15 +2878,15 @@ importers:
 
   src/specs/pages/page-inner:
     dependencies:
-      '@ecl/specs-component-accordion':
+      '@ecl/accordion':
         specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-breadcrumb':
+        version: link:../../../components/accordion
+      '@ecl/breadcrumb':
         specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-file':
+        version: link:../../../components/breadcrumb
+      '@ecl/file':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../../../components/file
       '@ecl/specs-component-gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
@@ -4323,26 +4323,14 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
-  '@ecl/specs-component-accordion@4.9.0':
-    resolution: {integrity: sha512-AumU0LaBjN5zcbEqp8WGw2dKJOCyjZW4hza/PB1ivaMAvalrDFJ6m4KsTxrGh0ipPeirn892DENhHdKN5o4Z3w==}
-
   '@ecl/specs-component-breadcrumb@4.9.0':
     resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
 
   '@ecl/specs-component-button@4.9.0':
     resolution: {integrity: sha512-Qi69MspG/T0TOts0ckUxTnzQaFqfPvKx0DDb0uRfFk1PvceqXxN96FxpiBh5MgvYz89O5IQxQLwSGLGnzGDScA==}
 
-  '@ecl/specs-component-featured-item@4.9.0':
-    resolution: {integrity: sha512-EXwLGOLMOeMfOzcoWBaeJuzWDJpl4uL8ZEcdHtTiBmX1Ssqv1lsivKqnYYobDPxkfn78aiiljaCJVtaOItbVlA==}
-
-  '@ecl/specs-component-file@4.9.0':
-    resolution: {integrity: sha512-V7Q4dv23Ob/3PHIx5MHcYdFRf94V5EEJcpJkdAlojFL05WJ81Rp2tpAzJ28GA8pSIjhx0qaoRGmwpvgnjeS8yQ==}
-
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
-
-  '@ecl/twig-component-accordion@4.9.0':
-    resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14292,19 +14280,11 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@ecl/specs-component-accordion@4.9.0': {}
-
   '@ecl/specs-component-breadcrumb@4.9.0': {}
 
   '@ecl/specs-component-button@4.9.0': {}
 
-  '@ecl/specs-component-featured-item@4.9.0': {}
-
-  '@ecl/specs-component-file@4.9.0': {}
-
   '@ecl/specs-component-picture@4.6.1': {}
-
-  '@ecl/twig-component-accordion@4.9.0': {}
 
   '@emnapi/core@1.3.1':
     dependencies:
