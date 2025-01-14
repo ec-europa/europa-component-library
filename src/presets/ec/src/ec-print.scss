@@ -16,7 +16,7 @@
 // Forms
 @use '@ecl/vanilla-component-form-group/form-group-print';
 @use '@ecl/checkbox/checkbox-print';
-@use '@ecl/vanilla-component-datepicker/datepicker-print';
+@use '@ecl/datepicker/datepicker-print';
 @use '@ecl/vanilla-component-file-upload/file-upload-print';
 @use '@ecl/vanilla-component-radio/radio-print';
 @use '@ecl/vanilla-component-select/select-print';
@@ -33,7 +33,7 @@
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-date-block/date-block-print' with (
+@use '@ecl/date-block/date-block-print' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-indicator/indicator-print';
@@ -70,7 +70,7 @@
   $theme: theme.$theme,
   $banner-print: var.$banner-print
 );
-@use '@ecl/vanilla-component-description-list/description-list-print' with (
+@use '@ecl/description-list/description-list-print' with (
   $theme: theme.$theme,
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
@@ -97,7 +97,7 @@
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable-print' with (
+@use '@ecl/expandable/expandable-print' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-fact-figures/fact-figures-print' with (

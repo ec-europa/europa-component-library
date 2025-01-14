@@ -1,7 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import specs from '@ecl/specs-component-date-block/demo/data';
+import specs from './demo/data';
 import dateBlock from './date-block.html.twig';
 import notes from './README.md';
 

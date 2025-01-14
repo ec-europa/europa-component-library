@@ -1,19 +1,25 @@
 {
-  "name": "@ecl/twig-component-datepicker",
+  "name": "@ecl/description-list",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
-  "description": "ECL Datepicker",
+  "description": "ECL Description list",
   "publishConfig": {
     "access": "public"
   },
+  "main": "description-list.js",
+  "module": "description-list.js",
+  "style": "description-list.scss",
   "dependencies": {
-    "@ecl/twig-component-icon": "4.9.0"
+    "@ecl/twig-component-link": "4.9.0",
+    "@ecl/twig-component-tag": "4.9.0",
+    "@ecl/dom-utils": "4.9.0"
   },
   "devDependencies": {
-    "@ecl/specs-component-datepicker": "4.9.0",
-    "@ecl/vanilla-component-datepicker": "4.9.0",
-    "@ecl/vanilla-component-form-group": "4.9.0"
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",

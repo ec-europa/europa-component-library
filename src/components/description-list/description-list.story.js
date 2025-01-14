@@ -2,8 +2,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import dataDescriptionListDefault from '@ecl/specs-component-description-list/demo/data--default';
-import dataDescriptionListHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+import dataDescriptionListDefault from './demo/data--default';
+import dataDescriptionListHorizontal from './demo/data--horizontal';
 
 import descriptionList from './description-list.html.twig';
 import notes from './README.md';

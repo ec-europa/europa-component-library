@@ -2,7 +2,7 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import demoData from '@ecl/specs-component-expandable/demo/data';
+import demoData from './demo/data';
 import expandable from './expandable.html.twig';
 import notes from './README.md';
 
