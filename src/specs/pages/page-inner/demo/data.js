@@ -7,7 +7,7 @@ import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmoni
 import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
 import dataBreadcrumb from '@ecl/specs-component-breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
-import dataInpageNavigation from '@ecl/specs-component-inpage-navigation/demo/data';
+import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/specs-component-accordion/demo/data';
 import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataFile from '@ecl/specs-component-file/demo/data--with-translation';

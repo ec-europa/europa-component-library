@@ -1,9 +1,9 @@
 # ECL Inpage navigation
 
-npm package: `@ecl/twig-component-inpage-navigation`
+npm package: `@ecl/inpage-navigation`
 
 ```shell
-npm install --save @ecl/twig-component-inpage-navigation
+npm install --save @ecl/inpage-navigation
 ```
 
 ### Parameters

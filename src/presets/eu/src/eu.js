@@ -14,7 +14,7 @@ export * from '@ecl/vanilla-component-file';
 export * from '@ecl/vanilla-component-file-upload';
 export * from '@ecl/gallery';
 export * from '@ecl/indicator';
-export * from '@ecl/vanilla-component-inpage-navigation';
+export * from '@ecl/inpage-navigation';
 export * from '@ecl/vanilla-component-media-container';
 export * from '@ecl/vanilla-component-menu';
 export * from '@ecl/vanilla-component-mega-menu';

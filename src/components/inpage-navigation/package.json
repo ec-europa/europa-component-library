@@ -1,5 +1,5 @@
 {
-  "name": "@ecl/twig-component-inpage-navigation",
+  "name": "@ecl/inpage-navigation",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
@@ -7,14 +7,26 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "inpage-navigation.js",
+  "module": "inpage-navigation.js",
+  "style": "inpage-navigation.scss",
   "dependencies": {
     "@ecl/icon": "4.9.0",
-    "@ecl/twig-component-link": "4.9.0"
+    "@ecl/twig-component-link": "4.9.0",
+    "@ecl/event-manager": "4.9.0",
+    "focus-trap": "7.6.2",
+    "@ecl/dom-utils": "4.9.0",
+    "gumshoejs": "5.1.2",
+    "stickyfilljs": "2.1.0",
+    "@ecl/vanilla-layout-grid": "4.9.0"
   },
   "devDependencies": {
-    "@ecl/specs-component-inpage-navigation": "4.9.0",
-    "@ecl/vanilla-component-inpage-navigation": "4.9.0",
-    "lorem-ipsum": "2.0.8"
+    "lorem-ipsum": "2.0.8",
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
