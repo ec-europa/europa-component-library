@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import demoData from '@ecl/specs-component-gallery/demo/data';
+import demoData from '@ecl/gallery/demo/data';
 
 const demoDataGrid = { ...demoData, grid: true };
 

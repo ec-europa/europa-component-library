@@ -564,6 +564,43 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/gallery:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+      '@ecl/twig-component-video':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/video
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/implementations/twig/components/fact-figures:
     dependencies:
       '@ecl/twig-component-icon':
@@ -696,31 +733,6 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../../vanilla/components/form-group
-
-  src/implementations/twig/components/gallery:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-      '@ecl/twig-component-video':
-        specifier: 4.9.0
-        version: link:../video
-    devDependencies:
-      '@ecl/specs-component-gallery':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/gallery
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/gallery
 
   src/implementations/twig/components/icon:
     devDependencies:
@@ -1358,15 +1370,15 @@ importers:
 
   src/implementations/twig/pages/page-inner:
     dependencies:
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../../../components/gallery
       '@ecl/twig-component-accordion':
         specifier: 4.9.0
         version: 4.9.0
       '@ecl/twig-component-file':
         specifier: 4.9.0
         version: link:../../components/file
-      '@ecl/twig-component-gallery':
-        specifier: 4.9.0
-        version: link:../../components/gallery
       '@ecl/twig-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../components/inpage-navigation
@@ -1445,21 +1457,6 @@ importers:
       '@ecl/vanilla-utility-screen-reader':
         specifier: 4.9.0
         version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/gallery:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
 
   src/implementations/vanilla/components/icon:
     dependencies:
@@ -2127,6 +2124,9 @@ importers:
       '@ecl/expandable':
         specifier: 4.9.0
         version: link:../../components/expandable
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../components/gallery
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2145,9 +2145,6 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/form-group
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/gallery
       '@ecl/vanilla-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/icon
@@ -2407,6 +2404,9 @@ importers:
       '@ecl/expandable':
         specifier: 4.9.0
         version: link:../../components/expandable
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../components/gallery
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2425,9 +2425,6 @@ importers:
       '@ecl/vanilla-component-form-group':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/form-group
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/gallery
       '@ecl/vanilla-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/icon
@@ -2779,8 +2776,6 @@ importers:
 
   src/specs/components/file-upload: {}
 
-  src/specs/components/gallery: {}
-
   src/specs/components/icon: {}
 
   src/specs/components/inpage-navigation: {}
@@ -2894,6 +2889,9 @@ importers:
 
   src/specs/pages/page-inner:
     dependencies:
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../../components/gallery
       '@ecl/specs-component-accordion':
         specifier: 4.9.0
         version: 4.9.0
@@ -2903,9 +2901,6 @@ importers:
       '@ecl/specs-component-file':
         specifier: 4.9.0
         version: link:../../components/file
-      '@ecl/specs-component-gallery':
-        specifier: 4.9.0
-        version: link:../../components/gallery
       '@ecl/specs-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../components/inpage-navigation
@@ -3107,6 +3102,9 @@ importers:
       '@ecl/expandable':
         specifier: 4.9.0
         version: link:../components/expandable
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../components/gallery
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3143,9 +3141,6 @@ importers:
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
         version: link:../specs/components/file-upload
-      '@ecl/specs-component-gallery':
-        specifier: 4.9.0
-        version: link:../specs/components/gallery
       '@ecl/specs-component-icon':
         specifier: 4.9.0
         version: link:../specs/components/icon
@@ -3275,9 +3270,6 @@ importers:
       '@ecl/twig-component-form-group':
         specifier: 4.9.0
         version: link:../implementations/twig/components/form-group
-      '@ecl/twig-component-gallery':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/gallery
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../implementations/twig/components/icon

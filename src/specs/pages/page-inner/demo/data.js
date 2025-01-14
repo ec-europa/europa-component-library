@@ -11,7 +11,7 @@ import dataInpageNavigation from '@ecl/specs-component-inpage-navigation/demo/da
 import dataAccordion from '@ecl/specs-component-accordion/demo/data';
 import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataFile from '@ecl/specs-component-file/demo/data--with-translation';
-import dataGallery from '@ecl/specs-component-gallery/demo/data';
+import dataGallery from '@ecl/gallery/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
