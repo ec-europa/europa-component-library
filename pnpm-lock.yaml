@@ -333,6 +333,153 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/card:
+    dependencies:
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../content-block
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/carousel:
+    dependencies:
+      '@ecl/banner':
+        specifier: 4.9.0
+        version: link:../banner
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/category-filter:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/checkbox:
+    dependencies:
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      '@ecl/vanilla-component-form-group':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/components/form-group
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/content-block:
+    dependencies:
+      '@ecl/description-list':
+        specifier: 4.9.0
+        version: link:../description-list
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-label':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/label
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
+  src/components/content-item:
+    dependencies:
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../content-block
+      '@ecl/date-block':
+        specifier: 4.9.0
+        version: link:../date-block
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+    devDependencies:
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/components/date-block:
     devDependencies:
       '@ecl/storybook-addon-code':
@@ -417,108 +564,6 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
-  src/implementations/twig/components/card:
-    dependencies:
-      '@ecl/twig-component-content-block':
-        specifier: 4.9.0
-        version: link:../content-block
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-card':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/card
-      '@ecl/vanilla-component-card':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/card
-
-  src/implementations/twig/components/carousel:
-    dependencies:
-      '@ecl/banner':
-        specifier: 4.9.0
-        version: link:../../../../components/banner
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-    devDependencies:
-      '@ecl/specs-component-carousel':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/carousel
-      '@ecl/vanilla-component-carousel':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/carousel
-
-  src/implementations/twig/components/category-filter:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-category-filter':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/category-filter
-      '@ecl/vanilla-component-category-filter':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/category-filter
-
-  src/implementations/twig/components/checkbox:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/checkbox
-      '@ecl/vanilla-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/checkbox
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/form-group
-
-  src/implementations/twig/components/content-block:
-    dependencies:
-      '@ecl/description-list':
-        specifier: 4.9.0
-        version: link:../../../../components/description-list
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-    devDependencies:
-      '@ecl/specs-component-content-block':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/content-block
-      '@ecl/vanilla-component-content-block':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/content-block
-
-  src/implementations/twig/components/content-item:
-    dependencies:
-      '@ecl/date-block':
-        specifier: 4.9.0
-        version: link:../../../../components/date-block
-      '@ecl/twig-component-content-block':
-        specifier: 4.9.0
-        version: link:../content-block
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-content-item':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/content-item
-      '@ecl/vanilla-component-content-item':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/content-item
-
   src/implementations/twig/components/fact-figures:
     dependencies:
       '@ecl/twig-component-icon':
@@ -596,12 +641,12 @@ importers:
 
   src/implementations/twig/components/form-group:
     dependencies:
+      '@ecl/checkbox':
+        specifier: 4.9.0
+        version: link:../../../../components/checkbox
       '@ecl/datepicker':
         specifier: 4.9.0
         version: link:../../../../components/datepicker
-      '@ecl/twig-component-checkbox':
-        specifier: 4.9.0
-        version: link:../checkbox
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
         version: link:../file-upload
@@ -627,9 +672,6 @@ importers:
         specifier: 4.9.0
         version: link:../text-input
     devDependencies:
-      '@ecl/specs-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/checkbox
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
         version: link:../../../../specs/components/file-upload
@@ -824,9 +866,9 @@ importers:
 
   src/implementations/twig/components/navigation-list:
     dependencies:
-      '@ecl/twig-component-content-block':
+      '@ecl/content-block':
         specifier: 4.9.0
-        version: link:../content-block
+        version: link:../../../../components/content-block
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -1292,12 +1334,12 @@ importers:
       '@ecl/banner':
         specifier: 4.9.0
         version: link:../../../../components/banner
-      '@ecl/twig-component-card':
+      '@ecl/card':
         specifier: 4.9.0
-        version: link:../../components/card
-      '@ecl/twig-component-content-item':
+        version: link:../../../../components/card
+      '@ecl/content-item':
         specifier: 4.9.0
-        version: link:../../components/content-item
+        version: link:../../../../components/content-item
       '@ecl/twig-component-featured-item':
         specifier: 4.9.0
         version: link:../../components/featured-item
@@ -1346,9 +1388,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-content-item':
+      '@ecl/content-item':
         specifier: 4.9.0
-        version: link:../../components/content-item
+        version: link:../../../../components/content-item
       '@ecl/twig-component-form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -1364,44 +1406,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/card:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/carousel:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-component-banner':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/category-filter:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-
-  src/implementations/vanilla/components/checkbox: {}
-
-  src/implementations/vanilla/components/content-block:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-
-  src/implementations/vanilla/components/content-item:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/fact-figures:
     dependencies:
@@ -2090,6 +2094,24 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../components/button
+      '@ecl/card':
+        specifier: 4.9.0
+        version: link:../../components/card
+      '@ecl/carousel':
+        specifier: 4.9.0
+        version: link:../../components/carousel
+      '@ecl/category-filter':
+        specifier: 4.9.0
+        version: link:../../components/category-filter
+      '@ecl/checkbox':
+        specifier: 4.9.0
+        version: link:../../components/checkbox
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../../components/content-block
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../../components/content-item
       '@ecl/date-block':
         specifier: 4.9.0
         version: link:../../components/date-block
@@ -2108,24 +2130,6 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-card':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/card
-      '@ecl/vanilla-component-carousel':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/carousel
-      '@ecl/vanilla-component-category-filter':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/category-filter
-      '@ecl/vanilla-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/checkbox
-      '@ecl/vanilla-component-content-block':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/content-block
-      '@ecl/vanilla-component-content-item':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/content-item
       '@ecl/vanilla-component-fact-figures':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/fact-figures
@@ -2370,6 +2374,24 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../components/button
+      '@ecl/card':
+        specifier: 4.9.0
+        version: link:../../components/card
+      '@ecl/carousel':
+        specifier: 4.9.0
+        version: link:../../components/carousel
+      '@ecl/category-filter':
+        specifier: 4.9.0
+        version: link:../../components/category-filter
+      '@ecl/checkbox':
+        specifier: 4.9.0
+        version: link:../../components/checkbox
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../../components/content-block
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../../components/content-item
       '@ecl/date-block':
         specifier: 4.9.0
         version: link:../../components/date-block
@@ -2388,24 +2410,6 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-card':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/card
-      '@ecl/vanilla-component-carousel':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/carousel
-      '@ecl/vanilla-component-category-filter':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/category-filter
-      '@ecl/vanilla-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/checkbox
-      '@ecl/vanilla-component-content-block':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/content-block
-      '@ecl/vanilla-component-content-item':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/content-item
       '@ecl/vanilla-component-fact-figures':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/fact-figures
@@ -2767,18 +2771,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/card: {}
-
-  src/specs/components/carousel: {}
-
-  src/specs/components/category-filter: {}
-
-  src/specs/components/checkbox: {}
-
-  src/specs/components/content-block: {}
-
-  src/specs/components/content-item: {}
-
   src/specs/components/fact-figures: {}
 
   src/specs/components/featured-item: {}
@@ -2871,15 +2863,15 @@ importers:
 
   src/specs/pages/page-home:
     dependencies:
-      '@ecl/specs-component-banner':
+      '@ecl/banner':
         specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-card':
+        version: link:../../../components/banner
+      '@ecl/card':
         specifier: 4.9.0
-        version: link:../../components/card
-      '@ecl/specs-component-content-item':
+        version: link:../../../components/card
+      '@ecl/content-item':
         specifier: 4.9.0
-        version: link:../../components/content-item
+        version: link:../../../components/content-item
       '@ecl/specs-component-featured-item':
         specifier: 4.9.0
         version: link:../../components/featured-item
@@ -2939,18 +2931,18 @@ importers:
 
   src/specs/pages/page-search:
     dependencies:
+      '@ecl/checkbox':
+        specifier: 4.9.0
+        version: link:../../../components/checkbox
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../../../components/content-item
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
         version: 4.9.0
       '@ecl/specs-component-button':
         specifier: 4.9.0
         version: 4.9.0
-      '@ecl/specs-component-checkbox':
-        specifier: 4.9.0
-        version: link:../../components/checkbox
-      '@ecl/specs-component-content-item':
-        specifier: 4.9.0
-        version: link:../../components/content-item
       '@ecl/specs-component-mega-menu':
         specifier: 4.9.0
         version: link:../../components/mega-menu
@@ -3085,6 +3077,24 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../components/button
+      '@ecl/card':
+        specifier: 4.9.0
+        version: link:../components/card
+      '@ecl/carousel':
+        specifier: 4.9.0
+        version: link:../components/carousel
+      '@ecl/category-filter':
+        specifier: 4.9.0
+        version: link:../components/category-filter
+      '@ecl/checkbox':
+        specifier: 4.9.0
+        version: link:../components/checkbox
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../components/content-block
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../components/content-item
       '@ecl/date-block':
         specifier: 4.9.0
         version: link:../components/date-block
@@ -3121,24 +3131,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-card':
-        specifier: 4.9.0
-        version: link:../specs/components/card
-      '@ecl/specs-component-carousel':
-        specifier: 4.9.0
-        version: link:../specs/components/carousel
-      '@ecl/specs-component-category-filter':
-        specifier: 4.9.0
-        version: link:../specs/components/category-filter
-      '@ecl/specs-component-checkbox':
-        specifier: 4.9.0
-        version: link:../specs/components/checkbox
-      '@ecl/specs-component-content-block':
-        specifier: 4.9.0
-        version: link:../specs/components/content-block
-      '@ecl/specs-component-content-item':
-        specifier: 4.9.0
-        version: link:../specs/components/content-item
       '@ecl/specs-component-fact-figures':
         specifier: 4.9.0
         version: link:../specs/components/fact-figures
@@ -3268,24 +3260,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-card':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/card
-      '@ecl/twig-component-carousel':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/carousel
-      '@ecl/twig-component-category-filter':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/category-filter
-      '@ecl/twig-component-checkbox':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/checkbox
-      '@ecl/twig-component-content-block':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/content-block
-      '@ecl/twig-component-content-item':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/content-item
       '@ecl/twig-component-fact-figures':
         specifier: 4.9.0
         version: link:../implementations/twig/components/fact-figures
@@ -4388,9 +4362,6 @@ packages:
   '@ecl/specs-component-accordion@4.9.0':
     resolution: {integrity: sha512-AumU0LaBjN5zcbEqp8WGw2dKJOCyjZW4hza/PB1ivaMAvalrDFJ6m4KsTxrGh0ipPeirn892DENhHdKN5o4Z3w==}
 
-  '@ecl/specs-component-banner@4.9.0':
-    resolution: {integrity: sha512-C2EfhRCNFjntF7lSfocQ7axPdiS+Uuw4bUmILV4cgRhxXSwtJGkzwZX86pzUa9vxGycoEI0RblJ+quHEkGJDoA==}
-
   '@ecl/specs-component-breadcrumb@4.9.0':
     resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
 
@@ -4402,9 +4373,6 @@ packages:
 
   '@ecl/twig-component-accordion@4.9.0':
     resolution: {integrity: sha512-GQNkYc2ordYLmJPjWzGGW1m5Pu9x6M5OSvumG6rzMEgldGkbPzR5gaOgdonxLyy78nhAXPSoa6UVDV1xS2n1EQ==}
-
-  '@ecl/vanilla-component-banner@4.9.0':
-    resolution: {integrity: sha512-EKCB1ti8sH9B4dEw6NfIHSTGudpLqdy/AzNy0AfHiBxJh07DYqpbOfdj2iG2XZpLv/1Bgeo8jIKKIRKNwAWcFg==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -14543,8 +14511,6 @@ snapshots:
 
   '@ecl/specs-component-accordion@4.9.0': {}
 
-  '@ecl/specs-component-banner@4.9.0': {}
-
   '@ecl/specs-component-breadcrumb@4.9.0': {}
 
   '@ecl/specs-component-button@4.9.0': {}
@@ -14552,11 +14518,6 @@ snapshots:
   '@ecl/specs-component-picture@4.6.1': {}
 
   '@ecl/twig-component-accordion@4.9.0': {}
-
-  '@ecl/vanilla-component-banner@4.9.0':
-    dependencies:
-      '@ecl/dom-utils': link:src/tools/dom-utils
-      '@ecl/vanilla-layout-grid': link:src/implementations/vanilla/layout/grid
 
   '@emnapi/core@1.3.1':
     dependencies:

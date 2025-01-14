@@ -9,7 +9,7 @@ import dataDefault from '@ecl/specs-component-radio/demo/data--default';
 import dataBinary from '@ecl/specs-component-radio/demo/data--binary';
 import dataTextarea from '@ecl/specs-component-text-area/demo/data';
 import dataDatepicker from '@ecl/datepicker/demo/data';
-import dataCheckbox from '@ecl/specs-component-checkbox/demo/data';
+import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
 import dataFileUpload from '@ecl/specs-component-file-upload/demo/data';
