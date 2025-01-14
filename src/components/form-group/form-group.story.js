@@ -12,8 +12,8 @@ import dataDatepicker from '@ecl/specs-component-datepicker/demo/data';
 import dataCheckbox from '@ecl/specs-component-checkbox/demo/data';
 import dataRange from '@ecl/specs-component-range/demo/data';
 import dataRatingField from '@ecl/specs-component-rating-field/demo/data';
-import dataFileUpload from '@ecl/specs-component-file-upload/demo/data';
-import dataFileUploadMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
+import dataFileUpload from '@ecl/file-upload/demo/data';
+import dataFileUploadMultiple from '@ecl/file-upload/demo/data--multiple';
 
 import formGroup from './form-group.html.twig';
 import notes from './README.md';

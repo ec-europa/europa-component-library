@@ -396,6 +396,40 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/file-upload:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+    devDependencies:
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../form-group
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      '@ecl/twig-component-description-list':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/description-list
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-label':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/label
+      '@ecl/twig-component-link':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/link
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/components/form-group:
     dependencies:
       '@ecl/twig-component-checkbox':
@@ -406,7 +440,7 @@ importers:
         version: link:../../implementations/twig/components/datepicker
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/file-upload
+        version: 4.9.0
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
@@ -437,7 +471,7 @@ importers:
         version: link:../../specs/components/datepicker
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
-        version: link:../../specs/components/file-upload
+        version: 4.9.0
       '@ecl/specs-component-radio':
         specifier: 4.9.0
         version: link:../../specs/components/radio
@@ -612,18 +646,6 @@ importers:
       '@ecl/vanilla-component-expandable':
         specifier: 4.9.0
         version: link:../../../vanilla/components/expandable
-
-  src/implementations/twig/components/file-upload:
-    devDependencies:
-      '@ecl/specs-component-file-upload':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/file-upload
-      '@ecl/vanilla-component-file-upload':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/file-upload
-      '@ecl/vanilla-component-form-group':
-        specifier: 4.9.0
-        version: 4.9.0
 
   src/implementations/twig/components/gallery:
     dependencies:
@@ -1409,18 +1431,6 @@ importers:
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
 
-  src/implementations/vanilla/components/file-upload:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
   src/implementations/vanilla/components/gallery:
     dependencies:
       '@ecl/dom-utils':
@@ -2081,6 +2091,9 @@ importers:
       '@ecl/file':
         specifier: 4.9.0
         version: link:../../components/file
+      '@ecl/file-upload':
+        specifier: 4.9.0
+        version: link:../../components/file-upload
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2355,6 +2368,9 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../components/featured-item
+      '@ecl/file-upload':
+        specifier: 4.9.0
+        version: link:../../components/file-upload
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2394,9 +2410,6 @@ importers:
       '@ecl/vanilla-component-file':
         specifier: 4.9.0
         version: 4.9.0
-      '@ecl/vanilla-component-file-upload':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/file-upload
       '@ecl/vanilla-component-gallery':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/gallery
@@ -2762,8 +2775,6 @@ importers:
   src/specs/components/description-list: {}
 
   src/specs/components/expandable: {}
-
-  src/specs/components/file-upload: {}
 
   src/specs/components/gallery: {}
 
@@ -3131,7 +3142,7 @@ importers:
         version: link:../specs/components/expandable
       '@ecl/specs-component-file-upload':
         specifier: 4.9.0
-        version: link:../specs/components/file-upload
+        version: 4.9.0
       '@ecl/specs-component-gallery':
         specifier: 4.9.0
         version: link:../specs/components/gallery
@@ -3281,7 +3292,7 @@ importers:
         version: link:../implementations/twig/components/expandable
       '@ecl/twig-component-file-upload':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/file-upload
+        version: 4.9.0
       '@ecl/twig-component-gallery':
         specifier: 4.9.0
         version: link:../implementations/twig/components/gallery
@@ -4381,6 +4392,9 @@ packages:
   '@ecl/specs-component-featured-item@4.9.0':
     resolution: {integrity: sha512-EXwLGOLMOeMfOzcoWBaeJuzWDJpl4uL8ZEcdHtTiBmX1Ssqv1lsivKqnYYobDPxkfn78aiiljaCJVtaOItbVlA==}
 
+  '@ecl/specs-component-file-upload@4.9.0':
+    resolution: {integrity: sha512-omBBTkMs0lCmK7Anbvbzb4Dmp+DS28r/vCgqQTS7gbQ79qAsLR3PeAQysX3cCBgepqROFLLoO9/36Sm/QLK8yw==}
+
   '@ecl/specs-component-file@4.9.0':
     resolution: {integrity: sha512-V7Q4dv23Ob/3PHIx5MHcYdFRf94V5EEJcpJkdAlojFL05WJ81Rp2tpAzJ28GA8pSIjhx0qaoRGmwpvgnjeS8yQ==}
 
@@ -4395,6 +4409,9 @@ packages:
 
   '@ecl/twig-component-featured-item@4.9.0':
     resolution: {integrity: sha512-XjdfwG/OjAYQS0xenBeqXpQeeRhmLa62urHiDIH4ZGLi3vcTj/Ym8t2aQsus+hEcuBicGqr60MVZXQn8AZLouA==}
+
+  '@ecl/twig-component-file-upload@4.9.0':
+    resolution: {integrity: sha512-kqMdZj5MbIl+tVN+vo+AAipahu/pgBg/SNsBf+aPXLcf1Gl0IN/p+EWR+q4sVbgRRslLOT29QmYeex6Vo1Z9zg==}
 
   '@ecl/twig-component-file@4.9.0':
     resolution: {integrity: sha512-DXSMpk0ZAn4CGO4iaQpomx7khdgFfGqxxYTLHaTv/W2g3BzGc0W0JWjffJk5W2QEmIz8n854dzDVUL1CPOQfAg==}
@@ -14556,6 +14573,8 @@ snapshots:
 
   '@ecl/specs-component-featured-item@4.9.0': {}
 
+  '@ecl/specs-component-file-upload@4.9.0': {}
+
   '@ecl/specs-component-file@4.9.0': {}
 
   '@ecl/specs-component-picture@4.6.1': {}
@@ -14573,6 +14592,8 @@ snapshots:
       '@ecl/twig-component-media-container': link:src/implementations/twig/components/media-container
       '@ecl/twig-component-picture': link:src/implementations/twig/components/picture
 
+  '@ecl/twig-component-file-upload@4.9.0': {}
+
   '@ecl/twig-component-file@4.9.0':
     dependencies:
       '@ecl/twig-component-button': 4.9.0
@@ -14586,7 +14607,7 @@ snapshots:
     dependencies:
       '@ecl/twig-component-checkbox': link:src/implementations/twig/components/checkbox
       '@ecl/twig-component-datepicker': link:src/implementations/twig/components/datepicker
-      '@ecl/twig-component-file-upload': link:src/implementations/twig/components/file-upload
+      '@ecl/twig-component-file-upload': 4.9.0
       '@ecl/twig-component-icon': link:src/implementations/twig/components/icon
       '@ecl/twig-component-radio': link:src/implementations/twig/components/radio
       '@ecl/twig-component-range': link:src/implementations/twig/components/range

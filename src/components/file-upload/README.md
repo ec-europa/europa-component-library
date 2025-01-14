@@ -1,9 +1,9 @@
 # ECL File Upload component
 
-npm package: `@ecl/twig-component-file-upload`
+npm package: `@ecl/file-upload`
 
 ```shell
-npm install --save @ecl/twig-component-file-upload
+npm install --save @ecl/file-upload
 ```
 
 ### Parameters:

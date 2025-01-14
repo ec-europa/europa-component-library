@@ -1,5 +1,5 @@
 {
-  "name": "@ecl/twig-component-file-upload",
+  "name": "@ecl/file-upload",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
@@ -7,10 +7,23 @@
   "publishConfig": {
     "access": "public"
   },
+  "style": "file-upload.scss",
+  "scss": "file-upload.scss",
+  "main": "file-upload.js",
+  "module": "file-upload.js",
+  "dependencies": {
+    "@ecl/dom-utils": "4.9.0",
+    "@ecl/event-manager": "4.9.0"
+  },
   "devDependencies": {
-    "@ecl/specs-component-file-upload": "4.9.0",
-    "@ecl/vanilla-component-file-upload": "4.9.0",
-    "@ecl/vanilla-component-form-group": "4.9.0"
+    "@ecl/twig-component-description-list": "4.9.0",
+    "@ecl/twig-component-icon": "4.9.0",
+    "@ecl/twig-component-label": "4.9.0",
+    "@ecl/twig-component-link": "4.9.0",
+    "@ecl/twig-component-picture": "4.9.0",
+    "@ecl/form-group": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",

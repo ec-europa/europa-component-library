@@ -6,8 +6,8 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import specDefault from '@ecl/specs-component-file-upload/demo/data';
-import specMultiple from '@ecl/specs-component-file-upload/demo/data--multiple';
+import specDefault from './demo/data';
+import specMultiple from './demo/data--multiple';
 
 const dataDefault = specDefault.input;
 const dataMultiple = specMultiple.input;
