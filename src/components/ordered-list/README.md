@@ -1,9 +1,9 @@
 # ECL Ordered list component
 
-npm package: `@ecl/twig-component-ordered-list`
+npm package: `@ecl/ordered-list`
 
 ```shell
-npm install --save @ecl/twig-component-ordered-list
+npm install --save @ecl/ordered-list
 ```
 
 ### Parameters

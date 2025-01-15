@@ -836,6 +836,27 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/ordered-list:
+    devDependencies:
+      '@ecl/resources-icons':
+        specifier: 4.9.0
+        version: link:../../resources/icons
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/implementations/twig/components/gallery:
     dependencies:
       '@ecl/button':
@@ -1002,15 +1023,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../../vanilla/components/modal
-
-  src/implementations/twig/components/ordered-list:
-    devDependencies:
-      '@ecl/specs-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/ordered-list
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/ordered-list
 
   src/implementations/twig/components/page-header:
     dependencies:
@@ -1598,8 +1610,6 @@ importers:
         specifier: 7.6.2
         version: 7.6.2
 
-  src/implementations/vanilla/components/ordered-list: {}
-
   src/implementations/vanilla/components/page-header:
     dependencies:
       '@ecl/vanilla-layout-grid':
@@ -2152,6 +2162,9 @@ importers:
       '@ecl/notification':
         specifier: 4.9.0
         version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2188,9 +2201,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2432,6 +2442,9 @@ importers:
       '@ecl/notification':
         specifier: 4.9.0
         version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2468,9 +2481,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2792,12 +2802,6 @@ importers:
 
   src/specs/components/modal: {}
 
-  src/specs/components/ordered-list:
-    devDependencies:
-      '@ecl/resources-icons':
-        specifier: 4.9.0
-        version: link:../../../resources/icons
-
   src/specs/components/page-header: {}
 
   src/specs/components/pagination: {}
@@ -3118,6 +3122,9 @@ importers:
       '@ecl/notification':
         specifier: 4.9.0
         version: link:../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../components/ordered-list
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3172,9 +3179,6 @@ importers:
       '@ecl/specs-component-modal':
         specifier: 4.9.0
         version: link:../specs/components/modal
-      '@ecl/specs-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../specs/components/ordered-list
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../specs/components/page-header
@@ -3277,9 +3281,6 @@ importers:
       '@ecl/twig-component-modal':
         specifier: 4.9.0
         version: link:../implementations/twig/components/modal
-      '@ecl/twig-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/ordered-list
       '@ecl/twig-component-page-header':
         specifier: 4.9.0
         version: link:../implementations/twig/components/page-header

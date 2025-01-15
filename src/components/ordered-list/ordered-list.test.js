@@ -5,9 +5,9 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataOrderedList from '@ecl/specs-component-ordered-list/demo/data--text';
-import dataOrderedListNoMarker from '@ecl/specs-component-ordered-list/demo/data--unstyled';
-import dataOrderedListDivider from '@ecl/specs-component-ordered-list/demo/data--with-divider';
+import dataOrderedList from '@ecl/ordered-list/demo/data--text';
+import dataOrderedListNoMarker from '@ecl/ordered-list/demo/data--unstyled';
+import dataOrderedListDivider from '@ecl/ordered-list/demo/data--with-divider';
 
 expect.extend(toHaveNoViolations);
 
