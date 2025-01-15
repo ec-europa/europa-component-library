@@ -5,15 +5,15 @@ import dataSiteFooterEC from '@ecl/specs-component-site-footer/demo/data-harmoni
 import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
-import dataBreadcrumb from '@ecl/specs-component-breadcrumb/demo/data--long';
+import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--image';
 import dataPagination from '@ecl/specs-component-pagination/demo/data';
 import dataSelectMultiple from '@ecl/specs-component-select/demo/data-multiple';
 import dataTextInput from '@ecl/specs-component-text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
-import dataButtonPrimary from '@ecl/specs-component-button/demo/data--primary';
-import dataButtonSecondary from '@ecl/specs-component-button/demo/data--secondary';
+import dataButtonPrimary from '@ecl/button/demo/data--primary';
+import dataButtonSecondary from '@ecl/button/demo/data--secondary';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;
