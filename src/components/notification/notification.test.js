@@ -6,10 +6,10 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataInfo from '@ecl/specs-component-notification/demo/data--info-ec';
-import dataSuccess from '@ecl/specs-component-notification/demo/data--success-ec';
-import dataError from '@ecl/specs-component-notification/demo/data--error-ec';
-import dataWarning from '@ecl/specs-component-notification/demo/data--warning-ec';
+import dataInfo from '@ecl/notification/demo/data--info-ec';
+import dataSuccess from '@ecl/notification/demo/data--success-ec';
+import dataError from '@ecl/notification/demo/data--error-ec';
+import dataWarning from '@ecl/notification/demo/data--warning-ec';
 
 const template = '@ecl/notification/notification.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);

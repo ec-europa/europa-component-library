@@ -805,6 +805,37 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/notification:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+    devDependencies:
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/implementations/twig/components/gallery:
     dependencies:
       '@ecl/button':
@@ -972,22 +1003,6 @@ importers:
         specifier: 4.9.0
         version: link:../../../vanilla/components/modal
 
-  src/implementations/twig/components/notification:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/notification
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/notification
-
   src/implementations/twig/components/ordered-list:
     devDependencies:
       '@ecl/specs-component-ordered-list':
@@ -1138,6 +1153,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../../../components/notification
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
@@ -1147,9 +1165,6 @@ importers:
       '@ecl/twig-component-menu':
         specifier: 4.9.0
         version: link:../menu
-      '@ecl/twig-component-notification':
-        specifier: 4.9.0
-        version: link:../notification
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -1331,12 +1346,12 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../../../components/notification
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../components/link
-      '@ecl/twig-component-notification':
-        specifier: 4.9.0
-        version: link:../../components/notification
     devDependencies:
       '@ecl/specs-composition-etrans':
         specifier: 4.9.0
@@ -1582,18 +1597,6 @@ importers:
       focus-trap:
         specifier: 7.6.2
         version: 7.6.2
-
-  src/implementations/vanilla/components/notification:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/ordered-list: {}
 
@@ -2146,6 +2149,9 @@ importers:
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2182,9 +2188,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
       '@ecl/vanilla-component-ordered-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/ordered-list
@@ -2426,6 +2429,9 @@ importers:
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2462,9 +2468,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
       '@ecl/vanilla-component-ordered-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/ordered-list
@@ -2789,8 +2792,6 @@ importers:
 
   src/specs/components/modal: {}
 
-  src/specs/components/notification: {}
-
   src/specs/components/ordered-list:
     devDependencies:
       '@ecl/resources-icons':
@@ -3114,6 +3115,9 @@ importers:
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../components/notification
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -3168,9 +3172,6 @@ importers:
       '@ecl/specs-component-modal':
         specifier: 4.9.0
         version: link:../specs/components/modal
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../specs/components/notification
       '@ecl/specs-component-ordered-list':
         specifier: 4.9.0
         version: link:../specs/components/ordered-list
@@ -3276,9 +3277,6 @@ importers:
       '@ecl/twig-component-modal':
         specifier: 4.9.0
         version: link:../implementations/twig/components/modal
-      '@ecl/twig-component-notification':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/notification
       '@ecl/twig-component-ordered-list':
         specifier: 4.9.0
         version: link:../implementations/twig/components/ordered-list

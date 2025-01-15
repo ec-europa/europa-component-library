@@ -1,5 +1,5 @@
 {
-  "name": "@ecl/twig-component-notification",
+  "name": "@ecl/notification",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
@@ -7,13 +7,21 @@
   "publishConfig": {
     "access": "public"
   },
+  "style": "notification.scss",
+  "main": "notification.js",
+  "module": "notification.js",
   "dependencies": {
+    "@ecl/event-manager": "4.9.0",
+    "@ecl/dom-utils": "4.9.0",
     "@ecl/button": "4.9.0",
     "@ecl/twig-component-icon": "4.9.0"
   },
   "devDependencies": {
-    "@ecl/specs-component-notification": "4.9.0",
-    "@ecl/vanilla-component-notification": "4.9.0"
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",

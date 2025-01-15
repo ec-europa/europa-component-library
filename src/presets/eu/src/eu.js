@@ -20,7 +20,7 @@ export * from '@ecl/vanilla-component-menu';
 export * from '@ecl/vanilla-component-mega-menu';
 export * from '@ecl/vanilla-component-modal';
 export * from '@ecl/news-ticker';
-export * from '@ecl/vanilla-component-notification';
+export * from '@ecl/notification';
 export * from '@ecl/vanilla-component-popover';
 export * from '@ecl/vanilla-component-range';
 export * from '@ecl/vanilla-component-select';

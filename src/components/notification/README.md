@@ -1,9 +1,9 @@
 # ECL Notification component
 
-npm package: `@ecl/twig-component-notification`
+npm package: `@ecl/notification`
 
 ```shell
-npm install --save @ecl/twig-component-notification
+npm install --save @ecl/notification
 ```
 
 ### Parameters:
