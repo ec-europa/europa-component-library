@@ -6,12 +6,12 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import dataInfo from '@ecl/notification/demo/data--info-ec';
-import dataSuccess from '@ecl/notification/demo/data--success-ec';
-import dataError from '@ecl/notification/demo/data--error-ec';
-import dataWarning from '@ecl/notification/demo/data--warning-ec';
+import dataInfo from './demo/data--info-ec';
+import dataSuccess from './demo/data--success-ec';
+import dataError from './demo/data--error-ec';
+import dataWarning from './demo/data--warning-ec';
 
-const template = '@ecl/notification/notification.html.twig';
+const template = './notification.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
 
 expect.extend(toHaveNoViolations);

@@ -5,12 +5,12 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import demoData from '@ecl/news-ticker/demo/data';
+import demoData from './demo/data';
 
 expect.extend(toHaveNoViolations);
 
 describe('News ticker', () => {
-  const template = '@ecl/news-ticker/news-ticker.html.twig';
+  const template = './news-ticker.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

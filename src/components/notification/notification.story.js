@@ -4,14 +4,14 @@ import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
-import dataInfoEc from '@ecl/notification/demo/data--info-ec';
-import dataSuccessEc from '@ecl/notification/demo/data--success-ec';
-import dataErrorEc from '@ecl/notification/demo/data--error-ec';
-import dataWarningEc from '@ecl/notification/demo/data--warning-ec';
-import dataInfoEu from '@ecl/notification/demo/data--info-eu';
-import dataSuccessEu from '@ecl/notification/demo/data--success-eu';
-import dataErrorEu from '@ecl/notification/demo/data--error-eu';
-import dataWarningEu from '@ecl/notification/demo/data--warning-eu';
+import dataInfoEc from './demo/data--info-ec';
+import dataSuccessEc from './demo/data--success-ec';
+import dataErrorEc from './demo/data--error-ec';
+import dataWarningEc from './demo/data--warning-ec';
+import dataInfoEu from './demo/data--info-eu';
+import dataSuccessEu from './demo/data--success-eu';
+import dataErrorEu from './demo/data--error-eu';
+import dataWarningEu from './demo/data--warning-eu';
 
 import notification from './notification.html.twig';
 import notes from './README.md';

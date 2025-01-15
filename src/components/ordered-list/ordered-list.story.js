@@ -1,10 +1,10 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 
-import dataOrderedList from '@ecl/ordered-list/demo/data--text';
-import dataLink from '@ecl/ordered-list/demo/data--link';
-import dataUnstyled from '@ecl/ordered-list/demo/data--unstyled';
-import dataDivider from '@ecl/ordered-list/demo/data--with-divider';
+import dataOrderedList from './demo/data--text';
+import dataLink from './demo/data--link';
+import dataUnstyled from './demo/data--unstyled';
+import dataDivider from './demo/data--with-divider';
 
 import orderedList from './ordered-list.html.twig';
 import notes from './README.md';

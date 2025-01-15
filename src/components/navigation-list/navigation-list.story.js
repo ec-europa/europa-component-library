@@ -2,8 +2,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 
-import dataDefault from '@ecl/navigation-list/demo/data';
-import dataIllustration from '@ecl/navigation-list/demo/data-illustration';
+import dataDefault from './demo/data';
+import dataIllustration from './demo/data-illustration';
 
 import navigationList from './navigation-list.html.twig';
 import notes from './README.md';
