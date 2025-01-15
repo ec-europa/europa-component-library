@@ -1,7 +1,7 @@
-import dataImage from '@ecl/specs-component-list-illustration/demo/data--image';
-import dataIcon from '@ecl/specs-component-list-illustration/demo/data--icon';
+import dataImage from '@ecl/list-illustration/demo/data--image';
+import dataIcon from '@ecl/list-illustration/demo/data--icon';
 
-import template from '@ecl/twig-component-list-illustration/list-illustration.html.twig';
+import template from '@ecl/list-illustration/list-illustration.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataImageSquare = JSON.parse(JSON.stringify(dataImage));

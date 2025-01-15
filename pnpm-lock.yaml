@@ -213,9 +213,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -240,12 +240,12 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
 
   src/components/button:
     dependencies:
@@ -300,15 +300,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
 
   src/components/content-item:
     dependencies:
@@ -338,9 +338,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
       '@ecl/twig-component-tag':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/tag
@@ -359,21 +359,21 @@ importers:
 
   src/components/fact-figures:
     dependencies:
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
 
   src/components/featured-item:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
-      '@ecl/twig-component-media-container':
+        version: link:../link
+      '@ecl/media-container':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/media-container
+        version: link:../media-container
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -389,15 +389,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -463,17 +463,112 @@ importers:
         specifier: 4.9.0
         version: link:../../specs/components/text-input
 
+  src/components/label: {}
+
+  src/components/link:
+    dependencies:
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+
+  src/components/list-illustration:
+    dependencies:
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+
+  src/components/media-container:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/expandable':
+        specifier: 4.9.0
+        version: link:../expandable
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+      '@ecl/twig-component-video':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/video
+
+  src/components/mega-menu:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+      mobile-device-detect:
+        specifier: 0.4.3
+        version: 0.4.3
+
+  src/components/menu:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+      mobile-device-detect:
+        specifier: 0.4.3
+        version: 0.4.3
+      stickyfilljs:
+        specifier: 2.1.0
+        version: 2.1.0
+
+  src/components/modal:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/twig-component-icon':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/icon
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+
   src/implementations/twig/components/gallery:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../../../components/link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -508,12 +603,12 @@ importers:
 
   src/implementations/twig/components/inpage-navigation:
     dependencies:
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../../../components/link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
     devDependencies:
       '@ecl/specs-component-inpage-navigation':
         specifier: 4.9.0
@@ -524,111 +619,6 @@ importers:
       lorem-ipsum:
         specifier: 2.0.8
         version: 2.0.8
-
-  src/implementations/twig/components/label:
-    devDependencies:
-      '@ecl/specs-component-label':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/label
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/label
-
-  src/implementations/twig/components/link:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-link':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/link
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/link
-
-  src/implementations/twig/components/list-illustration:
-    dependencies:
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/list-illustration
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/list-illustration
-
-  src/implementations/twig/components/media-container:
-    dependencies:
-      '@ecl/expandable':
-        specifier: 4.9.0
-        version: link:../../../../components/expandable
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-      '@ecl/twig-component-video':
-        specifier: 4.9.0
-        version: link:../video
-    devDependencies:
-      '@ecl/specs-component-media-container':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/media-container
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/media-container
-
-  src/implementations/twig/components/mega-menu:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-    devDependencies:
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/mega-menu
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/mega-menu
-
-  src/implementations/twig/components/menu:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-    devDependencies:
-      '@ecl/specs-component-menu':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/menu
-
-  src/implementations/twig/components/modal:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-modal':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/modal
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/modal
 
   src/implementations/twig/components/navigation-list:
     dependencies:
@@ -651,12 +641,12 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../../../components/link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
     devDependencies:
       '@ecl/specs-component-news-ticker':
         specifier: 4.9.0
@@ -708,9 +698,9 @@ importers:
 
   src/implementations/twig/components/pagination:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-pagination':
         specifier: 4.9.0
@@ -727,9 +717,9 @@ importers:
 
   src/implementations/twig/components/popover:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-popover':
         specifier: 4.9.0
@@ -806,9 +796,9 @@ importers:
 
   src/implementations/twig/components/site-footer:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -831,15 +821,15 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../../../components/link
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../../../../components/menu
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
-      '@ecl/twig-component-menu':
-        specifier: 4.9.0
-        version: link:../menu
       '@ecl/twig-component-notification':
         specifier: 4.9.0
         version: link:../notification
@@ -865,9 +855,9 @@ importers:
 
   src/implementations/twig/components/skip-link:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-skip-link':
         specifier: 4.9.0
@@ -878,9 +868,9 @@ importers:
 
   src/implementations/twig/components/social-media-follow:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-social-media-follow':
         specifier: 4.9.0
@@ -891,9 +881,9 @@ importers:
 
   src/implementations/twig/components/social-media-share:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
       '@ecl/twig-component-popover':
         specifier: 4.9.0
         version: link:../popover
@@ -916,12 +906,12 @@ importers:
 
   src/implementations/twig/components/splash-page:
     dependencies:
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../../../components/link
       '@ecl/twig-component-icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -953,9 +943,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-tabs':
         specifier: 4.9.0
@@ -1024,9 +1014,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
+        version: link:../../../../components/link
       '@ecl/twig-component-notification':
         specifier: 4.9.0
         version: link:../../components/notification
@@ -1049,9 +1039,9 @@ importers:
 
   src/implementations/twig/compositions/file-upload-status:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
+        version: link:../../../../components/link
       '@ecl/twig-component-spinner':
         specifier: 4.9.0
         version: link:../../components/spinner
@@ -1088,9 +1078,9 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../../components/featured-item
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
+        version: link:../../../../components/link
       '@ecl/twig-component-navigation-list':
         specifier: 4.9.0
         version: link:../../components/navigation-list
@@ -1197,86 +1187,6 @@ importers:
       stickyfilljs:
         specifier: 2.1.0
         version: 2.1.0
-
-  src/implementations/vanilla/components/label: {}
-
-  src/implementations/vanilla/components/link:
-    dependencies:
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/list-illustration:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/media-container:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-utility-media':
-        specifier: 4.9.0
-        version: link:../../utilities/media
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/mega-menu:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-      mobile-device-detect:
-        specifier: 0.4.3
-        version: 0.4.3
-
-  src/implementations/vanilla/components/menu:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-      mobile-device-detect:
-        specifier: 0.4.3
-        version: 0.4.3
-      stickyfilljs:
-        specifier: 2.1.0
-        version: 2.1.0
-
-  src/implementations/vanilla/components/modal:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
 
   src/implementations/vanilla/components/navigation-list:
     dependencies:
@@ -1850,6 +1760,27 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../../components/modal
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -1868,27 +1799,6 @@ importers:
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/label
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/link
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/list-illustration
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/media-container
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/mega-menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/menu
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/modal
       '@ecl/vanilla-component-navigation-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/navigation-list
@@ -2133,6 +2043,27 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../../components/modal
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
@@ -2148,27 +2079,6 @@ importers:
       '@ecl/vanilla-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/inpage-navigation
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/label
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/link
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/list-illustration
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/media-container
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/mega-menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/menu
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/modal
       '@ecl/vanilla-component-navigation-list':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/navigation-list
@@ -2488,20 +2398,6 @@ importers:
 
   src/specs/components/inpage-navigation: {}
 
-  src/specs/components/label: {}
-
-  src/specs/components/link: {}
-
-  src/specs/components/list-illustration: {}
-
-  src/specs/components/media-container: {}
-
-  src/specs/components/mega-menu: {}
-
-  src/specs/components/menu: {}
-
-  src/specs/components/modal: {}
-
   src/specs/components/navigation-list: {}
 
   src/specs/components/news-ticker: {}
@@ -2578,9 +2474,9 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../components/featured-item
-      '@ecl/specs-component-mega-menu':
+      '@ecl/mega-menu':
         specifier: 4.9.0
-        version: link:../../components/mega-menu
+        version: link:../../../components/mega-menu
       '@ecl/specs-component-navigation-list':
         specifier: 4.9.0
         version: link:../../components/navigation-list
@@ -2606,15 +2502,15 @@ importers:
       '@ecl/file':
         specifier: 4.9.0
         version: link:../../../components/file
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../../components/mega-menu
       '@ecl/specs-component-gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
       '@ecl/specs-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../../components/inpage-navigation
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../components/mega-menu
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -2640,15 +2536,15 @@ importers:
       '@ecl/content-item':
         specifier: 4.9.0
         version: link:../../../components/content-item
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../../components/mega-menu
       '@ecl/specs-component-breadcrumb':
         specifier: 4.9.0
         version: 4.9.0
       '@ecl/specs-component-button':
         specifier: 4.9.0
         version: 4.9.0
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../components/mega-menu
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -2825,6 +2721,27 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../components/modal
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2858,27 +2775,6 @@ importers:
       '@ecl/specs-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../specs/components/inpage-navigation
-      '@ecl/specs-component-label':
-        specifier: 4.9.0
-        version: link:../specs/components/label
-      '@ecl/specs-component-link':
-        specifier: 4.9.0
-        version: link:../specs/components/link
-      '@ecl/specs-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../specs/components/list-illustration
-      '@ecl/specs-component-media-container':
-        specifier: 4.9.0
-        version: link:../specs/components/media-container
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../specs/components/mega-menu
-      '@ecl/specs-component-menu':
-        specifier: 4.9.0
-        version: link:../specs/components/menu
-      '@ecl/specs-component-modal':
-        specifier: 4.9.0
-        version: link:../specs/components/modal
       '@ecl/specs-component-navigation-list':
         specifier: 4.9.0
         version: link:../specs/components/navigation-list
@@ -2975,24 +2871,6 @@ importers:
       '@ecl/twig-component-inpage-navigation':
         specifier: 4.9.0
         version: link:../implementations/twig/components/inpage-navigation
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/link
-      '@ecl/twig-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/list-illustration
-      '@ecl/twig-component-media-container':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/media-container
-      '@ecl/twig-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/mega-menu
-      '@ecl/twig-component-modal':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/modal
       '@ecl/twig-component-navigation-list':
         specifier: 4.9.0
         version: link:../implementations/twig/components/navigation-list
