@@ -3,7 +3,6 @@
 
 {#
   Parameters:
-    - "color_mode" (string)
     - "label" (string) (default: '')
     - "variant" (string) (default: 'primary'): can be 'primary', 'secondary', 'cta', 'ghost', 'ghost-inverted', 'tertiaty'
     - "type" (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
@@ -59,10 +58,6 @@
 {% set _indicator = indicator|default({}) %}
 
 {# Internal logic - Process properties #}
-
-{% if _color_mode is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
-{% endif %}
 
 {% set _css_class = _css_class ~ ' ecl-button--' ~ _variant %}
 
