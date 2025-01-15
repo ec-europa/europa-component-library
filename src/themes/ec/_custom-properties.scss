@@ -344,8 +344,10 @@
   --max-w: var(--ecl-max-width);
 
   // Default color mode
+  --cm-surface-dark: var(--c-d);
   --cm-surface-dark-variant-1: map.get($color-palette, 'blue-navy-900');
   --cm-surface-dark-variant-2: map.get($color-default, 'harmonised');
+  --cm-surface-inverted: #fff;
   --cm-surface-transparent-70: color-mix(in srgb, var(--c-d) 70%, transparent);
   --cm-surface-transparent-01: color-mix(in srgb, #fff 0.1%, transparent);
   --cm-surface-lowest: var(--c-l-50);
@@ -365,8 +367,10 @@
   --cm-surface-secondary-highest: var(--c-s-500);
   --cm-surface-neutral-lowest: var(--c-l-200);
   --cm-surface-neutral-low: var(--c-l-300);
+  --cm-on-surface-dark: var(--c-d);
   --cm-on-surface-dark-medium: var(--c-d-700);
   --cm-on-surface-dark-low: var(--c-d-500);
+  --cm-on-surface-inverted: #fff;
   --cm-on-surface-neutral-medium: var(--c-l-300);
   --cm-on-surface-secondary-medium: var(--c-s-200);
   --cm-on-surface-primary: var(--c-p);
@@ -374,6 +378,8 @@
   --cm-on-surface: var(--c-d-500);
   --cm-on-surface-variant-1: var(--c-l-300);
   --cm-on-surface-variant-2: map.get($color-palette, 'orange-abricot-300');
+  --cm-border-dark: var(--c-d);
+  --cm-border-inverted: #fff;
   --cm-border-primary: var(--c-p);
   --cm-border-neutral-medium: var(--c-l-400);
   --cm-border-neutral-lowest: var(--c-l-200);
