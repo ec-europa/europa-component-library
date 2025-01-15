@@ -12,7 +12,7 @@ import dataOrderedListDivider from './demo/data--with-divider';
 expect.extend(toHaveNoViolations);
 
 describe('Ordered list', () => {
-  const template = './ordered-list.html.twig';
+  const template = '@ecl/ordered-list/ordered-list.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
 
   describe('Default', () => {

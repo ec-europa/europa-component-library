@@ -11,7 +11,7 @@ import dataSuccess from './demo/data--success-ec';
 import dataError from './demo/data--error-ec';
 import dataWarning from './demo/data--warning-ec';
 
-const template = './notification.html.twig';
+const template = '@ecl/notification/notification.html.twig';
 const render = (params) => renderTwigFileAsNode(template, params);
 
 expect.extend(toHaveNoViolations);
