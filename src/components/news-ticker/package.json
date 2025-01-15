@@ -1,19 +1,27 @@
 {
-  "name": "@ecl/vanilla-component-news-ticker",
+  "name": "@ecl/news-ticker",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
   "description": "ECL News ticker",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "news-ticker.js",
   "module": "news-ticker.js",
   "style": "news-ticker.scss",
-  "sass": "news-ticker.scss",
   "dependencies": {
-    "@ecl/dom-utils": "4.9.0",
-    "@ecl/vanilla-layout-grid": "4.9.0"
+    "@ecl/button": "4.9.0",
+    "@ecl/twig-component-icon": "4.9.0",
+    "@ecl/twig-component-link": "4.9.0",
+    "@ecl/dom-utils": "4.9.0"
   },
-  "publishConfig": {
-    "access": "public"
+  "devDependencies": {
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
@@ -26,6 +34,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }

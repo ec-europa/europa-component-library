@@ -1,9 +1,9 @@
 # ECL News ticker component
 
-npm package: `@ecl/twig-component-news-ticker`
+npm package: `@ecl/news-ticker`
 
 ```shell
-npm install --save @ecl/twig-component-news-ticker
+npm install --save @ecl/news-ticker
 ```
 
 ### Parameters:
