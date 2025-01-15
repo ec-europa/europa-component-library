@@ -1,5 +1,5 @@
-import demoContent from '@ecl/specs-component-fact-figures/demo/data';
-import template from '@ecl/twig-component-fact-figures/fact-figures.html.twig';
+import demoContent from '@ecl/fact-figures/demo/data';
+import template from '@ecl/fact-figures/fact-figures.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const demo1Col = { ...demoContent, column: 1 };

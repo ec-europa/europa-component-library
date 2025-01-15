@@ -14,7 +14,7 @@
 );
 
 // Forms
-@use '@ecl/vanilla-component-form-group/form-group' with (
+@use '@ecl/form-group/form-group' with (
   $theme: theme.$theme,
   $form-group: var.$form-group
 );
@@ -22,11 +22,11 @@
   $theme: theme.$theme,
   $checkbox: var.$checkbox
 );
-@use '@ecl/vanilla-component-datepicker/datepicker' with (
+@use '@ecl/datepicker/datepicker' with (
   $theme: theme.$theme,
   $datepicker: var.$datepicker
 );
-@use '@ecl/vanilla-component-file-upload/file-upload' with (
+@use '@ecl/file-upload/file-upload' with (
   $theme: theme.$theme,
   $file-upload: var.$file-upload
 );
@@ -60,7 +60,7 @@
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-date-block/date-block' with (
+@use '@ecl/date-block/date-block' with (
   $theme: theme.$theme,
   $date-block: var.$date-block
 );
@@ -113,11 +113,11 @@
   $theme: theme.$theme,
   $banner: var.$banner
 );
-@use '@ecl/vanilla-component-description-list/description-list' with (
+@use '@ecl/description-list/description-list' with (
   $theme: theme.$theme,
   $description-list: var.$description-list
 );
-@use '@ecl/vanilla-component-featured-item/featured-item' with (
+@use '@ecl/featured-item/featured-item' with (
   $theme: theme.$theme,
   $featured-item: var.$featured-item
 );
@@ -141,15 +141,15 @@
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable' with (
+@use '@ecl/expandable/expandable' with (
   $theme: theme.$theme,
   $expandable: var.$expandable
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures' with (
+@use '@ecl/fact-figures/fact-figures' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures
 );
-@use '@ecl/vanilla-component-file/file' with (
+@use '@ecl/file/file' with (
   $theme: theme.$theme,
   $file: var.$file
 );

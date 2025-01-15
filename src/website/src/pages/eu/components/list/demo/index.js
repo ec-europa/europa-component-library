@@ -4,12 +4,12 @@ import demoContentUnorderedWithDivider from '@ecl/specs-component-unordered-list
 
 import demoContentOrdered from '@ecl/specs-component-ordered-list/demo/data--text';
 
-import demoContentDescriptionDefault from '@ecl/specs-component-description-list/demo/data--default';
-import demoContentDescriptionHorizontal from '@ecl/specs-component-description-list/demo/data--horizontal';
+import demoContentDescriptionDefault from '@ecl/description-list/demo/data--default';
+import demoContentDescriptionHorizontal from '@ecl/description-list/demo/data--horizontal';
 
 import templateUnordered from '@ecl/twig-component-unordered-list/unordered-list.html.twig';
 import templateOrdered from '@ecl/twig-component-ordered-list/ordered-list.html.twig';
-import templateDescription from '@ecl/twig-component-description-list/description-list.html.twig';
+import templateDescription from '@ecl/description-list/description-list.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const listOrdered = templateOrdered(demoContentOrdered);

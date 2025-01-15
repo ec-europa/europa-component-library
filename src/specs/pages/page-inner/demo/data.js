@@ -5,12 +5,12 @@ import dataSiteFooterEC from '@ecl/specs-component-site-footer/demo/data-harmoni
 import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
-import dataBreadcrumb from '@ecl/specs-component-breadcrumb/demo/data--long';
+import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
 import dataInpageNavigation from '@ecl/specs-component-inpage-navigation/demo/data';
-import dataAccordion from '@ecl/specs-component-accordion/demo/data';
+import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
-import dataFile from '@ecl/specs-component-file/demo/data--with-translation';
+import dataFile from '@ecl/file/demo/data--with-translation';
 import dataGallery from '@ecl/specs-component-gallery/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;

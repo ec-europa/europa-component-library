@@ -6,7 +6,7 @@ import dataImg from '@ecl/specs-component-media-container/demo/data--image';
 import dataVideo from '@ecl/specs-component-media-container/demo/data--video';
 import dataEmbed from '@ecl/specs-component-media-container/demo/data--embed-video';
 import dataInfographic from '@ecl/specs-component-media-container/demo/data--infographic';
-import dataExpandable from '@ecl/specs-component-expandable/demo/data';
+import dataExpandable from '@ecl/expandable/demo/data';
 import mediaContainer from './media-container.html.twig';
 import notes from './README.md';
 
