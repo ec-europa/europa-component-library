@@ -8,6 +8,7 @@ npm install --save @ecl/button
 
 ### Parameters
 
+- **"color_mode"** (string)
 - **"label"** (string) (default: '')
 - **"variant"** (string) (default: 'primary'): variant of button (can be 'primary', 'secondary', 'cta', 'ghost', 'ghost-inverted', 'tertiary')
 - **"type"** (string) (default: 'submit'): can be the same type as HTML button - 'submit', 'reset', 'button'
