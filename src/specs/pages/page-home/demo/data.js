@@ -9,7 +9,7 @@ import dataBannerVideo from '@ecl/banner/demo/data--video';
 import dataCard from '@ecl/card/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--event';
 import dataFeaturedItem from '@ecl/featured-item/demo/data--highlight';
-import dataNavigationList from '@ecl/specs-component-navigation-list/demo/data-illustration';
+import dataNavigationList from '@ecl/navigation-list/demo/data-illustration';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;

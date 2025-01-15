@@ -1,16 +1,23 @@
 {
-  "name": "@ecl/vanilla-component-navigation-list",
+  "name": "@ecl/navigation-list",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
   "description": "ECL Navigation List",
-  "style": "navigation-list.scss",
-  "sass": "navigation-list.scss",
-  "dependencies": {
-    "@ecl/vanilla-layout-grid": "4.9.0"
-  },
   "publishConfig": {
     "access": "public"
+  },
+  "style": "navigation-list.scss",
+  "dependencies": {
+    "@ecl/content-block": "4.9.0",
+    "@ecl/twig-component-picture": "4.9.0"
+  },
+  "devDependencies": {
+    "@ecl/story-utils": "4.9.0",
+    "@ecl/storybook-addon-code": "4.9.0",
+    "@ecl/storybook-addon-notes": "4.9.0",
+    "@ecl/test-utils": "4.9.0",
+    "jest-axe": "9.0.0"
   },
   "repository": {
     "type": "git",
@@ -23,6 +30,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }

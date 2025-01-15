@@ -749,6 +749,31 @@ importers:
         specifier: 9.0.0
         version: 9.0.0
 
+  src/components/navigation-list:
+    dependencies:
+      '@ecl/content-block':
+        specifier: 4.9.0
+        version: link:../content-block
+      '@ecl/twig-component-picture':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/picture
+    devDependencies:
+      '@ecl/story-utils':
+        specifier: 4.9.0
+        version: link:../../playground/addons/story-utils
+      '@ecl/storybook-addon-code':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-code
+      '@ecl/storybook-addon-notes':
+        specifier: 4.9.0
+        version: link:../../playground/addons/storybook-addon-notes
+      '@ecl/test-utils':
+        specifier: 4.9.0
+        version: link:../../tools/test-utils
+      jest-axe:
+        specifier: 9.0.0
+        version: 9.0.0
+
   src/components/news-ticker:
     dependencies:
       '@ecl/button':
@@ -946,22 +971,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../../vanilla/components/modal
-
-  src/implementations/twig/components/navigation-list:
-    dependencies:
-      '@ecl/content-block':
-        specifier: 4.9.0
-        version: link:../../../../components/content-block
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/navigation-list
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/navigation-list
 
   src/implementations/twig/components/notification:
     dependencies:
@@ -1386,12 +1395,12 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../../components/featured-item
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../../../components/navigation-list
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: link:../../components/link
-      '@ecl/twig-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../components/navigation-list
       '@ecl/twig-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -1573,12 +1582,6 @@ importers:
       focus-trap:
         specifier: 7.6.2
         version: 7.6.2
-
-  src/implementations/vanilla/components/navigation-list:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/notification:
     dependencies:
@@ -2137,6 +2140,9 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../../components/news-ticker
@@ -2176,9 +2182,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
       '@ecl/vanilla-component-notification':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/notification
@@ -2417,6 +2420,9 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../../components/news-ticker
@@ -2456,9 +2462,6 @@ importers:
       '@ecl/vanilla-component-modal':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
       '@ecl/vanilla-component-notification':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/notification
@@ -2786,8 +2789,6 @@ importers:
 
   src/specs/components/modal: {}
 
-  src/specs/components/navigation-list: {}
-
   src/specs/components/notification: {}
 
   src/specs/components/ordered-list:
@@ -2860,12 +2861,12 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../components/featured-item
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../../components/navigation-list
       '@ecl/specs-component-mega-menu':
         specifier: 4.9.0
         version: link:../../components/mega-menu
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../components/navigation-list
       '@ecl/specs-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -3107,6 +3108,9 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../components/navigation-list
       '@ecl/news-ticker':
         specifier: 4.9.0
         version: link:../components/news-ticker
@@ -3164,9 +3168,6 @@ importers:
       '@ecl/specs-component-modal':
         specifier: 4.9.0
         version: link:../specs/components/modal
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../specs/components/navigation-list
       '@ecl/specs-component-notification':
         specifier: 4.9.0
         version: link:../specs/components/notification
@@ -3275,9 +3276,6 @@ importers:
       '@ecl/twig-component-modal':
         specifier: 4.9.0
         version: link:../implementations/twig/components/modal
-      '@ecl/twig-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/navigation-list
       '@ecl/twig-component-notification':
         specifier: 4.9.0
         version: link:../implementations/twig/components/notification

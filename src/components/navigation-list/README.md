@@ -1,9 +1,9 @@
 # ECL Navigation List component
 
-npm package: `@ecl/twig-component-navigation-list`
+npm package: `@ecl/navigation-list`
 
 ```shell
-npm install --save @ecl/twig-component-navigation-list
+npm install --save @ecl/navigation-list
 ```
 
 ### Parameters

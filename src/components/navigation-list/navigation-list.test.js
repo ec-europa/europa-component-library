@@ -5,8 +5,8 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import dataDefault from '@ecl/specs-component-navigation-list/demo/data';
-import dataIllustration from '@ecl/specs-component-navigation-list/demo/data-illustration';
+import dataDefault from '@ecl/navigation-list/demo/data';
+import dataIllustration from '@ecl/navigation-list/demo/data-illustration';
 
 const dataAsIllustration = JSON.parse(JSON.stringify(dataIllustration));
 dataAsIllustration.items.forEach((item) => {
