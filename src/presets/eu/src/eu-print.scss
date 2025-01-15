@@ -14,10 +14,10 @@
 );
 
 // Forms
-@use '@ecl/vanilla-component-form-group/form-group-print';
+@use '@ecl/form-group/form-group-print';
 @use '@ecl/checkbox/checkbox-print';
-@use '@ecl/vanilla-component-datepicker/datepicker-print';
-@use '@ecl/vanilla-component-file-upload/file-upload-print';
+@use '@ecl/datepicker/datepicker-print';
+@use '@ecl/file-upload/file-upload-print';
 @use '@ecl/vanilla-component-radio/radio-print';
 @use '@ecl/vanilla-component-select/select-print';
 @use '@ecl/vanilla-component-text-area/text-area-print';
@@ -33,7 +33,7 @@
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-date-block/date-block-print' with (
+@use '@ecl/date-block/date-block-print' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-indicator/indicator-print';
@@ -70,12 +70,12 @@
   $theme: theme.$theme,
   $banner-print: var.$banner-print
 );
-@use '@ecl/vanilla-component-description-list/description-list-print' with (
+@use '@ecl/description-list/description-list-print' with (
   $theme: theme.$theme,
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
 );
-@use '@ecl/vanilla-component-featured-item/featured-item-print' with (
+@use '@ecl/featured-item/featured-item-print' with (
   $theme: theme.$theme,
   $featured-item: var.$featured-item,
   $featured-item-print: var.$featured-item-print
@@ -97,14 +97,14 @@
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable-print' with (
+@use '@ecl/expandable/expandable-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures-print' with (
+@use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures
 );
-@use '@ecl/vanilla-component-file/file-print' with (
+@use '@ecl/file/file-print' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-rating-field/rating-field-print';
