@@ -4,7 +4,7 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import demoData from '@ecl/inpage-navigation/demo/data';
+import demoData from './demo/data';
 import inpageNavigation from './inpage-navigation.html.twig';
 import notes from './README.md';
 
