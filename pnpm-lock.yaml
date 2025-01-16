@@ -621,65 +621,50 @@ importers:
         specifier: 7.6.2
         version: 7.6.2
 
-  src/implementations/twig/components/navigation-list:
+  src/components/navigation-list:
     dependencies:
       '@ecl/content-block':
         specifier: 4.9.0
-        version: link:../../../../components/content-block
+        version: link:../content-block
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/navigation-list
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/navigation-list
+        version: link:../../implementations/twig/components/picture
 
-  src/implementations/twig/components/news-ticker:
+  src/components/news-ticker:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
       '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../../../components/icon
+        version: link:../icon
       '@ecl/link':
         specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/news-ticker
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/news-ticker
+        version: link:../link
 
-  src/implementations/twig/components/notification:
+  src/components/notification:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
       '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../../../components/icon
-    devDependencies:
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/notification
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/notification
+        version: link:../icon
 
-  src/implementations/twig/components/ordered-list:
+  src/components/ordered-list:
     devDependencies:
-      '@ecl/specs-component-ordered-list':
+      '@ecl/resources-icons':
         specifier: 4.9.0
-        version: link:../../../../specs/components/ordered-list
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/ordered-list
+        version: link:../../resources/icons
 
   src/implementations/twig/components/page-header:
     dependencies:
@@ -831,9 +816,9 @@ importers:
       '@ecl/menu':
         specifier: 4.9.0
         version: link:../../../../components/menu
-      '@ecl/twig-component-notification':
+      '@ecl/notification':
         specifier: 4.9.0
-        version: link:../notification
+        version: link:../../../../components/notification
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -1018,9 +1003,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../../../../components/link
-      '@ecl/twig-component-notification':
+      '@ecl/notification':
         specifier: 4.9.0
-        version: link:../../components/notification
+        version: link:../../../../components/notification
     devDependencies:
       '@ecl/specs-composition-etrans':
         specifier: 4.9.0
@@ -1082,9 +1067,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../../../../components/link
-      '@ecl/twig-component-navigation-list':
+      '@ecl/navigation-list':
         specifier: 4.9.0
-        version: link:../../components/navigation-list
+        version: link:../../../../components/navigation-list
       '@ecl/twig-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -1142,35 +1127,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/navigation-list:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/news-ticker:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/notification:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/ordered-list: {}
 
   src/implementations/vanilla/components/page-header:
     dependencies:
@@ -1748,21 +1704,21 @@ importers:
       '@ecl/modal':
         specifier: 4.9.0
         version: link:../../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/news-ticker
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2028,21 +1984,21 @@ importers:
       '@ecl/modal':
         specifier: 4.9.0
         version: link:../../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/news-ticker
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2344,18 +2300,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/navigation-list: {}
-
-  src/specs/components/news-ticker: {}
-
-  src/specs/components/notification: {}
-
-  src/specs/components/ordered-list:
-    devDependencies:
-      '@ecl/resources-icons':
-        specifier: 4.9.0
-        version: link:../../../resources/icons
-
   src/specs/components/page-header: {}
 
   src/specs/components/pagination: {}
@@ -2423,9 +2367,9 @@ importers:
       '@ecl/mega-menu':
         specifier: 4.9.0
         version: link:../../../components/mega-menu
-      '@ecl/specs-component-navigation-list':
+      '@ecl/navigation-list':
         specifier: 4.9.0
-        version: link:../../components/navigation-list
+        version: link:../../../components/navigation-list
       '@ecl/specs-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -2697,6 +2641,18 @@ importers:
       '@ecl/modal':
         specifier: 4.9.0
         version: link:../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../components/ordered-list
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2721,18 +2677,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../specs/components/navigation-list
-      '@ecl/specs-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../specs/components/news-ticker
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../specs/components/notification
-      '@ecl/specs-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../specs/components/ordered-list
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../specs/components/page-header
@@ -2808,18 +2752,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/navigation-list
-      '@ecl/twig-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/news-ticker
-      '@ecl/twig-component-notification':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/notification
-      '@ecl/twig-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/ordered-list
       '@ecl/twig-component-page-header':
         specifier: 4.9.0
         version: link:../implementations/twig/components/page-header

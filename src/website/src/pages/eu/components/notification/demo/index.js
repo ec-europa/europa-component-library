@@ -1,8 +1,8 @@
-import demoContentInfo from '@ecl/specs-component-notification/demo/data--info-eu';
-import demoContentSuccess from '@ecl/specs-component-notification/demo/data--success-eu';
-import demoContentWarning from '@ecl/specs-component-notification/demo/data--warning-eu';
-import demoContentError from '@ecl/specs-component-notification/demo/data--error-eu';
-import template from '@ecl/twig-component-notification/notification.html.twig';
+import demoContentInfo from '@ecl/notification/demo/data--info-eu';
+import demoContentSuccess from '@ecl/notification/demo/data--success-eu';
+import demoContentWarning from '@ecl/notification/demo/data--warning-eu';
+import demoContentError from '@ecl/notification/demo/data--error-eu';
+import template from '@ecl/notification/notification.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const notificationInfo = template(correctSvgPath(demoContentInfo));

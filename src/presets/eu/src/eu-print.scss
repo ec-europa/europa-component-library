@@ -46,8 +46,8 @@
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-news-ticker/news-ticker-print';
-@use '@ecl/vanilla-component-notification/notification-print' with (
+@use '@ecl/news-ticker/news-ticker-print';
+@use '@ecl/notification/notification-print' with (
   $theme: theme.$theme,
   $notification: var.$notification,
   $notification-print: var.$notification-print
@@ -112,10 +112,10 @@
   $theme: theme.$theme
 );
 @use '@ecl/modal/modal-print';
-@use '@ecl/vanilla-component-navigation-list/navigation-list-print' with (
+@use '@ecl/navigation-list/navigation-list-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-ordered-list/ordered-list-print' with (
+@use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
   $list: var.$list
 );
