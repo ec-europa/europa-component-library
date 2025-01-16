@@ -7,8 +7,8 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 
-import specDefault from '@ecl/specs-component-radio/demo/data--default';
-import specBinary from '@ecl/specs-component-radio/demo/data--binary';
+import specDefault from './demo/data--default';
+import specBinary from './demo/data--binary';
 
 const dataDefault = specDefault.input;
 const dataBinary = specBinary.input;

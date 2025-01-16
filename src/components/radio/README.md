@@ -1,9 +1,9 @@
 # ECL Radio component
 
-npm package: `@ecl/twig-component-radio`
+npm package: `@ecl/radio`
 
 ```shell
-npm install --save @ecl/twig-component-radio
+npm install --save @ecl/radio
 ```
 
 ### Parameters:
