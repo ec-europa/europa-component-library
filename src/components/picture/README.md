@@ -1,9 +1,9 @@
 # ECL Picture component
 
-npm package: `@ecl/twig-component-picture`
+npm package: `@ecl/picture`
 
 ```shell
-npm install --save @ecl/twig-component-picture
+npm install --save @ecl/picture
 ```
 
 ## Parameters

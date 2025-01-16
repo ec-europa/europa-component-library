@@ -5,7 +5,7 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import data from '@ecl/specs-component-picture/demo/data';
+import data from './demo/data';
 
 expect.extend(toHaveNoViolations);
 

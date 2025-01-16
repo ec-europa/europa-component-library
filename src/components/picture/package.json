@@ -1,10 +1,13 @@
 {
-  "name": "@ecl/specs-component-picture",
+  "name": "@ecl/picture",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
-  "description": "ECL Picture Specs",
-  "private": true,
+  "description": "ECL Picture",
+  "publishConfig": {
+    "access": "public"
+  },
+  "style": "picture.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
@@ -16,6 +19,7 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "twig"
   ]
 }
