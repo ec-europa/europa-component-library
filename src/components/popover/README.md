@@ -1,9 +1,9 @@
 # ECL Popover component
 
-npm package: `@ecl/twig-component-popover`
+npm package: `@ecl/popover`
 
 ```shell
-npm install --save @ecl/twig-component-popover
+npm install --save @ecl/popover
 ```
 
 ### Parameters:

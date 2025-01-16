@@ -21,7 +21,7 @@ export * from '@ecl/menu';
 export * from '@ecl/modal';
 export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
-export * from '@ecl/vanilla-component-popover';
+export * from '@ecl/popover';
 export * from '@ecl/vanilla-component-range';
 export * from '@ecl/vanilla-component-select';
 export * from '@ecl/vanilla-component-site-header';

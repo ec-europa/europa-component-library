@@ -683,18 +683,14 @@ importers:
 
   src/components/picture: {}
 
-  src/implementations/twig/components/popover:
+  src/components/popover:
     dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
       '@ecl/link':
         specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-popover':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/popover
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/popover
+        version: link:../link
 
   src/implementations/twig/components/radio:
     devDependencies:
@@ -852,9 +848,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../../../../components/link
-      '@ecl/twig-component-popover':
+      '@ecl/popover':
         specifier: 4.9.0
-        version: link:../popover
+        version: link:../../../../components/popover
     devDependencies:
       '@ecl/specs-component-social-media-share':
         specifier: 4.9.0
@@ -1109,15 +1105,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/popover:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/radio: {}
 
@@ -1693,12 +1680,12 @@ importers:
       '@ecl/picture':
         specifier: 4.9.0
         version: link:../../components/picture
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../../components/popover
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/popover
       '@ecl/vanilla-component-radio':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/radio
@@ -1973,12 +1960,12 @@ importers:
       '@ecl/picture':
         specifier: 4.9.0
         version: link:../../components/picture
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../../components/popover
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/popover
       '@ecl/vanilla-component-radio':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/radio
@@ -2267,8 +2254,6 @@ importers:
       svgo:
         specifier: 3.3.2
         version: 3.3.2
-
-  src/specs/components/popover: {}
 
   src/specs/components/radio: {}
 
@@ -2621,6 +2606,9 @@ importers:
       '@ecl/pagination':
         specifier: 4.9.0
         version: link:../components/pagination
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../components/popover
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2645,9 +2633,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-popover':
-        specifier: 4.9.0
-        version: link:../specs/components/popover
       '@ecl/specs-component-radio':
         specifier: 4.9.0
         version: link:../specs/components/radio
@@ -2714,9 +2699,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-popover':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/popover
       '@ecl/twig-component-radio':
         specifier: 4.9.0
         version: link:../implementations/twig/components/radio
