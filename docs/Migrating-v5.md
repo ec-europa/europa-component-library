@@ -25,16 +25,16 @@ TODO
 
 ### Color modes
 
-A color mode is a set of color, applied to different elements, and giving a distinct identity to a specific page or site.
+A color mode is a set of color, applied to different elements, and giving a distinct identity to a specific page or site. Currently the color modes are used only on EC.
 
-Every color mode is defined in a new file, called `ecl-ec|eu-color-modes.css`. If this file is omitted, the default EC or EU display is used.
+Every color mode is defined in a new file, called `ecl-ec-color-modes.css`. If this file is omitted, the default EC display is used.
 
-Components can use on mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`.
+Components can use on mode or another by adding a css class to its root. Css class name is `ecl-color-mode--[color mode name]`. A twig parameter called `color_mode` is also provided for components taking benefits of it (not all the components are affected by color modes).
 
 How it works:
 
-- several colors are defined to be part of the color modes, via the use of new css proporties. It includes background (surface), content and borders
-- each component has a new parameter `color-mode` to switch from one color mode to the other, and is using these new css color mode properties where needed, with a fallback to previously defined color
+- several colors are defined to be part of the color modes, via the use of new css proporties. It includes background (surface), content (on surface) and borders
+- some components have a new parameter `color-mode` to switch from one color mode to the other, and are using these new css color mode properties where needed, with a fallback to previously defined color
 - EC css defines a default value for these color mode properties; EU does not use color mode currently, and so relies on the fallback
 - the new color modes css simply override the value of some properties
 
