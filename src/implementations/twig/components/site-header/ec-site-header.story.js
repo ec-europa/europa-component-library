@@ -6,8 +6,8 @@ import withCode from '@ecl/storybook-addon-code';
 import dataFullEC from '@ecl/specs-component-site-header/demo/data--ec';
 import enLogoEC from '@ecl/resources-ec-logo/dist/positive/logo-ec--en.svg';
 import enLogoMobileEC from '@ecl/resources-ec-logo/dist/logo-ec--mute.svg';
-import enDataMenu from '@ecl/specs-component-menu/demo/data--ec';
-import enDataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
+import enDataMenu from '@ecl/menu/demo/data--ec';
+import enDataMegaMenu from '@ecl/mega-menu/demo/data';
 import siteHeader from './site-header.html.twig';
 import notes from './README.md';
 
