@@ -3,7 +3,7 @@
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
-@use '@ecl/vanilla-component-icon/icon' with (
+@use '@ecl/icon/icon' with (
   $theme: theme.$theme,
   $icons: var.$icons
 );
@@ -64,22 +64,22 @@
   $theme: theme.$theme,
   $date-block: var.$date-block
 );
-@use '@ecl/vanilla-component-indicator/indicator' with (
+@use '@ecl/indicator/indicator' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-label/label' with (
+@use '@ecl/label/label' with (
   $theme: theme.$theme,
   $label: var.$label
 );
-@use '@ecl/vanilla-component-link/link' with (
+@use '@ecl/link/link' with (
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-news-ticker/news-ticker' with (
+@use '@ecl/news-ticker/news-ticker' with (
   $theme: theme.$theme,
   $news-ticker: var.$news-ticker
 );
-@use '@ecl/vanilla-component-notification/notification' with (
+@use '@ecl/notification/notification' with (
   $theme: theme.$theme,
   $notification: var.$notification
 );
@@ -121,7 +121,7 @@
   $theme: theme.$theme,
   $featured-item: var.$featured-item
 );
-@use '@ecl/vanilla-component-list-illustration/list-illustration' with (
+@use '@ecl/list-illustration/list-illustration' with (
   $theme: theme.$theme,
   $list-illustration: var.$list-illustration
 );
@@ -157,19 +157,19 @@
   $theme: theme.$theme,
   $rating-field: var.$rating-field
 );
-@use '@ecl/vanilla-component-modal/modal' with (
+@use '@ecl/modal/modal' with (
   $theme: theme.$theme,
   $modal: var.$modal
 );
-@use '@ecl/vanilla-component-media-container/media-container' with (
+@use '@ecl/media-container/media-container' with (
   $theme: theme.$theme,
   $media-container: var.$media-container
 );
-@use '@ecl/vanilla-component-navigation-list/navigation-list' with (
+@use '@ecl/navigation-list/navigation-list' with (
   $theme: theme.$theme,
   $navigation-list: var.$navigation-list
 );
-@use '@ecl/vanilla-component-ordered-list/ordered-list' with (
+@use '@ecl/ordered-list/ordered-list' with (
   $theme: theme.$theme,
   $list: var.$list
 );
@@ -215,7 +215,7 @@
   $theme: theme.$theme,
   $category-filter: var.$category-filter
 );
-@use '@ecl/vanilla-component-gallery/gallery' with (
+@use '@ecl/gallery/gallery' with (
   $theme: theme.$theme,
   $gallery: var.$gallery
 );
@@ -223,15 +223,15 @@
   $theme: theme.$theme,
   $page-header: var.$page-header
 );
-@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation' with (
+@use '@ecl/inpage-navigation/inpage-navigation' with (
   $theme: theme.$theme,
   $inpage-navigation: var.$inpage-navigation
 );
-@use '@ecl/vanilla-component-menu/menu' with (
+@use '@ecl/menu/menu' with (
   $theme: theme.$theme,
   $menu: var.$menu
 );
-@use '@ecl/vanilla-component-mega-menu/mega-menu' with (
+@use '@ecl/mega-menu/mega-menu' with (
   $theme: theme.$theme,
   $mega-menu: var.$mega-menu
 );

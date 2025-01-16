@@ -25,8 +25,8 @@ Please ensure the presence of the following attributes:
 
 Examples:
 
-- `@ecl/vanilla-component-menu` - vanilla (base) component
-- `@ecl/twig-component-menu` - twig component
+- `@ecl/menu` - vanilla (base) component
+- `@ecl/menu` - twig component
 
 ## Implementations
 

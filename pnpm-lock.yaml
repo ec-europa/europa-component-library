@@ -95,7 +95,7 @@ importers:
         version: 2.31.0(eslint@8.57.0)
       eslint-plugin-jest:
         specifier: 27.9.0
-        version: 27.9.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
+        version: 27.9.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0))(typescript@5.7.3)
       eslint-plugin-jsx-a11y:
         specifier: 6.10.2
         version: 6.10.2(eslint@8.57.0)
@@ -116,7 +116,7 @@ importers:
         version: 9.1.7
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+        version: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
       jest-axe:
         specifier: 9.0.0
         version: 9.0.0
@@ -125,7 +125,7 @@ importers:
         version: 29.7.0
       lerna:
         specifier: 8.1.9
-        version: 8.1.9(@types/node@22.10.6)(babel-plugin-macros@3.1.0)(encoding@0.1.13)
+        version: 8.1.9(@types/node@22.10.7)(babel-plugin-macros@3.1.0)(encoding@0.1.13)
       lerna-changelog:
         specifier: 2.2.0
         version: 2.2.0
@@ -195,9 +195,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/grid
@@ -213,9 +213,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -240,21 +240,21 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-link':
+        version: link:../icon
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
 
   src/components/button:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-indicator':
+        version: link:../icon
+      '@ecl/indicator':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/indicator
+        version: link:../indicator
 
   src/components/card:
     dependencies:
@@ -282,15 +282,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
 
   src/components/checkbox:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
 
   src/components/content-block:
     dependencies:
@@ -300,15 +300,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-label':
+        version: link:../icon
+      '@ecl/label':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/label
-      '@ecl/twig-component-link':
+        version: link:../label
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
 
   src/components/content-item:
     dependencies:
@@ -326,9 +326,9 @@ importers:
 
   src/components/datepicker:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       pikaday:
         specifier: 1.8.2
         version: 1.8.2
@@ -338,9 +338,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
       '@ecl/twig-component-tag':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/tag
@@ -359,21 +359,21 @@ importers:
 
   src/components/fact-figures:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-link':
+        version: link:../icon
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
 
   src/components/featured-item:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
-      '@ecl/twig-component-media-container':
+        version: link:../link
+      '@ecl/media-container':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/media-container
+        version: link:../media-container
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -389,15 +389,15 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
-      '@ecl/twig-component-label':
+        version: link:../icon
+      '@ecl/label':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/label
-      '@ecl/twig-component-link':
+        version: link:../label
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/link
+        version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
@@ -422,9 +422,9 @@ importers:
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../file-upload
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/icon
+        version: link:../icon
       '@ecl/twig-component-radio':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/radio
@@ -463,232 +463,208 @@ importers:
         specifier: 4.9.0
         version: link:../../specs/components/text-input
 
-  src/implementations/twig/components/gallery:
+  src/components/gallery:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
         version: link:../link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
+        version: link:../../implementations/twig/components/picture
       '@ecl/twig-component-video':
         specifier: 4.9.0
-        version: link:../video
-    devDependencies:
-      '@ecl/specs-component-gallery':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/gallery
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/gallery
+        version: link:../../implementations/twig/components/video
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
 
-  src/implementations/twig/components/icon:
+  src/components/icon:
     devDependencies:
       '@ecl/resources-icons':
         specifier: 4.9.0
-        version: link:../../../../resources/icons
-      '@ecl/specs-component-icon':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/icon
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/icon
+        version: link:../../resources/icons
 
-  src/implementations/twig/components/indicator:
-    devDependencies:
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/indicator
+  src/components/indicator: {}
 
-  src/implementations/twig/components/inpage-navigation:
+  src/components/inpage-navigation:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
-        version: link:../link
+        version: 4.9.0
+      '@ecl/vanilla-layout-grid':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/layout/grid
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+      gumshoejs:
+        specifier: 5.1.2
+        version: 5.1.2
+      stickyfilljs:
+        specifier: 2.1.0
+        version: 2.1.0
     devDependencies:
-      '@ecl/specs-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/inpage-navigation
-      '@ecl/vanilla-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/inpage-navigation
       lorem-ipsum:
         specifier: 2.0.8
         version: 2.0.8
 
-  src/implementations/twig/components/label:
-    devDependencies:
-      '@ecl/specs-component-label':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/label
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/label
+  src/components/label: {}
 
-  src/implementations/twig/components/link:
+  src/components/link:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-link':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/link
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/link
 
-  src/implementations/twig/components/list-illustration:
+  src/components/list-illustration:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/list-illustration
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/list-illustration
+        version: link:../../implementations/twig/components/picture
 
-  src/implementations/twig/components/media-container:
+  src/components/media-container:
     dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
       '@ecl/expandable':
         specifier: 4.9.0
-        version: link:../../../../components/expandable
+        version: link:../expandable
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
+        version: link:../../implementations/twig/components/picture
       '@ecl/twig-component-video':
         specifier: 4.9.0
-        version: link:../video
-    devDependencies:
-      '@ecl/specs-component-media-container':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/media-container
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/media-container
+        version: link:../../implementations/twig/components/video
 
-  src/implementations/twig/components/mega-menu:
+  src/components/mega-menu:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-link':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-    devDependencies:
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/mega-menu
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/mega-menu
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+      mobile-device-detect:
+        specifier: 0.4.3
+        version: 0.4.3
 
-  src/implementations/twig/components/menu:
+  src/components/menu:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-link':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-    devDependencies:
-      '@ecl/specs-component-menu':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/menu
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
+      mobile-device-detect:
+        specifier: 0.4.3
+        version: 0.4.3
+      stickyfilljs:
+        specifier: 2.1.0
+        version: 2.1.0
 
-  src/implementations/twig/components/modal:
+  src/components/modal:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-modal':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/modal
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/modal
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
 
-  src/implementations/twig/components/navigation-list:
+  src/components/navigation-list:
     dependencies:
       '@ecl/content-block':
         specifier: 4.9.0
-        version: link:../../../../components/content-block
+        version: link:../content-block
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/navigation-list
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/navigation-list
+        version: link:../../implementations/twig/components/picture
 
-  src/implementations/twig/components/news-ticker:
+  src/components/news-ticker:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-    devDependencies:
-      '@ecl/specs-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/news-ticker
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/news-ticker
 
-  src/implementations/twig/components/notification:
+  src/components/notification:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
+      '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-    devDependencies:
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/notification
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/notification
 
-  src/implementations/twig/components/ordered-list:
+  src/components/ordered-list:
     devDependencies:
-      '@ecl/specs-component-ordered-list':
+      '@ecl/resources-icons':
         specifier: 4.9.0
-        version: link:../../../../specs/components/ordered-list
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/ordered-list
+        version: link:../../resources/icons
 
   src/implementations/twig/components/page-header:
     dependencies:
@@ -708,9 +684,9 @@ importers:
 
   src/implementations/twig/components/pagination:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-pagination':
         specifier: 4.9.0
@@ -727,9 +703,9 @@ importers:
 
   src/implementations/twig/components/popover:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-popover':
         specifier: 4.9.0
@@ -758,9 +734,9 @@ importers:
 
   src/implementations/twig/components/rating-field:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
@@ -806,9 +782,9 @@ importers:
 
   src/implementations/twig/components/site-footer:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -831,18 +807,18 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-link':
+        version: link:../../../../components/icon
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
-      '@ecl/twig-component-menu':
+        version: link:../../../../components/link
+      '@ecl/menu':
         specifier: 4.9.0
-        version: link:../menu
-      '@ecl/twig-component-notification':
+        version: link:../../../../components/menu
+      '@ecl/notification':
         specifier: 4.9.0
-        version: link:../notification
+        version: link:../../../../components/notification
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -865,9 +841,9 @@ importers:
 
   src/implementations/twig/components/skip-link:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-skip-link':
         specifier: 4.9.0
@@ -878,9 +854,9 @@ importers:
 
   src/implementations/twig/components/social-media-follow:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-social-media-follow':
         specifier: 4.9.0
@@ -891,9 +867,9 @@ importers:
 
   src/implementations/twig/components/social-media-share:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
       '@ecl/twig-component-popover':
         specifier: 4.9.0
         version: link:../popover
@@ -916,12 +892,12 @@ importers:
 
   src/implementations/twig/components/splash-page:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
-      '@ecl/twig-component-link':
+        version: link:../../../../components/icon
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../picture
@@ -953,9 +929,9 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../link
+        version: link:../../../../components/link
     devDependencies:
       '@ecl/specs-component-tabs':
         specifier: 4.9.0
@@ -966,9 +942,9 @@ importers:
 
   src/implementations/twig/components/tag:
     dependencies:
-      '@ecl/twig-component-icon':
+      '@ecl/icon':
         specifier: 4.9.0
-        version: link:../icon
+        version: link:../../../../components/icon
     devDependencies:
       '@ecl/specs-component-tag':
         specifier: 4.9.0
@@ -1024,12 +1000,12 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../../../../components/button
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
-      '@ecl/twig-component-notification':
+        version: link:../../../../components/link
+      '@ecl/notification':
         specifier: 4.9.0
-        version: link:../../components/notification
+        version: link:../../../../components/notification
     devDependencies:
       '@ecl/specs-composition-etrans':
         specifier: 4.9.0
@@ -1049,9 +1025,9 @@ importers:
 
   src/implementations/twig/compositions/file-upload-status:
     dependencies:
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
+        version: link:../../../../components/link
       '@ecl/twig-component-spinner':
         specifier: 4.9.0
         version: link:../../components/spinner
@@ -1088,12 +1064,12 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../../components/featured-item
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: link:../../components/link
-      '@ecl/twig-component-navigation-list':
+        version: link:../../../../components/link
+      '@ecl/navigation-list':
         specifier: 4.9.0
-        version: link:../../components/navigation-list
+        version: link:../../../../components/navigation-list
       '@ecl/twig-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -1109,12 +1085,12 @@ importers:
       '@ecl/file':
         specifier: 4.9.0
         version: link:../../../../components/file
-      '@ecl/twig-component-gallery':
+      '@ecl/gallery':
         specifier: 4.9.0
-        version: link:../../components/gallery
-      '@ecl/twig-component-inpage-navigation':
+        version: link:../../../../components/gallery
+      '@ecl/inpage-navigation':
         specifier: 4.9.0
-        version: link:../../components/inpage-navigation
+        version: link:../../../../components/inpage-navigation
       '@ecl/twig-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -1153,159 +1129,6 @@ importers:
         version: link:../../components/site-header
 
   src/implementations/vanilla/color-modes: {}
-
-  src/implementations/vanilla/components/gallery:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-
-  src/implementations/vanilla/components/icon:
-    dependencies:
-      svg4everybody:
-        specifier: ^2.1.9
-        version: 2.1.9
-
-  src/implementations/vanilla/components/indicator: {}
-
-  src/implementations/vanilla/components/inpage-navigation:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-      gumshoejs:
-        specifier: 5.1.2
-        version: 5.1.2
-      stickyfilljs:
-        specifier: 2.1.0
-        version: 2.1.0
-
-  src/implementations/vanilla/components/label: {}
-
-  src/implementations/vanilla/components/link:
-    dependencies:
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/list-illustration:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/media-container:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-utility-media':
-        specifier: 4.9.0
-        version: link:../../utilities/media
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/mega-menu:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-      mobile-device-detect:
-        specifier: 0.4.3
-        version: 0.4.3
-
-  src/implementations/vanilla/components/menu:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-      mobile-device-detect:
-        specifier: 0.4.3
-        version: 0.4.3
-      stickyfilljs:
-        specifier: 2.1.0
-        version: 2.1.0
-
-  src/implementations/vanilla/components/modal:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
-
-  src/implementations/vanilla/components/navigation-list:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/news-ticker:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/notification:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/ordered-list: {}
 
   src/implementations/vanilla/components/page-header:
     dependencies:
@@ -1850,57 +1673,57 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../../components/icon
+      '@ecl/indicator':
+        specifier: 4.9.0
+        version: link:../../components/indicator
+      '@ecl/inpage-navigation':
+        specifier: 4.9.0
+        version: link:../../components/inpage-navigation
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
       '@ecl/vanilla-color-modes':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/color-modes
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/gallery
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/icon
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/indicator
-      '@ecl/vanilla-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/inpage-navigation
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/label
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/link
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/list-illustration
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/media-container
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/mega-menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/menu
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/news-ticker
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2133,54 +1956,54 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../../components/icon
+      '@ecl/indicator':
+        specifier: 4.9.0
+        version: link:../../components/indicator
+      '@ecl/inpage-navigation':
+        specifier: 4.9.0
+        version: link:../../components/inpage-navigation
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../../components/ordered-list
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-gallery':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/gallery
-      '@ecl/vanilla-component-icon':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/icon
-      '@ecl/vanilla-component-indicator':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/indicator
-      '@ecl/vanilla-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/inpage-navigation
-      '@ecl/vanilla-component-label':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/label
-      '@ecl/vanilla-component-link':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/link
-      '@ecl/vanilla-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/list-illustration
-      '@ecl/vanilla-component-media-container':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/media-container
-      '@ecl/vanilla-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/mega-menu
-      '@ecl/vanilla-component-menu':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/menu
-      '@ecl/vanilla-component-modal':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/modal
-      '@ecl/vanilla-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/navigation-list
-      '@ecl/vanilla-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/news-ticker
-      '@ecl/vanilla-component-notification':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/notification
-      '@ecl/vanilla-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/ordered-list
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2482,38 +2305,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/gallery: {}
-
-  src/specs/components/icon: {}
-
-  src/specs/components/inpage-navigation: {}
-
-  src/specs/components/label: {}
-
-  src/specs/components/link: {}
-
-  src/specs/components/list-illustration: {}
-
-  src/specs/components/media-container: {}
-
-  src/specs/components/mega-menu: {}
-
-  src/specs/components/menu: {}
-
-  src/specs/components/modal: {}
-
-  src/specs/components/navigation-list: {}
-
-  src/specs/components/news-ticker: {}
-
-  src/specs/components/notification: {}
-
-  src/specs/components/ordered-list:
-    devDependencies:
-      '@ecl/resources-icons':
-        specifier: 4.9.0
-        version: link:../../../resources/icons
-
   src/specs/components/page-header: {}
 
   src/specs/components/pagination: {}
@@ -2578,12 +2369,12 @@ importers:
       '@ecl/featured-item':
         specifier: 4.9.0
         version: link:../../../components/featured-item
-      '@ecl/specs-component-mega-menu':
+      '@ecl/mega-menu':
         specifier: 4.9.0
-        version: link:../../components/mega-menu
-      '@ecl/specs-component-navigation-list':
+        version: link:../../../components/mega-menu
+      '@ecl/navigation-list':
         specifier: 4.9.0
-        version: link:../../components/navigation-list
+        version: link:../../../components/navigation-list
       '@ecl/specs-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -2606,15 +2397,15 @@ importers:
       '@ecl/file':
         specifier: 4.9.0
         version: link:../../../components/file
-      '@ecl/specs-component-gallery':
+      '@ecl/gallery':
         specifier: 4.9.0
-        version: link:../../components/gallery
-      '@ecl/specs-component-inpage-navigation':
+        version: link:../../../components/gallery
+      '@ecl/inpage-navigation':
         specifier: 4.9.0
-        version: link:../../components/inpage-navigation
-      '@ecl/specs-component-mega-menu':
+        version: link:../../../components/inpage-navigation
+      '@ecl/mega-menu':
         specifier: 4.9.0
-        version: link:../../components/mega-menu
+        version: link:../../../components/mega-menu
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -2634,21 +2425,21 @@ importers:
 
   src/specs/pages/page-search:
     dependencies:
+      '@ecl/breadcrumb':
+        specifier: 4.9.0
+        version: link:../../../components/breadcrumb
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../../../components/button
       '@ecl/checkbox':
         specifier: 4.9.0
         version: link:../../../components/checkbox
       '@ecl/content-item':
         specifier: 4.9.0
         version: link:../../../components/content-item
-      '@ecl/specs-component-breadcrumb':
+      '@ecl/mega-menu':
         specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-button':
-        specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../../components/mega-menu
+        version: link:../../../components/mega-menu
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
@@ -2825,6 +2616,48 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../components/form-group
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../components/gallery
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../components/icon
+      '@ecl/inpage-navigation':
+        specifier: 4.9.0
+        version: link:../components/inpage-navigation
+      '@ecl/label':
+        specifier: 4.9.0
+        version: link:../components/label
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../components/link
+      '@ecl/list-illustration':
+        specifier: 4.9.0
+        version: link:../components/list-illustration
+      '@ecl/media-container':
+        specifier: 4.9.0
+        version: link:../components/media-container
+      '@ecl/mega-menu':
+        specifier: 4.9.0
+        version: link:../components/mega-menu
+      '@ecl/menu':
+        specifier: 4.9.0
+        version: link:../components/menu
+      '@ecl/modal':
+        specifier: 4.9.0
+        version: link:../components/modal
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../components/navigation-list
+      '@ecl/news-ticker':
+        specifier: 4.9.0
+        version: link:../components/news-ticker
+      '@ecl/notification':
+        specifier: 4.9.0
+        version: link:../components/notification
+      '@ecl/ordered-list':
+        specifier: 4.9.0
+        version: link:../components/ordered-list
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2849,48 +2682,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-gallery':
-        specifier: 4.9.0
-        version: link:../specs/components/gallery
-      '@ecl/specs-component-icon':
-        specifier: 4.9.0
-        version: link:../specs/components/icon
-      '@ecl/specs-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../specs/components/inpage-navigation
-      '@ecl/specs-component-label':
-        specifier: 4.9.0
-        version: link:../specs/components/label
-      '@ecl/specs-component-link':
-        specifier: 4.9.0
-        version: link:../specs/components/link
-      '@ecl/specs-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../specs/components/list-illustration
-      '@ecl/specs-component-media-container':
-        specifier: 4.9.0
-        version: link:../specs/components/media-container
-      '@ecl/specs-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../specs/components/mega-menu
-      '@ecl/specs-component-menu':
-        specifier: 4.9.0
-        version: link:../specs/components/menu
-      '@ecl/specs-component-modal':
-        specifier: 4.9.0
-        version: link:../specs/components/modal
-      '@ecl/specs-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../specs/components/navigation-list
-      '@ecl/specs-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../specs/components/news-ticker
-      '@ecl/specs-component-notification':
-        specifier: 4.9.0
-        version: link:../specs/components/notification
-      '@ecl/specs-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../specs/components/ordered-list
       '@ecl/specs-component-page-header':
         specifier: 4.9.0
         version: link:../specs/components/page-header
@@ -2966,45 +2757,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-gallery':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/gallery
-      '@ecl/twig-component-icon':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/icon
-      '@ecl/twig-component-inpage-navigation':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/inpage-navigation
-      '@ecl/twig-component-label':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/label
-      '@ecl/twig-component-link':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/link
-      '@ecl/twig-component-list-illustration':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/list-illustration
-      '@ecl/twig-component-media-container':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/media-container
-      '@ecl/twig-component-mega-menu':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/mega-menu
-      '@ecl/twig-component-modal':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/modal
-      '@ecl/twig-component-navigation-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/navigation-list
-      '@ecl/twig-component-news-ticker':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/news-ticker
-      '@ecl/twig-component-notification':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/notification
-      '@ecl/twig-component-ordered-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/ordered-list
       '@ecl/twig-component-page-header':
         specifier: 4.9.0
         version: link:../implementations/twig/components/page-header
@@ -3094,7 +2846,7 @@ importers:
         version: 3.1.0(acorn@8.14.0)
       '@mdx-js/react':
         specifier: 3.1.0
-        version: 3.1.0(@types/react@19.0.7)(react@17.0.2)
+        version: 3.1.0(@types/react@17.0.83)(react@17.0.2)
       classnames:
         specifier: 2.5.1
         version: 2.5.1
@@ -3142,7 +2894,7 @@ importers:
         version: 6.1.0(react@17.0.2)
       react-hot-loader:
         specifier: 4.13.1
-        version: 4.13.1(@types/react@19.0.7)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
+        version: 4.13.1(@types/react@17.0.83)(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-router-dom:
         specifier: 5.3.4
         version: 5.3.4(react@17.0.2)
@@ -4042,14 +3794,14 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
-  '@ecl/specs-component-breadcrumb@4.9.0':
-    resolution: {integrity: sha512-5itlYf6jsDCqyQRuWlQNH2+NCE9uyzBRr/7fvFctVDJ5bo7J5wnm0nesyTv+RgvBiQnZD4J4G3GhkdDhj2C+MQ==}
-
-  '@ecl/specs-component-button@4.9.0':
-    resolution: {integrity: sha512-Qi69MspG/T0TOts0ckUxTnzQaFqfPvKx0DDb0uRfFk1PvceqXxN96FxpiBh5MgvYz89O5IQxQLwSGLGnzGDScA==}
-
   '@ecl/specs-component-picture@4.6.1':
     resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
+
+  '@ecl/twig-component-icon@4.9.0':
+    resolution: {integrity: sha512-uMsC72Cas9yr+hArxNSph201sO/2BUS431ZV1HqRCM4ljaykml4p5xo/Sn/U/fFA+OMDOdv2o9DDbaaV2BNevQ==}
+
+  '@ecl/twig-component-link@4.9.0':
+    resolution: {integrity: sha512-z9YrOI4TX2reP9EGFWtUDyLpdKYCASocOE7z5+cUmRcHc0vSL6EssCo+Q4Z02A6lepLmCRtUyPGYcx/42gT1Kg==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -5532,8 +5284,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.10.6':
-    resolution: {integrity: sha512-qNiuwC4ZDAUNcY47xgaSuS92cjf8JbSUoaKS77bmLG1rU7MlATVSiw/IlrjtIyyskXBZ8KkNfjK/P5na7rgXbQ==}
+  '@types/node@22.10.7':
+    resolution: {integrity: sha512-V09KvXxFiutGp6B7XkpaDXlNadZxrzajcY50EuoLIpQ6WWYCSvf19lVIazzfIzQvhUN2HjX12spLojTnhuKlGg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -5544,11 +5296,17 @@ packages:
   '@types/parse-path@7.0.3':
     resolution: {integrity: sha512-LriObC2+KYZD3FzCrgWGv/qufdUy4eXrxcLgQMfYXgPbLIecKIsVBaQgUPmxSSLcjmYbDTQbMgr6qr6l/eb7Bg==}
 
+  '@types/prop-types@15.7.14':
+    resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
+
   '@types/qs@6.9.18':
     resolution: {integrity: sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA==}
 
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
+
+  '@types/react@17.0.83':
+    resolution: {integrity: sha512-l0m4ArKJvmFtR4e8UmKrj1pB4tUgOhJITf+mADyF/p69Ts1YAR/E+G9XEM0mHXKVRa1dQNHseyyDNzeuAXfXQw==}
 
   '@types/react@19.0.7':
     resolution: {integrity: sha512-MoFsEJKkAtZCrC1r6CM8U22GzhG7u2Wir8ons/aCKH6MBdD1ibV24zOSSkdZVUKqN5i396zG5VKLYZ3yaUZdLA==}
@@ -5558,6 +5316,9 @@ packages:
 
   '@types/retry@0.12.2':
     resolution: {integrity: sha512-XISRgDJ2Tc5q4TRqvgJtzsRkFYNJzZrhTdtMoGVBttwzzQJkPnS3WWTFc7kuDRoPtPakl+T+OfdEUjYJj7Jbow==}
+
+  '@types/scheduler@0.16.8':
+    resolution: {integrity: sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==}
 
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
@@ -7334,8 +7095,8 @@ packages:
     engines: {node: '>=0.10.0'}
     hasBin: true
 
-  electron-to-chromium@1.5.82:
-    resolution: {integrity: sha512-Zq16uk1hfQhyGx5GpwPAYDwddJuSGhtRhgOA2mCxANYaDT79nAeGnaXogMGng4KqLaJUVnOnuL0+TDop9nLOiA==}
+  electron-to-chromium@1.5.83:
+    resolution: {integrity: sha512-LcUDPqSt+V0QmI47XLzZrz5OqILSMGsPFkDYus22rIbgorSvBYEFqq854ltTmUdHkY92FSdAAvsh4jWEULMdfQ==}
 
   elliptic@6.6.1:
     resolution: {integrity: sha512-RaddvvMatK2LJHqFJ+YA4WysVN5Ita9E35botqIYspQ4TkRAlCicdzKOjlyv/1Za5RyTNn7di//eEV0uTAfe3g==}
@@ -7951,8 +7712,8 @@ packages:
   flatted@3.3.2:
     resolution: {integrity: sha512-AiwGJM8YcNOaobumgtng+6NHuOqC3A7MixFeDafM3X9cIUM+xUXoS5Vfgf+OihAYe20fxqNM9yPBXJzRtZ/4eA==}
 
-  flow-parser@0.258.1:
-    resolution: {integrity: sha512-Y8CrO98EcXVCiYE4s5z0LTMbeYjKyd3MAEUJqxA7B8yGRlmdrG5UDqq4pVrUAfAu2tMFgpQESvBhBu9Xg1tpow==}
+  flow-parser@0.259.0:
+    resolution: {integrity: sha512-Sx2R3sR2dYhnlsKyxow5t6nWrB/PsIhhGGlZu0azCXcz2++jNyTVY8Hi7r0wO4P9/g6qr3mgXF1a3pz3iuoBuQ==}
     engines: {node: '>=0.4.0'}
 
   fn.name@1.1.0:
@@ -8027,8 +7788,8 @@ packages:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
 
-  fs-extra@11.2.0:
-    resolution: {integrity: sha512-PmDi3uwK5nFuXh7XDTlVnS17xJS7vW36is2+w3xcv8SVxiB4NyATf4ctkVY5bkSjX0Y4nbvZCq1/EjtEyr9ktw==}
+  fs-extra@11.3.0:
+    resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
 
   fs-extra@3.0.1:
@@ -12236,10 +11997,6 @@ packages:
   svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
 
-  svg4everybody@2.1.9:
-    resolution: {integrity: sha512-AS9WORVV/vk520ZHxGTlQzyDBizp/h6WyAYUbKhze/kwvQr43DwJpkIIPBomsUyKqN7N+h1deF92N9PmW+o+9A==}
-    engines: {node: '>=0.8.0'}
-
   svgo@2.8.0:
     resolution: {integrity: sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==}
     engines: {node: '>=10.13.0'}
@@ -14011,11 +13768,13 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@ecl/specs-component-breadcrumb@4.9.0': {}
-
-  '@ecl/specs-component-button@4.9.0': {}
-
   '@ecl/specs-component-picture@4.6.1': {}
+
+  '@ecl/twig-component-icon@4.9.0': {}
+
+  '@ecl/twig-component-link@4.9.0':
+    dependencies:
+      '@ecl/twig-component-icon': 4.9.0
 
   '@emnapi/core@1.3.1':
     dependencies:
@@ -14260,25 +14019,25 @@ snapshots:
     dependencies:
       '@iframe-resizer/core': 5.3.2
 
-  '@inquirer/checkbox@4.0.6(@types/node@22.10.6)':
+  '@inquirer/checkbox@4.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
       '@inquirer/figures': 1.0.9
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/confirm@5.1.3(@types/node@22.10.6)':
+  '@inquirer/confirm@5.1.3(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
 
-  '@inquirer/core@10.1.4(@types/node@22.10.6)':
+  '@inquirer/core@10.1.4(@types/node@22.10.7)':
     dependencies:
       '@inquirer/figures': 1.0.9
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
       mute-stream: 2.0.0
@@ -14289,82 +14048,82 @@ snapshots:
     transitivePeerDependencies:
       - '@types/node'
 
-  '@inquirer/editor@4.2.3(@types/node@22.10.6)':
+  '@inquirer/editor@4.2.3(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       external-editor: 3.1.0
 
-  '@inquirer/expand@4.0.6(@types/node@22.10.6)':
+  '@inquirer/expand@4.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       yoctocolors-cjs: 2.1.2
 
   '@inquirer/figures@1.0.9': {}
 
-  '@inquirer/input@4.1.3(@types/node@22.10.6)':
+  '@inquirer/input@4.1.3(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
 
-  '@inquirer/number@3.0.6(@types/node@22.10.6)':
+  '@inquirer/number@3.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
 
-  '@inquirer/password@4.0.6(@types/node@22.10.6)':
+  '@inquirer/password@4.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
 
-  '@inquirer/prompts@7.2.3(@types/node@22.10.6)':
+  '@inquirer/prompts@7.2.3(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/checkbox': 4.0.6(@types/node@22.10.6)
-      '@inquirer/confirm': 5.1.3(@types/node@22.10.6)
-      '@inquirer/editor': 4.2.3(@types/node@22.10.6)
-      '@inquirer/expand': 4.0.6(@types/node@22.10.6)
-      '@inquirer/input': 4.1.3(@types/node@22.10.6)
-      '@inquirer/number': 3.0.6(@types/node@22.10.6)
-      '@inquirer/password': 4.0.6(@types/node@22.10.6)
-      '@inquirer/rawlist': 4.0.6(@types/node@22.10.6)
-      '@inquirer/search': 3.0.6(@types/node@22.10.6)
-      '@inquirer/select': 4.0.6(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/checkbox': 4.0.6(@types/node@22.10.7)
+      '@inquirer/confirm': 5.1.3(@types/node@22.10.7)
+      '@inquirer/editor': 4.2.3(@types/node@22.10.7)
+      '@inquirer/expand': 4.0.6(@types/node@22.10.7)
+      '@inquirer/input': 4.1.3(@types/node@22.10.7)
+      '@inquirer/number': 3.0.6(@types/node@22.10.7)
+      '@inquirer/password': 4.0.6(@types/node@22.10.7)
+      '@inquirer/rawlist': 4.0.6(@types/node@22.10.7)
+      '@inquirer/search': 3.0.6(@types/node@22.10.7)
+      '@inquirer/select': 4.0.6(@types/node@22.10.7)
+      '@types/node': 22.10.7
 
-  '@inquirer/rawlist@4.0.6(@types/node@22.10.6)':
+  '@inquirer/rawlist@4.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/search@3.0.6(@types/node@22.10.6)':
+  '@inquirer/search@3.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
       '@inquirer/figures': 1.0.9
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/select@4.0.6(@types/node@22.10.6)':
+  '@inquirer/select@4.0.6(@types/node@22.10.7)':
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
       '@inquirer/figures': 1.0.9
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
       yoctocolors-cjs: 2.1.2
 
-  '@inquirer/type@3.0.2(@types/node@22.10.6)':
+  '@inquirer/type@3.0.2(@types/node@22.10.7)':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -14390,7 +14149,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -14403,14 +14162,14 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -14435,7 +14194,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-mock: 29.7.0
 
   '@jest/expect-utils@29.7.0':
@@ -14453,7 +14212,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -14475,7 +14234,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -14545,7 +14304,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -14601,7 +14360,7 @@ snapshots:
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 
-  '@lerna/create@8.1.9(@types/node@22.10.6)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.7.3)':
+  '@lerna/create@8.1.9(@types/node@22.10.7)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.7.3)':
     dependencies:
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
@@ -14622,7 +14381,7 @@ snapshots:
       cosmiconfig: 9.0.0(typescript@5.7.3)
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
       execa: 5.0.0
-      fs-extra: 11.2.0
+      fs-extra: 11.3.0
       get-stream: 6.0.0
       git-url-parse: 14.0.0
       glob-parent: 6.0.2
@@ -14631,7 +14390,7 @@ snapshots:
       has-unicode: 2.0.1
       ini: 1.3.8
       init-package-json: 6.0.3
-      inquirer: 12.2.0(@types/node@22.10.6)
+      inquirer: 12.2.0(@types/node@22.10.7)
       is-ci: 3.0.1
       is-stream: 2.0.0
       js-yaml: 4.1.0
@@ -14745,10 +14504,10 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.1.0(@types/react@19.0.7)(react@17.0.2)':
+  '@mdx-js/react@3.1.0(@types/react@17.0.83)(react@17.0.2)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.0.7
+      '@types/react': 17.0.83
       react: 17.0.2
 
   '@mdx-js/react@3.1.0(@types/react@19.0.7)(react@18.3.1)':
@@ -15515,7 +15274,7 @@ snapshots:
   '@storybook/builder-webpack5@8.4.7(esbuild@0.24.2)(storybook@8.4.7(prettier@3.4.2))(typescript@5.7.3)':
     dependencies:
       '@storybook/core-webpack': 8.4.7(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/semver': 7.5.8
       browser-assert: 1.2.1
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -15552,7 +15311,7 @@ snapshots:
   '@storybook/builder-webpack5@8.4.7(storybook@8.4.7(prettier@3.4.2))(typescript@5.7.3)':
     dependencies:
       '@storybook/core-webpack': 8.4.7(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/semver': 7.5.8
       browser-assert: 1.2.1
       case-sensitive-paths-webpack-plugin: 2.4.0
@@ -15645,7 +15404,7 @@ snapshots:
 
   '@storybook/core-webpack@8.4.7(storybook@8.4.7(prettier@3.4.2))':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       storybook: 8.4.7(prettier@3.4.2)
       ts-dedent: 2.2.0
 
@@ -15686,7 +15445,7 @@ snapshots:
       '@storybook/global': 5.0.0
       '@storybook/html': 8.4.7(storybook@8.4.7(prettier@3.4.2))
       '@storybook/preset-html-webpack': 8.4.7(esbuild@0.24.2)(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       storybook: 8.4.7(prettier@3.4.2)
     transitivePeerDependencies:
       - '@rspack/core'
@@ -15702,7 +15461,7 @@ snapshots:
       '@storybook/global': 5.0.0
       '@storybook/html': 8.4.7(storybook@8.4.7(prettier@3.4.2))
       '@storybook/preset-html-webpack': 8.4.7(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       storybook: 8.4.7(prettier@3.4.2)
     transitivePeerDependencies:
       - '@rspack/core'
@@ -15734,7 +15493,7 @@ snapshots:
   '@storybook/preset-html-webpack@8.4.7(esbuild@0.24.2)(storybook@8.4.7(prettier@3.4.2))':
     dependencies:
       '@storybook/core-webpack': 8.4.7(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       html-loader: 3.1.2(webpack@5.97.1(esbuild@0.24.2))
       storybook: 8.4.7(prettier@3.4.2)
       webpack: 5.97.1(esbuild@0.24.2)
@@ -15747,7 +15506,7 @@ snapshots:
   '@storybook/preset-html-webpack@8.4.7(storybook@8.4.7(prettier@3.4.2))':
     dependencies:
       '@storybook/core-webpack': 8.4.7(storybook@8.4.7(prettier@3.4.2))
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       html-loader: 3.1.2(webpack@5.97.1)
       storybook: 8.4.7(prettier@3.4.2)
       webpack: 5.97.1
@@ -15818,30 +15577,30 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 5.0.5
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/cookie@0.4.1': {}
 
   '@types/cors@2.8.17':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/debug@4.1.12':
     dependencies:
@@ -15870,14 +15629,14 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/qs': 6.9.18
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
 
   '@types/express-serve-static-core@5.0.5':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/qs': 6.9.18
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -15891,7 +15650,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/hast@2.3.10':
     dependencies:
@@ -15907,7 +15666,7 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -15921,7 +15680,7 @@ snapshots:
 
   '@types/jsdom@20.0.1':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/tough-cookie': 4.0.5
       parse5: 7.2.1
 
@@ -15958,11 +15717,11 @@ snapshots:
 
   '@types/node-forge@1.3.11':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.10.6':
+  '@types/node@22.10.7':
     dependencies:
       undici-types: 6.20.0
 
@@ -15972,9 +15731,17 @@ snapshots:
 
   '@types/parse-path@7.0.3': {}
 
+  '@types/prop-types@15.7.14': {}
+
   '@types/qs@6.9.18': {}
 
   '@types/range-parser@1.2.7': {}
+
+  '@types/react@17.0.83':
+    dependencies:
+      '@types/prop-types': 15.7.14
+      '@types/scheduler': 0.16.8
+      csstype: 3.1.3
 
   '@types/react@19.0.7':
     dependencies:
@@ -15984,12 +15751,14 @@ snapshots:
 
   '@types/retry@0.12.2': {}
 
+  '@types/scheduler@0.16.8': {}
+
   '@types/semver@7.5.8': {}
 
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/serve-index@1.9.4':
     dependencies:
@@ -15998,12 +15767,12 @@ snapshots:
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       '@types/send': 0.17.4
 
   '@types/sockjs@0.3.36':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/stack-utils@2.0.3': {}
 
@@ -16019,7 +15788,7 @@ snapshots:
 
   '@types/ws@8.5.13':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -16029,7 +15798,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
     optional: true
 
   '@typescript-eslint/scope-manager@5.62.0':
@@ -16870,7 +16639,7 @@ snapshots:
   browserslist@4.24.4:
     dependencies:
       caniuse-lite: 1.0.30001692
-      electron-to-chromium: 1.5.82
+      electron-to-chromium: 1.5.83
       node-releases: 2.0.19
       update-browserslist-db: 1.1.2(browserslist@4.24.4)
 
@@ -17487,13 +17256,13 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.11
 
-  create-jest@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0):
+  create-jest@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -18033,7 +17802,7 @@ snapshots:
     dependencies:
       jake: 10.9.2
 
-  electron-to-chromium@1.5.82: {}
+  electron-to-chromium@1.5.83: {}
 
   elliptic@6.6.1:
     dependencies:
@@ -18088,7 +17857,7 @@ snapshots:
     dependencies:
       '@types/cookie': 0.4.1
       '@types/cors': 2.8.17
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -18369,12 +18138,12 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jest@27.9.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0))(typescript@5.7.3):
+  eslint-plugin-jest@27.9.0(eslint@8.57.0)(jest@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0))(typescript@5.7.3):
     dependencies:
       '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.7.3)
       eslint: 8.57.0
     optionalDependencies:
-      jest: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      jest: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -18940,7 +18709,7 @@ snapshots:
 
   flatted@3.3.2: {}
 
-  flow-parser@0.258.1: {}
+  flow-parser@0.259.0: {}
 
   fn.name@1.1.0: {}
 
@@ -19039,7 +18808,7 @@ snapshots:
       jsonfile: 6.1.0
       universalify: 2.0.1
 
-  fs-extra@11.2.0:
+  fs-extra@11.3.0:
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.1.0
@@ -19786,12 +19555,12 @@ snapshots:
 
   inline-style-parser@0.2.4: {}
 
-  inquirer@12.2.0(@types/node@22.10.6):
+  inquirer@12.2.0(@types/node@22.10.7):
     dependencies:
-      '@inquirer/core': 10.1.4(@types/node@22.10.6)
-      '@inquirer/prompts': 7.2.3(@types/node@22.10.6)
-      '@inquirer/type': 3.0.2(@types/node@22.10.6)
-      '@types/node': 22.10.6
+      '@inquirer/core': 10.1.4(@types/node@22.10.7)
+      '@inquirer/prompts': 7.2.3(@types/node@22.10.7)
+      '@inquirer/type': 3.0.2(@types/node@22.10.7)
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
       mute-stream: 2.0.0
       run-async: 3.0.0
@@ -20162,7 +19931,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
@@ -20182,16 +19951,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0):
+  jest-cli@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      create-jest: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
       exit: 0.1.2
       import-local: 3.2.0
-      jest-config: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      jest-config: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -20201,7 +19970,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0):
+  jest-config@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0):
     dependencies:
       '@babel/core': 7.26.0
       '@jest/test-sequencer': 29.7.0
@@ -20226,7 +19995,7 @@ snapshots:
       slash: 3.0.0
       strip-json-comments: 3.1.1
     optionalDependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -20256,7 +20025,7 @@ snapshots:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3
@@ -20270,7 +20039,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -20280,7 +20049,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -20326,7 +20095,7 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@29.7.0):
@@ -20361,7 +20130,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -20389,7 +20158,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       cjs-module-lexer: 1.4.1
       collect-v8-coverage: 1.0.2
@@ -20435,7 +20204,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -20454,7 +20223,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -20463,23 +20232,23 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0):
+  jest@29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0):
     dependencies:
       '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)
       '@jest/types': 29.6.3
       import-local: 3.2.0
-      jest-cli: 29.7.0(@types/node@22.10.6)(babel-plugin-macros@3.1.0)
+      jest-cli: 29.7.0(@types/node@22.10.7)(babel-plugin-macros@3.1.0)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -20531,7 +20300,7 @@ snapshots:
       '@babel/register': 7.25.9(@babel/core@7.26.0)
       babel-core: 7.0.0-bridge.0(@babel/core@7.26.0)
       chalk: 4.1.2
-      flow-parser: 0.258.1
+      flow-parser: 0.259.0
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2
@@ -20707,9 +20476,9 @@ snapshots:
       - bluebird
       - supports-color
 
-  lerna@8.1.9(@types/node@22.10.6)(babel-plugin-macros@3.1.0)(encoding@0.1.13):
+  lerna@8.1.9(@types/node@22.10.7)(babel-plugin-macros@3.1.0)(encoding@0.1.13):
     dependencies:
-      '@lerna/create': 8.1.9(@types/node@22.10.6)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.7.3)
+      '@lerna/create': 8.1.9(@types/node@22.10.7)(babel-plugin-macros@3.1.0)(encoding@0.1.13)(typescript@5.7.3)
       '@npmcli/arborist': 7.5.4
       '@npmcli/package-json': 5.2.0
       '@npmcli/run-script': 8.1.0
@@ -20731,7 +20500,7 @@ snapshots:
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
       envinfo: 7.13.0
       execa: 5.0.0
-      fs-extra: 11.2.0
+      fs-extra: 11.3.0
       get-port: 5.1.1
       get-stream: 6.0.0
       git-url-parse: 14.0.0
@@ -20742,7 +20511,7 @@ snapshots:
       import-local: 3.1.0
       ini: 1.3.8
       init-package-json: 6.0.3
-      inquirer: 12.2.0(@types/node@22.10.6)
+      inquirer: 12.2.0(@types/node@22.10.7)
       is-ci: 3.0.1
       is-stream: 2.0.0
       jest-diff: 29.7.0
@@ -22696,7 +22465,7 @@ snapshots:
 
   parse5@3.0.3:
     dependencies:
-      '@types/node': 22.10.6
+      '@types/node': 22.10.7
 
   parse5@5.1.1: {}
 
@@ -23360,7 +23129,7 @@ snapshots:
       react-fast-compare: 3.2.2
       react-side-effect: 2.1.2(react@17.0.2)
 
-  react-hot-loader@4.13.1(@types/react@19.0.7)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
+  react-hot-loader@4.13.1(@types/react@17.0.83)(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       fast-levenshtein: 2.0.6
       global: 4.4.0
@@ -23373,7 +23142,7 @@ snapshots:
       shallowequal: 1.1.0
       source-map: 0.7.4
     optionalDependencies:
-      '@types/react': 19.0.7
+      '@types/react': 17.0.83
 
   react-is@16.13.1: {}
 
@@ -24739,8 +24508,6 @@ snapshots:
       yargs: 17.7.2
 
   svg-tags@1.0.0: {}
-
-  svg4everybody@2.1.9: {}
 
   svgo@2.8.0:
     dependencies:
