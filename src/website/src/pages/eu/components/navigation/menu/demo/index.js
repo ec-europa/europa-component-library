@@ -1,5 +1,5 @@
 import dataFull from '@ecl/specs-component-site-header/demo/data--eu';
-import dataMenu from '@ecl/specs-component-menu/demo/data--eu';
+import dataMenu from '@ecl/menu/demo/data--eu';
 import template from '@ecl/twig-component-site-header/site-header.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
