@@ -1,5 +1,5 @@
-import demoDefault from '@ecl/specs-component-label/demo/data';
-import template from '@ecl/twig-component-label/label.html.twig';
+import demoDefault from '@ecl/label/demo/data';
+import template from '@ecl/label/label.html.twig';
 
 export const labelLow = template({ ...demoDefault, variant: 'low' });
 export const labelMedium = template({ ...demoDefault, variant: 'medium' });
