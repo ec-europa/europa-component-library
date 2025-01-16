@@ -6,7 +6,7 @@ import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
-import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
+import dataPageHeader from '@ecl/page-header/demo/data';
 import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';

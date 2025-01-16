@@ -6,7 +6,7 @@ import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
 import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
-import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
+import dataPageHeader from '@ecl/page-header/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--image';
 import dataPagination from '@ecl/specs-component-pagination/demo/data';
 import dataSelectMultiple from '@ecl/specs-component-select/demo/data-multiple';

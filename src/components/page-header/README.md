@@ -1,9 +1,9 @@
 # ECL Page Header component
 
-npm package: `@ecl/twig-component-page-header`
+npm package: `@ecl/page-header`
 
 ```shell
-npm install --save @ecl/twig-component-page-header
+npm install --save @ecl/page-header
 ```
 
 ### Parameters

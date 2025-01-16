@@ -666,21 +666,14 @@ importers:
         specifier: 4.9.0
         version: link:../../resources/icons
 
-  src/implementations/twig/components/page-header:
+  src/components/page-header:
     dependencies:
       '@ecl/breadcrumb':
         specifier: 4.9.0
-        version: link:../../../../components/breadcrumb
+        version: link:../breadcrumb
       '@ecl/twig-component-picture':
         specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/page-header
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/page-header
+        version: link:../../implementations/twig/components/picture
 
   src/implementations/twig/components/pagination:
     dependencies:
@@ -1091,9 +1084,9 @@ importers:
       '@ecl/inpage-navigation':
         specifier: 4.9.0
         version: link:../../../../components/inpage-navigation
-      '@ecl/twig-component-page-header':
+      '@ecl/page-header':
         specifier: 4.9.0
-        version: link:../../components/page-header
+        version: link:../../../../components/page-header
       '@ecl/twig-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -1115,9 +1108,9 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../../../components/form-group
-      '@ecl/twig-component-page-header':
+      '@ecl/page-header':
         specifier: 4.9.0
-        version: link:../../components/page-header
+        version: link:../../../../components/page-header
       '@ecl/twig-component-pagination':
         specifier: 4.9.0
         version: link:../../components/pagination
@@ -1127,12 +1120,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/page-header:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/pagination:
     dependencies:
@@ -1716,12 +1703,12 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../components/page-header
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/page-header
       '@ecl/vanilla-component-pagination':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/pagination
@@ -1996,12 +1983,12 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../components/page-header
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/page-header
       '@ecl/vanilla-component-pagination':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/pagination
@@ -2300,8 +2287,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/page-header: {}
-
   src/specs/components/pagination: {}
 
   src/specs/components/picture: {}
@@ -2401,9 +2386,9 @@ importers:
       '@ecl/mega-menu':
         specifier: 4.9.0
         version: link:../../../components/mega-menu
-      '@ecl/specs-component-page-header':
+      '@ecl/page-header':
         specifier: 4.9.0
-        version: link:../../components/page-header
+        version: link:../../../components/page-header
       '@ecl/specs-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
@@ -2435,9 +2420,9 @@ importers:
       '@ecl/mega-menu':
         specifier: 4.9.0
         version: link:../../../components/mega-menu
-      '@ecl/specs-component-page-header':
+      '@ecl/page-header':
         specifier: 4.9.0
-        version: link:../../components/page-header
+        version: link:../../../components/page-header
       '@ecl/specs-component-pagination':
         specifier: 4.9.0
         version: link:../../components/pagination
@@ -2653,6 +2638,9 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../components/page-header
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2677,9 +2665,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../specs/components/page-header
       '@ecl/specs-component-pagination':
         specifier: 4.9.0
         version: link:../specs/components/pagination
@@ -2752,9 +2737,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/page-header
       '@ecl/twig-component-pagination':
         specifier: 4.9.0
         version: link:../implementations/twig/components/pagination

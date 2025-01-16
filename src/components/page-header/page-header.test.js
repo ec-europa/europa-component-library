@@ -5,8 +5,8 @@ import {
 } from '@ecl/test-utils';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import demoDefault from '@ecl/specs-component-page-header/demo/data';
 import dataBreadcrumbSimple from '@ecl/breadcrumb/demo/data--simple';
+import demoDefault from './demo/data';
 
 expect.extend(toHaveNoViolations);
 demoDefault.breadcrumb = dataBreadcrumbSimple;
