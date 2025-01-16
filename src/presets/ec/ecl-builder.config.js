@@ -40,6 +40,15 @@ module.exports = {
       },
     },
     {
+      entry: path.resolve(__dirname, 'src/ec-color-modes.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-color-modes.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
+    {
       entry: path.resolve(__dirname, 'src/ec-utilities.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-ec-utilities.css'),
       options: {
