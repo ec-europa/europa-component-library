@@ -431,9 +431,9 @@ importers:
       '@ecl/range':
         specifier: 4.9.0
         version: link:../range
-      '@ecl/twig-component-rating-field':
+      '@ecl/rating-field':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/rating-field
+        version: link:../rating-field
       '@ecl/twig-component-select':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/select
@@ -444,9 +444,6 @@ importers:
         specifier: 4.9.0
         version: link:../../implementations/twig/components/text-input
     devDependencies:
-      '@ecl/specs-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../specs/components/rating-field
       '@ecl/specs-component-select':
         specifier: 4.9.0
         version: link:../../specs/components/select
@@ -679,6 +676,9 @@ importers:
 
   src/components/popover:
     dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
@@ -689,10 +689,16 @@ importers:
   src/components/radio: {}
 
   src/components/range:
-    devDependencies:
+    dependencies:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../tools/dom-utils
+
+  src/components/rating-field:
+    dependencies:
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../icon
 
   src/implementations/twig/components/rating-field:
     dependencies:
@@ -702,7 +708,7 @@ importers:
     devDependencies:
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
-        version: link:../../../../specs/components/rating-field
+        version: 4.9.0
       '@ecl/vanilla-component-rating-field':
         specifier: 4.9.0
         version: link:../../../vanilla/components/rating-field
@@ -1662,12 +1668,12 @@ importers:
       '@ecl/range':
         specifier: 4.9.0
         version: link:../../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../../components/rating-field
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/rating-field
       '@ecl/vanilla-component-search-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/search-form
@@ -1942,12 +1948,12 @@ importers:
       '@ecl/range':
         specifier: 4.9.0
         version: link:../../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../../components/rating-field
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/rating-field
       '@ecl/vanilla-component-search-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/search-form
@@ -2227,8 +2233,6 @@ importers:
       svgo:
         specifier: 3.3.2
         version: 3.3.2
-
-  src/specs/components/rating-field: {}
 
   src/specs/components/search-form: {}
 
@@ -2590,6 +2594,9 @@ importers:
       '@ecl/range':
         specifier: 4.9.0
         version: link:../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../components/rating-field
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
         version: link:../resources/logo-ec
@@ -2608,9 +2615,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-rating-field':
-        specifier: 4.9.0
-        version: link:../specs/components/rating-field
       '@ecl/specs-component-search-form':
         specifier: 4.9.0
         version: link:../specs/components/search-form
@@ -2668,9 +2672,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-rating-field':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/rating-field
       '@ecl/twig-component-search-form':
         specifier: 4.9.0
         version: link:../implementations/twig/components/search-form
@@ -3689,6 +3690,9 @@ packages:
 
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
+
+  '@ecl/specs-component-rating-field@4.9.0':
+    resolution: {integrity: sha512-du6rHmcPensnCt5ZYr3wuYQnSNdq1TspqXh8Ok6pRfQGPahKmRjAH+MlJAutbNhv2Fk3lH2JEHjENedjvLDsEA==}
 
   '@ecl/twig-component-icon@4.9.0':
     resolution: {integrity: sha512-uMsC72Cas9yr+hArxNSph201sO/2BUS431ZV1HqRCM4ljaykml4p5xo/Sn/U/fFA+OMDOdv2o9DDbaaV2BNevQ==}
@@ -13651,6 +13655,8 @@ snapshots:
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
+
+  '@ecl/specs-component-rating-field@4.9.0': {}
 
   '@ecl/twig-component-icon@4.9.0': {}
 
