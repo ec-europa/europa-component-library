@@ -1,20 +1,23 @@
 {
-  "name": "@ecl/twig-component-inpage-navigation",
+  "name": "@ecl/gallery",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "4.9.0",
-  "description": "ECL Inpage navigation",
+  "description": "ECL Gallery",
   "publishConfig": {
     "access": "public"
   },
+  "main": "gallery.js",
+  "module": "gallery.js",
+  "style": "gallery.scss",
   "dependencies": {
-    "@ecl/twig-component-icon": "4.9.0",
-    "@ecl/link": "4.9.0"
-  },
-  "devDependencies": {
-    "@ecl/specs-component-inpage-navigation": "4.9.0",
-    "@ecl/vanilla-component-inpage-navigation": "4.9.0",
-    "lorem-ipsum": "2.0.8"
+    "@ecl/button": "4.9.0",
+    "@ecl/icon": "4.9.0",
+    "@ecl/link": "4.9.0",
+    "@ecl/twig-component-picture": "4.9.0",
+    "@ecl/twig-component-video": "4.9.0",
+    "@ecl/dom-utils": "4.9.0",
+    "focus-trap": "7.6.2"
   },
   "repository": {
     "type": "git",

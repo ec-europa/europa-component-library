@@ -1,9 +1,9 @@
 # ECL Icon component
 
-npm package: `@ecl/twig-component-icon`
+npm package: `@ecl/icon`
 
 ```shell
-npm install --save @ecl/twig-component-icon
+npm install --save @ecl/icon
 ```
 
 ### Parameters

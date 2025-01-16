@@ -3,7 +3,7 @@
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
-@use '@ecl/vanilla-component-icon/icon' with (
+@use '@ecl/icon/icon' with (
   $theme: theme.$theme,
   $icons: var.$icons
 );
@@ -64,7 +64,7 @@
   $theme: theme.$theme,
   $date-block: var.$date-block
 );
-@use '@ecl/vanilla-component-indicator/indicator' with (
+@use '@ecl/indicator/indicator' with (
   $theme: theme.$theme
 );
 @use '@ecl/label/label' with (
@@ -215,7 +215,7 @@
   $theme: theme.$theme,
   $category-filter: var.$category-filter
 );
-@use '@ecl/vanilla-component-gallery/gallery' with (
+@use '@ecl/gallery/gallery' with (
   $theme: theme.$theme,
   $gallery: var.$gallery
 );
@@ -223,7 +223,7 @@
   $theme: theme.$theme,
   $page-header: var.$page-header
 );
-@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation' with (
+@use '@ecl/inpage-navigation/inpage-navigation' with (
   $theme: theme.$theme,
   $inpage-navigation: var.$inpage-navigation
 );

@@ -2,8 +2,8 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { correctPaths, getIconControls } from '@ecl/story-utils';
 
-import dataAll from '@ecl/specs-component-icon/demo/data';
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
+import dataAll from './demo/data';
 
 import icon from './icon.html.twig';
 import notes from './README.md';

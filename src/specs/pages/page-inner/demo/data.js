@@ -7,11 +7,11 @@ import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmoni
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/specs-component-page-header/demo/data';
-import dataInpageNavigation from '@ecl/specs-component-inpage-navigation/demo/data';
+import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/accordion/demo/data';
 import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
 import dataFile from '@ecl/file/demo/data--with-translation';
-import dataGallery from '@ecl/specs-component-gallery/demo/data';
+import dataGallery from '@ecl/gallery/demo/data';
 
 dataSiteHeaderEC.mega_menu = dataMegaMenu;
 delete dataSiteHeaderEC.cta_link;

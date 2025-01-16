@@ -1,9 +1,9 @@
 # ECL Gallery
 
-npm package: `@ecl/twig-component-gallery`
+npm package: `@ecl/gallery`
 
 ```shell
-npm install --save @ecl/twig-component-gallery
+npm install --save @ecl/gallery
 ```
 
 ### Parameters

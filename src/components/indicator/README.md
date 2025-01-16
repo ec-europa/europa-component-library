@@ -1,9 +1,9 @@
 # ECL Indicator component
 
-npm package: `@ecl/twig-component-indicator`
+npm package: `@ecl/indicator`
 
 ```shell
-npm install --save @ecl/twig-component-indicator
+npm install --save @ecl/indicator
 ```
 
 ### Parameters
