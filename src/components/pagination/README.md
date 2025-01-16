@@ -1,9 +1,9 @@
 # ECL Pagination component
 
-npm package: `@ecl/twig-component-pagination`
+npm package: `@ecl/pagination`
 
 ```shell
-npm install --save @ecl/twig-component-pagination
+npm install --save @ecl/pagination
 ```
 
 ### Parameters

@@ -8,7 +8,7 @@ import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/page-header/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--image';
-import dataPagination from '@ecl/specs-component-pagination/demo/data';
+import dataPagination from '@ecl/pagination/demo/data';
 import dataSelectMultiple from '@ecl/specs-component-select/demo/data-multiple';
 import dataTextInput from '@ecl/specs-component-text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';

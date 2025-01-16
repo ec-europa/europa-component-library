@@ -675,18 +675,11 @@ importers:
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
 
-  src/implementations/twig/components/pagination:
+  src/components/pagination:
     dependencies:
       '@ecl/link':
         specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/pagination
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/pagination
+        version: link:../link
 
   src/implementations/twig/components/picture:
     devDependencies:
@@ -1111,21 +1104,15 @@ importers:
       '@ecl/page-header':
         specifier: 4.9.0
         version: link:../../../../components/page-header
-      '@ecl/twig-component-pagination':
+      '@ecl/pagination':
         specifier: 4.9.0
-        version: link:../../components/pagination
+        version: link:../../../../components/pagination
       '@ecl/twig-component-site-footer':
         specifier: 4.9.0
         version: link:../../components/site-footer
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/pagination:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/picture: {}
 
@@ -1706,12 +1693,12 @@ importers:
       '@ecl/page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../components/pagination
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/pagination
       '@ecl/vanilla-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/picture
@@ -1986,12 +1973,12 @@ importers:
       '@ecl/page-header':
         specifier: 4.9.0
         version: link:../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../components/pagination
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/pagination
       '@ecl/vanilla-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/picture
@@ -2287,8 +2274,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/pagination: {}
-
   src/specs/components/picture: {}
 
   src/specs/components/popover: {}
@@ -2423,9 +2408,9 @@ importers:
       '@ecl/page-header':
         specifier: 4.9.0
         version: link:../../../components/page-header
-      '@ecl/specs-component-pagination':
+      '@ecl/pagination':
         specifier: 4.9.0
-        version: link:../../components/pagination
+        version: link:../../../components/pagination
       '@ecl/specs-component-select':
         specifier: 4.9.0
         version: link:../../components/select
@@ -2641,6 +2626,9 @@ importers:
       '@ecl/page-header':
         specifier: 4.9.0
         version: link:../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../components/pagination
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
@@ -2665,9 +2653,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../specs/components/pagination
       '@ecl/specs-component-popover':
         specifier: 4.9.0
         version: link:../specs/components/popover
@@ -2737,9 +2722,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-pagination':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/pagination
       '@ecl/twig-component-popover':
         specifier: 4.9.0
         version: link:../implementations/twig/components/popover

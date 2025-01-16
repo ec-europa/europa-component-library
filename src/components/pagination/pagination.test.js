@@ -6,7 +6,7 @@ import {
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
-import data from '@ecl/specs-component-pagination/demo/data';
+import data from '@ecl/pagination/demo/data';
 
 expect.extend(toHaveNoViolations);
 
