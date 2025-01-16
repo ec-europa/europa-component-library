@@ -1,9 +1,9 @@
 # ECL Range component
 
-npm package: `@ecl/twig-component-range`
+npm package: `@ecl/range`
 
 ```shell
-npm install --save @ecl/twig-component-range
+npm install --save @ecl/range
 ```
 
 ### Parameters:

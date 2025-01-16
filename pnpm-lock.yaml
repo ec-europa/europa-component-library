@@ -428,9 +428,9 @@ importers:
       '@ecl/radio':
         specifier: 4.9.0
         version: link:../radio
-      '@ecl/twig-component-range':
+      '@ecl/range':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/range
+        version: link:../range
       '@ecl/twig-component-rating-field':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/rating-field
@@ -444,9 +444,6 @@ importers:
         specifier: 4.9.0
         version: link:../../implementations/twig/components/text-input
     devDependencies:
-      '@ecl/specs-component-range':
-        specifier: 4.9.0
-        version: link:../../specs/components/range
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
         version: link:../../specs/components/rating-field
@@ -691,14 +688,11 @@ importers:
 
   src/components/radio: {}
 
-  src/implementations/twig/components/range:
+  src/components/range:
     devDependencies:
-      '@ecl/specs-component-range':
+      '@ecl/dom-utils':
         specifier: 4.9.0
-        version: link:../../../../specs/components/range
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/range
+        version: link:../../tools/dom-utils
 
   src/implementations/twig/components/rating-field:
     dependencies:
@@ -1095,15 +1089,6 @@ importers:
       '@ecl/twig-component-site-header':
         specifier: 4.9.0
         version: link:../../components/site-header
-
-  src/implementations/vanilla/components/range:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../layout/form
 
   src/implementations/vanilla/components/rating-field:
     dependencies:
@@ -1674,12 +1659,12 @@ importers:
       '@ecl/radio':
         specifier: 4.9.0
         version: link:../../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../../components/range
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/range
       '@ecl/vanilla-component-rating-field':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/rating-field
@@ -1954,12 +1939,12 @@ importers:
       '@ecl/radio':
         specifier: 4.9.0
         version: link:../../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../../components/range
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/range
       '@ecl/vanilla-component-rating-field':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/rating-field
@@ -2242,8 +2227,6 @@ importers:
       svgo:
         specifier: 3.3.2
         version: 3.3.2
-
-  src/specs/components/range: {}
 
   src/specs/components/rating-field: {}
 
@@ -2604,6 +2587,9 @@ importers:
       '@ecl/radio':
         specifier: 4.9.0
         version: link:../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../components/range
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
         version: link:../resources/logo-ec
@@ -2622,9 +2608,6 @@ importers:
       '@ecl/resources-social-media-icons':
         specifier: 4.9.0
         version: link:../resources/icons-social-media
-      '@ecl/specs-component-range':
-        specifier: 4.9.0
-        version: link:../specs/components/range
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
         version: link:../specs/components/rating-field
@@ -2685,9 +2668,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-range':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/range
       '@ecl/twig-component-rating-field':
         specifier: 4.9.0
         version: link:../implementations/twig/components/rating-field

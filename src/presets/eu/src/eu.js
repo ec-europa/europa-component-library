@@ -22,7 +22,7 @@ export * from '@ecl/modal';
 export * from '@ecl/news-ticker';
 export * from '@ecl/notification';
 export * from '@ecl/popover';
-export * from '@ecl/vanilla-component-range';
+export * from '@ecl/range';
 export * from '@ecl/vanilla-component-select';
 export * from '@ecl/vanilla-component-site-header';
 export * from '@ecl/vanilla-component-table';

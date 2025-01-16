@@ -7,7 +7,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 // Import data for tests
 
-import specDefault from '@ecl/specs-component-range/demo/data';
+import specDefault from './demo/data';
 
 // Add aria label as there is no form label here
 const dataDefault = merge(specDefault.input, {
