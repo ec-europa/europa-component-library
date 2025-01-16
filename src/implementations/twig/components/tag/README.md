@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-tag
 
 ### Parameters
 
+- **color_mode** (string)
 - **"tag"** (associative array) (default: 'predefined structure below')
   - type: string (default: 'link') can be 'link' or 'removable'
   - path: string (default: '') tag url if needed),
