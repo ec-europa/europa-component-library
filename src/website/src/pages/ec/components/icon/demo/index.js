@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
-import demoContentAudio from '@ecl/specs-component-icon/demo/data';
-import template from '@ecl/twig-component-icon/icon.html.twig';
+import demoContentAudio from '@ecl/icon/demo/data';
+import template from '@ecl/icon/icon.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataDefault = correctSvgPath(demoContentAudio);
