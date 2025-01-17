@@ -1,0 +1,14 @@
+/**
+ * Z-index utilities
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+
+@each $key, $value in map.get($theme, 'z-index') {
+  .ecl-u-z-#{$key} {
+    z-index: $value !important;
+  }
+}
