@@ -1,5 +1,5 @@
-import dataDefault from '@ecl/specs-component-spinner/demo/data';
-import template from '@ecl/twig-component-spinner/spinner.html.twig';
+import dataDefault from '@ecl/spinner/demo/data';
+import template from '@ecl/spinner/spinner.html.twig';
 
 const story = template(dataDefault);
 
