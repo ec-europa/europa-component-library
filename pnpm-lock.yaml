@@ -713,9 +713,6 @@ importers:
       '@ecl/button':
         specifier: 4.9.0
         version: link:../button
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../tools/dom-utils
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
@@ -734,16 +731,19 @@ importers:
       '@ecl/twig-component-picture':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/picture
-      focus-trap:
-        specifier: 7.6.2
-        version: 7.6.2
     devDependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
         version: link:../../resources/logo-ec
       '@ecl/resources-eu-logo':
         specifier: 4.9.0
         version: link:../../resources/logo-eu
+      focus-trap:
+        specifier: 7.6.2
+        version: 7.6.2
 
   src/components/skip-link:
     dependencies:
