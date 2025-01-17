@@ -195,12 +195,12 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/grid
 
   src/components/banner:
     dependencies:
@@ -213,6 +213,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
@@ -222,9 +225,6 @@ importers:
       '@ecl/twig-component-video':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/video
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/grid
 
   src/components/blockquote:
     dependencies:
@@ -503,15 +503,15 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../tools/event-manager
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
       '@ecl/twig-component-link':
         specifier: 4.9.0
         version: 4.9.0
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/grid
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
@@ -1032,24 +1032,6 @@ importers:
         specifier: 4.9.0
         version: link:../../components/spinner
 
-  src/implementations/twig/layout/grid:
-    devDependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../../vanilla/layout/grid
-      '@ecl/vanilla-utility-background':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/background
-      '@ecl/vanilla-utility-border':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/border
-      '@ecl/vanilla-utility-spacing':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/spacing
-      '@ecl/vanilla-utility-typography':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/typography
-
   src/implementations/twig/pages/page-home:
     dependencies:
       '@ecl/banner':
@@ -1132,15 +1114,15 @@ importers:
 
   src/implementations/vanilla/components/page-header:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/pagination:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/picture: {}
 
@@ -1149,9 +1131,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/radio: {}
 
@@ -1166,15 +1148,15 @@ importers:
 
   src/implementations/vanilla/components/rating-field:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/search-form:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
       '@ecl/vanilla-utility-screen-reader':
         specifier: 4.9.0
         version: link:../../utilities/screen-reader
@@ -1201,18 +1183,18 @@ importers:
 
   src/implementations/vanilla/components/site-footer:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/site-header:
     dependencies:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
@@ -1225,23 +1207,23 @@ importers:
 
   src/implementations/vanilla/components/social-media-follow:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/social-media-share:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/spinner: {}
 
   src/implementations/vanilla/components/splash-page:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/table:
     dependencies:
@@ -1251,12 +1233,12 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../../../layout/grid
       '@ecl/resources-icons':
         specifier: 4.9.0
         version: link:../../../../resources/icons
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
 
   src/implementations/vanilla/components/tabs:
     dependencies:
@@ -1266,9 +1248,9 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
       '@ecl/vanilla-utility-screen-reader':
         specifier: 4.9.0
         version: link:../../utilities/screen-reader
@@ -1292,9 +1274,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/components/unordered-list: {}
 
@@ -1302,19 +1284,17 @@ importers:
 
   src/implementations/vanilla/layout/form:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../grid
-
-  src/implementations/vanilla/layout/grid: {}
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/background: {}
 
   src/implementations/vanilla/utilities/border:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/clearfix: {}
 
@@ -1324,23 +1304,23 @@ importers:
 
   src/implementations/vanilla/utilities/display:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/flex:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/float: {}
 
   src/implementations/vanilla/utilities/media:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/print: {}
 
@@ -1350,17 +1330,19 @@ importers:
 
   src/implementations/vanilla/utilities/spacing:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/typography:
     dependencies:
-      '@ecl/vanilla-layout-grid':
+      '@ecl/grid':
         specifier: 4.9.0
-        version: link:../../layout/grid
+        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/z-index: {}
+
+  src/layout/grid: {}
 
   src/playground/addons/story-utils:
     dependencies:
@@ -1676,6 +1658,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../../components/icon
@@ -1802,9 +1787,6 @@ importers:
       '@ecl/vanilla-layout-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/form
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/grid
       '@ecl/vanilla-utility-background':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/background
@@ -1959,6 +1941,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../../components/gallery
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../../components/icon
@@ -2082,9 +2067,6 @@ importers:
       '@ecl/vanilla-layout-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/form
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/grid
       '@ecl/vanilla-utility-background':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/background
@@ -2619,6 +2601,9 @@ importers:
       '@ecl/gallery':
         specifier: 4.9.0
         version: link:../components/gallery
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../layout/grid
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../components/icon
@@ -2826,12 +2811,6 @@ importers:
       '@ecl/twig-component-unordered-list':
         specifier: 4.9.0
         version: link:../implementations/twig/components/unordered-list
-      '@ecl/twig-layout-grid':
-        specifier: 4.9.0
-        version: link:../implementations/twig/layout/grid
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../implementations/vanilla/layout/grid
       '@hot-loader/react-dom':
         specifier: 17.0.2
         version: 17.0.2(react@17.0.2)
