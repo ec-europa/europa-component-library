@@ -1,0 +1,32 @@
+# ECL Spinner component
+
+npm package: `@ecl/spinner`
+
+```shell
+npm install --save @ecl/spinner
+```
+
+### Parameters:
+
+- **"variant"** (string) (default: primary): could be 'primary' or 'inverted'
+- **"size"** (string) (default: m): could be 's', 'm' or 'l'
+- **"text"** (string) (default: '')
+- **"centered"** (boolean) (default: false)
+- **"visible"** (boolean) (default false)
+- **"overlay"** (boolean) (default: false)
+- **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
+- **"extra_attributes"** (optional) (array) (default: []) Extra attributes
+  - "name" (string) Attribute name, eg. 'data-test'
+  - "value" (string) Attribute value, eg: 'data-test-1'
+
+### Example:
+
+<!-- prettier-ignore -->
+```twig
+{% include '@ecl/spinner/spinner.html.twig' with {
+    variant: 'inverted',
+    centered: false,
+    size: 'small',
+    visible: true,
+} %}
+```

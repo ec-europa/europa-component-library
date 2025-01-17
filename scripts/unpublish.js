@@ -1,7 +1,7 @@
 /* eslint-disable  import/no-unresolved */
 /*
  For some reasons the query on nom doesn't return some packages:
-  @ecl/vanilla-component-site-header
+  @ecl/site-header
   @ecl/modal
   @ecl/vanilla-component-page-header
   @ecl/vanilla-component-breadcrumb

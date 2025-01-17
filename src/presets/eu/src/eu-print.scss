@@ -19,7 +19,7 @@
 @use '@ecl/datepicker/datepicker-print';
 @use '@ecl/file-upload/file-upload-print';
 @use '@ecl/radio/radio-print';
-@use '@ecl/vanilla-component-select/select-print';
+@use '@ecl/select/select-print';
 @use '@ecl/vanilla-component-text-area/text-area-print';
 @use '@ecl/vanilla-component-text-input/text-input-print';
 
@@ -52,8 +52,8 @@
   $notification: var.$notification,
   $notification-print: var.$notification-print
 );
-@use '@ecl/vanilla-component-skip-link/skip-link-print';
-@use '@ecl/vanilla-component-spinner/spinner-print';
+@use '@ecl/skip-link/skip-link-print';
+@use '@ecl/spinner/spinner-print';
 @use '@ecl/vanilla-component-table/table-print' with (
   $theme: theme.$theme,
   $table: var.$table
@@ -125,16 +125,16 @@
 );
 @use '@ecl/pagination/pagination-print';
 @use '@ecl/popover/popover-print';
-@use '@ecl/vanilla-component-search-form/search-form-print';
-@use '@ecl/vanilla-component-separator/separator-print' with (
+@use '@ecl/search-form/search-form-print';
+@use '@ecl/separator/separator-print' with (
   $theme: theme.$theme,
   $separator: var.$separator
 );
-@use '@ecl/vanilla-component-social-media-follow/social-media-follow-print' with (
+@use '@ecl/social-media-follow/social-media-follow-print' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
 );
-@use '@ecl/vanilla-component-social-media-share/social-media-share-print';
+@use '@ecl/social-media-share/social-media-share-print';
 @use '@ecl/vanilla-component-timeline/timeline-print' with (
   $theme: theme.$theme,
   $timeline-print: var.$timeline-print
@@ -161,11 +161,11 @@
   $theme: theme.$theme
 );
 @use '@ecl/mega-menu/mega-menu-print';
-@use '@ecl/vanilla-component-site-footer/site-footer-print';
-@use '@ecl/vanilla-component-site-header/site-header-print' with (
+@use '@ecl/site-footer/site-footer-print';
+@use '@ecl/site-header/site-header-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-splash-page/splash-page-print' with (
+@use '@ecl/splash-page/splash-page-print' with (
   $theme: theme.$theme,
   $splash-page: var.$splash-page,
   $splash-page-print: var.$splash-page-print,
