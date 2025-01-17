@@ -1,1 +1,0 @@
-# ECL Utility Shadow

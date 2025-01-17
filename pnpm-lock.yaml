@@ -666,6 +666,17 @@ importers:
         specifier: 4.9.0
         version: link:../../resources/icons
 
+  src/compositions/etrans: {}
+
+  src/compositions/file-upload-status:
+    dependencies:
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/twig-component-spinner':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/spinner
+
   src/implementations/twig/components/page-header:
     dependencies:
       '@ecl/breadcrumb':
@@ -995,121 +1006,6 @@ importers:
 
   src/implementations/twig/components/video: {}
 
-  src/implementations/twig/compositions/etrans:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/link':
-        specifier: 4.9.0
-        version: link:../../../../components/link
-      '@ecl/notification':
-        specifier: 4.9.0
-        version: link:../../../../components/notification
-    devDependencies:
-      '@ecl/specs-composition-etrans':
-        specifier: 4.9.0
-        version: link:../../../../specs/compositions/etrans
-      '@ecl/vanilla-utility-background':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/background
-      '@ecl/vanilla-utility-display':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/display
-      '@ecl/vanilla-utility-spacing':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/spacing
-      '@ecl/vanilla-utility-typography':
-        specifier: 4.9.0
-        version: link:../../../vanilla/utilities/typography
-
-  src/implementations/twig/compositions/file-upload-status:
-    dependencies:
-      '@ecl/link':
-        specifier: 4.9.0
-        version: link:../../../../components/link
-      '@ecl/twig-component-spinner':
-        specifier: 4.9.0
-        version: link:../../components/spinner
-
-  src/implementations/twig/pages/page-home:
-    dependencies:
-      '@ecl/banner':
-        specifier: 4.9.0
-        version: link:../../../../components/banner
-      '@ecl/card':
-        specifier: 4.9.0
-        version: link:../../../../components/card
-      '@ecl/content-item':
-        specifier: 4.9.0
-        version: link:../../../../components/content-item
-      '@ecl/featured-item':
-        specifier: 4.9.0
-        version: link:../../../../components/featured-item
-      '@ecl/link':
-        specifier: 4.9.0
-        version: link:../../../../components/link
-      '@ecl/navigation-list':
-        specifier: 4.9.0
-        version: link:../../../../components/navigation-list
-      '@ecl/twig-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/twig-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-
-  src/implementations/twig/pages/page-inner:
-    dependencies:
-      '@ecl/accordion':
-        specifier: 4.9.0
-        version: link:../../../../components/accordion
-      '@ecl/file':
-        specifier: 4.9.0
-        version: link:../../../../components/file
-      '@ecl/gallery':
-        specifier: 4.9.0
-        version: link:../../../../components/gallery
-      '@ecl/inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../../../components/inpage-navigation
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/twig-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/twig-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-      '@ecl/twig-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../components/unordered-list
-
-  src/implementations/twig/pages/page-search:
-    dependencies:
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../../components/button
-      '@ecl/content-item':
-        specifier: 4.9.0
-        version: link:../../../../components/content-item
-      '@ecl/form-group':
-        specifier: 4.9.0
-        version: link:../../../../components/form-group
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/twig-component-pagination':
-        specifier: 4.9.0
-        version: link:../../components/pagination
-      '@ecl/twig-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/twig-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-
   src/implementations/vanilla/color-modes: {}
 
   src/implementations/vanilla/components/page-header:
@@ -1142,7 +1038,7 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
-      '@ecl/form':
+      '@ecl/layout-form':
         specifier: 4.9.0
         version: link:../../../../layout/form
 
@@ -1157,9 +1053,9 @@ importers:
       '@ecl/grid':
         specifier: 4.9.0
         version: link:../../../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
+      '@ecl/utility-screen-reader':
         specifier: 4.9.0
-        version: link:../../utilities/screen-reader
+        version: link:../../../../utilities/screen-reader
 
   src/implementations/vanilla/components/select:
     dependencies:
@@ -1172,7 +1068,7 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
-      '@ecl/form':
+      '@ecl/layout-form':
         specifier: 4.9.0
         version: link:../../../../layout/form
       '@ecl/resources-icons':
@@ -1201,9 +1097,9 @@ importers:
 
   src/implementations/vanilla/components/skip-link:
     dependencies:
-      '@ecl/vanilla-utility-screen-reader':
+      '@ecl/utility-screen-reader':
         specifier: 4.9.0
-        version: link:../../utilities/screen-reader
+        version: link:../../../../utilities/screen-reader
 
   src/implementations/vanilla/components/social-media-follow:
     dependencies:
@@ -1251,21 +1147,21 @@ importers:
       '@ecl/grid':
         specifier: 4.9.0
         version: link:../../../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
+      '@ecl/utility-screen-reader':
         specifier: 4.9.0
-        version: link:../../utilities/screen-reader
+        version: link:../../../../utilities/screen-reader
 
   src/implementations/vanilla/components/tag: {}
 
   src/implementations/vanilla/components/text-area:
     dependencies:
-      '@ecl/form':
+      '@ecl/layout-form':
         specifier: 4.9.0
         version: link:../../../../layout/form
 
   src/implementations/vanilla/components/text-input:
     dependencies:
-      '@ecl/form':
+      '@ecl/layout-form':
         specifier: 4.9.0
         version: link:../../../../layout/form
 
@@ -1282,60 +1178,6 @@ importers:
 
   src/implementations/vanilla/components/video: {}
 
-  src/implementations/vanilla/utilities/background: {}
-
-  src/implementations/vanilla/utilities/border:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/clearfix: {}
-
-  src/implementations/vanilla/utilities/dimension: {}
-
-  src/implementations/vanilla/utilities/disablescroll: {}
-
-  src/implementations/vanilla/utilities/display:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/flex:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/float: {}
-
-  src/implementations/vanilla/utilities/media:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/print: {}
-
-  src/implementations/vanilla/utilities/screen-reader: {}
-
-  src/implementations/vanilla/utilities/shadow: {}
-
-  src/implementations/vanilla/utilities/spacing:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/typography:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
-
-  src/implementations/vanilla/utilities/z-index: {}
-
   src/layout/form:
     dependencies:
       '@ecl/grid':
@@ -1343,6 +1185,84 @@ importers:
         version: link:../grid
 
   src/layout/grid: {}
+
+  src/page-example/page-home:
+    dependencies:
+      '@ecl/banner':
+        specifier: 4.9.0
+        version: link:../../components/banner
+      '@ecl/card':
+        specifier: 4.9.0
+        version: link:../../components/card
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../../components/content-item
+      '@ecl/featured-item':
+        specifier: 4.9.0
+        version: link:../../components/featured-item
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../../components/link
+      '@ecl/navigation-list':
+        specifier: 4.9.0
+        version: link:../../components/navigation-list
+      '@ecl/twig-component-site-footer':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-footer
+      '@ecl/twig-component-site-header':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-header
+
+  src/page-example/page-inner:
+    dependencies:
+      '@ecl/accordion':
+        specifier: 4.9.0
+        version: link:../../components/accordion
+      '@ecl/file':
+        specifier: 4.9.0
+        version: link:../../components/file
+      '@ecl/gallery':
+        specifier: 4.9.0
+        version: link:../../components/gallery
+      '@ecl/inpage-navigation':
+        specifier: 4.9.0
+        version: link:../../components/inpage-navigation
+      '@ecl/twig-component-page-header':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/page-header
+      '@ecl/twig-component-site-footer':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-footer
+      '@ecl/twig-component-site-header':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-header
+      '@ecl/twig-component-unordered-list':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/unordered-list
+
+  src/page-example/page-search:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../../components/button
+      '@ecl/content-item':
+        specifier: 4.9.0
+        version: link:../../components/content-item
+      '@ecl/form-group':
+        specifier: 4.9.0
+        version: link:../../components/form-group
+      '@ecl/twig-component-page-header':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/page-header
+      '@ecl/twig-component-pagination':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/pagination
+      '@ecl/twig-component-site-footer':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-footer
+      '@ecl/twig-component-site-header':
+        specifier: 4.9.0
+        version: link:../../implementations/twig/components/site-header
 
   src/playground/addons/story-utils:
     dependencies:
@@ -1652,9 +1572,6 @@ importers:
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../../components/file-upload
-      '@ecl/form':
-        specifier: 4.9.0
-        version: link:../../layout/form
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -1676,6 +1593,9 @@ importers:
       '@ecl/label':
         specifier: 4.9.0
         version: link:../../components/label
+      '@ecl/layout-form':
+        specifier: 4.9.0
+        version: link:../../layout/form
       '@ecl/link':
         specifier: 4.9.0
         version: link:../../components/link
@@ -1709,6 +1629,51 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
+      '@ecl/utility-background':
+        specifier: 4.9.0
+        version: link:../../utilities/background
+      '@ecl/utility-border':
+        specifier: 4.9.0
+        version: link:../../utilities/border
+      '@ecl/utility-clearfix':
+        specifier: 4.9.0
+        version: link:../../utilities/clearfix
+      '@ecl/utility-dimension':
+        specifier: 4.9.0
+        version: link:../../utilities/dimension
+      '@ecl/utility-disablescroll':
+        specifier: 4.9.0
+        version: link:../../utilities/disablescroll
+      '@ecl/utility-display':
+        specifier: 4.9.0
+        version: link:../../utilities/display
+      '@ecl/utility-flex':
+        specifier: 4.9.0
+        version: link:../../utilities/flex
+      '@ecl/utility-float':
+        specifier: 4.9.0
+        version: link:../../utilities/float
+      '@ecl/utility-media':
+        specifier: 4.9.0
+        version: link:../../utilities/media
+      '@ecl/utility-print':
+        specifier: 4.9.0
+        version: link:../../utilities/print
+      '@ecl/utility-screen-reader':
+        specifier: 4.9.0
+        version: link:../../utilities/screen-reader
+      '@ecl/utility-shadow':
+        specifier: 4.9.0
+        version: link:../../utilities/shadow
+      '@ecl/utility-spacing':
+        specifier: 4.9.0
+        version: link:../../utilities/spacing
+      '@ecl/utility-typography':
+        specifier: 4.9.0
+        version: link:../../utilities/typography
+      '@ecl/utility-z-index':
+        specifier: 4.9.0
+        version: link:../../utilities/z-index
       '@ecl/vanilla-color-modes':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/color-modes
@@ -1787,51 +1752,6 @@ importers:
       '@ecl/vanilla-component-video':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/video
-      '@ecl/vanilla-utility-background':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/background
-      '@ecl/vanilla-utility-border':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/border
-      '@ecl/vanilla-utility-clearfix':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/clearfix
-      '@ecl/vanilla-utility-dimension':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/dimension
-      '@ecl/vanilla-utility-disablescroll':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/disablescroll
-      '@ecl/vanilla-utility-display':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/display
-      '@ecl/vanilla-utility-flex':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/flex
-      '@ecl/vanilla-utility-float':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/float
-      '@ecl/vanilla-utility-media':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/media
-      '@ecl/vanilla-utility-print':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/print
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/screen-reader
-      '@ecl/vanilla-utility-shadow':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/shadow
-      '@ecl/vanilla-utility-spacing':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/spacing
-      '@ecl/vanilla-utility-typography':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/typography
-      '@ecl/vanilla-utility-z-index':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/z-index
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
@@ -1935,9 +1855,6 @@ importers:
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../../components/file-upload
-      '@ecl/form':
-        specifier: 4.9.0
-        version: link:../../layout/form
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -1959,6 +1876,9 @@ importers:
       '@ecl/label':
         specifier: 4.9.0
         version: link:../../components/label
+      '@ecl/layout-form':
+        specifier: 4.9.0
+        version: link:../../layout/form
       '@ecl/link':
         specifier: 4.9.0
         version: link:../../components/link
@@ -1992,6 +1912,51 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
+      '@ecl/utility-background':
+        specifier: 4.9.0
+        version: link:../../utilities/background
+      '@ecl/utility-border':
+        specifier: 4.9.0
+        version: link:../../utilities/border
+      '@ecl/utility-clearfix':
+        specifier: 4.9.0
+        version: link:../../utilities/clearfix
+      '@ecl/utility-dimension':
+        specifier: 4.9.0
+        version: link:../../utilities/dimension
+      '@ecl/utility-disablescroll':
+        specifier: 4.9.0
+        version: link:../../utilities/disablescroll
+      '@ecl/utility-display':
+        specifier: 4.9.0
+        version: link:../../utilities/display
+      '@ecl/utility-flex':
+        specifier: 4.9.0
+        version: link:../../utilities/flex
+      '@ecl/utility-float':
+        specifier: 4.9.0
+        version: link:../../utilities/float
+      '@ecl/utility-media':
+        specifier: 4.9.0
+        version: link:../../utilities/media
+      '@ecl/utility-print':
+        specifier: 4.9.0
+        version: link:../../utilities/print
+      '@ecl/utility-screen-reader':
+        specifier: 4.9.0
+        version: link:../../utilities/screen-reader
+      '@ecl/utility-shadow':
+        specifier: 4.9.0
+        version: link:../../utilities/shadow
+      '@ecl/utility-spacing':
+        specifier: 4.9.0
+        version: link:../../utilities/spacing
+      '@ecl/utility-typography':
+        specifier: 4.9.0
+        version: link:../../utilities/typography
+      '@ecl/utility-z-index':
+        specifier: 4.9.0
+        version: link:../../utilities/z-index
       '@ecl/vanilla-component-page-header':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/page-header
@@ -2067,51 +2032,6 @@ importers:
       '@ecl/vanilla-component-video':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/video
-      '@ecl/vanilla-utility-background':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/background
-      '@ecl/vanilla-utility-border':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/border
-      '@ecl/vanilla-utility-clearfix':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/clearfix
-      '@ecl/vanilla-utility-dimension':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/dimension
-      '@ecl/vanilla-utility-disablescroll':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/disablescroll
-      '@ecl/vanilla-utility-display':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/display
-      '@ecl/vanilla-utility-flex':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/flex
-      '@ecl/vanilla-utility-float':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/float
-      '@ecl/vanilla-utility-media':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/media
-      '@ecl/vanilla-utility-print':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/print
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/screen-reader
-      '@ecl/vanilla-utility-shadow':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/shadow
-      '@ecl/vanilla-utility-spacing':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/spacing
-      '@ecl/vanilla-utility-typography':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/typography
-      '@ecl/vanilla-utility-z-index':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/utilities/z-index
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
@@ -2335,116 +2255,6 @@ importers:
 
   src/specs/components/video: {}
 
-  src/specs/compositions/etrans: {}
-
-  src/specs/pages/page-home:
-    dependencies:
-      '@ecl/banner':
-        specifier: 4.9.0
-        version: link:../../../components/banner
-      '@ecl/card':
-        specifier: 4.9.0
-        version: link:../../../components/card
-      '@ecl/content-item':
-        specifier: 4.9.0
-        version: link:../../../components/content-item
-      '@ecl/featured-item':
-        specifier: 4.9.0
-        version: link:../../../components/featured-item
-      '@ecl/mega-menu':
-        specifier: 4.9.0
-        version: link:../../../components/mega-menu
-      '@ecl/navigation-list':
-        specifier: 4.9.0
-        version: link:../../../components/navigation-list
-      '@ecl/specs-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/specs-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-    devDependencies:
-      '@ecl/builder':
-        specifier: 4.9.0
-        version: link:../../../tools/builder
-
-  src/specs/pages/page-inner:
-    dependencies:
-      '@ecl/accordion':
-        specifier: 4.9.0
-        version: link:../../../components/accordion
-      '@ecl/breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../components/breadcrumb
-      '@ecl/file':
-        specifier: 4.9.0
-        version: link:../../../components/file
-      '@ecl/gallery':
-        specifier: 4.9.0
-        version: link:../../../components/gallery
-      '@ecl/inpage-navigation':
-        specifier: 4.9.0
-        version: link:../../../components/inpage-navigation
-      '@ecl/mega-menu':
-        specifier: 4.9.0
-        version: link:../../../components/mega-menu
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/specs-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/specs-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-      '@ecl/specs-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../components/unordered-list
-    devDependencies:
-      '@ecl/builder':
-        specifier: 4.9.0
-        version: link:../../../tools/builder
-
-  src/specs/pages/page-search:
-    dependencies:
-      '@ecl/breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../components/breadcrumb
-      '@ecl/button':
-        specifier: 4.9.0
-        version: link:../../../components/button
-      '@ecl/checkbox':
-        specifier: 4.9.0
-        version: link:../../../components/checkbox
-      '@ecl/content-item':
-        specifier: 4.9.0
-        version: link:../../../components/content-item
-      '@ecl/mega-menu':
-        specifier: 4.9.0
-        version: link:../../../components/mega-menu
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../../components/pagination
-      '@ecl/specs-component-select':
-        specifier: 4.9.0
-        version: link:../../components/select
-      '@ecl/specs-component-site-footer':
-        specifier: 4.9.0
-        version: link:../../components/site-footer
-      '@ecl/specs-component-site-header':
-        specifier: 4.9.0
-        version: link:../../components/site-header
-      '@ecl/specs-component-text-input':
-        specifier: 4.9.0
-        version: link:../../components/text-input
-    devDependencies:
-      '@ecl/builder':
-        specifier: 4.9.0
-        version: link:../../../tools/builder
-
   src/specs/utilities/typography: {}
 
   src/themes/ec: {}
@@ -2535,6 +2345,60 @@ importers:
       deepmerge:
         specifier: 4.3.1
         version: 4.3.1
+
+  src/utilities/background: {}
+
+  src/utilities/border:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/clearfix: {}
+
+  src/utilities/dimension: {}
+
+  src/utilities/disablescroll: {}
+
+  src/utilities/display:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/flex:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/float: {}
+
+  src/utilities/media:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/print: {}
+
+  src/utilities/screen-reader: {}
+
+  src/utilities/shadow: {}
+
+  src/utilities/spacing:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/typography:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../../layout/grid
+
+  src/utilities/z-index: {}
 
   src/website:
     dependencies:

@@ -1,1 +1,0 @@
-# ECL Dimension utility
