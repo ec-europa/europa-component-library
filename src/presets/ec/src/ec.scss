@@ -38,7 +38,7 @@
   $theme: theme.$theme,
   $range: var.$range
 );
-@use '@ecl/vanilla-component-select/select' with (
+@use '@ecl/select/select' with (
   $theme: theme.$theme,
   $select: var.$select
 );
@@ -84,14 +84,14 @@
   $notification: var.$notification
 );
 @use '@ecl/vanilla-component-picture/picture';
-@use '@ecl/vanilla-component-separator/separator' with (
+@use '@ecl/separator/separator' with (
   $separator: var.$separator
 );
-@use '@ecl/vanilla-component-spinner/spinner' with (
+@use '@ecl/spinner/spinner' with (
   $theme: theme.$theme,
   $spinner: var.$spinner
 );
-@use '@ecl/vanilla-component-skip-link/skip-link' with (
+@use '@ecl/skip-link/skip-link' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-table/table' with (
@@ -185,15 +185,15 @@
   $theme: theme.$theme,
   $popover: var.$popover
 );
-@use '@ecl/vanilla-component-search-form/search-form' with (
+@use '@ecl/search-form/search-form' with (
   $theme: theme.$theme,
   $search-form: var.$search-form
 );
-@use '@ecl/vanilla-component-social-media-follow/social-media-follow' with (
+@use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
 );
-@use '@ecl/vanilla-component-social-media-share/social-media-share' with (
+@use '@ecl/social-media-share/social-media-share' with (
   $theme: theme.$theme,
   $social-media-share: var.$social-media-share
 );
@@ -235,16 +235,16 @@
   $theme: theme.$theme,
   $mega-menu: var.$mega-menu
 );
-@use '@ecl/vanilla-component-site-footer/site-footer-ec' with (
+@use '@ecl/site-footer/site-footer-ec' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer
 );
-@use '@ecl/vanilla-component-site-header/site-header-ec' with (
+@use '@ecl/site-header/site-header-ec' with (
   $theme: theme.$theme,
   $site-header: var.$site-header,
   $language-list: var.$language-list
 );
-@use '@ecl/vanilla-component-splash-page/splash-page' with (
+@use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,
   $splash-page: var.$splash-page,
   $language-list: var.$language-list
