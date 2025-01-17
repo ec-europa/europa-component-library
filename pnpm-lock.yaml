@@ -1142,9 +1142,9 @@ importers:
       '@ecl/dom-utils':
         specifier: 4.9.0
         version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-form':
+      '@ecl/form':
         specifier: 4.9.0
-        version: link:../../layout/form
+        version: link:../../../../layout/form
 
   src/implementations/vanilla/components/rating-field:
     dependencies:
@@ -1172,12 +1172,12 @@ importers:
       '@ecl/event-manager':
         specifier: 4.9.0
         version: link:../../../../tools/event-manager
+      '@ecl/form':
+        specifier: 4.9.0
+        version: link:../../../../layout/form
       '@ecl/resources-icons':
         specifier: 4.9.0
         version: link:../../../../resources/icons
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../layout/form
 
   src/implementations/vanilla/components/separator: {}
 
@@ -1259,15 +1259,15 @@ importers:
 
   src/implementations/vanilla/components/text-area:
     dependencies:
-      '@ecl/vanilla-layout-form':
+      '@ecl/form':
         specifier: 4.9.0
-        version: link:../../layout/form
+        version: link:../../../../layout/form
 
   src/implementations/vanilla/components/text-input:
     dependencies:
-      '@ecl/vanilla-layout-form':
+      '@ecl/form':
         specifier: 4.9.0
-        version: link:../../layout/form
+        version: link:../../../../layout/form
 
   src/implementations/vanilla/components/timeline:
     dependencies:
@@ -1281,12 +1281,6 @@ importers:
   src/implementations/vanilla/components/unordered-list: {}
 
   src/implementations/vanilla/components/video: {}
-
-  src/implementations/vanilla/layout/form:
-    dependencies:
-      '@ecl/grid':
-        specifier: 4.9.0
-        version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/background: {}
 
@@ -1341,6 +1335,12 @@ importers:
         version: link:../../../../layout/grid
 
   src/implementations/vanilla/utilities/z-index: {}
+
+  src/layout/form:
+    dependencies:
+      '@ecl/grid':
+        specifier: 4.9.0
+        version: link:../grid
 
   src/layout/grid: {}
 
@@ -1652,6 +1652,9 @@ importers:
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../../components/file-upload
+      '@ecl/form':
+        specifier: 4.9.0
+        version: link:../../layout/form
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -1784,9 +1787,6 @@ importers:
       '@ecl/vanilla-component-video':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/video
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/form
       '@ecl/vanilla-utility-background':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/background
@@ -1935,6 +1935,9 @@ importers:
       '@ecl/file-upload':
         specifier: 4.9.0
         version: link:../../components/file-upload
+      '@ecl/form':
+        specifier: 4.9.0
+        version: link:../../layout/form
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../components/form-group
@@ -2064,9 +2067,6 @@ importers:
       '@ecl/vanilla-component-video':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/video
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/layout/form
       '@ecl/vanilla-utility-background':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/background
