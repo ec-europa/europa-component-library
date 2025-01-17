@@ -3,8 +3,8 @@ import withCode from '@ecl/storybook-addon-code';
 import { correctPaths } from '@ecl/story-utils';
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataDefault from '@ecl/specs-composition-etrans/demo/data--default';
-import dataNoLanguage from '@ecl/specs-composition-etrans/demo/data--no-languages';
+import dataDefault from './demo/data--default';
+import dataNoLanguage from './demo/data--no-languages';
 
 import etransEc from './etrans-ec.html.twig';
 import etransEu from './etrans-eu.html.twig';

@@ -1,9 +1,9 @@
 # ECL Etrans composition
 
-npm package: `@ecl/twig-composition-etrans`
+npm package: `@ecl/etrans`
 
 ```shell
-npm install --save @ecl/twig-composition-etrans
+npm install --save @ecl/etrans
 ```
 
 ### Example :
