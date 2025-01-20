@@ -3,28 +3,16 @@
 
 $label: (
   radius: 2px,
-  border-width: 2px,
+  border-width: 1px,
   padding-horizontal: var(--s-m),
   padding-vertical: var(--s-2xs),
+  background: var(--cm-surface-inverted),
+  color: var(--cm-on-surface-dark),
+  border-color: var(--cm-border-dark),
   highlight: (
-    background: var(--c-d),
-    color: map.get($color, 'white'),
-    border-color: var(--c-d),
-  ),
-  high: (
-    background: var(--c-s),
-    color: var(--c-d),
-    border-color: var(--c-s),
-  ),
-  medium: (
-    background: var(--c-p),
-    color: map.get($color, 'white'),
-    border-color: var(--c-p),
-  ),
-  low: (
-    background: map.get($color, 'white'),
-    color: var(--c-p),
-    border-color: var(--c-p),
+    background: var(--cm-surface-dark),
+    color: var(--cm-on-surface-inverted),
+    border-color: var(--cm-border-dark),
   ),
 );
 $label-print: (
