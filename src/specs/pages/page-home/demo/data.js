@@ -1,9 +1,9 @@
 import getSystem from '@ecl/builder/utils/getSystem';
 
-import dataSiteHeaderEC from '@ecl/specs-component-site-header/demo/data--ec';
-import dataSiteFooterEC from '@ecl/specs-component-site-footer/demo/data-harmonised--ec';
-import dataSiteHeaderEU from '@ecl/specs-component-site-header/demo/data--eu';
-import dataSiteFooterEU from '@ecl/specs-component-site-footer/demo/data-harmonised--eu';
+import dataSiteHeaderEC from '@ecl/site-header/demo/data--ec';
+import dataSiteFooterEC from '@ecl/site-footer/demo/data-harmonised--ec';
+import dataSiteHeaderEU from '@ecl/site-header/demo/data--eu';
+import dataSiteFooterEU from '@ecl/site-footer/demo/data-harmonised--eu';
 import dataMegaMenu from '@ecl/mega-menu/demo/data';
 import dataBannerVideo from '@ecl/banner/demo/data--video';
 import dataCard from '@ecl/card/demo/data';
