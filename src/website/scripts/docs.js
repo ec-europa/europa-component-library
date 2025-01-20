@@ -6,11 +6,12 @@ const glob = require('glob');
 const { execSync } = require('child_process');
 
 const publicUrl = process.env.PUBLIC_URL || '';
-const dir = path.resolve(__dirname, '../../implementations/vanilla/components');
+const dir = path.resolve(__dirname, '../../components');
 
 const files = glob
-  .sync('**/*.js', {
+  .sync('*/*.js', {
     cwd: dir,
+    ignore: ['**/*.story.js', '**/*.test.js'],
   })
   .sort((a, b) => a.localeCompare(b, 'en'));
 
