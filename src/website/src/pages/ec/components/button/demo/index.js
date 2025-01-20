@@ -1,10 +1,10 @@
-import demoContentPrimary from '@ecl/specs-component-button/demo/data--primary';
-import demoContentSecondary from '@ecl/specs-component-button/demo/data--secondary';
-import demoContentCall from '@ecl/specs-component-button/demo/data--call';
-import demoContentGhost from '@ecl/specs-component-button/demo/data--ghost';
-import demoContentGhostInverted from '@ecl/specs-component-button/demo/data--ghost-inverted';
-import demoContentTertiary from '@ecl/specs-component-button/demo/data--tertiary';
-import template from '@ecl/twig-component-button/button.html.twig';
+import demoContentPrimary from '@ecl/button/demo/data--primary';
+import demoContentSecondary from '@ecl/button/demo/data--secondary';
+import demoContentCall from '@ecl/button/demo/data--call';
+import demoContentGhost from '@ecl/button/demo/data--ghost';
+import demoContentGhostInverted from '@ecl/button/demo/data--ghost-inverted';
+import demoContentTertiary from '@ecl/button/demo/data--tertiary';
+import template from '@ecl/button/button.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const demoContentIcon = {

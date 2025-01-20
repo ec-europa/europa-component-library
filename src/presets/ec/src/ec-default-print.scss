@@ -6,29 +6,29 @@
 @use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-blockquote/blockquote-print' with (
+@use '@ecl/blockquote/blockquote-print' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote,
   $blockquote-print: var.$blockquote-print
 );
-@use '@ecl/vanilla-component-button/button-print' with (
+@use '@ecl/button/button-print' with (
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-description-list/description-list-print' with (
+@use '@ecl/description-list/description-list-print' with (
   $theme: theme.$theme,
   $description-list: var.$description-list,
   $description-list-print: var.$description-list-print
 );
-@use '@ecl/vanilla-component-link/link-print' with (
+@use '@ecl/link/link-print' with (
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-ordered-list/ordered-list-print' with (
+@use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-separator/separator-print' with (
+@use '@ecl/separator/separator-print' with (
   $theme: theme.$theme,
   $separator: var.$separator
 );

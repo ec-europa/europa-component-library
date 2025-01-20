@@ -1,7 +1,7 @@
-import demoContent from '@ecl/specs-component-featured-item/demo/data';
-import demoContentSimple from '@ecl/specs-component-featured-item/demo/data--simple';
-import demoContentHighlight from '@ecl/specs-component-featured-item/demo/data--highlight';
-import template from '@ecl/twig-component-featured-item/featured-item.html.twig';
+import demoContent from '@ecl/featured-item/demo/data';
+import demoContentSimple from '@ecl/featured-item/demo/data--simple';
+import demoContentHighlight from '@ecl/featured-item/demo/data--highlight';
+import template from '@ecl/featured-item/featured-item.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 // Footer is deprecated FRONT-4650

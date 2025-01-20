@@ -8,6 +8,7 @@ npm install --save @ecl/twig-component-tag
 
 ### Parameters
 
+- **color_mode** (string)
 - **"items"** (array) (default: []): array of Tag
 - **"icon_path"** (string) Path to the icons sprite. If provided here, it will be used for every tag in the set
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)

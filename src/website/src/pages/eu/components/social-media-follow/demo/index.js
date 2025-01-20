@@ -1,6 +1,6 @@
-import demoDefault from '@ecl/specs-component-social-media-follow/demo/data--monochrome';
-import demoColor from '@ecl/specs-component-social-media-follow/demo/data--color';
-import template from '@ecl/twig-component-social-media-follow/social-media-follow.html.twig';
+import demoDefault from '@ecl/social-media-follow/demo/data--monochrome';
+import demoColor from '@ecl/social-media-follow/demo/data--color';
+import template from '@ecl/social-media-follow/social-media-follow.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const socialMediaHorizontal = template(correctSvgPath(demoDefault));

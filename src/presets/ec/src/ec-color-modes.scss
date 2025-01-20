@@ -1,0 +1,6 @@
+@use '@ecl/theme-ec/theme' as theme;
+
+// Color modes
+@use '@ecl/vanilla-color-modes/color-modes' with (
+  $theme: theme.$theme
+);

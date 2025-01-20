@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "color_mode" (string)
   - "items" (array) (default: []): array of Tag
   - "icon_path" (string) Path to the icons sprite. If provided here, it will be used for every tag in the set
   - "extra_classes" (optional) (string) (default: '')
@@ -12,6 +13,7 @@
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _items = items|default([]) %}
 {% set _icon_path = icon_path|default('') %}
 {% set _css_class = 'ecl-tag-set' %}
@@ -44,6 +46,7 @@
       <li class="ecl-tag-set__item">
         {% include '@ecl/tag/tag.html.twig' with _item|merge({
           icon_path: _item.icon_path|default(_icon_path),
+          color_mode: _item.color_mode|default(_color_mode),
         }) only %}
       </li>
     {% endfor -%}

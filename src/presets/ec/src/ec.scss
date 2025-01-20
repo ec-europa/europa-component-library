@@ -3,7 +3,7 @@
 @use '@ecl/theme-ec/variables' as var;
 
 // Icons & Images
-@use '@ecl/vanilla-component-icon/icon' with (
+@use '@ecl/icon/icon' with (
   $theme: theme.$theme,
   $icons: var.$icons
 );
@@ -14,31 +14,31 @@
 );
 
 // Forms
-@use '@ecl/vanilla-component-form-group/form-group' with (
+@use '@ecl/form-group/form-group' with (
   $theme: theme.$theme,
   $form-group: var.$form-group
 );
-@use '@ecl/vanilla-component-checkbox/checkbox' with (
+@use '@ecl/checkbox/checkbox' with (
   $theme: theme.$theme,
   $checkbox: var.$checkbox
 );
-@use '@ecl/vanilla-component-datepicker/datepicker' with (
+@use '@ecl/datepicker/datepicker' with (
   $theme: theme.$theme,
   $datepicker: var.$datepicker
 );
-@use '@ecl/vanilla-component-file-upload/file-upload' with (
+@use '@ecl/file-upload/file-upload' with (
   $theme: theme.$theme,
   $file-upload: var.$file-upload
 );
-@use '@ecl/vanilla-component-radio/radio' with (
+@use '@ecl/radio/radio' with (
   $theme: theme.$theme,
   $radio: var.$radio
 );
-@use '@ecl/vanilla-component-range/range' with (
+@use '@ecl/range/range' with (
   $theme: theme.$theme,
   $range: var.$range
 );
-@use '@ecl/vanilla-component-select/select' with (
+@use '@ecl/select/select' with (
   $theme: theme.$theme,
   $select: var.$select
 );
@@ -52,46 +52,46 @@
 );
 
 // Other atoms
-@use '@ecl/vanilla-component-blockquote/blockquote' with (
+@use '@ecl/blockquote/blockquote' with (
   $theme: theme.$theme,
   $blockquote: var.$blockquote
 );
-@use '@ecl/vanilla-component-button/button' with (
+@use '@ecl/button/button' with (
   $theme: theme.$theme,
   $button: var.$button
 );
-@use '@ecl/vanilla-component-date-block/date-block' with (
+@use '@ecl/date-block/date-block' with (
   $theme: theme.$theme,
   $date-block: var.$date-block
 );
-@use '@ecl/vanilla-component-indicator/indicator' with (
+@use '@ecl/indicator/indicator' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-label/label' with (
+@use '@ecl/label/label' with (
   $theme: theme.$theme,
   $label: var.$label
 );
-@use '@ecl/vanilla-component-link/link' with (
+@use '@ecl/link/link' with (
   $theme: theme.$theme,
   $link: var.$link
 );
-@use '@ecl/vanilla-component-news-ticker/news-ticker' with (
+@use '@ecl/news-ticker/news-ticker' with (
   $theme: theme.$theme,
   $news-ticker: var.$news-ticker
 );
-@use '@ecl/vanilla-component-notification/notification' with (
+@use '@ecl/notification/notification' with (
   $theme: theme.$theme,
   $notification: var.$notification
 );
-@use '@ecl/vanilla-component-picture/picture';
-@use '@ecl/vanilla-component-separator/separator' with (
+@use '@ecl/picture/picture';
+@use '@ecl/separator/separator' with (
   $separator: var.$separator
 );
-@use '@ecl/vanilla-component-spinner/spinner' with (
+@use '@ecl/spinner/spinner' with (
   $theme: theme.$theme,
   $spinner: var.$spinner
 );
-@use '@ecl/vanilla-component-skip-link/skip-link' with (
+@use '@ecl/skip-link/skip-link' with (
   $theme: theme.$theme
 );
 @use '@ecl/vanilla-component-table/table' with (
@@ -109,67 +109,67 @@
 @use '@ecl/vanilla-component-video/video';
 
 // Molecules
-@use '@ecl/vanilla-component-banner/banner' with (
+@use '@ecl/banner/banner' with (
   $theme: theme.$theme,
   $banner: var.$banner
 );
-@use '@ecl/vanilla-component-description-list/description-list' with (
+@use '@ecl/description-list/description-list' with (
   $theme: theme.$theme,
   $description-list: var.$description-list
 );
-@use '@ecl/vanilla-component-featured-item/featured-item' with (
+@use '@ecl/featured-item/featured-item' with (
   $theme: theme.$theme,
   $featured-item: var.$featured-item
 );
-@use '@ecl/vanilla-component-list-illustration/list-illustration' with (
+@use '@ecl/list-illustration/list-illustration' with (
   $theme: theme.$theme,
   $list-illustration: var.$list-illustration
 );
-@use '@ecl/vanilla-component-breadcrumb/breadcrumb' with (
+@use '@ecl/breadcrumb/breadcrumb' with (
   $theme: theme.$theme,
   $breadcrumb: var.$breadcrumb
 );
-@use '@ecl/vanilla-component-card/card' with (
+@use '@ecl/card/card' with (
   $theme: theme.$theme,
   $card: var.$card
 );
-@use '@ecl/vanilla-component-content-block/content-block' with (
+@use '@ecl/content-block/content-block' with (
   $theme: theme.$theme,
   $content-block: var.$content-block
 );
-@use '@ecl/vanilla-component-content-item/content-item' with (
+@use '@ecl/content-item/content-item' with (
   $theme: theme.$theme,
   $content-item: var.$content-item
 );
-@use '@ecl/vanilla-component-expandable/expandable' with (
+@use '@ecl/expandable/expandable' with (
   $theme: theme.$theme,
   $expandable: var.$expandable
 );
-@use '@ecl/vanilla-component-fact-figures/fact-figures' with (
+@use '@ecl/fact-figures/fact-figures' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures
 );
-@use '@ecl/vanilla-component-file/file' with (
+@use '@ecl/file/file' with (
   $theme: theme.$theme,
   $file: var.$file
 );
-@use '@ecl/vanilla-component-rating-field/rating-field' with (
+@use '@ecl/rating-field/rating-field' with (
   $theme: theme.$theme,
   $rating-field: var.$rating-field
 );
-@use '@ecl/vanilla-component-modal/modal' with (
+@use '@ecl/modal/modal' with (
   $theme: theme.$theme,
   $modal: var.$modal
 );
-@use '@ecl/vanilla-component-media-container/media-container' with (
+@use '@ecl/media-container/media-container' with (
   $theme: theme.$theme,
   $media-container: var.$media-container
 );
-@use '@ecl/vanilla-component-navigation-list/navigation-list' with (
+@use '@ecl/navigation-list/navigation-list' with (
   $theme: theme.$theme,
   $navigation-list: var.$navigation-list
 );
-@use '@ecl/vanilla-component-ordered-list/ordered-list' with (
+@use '@ecl/ordered-list/ordered-list' with (
   $theme: theme.$theme,
   $list: var.$list
 );
@@ -177,23 +177,23 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-pagination/pagination' with (
+@use '@ecl/pagination/pagination' with (
   $theme: theme.$theme,
   $pagination: var.$pagination
 );
-@use '@ecl/vanilla-component-popover/popover' with (
+@use '@ecl/popover/popover' with (
   $theme: theme.$theme,
   $popover: var.$popover
 );
-@use '@ecl/vanilla-component-search-form/search-form' with (
+@use '@ecl/search-form/search-form' with (
   $theme: theme.$theme,
   $search-form: var.$search-form
 );
-@use '@ecl/vanilla-component-social-media-follow/social-media-follow' with (
+@use '@ecl/social-media-follow/social-media-follow' with (
   $theme: theme.$theme,
   $social-media-follow: var.$social-media-follow
 );
-@use '@ecl/vanilla-component-social-media-share/social-media-share' with (
+@use '@ecl/social-media-share/social-media-share' with (
   $theme: theme.$theme,
   $social-media-share: var.$social-media-share
 );
@@ -203,48 +203,48 @@
 );
 
 // Organisms
-@use '@ecl/vanilla-component-accordion/accordion' with (
+@use '@ecl/accordion/accordion' with (
   $theme: theme.$theme,
   $accordion: var.$accordion
 );
-@use '@ecl/vanilla-component-carousel/carousel' with (
+@use '@ecl/carousel/carousel' with (
   $theme: theme.$theme,
   $carousel: var.$carousel
 );
-@use '@ecl/vanilla-component-category-filter/category-filter' with (
+@use '@ecl/category-filter/category-filter' with (
   $theme: theme.$theme,
   $category-filter: var.$category-filter
 );
-@use '@ecl/vanilla-component-gallery/gallery' with (
+@use '@ecl/gallery/gallery' with (
   $theme: theme.$theme,
   $gallery: var.$gallery
 );
-@use '@ecl/vanilla-component-page-header/page-header-ec' with (
+@use '@ecl/page-header/page-header-ec' with (
   $theme: theme.$theme,
   $page-header: var.$page-header
 );
-@use '@ecl/vanilla-component-inpage-navigation/inpage-navigation' with (
+@use '@ecl/inpage-navigation/inpage-navigation' with (
   $theme: theme.$theme,
   $inpage-navigation: var.$inpage-navigation
 );
-@use '@ecl/vanilla-component-menu/menu' with (
+@use '@ecl/menu/menu' with (
   $theme: theme.$theme,
   $menu: var.$menu
 );
-@use '@ecl/vanilla-component-mega-menu/mega-menu' with (
+@use '@ecl/mega-menu/mega-menu' with (
   $theme: theme.$theme,
   $mega-menu: var.$mega-menu
 );
-@use '@ecl/vanilla-component-site-footer/site-footer-ec' with (
+@use '@ecl/site-footer/site-footer-ec' with (
   $theme: theme.$theme,
   $site-footer: var.$site-footer
 );
-@use '@ecl/vanilla-component-site-header/site-header-ec' with (
+@use '@ecl/site-header/site-header-ec' with (
   $theme: theme.$theme,
   $site-header: var.$site-header,
   $language-list: var.$language-list
 );
-@use '@ecl/vanilla-component-splash-page/splash-page' with (
+@use '@ecl/splash-page/splash-page' with (
   $theme: theme.$theme,
   $splash-page: var.$splash-page,
   $language-list: var.$language-list
