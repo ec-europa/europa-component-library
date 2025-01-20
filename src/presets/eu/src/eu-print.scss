@@ -18,7 +18,7 @@
 @use '@ecl/checkbox/checkbox-print';
 @use '@ecl/datepicker/datepicker-print';
 @use '@ecl/file-upload/file-upload-print';
-@use '@ecl/vanilla-component-radio/radio-print';
+@use '@ecl/radio/radio-print';
 @use '@ecl/select/select-print';
 @use '@ecl/vanilla-component-text-area/text-area-print';
 @use '@ecl/vanilla-component-text-input/text-input-print';
@@ -107,7 +107,7 @@
 @use '@ecl/file/file-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-rating-field/rating-field-print';
+@use '@ecl/rating-field/rating-field-print';
 @use '@ecl/media-container/media-container-print' with (
   $theme: theme.$theme
 );
@@ -123,8 +123,8 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-pagination/pagination-print';
-@use '@ecl/vanilla-component-popover/popover-print';
+@use '@ecl/pagination/pagination-print';
+@use '@ecl/popover/popover-print';
 @use '@ecl/search-form/search-form-print';
 @use '@ecl/separator/separator-print' with (
   $theme: theme.$theme,
@@ -151,7 +151,7 @@
   $theme: theme.$theme,
   $gallery: var.$gallery
 );
-@use '@ecl/vanilla-component-page-header/page-header-print-eu' with (
+@use '@ecl/page-header/page-header-print-eu' with (
   $theme: theme.$theme,
   $page-header: var.$page-header,
   $page-header-print: var.$page-header-print
