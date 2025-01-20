@@ -8,7 +8,6 @@ npm install --save @ecl/fact-figures
 
 ### Parameters:
 
-- **"color_mode"** (string)
 - **"column"** (integer) (default: 3): Number of columns (1 to 4)
 - **"centered"** (boolean) (default: false)
 - **"font_size"** (string) (default: 'l') Size of the value (can be 'm', 'l')

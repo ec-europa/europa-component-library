@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { getColorModeControls, correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
+import { correctPaths } from '@ecl/story-utils';
 
 import iconsAll from '@ecl/resources-icons/dist/lists/all.json';
 import demoData from './demo/data';
@@ -14,31 +13,21 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
   return mapping;
 }, {});
 
-const getArgs = (data) => {
-  const args = {
-    centered: false,
-    show_view_all: true,
-    show_icons: true,
-    column: 3,
-    font_size: 'l',
-    icon: data.items[0].icon.name,
-    icon_size: 'medium',
-    value: data.items[0].value,
-    title: data.items[0].title,
-    description: data.items[0].description,
-  };
+const getArgs = (data) => ({
+  centered: false,
+  show_view_all: true,
+  show_icons: true,
+  column: 3,
+  font_size: 'l',
+  icon: data.items[0].icon.name,
+  icon_size: 'medium',
+  value: data.items[0].value,
+  title: data.items[0].title,
+  description: data.items[0].description,
+});
 
-  if (getSystem() === 'ec') {
-    args.color_mode = 'default';
-  }
-
-  return args;
-};
-
-const getArgTypes = () => {
-  const argTypes = getColorModeControls();
-
-  argTypes.centered = {
+const getArgTypes = () => ({
+  centered: {
     type: { name: 'boolean' },
     description: 'Centered content',
     table: {
@@ -46,8 +35,8 @@ const getArgTypes = () => {
       defaultValue: { summary: 'false' },
       category: 'Layout',
     },
-  };
-  argTypes.show_view_all = {
+  },
+  show_view_all: {
     name: 'view all link',
     type: { name: 'boolean' },
     description: 'Link in the component footer',
@@ -56,8 +45,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Optional',
     },
-  };
-  argTypes.show_icons = {
+  },
+  show_icons: {
     name: 'icons',
     type: { name: 'boolean' },
     description: 'Toggle visibility of the icons',
@@ -66,8 +55,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Optional',
     },
-  };
-  argTypes.column = {
+  },
+  column: {
     description: 'Number of columns',
     control: { type: 'range', min: 1, max: 4, step: 1 },
     table: {
@@ -75,8 +64,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '3' },
       category: 'Layout',
     },
-  };
-  argTypes.font_size = {
+  },
+  font_size: {
     name: 'font size',
     type: 'select',
     description: 'Change font size',
@@ -96,8 +85,8 @@ const getArgTypes = () => {
       defaultValue: { summary: 'l' },
       category: 'Display',
     },
-  };
-  argTypes.icon = {
+  },
+  icon: {
     description: 'Name of the icon',
     type: 'select',
     options: iconsAll,
@@ -108,8 +97,8 @@ const getArgTypes = () => {
       category: 'Content (first item)',
     },
     if: { arg: 'show_icons' },
-  };
-  argTypes.icon_size = {
+  },
+  icon_size: {
     description: 'Size of the icon',
     type: 'select',
     options: ['medium', 'large'],
@@ -123,8 +112,8 @@ const getArgTypes = () => {
       category: 'Content (first item)',
     },
     if: { arg: 'show_icons' },
-  };
-  argTypes.value = {
+  },
+  value: {
     type: { name: 'string', required: true },
     description: 'Main heading',
     table: {
@@ -132,8 +121,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Content (first item)',
     },
-  };
-  argTypes.title = {
+  },
+  title: {
     type: { name: 'string', required: true },
     description: 'Sub heading',
     table: {
@@ -141,8 +130,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Content (first item)',
     },
-  };
-  argTypes.description = {
+  },
+  description: {
     type: { name: 'string' },
     description: 'Description',
     table: {
@@ -150,10 +139,8 @@ const getArgTypes = () => {
       defaultValue: { summary: '' },
       category: 'Content (first item)',
     },
-  };
-
-  return argTypes;
-};
+  },
+});
 
 const prepareData = (data, args) => {
   correctPaths(data);
@@ -170,7 +157,6 @@ const prepareData = (data, args) => {
   clone.column = args.column;
 
   // Other controls
-  clone.color_mode = args.color_mode;
   clone.font_size = args.font_size;
   clone.items[0].value = args.value;
   clone.items[0].title = args.title;
