@@ -10,7 +10,7 @@ import dataPageHeader from '@ecl/page-header/demo/data';
 import dataContentItem from '@ecl/content-item/demo/data--image';
 import dataPagination from '@ecl/pagination/demo/data';
 import dataSelectMultiple from '@ecl/select/demo/data-multiple';
-import dataTextInput from '@ecl/specs-component-text-input/demo/data';
+import dataTextInput from '@ecl/text-input/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataButtonPrimary from '@ecl/button/demo/data--primary';
 import dataButtonSecondary from '@ecl/button/demo/data--secondary';
