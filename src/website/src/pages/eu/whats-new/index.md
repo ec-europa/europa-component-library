@@ -87,7 +87,7 @@ Detailed release information is available on [Github](https://github.com/ec-euro
 
 ## 4.7.0
 
-#### :warning In this version of ECL node 23.6.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
+#### :warning In this version of ECL node 20.9.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
 
 #### :rocket: New Feature
 

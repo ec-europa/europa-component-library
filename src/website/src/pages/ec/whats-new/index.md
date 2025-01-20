@@ -88,7 +88,7 @@ ECL v4 contains changes focused on improving the visual identity of the EC compo
 
 ## 4.7.0
 
-#### :warning In this version of ECL node 23.6.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
+#### :warning In this version of ECL node 22.11.0 is being used, for those who need to compile ECL on their side please upgrade the node version before integrating this release.
 
 #### :rocket: New Feature
 
