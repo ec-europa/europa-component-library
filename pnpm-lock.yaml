@@ -216,9 +216,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
       '@ecl/twig-component-video':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/video
@@ -228,9 +228,9 @@ importers:
 
   src/components/blockquote:
     dependencies:
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/breadcrumb:
     dependencies:
@@ -261,9 +261,9 @@ importers:
       '@ecl/content-block':
         specifier: 4.9.0
         version: link:../content-block
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/carousel:
     dependencies:
@@ -318,9 +318,9 @@ importers:
       '@ecl/date-block':
         specifier: 4.9.0
         version: link:../date-block
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/date-block: {}
 
@@ -374,9 +374,9 @@ importers:
       '@ecl/media-container':
         specifier: 4.9.0
         version: link:../media-container
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/file:
     dependencies:
@@ -398,9 +398,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/file-upload:
     dependencies:
@@ -425,18 +425,18 @@ importers:
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
+      '@ecl/radio':
+        specifier: 4.9.0
+        version: link:../radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../rating-field
       '@ecl/select':
         specifier: 4.9.0
         version: link:../select
-      '@ecl/twig-component-radio':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/radio
-      '@ecl/twig-component-range':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/range
-      '@ecl/twig-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/rating-field
       '@ecl/twig-component-text-area':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/text-area
@@ -444,15 +444,6 @@ importers:
         specifier: 4.9.0
         version: link:../../implementations/twig/components/text-input
     devDependencies:
-      '@ecl/specs-component-radio':
-        specifier: 4.9.0
-        version: link:../../specs/components/radio
-      '@ecl/specs-component-range':
-        specifier: 4.9.0
-        version: link:../../specs/components/range
-      '@ecl/specs-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../specs/components/rating-field
       '@ecl/specs-component-text-area':
         specifier: 4.9.0
         version: link:../../specs/components/text-area
@@ -474,9 +465,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
       '@ecl/twig-component-video':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/video
@@ -536,9 +527,9 @@ importers:
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/media-container:
     dependencies:
@@ -551,9 +542,9 @@ importers:
       '@ecl/expandable':
         specifier: 4.9.0
         version: link:../expandable
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
       '@ecl/twig-component-video':
         specifier: 4.9.0
         version: link:../../implementations/twig/components/video
@@ -623,9 +614,9 @@ importers:
       '@ecl/content-block':
         specifier: 4.9.0
         version: link:../content-block
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
 
   src/components/news-ticker:
     dependencies:
@@ -663,6 +654,55 @@ importers:
         specifier: 4.9.0
         version: link:../../resources/icons
 
+  src/components/page-header:
+    dependencies:
+      '@ecl/breadcrumb':
+        specifier: 4.9.0
+        version: link:../breadcrumb
+      '@ecl/picture':
+        specifier: 4.9.0
+        version: link:../picture
+
+  src/components/pagination:
+    dependencies:
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
+      '@ecl/vanilla-layout-grid':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/layout/grid
+
+  src/components/picture: {}
+
+  src/components/popover:
+    dependencies:
+      '@ecl/button':
+        specifier: 4.9.0
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/link':
+        specifier: 4.9.0
+        version: link:../link
+      '@ecl/vanilla-layout-grid':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/layout/grid
+
+  src/components/radio: {}
+
+  src/components/range:
+    dependencies:
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+
+  src/components/rating-field:
+    dependencies:
+      '@ecl/icon':
+        specifier: 4.9.0
+        version: link:../icon
+
   src/components/search-form:
     dependencies:
       '@ecl/button':
@@ -697,9 +737,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
     devDependencies:
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
@@ -728,12 +768,12 @@ importers:
       '@ecl/notification':
         specifier: 4.9.0
         version: link:../notification
+      '@ecl/picture':
+        specifier: 4.9.0
+        version: link:../picture
       '@ecl/search-form':
         specifier: 4.9.0
         version: link:../search-form
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
@@ -762,9 +802,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-popover':
+      '@ecl/popover':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/popover
+        version: link:../popover
 
   src/components/spinner: {}
 
@@ -776,9 +816,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-picture':
+      '@ecl/picture':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/picture
+        version: link:../picture
     devDependencies:
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
@@ -786,72 +826,6 @@ importers:
       '@ecl/resources-eu-logo':
         specifier: 4.9.0
         version: link:../../resources/logo-eu
-
-  src/implementations/twig/components/page-header:
-    dependencies:
-      '@ecl/breadcrumb':
-        specifier: 4.9.0
-        version: link:../../../../components/breadcrumb
-      '@ecl/twig-component-picture':
-        specifier: 4.9.0
-        version: link:../picture
-    devDependencies:
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/page-header
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/page-header
-
-  src/implementations/twig/components/pagination:
-    dependencies:
-      '@ecl/link':
-        specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/pagination
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/pagination
-
-  src/implementations/twig/components/picture:
-    devDependencies:
-      '@ecl/specs-component-picture':
-        specifier: 4.6.1
-        version: 4.6.1
-
-  src/implementations/twig/components/popover:
-    dependencies:
-      '@ecl/link':
-        specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-popover':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/popover
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/popover
-
-  src/implementations/twig/components/radio:
-    devDependencies:
-      '@ecl/specs-component-radio':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/radio
-      '@ecl/vanilla-component-radio':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/radio
-
-  src/implementations/twig/components/range:
-    devDependencies:
-      '@ecl/specs-component-range':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/range
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/range
 
   src/implementations/twig/components/rating-field:
     dependencies:
@@ -861,7 +835,7 @@ importers:
     devDependencies:
       '@ecl/specs-component-rating-field':
         specifier: 4.9.0
-        version: link:../../../../specs/components/rating-field
+        version: 4.9.0
       '@ecl/vanilla-component-rating-field':
         specifier: 4.9.0
         version: link:../../../vanilla/components/rating-field
@@ -1042,15 +1016,15 @@ importers:
       '@ecl/inpage-navigation':
         specifier: 4.9.0
         version: link:../../../../components/inpage-navigation
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../../../components/page-header
       '@ecl/site-footer':
         specifier: 4.9.0
         version: link:../../../../components/site-footer
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../../components/site-header
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
       '@ecl/twig-component-unordered-list':
         specifier: 4.9.0
         version: link:../../components/unordered-list
@@ -1066,54 +1040,20 @@ importers:
       '@ecl/form-group':
         specifier: 4.9.0
         version: link:../../../../components/form-group
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../../../components/pagination
       '@ecl/site-footer':
         specifier: 4.9.0
         version: link:../../../../components/site-footer
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../../components/site-header
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/twig-component-pagination':
-        specifier: 4.9.0
-        version: link:../../components/pagination
 
   src/implementations/vanilla/color-modes: {}
-
-  src/implementations/vanilla/components/page-header:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/pagination:
-    dependencies:
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/picture: {}
-
-  src/implementations/vanilla/components/popover:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/radio: {}
-
-  src/implementations/vanilla/components/range:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../layout/form
 
   src/implementations/vanilla/components/rating-field:
     dependencies:
@@ -1596,6 +1536,27 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../components/pagination
+      '@ecl/picture':
+        specifier: 4.9.0
+        version: link:../../components/picture
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../../components/popover
+      '@ecl/radio':
+        specifier: 4.9.0
+        version: link:../../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../../components/rating-field
       '@ecl/search-form':
         specifier: 4.9.0
         version: link:../../components/search-form
@@ -1632,27 +1593,6 @@ importers:
       '@ecl/vanilla-color-modes':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/color-modes
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/page-header
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/pagination
-      '@ecl/vanilla-component-picture':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/picture
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/popover
-      '@ecl/vanilla-component-radio':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/radio
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/range
-      '@ecl/vanilla-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/rating-field
       '@ecl/vanilla-component-table':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/table
@@ -1879,6 +1819,27 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../components/pagination
+      '@ecl/picture':
+        specifier: 4.9.0
+        version: link:../../components/picture
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../../components/popover
+      '@ecl/radio':
+        specifier: 4.9.0
+        version: link:../../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../../components/rating-field
       '@ecl/search-form':
         specifier: 4.9.0
         version: link:../../components/search-form
@@ -1912,27 +1873,6 @@ importers:
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-page-header':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/page-header
-      '@ecl/vanilla-component-pagination':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/pagination
-      '@ecl/vanilla-component-picture':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/picture
-      '@ecl/vanilla-component-popover':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/popover
-      '@ecl/vanilla-component-radio':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/radio
-      '@ecl/vanilla-component-range':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/range
-      '@ecl/vanilla-component-rating-field':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/rating-field
       '@ecl/vanilla-component-table':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/components/table
@@ -2183,20 +2123,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/page-header: {}
-
-  src/specs/components/pagination: {}
-
-  src/specs/components/picture: {}
-
-  src/specs/components/popover: {}
-
-  src/specs/components/radio: {}
-
-  src/specs/components/range: {}
-
-  src/specs/components/rating-field: {}
-
   src/specs/components/table: {}
 
   src/specs/components/tabs: {}
@@ -2266,15 +2192,15 @@ importers:
       '@ecl/mega-menu':
         specifier: 4.9.0
         version: link:../../../components/mega-menu
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../../components/page-header
       '@ecl/site-footer':
         specifier: 4.9.0
         version: link:../../../components/site-footer
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../components/site-header
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
       '@ecl/specs-component-unordered-list':
         specifier: 4.9.0
         version: link:../../components/unordered-list
@@ -2300,6 +2226,12 @@ importers:
       '@ecl/mega-menu':
         specifier: 4.9.0
         version: link:../../../components/mega-menu
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../../../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../../../components/pagination
       '@ecl/select':
         specifier: 4.9.0
         version: link:../../../components/select
@@ -2309,12 +2241,6 @@ importers:
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../components/site-header
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../../components/page-header
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../../components/pagination
       '@ecl/specs-component-text-input':
         specifier: 4.9.0
         version: link:../../components/text-input
@@ -2518,12 +2444,30 @@ importers:
       '@ecl/ordered-list':
         specifier: 4.9.0
         version: link:../components/ordered-list
+      '@ecl/page-header':
+        specifier: 4.9.0
+        version: link:../components/page-header
+      '@ecl/pagination':
+        specifier: 4.9.0
+        version: link:../components/pagination
+      '@ecl/popover':
+        specifier: 4.9.0
+        version: link:../components/popover
       '@ecl/preset-ec':
         specifier: 4.9.0
         version: link:../presets/ec
       '@ecl/preset-eu':
         specifier: 4.9.0
         version: link:../presets/eu
+      '@ecl/radio':
+        specifier: 4.9.0
+        version: link:../components/radio
+      '@ecl/range':
+        specifier: 4.9.0
+        version: link:../components/range
+      '@ecl/rating-field':
+        specifier: 4.9.0
+        version: link:../components/rating-field
       '@ecl/resources-ec-logo':
         specifier: 4.9.0
         version: link:../resources/logo-ec
@@ -2566,24 +2510,6 @@ importers:
       '@ecl/social-media-share':
         specifier: 4.9.0
         version: link:../components/social-media-share
-      '@ecl/specs-component-page-header':
-        specifier: 4.9.0
-        version: link:../specs/components/page-header
-      '@ecl/specs-component-pagination':
-        specifier: 4.9.0
-        version: link:../specs/components/pagination
-      '@ecl/specs-component-popover':
-        specifier: 4.9.0
-        version: link:../specs/components/popover
-      '@ecl/specs-component-radio':
-        specifier: 4.9.0
-        version: link:../specs/components/radio
-      '@ecl/specs-component-range':
-        specifier: 4.9.0
-        version: link:../specs/components/range
-      '@ecl/specs-component-rating-field':
-        specifier: 4.9.0
-        version: link:../specs/components/rating-field
       '@ecl/specs-component-table':
         specifier: 4.9.0
         version: link:../specs/components/table
@@ -2620,24 +2546,6 @@ importers:
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-page-header':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/page-header
-      '@ecl/twig-component-pagination':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/pagination
-      '@ecl/twig-component-popover':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/popover
-      '@ecl/twig-component-radio':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/radio
-      '@ecl/twig-component-range':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/range
-      '@ecl/twig-component-rating-field':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/rating-field
       '@ecl/twig-component-table':
         specifier: 4.9.0
         version: link:../implementations/twig/components/table
@@ -3630,8 +3538,8 @@ packages:
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
 
-  '@ecl/specs-component-picture@4.6.1':
-    resolution: {integrity: sha512-EwsI8qh37Dcua4Lp6AKXyTJ2T02XuRRXAOBD2KZrGKrToPSbfk5IluiA3SOSChlk9m0VAvUHzPOE8ETid3I/ag==}
+  '@ecl/specs-component-rating-field@4.9.0':
+    resolution: {integrity: sha512-du6rHmcPensnCt5ZYr3wuYQnSNdq1TspqXh8Ok6pRfQGPahKmRjAH+MlJAutbNhv2Fk3lH2JEHjENedjvLDsEA==}
 
   '@ecl/twig-component-icon@4.9.0':
     resolution: {integrity: sha512-uMsC72Cas9yr+hArxNSph201sO/2BUS431ZV1HqRCM4ljaykml4p5xo/Sn/U/fFA+OMDOdv2o9DDbaaV2BNevQ==}
@@ -13858,7 +13766,7 @@ snapshots:
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
 
-  '@ecl/specs-component-picture@4.6.1': {}
+  '@ecl/specs-component-rating-field@4.9.0': {}
 
   '@ecl/twig-component-icon@4.9.0': {}
 
