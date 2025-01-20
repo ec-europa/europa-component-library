@@ -59,8 +59,8 @@ class PaletteItem extends PureComponent {
         <button
           type="button"
           id={id || name.toLowerCase()}
-          data-clipboard-text={value.toUpperCase()}
           className={styles.button}
+          onClick={() => this.handleCopy(value.toUpperCase())}
         >
           <span className={styles.buttonHoverHidden}>
             {value.toUpperCase()}
