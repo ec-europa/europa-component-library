@@ -1,4 +1,4 @@
-import data from '@ecl/specs-component-range/demo/data';
+import data from '@ecl/range/demo/data';
 import template from '@ecl/form-group/form-group.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 

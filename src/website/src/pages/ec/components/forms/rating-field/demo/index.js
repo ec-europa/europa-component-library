@@ -1,4 +1,4 @@
-import demoContentDefault from '@ecl/specs-component-rating-field/demo/data';
+import demoContentDefault from '@ecl/rating-field/demo/data';
 import template from '@ecl/form-group/form-group.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
