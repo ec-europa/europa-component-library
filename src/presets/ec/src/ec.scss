@@ -9,7 +9,7 @@
 );
 
 // Layout
-@use '@ecl/vanilla-layout-grid/grid' with (
+@use '@ecl/grid/grid' with (
   $theme: theme.$theme
 );
 
@@ -42,11 +42,11 @@
   $theme: theme.$theme,
   $select: var.$select
 );
-@use '@ecl/vanilla-component-text-area/text-area' with (
+@use '@ecl/text-area/text-area' with (
   $theme: theme.$theme,
   $textarea: var.$textarea
 );
-@use '@ecl/vanilla-component-text-input/text-input' with (
+@use '@ecl/text-input/text-input' with (
   $theme: theme.$theme,
   $text-input: var.$text-input
 );
@@ -94,19 +94,19 @@
 @use '@ecl/skip-link/skip-link' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-table/table' with (
+@use '@ecl/table/table' with (
   $theme: theme.$theme,
   $table: var.$table
 );
-@use '@ecl/vanilla-component-tabs/tabs' with (
+@use '@ecl/tabs/tabs' with (
   $theme: theme.$theme,
   $tabs: var.$tabs
 );
-@use '@ecl/vanilla-component-tag/tag' with (
+@use '@ecl/tag/tag' with (
   $theme: theme.$theme,
   $tag: var.$tag
 );
-@use '@ecl/vanilla-component-video/video';
+@use '@ecl/video/video';
 
 // Molecules
 @use '@ecl/banner/banner' with (
@@ -173,7 +173,7 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-unordered-list/unordered-list' with (
+@use '@ecl/unordered-list/unordered-list' with (
   $theme: theme.$theme,
   $list: var.$list
 );
@@ -197,7 +197,7 @@
   $theme: theme.$theme,
   $social-media-share: var.$social-media-share
 );
-@use '@ecl/vanilla-component-timeline/timeline' with (
+@use '@ecl/timeline/timeline' with (
   $theme: theme.$theme,
   $timeline: var.$timeline
 );
