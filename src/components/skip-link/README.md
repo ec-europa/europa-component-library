@@ -1,6 +1,6 @@
 # ECL Skip Link component
 
-npm package: `@ecl/twig--component-skip-link`
+npm package: `@ecl/skip-link`
 
 ```shell
 npm install --save @ecl/skip-link
