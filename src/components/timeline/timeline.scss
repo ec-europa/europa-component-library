@@ -177,7 +177,7 @@ $timeline: null !default;
     position: relative;
 
     &::before {
-      background: var(--c-s);
+      background: var(--cm-surface-secondary, var(--c-s));
       border-radius: 0 0 2px 2px;
       content: '';
       display: block;
@@ -198,7 +198,7 @@ $timeline: null !default;
     width: 15px;
 
     &::after {
-      background: map.get($theme, 'color', 'white');
+      background: var(--cm-surface-inverted, #fff);
       box-shadow: 0 0 6px rgb(14 71 203 / 0.2);
       content: '';
       height: 10px;
