@@ -16,7 +16,7 @@ $link: null !default;
   text-decoration: none;
 
   &::after {
-    color: map.get($theme, 'color', 'black');
+    color: var(--cm-on-surface-dark, var(--c-d));
     content: '(' attr(href) ')';
     font: map.get($theme, 'font-print', 's');
     font-style: italic;

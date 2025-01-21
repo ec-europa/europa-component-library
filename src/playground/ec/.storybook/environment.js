@@ -1,13 +1,9 @@
 const path = require('path');
 const { TwingEnvironment, TwingLoaderFilesystem } = require('twing');
 
-const componentAbsPath = path.resolve(
-  __dirname,
-  '../../../implementations/twig/components',
-);
-const componentNewAbsPath = path.resolve(__dirname, '../../../components');
-const compositionsAbsPath = path.resolve(__dirname, '../../../compositions');
+const componentAbsPath = path.resolve(__dirname, '../../../components');
 const pageAbsPath = path.resolve(__dirname, '../../../page-example');
+const compositionsAbsPath = path.resolve(__dirname, '../../../compositions');
 
 const loader = new TwingLoaderFilesystem(componentAbsPath);
 
@@ -18,7 +14,6 @@ if (typeof loader.addPath === 'function') {
   loader.addPath(componentAbsPath, 'ecl');
   loader.addPath(compositionsAbsPath, 'ecl');
   loader.addPath(pageAbsPath, 'ecl');
-  loader.addPath(componentNewAbsPath, 'ecl');
 }
 
 module.exports = new TwingEnvironment(loader, { autoescape: false });
