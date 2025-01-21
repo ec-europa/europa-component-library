@@ -20,8 +20,8 @@
 @use '@ecl/file-upload/file-upload-print';
 @use '@ecl/radio/radio-print';
 @use '@ecl/select/select-print';
-@use '@ecl/vanilla-component-text-area/text-area-print';
-@use '@ecl/vanilla-component-text-input/text-input-print';
+@use '@ecl/text-area/text-area-print';
+@use '@ecl/text-input/text-input-print';
 
 // Other atoms
 @use '@ecl/blockquote/blockquote-print' with (
@@ -54,14 +54,14 @@
 );
 @use '@ecl/skip-link/skip-link-print';
 @use '@ecl/spinner/spinner-print';
-@use '@ecl/vanilla-component-table/table-print' with (
+@use '@ecl/table/table-print' with (
   $theme: theme.$theme,
   $table: var.$table
 );
-@use '@ecl/vanilla-component-tabs/tabs-print' with (
+@use '@ecl/tabs/tabs-print' with (
   $theme: theme.$theme
 );
-@use '@ecl/vanilla-component-tag/tag-print' with (
+@use '@ecl/tag/tag-print' with (
   $theme: theme.$theme
 );
 
@@ -119,7 +119,7 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-component-unordered-list/unordered-list-print' with (
+@use '@ecl/unordered-list/unordered-list-print' with (
   $theme: theme.$theme,
   $list: var.$list
 );
@@ -135,7 +135,7 @@
   $social-media-follow: var.$social-media-follow
 );
 @use '@ecl/social-media-share/social-media-share-print';
-@use '@ecl/vanilla-component-timeline/timeline-print' with (
+@use '@ecl/timeline/timeline-print' with (
   $theme: theme.$theme,
   $timeline-print: var.$timeline-print
 );

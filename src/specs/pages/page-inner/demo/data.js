@@ -9,7 +9,7 @@ import dataBreadcrumb from '@ecl/breadcrumb/demo/data--long';
 import dataPageHeader from '@ecl/page-header/demo/data';
 import dataInpageNavigation from '@ecl/inpage-navigation/demo/data';
 import dataAccordion from '@ecl/accordion/demo/data';
-import dataUnorderedList from '@ecl/specs-component-unordered-list/demo/data--text';
+import dataUnorderedList from '@ecl/unordered-list/demo/data--text';
 import dataFile from '@ecl/file/demo/data--with-translation';
 import dataGallery from '@ecl/gallery/demo/data';
 
