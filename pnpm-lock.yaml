@@ -490,9 +490,9 @@ importers:
       '@ecl/icon':
         specifier: 4.9.0
         version: link:../icon
-      '@ecl/twig-component-link':
+      '@ecl/link':
         specifier: 4.9.0
-        version: 4.9.0
+        version: link:../link
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
@@ -2294,9 +2294,6 @@ importers:
       '@ecl/social-media-share':
         specifier: 4.9.0
         version: link:../components/social-media-share
-      '@ecl/specs-utils-typography':
-        specifier: 4.9.0
-        version: 4.9.0
       '@ecl/spinner':
         specifier: 4.9.0
         version: link:../components/spinner
@@ -2330,6 +2327,9 @@ importers:
       '@ecl/unordered-list':
         specifier: 4.9.0
         version: link:../components/unordered-list
+      '@ecl/utility-typography':
+        specifier: 4.9.0
+        version: link:../utilities/typography
       '@hot-loader/react-dom':
         specifier: 17.0.2
         version: 17.0.2(react@17.0.2)
@@ -3294,15 +3294,6 @@ packages:
 
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
-
-  '@ecl/specs-utils-typography@4.9.0':
-    resolution: {integrity: sha512-gIxzPuvlZ0ysqS/CrwSLFockY59KtFjhNQeXREXEjFTdFu34UK6VlAff8HhPTDdTUsOjTNsq2+R2U1aVo5WEHQ==}
-
-  '@ecl/twig-component-icon@4.9.0':
-    resolution: {integrity: sha512-uMsC72Cas9yr+hArxNSph201sO/2BUS431ZV1HqRCM4ljaykml4p5xo/Sn/U/fFA+OMDOdv2o9DDbaaV2BNevQ==}
-
-  '@ecl/twig-component-link@4.9.0':
-    resolution: {integrity: sha512-z9YrOI4TX2reP9EGFWtUDyLpdKYCASocOE7z5+cUmRcHc0vSL6EssCo+Q4Z02A6lepLmCRtUyPGYcx/42gT1Kg==}
 
   '@emnapi/core@1.3.1':
     resolution: {integrity: sha512-pVGjBIt1Y6gg3EJN8jTcfpP/+uuRksIo055oE/OBkDNcjZqVbfkWCksG1Jp4yZnj3iKWyWX8fdG/j6UDYPbFog==}
@@ -13517,14 +13508,6 @@ snapshots:
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
-
-  '@ecl/specs-utils-typography@4.9.0': {}
-
-  '@ecl/twig-component-icon@4.9.0': {}
-
-  '@ecl/twig-component-link@4.9.0':
-    dependencies:
-      '@ecl/twig-component-icon': 4.9.0
 
   '@emnapi/core@1.3.1':
     dependencies:
