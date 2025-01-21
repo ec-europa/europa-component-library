@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 import withCode from '@ecl/storybook-addon-code';
 
-import demoContentHeading from '@ecl/specs-utils-typography/demo/data--heading';
-import demoContentParagraph from '@ecl/specs-utils-typography/demo/data--paragraph';
+import demoContentHeading from './demo/data--heading';
+import demoContentParagraph from './demo/data--paragraph';
 
 const getArgs = (data, story) => {
   const args = {

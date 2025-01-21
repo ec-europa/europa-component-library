@@ -10,7 +10,6 @@ const stories = [
   '../../../compositions/*/!(ec*).story.js',
   '../../../layout/*/!(ec*).story.js',
   '../../../page-example/*/!(ec*).story.js',
-  '../../../implementations/twig/**/!(ec*).story.js',
 ];
 
 const addons = [

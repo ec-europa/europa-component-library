@@ -14,8 +14,6 @@ There are 2 main types of configurations within ECL project:
 Few important overrides are:
 
 - ECL public website: `src/website/.eslintrc.js`
-- Twig implementation: `src/implementations/twig/.eslintrc.js`
-- Specs: `src/specs/.eslintrc.js`
 
 ## Specifics
 
