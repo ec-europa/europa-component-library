@@ -219,12 +219,12 @@ importers:
       '@ecl/picture':
         specifier: 4.9.0
         version: link:../picture
-      '@ecl/twig-component-video':
-        specifier: 4.9.0
-        version: link:../../implementations/twig/components/video
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/grid
+      '@ecl/video':
+        specifier: 4.9.0
+        version: link:../video
 
   src/components/blockquote:
     dependencies:
@@ -341,9 +341,9 @@ importers:
       '@ecl/link':
         specifier: 4.9.0
         version: link:../link
-      '@ecl/twig-component-tag':
+      '@ecl/tag':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/tag
+        version: link:../tag
 
   src/components/expandable:
     dependencies:
@@ -437,19 +437,12 @@ importers:
       '@ecl/select':
         specifier: 4.9.0
         version: link:../select
-      '@ecl/twig-component-text-area':
+      '@ecl/text-area':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/text-area
-      '@ecl/twig-component-text-input':
+        version: link:../text-area
+      '@ecl/text-input':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/text-input
-    devDependencies:
-      '@ecl/specs-component-text-area':
-        specifier: 4.9.0
-        version: link:../../specs/components/text-area
-      '@ecl/specs-component-text-input':
-        specifier: 4.9.0
-        version: link:../../specs/components/text-input
+        version: link:../text-input
 
   src/components/gallery:
     dependencies:
@@ -468,9 +461,9 @@ importers:
       '@ecl/picture':
         specifier: 4.9.0
         version: link:../picture
-      '@ecl/twig-component-video':
+      '@ecl/video':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/video
+        version: link:../video
       focus-trap:
         specifier: 7.6.4
         version: 7.6.4
@@ -545,9 +538,9 @@ importers:
       '@ecl/picture':
         specifier: 4.9.0
         version: link:../picture
-      '@ecl/twig-component-video':
+      '@ecl/video':
         specifier: 4.9.0
-        version: link:../../implementations/twig/components/video
+        version: link:../video
 
   src/components/mega-menu:
     dependencies:
@@ -827,98 +820,58 @@ importers:
         specifier: 4.9.0
         version: link:../../resources/logo-eu
 
-  src/implementations/twig/components/rating-field:
+  src/components/table:
     dependencies:
-      '@ecl/icon':
+      '@ecl/builder':
         specifier: 4.9.0
-        version: link:../../../../components/icon
-    devDependencies:
-      '@ecl/specs-component-rating-field':
+        version: link:../../tools/builder
+      '@ecl/dom-utils':
         specifier: 4.9.0
-        version: 4.9.0
-      '@ecl/vanilla-component-rating-field':
+        version: link:../../tools/dom-utils
+      '@ecl/resources-icons':
         specifier: 4.9.0
-        version: link:../../../vanilla/components/rating-field
+        version: link:../../resources/icons
+      '@ecl/vanilla-layout-grid':
+        specifier: 4.9.0
+        version: link:../../implementations/vanilla/layout/grid
 
-  src/implementations/twig/components/table:
-    devDependencies:
-      '@ecl/specs-component-table':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/table
-      '@ecl/vanilla-component-table':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/table
-
-  src/implementations/twig/components/tabs:
+  src/components/tabs:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
+        version: link:../button
+      '@ecl/dom-utils':
+        specifier: 4.9.0
+        version: link:../../tools/dom-utils
+      '@ecl/event-manager':
+        specifier: 4.9.0
+        version: link:../../tools/event-manager
       '@ecl/link':
         specifier: 4.9.0
-        version: link:../../../../components/link
-    devDependencies:
-      '@ecl/specs-component-tabs':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/tabs
-      '@ecl/vanilla-component-tabs':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/tabs
+        version: link:../link
 
-  src/implementations/twig/components/tag:
+  src/components/tag:
     dependencies:
       '@ecl/icon':
         specifier: 4.9.0
-        version: link:../../../../components/icon
-    devDependencies:
-      '@ecl/specs-component-tag':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/tag
-      '@ecl/vanilla-component-tag':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/tag
+        version: link:../icon
 
-  src/implementations/twig/components/text-area:
-    devDependencies:
-      '@ecl/specs-component-text-area':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/text-area
-      '@ecl/vanilla-component-text-area':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/text-area
+  src/components/text-area: {}
 
-  src/implementations/twig/components/text-input:
-    devDependencies:
-      '@ecl/specs-component-text-input':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/text-input
-      '@ecl/vanilla-component-text-input':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/text-input
+  src/components/text-input: {}
 
-  src/implementations/twig/components/timeline:
+  src/components/timeline:
     dependencies:
       '@ecl/button':
         specifier: 4.9.0
-        version: link:../../../../components/button
-    devDependencies:
-      '@ecl/specs-component-timeline':
+        version: link:../button
+      '@ecl/dom-utils':
         specifier: 4.9.0
-        version: link:../../../../specs/components/timeline
-      '@ecl/vanilla-component-timeline':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/timeline
+        version: link:../../tools/dom-utils
 
-  src/implementations/twig/components/unordered-list:
-    devDependencies:
-      '@ecl/specs-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../../../specs/components/unordered-list
-      '@ecl/vanilla-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../../vanilla/components/unordered-list
+  src/components/unordered-list: {}
 
-  src/implementations/twig/components/video: {}
+  src/components/video: {}
 
   src/implementations/twig/compositions/etrans:
     dependencies:
@@ -1025,9 +978,9 @@ importers:
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../../components/site-header
-      '@ecl/twig-component-unordered-list':
+      '@ecl/unordered-list':
         specifier: 4.9.0
-        version: link:../../components/unordered-list
+        version: link:../../../../components/unordered-list
 
   src/implementations/twig/pages/page-search:
     dependencies:
@@ -1060,63 +1013,6 @@ importers:
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../../layout/grid
-
-  src/implementations/vanilla/components/table:
-    dependencies:
-      '@ecl/builder':
-        specifier: 4.9.0
-        version: link:../../../../tools/builder
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/resources-icons':
-        specifier: 4.9.0
-        version: link:../../../../resources/icons
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/tabs:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/event-manager':
-        specifier: 4.9.0
-        version: link:../../../../tools/event-manager
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-      '@ecl/vanilla-utility-screen-reader':
-        specifier: 4.9.0
-        version: link:../../utilities/screen-reader
-
-  src/implementations/vanilla/components/tag: {}
-
-  src/implementations/vanilla/components/text-area:
-    dependencies:
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../layout/form
-
-  src/implementations/vanilla/components/text-input:
-    dependencies:
-      '@ecl/vanilla-layout-form':
-        specifier: 4.9.0
-        version: link:../../layout/form
-
-  src/implementations/vanilla/components/timeline:
-    dependencies:
-      '@ecl/dom-utils':
-        specifier: 4.9.0
-        version: link:../../../../tools/dom-utils
-      '@ecl/vanilla-layout-grid':
-        specifier: 4.9.0
-        version: link:../../layout/grid
-
-  src/implementations/vanilla/components/unordered-list: {}
-
-  src/implementations/vanilla/components/video: {}
 
   src/implementations/vanilla/layout/form:
     dependencies:
@@ -1587,36 +1483,33 @@ importers:
       '@ecl/splash-page':
         specifier: 4.9.0
         version: link:../../components/splash-page
+      '@ecl/table':
+        specifier: 4.9.0
+        version: link:../../components/table
+      '@ecl/tabs':
+        specifier: 4.9.0
+        version: link:../../components/tabs
+      '@ecl/tag':
+        specifier: 4.9.0
+        version: link:../../components/tag
+      '@ecl/text-area':
+        specifier: 4.9.0
+        version: link:../../components/text-area
+      '@ecl/text-input':
+        specifier: 4.9.0
+        version: link:../../components/text-input
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
+      '@ecl/timeline':
+        specifier: 4.9.0
+        version: link:../../components/timeline
+      '@ecl/unordered-list':
+        specifier: 4.9.0
+        version: link:../../components/unordered-list
       '@ecl/vanilla-color-modes':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/color-modes
-      '@ecl/vanilla-component-table':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/table
-      '@ecl/vanilla-component-tabs':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/tabs
-      '@ecl/vanilla-component-tag':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/tag
-      '@ecl/vanilla-component-text-area':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/text-area
-      '@ecl/vanilla-component-text-input':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/text-input
-      '@ecl/vanilla-component-timeline':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/timeline
-      '@ecl/vanilla-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/unordered-list
-      '@ecl/vanilla-component-video':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/video
       '@ecl/vanilla-layout-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/form
@@ -1668,6 +1561,9 @@ importers:
       '@ecl/vanilla-utility-z-index':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/z-index
+      '@ecl/video':
+        specifier: 4.9.0
+        version: link:../../components/video
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
@@ -1870,33 +1766,30 @@ importers:
       '@ecl/splash-page':
         specifier: 4.9.0
         version: link:../../components/splash-page
+      '@ecl/table':
+        specifier: 4.9.0
+        version: link:../../components/table
+      '@ecl/tabs':
+        specifier: 4.9.0
+        version: link:../../components/tabs
+      '@ecl/tag':
+        specifier: 4.9.0
+        version: link:../../components/tag
+      '@ecl/text-area':
+        specifier: 4.9.0
+        version: link:../../components/text-area
+      '@ecl/text-input':
+        specifier: 4.9.0
+        version: link:../../components/text-input
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../../themes/ec
-      '@ecl/vanilla-component-table':
+      '@ecl/timeline':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/table
-      '@ecl/vanilla-component-tabs':
+        version: link:../../components/timeline
+      '@ecl/unordered-list':
         specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/tabs
-      '@ecl/vanilla-component-tag':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/tag
-      '@ecl/vanilla-component-text-area':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/text-area
-      '@ecl/vanilla-component-text-input':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/text-input
-      '@ecl/vanilla-component-timeline':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/timeline
-      '@ecl/vanilla-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/unordered-list
-      '@ecl/vanilla-component-video':
-        specifier: 4.9.0
-        version: link:../../implementations/vanilla/components/video
+        version: link:../../components/unordered-list
       '@ecl/vanilla-layout-form':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/layout/form
@@ -1948,6 +1841,9 @@ importers:
       '@ecl/vanilla-utility-z-index':
         specifier: 4.9.0
         version: link:../../implementations/vanilla/utilities/z-index
+      '@ecl/video':
+        specifier: 4.9.0
+        version: link:../../components/video
       normalize.css:
         specifier: 8.0.1
         version: 8.0.1
@@ -2123,22 +2019,6 @@ importers:
         specifier: 3.3.2
         version: 3.3.2
 
-  src/specs/components/table: {}
-
-  src/specs/components/tabs: {}
-
-  src/specs/components/tag: {}
-
-  src/specs/components/text-area: {}
-
-  src/specs/components/text-input: {}
-
-  src/specs/components/timeline: {}
-
-  src/specs/components/unordered-list: {}
-
-  src/specs/components/video: {}
-
   src/specs/compositions/etrans: {}
 
   src/specs/pages/page-home:
@@ -2201,9 +2081,9 @@ importers:
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../components/site-header
-      '@ecl/specs-component-unordered-list':
+      '@ecl/unordered-list':
         specifier: 4.9.0
-        version: link:../../components/unordered-list
+        version: link:../../../components/unordered-list
     devDependencies:
       '@ecl/builder':
         specifier: 4.9.0
@@ -2241,9 +2121,9 @@ importers:
       '@ecl/site-header':
         specifier: 4.9.0
         version: link:../../../components/site-header
-      '@ecl/specs-component-text-input':
+      '@ecl/text-input':
         specifier: 4.9.0
-        version: link:../../components/text-input
+        version: link:../../../components/text-input
     devDependencies:
       '@ecl/builder':
         specifier: 4.9.0
@@ -2510,27 +2390,6 @@ importers:
       '@ecl/social-media-share':
         specifier: 4.9.0
         version: link:../components/social-media-share
-      '@ecl/specs-component-table':
-        specifier: 4.9.0
-        version: link:../specs/components/table
-      '@ecl/specs-component-tabs':
-        specifier: 4.9.0
-        version: link:../specs/components/tabs
-      '@ecl/specs-component-tag':
-        specifier: 4.9.0
-        version: link:../specs/components/tag
-      '@ecl/specs-component-text-area':
-        specifier: 4.9.0
-        version: link:../specs/components/text-area
-      '@ecl/specs-component-text-input':
-        specifier: 4.9.0
-        version: link:../specs/components/text-input
-      '@ecl/specs-component-timeline':
-        specifier: 4.9.0
-        version: link:../specs/components/timeline
-      '@ecl/specs-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../specs/components/unordered-list
       '@ecl/specs-utils-typography':
         specifier: 4.9.0
         version: link:../specs/utilities/typography
@@ -2540,36 +2399,36 @@ importers:
       '@ecl/splash-page':
         specifier: 4.9.0
         version: link:../components/splash-page
+      '@ecl/table':
+        specifier: 4.9.0
+        version: link:../components/table
+      '@ecl/tabs':
+        specifier: 4.9.0
+        version: link:../components/tabs
+      '@ecl/tag':
+        specifier: 4.9.0
+        version: link:../components/tag
+      '@ecl/text-area':
+        specifier: 4.9.0
+        version: link:../components/text-area
+      '@ecl/text-input':
+        specifier: 4.9.0
+        version: link:../components/text-input
       '@ecl/theme-ec':
         specifier: 4.9.0
         version: link:../themes/ec
       '@ecl/theme-eu':
         specifier: 4.9.0
         version: link:../themes/eu
-      '@ecl/twig-component-table':
+      '@ecl/timeline':
         specifier: 4.9.0
-        version: link:../implementations/twig/components/table
-      '@ecl/twig-component-tabs':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/tabs
-      '@ecl/twig-component-tag':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/tag
-      '@ecl/twig-component-text-area':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/text-area
-      '@ecl/twig-component-text-input':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/text-input
-      '@ecl/twig-component-timeline':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/timeline
-      '@ecl/twig-component-unordered-list':
-        specifier: 4.9.0
-        version: link:../implementations/twig/components/unordered-list
+        version: link:../components/timeline
       '@ecl/twig-layout-grid':
         specifier: 4.9.0
         version: link:../implementations/twig/layout/grid
+      '@ecl/unordered-list':
+        specifier: 4.9.0
+        version: link:../components/unordered-list
       '@ecl/vanilla-layout-grid':
         specifier: 4.9.0
         version: link:../implementations/vanilla/layout/grid
@@ -3537,9 +3396,6 @@ packages:
 
   '@dual-bundle/import-meta-resolve@4.1.0':
     resolution: {integrity: sha512-+nxncfwHM5SgAtrVzgpzJOI1ol0PkumhVo469KCf9lUi21IGcY90G98VuHm9VRrUypmAzawAHO9bs6hqeADaVg==}
-
-  '@ecl/specs-component-rating-field@4.9.0':
-    resolution: {integrity: sha512-du6rHmcPensnCt5ZYr3wuYQnSNdq1TspqXh8Ok6pRfQGPahKmRjAH+MlJAutbNhv2Fk3lH2JEHjENedjvLDsEA==}
 
   '@ecl/twig-component-icon@4.9.0':
     resolution: {integrity: sha512-uMsC72Cas9yr+hArxNSph201sO/2BUS431ZV1HqRCM4ljaykml4p5xo/Sn/U/fFA+OMDOdv2o9DDbaaV2BNevQ==}
@@ -13765,8 +13621,6 @@ snapshots:
   '@discoveryjs/json-ext@0.5.7': {}
 
   '@dual-bundle/import-meta-resolve@4.1.0': {}
-
-  '@ecl/specs-component-rating-field@4.9.0': {}
 
   '@ecl/twig-component-icon@4.9.0': {}
 
