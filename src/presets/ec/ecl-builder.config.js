@@ -187,7 +187,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.scss`,
+        )}/(components|compositions|layout|utilities)/*/*.scss`,
         events: [
           {
             on: 'change',
@@ -202,7 +202,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.js`,
+        )}/components/*/!(*.story|*.test).js`,
         events: [
           {
             on: 'change',

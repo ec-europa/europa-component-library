@@ -3,7 +3,7 @@
 @use '@ecl/theme-eu/variables' as var;
 
 // Layout
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints' with (
+@use '@ecl/grid/mixins/breakpoints' with (
   $theme: theme.$theme
 );
 @use '@ecl/blockquote/blockquote' with (
@@ -37,7 +37,7 @@
   $theme: theme.$theme,
   $list: var.$list
 );
-@use '@ecl/vanilla-utility-typography/typography' with (
+@use '@ecl/utility-typography/typography' with (
   $theme: theme.$theme,
   $typography: var.$typography
 );

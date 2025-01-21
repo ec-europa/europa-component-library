@@ -14,7 +14,6 @@ Please ensure the presence of the following attributes:
 
 - `name`: name of the package. Follow naming conventions presented in the following section
 - `style`: path to a CSS file. This is the main bundled stylesheet (dist/[name].css)
-- `sass`: path to a SCSS file. Higher priority than `style`
 - `main`: path to a JavaScript file. Used by non ES6-aware tools (UMD) (dist/[name].js)
 - `module`: path to a JavaScript file file. Used by ES6-aware tools like webpack
 - `dependencies`: list of other packages' code which is required for the given package
@@ -25,18 +24,7 @@ Please ensure the presence of the following attributes:
 
 Examples:
 
-- `@ecl/menu` - vanilla (base) component
-- `@ecl/menu` - twig component
-
-## Implementations
-
-Please follow along existing packages in `src/implementations/vanilla/components` and `src/implementations/twig/components`.
-
-If you have difficulties figuring out what should be where, here are a few rules of thumb:
-
-- Vanilla code which does not target any particular framework or platform goes into `src/implementations/vanilla/components`. This is the first-level implementation.
-- The main ECL implementations is done in `src/implementations/twig/components` where `twig` is the template language currently used for rendering components on the ECL website developed in `src/website`.
-- There should be no "leaking" of rules between components, each component comes with its own set of rules and logic in isolation.
+- `@ecl/menu` - Menu component
 
 ## SCSS
 
@@ -46,13 +34,7 @@ Please refer to the [dedicated conventions section regarding SCSS](./scss.md).
 
 Please refer to the [dedicated conventions section regarding JavaScript](./javascript.md).
 
-## Specs
-
-Each component has a so called specification file which contains demo data for how information is fed into the component. Specifications are stored in `src/specs` and are published on npm in order to be shared by all ECL implementations.
-
 Links inside specifications should always lead to an internal example page instead of blank link (`#`) or external links: `../../example.html#{component_name}`
-
-Please note that if a given implementation requires that the demo data structure from a given specification to be different, data structure should be modified on implementation level through adapters rather than the specification.
 
 ## Binary
 
