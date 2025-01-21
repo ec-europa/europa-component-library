@@ -25,9 +25,9 @@ import Popover from '@ecl/popover';
 import Range from '@ecl/range';
 import Select from '@ecl/select';
 import SiteHeader from '@ecl/site-header';
-import Table from '@ecl/vanilla-component-table';
-import Tabs from '@ecl/vanilla-component-tabs';
-import Timeline from '@ecl/vanilla-component-timeline';
+import Table from '@ecl/table';
+import Tabs from '@ecl/tabs';
+import Timeline from '@ecl/timeline';
 
 const ECL = {
   autoInit,
