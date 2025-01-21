@@ -9,10 +9,10 @@
 $theme: null !default;
 $media-container: null !default;
 
-@use '@ecl/vanilla-utility-media/media' as uMedia with (
+@use '@ecl/utility-media/media' as uMedia with (
   $theme: $theme
 );
-@use '@ecl/vanilla-utility-screen-reader/screen-reader';
+@use '@ecl/utility-screen-reader/screen-reader';
 
 .ecl-media-container {
   margin: 0;
