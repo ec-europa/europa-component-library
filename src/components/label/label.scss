@@ -10,10 +10,8 @@ $theme: null !default;
 $label: null !default;
 
 .ecl-label {
-  background-color: map.get($label, 'background');
   border-radius: map.get($label, 'radius');
-  border: map.get($label, 'border-width') solid map.get($label, 'border-color');
-  color: map.get($label, 'color');
+  border: map.get($label, 'border-width') solid transparent;
   display: inline-block;
   font: var(--f-ui-s);
   margin: 0;
