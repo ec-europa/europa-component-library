@@ -28,34 +28,24 @@ $label: null !default;
   text-transform: uppercase;
 }
 
-// Keeping the variants until EU is updated too
-// Only the "highlight" variant will be kept in the end
 @mixin label($variant: null) {
   background-color: map.get($label, #{$variant}, 'background');
   border-color: map.get($label, #{$variant}, 'border-color');
   color: map.get($label, #{$variant}, 'color');
 }
 
-@if map.has-key($label, 'low') {
-  .ecl-label--low {
-    @include label(low);
-  }
+.ecl-label--low {
+  @include label(low);
 }
 
-@if map.has-key($label, 'medium') {
-  .ecl-label--medium {
-    @include label(medium);
-  }
+.ecl-label--medium {
+  @include label(medium);
 }
 
-@if map.has-key($label, 'high') {
-  .ecl-label--high {
-    @include label(high);
-  }
+.ecl-label--high {
+  @include label(high);
 }
 
-@if map.has-key($label, 'highlight') {
-  .ecl-label--highlight {
-    @include label(highlight);
-  }
+.ecl-label--highlight {
+  @include label(highlight);
 }
