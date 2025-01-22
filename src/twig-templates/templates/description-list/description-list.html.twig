@@ -1,0 +1,179 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+    - "items" (array) (default: []): format: [
+        {
+          "term" (string or array of string)
+          "definition" (block or array of string or array of ECL Link or array of ECL Tag)
+          "type" (string): type of data, if not plain text; could be "link", "link-inline", "taxonomy", "tag"
+        },
+        ...
+      ]
+    - "variant" (string) (default: ''): global variant of the list (horizontal, vertical)
+    - "visible_items": (integer) (default: 0) Number of visible items (0 to display all items)
+    - "more_label": (string) (default: '') Label for the more button, if requested
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-description-list' %}
+{% set _visible_items = visible_items|default(0) %}
+{% set _variant = variant|default('') %}
+{% set _more_label = more_label|default('') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _visible_items != 0 %}
+  {% set extra_attributes = [
+    { name: 'data-ecl-description-list' },
+    { name: 'data-ecl-description-list-more-label', value: _more_label },
+    { name: 'data-ecl-description-list-visible-items', value: _visible_items },
+    { name: 'data-ecl-auto-init', value: 'DescriptionList' }
+  ] %}
+{% endif %}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _items is not empty and _items is iterable %}
+  <dl
+    class="{{ _css_class }}"
+    {{ _extra_attributes|raw }}
+  >
+    {% for _item in _items %}
+      {% if _item.term is not empty %}
+        {% if _item.term is iterable %}
+          {% for _term in _item.term %}
+            <dt class="ecl-description-list__term">{{ _term }}</dt>
+          {% endfor %}
+        {% else %}
+          <dt class="ecl-description-list__term">{{ _item.term }}</dt>
+        {% endif %}
+      {% endif %}
+
+      {% if _item.definition is not empty %}
+        {% if _item.definition is iterable %}
+
+          {# taxonomy #}
+          {% if _item.type is not empty and _item.type == 'taxonomy' %}
+            <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {%- for _definition in _item.definition -%}
+                <li class="ecl-description-list__definition-item">
+                {%- if _definition.link is defined -%}
+                  {% include '@ecl/link/link.html.twig' with {
+                    link: _definition.link,
+                  } only %}
+                {%- else -%}
+                  {{- _definition -}}
+                {%- endif -%}
+                </li>
+              {%- endfor -%}
+              </ul>
+            </dd>
+
+          {# links #}
+          {% elseif _item.type is not empty and _item.type == 'link' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--link">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/link/link.html.twig' with _definition|merge({
+                  link: _definition.link|merge({ type: 'standalone' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
+            </dd>
+
+          {# links inline #}
+          {% elseif _item.type is not empty and _item.type == 'link-inline' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--inline">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}  
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/link/link.html.twig' with _definition|merge({
+                  link: _definition.link|merge({ type: 'standalone' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
+            </dd>
+
+          {# tags #}
+          {% elseif _item.type is not empty and _item.type == 'tag' %}   
+            <dd class="ecl-description-list__definition ecl-description-list__definition--tag">
+              <ul class="ecl-description-list__definition-list" 
+              {%- if _visible_items > 0 -%}
+                data-ecl-description-list-collapsible
+              {%- endif -%}
+              >
+              {% for _definition in _item.definition %}  
+                <li class="ecl-description-list__definition-item">
+                {% include '@ecl/tag/tag.html.twig' with _definition|merge({
+                  tag: _definition.tag|merge({ type: 'link' }),
+                }) only %}
+                </li>
+              {% endfor %}
+              </ul>
+            </dd>
+
+          {# text #}
+          {% else %}
+            <dd class="ecl-description-list__definition">
+            {% for _definition in _item.definition %}
+              {{- _definition -}}
+            {% endfor %}
+            </dd>
+          {% endif %}
+
+        {# block #}
+        {% else %}
+          <dd class="ecl-description-list__definition">{%- block definition _item.definition -%}</dd>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </dl>
+
+{% endif %}
+
+{% endapply %}

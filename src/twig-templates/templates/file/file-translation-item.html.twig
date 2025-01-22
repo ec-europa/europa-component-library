@@ -1,0 +1,81 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "title" (string) (default: '')
+  - "meta" (string) (default: '')
+  - "lang" (string) (default: '')
+  - "id" (string) (default: '')
+  - "title_id" (string) (default: '')
+  - "download" (object) (default to the parent download property) object of type Link
+  - "download_attribute" (bool) (default to the parent download attribute)
+#}
+
+{# Internal properties #}
+
+{% set _lang = lang|default('') %}
+{% set _meta = meta|default('') %}
+{% set _download = download|default({}) %}
+{% set _download_attribute = download_attribute|default(download_attribute_default) %}
+{% set _id = id|default('') %}
+{% set _title_id = title_id|default('') %}
+
+{% set _link_id = _id ~ '-link' %}
+{% set _label_id = _link_id ~ '-label' %}
+{% set _lang_id = _id ~ '-lang' %}
+
+{% set _title %}
+  <div
+      class="ecl-file__translation-title"
+      id="{{ _id ~ '-lang' }}"
+    {% if _lang is not empty %}
+      lang="{{ _lang }}"
+    {% endif %}
+  >
+    {{- title -}}
+  </div>
+{% endset %}
+
+  <li class="ecl-file__translation-item">
+    <div class="ecl-file__translation-info">
+      {{- _title -}}
+    {% if _meta is not empty %}
+      <div class="ecl-file__translation-meta">
+        {{- _meta -}}
+      </div>
+    {% endif %}
+    </div>
+
+    <div class="ecl-file__translation-action">
+      {% set _download_link_attributes = _download.extra_attributes|default([])|merge([
+        { name: 'id', value: _link_id },
+        { name: 'aria-labelledby', value:  _label_id ~ ' ' ~ _title_id ~ ' ' ~  _lang_id },
+        { name: 'hreflang', value: _lang }
+      ]) %}
+      {% if _download_attribute %}
+        {% set _download_link_attributes = _download_link_attributes|merge([
+          { name: 'download' },
+        ]) %}
+      {% endif %}
+
+      {% set _download_link_classes = 'ecl-file__translation-download' %}
+      {% if _download.extra_classes is not empty %}
+        {% set _download_link_classes = _download_link_classes ~ ' ' ~ _download.extra_classes %}
+      {% endif %}
+
+      {% include '@ecl/link/link.html.twig' with _download|merge({
+        link: _download.link|default(_download.link|default({}))|merge({
+          type: 'standalone',
+          icon_position: 'after'
+        }),
+        icon: _download.icon|default(_download.icon|default({}))|merge({
+          name: 'download',
+          size: 'fluid'
+        }),
+        extra_classes: _download_link_classes,
+        extra_attributes: _download_link_attributes,
+      }) only %}
+    </div>
+  </li>
+
+{% endapply %}

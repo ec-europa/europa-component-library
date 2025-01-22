@@ -1,0 +1,126 @@
+{% apply spaceless %}
+{#
+  Parameters:
+    - "title" (string) (default: '') Title of header
+    - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
+    - "description" (string) (default: '') Description of header
+    - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
+    - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
+    - "meta" (array) (default: []) Meta of header
+    - "breadcrumb" (associative array) (default: '') Predefined structure compatible with EC Breadcrumb
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        ...
+      ],
+#}
+
+{# DEPRECATED
+  - "overlay" (string) (default: '') Optional overlay on top of background image (can be 'light', 'dark')
+#}
+{% set _overlay = overlay|default('') %}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _hide_title = hide_title|default(false) %}
+{% set _meta = meta|default([]) %}
+{% set _description = description|default('') %}
+{% set _picture_thumbnail = picture_thumbnail|default({}) %}
+{% set _picture_background = picture_background|default({}) %}
+{% set _breadcrumb = breadcrumb|default({}) %}
+{% set _css_class = 'ecl-page-header' %}
+{% set _info_classes = 'ecl-page-header__info' %}
+
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _picture_background.img is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
+
+  {# DEPRECATED #}
+  {% if _overlay is not empty %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--overlay-' ~ _overlay %}
+  {% endif %}
+{% endif %}
+
+{% if (_title is empty or _hide_title) and _meta is empty %}
+  {% set _info_classes = 'ecl-page-header__info--no-margin' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {% if _picture_background.img is not empty %}
+    <div class="ecl-page-header__background-container" aria-hidden="true">
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture_background,
+        extra_classes: "ecl-page-header__picture-background",
+        extra_image_classes: "ecl-page-header__background",
+      } only %}
+    </div>
+  {% endif %}
+
+  <div class="ecl-container">
+  {% if _breadcrumb is not empty %}
+    {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
+      variant: _variant,
+      extra_classes: 'ecl-page-header__breadcrumb',
+    }) only -%}
+  {% endif %}
+    <div class="{{ _info_classes }}">
+    {% if _meta is not empty %}
+      <ul class="ecl-page-header__meta">
+        {% for _item in _meta %}
+        <li class="ecl-page-header__meta-item">{{- _item -}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if _title is not empty %}
+      {% set _title_class = 'ecl-page-header__title' %}
+      {% if _hide_title %}
+        {% set _title_class = _title_class ~ ' ecl-u-sr-only' %}
+      {% endif %}
+
+      <h1 class="{{ _title_class }}">{{ _title }}</h1>
+    {% endif %}
+    </div>
+  {% if _description is not empty or _picture_thumbnail.img is not empty %}
+    <div class="ecl-page-header__description-container">
+    {% if _picture_thumbnail.img is not empty %}
+      {% include '@ecl/picture/picture.html.twig' with {
+        picture: _picture_thumbnail,
+        extra_classes: "ecl-page-header__picture-thumbnail",
+        extra_image_classes: "ecl-page-header__description-thumbnail",
+      } only %}
+    {% endif %}
+    {% if _description is not empty %}
+      <p class="ecl-page-header__description">{{ _description }}</p>
+    {% endif %}
+    </div>
+  {% endif %}
+  </div>
+</div>
+
+{% endapply %}

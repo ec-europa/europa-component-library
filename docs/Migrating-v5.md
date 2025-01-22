@@ -50,4 +50,6 @@ The number of the distributed npm packages has been drastically reduced in ECL v
 The naming of those packages has been then simplified using only the name of the component still in the @ecl namespace.
 Ex: `@ecl/button`, `@ecl/gallery`, `@ecl/site-header`
 
+In ECL v5 the twig templates can be retrieved all at once in a single package named `@ecl/twig-templates`, it contains the templates inside the respective component's folder to be compatible with the way ECL includes its own templates.
+
 Other packages have been kept as they are in v4, icons and logos are in the form of @ecl/resources-{name of the resource}, the presets are also unchanged, `@ecl/preset-ec` and `@ecl/preset-eu`

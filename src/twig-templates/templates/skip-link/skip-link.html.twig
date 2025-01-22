@@ -1,0 +1,43 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+   - "label" (string) (default: ''),
+   - "href" (string) (default: ''),
+   - "extra_classes" (string) (default: '')
+   - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (optional) (string)
+        },
+        ...
+      ],
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-skip-link' %}
+{% set _href = href|default('') %}
+{% set _label = label|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{# Print the result #}
+
+{% include '@ecl/link/link.html.twig' with {
+  link: {
+    path: _href,
+    label: _label,
+    type: 'primary'
+  },
+  extra_classes: _css_class,
+  extra_attributes: extra_attributes,
+} only %}
+
+{% endapply %}
+
+
