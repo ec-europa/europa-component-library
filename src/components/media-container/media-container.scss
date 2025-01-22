@@ -30,6 +30,7 @@ $media-container: null !default;
 }
 
 .ecl-media-container__media {
+  background-color: map.get($media-container, 'media-background');
   display: block;
   height: auto;
   min-height: 1px; // IE 11 fix
