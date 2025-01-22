@@ -2,10 +2,13 @@
 @use '../index' as *;
 
 $expandable: (
-  content-color: var(--c-d),
+  content-color: var(--cm-on-surface-dark),
+  content-divider: 1px solid var(--cm-border-medium),
   content-margin: var(--s-s),
   content-padding: var(--s-m),
-  toggle-background-active: var(--c-n),
-  toggle-border-active: var(--c-n),
-  toggle-color-active: var(--c-d),
+  content-spacing-bottom: var(--s-m),
+  toggle-background-active: var(--cm-surface-neutral-low),
+  toggle-border-active: var(--cm-surface-neutral-low),
+  toggle-color-active: var(--cm-on-surface-dark),
+  toggle-radius: 2px,
 );
