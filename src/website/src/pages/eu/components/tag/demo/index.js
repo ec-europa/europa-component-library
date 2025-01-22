@@ -1,8 +1,8 @@
-import demoContentLink from '@ecl/specs-component-tag/demo/data--link';
-import demoContentRemovable from '@ecl/specs-component-tag/demo/data--removable';
-import demoContentSet from '@ecl/specs-component-tag/demo/data--set';
-import template from '@ecl/twig-component-tag/tag.html.twig';
-import templateSet from '@ecl/twig-component-tag/tag-set.html.twig';
+import demoContentLink from '@ecl/tag/demo/data--link';
+import demoContentRemovable from '@ecl/tag/demo/data--removable';
+import demoContentSet from '@ecl/tag/demo/data--set';
+import template from '@ecl/tag/tag.html.twig';
+import templateSet from '@ecl/tag/tag-set.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const tagLink = template(demoContentLink);

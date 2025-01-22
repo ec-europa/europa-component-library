@@ -5,11 +5,11 @@ const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = isProd ? 'dist' : 'build';
 const publicUrl = process.env.PUBLIC_URL || '';
 const stories = [
-  '../../../components/**/!(eu*).story.js',
-  '../../../utilities/**/!(eu*).story.js',
-  '../../../compositions/**/!(eu*).story.js',
-  '../../../layout/**/!(eu*).story.js',
-  '../../../implementations/twig/**/!(eu*).story.js',
+  '../../../components/*/!(eu*).story.js',
+  '../../../utilities/*/!(eu*).story.js',
+  '../../../compositions/*/!(eu*).story.js',
+  '../../../layout/*/!(eu*).story.js',
+  '../../../page-example/*/!(ec*).story.js',
 ];
 
 const addons = [
