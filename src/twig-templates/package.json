@@ -1,25 +1,13 @@
 {
-  "name": "@ecl/preset-ec",
+  "name": "@ecl/twig-templates",
   "author": "European Commission",
   "license": "EUPL-1.2",
   "version": "5.0.0-alpha.1",
-  "description": "ECL EC preset",
-  "main": "dist/scripts/ecl-ec.js",
-  "style": "dist/styles/ecl-ec.css",
+  "description": "ECL Twig Templates",
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "build:copy": "ecl-builder copy",
-    "build:scripts": "cross-env ECL_SYSTEM=ec ecl-builder scripts",
-    "build:styles": "cross-env ECL_SYSTEM=ec ecl-builder styles",
-    "build": "run-p build:*",
-    "clean": "rimraf build dist",
-    "dist": "cross-env NODE_ENV=production run-p build:*",
-    "watch": "cross-env ECL_SYSTEM=ec ecl-builder watch",
-    "prepublish": "npm run clean && npm run build && npm run dist"
-  },
-  "dependencies": {
+  "devDependencies": {
     "@ecl/accordion": "5.0.0-alpha.1",
     "@ecl/banner": "5.0.0-alpha.1",
     "@ecl/blockquote": "5.0.0-alpha.1",
@@ -29,31 +17,26 @@
     "@ecl/carousel": "5.0.0-alpha.1",
     "@ecl/category-filter": "5.0.0-alpha.1",
     "@ecl/checkbox": "5.0.0-alpha.1",
-    "@ecl/color-modes": "5.0.0-alpha.1",
     "@ecl/content-block": "5.0.0-alpha.1",
     "@ecl/content-item": "5.0.0-alpha.1",
     "@ecl/date-block": "5.0.0-alpha.1",
     "@ecl/datepicker": "5.0.0-alpha.1",
     "@ecl/description-list": "5.0.0-alpha.1",
-    "@ecl/dom-utils": "5.0.0-alpha.1",
+    "@ecl/etrans": "5.0.0-alpha.1",
     "@ecl/expandable": "5.0.0-alpha.1",
     "@ecl/fact-figures": "5.0.0-alpha.1",
     "@ecl/featured-item": "5.0.0-alpha.1",
     "@ecl/file": "5.0.0-alpha.1",
     "@ecl/file-upload": "5.0.0-alpha.1",
+    "@ecl/file-upload-status": "5.0.0-alpha.1",
     "@ecl/form-group": "5.0.0-alpha.1",
     "@ecl/gallery": "5.0.0-alpha.1",
-    "@ecl/grid": "5.0.0-alpha.1",
     "@ecl/icon": "5.0.0-alpha.1",
-    "@ecl/indicator": "5.0.0-alpha.1",
     "@ecl/inpage-navigation": "5.0.0-alpha.1",
     "@ecl/label": "5.0.0-alpha.1",
-    "@ecl/layout-form": "5.0.0-alpha.1",
     "@ecl/link": "5.0.0-alpha.1",
     "@ecl/list-illustration": "5.0.0-alpha.1",
     "@ecl/media-container": "5.0.0-alpha.1",
-    "@ecl/mega-menu": "5.0.0-alpha.1",
-    "@ecl/menu": "5.0.0-alpha.1",
     "@ecl/modal": "5.0.0-alpha.1",
     "@ecl/navigation-list": "5.0.0-alpha.1",
     "@ecl/news-ticker": "5.0.0-alpha.1",
@@ -61,7 +44,6 @@
     "@ecl/ordered-list": "5.0.0-alpha.1",
     "@ecl/page-header": "5.0.0-alpha.1",
     "@ecl/pagination": "5.0.0-alpha.1",
-    "@ecl/picture": "5.0.0-alpha.1",
     "@ecl/popover": "5.0.0-alpha.1",
     "@ecl/radio": "5.0.0-alpha.1",
     "@ecl/range": "5.0.0-alpha.1",
@@ -81,48 +63,28 @@
     "@ecl/tag": "5.0.0-alpha.1",
     "@ecl/text-area": "5.0.0-alpha.1",
     "@ecl/text-input": "5.0.0-alpha.1",
-    "@ecl/theme-ec": "5.0.0-alpha.1",
     "@ecl/timeline": "5.0.0-alpha.1",
     "@ecl/unordered-list": "5.0.0-alpha.1",
-    "@ecl/utility-background": "5.0.0-alpha.1",
-    "@ecl/utility-border": "5.0.0-alpha.1",
-    "@ecl/utility-clearfix": "5.0.0-alpha.1",
-    "@ecl/utility-dimension": "5.0.0-alpha.1",
-    "@ecl/utility-disablescroll": "5.0.0-alpha.1",
-    "@ecl/utility-display": "5.0.0-alpha.1",
-    "@ecl/utility-flex": "5.0.0-alpha.1",
-    "@ecl/utility-float": "5.0.0-alpha.1",
-    "@ecl/utility-media": "5.0.0-alpha.1",
-    "@ecl/utility-print": "5.0.0-alpha.1",
-    "@ecl/utility-screen-reader": "5.0.0-alpha.1",
-    "@ecl/utility-shadow": "5.0.0-alpha.1",
-    "@ecl/utility-spacing": "5.0.0-alpha.1",
-    "@ecl/utility-typography": "5.0.0-alpha.1",
-    "@ecl/utility-z-index": "5.0.0-alpha.1",
-    "@ecl/video": "5.0.0-alpha.1",
-    "normalize.css": "8.0.1",
-    "pikaday": "1.8.2"
-  },
-  "devDependencies": {
-    "@ecl/builder": "5.0.0-alpha.1",
-    "@ecl/preset-reset": "5.0.0-alpha.1",
-    "@ecl/preset-rtl": "5.0.0-alpha.1",
-    "@ecl/resources-ec-logo": "5.0.0-alpha.1",
-    "@ecl/resources-flag-icons": "5.0.0-alpha.1",
-    "@ecl/resources-icons": "5.0.0-alpha.1",
-    "@ecl/resources-social-media-icons": "5.0.0-alpha.1",
-    "cross-env": "7.0.3",
-    "ncp": "2.0.0",
-    "npm-run-all": "4.1.5",
+    "copyfiles": "2.4.1",
     "rimraf": "6.0.1"
   },
+  "scripts": {
+    "clean": "rimraf templates",
+    "copy": "copyfiles -u 2 ./node_modules/**/*.twig templates/",
+    "prepublish": "npm run clean && npm run copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
-  ],
-  "homepage": "https://github.com/ec-europa/europa-component-library",
-  "bugs": {
-    "url": "https://github.com/ec-europa/europa-component-library/issues"
-  }
+    "design-system",
+    "twig"
+  ]
 }
