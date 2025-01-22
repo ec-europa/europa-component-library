@@ -147,8 +147,6 @@ const getArgTypes = () => ({
   },
 });
 
-console.log(getArgTypes());
-
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
 
