@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string)
     - "citation" (string) (default: '')
     - "author" (string) (default: '')
     - "lang" (string) (default: 'en')
@@ -24,8 +25,13 @@
 {% set _author = author|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _lang = lang|default('en') %}
+{% set _color_mode = color_mode|default('') %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
