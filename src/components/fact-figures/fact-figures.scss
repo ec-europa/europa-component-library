@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -74,6 +74,10 @@ $fact-figures: null !default;
   font: map.get($fact-figures, 'view-all-font');
   margin-top: map.get($fact-figures, 'view-all-margin');
   padding-top: map.get($fact-figures, 'view-all-padding-mobile');
+}
+
+.ecl-fact-figures__view-all-link {
+  color: map.get($fact-figures, 'view-all-color');
 }
 
 /* stylelint-disable-next-line order/order */

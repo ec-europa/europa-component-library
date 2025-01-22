@@ -2,12 +2,12 @@ import { withNotes } from '@ecl/storybook-addon-notes';
 import { getFormControls, correctPaths } from '@ecl/story-utils';
 import withCode from '@ecl/storybook-addon-code';
 
-import dataText from '@ecl/specs-component-text-input/demo/data';
+import dataText from '@ecl/text-input/demo/data';
 import dataSingle from '@ecl/select/demo/data-single';
 import dataMultiple from '@ecl/select/demo/data-multiple';
 import dataDefault from '@ecl/radio/demo/data--default';
 import dataBinary from '@ecl/radio/demo/data--binary';
-import dataTextarea from '@ecl/specs-component-text-area/demo/data';
+import dataTextarea from '@ecl/text-area/demo/data';
 import dataDatepicker from '@ecl/datepicker/demo/data';
 import dataCheckbox from '@ecl/checkbox/demo/data';
 import dataRange from '@ecl/range/demo/data';

@@ -4,7 +4,7 @@
  */
 
 @use 'sass:map';
-@use '@ecl/vanilla-layout-grid/mixins/breakpoints';
+@use '@ecl/grid/mixins/breakpoints';
 
 // Exposed variables
 $theme: null !default;
@@ -12,7 +12,7 @@ $blockquote: null !default;
 
 .ecl-blockquote,
 %ecl-blockquote {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: map.get($blockquote, 'background');
   border-inline-start: map.get($blockquote, 'border-width') solid
     map.get($blockquote, 'border-color');
   border-radius: map.get($blockquote, 'border-radius');
@@ -100,6 +100,7 @@ $blockquote: null !default;
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
+  background-color: map.get($blockquote, 'image', 'background');
   display: block;
   height: 120px;
   margin-bottom: map.get($blockquote, 'image', 'margin-mobile');
