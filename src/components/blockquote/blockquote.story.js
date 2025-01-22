@@ -1,18 +1,29 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
+import { getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import defaultData from './demo/data';
 import blockquote from './blockquote.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => ({
-  show_image: false,
-  lang: 'en',
-  citation: data.citation,
-  author: data.author,
-});
+const getArgs = (data) => {
+  const args = {
+    show_image: false,
+    lang: 'en',
+    citation: data.citation,
+    author: data.author,
+  };
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
+  return args;
+};
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   show_image: {
     name: 'show image',
     type: { name: 'boolean' },
@@ -135,6 +146,8 @@ const getArgTypes = () => ({
     },
   },
 });
+
+console.log(getArgTypes());
 
 const prepareData = (data, args) => {
   const clone = JSON.parse(JSON.stringify(data));
