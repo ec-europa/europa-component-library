@@ -1,5 +1,5 @@
 import { queryAll, queryOne } from '@ecl/dom-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
+import * as getSystem from '@ecl/builder/utils/getSystem';
 import iconSvgAllArrow from '@ecl/resources-icons/dist/svg/all/solid-arrow.svg';
 
 const system = getSystem();

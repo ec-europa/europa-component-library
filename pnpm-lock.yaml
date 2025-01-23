@@ -44,6 +44,7 @@ overrides:
   path-to-regexp: 0.1.12
   inquirer: 12.2.0
   nanoid: 3.3.8
+  esbuild: 0.24.2
 
 pnpmfileChecksum: c7x4vkvjctt6fvpx5wjldiflnq
 
@@ -2047,6 +2048,9 @@ importers:
       rollup:
         specifier: 4.30.1
         version: 4.30.1
+      rollup-plugin-external-globals:
+        specifier: 0.13.0
+        version: 0.13.0(rollup@4.30.1)
       rollup-plugin-svg:
         specifier: 2.0.0
         version: 2.0.0
@@ -7020,7 +7024,7 @@ packages:
   esbuild-register@3.6.0:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
     peerDependencies:
-      esbuild: '>=0.12 <1'
+      esbuild: 0.24.2
 
   esbuild@0.24.2:
     resolution: {integrity: sha512-+9egpBW8I3CD5XPe0n6BfT5fxLzxrlDzqydF3aviG+9ni1lDC/OvMHcxqEFV0+LANZG5R1bFMWfUrjVsdwxJvA==}
@@ -11135,6 +11139,11 @@ packages:
 
   ripemd160@2.0.2:
     resolution: {integrity: sha512-ii4iagi25WusVoiC4B4lq7pbXfAp3D9v5CwfkY33vffw2+pkDjY1D8GaN7spsxvCSx8dkPqOZCEZyfxcmJG2IA==}
+
+  rollup-plugin-external-globals@0.13.0:
+    resolution: {integrity: sha512-wBS3hmoF0OtEnA0lWsmTC6Nhnkk2zjZbfhaX2gLo8VnfNGFdGhiYKwMpIPQPrYbAw+mAYUYmoHYktAl1eZHgVw==}
+    peerDependencies:
+      rollup: ^2.25.0 || ^3.3.0 || ^4.1.4
 
   rollup-plugin-svg@2.0.0:
     resolution: {integrity: sha512-DmE7dSQHo1SC5L2uH2qul3Mjyd5oV6U1aVVkyvTLX/mUsRink7f1b1zaIm+32GEBA6EHu8H/JJi3DdWqM53ySQ==}
@@ -23696,6 +23705,14 @@ snapshots:
     dependencies:
       hash-base: 3.1.0
       inherits: 2.0.4
+
+  rollup-plugin-external-globals@0.13.0(rollup@4.30.1):
+    dependencies:
+      '@rollup/pluginutils': 5.1.4(rollup@4.30.1)
+      estree-walker: 3.0.3
+      is-reference: 3.0.3
+      magic-string: 0.30.17
+      rollup: 4.30.1
 
   rollup-plugin-svg@2.0.0:
     dependencies:
