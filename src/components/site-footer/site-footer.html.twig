@@ -74,9 +74,6 @@
         {% if _sections.section_with_separator %}
           {% set _section_class_name = _section_class_name ~ ' ecl-site-footer__section--separator' %}
         {% endif %}
-        {% if _sections.section_inline %}
-          {% set _section_class_name = _section_class_name ~ ' ecl-site-footer__section--inline' %}
-        {% endif %}
         <div class="{{ _section_class_name }}">
         {# logo #}
         {% if _sections.logo is defined and _sections.logo is not empty and _sections.logo.src_desktop is not empty %}
