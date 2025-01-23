@@ -8,6 +8,7 @@ npm install --save @ecl/banner
 
 ### Parameters
 
+- **"color_mode"** (string) (default: '') Name of the color mode
 - **"size"** (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
 - **"font_size"** (string) (default: 'm') Size of the title and description (can be 'm', 'l')
 - **"font_color"** (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
