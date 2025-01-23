@@ -42,7 +42,7 @@ $list: null !default;
     text-decoration: none;
 
     &:hover {
-      color: var(--c-p);
+      color: var(--cm-on-surface-primary, var(--c-p));
       text-decoration: underline;
       text-decoration-thickness: from-font;
       text-underline-offset: clamp(3px, 0.245em, 10px);

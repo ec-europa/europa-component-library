@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDescriptionListDefault from './demo/data--default';
 import dataDescriptionListHorizontal from './demo/data--horizontal';
@@ -9,9 +10,12 @@ import descriptionList from './description-list.html.twig';
 import notes from './README.md';
 
 const getArgs = (data) => {
-  const args = {
-    term: data.items[0].term,
-  };
+  const args = {};
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+  args.term = data.items[0].term;
   if (!Array.isArray(data.items[0].definition)) {
     args.definition = data.items[0].definition;
   } else {
@@ -23,7 +27,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = () => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
 
   argTypes.term = {
     name: 'label',
@@ -76,6 +80,14 @@ const prepareData = (data, args) => {
   }
 
   data.visible_items = args.visibleItems;
+
+  data.items.forEach((item) => {
+    if (item.type === 'tag') {
+      item.definition.forEach((definition) => {
+        definition.color_mode = args.color_mode;
+      });
+    }
+  });
 
   correctPaths(data);
   return data;
