@@ -2,8 +2,8 @@
 @use '../index' as *;
 
 $site-footer: (
-  background: var(--c-br),
-  color: map.get($color, 'white'),
-  separator-color: var(--c-n),
+  background: var(--cm-surface-brand),
+  color: var(--cm-on-surface-inverted),
+  separator-color: var(--cm-border-neutral-medium),
   column-gap: map.get($grid-gutter-width, 'm'),
 );

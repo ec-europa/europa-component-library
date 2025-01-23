@@ -345,9 +345,8 @@
 
   // Default color mode
   --cm-surface-dark: var(--c-d);
-  --cm-surface-dark-variant-1: #{map.get($color-palette, 'blue-navy-900')};
-  --cm-surface-dark-variant-2: #{map.get($color-default, 'harmonised')};
   --cm-surface-inverted: #fff;
+  --cm-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-surface-transparent-70: color-mix(in srgb, var(--c-d) 70%, transparent);
   --cm-surface-transparent-01: color-mix(in srgb, #fff 0.1%, transparent);
   --cm-surface-lowest: var(--c-l-50);
