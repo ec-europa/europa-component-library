@@ -160,8 +160,8 @@ module.exports = {
           links: [
             {
               link: {
-                label: 'Accessibility',
-                path: 'https://commission.europa.eu/accessibility-statement_en',
+                label: 'Report an IT vulnerability',
+                path: '#',
                 inverted: true,
               },
             },
