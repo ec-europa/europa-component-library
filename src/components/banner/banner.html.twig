@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
   - "size" (string) (default: 'm') Size of the banner (can be 's', 'm', 'l')
   - "font_size" (string) (default: 'm') Size of the title and description (can be 'm', 'l')
   - "font_color" (string) (default: 'dark') Color of the title and description (can be 'dark', 'light')
@@ -51,6 +52,7 @@
 
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = 'data-ecl-banner data-ecl-auto-init="Banner"' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _picture = picture|default({}) %}
 {% set _video = video|default({}) %}
 {% set _size = size|default('m') %}
@@ -77,6 +79,10 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ecl-banner--' ~ _variant %}
