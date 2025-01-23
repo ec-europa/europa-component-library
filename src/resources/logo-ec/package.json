@@ -10,6 +10,7 @@
   "scripts": {
     "dist:clean": "rimraf dist",
     "dist:copy": "ncp src dist",
+    "dist:script": "node scripts/esm-export.js",
     "dist": "run-s dist:*",
     "prepublish": "npm run dist"
   },

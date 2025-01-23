@@ -3,6 +3,7 @@ const rollup = require('rollup');
 const babel = require('@rollup/plugin-babel');
 const replace = require('@rollup/plugin-replace');
 const resolve = require('@rollup/plugin-node-resolve');
+const externalGlobals = require('rollup-plugin-external-globals');
 const commonjs = require('@rollup/plugin-commonjs');
 const terser = require('@rollup/plugin-terser');
 const svg = require('rollup-plugin-svg');
@@ -14,15 +15,17 @@ module.exports = (input, dest, options) => {
     options.uglify === true ||
     (options.uglify !== false && process.env.NODE_ENV === 'production');
 
+  const { external, banner, moduleName, sourceMap, format } = options;
+
   const terserOptions = {};
 
   if (options.banner) {
-    terserOptions.format = { preamble: `/* ${options.banner} */` };
+    terserOptions.format = { preamble: `/* ${banner} */` };
   }
 
   const inputOptions = {
     input,
-    external: options.external || [],
+    external: external || [],
     plugins: [
       replace({
         'getSystem()': JSON.stringify(getSystem()),
@@ -31,7 +34,6 @@ module.exports = (input, dest, options) => {
         __VERSION__: JSON.stringify(pkg.version),
       }),
       resolve(),
-      commonjs(),
       babel({
         babelHelpers: 'bundled',
         presets: [
@@ -45,19 +47,25 @@ module.exports = (input, dest, options) => {
         ],
       }),
       svg(),
-      minifyCode && terser(terserOptions), // Replace uglify with terser
-    ],
+      commonjs(),
+      minifyCode && terser(terserOptions),
+    ].filter(Boolean),
   };
 
   const outputOptions = {
     file: dest,
-    format: 'iife',
-    name: options.name || options.moduleName,
-    sourcemap: options.sourcemap || options.sourceMap,
+    format,
     exports: 'named',
-    globals: options.globals || {},
+    name: moduleName,
+    sourcemap: sourceMap,
+    globals: options.globals,
     footer: `ECL.version = "${pkg.version}";`,
   };
+
+  if (format === 'es') {
+    outputOptions.extend = true;
+    inputOptions.plugins.push(externalGlobals({ ECL: 'ECL' }));
+  }
 
   rollup.rollup(inputOptions).then((bundle) => bundle.write(outputOptions));
 };

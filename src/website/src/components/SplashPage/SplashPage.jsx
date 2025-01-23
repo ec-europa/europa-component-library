@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import resources
-import ECLogo from '@ecl/preset-ec/dist/images/logo/positive/logo-ec--en.svg';
-import EULogo from '@ecl/preset-eu/dist/images/logo/standard-version/positive/logo-eu--en.svg';
+import { logoEcEn } from '@ecl/preset-ec/dist/images/logo/positive/esm-export';
+import { logoEuEn } from '@ecl/preset-eu/dist/images/logo/standard-version/positive/esm-export';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
@@ -24,17 +24,23 @@ const SplashPage = React.memo(({ children }) => (
           col="12 m-6"
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
-          <LogoLink to="/ec/" aria-label="Open EU system" system="ec">
-            <img src={ECLogo} alt="EC Logo" />
-          </LogoLink>
+          <LogoLink
+            to="/ec/"
+            aria-label="Open EU system"
+            system="ec"
+            logo={logoEcEn}
+          />
         </Col>
         <Col
           col="12 m-6"
           className={`${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
         >
-          <LogoLink to="/eu/" aria-label="Open EU system" system="eu">
-            <img src={EULogo} alt="EU Logo" />
-          </LogoLink>
+          <LogoLink
+            to="/eu/"
+            aria-label="Open EU system"
+            system="eu"
+            logo={logoEuEn}
+          />
         </Col>
       </Row>
     </Container>
