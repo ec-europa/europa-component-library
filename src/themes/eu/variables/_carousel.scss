@@ -4,12 +4,11 @@
 $carousel: (
   box-shadow: var(--sh-2),
   separator: none,
-  controls-background: map.get($color, 'white'),
+  container-shadow: inset 0 -4px 12px -9px rgba(#000, 0.6) ;
+    controls-background: #fff,
   controls-padding: var(--s-xs) 0,
   navigation-color: var(--c-d-80),
   navigation-background-active: var(--c-p-20),
   navigation-color-active: var(--c-d),
   navigation-border-active: var(--c-p-20),
-  play-color: var(--c-p),
-  prev-next-hover-background: var(--c-d-20),
 );
