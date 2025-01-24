@@ -41,7 +41,7 @@ $navigation-list: null !default;
 // Navigation list items
 
 .ecl-navigation-list__item {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: map.get($navigation-list, 'background');
   border: map.get($navigation-list, 'border');
   border-radius: map.get($navigation-list, 'border-radius');
   box-shadow: map.get($navigation-list, 'shadow');
@@ -121,7 +121,7 @@ $navigation-list: null !default;
     border-radius: 100px 0 100px 100px;
     top: var(--s-xs);
     right: var(--s-xs);
-    background: var(--c-n-60, #e0e5f5);
+    background: var(--cm-surface-lowest, #e0e5f5);
     height: 60px;
     width: 60px;
 
