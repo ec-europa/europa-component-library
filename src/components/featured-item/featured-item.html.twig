@@ -1,6 +1,7 @@
 {% apply spaceless %}
 {#
   Parameters:
+  - "color_mode" (string) (default: '') Name of the color mode
   - "type" (optional) (can be 'highlight'),
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
@@ -29,6 +30,7 @@
 
 {% set _css_class = 'ecl-featured-item' %}
 {% set _css_container_class = 'ecl-featured-item__container' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _type = type|default('') %}
 {% set _title = title|default(false) %}
 {% set _description = description|default('') %}
@@ -47,6 +49,10 @@
 {% endif %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _position == 'right' %}
   {% set _css_container_class = _css_container_class ~ ' ecl-featured-item__container--right' %}
