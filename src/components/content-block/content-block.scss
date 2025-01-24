@@ -41,7 +41,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__primary-meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-on-surface-primary, var(--c-p));
   color: map.get($content-block, 'primary-meta-color');
   display: inline;
   margin-inline-end: var(--s-xs);
