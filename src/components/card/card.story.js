@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataCard from './demo/data';
 import card from './card.html.twig';
@@ -32,11 +33,15 @@ const getArgs = (data) => {
   }
   args.show_lists = false;
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
 
   // Optional elements
   if (data.picture) {
@@ -161,6 +166,8 @@ const getArgTypes = (data) => {
 
 const prepareData = (data, args) => {
   correctPaths(data);
+  data.color_mode = args.color_mode;
+
   const clone = JSON.parse(JSON.stringify(data));
 
   // Optional elements
