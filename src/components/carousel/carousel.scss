@@ -35,8 +35,7 @@ $carousel: null !default;
 
 .ecl-carousel__container {
   box-sizing: border-box;
-  box-shadow: inset 0 -4px 12px -9px
-    rgba(map.get($theme, 'color', 'black'), 0.6);
+  box-shadow: map.get($carousel, 'container-shadow');
   order: 1;
   width: 100%;
 }
@@ -88,12 +87,6 @@ $carousel: null !default;
     max-width: 1140px;
     width: 100%;
   }
-}
-
-.ecl-carousel__prev,
-.ecl-carousel__next {
-  cursor: pointer;
-  display: none;
 }
 
 .ecl-carousel__navigation-item {
@@ -168,33 +161,6 @@ $carousel: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('xl') {
-  .ecl-carousel__prev {
-    left: var(--s-m);
-  }
-
-  .ecl-carousel__next {
-    right: var(--s-m);
-  }
-
-  .ecl-carousel__prev,
-  .ecl-carousel__next {
-    background-color: map.get($theme, 'color', 'white');
-    color: var(--c-d);
-    display: block;
-    position: absolute;
-    top: calc(50% - 22px);
-    transform: translateY(-50%);
-    z-index: 2;
-
-    &:hover {
-      background-color: map.get($carousel, 'prev-next-hover-background');
-    }
-
-    &:focus-visible {
-      background-color: var(--c-n-60);
-    }
-  }
-
   .ecl-carousel__autoplay {
     width: 10%;
   }
