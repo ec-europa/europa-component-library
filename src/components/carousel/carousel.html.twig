@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string) The color mode name
     - "items" (array) (default: []): List of banner compatible with EC Banner component structure
     - "size" (string) (default: 'm') Size of the carousel (can be 's', 'm', 'l')
     - "counter_label" (string) (default: 'of')
@@ -24,6 +25,7 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-carousel' %}
+{% set _color_mode = color_mode|default('') %}
 {% set _extra_attributes = '' %}
 {% set _items = items|default('') %}
 {% set _size = size|default('m') %}
@@ -40,6 +42,10 @@
 
 {% if _full_width %}
   {% set _css_class = _css_class ~ ' ecl-carousel--full-width' %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
