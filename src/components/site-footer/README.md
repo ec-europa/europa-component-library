@@ -25,7 +25,8 @@ npm install --save @ecl/site-footer
     - "link" (link object)
     - "content_before" (string) Optional text before the link
     - "content_after" (string) Optional text after the link
-  - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
+  - "links_inline" (optional) (boolean) (default: false) Optional inline style for the list
+  - "links_separator" (optional) (boolean) (default: false) Optional separator for inline links
 - **"split_columns"** (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
 - **"extra_classes"** (optional) (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (optional) (array) (default: []) Extra attributes
