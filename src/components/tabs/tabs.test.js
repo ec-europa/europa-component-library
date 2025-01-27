@@ -42,6 +42,27 @@ describe('Tabs', () => {
       return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra class name on items', () => {
+      expect.assertions(1);
+
+      const withExtraClassesOnItems = {
+        items: [
+          {
+            label: 'Tab label',
+            path: '/example',
+            extra_classes: 'extra-class-1',
+          },
+          {
+            label: 'Tab label',
+            path: '/example',
+            extra_classes: 'extra-class-2',
+          },
+        ],
+      };
+
+      return expect(render(withExtraClassesOnItems)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),

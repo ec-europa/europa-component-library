@@ -7,6 +7,7 @@
         "label": "Home",
         "path": "/example",
         "is_current": true
+        "extra_classes": 'extra-class'
       },
       {
         "label": "Item 1",
@@ -82,6 +83,9 @@
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'true' }]) %}
           {% else %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'false' }]) %}
+          {% endif %}
+          {% if _item.extra_classes is defined %}
+            {% set _item_extra_classes = _item_extra_classes ~ ' ' ~ _item.extra_classes %}
           {% endif %}
           {% if _menu is not empty %}
             {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
