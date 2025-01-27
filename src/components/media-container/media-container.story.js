@@ -131,7 +131,6 @@ const getArgTypes = (data) => {
 };
 
 const prepareData = (data, args) => {
-  correctPaths(data);
   data.full_width = args.width === 'inside';
 
   if (!args.show_description) {
@@ -159,6 +158,7 @@ const prepareData = (data, args) => {
         break;
     }
   }
+  correctPaths(data);
 
   return Object.assign(data, args);
 };
