@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { correctPaths, getColorModeControls } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
 import carousel from './carousel.html.twig';
@@ -13,11 +14,16 @@ const getArgs = () => {
     grid_content: false,
   };
 
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
   return args;
 };
 
 const getArgTypes = () => {
   const argTypes = {
+    ...getColorModeControls(),
     width: {
       name: 'width',
       type: 'select',
@@ -84,6 +90,7 @@ const getArgTypes = () => {
 
 const prepareData = (data, args) => {
   data.size = args.size;
+  data.color_mode = args.color_mode;
   data.full_width =
     args.width === 'inside the grid container, with fullwidth class';
 
