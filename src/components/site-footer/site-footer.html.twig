@@ -19,7 +19,8 @@
       - "link" (link object)
       - "content_before" (string) Optional text before the link
       - "content_after" (string) Optional text after the link
-    - "links_inline" (optional) (bolean) (default: false) Optional inline style for the list
+    - "links_inline" (optional) (boolean) (default: false) Optional inline style for the list
+    - "links_separator" (optional) (boolean) (default: false) Optional separator for inline links
   - "split_columns" (boolean) (optional) (default: false) Split columns in the footer, used for Core EC version
   - "extra_classes" (optional) (string) (default: '') Extra classes (space separated) for the icon
   - "extra_attributes" (optional) (array) (default: []) Extra attributes for icon
@@ -140,6 +141,9 @@
           {% set _list_class_name = 'ecl-site-footer__list' %}
           {% if _sections.links_inline %}
             {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--inline' %}
+          {% endif %}
+          {% if _sections.links_separator %}
+            {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--separator' %}
           {% endif %}
           {% if _sections.links_columns %}
             {% set _list_class_name = _list_class_name ~ ' ecl-site-footer__list--columns' %}
