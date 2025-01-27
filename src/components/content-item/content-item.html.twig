@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string) The color mode name
     - "picture" (associative array) (default: {}): 
       - "size" (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
       - "position" (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
@@ -61,11 +62,16 @@
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default(_infos) %}
 {% set _lists = lists|default([]) %}
+{% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-content-item' %}
 {% set _extra_attributes = '' %}
 {% set _picture_attrs = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if _divider %}
   {% set _css_class = _css_class ~ ' ecl-content-item--divider' %}

@@ -8,6 +8,7 @@ npm install --save @ecl/card
 
 ### Parameters
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **picture** (associative array) (default: {}): Image for the card, following ECL Picture structure
 - **"picture_zoom"** (bool) (default: false): Should the picture be animated?
 - **labels** (array) (default: []): Array of ECL Labels
