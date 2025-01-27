@@ -30,7 +30,6 @@ $media-container: null !default;
 }
 
 .ecl-media-container__media {
-  box-sizing: border-box;
   display: block;
   height: auto;
   min-height: 1px; // IE 11 fix
@@ -120,11 +119,11 @@ $media-container: null !default;
   background-color: var(--cm-surface-dark, var(--c-d));
   border: none;
   border-radius: 50%;
-  color: #fff;
+  color: var(--cm-on-surface-inverted, '#fff');
   justify-content: center;
   min-height: 2rem;
   min-width: 2rem;
-  outline: 2px solid #fff;
+  outline: 2px solid var(--cm-on-surface-inverted, '#fff');
   outline-offset: -4px;
   position: absolute;
   right: var(--s-m);
