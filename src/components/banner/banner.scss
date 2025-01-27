@@ -40,7 +40,7 @@ $banner: null !default;
 
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
-  color: var(--c-d);
+  color: var(--cm-on-surface-dark, var(--c-d));
   font: var(--f-s);
   padding-bottom: var(--s-2xs);
   padding-top: var(--s-2xs);
@@ -128,15 +128,15 @@ $banner: null !default;
 .ecl-banner__play.ecl-button--icon-only,
 .ecl-banner__pause.ecl-button--icon-only {
   align-items: center;
-  background-color: var(--c-d);
+  background-color: var(--cm-on-surface-dark, var(--c-d));
   border: none;
   border-radius: 50%;
   bottom: calc(var(--s-m) + var(--banner-footer-height));
-  color: map.get($theme, 'color', 'white');
+  color: #fff;
   justify-content: center;
   min-height: 32px;
   min-width: 32px;
-  outline: 2px solid map.get($theme, 'color', 'white');
+  outline: #fff;
   outline-offset: -4px;
   position: absolute;
   right: var(--s-m);
@@ -145,10 +145,10 @@ $banner: null !default;
   &:hover,
   &:active,
   &:focus-visible {
-    background-color: map.get($theme, 'color', 'white');
+    background-color: #fff;
     border: none;
-    color: var(--c-d);
-    outline-color: var(--c-d);
+    color: var(--cm-on-surface-dark, var(--c-d));
+    outline-color: var(--cm-on-surface-dark, var(--c-d));
     padding: 0;
   }
 
@@ -280,7 +280,7 @@ $banner: null !default;
 
     .ecl-banner--box-bg-dark & {
       box-decoration-break: clone;
-      background: var(--c-ov-l);
+      background: var(--cm-surface-transparent-70, var(--c-ov-l));
       backdrop-filter: blur(2px);
     }
   }
@@ -457,7 +457,7 @@ $banner: null !default;
   .ecl-banner__title-link,
   .ecl-banner__description,
   .ecl-banner__description-link {
-    color: var(--c-d);
+    color: var(--cm-on-surface-dark, var(--c-d));
   }
 }
 
@@ -499,7 +499,7 @@ $banner: null !default;
   .ecl-banner__title-link,
   .ecl-banner__description,
   .ecl-banner__description-link {
-    color: var(--c-d);
+    color: var(--cm-on-surface-dark, var(--c-d));
   }
 }
 
@@ -535,7 +535,7 @@ $banner: null !default;
     .ecl-banner__title-link,
     .ecl-banner__description,
     .ecl-banner__description-link {
-      color: map.get($theme, 'color', 'white');
+      color: #fff;
     }
 
     .ecl-banner__description {

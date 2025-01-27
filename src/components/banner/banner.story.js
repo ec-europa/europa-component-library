@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 // Import data for demos
 import bannerDataImage from './demo/data--image';
@@ -32,12 +33,16 @@ const getArgs = (data) => {
   if (data.picture) {
     args.image = data.picture.img.src || '';
   }
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
 
   return args;
 };
 
 const getArgTypes = (data) => {
   const argTypes = {
+    ...getColorModeControls(),
     show_title: {
       name: 'title',
       type: { name: 'boolean' },
