@@ -7,6 +7,7 @@
 
 // Exposed variables
 $theme: null !default;
+$site-header: null !default;
 
 .ecl-site-header__logo-image {
   height: 1.9cm;
@@ -20,11 +21,11 @@ $theme: null !default;
 }
 
 .ecl-site-header__banner-top {
-  color: var(--c-d);
+  color: var(--cm-on-surface-dark);
   font: map.get($theme, 'font-prolonged-print', 'm');
 
   .ecl-link {
-    color: var(--c-d);
+    color: var(--cm-on-surface-dark);
   }
 
   .ecl-link::after {
@@ -33,6 +34,7 @@ $theme: null !default;
 }
 
 .ecl-site-header__banner {
+  color: map.get($site-header, 'banner-text-color');
   font: map.get($theme, 'font-print', '3xl');
   font-family: var(--ecl-font-family-print-alt);
   font-weight: map.get($theme, 'font-weight-print', 'bold');
