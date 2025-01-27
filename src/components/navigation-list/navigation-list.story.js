@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import dataDefault from './demo/data';
 import dataIllustration from './demo/data-illustration';
@@ -16,13 +17,16 @@ const getArgs = (data) => {
     args.show_border = true;
     args.show_links = true;
   }
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
   args.column = 2;
 
   return args;
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
 
   // Optional elements
   argTypes.show_image = {
@@ -100,6 +104,7 @@ const prepareData = (data, args) => {
   // Other controls
   clone.border = 'show_border' in args ? args.show_border : true;
   clone.column = args.column;
+  clone.color_mode = args.color_mode;
 
   return clone;
 };
