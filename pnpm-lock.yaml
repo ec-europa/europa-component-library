@@ -920,6 +920,55 @@ importers:
 
   src/layout/grid: {}
 
+  src/page-example/page-fact-sheet:
+    dependencies:
+      '@ecl/banner':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/banner
+      '@ecl/blockquote':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/blockquote
+      '@ecl/breadcrumb':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/breadcrumb
+      '@ecl/fact-figures':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/fact-figures
+      '@ecl/featured-item':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/featured-item
+      '@ecl/list-illustration':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/list-illustration
+      '@ecl/mega-menu':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/mega-menu
+      '@ecl/page-header':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/page-header
+      '@ecl/separator':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/separator
+      '@ecl/site-footer':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/site-footer
+      '@ecl/site-header':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/site-header
+      '@ecl/table':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/table
+      '@ecl/timeline':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/timeline
+      '@ecl/unordered-list':
+        specifier: 5.0.0-alpha.1
+        version: link:../../components/unordered-list
+    devDependencies:
+      '@ecl/builder':
+        specifier: 5.0.0-alpha.1
+        version: link:../../tools/builder
+
   src/page-example/page-home:
     dependencies:
       '@ecl/banner':

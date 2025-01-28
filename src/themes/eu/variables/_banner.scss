@@ -70,5 +70,17 @@ $banner: (
     ),
 );
 $banner-print: (
-  cta-radius: 4px,
+  font: (
+    'title': (
+      'desktop-m': map.get($font-print, '2xl'),
+      'desktop-l': map.get($font-print, '3xl'),
+    ),
+    'description': (
+      'desktop-m': map.get($font-print, 'l'),
+      'desktop-l': map.get($font-print, '2xl'),
+    ),
+  ),
+  container-padding-bottom: map.get($spacing-print, '3xl'),
+  container-padding-top: map.get($spacing-print, '3xl'),
+  content-padding: map.get($spacing-print, 'm'),
 );
