@@ -2,6 +2,7 @@
 
 {#
   Parameters:
+    - "color_mode" (string) The color mode name
     - "picture" (associative array) (default: {}): Image for the card, following ECL Picture structure
     - "picture_zoom" (bool) (default: false): Should the picture be animated?
     - "labels" (array) (default: []): Array of ECL Labels
@@ -37,11 +38,16 @@
 {% set _description = description|default('') %}
 {% set _secondary_meta = secondary_meta|default([]) %}
 {% set _lists = lists|default([]) %}
+{% set _color_mode = color_mode|default('') %}
 
 {% set _css_class = 'ecl-card' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
+{% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}

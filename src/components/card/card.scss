@@ -10,7 +10,7 @@ $theme: null !default;
 $card: null !default;
 
 .ecl-card {
-  background-color: map.get($theme, 'color', 'white');
+  background-color: map.get($card, 'background');
   border: map.get($card, 'border');
   border-bottom: map.get($card, 'border-bottom');
   border-radius: map.get($card, 'border-radius');

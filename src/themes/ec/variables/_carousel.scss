@@ -4,11 +4,10 @@
 $carousel: (
   box-shadow: var(--sh-6),
   separator: none,
-  controls-background: map.get($color, 'white'),
+  controls-background: var(--cm-surface-inverted),
   controls-padding: var(--s-m) 0,
-  navigation-background-active: var(--c-n),
-  navigation-color-active: var(--c-d),
-  navigation-border-active: var(--c-n),
-  play-color: var(--c-p),
-  prev-next-hover-background: var(--c-n-60),
+  container-shadow: none,
+  navigation-background-active: var(--cm-surface-neutral-low),
+  navigation-color-active: var(--cm-on-surface-dark),
+  navigation-border-active: var(--cm-surface-neutral-low),
 );

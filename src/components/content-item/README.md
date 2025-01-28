@@ -8,20 +8,21 @@ npm install --save @ecl/content-item
 
 ### Parameters
 
+- **color_mode** (string) (default: '') Name of the color mode
 - **picture** (associative array) (default: {}):
-  - **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
-  - **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
-  - **img** (associative array) (default: {}):
-    - **src** (string) (default: ''): Path to the default image
-    - **alt** (string) (default: ''): Alt text of the default image
-  - **sources** (array) (default: []): format: [
-    {
-    **src** (string) (default: ''): Path to the source image
-    **media** (string) (default: ''): Media condition to use this source
-    **type** (string) (default: ''): Type of this source
-    },
-    ...
-    ]
+- **size** (string) (default: 'large'): Size of the picture (can be 'small' or 'large'). Small pictures should be square
+- **position** (string) (default: 'left'): Position of the picture (can be 'left', 'right' or 'top')
+- **img** (associative array) (default: {}):
+  - **src** (string) (default: ''): Path to the default image
+  - **alt** (string) (default: ''): Alt text of the default image
+- **sources** (array) (default: []): format: [
+  {
+  **src** (string) (default: ''): Path to the source image
+  **media** (string) (default: ''): Media condition to use this source
+  **type** (string) (default: ''): Type of this source
+  },
+  ...
+  ]
 - **"picture_zoom"** (bool) (default: false): Should the picture be animated?
 - **date** (associative array) (default: {}): Predefined structure compatible with ECL Date block component
 - **labels** (array) (default: []): Array of ECL Labels
