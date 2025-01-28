@@ -12,6 +12,7 @@ npm install --save @ecl/tabs
   "label": (string) (default: '')
   "path": (string) (default: '')
   "is_current": (boolean) (optional)
+  "extra_classes": (string) (optional)
 - **"more_label"** (string) (default: 'More (%d)')
 - **"previous_label"** (string) (default: 'Previous') Label for the previous button (mobile only); this is for screen readers
 - **"next_label"** (string) (default: 'Next') Label for the next button (mobile only); this is for screen readers
