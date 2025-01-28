@@ -27,7 +27,6 @@ module.exports = {
           alt: 'Alternative text',
         },
       },
-      credit: '© Copyright or credit',
     },
     {
       title: 'Duis vitae pulvinar turpis',
@@ -72,13 +71,19 @@ module.exports = {
           transform: 'rotate-90',
         },
       },
-      picture: {
-        img: {
-          src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-          alt: 'Alternative text',
-        },
+      sr_play: 'Play',
+      sr_pause: 'Pause',
+      video: {
+        poster:
+          'https://vod.prd.commavservices.eu/12/224712/THUMB_I224712EN1W_V_1.jpg',
+        sources: [
+          {
+            src: 'https://vod.prd.commavservices.eu/12/224712/LR_I224712EN1W.mp4',
+            type: 'video/mp4',
+          },
+        ],
       },
-      credit: '© Copyright or credit',
+      icon_path: '/icons.svg',
       box_background: 'dark',
     },
   ],
