@@ -147,6 +147,7 @@
             link: _link.link|merge({
               type: 'standalone',
             }),
+            extra_attributes: _link.extra_attributes|default([]),  
             icon: _link.icon|default({})
           } only %}
         {%- else -%}
@@ -156,7 +157,7 @@
       {% endfor %}
       </ul>
       {% endfor %}
-      {% else %}
+    {% else %}
       <ul class="ecl-content-block__link-list">
       {% for _link in _links %}
         <li class="ecl-content-block__link-item">
@@ -165,6 +166,7 @@
             link: _link.link|merge({
               type: 'standalone',
             }),
+            extra_attributes: _link.extra_attributes|default([]),
             icon: _link.icon|default({})
           } only %}
         {%- else -%}
