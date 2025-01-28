@@ -84,10 +84,10 @@
           {% else %}
             {% set _item_extra_attributes = _item_extra_attributes|merge([{ name: 'aria-selected', value: 'false' }]) %}
           {% endif %}
-          {% if _item.extra_classes is defined %}
+          {% if _item.extra_classes is defined and _item.extra_classes is not empty %}
             {% set _item_extra_classes = _item_extra_classes ~ ' ' ~ _item.extra_classes %}
           {% endif %}
-          {% if _menu is not empty %}
+          {% if _menu is defined and _menu is not empty %}
             {% set extra_attributes = extra_attributes|merge([{ name: 'data-ecl-has-menu' }]) %}
           {% endif %}
           {% include '@ecl/link/link.html.twig' with {
