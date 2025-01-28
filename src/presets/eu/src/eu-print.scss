@@ -163,7 +163,8 @@
 @use '@ecl/mega-menu/mega-menu-print';
 @use '@ecl/site-footer/site-footer-print';
 @use '@ecl/site-header/site-header-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $site-header: var.$site-header
 );
 @use '@ecl/splash-page/splash-page-print' with (
   $theme: theme.$theme,
