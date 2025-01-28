@@ -277,7 +277,11 @@ export class Carousel {
       const bannerInstance = ECL.components.get(banner);
       const ratio = bannerInstance.defaultRatio();
       bannerInstance.setHeight(ratio);
+      const padding =
+        parseInt(banner.style.getPropertyValue('--banner-footer-height'), 10) ||
+        0;
       const height = parseInt(banner.style.height, 10);
+      const totalHeight = height + padding;
       if (banner.style.height === 'auto') {
         return 0;
       }
@@ -285,7 +289,7 @@ export class Carousel {
         return 1;
       }
 
-      return height;
+      return totalHeight;
     });
 
     const elementHeights = heightValues.filter(
@@ -306,13 +310,24 @@ export class Carousel {
         this.executionCount = 0;
         this.slides.forEach((slide) => {
           let bannerImage = null;
+          let bannerVideo = null;
           const banner = queryOne('.ecl-banner', slide);
           if (banner) {
             bannerImage = queryOne('img', banner);
-            banner.style.height = `${tallestElementHeight}px`;
+            bannerVideo = queryOne('video', banner);
+            const footerHeight =
+              parseInt(
+                banner.style.getPropertyValue('--banner-footer-height'),
+                10,
+              ) || 0;
+            const newHeight = tallestElementHeight - footerHeight;
+            banner.style.height = `${newHeight}px`;
           }
           if (bannerImage) {
             bannerImage.style.aspectRatio = 'auto';
+          }
+          if (bannerVideo) {
+            bannerVideo.style.aspectRatio = 'auto';
           }
         });
       }
