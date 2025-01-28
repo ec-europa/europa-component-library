@@ -59,6 +59,28 @@ describe('Content block', () => {
       return expect(render(dataImage)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with link extra attributes', () => {
+      expect.assertions(1);
+
+      const withLinkExtraAttributes = merge(dataImage, {
+        links: [
+          [
+            {
+              ...dataImage.links[0][0],
+              extra_attributes: [
+                { name: 'data-test', value: 'data-test-value' },
+                { name: 'data-test-1', value: 'data-test-value-1' },
+              ],
+            },
+            ...dataImage.links[0].slice(1),
+          ],
+          ...dataImage.links.slice(1),
+        ],
+      });
+
+      return expect(render(withLinkExtraAttributes)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataImage, true)),
