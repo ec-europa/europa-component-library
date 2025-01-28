@@ -30,11 +30,11 @@ $site-header: null !default;
 }
 
 .ecl-site-header__banner-top {
-  color: var(--cm-on-surface-dark);
+  color: var(--cm-on-surface-dark, var(--c-d));
   font: map.get($theme, 'font-print', 'm');
 
   .ecl-link {
-    color: var(--cm-on-surface-dark);
+    color: var(--cm-on-surface-dark, var(--c-d));
   }
 
   .ecl-link::after {
@@ -56,4 +56,8 @@ $site-header: null !default;
 
 .ecl-site-header__logo-image-mobile {
   display: none;
+}
+
+.ecl-site-header__notification .ecl-notification {
+  width: 100%;
 }
