@@ -1,6 +1,7 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import demoDataSimple from './demo/data--simple';
@@ -26,6 +27,9 @@ const getArgs = (data) => {
   if (data.footer_description) {
     args.footer_description = data.footer_description;
   }
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
 
   args.show_footer = false;
 
@@ -33,7 +37,7 @@ const getArgs = (data) => {
 };
 
 const getArgTypes = (data) => {
-  const argTypes = {};
+  const argTypes = getColorModeControls();
 
   argTypes.show_media = {
     type: 'boolean',

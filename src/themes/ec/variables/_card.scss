@@ -2,9 +2,10 @@
 @use '../index' as *;
 
 $card: (
+  background: var(--cm-surface-inverted),
   border-radius: 0 0 map.get($border-radius, 's') map.get($border-radius, 's'),
   shadow: var(--sh-1),
-  border: 1px solid var(--c-st),
-  border-bottom: 4px solid var(--c-p),
+  border: 1px solid var(--cm-border-neutral-lowest),
+  border-bottom: 4px solid var(--cm-border),
   body-padding: var(--s-xl),
 );
