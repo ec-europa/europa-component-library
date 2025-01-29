@@ -32,10 +32,12 @@ $timeline: (
   toggle-bullet-border-width: 0.25rem,
 );
 $timeline-print: (
-  content-color: var(--cm-on-surface-dark-medium),
-  content-font: map.get($font-print, 'm'),
-  label-color: var(--cm-on-surface-dark),
+  title-font: map.get($font-print, 'l'),
+  title-margin: map.get($spacing-print, '2xs'),
   label-font: map.get($font-print, 'm'),
-  title-color: var(--cm-on-surface-dark),
-  title-font: map.get($font-print, 'm'),
+  label-margin: 0,
+  content-font: map.get($font-print, 'm'),
+  timeline-margin-left: calc(
+      #{map.get($spacing-print, 'xs')} + 14rem + #{map.get($spacing-print, 'm')}
+    ),
 );

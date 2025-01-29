@@ -26,7 +26,6 @@ delete dataSiteHeaderEU.notification;
 delete dataSiteHeaderEU.site_name;
 
 dataPageHeader.breadcrumb = dataBreadcrumb;
-delete dataPageHeader.picture_background;
 
 dataInpageNavigation.links[0].label = 'Donec nec ex condimentum';
 dataInpageNavigation.links[1].label = 'Curabitur faucibus ex eu';

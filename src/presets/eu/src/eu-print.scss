@@ -68,6 +68,7 @@
 // Molecules
 @use '@ecl/banner/banner-print' with (
   $theme: theme.$theme,
+  $banner: var.$banner,
   $banner-print: var.$banner-print
 );
 @use '@ecl/description-list/description-list-print' with (
@@ -130,13 +131,11 @@
   $theme: theme.$theme,
   $separator: var.$separator
 );
-@use '@ecl/social-media-follow/social-media-follow-print' with (
-  $theme: theme.$theme,
-  $social-media-follow: var.$social-media-follow
-);
+@use '@ecl/social-media-follow/social-media-follow-print';
 @use '@ecl/social-media-share/social-media-share-print';
 @use '@ecl/timeline/timeline-print' with (
   $theme: theme.$theme,
+  $timeline: var.$timeline,
   $timeline-print: var.$timeline-print
 );
 
@@ -163,7 +162,8 @@
 @use '@ecl/mega-menu/mega-menu-print';
 @use '@ecl/site-footer/site-footer-print';
 @use '@ecl/site-header/site-header-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $site-header: var.$site-header
 );
 @use '@ecl/splash-page/splash-page-print' with (
   $theme: theme.$theme,

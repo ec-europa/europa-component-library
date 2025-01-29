@@ -14,15 +14,6 @@ $link: null !default;
   color: map.get($link, 'color');
   page-break-inside: avoid;
   text-decoration: none;
-
-  &::after {
-    color: var(--cm-on-surface-dark, var(--c-d));
-    content: '(' attr(href) ')';
-    font: map.get($theme, 'font-print', 's');
-    font-style: italic;
-    margin-inline-start: map.get($theme, 'spacing-print', '2xs');
-    text-decoration: underline;
-  }
 }
 
 .ecl-link--icon-before,
@@ -51,11 +42,9 @@ $link: null !default;
   }
 }
 
-.ecl-link--icon-before .ecl-link__icon {
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
-}
-
-.ecl-link--icon-after .ecl-link__icon {
+// stylelint-disable-next-line no-descending-specificity
+.ecl-link__icon ~ .ecl-link__label,
+.ecl-link__label ~ .ecl-link__icon {
   margin-inline-start: map.get($theme, 'spacing-print', 'xs');
 }
 
