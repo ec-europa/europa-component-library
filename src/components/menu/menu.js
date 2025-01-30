@@ -1,4 +1,3 @@
-import Stickyfill from 'stickyfilljs';
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
 import isMobile from 'mobile-device-detect';
@@ -339,8 +338,6 @@ export class Menu {
       }
     }
 
-    // Init sticky header
-    this.stickyInstance = new Stickyfill.Sticky(this.element);
     this.focusTrap = createFocusTrap(this.element, {
       onActivate: () => this.element.classList.add('trap-is-active'),
       onDeactivate: () => this.element.classList.remove('trap-is-active'),
@@ -394,10 +391,6 @@ export class Menu {
    * Destroy component.
    */
   destroy() {
-    if (this.stickyInstance) {
-      this.stickyInstance.remove();
-    }
-
     if (this.attachClickListener) {
       if (this.open) {
         this.open.removeEventListener('click', this.handleClickOnToggle);
