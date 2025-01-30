@@ -1,20 +1,30 @@
 import { loremIpsum } from 'lorem-ipsum';
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
-import { correctPaths } from '@ecl/story-utils';
+import { getColorModeControls, correctPaths } from '@ecl/story-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import timeline from './timeline.html.twig';
 import notes from './README.md';
 
-const getArgs = (data) => ({
-  title: data.items[0].title,
-  label: data.items[0].label,
-  content: data.items[0].content,
-  showDummyContent: false,
-});
+const getArgs = (data) => {
+  const args = {
+    title: data.items[0].title,
+    label: data.items[0].label,
+    content: data.items[0].content,
+    showDummyContent: false,
+  };
+
+  if (getSystem() === 'ec') {
+    args.color_mode = 'default';
+  }
+
+  return args;
+};
 
 const getArgTypes = () => ({
+  ...getColorModeControls(),
   title: {
     type: { name: 'string' },
     description: 'Title of the timeline item',
@@ -57,6 +67,7 @@ const getArgTypes = () => ({
 
 // Prepare data for the navigation.
 const prepareData = (data, args) => {
+  data.color_mode = args.color_mode;
   data.items[0].title = args.title;
   data.items[0].label = args.label;
   data.items[0].content = args.content;

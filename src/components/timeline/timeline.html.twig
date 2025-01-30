@@ -2,6 +2,7 @@
 
 {#
 Parameters:
+  - "color_mode" (string)
   - "toggle_collapsed": (string) (default: '')
   - "toggle_expanded": (string) (default: '')
   - "hide" (object): (default: undefined)
@@ -21,6 +22,7 @@ Parameters:
 
 {# Internal properties #}
 
+{% set _color_mode = color_mode|default('') %}
 {% set _css_class = 'ecl-timeline' %}
 {% set _extra_attributes = 'data-ecl-auto-init="Timeline" data-ecl-timeline' %}
 {% set _items = items|default([]) %}
@@ -45,6 +47,10 @@ Parameters:
   {% set _countbase = items|length - _bottom_amount %}
   {% set _display_amount = _hide_from %}
   {% set _hide_amount = _countbase - _display_amount %}
+{% endif %}
+
+{% if _color_mode is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
