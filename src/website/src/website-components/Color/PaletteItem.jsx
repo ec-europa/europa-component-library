@@ -1,54 +1,71 @@
 import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import ClipboardJS from 'clipboard';
 
 import styles from './PaletteItem.scss';
 
 class PaletteItem extends PureComponent {
   constructor(props) {
     super(props);
-    this.element = React.createRef();
-    this.clipboard = null;
 
     const { name, id, value, ui, main } = props;
     this.color = { name, id, value, ui, main };
+
+    const sanitizedName = name.replace(/\s*\([^)]*\)/g, '').trim();
+    this.customProperty = `--ecl-color-${sanitizedName.toLowerCase()}`;
+
+    // State to manage tooltip visibility
+    this.state = {
+      tooltipVisible: false,
+    };
   }
 
-  componentDidMount() {
-    const { name, id } = this.color;
-    this.clipboard = new ClipboardJS(`#${id || name.toLowerCase()}`);
-  }
+  handleCopy = (text) => {
+    navigator.clipboard.writeText(text);
+    this.setState({ tooltipVisible: true });
 
-  componentWillUnmount() {
-    if (this.clipboard) this.clipboard.destroy();
-  }
+    // Hide tooltip after 1 second
+    setTimeout(() => {
+      this.setState({ tooltipVisible: false });
+    }, 1000);
+  };
 
   render() {
     const { name, id, value, ui, main } = this.color;
+    const { tooltipVisible } = this.state;
 
     return (
       <li
         className={classnames(
           styles.item,
-          {
-            [styles[`item--${ui}`]]: true,
-          },
+          { [styles[`item--${ui}`]]: true },
           { [styles['item--main']]: main },
         )}
-        style={{ backgroundColor: value, color: value }}
+        style={{ backgroundColor: value }}
       >
-        <h3 className={styles.title}>{name}</h3>
+        <div className={styles.nameWrapper}>
+          <button
+            type="button"
+            className={styles.title}
+            onClick={() => this.handleCopy(this.customProperty)}
+          >
+            <span className={styles.nameHoverHidden}>{name}</span>
+            <span className={styles.nameHoverOnly}>{this.customProperty}</span>
+          </button>
+
+          {tooltipVisible && <div className={styles.tooltip}>Copied!</div>}
+        </div>
+
         <button
           type="button"
           id={id || name.toLowerCase()}
-          data-clipboard-text={value.toUpperCase()}
           className={styles.button}
+          onClick={() => this.handleCopy(value.toUpperCase())}
         >
-          <span className={styles['button-hover-hidden']}>
+          <span className={styles.buttonHoverHidden}>
             {value.toUpperCase()}
           </span>
-          <span className={styles['button-hover-only']}>COPY</span>
+          <span className={styles.buttonHoverOnly}>COPY</span>
         </button>
       </li>
     );

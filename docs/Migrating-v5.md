@@ -17,7 +17,6 @@ Dark and neutral colors have been merged into two new palettes: `neutral-dark` a
 
 TODO
 
-- provide mapping between v4 and v5 colors, if possible
 - update the components to use the new color properties instead of the v4 ones
 - remove old colors
 - update utilities

@@ -4,7 +4,6 @@ order: 2
 ---
 
 import {
-  ColorCard,
   ColorLayout,
   ColorPalette,
   ColorPaletteItem,
@@ -14,60 +13,107 @@ The colour palette is designed to support a flexible, modular visual style that 
 
 ## Main colours
 
-<ColorLayout>
+<ColorLayout cols="12 m-6">
   <ColorPalette>
-    <ColorPaletteItem value="#051036" name="Primary-180" />
-    <ColorPaletteItem value="#0a1f6c" name="Primary-160" />
-    <ColorPaletteItem value="#0f2fa2" name="Primary-140" />
-    <ColorPaletteItem value="#143fd9" name="Primary-120" />
-    <ColorPaletteItem
-      value="#3860ed"
-      name="Primary-100 (Primary)"
-      id="primary-100"
-      main
-    />
-    <ColorPaletteItem value="#5577f0" name="Primary-80" ui="dark" />
-    <ColorPaletteItem value="#89a1f4" name="Primary-60" ui="dark" />
-    <ColorPaletteItem value="#b1c0f8" name="Primary-40" ui="dark" />
-    <ColorPaletteItem value="#d8e0fb" name="Primary-20" ui="dark" />
+    <ColorPaletteItem value="#e6edff" name="Primary-50" />
+    <ColorPaletteItem value="#d9e3ff" name="Primary-100" />
+    <ColorPaletteItem value="#b0c6ff" name="Primary-200" />
+    <ColorPaletteItem value="#8cacff" name="Primary-300" />
+    <ColorPaletteItem value="#5987ff" name="Primary-400" />
+    <ColorPaletteItem value="#0046ff" name="Primary-500" />
+    <ColorPaletteItem value="#003fe6" name="Primary-600" />
+    <ColorPaletteItem value="#0038cc" name="Primary-700" />
+    <ColorPaletteItem value="#0035bf" name="Primary-800" />
+    <ColorPaletteItem value="#002a99" name="Primary-900" />
   </ColorPalette>
   <ColorPalette>
-    <ColorPaletteItem value="#8f5600" name="Secondary-180" />
-    <ColorPaletteItem value="#e08700" name="Secondary-160" ui="dark" />
-    <ColorPaletteItem value="#ff9d0a" name="Secondary-140" ui="dark" />
-    <ColorPaletteItem value="#ffad33" name="Secondary-120" ui="dark" />
-    <ColorPaletteItem
-      value="#ffbe5c"
-      name="Secondary-100 (Secondary)"
-      id="secondary-100"
-      ui="dark"
-      main
-    />
-    <ColorPaletteItem value="#ffcb7c" name="Secondary-80" ui="dark" />
-    <ColorPaletteItem value="#ffd89d" name="Secondary-60" ui="dark" />
-    <ColorPaletteItem value="#ffe5be" name="Secondary-40" ui="dark" />
-    <ColorPaletteItem value="#fff2de" name="Secondary-20" ui="dark" />
+    <ColorPaletteItem value="#fff9ed" name="Secondary-50" />
+    <ColorPaletteItem value="#fff8d9" name="Secondary-100" />
+    <ColorPaletteItem value="#fff0b0" name="Secondary-200" />
+    <ColorPaletteItem value="#ffbe5c" name="Secondary-300" />
+    <ColorPaletteItem value="#fea439" name="Secondary-400" />
+    <ColorPaletteItem value="#fc8713" name="Secondary-500" />
+    <ColorPaletteItem value="#ed6c09" name="Secondary-600" />
+    <ColorPaletteItem value="#c55109" name="Secondary-700" />
+    <ColorPaletteItem value="#9c4010" name="Secondary-800" />
+    <ColorPaletteItem value="#7e3610" name="Secondary-900" />
   </ColorPalette>
   <ColorPalette>
-    <ColorPaletteItem
-      value="#26324b"
-      name="Dark-100 (Dark)"
-      id="dark-100"
-      main
-    />
-    <ColorPaletteItem value="#546fa6" name="Dark-80" />
-    <ColorPaletteItem value="#99aacc" name="Dark-60" ui="dark" />
+    <ColorPaletteItem value="#eef1f6" name="Neutral-dark-50" />
+    <ColorPaletteItem value="#e5e9f2" name="Neutral-dark-100" />
+    <ColorPaletteItem value="#cad2e3" name="Neutral-dark-200" />
+    <ColorPaletteItem value="#b2bed7" name="Neutral-dark-300" />
+    <ColorPaletteItem value="#90a1c5" name="Neutral-dark-400" />
+    <ColorPaletteItem value="#546fa6" name="Neutral-dark-500" />
+    <ColorPaletteItem value="#435985" name="Neutral-dark-600" />
+    <ColorPaletteItem value="#3f537d" name="Neutral-dark-700" />
+    <ColorPaletteItem value="#324364" name="Neutral-dark-800" />
+    <ColorPaletteItem value="#26324b" name="Neutral-dark-900" />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorPaletteItem value="#f3f5fb" name="Neutral-light-50" />
+    <ColorPaletteItem value="#f0f3fa" name="Neutral-light-100" />
+    <ColorPaletteItem value="#e9edf8" name="Neutral-light-200" />
+    <ColorPaletteItem value="#d1d9f1" name="Neutral-light-300" />
+    <ColorPaletteItem value="#bdc8ea" name="Neutral-light-400" />
+    <ColorPaletteItem value="#9fb0e1" name="Neutral-light-500" />
+    <ColorPaletteItem value="#6c85d1" name="Neutral-light-600" />
+    <ColorPaletteItem value="#51649d" name="Neutral-light-700" />
+    <ColorPaletteItem value="#41507d" name="Neutral-light-800" />
+    <ColorPaletteItem value="#313c5e" name="Neutral-light-900" />
   </ColorPalette>
 </ColorLayout>
 
 ## Status colours
 
-<ColorLayout>
+<ColorLayout cols="12 m-6">
   <ColorPalette>
-    <ColorPaletteItem value="#3860ed" name="Info" />
-    <ColorPaletteItem value="#24a148" name="Success" ui="dark" />
-    <ColorPaletteItem value="#f39811" name="Warning" ui="dark" />
-    <ColorPaletteItem value="#da1e28" name="Error" />
+    <ColorPaletteItem value="#f0f9ff" name="Info-50" />
+    <ColorPaletteItem value="#dff1ff" name="Info-100" />
+    <ColorPaletteItem value="#b9e4fe" name="Info-200" />
+    <ColorPaletteItem value="#7bd0fe" name="Info-300" />
+    <ColorPaletteItem value="#34b8fc" name="Info-400" />
+    <ColorPaletteItem value="#0aa0ed" name="Info-500" />
+    <ColorPaletteItem value="#007acb" name="Info-600" />
+    <ColorPaletteItem value="#006ab5" name="Info-700" />
+    <ColorPaletteItem value="#005288" name="Info-800" />
+    <ColorPaletteItem value="#004370" name="Info-900" />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorPaletteItem value="#f1fcf3" name="Success-50" />
+    <ColorPaletteItem value="#defae5" name="Success-100" />
+    <ColorPaletteItem value="#bef4cc" name="Success-200" />
+    <ColorPaletteItem value="#8ce9a6" name="Success-300" />
+    <ColorPaletteItem value="#52d676" name="Success-400" />
+    <ColorPaletteItem value="#2bbc53" name="Success-500" />
+    <ColorPaletteItem value="#1e9b41" name="Success-600" />
+    <ColorPaletteItem value="#1d833b" name="Success-700" />
+    <ColorPaletteItem value="#1a612f" name="Success-800" />
+    <ColorPaletteItem value="#184f29" name="Success-900" />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorPaletteItem value="#fef2f3" name="Error-50" />
+    <ColorPaletteItem value="#ffc9cc" name="Error-100" />
+    <ColorPaletteItem value="#ffc9cc" name="Error-200" />
+    <ColorPaletteItem value="#fda4a9" name="Error-300" />
+    <ColorPaletteItem value="#fa6f76" name="Error-400" />
+    <ColorPaletteItem value="#f1424b" name="Error-500" />
+    <ColorPaletteItem value="#df232d" name="Error-600" />
+    <ColorPaletteItem value="#ae1820" name="Error-700" />
+    <ColorPaletteItem value="#9b1920" name="Error-800" />
+    <ColorPaletteItem value="#801c21" name="Error-900" />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorPaletteItem value="#fefbe8" name="Warning-50" />
+    <ColorPaletteItem value="#fff7c2" name="Warning-100" />
+    <ColorPaletteItem value="#ffed89" name="Warning-200" />
+    <ColorPaletteItem value="#ffdb45" name="Warning-300" />
+    <ColorPaletteItem value="#fcc614" name="Warning-400" />
+    <ColorPaletteItem value="#e3ac00" name="Warning-500" />
+    <ColorPaletteItem value="#bf8c00" name="Warning-600" />
+    <ColorPaletteItem value="#956e00" name="Warning-700" />
+    <ColorPaletteItem value="#795d00" name="Warning-800" />
+    <ColorPaletteItem value="#000" name="Warning-900" />
   </ColorPalette>
 </ColorLayout>
 
@@ -117,3 +163,7 @@ The colour palette is designed to support a flexible, modular visual style that 
     <ColorPaletteItem value="#ffffff" name="White" ui="dark" />
   </ColorPalette>
 </ColorLayout>
+
+## Color modes
+
+TODO

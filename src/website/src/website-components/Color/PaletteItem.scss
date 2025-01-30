@@ -1,6 +1,19 @@
 @use 'sass:map';
 @use '@ecl/theme-ec/theme' as *;
 
+.nameWrapper {
+  position: relative;
+
+  .nameHoverHidden {
+    display: inline;
+  }
+
+  .nameHoverOnly {
+    display: none;
+    white-space: nowrap;
+  }
+}
+
 .item {
   align-items: center;
   box-sizing: border-box;
@@ -12,6 +25,15 @@
   justify-content: space-between;
   margin: 0;
   padding: var(--ws-s-m);
+  position: relative;
+
+  &:hover .nameHoverHidden {
+    display: none;
+  }
+
+  &:hover .nameHoverOnly {
+    display: inline;
+  }
 }
 
 .item--main {
@@ -42,70 +64,75 @@
 }
 
 .title {
-  font: var(--ws-f-s);
+  background-color: rgba(#000, 0.75);
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font: var(--ws-f-m);
   font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
+  padding: 0 var(--ws-s-xs);
 
-  .item--light & {
-    color: #fff;
-  }
-
-  .item--dark & {
-    color: #000;
+  &:hover {
+    cursor: pointer;
   }
 }
 
 .button {
-  background: none;
-  border-style: solid;
-  border-width: 2px;
+  background: var(--ws-c-n-40);
+  border: 2px solid #000;
+  color: #000;
   font: var(--ws-f-s);
   height: 2.5rem;
   margin-left: var(--ws-s-s);
   width: 5rem;
 
-  .item--light & {
-    border-color: #fff;
-    color: #fff;
-
-    /* stylelint-disable-next-line */
-    &:focus {
-      background-color: rgba(#fff, 0.1);
-    }
-
-    /* stylelint-disable-next-line */
-    &:hover {
-      background-color: #fff;
-      color: #000;
-    }
-  }
-
-  /* stylelint-disable-next-line */
-  .item--dark & {
-    border-color: var(--ws-c-d);
+  &:hover {
+    background-color: #fff;
     color: #000;
+    cursor: pointer;
+  }
 
-    /* stylelint-disable-next-line */
-    &:focus {
-      background-color: color-mix(in srgb, var(--ws-c-d) 10%, transparent);
-    }
+  &:focus {
+    background-color: var(--ws-c-n-80);
+  }
 
-    /* stylelint-disable-next-line */
-    &:hover {
-      background-color: var(--ws-c-d);
-      color: #fff;
-    }
+  .buttonHoverHidden {
+    display: inline;
+  }
+
+  .buttonHoverOnly {
+    display: none;
+  }
+
+  &:hover .buttonHoverHidden {
+    display: none;
+  }
+
+  &:hover .buttonHoverOnly {
+    display: inline;
   }
 }
 
-.button:hover .button-hover-hidden {
-  display: none;
+.tooltip {
+  position: absolute;
+  top: -30px;
+  left: 6rem;
+  transform: translateX(-50%);
+  background-color: var(--ws-c-d);
+  font: var(--ws-f-s);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  pointer-events: none;
 }
 
-.button-hover-only {
-  display: none;
-}
-
-.button:hover .button-hover-only {
-  display: inline;
+.item .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
