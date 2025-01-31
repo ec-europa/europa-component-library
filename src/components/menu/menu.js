@@ -339,6 +339,7 @@ export class Menu {
     }
 
     this.focusTrap = createFocusTrap(this.element, {
+      clickOutsideDeactivates: true,
       onActivate: () => this.element.classList.add('trap-is-active'),
       onDeactivate: () => this.element.classList.remove('trap-is-active'),
     });
