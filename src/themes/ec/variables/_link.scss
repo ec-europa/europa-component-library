@@ -22,7 +22,8 @@ $link: (
     radius: 2px,
     shadow: none,
     border-width: 2px,
-    outline-width: 1px,
+    outline-width: 2px,
+    outline-offset: 2px,
     padding-horizontal: var(--s-m),
     padding-vertical: var(--s-xs),
   ),
@@ -39,7 +40,7 @@ $link: (
     background-focus: var(--cm-surface-primary),
     color-focus: var(--cm-on-surface-inverted),
     border-color-focus: var(--cm-surface-primary),
-    outline-color: var(--cm-border-inverted),
+    outline-color: var(--cm-border-primary),
   ),
   secondary: (
     background: var(--cm-surface-inverted),
@@ -54,7 +55,7 @@ $link: (
     background-focus: var(--cm-surface-primary-highest),
     color-focus: var(--cm-on-surface-inverted),
     border-color-focus: var(--cm-surface-primary-highest),
-    outline-color: var(--cm-border-inverted),
+    outline-color: var(--cm-border-primary),
     focus-shadow: none,
   ),
   cta: (
