@@ -339,6 +339,7 @@ $color-palette: (
 ) !default;
 $color-modes: (
   'blue': (
+    '--cm-surface-highlighted': map.get($color-palette, 'blue-200'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'blue-50') 50%,
@@ -360,6 +361,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'blue-100'),
   ),
   'green-dark': (
+    '--cm-surface-highlighted': map.get($color-palette, 'green-dark-200'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'green-dark-50') 50%,
@@ -381,6 +383,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'green-dark-100'),
   ),
   'orange': (
+    '--cm-surface-highlighted': map.get($color-palette, 'orange-300'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'orange-50') 55%,
@@ -402,6 +405,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'orange-100'),
   ),
   'green': (
+    '--cm-surface-highlighted': map.get($color-palette, 'green-400'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'green-50') 50%,
@@ -423,6 +427,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'green-100'),
   ),
   'purple': (
+    '--cm-surface-highlighted': map.get($color-palette, 'purple-200'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'purple-50') 40%,
@@ -444,6 +449,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'purple-100'),
   ),
   'blue-navy': (
+    '--cm-surface-highlighted': map.get($color-palette, 'blue-navy-300'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'blue-navy-100') 50%,
@@ -454,7 +460,7 @@ $color-modes: (
         map.get($color-palette, 'blue-ocean-100') 50%,
         transparent
       ),
-    '--cm-surface-low': map.get($color-palette, 'blue-navy-100'),
+    '--cm-surface-low': map.get($color-palette, 'blue-navy-200'),
     '--cm-surface-medium': map.get($color-palette, 'blue-navy-300'),
     '--cm-surface': map.get($color-palette, 'blue-navy-700'),
     '--cm-on-surface': map.get($color-palette, 'blue-navy-700'),
@@ -465,6 +471,7 @@ $color-modes: (
     '--cm-border-low': map.get($color-palette, 'blue-navy-100'),
   ),
   'blue-electric': (
+    '--cm-surface-highlighted': map.get($color-palette, 'blue-electric-300'),
     '--cm-surface-lowest': color-mix(
         in srgb,
         map.get($color-palette, 'blue-electric-50') 50%,
