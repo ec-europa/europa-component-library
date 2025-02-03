@@ -16,6 +16,9 @@ const frontmatter = require('remark-frontmatter');
 const remarkGfm = require('remark-gfm');
 const unwrapImages = require('remark-unwrap-images');
 const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+
+const { PuppeteerRenderer } = PrerenderSPAPlugin;
 const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
@@ -397,6 +400,21 @@ module.exports = {
     new WebpackManifestPlugin({
       fileName: 'asset-manifest.json',
       publicPath,
+    }),
+    new PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, 'build'),
+      routes: [
+        '/',
+        '/ec',
+        '/ec/components',
+        '/ec/guidelines',
+        '/eu',
+        '/eu/components',
+        '/eu/guidelines',
+      ],
+      renderer: new PuppeteerRenderer({
+        renderAfterDocumentEvent: 'render-event',
+      }),
     }),
   ],
   performance: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { MDXProvider } from '@mdx-js/react';
@@ -110,6 +110,11 @@ const customComponents = {
 };
 
 function App() {
+  useEffect(() => {
+    const event = new Event('render-event');
+    document.dispatchEvent(event);
+  }, []);
+
   return (
     <MDXProvider components={customComponents}>
       <Router basename={process.env.PUBLIC_URL}>

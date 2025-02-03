@@ -9,7 +9,6 @@
     "prebuild": "npm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
     "build": "npm run build:copy && webpack --config webpack.config.prod.js",
-    "postbuild": "react-snap",
     "serve": "serve build"
   },
   "dependencies": {
@@ -144,9 +143,9 @@
     "postcss-loader": "8.1.1",
     "postcss-prefix-selector": "1.16.1",
     "postcss-safe-parser": "7.0.1",
+    "prerender-spa-plugin": "^3.4.0",
     "raw-loader": "4.0.2",
     "react-dev-utils": "12.0.1",
-    "react-snap": "1.23.0",
     "remark-frontmatter": "3.0.0",
     "remark-gfm": "1.0.0",
     "remark-unwrap-images": "2.1.0",
