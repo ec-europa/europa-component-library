@@ -1,5 +1,27 @@
 # Changelog
 
+## 5.0.0-alpha.3
+
+#### :bug: Bug Fix
+
+- [#3826](https://github.com/ec-europa/europa-component-library/pull/3826) fix(site-header): Keep elements clickable after opening the menu - FRONT-4774 ([@planctus](https://github.com/planctus))
+- [#3825](https://github.com/ec-europa/europa-component-library/pull/3825) fix(eu): Fixing commonJs export - FRONT-4776 ([@planctus](https://github.com/planctus))
+
+#### :nail_care: Enhancement
+
+- [#3831](https://github.com/ec-europa/europa-component-library/pull/3831) feat(color-modes): Updating blue navy color mode - FRONT-4778 ([@planctus](https://github.com/planctus))
+- [#3832](https://github.com/ec-europa/europa-component-library/pull/3832) feat(color-modes): Adding surface highlighted token - FRONT-4777 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#3833](https://github.com/ec-europa/europa-component-library/pull/3833) chore(deps): Updates 03-02-25 ([@planctus](https://github.com/planctus))
+- [#3827](https://github.com/ec-europa/europa-component-library/pull/3827) feat(header): Update readme. - FRONT-4766 ([@tibi2303](https://github.com/tibi2303))
+
+#### Committers: 2
+
+- Dumitru Tiberiu-Andrei ([@tibi2303](https://github.com/tibi2303))
+- [@planctus](https://github.com/planctus)
+
 ## 5.0.0-alpha.2
 
 #### :rocket: New Feature
