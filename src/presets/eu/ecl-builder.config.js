@@ -23,6 +23,7 @@ module.exports = {
       entry: path.resolve(__dirname, 'src/eu.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-eu.js'),
       options: {
+        format: 'iife',
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
