@@ -139,7 +139,7 @@
 
 {% else %}
   {# single input, uses input.extra_attributes #}
-  {% if _aria_describedby is not empty %}
+  {% if _aria_describedby is not empty and _input.input_type != 'range' %}
     {% set _input_extra_attributes = _input_extra_attributes|merge([
       { name: 'aria-describedby', value: _aria_describedby }
     ]) %}
