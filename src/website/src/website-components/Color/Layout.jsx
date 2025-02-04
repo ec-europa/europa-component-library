@@ -11,7 +11,7 @@ class Layout extends PureComponent {
     return (
       <Row>
         {React.Children.map(children, (child) => (
-          <Col col={cols} spacing="mt-m" flex>
+          <Col col={cols} spacing="mb-m" flex>
             {child}
           </Col>
         ))}

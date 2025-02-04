@@ -2,7 +2,11 @@
 @use '@ecl/theme-ec/theme' as *;
 
 .nameWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
+  width: 100%;
 
   .nameHoverHidden {
     display: inline;
@@ -64,12 +68,12 @@
 }
 
 .title {
+  align-self: center;
   background-color: rgba(#000, 0.75);
   border: none;
   border-radius: 2px;
   color: #fff;
   font: var(--ws-f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
   margin: 0;
   padding: 0 var(--ws-s-xs);
 
@@ -117,15 +121,15 @@
 .tooltip {
   position: absolute;
   top: -30px;
-  left: 6rem;
+  left: 50%;
   transform: translateX(-50%);
   background-color: var(--ws-c-d);
   font: var(--ws-f-s);
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   transition:
     opacity 0.3s ease,
     visibility 0.3s ease;

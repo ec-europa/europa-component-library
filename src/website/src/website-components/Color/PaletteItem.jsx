@@ -4,12 +4,24 @@ import PropTypes from 'prop-types';
 
 import styles from './PaletteItem.scss';
 
+const getCode = (alias) => {
+  let hex = window
+    .getComputedStyle(document.body)
+    .getPropertyValue(`--${alias}`);
+  if (hex.includes('color-mix')) {
+    // Transparent color, we get the hex code and transparency
+    [, hex] = hex.split(',');
+  }
+
+  return hex.toUpperCase();
+};
+
 class PaletteItem extends PureComponent {
   constructor(props) {
     super(props);
 
-    const { name, id, value, ui, main } = props;
-    this.color = { name, id, value, ui, main };
+    const { name, id, value, alias, ui, main } = props;
+    this.color = { name, id, value, alias, ui, main };
 
     const sanitizedName = name.replace(/\s*\([^)]*\)/g, '').trim();
     this.customProperty = `--ecl-color-${sanitizedName.toLowerCase()}`;
@@ -31,8 +43,15 @@ class PaletteItem extends PureComponent {
   };
 
   render() {
-    const { name, id, value, ui, main } = this.color;
+    const { name, id, value, alias, ui, main } = this.color;
     const { tooltipVisible } = this.state;
+
+    let code = value.toUpperCase();
+
+    // Get color code from variable
+    if (alias) {
+      code = getCode(alias);
+    }
 
     return (
       <li
@@ -41,7 +60,7 @@ class PaletteItem extends PureComponent {
           { [styles[`item--${ui}`]]: true },
           { [styles['item--main']]: main },
         )}
-        style={{ backgroundColor: value }}
+        style={{ backgroundColor: alias ? `var(--${alias})` : value }}
       >
         <div className={styles.nameWrapper}>
           <button
@@ -53,20 +72,18 @@ class PaletteItem extends PureComponent {
             <span className={styles.nameHoverOnly}>{this.customProperty}</span>
           </button>
 
+          <button
+            type="button"
+            id={id || name.toLowerCase()}
+            className={styles.button}
+            onClick={() => this.handleCopy(code)}
+          >
+            <span className={styles.buttonHoverHidden}>{code}</span>
+            <span className={styles.buttonHoverOnly}>COPY</span>
+          </button>
+
           {tooltipVisible && <div className={styles.tooltip}>Copied!</div>}
         </div>
-
-        <button
-          type="button"
-          id={id || name.toLowerCase()}
-          className={styles.button}
-          onClick={() => this.handleCopy(value.toUpperCase())}
-        >
-          <span className={styles.buttonHoverHidden}>
-            {value.toUpperCase()}
-          </span>
-          <span className={styles.buttonHoverOnly}>COPY</span>
-        </button>
       </li>
     );
   }
@@ -76,6 +93,7 @@ PaletteItem.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   value: PropTypes.string,
+  alias: PropTypes.string,
   ui: PropTypes.string,
   main: PropTypes.bool,
 };
@@ -83,6 +101,7 @@ PaletteItem.propTypes = {
 PaletteItem.defaultProps = {
   id: '',
   value: '',
+  alias: '',
   ui: 'light',
   main: false,
 };
