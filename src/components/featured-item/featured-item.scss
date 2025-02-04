@@ -83,6 +83,14 @@ $featured-item: null !default;
   }
 }
 
+@if map.has-key($featured-item, 'dark-link') {
+  .ecl-featured-item__link,
+  .ecl-featured-item__link:hover,
+  .ecl-featured-item__link:focus-visible {
+    color: var(--cm-on-surface-dark, var(--c-d));
+  }
+}
+
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
   .ecl-featured-item__container {
