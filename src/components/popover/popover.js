@@ -271,7 +271,7 @@ export class Popover {
     this.container.style.top = '';
     this.container.style.bottom = '';
     this.container.style.transform = '';
-    this.scrollable.width = '';
+    this.scrollable.style.width = '';
   }
 
   /**
@@ -322,7 +322,11 @@ export class Popover {
     }
     // Otherwise, set the width to the available space minus the padding
     else {
-      targetWidth = horizontalSpace - padding;
+      if (direction === 'left' || direction === 'right') {
+        targetWidth = horizontalSpace - padding;
+      } else {
+        targetWidth = (horizontalSpace - padding) * 2;
+      }
     }
 
     // Ensure the width does not exceed available space
@@ -330,43 +334,45 @@ export class Popover {
   }
 
   handlePushClass(containerWidth, containerHeight, direction) {
-    const popoverRect = this.target.getBoundingClientRect();
-    let leftPosition = popoverRect.left;
-    if (this.scrollableParent) {
+    requestAnimationFrame(() => {
+      const popoverRect = this.target.getBoundingClientRect();;
       const scrollableRect = this.scrollableParent.getBoundingClientRect();
-      leftPosition = scrollableRect.left > popoverRect.left ? -(scrollableRect.left - popoverRect.left) : 0;
-    }
-    
-    if (direction === 'left' || direction === 'right') {
-      if (popoverRect.top < 0) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_TOP);
-        this.container.style.top = `-${Math.round(this.toggleRect.top)}px`;
-        this.container.style.bottom = '';
-        this.container.style.transform = '';
-      } else if (popoverRect.bottom > containerHeight) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_BOTTOM);
-        // We add 0.5rem to the calculus to avoid vertical scrollbars.
-        this.container.style.bottom = `-${Math.round(
-          containerHeight - (this.toggleRect.bottom + 8),
-        )}px`;
-        this.container.style.top = '';
-        this.container.style.transform = '';
-      }
-    } else {
-      if (leftPosition < 0) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_LEFT);
-        this.container.style.left = `-${this.toggleRect.left - Math.abs(leftPosition)}px`;
-        this.container.style.right = 'auto';
-      }
-      if (popoverRect.right > containerWidth) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_RIGHT);
-        this.container.style.right = `-${containerWidth - this.toggleRect.right}px`;
-        this.container.style.left = 'auto';
-        this.container.style.transform = 'none';
-      }
-    }
+      const leftPosition = scrollableRect.left > popoverRect.left;
+      const rightPosition = scrollableRect.right < popoverRect.right;
+      const topPosition = scrollableRect.top > popoverRect.top;
 
-    this.handleArrowPosition(direction);
+      if (direction === 'left' || direction === 'right') {
+        if (popoverRect.top < 0) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_TOP);
+          this.container.style.top = `-${Math.round(this.toggleRect.top)}px`;
+          this.container.style.bottom = '';
+          this.container.style.transform = '';
+        } else if (popoverRect.bottom > containerHeight) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_BOTTOM);
+          // We add 0.5rem to the calculus to avoid vertical scrollbars.
+          this.container.style.bottom = `-${Math.round(
+            containerHeight - (this.toggleRect.bottom + 8),
+          )}px`;
+          this.container.style.top = '';
+          this.container.style.transform = '';
+        }
+      } else {
+        if (leftPosition) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_LEFT);
+          // Push the popover to the left edge of the container
+          this.container.style.left = `-${this.toggleRect.left - scrollableRect.left}px`;
+          this.container.style.right = 'auto';
+        }
+        if (rightPosition) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_RIGHT);
+          // Push the container to the right edge of the container
+          this.container.style.right = `-${scrollableRect.right - this.toggleRect.right}px`;
+          this.container.style.left = 'auto';
+        }
+      }
+
+      this.handleArrowPosition(direction);
+    });
   }
 
   handleArrowPosition(direction) {
