@@ -86,7 +86,8 @@ $featured-item: null !default;
 @if map.has-key($featured-item, 'dark-link') {
   .ecl-featured-item__link,
   .ecl-featured-item__link:hover,
-  .ecl-featured-item__link:focus-visible {
+  .ecl-featured-item__link:focus-visible,
+  .ecl-featured-item__link:visited {
     color: var(--cm-on-surface-dark, var(--c-d));
   }
 }
