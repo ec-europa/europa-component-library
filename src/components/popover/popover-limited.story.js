@@ -10,7 +10,7 @@ export default {
 
 export const Default = (_, { loaded: { component } }) => component;
 
-Default.render = async (args) => {
+Default.render = async () => {
   const renderedPopover = `<style>
   .wrapper1, .wrapper2 {
     width: 100%;
@@ -263,9 +263,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        PF4
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -287,9 +285,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        EN2
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -321,9 +317,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        SI5
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -1123,9 +1117,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        MN4
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -1150,9 +1142,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        PF4
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -1174,9 +1164,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        EN2
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -1257,9 +1245,7 @@ Nullam nec consectetur justo, ac pharetra eros. Maecenas fringilla odio sed null
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        PF4
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
@@ -1340,9 +1326,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus 
                       </span>
                     </button>
                     <div class="ecl-popover__content">
-                      <ul class="ecl-popover__list">
-                        MN4
-                      </ul>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non nibh eu tellus mollis laoreet vitae sit amet lacus. Quisque ac neque magna. Suspendisse consequat sed arcu id consequat. Nullam ut risus venenatis, rhoncus lectus in, fermentum nulla. Duis mauris justo, ornare vitae interdum sed, porttitor ut enim. Donec quis libero nisl. Sed porttitor diam est, hendrerit facilisis sapien lacinia in.
                     </div>
                   </div>
                 </div>
