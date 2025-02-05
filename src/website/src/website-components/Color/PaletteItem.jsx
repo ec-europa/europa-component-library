@@ -8,8 +8,7 @@ const getCode = (alias, parentRef) => {
   if (!alias) return '';
 
   let hex = '';
-  console.log(parentRef);
-  // Try getting the computed style from the parent ol element
+
   if (parentRef?.current) {
     hex = window
       .getComputedStyle(parentRef.current)
@@ -17,7 +16,6 @@ const getCode = (alias, parentRef) => {
       .trim();
   }
 
-  // If not found, fallback to document.body
   if (!hex) {
     hex = window
       .getComputedStyle(document.body)
@@ -25,9 +23,7 @@ const getCode = (alias, parentRef) => {
       .trim();
   }
 
-  // Handle transparent color-mix cases
   if (hex.includes('color-mix')) {
-    // Transparent color, we get the hex code and transparency
     [, hex] = hex.split(',');
   }
 
