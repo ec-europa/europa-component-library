@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -23,6 +24,21 @@ export class Popover {
     return popover;
   }
 
+  /**
+   *   @event Popover#onOpen
+   */
+  /**
+   *   @event Popover#onClose
+   */
+
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Popover
+   */
+  supportedEvents = ['onOpen', 'onClose'];
+
   constructor(
     element,
     {
@@ -40,6 +56,7 @@ export class Popover {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.toggleSelector = toggleSelector;
@@ -135,6 +152,36 @@ export class Popover {
   }
 
   /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Popover
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onOpen' event
+   * popover.on('onOpen', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Popover
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
+  }
+
+  /**
    * Destroy component.
    */
   destroy() {
@@ -177,30 +224,36 @@ export class Popover {
 
     // Toggle the popover
     if (isExpanded) {
-      this.closePopover();
+      this.closePopover(e);
       return;
     }
 
-    this.openPopover();
+    this.openPopover(e);
     this.positionPopover();
   }
 
   /**
    * Open the popover.
+   *
+   * @param {Event} e
    */
-  openPopover() {
+  openPopover(e) {
     this.toggle.setAttribute('aria-expanded', 'true');
     this.target.hidden = false;
+    this.trigger('onOpen', { event: e, target: this.target });
   }
 
   /**
    * Close the popover.
+   *
+   * @param {Event} e
    */
-  closePopover() {
+  closePopover(e) {
     this.toggle.setAttribute('aria-expanded', 'false');
     // Reset all the selectors and styles
     this.resetStyles();
     this.target.hidden = true;
+    this.trigger('onClose', { event: e, target: this.target });
   }
 
   /**
