@@ -58,13 +58,13 @@
     head.appendChild(
       createLink('./styles/optional/ecl-eu-utilities.css', 'screen'),
     );
-    head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
     head.appendChild(
       createLink('./styles/optional/ecl-eu-default-print.css', 'print'),
     );
+    head.appendChild(createLink('./styles/ecl-eu-print.css', 'print'));
   }
 </script>
-<script type="text/javascript" src="./scripts/ecl-eu.js"></script>
+<script type="module" src="./scripts/ecl-esm-eu.js"></script>
 <script>
   // https://github.com/storybookjs/storybook/issues/6113#issuecomment-473965255
   function runOnPageChange() {

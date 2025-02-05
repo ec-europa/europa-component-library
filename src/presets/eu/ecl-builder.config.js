@@ -5,7 +5,7 @@ const rootPkg = require('../../../package.json');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(__dirname, '../../../node_modules');
+const nodeModules = path.resolve(__dirname, './node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -23,6 +23,17 @@ module.exports = {
       entry: path.resolve(__dirname, 'src/eu.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-eu.js'),
       options: {
+        format: 'iife',
+        banner,
+        moduleName: 'ECL',
+        sourceMap: isProd ? false : 'inline',
+      },
+    },
+    {
+      entry: path.resolve(__dirname, 'src/eu-esm.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-esm-eu.js'),
+      options: {
+        format: 'es',
         banner,
         moduleName: 'ECL',
         sourceMap: isProd ? false : 'inline',
@@ -91,7 +102,7 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(nodeModules, '@ecl/preset-reset/src/reset.scss'),
+      entry: path.resolve('../reset', 'src/reset.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-reset.css'),
       options: {
         banner,
@@ -100,7 +111,7 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(nodeModules, '@ecl/preset-rtl/src/rtl.scss'),
+      entry: path.resolve('../rtl', 'src/rtl.scss'),
       dest: path.resolve(outputFolder, 'styles/optional/ecl-rtl.css'),
       options: {
         banner,
@@ -167,7 +178,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.scss`,
+        )}/(components|layout|utilities)/*/*.scss`,
         events: [
           {
             on: 'change',
@@ -182,7 +193,7 @@ module.exports = {
         pattern: `${path.resolve(
           __dirname,
           '../..',
-        )}/implementations/vanilla/**/*.js`,
+        )}/components/*/!(*.story|*.test).js`,
         events: [
           {
             on: 'change',

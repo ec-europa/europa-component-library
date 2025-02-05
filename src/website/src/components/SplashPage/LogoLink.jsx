@@ -5,21 +5,34 @@ import { Link } from 'react-router-dom';
 
 import styles from './LogoLink.scss';
 
-const LogoLink = React.memo(({ system, ...props }) => (
+const LogoLink = React.memo(({ system, logo, children, ...props }) => (
   <Link
     {...props}
     className={classnames(styles['logo-link'], {
       [styles[`logo-link--${system}`]]: system,
     })}
-  />
+  >
+    {logo ? (
+      <span
+        className="logo-content"
+        dangerouslySetInnerHTML={{ __html: logo }}
+      />
+    ) : (
+      children
+    )}
+  </Link>
 ));
 
 LogoLink.propTypes = {
   system: PropTypes.string,
+  logo: PropTypes.string,
+  children: PropTypes.node,
 };
 
 LogoLink.defaultProps = {
   system: 'ec',
+  logo: '',
+  children: '',
 };
 
 export default LogoLink;

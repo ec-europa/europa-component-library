@@ -1,0 +1,257 @@
+/**
+ * Modal
+ * @define modal
+ */
+
+@use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
+
+// Exposed variables
+$theme: null !default;
+$modal: null !default;
+
+// Internal variables
+$overflow-height: 2rem;
+
+.ecl-modal {
+  background-color: map.get($modal, 'overlay');
+  border: none;
+  color: var(--c-d);
+  height: 100%;
+  left: 0;
+  margin: 0;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: map.get($theme, 'z-index', 'modal');
+}
+
+.ecl-modal[open] {
+  display: block;
+}
+
+.ecl-modal__container {
+  margin: 0 var(--s-m);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ecl-modal__content {
+  background-color: map.get($theme, 'color', 'white');
+  border-radius: map.get($modal, 'border-radius');
+  box-shadow: map.get($modal, 'shadow');
+  display: flex;
+  flex-direction: column;
+  font: map.get($modal, 'font');
+  left: 50%;
+  overflow: hidden;
+  margin: 0;
+  max-height: 80vh;
+  padding: 0;
+  position: relative;
+  transform: translateX(-50%);
+  z-index: map.get($theme, 'z-index', 'modal');
+}
+
+// Sizes
+.ecl-modal--s .ecl-modal__content {
+  max-width: min(443px, 100%);
+}
+
+.ecl-modal--m .ecl-modal__content {
+  max-width: min(633px, 100%);
+}
+
+.ecl-modal--l .ecl-modal__content {
+  max-width: min(823px, 100%);
+}
+
+.ecl-modal--full .ecl-modal__content {
+  max-width: 100%;
+  height: 80vh;
+  max-height: none;
+}
+
+.ecl-modal__header {
+  align-items: flex-start;
+  display: flex;
+  font: map.get($modal, 'header', 'font');
+  padding: map.get($modal, 'header', 'padding-mobile');
+}
+
+.ecl-modal__icon {
+  flex-shrink: 0;
+  margin-inline-end: var(--s-xs);
+  position: relative;
+  z-index: 2;
+
+  .ecl-modal--information & {
+    color: var(--c-in);
+  }
+
+  .ecl-modal--success & {
+    color: var(--c-su);
+  }
+
+  .ecl-modal--warning & {
+    color: var(--c-wa);
+  }
+
+  .ecl-modal--error & {
+    color: var(--c-er);
+  }
+}
+
+.ecl-modal__icon-background {
+  background: map.get($modal, 'warning', 'icon-background-color');
+  height: map.get($modal, 'warning', 'icon-background-height');
+  left: map.get($modal, 'warning', 'icon-background-left');
+  position: absolute;
+  width: map.get($modal, 'warning', 'icon-background-width');
+  top: map.get($modal, 'warning', 'icon-background-top');
+  z-index: 1;
+}
+
+.ecl-modal__header-content {
+  flex-grow: 1;
+
+  .ecl-modal__icon + & {
+    margin-top: 2px;
+  }
+}
+
+.ecl-modal__body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: map.get($modal, 'body', 'padding-mobile');
+
+  &:is(:last-child) {
+    padding-bottom: map.get($modal, 'body', 'padding-last-child');
+  }
+}
+
+.ecl-modal__body-scroll {
+  overflow-y: auto;
+}
+
+.ecl-modal__body-overflow {
+  background-image: linear-gradient(to bottom, transparent, #fff);
+  flex-shrink: 0;
+  display: none;
+  height: $overflow-height;
+  left: 0;
+  margin-bottom: -#{$overflow-height};
+  pointer-events: none;
+  position: relative;
+  top: -#{$overflow-height};
+  width: 100%;
+}
+
+* + .ecl-modal__body-fixed {
+  margin-top: map.get($modal, 'body', 'margin-fixed');
+}
+
+.ecl-modal__footer {
+  border-top: map.get($modal, 'separator');
+  padding: map.get($modal, 'footer', 'padding-mobile');
+}
+
+.ecl-modal__header + .ecl-modal__footer {
+  border-top: none;
+}
+
+.ecl-modal__footer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecl-modal__button {
+  margin-top: var(--s-m);
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.ecl-modal__close {
+  margin-bottom: 0;
+  margin-inline-end: map.get($modal, 'close', 'margin-end');
+  margin-inline-start: 0;
+  margin-top: map.get($modal, 'close', 'margin-top');
+
+  .ecl-button__icon {
+    margin: 0;
+  }
+}
+
+/* stylelint-disable-next-line order/order */
+@include breakpoints.up('m') {
+  .ecl-modal__container {
+    margin: 0 var(--s-3xl);
+  }
+
+  .ecl-modal__header {
+    padding: map.get($modal, 'header', 'padding-desktop');
+  }
+
+  .ecl-modal__body {
+    padding: map.get($modal, 'body', 'padding-desktop');
+  }
+
+  .ecl-modal__footer {
+    padding: map.get($modal, 'padding-desktop');
+  }
+
+  .ecl-modal--m,
+  .ecl-modal--l {
+    .ecl-modal__footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .ecl-modal__button {
+      flex-grow: 1;
+      margin-inline-end: var(--s-m);
+      margin-top: 0;
+
+      &:last-of-type {
+        margin-inline-end: 0;
+      }
+    }
+  }
+
+  .ecl-modal--full {
+    .ecl-modal__footer-content {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    .ecl-modal__button {
+      flex-grow: 0;
+      margin-inline-end: var(--s-m);
+      margin-top: 0;
+
+      &:last-of-type {
+        margin-inline-end: 0;
+      }
+    }
+  }
+}
+
+// Scrolling body
+.ecl-modal__body--has-scroll {
+  .ecl-modal__body-scroll {
+    padding-bottom: $overflow-height;
+  }
+
+  .ecl-modal__body-overflow {
+    display: block;
+  }
+}

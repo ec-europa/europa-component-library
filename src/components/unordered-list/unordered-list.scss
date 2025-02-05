@@ -1,0 +1,125 @@
+/**
+ * Unordered list
+ * @define unordered-list
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$theme: null !default;
+$list: null !default;
+
+.ecl-unordered-list,
+%ecl-unordered-list {
+  color: map.get($list, 'text-color');
+  font: var(--f-m);
+  list-style-position: outside;
+  list-style-type: map.get($list, 'unordered', 'marker');
+  margin: 0;
+  padding-bottom: var(--s-2xs);
+  padding-inline-start: map.get($list, 'unordered', 'padding-start');
+}
+
+.ecl-unordered-list__item,
+%ecl-unordered-list__item {
+  margin-inline-start: map.get($list, 'unordered', 'item-margin');
+  padding-bottom: var(--s-2xs);
+  padding-inline-start: map.get($list, 'unordered', 'item-padding');
+  padding-top: var(--s-2xs);
+  max-width: var(--max-w);
+
+  &:first-of-type {
+    padding-top: var(--s-2xs);
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  .ecl-link,
+  .ecl-link .ecl-link__label,
+  %ecl-unordered-list-link {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--cm-on-surface-primary, var(--c-p));
+      text-decoration: underline;
+      text-decoration-thickness: from-font;
+      text-underline-offset: clamp(3px, 0.245em, 10px);
+    }
+  }
+}
+
+.ecl-unordered-list .ecl-unordered-list,
+.ecl-unordered-list .ecl-ordered-list,
+%ecl-unordered-list--nested {
+  list-style-type: map.get($list, 'unordered', 'sublist-marker');
+  padding-bottom: 0;
+  padding-top: var(--s-2xs);
+  padding-inline-start: map.get($list, 'unordered', 'sublist-padding');
+
+  .ecl-unordered-list__item {
+    padding-top: var(--s-2xs);
+    padding-inline-start: 0;
+  }
+}
+
+// No marker
+.ecl-unordered-list--no-marker {
+  list-style: none;
+  padding-inline-start: 0;
+
+  .ecl-unordered-list {
+    list-style-type: none;
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
+  }
+
+  .ecl-unordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: map.get($list, 'unordered', 'divider-item-padding');
+
+    .ecl-unordered-list__item {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+// Dividers
+.ecl-unordered-list--divider {
+  list-style: none;
+  padding-inline-start: 0;
+
+  // stylelint-disable-next-line no-descending-specificity
+  .ecl-unordered-list__item {
+    margin-inline-start: 0;
+    padding-inline-start: map.get($list, 'unordered', 'divider-item-padding');
+  }
+
+  // stylelint-disable-next-line no-descending-specificity
+  > .ecl-unordered-list__item {
+    border-bottom: 1px solid map.get($list, 'divider-color');
+    margin-bottom: var(--s-xs);
+    padding-bottom: var(--s-s);
+
+    .ecl-link {
+      padding: 0;
+    }
+  }
+
+  .ecl-unordered-list {
+    padding-inline-start: map.get(
+      $list,
+      'unordered',
+      'unstyled-sublist-padding'
+    );
+
+    .ecl-unordered-list__item {
+      list-style-type: none;
+      margin-inline-start: 0;
+    }
+  }
+}

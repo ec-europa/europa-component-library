@@ -7,6 +7,7 @@ module.exports = {
     ECL: 'writable',
   },
   env: {
+    es2020: true,
     node: true,
     browser: true,
   },
@@ -22,6 +23,12 @@ module.exports = {
     'no-param-reassign': 'off',
   },
   overrides: [
+    {
+      files: ['src/**/*.story.js', 'src/**/*.test.js'],
+      rules: {
+        'import/no-unresolved': 'off',
+      },
+    },
     {
       files: '**/scripts/**/*.js',
       rules: {

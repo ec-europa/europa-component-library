@@ -58,14 +58,14 @@ export const parameters = {
       hideCode: true,
     },
     {
-      id: 'ecl-eu-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
+      id: 'ecl-eu-default-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />`,
       picked: false,
       hideCode: true,
     },
     {
-      id: 'ecl-eu-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-eu-default-print.css" />`,
+      id: 'ecl-eu-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-print.css" />`,
       picked: false,
       hideCode: true,
     },

@@ -39,10 +39,12 @@ $notification: (
     icon-background-width: var(--s-xs),
     icon-background-top-mobile: calc(var(--s-m) + var(--s-s)),
     icon-background-top: calc(var(--s-l) + var(--s-s)),
-    icon-background-left-mobile:
-      calc(var(--s-s) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
-    icon-background-left:
-      calc(var(--s-l) + (map.get($icon, 'l') / 2) - var(--s-2xs)),
+    icon-background-left-mobile: calc(
+        var(--s-s) + (map.get($icon, 'l') / 2) - var(--s-2xs)
+      ),
+    icon-background-left: calc(
+        var(--s-l) + (map.get($icon, 'l') / 2) - var(--s-2xs)
+      ),
   ),
   error: (
     background: var(--c-n-20),

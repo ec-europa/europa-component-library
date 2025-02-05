@@ -6,9 +6,9 @@ title: Getting started
 import { Link } from '@ecl/website-components';
 import { ECL_VERSION } from '../../../preval/getVersion';
 
-The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
+The Europa Component Library is a design system defining the visual identity of the European Commission on the web.
 
-We provide design guidelines and code to help users create consistent and accessible government web presence.
+It provides design guidelines and code to help users create consistent and accessible web presence.
 
 All library elements are accompanied by:
 
@@ -36,7 +36,7 @@ All these resources are distributed in a single "package", called `preset-eu`, t
 Using npm:
 `npm install @ecl/preset-eu`
 OR
-`yarn add @ecl/preset-eu`
+`pnpm install @ecl/preset-eu`
 
 Once you have the `preset-eu` you're ready to setup the ECL integration in your application or website like this:
 
@@ -49,9 +49,10 @@ Once you have the `preset-eu` you're ready to setup the ECL integration in your 
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <script>
-      var cl = document.querySelector('html').classList;
-      cl.remove('no-js');
-      cl.add('has-js');
+          var cl = document.querySelector('html').classList;
+          cl.remove('no-js');
+          cl.add('has-js');
+      >
     </script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.js"
@@ -83,27 +84,53 @@ Once you have the `preset-eu` you're ready to setup the ECL integration in your 
 
 This assumes your `preset-eu` package is directly accessible in the root of your project, change the path according to your environment.
 
-In this example the main ECL css and js are defined and in addition a css for print and the reset css are added.
+In this example the main ECL css and js are defined and in addition a css for print and the reset css are added. The example here demonstrates using the CommonJS version of the JavaScript. If you prefer or need to use the ESM version instead, you can load it like this:
+`<script type="module" src="/scripts/ecl-esm-eu.js"></script>`.
+The ECL object will be available globally, either on the window object in the browser or on globalThis in environments that support it.
 
-There are also other optional css files distributed that can be used, moment.js is added because it's needed for the ECL datepicker, see below for further information.
+There are also other optional css files distributed that can be used, pikaday is added because it's needed for the ECL datepicker, see below for further information.
 
 ### Using the CDN
 
-ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available in the CDN, this is the pattern to reach them:
+ECL is also distributing its presets on a CDN, all the files distributed in the package mentioned before are also available there, this is the pattern to reach them:
 `https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{system}/{path/to/the/asset}`
 
 Ex:
 
 <a
   className="ecl-link"
-  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+  href={`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-eu-default.css`}
 >
-  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-ec-default.css`}
+  {`https://cdn1.fpfis.tech.ec.europa.eu/ecl/v${ECL_VERSION}/eu/styles/optional/ecl-eu-default.css`}
 </a>
 
-Download a `preset-eu` package to see all the files available to know how to reach them in the CDN, the file system is the same.
+Download a `preset-eu` package from the release page to see all the files available so to know how to reach them in the CDN, the file system is the same.
 
-When using the CDN for icons and logos, be aware that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
+For more security, use the SRI hashes corresponding to the files when using them from the CDN.
+They can be found in the [release page](https://github.com/eu-europa/europa-component-library/releases), in a json file, but here are the most common ones:
+
+<details>
+  <summary>SRI hashes (click to expand)</summary>
+
+  <ul>
+    <li>
+      for `ecl-eu.css`: <code>{process.env.ECL_EU_CSS}</code>
+    </li>
+    <li>
+      for `ecl-eu-print.css`: <code>{process.env.ECL_EU_PRINT_CSS}</code>
+    </li>
+    <li>
+      {' '}
+      for `ecl-eu.js`: <code>{process.env.ECL_EU_JS}</code>
+    </li>
+    <li>
+      {' '}
+      for `ecl-esm-eu.js`: <code>{process.env.ECL_ESM_EU_JS}</code>
+    </li>
+  </ul>
+</details>
+
+When using the CDN for icons and logos be aware that it's not possible to serve svgs from an external domain without using some workaround, see the "Additional information" below.
 
 For different reasons, starting from performances and network traffic, **the recommended way of using ECL is to fetch its resources for then hosting them in the same domain where they are going to be used**.
 
@@ -146,6 +173,8 @@ Then, in the footer of the document (or whenever the document is ready), call `E
 </html>
 ```
 
+You can get the ECL version you are using running `ECL.version` in the console of your devtools.
+
 ### Datepicker
 
 ECL uses [Pikaday](https://github.com/Pikaday/Pikaday) and this library is not bundled by ECL.
@@ -158,7 +187,7 @@ Additionally, when the default format defined by ECL `DD-MM-YYYY` needs to be cu
   TWIG templates are also [provided on npm](https://www.npmjs.com/org/ecl) for easy integration.
 - make sure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `/images` folder of the preset you're using. We advise you to host the SVG sprites on the same domain as your website in order to avoid the `Unsafe attempt to load URL` kind of errors. If you still want to use the SVG sprite from the CDN, you can use [svg4everybody](https://github.com/jonathantneal/svg4everybody) and initialize it with: `svg4everybody({ polyfill: true });`.
 - before going live, make sure to embed the [Cookie Consent Kit](https://webgate.ec.europa.eu/fpfis/wikis/display/webtools/Cookie+Consent+Kit+Banner).
-- all useful information concerning releases content can be found on the [release page](https://github.com/ec-europa/europa-component-library/releases)
+- all useful information concerning releases content can be found on the [release page](https://github.com/eu-europa/europa-component-library/releases)
 
 ### More on the available packages
 
@@ -175,10 +204,8 @@ ECL releases npm packages for:
   <ul>
     <li>builder (used to compile css and js) `@ecl/builder`</li>
     <li>presets (EC and EU) `@ecl/preset-eu`</li>
-    <li>vanilla components (css and js) `@ecl/vanilla-component-{name}`</li>
-    <li>twig components (twig template) `@ecl/twig-component-{name}`</li>
-    <li>spec packages (data used in the demos) `@ecl/specs-component-{name}`</li>
-    <li>resources packages `@ecl/resources-ec-{name}`</li>
+    <li>components (css, js, twig) `@ecl/{name}`</li>
+    <li>resources packages `@ecl/resources-eu-{name}`</li>
   </ul>
 </details>
 

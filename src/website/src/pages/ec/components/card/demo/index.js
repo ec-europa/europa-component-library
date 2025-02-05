@@ -1,6 +1,6 @@
-import dataCard from '@ecl/specs-component-card/demo/data';
+import dataCard from '@ecl/card/demo/data';
 
-import template from '@ecl/twig-component-card/card.html.twig';
+import template from '@ecl/card/card.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataCardDefault = JSON.parse(JSON.stringify(dataCard));

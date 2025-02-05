@@ -1,5 +1,5 @@
-import demoContentDefault from '@ecl/specs-component-text-area/demo/data';
-import template from '@ecl/twig-component-form-group/form-group.html.twig';
+import demoContentDefault from '@ecl/text-area/demo/data';
+import template from '@ecl/form-group/form-group.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 export const textAreaDefault = template(correctSvgPath(demoContentDefault));

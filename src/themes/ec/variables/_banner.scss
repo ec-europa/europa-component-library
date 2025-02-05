@@ -2,9 +2,9 @@
 @use '../index' as *;
 
 $banner: (
-  background-color: var(--c-n-40),
+  background-color: var(--cm-surface-lowest),
   content-width: 42.5rem,
-  content-background: var(--c-bg),
+  content-background: var(--cm-surface-inverted),
   content-border-radius: 0,
   content-padding: var(--s-l) var(--s-xl) var(--s-xl),
   container-padding-bottom: (
@@ -31,9 +31,9 @@ $banner: (
     'bottom': 0,
   ),
   text-color: (
-    'dark': var(--c-d),
-    'light': map.get($color, 'white'),
-    'inverted': map.get($color, 'white'),
+    'dark': var(--cm-on-surface-dark),
+    'light': #fff,
+    'inverted': #fff,
   ),
   font: (
     'title': (
@@ -49,14 +49,26 @@ $banner: (
   ),
   description-margin: var(--s-s),
   // DEPRECATED
-  background:
-    (
+  background: (
       'plain-background': var(--c-p),
-      'text-box-mobile': var(--c-n-40),
-      'text-box-desktop': var(--c-bg),
-      'text-overlay': var(--c-p),
+      'text-box-mobile': var(--c-l-50),
+      'text-box-desktop': var(--cm-surface-inverted),
+      'text-overlay': var(--c-l-50),
     ),
 );
 $banner-print: (
-  cta-radius: 0,
+  font: (
+    'title': (
+      'desktop-m': map.get($font-print, 'xl'),
+      'desktop-l': map.get($font-print, '2xl'),
+    ),
+    'description': (
+      'desktop-m': map.get($font-print, 'm'),
+      'desktop-l': map.get($font-print, 'xl'),
+    ),
+  ),
+  container-padding-bottom: map.get($spacing-print, '4xl'),
+  container-padding-top: map.get($spacing-print, '4xl'),
+  content-padding: map.get($spacing-print, 'm') map.get($spacing-print, 'l')
+    map.get($spacing-print, 'l'),
 );

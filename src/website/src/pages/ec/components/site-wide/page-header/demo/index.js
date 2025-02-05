@@ -1,9 +1,9 @@
 import { correctSvgPath } from '@ecl/website-utils';
 
-import demoDefault from '@ecl/specs-component-page-header/demo/data';
-import demoBreadcrumbLong from '@ecl/specs-component-breadcrumb/demo/data--long';
+import demoDefault from '@ecl/page-header/demo/data';
+import demoBreadcrumbLong from '@ecl/breadcrumb/demo/data--long';
 
-import template from '@ecl/twig-component-page-header/page-header.html.twig';
+import template from '@ecl/page-header/page-header.html.twig';
 
 demoDefault.breadcrumb = demoBreadcrumbLong;
 

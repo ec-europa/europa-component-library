@@ -9,55 +9,24 @@
 
 A single component is split into different elements: vanilla, twig, specs and doc
 
-### Vanilla
-
-This is the vanilla version of a given component which is not bound to any library or framework implementation.
-
 The npm package consists of one or more SCSS file defining styles and a JavaScript file defining interactions whenever SCSS styles do not suffice. Each package exports the component's SCSS and the related JavaScript as a module.
+Twig is used to render the markup of the components. It is not mandatory to rely on it for ECL implementation, as the HTML output can be used as is.
 
-- **path**: src/implementations/vanilla/components/
+- **path**: src/components/
 - **base_name**: {component_name}
-- **package_name**: vanilla-component-{component_name}
+- **package_name**: {component_name}
 - **files**:
   - {component_name}.scss
   - {component_name}-print.scss
+  - {component_name}.html.twig
   - {component_name}.js
   - package.json
   - README.md
 
 Concerning dependencies in the `package.json` file, the following rule should be applied:
 
-- all packages explictely used in the scss or js should be put in `dependencies`
-
-### Twig
-
-Twig is used to render the markup of the components. It is not mandatory to rely on it for ECL implementation, as the HTML output can be used as is.
-
-- **path**: src/implementations/twig/components/
-- **base_name**: {component_name}
-- **package_name**: twig-component-{component_name}
-- **files**:
-  - {component_name}.html.twig
-  - {component_name}.story.js
-  - {component_name}.test.js
-  - package.json
-  - README.md
-
-Concerning dependencies in the `package.json` file, the following rule should be applied:
-
 - packages directly used by the component (via import or require) should be put in `dependencies`
-- all other packages (vanilla, specs,...) should be put in `devDependencies`
-
-### Specs
-
-These are package containing data for demos. They can contain several data files, depending on the complexity and variants of the component.
-
-- **path**: src/specs/components/
-- **base_name**: {component_name}
-- **package_name**: specs-component-{component_name}
-- **files**:
-  - demo/data-{variant}.js
-  - package.json
+- all other packages should be put in `devDependencies`
 
 ### Docs
 
@@ -84,20 +53,13 @@ They follow more or less the same structure as components
 
 ### Vanilla
 
-- **path**: src/implementations/vanilla/utilities/
+- **path**: src/utilities/
 - **base_name**: {utility_name}
-- **package_name**: vanilla-utility-{utility_name}
+- **package_name**: utility-{utility_name}
 - **files**:
   - {utility_name}.scss
   - package.json
   - README.md
-
-### Twig (story file only)
-
-- **path**: src/implementations/twig/utilities/
-- **base_name**: {utility_name}
-- **files**:
-  - index.story.js
 
 ## Presets
 

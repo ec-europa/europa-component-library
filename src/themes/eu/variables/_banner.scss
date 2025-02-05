@@ -49,18 +49,38 @@ $banner: (
   ),
   description-margin: var(--s-s),
   // DEPRECATED
-  background:
-    (
-      'plain-background':
-        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+  background: (
+      'plain-background': linear-gradient(
+          to right,
+          var(--c-p-140) 0%,
+          var(--c-p) 100%
+        ),
       'text-box-mobile': map.get($color, 'white'),
       'text-box-desktop': rgba(255, 255, 255, 0.9),
-      'image-overlay':
-        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
-      'text-highlight':
-        linear-gradient(to right, var(--c-p-140) 0%, var(--c-p) 100%),
+      'image-overlay': linear-gradient(
+          to right,
+          var(--c-p-140) 0%,
+          var(--c-p) 100%
+        ),
+      'text-highlight': linear-gradient(
+          to right,
+          var(--c-p-140) 0%,
+          var(--c-p) 100%
+        ),
     ),
 );
 $banner-print: (
-  cta-radius: 4px,
+  font: (
+    'title': (
+      'desktop-m': map.get($font-print, '2xl'),
+      'desktop-l': map.get($font-print, '3xl'),
+    ),
+    'description': (
+      'desktop-m': map.get($font-print, 'l'),
+      'desktop-l': map.get($font-print, '2xl'),
+    ),
+  ),
+  container-padding-bottom: map.get($spacing-print, '3xl'),
+  container-padding-top: map.get($spacing-print, '3xl'),
+  content-padding: map.get($spacing-print, 'm'),
 );

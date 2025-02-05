@@ -46,6 +46,12 @@ export const parameters = {
       hideCode: true,
     },
     {
+      id: 'ecl-ec-color-modes',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-color-modes.css" />`,
+      picked: true,
+      hideCode: true,
+    },
+    {
       id: 'ecl-ec-utilities',
       code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-utilities.css" />`,
       picked: true,
@@ -58,14 +64,14 @@ export const parameters = {
       hideCode: true,
     },
     {
-      id: 'ecl-ec-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
+      id: 'ecl-ec-default-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default-print.css" />`,
       picked: false,
       hideCode: true,
     },
     {
-      id: 'ecl-ec-default-print',
-      code: `<link rel="stylesheet" type="text/css" href="./styles/optional/ecl-ec-default-print.css" />`,
+      id: 'ecl-ec-print',
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-print.css" />`,
       picked: false,
       hideCode: true,
     },

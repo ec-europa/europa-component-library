@@ -1,6 +1,6 @@
-import dataFull from '@ecl/specs-component-site-header/demo/data--ec';
-import dataMegaMenu from '@ecl/specs-component-mega-menu/demo/data';
-import template from '@ecl/twig-component-site-header/site-header.html.twig';
+import dataFull from '@ecl/site-header/demo/data--ec';
+import dataMegaMenu from '@ecl/mega-menu/demo/data';
+import template from '@ecl/site-header/site-header.html.twig';
 import { correctSvgPath } from '@ecl/website-utils';
 
 const dataWithMenu = { ...dataFull, mega_menu: dataMegaMenu };
