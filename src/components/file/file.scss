@@ -75,7 +75,7 @@ $file: null !default;
 .ecl-file__detail-meta {
   color: map.get($file, 'file-detail-meta-color');
   display: inline-block;
-  font: var(--f-ui-s);
+  font: var(--f-ui-s, var(--f-s));
   list-style: none;
   margin-bottom: map.get($file, 'file-meta-margin');
   margin-top: 0;
