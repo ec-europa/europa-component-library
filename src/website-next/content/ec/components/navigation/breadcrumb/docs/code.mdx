@@ -1,0 +1,22 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { breadcrumbLong } from '../demo/index';
+
+## Long breadcrumb
+
+When there are more than 3 items, the breadcrumb should be collapsed by default and items should be displayed if there's enough space.
+
+The first item and the last 2 items should always be visible.
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-breadcrumb"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={breadcrumbLong} />
+</Playground>

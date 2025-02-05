@@ -1,0 +1,43 @@
+---
+title: API
+order: 3
+---
+
+import React from 'react';
+import Iframe from '../../../../../website-components/Showcase/Iframe';
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init="DescriptionList"` attribute to component's markup:
+
+```html
+<dl
+  class="ecl-description-list"
+  data-ecl-description-list
+  data-ecl-auto-init="DescriptionList"
+>
+  ...
+</dl>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-description-list` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-description-list]');
+var descriptionList = new ECL.DescriptionList(elt);
+descriptionList.init();
+```
+
+## API
+
+<Iframe url="../../../../apis/DescriptionList.html" />

@@ -1,0 +1,45 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import {
+  siteFooterCore,
+  siteFooterStandardised,
+  siteFooterHarmonised,
+} from '../demo';
+
+## Core site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-site-footer"
+  selectedStory="core"
+  showFrame
+>
+  <Html markup={siteFooterCore} />
+</Playground>
+
+## Standardised site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-site-footer"
+  selectedStory="standardised"
+  showFrame
+>
+  <Html markup={siteFooterStandardised} />
+</Playground>
+
+## Harmonised site footer
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-site-footer"
+  selectedStory="harmonised"
+  showFrame
+>
+  <Html markup={siteFooterHarmonised} />
+</Playground>

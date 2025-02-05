@@ -1,0 +1,91 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  buttonPrimary,
+  buttonSecondary,
+  buttonTertiary,
+  buttonCall,
+  buttonGhost,
+  buttonGhostInverted,
+  buttonIconOnly,
+} from '../demo';
+
+## Primary
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="primary"
+>
+  <Html markup={buttonPrimary} />
+</Playground>
+
+## Secondary
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+>
+  <Html markup={buttonSecondary} />
+</Playground>
+
+## Tertiary
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="tertiary"
+>
+  <Html markup={buttonTertiary} />
+</Playground>
+
+## Call to action
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="call-to-action"
+>
+  <Html markup={buttonCall} />
+</Playground>
+
+## Ghost
+
+<Playground system="ec" selectedKind="components-button" selectedStory="ghost">
+  <Html markup={buttonGhost} />
+</Playground>
+
+## Ghost inverted
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="ghost-inverted"
+>
+  <Html
+    extraClasses="ecl-u-pa-s ecl-u-bg-dark ecl-u-type-color-white"
+    markup={buttonGhostInverted}
+  />
+</Playground>
+
+## Button with icon only
+
+Button label can be hidden by using button variant `ecl-button--icon-only`. The label has to be filled in any case, to provide context to screen readers.
+
+Of course, this requires to have an icon defined, otherwise the display would be suboptimal.
+
+Spacing of icon only button is adapted to make it square.
+
+<Playground
+  system="ec"
+  selectedKind="components-button"
+  selectedStory="secondary"
+  selectedArgs="icon_name:logged-in;hide_label:true"
+>
+  <Html markup={buttonIconOnly} />
+</Playground>

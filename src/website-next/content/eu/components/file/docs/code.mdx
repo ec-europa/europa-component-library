@@ -1,0 +1,61 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Link, Playground, Html } from '@ecl/website-components';
+
+import {
+  fileWithTranslation,
+  fileWithoutTranslation,
+  fileThumbnail,
+  fileTaxonomy,
+} from '../demo';
+
+## Without translations
+
+<Playground
+  system="eu"
+  selectedKind="components-file"
+  selectedStory="default"
+  showFrame
+  selectedArgs="show_translations:false"
+>
+  <Html markup={fileWithoutTranslation} />
+</Playground>
+
+## With translations
+
+<Playground
+  system="eu"
+  selectedKind="components-file"
+  selectedStory="default"
+  showFrame
+  selectedArgs="show_translations:true"
+>
+  <Html markup={fileWithTranslation} />
+</Playground>
+
+## With thumbnail
+
+<Playground
+  system="eu"
+  selectedKind="components-file"
+  selectedStory="thumbnail"
+  showFrame
+  selectedArgs="show_taxonomy:false"
+>
+  <Html markup={fileThumbnail} />
+</Playground>
+
+## With taxonomy
+
+<Playground
+  system="eu"
+  selectedKind="components-file"
+  selectedStory="thumbnail"
+  showFrame
+  selectedArgs="show_taxonomy:true"
+>
+  <Html markup={fileTaxonomy} />
+</Playground>

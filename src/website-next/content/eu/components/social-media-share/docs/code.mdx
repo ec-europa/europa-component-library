@@ -1,0 +1,31 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { socialMediaVertical, socialMediaHorizontal } from '../demo';
+
+## Horizontal
+
+<Playground
+  system="eu"
+  selectedKind="components-social-media-share"
+  selectedStory="horizontal"
+  showFrame
+  frameHeight="350"
+>
+  <Html markup={socialMediaHorizontal} />
+</Playground>
+
+## Vertical
+
+<Playground
+  system="eu"
+  selectedKind="components-social-media-share"
+  selectedStory="vertical"
+  showFrame
+  frameHeight="550"
+>
+  <Html markup={socialMediaVertical} />
+</Playground>

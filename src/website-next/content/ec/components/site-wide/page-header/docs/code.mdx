@@ -1,0 +1,50 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import {
+  pageHeaderDefault,
+  pageHeaderThumbnail,
+  pageHeaderBackground,
+} from '../demo';
+
+## Default page header
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="default"
+  selectedArgs="show_thumbnail:false;background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderDefault} />
+</Playground>
+
+## Page header with background image
+
+Overlay can be configured (dark, light or none)
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="default"
+  selectedArgs="show_thumbnail:false"
+  showFrame
+>
+  <Html markup={pageHeaderBackground} />
+</Playground>
+
+## Page header with thumbnail
+
+<Playground
+  system="ec"
+  selectedKind="components-site-wide-page-headers"
+  selectedStory="default"
+  selectedArgs="background_image_url:"
+  showFrame
+>
+  <Html markup={pageHeaderThumbnail} />
+</Playground>

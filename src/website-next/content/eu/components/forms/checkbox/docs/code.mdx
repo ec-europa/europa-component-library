@@ -1,0 +1,59 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  checkboxDefault,
+  checkboxInvalid,
+  checkboxOptional,
+  checkboxSingle,
+} from '../demo';
+
+## Default checkbox group
+
+<Playground
+  selectedKind="components-forms"
+  selectedStory="checkbox"
+  system="eu"
+  showFrame
+  selectedArgs="required:!true"
+>
+  <Html markup={checkboxDefault} />
+</Playground>
+
+## Invalid checkbox group
+
+<Playground
+  selectedKind="components-forms"
+  selectedStory="checkbox"
+  system="eu"
+  selectedArgs="invalid:true"
+  showFrame
+>
+  <Html markup={checkboxInvalid} />
+</Playground>
+
+## Optional checkbox group
+
+<Playground
+  selectedKind="components-forms"
+  selectedStory="checkbox"
+  system="eu"
+  selectedArgs="required:!false"
+  showFrame
+>
+  <Html markup={checkboxOptional} />
+</Playground>
+
+## Standalone checkbox
+
+<Playground
+  selectedKind="components-forms"
+  selectedStory="standalone-checkbox"
+  system="eu"
+  showFrame
+>
+  <Html markup={checkboxSingle} />
+</Playground>

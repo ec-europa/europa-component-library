@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import { dateBlockOngoing, dateBlockPast } from '../demo';
+
+## Upcoming and ongoing
+
+<Playground
+  system="ec"
+  selectedKind="components-date-block"
+  selectedStory="ongoing"
+>
+  <Html markup={dateBlockOngoing} />
+</Playground>
+
+## Past and cancelled
+
+<Playground
+  system="ec"
+  selectedKind="components-date-block"
+  selectedStory="past"
+>
+  <Html markup={dateBlockPast} />
+</Playground>

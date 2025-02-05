@@ -1,0 +1,51 @@
+---
+title: API
+order: 3
+---
+
+import React from 'react';
+import Iframe from '../../../../../../website-components/Showcase/Iframe';
+
+## Setup
+
+There are 2 ways to initialise the component.
+
+### Automatic
+
+Add `data-ecl-auto-init` attribute to component's markup
+
+```html
+<section class="ecl-gallery" data-ecl-gallery data-ecl-auto-init="Gallery">
+  ...
+</section>
+```
+
+Use the `ECL` library's `autoInit()` (`ECL.autoInit()`) when your page is ready or other custom event you want to hook onto.
+
+### Manual
+
+Get target element, create an instance and invoke `init()`.
+
+Given you have 1 element with an attribute `data-ecl-gallery` on the page:
+
+```js
+var elt = document.querySelector('[data-ecl-gallery]');
+var gallery = new ECL.Gallery(elt);
+gallery.init();
+`
+```
+
+### Retrieve an existing instance
+
+If an existing instance needs to be updated, it can be retrieved this way:
+
+```js
+var elt = document.querySelector('[data-ecl-gallery]');
+var instance = ECL.components.get(elt);
+```
+
+To update an existing instance, you can run `destroy()` and `init()` on this instance, like this:
+
+## API
+
+<Iframe url="../../../../../apis/Gallery.html" />

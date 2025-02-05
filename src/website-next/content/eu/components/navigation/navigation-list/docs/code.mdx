@@ -1,0 +1,42 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  navigationList,
+  navigationListIllustration,
+  navigationListImageAsIllustration,
+} from '../demo';
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="default"
+  showFrame
+>
+  <Html markup={navigationList} />
+</Playground>
+
+## With small illustrations
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="illustration"
+  showFrame
+>
+  <Html markup={navigationListIllustration} />
+</Playground>
+
+## With images as illustrations
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-navigation-list"
+  selectedStory="as-illustration"
+  showFrame
+>
+  <Html markup={navigationListImageAsIllustration} />
+</Playground>

@@ -1,0 +1,76 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  listOrdered,
+  listUnordered,
+  listUnorderedUnstyled,
+  listUnorderedWithDivider,
+  listDescription,
+  listDescriptionHorizontal,
+} from '../demo';
+
+## Ordered list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-ordered-list"
+  selectedStory="default"
+>
+  <Html markup={listOrdered} />
+</Playground>
+
+## Unordered list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="text"
+>
+  <Html markup={listUnordered} />
+</Playground>
+
+### Unstyled
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="unstyled"
+>
+  <Html markup={listUnorderedUnstyled} />
+</Playground>
+
+### With dividers
+
+<Playground
+  system="eu"
+  selectedKind="components-list-unordered-list"
+  selectedStory="divider"
+>
+  <Html markup={listUnorderedWithDivider} />
+</Playground>
+
+## Description list
+
+<Playground
+  system="eu"
+  selectedKind="components-list-description-list"
+  selectedStory="vertical"
+  showFrame
+>
+  <Html markup={listDescription} />
+</Playground>
+
+## Description list (horizontal)
+
+<Playground
+  system="eu"
+  selectedKind="components-list-description-list"
+  selectedStory="horizontal"
+  showFrame
+>
+  <Html markup={listDescriptionHorizontal} />
+</Playground>

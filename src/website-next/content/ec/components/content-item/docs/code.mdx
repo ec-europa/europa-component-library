@@ -1,0 +1,57 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  contentItemImage,
+  contentItemImageRight,
+  contentItemImageTop,
+  contentItemEvent,
+} from '../demo';
+
+## Content item with image (left)
+
+<Playground
+  system="ec"
+  selectedKind="components-content-item"
+  selectedStory="image"
+  showFrame
+>
+  <Html markup={contentItemImage} />
+</Playground>
+
+## Content item with image (right)
+
+<Playground
+  system="ec"
+  selectedKind="components-content-item"
+  selectedStory="image"
+  showFrame
+  selectedArgs="image_position:right"
+>
+  <Html markup={contentItemImageRight} />
+</Playground>
+
+## Content item with image (top)
+
+<Playground
+  system="ec"
+  selectedKind="components-content-item"
+  selectedStory="image"
+  showFrame
+  selectedArgs="image_position:top"
+>
+  <Html markup={contentItemImageTop} />
+</Playground>
+
+## Event content item
+
+<Playground
+  system="ec"
+  selectedKind="components-content-item"
+  selectedStory="event"
+>
+  <Html markup={contentItemEvent} />
+</Playground>

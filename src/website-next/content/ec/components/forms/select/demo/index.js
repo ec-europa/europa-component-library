@@ -1,0 +1,7 @@
+import demoContentSingle from '@ecl/select/demo/data-single';
+import demoContentMultiple from '@ecl/select/demo/data-multiple';
+import template from '@ecl/form-group/form-group.html.twig';
+import { correctSvgPath } from '@ecl/website-utils';
+
+export const selectSingle = template(correctSvgPath(demoContentSingle));
+export const selectMultiple = template(correctSvgPath(demoContentMultiple));

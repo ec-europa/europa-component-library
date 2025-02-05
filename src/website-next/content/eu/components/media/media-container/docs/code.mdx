@@ -1,0 +1,68 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  mediaContainerImg,
+  mediaContainerVideo,
+  mediaContainerEmbed,
+  mediaContainerInfographic,
+} from '../demo';
+
+## Image
+
+<Playground
+  system="eu"
+  selectedKind="components-media-container"
+  selectedStory="image"
+>
+  <Html markup={mediaContainerImg} />
+</Playground>
+
+## Video (using &lt;video&gt; tag)
+
+<Playground
+  system="eu"
+  selectedKind="components-media-container"
+  selectedStory="video"
+>
+  <Html markup={mediaContainerVideo} />
+</Playground>
+
+## Embedded video (using &lt;iframe&gt;)
+
+Note: for embedded videos, the ratio is calculated based on the width and height provided with the video. It ensures a consistent display on all screen sizes.
+
+It is also possible to manually specify a ratio if needed. Possible manual ratios are: '16-9', '4-3', '3-2' and '1-1'. Most common ratio is 16-9.
+
+<Playground
+  showFrame
+  system="eu"
+  selectedKind="components-media-container"
+  selectedStory="embedded-video"
+>
+  <Html markup={mediaContainerEmbed} />
+</Playground>
+
+## Infographic
+
+<Playground
+  system="eu"
+  selectedKind="components-media-container"
+  selectedStory="infographic"
+  showFrame
+>
+  <Html markup={mediaContainerInfographic} />
+</Playground>
+
+### Media container width
+
+Media containers placed inside a grid container (`.ecl-container`) will expand to this container width; this is the case regardless of the content (image, video, embedded video).
+
+To have a full width media container, the recommended way is to place it outside of the grid container.
+
+However, if there is a need to have a full width media container inside the grid container, the css class `.ecl-media-container--fullwidth` can be used (just put it at the same level as `.ecl-media-container`).
+
+**Caution**: if you plan to use full width media container using this fullwidth css class, we recommend to use the "website" preset, as some global rules here would improve the display (`overflow-x: hidden`).

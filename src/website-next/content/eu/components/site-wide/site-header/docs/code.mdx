@@ -1,0 +1,34 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+
+import { siteHeaderCore, siteHeaderHarmonised } from '../demo';
+
+## Core site header
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-site-header"
+  selectedStory="core"
+  showFrame
+  disableAutoResize
+  frameHeight="1800"
+>
+  <Html markup={siteHeaderCore} />
+</Playground>
+
+## Harmonised site header
+
+<Playground
+  system="eu"
+  selectedKind="components-site-wide-site-header"
+  selectedStory="harmonised"
+  showFrame
+  frameHeight="1800"
+  disableAutoResize={true}
+>
+  <Html markup={siteHeaderHarmonised} />
+</Playground>

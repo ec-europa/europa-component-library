@@ -1,0 +1,77 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  featuredItem,
+  featuredItemRightAlignement,
+  featuredItemSimple,
+  featuredItemSimpleRightAlignement,
+  featuredItemHighlight,
+  featuredItemHighlightRightAlignement,
+} from '../demo';
+
+## Default
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="default"
+>
+  <Html markup={featuredItem} />
+</Playground>
+
+## Default right-aligned
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="default"
+  selectedArgs="position:right"
+>
+  <Html markup={featuredItemRightAlignement} />
+</Playground>
+
+## Simple
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="simple"
+>
+  <Html markup={featuredItemSimple} />
+</Playground>
+
+## Simple right-aligned
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="simple"
+  selectedArgs="position:right"
+>
+  <Html markup={featuredItemSimpleRightAlignement} />
+</Playground>
+
+## Highlighted
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="highlight"
+>
+  <Html markup={featuredItemHighlight} />
+</Playground>
+
+## Highlighted right-aligned
+
+<Playground
+  system="ec"
+  selectedKind="components-featured-item"
+  selectedStory="highlight"
+  selectedArgs="position:right"
+>
+  <Html markup={featuredItemHighlightRightAlignement} />
+</Playground>

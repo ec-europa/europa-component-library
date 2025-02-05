@@ -1,0 +1,55 @@
+---
+title: Showcase
+order: 2
+---
+
+import { Playground, Html } from '@ecl/website-components';
+import {
+  textAreaDefault,
+  textAreaDisabled,
+  textAreaInvalid,
+  textAreaRequired,
+} from '../demo';
+
+## Default text area
+
+<Playground
+  system="ec"
+  selectedKind="components-forms"
+  selectedStory="textarea"
+>
+  <Html markup={textAreaDefault} />
+</Playground>
+
+## Disabled text area
+
+<Playground
+  system="ec"
+  selectedKind="components-forms"
+  selectedStory="textarea"
+  selectedArgs="disabled:true"
+>
+  <Html markup={textAreaDisabled} />
+</Playground>
+
+## Invalid text area
+
+<Playground
+  system="ec"
+  selectedKind="components-forms"
+  selectedStory="textarea"
+  selectedArgs="invalid:true"
+>
+  <Html markup={textAreaInvalid} />
+</Playground>
+
+## Required text area
+
+<Playground
+  system="ec"
+  selectedKind="components-forms"
+  selectedStory="textarea"
+  selectedArgs="required:true"
+>
+  <Html markup={textAreaRequired} />
+</Playground>
