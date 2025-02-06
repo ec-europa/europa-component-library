@@ -88,9 +88,28 @@ $letter-spacing-compact: (
   '7xl': -1px,
   '6xl': -0.5px,
   '5xl': -0.5px,
+  '4xl': -1px,
+  '3xl': -1px,
+  '2xl': -1px,
+  'xl': -1px,
+  'l': -1px,
+  'm': -1px,
+  's': -1px,
+  'xs': -1px,
 ) !default;
 $letter-spacing-extended: (
+  '10xl': 3px,
+  '9xl': 3px,
+  '8xl': 3px,
+  '7xl': 3px,
+  '6xl': 3px,
+  '5xl': 3px,
+  '4xl': 3px,
+  '3xl': 3px,
+  '2xl': 3px,
   'xl': 3px,
+  'l': 1.5px,
+  'm': 1.5px,
   's': 1.5px,
   'xs': 1.5px,
 ) !default;
@@ -175,46 +194,4 @@ $font-print: (
     map.get($line-height-print, 's')} #{map.get($font-family-print, 'default')},
   'xs': #{map.get($font-size-print, 'xs') + '/' +
     map.get($line-height-print, 'xs')} #{map.get($font-family-print, 'default')},
-) !default;
-
-// TO BE REMOVED
-$font-size-ui: (
-  's': 0.875rem,
-  'm': 1rem,
-) !default;
-$line-height-ui: (
-  'xs': 1.375rem,
-  's': 1.5rem,
-  'm': 1.75rem,
-) !default;
-$font-ui: (
-  's': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size-ui, 's') + '/' + map.get($line-height-ui, 's')}
-    #{map.get($font-family, 'default')},
-  'm': normal normal map.get($font-weight, 'regular')
-    #{map.get($font-size-ui, 'm') + '/' + map.get($line-height-ui, 'm')}
-    #{map.get($font-family, 'default')},
-) !default;
-$font-weight-print: (
-  'regular': 400,
-  'bold': 600,
-) !default;
-$font-size-ui-print: (
-  's': 9.2pt,
-  'm': 10.5pt,
-) !default;
-$line-height-ui-print: (
-  'xs': 14.4pt,
-  's': 15.75pt,
-  'm': 18.4pt,
-) !default;
-$font-ui-print: (
-  's': normal normal map.get($font-weight-print, 'regular')
-    #{map.get($font-size-ui-print, 's') + '/' +
-    map.get($line-height-ui-print, 's')}
-    #{map.get($font-family-print, 'default')},
-  'm': normal normal map.get($font-weight-print, 'regular')
-    #{map.get($font-size-ui-print, 'm') + '/' +
-    map.get($line-height-ui-print, 'm')}
-    #{map.get($font-family-print, 'default')},
 ) !default;

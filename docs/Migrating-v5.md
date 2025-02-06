@@ -8,9 +8,11 @@ The following guidelines aim to facilitate the migration from ECL v4 to v5.
 
 ## Style modifications
 
-Color definition and usage have greately changed for ECL5, with the introduction of color modes.
+Color definition and usage have greately changed for ECL5, with the introduction of color modes in EC.
 
-### Color scales
+Typography has also changed quite drastically in EC.
+
+### [EC] Color scales
 
 Main semantic colors (primary, secondary) are still present, but now use a new unified scale, going from `[color]-50` to `[color]-900`. Color values have also been changed.
 Dark and neutral colors have been merged into two new palettes: `neutral-dark` and `neutral-light`.
@@ -23,7 +25,7 @@ TODO
 - update utilities
 - update documentation
 
-### Color modes
+### [EC] Color modes
 
 A color mode is a set of color, applied to different elements, and giving a distinct identity to a specific page or site. Currently the color modes are used only on EC.
 
@@ -41,6 +43,29 @@ How it works:
 TODO
 
 - when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
+
+### [EC] Typography
+
+Font family and scales have changed. The new font (Inter) is quite similar to Arial, but offers more flexibility.
+
+Font size and line height now goes from `10xl` to `xs`.
+
+**Important note**: default font size (`m`) is now 18px/1.125rem, instead of 16px/1rem. It makes all content displayed larger.
+
+There are now 9 levels of font weight, from `thin` to `black`.
+
+A new very large typography has been added, called `display`.
+
+Font variant have been updated too. The variant `font-ui`, previously used to have larger line height, has been removed.
+Two new variants have been added:
+
+- `condensed` (smaller letter-spacing)
+- `extended` (larger letter-spacing)
+
+Corresponding css properties and utilities have been updated accordingly:
+
+- paragraph utilities now use the new font scale, and go from `ecl-u-type-paragraph-xs` to `ecl-u-type-paragraph-2xl` (previously existing utilities like `ecl-u-type-paragraph-lead` are still valid)
+- new utilities for compact and extended fonts: `ecl-u-type-compact-[size]` and `ecl-u-type-extended-[size]`
 
 ## Js modifications
 
