@@ -60,9 +60,14 @@
   {% set _label_class = _label_class ~ ' ' ~ extra_label_classes %}
 {% endif %}
 
+{% set _aria_describedby = _id ~ '-value' %}
+
 {% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% if attr.value is defined %}
+      {% if attr.name == 'aria-describedby' %}
+        {% set _aria_describedby = attr.value ~ ' ' ~ _aria_describedby %}
+      {% endif %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
     {% else %}
       {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
@@ -77,9 +82,7 @@
   type="range"
   class="{{ _css_class }}"
   id="{{ _id }}"
-{% if extra_attributes is defined and extra_attributes is iterable and extra_attributes|filter(attr => attr.name == 'aria-describedby')|length == 0 %}
-  aria-describedby="{{ _id }}-value"
-{% endif %}
+  aria-describedby="{{ _aria_describedby }}"
 {% if _name is not empty %}
   name="{{ _name }}"
 {% endif %}
