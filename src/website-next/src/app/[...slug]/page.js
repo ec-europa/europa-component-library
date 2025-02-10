@@ -1,7 +1,6 @@
 // File: src/app/[...slug]/page.js
 
-import { getAllSlugs, getPostBySlug } from '../lib/md';
-import { serialize } from 'next-mdx-remote/serialize';
+import { getPostBySlug } from '../lib/md';
 import MdxRenderer from '../components/MdxRenderer';
 
 export default async function Page({ params }) {
