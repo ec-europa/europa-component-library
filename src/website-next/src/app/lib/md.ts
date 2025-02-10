@@ -3,10 +3,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
 import { serialize } from 'next-mdx-remote/serialize'; // If you still use next-mdx-remote
 
 // Use process.cwd() so this works regardless of where the code is called.
