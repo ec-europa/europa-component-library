@@ -561,7 +561,9 @@ export class SiteHeader {
     if (loginRect.x === 0) {
       const loginToggleRect = this.loginToggle.getBoundingClientRect();
       const arrowPosition =
-        window.innerWidth - loginToggleRect.right + loginToggleRect.width / 2;
+        document.documentElement.clientWidth -
+        loginToggleRect.right +
+        loginToggleRect.width / 2;
 
       this.loginBox.style.setProperty(
         '--ecl-login-arrow-position',
@@ -575,7 +577,9 @@ export class SiteHeader {
     if (searchRect.x === 0) {
       const searchToggleRect = this.searchToggle.getBoundingClientRect();
       const arrowPosition =
-        window.innerWidth - searchToggleRect.right + searchToggleRect.width / 2;
+        document.documentElement.clientWidth -
+        searchToggleRect.right +
+        searchToggleRect.width / 2;
 
       this.searchForm.style.setProperty(
         '--ecl-search-arrow-position',
