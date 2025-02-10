@@ -1,0 +1,19 @@
+@use '@ecl/theme-ec/maps/layout' with (
+  $breakpoint: (
+    'xs': 0,
+    's': 480px,
+    'm': 768px,
+    'l': 1140px,
+    'xl': 1500px,
+  ),
+  $container: (
+    's': 480px,
+    'm': 768px,
+    'l': 768px,
+    'xl': 1140px,
+  )
+);
+@use '@ecl/theme-ec/theme' as theme;
+@use '@ecl/grid/grid' with (
+  $theme: theme.$theme
+);

@@ -1,25 +1,18 @@
-import { getAllSlugs, getPostBySlug } from "../../../lib/md";
-import { MDXRemote } from "next-mdx-remote";
-import React from "react";
+// File: src/app/[...slug]/page.js
 
-export async function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((slug) => ({ slug: slug.split("/") }));
-}
+import { getAllSlugs, getPostBySlug } from '../lib/md';
+import { serialize } from 'next-mdx-remote/serialize';
+import MdxRenderer from '../components/MdxRenderer';
 
-export default async function PostPage(props) {
-  const params = await props.params;
-  if (!params || !params.slug) {
-    return <h1>Page Not Found</h1>;
-  }
-
-  const slugPath = Array.isArray(params.slug) ? params.slug.join("/") : params.slug;
-  const { metadata, content, isMDX } = await getPostBySlug(slugPath);
+export default async function Page({ params }) {
+  const parameters = await params;
+  const slug = parameters.slug?.join('/') ?? 'index';
+  const { mdxSource, metadata } = await getPostBySlug(slug);
 
   return (
     <article>
       <h1>{metadata.title}</h1>
-      {isMDX ? <MDXRemote {...content} /> : <div dangerouslySetInnerHTML={{ __html: content }} />}
+      <MdxRenderer source={mdxSource} />
     </article>
   );
 }

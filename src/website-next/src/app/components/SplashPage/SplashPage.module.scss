@@ -1,0 +1,22 @@
+.splash-page {
+  background-color: var(--ws-c-n-40);
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: var(--ws-s-4xl) 0 var(--ws-s-xl);
+}
+
+.splash-page-actions-row {
+  margin-top: var(--ws-s-xl);
+
+  @media screen and (width >= 768px) {
+    margin-top: var(--ws-s-4xl);
+  }
+}
+
+.splash-page-actions-row .splash-page-actions-col + .splash-page-actions-col {
+  margin-top: var(--ws-s-m);
+
+  @media screen and (width >= 768px) {
+    margin-top: 0;
+  }
+}

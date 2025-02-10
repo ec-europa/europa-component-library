@@ -1,0 +1,29 @@
+.logo-link {
+  align-items: center;
+  background-color: var(--ws-c-n-40);
+  border: 1px solid var(--ws-c-n-80);
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: calc(var(--ws-s-xl) - 1px);
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  border: 2px solid var(--ws-c-p);
+  outline: none;
+  padding: calc(var(--ws-s-xl) - 2px);
+}
+
+.logo-link--ec img {
+  max-height: 5rem;
+  max-width: 20rem;
+  width: 100%;
+}
+
+.logo-link--eu img {
+  max-height: 3rem;
+  max-width: 20rem;
+  width: 100%;
+}

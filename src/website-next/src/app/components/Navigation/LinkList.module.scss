@@ -1,0 +1,17 @@
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &[aria-hidden='true'] {
+    display: none;
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    :global(.no-js) & {
+      display: block;
+    }
+  }
+
+  &[data-level='0'] {
+    margin-top: var(--ws-s-xl);
+  }
+}

@@ -1,7 +1,16 @@
 {
   "compilerOptions": {
+    // Allows relative "paths" to be based on the project root.
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      // Example wildcard alias for anything in `src/`
+      "@/*": ["./src/*"],
+
+      // Aliases for `@ecl/website-components`
+      "@ecl/website-components": ["./src/website-components/*"],
+
+      // Aliases for `@ecl/website-utils`
+      "@ecl/website-utils": ["./src/utils/*"]
     }
   }
 }

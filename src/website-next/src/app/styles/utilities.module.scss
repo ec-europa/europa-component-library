@@ -1,0 +1,55 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
+.pv-m {
+  padding-bottom: var(--ws-s-m) !important;
+  padding-top: var(--ws-s-m) !important;
+}
+
+.pv-l {
+  padding-bottom: var(--ws-s-l) !important;
+  padding-top: var(--ws-s-l) !important;
+}
+
+.pv-xl {
+  padding-bottom: var(--ws-s-xl) !important;
+  padding-top: var(--ws-s-xl) !important;
+}
+
+.pv-2xl {
+  padding-bottom: var(--ws-s-2xl) !important;
+  padding-top: var(--ws-s-2xl) !important;
+}
+
+.pv-3xl {
+  padding-bottom: var(--ws-s-3xl) !important;
+  padding-top: var(--ws-s-3xl) !important;
+}
+// stylelint-disable-next-line media-query-no-invalid
+@media screen and (min-width: map.get($theme, 'breakpoint', 'm')) {
+  .pv-md-3xl {
+    padding-bottom: var(--ws-s-3xl) !important;
+    padding-top: var(--ws-s-3xl) !important;
+  }
+}
+
+.pv-4xl {
+  padding-bottom: var(--ws-s-4xl) !important;
+  padding-top: var(--ws-s-4xl) !important;
+}
+
+.mt-m {
+  margin-top: var(--ws-s-m) !important;
+}
+
+.mt-l {
+  margin-top: var(--ws-s-l) !important;
+}
+
+.mt-xl {
+  margin-top: var(--ws-s-xl) !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
