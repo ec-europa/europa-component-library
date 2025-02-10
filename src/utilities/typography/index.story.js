@@ -288,9 +288,9 @@ export const Paragraph = (args) => {
     return `
       <h3 class="ecl-u-type-heading-3">Paragraph 2xl</h3>
       <p class="ecl-u-type-paragraph-2xl">${args.content}</p>
-      <h3 class="ecl-u-type-heading-3">Paragraph xl</h3>
+      <h3 class="ecl-u-type-heading-3">Paragraph xl (lead)</h3>
       <p class="ecl-u-type-paragraph-xl">${args.content}</p>
-      <h3 class="ecl-u-type-heading-3">Paragraph l (lead)</h3>
+      <h3 class="ecl-u-type-heading-3">Paragraph l</h3>
       <p class="ecl-u-type-paragraph-l">${args.content}</p>
       <h3 class="ecl-u-type-heading-3">Paragraph m (default)</h3>
       <p class="ecl-u-type-paragraph-m">${args.content}</p>
