@@ -1,5 +1,15 @@
 # Changelog
 
+## 5.0.0-alpha.4
+
+#### :nail_care: Enhancement
+
+- [#3835](https://github.com/ec-europa/europa-component-library/pull/3835) feat(featured-item): token and color - FRONT-4782 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 5.0.0-alpha.3
 
 #### :bug: Bug Fix
