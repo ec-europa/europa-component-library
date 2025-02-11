@@ -177,7 +177,6 @@ $featured-item: null !default;
 
   .ecl-featured-item__container {
     background-color: map.get($featured-item, 'simple', 'container-background');
-    border: map.get($featured-item, 'border');
     border-inline-start: map.get($featured-item, 'simple', 'border-size') solid
       map.get($featured-item, 'simple', 'border-color');
     padding: map.get($featured-item, 'simple', 'padding-mobile');
@@ -305,7 +304,6 @@ $featured-item: null !default;
       'highlight',
       'container-background'
     );
-    border: map.get($featured-item, 'border');
     border-inline-start: map.get($featured-item, 'highlight', 'border-size')
       solid map.get($featured-item, 'highlight', 'border-color');
     padding: map.get($featured-item, 'highlight', 'padding-mobile');
