@@ -38,8 +38,8 @@ class PaletteItem extends PureComponent {
   constructor(props) {
     super(props);
 
-    const { name, id, value, alias, ui, main } = props;
-    this.color = { name, id, value, alias, ui, main };
+    const { name, id, value, alias, main } = props;
+    this.color = { name, id, value, alias, main };
 
     const sanitizedName = name.replace(/\s*\([^)]*\)/g, '').trim();
     this.customProperty = `--ecl-color-${sanitizedName.toLowerCase()}`;
@@ -61,7 +61,7 @@ class PaletteItem extends PureComponent {
   };
 
   render() {
-    const { name, id, value, alias, ui, main, parentRef } = this.props;
+    const { name, id, value, alias, main, parentRef } = this.props;
     const { tooltipVisible } = this.state;
 
     let code = value.toUpperCase();
@@ -72,15 +72,11 @@ class PaletteItem extends PureComponent {
     }
 
     return (
-      <li
-        className={classnames(
-          styles.item,
-          { [styles[`item--${ui}`]]: true },
-          { [styles['item--main']]: main },
-        )}
-        style={{ backgroundColor: alias ? `var(--${alias})` : value }}
-      >
-        <div className={styles.nameWrapper}>
+      <li className={classnames(styles.item, { [styles['item--main']]: main })}>
+        <div
+          className={styles.nameWrapper}
+          style={{ backgroundColor: alias ? `var(--${alias})` : value }}
+        >
           <button
             type="button"
             className={styles.title}
@@ -112,7 +108,6 @@ PaletteItem.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   alias: PropTypes.string,
-  ui: PropTypes.string,
   main: PropTypes.bool,
   parentRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };
@@ -121,7 +116,6 @@ PaletteItem.defaultProps = {
   id: '',
   value: '',
   alias: '',
-  ui: 'light',
   main: false,
   parentRef: null,
 };
