@@ -219,7 +219,7 @@ export class Select {
       checkbox.classList.add(extraClass);
     }
     if (selected) {
-      input.setAttribute('checked', true);
+      input.checked = true;
     }
     if (disabled) {
       checkbox.classList.add('ecl-checkbox--disabled');
@@ -934,6 +934,9 @@ export class Select {
         if (option.selected) {
           option.selected = false;
           option.removeAttribute('selected');
+          if (this.selectAll) {
+            this.selectAll.querySelector('input').checked = false;
+          }
         } else {
           option.selected = true;
           option.setAttribute('selected', 'true');
