@@ -296,7 +296,6 @@ export class Select {
   static #checkCheckbox(e) {
     const input = e.target.closest('.ecl-checkbox').querySelector('input');
     input.checked = !input.checked;
-
     return input.checked;
   }
 
@@ -544,7 +543,7 @@ export class Select {
           }
 
           if (option.selected) {
-            this.#updateSelectionsCount(1);
+            this.#updateSelectionsCount();
             if (this.dropDownToolbar) {
               this.dropDownToolbar.style.display = 'flex';
             }
@@ -607,12 +606,10 @@ export class Select {
 
   /**
    * Update instance.
-   *
-   * @param {Integer} i
    */
-  update(i) {
+  update() {
     this.#updateCurrentValue();
-    this.#updateSelectionsCount(i);
+    this.#updateSelectionsCount();
   }
 
   /**
@@ -781,19 +778,12 @@ export class Select {
   /**
    * Private method to handle the update of the selected options counter.
    *
-   * @param {Integer} i
    * @private
    */
-  #updateSelectionsCount(i) {
-    let selectedOptionsCount = 0;
-
-    if (i > 0) {
-      this.selectionCount.querySelector('span').innerHTML += i;
-    } else {
-      selectedOptionsCount = Array.from(this.select.options).filter(
-        (option) => option.selected,
-      ).length;
-    }
+  #updateSelectionsCount() {
+    const selectedOptionsCount = Array.from(this.select.options).filter(
+      (option) => option.selected,
+    ).length;
     if (selectedOptionsCount > 0) {
       this.selectionCount.querySelector('span').innerHTML =
         selectedOptionsCount;
@@ -941,13 +931,12 @@ export class Select {
     const checkbox = e.target.closest('.ecl-checkbox');
     Array.from(this.select.options).forEach((option) => {
       if (option.text === checkbox.getAttribute('data-select-multiple-value')) {
-        if (option.getAttribute('selected') || option.selected) {
+        if (option.selected) {
           option.selected = false;
-          if (this.selectAll) {
-            this.selectAll.querySelector('input').checked = false;
-          }
+          option.removeAttribute('selected');
         } else {
           option.selected = true;
+          option.setAttribute('selected', 'true');
         }
       }
     });
@@ -1504,7 +1493,7 @@ export class Select {
     if (this.selectAll) {
       this.selectAll.querySelector('.ecl-checkbox__input').checked = false;
     }
-    this.update(0);
+    this.update();
     this.trigger('onReset', e);
   }
 

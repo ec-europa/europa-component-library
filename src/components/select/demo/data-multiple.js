@@ -28,6 +28,7 @@ module.exports = {
             {
               value: '1',
               label: 'Belgium',
+              selected: true,
             },
             {
               value: '2',
