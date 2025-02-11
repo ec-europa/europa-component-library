@@ -42,6 +42,21 @@ TODO
 
 - when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
 
+### Shadows
+
+EC shadows name have been updated to follow a more easy to read scale. This affect utilities and css properties, as they are now using the new names.
+
+Here are ECL 5 shadows, and the mapping with ECL 4.
+| ECL 5 | ECL 4 |
+| -------------- | ---------------- |
+| ecl-u-shadow-1 | ecl-u-shadow-1 |
+| ecl-u-shadow-2 | ecl-u-shadow-6 |
+| ecl-u-shadow-3 | ecl-u-shadow-12 |
+| ecl-u-shadow-4 | ecl-u-shadow-16 |
+| ecl-u-shadow-5 | / (new in ECL 5) |
+
+EU shadows have not been modified (name and value).
+
 ## Js modifications
 
 ## Packages modifications
