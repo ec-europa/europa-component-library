@@ -7,18 +7,87 @@
 // Exposed variables
 $theme: null !default;
 
-@each $key, $value in map.get($theme, 'color') {
-  @if $key == 'white' or $key == 'black' {
-    .ecl-u-bg-#{$key} {
-      background-color: map.get($theme, 'color', $key) !important;
+// Used only on EU
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-bg-#{$key} {
+        background-color: var(--ecl-color-#{$key}) !important;
+      }
     }
-  } @else {
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-bg-#{$key} {
       background-color: var(--ecl-color-#{$key}) !important;
     }
+  }
+
+  .ecl-u-bg-primary {
+    background-color: var(--ecl-color-primary) !important;
+  }
+
+  .ecl-u-bg-secondary {
+    background-color: var(--ecl-color-secondary) !important;
+  }
+
+  .ecl-u-bg-neutral-dark {
+    background-color: var(--ecl-color-neutral-dark) !important;
+  }
+
+  .ecl-u-bg-neutral-light {
+    background-color: var(--ecl-color-neutral-light) !important;
+  }
+
+  .ecl-u-bg-info {
+    background-color: var(--ecl-color-info) !important;
+  }
+
+  .ecl-u-bg-success {
+    background-color: var(--ecl-color-success) !important;
+  }
+
+  .ecl-u-bg-error {
+    background-color: var(--ecl-color-error) !important;
+  }
+
+  .ecl-u-bg-warning {
+    background-color: var(--ecl-color-warning) !important;
+  }
+}
+
+@if map.has-key($theme, 'color-modes') {
+  .ecl-u-bg-surface {
+    background-color: var(--cm-surface) !important;
+  }
+
+  .ecl-u-bg-surface-medium {
+    background-color: var(--cm-surface-medium) !important;
+  }
+
+  .ecl-u-bg-surface-low {
+    background-color: var(--cm-surface-low) !important;
+  }
+
+  .ecl-u-bg-surface-lowest {
+    background-color: var(--cm-surface-lowest) !important;
+  }
+
+  .ecl-u-bg-surface-lowest-variant {
+    background-color: var(--cm-surface-lowest-variant) !important;
   }
 }
 
 .ecl-u-bg-transparent {
   background-color: transparent !important;
+}
+
+.ecl-u-bg-white {
+  background-color: #fff !important;
+}
+
+.ecl-u-bg-black {
+  background-color: #000 !important;
 }

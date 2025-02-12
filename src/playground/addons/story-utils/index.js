@@ -333,7 +333,7 @@ export const getFormControls = (data, type) => {
   return argTypes;
 };
 
-export const getColorModeControls = () => {
+export const getColorModeControls = (condition = {}) => {
   let argTypes = {};
 
   if (getSystem() === 'ec') {
@@ -364,6 +364,10 @@ export const getColorModeControls = () => {
         },
       },
     };
+
+    if (Object.keys(condition).length > 0) {
+      argTypes.color_mode.if = condition;
+    }
   }
 
   return argTypes;
