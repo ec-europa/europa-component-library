@@ -64,6 +64,7 @@ $featured-item: null !default;
     );
   }
 
+  &:first-child,
   > *:first-child {
     margin-top: 0;
   }
@@ -139,7 +140,11 @@ $featured-item: null !default;
     }
 
     .ecl-featured-item__description {
-      margin-left: 0;
+      margin: map.get($featured-item, 'description-spacing-right');
+    }
+
+    .ecl-featured-item__description:first-child {
+      margin-top: 0;
     }
 
     .ecl-featured-item__link {
