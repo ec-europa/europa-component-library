@@ -19,7 +19,13 @@ const styleContainerNegative = {
   padding: '2rem 0',
 };
 const styleBox = {
-  border: '1px dashed #808080',
+  backgroundColor: '#ebebeb',
+  height: '5rem',
+  outline: '10px solid #fff',
+  outlineOffset: '-10px',
+  width: '10rem',
+};
+const styleBoxTransparent = {
   height: '5rem',
   width: '10rem',
 };
@@ -55,17 +61,19 @@ const getArgTypes = () => {
       options: [
         'ecl-u-shadow-none',
         'ecl-u-shadow-1',
-        'ecl-u-shadow-6',
-        'ecl-u-shadow-12',
-        'ecl-u-shadow-16',
+        'ecl-u-shadow-2',
+        'ecl-u-shadow-3',
+        'ecl-u-shadow-4',
+        'ecl-u-shadow-5',
       ],
       control: {
         labels: {
           'ecl-u-shadow-none': 'none',
           'ecl-u-shadow-1': 'elevation 1',
-          'ecl-u-shadow-6': 'elevation 6',
-          'ecl-u-shadow-12': 'elevation 12',
-          'ecl-u-shadow-16': 'elevation 16',
+          'ecl-u-shadow-2': 'elevation 2',
+          'ecl-u-shadow-3': 'elevation 3',
+          'ecl-u-shadow-4': 'elevation 4',
+          'ecl-u-shadow-5': 'elevation 5',
         },
       },
       table: {
@@ -75,9 +83,10 @@ const getArgTypes = () => {
       mapping: {
         none: 'ecl-u-shadow-none',
         'elevation 1': 'ecl-u-shadow-1',
-        'elevation 6': 'ecl-u-shadow-6',
-        'elevation 12': 'ecl-u-shadow-12',
-        'elevation 16': 'ecl-u-shadow-16',
+        'elevation 2': 'ecl-u-shadow-2',
+        'elevation 3': 'ecl-u-shadow-3',
+        'elevation 4': 'ecl-u-shadow-4',
+        'elevation 5': 'ecl-u-shadow-5',
       },
     };
   } else {
@@ -179,13 +188,16 @@ export const Custom = (args) => {
   const container = args.shadow.includes('negative')
     ? styled(styleContainerNegative)
     : styled(styleContainer);
+  const box = args.shadowInner.includes('none')
+    ? styled(styleBox)
+    : styled(styleBoxTransparent);
   const inner = args.shadowInner.includes('negative')
     ? styled(styleInnerNegative)
     : styled(styleInner);
 
   return `
   <div style="${container}">
-    <div style="${styled(styleBox)}" class="${classnames(args.shadow)}">
+    <div style="${box}" class="${classnames(args.shadow)}">
       <div style="${inner}" class="${classnames(args.shadowInner)}" />
     </div>
   </div>
