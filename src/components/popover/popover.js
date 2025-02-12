@@ -285,7 +285,7 @@ export class Popover {
   }
 
   /**
-   * Find the closest scrollable parent.
+   * Calculate available space for the popover
    *
    * @param {Node} toggleElement
    * @param {Node} scrollableParent
