@@ -1,4 +1,5 @@
 import { queryOne } from '@ecl/dom-utils';
+import EventManager from '@ecl/event-manager';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -23,6 +24,21 @@ export class Popover {
     return popover;
   }
 
+  /**
+   *   @event Popover#onOpen
+   */
+  /**
+   *   @event Popover#onClose
+   */
+
+  /**
+   * An array of supported events for this component.
+   *
+   * @type {Array<string>}
+   * @memberof Popover
+   */
+  supportedEvents = ['onOpen', 'onClose'];
+
   constructor(
     element,
     {
@@ -40,6 +56,7 @@ export class Popover {
     }
 
     this.element = element;
+    this.eventManager = new EventManager();
 
     // Options
     this.toggleSelector = toggleSelector;
@@ -53,6 +70,9 @@ export class Popover {
     this.target = null;
     this.container = null;
     this.resizeTimer = null;
+    this.scrollableParent = null;
+    this.toggleRect = null;
+    this.scrollable = null;
 
     // Bind `this` for use in callbacks
     this.openPopover = this.openPopover.bind(this);
@@ -63,6 +83,9 @@ export class Popover {
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.checkPosition = this.checkPosition.bind(this);
     this.resetStyles = this.resetStyles.bind(this);
+    this.getClosestScrollableParent =
+      this.getClosestScrollableParent.bind(this);
+    this.calculateAvailableSpace = this.calculateAvailableSpace.bind(this);
 
     this.POPOVER_CLASSES = {
       TOP: 'ecl-popover--top',
@@ -88,6 +111,8 @@ export class Popover {
     this.toggle = queryOne(this.toggleSelector, this.element);
     this.close = queryOne(this.closeSelector, this.element);
     this.container = queryOne('.ecl-popover__container', this.element);
+    this.scrollableParent = this.getClosestScrollableParent(this.toggle);
+
     // Bind global events
     if (this.attachKeyListener) {
       document.addEventListener('keyup', this.handleKeyboardGlobal);
@@ -111,6 +136,8 @@ export class Popover {
       );
     }
 
+    this.scrollable = this.target.firstElementChild;
+
     window.addEventListener('resize', this.checkPosition);
     document.addEventListener('scroll', this.checkPosition);
 
@@ -122,6 +149,36 @@ export class Popover {
     // Set ecl initialized attribute
     this.element.setAttribute('data-ecl-auto-initialized', 'true');
     ECL.components.set(this.element, this);
+  }
+
+  /**
+   * Register a callback function for a specific event.
+   *
+   * @param {string} eventName - The name of the event to listen for.
+   * @param {Function} callback - The callback function to be invoked when the event occurs.
+   * @returns {void}
+   * @memberof Popover
+   * @instance
+   *
+   * @example
+   * // Registering a callback for the 'onOpen' event
+   * popover.on('onOpen', (event) => {
+   *   console.log('Open event occurred!', event);
+   * });
+   */
+  on(eventName, callback) {
+    this.eventManager.on(eventName, callback);
+  }
+
+  /**
+   * Trigger a component event.
+   *
+   * @param {string} eventName - The name of the event to trigger.
+   * @param {any} eventData - Data associated with the event.
+   * @memberof Popover
+   */
+  trigger(eventName, eventData) {
+    this.eventManager.trigger(eventName, eventData);
   }
 
   /**
@@ -167,30 +224,121 @@ export class Popover {
 
     // Toggle the popover
     if (isExpanded) {
-      this.closePopover();
+      this.closePopover(e);
       return;
     }
 
-    this.openPopover();
+    this.openPopover(e);
     this.positionPopover();
   }
 
   /**
    * Open the popover.
+   *
+   * @param {Event} e
    */
-  openPopover() {
+  openPopover(e) {
     this.toggle.setAttribute('aria-expanded', 'true');
     this.target.hidden = false;
+    this.trigger('onOpen', { event: e, target: this.target });
   }
 
   /**
    * Close the popover.
+   *
+   * @param {Event} e
    */
-  closePopover() {
+  closePopover(e) {
     this.toggle.setAttribute('aria-expanded', 'false');
     // Reset all the selectors and styles
     this.resetStyles();
     this.target.hidden = true;
+    this.trigger('onClose', { event: e, target: this.target });
+  }
+
+  /**
+   * Find the closest scrollable parent.
+   *
+   * @param {Node} element
+   */
+  /* eslint-disable-next-line class-methods-use-this */
+  getClosestScrollableParent(element) {
+    let parent = element.parentElement;
+
+    while (parent) {
+      const { overflowY, overflowX } = getComputedStyle(parent);
+      const isScrollableY =
+        (overflowY === 'auto' || overflowY === 'scroll') &&
+        parent.scrollHeight > parent.clientHeight;
+      const isScrollableX =
+        (overflowX === 'auto' || overflowX === 'scroll') &&
+        parent.scrollWidth > parent.clientWidth;
+
+      if (isScrollableY || isScrollableX) {
+        return parent; // Found the closest scrollable parent
+      }
+
+      parent = parent.parentElement;
+    }
+
+    return document.body;
+  }
+
+  /**
+   * Calculate available space for the popover
+   *
+   * @param {Node} toggleElement
+   * @param {Node} scrollableParent
+   */
+  calculateAvailableSpace(toggleElement, scrollableParent = null) {
+    // Get the bounding rect for the toggle element
+    this.toggleRect = toggleElement.getBoundingClientRect();
+
+    // If no scrollable parent is provided, use the viewport
+    const containerRect = scrollableParent
+      ? scrollableParent.getBoundingClientRect()
+      : {
+          top: 0,
+          left: 0,
+          right: window.innerWidth,
+          bottom: window.innerHeight,
+        };
+    const containerWidth = containerRect.right - containerRect.left;
+    const containerHeight = containerRect.bottom - containerRect.top;
+    // Calculate the space available in the four directions
+    const containerBottom = Math.max(
+      0,
+      window.innerHeight - containerRect.bottom,
+    );
+    const toggleBottom = Math.max(
+      0,
+      window.innerHeight - this.toggleRect.bottom,
+    );
+    const spaceBottom = Math.max(0, toggleBottom - containerBottom);
+
+    // Top Space (from toggle's top to container's top)
+    const containerTop = Math.max(0, containerRect.top);
+    const toggleTop = Math.max(0, this.toggleRect.top);
+    const spaceTop = Math.max(0, toggleTop - containerTop);
+
+    // Right Space (from toggle's right to container's right)
+    const containerRight = Math.max(0, window.innerWidth - containerRect.right);
+    const toggleRight = Math.max(0, window.innerWidth - this.toggleRect.right);
+    const spaceRight = Math.max(0, toggleRight - containerRight);
+
+    // Left Space (from toggle's left to container's left)
+    const containerLeft = Math.max(0, containerRect.left);
+    const toggleLeft = Math.max(0, this.toggleRect.left);
+    const spaceLeft = Math.max(0, toggleLeft - containerLeft);
+
+    return {
+      containerWidth,
+      containerHeight,
+      spaceTop,
+      spaceBottom,
+      spaceLeft,
+      spaceRight,
+    };
   }
 
   /**
@@ -211,7 +359,7 @@ export class Popover {
     this.container.style.top = '';
     this.container.style.bottom = '';
     this.container.style.transform = '';
-    this.target.firstElementChild.width = '';
+    this.scrollable.style.width = '';
   }
 
   /**
@@ -220,15 +368,8 @@ export class Popover {
   positionPopover() {
     this.resetStyles();
 
-    const toggleRect = this.toggle.getBoundingClientRect();
-    const screenHeight = window.innerHeight;
-    const screenWidth = window.innerWidth;
-
-    // Calculate available space in each direction
-    const spaceTop = toggleRect.top;
-    const spaceBottom = screenHeight - toggleRect.bottom;
-    const spaceLeft = toggleRect.left;
-    const spaceRight = screenWidth - toggleRect.right;
+    const { containerWidth, spaceTop, spaceBottom, spaceLeft, spaceRight } =
+      this.calculateAvailableSpace(this.toggle, this.scrollableParent);
 
     // Find the direction with the most available space
     const positioningClass = 'ecl-popover--';
@@ -249,74 +390,104 @@ export class Popover {
     }
 
     this.element.classList.add(`${positioningClass}${direction}`);
-    this.handlePushClass(screenWidth, screenHeight, direction);
 
     // Try to use as much of the available width, respecting the max-width set.
-    const scrollable = this.target.firstElementChild;
-    const styles = window.getComputedStyle(scrollable);
+    const styles = window.getComputedStyle(this.scrollable);
     const maxWidth = parseInt(styles.getPropertyValue('max-width'), 10);
     const minWidth = parseInt(styles.getPropertyValue('min-width'), 10);
     const padding = parseInt(styles.getPropertyValue('padding-left'), 10) * 2;
 
-    let availableSpace = '';
-    if (direction === 'left' || direction === 'right') {
-      availableSpace = (direction === 'left' ? spaceLeft : spaceRight) * 0.9;
-    } else {
-      const centerPosition =
-        (this.toggle.getBoundingClientRect().right -
-          this.toggle.getBoundingClientRect().left) /
-        2;
-      availableSpace =
-        (screenWidth - centerPosition + this.target.offsetWidth / 2) * 0.9;
+    // We consider 90% of the biggest space available
+    const horizontalSpace = Math.max(spaceLeft, spaceRight) * 0.9;
+    let targetWidth;
+
+    // If the available space is larger than maxWidth (plus padding), set to maxWidth
+    if (
+      maxWidth + padding < horizontalSpace ||
+      (direction !== 'left' &&
+        direction !== 'right' &&
+        containerWidth > maxWidth)
+    ) {
+      targetWidth = maxWidth;
     }
-    if (maxWidth + padding < availableSpace) {
-      scrollable.style.width = `${maxWidth}px`;
-    } else if (availableSpace < minWidth + padding) {
-      scrollable.style.width = `${minWidth}px`;
-    } else {
-      scrollable.style.width = `${availableSpace - padding}px`;
+    // If the available space is smaller than minWidth (plus padding), set to minWidth
+    else if (horizontalSpace < minWidth + padding) {
+      targetWidth = minWidth;
     }
+    // Otherwise, set the width to the available space minus the padding
+    else if (direction === 'left' || direction === 'right') {
+      targetWidth = horizontalSpace - padding;
+    } else {
+      targetWidth = (horizontalSpace - padding) * 2;
+    }
+
+    // Ensure the width does not exceed available space
+    this.scrollable.style.width = `${targetWidth}px`;
+
+    this.handlePushClass(direction);
   }
 
-  handlePushClass(screenWidth, screenHeight, direction) {
-    const toggleRect = this.toggle.getBoundingClientRect();
-    const popoverRect = this.target.getBoundingClientRect();
+  /**
+   * Check whether the popover is going out of its scrollable container and apply the needed repositioning.
+   *
+   * @param {string} direction
+   */
+  handlePushClass(direction) {
+    requestAnimationFrame(() => {
+      const popoverRect = this.target.getBoundingClientRect();
+      const scrollableRect = this.scrollableParent.getBoundingClientRect();
+      const containerBottom =
+        scrollableRect.bottom > window.innerHeight
+          ? 0
+          : window.innerHeight - scrollableRect.bottom;
+      const containerTop =
+        scrollableRect.top > window.innerHeight ? 0 : scrollableRect.top;
+      const leftOverflow = scrollableRect.left > popoverRect.left;
+      const rightOverflow = scrollableRect.right < popoverRect.right;
+      const topOverflow = popoverRect.top < containerTop;
+      const bottomOverflow =
+        containerBottom > window.innerHeight - popoverRect.bottom;
 
-    if (direction === 'left' || direction === 'right') {
-      if (popoverRect.top < 0) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_TOP);
-        this.container.style.top = `-${Math.round(toggleRect.top)}px`;
-        this.container.style.bottom = '';
-        this.container.style.transform = '';
-      } else if (popoverRect.bottom > screenHeight) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_BOTTOM);
-        // We add 0.5rem to the calculus to avoid vertical scrollbars.
-        this.container.style.bottom = `-${Math.round(
-          screenHeight - (toggleRect.bottom + 8),
-        )}px`;
-        this.container.style.top = '';
-        this.container.style.transform = '';
+      if (direction === 'left' || direction === 'right') {
+        if (topOverflow) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_TOP);
+          // Push the popover to the top edge of the container
+          this.container.style.top = `-${Math.round(this.toggleRect.top)}px`;
+          this.container.style.bottom = '';
+          this.container.style.transform = '';
+        }
+        if (bottomOverflow) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_BOTTOM);
+          // Push the popover to the bottom edge of the container
+          this.container.style.bottom = `-${window.innerHeight - this.toggleRect.bottom - containerBottom}px`;
+          this.container.style.top = '';
+          this.container.style.transform = '';
+        }
+      } else {
+        if (leftOverflow) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_LEFT);
+          // Push the popover 8px to the left edge of the container
+          this.container.style.left = `-${this.toggleRect.left - scrollableRect.left - 8}px`;
+          this.container.style.right = 'auto';
+        }
+        if (rightOverflow) {
+          this.element.classList.add(this.POPOVER_CLASSES.PUSH_RIGHT);
+          // Push the popover 8px to the right edge of the container
+          this.container.style.right = `-${scrollableRect.right - this.toggleRect.right - 8}px`;
+          this.container.style.left = 'auto';
+        }
       }
-    } else {
-      if (popoverRect.left < 0) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_LEFT);
-        this.container.style.left = `-${toggleRect.left}px`;
-        this.container.style.right = 'auto';
-        this.container.style.transform = 'none';
-      }
-      if (popoverRect.right > screenWidth) {
-        this.element.classList.add(this.POPOVER_CLASSES.PUSH_RIGHT);
-        this.container.style.right = `-${screenWidth - toggleRect.right}px`;
-        this.container.style.left = 'auto';
-        this.container.style.transform = 'none';
-      }
-    }
 
-    this.handleArrowPosition(direction);
+      this.handleArrowPosition(direction);
+    });
   }
 
+  /**
+   * Reposition the arrow in case a push class is being used
+   *
+   * @param {string} direction
+   */
   handleArrowPosition(direction) {
-    const toggleRect = this.toggle.getBoundingClientRect();
     const popoverRect = this.target.getBoundingClientRect();
 
     if (direction === 'left' || direction === 'right') {
@@ -324,7 +495,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            toggleRect.top - popoverRect.top + toggleRect.height / 2,
+            this.toggleRect.top - popoverRect.top + this.toggleRect.height / 2,
           )}px`,
         );
       } else if (
@@ -333,7 +504,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.top + toggleRect.top + toggleRect.height / 2,
+            popoverRect.top + this.toggleRect.top + this.toggleRect.height / 2,
           )}px`,
         );
       }
@@ -343,7 +514,8 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.right - (toggleRect.right - toggleRect.width / 2),
+            popoverRect.right -
+              (this.toggleRect.right - this.toggleRect.width / 2),
           )}px`,
         );
       } else if (
@@ -352,7 +524,7 @@ export class Popover {
         this.target.style.setProperty(
           '--ecl-popover-position',
           `${Math.round(
-            popoverRect.left + toggleRect.left + toggleRect.width / 2,
+            this.toggleRect.left - popoverRect.left + this.toggleRect.width / 2,
           )}px`,
         );
       }
