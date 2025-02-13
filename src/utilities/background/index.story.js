@@ -15,7 +15,7 @@ export default {
 const getArgs = () => {
   const args = {};
 
-  if (getSystem() === 'ec') {
+  if (system === 'ec') {
     args.show_color_mode = false;
     args.color_mode = 'default';
     args.background_color_mode = 'surface';

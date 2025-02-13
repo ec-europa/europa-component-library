@@ -177,16 +177,63 @@ $typography: null !default;
 /*
 * Font colour
 */
-@each $key, $value in map.get($theme, 'color') {
-  @if $key == 'white' or $key == 'black' {
-    .ecl-u-type-color-#{$key} {
-      color: map.get($theme, 'color', $key) !important;
+// Used only on EU
+@if map.has-key($theme, 'color') {
+  @each $key, $value in map.get($theme, 'color') {
+    @if $key != 'white' and $key != 'black' {
+      .ecl-u-type-color-#{$key} {
+        color: var(--ecl-color-#{$key}) !important;
+      }
     }
-  } @else {
+  }
+}
+
+@if map.has-key($theme, 'color-default') {
+  @each $key, $value in map.get($theme, 'color-default') {
     .ecl-u-type-color-#{$key} {
       color: var(--ecl-color-#{$key}) !important;
     }
   }
+
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral-dark',
+    'neutral-light',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
+
+  @each $key in $semantic-color {
+    .ecl-u-type-color-#{$key} {
+      color: var(--ecl-color-#{$key}) !important;
+    }
+  }
+
+  @if map.has-key($theme, 'color-modes') {
+    $type-mode: (
+      'on-surface',
+      'on-surface-highlight',
+      'on-surface-variant-1',
+      'on-surface-variant-2'
+    );
+
+    @each $key in $type-mode {
+      .ecl-u-type-color-#{$key} {
+        color: var(--cm-#{$key}) !important;
+      }
+    }
+  }
+}
+
+.ecl-u-type-color-white {
+  color: #fff !important;
+}
+
+.ecl-u-type-color-black {
+  color: #000 !important;
 }
 
 /*
