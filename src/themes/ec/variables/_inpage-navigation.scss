@@ -72,7 +72,7 @@ $inpage-navigation: (
     'background-wrapper': map.get($color, 'white'),
     'margin-wrapper': 0 0 calc(-1 * var(--s-xs)),
     'padding-wrapper': var(--s-s) var(--s-m),
-    'shadow': var(--sh-6),
+    'shadow': var(--sh-2),
     'separator': none,
     'width': calc(100% - #{map.get($grid, 'gutter')}),
   ),
@@ -83,7 +83,7 @@ $inpage-navigation: (
     ),
     'scrollbar': left,
     'shadow': (
-      's': var(--sh-6),
+      's': var(--sh-2),
       'l': none,
     ),
   ),
