@@ -25,58 +25,41 @@ $theme: null !default;
     }
   }
 
-  .ecl-u-bg-primary {
-    background-color: var(--ecl-color-primary) !important;
-  }
+  $semantic-color: (
+    'primary',
+    'secondary',
+    'neutral-dark',
+    'neutral-light',
+    'info',
+    'success',
+    'error',
+    'warning'
+  );
 
-  .ecl-u-bg-secondary {
-    background-color: var(--ecl-color-secondary) !important;
-  }
-
-  .ecl-u-bg-neutral-dark {
-    background-color: var(--ecl-color-neutral-dark) !important;
-  }
-
-  .ecl-u-bg-neutral-light {
-    background-color: var(--ecl-color-neutral-light) !important;
-  }
-
-  .ecl-u-bg-info {
-    background-color: var(--ecl-color-info) !important;
-  }
-
-  .ecl-u-bg-success {
-    background-color: var(--ecl-color-success) !important;
-  }
-
-  .ecl-u-bg-error {
-    background-color: var(--ecl-color-error) !important;
-  }
-
-  .ecl-u-bg-warning {
-    background-color: var(--ecl-color-warning) !important;
+  @each $key in $semantic-color {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--ecl-color-#{$key}) !important;
+    }
   }
 }
 
 @if map.has-key($theme, 'color-modes') {
-  .ecl-u-bg-surface {
-    background-color: var(--cm-surface) !important;
-  }
+  $background-mode: (
+    'surface',
+    'surface-medium',
+    'surface-low',
+    'surface-lowest',
+    'surface-lowest-variant',
+    'on-surface',
+    'on-surface-highlight',
+    'on-surface-variant-1',
+    'on-surface-variant-2'
+  );
 
-  .ecl-u-bg-surface-medium {
-    background-color: var(--cm-surface-medium) !important;
-  }
-
-  .ecl-u-bg-surface-low {
-    background-color: var(--cm-surface-low) !important;
-  }
-
-  .ecl-u-bg-surface-lowest {
-    background-color: var(--cm-surface-lowest) !important;
-  }
-
-  .ecl-u-bg-surface-lowest-variant {
-    background-color: var(--cm-surface-lowest-variant) !important;
+  @each $key in $background-mode {
+    .ecl-u-bg-#{$key} {
+      background-color: var(--cm-#{$key}) !important;
+    }
   }
 }
 

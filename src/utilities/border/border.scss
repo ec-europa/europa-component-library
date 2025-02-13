@@ -18,36 +18,78 @@ $theme: null !default;
     }
 
     .ecl-u-border#{$infix}-bottom {
-      border-bottom: 1px solid map.get($theme, 'color', 'black') !important;
+      border-block-end: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-left {
-      border-left: 1px solid map.get($theme, 'color', 'black') !important;
+      border-inline-start: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-top {
-      border-top: 1px solid map.get($theme, 'color', 'black') !important;
+      border-block-start: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     .ecl-u-border#{$infix}-right {
-      border-right: 1px solid map.get($theme, 'color', 'black') !important;
+      border-inline-end: 1px solid map.get($theme, 'color', 'black') !important;
     }
 
     // Border color
-    @each $key, $value in map.get($theme, 'color') {
-      @if $key == 'white' or $key == 'black' {
-        .ecl-u-border-color#{$infix}-#{$key} {
-          border-color: map.get($theme, 'color', $key) !important;
+    // Used only on EU
+    @if map.has-key($theme, 'color') {
+      @each $key, $value in map.get($theme, 'color') {
+        @if $key != 'white' or $key != 'black' {
+          .ecl-u-border-color#{$infix}-#{$key} {
+            border-color: var(--ecl-color-#{$key}) !important;
+          }
         }
-      } @else {
+      }
+    }
+
+    @if map.has-key($theme, 'color-default') {
+      @each $key, $value in map.get($theme, 'color-default') {
+        .ecl-u-border-color#{$infix}-#{$key} {
+          border-color: var(--ecl-color-#{$key}) !important;
+        }
+      }
+
+      $semantic-color: (
+        'primary',
+        'secondary',
+        'neutral-dark',
+        'neutral-light',
+        'info',
+        'success',
+        'error',
+        'warning'
+      );
+
+      @each $key in $semantic-color {
         .ecl-u-border-color#{$infix}-#{$key} {
           border-color: var(--ecl-color-#{$key}) !important;
         }
       }
     }
 
-    .ecl-u-border-color-transparent {
+    @if map.has-key($theme, 'color-modes') {
+      $border-mode: ('border', 'border-medium', 'border-low');
+
+      @each $key in $border-mode {
+        .ecl-u-border-color#{$infix}-#{$key} {
+          border-color: var(--cm-#{$key}) !important;
+        }
+      }
+    }
+
+    .ecl-u-border-color#{$infix}-transparent {
       border-color: transparent !important;
+    }
+
+    .ecl-u-border-color#{$infix}-white {
+      border-color: #fff !important;
+    }
+
+    .ecl-u-border-color#{$infix}-black {
+      border-color: #000 !important;
     }
 
     // Border width
@@ -87,10 +129,6 @@ $theme: null !default;
     // Border radius
     .ecl-u-border-radius#{$infix}-0 {
       border-radius: 0 !important;
-    }
-
-    .ecl-u-border-radius#{$infix}-1 {
-      border-radius: 0.0625rem !important; // 1px
     }
 
     .ecl-u-border-radius#{$infix}-2 {

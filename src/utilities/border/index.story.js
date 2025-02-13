@@ -1,6 +1,10 @@
 import withCode from '@ecl/storybook-addon-code';
 import classnames from 'classnames';
 import { styled } from '@ecl/dom-utils';
+import getSystem from '@ecl/builder/utils/getSystem';
+import { getColorModeControls } from '@ecl/story-utils';
+
+const system = getSystem();
 
 const styleBox = {
   height: '5rem',
@@ -8,52 +12,125 @@ const styleBox = {
   width: '10rem',
 };
 
-const getArgs = () => ({
-  colour: 'ecl-u-border-color-dark',
-  width: 'ecl-u-border-width-1',
-  direction: [
+const getArgs = () => {
+  const args = {};
+
+  if (getSystem() === 'ec') {
+    args.show_color_mode = false;
+    args.color_mode = 'default';
+    args.border_color_mode = 'border';
+  }
+
+  args.colour = 'ecl-u-border-color-primary';
+  args.width = 'ecl-u-border-width-1';
+  args.direction = [
     'ecl-u-border-bottom',
     'ecl-u-border-left',
     'ecl-u-border-right',
     'ecl-u-border-top',
-  ],
-  radius: '',
-});
+  ];
+  args.radius = 'none';
 
-const getArgTypes = () => ({
-  colour: {
+  return args;
+};
+
+const getArgTypes = () => {
+  const argTypes = getColorModeControls({ arg: 'show_color_mode' });
+
+  if (system === 'ec') {
+    argTypes.show_color_mode = {
+      name: 'use color modes',
+      type: 'boolean',
+      description: 'Switch to color mode colors',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+      },
+    };
+
+    argTypes.border_color_mode = {
+      name: 'color mode border',
+      type: 'select',
+      description: 'Select a color mode border',
+      options: ['border', 'border-medium', 'border-low'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+      mapping: {
+        border: 'border',
+        'border-medium': 'border-medium',
+        'border-low': 'border-low',
+      },
+      if: { arg: 'show_color_mode' },
+    };
+  }
+
+  argTypes.colour = {
     name: 'colour (sample)',
     type: 'select',
     description: 'Apply different colours',
-    options: [
-      'ecl-u-border-color-dark',
-      'ecl-u-border-color-primary',
-      'ecl-u-border-color-secondary',
-      'ecl-u-border-color-success',
-      'ecl-u-border-color-error',
-    ],
+    options:
+      system === 'ec'
+        ? [
+            'ecl-u-border-color-primary',
+            'ecl-u-border-color-secondary',
+            'ecl-u-border-color-neutral-dark',
+            'ecl-u-border-color-neutral-light',
+            'ecl-u-border-color-success',
+            'ecl-u-border-color-error',
+          ]
+        : [
+            'ecl-u-border-color-primary',
+            'ecl-u-border-color-secondary',
+            'ecl-u-border-color-dark',
+            'ecl-u-border-color-success',
+            'ecl-u-border-color-error',
+          ],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: '' },
     },
     control: {
-      labels: {
-        'ecl-u-border-color-dark': 'dark',
-        'ecl-u-border-color-primary': 'primary',
-        'ecl-u-border-color-secondary': 'secondary',
-        'ecl-u-border-color-success': 'success',
-        'ecl-u-border-color-error': 'error',
-      },
+      labels:
+        system === 'ec'
+          ? {
+              'ecl-u-border-color-primary': 'primary',
+              'ecl-u-border-color-secondary': 'secondary',
+              'ecl-u-border-color-neutral-dark': 'neutral dark',
+              'ecl-u-border-color-neutral-light': 'neutral light',
+              'ecl-u-border-color-success': 'success',
+              'ecl-u-border-color-error': 'error',
+            }
+          : {
+              'ecl-u-border-color-primary': 'primary',
+              'ecl-u-border-color-secondary': 'secondary',
+              'ecl-u-border-color-dark': 'dark',
+              'ecl-u-border-color-success': 'success',
+              'ecl-u-border-color-error': 'error',
+            },
     },
-    mapping: {
-      dark: 'ecl-u-border-color-dark',
-      primary: 'ecl-u-border-color-primary',
-      secondary: 'ecl-u-border-color-secondary',
-      success: 'ecl-u-border-color-success',
-      error: 'ecl-u-border-color-error',
-    },
-  },
-  width: {
+    mapping:
+      system === 'ec'
+        ? {
+            primary: 'ecl-u-border-color-primary',
+            secondary: 'ecl-u-border-color-secondary',
+            'neutral-dark': 'ecl-u-border-color-neutral-dark',
+            'neutral-light': 'ecl-u-border-color-neutral-light',
+            success: 'ecl-u-border-color-success',
+            error: 'ecl-u-border-color-error',
+          }
+        : {
+            primary: 'ecl-u-border-color-primary',
+            secondary: 'ecl-u-border-color-secondary',
+            dark: 'ecl-u-border-color-dark',
+            success: 'ecl-u-border-color-success',
+            error: 'ecl-u-border-color-error',
+          },
+    if: { arg: 'show_color_mode', truthy: false },
+  };
+
+  argTypes.width = {
     type: 'select',
     description: 'Apply different widths',
     table: {
@@ -80,8 +157,9 @@ const getArgTypes = () => ({
       '4px': 'ecl-u-border-width-4',
       '8px': 'ecl-u-border-width-8',
     },
-  },
-  direction: {
+  };
+
+  argTypes.direction = {
     description: 'Select the border to apply the style to',
     table: {
       type: { summary: 'string' },
@@ -108,8 +186,9 @@ const getArgTypes = () => ({
       right: 'ecl-u-border-right',
       top: 'ecl-u-border-top',
     },
-  },
-  radius: {
+  };
+
+  argTypes.radius = {
     type: 'select',
     description: 'Apply different border radius',
     table: {
@@ -118,7 +197,6 @@ const getArgTypes = () => ({
     },
     options: [
       'none',
-      'ecl-u-border-radius-1',
       'ecl-u-border-radius-2',
       'ecl-u-border-radius-4',
       'ecl-u-border-radius-8',
@@ -127,7 +205,6 @@ const getArgTypes = () => ({
       type: 'select',
       labels: {
         none: '0px',
-        'ecl-u-border-radius-1': '1px',
         'ecl-u-border-radius-2': '2px',
         'ecl-u-border-radius-4': '4px',
         'ecl-u-border-radius-8': '8px',
@@ -135,13 +212,14 @@ const getArgTypes = () => ({
     },
     mapping: {
       '0px': 'none',
-      '1px': 'ecl-u-border-radius-1',
       '2px': 'ecl-u-border-radius-2',
       '4px': 'ecl-u-border-radius-4',
       '8px': 'ecl-u-border-radius-8',
     },
-  },
-});
+  };
+
+  return argTypes;
+};
 
 export default {
   title: 'Utilities/Border',
@@ -152,16 +230,18 @@ export default {
 };
 
 export const Custom = (args) => {
-  if (args.radius === 'none') {
-    args.radius = '';
-  }
   const direction =
     args.direction.length === 4 ? 'ecl-u-border-all' : args.direction;
   return `<div style="${styled(styleBox)}" class="${classnames(
     args.colour,
     args.width,
-    args.radius,
     direction,
+    {
+      [args.radius]: args.radius !== 'none',
+      [`ecl-color-mode--${args.color_mode}`]:
+        args.show_color_mode && args.color_mode !== 'default',
+      [`ecl-u-border-color-${args.border_color_mode}`]: args.show_color_mode,
+    },
   )}" />`;
 };
 

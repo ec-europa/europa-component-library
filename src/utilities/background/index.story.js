@@ -50,6 +50,10 @@ const getArgTypes = () => {
         'surface-low',
         'surface-lowest',
         'surface-lowest-variant',
+        'on-surface',
+        'on-surface-highlight',
+        'on-surface-variant-1',
+        'on-surface-variant-2',
       ],
       table: {
         type: { summary: 'string' },
@@ -61,6 +65,10 @@ const getArgTypes = () => {
         'surface-low': 'surface-low',
         'surface-lowest': 'surface-lowest',
         'surface-lowest-variant': 'surface-lowest-variant',
+        'on-surface': 'on-surface',
+        'on-surface-highlight': 'on-surface-highlight',
+        'on-surface-variant-1': 'on-surface-variant-1',
+        'on-surface-variant-2': 'on-surface-variant-2',
       },
       if: { arg: 'show_color_mode' },
     };

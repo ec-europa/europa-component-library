@@ -38,12 +38,12 @@ $theme: null !default;
       }
 
       .ecl-u-mv#{$infix}-#{$key} {
-        margin-bottom: $value !important;
-        margin-top: $value !important;
+        margin-block-end: $value !important;
+        margin-block-start: $value !important;
       }
 
       .ecl-u-mt#{$infix}-#{$key} {
-        margin-top: $value !important;
+        margin-block-start: $value !important;
       }
 
       .ecl-u-mr#{$infix}-#{$key} {
@@ -51,7 +51,7 @@ $theme: null !default;
       }
 
       .ecl-u-mb#{$infix}-#{$key} {
-        margin-bottom: $value !important;
+        margin-block-end: $value !important;
       }
 
       .ecl-u-ml#{$infix}-#{$key} {
@@ -70,12 +70,12 @@ $theme: null !default;
     }
 
     .ecl-u-mv#{$infix}-none {
-      margin-bottom: 0 !important;
-      margin-top: 0 !important;
+      margin-block-end: 0 !important;
+      margin-block-start: 0 !important;
     }
 
     .ecl-u-mt#{$infix}-none {
-      margin-top: 0 !important;
+      margin-block-start: 0 !important;
     }
 
     .ecl-u-mr#{$infix}-none {
@@ -83,7 +83,7 @@ $theme: null !default;
     }
 
     .ecl-u-mb#{$infix}-none {
-      margin-bottom: 0 !important;
+      margin-block-end: 0 !important;
     }
 
     .ecl-u-ml#{$infix}-none {
@@ -101,16 +101,16 @@ $theme: null !default;
     }
 
     .ecl-u-mv#{$infix}-auto {
-      margin-bottom: auto !important;
-      margin-top: auto !important;
+      margin-block-end: auto !important;
+      margin-block-start: auto !important;
     }
 
     .ecl-u-mb#{$infix}-auto {
-      margin-bottom: auto !important;
+      margin-block-end: auto !important;
     }
 
     .ecl-u-mt#{$infix}-auto {
-      margin-top: auto !important;
+      margin-block-start: auto !important;
     }
 
     .ecl-u-mr#{$infix}-auto {
@@ -138,12 +138,12 @@ $theme: null !default;
       }
 
       .ecl-u-pv#{$infix}-#{$key} {
-        padding-bottom: $value !important;
-        padding-top: $value !important;
+        padding-block-end: $value !important;
+        padding-block-start: $value !important;
       }
 
       .ecl-u-pt#{$infix}-#{$key} {
-        padding-top: $value !important;
+        padding-block-start: $value !important;
       }
 
       .ecl-u-pr#{$infix}-#{$key} {
@@ -151,7 +151,7 @@ $theme: null !default;
       }
 
       .ecl-u-pb#{$infix}-#{$key} {
-        padding-bottom: $value !important;
+        padding-block-end: $value !important;
       }
 
       .ecl-u-pl#{$infix}-#{$key} {
@@ -170,12 +170,12 @@ $theme: null !default;
     }
 
     .ecl-u-pv#{$infix}-none {
-      padding-bottom: 0 !important;
-      padding-top: 0 !important;
+      padding-block-end: 0 !important;
+      padding-block-start: 0 !important;
     }
 
     .ecl-u-pt#{$infix}-none {
-      padding-top: 0 !important;
+      padding-block-start: 0 !important;
     }
 
     .ecl-u-pr#{$infix}-none {
@@ -183,7 +183,7 @@ $theme: null !default;
     }
 
     .ecl-u-pb#{$infix}-none {
-      padding-bottom: 0 !important;
+      padding-block-end: 0 !important;
     }
 
     .ecl-u-pl#{$infix}-none {
