@@ -680,12 +680,21 @@ export class MegaMenu {
   checkDropdownHeight(menuItem, hide = true) {
     const infoPanel = queryOne('.ecl-mega-menu__info', menuItem);
     const mainPanel = queryOne('.ecl-mega-menu__mega', menuItem);
+    const expanded = queryOne('.ecl-mega-menu__subitem--expanded', menuItem);
+    let secondPanel = null;
+    if (expanded) {
+      secondPanel = queryOne('.ecl-mega-menu__mega--level-2', expanded);
+    }
     // Hide the panels while calculating their heights
     if (mainPanel && this.isDesktop && hide) {
       mainPanel.style.opacity = 0;
     }
     if (infoPanel && this.isDesktop && hide) {
       infoPanel.style.opacity = 0;
+    }
+    // Second panel has already zero opacity in reality, this is for consistency
+    if (secondPanel && this.isDesktop && hide) {
+      secondPanel.opacity = 0;
     }
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
@@ -694,7 +703,6 @@ export class MegaMenu {
       if (this.isDesktop) {
         const heights = [];
         let height = 0;
-        let secondPanel = null;
         let featuredPanel = null;
         let itemsHeight = 0;
         let subItemsHeight = 0;
@@ -741,38 +749,31 @@ export class MegaMenu {
             }
           }
         }
-        const expanded = queryOne(
-          '.ecl-mega-menu__subitem--expanded',
-          menuItem,
-        );
 
-        if (expanded) {
-          secondPanel = queryOne('.ecl-mega-menu__mega--level-2', expanded);
-          if (secondPanel) {
-            secondPanel.style.height = '';
-            const subItems = queryAll(`${this.subItemSelector}`, secondPanel);
-            if (subItems.length > 0) {
-              subItems.forEach((item) => {
-                subItemsHeight += item.getBoundingClientRect().height;
-              });
-            }
-            heights.push(subItemsHeight);
-            // Featured panel calculations.
-            featuredPanel = queryOne('.ecl-mega-menu__featured', expanded);
-            if (featuredPanel) {
-              // Get the elements inside the scrollable container and calculate their heights.
-              Array.from(featuredPanel.firstElementChild.children).forEach(
-                (child) => {
-                  const elStyle = window.getComputedStyle(child);
-                  const marginHeight =
-                    parseFloat(elStyle.marginTop) +
-                    parseFloat(elStyle.marginBottom);
-                  featuredHeight += child.offsetHeight + marginHeight;
-                },
-              );
+        if (secondPanel) {
+          secondPanel.style.height = '';
+          const subItems = queryAll(`${this.subItemSelector}`, secondPanel);
+          if (subItems.length > 0) {
+            subItems.forEach((item) => {
+              subItemsHeight += item.getBoundingClientRect().height;
+            });
+          }
+          heights.push(subItemsHeight);
+          // Featured panel calculations.
+          featuredPanel = queryOne('.ecl-mega-menu__featured', expanded);
+          if (featuredPanel) {
+            // Get the elements inside the scrollable container and calculate their heights.
+            Array.from(featuredPanel.firstElementChild.children).forEach(
+              (child) => {
+                const elStyle = window.getComputedStyle(child);
+                const marginHeight =
+                  parseFloat(elStyle.marginTop) +
+                  parseFloat(elStyle.marginBottom);
+                featuredHeight += child.offsetHeight + marginHeight;
+              },
+            );
 
-              heights.push(featuredHeight);
-            }
+            heights.push(featuredHeight);
           }
         }
 
@@ -816,6 +817,9 @@ export class MegaMenu {
       }
       if (infoPanel && this.isDesktop) {
         infoPanel.style.opacity = 1;
+      }
+      if (secondPanel && this.isDesktop) {
+        secondPanel.style.opacity = 1;
       }
     }, 100);
   }
@@ -1409,7 +1413,7 @@ export class MegaMenu {
    *
    * @fires MegaMenu#onOpenPanel
    */
-  handleSecondPanel(menuItem, op, noCheck = false) {
+  handleSecondPanel(menuItem, op) {
     const infoPanel = queryOne(
       '.ecl-mega-menu__info',
       menuItem.closest('.ecl-container'),
@@ -1427,13 +1431,16 @@ export class MegaMenu {
           if (item === menuItem) {
             if (itemLink && itemLink.hasAttribute('aria-expanded')) {
               itemLink.setAttribute('aria-expanded', 'true');
-
+              const mega = queryOne('.ecl-mega-menu__mega', item);
               if (!this.isDesktop) {
                 // We use this class mainly to recover the default behavior of the link.
                 itemLink.classList.add('ecl-mega-menu__parent-link');
                 if (this.back) {
                   this.back.focus();
                 }
+              } else {
+                // Hide the panel since it will be resized later.
+                mega.style.opacity = 0;
               }
               item.classList.add('ecl-mega-menu__subitem--expanded');
             }
@@ -1467,12 +1474,11 @@ export class MegaMenu {
           });
         }
         this.positionMenuOverlay();
-        if (!noCheck) {
-          this.checkDropdownHeight(
-            menuItem.closest('.ecl-mega-menu__item'),
-            false,
-          );
-        }
+        this.checkDropdownHeight(
+          menuItem.closest('.ecl-mega-menu__item'),
+          false,
+        );
+
         const details = { panel: 2, item: menuItem };
         this.trigger('OnOpenPanel', details);
         break;
