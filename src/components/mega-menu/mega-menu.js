@@ -143,6 +143,7 @@ export class MegaMenu {
     this.infoLinks = null;
     this.seeAllLinks = null;
     this.featuredLinks = null;
+    this.featuredImages = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnOpen = this.handleClickOnOpen.bind(this);
@@ -152,6 +153,8 @@ export class MegaMenu {
     this.handleClickGlobal = this.handleClickGlobal.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
     this.handleClickOnSubitem = this.handleClickOnSubitem.bind(this);
+    this.handleClickOnFeaturedImage =
+      this.handleClickOnFeaturedImage.bind(this);
     this.handleFocusOut = this.handleFocusOut.bind(this);
     this.handleKeyboard = this.handleKeyboard.bind(this);
     this.handleKeyboardGlobal = this.handleKeyboardGlobal.bind(this);
@@ -194,6 +197,10 @@ export class MegaMenu {
     );
     this.toggleLabel = queryOne('.ecl-button__label', this.open);
     this.menuOverlay = queryOne('.ecl-mega-menu__overlay', this.element);
+    this.featuredImages = queryAll(
+      '.ecl-mega-menu__featured-image',
+      this.element,
+    );
 
     // Check if we should use desktop display (it does not rely only on breakpoints)
     this.isDesktop = this.useDesktopDisplay();
@@ -209,6 +216,12 @@ export class MegaMenu {
       if (this.back) {
         this.back.addEventListener('click', this.handleClickOnBack);
         this.back.addEventListener('keyup', this.handleKeyboard);
+      }
+
+      if (this.featuredImages) {
+        this.featuredImages.forEach((img) => {
+          img.addEventListener('click', this.handleClickOnFeaturedImage);
+        });
       }
 
       // Global click
@@ -361,9 +374,13 @@ export class MegaMenu {
         this.back.removeEventListener('click', this.handleClickOnBack);
       }
 
-      if (this.attachClickListener) {
-        document.removeEventListener('click', this.handleClickGlobal);
+      if (this.featuredImages) {
+        this.featuredImages.forEach((img) => {
+          img.removeEventListener('click', this.handleClickOnFeaturedImage);
+        });
       }
+
+      document.removeEventListener('click', this.handleClickGlobal);
     }
 
     if (this.links) {
@@ -1298,6 +1315,19 @@ export class MegaMenu {
   }
 
   /**
+   * Programmatically click the related link when an image is clicked
+   *
+   * @param {Event} e
+   */
+  handleClickOnFeaturedImage(e) {
+    const featuredImage = e.target;
+    const featuredLink = featuredImage.parentElement.nextSibling;
+    if (featuredLink) {
+      featuredLink.click();
+    }
+  }
+
+  /**
    * Show/hide the first panel
    *
    * @param {Node} menuItem
@@ -1360,19 +1390,6 @@ export class MegaMenu {
         };
         const details = { panel: 1, item: menuItem };
         this.trigger('OnOpenPanel', details);
-        if (this.isDesktop) {
-          const list = queryOne('.ecl-mega-menu__sublist', menuItem);
-          if (list) {
-            // Expand the item in the sublist if it contains children.
-            const firstExpandedChild = Array.from(list.children).find((child) =>
-              child.firstElementChild?.hasAttribute('aria-expanded'),
-            );
-
-            if (firstExpandedChild) {
-              this.handleSecondPanel(firstExpandedChild, 'expand', true);
-            }
-          }
-        }
         break;
       }
 

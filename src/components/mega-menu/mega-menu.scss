@@ -906,9 +906,11 @@ $mega-menu: null !default;
     display: block;
 
     .ecl-mega-menu__featured-image {
-      aspect-ratio: 21/9;
+      cursor: pointer;
+      aspect-ratio: 16/9;
       display: block;
       margin-inline-start: var(--s-l);
+      margin-block-start: var(--s-m);
       max-width: 15.25rem;
     }
   }
@@ -1291,6 +1293,8 @@ $mega-menu: null !default;
     top: 0;
 
     .ecl-mega-menu__featured-scrollable {
+      height: 100%;
+
       @include with-scrollbar;
     }
 
@@ -1298,8 +1302,9 @@ $mega-menu: null !default;
       display: block;
 
       .ecl-mega-menu__featured-image {
-        aspect-ratio: 21/9;
+        aspect-ratio: 16/9;
         display: block;
+        margin-block-start: 0;
         margin-inline-start: var(--s-s);
         max-width: calc(100% - var(--s-s));
       }
