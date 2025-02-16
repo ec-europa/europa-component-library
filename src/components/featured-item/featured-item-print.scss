@@ -32,7 +32,10 @@ $featured-item-print: null !default;
 
 .ecl-featured-item__title {
   margin-bottom: map.get($featured-item-print, 'title-spacing-desktop-bottom');
-  margin-inline-end: map.get($featured-item-print, 'title-spacing-desktop-end');
+  margin-inline-start: map.get(
+    $featured-item-print,
+    'title-spacing-desktop-start'
+  );
   margin-top: map.get($featured-item-print, 'title-spacing-desktop-top');
 }
 
@@ -130,7 +133,14 @@ $featured-item-print: null !default;
 * Highlight
 */
 .ecl-featured-item--highlight {
+  box-shadow: map.get($featured-item, 'shadow');
+
   .ecl-featured-item__container {
+    background-color: map.get(
+      $featured-item,
+      'highlight',
+      'container-background'
+    );
     border-inline-start: map.get($featured-item, 'highlight', 'border-size')
       solid map.get($featured-item, 'highlight', 'border-color');
     padding: map.get($featured-item-print, 'highlight', 'padding-desktop');
@@ -139,6 +149,7 @@ $featured-item-print: null !default;
   .ecl-featured-item__item:first-child {
     margin: 0;
     padding: map.get($featured-item-print, 'highlight', 'item-spacing');
+    background-color: map.get($featured-item, 'highlight', 'item-background');
   }
 
   .ecl-featured-item__media_container {
@@ -150,6 +161,7 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__title {
+    background-color: map.get($featured-item, 'highlight', 'title-background');
     padding: map.get($featured-item-print, 'highlight', 'title-spacing');
     margin: 0;
   }
