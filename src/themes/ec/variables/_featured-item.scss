@@ -94,18 +94,22 @@ $featured-item-print: (
     0 0,
   simple: (
     media-padding-desktop: map.get($spacing-print, 'xl'),
-    link-spacing: map.get($spacing-print, 'm') 0 0 map.get($spacing-print, 'xl'),
+    link-spacing-top: map.get($spacing-print, 'm'),
+    link-spacing-start: map.get($spacing-print, 'xl'),
     padding-desktop: 0,
     title-spacing: map.get($spacing-print, 'xl') map.get($spacing-print, 'xl')
       map.get($spacing-print, 's'),
     description-spacing: 0 map.get($spacing-print, 'xl'),
+    description-spacing-top: map.get($spacing-print, 'xl'),
   ),
   highlight: (
     media-padding-desktop: map.get($spacing-print, 'xl'),
-    link-spacing: map.get($spacing-print, 'm') 0 0 map.get($spacing-print, 'xl'),
+    link-spacing-top: map.get($spacing-print, 'm'),
+    link-spacing-start: map.get($spacing-print, 'xl'),
     item-spacing: 0 0 map.get($spacing-print, 'xl'),
     title-spacing: map.get($spacing-print, 'xl'),
     description-spacing: 0 map.get($spacing-print, 'xl') 0
       map.get($spacing-print, 'xl'),
+    description-spacing-top: map.get($spacing-print, 'xl'),
   ),
 );

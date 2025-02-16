@@ -99,9 +99,11 @@ $featured-item-print: (
   simple: (
     media-padding-desktop: 0 0 map.get($spacing-print, 'm') 0,
     padding-desktop: 0,
-    link-spacing: map.get($spacing-print, 'm') 0,
+    link-spacing-top: map.get($spacing-print, 'm'),
+    link-spacing-start: 0,
     title-spacing: 0,
     description-spacing: map.get($spacing-print, 's') 0 0 0,
+    description-spacing-top: 0,
   ),
   highlight: (
     media-padding-desktop: 0 map.get($spacing-print, 'm') 0 0,
@@ -109,5 +111,6 @@ $featured-item-print: (
     padding-desktop: map.get($spacing-print, 'm') map.get($spacing-print, 'm')
       map.get($spacing-print, 'm') map.get($spacing-print, 'l'),
     description-spacing: map.get($spacing-print, 's') 0 0 0,
+    description-spacing-top: map.get($spacing-print, 'm'),
   ),
 );

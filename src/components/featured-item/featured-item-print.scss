@@ -67,7 +67,6 @@ $featured-item-print: null !default;
   );
   max-width: var(--max-w);
 
-  &:first-child,
   > *:first-child {
     margin-top: 0;
   }
@@ -117,15 +116,29 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__title {
+    margin: 0;
     padding: map.get($featured-item-print, 'simple', 'title-spacing');
   }
 
   .ecl-featured-item__description {
     margin: map.get($featured-item-print, 'simple', 'description-spacing');
+
+    &:first-child {
+      margin-top: map.get(
+        $featured-item-print,
+        'simple',
+        'description-spacing-top'
+      );
+    }
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item-print, 'simple', 'link-spacing');
+    margin-top: map.get($featured-item-print, 'simple', 'link-spacing-top');
+    margin-inline-start: map.get(
+      $featured-item-print,
+      'simple',
+      'link-spacing-start'
+    );
   }
 }
 
@@ -166,12 +179,26 @@ $featured-item-print: null !default;
     margin: 0;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__description {
     margin: map.get($featured-item-print, 'highlight', 'description-spacing');
+
+    &:first-child {
+      margin-top: map.get(
+        $featured-item-print,
+        'highlight',
+        'description-spacing-top'
+      );
+    }
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item-print, 'highlight', 'link-spacing');
+    margin-top: map.get($featured-item-print, 'highlight', 'link-spacing-top');
+    margin-inline-start: map.get(
+      $featured-item-print,
+      'highlight',
+      'link-spacing-start'
+    );
   }
 }
 
@@ -201,5 +228,18 @@ $featured-item-print: null !default;
     display: block;
     max-width: 5.509cm;
     min-width: 1.905cm;
+  }
+}
+
+/* stylelint-disable-next-line selector-not-notation */
+.ecl-featured-item:not(.ecl-featured-item--highlight):not(
+    .ecl-featured-item--simple
+  ) {
+  .ecl-featured-item__container--right {
+    .ecl-featured-item__description {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }

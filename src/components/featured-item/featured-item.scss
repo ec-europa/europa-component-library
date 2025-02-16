@@ -143,10 +143,6 @@ $featured-item: null !default;
       margin: map.get($featured-item, 'description-spacing-right');
     }
 
-    .ecl-featured-item__description:first-child {
-      margin-top: 0;
-    }
-
     .ecl-featured-item__link {
       margin: map.get($featured-item, 'link-spacing-right');
     }
@@ -495,5 +491,19 @@ $featured-item: null !default;
   .ecl-featured-item__footer-picture img {
     max-height: 120px;
     max-width: 210px;
+  }
+}
+
+/* stylelint-disable-next-line selector-not-notation */
+.ecl-featured-item:not(.ecl-featured-item--highlight):not(
+    .ecl-featured-item--simple
+  ) {
+  .ecl-featured-item__container--right {
+    .ecl-featured-item__link,
+    .ecl-featured-item__description {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }
