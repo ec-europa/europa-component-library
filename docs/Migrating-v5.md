@@ -3,6 +3,7 @@
 The following guidelines aim to facilitate the migration from ECL v4 to v5.
 
 - [Style modifications](#style-modifications)
+- [Component modifications](#component-modifications)
 - [Js modifications](#js-modifications)
 - [Packages modifications](#packages-modifications)
 
@@ -81,6 +82,14 @@ Here are ECL 5 shadows, and the mapping with ECL 4.
 | ecl-u-shadow-5 | / (new in ECL 5) |
 
 EU shadows have not been modified (name and value).
+
+## Component modifications
+
+### Accordion
+
+Markup of accordion title has been updated to use a simple div instead of a heading.
+
+Corresponding twig parameter `level` has been removed.
 
 ## Js modifications
 
