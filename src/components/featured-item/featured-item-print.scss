@@ -45,7 +45,7 @@ $featured-item-print: null !default;
   margin-top: map.get($featured-item-print, 'link-spacing-desktop-top');
   margin-inline-start: map.get(
     $featured-item-print,
-    'description-spacing-desktop-start'
+    'link-spacing-desktop-start'
   );
 }
 
@@ -228,18 +228,5 @@ $featured-item-print: null !default;
     display: block;
     max-width: 5.509cm;
     min-width: 1.905cm;
-  }
-}
-
-/* stylelint-disable-next-line selector-not-notation */
-.ecl-featured-item:not(.ecl-featured-item--highlight):not(
-    .ecl-featured-item--simple
-  ) {
-  .ecl-featured-item__container--right {
-    .ecl-featured-item__description {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
   }
 }
