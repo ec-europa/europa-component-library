@@ -10,7 +10,6 @@ npm install --save @ecl/accordion
 
 - **"items"** (array) (default: []): format:
   - "id" (string) (default: '') Used for binding of togglable elements
-  - "level" (string) (default: 3)
   - "toggle" (predefined structure): see Button component
     - "label" (string) (default: '')
   - "content" (string) (default: '')
@@ -27,8 +26,7 @@ npm install --save @ecl/accordion
 {% include '@ecl/accordion/accordion.html.twig' with { 
   items: [ 
     { 
-      id: 'accordion-example', 
-      level: 3, 
+      id: 'accordion-example',
       toggle: { 
         label: 
           'Delivery of last pending proposals, a common Destiny of unity, the hour of European Democracy', 
