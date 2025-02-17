@@ -15,7 +15,9 @@ $textarea: null !default;
   background-color: map.get($textarea, 'background');
   border: map.get($textarea, 'border-width') solid
     map.get($textarea, 'border-color');
-  border-radius: map.get($textarea, 'border-radius');
+
+  // FRONT-4785 - Blurry text when in an overlay
+  border-radius: 0;
   box-shadow: map.get($textarea, 'shadow');
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
