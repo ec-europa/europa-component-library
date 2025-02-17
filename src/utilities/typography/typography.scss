@@ -12,14 +12,16 @@ $typography: null !default;
 /*
 * Headings
 */
-.ecl-u-type-display {
-  color: map.get($typography, 'heading-color');
-  font: map.get($typography, 'display', 'mobile') !important;
-  font-weight: map.get($typography, 'display', 'font-weight') !important;
-
-  @include breakpoints.up('m') {
-    font: map.get($typography, 'display', 'desktop') !important;
+@if map.has-key($typography, 'display') {
+  .ecl-u-type-display {
+    color: map.get($typography, 'heading-color');
+    font: map.get($typography, 'display', 'mobile') !important;
     font-weight: map.get($typography, 'display', 'font-weight') !important;
+
+    @include breakpoints.up('m') {
+      font: map.get($typography, 'display', 'desktop') !important;
+      font-weight: map.get($typography, 'display', 'font-weight') !important;
+    }
   }
 }
 
@@ -147,14 +149,18 @@ $typography: null !default;
     font: var(--f-#{$key}) !important;
   }
 
-  .ecl-u-type-compact-#{$key} {
-    font: var(--f-#{$key}) !important;
-    letter-spacing: map.get($theme, 'letter-spacing-compact', $key);
+  @if map.has-key($theme, 'letter-spacing-compact') {
+    .ecl-u-type-compact-#{$key} {
+      font: var(--f-#{$key}) !important;
+      letter-spacing: map.get($theme, 'letter-spacing-compact', $key);
+    }
   }
 
-  .ecl-u-type-extended-#{$key} {
-    font: var(--f-#{$key}) !important;
-    letter-spacing: map.get($theme, 'letter-spacing-extended', $key);
+  @if map.has-key($theme, 'letter-spacing-extended') {
+    .ecl-u-type-extended-#{$key} {
+      font: var(--f-#{$key}) !important;
+      letter-spacing: map.get($theme, 'letter-spacing-extended', $key);
+    }
   }
 }
 
