@@ -23,19 +23,33 @@ $date-block: (
   width-mobile: 5rem,
   day: (
     padding: var(--s-s) var(--s-2xs) var(--s-2xs),
-    line-height: map.get($line-height, 's'),
-    font-size: map.get($font-size, 'xl'),
+    line-height: 20px,
+    font: var(--f-xl),
   ),
   month: (
     padding: 0 var(--s-2xs) var(--s-s),
     line-height: 12px,
-    font-size: map.get($font-size, 's'),
+    font: var(--f-xs),
   ),
   year: (
     padding: var(--s-2xs) 0,
     background-color: var(--cm-surface-dark),
     text-color: var(--cm-on-surface-inverted),
-    font: map.get($font, 'xs'),
-    font-weight: map.get($font-weight, 'regular'),
+    font: var(--f-xs),
+  ),
+);
+$date-block-print: (
+  day: (
+    padding: map.get($spacing-print, 's') map.get($spacing-print, '2xs')
+      map.get($spacing-print, '2xs'),
+    font: map.get($font-print, 'xl'),
+  ),
+  month: (
+    padding: 0 map.get($spacing-print, '2xs') map.get($spacing-print, 's'),
+    font: map.get($font-print, 'xs'),
+  ),
+  year: (
+    padding: map.get($spacing-print, '2xs') 0,
+    font: map.get($font-print, 'xs'),
   ),
 );
