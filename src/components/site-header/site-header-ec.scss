@@ -53,7 +53,7 @@ $language-list: null !default;
   .ecl-menu__open,
   .ecl-mega-menu__open {
     position: relative;
-    top: calc(-1 * var(--s-2xs));
+    top: calc(-1 * var(--s-xl));
     z-index: 54;
   }
 
@@ -123,7 +123,6 @@ $language-list: null !default;
 .ecl-site-header__action {
   align-self: flex-end;
   display: flex;
-  padding-bottom: var(--s-2xs);
 
   .ecl-button {
     box-sizing: border-box;
@@ -296,6 +295,17 @@ $menu-top: calc(44px + 2 * var(--s-xs));
 .ecl-site-header .ecl-mega-menu__overlay,
 .ecl-site-header .ecl-mega-menu__inner {
   top: $menu-top;
+}
+
+@include breakpoints.up('s') {
+  .ecl-site-header__logo-image {
+    height: map.get($site-header, 'logo-height-lg-m');
+  }
+
+  .ecl-site-header .ecl-mega-menu__open,
+  .ecl-site-header .ecl-menu__open {
+    top: calc(-1 * var(--s-s));
+  }
 }
 
 @include breakpoints.down('m') {
