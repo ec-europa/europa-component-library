@@ -6,9 +6,12 @@ $media-container: (
   shadow: none,
   caption-background-color: transparent,
   caption-color: var(--cm-on-surface-dark-low),
-  caption-font: var(--f-s),
+  caption-font: var(--f-xs),
   caption-line-height: map.get($line-height, 'xs'),
   caption-padding: var(--s-xs) 0 0,
   expandable-spacing-top: var(--s-xl),
   scrollbar-width: 16px,
+);
+$media-container-print: (
+  caption-font: map.get($font-print, 'xs'),
 );

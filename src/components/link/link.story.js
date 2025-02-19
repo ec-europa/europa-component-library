@@ -27,6 +27,11 @@ const iconMapping = iconsAll.reduce((mapping, icon) => {
   return mapping;
 }, {});
 
+const withFont = (story) => {
+  const demo = story();
+  return `<div class="ecl-u-type-m">${demo}</div>`;
+};
+
 const withParagraph = (story) => {
   const demo = story();
   return `<div class="ecl-u-type-m">The European Commission is the executive of ${demo} and promotes its general interest.</div>`;
@@ -236,6 +241,7 @@ Standalone.render = async (args) => {
   return renderedLinkStandalone;
 };
 Standalone.storyName = 'standalone';
+Standalone.decorators = [withNotes, withCode, withFont];
 Standalone.args = getArgs(dataStandalone);
 Standalone.argTypes = getArgTypes();
 Standalone.parameters = { notes: { markdown: notes, json: dataStandalone } };
@@ -294,7 +300,7 @@ InvertedStandalone.render = async (args) => {
   return renderedLinkInvertedStandalone;
 };
 InvertedStandalone.storyName = 'inverted standalone';
-InvertedStandalone.decorators = [withNotes, withCode, withInverted];
+InvertedStandalone.decorators = [withNotes, withCode, withFont, withInverted];
 InvertedStandalone.args = getArgs(dataInvertedStandalone);
 InvertedStandalone.argTypes = getArgTypes();
 InvertedStandalone.parameters = {
