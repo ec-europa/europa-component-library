@@ -13,6 +13,7 @@
         {
           "title": (string) (default: ''): Logo title attribute.
           "alt": (string) (default: ''): Logo alt attribute.
+          "breakpoint": (string) (default: 's') Breakpoint where to switch the logo displayed. Expected value in EU is "l"
           "href": (string) (default: ''): Logo URL.
           "src_desktop": (string) (default: ''): Desktop logo image file path
           "src_mobile": (string) (default: ''): Mobile logo image file path for EU only
@@ -220,7 +221,7 @@
             {# Logo #}
             {% if _logo is not empty and _logo.src_desktop is not empty %}
               {% set _label %}
-                {% set _picture = { sources: [{ src: _logo.src_desktop, media: 'l' }] } %}
+                {% set _picture = { sources: [{ src: _logo.src_desktop, media: _logo.breakpoint|default('s') }] } %}
                 {% if _logo.src_mobile is defined and _logo.src_mobile is not empty %}
                   {% set _picture = _picture|merge({
                     img: {
