@@ -37,7 +37,7 @@ $language-list: null !default;
     background: transparent;
     box-shadow: none;
     display: flex;
-    min-height: map.get($site-header, 'logo-height-xs');
+    min-height: map.get($site-header, 'logo-height-s');
     top: var(--s-m);
     padding: 0;
     position: absolute;
@@ -69,23 +69,13 @@ $language-list: null !default;
     }
   }
 
-  &.ecl-site-header-with-logo-s .ecl-menu__open,
-  &.ecl-site-header-with-logo-s .ecl-mega-menu__open {
+  .ecl-menu__open,
+  .ecl-mega-menu__open {
     top: 8px;
 
     .ecl-link__icon:last-of-type {
       top: 1px;
     }
-  }
-
-  &.ecl-site-header-with-logo-m .ecl-menu__open,
-  &.ecl-site-header-with-logo-m .ecl-mega-menu__open {
-    top: 14px;
-  }
-
-  &.ecl-site-header-with-logo-l .ecl-menu__open,
-  &.ecl-site-header-with-logo-l .ecl-mega-menu__open {
-    top: 20px;
   }
 
   /* stylelint-disable no-descending-specificity */
@@ -156,14 +146,6 @@ $language-list: null !default;
   display: block;
   height: map.get($site-header, 'logo-height-s');
   max-width: 100%;
-
-  &.ecl-site-header__logo-image--m {
-    height: map.get($site-header, 'logo-height-m');
-  }
-
-  &.ecl-site-header__logo-image--l {
-    height: map.get($site-header, 'logo-height-l');
-  }
 }
 
 .ecl-site-header__action {
@@ -330,6 +312,15 @@ $language-list: null !default;
 
 /* stylelint-disable-next-line order/order */
 @include breakpoints.up('s') {
+  .ecl-site-header__logo-image {
+    height: map.get($site-header, 'logo-height-m');
+  }
+
+  .ecl-site-header .ecl-menu__open,
+  .ecl-site-header .ecl-mega-menu__open {
+    top: 14px;
+  }
+
   .ecl-site-header__logo-link {
     flex-grow: 0;
   }
@@ -420,6 +411,14 @@ $language-list: null !default;
 
   .ecl-site-header__logo-image {
     display: block;
+
+    &.ecl-site-header__logo-image--s {
+      height: map.get($site-header, 'logo-height-s');
+    }
+
+    &.ecl-site-header__logo-image--m {
+      height: map.get($site-header, 'logo-height-m');
+    }
 
     &.ecl-site-header__logo-image--l {
       height: map.get($site-header, 'logo-height-lg-l');

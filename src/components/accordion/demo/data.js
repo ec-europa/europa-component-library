@@ -3,7 +3,6 @@ module.exports = {
   items: [
     {
       id: 'accordion-example',
-      level: 3,
       toggle: {
         label:
           'Delivery of last pending proposals, a common Destiny of unity, the hour of European Democracy',
@@ -13,7 +12,6 @@ module.exports = {
     },
     {
       id: 'accordion-example2',
-      level: 3,
       toggle: {
         label:
           'Spring 2019 Economic Forecast: Growth continues at a more moderate pace',
@@ -23,7 +21,6 @@ module.exports = {
     },
     {
       id: 'accordion-example3',
-      level: 3,
       toggle: {
         label:
           'Delivery of last pending proposals, a common Destiny of unity, the hour of European Democracy',

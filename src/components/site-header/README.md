@@ -16,6 +16,7 @@ npm install --save @ecl/site-header
 - **"logo"** (associative array) (default: predefined structure): Logo image settings. format:
   - "title" (string) (default: ''): Logo title attribute.
   - "alt" (string) (default: ''): Logo alt attribute.
+  - "breakpoint": (string) (default: 's') Expected value in EU is "l"
   - "href" (string) (default: ''): Logo URL.
   - "src_desktop" (string) (default: ''): Desktop logo image file path
   - "src_mobile" (string) (default: ''): Mobile logo image file path for EU only
