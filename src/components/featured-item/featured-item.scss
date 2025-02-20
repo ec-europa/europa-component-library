@@ -346,6 +346,7 @@ $featured-item: null !default;
 
   /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__link {
+    color: var(--cm-on-surface-dark, var(--c-p));
     margin-inline: map.get(
       $featured-item,
       'highlight',
