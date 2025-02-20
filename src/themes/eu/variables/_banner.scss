@@ -37,15 +37,20 @@ $banner: (
   ),
   font: (
     'title': (
+      'font-weight': map.get($font-weight, 'regular'),
       'mobile': var(--f-2xl),
+      'letter-spacing-mobile': 0,
       'desktop-m': var(--f-4xl),
+      'letter-spacing-desktop-m': 0,
       'desktop-l': var(--f-5xl),
+      'letter-spacing-desktop-l': 0,
     ),
     'description': (
       'mobile': var(--f-xl),
       'desktop-m': var(--f-2xl),
       'desktop-l': var(--f-4xl),
     ),
+    'credit': var(--f-s),
   ),
   description-margin: var(--s-s),
   // DEPRECATED
@@ -79,6 +84,7 @@ $banner-print: (
       'desktop-m': map.get($font-print, 'l'),
       'desktop-l': map.get($font-print, '2xl'),
     ),
+    'credit': map.get($font-print, 's'),
   ),
   container-padding-bottom: map.get($spacing-print, '3xl'),
   container-padding-top: map.get($spacing-print, '3xl'),
