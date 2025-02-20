@@ -96,6 +96,10 @@
   {% set _css_class = _css_class ~ ' ecl-banner--font-' ~ _font_size %}
 {% endif %}
 
+{% if _picture is empty and _video is empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--no-media' %}
+{% endif %}
+
 {% set _color = '' %}
 {% if _font_color is not empty %}
   {% set _color = _font_color %}

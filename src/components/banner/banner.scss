@@ -76,6 +76,7 @@ $banner: null !default;
 .ecl-banner__image {
   display: block;
   height: 100%;
+  max-height: 100%;
   object-fit: cover;
   object-position: top;
   position: relative;
@@ -85,6 +86,7 @@ $banner: null !default;
 .ecl-banner__video {
   display: block;
   height: 100%;
+  max-height: 100%;
   object-fit: cover;
   object-position: center;
   position: relative;
@@ -92,7 +94,10 @@ $banner: null !default;
 }
 
 .ecl-banner__info {
+  align-items: center;
   background-color: map.get($banner, 'background-color');
+  display: flex;
+  flex-grow: 1;
 }
 
 .ecl-banner__title,
@@ -181,7 +186,8 @@ $banner: null !default;
 .ecl-banner,
 .ecl-banner--m {
   .ecl-banner__image,
-  .ecl-banner__video {
+  .ecl-banner__video,
+  &.ecl-banner--no-media {
     aspect-ratio: 4/1;
 
     --css-aspect-ratio: 4/1;
@@ -190,7 +196,8 @@ $banner: null !default;
 
 // Extra small banner - ratio 6:1
 .ecl-banner--xs .ecl-banner__image,
-.ecl-banner--xs .ecl-banner__video {
+.ecl-banner--xs .ecl-banner__video,
+.ecl-banner--xs.ecl-banner--no-media {
   aspect-ratio: 6/1;
 
   --css-aspect-ratio: 6/1;
@@ -198,7 +205,8 @@ $banner: null !default;
 
 // Small banner - ratio 5:1
 .ecl-banner--s .ecl-banner__image,
-.ecl-banner--s .ecl-banner__video {
+.ecl-banner--s .ecl-banner__video,
+.ecl-banner--s.ecl-banner--no-media {
   aspect-ratio: 5/1;
 
   --css-aspect-ratio: 5/1;
@@ -206,7 +214,8 @@ $banner: null !default;
 
 // Large banner - ratio 3:1
 .ecl-banner--l .ecl-banner__image,
-.ecl-banner--l .ecl-banner__video {
+.ecl-banner--l .ecl-banner__video,
+.ecl-banner--l.ecl-banner--no-media {
   aspect-ratio: 3/1;
 
   --css-aspect-ratio: 3/1;
@@ -237,6 +246,36 @@ $banner: null !default;
 @include breakpoints.up('l') {
   .ecl-banner {
     padding-bottom: var(--banner-footer-height);
+  }
+
+  .ecl-banner--xs {
+    aspect-ratio: 6/1;
+
+    --css-aspect-ratio: 6/1;
+  }
+
+  .ecl-banner--s {
+    aspect-ratio: 5/1;
+
+    --css-aspect-ratio: 5/1;
+  }
+
+  .ecl-banner,
+  .ecl-banner--m {
+    aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
+  }
+
+  .ecl-banner--l {
+    aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
+  }
+
+  // No media
+  .ecl-banner--no-media {
+    background-color: var(--cm-surface-primary);
   }
 
   .ecl-banner .ecl-container {

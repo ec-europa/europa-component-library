@@ -11,6 +11,7 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    show_media: true,
     show_title: true,
     show_description: true,
     show_button: false,
@@ -43,6 +44,14 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {
     ...getColorModeControls(),
+    show_media: {
+      name: 'media',
+      type: { name: 'boolean' },
+      description: 'Show the media',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_title: {
       name: 'title',
       type: { name: 'boolean' },
@@ -74,6 +83,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'show_media' },
     },
     size: {
       name: 'banner size',
@@ -342,6 +352,7 @@ const prepareData = (data, args) => {
     show_description: showDescription,
     show_credit: showCredit,
     show_button: showButton,
+    show_media: showMedia,
     title,
     description,
   } = args;
@@ -354,6 +365,10 @@ const prepareData = (data, args) => {
   if (!showDescription) delete clone.description;
   if (!showCredit) delete clone.credit;
   if (!showButton) delete clone.link;
+  if (!showMedia) {
+    delete clone.picture;
+    delete clone.video;
+  }
 
   if (titleDescriptionLink === 'title' && showTitle) {
     clone.title = { ...data.title, link: { ...data.title.link, label: title } };
