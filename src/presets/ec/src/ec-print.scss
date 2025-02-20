@@ -114,7 +114,9 @@
 );
 @use '@ecl/modal/modal-print';
 @use '@ecl/navigation-list/navigation-list-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $navigation-list: var.$navigation-list,
+  $navigation-list-print: var.$navigation-list-print
 );
 @use '@ecl/ordered-list/ordered-list-print' with (
   $theme: theme.$theme,
