@@ -318,6 +318,7 @@ $mega-menu: null !default;
 .ecl-mega-menu__wrapper {
   background: map.get($theme, 'color', 'white');
   display: none;
+  font: map.get($mega-menu, 'global', 'font');
   position: absolute;
   height: 100%;
   left: 0;
@@ -364,6 +365,7 @@ $mega-menu: null !default;
   box-sizing: border-box;
   color: map.get($mega-menu, 'mobile', 'item-color');
   display: inline-flex;
+  font: map.get($mega-menu, 'global', 'font');
   line-height: map.get($theme, 'line-height-ui', 'xs');
   padding: map.get($mega-menu, 'mobile', 'item-padding');
   position: relative;
@@ -468,7 +470,6 @@ $mega-menu: null !default;
   }
 
   .ecl-mega-menu__info-content {
-    font: var(--f-m);
     max-width: var(--max-w);
   }
 }
@@ -553,7 +554,6 @@ $mega-menu: null !default;
       border-radius: 0;
       color: map.get($mega-menu, 'desktop', 'item-color');
       display: inline-flex;
-      font: var(--f-m);
       height: 100%;
       line-height: map.get($mega-menu, 'desktop', 'link-line-height');
       padding: map.get($mega-menu, 'desktop', 'link-padding');
@@ -686,8 +686,6 @@ $mega-menu: null !default;
     background-color: map.get($mega-menu, 'global', 'greysh-background');
     box-shadow: none;
     display: none;
-    font: map.get($mega-menu, 'mobile', 'subtitle-font');
-    font-weight: map.get($mega-menu, 'mobile', 'subtitle-font-weight');
   }
 }
 
@@ -771,7 +769,6 @@ $mega-menu: null !default;
       border-radius: 0;
       box-sizing: border-box;
       color: var(--c-d);
-      font: var(--f-m);
       margin: 0 var(--s-l);
       padding: var(--s-xs) 0;
 
@@ -802,6 +799,7 @@ $mega-menu: null !default;
     map.get($mega-menu, 'desktop', 'sublink-current-background');
   border-radius: 0;
   color: map.get($mega-menu, 'mobile', 'item-color');
+  font: map.get($mega-menu, 'global', 'font');
   padding: map.get($mega-menu, 'mobile', 'subitem-padding');
   position: relative;
   line-height: map.get($theme, 'line-height-ui', 'xs');
@@ -917,7 +915,7 @@ $mega-menu: null !default;
     display: block;
     margin: calc(var(--s-xs) + 2px) var(--s-m) calc(var(--s-xs) + 2px)
       var(--s-l);
-    font: var(--f-l);
+    font: var(--f-m);
   }
 
   .ecl-mega-menu__featured-content {

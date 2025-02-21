@@ -2,24 +2,42 @@
 @use '../index' as *;
 
 $list-illustration: (
-  title-color: var(--c-d-140),
-  description-color: var(--c-d-80),
   background-color: var(--c-p-5),
-  value-font-mobile-m: var(--f-2xl),
-  value-font-mobile-l: var(--f-3xl),
-  value-font-desktop-m: var(--f-3xl),
-  value-font-desktop-l: var(--f-4xl),
-  title-font: var(--f-l),
-  title-margin: var(--s-s),
-  description-margin: var(--s-s),
   icon-color: var(--c-p),
   item-padding-mobile: var(--s-m) 0,
   item-padding-desktop: var(--s-m) 0,
   item-padding-zebra-mobile: var(--s-m),
   item-padding-zebra-desktop: var(--s-m),
   item-margin-mobile: var(--s-2xl),
+  value: (
+    color: var(--c-d-140),
+    font-mobile-m: var(--f-2xl),
+    font-mobile-l: var(--f-3xl),
+    font-desktop-m: var(--f-3xl),
+    font-desktop-l: var(--f-4xl),
+    font-weight: map.get($font-weight, 'regular'),
+  ),
+  title: (
+    color: var(--c-d-140),
+    font: var(--f-l),
+    font-weight: map.get($font-weight, 'regular'),
+    margin: var(--s-s),
+  ),
+  description: (
+    color: var(--c-d-80),
+    margin: var(--s-s),
+  ),
 );
 $list-illustration-print: (
-  value-font-desktop-m: map.get($font-print, 'xl'),
-  value-font-desktop-l: map.get($font-print, '2xl'),
+  value: (
+    font-desktop-m: map.get($font-print, 'xl'),
+    font-desktop-l: map.get($font-print, '2xl'),
+  ),
+  title: (
+    font: map.get($font-print, 'l'),
+    margin: map.get($spacing-print, 's'),
+  ),
+  description: (
+    margin: map.get($spacing-print, 's'),
+  ),
 );

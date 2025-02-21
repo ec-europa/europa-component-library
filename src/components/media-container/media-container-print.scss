@@ -7,6 +7,8 @@
 
 // Exposed variables
 $theme: null !default;
+$media-container: null !default;
+$media-container-print: null !default;
 
 .ecl-media-container,
 .ecl-media-container__figure {
@@ -23,7 +25,7 @@ $theme: null !default;
 
 .ecl-media-container__caption {
   color: var(--c-d-80);
-  font: map.get($theme, 'font-print', 's');
+  font: map.get($media-container-print, 'caption-font');
   margin-top: map.get($theme, 'spacing-print', 's');
   max-width: var(--max-w);
 }
