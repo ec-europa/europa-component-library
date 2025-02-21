@@ -34,7 +34,9 @@
   $button: var.$button
 );
 @use '@ecl/date-block/date-block-print' with (
-  $theme: theme.$theme
+  $theme: theme.$theme,
+  $date-block: var.$date-block,
+  $date-block-print: var.$date-block-print
 );
 @use '@ecl/indicator/indicator-print';
 @use '@ecl/label/label-print' with (
