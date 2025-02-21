@@ -130,7 +130,7 @@ $_description-height-desktop: 108px;
   background-color: map.get($gallery, 'description-background');
   color: $_description-color;
   display: none;
-  font: var(--f-s);
+  font: map.get($gallery, 'description-font');
   left: 0;
   overflow: hidden;
   padding: var(--s-2xs) var(--s-xs);
@@ -161,7 +161,7 @@ $_description-height-desktop: 108px;
   color: map.get($gallery, 'gallery-info-color');
   display: flex;
   flex-direction: row;
-  font: var(--f-s);
+  font: map.get($gallery, 'gallery-info-font');
 }
 
 .ecl-gallery__info-total {
@@ -410,6 +410,7 @@ $_description-height-desktop: 108px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  font: var(--f-m);
   padding: var(--s-xl) var(--s-xs);
 
   .ecl-container {
@@ -423,7 +424,6 @@ $_description-height-desktop: 108px;
   border-left: 1px solid map.get($theme, 'color', 'white');
   border-right: 1px solid map.get($theme, 'color', 'white');
   display: inline-flex;
-  font: var(--f-m);
   margin: 0;
   padding: 0 var(--s-xs);
   white-space: pre-wrap;
@@ -455,18 +455,18 @@ $_description-height-desktop: 108px;
 }
 
 .ecl-gallery__detail-description {
-  font: var(--f-m);
   height: $_description-height-mobile;
   margin-top: var(--s-s);
   overflow: auto;
 
   .ecl-gallery__title {
     display: block;
-    font-weight: map.get($theme, 'font-weight', 'bold');
+    font-weight: map.get($gallery, 'overlay-title-font-weight');
   }
 
   .ecl-gallery__meta {
     display: block;
+    font: map.get($gallery, 'overlay-meta-font');
     margin-top: var(--s-s);
   }
 }

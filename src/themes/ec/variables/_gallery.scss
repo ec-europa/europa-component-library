@@ -5,7 +5,14 @@ $gallery: (
   actions-margin: var(--s-s),
   detail-color: map.get($color, 'white'),
   description-background: var(--c-ov-l),
+  description-font: var(--f-xs),
   gallery-info-color: var(--c-d),
+  gallery-info-font: var(--f-xs),
   overlay-background: var(--c-ov-d),
   overlay-shadow: none,
+  overlay-title-font-weight: map.get($font-weight, 'semi-bold'),
+  overlay-meta-font: var(--f-xs),
+);
+$gallery-print: (
+  description-font: map.get($font-print, 'xs'),
 );

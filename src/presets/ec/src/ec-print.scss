@@ -150,7 +150,8 @@
 @use '@ecl/category-filter/category-filter-print';
 @use '@ecl/gallery/gallery-print' with (
   $theme: theme.$theme,
-  $gallery: var.$gallery
+  $gallery: var.$gallery,
+  $gallery-print: var.$gallery-print
 );
 @use '@ecl/page-header/page-header-print-ec' with (
   $theme: theme.$theme,
