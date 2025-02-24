@@ -110,10 +110,19 @@ $banner-print: null !default;
   color: map.get($banner, 'text-color', 'dark');
   display: inline;
   font: map.get($banner-print, 'font', 'title', 'desktop-m');
+  font-weight: map.get($banner, 'font', 'title', 'font-weight');
+  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-desktop-m');
   margin: 0;
 
   .ecl-banner--font-l & {
     font: map.get($banner-print, 'font', 'title', 'desktop-l');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'title',
+      'letter-spacing-desktop-l'
+    );
   }
 
   .ecl-banner--color-light & {
@@ -148,7 +157,7 @@ $banner-print: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--c-d);
-  font: map.get($theme, 'font-print', 's');
+  font: map.get($banner-print, 'font', 'credit');
   padding-bottom: map.get($theme, 'spacing-print', '2xs');
   padding-top: map.get($theme, 'spacing-print', '2xs');
   position: absolute;

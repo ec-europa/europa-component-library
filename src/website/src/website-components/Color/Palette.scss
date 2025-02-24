@@ -1,6 +1,19 @@
+@use 'sass:map';
+@use '@ecl/theme-ec/theme' as *;
+
 .palette {
   flex-grow: 1;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
+// stylelint-disable at-rule-no-unknown
+@each $mode, $properties in $color-modes {
+  .mode--#{$mode} {
+    @each $prop, $value in $properties {
+      #{$prop}: #{$value};
+    }
+  }
+}
+// stylelint-enable at-rule-no-unknown

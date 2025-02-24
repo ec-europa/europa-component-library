@@ -3,10 +3,9 @@
 
 $description-list: (
   term-color: var(--cm-on-surface-dark),
-  term-font: var(--f-m),
+  term-font-weight: map.get($font-weight, 'semi-bold'),
   term-margin-bottom: var(--s-2xs),
   term-margin-top: var(--s-xl),
-  definition-font: var(--f-m),
   definition-color: var(--cm-on-surface-dark),
   separator-color: var(--cm-on-surface-primary),
   taxonomy-color: var(--cm-on-surface-dark),
@@ -14,7 +13,6 @@ $description-list: (
 );
 $description-list-print: (
   definition-font: map.get($font-print, 'm'),
-  term-font-family: var(--ecl-font-family-print-default),
   term-width: 32%,
   definition-width: 68%,
 );

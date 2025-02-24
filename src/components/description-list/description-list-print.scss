@@ -19,8 +19,8 @@ $description-list-print: null !default;
 .ecl-description-list__term,
 %ecl-description-list__term {
   color: map.get($description-list, 'term-color');
-  font-family: map.get($description-list-print, 'term-font-family');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font: map.get($theme, 'font-print', 'm');
+  font-weight: map.get($description-list, 'term-font-weight');
   margin-top: map.get($theme, 'spacing-print', 'm');
   max-width: var(--max-w);
   overflow-wrap: break-word;
