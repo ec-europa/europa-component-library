@@ -9,9 +9,9 @@ class Layout extends PureComponent {
     const { cols, children } = this.props;
 
     return (
-      <Row style={{ border: 'red' }}>
+      <Row>
         {React.Children.map(children, (child) => (
-          <Col col={cols} spacing="mt-m" flex>
+          <Col col={cols} spacing="mb-m" flex>
             {child}
           </Col>
         ))}
