@@ -101,11 +101,11 @@
 {% endif %}
 
 {% set _color = '' %}
-{% if _font_color is not empty %}
+{% if _font_color is not empty and (_picture is not empty or _video is not empty) %}
   {% set _color = _font_color %}
 {% endif %}
 
-{% if _box_background is not empty %}
+{% if _box_background is not empty and (_picture is not empty or _video is not empty) %}
   {% if _box_background == 'light' %}
     {% set _color = 'dark' %}
   {% elseif _box_background == 'dark' %}
