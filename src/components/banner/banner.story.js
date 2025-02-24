@@ -175,6 +175,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'light' },
         category: 'Display',
       },
+      if: { arg: 'show_media' },
     },
     horizontal: {
       name: 'horizontal',
@@ -339,6 +340,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_media' },
     };
   }
 

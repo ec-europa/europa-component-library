@@ -182,6 +182,26 @@ $banner: null !default;
   width: 100vw;
 }
 
+// No media
+.ecl-banner--no-media {
+  background-color: var(--cm-surface);
+
+  .ecl-banner__info {
+    background-color: var(--cm-surface);
+  }
+
+  .ecl-banner__title,
+  .ecl-banner__title-link,
+  .ecl-banner__description,
+  .ecl-banner__description-link {
+    color: var(--cm-on-surface-inverted);
+  }
+
+  .ecl-banner__content {
+    background: transparent;
+  }
+}
+
 // Medium banner - ratio 4:1
 .ecl-banner,
 .ecl-banner--m {
@@ -271,11 +291,6 @@ $banner: null !default;
     aspect-ratio: 3/1;
 
     --css-aspect-ratio: 3/1;
-  }
-
-  // No media
-  .ecl-banner--no-media {
-    background-color: var(--cm-surface-primary);
   }
 
   .ecl-banner .ecl-container {
