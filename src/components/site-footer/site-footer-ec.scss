@@ -18,8 +18,10 @@ $site-footer: null !default;
   color: map.get($site-footer, 'color');
   display: flex;
   margin: 0;
-  padding-bottom: var(--s-3xl);
-  padding-top: var(--s-xs);
+  padding-bottom: 4.5rem;
+
+  // This plus the section padding makes 4rem, 64px
+  padding-top: var(--s-2xl);
 }
 
 .ecl-site-footer__row {
