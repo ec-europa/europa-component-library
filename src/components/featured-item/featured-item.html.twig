@@ -2,7 +2,7 @@
 {#
   Parameters:
   - "color_mode" (string) (default: '') Name of the color mode
-  - "type" (optional) (can be 'highlight'),
+  - "type" (optional) (can be 'highlight' (EU) or 'background-light', 'background-strong' (EC)),
   - "title" (string) (default: ''),
   - "description" (string) (default: ''),
   - "link" (object) (default: {}): object of type Link
@@ -79,24 +79,6 @@
   {{ _extra_attributes|raw }}
 >
   <div class="{{ _css_container_class }}">
-    <div class="ecl-featured-item__item">
-    {% if _title is not empty %}
-      <div class="ecl-featured-item__title">
-        <span class="ecl-featured-item__title-content">
-          {{- _title -}}
-        </span>
-      </div>
-    {% endif %}
-    {% if _description is not empty %}
-      <div class="ecl-featured-item__description">{{ _description }}</div>
-    {% endif %}
-    {% if _link is not empty %}
-      {% include '@ecl/link/link.html.twig' with _link|merge({
-        extra_classes: 'ecl-featured-item__link',
-      }) only %}
-    {% endif %}
-    </div>
-
     {% if _media_container is not empty %}
       <div class="ecl-featured-item__item">
       {% include '@ecl/media-container/media-container.html.twig' with _media_container|merge({
@@ -104,6 +86,20 @@
       }) only %}
       </div>
     {% endif %}
+
+    <div class="ecl-featured-item__item">
+    {% if _title is not empty %}
+      <div class="ecl-featured-item__title">{{- _title -}}</div>
+    {% endif %}
+    {% if _description is not empty %}
+      <div class="ecl-featured-item__description">{{ _description }}</div>
+    {% endif %}
+    {% if _link is not empty and _link.link is defined and _link.link.label is not empty %}
+      {% include '@ecl/link/link.html.twig' with _link|merge({
+        extra_classes: 'ecl-featured-item__link',
+      }) only %}
+    {% endif %}
+    </div>
   </div>
 
   {% if _footer_description is not empty or _footer_link is not empty or _footer_picture is not empty %}

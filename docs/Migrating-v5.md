@@ -90,6 +90,12 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Featured item
+
+Two new variant have been added for EC: `background-light` and `background-strong`. Existing variant `highlight` is now only used on EU.
+
+Variant `simple` and featured item footer have been removed, as they are no longer in use.
+
 ## Js modifications
 
 ## Packages modifications

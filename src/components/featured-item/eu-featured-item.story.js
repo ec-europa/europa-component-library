@@ -1,7 +1,6 @@
 import { withNotes } from '@ecl/storybook-addon-notes';
 import withCode from '@ecl/storybook-addon-code';
 import { getColorModeControls, correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
 
 import demoData from './demo/data';
 import demoDataSimple from './demo/data--simple';
@@ -26,9 +25,6 @@ const getArgs = (data) => {
   }
   if (data.footer_description) {
     args.footer_description = data.footer_description;
-  }
-  if (getSystem() === 'ec') {
-    args.color_mode = 'default';
   }
 
   args.show_footer = false;
@@ -71,7 +67,7 @@ const getArgTypes = (data) => {
   if (data.link.link.label) {
     argTypes.link_label = {
       name: 'link label',
-      type: { name: 'string', required: true },
+      type: { name: 'string' },
       description: 'Label of the link',
       table: {
         type: { summary: 'string' },

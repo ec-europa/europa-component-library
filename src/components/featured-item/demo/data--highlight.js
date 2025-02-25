@@ -11,10 +11,13 @@ module.exports = {
     link: {
       type: 'standalone',
       path: exampleLink,
-      label: 'Standalone link',
-      external: true,
-      sr_external: 'Link to an external domain',
-      icon_path: '/icons.svg',
+      label: 'Read more',
+    },
+    icon: {
+      path: '/icons.svg',
+      name: 'arrow-left',
+      transform: 'flip-horizontal',
+      size: 'xs',
     },
   },
   media_container: {
