@@ -836,7 +836,7 @@ export class Select {
     const optionSelected = Array.from(this.select.options)
       .filter((option) => option.selected) // do not rely on getAttribute as it does not work in all cases
       .map((option) => option.text)
-      .join(', ');
+      .join('|');
 
     this.input.innerHTML = optionSelected || this.textDefault || '';
 

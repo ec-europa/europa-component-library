@@ -7,7 +7,8 @@ $modal: (
   shadow: var(--sh-4),
   font: var(--f-m),
   header: (
-    font: var(--f-l),
+    font: var(--f-2xl),
+    font-weight: map.get($font-weight, 'light'),
     padding-mobile: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
     padding-desktop: var(--s-3xl) var(--s-3xl) var(--s-xl) var(--s-3xl),
   ),
