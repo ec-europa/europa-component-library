@@ -18,7 +18,7 @@
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "run-p lint:* -cln",
     "prepare": "husky",
-    "postinstall": "scripts/check-inter.sh && patch-package | tee /dev/tty && [ -z \"$NOYARNPOSTINSTALL\" ] && (pnpm recursive run postinstall && pnpm recursive run prepublish) || echo \"Bypass prepublish\"",
+    "postinstall": "scripts/check-inter.sh && patch-package && [ -z \"$NOYARNPOSTINSTALL\" ] && (pnpm recursive run postinstall && pnpm recursive run prepublish) || echo \"Bypass prepublish\"",
     "pretty-check": "prettier --check \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
     "pretty-write": "prettier --write \"src/**/*.{md,mdx,html,json,yml,js,jsx,scss,svg}\"",
     "publish": "scripts/publish.sh",
