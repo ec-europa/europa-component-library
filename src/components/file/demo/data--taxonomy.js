@@ -93,6 +93,8 @@ module.exports = {
   },
   lists: [
     {
+      visible_items: 2,
+      more_label: 'See all items',
       items: [
         {
           term: 'Taxonomy list',

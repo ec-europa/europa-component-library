@@ -24,7 +24,7 @@ $site-footer: null !default;
 
 .ecl-site-footer__row {
   border-bottom: 1px solid map.get($site-footer, 'separator-color');
-  font: var(--f-m);
+  font: var(--f-s);
   padding-bottom: var(--s-2xl);
 
   /* stylelint-disable-next-line max-nesting-depth */
@@ -72,9 +72,13 @@ $site-footer: null !default;
 
 .ecl-site-footer__title {
   color: map.get($site-footer, 'color');
-  font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font: var(--f-s);
+  font-weight: map.get($theme, 'font-weight', 'semi-bold');
   margin: 0;
+}
+
+.ecl-site-footer__link {
+  font: var(--f-s);
 }
 
 .ecl-site-footer__title-link,
@@ -86,12 +90,12 @@ $site-footer: null !default;
 }
 
 .ecl-site-footer__description {
-  font: var(--f-m);
+  font: var(--f-s);
   font-style: italic;
 }
 
 .ecl-site-footer__content {
-  font: var(--f-m);
+  font: var(--f-s);
 }
 
 .ecl-site-footer__list {

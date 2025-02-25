@@ -18,8 +18,8 @@ $description-list: null !default;
 .ecl-description-list__term,
 %ecl-description-list__term {
   color: map.get($description-list, 'term-color');
-  font: map.get($description-list, 'term-font');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font: var(--f-m);
+  font-weight: map.get($description-list, 'term-font-weight');
   margin-bottom: map.get($description-list, 'term-margin-bottom');
   margin-top: map.get($description-list, 'term-margin-top');
   max-width: var(--max-w);
@@ -41,7 +41,7 @@ $description-list: null !default;
 .ecl-description-list__definition,
 %ecl-description-list__definition {
   color: map.get($description-list, 'definition-color');
-  font: map.get($description-list, 'definition-font');
+  font: var(--f-m);
   margin-inline-start: 0;
   max-width: var(--max-w);
 }

@@ -62,7 +62,7 @@ $file: null !default;
 .ecl-file__language {
   color: map.get($file, 'file-color');
   font: map.get($file, 'file-language-font');
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($file, 'file-language-font-weight');
   margin-inline-end: var(--s-xs);
 }
 
@@ -82,7 +82,7 @@ $file: null !default;
 }
 
 .ecl-file__detail-meta-item {
-  border-inline-end: 1px solid var(--c-p);
+  border-inline-end: 1px solid var(--cm-on-surface-primary, var(--c-p));
   display: inline;
   margin-inline-end: var(--s-xs);
   padding-inline-end: var(--s-xs);
@@ -131,6 +131,7 @@ $file: null !default;
 }
 
 .ecl-file__action {
+  font: var(--f-m);
   margin-top: calc(
     #{map.get($file, 'file-action-spacing-mobile')} - var(--s-xs)
   );
@@ -209,7 +210,7 @@ $file: null !default;
 .ecl-file__translation-title {
   color: map.get($file, 'file-color');
   font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($file, 'file-translation-font-weight');
 }
 
 .ecl-file__translation-meta {
@@ -240,6 +241,7 @@ $file: null !default;
 
 .ecl-file__translation-toggle[aria-expanded='true'] {
   background: map.get($file, 'file-translation-toggle-background');
+  color: var(--cm-on-surface-dark, var(--c-p));
 
   .ecl-button__icon {
     transform: rotate(0);
@@ -362,7 +364,7 @@ $file: null !default;
 
   .ecl-file__translation-title {
     font: var(--f-m);
-    font-weight: map.get($theme, 'font-weight', 'bold');
+    font-weight: map.get($file, 'file-translation-title-weight');
     margin-bottom: map.get($file, 'file-translation-title-margin-bottom');
   }
 

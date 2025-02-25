@@ -31,13 +31,22 @@ $featured-item-print: null !default;
 }
 
 .ecl-featured-item__title {
-  margin: map.get($featured-item-print, 'title-spacing-desktop');
+  margin-bottom: map.get($featured-item-print, 'title-spacing-desktop-bottom');
+  margin-inline-start: map.get(
+    $featured-item-print,
+    'title-spacing-desktop-start'
+  );
+  margin-top: map.get($featured-item-print, 'title-spacing-desktop-top');
 }
 
 .ecl-featured-item__link {
   display: inline-block;
   font: map.get($featured-item-print, 'description-font');
-  margin: map.get($featured-item-print, 'link-spacing-desktop');
+  margin-top: map.get($featured-item-print, 'link-spacing-desktop-top');
+  margin-inline-start: map.get(
+    $featured-item-print,
+    'link-spacing-desktop-start'
+  );
 }
 
 .ecl-featured-item__title-content {
@@ -51,7 +60,11 @@ $featured-item-print: null !default;
 .ecl-featured-item__description {
   color: map.get($featured-item, 'description-color');
   font: map.get($featured-item-print, 'description-font');
-  margin: map.get($featured-item-print, 'description-spacing-desktop');
+  margin-top: map.get($featured-item-print, 'description-spacing-desktop-top');
+  margin-inline-start: map.get(
+    $featured-item-print,
+    'description-spacing-desktop-start'
+  );
   max-width: var(--max-w);
 
   > *:first-child {
@@ -103,15 +116,29 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__title {
+    margin: 0;
     padding: map.get($featured-item-print, 'simple', 'title-spacing');
   }
 
   .ecl-featured-item__description {
     margin: map.get($featured-item-print, 'simple', 'description-spacing');
+
+    &:first-child {
+      margin-top: map.get(
+        $featured-item-print,
+        'simple',
+        'description-spacing-top'
+      );
+    }
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item-print, 'simple', 'link-spacing');
+    margin-top: map.get($featured-item-print, 'simple', 'link-spacing-top');
+    margin-inline-start: map.get(
+      $featured-item-print,
+      'simple',
+      'link-spacing-start'
+    );
   }
 }
 
@@ -119,7 +146,14 @@ $featured-item-print: null !default;
 * Highlight
 */
 .ecl-featured-item--highlight {
+  box-shadow: map.get($featured-item, 'shadow');
+
   .ecl-featured-item__container {
+    background-color: map.get(
+      $featured-item,
+      'highlight',
+      'container-background'
+    );
     border-inline-start: map.get($featured-item, 'highlight', 'border-size')
       solid map.get($featured-item, 'highlight', 'border-color');
     padding: map.get($featured-item-print, 'highlight', 'padding-desktop');
@@ -128,6 +162,7 @@ $featured-item-print: null !default;
   .ecl-featured-item__item:first-child {
     margin: 0;
     padding: map.get($featured-item-print, 'highlight', 'item-spacing');
+    background-color: map.get($featured-item, 'highlight', 'item-background');
   }
 
   .ecl-featured-item__media_container {
@@ -139,16 +174,31 @@ $featured-item-print: null !default;
   }
 
   .ecl-featured-item__title {
+    background-color: map.get($featured-item, 'highlight', 'title-background');
     padding: map.get($featured-item-print, 'highlight', 'title-spacing');
     margin: 0;
   }
 
+  /* stylelint-disable-next-line no-descending-specificity */
   .ecl-featured-item__description {
     margin: map.get($featured-item-print, 'highlight', 'description-spacing');
+
+    &:first-child {
+      margin-top: map.get(
+        $featured-item-print,
+        'highlight',
+        'description-spacing-top'
+      );
+    }
   }
 
   .ecl-featured-item__link {
-    margin: map.get($featured-item-print, 'highlight', 'link-spacing');
+    margin-top: map.get($featured-item-print, 'highlight', 'link-spacing-top');
+    margin-inline-start: map.get(
+      $featured-item-print,
+      'highlight',
+      'link-spacing-start'
+    );
   }
 }
 
