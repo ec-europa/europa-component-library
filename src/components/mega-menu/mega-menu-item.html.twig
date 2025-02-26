@@ -248,7 +248,7 @@
         {% endif %}
         <li
           class="{{ _subitem_class }}"
-          {{- _subitem_attrs|raw -}}
+          {{ _subitem_attrs|raw }}
         >
         {%- if child.children is defined and child.children is not empty -%}
           {# Children, 2nd level #}

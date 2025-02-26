@@ -40,6 +40,22 @@ How it works:
 - EC css defines a default value for these color mode properties; EU does not use color mode currently, and so relies on the fallback
 - the new color modes css simply override the value of some properties
 
+Here is the list of variables used in the color modes:
+| Name | CSS custom property | Utilities |
+| ---------------------- | --------------------------- | ------------------------ |
+| surface | --cm-surface | _-surface |
+| surface medium | --cm-surface-medium | _-surface-medium |
+| surface low | --cm-surface-low | _-surface-low |
+| surface lowest | --cm-surface-lowest | _-surface-lowest |
+| surface lowest variant | --cm-surface-lowest-variant | _-surface-lowest-variant |
+| on surface | --cm-on-surface | _-on-surface |
+| on surface highlight | --cm-on-surface-highlight | _-on-surface-highlight |
+| on surface variant 1 | --cm-on-surface-variant-1 | _-on-surface-variant-1 |
+| on surface variant 2 | --cm-on-surface-variant-2 | _-on-surface-variant-2 |
+| border | --cm-border | _-border |
+| border medium | --cm-border-medium | _-border-medium |
+| border medium low | --cm-border-low | _-border-low |
+
 TODO
 
 - when we have the default values for EU, add them to the EU css. The fallback in component could then be removed
@@ -81,6 +97,19 @@ Here are ECL 5 shadows, and the mapping with ECL 4.
 | ecl-u-shadow-5 | / (new in ECL 5) |
 
 EU shadows have not been modified (name and value).
+
+### Utilities
+
+Utilities have been added for the color modes. They are available for background, border and typography.
+
+Here are a few examples:
+
+- `ecl-u-bg-surface`
+- `ecl-u-border-color-border-medium`
+
+Other modification for the utilities:
+
+- `ecl-u-border-radius-1` has been removed, as it was barely visible
 
 ## Component modifications
 

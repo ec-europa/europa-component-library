@@ -81,8 +81,8 @@ $language-list: null !default;
   /* stylelint-disable no-descending-specificity */
   .ecl-menu__open,
   .ecl-mega-menu__open,
-  .ecl-menu[aria-expanded='true'] .ecl-menu__open,
-  .ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
+  .ecl-menu[data-expanded] .ecl-menu__open,
+  .ecl-mega-menu[data-expanded] .ecl-mega-menu__open {
     align-items: center;
     border: 1px solid transparent;
     box-sizing: border-box;
@@ -107,8 +107,8 @@ $language-list: null !default;
     margin-inline-start: var(--s-m);
   }
 
-  .ecl-menu[aria-expanded='true'] .ecl-menu__open,
-  .ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
+  .ecl-menu[data-expanded] .ecl-menu__open,
+  .ecl-mega-menu[data-expanded] .ecl-mega-menu__open {
     background-color: var(--c-p-20);
   }
   /* stylelint-enable no-descending-specificity */

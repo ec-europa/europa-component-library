@@ -80,7 +80,7 @@ $mega-menu: null !default;
   }
 }
 
-.ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__open {
+.ecl-mega-menu[data-expanded] .ecl-mega-menu__open {
   background-color: map.get($mega-menu, 'mobile', 'open-background-active');
 
   .ecl-icon:first-of-type {
@@ -164,7 +164,7 @@ $mega-menu: null !default;
 }
 
 // Expanded
-.ecl-mega-menu[aria-expanded='true'] .ecl-mega-menu__inner {
+.ecl-mega-menu[data-expanded] .ecl-mega-menu__inner {
   display: block;
   right: 0;
 }
@@ -275,8 +275,7 @@ $mega-menu: null !default;
   z-index: -1;
 }
 
-.ecl-mega-menu[aria-expanded='true'],
-.ecl-mega-menu[data-expanded='true'] {
+.ecl-mega-menu[data-expanded] {
   .ecl-mega-menu__overlay {
     display: block;
   }

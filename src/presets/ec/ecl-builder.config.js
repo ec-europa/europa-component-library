@@ -150,6 +150,10 @@ module.exports = {
       from: path.resolve(nodeModules, '@ecl/resources-ec-logo/dist'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
+    {
+      from: path.resolve(__dirname, 'fonts/'),
+      to: path.resolve(outputFolder, 'fonts'),
+    },
   ],
   watch: {
     init: {
