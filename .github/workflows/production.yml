@@ -21,17 +21,17 @@ jobs:
         id: tag
         uses: dawidd6/action-get-tag@v1
       - name: Install dependencies
-        run: pnpm@9.15.5 install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build presets
-        run: pnpm@9.15.5 dist:presets
+        run: pnpm dist:presets
       - name: Generate sri file
         run: node scripts/sri.js ${{ steps.tag.outputs.tag }}
       - name: Browserstats
         run: npm run browserstats
       - name: Build storybook
-        run: PUBLIC_URL=/component-library pnpm@9.15.5 dist:storybook
+        run: PUBLIC_URL=/component-library pnpm dist:storybook
       - name: Build website
-        run: PUBLIC_URL=/component-library pnpm@9.15.5 dist:website
+        run: PUBLIC_URL=/component-library pnpm dist:website
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
       - name: Set commit
@@ -66,7 +66,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: ${{ steps.tag.outputs.tag }}
       - name: Build the archive
-        run: PUBLIC_URL=/component-library/${{ steps.tag.outputs.tag }} pnpm@9.15.5 dist
+        run: PUBLIC_URL=/component-library/${{ steps.tag.outputs.tag }} pnpm dist
       - name: Set version
         run: echo ${{ steps.tag.outputs.tag }} > dist/website/.version
       - name: Set commit
