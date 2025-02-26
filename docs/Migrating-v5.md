@@ -92,9 +92,9 @@ Corresponding twig parameter `level` has been removed.
 
 ### Featured item
 
-Two new variant have been added for EC: `background-light` and `background-strong`. Existing variant `highlight` is now only used on EU.
-
-Variant `simple` and featured item footer have been removed, as they are no longer in use.
+- Two new variant have been added for EC: `background-light` and `background-strong`. Existing variant `highlight` is now only used on EU.
+- Variant `simple` and featured item footer have been removed, as they are no longer in use.
+- Markup has been simplified, as we didn't need the `ecl-featured-item__title-content` anymore
 
 ## Js modifications
 

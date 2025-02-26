@@ -20,15 +20,7 @@ const getArgs = (data) => {
   if (data.link.link.label) {
     args.link_label = data.link.link.label;
   }
-  if (data.footer_link.link.label) {
-    args.footer_link_label = data.footer_link.link.label;
-  }
-  if (data.footer_description) {
-    args.footer_description = data.footer_description;
-  }
   args.color_mode = 'default';
-
-  args.show_footer = false;
 
   return args;
 };
@@ -78,43 +70,6 @@ const getArgTypes = (data) => {
     };
   }
 
-  argTypes.show_footer = {
-    type: 'boolean',
-    name: 'show footer',
-    description: 'Toggle footer visility',
-    table: {
-      category: 'Deprecated',
-    },
-  };
-
-  if (data.footer_link.link.label) {
-    argTypes.footer_link_label = {
-      name: 'footer link label',
-      type: { name: 'string' },
-      description: 'Label of the footer link',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Deprecated',
-      },
-      if: { arg: 'show_footer' },
-    };
-  }
-
-  if (data.footer_description) {
-    argTypes.footer_description = {
-      name: 'footer description',
-      type: { name: 'string' },
-      description: 'Label of the footer description',
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: '' },
-        category: 'Deprecated',
-      },
-      if: { arg: 'show_footer' },
-    };
-  }
-
   argTypes.position = {
     type: { name: 'select' },
     description: 'Alignment inside featured item',
@@ -144,14 +99,6 @@ const prepareData = (data, args) => {
     clone.media_container = mediaContainer;
   } else {
     delete clone.media_container;
-  }
-
-  if (!args.show_footer) {
-    delete clone.footer_description;
-    delete clone.footer_link;
-    delete clone.footer_picture;
-  } else {
-    clone.footer_link.link.label = args.footer_link_label;
   }
 
   return Object.assign(correctPaths(clone), args);

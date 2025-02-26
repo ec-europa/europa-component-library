@@ -50,35 +50,19 @@ $featured-item: (
   ),
 );
 $featured-item-print: (
-  padding: map.get($spacing-print, 'l'),
-  media-padding-desktop: 0 map.get($spacing-print, 'm')
-    map.get($spacing-print, 'l') 0,
-  media-padding-right: 0 0 map.get($spacing-print, 'm')
-    map.get($spacing-print, 'm'),
-  title-font: map.get($font-print, 'l'),
-  title-font-weight: map.get($font-weight-print, 'bold'),
-  title-spacing-desktop-top: 0,
-  title-spacing-desktop-bottom: map.get($spacing-print, 'm'),
-  title-spacing-desktop-start: map.get($spacing-print, 'm'),
-  title-spacing-right: 0 map.get($spacing-print, 'xl') 0 0,
-  description-font: map.get($font-print, 'm'),
-  description-spacing-desktop-top: map.get($spacing-print, 's'),
-  description-spacing-desktop-start: map.get($spacing-print, 'm'),
-  description-spacing-right: map.get($spacing-print, 's')
-    map.get($spacing-print, 'xl') 0 0,
-  link-spacing-desktop-top: map.get($spacing-print, 'm'),
-  link-spacing-desktop-start: map.get($spacing-print, 'm'),
-  link-spacing-right: map.get($spacing-print, 'm') map.get($spacing-print, 'xl')
-    0 0,
-  simple: (
-    media-padding-desktop: 0 0 map.get($spacing-print, 'm') 0,
-    padding-desktop: 0,
-    link-spacing-top: map.get($spacing-print, 'm'),
-    link-spacing-start: map.get($spacing-print, 'xl'),
-    title-spacing: 0 map.get($spacing-print, 'xl'),
-    description-spacing: map.get($spacing-print, 's')
-      map.get($spacing-print, 'xl') 0,
-    description-spacing-top: 0,
+  gap-horizontal: map.get($spacing-print, 'm'),
+  gap-vertical: map.get($spacing-print, 'm'),
+  padding: 0,
+  title: (
+    font: map.get($font-prolonged-print, 'l'),
+  ),
+  description: (
+    font: map.get($font-prolonged-print, 'm'),
+    spacing: map.get($spacing-print, 's'),
+  ),
+  link: (
+    font: map.get($font-print, 'm'),
+    spacing: map.get($spacing-print, 'm'),
   ),
   highlight: (
     media-padding-desktop: 0 map.get($spacing-print, 'm') 0 0,
