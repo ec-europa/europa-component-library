@@ -243,6 +243,10 @@ $featured-item: null !default;
         );
       }
     }
+
+    .ecl-featured-item__item:last-child:only-child::before {
+      display: none;
+    }
   }
 }
 

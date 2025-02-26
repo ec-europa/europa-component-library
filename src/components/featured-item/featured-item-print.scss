@@ -205,6 +205,10 @@ $featured-item-print: null !default;
       );
     }
   }
+
+  .ecl-featured-item__item:last-child:only-child::before {
+    display: none;
+  }
 }
 
 @if map.has-key($featured-item, 'background') {
