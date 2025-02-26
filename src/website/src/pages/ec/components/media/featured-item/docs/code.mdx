@@ -7,10 +7,10 @@ import { Playground, Html } from '@ecl/website-components';
 import {
   featuredItem,
   featuredItemRightAlignement,
-  featuredItemSimple,
-  featuredItemSimpleRightAlignement,
-  featuredItemHighlight,
-  featuredItemHighlightRightAlignement,
+  featuredItemLight,
+  featuredItemLightRightAlignement,
+  featuredItemStrong,
+  featuredItemStrongRightAlignement,
 } from '../demo';
 
 ## Default
@@ -34,44 +34,44 @@ import {
   <Html markup={featuredItemRightAlignement} />
 </Playground>
 
-## Simple
+## Light background
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="simple"
+  selectedStory="light-background"
 >
-  <Html markup={featuredItemSimple} />
+  <Html markup={featuredItemLight} />
 </Playground>
 
-## Simple right-aligned
+## Light background right-aligned
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="simple"
+  selectedStory="light-background"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemSimpleRightAlignement} />
+  <Html markup={featuredItemLightRightAlignement} />
 </Playground>
 
-## Highlighted
+## Strong background
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="highlight"
+  selectedStory="strong-background"
 >
-  <Html markup={featuredItemHighlight} />
+  <Html markup={featuredItemStrong} />
 </Playground>
 
-## Highlighted right-aligned
+## Strong background right-aligned
 
 <Playground
   system="ec"
   selectedKind="components-featured-item"
-  selectedStory="highlight"
+  selectedStory="strong-background"
   selectedArgs="position:right"
 >
-  <Html markup={featuredItemHighlightRightAlignement} />
+  <Html markup={featuredItemStrongRightAlignement} />
 </Playground>
