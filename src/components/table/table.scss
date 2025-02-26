@@ -2,7 +2,6 @@
  * Table
  * @define table
  */
-
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
 
@@ -13,8 +12,8 @@ $table: null !default;
 .ecl-table,
 %ecl-table {
   border-collapse: collapse;
-  color: map.get($table, 'table-color');
-  font: var(--f-m);
+  color: map.get($table, 'table', 'color');
+  font: map.get($table, 'table', 'font');
   margin: 0;
   width: 100%;
 }
@@ -25,27 +24,27 @@ $table: null !default;
 
 .ecl-table__head,
 %ecl-table__head {
-  border-bottom: map.get($table, 'head-border');
-  border-inline-end: 1px solid map.get($table, 'head-background');
-  background-color: map.get($table, 'head-background');
+  border-bottom: map.get($table, 'head', 'border');
+  border-inline-end: 1px solid map.get($table, 'head', 'background');
+  background-color: map.get($table, 'head', 'background');
   display: table-header-group;
 }
 
 .ecl-table__header,
 %ecl-table__header {
-  border-inline-end: map.get($table, 'header-separator-desktop');
-  border-inline-start: map.get($table, 'header-separator-desktop');
-  font-weight: map.get($theme, 'font-weight', 'bold');
-  padding: map.get($table, 'header-padding');
+  border-inline-end: map.get($table, 'header', 'separator-desktop');
+  border-inline-start: map.get($table, 'header', 'separator-desktop');
+  font-weight: map.get($table, 'header', 'font-weight');
+  padding: map.get($table, 'header', 'padding');
   text-align: start;
   vertical-align: top;
 
   &:first-child {
-    border-inline-start-color: map.get($table, 'head-background');
+    border-inline-start-color: map.get($table, 'head', 'background');
   }
 
   &:last-child {
-    border-inline-end-color: map.get($table, 'head-background');
+    border-inline-end-color: map.get($table, 'head', 'background');
   }
 }
 
@@ -66,7 +65,7 @@ $table: null !default;
 
 // stylelint-disable-next-line no-descending-specificity
 .ecl-table__head .ecl-table__row:first-child {
-  border-bottom: map.get($table, 'header-border');
+  border-bottom: map.get($table, 'header', 'border');
 
   .ecl-table__header {
     padding-top: var(--s-m);
@@ -75,19 +74,19 @@ $table: null !default;
 
 .ecl-table__cell,
 %ecl-table__cell {
-  border-inline-start: map.get($table, 'cell-separator');
+  border-inline-start: map.get($table, 'cell', 'separator');
   display: table-cell;
-  padding: map.get($table, 'cell-padding-desktop');
+  padding: map.get($table, 'cell', 'padding-desktop');
 
   &:last-child {
-    border-inline-end: map.get($table, 'cell-separator');
+    border-inline-end: map.get($table, 'cell', 'separator');
   }
 }
 
 .ecl-table__caption {
   caption-side: bottom;
-  color: var(--c-d-80);
-  font: map.get($table, 'caption-font');
+  color: map.get($table, 'caption', 'color');
+  font: map.get($table, 'caption', 'font');
   margin-top: var(--s-xs);
   text-align: start;
 }
@@ -103,15 +102,15 @@ $table: null !default;
 // Multi
 // stylelint-disable-next-line no-descending-specificity
 .ecl-table__head .ecl-table__row:not(:first-child) {
-  background-color: map.get($table, 'multi-head-background-empty');
+  background-color: map.get($table, 'multi-head', 'background-empty');
   border-bottom-width: 0;
 }
 
 .ecl-table__head
   .ecl-table__row:not(:first-child)
   .ecl-table__header:not(:empty) {
-  background-color: map.get($table, 'multi-head-background');
-  border-top: map.get($table, 'header-separator-desktop');
+  background-color: map.get($table, 'multi-head', 'background');
+  border-top: map.get($table, 'header', 'separator-desktop');
 
   &:last-child {
     border-inline-end: none;
@@ -135,10 +134,10 @@ $table: null !default;
   display: flex;
   flex-direction: column;
   height: auto;
-  left: map.get($table, 'sort-arrow-left');
+  left: map.get($table, 'sort', 'arrow-left');
   padding: 0;
   position: absolute;
-  top: map.get($table, 'sort-arrow-top');
+  top: map.get($table, 'sort', 'arrow-top');
   width: auto;
 
   &:focus-visible {
@@ -148,23 +147,23 @@ $table: null !default;
 }
 
 .ecl-table__icon {
-  fill: map.get($table, 'sort-icon-color');
+  fill: map.get($table, 'sort', 'icon-color');
 }
 
 .ecl-table__icon-down {
-  margin-top: map.get($table, 'sort-icon-spacing');
+  margin-top: map.get($table, 'sort', 'icon-spacing');
   transform: rotate(180deg);
 }
 
 .ecl-table__header[aria-sort='ascending'] {
   .ecl-table__icon-down {
-    fill: map.get($table, 'sort-icon-color-active');
+    fill: map.get($table, 'sort', 'icon-color-active');
   }
 }
 
 .ecl-table__header[aria-sort='descending'] {
   .ecl-table__icon-up {
-    fill: map.get($table, 'sort-icon-color-active');
+    fill: map.get($table, 'sort', 'icon-color-active');
   }
 }
 
@@ -181,26 +180,26 @@ $table: null !default;
     }
 
     .ecl-table__cell {
-      border-inline-end: map.get($table, 'cell-separator');
+      border-inline-end: map.get($table, 'cell', 'separator');
       border-top: map.get($table, 'row-border');
       display: flex;
-      padding: map.get($table, 'cell-padding-mobile');
+      padding: map.get($table, 'cell', 'padding-mobile');
 
       &::before {
-        background-color: map.get($table, 'head-background');
-        border-inline-end: map.get($table, 'header-separator-mobile');
-        border-bottom: map.get($table, 'header-separator-desktop');
+        background-color: map.get($table, 'head', 'background');
+        border-inline-end: map.get($table, 'header', 'separator-mobile');
+        border-bottom: map.get($table, 'header', 'separator-desktop');
         content: attr(data-ecl-table-header);
         display: block;
         flex-basis: 10rem;
         flex-grow: 0;
         flex-shrink: 0;
-        font-weight: map.get($theme, 'font-weight', 'bold');
-        margin-bottom: map.get($table, 'cell-margin-mobile', 'bottom');
-        margin-inline-end: map.get($table, 'cell-margin-mobile', 'end');
-        margin-inline-start: map.get($table, 'cell-margin-mobile', 'start');
-        margin-top: map.get($table, 'cell-margin-mobile', 'top');
-        padding: map.get($table, 'cell-padding-mobile');
+        font-weight: map.get($table, 'header', 'font-weight');
+        margin-bottom: map.get($table, 'cell', 'margin-mobile', 'bottom');
+        margin-inline-end: map.get($table, 'cell', 'margin-mobile', 'end');
+        margin-inline-start: map.get($table, 'cell', 'margin-mobile', 'start');
+        margin-top: map.get($table, 'cell', 'margin-mobile', 'top');
+        padding: map.get($table, 'cell', 'padding-mobile');
       }
 
       &:last-of-type {
@@ -216,26 +215,26 @@ $table: null !default;
     .ecl-table__cell[data-ecl-table-header-group] {
       display: grid;
       grid-template-columns:
-        calc(10rem + #{map.get($table, 'multi-head-position')} * 2 + 2px)
+        calc(10rem + #{map.get($table, 'multi-head', 'position')} * 2 + 2px)
         1fr;
       grid-template-rows: auto 1fr;
       position: relative;
 
       &::after {
-        background-color: map.get($table, 'head-background');
-        border-bottom: map.get($table, 'header-group-separator');
-        border-top: map.get($table, 'header-group-separator');
+        background-color: map.get($table, 'head', 'background');
+        border-bottom: map.get($table, 'header', 'group-separator');
+        border-top: map.get($table, 'header', 'group-separator');
         content: attr(data-ecl-table-header-group);
         display: block;
-        font-weight: map.get($theme, 'font-weight', 'bold');
+        font-weight: map.get($table, 'header', 'font-weight');
         grid-column: span 2;
-        left: calc(-1 * #{map.get($table, 'multi-head-position')});
+        left: calc(-1 * #{map.get($table, 'multi-head', 'position')});
         margin-bottom: -1px;
         order: -1;
-        padding: map.get($table, 'cell-padding-mobile');
+        padding: map.get($table, 'cell', 'padding-mobile');
         position: relative;
-        right: calc(-1 * #{map.get($table, 'multi-head-position')});
-        top: calc(-1 * #{map.get($table, 'multi-head-position')} - 1px);
+        right: calc(-1 * #{map.get($table, 'multi-head', 'position')});
+        top: calc(-1 * #{map.get($table, 'multi-head', 'position')} - 1px);
         width: 100%;
       }
     }

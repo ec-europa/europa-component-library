@@ -22,7 +22,7 @@ $textarea: null !default;
   box-sizing: border-box;
   color: map.get($textarea, 'color-input');
   display: block;
-  font: var(--f-ui-m, var(--f-m));
+  font: map.get($textarea, 'font');
   margin: 0;
   max-width: 100%;
   padding: calc(
