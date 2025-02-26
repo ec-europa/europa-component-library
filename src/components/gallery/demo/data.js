@@ -116,19 +116,18 @@ module.exports = {
     {
       // HTML video
       video: {
-        poster:
-          'https://euc-vod.fl.freecaster.net/12/224712/THUMB_I224712EN1W_V_1.jpg',
+        poster: 'https://assets.mixkit.co/videos/4025/4025-thumb-1080-0.jpg',
         sources: [
           {
-            src: 'https://euc-vod.fl.freecaster.net/12/224712/HD_I224712EN1W.mp4',
+            src: 'https://assets.mixkit.co/videos/4025/4025-1080.mp4',
             type: 'video/mp4',
           },
         ],
       },
       alt: 'Image 5',
-      title: 'Visit the European Commission',
+      title: 'Time lapse of the Arc de Triomphe in Paris from afar',
       description:
-        "The European Commission Visitors' Centre provides the public with an understanding of how the European Commission works and its 3 policies and priorities. [HTML video]",
+        'Time lapse of the Arc de Triomphe in Paris from afar during the day, city roofs, cars and clouds moving in the blue sky. [HTML video]',
       meta: 'Copyright, Author, Licence for image 5',
       share_path: '/share#example-image5.jpg',
     },

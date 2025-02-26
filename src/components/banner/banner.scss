@@ -41,7 +41,7 @@ $banner: null !default;
 .ecl-banner__credit {
   background-color: map.get($banner, 'background-color');
   color: var(--cm-on-surface-dark, var(--c-d));
-  font: var(--f-s);
+  font: map.get($banner, 'font', 'credit');
   padding-bottom: var(--s-2xs);
   padding-top: var(--s-2xs);
   position: relative;
@@ -100,6 +100,8 @@ $banner: null !default;
   color: map.get($banner, 'text-color', 'dark');
   display: block;
   font: map.get($banner, 'font', 'title', 'mobile');
+  font-weight: map.get($banner, 'font', 'title', 'font-weight');
+  letter-spacing: map.get($banner, 'font', 'title', 'letter-spacing-mobile');
   margin: 0;
 
   &:hover,
@@ -304,9 +306,23 @@ $banner: null !default;
   .ecl-banner__title-link {
     display: inline;
     font: map.get($banner, 'font', 'title', 'desktop-m');
+    font-weight: map.get($banner, 'font', 'title', 'font-weight');
+    letter-spacing: map.get(
+      $banner,
+      'font',
+      'title',
+      'letter-spacing-desktop-m'
+    );
 
     .ecl-banner--font-l & {
       font: map.get($banner, 'font', 'title', 'desktop-l');
+      font-weight: map.get($banner, 'font', 'title', 'font-weight');
+      letter-spacing: map.get(
+        $banner,
+        'font',
+        'title',
+        'letter-spacing-desktop-l'
+      );
     }
 
     .ecl-banner--color-light & {

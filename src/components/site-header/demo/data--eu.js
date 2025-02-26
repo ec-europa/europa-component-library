@@ -4,6 +4,7 @@ const exampleLink = `${publicUrl}/example`;
 module.exports = {
   logo: {
     alt: 'European Union',
+    breakpoint: 'l',
     path: exampleLink,
     language: 'en',
     src_desktop: '/standard-version/positive/logo-eu--en.svg',

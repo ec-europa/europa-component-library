@@ -5,7 +5,6 @@
     - "items" (array) (default: []): format: [
       {
         "id": (string),
-        level: (string),
         toggle: (predefined structure): see Button component, format: {
           label: (string),
         },
@@ -60,7 +59,7 @@
   {% if _items is not empty %}
     {% for _item in _items %}
       <div class="ecl-accordion__item">
-        <h{{ _item.level|default(3) }} class="ecl-accordion__title" id="{{ _item.id }}-title">
+        <div class="ecl-accordion__title" id="{{ _item.id }}-title">
           <button
             type="button"
             class="ecl-accordion__toggle"
@@ -87,7 +86,7 @@
               
             </span>
           </button>
-        </h{{ _item.level|default(3) }}>
+        </div>
         <div
           class="ecl-accordion__content"
           hidden
