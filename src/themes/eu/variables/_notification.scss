@@ -15,6 +15,7 @@ $notification: (
   title-font: var(--f-p-l),
   title-font-weight: map.get($font-weight, 'normal'),
   title-spacing: 0,
+  icon-offset-top: 0,
   close-color: var(--c-d),
   close-offset-top: calc(var(--s-m) - var(--s-l)),
   close-offset-end: calc(-1 * var(--s-l)),
@@ -56,4 +57,5 @@ $notification-print: (
   font: map.get($font-prolonged-print, 'm'),
   title-font: map.get($font-prolonged-print, 'm'),
   title-spacing: map.get($spacing-print, 'xs'),
+  icon-offset-top: 0,
 );

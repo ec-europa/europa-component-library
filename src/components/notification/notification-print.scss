@@ -24,6 +24,7 @@ $notification-print: null !default;
 
 .ecl-notification__icon {
   flex-shrink: 0;
+  margin-block-start: map.get($notification-print, 'icon-offset-top');
   margin-inline-end: map.get($theme, 'spacing-print', 'xs');
 }
 
