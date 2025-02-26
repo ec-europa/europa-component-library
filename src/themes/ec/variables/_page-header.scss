@@ -2,13 +2,31 @@
 @use '../index' as *;
 
 $page-header: (
-  title-color: var(--c-d),
-  title-font: var(--f-4xl),
-  description-color: var(--c-d),
-  description-font: var(--f-l),
+  title: (
+    color: var(--cm-on-surface-dark),
+    font-mobile: var(--f-7xl),
+    font-desktop: var(--f-8xl),
+    font-weight: map.get($font-weight, 'light'),
+    letter-spacing-mobile: map.get($letter-spacing-compact, '7xl'),
+    letter-spacing-desktop: map.get($letter-spacing-compact, '8xl'),
+  ),
+  description: (
+    color: var(--cm-on-surface-dark),
+    font: var(--f-m),
+  ),
+  meta: (
+    color: var(--cm-on-surface-dark),
+    font: var(--f-m),
+  ),
 );
 $page-header-print: (
-  meta-font: map.get($font-print, 'm'),
-  title-font: map.get($font-print, '4xl'),
-  description-font: map.get($font-print, 'l'),
+  title: (
+    font: map.get($font-print, '8xl'),
+  ),
+  description: (
+    font: map.get($font-print, 'm'),
+  ),
+  meta: (
+    font: map.get($font-print, 'm'),
+  ),
 );
