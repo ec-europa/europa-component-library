@@ -383,6 +383,7 @@
   --cm-surface-neutral-low: var(--c-l-300);
 
   // on surface
+  --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-dark: var(--c-d);
   --cm-on-surface-dark-medium: var(--c-d-700);
   --cm-on-surface-dark-low: var(--c-d-500);
@@ -396,9 +397,10 @@
   --cm-on-surface-variant-2: var(--c-l-300);
   --cm-on-surface-highlight: var(--c-s-300);
   --cm-on-surface-swap-1: #fff;
-  --cm-on-surface-swap-2: #fff;
+  --cm-on-surface-swap-2: #{map.get($color-palette, 'blue-navy-900')};
 
   // border
+  --cm-border-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-border-dark: var(--c-d);
   --cm-border-inverted: #fff;
   --cm-border-primary: var(--c-p);

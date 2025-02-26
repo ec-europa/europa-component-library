@@ -102,91 +102,112 @@ $featured-item: null !default;
 /**
 * Background
 */
-@if map.has-key($featured-item, 'background') {
-  .ecl-featured-item--background-light {
-    .ecl-featured-item__item:last-child {
-      background-color: map.get(
-        $featured-item,
-        'background',
-        'background-color'
-      );
-      padding: map.get($featured-item, 'background', 'padding-mobile')
-        map.get($featured-item, 'background', 'padding-mobile')
-        0;
+@mixin background($variant: null) {
+  .ecl-featured-item__item:last-child {
+    background-color: map.get(
+      $featured-item,
+      'background',
+      'background-color-#{$variant}'
+    );
+    display: flex;
+    flex-direction: column;
+    padding: map.get($featured-item, 'background', 'padding-mobile')
+      map.get($featured-item, 'background', 'padding-mobile') 0;
+  }
+
+  .ecl-featured-item__title {
+    color: map.get($featured-item, 'background', 'title', 'color-#{$variant}');
+    flex-grow: 1;
+  }
+
+  .ecl-featured-item__description {
+    color: map.get(
+      $featured-item,
+      'background',
+      'description',
+      'color-#{$variant}'
+    );
+    flex-grow: 100;
+  }
+
+  .ecl-featured-item__link {
+    background-color: map.get(
+      $featured-item,
+      'background',
+      'link',
+      'background-color-#{$variant}'
+    );
+    color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
+    display: block;
+    margin-inline-end: calc(
+      -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
+    );
+    margin-inline-start: auto;
+    width: clamp(
+      1px,
+      map.get($featured-item, 'background', 'link', 'max-width'),
+      100%
+    );
+    padding: map.get($featured-item, 'background', 'link', 'padding-mobile');
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &:visited {
+      color: map.get($featured-item, 'background', 'link', 'color-#{$variant}');
     }
 
-    .ecl-featured-item__link {
-      background-color: aliceblue;
+    .ecl-link__icon {
       display: block;
-      margin-inline-end: calc(
-        -1 * #{map.get($featured-item, 'background', 'padding-mobile')}
-      );
-      margin-inline-start: auto;
-      max-width: map.get($featured-item, 'background', 'link', 'max-width');
-      padding: map.get($featured-item, 'background', 'link', 'padding-mobile');
-
-      .ecl-link__icon {
-        display: block;
-        margin-block: var(--s-s) 0;
-        margin-inline: 0;
-      }
-    }
-
-    .ecl-featured-item__title + .ecl-featured-item__link,
-    .ecl-featured-item__description + .ecl-featured-item__link {
-      margin-block-start: map.get(
-        $featured-item,
-        'background',
-        'link',
-        'spacing'
-      );
+      margin-block: var(--s-s) 0;
+      margin-inline: 0;
     }
   }
 
+  .ecl-featured-item__title + .ecl-featured-item__link,
+  .ecl-featured-item__description + .ecl-featured-item__link {
+    margin-block-start: map.get(
+      $featured-item,
+      'background',
+      'link',
+      'spacing'
+    );
+  }
+
   @include breakpoints.up('m') {
-    .ecl-featured-item--background-light {
-      .ecl-featured-item__item:last-child {
-        padding: map.get($featured-item, 'background', 'padding-desktop')
-          map.get($featured-item, 'background', 'padding-desktop') 0;
-        position: relative;
+    .ecl-featured-item__item:last-child {
+      padding: map.get($featured-item, 'background', 'padding-desktop')
+        map.get($featured-item, 'background', 'padding-desktop') 0;
+      position: relative;
 
-        &::before {
-          border-bottom: map.get($featured-item, 'background', 'arrow-width')
-            solid transparent;
-          border-inline-end: map.get(
-              $featured-item,
-              'background',
-              'arrow-width'
+      &::before {
+        border-bottom: map.get($featured-item, 'background', 'arrow-width')
+          solid transparent;
+        border-inline-end: map.get($featured-item, 'background', 'arrow-width')
+          solid
+          map.get($featured-item, 'background', 'background-color-#{$variant}');
+        border-top: map.get($featured-item, 'background', 'arrow-width') solid
+          transparent;
+        content: '';
+        display: block;
+        height: 0;
+        margin-inline-start: calc(
+          -1 *
+            (
+              #{map.get($featured-item, 'background', 'arrow-width')} +
+                #{map.get($featured-item, 'background', 'padding-desktop')}
             )
-            solid map.get($featured-item, 'background', 'background-color');
-          border-top: map.get($featured-item, 'background', 'arrow-width') solid
-            transparent;
-          content: '';
-          display: block;
-          height: 0;
-          margin-inline-start: calc(
-            -1 *
-              (
-                #{map.get($featured-item, 'background', 'arrow-width')} +
-                  #{map.get($featured-item, 'background', 'padding-desktop')}
-              )
-          );
-          position: absolute;
-          width: 0;
-        }
+        );
+        position: absolute;
+        width: 0;
       }
+    }
 
-      .ecl-featured-item__link {
-        margin-inline-end: calc(
-          -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
-        );
-        padding: map.get(
-          $featured-item,
-          'background',
-          'link',
-          'padding-desktop'
-        );
-      }
+    .ecl-featured-item__link {
+      margin-inline-end: calc(
+        -1 * #{map.get($featured-item, 'background', 'padding-desktop')}
+      );
+      padding: map.get($featured-item, 'background', 'link', 'padding-desktop');
     }
 
     .ecl-featured-item__container--right {
@@ -197,7 +218,12 @@ $featured-item: null !default;
               'background',
               'arrow-width'
             )
-            solid map.get($featured-item, 'background', 'background-color');
+            solid
+            map.get(
+              $featured-item,
+              'background',
+              'background-color-#{$variant}'
+            );
           border-inline-end: map.get(
               $featured-item,
               'background',
@@ -205,7 +231,7 @@ $featured-item: null !default;
             )
             solid transparent;
           margin-inline-start: calc(
-            100% - #{map.get($featured-item, 'background', 'arrow-width')}
+            100% - #{map.get($featured-item, 'background', 'arrow-width')} + 4px
           );
         }
       }
@@ -217,6 +243,16 @@ $featured-item: null !default;
         );
       }
     }
+  }
+}
+
+@if map.has-key($featured-item, 'background') {
+  .ecl-featured-item--background-light {
+    @include background(light);
+  }
+
+  .ecl-featured-item--background-strong {
+    @include background(strong);
   }
 }
 

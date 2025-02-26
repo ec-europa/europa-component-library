@@ -97,108 +97,73 @@ $featured-item-print: null !default;
 }
 
 /**
-* Simple
-*/
-.ecl-featured-item--simple {
-  .ecl-featured-item__container {
-    background-color: map.get($featured-item, 'simple', 'container-background');
-    border-inline-start: map.get($featured-item, 'simple', 'border-size') solid
-      map.get($featured-item, 'simple', 'border-color');
-    padding: map.get($featured-item-print, 'simple', 'padding-desktop');
-  }
-
-  .ecl-featured-item__item:last-child {
-    margin: 0;
-  }
-
-  .ecl-featured-item__media_container {
-    padding: map.get($featured-item-print, 'simple', 'media-padding-desktop');
-  }
-
-  .ecl-featured-item__title {
-    margin: 0;
-    padding: map.get($featured-item-print, 'simple', 'title-spacing');
-  }
-
-  .ecl-featured-item__description {
-    margin: map.get($featured-item-print, 'simple', 'description-spacing');
-
-    &:first-child {
-      margin-top: map.get(
-        $featured-item-print,
-        'simple',
-        'description-spacing-top'
-      );
-    }
-  }
-
-  .ecl-featured-item__link {
-    margin-top: map.get($featured-item-print, 'simple', 'link-spacing-top');
-    margin-inline-start: map.get(
-      $featured-item-print,
-      'simple',
-      'link-spacing-start'
-    );
-  }
-}
-
-/**
 * Highlight
 */
-.ecl-featured-item--highlight {
-  box-shadow: map.get($featured-item, 'shadow');
+@if map.has-key($featured-item, 'highlight') {
+  .ecl-featured-item--highlight {
+    box-shadow: map.get($featured-item, 'shadow');
 
-  .ecl-featured-item__container {
-    background-color: map.get(
-      $featured-item,
-      'highlight',
-      'container-background'
-    );
-    border-inline-start: map.get($featured-item, 'highlight', 'border-size')
-      solid map.get($featured-item, 'highlight', 'border-color');
-    padding: map.get($featured-item-print, 'highlight', 'padding-desktop');
-  }
+    .ecl-featured-item__container {
+      background-color: map.get(
+        $featured-item,
+        'highlight',
+        'container-background'
+      );
+      border-inline-start: map.get($featured-item, 'highlight', 'border-size')
+        solid
+        map.get($featured-item, 'highlight', 'border-color');
+      padding: map.get($featured-item-print, 'highlight', 'padding-desktop');
+    }
 
-  .ecl-featured-item__item:first-child {
-    margin: 0;
-    padding: map.get($featured-item-print, 'highlight', 'item-spacing');
-    background-color: map.get($featured-item, 'highlight', 'item-background');
-  }
+    .ecl-featured-item__item:first-child {
+      margin: 0;
+      padding: map.get($featured-item-print, 'highlight', 'item-spacing');
+      background-color: map.get($featured-item, 'highlight', 'item-background');
+    }
 
-  .ecl-featured-item__media_container {
-    padding: map.get(
-      $featured-item-print,
-      'highlight',
-      'media-padding-desktop'
-    );
-  }
+    .ecl-featured-item__media_container {
+      padding: map.get(
+        $featured-item-print,
+        'highlight',
+        'media-padding-desktop'
+      );
+    }
 
-  .ecl-featured-item__title {
-    background-color: map.get($featured-item, 'highlight', 'title-background');
-    padding: map.get($featured-item-print, 'highlight', 'title-spacing');
-    margin: 0;
-  }
+    .ecl-featured-item__title {
+      background-color: map.get(
+        $featured-item,
+        'highlight',
+        'title-background'
+      );
+      padding: map.get($featured-item-print, 'highlight', 'title-spacing');
+      margin: 0;
+    }
 
-  /* stylelint-disable-next-line no-descending-specificity */
-  .ecl-featured-item__description {
-    margin: map.get($featured-item-print, 'highlight', 'description-spacing');
+    /* stylelint-disable-next-line no-descending-specificity */
+    .ecl-featured-item__description {
+      margin: map.get($featured-item-print, 'highlight', 'description-spacing');
 
-    &:first-child {
+      &:first-child {
+        margin-top: map.get(
+          $featured-item-print,
+          'highlight',
+          'description-spacing-top'
+        );
+      }
+    }
+
+    .ecl-featured-item__link {
       margin-top: map.get(
         $featured-item-print,
         'highlight',
-        'description-spacing-top'
+        'link-spacing-top'
+      );
+      margin-inline-start: map.get(
+        $featured-item-print,
+        'highlight',
+        'link-spacing-start'
       );
     }
-  }
-
-  .ecl-featured-item__link {
-    margin-top: map.get($featured-item-print, 'highlight', 'link-spacing-top');
-    margin-inline-start: map.get(
-      $featured-item-print,
-      'highlight',
-      'link-spacing-start'
-    );
   }
 }
 
