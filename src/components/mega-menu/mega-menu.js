@@ -578,7 +578,6 @@ export class MegaMenu {
           this.checkDropdownHeight(current);
         });
       } else {
-        this.element.setAttribute('aria-expanded', 'false');
         this.element.removeAttribute('data-expanded');
         this.open.setAttribute('aria-expanded', 'false');
         this.enableScroll();
@@ -903,7 +902,7 @@ export class MegaMenu {
   handleKeyboard(e) {
     const element = e.target;
     const cList = element.classList;
-    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuExpanded = this.element.getAttribute('data-expanded');
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
@@ -911,7 +910,7 @@ export class MegaMenu {
         element.blur();
       }
 
-      if (menuExpanded === 'false') {
+      if (!menuExpanded) {
         this.closeOpenDropdown();
       }
       return;
@@ -1155,7 +1154,7 @@ export class MegaMenu {
     } else {
       e.preventDefault();
       this.disableScroll();
-      this.element.setAttribute('aria-expanded', 'true');
+      this.element.setAttribute('data-expanded', true);
       this.element.classList.add('ecl-mega-menu--start-panel');
       this.element.classList.remove(
         'ecl-mega-menu--one-panel',
@@ -1197,7 +1196,7 @@ export class MegaMenu {
    * @fires Menu#onClose
    */
   handleClickOnClose(e) {
-    if (this.element.getAttribute('aria-expanded') === 'true') {
+    if (this.element.getAttribute('data-expanded')) {
       this.focusTrap.deactivate();
       this.closeOpenDropdown();
       this.trigger('onClose', e);
@@ -1312,7 +1311,6 @@ export class MegaMenu {
         this.positionMenuOverlay();
         this.checkDropdownHeight(menuItem);
         this.element.setAttribute('data-expanded', true);
-        this.element.setAttribute('aria-expanded', 'true');
         this.element.classList.add('ecl-mega-menu--one-panel');
         this.element.classList.remove('ecl-mega-menu--start-panel');
         this.open.setAttribute('aria-expanded', 'true');
@@ -1573,7 +1571,6 @@ export class MegaMenu {
       }
     }
     this.enableScroll();
-    this.element.setAttribute('aria-expanded', 'false');
     this.element.removeAttribute('data-expanded');
     this.element.classList.remove(
       'ecl-mega-menu--start-panel',
@@ -1660,11 +1657,11 @@ export class MegaMenu {
    */
   handleFocusOut(e) {
     const element = e.target;
-    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuExpanded = this.element.getAttribute('data-expanded');
 
     // Specific focus action for mobile menu
     // Loop through the items and go back to close button
-    if (menuExpanded === 'true' && !this.isDesktop) {
+    if (menuExpanded && !this.isDesktop) {
       const nextItem = element.parentElement.nextSibling;
 
       if (!nextItem) {
