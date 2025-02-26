@@ -131,6 +131,7 @@ $content-block: null !default;
 }
 
 .ecl-content-block__link-item {
+  font: map.get($theme, 'font-print', 'm');
   margin-top: map.get($theme, 'spacing-print', 'xs');
 
   &:first-child {
