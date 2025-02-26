@@ -50,6 +50,7 @@ $fact-figures: null !default;
 
 .ecl-fact-figures__value {
   font: map.get($fact-figures, 'value-font-mobile-l');
+  font-weight: map.get($fact-figures, 'value-font-weight');
 
   .ecl-fact-figures--font-m & {
     font: map.get($fact-figures, 'value-font-mobile-m');

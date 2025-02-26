@@ -41,6 +41,7 @@ $inpage-navigation: null !default;
   /* stylelint-disable-next-line order/order */
   @include breakpoints.up('l') {
     background: transparent;
+    display: none;
     margin: 0;
     padding: 0;
   }
@@ -59,11 +60,6 @@ $inpage-navigation: null !default;
   position: relative;
   text-align: start;
   width: 100%;
-
-  /* stylelint-disable-next-line order/order */
-  @include breakpoints.up('l') {
-    display: none;
-  }
 
   &:focus-visible {
     outline: 2px solid map.get($theme, 'color', 'white');
@@ -122,6 +118,7 @@ $inpage-navigation: null !default;
     color: map.get($inpage-navigation, 'title', 'color');
     display: block;
     font: map.get($inpage-navigation, 'title', 'font');
+    letter-spacing: map.get($inpage-navigation, 'title', 'letter-spacing');
     padding: map.get($inpage-navigation, 'title', 'padding');
     text-align: map.get($inpage-navigation, 'align');
     text-transform: map.get($inpage-navigation, 'title', 'text-transform');
@@ -211,7 +208,7 @@ $inpage-navigation: null !default;
   );
   color: map.get($inpage-navigation, 'item', 'color', 's');
   display: block;
-  font: map.get($theme, 'font', 'm');
+  font: var(--f-m);
   font-weight: map.get($inpage-navigation, 'item', 'font-weight', 's');
   padding: map.get($inpage-navigation, 'item', 'padding', 'default', 's');
   text-decoration: none;

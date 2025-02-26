@@ -22,7 +22,7 @@ $social-media-share: null !default;
 .ecl-social-media-share__description {
   color: map.get($social-media-share, 'title-color');
   font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($social-media-share, 'title-font-weight');
   margin-bottom: var(--s-xs);
   margin-top: 0;
 }
@@ -54,7 +54,7 @@ $social-media-share: null !default;
 .ecl-social-media-share__link {
   align-items: center;
   display: flex;
-  font: var(--f-s);
+  font: var(--f-m);
   overflow: hidden; /* Improve rendering on IE */
 }
 
