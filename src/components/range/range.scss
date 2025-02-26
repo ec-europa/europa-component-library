@@ -86,7 +86,7 @@ $range: null !default;
 }
 
 .ecl-range__value-current {
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($range, 'value-font-weight');
   margin-inline-start: var(--s-2xs);
 }
 
@@ -126,7 +126,7 @@ $range: null !default;
   border-radius: map.get($theme, 'border-radius', 's');
   color: map.get($theme, 'color', 'white');
   display: none;
-  font: var(--f-s);
+  font: map.get($range, 'bubble-font');
   margin-top: calc(#{map.get($range, 'slider-size')} / 2 + 4px + var(--s-2xs));
   padding: var(--s-2xs) var(--s-xs);
   position: absolute;
