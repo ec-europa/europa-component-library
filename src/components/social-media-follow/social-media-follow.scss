@@ -20,7 +20,7 @@ $social-media-follow: null !default;
 .ecl-social-media-follow__description {
   color: var(--c-d);
   font: var(--f-m);
-  font-weight: map.get($theme, 'font-weight', 'bold');
+  font-weight: map.get($social-media-follow, 'title-font-weight');
   margin-bottom: var(--s-s);
   margin-top: 0;
 }
@@ -48,6 +48,7 @@ $social-media-follow: null !default;
 .ecl-social-media-follow__link {
   align-items: center;
   display: flex;
+  font: var(--f-m);
   overflow: hidden; /* Improve rendering on IE */
 }
 

@@ -27,6 +27,7 @@ $notification: null !default;
 
 .ecl-notification__icon {
   flex-shrink: 0;
+  margin-block-start: map.get($notification, 'icon-offset-top');
   margin-inline-end: var(--s-xs);
 }
 
