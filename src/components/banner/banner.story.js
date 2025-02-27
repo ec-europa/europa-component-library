@@ -11,6 +11,7 @@ import notes from './README.md';
 
 const getArgs = (data) => {
   const args = {
+    show_media: true,
     show_title: true,
     show_description: true,
     show_button: false,
@@ -28,7 +29,6 @@ const getArgs = (data) => {
     vertical: 'center',
     full_width: true,
     gridContent: false,
-    oldVariants: '',
   };
   if (data.picture) {
     args.image = data.picture.img.src || '';
@@ -43,6 +43,14 @@ const getArgs = (data) => {
 const getArgTypes = (data) => {
   const argTypes = {
     ...getColorModeControls(),
+    show_media: {
+      name: 'media',
+      type: { name: 'boolean' },
+      description: 'Show the media',
+      table: {
+        category: 'Optional',
+      },
+    },
     show_title: {
       name: 'title',
       type: { name: 'boolean' },
@@ -74,6 +82,7 @@ const getArgTypes = (data) => {
       table: {
         category: 'Optional',
       },
+      if: { arg: 'show_media' },
     },
     size: {
       name: 'banner size',
@@ -165,6 +174,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: 'light' },
         category: 'Display',
       },
+      if: { arg: 'show_media' },
     },
     horizontal: {
       name: 'horizontal',
@@ -289,35 +299,6 @@ const getArgTypes = (data) => {
         type: 'boolean',
       },
     },
-    oldVariants: {
-      name: 'Test the old variants',
-      type: { name: 'select' },
-      description: 'Test the layout with deprecated markup',
-      table: {
-        category: 'Backward compatibility',
-      },
-      options: [
-        '',
-        'ecl-banner--plain-background',
-        'ecl-banner--text-box',
-        'ecl-banner--text-overlay',
-      ],
-      mapping: {
-        none: '',
-        'plain background': 'ecl-banner--plain-background',
-        'text overlay': 'ecl-banner--text-overlay',
-        'text box': 'ecl-banner--text-box',
-      },
-      control: {
-        labels: {
-          '': 'none',
-          'ecl-banner--plain-background': 'plain background',
-          'ecl-banner--text-box': 'text box',
-          'ecl-banner--text-overlay': 'text overlay',
-        },
-        type: 'select',
-      },
-    },
   };
 
   if (data.picture) {
@@ -329,6 +310,7 @@ const getArgTypes = (data) => {
         defaultValue: { summary: '' },
         category: 'Content',
       },
+      if: { arg: 'show_media' },
     };
   }
 
@@ -342,6 +324,7 @@ const prepareData = (data, args) => {
     show_description: showDescription,
     show_credit: showCredit,
     show_button: showButton,
+    show_media: showMedia,
     title,
     description,
   } = args;
@@ -354,6 +337,10 @@ const prepareData = (data, args) => {
   if (!showDescription) delete clone.description;
   if (!showCredit) delete clone.credit;
   if (!showButton) delete clone.link;
+  if (!showMedia) {
+    delete clone.picture;
+    delete clone.video;
+  }
 
   if (titleDescriptionLink === 'title' && showTitle) {
     clone.title = { ...data.title, link: { ...data.title.link, label: title } };
@@ -371,19 +358,6 @@ const prepareData = (data, args) => {
 
   if (clone.picture) {
     clone.picture.img.src = args.image;
-  }
-
-  if (args.oldVariants !== '') {
-    clone.extra_classes = args.oldVariants;
-    if (args.oldVariants === 'ecl-banner--plain-background') {
-      if (clone.picture) {
-        clone.picture.img = {};
-      } else {
-        clone.video = {};
-      }
-    }
-  } else {
-    clone.extra_classes = '';
   }
 
   return clone;
