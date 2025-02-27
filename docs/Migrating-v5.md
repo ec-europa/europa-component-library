@@ -119,6 +119,30 @@ Markup of accordion title has been updated to use a simple div instead of a head
 
 Corresponding twig parameter `level` has been removed.
 
+### Mega menu
+
+The featured panel has changed in order to present a list of image with an associated link, instead of an img and then a list of links.
+So now the expected data for the featured panel looks like this:
+
+`...
+featured: {
+	title: 'Featured items',
+	items: [
+	  {
+	    label: 'Featured link 1',
+	    path: exampleLink,
+	    picture: {
+	      img: {
+	        src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+	        alt: 'Jean Monnet banner',
+	      },
+	    },
+	  },
+	],
+}`
+
+The image will be clickable and will act as the associated link.
+
 ## Js modifications
 
 ## Packages modifications

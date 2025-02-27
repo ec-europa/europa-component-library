@@ -31,7 +31,7 @@ npm install --save @ecl/mega-menu
   "featured" (object) (optional) {
   "title": (string)
   "content": (string)
-  "items": (associative array)
+  "items": (associative array) Array of items with image and link
   }
   "children": (associative array) (optional): [
   {
