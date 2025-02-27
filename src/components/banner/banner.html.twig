@@ -43,8 +43,6 @@
 #}
 
 {# DEPRECATED
-- "variant" (string) (default: '') Variant of the banner
-    (can be 'plain-background', 'text-box', 'text-overlay')
 - "centered" (bool) (default: false) Define if banner should be centered
 #}
 
@@ -72,7 +70,6 @@
 {% set _icon_path = icon_path|default('') %}
 
 {# DEPRECATED #}
-{% set _variant = variant|default('') %}
 {% set _centered = centered ?? false %}
 {% if _centered %}
   {% set _horizontal = 'center' %}
@@ -82,10 +79,6 @@
 
 {% if _color_mode is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
-{% endif %}
-
-{% if _variant is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _variant %}
 {% endif %}
 
 {% if _size is not empty %}
