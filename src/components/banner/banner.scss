@@ -76,6 +76,7 @@ $banner: null !default;
 .ecl-banner__image {
   display: block;
   height: 100%;
+  max-height: 100%;
   object-fit: cover;
   object-position: top;
   position: relative;
@@ -85,6 +86,7 @@ $banner: null !default;
 .ecl-banner__video {
   display: block;
   height: 100%;
+  max-height: 100%;
   object-fit: cover;
   object-position: center;
   position: relative;
@@ -92,7 +94,10 @@ $banner: null !default;
 }
 
 .ecl-banner__info {
+  align-items: center;
   background-color: map.get($banner, 'background-color');
+  display: flex;
+  flex-grow: 1;
 }
 
 .ecl-banner__title,
@@ -177,11 +182,32 @@ $banner: null !default;
   width: 100vw;
 }
 
+// No media
+.ecl-banner--no-media {
+  background-color: var(--cm-surface, var(--c-p));
+
+  .ecl-banner__info {
+    background-color: var(--cm-surface, var(--c-p));
+  }
+
+  .ecl-banner__title,
+  .ecl-banner__title-link,
+  .ecl-banner__description,
+  .ecl-banner__description-link {
+    color: var(--cm-on-surface-swap-1, #fff);
+  }
+
+  .ecl-banner__content {
+    background: transparent;
+  }
+}
+
 // Medium banner - ratio 4:1
 .ecl-banner,
 .ecl-banner--m {
   .ecl-banner__image,
-  .ecl-banner__video {
+  .ecl-banner__video,
+  &.ecl-banner--no-media {
     aspect-ratio: 4/1;
 
     --css-aspect-ratio: 4/1;
@@ -190,7 +216,8 @@ $banner: null !default;
 
 // Extra small banner - ratio 6:1
 .ecl-banner--xs .ecl-banner__image,
-.ecl-banner--xs .ecl-banner__video {
+.ecl-banner--xs .ecl-banner__video,
+.ecl-banner--xs.ecl-banner--no-media {
   aspect-ratio: 6/1;
 
   --css-aspect-ratio: 6/1;
@@ -198,7 +225,8 @@ $banner: null !default;
 
 // Small banner - ratio 5:1
 .ecl-banner--s .ecl-banner__image,
-.ecl-banner--s .ecl-banner__video {
+.ecl-banner--s .ecl-banner__video,
+.ecl-banner--s.ecl-banner--no-media {
   aspect-ratio: 5/1;
 
   --css-aspect-ratio: 5/1;
@@ -206,7 +234,8 @@ $banner: null !default;
 
 // Large banner - ratio 3:1
 .ecl-banner--l .ecl-banner__image,
-.ecl-banner--l .ecl-banner__video {
+.ecl-banner--l .ecl-banner__video,
+.ecl-banner--l.ecl-banner--no-media {
   aspect-ratio: 3/1;
 
   --css-aspect-ratio: 3/1;
@@ -230,6 +259,10 @@ $banner: null !default;
   .ecl-banner__container {
     padding-bottom: map.get($banner, 'container-padding-bottom', 'tablet');
     padding-top: map.get($banner, 'container-padding-top', 'tablet');
+
+    .ecl-banner--no-media & {
+      padding-block: var(--s-l) var(--s-2xl);
+    }
   }
 }
 
@@ -237,6 +270,31 @@ $banner: null !default;
 @include breakpoints.up('l') {
   .ecl-banner {
     padding-bottom: var(--banner-footer-height);
+  }
+
+  .ecl-banner--xs {
+    aspect-ratio: 6/1;
+
+    --css-aspect-ratio: 6/1;
+  }
+
+  .ecl-banner--s {
+    aspect-ratio: 5/1;
+
+    --css-aspect-ratio: 5/1;
+  }
+
+  .ecl-banner,
+  .ecl-banner--m {
+    aspect-ratio: 4/1;
+
+    --css-aspect-ratio: 4/1;
+  }
+
+  .ecl-banner--l {
+    aspect-ratio: 3/1;
+
+    --css-aspect-ratio: 3/1;
   }
 
   .ecl-banner .ecl-container {
@@ -402,160 +460,5 @@ $banner: null !default;
   .ecl-banner__content {
     align-items: center;
     text-align: center;
-  }
-}
-
-/*
-  * variant: plain background
-  */
-// DEPRECATED
-.ecl-banner--plain-background {
-  background: map.get($banner, 'background', 'plain-background');
-
-  .ecl-banner__info {
-    background: transparent;
-  }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    color: map.get($banner, 'text-color', 'inverted');
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  // DEPRECATED
-  .ecl-banner--plain-background {
-    &::before {
-      content: '';
-      display: block;
-      padding-top: 25%;
-      width: 100%;
-    }
-
-    &.ecl-banner--xs::before {
-      padding-top: 16.66%;
-    }
-
-    &.ecl-banner--s::before {
-      padding-top: 20%;
-    }
-
-    &.ecl-banner--l::before {
-      padding-top: 33%;
-    }
-
-    .ecl-banner__content,
-    .ecl-banner__info {
-      background-color: transparent;
-    }
-  }
-}
-
-/*
- * variant: text box
- */
-// DEPRECATED
-.ecl-banner--text-box {
-  background: map.get($banner, 'background', 'text-box-mobile');
-
-  .ecl-banner__image {
-    border-bottom: map.get($banner, 'border-width', 'bottom') solid
-      map.get($banner, 'border-color');
-  }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link,
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    color: var(--cm-on-surface-dark, var(--c-d));
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  // DEPRECATED
-  .ecl-banner--text-box {
-    .ecl-banner__image {
-      border-bottom-width: 0;
-    }
-
-    .ecl-banner__content {
-      background: map.get($banner, 'background', 'text-box-desktop');
-      border-bottom: map.get($banner, 'border-width', 'bottom') solid
-        map.get($banner, 'border-color');
-      border-inline-start: map.get($banner, 'border-width', 'left') solid
-        map.get($banner, 'border-color');
-      border-radius: map.get($banner, 'border-radius', 'content');
-      padding: var(--s-l) var(--s-xl);
-    }
-  }
-}
-
-/*
- * variant: text-overlay
- */
-// DEPRECATED
-.ecl-banner--text-overlay {
-  background: map.get($banner, 'background', 'text-overlay');
-
-  .ecl-banner__image {
-    border-bottom: map.get($banner, 'border-width', 'bottom') solid
-      map.get($banner, 'border-color');
-    border-radius: map.get($banner, 'border-radius', 'banner')
-      map.get($banner, 'border-radius', 'banner') 0 0;
-  }
-
-  .ecl-banner__title,
-  .ecl-banner__title-link,
-  .ecl-banner__description,
-  .ecl-banner__description-link {
-    color: var(--cm-on-surface-dark, var(--c-d));
-  }
-}
-
-/* stylelint-disable-next-line order/order */
-@include breakpoints.up('l') {
-  // DEPRECATED
-  .ecl-banner--text-overlay {
-    .ecl-banner__content {
-      background-color: transparent;
-    }
-
-    .ecl-banner__image {
-      border-bottom-width: 0;
-    }
-
-    .ecl-banner__image::before {
-      border-radius: map.get($banner, 'border-radius', 'banner');
-      padding-top: 0;
-    }
-
-    .ecl-banner__title,
-    .ecl-banner__description {
-      box-decoration-break: clone;
-      background: rgba(38, 50, 75, 0.7);
-      backdrop-filter: blur(2px);
-      box-sizing: border-box;
-      margin: 0;
-      padding: var(--s-2xs) var(--s-m) var(--s-xs);
-      width: 100%;
-    }
-
-    .ecl-banner__title,
-    .ecl-banner__title-link,
-    .ecl-banner__description,
-    .ecl-banner__description-link {
-      color: #fff;
-    }
-
-    .ecl-banner__description {
-      padding-top: 0;
-    }
   }
 }

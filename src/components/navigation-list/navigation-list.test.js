@@ -76,6 +76,12 @@ describe('Navigation list', () => {
       ).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with different color modes per item', () => {
+      expect.assertions(1);
+      dataDefault.items[0].color_mode = 'blue-navy';
+      return expect(render(dataDefault)).resolves.toMatchSnapshot();
+    });
+
     test(`passes the accessibility tests`, async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, dataDefault, true)),

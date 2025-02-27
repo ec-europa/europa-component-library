@@ -10,6 +10,7 @@ npm install --save @ecl/navigation-list
 
 - **"color_mode"** (string) (default: '') Name of the color mode
 - **"items"** (array) (default: []): array of list_illustration_item
+  - **"color_mode"** (string) (default: '') Name of the color mode
   - **"variant"** (string) (default: '') - Can be "illustration" or "image-as-illustration"
   - **"picture** (associative array) (default: {}): picture of the navigation list, following ECL Picture structure
   - **"title"** (associative array) (default: {}): Predefined structure compatible with Link component
