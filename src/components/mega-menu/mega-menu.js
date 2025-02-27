@@ -2,8 +2,8 @@
 
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
-import isMobile from 'mobile-device-detect';
 import { createFocusTrap } from 'focus-trap';
+import Bowser from 'bowser';
 
 /**
  * @param {HTMLElement} element DOM element for component instantiation and scope
@@ -477,13 +477,17 @@ export class MegaMenu {
    * - not having hamburger menu on screen
    */
   useDesktopDisplay() {
+    const browser = Bowser.getParser(window.navigator.userAgent);
+    const isMobile = browser.getPlatformType() === 'mobile';
+    const isTablet = browser.getPlatformType() === 'tablet';
+
     // Detect mobile devices
-    if (isMobile.isMobileOnly) {
+    if (isMobile) {
       return false;
     }
 
     // Force mobile display on tablet
-    if (isMobile.isTablet) {
+    if (isTablet) {
       this.element.classList.add('ecl-mega-menu--forced-mobile');
       return false;
     }
