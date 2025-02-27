@@ -48,16 +48,32 @@ module.exports = {
           see_all: true,
           see_all_label: 'View all',
           featured: {
-            picture: {
-              img: {
-                src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-                alt: 'Jean Monnet banner',
-              },
-            },
             title: 'Featured items',
             items: [
-              { label: 'Featured link 1', path: exampleLink },
-              { label: 'Featured link 2', path: exampleLink },
+              {
+                label: 'Featured link 1',
+                path: exampleLink,
+                picture: {
+                  img: {
+                    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                    alt: 'Jean Monnet banner',
+                  },
+                },
+              },
+              {
+                label: 'Featured link 2',
+                path: exampleLink,
+                picture: {
+                  img: {
+                    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image3.jpg',
+                    alt: 'Jean Monnet banner',
+                  },
+                },
+              },
+              {
+                label: 'Featured link 3',
+                path: exampleLink,
+              },
             ],
           },
           children: [
@@ -147,7 +163,16 @@ module.exports = {
             items: [
               { label: 'Featured link 1', path: exampleLink },
               { label: 'Featured link 2', path: exampleLink },
-              { label: 'Featured link 3', path: exampleLink },
+              {
+                label: 'Featured link 3',
+                path: exampleLink,
+                picture: {
+                  img: {
+                    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+                    alt: 'Jean Monnet banner',
+                  },
+                },
+              },
               { label: 'Featured link 4', path: exampleLink },
               { label: 'Featured link 5', path: exampleLink },
               { label: 'Featured link 6', path: exampleLink },
