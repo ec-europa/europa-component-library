@@ -356,8 +356,8 @@
   // Default color mode
   // surface
   --cm-surface-dark: var(--c-d-900);
-  --cm-surface-inverted: #fff;
   --cm-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
+  --cm-surface-inverted: #fff;
   --cm-surface-transparent-70: color-mix(
     in srgb,
     var(--c-d-900) 70%,
@@ -373,10 +373,9 @@
   --cm-surface-low-1: var(--c-l-100);
   --cm-surface-low-2: var(--c-l-300);
   --cm-surface-medium: var(--c-l-400);
-  --cm-surface: var(--c-p-500);
-  --cm-surface-variant-1: var(--c-d-900);
-  --cm-surface-variant-2: #{map.get($color-palette, 'warm-grey-200')};
-  --cm-surface-variant-3: var(--c-d-900);
+  --cm-surface: var(--c-d-900);
+  --cm-surface-variant-1: #{map.get($color-palette, 'warm-grey-200')};
+  --cm-surface-variant-2: var(--c-d-900);
   --cm-surface-primary: var(--c-p-500);
   --cm-surface-primary-high: var(--c-p-700);
   --cm-surface-primary-highest: var(--c-p-900);
@@ -389,9 +388,11 @@
   // on surface
   --cm-on-surface-brand: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-dark: var(--c-d-900);
+  --cm-on-surface-inverted: #fff;
+  --cm-on-surface-swap-1: #fff;
+  --cm-on-surface-swap-2: #{map.get($color-palette, 'blue-navy-900')};
   --cm-on-surface-dark-medium: var(--c-d-700);
   --cm-on-surface-dark-low: var(--c-d-500);
-  --cm-on-surface-inverted: #fff;
   --cm-on-surface-neutral-medium: var(--c-l-300);
   --cm-on-surface-secondary-medium: var(--c-s-200);
   --cm-on-surface-primary: var(--c-p-500);
@@ -400,8 +401,6 @@
   --cm-on-surface-variant-1: var(--c-s-500);
   --cm-on-surface-variant-2: var(--c-l-300);
   --cm-on-surface-highlight: var(--c-s-300);
-  --cm-on-surface-swap-1: #fff;
-  --cm-on-surface-swap-2: #{map.get($color-palette, 'blue-navy-900')};
 
   // border
   --cm-border-brand: #{map.get($color-palette, 'blue-navy-900')};
