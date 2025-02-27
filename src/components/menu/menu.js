@@ -1,6 +1,6 @@
 import { queryOne, queryAll } from '@ecl/dom-utils';
 import EventManager from '@ecl/event-manager';
-import isMobile from 'mobile-device-detect';
+import Bowser from 'bowser';
 import { createFocusTrap } from 'focus-trap';
 
 /**
@@ -509,13 +509,17 @@ export class Menu {
    * - not having hamburger menu on screen
    */
   useDesktopDisplay() {
+    const browser = Bowser.getParser(window.navigator.userAgent);
+    const isMobile = browser.getPlatformType() === 'mobile';
+    const isTablet = browser.getPlatformType() === 'tablet';
+
     // Detect mobile devices
-    if (isMobile.isMobileOnly) {
+    if (isMobile) {
       return false;
     }
 
     // Force mobile display on tablet
-    if (isMobile.isTablet) {
+    if (isTablet) {
       this.element.classList.add('ecl-menu--forced-mobile');
       return false;
     }
@@ -817,7 +821,7 @@ export class Menu {
   handleKeyboard(e) {
     const element = e.target;
     const cList = element.classList;
-    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuExpanded = this.element.getAttribute('data-expanded');
     const menuItem = element.closest(this.itemSelector);
 
     // Detect press on Escape
@@ -826,7 +830,7 @@ export class Menu {
         element.blur();
       }
 
-      if (menuExpanded === 'false') {
+      if (!menuExpanded) {
         const buttonCaret = queryOne('.ecl-menu__button-caret', menuItem);
         if (buttonCaret) {
           buttonCaret.focus();
@@ -941,11 +945,11 @@ export class Menu {
    * @param {Event} e
    */
   handleKeyboardGlobal(e) {
-    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuExpanded = this.element.getAttribute('data-expanded');
 
     // Detect press on Escape
     if (e.key === 'Escape' || e.key === 'Esc') {
-      if (menuExpanded === 'true') {
+      if (menuExpanded) {
         this.handleClickOnClose();
       }
       this.items.forEach((item) => {
@@ -966,7 +970,7 @@ export class Menu {
   handleClickOnOpen(e) {
     e.preventDefault();
 
-    this.element.setAttribute('aria-expanded', 'true');
+    this.element.setAttribute('data-expanded', true);
     this.inner.setAttribute('aria-hidden', 'false');
     this.disableScroll();
     this.open.setAttribute('aria-expanded', 'true');
@@ -996,7 +1000,7 @@ export class Menu {
    * @fires Menu#onClose
    */
   handleClickOnClose(e) {
-    this.element.setAttribute('aria-expanded', 'false');
+    this.element.removeAttribute('data-expanded');
 
     // Remove css class and attribute from inner menu
     this.inner.classList.remove('ecl-menu__inner--expanded');
@@ -1140,11 +1144,11 @@ export class Menu {
    * @param {Event} e
    */
   handleClickOnCaret(e) {
-    const menuExpanded = this.element.getAttribute('aria-expanded');
+    const menuExpanded = this.element.getAttribute('data-expanded');
     const menuItem = e.target.closest(this.itemSelector);
 
     // Desktop display
-    if (menuExpanded === 'false') {
+    if (menuExpanded) {
       if (menuItem.getAttribute('aria-expanded') === 'true') {
         this.closeItem(e);
       } else {

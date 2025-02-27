@@ -2,7 +2,6 @@
 @forward 'index';
 @use 'index' as index;
 @use 'variables' as *;
-@import 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap';
 
 // TODO: build this dynamically (if possible)
 $theme: (
@@ -10,7 +9,7 @@ $theme: (
   color: index.$color,
 
   // color
-  color-default: index.$color-modes,
+  color-default: index.$color-default,
   color-palette: index.$color-palette,
   color-modes: index.$color-modes,
 

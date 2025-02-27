@@ -72,7 +72,7 @@ $menu: null !default;
   }
 }
 
-.ecl-menu[aria-expanded='true'] .ecl-menu__open {
+.ecl-menu[data-expanded] .ecl-menu__open {
   background-color: map.get($menu, 'mobile', 'open-background-active');
 
   .ecl-icon:first-of-type {
@@ -135,7 +135,7 @@ $menu: null !default;
 }
 
 // Expanded
-.ecl-menu[aria-expanded='true'] .ecl-menu__inner {
+.ecl-menu[data-expanded] .ecl-menu__inner {
   display: block;
   right: 0;
 }
@@ -258,7 +258,7 @@ $menu: null !default;
     z-index: map.get($theme, 'z-index', 'modal') + 2;
   }
 
-  .ecl-menu[aria-expanded='true'] .ecl-menu__overlay {
+  .ecl-menu[data-expanded] .ecl-menu__overlay {
     display: block;
   }
 }
